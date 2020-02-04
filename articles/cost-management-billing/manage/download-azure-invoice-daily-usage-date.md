@@ -1,7 +1,7 @@
 ---
 title: Transferir os dados da utilização diária e da faturação do Azure | Microsoft Docs
 description: Descreve como transferir ou ver os dados da utilização diária e da faturação do Azure.
-keywords: faturação, transferência da fatura, fatura do azure, utilização do azure
+keywords: faturação, transferência da fatura, fatura do Azure, utilização do Azure
 services: billing
 documentationcenter: ''
 author: genlin
@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: c5068dc38597d64634f19297fa7784de8d55d590
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992559"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Transferir ou ver os dados da utilização diária e da faturação do Azure
@@ -119,7 +119,7 @@ Se tiver um Contrato de Cliente da Microsoft, poderá optar por receber a fatura
 
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>Optar por não receber as faturas do perfil de faturação por e-mail
 
-Você pode cancelar a obtenção de sua fatura por email seguindo as etapas acima e clicando em **recusar**. Todos os proprietários, colaboradores, leitores e gerentes de fatura também serão recusados a obter a fatura por email. Se for um Leitor, não poderá alterar a preferência de fatura por e-mail.
+Pode optar por não receber a fatura por e-mail. Para tal, siga os passos acima e clique em **Optar por não receber**. Todos os Proprietários, Contribuidores, Leitores e Gestores de faturas também deixarão de receber a fatura por e-mail. Se for um Leitor, não poderá alterar a preferência de fatura por e-mail.
 
 ## <a name="download-usage-in-azure-portal"></a>Transferir a utilização no portal do Azure
 
@@ -139,10 +139,10 @@ Você pode cancelar a obtenção de sua fatura por email seguindo as etapas acim
 
 Para ver e transferir os dados de utilização como um cliente do EA, tem de ser um Administrador da Empresa, o Proprietário da Conta ou o Administrador do Departamento com a política de visualização de custos ativada.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure *Cost Management + Faturação*.
 
-    ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
+    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
 
 1. Selecione **Utilização + custos**.
 1. Para o mês que pretende transferir, selecione **Transferir**.

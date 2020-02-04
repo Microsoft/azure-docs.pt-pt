@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 11/14/2019
 ms.author: banders
 ms.openlocfilehash: 7807129061328d1c6d563b9058987388e84c6e4c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995692"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos do software não incluídos no Azure Reserved VM Instances
@@ -71,7 +71,7 @@ Para saber mais sobre as reservas do Azure, veja os seguintes artigos:
 - [O que são as reservas do Azure?](save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gerir reservas do Azure](manage-reserved-vm-instance.md)
-- [Compreender como o desconto de reserva é aplicado](../manage/understand-vm-reservation-charges.md)
+- [Compreender como o desconto das reservas é aplicado](../manage/understand-vm-reservation-charges.md)
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
 - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)
 

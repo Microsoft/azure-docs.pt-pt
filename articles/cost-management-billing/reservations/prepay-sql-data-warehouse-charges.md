@@ -1,5 +1,5 @@
 ---
-title: Economize em SQL Data Warehouse encargos com a capacidade reservada do Azure
+title: Reduzir os custos do SQL Data Warehouse com a capacidade reservada do Azure
 description: Saiba como economizar custos para encargos do SQL Data Warehouse com a capacidade de reserva para poupar dinheiro.
 services: billing
 author: yashesvi
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: b4069c9b18f9591e79d983a1317f00df11cf0611
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995848"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Economize custos para encargos do SQL Data Warehouse com a capacidade de reserva
 
-Pode poupar dinheiro com o Azure SQL Data Warehouse ao consolidar uma reserva de utilização do cDWU para uma duração de um ou três anos. Para comprar capacidade de reserva do SQL Data Warehouse, tem de escolher a região do Azure e o termo. Depois, adicione o SKU do SQL Data Warehouse ao carrinho e escolha a quantidade de unidades de cDWU que quer comprar.
+Pode poupar dinheiro com o Azure SQL Data Warehouse ao consolidar uma reserva de utilização do cDWU para uma duração de um ou três anos. Para comprar capacidade de reserva do SQL Data Warehouse, tem de escolher a região do Azure e o termo. Depois, adicione a SKU do SQL Data Warehouse ao carrinho e escolha a quantidade de unidades de cDWU que quer comprar.
 
 Quando compra uma reserva, a utilização do SQL Data Warehouse que corresponde aos atributos da reserva deixa de ser cobrada às tarifas de pay as you go.
 
@@ -43,9 +43,9 @@ Por exemplo, suponha que o consumo total do SQL Data Warehouse é DW3000c. Quer 
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Comprar capacidade de reserva do SQL Data Warehouse
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Todos os serviços** > **Reservas**.
-3. Selecionar uma subscrição. Use a lista Subscrição para escolher a subscrição que serve para pagar a capacidade de reserva. Os custos são cobrados de acordo com o método de pagamento indicado na capacidade de reserva. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
+3. Selecione uma subscrição. Use a lista Subscrição para escolher a subscrição que serve para pagar a capacidade de reserva. Os custos são cobrados de acordo com o método de pagamento indicado na capacidade de reserva. O tipo de subscrição tem de ser um contrato Enterprise (número da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pay As You Go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
    - Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida.
    - Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.
 4. Selecione um âmbito. Use a lista Âmbito para escolher um âmbito de subscrição.

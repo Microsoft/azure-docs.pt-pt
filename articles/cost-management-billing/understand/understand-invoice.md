@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: e6858d51eec1bbcb100f71418337d74d19d6db5b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994730"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreender os termos na sua fatura do Microsoft Azure
@@ -44,7 +44,7 @@ A secção de informações da conta da fatura encontra-se na parte superior da 
 
 ![Secção de informações da conta da fatura](./media/understand-invoice/account-information-section.png)
 
-| Duração | Descrição |
+| Termo | Descrição |
 | --- | --- |
 | N.º da OC do cliente |Um número de ordem de compra opcional, atribuído por si para controlo |
 | N.º da Fatura |Um número de fatura exclusivo gerado pela Microsoft utilizado para fins de controlo |
@@ -53,7 +53,7 @@ A secção de informações da conta da fatura encontra-se na parte superior da 
 | Método de pagamento |O tipo de pagamento utilizado na conta (fatura ou cartão de crédito) |
 | Faturar a |Endereço de faturação apresentado para a conta |
 | Oferta de subscrição ("Pay As You Go") |O tipo de oferta de subscrição que foi comprada (Pay As You Go, BizSpark Plus, Azure Pass, etc.). Para obter mais informações, veja [Tipos de oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/). |
-| E-mail do proprietário da conta | O endereço de e-mail da conta no qual a conta do Microsoft Azure está registada. <br /><br />Para alterar o endereço de e-mail, veja [Como alterar as informações de perfil da sua conta do Azure, como o e-mail de contacto, endereço e número de telefone](../manage/change-azure-account-profile.md). |
+| E-mail do proprietário da conta | O endereço de e-mail da conta sob o qual a conta do Microsoft Azure está registada. <br /><br />Para alterar o endereço de e-mail, veja [Como alterar as informações de perfil da sua conta do Azure, como o e-mail de contacto, endereço e número de telefone](../manage/change-azure-account-profile.md). |
 
 ### <a name="understand-the-invoice-summary"></a>Compreender o resumo da fatura
 A secção **Resumo da Fatura** da fatura apresenta uma lista dos montantes totais das transações desde o seu último período de faturação e os custos de utilização atuais.
@@ -65,7 +65,7 @@ O nome da Subscrição ("Armazenamento de Produção") é o nome da subscrição
 #### <a name="understand-the-previous-charges"></a>Compreender os custos anteriores
 A secção de saldo anterior, pagamentos e saldo pendente da fatura resume as transações ocorridas desde o seu último período de faturação.
 
-| Duração | Descrição |
+| Termo | Descrição |
 | --- | --- |
 | Saldo anterior |O montante total por liquidar do último período de faturação |
 | Pagamentos |Os pagamentos e créditos totais aplicados ao último período de faturação |
@@ -74,9 +74,9 @@ A secção de saldo anterior, pagamentos e saldo pendente da fatura resume as tr
 #### <a name="understand-the-current-charges"></a>Compreender os encargos atuais
 A secção Custos Atuais da fatura mostra detalhes sobre os custos mensais para o período de faturação atual.
 
-| Duração | Descrição |
+| Termo | Descrição |
 | --- | --- |
-| Cobranças de utilização |Os custos de utilização são os custos mensais totais de uma subscrição para o período de faturação atual.|
+| Custos de utilização |Os custos de utilização são os custos mensais totais de uma subscrição para o período de faturação atual.|
 | Descontos |Descontos de serviço aplicados ao seu período de faturação atual|
 | Ajustes |Os créditos diversos (Utilização Gratuita, Créditos, etc.) ou custos pendentes aplicados ao período de faturação atual.<br/><br/>Por exemplo, se tiver a oferta Visual Studio Enterprise com MSDN, verá um crédito mensal. Se cancelar a sua subscrição, verá os custos de utilização mensal que excedem o crédito mensal que obtém com a sua oferta de subscrição. Os custos são aplicados no início do período de faturação atual até à data de cancelamento da subscrição. |
 
@@ -84,7 +84,7 @@ A secção Custos Atuais da fatura mostra detalhes sobre os custos mensais para 
 
 A tabela a seguir descreve o destino da venda e as instruções de pagamento mostradas na segunda página da fatura.
 
-| Duração |Descrição |
+| Termo |Descrição |
 | --- | --- |
 | Vendido a |O endereço do perfil que está na conta. <br/><br/>Se precisar de alterar o endereço, veja [Como alterar as informações de perfil da sua conta do Azure, como o e-mail de contacto, endereço e número de telefone](../manage/change-azure-account-profile.md).|
 | Instruções de pagamento |Instruções sobre como pagar consoante o método de pagamento (por exemplo, por cartão de crédito ou por fatura). |
@@ -97,14 +97,14 @@ A secção Custos de utilização da fatura apresenta informações de nível de
 
 A tabela a seguir descreve os cabeçalhos de coluna dos custos de utilização apresentados na Fatura.
 
-| Duração |Descrição |
+| Termo |Descrição |
 | --- | --- |
 | Nome |Identifica o serviço de nível superior para a utilização |
 | Tipo |Define o tipo de serviço do Azure que pode afetar a tarifa |
 | Recurso |Identifica a unidade de medida do medidor a ser consumido |
 | Região |Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter |
 | Consumido |O valor do medidor utilizado durante o período de faturação |
-| Incluído |A quantidade do medidor que está incluída gratuitamente no seu período de faturação atual |
+| Incluídos |A quantidade do medidor que está incluída gratuitamente no seu período de faturação atual |
 | A Cobrar |Mostra a diferença entre a Quantidade Consumida e a Quantidade Incluída. Este montante ser-lhe-á cobrado. Para as ofertas "Pay As You Go" sem quantidade incluída com a oferta, este total equivale à Quantidade Consumida |
 | Tarifa |A tarifa que lhe é cobrada por unidade |
 | Valor |Apresenta o resultado da multiplicação entre a coluna Quantidade Excedida e a coluna Tarifa. Se a Quantidade Consumida não exceder a Quantidade Incluída, não haverá custos nesta coluna. |

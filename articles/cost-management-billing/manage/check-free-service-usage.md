@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 83937e31d844ba0cc8efc17f1ecefa2ad6e7a7c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992832"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Verificar a utilização dos serviços gratuitos incluídos com a conta gratuita do Azure
@@ -24,7 +24,7 @@ Os serviços incluídos gratuitamente na conta gratuita do Azure não lhe serão
 
 ## <a name="check-usage-in-the-azure-portal"></a>Consultar a utilização no portal do Azure
 
-1.  Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1.  Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2.  Escreva **Subscrições** na caixa de pesquisa.
 
@@ -38,13 +38,13 @@ Os serviços incluídos gratuitamente na conta gratuita do Azure não lhe serão
 
     A tabela tem as seguintes colunas:
 
-* **Medidor:** Identifica a unidade de medida para o serviço que está sendo consumido.
-* **Uso/limite:** Uso e limite do mês atual para o medidor.
-* **Status:** Status de uso do serviço. Com base na utilização, pode ter um dos seguintes estados:
-  * **Não está em uso:** Você não usou o medidor ou o uso do medidor não atingiu o sistema de cobrança.
-  * **Excedido na data de \<>:** Você excedeu o limite para o medidor na > de data \<.
-  * **Improvável de exceder:** É improvável que você exceda o limite do medidor.
-  * **Excede em > de data \<:** É provável que você exceda o limite para o medidor na > de data \<.
+* **Medidor:** identifica a unidade de medida do serviço a ser consumido.
+* **Utilização/Limite:** utilização e limite do mês atual para o medidor.
+* **Estado:** o estado de utilização do serviço. Com base na utilização, pode ter um dos seguintes estados:
+  * **Não está em utilização:** não utilizou o medidor ou a utilização do medidor não chegou ao sistema de faturação.
+  * **Excedido em \<Data>:** excedeu o limite do medidor em \<Data>.
+  * **Pouco Provável que Exceda:** é pouco provável que exceda o limite do medidor.
+  * **Excede em \<Data>:** é provável que exceda o limite do medidor em \<Data>.
 
 > [!IMPORTANT]
 >

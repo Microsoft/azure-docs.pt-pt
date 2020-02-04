@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 992e46cd8f10ff3c434f34a9f90c777870f3ada4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995822"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs para automatização de reservas do Azure
@@ -38,7 +38,7 @@ Segue-se um exemplo de pedido para comprar com a API REST:
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
 ```
 
-Corpo do Pedido:
+Corpo do pedido:
 
 ```
 {
@@ -96,7 +96,7 @@ Obtenha a lista de todas as reservas às quais um utilizador tem acesso com a [A
 
 ## <a name="split-or-merge-reservation"></a>Dividir ou unir a reserva
 
-Depois de comprar mais do que uma instância de recursos numa reserva, poderá querer atribuir instâncias nessa reserva a subscrições diferentes. Pode alterar o âmbito da reserva para que se aplique a todas as subscrições no mesmo contexto de faturação. Contudo, para fins de gestão de custo ou orçamento, talvez queira manter o âmbito como “subscrição individual” e atribuir instâncias de reserva a uma subscrição específica.
+Depois de comprar mais do que uma instância de recursos numa reserva, talvez queira atribuir instâncias nessa reserva a subscrições diferentes. Pode alterar o âmbito da reserva para que se aplique a todas as subscrições no mesmo contexto de faturação. Contudo, para fins de gestão de custo ou orçamento, talvez queira manter o âmbito como “subscrição individual” e atribuir instâncias de reserva a uma subscrição específica.
 
 Para dividir uma reserva, utilize a API [Reserva – Dividir](/rest/api/reserved-vm-instances/reservation/split). Também pode dividir uma reserva com o PowerShell. Para obter mais informações, veja [Gerir reservas – Dividir a reserva em duas reservas](manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 
@@ -108,7 +108,7 @@ O âmbito de uma reserva pode ser uma subscrição individual, um grupo de recur
 
 Para alterar o âmbito de forma programática, utilize a API [Reserva – Atualização](/rest/api/reserved-vm-instances/reservation/update).
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 - [O que são as reservas do Azure](save-compute-costs-reservations.md)
 - [Compreender como o desconto das reservas das VMs é aplicado](../manage/understand-vm-reservation-charges.md)
@@ -117,4 +117,4 @@ Para alterar o âmbito de forma programática, utilize a API [Reserva – Atuali
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
 - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)
 - [Custos de software Windows não incluídos nas reservas](reserved-instance-windows-software-costs.md)
-- [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)

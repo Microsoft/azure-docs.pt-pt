@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: bb3aa7970f993ec5e0ceb50d10cc0907ed225c2f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995874"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Otimizar custos do Azure Databricks com uma pré-compra
@@ -41,14 +41,14 @@ Antes de comprar, calcule a quantidade total de DBUs consumidas para diferentes 
 
 Pode comprar planos do Databricks no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Para comprar capacidade de reserva, deve ter a função de proprietário em pelo menos uma subscrição Enterprise.
 
-- Você deve estar em uma função de proprietário para pelo menos um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou contrato de cliente da Microsoft ou uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
-- Para assinaturas EA, a opção Adicionar instâncias reservadas deve ser habilitada no portal de EA. Ou, se essa configuração estiver desabilitada, você deverá ser um administrador de EA para a assinatura.
+- Tem de ter a função de Proprietário em pelo menos um Contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um Contrato de Cliente Microsoft ou ter uma subscrição individual com tarifas pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
+- Para subscrições EA, a opção Adicionar Instâncias Reservadas deve ser ativada no EA Portal. Em alternativa, se essa definição estiver desativada, terá de ser o Administrador EA da subscrição.
 - Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com/). Em alternativa, se essa definição estiver desativada, tem ser um Administrador EA da subscrição.
 
 **Para Comprar:**
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Selecionar uma subscrição. Use a lista **Subscrição** para selecionar a subscrição que serve para pagar a capacidade de reserva. Os custos iniciais são cobrados de acordo com o método de pagamento indicado na capacidade de reserva. Os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida.
+1. Selecione uma subscrição. Use a lista **Subscrição** para selecionar a subscrição que serve para pagar a capacidade de reserva. Os custos iniciais são cobrados de acordo com o método de pagamento indicado na capacidade de reserva. Os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida.
 1. Selecione um âmbito. Use a lista **Âmbito** para selecionar um âmbito de subscrição:
     - **Âmbito de grupo de recursos único** – aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.
     - **Âmbito de subscrição individual** – aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.

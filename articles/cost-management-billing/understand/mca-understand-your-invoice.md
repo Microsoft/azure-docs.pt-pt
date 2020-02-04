@@ -12,15 +12,15 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 793caae31841c0ea744a80a811c86aa4af63f60a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990973"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termos na sua fatura do Contrato de Cliente da Microsoft
 
-Este artigo aplica-se à conta de faturação do Azure de um Contrato de Cliente da Microsoft. [Verifique se tem acesso ao Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se à conta de faturação do Azure de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 A sua fatura disponibiliza um resumo dos seus custos e instruções para o pagamento. Está disponível para transferência em .pdf (Portable Document Format) a partir do [portal do Azure](https://portal.azure.com/) ou pode ser enviada por e-mail. Para obter mais informações, veja [Ver e transferir a sua fatura do Microsoft Azure](download-azure-invoice.md).
 
@@ -38,7 +38,7 @@ O **Resumo da Fatura** está na parte superior da primeira página e mostra info
 
 ![Secção Resumo da fatura](./media/mca-understand-your-invoice/invoicesummary.png)
 
-| Duração | Descrição |
+| Termo | Descrição |
 | --- | --- |
 | Vendido a |Endereço da sua entidade legal, que se encontra nas propriedades da conta de faturação|
 | Faturar a |Endereço de faturação do perfil de faturação que recebe a fatura, encontrado nas propriedades do perfil de faturação|
@@ -54,7 +54,7 @@ O **Resumo de Faturação** mostra as cobranças em relação ao perfil de fatur
 
 ![Secção Resumo de faturação](./media/mca-understand-your-invoice/billingsummary.png)
 
-| Duração | Descrição |
+| Termo | Descrição |
 | --- | --- |
 | Cobranças|Número total de cobranças da Microsoft para este perfil de faturação desde o último período de faturação |
 | Créditos |Créditos recebidos de devoluções |
@@ -78,7 +78,7 @@ O valor total devido por cada família de serviços é calculado ao subtrair *cr
 
 ![Detalhes por secção de fatura](./media/mca-understand-your-invoice/invoicesectiondetails.png)
 
-| Duração |Descrição |
+| Termo |Descrição |
 | --- | --- |
 | Preço unitário | O preço unitário efetivo do serviço (em moeda de preço) que serve para taxar a utilização. Este valor é exclusivo para um produto, uma família de serviços, um medidor e uma oferta. |
 | Quantidade | A quantidade comprada ou consumida durante o período de faturação |
@@ -105,7 +105,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Compreender os custos na sua fatura do perfil de faturação](review-customer-agreement-bill.md)
+- [Compreender os custos na fatura do perfil de faturação](review-customer-agreement-bill.md)
 - [Como obter a faturação e os dados de utilização diária do Azure](../manage/download-azure-invoice-daily-usage-date.md)
 - [Ver os preços do Azure da sua organização](../manage/ea-pricing.md)
 - [Visualizar documentos fiscais para o seu perfil de faturação](mca-download-tax-document.md)

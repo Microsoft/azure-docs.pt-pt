@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
 ms.openlocfilehash: 33fa553e9148a1ac838e6bf53fc83cf7eadd7499
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992585"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma subscrição do Azure adicional
@@ -35,12 +35,12 @@ Precisará das seguintes permissões para criar subscrições:
 |Conta de faturação  |Permissão  |
 |---------|---------|
 |Contrato Enterprise (EA) |  Função de Proprietário de Conta na inscrição do Contrato Enterprise. Para obter mais informações, veja [Compreender as funções administrativas do Contrato Enterprise no Azure](understand-ea-roles.md).    |
-|Contrato de Cliente Microsoft (MCA) |  Função de proprietário ou contribuidor na secção da fatura, no perfil de faturação ou na conta de faturação. Ou função de criador da subscrição do Azure na secção da fatura.  Para obter mais informações, veja [Tarefa e funções da faturação da subscrição](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Contrato de Parceiro da Microsoft (MPA) |   Função de Administrador Global e de Agente de Administração na organização de parceiro CSP. Para saber mais, veja [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview) (Centro de Parceiros – Atribuir funções e permissões de utilizadores).  O usuário precisa entrar no locatário do parceiro para criar assinaturas do Azure.   |
+|Contrato de Cliente da Microsoft (MCA) |  Função de proprietário ou contribuidor na secção da fatura, no perfil de faturação ou na conta de faturação. Ou função de criador da subscrição do Azure na secção da fatura.  Para obter mais informações, veja [Tarefa e funções da faturação da subscrição](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
+|Contrato de Parceiro da Microsoft (MPA) |   Função de Administrador Global e de Agente de Administração na organização de parceiro CSP. Para saber mais, veja [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview) (Centro de Parceiros – Atribuir funções e permissões de utilizadores).  O utilizador tem de iniciar sessão no inquilino parceiro para criar subscrições do Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Criar uma subscrição no portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Escreva **Subscrições** na caixa de pesquisa.
 
    ![Captura de ecrã que mostra a pesquisa de uma subscrição no portal](./media/create-subscription/billing-search-subscription-portal.png)
@@ -66,7 +66,7 @@ Precisará das seguintes permissões para criar subscrições:
 |---------|---------|
 |Perfil de faturação     | Os custos da subscrição serão faturados no perfil de faturação que selecionar. Se tiver acesso a apenas um perfil de faturação, a seleção estará desativada.     |
 |Secção de fatura     | Os custos da subscrição vão aparecer nesta secção da fatura do perfil de faturação. Se tiver acesso a apenas uma secção de fatura, a seleção estará desativada.  |
-|Plano     | Selecione o Plano do Microsoft Azure para DevTest se planear utilizar esta subscrição para desenvolvimento ou teste das cargas de trabalho. Caso contrário, utilize o Plano do Microsoft Azure. Se apenas um plano estiver ativado para o perfil de faturação, a seleção estará desativada.  |
+|Planear     | Selecione o Plano do Microsoft Azure para DevTest se planear utilizar esta subscrição para desenvolvimento ou teste das cargas de trabalho. Caso contrário, utilize o Plano do Microsoft Azure. Se apenas um plano estiver ativado para o perfil de faturação, a seleção estará desativada.  |
 |Nome     | O nome a apresentar ajuda-o a identificar facilmente a subscrição no portal do Azure.  |
 
 **Contrato de Parceiro da Microsoft**

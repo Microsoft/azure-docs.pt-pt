@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 08/06/2019
 ms.author: banders
 ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994054"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir Reservas para recursos do Azure
@@ -28,7 +28,7 @@ Caso tenha comprado o Azure Reserved VM Instances, poderá alterar a definição
 
 ## <a name="reservation-order-and-reservation"></a>Encomenda da Reserva e Reserva
 
-Quando você adquire uma reserva, dois objetos são criados: **ordem de reserva** e **reserva**.
+Quando compra uma reserva, são criados dois objetos: **Encomenda de Reserva** e **Reserva**.
 
 No momento da compra, a Encomenda de Reserva contém uma Reserva. Ações como dividir, unir, reembolsar parcialmente ou trocar criam novas reservas na **Encomenda de Reserva**.
 
@@ -44,7 +44,7 @@ Uma reserva herda as permissões da encomenda de reserva.
 
 Atualizar o âmbito de uma reserva:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione a reserva.
 4. Selecione **Definições** > **Configuração**.
@@ -60,12 +60,12 @@ Pode delegar a gestão de reservas. Para tal, adicione pessoas às funções no 
 
 Pode gerir o acesso a encomendas de reservas e reservas independentemente das subscrições que obtêm o desconto de reserva. Quando concede permissões a alguém para gerir uma encomenda de reserva ou a reserva, não é concedida permissão para gerir a subscrição. Da mesma forma, caso conceda permissões a alguém para gerir uma subscrição no âmbito de reserva, não serão concedidos direitos para gerir a encomenda de reserva ou a reserva.
 
-Para realizar uma troca ou pedir um reembolso, o utilizador tem de ter acesso à encomenda da reserva. Ao conceder permissões a alguém, o melhor será conceder permissões para a encomenda de reserva e não para a reserva.
+Para realizar uma troca ou reembolso, o utilizador tem de ter acesso à encomenda de reserva. Ao conceder permissões a alguém, o melhor será conceder permissões para a encomenda de reserva e não para a reserva.
 
 
 Para delegar a gestão do acesso de uma reserva:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione**Todos os Serviços** > **Reserva** para listar as reservas às quais tem acesso.
 3. Selecione a reserva cujo o acesso quer delegar a outros utilizadores.
 4. Selecione **Controlo de acesso (IAM)** .
@@ -120,7 +120,7 @@ Para as reservas com âmbito individual, pode otimizar a reserva para a priorida
 
 Para atualizar a definição de otimização da reserva:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** > **Reservas**.
 3. Selecione a reserva.
 4. Selecione **Definições** > **Configuração**.
@@ -134,7 +134,7 @@ As poupanças das reservas do Azure só resultam de uma utilização de recursos
 
 Uma forma de ver a utilização da reserva é através do portal do Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Todos os serviços** > [**Reservas**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e observe a **Utilização (%)** relativa a uma reserva.  
   ![Imagem que mostra a lista de reservas](./media/manage-reserved-vm-instance/reservation-list.png)
 3. Selecione uma reserva.

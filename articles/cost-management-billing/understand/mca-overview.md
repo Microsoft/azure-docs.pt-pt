@@ -1,5 +1,5 @@
 ---
-title: Introdução à cobrança do contrato do cliente da Microsoft – Azure
+title: Introdução à faturação do Contrato de Cliente Microsoft – Azure
 description: Compreender a conta de faturação do Contrato de Cliente da Microsoft
 author: bandersmsft
 manager: amberbhargava
@@ -11,17 +11,17 @@ ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: 7d26c98ae8e5b9b95038a4a775134282703fa7c6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995120"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Introdução à conta de faturação do Contrato de Cliente da Microsoft
 
 Ao inscrever-se para utilizar o Azure, é criada uma conta de faturação. Utiliza a conta de faturação para gerir faturas, pagamentos e controlar custos. Pode ter acesso a múltiplas contas de faturação. Por exemplo, talvez se tenha inscrito no Azure com o objetivo de desenvolver projetos pessoais. Também poderá ter acesso ao Azure através do Contrato Enterprise ou do Contrato de Cliente da Microsoft da sua organização. Para cada um desses cenários, teria uma conta de faturação separada.
 
-Este artigo aplica-se à conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso ao Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso ao Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="your-billing-account"></a>A sua conta de faturação
 
@@ -65,7 +65,7 @@ Aplicar políticas de controlo de compras do Azure Marketplace e das Reservas at
 
 Os planos do Azure determinam o preço e os contratos de nível de serviço das subscrições do Azure. São ativados automaticamente quando o utilizador cria um perfil de faturação. Todas as secções da faturação associadas ao perfil de faturação podem utilizar esses planos. Os utilizadores com acesso à secção de faturação utilizam os planos para criar subscrições do Azure. Os seguintes planos do Azure são suportados nas contas de faturação do Contrato de Cliente da Microsoft:
 
-| Plano             | Definição  |
+| Planear             | Definição  |
 |------------------|-------------|
 |Plano do Microsoft Azure   | Permita que os utilizadores criem subscrições que possam executar as cargas de trabalho.  |
 |Plano do Microsoft Azure para Dev/Test | Permita que os subscritores do Visual Studio criem subscrições que são restritas para cargas de trabalho de desenvolvimento ou teste. Essas subscrições têm vantagens como tarifas mais baixas e acesso a imagens de máquinas virtuais exclusivas no portal do Azure. |

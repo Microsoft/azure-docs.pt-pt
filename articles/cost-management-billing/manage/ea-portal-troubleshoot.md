@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas de acesso ao EA Portal do Azure
+title: Resolver problemas de acesso ao Azure EA Portal
 description: Este artigo descreve alguns problemas comuns que podem ocorrer com um Contrato Enterprise (EA) do Azure no Azure EA Portal.
 keywords: ''
 author: bandersmsft
@@ -9,13 +9,13 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 41af65c2bfa35da30a0172ae7a39b3bad56597b8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992130"
 ---
-# <a name="troubleshoot-azure-ea-portal-access"></a>Resolver problemas de acesso ao EA Portal do Azure
+# <a name="troubleshoot-azure-ea-portal-access"></a>Resolver problemas de acesso ao Azure EA Portal
 
 Este artigo descreve alguns problemas comuns que podem ocorrer com um Contrato Enterprise (EA) do Azure. O Azure EA Portal é utilizado para gerir os utilizadores e os custos do Contrato Enterprise. Poderá deparar-se com estes problemas ao configurar ou atualizar o acesso ao Azure EA Portal.
 
@@ -146,9 +146,9 @@ Se os passos de resolução de problemas indicados acima falharem, submeta um pe
 
 ### <a name="what-is-the-difference-between-a-workschool-account-and-microsoft-account"></a>Qual é a diferença entre uma conta escolar/profissional e uma conta Microsoft?
 
-**Conta Microsoft:** Contas que foram associadas ao Live ID no [https://signup.live.com](https://signup.live.com).
+**Conta Microsoft:** As contas que foram associadas ao Live ID em [https://signup.live.com](https://signup.live.com).
 
-**Conta corporativa/de estudante:** Disponível somente para empresas que configuraram o Active Directory com Federação para a nuvem e todas as contas estão em um único locatário. Os utilizadores podem ser adicionados com o tipo de autorização escolar/profissional se o Active Directory interno da empresa estiver federado na cloud.
+**Conta escolar/profissional:** Disponível apenas para empresas que tenham configurado o Active Directory com Federação na Cloud e que tenham todas as contas num único inquilino. Os utilizadores podem ser adicionados com o tipo de autorização escolar/profissional se o Active Directory interno da empresa estiver federado na cloud.
 
   A partir de setembro de 2016, a Microsoft deixou de permitir que endereços de e-mail escolares ou profissionais fossem registados como contas Microsoft. Para obter mais detalhes, consulte os seguintes materiais: [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/).
 

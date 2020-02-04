@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: 74cf3f197895823bcbd94db0bf3c7bd8065df767
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988139"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Resolver problemas relativos a início de sessão da subscrição do Azure
@@ -32,7 +32,7 @@ Se a página do browser encravar, tente cada um dos passos a seguir até que con
 
 - Atualize a página.
 - Utilize um browser diferente.
-- Utilize o modo de navegação privada do browser. Para o Internet Explorer: clique em **ferramentas** > **segurança** > **navegação InPrivate**e, em seguida, navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions).
+- Utilize o modo de navegação privada do browser. No Internet Explorer: Clique em **Ferramentas** > **Segurança** > **Navegação InPrivate** e, em seguida, navegue e inicie sessão no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions).
 
 ### <a name="you-are-automatically-signed-in-as-a-different-user"></a>Inicia sessão automaticamente como um utilizador diferente
 
@@ -42,20 +42,20 @@ Para resolver o problema, experimente um dos métodos seguintes:
 
 - Limpe a cache e elimine os cookies da Internet. No Internet Explorer, clique em **Ferramentas** > **Opções da Internet** > **Eliminar**. Confirme que as caixas de verificação dos ficheiros temporários, dos cookies, das palavras-passe e do histórico de navegação estão selecionadas e clique em Eliminar.
 - Reponha as definições do Internet Explorer para reverter quaisquer definições pessoais que tenha realizada. Clique em **Ferramentas** > **Opções da Internet** > **Avançadas**, selecione a caixa **Eliminar definições pessoais** e prima **Repor**.
-- Utilize o modo de navegação privada do browser. Para o Internet Explorer: clique em **ferramentas** > **segurança** > **navegação InPrivate**e, em seguida, navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions).
+- Utilize o modo de navegação privada do browser. No Internet Explorer:  Clique em **Ferramentas** > **Segurança** > **Navegação InPrivate** e, em seguida, navegue e inicie sessão no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions).
 
 ### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Consigo iniciar sessão, mas não vejo *Nenhuma subscrição encontrada*
 
 Este problema ocorre se tiver selecionado o diretório errado ou se a sua conta não tiver permissões suficientes.
 
-**Cenário 1:** A mensagem de erro é recebida no [portal do Azure](https://portal.azure.com/)
+**Cenário 1:** É apresentada uma mensagem de erro no [portal do Azure](https://portal.azure.com/)
 
 Para resolver este problema:
 
 - Certifique-se de que está selecionado o diretório do Azure correto ao clicar na sua conta no canto superior direito.
 - Se o diretório do Azure correto estiver selecionado, mas continuar a ser apresentada a mensagem de erro, [atribua a função de Proprietário à sua conta](add-change-subscription-administrator.md).
 
-**Cenário 2:** A mensagem de erro é recebida no [centro de contas do Azure](https://account.windowsazure.com/Subscriptions)
+**Cenário 2:** A mensagem de erro é apresentada no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions)
 
 Verifique se a conta que utilizou é do Administrador de Conta. Para verificar quem é o Administrador de Conta, siga estes passos:
 

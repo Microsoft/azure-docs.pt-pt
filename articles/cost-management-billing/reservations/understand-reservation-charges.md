@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 09/30/2019
 ms.author: banders
 ms.openlocfilehash: f7382fc81bbb7e0f3ac61b19c1efa1e7de3e9ed7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995471"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Como um desconto de reserva é aplicado às Bases de Dados SQL do Azure
@@ -27,7 +27,7 @@ Para as Azure Reserved Virtual Machine Instances, veja [Compreender o desconto d
 
 ## <a name="how-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 
-Um desconto de reserva é "*use-it-or-lose-it*" (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
+Um desconto de reserva é “*use-it-or-lose-it*” (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
 
 Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não for encontrado nenhum recurso correspondente no âmbito especificado, as horas reservadas serão *perdidas*.
 
@@ -37,13 +37,13 @@ Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a out
 
 Os seguintes exemplos mostram como o desconto de capacidade reservada da Base de Dados SQL se aplica em função do número de núcleos que comprou e quando os mesmos estão em execução.
 
-- Cenário 1: você compra uma capacidade reservada do banco de dados SQL para um banco de dados SQL de 8 núcleos. Executa uma Base de Dados SQL de 16 núcleos que corresponde ao resto dos atributos da reserva. É-lhe cobrado o preço pay-as-you-go pela utilização de computação da Base de Dados SQL de 8 núcleos. Obtém o desconto de reserva por uma hora de utilização de computação da Base de Dados SQL de 8 núcleos.
+- Cenário 1: compra uma capacidade reservada da Base de Dados SQL para uma Base de Dados SQL de 8 núcleos. Executa uma Base de Dados SQL de 16 núcleos que corresponde ao resto dos atributos da reserva. É-lhe cobrado o preço pay-as-you-go pela utilização de computação da Base de Dados SQL de 8 núcleos. Obtém o desconto de reserva por uma hora de utilização de computação da Base de Dados SQL de 8 núcleos.
 
 Para o resto destes exemplos, assuma que a capacidade reservada da Base de Dados SQL que comprou é para uma Base de Dados SQL de 16 núcleos e que o resto dos atributos de reserva correspondem às Bases de Dados SQL em execução.
 
-- Cenário 2: você executa dois bancos de dados SQL com 8 núcleos cada por uma hora. O desconto de reserva de 16 núcleos é aplicado para a utilização de computação para ambas as Bases de Dados SQL de 8 núcleos.
-- Cenário 3: você executa o banco de dados SQL de 1 16 núcleo de 1 a 1:30 PM. Executa outra Base de Dados SQL de 16 núcleos das 13:30 às 14:00. Ambas são abrangidas pelo desconto de reserva.
-- Cenário 4: você executa o banco de dados SQL de 1 16 núcleo de 1 a 1:45 PM. Executa outra Base de Dados SQL de 16 núcleos das 13:30 às 14:00. É-lhe cobrado o preço pay-as-you-go pela sobreposição de 15 minutos. O desconto de reserva aplica-se à utilização de computação durante o resto do tempo.
+- Cenário 2: executa duas bases de dados SQL com 8 núcleos cada uma durante uma hora. O desconto de reserva de 16 núcleos é aplicado para a utilização de computação para ambas as Bases de Dados SQL de 8 núcleos.
+- Cenário 3: executa uma Base de Dados SQL de 16 núcleos das 13:00 às 13:30. Executa outra Base de Dados SQL de 16 núcleos das 13:30 às 14:00. Ambas são abrangidas pelo desconto de reserva.
+- Cenário 4: executa uma Base de Dados SQL de 16 núcleos das 13:00 às 13:45. Executa outra Base de Dados SQL de 16 núcleos das 13:30 às 14:00. É-lhe cobrado o preço pay-as-you-go pela sobreposição de 15 minutos. O desconto de reserva aplica-se à utilização de computação durante o resto do tempo.
 
 Para compreender e ver a aplicação das Reservas do Azure em relatórios de utilização da faturação, veja [Compreender a utilização das reservas do Azure](understand-reserved-instance-usage-ea.md).
 

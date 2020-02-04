@@ -10,10 +10,10 @@ ms.date: 09/30/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: cb20c88577bba614c70fdf5a266d482d06aeca57
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995562"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Compreender como se aplica o desconto de reserva ao Azure Cosmos DB
@@ -22,7 +22,7 @@ Depois de comprar uma capacidade reservada do Azure Cosmos DB, o desconto de re
 
 ## <a name="how-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 
-Um desconto de reserva é "*use-it-or-lose-it*" (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
+Um desconto de reserva é “*use-it-or-lose-it*” (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
 
 Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não for encontrado nenhum recurso correspondente no âmbito especificado, as horas reservadas serão *perdidas*.
 
@@ -49,11 +49,11 @@ O desconto de reserva aplica-se aos custos de débito do Azure Cosmos DB por ho
 |Azure Cosmos DB – 100 RU/s/Hora – Oeste do Reino Unido|   Oeste do Reino Unido      |    1     |
 |Azure Cosmos DB – 100 RU/s/Hora – Norte do Reino Unido |   Norte do Reino Unido    |     1    |
 |Azure Cosmos DB – 100 RU/s/Hora – Sul do Reino Unido 2|   Sul do Reino Unido 2      |     1    |
-|Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Leste 2|  E.U.A Leste 2     |     1    |
-|Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Centro-Norte|   E.U.A Centro-Norte      |     1    |
+|Azure Cosmos DB – 100 RU/s/Hora – E.U.A.  Leste 2|  E.U.A. Leste 2     |     1    |
+|Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Centro-Norte|   E.U.A. Centro-Norte      |     1    |
 |Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Oeste|   E.U.A. Oeste      |     1    |
 |Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Central| E.U.A. Central        |     1    |
-|Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Oeste 2|   E.U.A. Oeste 2      |      1   |
+|Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Oeste 2|   E.U.A. Oeste 2      |      1   |
 |Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Centro-Oeste|   E.U.A. Centro-Oeste      |       1  |
 |Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Leste|   E.U.A Leste      |  1       |
 |Azure Cosmos DB – 100 RU/s/Hora – Norte da África do Sul|     Norte da África do Sul    |   1      |
@@ -76,8 +76,8 @@ O desconto de reserva aplica-se aos custos de débito do Azure Cosmos DB por ho
 
 Considere os seguintes requisitos para uma reserva:
 
-* Taxa de transferência necessária: 50.000 RU/s  
-* Regiões usadas: 2
+* Débito necessário: 50 000 RU/s  
+* Regiões utilizadas: 2
 
 Neste caso, o total dos custos a pedido seria de 500 unidades do medidor de 100 RU/s nestas duas zonas. O consumo total de RU/s é de 100 000 por hora.
 
@@ -85,11 +85,11 @@ Neste caso, o total dos custos a pedido seria de 500 unidades do medidor de 100 
 
 Por exemplo, suponhamos que precisa de implementações do Azure Cosmos DB nas regiões E.U.A. Centro-Norte e E.U.A. Oeste. Cada região tem um consumo de débito de 50 000 RU/s. Uma compra de reserva de 100 000 RU/s iria equilibrar por completo os custos a pedido.
 
-O desconto que uma reserva abrange é calculado da seguinte forma: consumo de débito * proporção_desconto_reserva_para_essa_região. Para as regiões E.U.A. Centro-Norte e E.U.A. Oeste, a proporção do desconto de reserva é 1. Portanto, o total de RU/s com desconto é de 100 000. Esse valor é calculado como: 50.000 * 1 + 50.000 * 1 = 100.000 RU/s. Não tem de pagar quaisquer custos adicionais às tarifas normais pay as you go.
+O desconto que uma reserva abrange é calculado da seguinte forma: consumo de débito * proporção_desconto_reserva_para_essa_região. Para as regiões E.U.A. Centro-Norte e E.U.A. Oeste, a proporção do desconto de reserva é 1. Portanto, o total de RU/s com desconto é de 100 000. Este valor é calculado da seguinte forma: 50 000 x 1 + 50 000 x 1 = 100 000 RU/s. Não tem de pagar quaisquer custos adicionais às tarifas normais pay as you go.
 
 |Descrição do medidor | Região |Consumo de débito (RU/s) |Desconto de reserva aplicado às RU/s |
 |---------|---------|---------|---------|
-|Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Centro-Norte  |   E.U.A Centro-Norte  | 50 000  | 50 000  |
+|Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Centro-Norte  |   E.U.A. Centro-Norte  | 50 000  | 50 000  |
 |Azure Cosmos DB – 100 RU/s/Hora – E.U.A. Oeste  |  E.U.A. Oeste   |  50 000  |  50 000 |
 
 **Cenário 2**
@@ -101,9 +101,9 @@ Por exemplo, suponhamos que precisa de implementações do Azure Cosmos DB nas 
 |Azure Cosmos DB – 100 RU/s/Hora – AU Central 2  |  AU Central 2   |  50 000  |  50 000   |
 |Azure Cosmos DB – 100 RU/s/Hora – FR Sul  |  FR Sul   |  50 000 |  15 384  |
 
-Uma utilização de 50 000 unidades na região AU Central 2 corresponde a 75 000 RU/s de utilização faturável (ou utilização normalizada). O valor é calculado da seguinte forma: consumo de débito * proporção_desconto_reserva_para_essa_região. O cálculo é igual a 75 000 RU/s de utilização faturável ou normalizada. Esse valor é calculado como: 50.000 * 1,5 = 75.000 RU/s.
+Uma utilização de 50 000 unidades na região AU Central 2 corresponde a 75 000 RU/s de utilização faturável (ou utilização normalizada). O valor é calculado da seguinte forma: consumo de débito * proporção_desconto_reserva_para_essa_região. O cálculo é igual a 75 000 RU/s de utilização faturável ou normalizada. Este valor é calculado da seguinte forma: 50 000 x 1,5 = 75 000 RU/s.
 
-As 100 000 RU/s da compra de reserva cobririam as 75 000 RU/s na AU Central 2. Deixaria 25 000 RU/s para a região do FR Sul. Das 25 000 RU/s restantes, aplica-se um desconto de reserva de 15 384 RU/s à região do FR Sul. O valor de desconto é calculado como: 25.000/1,625 = 15.384 RU/s. Os restantes 34 616 RU/s na região do FR Sul são cobrados com as tarifas normais pay as you go.
+As 100 000 RU/s da compra de reserva cobririam as 75 000 RU/s na AU Central 2. Deixaria 25 000 RU/s para a região do FR Sul. Das 25 000 RU/s restantes, aplica-se um desconto de reserva de 15 384 RU/s à região do FR Sul. Este valor de desconto é calculado da seguinte forma: 25 000 / 1,625 = 15 384 RU/s. Os restantes 34 616 RU/s na região do FR Sul são cobrados com as tarifas normais pay as you go.
 
 O sistema de faturação do Azure atribuirá o benefício de faturação de reserva à primeira instância que é processada e que corresponde às definições da reserva. Por exemplo, neste caso é a AU Central 2.
 

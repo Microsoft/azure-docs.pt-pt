@@ -1,5 +1,5 @@
 ---
-title: Termos em sua folha de preços do contrato do cliente da Microsoft-Azure
+title: Termos na folha de preços do Contrato de Cliente Microsoft – Azure
 description: Saiba como ler e compreender a utilização e faturação de um Contrato de Cliente da Microsoft.
 author: bandersmsft
 manager: jureid
@@ -12,15 +12,15 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: banders
 ms.openlocfilehash: 44ead1d376bf8b57134380db90733ed48deda14e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994483"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Termos na sua folha de preços do Contrato de Cliente da Microsoft
 
-Este artigo aplica-se à conta de faturação do Azure de um Contrato de Cliente da Microsoft. [Verifique se tem acesso ao Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se à conta de faturação do Azure de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 Se for um Proprietário de perfil de faturação, Contribuidor, Leitor ou Gerente de Faturas, pode transferir a folha de preços da sua organização a partir do portal do Azure. Veja [Visualizar e transferir os preços da sua organização](ea-pricing.md).
 
@@ -48,13 +48,13 @@ A secção a seguir descreve os termos importantes mostrados na sua folha de pre
 | meterSubCategory  | Nome da categoria de subclassificação do medidor.  |
 | meterType  |  Nome do tipo de medidor. |
 | meterRegion  | Nome da região em que o medidor do serviço está disponível. Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter.    |
-| Produto  | Nome do produto que acumula os encargos. Por exemplo: BD SQL básico versus BD SQL padrão  |
+| Produto  | Nome do produto que acumula os custos. Exemplo: Base de dados SQL Básico versus Base de dados SQL Standard  |
 | productId  | Identificador exclusivo do produto cujo medidor é consumido. |
 | productOrderName  | Nome do plano de produto comprado. |
-| serviceFamily  | Tipo de serviço do Azure. Por exemplo: computação, análise, segurança |
+| serviceFamily  | Tipo de serviço do Azure. Exemplo: Computação, Análise, Segurança |
 | tierMinimumUnits  | Define o limite inferior do intervalo de camadas para o qual os preços são definidos. Por exemplo, se o intervalo for de 0 a 100, tierMinimumUnits será 0.  |
 | unitOfMeasure  | Identifica as unidades de medida da faturação do serviço. Por exemplo, os serviços de computação são faturados à hora. |
-| unitPrice  | Preço por unidade no momento da faturação (não o preço combinado em vigor) como específico a um medidor e nome de ordem de produto.  Observação: o preço unitário não é o mesmo que o preço efetivo em downloads de detalhes de uso em caso de serviços que têm preços diferenciais entre camadas.  No caso de serviços com preços de várias camadas, o preço em vigor é uma taxa combinada entre as camadas e não mostra um preço por unidade específico a uma camada. O preço combinado ou o preço em vigor é o preço líquido para a quantidade consumida que abrange várias camadas (em que cada camada tem um preço por unidade específico). |
+| unitPrice  | Preço por unidade no momento da faturação (não o preço combinado em vigor) como específico a um medidor e nome de ordem de produto.  Nota: o preço por unidade não é o mesmo que o preço em vigor em transferências de detalhes de utilização em caso de serviços que têm preços diferenciais entre camadas.  No caso de serviços com preços de várias camadas, o preço em vigor é uma taxa combinada entre as camadas e não mostra um preço por unidade específico a uma camada. O preço combinado ou o preço em vigor é o preço líquido para a quantidade consumida que abrange várias camadas (em que cada camada tem um preço por unidade específico). |
 
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft

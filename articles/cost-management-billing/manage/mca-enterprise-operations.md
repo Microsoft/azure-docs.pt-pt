@@ -1,5 +1,5 @@
 ---
-title: Tarefas de EA em um contrato de cliente da Microsoft – Azure
+title: Tarefas do EA num Contrato de Cliente Microsoft – Azure
 description: Saiba como concluir as tarefas de Contrato Enterprise na sua nova conta de faturação.
 author: amberbhargava
 manager: amberb
@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/02/2020
 ms.author: banders
 ms.openlocfilehash: 0cdf95b8d91938d6b9b4de413bc5d5dcb8caa2f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991246"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Concluir as tarefas de Contrato Enterprise na sua conta de faturação de um Contrato de Cliente da Microsoft
@@ -29,10 +29,10 @@ O seguinte diagrama descreve como a faturação é organizada na nova conta de f
 
 ![Imagem de ea-mca-post-transition-hierarchy](./media/mca-enterprise-operations/mca-post-transition-hierarchy.png)
 
-| Enterprise Agreement   | Contrato de Cliente Microsoft    |
+| Contrato Enterprise   | Contrato de Cliente da Microsoft    |
 |------------------------|--------------------------------------------------------|
 | Inscrição            | Pode utilizar um perfil de faturação para gerir a faturação da organização, que é semelhante à sua inscrição no Contrato Enterprise. Os administradores com Contrato Enterprise tornam-se proprietários do perfil de faturação. Para obter mais informações sobre perfis de faturação, veja [Compreender os perfis de faturação](../understand/mca-overview.md#billing-profiles).
-| Departamento            | Utiliza uma secção de faturação para organizar os custos, em tudo semelhante à dos departamentos na inscrição do Contrato Enterprise. O departamento passa a ser secções da fatura e os administradores de departamentos passam a ser proprietários das respetivas secções da fatura. Para obter mais informações sobre as secções de faturação, veja [Compreender as secções de faturação](../understand/mca-overview.md#invoice-sections). |
+| Departamento            | Utiliza uma secção de faturação para organizar os custos, em tudo semelhante à dos departamentos na inscrição do Contrato Enterprise. O departamento passa a ser secções de faturação e os administradores do departamento passam a ser proprietários das respetivas secções de faturação. Para obter mais informações sobre as secções de faturação, veja [Compreender as secções de faturação](../understand/mca-overview.md#invoice-sections). |
 | Conta               | As contas que foram criadas no Contrato Enterprise não são suportadas na nova conta de faturação. As subscrições da conta pertencem à respetiva secção da fatura do departamento. Os proprietários das contas podem criar e gerir subscrições para as secções da fatura. |
 
 ## <a name="changes-for-enterprise-administrators"></a>Alterações para administradores com Contrato Enterprise
@@ -40,7 +40,7 @@ O seguinte diagrama descreve como a faturação é organizada na nova conta de f
 As seguintes alterações aplicam-se aos administradores com um Contrato Enterprise que foi renovado para um Contrato de Cliente da Microsoft.
 
 - É criado um perfil de faturação na inscrição. Irá utilizar o perfil de faturação para gerir a faturação da organização, tal como faz na inscrição do Contrato Enterprise. Para obter mais informações sobre perfis de faturação, veja [Compreender os perfis de faturação](../understand/mca-overview.md#billing-profiles).
-- É criada uma secção de faturação para cada departamento na inscrição do Contrato Enterprise. Irá utilizar as secções de faturação para gerir os departamentos. Pode criar novas secções de faturação para configurar departamentos adicionais. Para obter mais informações sobre as secções da fatura, veja [Compreender as secções de fature](../understand/mca-overview.md#invoice-sections).
+- É criada uma secção de faturação para cada departamento na inscrição do Contrato Enterprise. Irá utilizar as secções de faturação para gerir os departamentos. Pode criar novas secções de faturação para configurar departamentos adicionais. Para obter mais informações sobre as secções de faturação, veja [Compreender as secções de faturação](../understand/mca-overview.md#invoice-sections).
 - Irá utilizar a função de criador da subscrição do Azure nas secções de faturação para conceder permissão a outras pessoas para criar uma subscrição do Azure, como as contas que foram criadas na inscrição do Contrato Enterprise.
 - Irá utilizar o [portal do Azure](https://portal.azure.com) para gerir a faturação da sua organização, em vez do EA Portal do Azure.
 
@@ -64,7 +64,7 @@ Para saber como ver custos de um perfil de faturação, veja [Compreender os cus
 
 ### <a name="view-charges-for-an-account"></a>Ver os custos de uma conta
 
-As contas que foram criadas na inscrição do Contrato Enterprise não são suportadas na nova conta de faturação. As subscrições da conta pertencem à respetiva secção da fatura do departamento. Os proprietários das contas podem criar e gerir subscrições para as secções da fatura.
+As contas que foram criadas na inscrição do Contrato Enterprise não são suportadas na nova conta de faturação. As subscrições da conta pertencem à secção de faturas do departamento. Os proprietários das contas podem criar e gerir subscrições para as secções da fatura.
 
 Para ver o custo agregado das subscrições que pertenciam a uma conta, tem de definir um centro de custos para cada subscrição. Em seguida, pode utilizar o ficheiro CSV de utilização e custos do Azure para filtrar as subscrições do centro de custos.
 
@@ -88,7 +88,7 @@ Para saber como conceder acesso ao seu perfil de faturação, veja [Gerir funç�
 
 Crie uma secção de faturação para organizar os custos com base nas suas necessidades, tal como os departamentos na inscrição do Contrato Enterprise. Pode criar uma nova secção de faturação no portal do Azure. Para mais informações, veja [Criar secções na sua fatura para organizar os custos](mca-section-invoice.md).
 
-### <a name="create-a-new-account"></a>Criar uma conta nova
+### <a name="create-a-new-account"></a>Criar uma nova conta
 
 Atribua aos utilizadores a função de criador de subscrições do Azure nas secções de faturação para lhes conceder permissão para criar uma subscrição do Azure, como as contas criadas na inscrição do Contrato Enterprise. Para obter mais informações sobre a atribuição de funções, veja [Gerir funções de faturação no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
@@ -120,7 +120,7 @@ Atribua aos utilizadores a função de criador da subscrição do Azure na secç
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Ver os custos para contas nos seus departamentos
 
-As contas que foram criadas na inscrição do Contrato Enterprise não são suportadas na nova conta de faturação. As subscrições da conta pertencem à respetiva secção da fatura do departamento. Os proprietários das contas podem criar e gerir subscrições para as secções da fatura.
+As contas que foram criadas na inscrição do Contrato Enterprise não são suportadas na nova conta de faturação. As subscrições da conta pertencem à secção de faturas do departamento. Os proprietários de contas podem criar e gerir subscrições para as respetivas secções de faturação.
 
 Para ver o custo agregado das subscrições que pertenciam a uma conta no seu departamento, tem de definir um centro de custos para cada subscrição. Em seguida, pode utilizar o ficheiro de utilização e custos do Azure para filtrar as subscrições do centro de custos.
 

@@ -12,10 +12,10 @@ ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 3abfac5f915b5c1c6020701feaa356d7a043ef8d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991831"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Resolver visualizações de custos empresariais
@@ -33,7 +33,7 @@ Poderá ser por um dos seguintes motivos:
 2. Se for um cliente do EA Direct, haverá duas possibilidades:
     * É Proprietário de Conta e o seu Administrador de Inscrição desativou a definição **Os Proprietários de Contas podem ver os custos**.  
     * É Administrador de Departamento e o seu Administrador de Inscrição desativou a definição **Os Administradores de Departamento podem ver os custos**.
-    * Entre em contacto com o Administrador de Inscrição para obter acesso. O Administrador de Inscrição pode atualizar as definições no [Enterprise Portal](https://ea.azure.com/manage/enrollment).
+    * Contacte o Administrador de Inscrição para obter acesso. O Administrador de Inscrição pode atualizar as definições no [Enterprise Portal](https://ea.azure.com/manage/enrollment).
 
       ![Captura de ecrã que mostra as definições do Enterprise Portal para visualizar custos.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/ea-portal-settings.png)
 

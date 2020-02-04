@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: banders
 ms.openlocfilehash: cf9bb7f3b9661d5957ad569fce7112fe16659761
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995952"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Comprar reservas com pagamentos mensais
@@ -23,11 +23,11 @@ O montante de pagamento mensal pode variar consoante a taxa de câmbio da moeda 
 
 Os pagamentos mensais estão disponíveis para:
 
-- Virtual Machines
-- Armazenamento do Azure
+- Máquinas virtuais
+- Storage do Azure
 - SQL Database
-- Data Warehouse SQL
-- Cosmos DB
+- SQL Data Warehouse
+- BD do Cosmos
 - Imposto de selo do Serviço de Aplicações
 
 Compre reservas no [portal do Azure](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).

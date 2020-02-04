@@ -1,5 +1,5 @@
 ---
-title: Termos de arquivo de uso e encargos do Microsoft Customer Agreement do Azure
+title: Termos do ficheiro de utilização e custos do Contrato de Cliente Microsoft do Azure
 description: Saiba como ler e compreender as secções do CSV de utilização e de custos do Azure para o seu perfil de faturação.
 author: bandersmsft
 manager: jureid
@@ -12,15 +12,15 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: b48cc5d5a36a382909adb250dd76b4f5783a4340
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990908"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termos no ficheiro de utilização e custos do Azure para um Contrato de Cliente da Microsoft
 
-Este artigo aplica-se à conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso ao Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se à conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 O ficheiro CSV de utilização e custos do Azure contém custos de utilização diária e de nível de medidor para o período de faturação atual.
 
@@ -34,7 +34,7 @@ Se for um cliente do EA, vai reparar que os termos no ficheiro CSV de utilizaç�
 
 | CSV de utilização do Azure EA | CSV de utilização e custos do Contrato de Cliente da Microsoft do Azure |
 | --- | --- |
-| Data | date |
+| Date | date |
 | Mês| date |
 | Dia | date |
 | Ano | date |
@@ -54,7 +54,7 @@ Se for um cliente do EA, vai reparar que os termos no ficheiro CSV de utilizaç�
 | ServiceInfo2 | serviceInfo2 |
 | AdditionalInfo | additionalInfo |
 | Etiquetas | etiquetas |
-| StoreServiceIdentifier | N/A |
+| StoreServiceIdentifier | N/D |
 | DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
@@ -65,7 +65,7 @@ Se for um cliente do EA, vai reparar que os termos no ficheiro CSV de utilizaç�
 
 Os termos a seguir são mostrados no ficheiro de utilização e custos do Azure.
 
-Duração | Descrição
+Termo | Descrição
 --- | ---
 invoiceId | ID exclusivo do documento listado no PDF da fatura
 previousInvoiceId | Referência a uma fatura original, caso este item de linha seja um reembolso
@@ -107,8 +107,8 @@ resourceLocation | Identifica a localização do datacenter onde o recurso está
 localização | Local normalizado do recurso se localizações de recursos diferentes estiverem configuradas para as mesmas regiões
 quantidade | Número de unidades compradas ou consumidas
 unitOfMeasure | Unidade de medida da faturação do serviço. Por exemplo, os serviços de computação são faturados à hora.
-chargeType | Tipo de custos. Valores: <ul><li>Aspagado-uso: encargos acumulados com base no uso de um serviço do Azure. Tal inclui a utilização em máquinas virtuais que não são cobradas devido a instâncias reservadas.</li><li>Aspagod-PurchaseMarketplace: encargos recorrentes de uma vez ou fixos de compras do Marketplace</li><li>Aspagado-UsageMarketplace: encargos para serviços do Marketplace cobrados com base em unidades de consumo</li></ul>
-isAzureCreditEligible | Sinalizador que indica se a cobrança em relação ao serviço está qualificada para ser paga pelo uso de créditos do Azure (valores: true, false)
+chargeType | Tipo de custos. Valores: <ul><li>AsCharged-Usage: custos acumulados com base na utilização de um serviço do Azure. Tal inclui a utilização em máquinas virtuais que não são cobradas devido a instâncias reservadas.</li><li>AsCharged-PurchaseMarketplace: custos recorrentes de utilização única ou fixos de compras do Marketplace</li><li>AsCharged-UsageMarketplace: custos para serviços do Marketplace cobrados com base em unidades de consumo</li></ul>
+isAzureCreditEligible | Sinalizador que indica se os custos pelo serviço são elegíveis para pagamento com os créditos do Azure (valores: Verdadeiro, Falso)
 serviceInfo1 | Metadados específicos do serviço
 serviceInfo2 | Campo legado que captura metadados opcionais específicos de serviço
 additionalInfo | Metadados adicionais específicos do serviço.

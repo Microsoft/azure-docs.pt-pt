@@ -12,28 +12,28 @@ ms.workload: na
 ms.date: 06/30/2019
 ms.author: banders
 ms.openlocfilehash: af0769ae4e242c86a56ff63d5f7c9ecbe9382b48
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995419"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter custos e utilização de reservas do Contrato Enterprise
 
 Os custos de reserva e os dados de utilização estão disponíveis para os clientes do contrato Enterprise no portal do Azure e nas APIs REST. Este artigo ajuda-o a:
 
-- Obter os dados das compras de reservas
+- Obter os dados de compra de reserva
 - Saber qual subscrição, grupo de recursos ou recurso utilizou a reserva
-- Estorno da utilização de reservas
+- Estorno para a utilização de reserva
 - Calcular as poupanças das reservas
 - Obter dados de subutilização das reservas
-- Amortizar os custos das reservas
+- Amortizar custos de reserva
 
 Os encargos do Marketplace estão consolidados nos dados da utilização. Pode ver os encargos para a utilização do proprietário, a utilização do Marketplace e as compras de uma única origem de dados.
 
 ## <a name="reservation-charges-in-azure-usage-data"></a>Encargos de reserva nos dados de utilização do Azure
 
-Os dados são divididos em dois conjuntos de dados separados: _custo real_ e _custo amortizado_. De que forma diferem estes dois conjuntos de dados:
+Os dados estão divididos em dois conjuntos de dados distintos: _Custo Real_ e _Custo Amortizado_. De que forma diferem estes dois conjuntos de dados:
 
 **Custo Real** – fornece os dados para reconciliar com a sua fatura mensal. Estes dados têm os custos de compra de reserva e os detalhes da aplicação de reserva. Com estes dados, pode saber qual subscrição ou grupo de recursos ou recurso recebeu o desconto de reserva num determinado dia. O EffectivePrice para a utilização que recebe o desconto de reserva é zero.
 
@@ -65,9 +65,9 @@ Pode obter os dados com a API ou transferi-los no portal do Azure.
 
 Pode chamar a [API de Detalhes de Utilização](/rest/api/consumption/usagedetails/list) para obter os novos dados. Para obter detalhes sobre a terminologia, veja os [termos de utilização](../understand/understand-usage.md). O autor da chamada deve ser um Administrador da Empresa para o contrato Enterprise através do [portal de EA](https://ea.azure.com). Os Administradores de Empresa só de leitura também podem obter os dados.
 
-Observe que esses dados não estão disponíveis em [APIs de relatório para clientes Enterprise-detalhes de uso](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Tenha em atenção que estes dados não estão disponíveis em [APIs de Relatórios para clientes Enterprise – Detalhes de Utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Aqui está um exemplo de chamada para a API de detalhes de uso:
+Veja a seguir um exemplo de chamada para a API de Detalhes de Utilização:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ As informações na tabela a seguir sobre métrica e filtro podem ajudar a resol
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Transferir o ficheiro CSV de utilização com novos dados
 
-Se for um administrador de EA, poderá transferir o ficheiro CSV que contém os novos dados de utilização a partir do portal do Azure. Esses dados não estão disponíveis no portal de EA (ea.azure.com), você deve baixar o arquivo de uso de portal do Azure (portal.azure.com) para ver os novos dados.
+Se for um administrador de EA, poderá transferir o ficheiro CSV que contém os novos dados de utilização a partir do portal do Azure. Estes dados não estão disponíveis no EA Portal (ea.azure.com), pelo que deve transferir o ficheiro de utilização no portal do Azure (portal.azure.com) para ver os novos dados.
 
 No portal do Azure, navegue até [Gestão de Custos + Faturação](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -111,7 +111,7 @@ Os custos de compra de reserva estão disponíveis nos dados de Custo Real. Filt
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>Obter quantidade e custos de reserva subutilizados
 
-Obtenha dados de custo amortizados e filtro para _chargetype_ _= UnusedReservation_. Obtém a quantidade diária de reserva não utilizada e o custo. Pode filtrar os dados para uma reserva ou ordem de reserva com os campos _ReservationId_ e _ProductOrderId_, respetivamente. Se uma reserva fosse utilizada a 100%, o registo teria uma quantidade de 0.
+Obtenha os dados do Custo Amortizado e filtre por _ChargeType_ _= UnusedReservation_. Obtém a quantidade diária de reserva não utilizada e o custo. Pode filtrar os dados para uma reserva ou ordem de reserva com os campos _ReservationId_ e _ProductOrderId_, respetivamente. Se uma reserva fosse utilizada a 100%, o registo teria uma quantidade de 0.
 
 ### <a name="amortize-reservation-costs"></a>Amortizar os custos das reservas
 
@@ -148,7 +148,7 @@ Os custos de reserva estão disponíveis na [análise de custo](https://aka.ms/c
 
 ![Exemplo que mostra onde selecionar o custo amortizado na análise de custo](./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Agrupar por tipo de encargo para ver uma discriminação da utilização, das compras e dos reembolsos; ou por reserva para uma discriminação de reserva e custos a pedido. Lembre-se de que os únicos custos de reserva que você verá ao examinar o custo real são compras, mas os custos serão alocados para os recursos individuais que usaram o benefício ao examinar o custo amortizado. Também verá um novo tipo de encargo  **UnusedReservation** ao examinar o custo amortizado.
+Agrupar por tipo de encargo para ver uma discriminação da utilização, das compras e dos reembolsos; ou por reserva para uma discriminação de reserva e custos a pedido. Lembre-se de que os únicos custos de reserva que verá ao examinar o custo real são as compras, mas os custos serão alocados aos recursos individuais que utilizaram o benefício ao examinar o custo amortizado. Também verá um novo tipo de encargo  **UnusedReservation** ao examinar o custo amortizado.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 

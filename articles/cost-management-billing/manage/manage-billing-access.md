@@ -17,10 +17,10 @@ ms.date: 12/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 9f78675878bd7a36e27ec1bdce0f3e38540d6039
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991441"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerir o acesso às informações de faturação do Azure
@@ -59,9 +59,9 @@ Depois de um administrador de conta ter atribuído as funções apropriadas a ou
 
 1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
-    ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Selecione **Subscrições** no painel à esquerda. Consoante o seu acesso, pode ter de selecionar um âmbito da faturação e, em seguida, selecionar **Subscrições**.
+1. Selecione **Subscrições** no painel esquerdo. Consoante o seu acesso, pode ter de selecionar um âmbito da faturação e, em seguida, selecionar **Subscrições**.
 
     ![Captura de ecrã que mostra a seleção de subscrições](./media/manage-billing-access/billing-select-subscriptions.png)
 
@@ -85,9 +85,9 @@ A funcionalidade Leitor de Faturação está em pré-visualização e ainda não
 
 1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
-    ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Selecione **Subscrições** no painel à esquerda. Consoante o seu acesso, pode ter de selecionar um âmbito da faturação e, em seguida, selecionar **Subscrições**.
+1. Selecione **Subscrições** no painel esquerdo. Consoante o seu acesso, pode ter de selecionar um âmbito da faturação e, em seguida, selecionar **Subscrições**.
 
     ![Captura de ecrã que mostra a seleção de subscrições](./media/manage-billing-access/billing-select-subscriptions.png)
 

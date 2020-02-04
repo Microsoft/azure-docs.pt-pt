@@ -1,5 +1,5 @@
 ---
-title: Salvar para Azure App serviço com capacidade reservada
+title: Economizar no Serviço de Aplicações do Azure com a capacidade reservada
 description: Saiba como pode economizar custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: 8161b169e8801fae4a9aa81290cf29ec28abf858
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995887"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Economize custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva
@@ -30,7 +30,7 @@ Ao comprar uma reserva, está a comprometer-se com a utilização de quantidades
 Além disso, confirme que compreender como o Selo de Plano Isolado emite o medidor do Linux ou do Windows.
 
 - Por predefinição, um Selo de Plano Isolado vazio emite o medidor de selos do Windows. Por exemplo, sem funções de trabalho implementadas. Continua a emitir este medidor se as funções de trabalho do Windows forem implementadas no selo.
-- O medidor mudará para o medidor de selos do Linux se implementar uma função de trabalho do Linux.
+- O medidor muda para o medidor de selos do Linux se implementar uma função de trabalho do Linux.
 - Nos casos em que se implementem funções de trabalho do Linux e do Windows, o selo emite o medidor do Windows.
 
 Portanto, o medidor de selos pode mudar entre o Windows e o Linux durante a vida útil do selo.
@@ -47,7 +47,7 @@ Pode comprar capacidade de reserva de Plano Isolado no [portal do Azure](https:/
 **Para Comprar:**
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
-1. Selecionar uma subscrição. Use a lista **Subscrição** para escolher a subscrição que serve para pagar a capacidade de reserva. Os custos são cobrados de acordo com o método de pagamento indicado na capacidade de reserva. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P) ou uma assinatura CSP.
+1. Selecione uma subscrição. Use a lista **Subscrição** para escolher a subscrição que serve para pagar a capacidade de reserva. Os custos são cobrados de acordo com o método de pagamento indicado na capacidade de reserva. O tipo de subscrição tem de ser um contrato Enterprise (número da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pay As You Go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P) ou uma subscrição CSP.
     - Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida.
     - Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.
 1. Selecione um **Âmbito** para escolher um âmbito de subscrição.
@@ -57,7 +57,7 @@ Pode comprar capacidade de reserva de Plano Isolado no [portal do Azure](https:/
 1. Selecione uma **Região** para escolher uma região do Azure coberta pela capacidade de reserva e adicione a reserva ao carrinho.
 1. Selecione um tipo de Plano Isolado e clique em **Selecionar**.  
     ![Exemplo ](./media/prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
-1. Insira a quantidade de selos de Plano Isolado do Serviço de Aplicações a reservar. Por exemplo, uma quantidade de três dar-lhe-ia três selos reservados por região. Clique em **Avançar: examinar + comprar**.
+1. Insira a quantidade de selos de Plano Isolado do Serviço de Aplicações a reservar. Por exemplo, uma quantidade de três dar-lhe-ia três selos reservados por região. Clique em **Seguinte: Rever + Comprar**.
 1. Reveja e clique em **Comprar agora**.
 
 Após a compra, aceda a [Reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) para ver o estado da compra e monitorize-as em qualquer altura.

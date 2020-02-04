@@ -1,5 +1,5 @@
 ---
-title: Descontos de reserva para o serviço de Azure App
+title: Descontos de reserva do Serviço de Aplicações do Azure
 description: Saiba como se aplicam os descontos de reserva aos Selos de Plano Isolado do Serviço de Aplicações do Azure.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 1294ee126ecef1f635ffc4d6bec6da02c6171897
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995796"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Como se aplicam os descontos de reserva aos Selos de Plano Isolado do Serviço de Aplicações do Azure
@@ -39,10 +39,10 @@ A única vez que deve comprar uma reserva de selo do Linux é quando planear ter
 
 Os seguintes exemplos mostram como o desconto de instância reservada do Imposto de Selo de Plano Isolado se aplica em função das implementações.
 
-- **Exemplo 1**: você compra uma instância de capacidade de carimbo reservado isolado em uma região sem carimbos de serviço do aplicativo isolado. Implementa um novo selo na região e paga tarifas reservadas para esse selo.
-- **Exemplo 2**: você compra uma instância da capacidade de carimbo reservado isolado em uma região que já tem um carimbo de serviço do aplicativo isolado implantado. Começa a receber a tarifa reservada para esse selo implementado.
-- **Exemplo 3**: você compra uma instância de capacidade de carimbo reservado isolado em uma região com um carimbo de serviço do aplicativo isolado já implantado. Começa a receber a tarifa reservada no selo implementado. Mais tarde, elimina o selo e implementa um novo. Recebe a tarifa reserva para o novo selo. Os descontos não são transferidos para as durações sem selos implementados.
-- **Exemplo 4**: você compra uma instância de capacidade de carimbo reservado do Linux isolado em uma região e, em seguida, implanta um novo carimbo na região. Quando o selo é implementado inicialmente sem funções de trabalho, emite o medidor de selos do Windows. Não são recebidos descontos. Quando se implementa a primeira função de trabalho do Linux no selo, este emite o medidor de Selos do Linux e aplica-se o desconto de reserva. Se uma função de trabalho do Windows for implementada posteriormente no selo, o medidor de selos será revertido para o Windows. Deixa de receber um desconto para a reserva do Selo Reservado do Linux de Plano Isolado.
+- **Exemplo 1**: compra uma instância de capacidade de Selo Reservado de Plano Isolado numa região sem selos de Plano Isolado do Serviço de Aplicações. Implementa um novo selo na região e paga tarifas reservadas para esse selo.
+- **Exemplo 2**: compra uma instância de capacidade de Selo Reservado de Plano Isolado numa região que já tem um selo de Plano Isolado do Serviço de Aplicações. Começa a receber a tarifa reservada para esse selo implementado.
+- **Exemplo 3**: compra uma instância de capacidade de Selo Reservado de Plano Isolado numa região com um selo de Plano Isolado do Serviço de Aplicações já implementado. Começa a receber a tarifa reservada no selo implementado. Mais tarde, elimina o selo e implementa um novo. Recebe a tarifa reserva para o novo selo. Os descontos não são transferidos para as durações sem selos implementados.
+- **Exemplo 4**: compra uma instância de capacidade de Selo Reservado do Linux de Plano Isolado numa região e, em seguida, implementa um novo selo na região. Quando o selo é implementado inicialmente sem funções de trabalho, emite o medidor de selos do Windows. Não são recebidos descontos. Quando se implementa a primeira função de trabalho do Linux no selo, este emite o medidor de Selos do Linux e aplica-se o desconto de reserva. Se uma função de trabalho do Windows for implementada posteriormente no selo, o medidor de selos será revertido para o Windows. Deixa de receber um desconto para a reserva do Selo Reservado do Linux de Plano Isolado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

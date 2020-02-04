@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: a78edc29ef85430dc8af57e60dfcba1f2e46413e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991480"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com a faturação do Azure e a gestão de custos
@@ -82,7 +82,7 @@ Depois de os serviços do Azure estarem em execução, verifique os custos regul
 
 4. Pode filtrar por várias propriedades, como, por exemplo, os rótulos, o tipo de recurso e o intervalo de tempo. Clique em **Adicionar filtro** para adicionar o filtro para uma propriedade e selecione os valores a serem filtrados. Selecione **Exportar** para exportar a vista para um ficheiro de valores separados por vírgulas (. csv).
 
-5. Além disso, pode clicar nos rótulos do gráfico para ver o histórico de gastos diários para esse rótulo. Por exemplo: na captura de tela abaixo, clicar em máquinas virtuais exibe o custo diário da execução de suas VMs.
+5. Além disso, pode clicar nos rótulos do gráfico para ver o histórico de gastos diários para esse rótulo. Por exemplo: Na captura de ecrã abaixo, clicar em máquinas virtuais apresenta o custo diário da execução das suas VMs.
 
     ![Captura de ecrã da vista do histórico de gastos no portal do Azure](./media/getting-started/costhistory.png)
 
@@ -166,7 +166,7 @@ O Contrato de Nível de Serviço (SLA) descreve o compromisso da Microsoft quant
 
 Para pedir um crédito:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Se tiver várias contas, confirme que utiliza aquela que foi afetada pelo tempo de inatividade do Azure.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Se tiver várias contas, confirme que utiliza aquela que foi afetada pelo tempo de inatividade do Azure.
 2. Crie um pedido de suporte novo.
 3. Em **Tipo de questão**, selecione **Faturação**.
 4. Em **Tipo de problema**, selecione **Pedido de Reembolso**.

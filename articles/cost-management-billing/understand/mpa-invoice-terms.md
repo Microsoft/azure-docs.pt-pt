@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: 7555fc490804a847e61a46f194e77c62f0a985d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989751"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Termos na fatura do Contrato de Parceiro da Microsoft
@@ -36,7 +36,7 @@ O **Resumo da Fatura** está na parte superior da primeira página e mostra info
 
 <!-- add screenshot -->
 
-| Duração | Descrição |
+| Termo | Descrição |
 | --- | --- |
 | Vendido a |Endereço da sua entidade legal, que se encontra nas propriedades da conta de faturação|
 | Faturar a |Endereço de faturação do perfil de faturação que recebe a fatura, encontrado nas propriedades do perfil de faturação|
@@ -52,7 +52,7 @@ O **Resumo de Faturação** mostra as cobranças em relação ao perfil de fatur
 
 <!-- add screenshot -->
 
-| Duração | Descrição |
+| Termo | Descrição |
 | --- | --- |
 | Cobranças|Número total de cobranças da Microsoft para este perfil de faturação desde o último período de faturação |
 | Créditos |Créditos recebidos de devoluções |
@@ -83,7 +83,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Compreender os custos na sua fatura do perfil de faturação](review-customer-agreement-bill.md)
+- [Compreender os custos na fatura do perfil de faturação](review-customer-agreement-bill.md)
 - [Como obter a faturação e os dados de utilização diária do Azure](../manage/download-azure-invoice-daily-usage-date.md)
 - [Ver os preços do Azure da sua organização](../manage/ea-pricing.md)
 - [Visualizar documentos fiscais para o seu perfil de faturação](mca-download-tax-document.md)

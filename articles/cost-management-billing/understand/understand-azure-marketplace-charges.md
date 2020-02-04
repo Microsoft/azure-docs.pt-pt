@@ -13,10 +13,10 @@ ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f94b79e03cf97275ec4dacf17e097e1678e81d10
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989426"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Compreender os custos de serviços externos do Azure
@@ -54,10 +54,10 @@ Se tiver um Contrato de Cliente da Microsoft (MCA) ou um Contrato de Parceiro da
 
 Se não tiver um MCA ou MPA, terá faturas separadas para os custos de terceiros. Pode visualizar e transferir as suas faturas do Azure Marketplace a partir do portal do Azure seguindo estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure **Cost Management + Faturação**.
 1. No menu do lado esquerdo, selecione **Faturas**.
-1. Clique na guia **Azure Marketplace e reservas** .  ![imagem da guia Azure Marketplace e reservas](./media/understand-azure-marketplace-charges/invoice-tabs.png)
+1. Clique no separador **Azure Marketplace e reservas**.  ![Imagem do separador do Azure Marketplace e reservas](./media/understand-azure-marketplace-charges/invoice-tabs.png)
 1. Na lista suspensa de subscrições, selecione a subscrição que contém os serviços externos dos quais pretende ver faturas.
 
 ## <a name="external-spending-for-ea-customers"></a>Despesas externas para clientes do EA
@@ -68,7 +68,7 @@ Os clientes do EA podem ver as despesas de serviço externo e transferir relató
 
 Ao comprar um serviço externo, escolhe uma subscrição do Azure para o recurso. O método de pagamento da subscrição do Azure selecionada torna-se o método de pagamento para o serviço externo. Para alterar o método de pagamento de um serviço externo, tem de [alterar o método de pagamento da subscrição do Azure](../manage/change-credit-card.md) vinculada a esse serviço externo. Pode descobrir a qual subscrição o seu pedido de serviço externo está vinculada seguindo estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Clique em **Todos os recursos** no menu de navegação à esquerda.
      ![captura de ecrã do item de menu Todos os recursos](./media/understand-azure-marketplace-charges/all-resources.png)
 1. Pesquise o seu serviço externo.
@@ -97,10 +97,10 @@ Ao comprar um serviço externo, escolhe uma subscrição do Azure para o recurso
 ## <a name="cancel-an-external-service-order"></a>Cancelar um pedido de serviço externo
 Se quiser cancelar o pedido de serviço externo, elimine o recurso no [portal do Azure](https://portal.azure.com).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Clique em **Todos os recursos** no menu de navegação à esquerda.
     ![Captura de ecrã do item de menu Todos os recursos](./media/understand-azure-marketplace-charges/all-resources.png)
-1. Pesquise o seu serviço externo.
+1. Pesquise o serviço externo.
 1. Selecione a caixa junto do recurso que quer eliminar.
 1. Selecione **Eliminar** na barra de comandos.
     ![Captura de ecrã do botão Eliminar](./media/understand-azure-marketplace-charges/delete-button.png)

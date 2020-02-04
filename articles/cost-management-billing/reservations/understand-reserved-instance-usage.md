@@ -1,5 +1,5 @@
 ---
-title: Uso de reserva do Azure para uma assinatura individual
+title: Utilização de reservas do Azure de uma subscrição individual
 description: Saiba como ler a sua utilização para compreender como é aplicada a reserva do Azure para a sua subscrição individual com tarifas pay as you go.
 author: bandersmsft
 manager: yashr
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 1404f8626086124aa2c6affcf2d173cef0be7df3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995367"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Compreender a utilização de reservas do Azure para a sua subscrição individual com a subscrição de tarifas pay as you go
@@ -55,7 +55,7 @@ Filtre por **Additional Info** (Informações Adicionais) e escreva o seu **Rese
 
 1. O **ReservationId** (ID da Reserva) no campo **Additional Info** (Informações Adicionais) é a reserva aplicada à VM.
 2. O **ConsumptionMeter** (Medidor de Consumo) é o ID do medidor para a VM.
-3. A linha de **subcategoria do medidor** de **instâncias reservadas de VM de base** representa o custo de $0 na seção de instrução. O custo da execução desta VM já está pago pela reserva.
+3. A linha **Instâncias Reservadas de VM de Base** em **Subcategoria do Medidor** representa o custo 0 $ na secção do extrato. O custo da execução desta VM já está pago pela reserva.
 4. O **Meter ID** (ID do Medidor) é o ID do medidor para a reserva. O custo deste medidor é de 0 $. Este ID de medidor é apresentado para qualquer VM elegível para o desconto de reserva.
 5. Standard_DS1_v2 é uma VM com um vCPU e é implementada sem Benefício Híbrido do Azure. Portanto, este medidor abrange o custo adicional do software Windows. Para localizar o medidor correspondente à VM com 1 núcleo da série D, veja [Custos de software Windows de Instâncias de VM Reservadas do Azure](reserved-instance-windows-software-costs.md). Se tiver o Benefício Híbrido do Azure, este custo adicional não será aplicado.
 
@@ -102,6 +102,6 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../sql-database/sql-database-reserved-capacity.md)
 - [Gerir o Azure Reservations](manage-reserved-vm-instance.md)
-- [Compreender como o desconto de reserva é aplicado](../manage/understand-vm-reservation-charges.md)
+- [Compreender como o desconto das reservas é aplicado](../manage/understand-vm-reservation-charges.md)
 - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)
 - [Custos de software Windows não incluídos nas Reservas](reserved-instance-windows-software-costs.md)

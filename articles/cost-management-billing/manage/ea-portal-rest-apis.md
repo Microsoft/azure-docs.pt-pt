@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 8680a575872053f4b575db70ec649b6c1669b961
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992143"
 ---
 # <a name="azure-enterprise-rest-apis"></a>APIs REST do Azure Enterprise
@@ -121,16 +121,16 @@ O formato JSON é gerado a partir do relatório CSV. Como resultado, o formato �
 | SubscriptionId | SubscriptionId | SubscriptionId |   |
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Nome da Subscrição | SubscriptionName | SubscriptionName |   |
-| Data | Data | Data | Mostra a data em que o relatório do catálogo de serviços foi executado. O formato é uma cadeia de carateres de data sem nenhum carimbo data/hora. |
+| Date | Date | Date | Mostra a data em que o relatório do catálogo de serviços foi executado. O formato é uma cadeia de carateres de data sem nenhum carimbo data/hora. |
 | Mês | Mês | Mês |   |
 | Dia | Dia | Dia |   |
 | Ano | Ano | Ano |   |
 | Produto | BillableItemName | Produto |   |
 | ID do Medidor | ResourceGUID | MeterId |   |
-| Categoria de Medidor | Serviço | MeterCategory | Útil para ajudar a localizar ficheiros. Relevante para serviços que tenham vários ServiceType. Por exemplo, Máquinas Virtuais. |
+| Categoria do Medidor | Serviço | MeterCategory | Útil para ajudar a localizar ficheiros. Relevante para serviços que tenham vários ServiceType. Por exemplo, Máquinas Virtuais. |
 | Subcategoria do Medidor | ServiceType | MeterSubCategory | Fornece um segundo nível de detalhes para um serviço. Por exemplo, VM A1 (não Windows).  |
 | Região do Medidor | ServiceRegion | MeterRegion | O terceiro nível de detalhe necessário para um serviço. Útil para localizar o contexto da região do ResourceGUID. |
-| Nome de Medidor | ServiceResource | MeterName | O nome do serviço. |
+| Nome do Medidor | ServiceResource | MeterName | O nome do serviço. |
 | Quantidade Consumida | ResourceQtyConsumed | ConsumedQuantity |   |
 | ResourceRate | ResourceRate | ResourceRate |   |
 | ExtendedCost | ExtendedCost | ExtendedCost |   |
@@ -144,7 +144,7 @@ O formato JSON é gerado a partir do relatório CSV. Como resultado, o formato �
 | Identificador do Serviço de Arquivo   | OrderNumber | StoreServiceIdentifier   |   |
 | Nome do Departamento | DepartmentName | DepartmentName |   |
 | Centro de Custos | CostCenter | CostCenter |   |
-| Unidade de Medida | UnitOfMeasure | UnitOfMeasure | Valores de exemplo: horas, GB, eventos, Pushes, unidade, Horas de Unidade, MB, unidades diárias |
+| Unidade de Medida | UnitOfMeasure | UnitOfMeasure | Valores de exemplo: Horas, GB, Eventos, Pushes, Unidade, Horas de Unidade, MB, Unidades Diárias |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
 #### <a name="azure-marketplace-report"></a>Relatório do Azure Marketplace
@@ -156,7 +156,7 @@ O formato JSON é gerado a partir do relatório CSV. Como resultado, o formato �
 | SubscriptionId | SubscriptionId | SubscriptionId |
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Nome da Subscrição | SubscriptionName |  SubscriptionName |
-| Data | BillingCycle |  Data (apenas Cadeia de Carateres de Data. Sem carimbo de data/hora)
+| Date | BillingCycle |  Data (apenas Cadeia de Carateres de Data. Sem carimbo de data/hora)
 | Mês | Mês |  Mês |
 | Dia | Dia |  Dia |
 | Ano | Ano |  Ano |

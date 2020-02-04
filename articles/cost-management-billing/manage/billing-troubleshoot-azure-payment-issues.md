@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
 ms.openlocfilehash: 986af72ed2ac10a285cfe32768d8541b7fce2428
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989998"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Resolução de problemas de pagamento no Azure
@@ -50,7 +50,7 @@ Para resolver este problema, veja [Erro de início de sessão Não foram encontr
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>Não consegue fazer o pagamento de uma subscrição
 
-Se você receber a mensagem de erro: o *pagamento está atrasado. Há um problema com seu método de pagamento* ou *lamentamos, as informações não podem ser salvas. Feche o navegador e tente novamente.* em seguida, há um pagamento pendente no cartão, pois o cartão foi negado por sua instituição financeira.
+Se receber a mensagem de erro: *O pagamento está em atraso. Existe um problema com o método de pagamento* ou *Não é possível guardar as informações. Feche o browser e tente novamente.* , tal deve-se à existência de um pagamento pendente no cartão, porque o cartão foi negado pela sua instituição financeira.
 
 Verifique se o cartão de crédito tem um saldo suficiente para fazer um pagamento. Se não tiver, use outro cartão para fazer o pagamento ou entre em contacto com a sua instituição financeira para resolver o problema.
 
@@ -82,7 +82,7 @@ Recebe esta mensagem se estiver a usar [o portal do Azure](https://portal.azure.
 
 Para adicionar os detalhes do cartão, inicie sessão no portal de Contas do Azure com o endereço de e-mail do Administrador de Conta para adicionar os detalhes do cartão.
 
-## <a name="additional-help-resources"></a>Recursos de ajuda adicionais
+## <a name="additional-help-resources"></a>Recursos de ajuda adicional
 
 Outros artigos de resolução de problemas para Subscrições e Faturação do Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Descontos do plano de reserva do Red Hat – Azure
+title: Descontos do plano de reserva do Red Hat – Azure
 description: Saiba como os descontos do plano do Red Hat são aplicados ao software Red Hat em máquinas virtuais.
 services: billing
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/30/2019
 ms.author: cwatson
 ms.openlocfilehash: 280764d3b9185abd1d8112f641007a7dc1861b34
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995328"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Compreender de que forma o desconto do plano de reserva do software Red Hat Linux Enterprise é aplicado ao Azure

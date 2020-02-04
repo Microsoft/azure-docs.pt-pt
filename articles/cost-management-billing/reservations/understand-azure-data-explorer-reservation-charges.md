@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995627"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Compreender como o desconto de reserva é aplicado ao Azure Data Explorer
@@ -36,7 +36,7 @@ O desconto de reserva é aplicado ao consumo de margem de lucro do Azure Data Ex
 ## <a name="examples"></a>Exemplos
 
 Os exemplos seguintes mostram como o desconto da capacidade reservada do Azure Data Explorer é aplicado em função do número de unidades de margem de lucro que comprou e quando estas estão em execução.
-Por exemplo, para o tamanho do cluster do mecanismo: **2 D11_v2 VMs**, os encargos totais sob demanda são para quatro unidades do Azure data Explorer o medidor de marcação por hora. 
+Por exemplo, para o tamanho do cluster de motor: **2 VMs D11_v2**, o total de encargos a pedido é para quatro unidades do medidor de margem de lucro do Azure Data Explorer por hora. 
 
 **Cenário 1** 
 

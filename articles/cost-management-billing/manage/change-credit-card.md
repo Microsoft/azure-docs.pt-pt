@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: 6ae55e0075883de08af516b71089f00353975b34
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992845"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito do Azure
@@ -60,7 +60,7 @@ Se o cartão de crédito for renovado e o número continuar o mesmo, atualize os
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
 1. Procure **Cost Management + Faturação**.
 
-    ![Captura de ecrã a mostrar a pesquisa](./media/change-credit-card/search.png)
+    ![Captura de ecrã que mostra a pesquisa](./media/change-credit-card/search.png)
 
 1. Selecione **Métodos de pagamento**.
 
@@ -113,7 +113,7 @@ Para alterar o método de pagamento de um perfil de faturação, tem de ser a pe
 
 Se quiser mudar o método de pagamento predefinido para cheque/transferência bancária, saiba como [mudar um perfil de faturação para cheque/transferência bancária](pay-by-invoice.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 1. No menu esquerdo, clique em **Perfis de faturação**.
 

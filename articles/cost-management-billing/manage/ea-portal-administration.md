@@ -1,5 +1,5 @@
 ---
-title: Administração do EA Portal do Azure
+title: Administração do Azure EA Portal
 description: Este artigo explica as tarefas comuns que um administrador realiza no Azure EA Portal.
 keywords: ''
 author: bandersmsft
@@ -8,20 +8,20 @@ ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
-ms.translationtype: MT
+ms.openlocfilehash: dfb46a40291a74cb8a2c172700f621ef835ef50e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547579"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769676"
 ---
-# <a name="azure-ea-portal-administration"></a>Administração do EA Portal do Azure
+# <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
 Este artigo explica as tarefas comuns que um administrador realiza no Azure EA Portal (https://ea.azure.com). O Azure EA Portal é um portal de gestão online que ajuda os clientes a gerir os custos dos seus serviços de EA do Azure. Para obter informações introdutórias sobre o Azure EA Portal, veja o artigo [Introdução ao Azure EA Portal](ea-portal-get-started.md).
 
 ## <a name="add-a-new-enterprise-administrator"></a>Adicionar um novo administrador corporativo
 
-Os administradores corporativos têm muitos privilégios ao gerir uma inscrição de EA do Azure. O administrador do EA do Azure inicial foi criado quando o contrato de EA foi configurado. No entanto, pode adicionar ou remover novos administradores a qualquer momento. Apenas são adicionados novos administradores por administradores existentes. Para obter mais informações sobre como adicionar outros administradores corporativos, consulte [criar outro administrador corporativo](ea-portal-get-started.md#create-another-enterprise-admin). Para obter mais informações sobre funções e tarefas de perfil de cobrança, consulte [funções e tarefas de perfil de cobrança](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Os administradores corporativos têm muitos privilégios ao gerir uma inscrição de EA do Azure. O administrador do EA do Azure inicial foi criado quando o contrato de EA foi configurado. No entanto, pode adicionar ou remover novos administradores a qualquer momento. Apenas são adicionados novos administradores por administradores existentes. Para obter mais informações sobre como adicionar administradores corporativos adicionais, veja [Criar outro administrador corporativo](ea-portal-get-started.md#create-another-enterprise-administrator). Para obter mais informações sobre as funções e tarefas do perfil de faturação, veja [Funções e tarefas do perfil de faturação](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-user-state-from-pending-to-active"></a>Atualizar o estado do utilizador de pendente para ativo
 
@@ -31,7 +31,7 @@ Quando são adicionados novos Proprietários de Conta (AO) a uma inscrição do 
 
 Após a criação de um departamento por um administrador do EA do Azure, o administrador corporativo do Azure pode adicionar administradores de departamento e associar cada um deles a um departamento. Um administrador de departamento pode criar novas contas. São necessárias novas contas para que as subscrições do EA do Azure sejam criadas.
 
-Para obter mais informações sobre como adicionar um administrador de departamento, veja [Criar um administrador de departamento do EA do Azure](ea-portal-get-started.md#add-a-department-admin).
+Para obter mais informações sobre como adicionar um administrador de departamento, veja [Criar um administrador de departamento do EA do Azure](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associar uma conta a um departamento
 
@@ -40,7 +40,7 @@ Os Administradores do Enterprise podem associar contas existentes a Departamento
 ### <a name="to-associate-an-account-to-a-department"></a>Para associar uma conta a um departamento
 
 1. Inicie sessão no Azure EA Portal como administrador do Enterprise.
-1. Clique em **Gerir** no painel de navegação à esquerda.
+1. Clique em **Gerir** no painel de navegação esquerdo.
 1. Clique em **Departamento**.
 1. Passe o rato sobre a linha com a Conta desejada e clique no ícone de lápis à direita.
 1. Selecione o Departamento desejado no menu pendente.
@@ -55,7 +55,7 @@ O administrador do departamento pode ver a quota de despesas, mas apenas o admin
 ### <a name="enterprise-administrator-to-set-the-quota"></a>Como administrador do Enterprise para definir a quota, faça o seguinte:
 
  1. Abra o Azure EA Portal.
- 1. Clique em **Gerir** no painel de navegação à esquerda.
+ 1. Clique em **Gerir** no painel de navegação esquerdo.
  1. Clique no separador **Departamento**.
  1. Clique no Departamento desejado.
  1. Clique no ícone de lápis na secção Detalhes do Departamento ou clique no botão **+ Adicionar Departamento** para adicionar uma quota de despesas juntamente com um novo departamento.
@@ -63,17 +63,17 @@ O administrador do departamento pode ver a quota de despesas, mas apenas o admin
     - Pode também aproveitar para editar o Nome do Departamento e o Centro de Custos.
  1. Prima **Guardar**.
 
-A cota de gastos do departamento agora estará visível na exibição de lista de departamentos na guia departamento. No final do compromisso atual, o portal de EA do Azure manterá as cotas de gastos para o próximo termo de compromisso.
+A quota de despesas do departamento estará agora visível na vista Lista do Departamento no separador Departamento. No final da alocação atual, o Azure EA Portal manterá as quotas de despesas para o próximo período de alocação.
 
 O valor da quota do departamento é independente da alocação monetária atual. O valor da quota e os alertas aplicam-se apenas à utilização do proprietário. A quota de despesas do departamento destina-se apenas a fins informativos e não impõe limites de gastos.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Como administrador do departamento para visualizar a quota, faça o seguinte:
 
 1. Abra o Azure EA Portal.
-1. Clique em **Gerir** no painel de navegação à esquerda.
+1. Clique em **Gerir** no painel de navegação esquerdo.
 1. Clique no separador **Departamento** e consulte a vista Lista do Departamento com as quotas de despesas.
 
-Se for um cliente indireto, as funcionalidades dos custos têm de ser ativadas pelo parceiro de canal.
+Se for um cliente indireto, as funcionalidades dos custos deverão ser ativadas pelo parceiro do canal.
 
 ## <a name="enterprise-user-roles"></a>Funções de utilizador corporativo
 
@@ -104,7 +104,7 @@ Esta oferta permite que os subscritores ativos do Visual Studio executem cargas 
 ### <a name="to-set-up-the-enterprise-devtest-offer"></a>Para configurar a oferta Enterprise Dev/Test:
 
 1. Inicie sessão como o administrador do Enterprise.
-1. Clique em **Gerir** no painel de navegação à esquerda.
+1. Clique em **Gerir** no painel de navegação esquerdo.
 1. Clique no separador **Conta**.
 1. Clique na linha da conta pretendida para ativar o acesso Dev/Test.
 1. Clique no ícone de Lápis à direita da linha.
@@ -186,7 +186,7 @@ A alocação monetária não é transferível entre inscrições. Os saldos de a
 
 Não há tempo de inatividade durante a transferência da inscrição ou da conta. Pode ser concluída no mesmo dia do pedido se todas as informações necessárias forem fornecidas.
 
-## <a name="change-account-owner"></a>Alterar o proprietário da conta
+## <a name="change-account-owner"></a>Alterar o Proprietário da Conta
 
 O Azure EA Portal pode transferir subscrições de um proprietário de conta para outro. Para obter mais informações, veja [Criar Proprietário de Conta](ea-portal-get-started.md#change-account-owner).
 
@@ -202,13 +202,13 @@ Para visualizar os utilizadores com acesso RBAC à subscrição:
 
 Se a subscrição for transferida para uma conta num inquilino do AAD diferente, todos os utilizadores, grupos e principais de serviço que tinham [RBAC](../../role-based-access-control/overview.md) para gerir recursos _perdem_ o respetivo acesso. Embora o acesso RBAC não esteja presente, o acesso à subscrição poderá estar disponível por meio de mecanismos de segurança, incluindo:
 
-- Os certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão do Azure](../../cloud-services/cloud-services-certs-create.md).
-- As chaves de acesso para serviços, como o Armazenamento. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../../storage/common/storage-account-overview.md).
-- As credenciais de Acesso Remoto para serviços, como as Máquinas Virtuais do Azure.
+- Certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão do Azure](../../cloud-services/cloud-services-certs-create.md).
+- Chaves de acesso dos serviços como o Armazenamento. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../../storage/common/storage-account-overview.md).
+- Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
 
 Se o destinatário precisar de restringir o acesso aos recursos do Azure, deverá considerar a atualização de todos os segredos associados ao serviço. A maioria dos recursos pode ser atualizada com os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, selecione **Todos os recursos**.
 3. Selecione o recurso.
 4. Na página de recursos, clique em **Definições** para visualizar e atualizar os segredos existentes.
@@ -265,7 +265,7 @@ Cada administrador parceiro no Azure EA Portal pode adicionar ou remover outros
 Para ver uma lista de todas as inscrições associadas à mesma organização parceira que o atual utilizador, clique no separador **Inscrição** e selecione a caixa de inscrição desejada.
 
 1. Inicie sessão como administrador parceiro.
-1. Clique em **Gerir** no painel de navegação à esquerda.
+1. Clique em **Gerir** no painel de navegação esquerdo.
 1. Clique no separador **Parceiro**.
 1. Clique em **+ Adicionar Administrador** e preencha o endereço de e-mail, o contato de notificação e os detalhes de notificação.
 1. Prima **Adicionar**.
@@ -275,7 +275,7 @@ Para ver uma lista de todas as inscrições associadas à mesma organização pa
 Para ver uma lista de todas as inscrições associadas à mesma organização parceira que o atual utilizador, clique no separador **Inscrição** e selecione a caixa de inscrição desejada.
 
 1. Inicie sessão como administrador parceiro.
-1. Clique em **Gerir** no painel de navegação à esquerda.
+1. Clique em **Gerir** no painel de navegação esquerdo.
 1. Clique no separador **Parceiro**.
 1. Na secção Administrador, selecione a linha apropriada para o administrador que quer remover.
 1. Prima o ícone X à direita.
@@ -368,4 +368,4 @@ Para criar uma subscrição do tipo de oferta Azure Enterprise, deve ter direito
 ## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre como [as reservas de máquina virtual](ea-portal-vm-reservations.md) podem ajudar a poupar dinheiro.
-- Se precisar de ajuda para resolver problemas com o Azure EA Portal, veja [Troubleshoot Azure EA portal access](ea-portal-troubleshoot.md) (Resolver problemas de acesso do Azure EA Portal).
+- Se precisar de ajuda na resolução de problemas com o Azure EA Portal, veja [Resolver problemas de acesso do Azure EA Portal](ea-portal-troubleshoot.md).

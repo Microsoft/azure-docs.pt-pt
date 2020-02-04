@@ -12,10 +12,10 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 5ac0918fcd8c5a1eb9242d603a7e3433d0f709ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988464"
 ---
 # <a name="azure-consumption-api-overview"></a>Descrição geral da API de consumo do Azure
@@ -159,6 +159,6 @@ Veja a seguir alguns dos cenários que se tornaram possíveis com as APIs de con
 -   **Gastos do Azure durante o mês**  – Qual o montante dos gastos do mês atual até hoje? É necessário fazer ajustes nos meus gastos e/ou na utilização do Azure? Em que alturas do mês é maior o consumo do Azure?
 -   **Configurar alertas** – Gostaria de configurar alertas de consumo baseado em recursos ou alertas monetários com base num orçamento.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre como utilizar as APIs de Faturação do Azure para obter informações de forma programática sobre a utilização do Azure, veja [Descrição geral da API de Faturação do Azure](usage-rate-card-overview.md).

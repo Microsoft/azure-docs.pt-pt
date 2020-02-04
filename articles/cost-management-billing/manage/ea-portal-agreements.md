@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: d748be3a304222831a55bb9319a04fba1e28e955
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992364"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e emendas do Azure EA
@@ -72,16 +72,16 @@ A Microsoft não acederá nem utilizará a margem de lucro fornecida e preços a
 
 ### <a name="how-the-calculation-works"></a>Como funciona o cálculo
 
-O LSP fornece um único valor percentual no EA Portal.  Todas as informações comerciais no Portal serão comgradedas pelo percentual fornecido pelo LSP. Exemplo:
+O LSP fornece um único valor percentual no EA Portal.  Todas as informações comerciais no portal serão aumentadas pela percentagem fornecida no LSP. Exemplo:
 
 - O cliente assina um EA com uma alocação monetária de 100 000 USD.
 - A taxa do medidor do Serviço A é de 10 USD/hora.
 - O LSP define uma percentagem de margem de lucro de 10% no EA Portal.
 - O exemplo abaixo mostra como o cliente verá as informações comerciais:
-    - Saldo monetário: USD 110.000.
-    - Taxa de medição para o serviço A: USD 11/hora.
-    - Informações de uso/hospedagem para o serviço A quando usadas por 100 horas: USD 1.100.
-    - Saldo monetário disponível para o cliente após a dedução de um consumo de serviço: USD 108.900.
+    - Saldo Monetário: 110 000 USD.
+    - Taxa do medidor do Serviço A: 11 USD/Hora.
+    - Informações de utilização/alojamento do serviço A quando utilizado durante 100 horas: 1100 USD.
+    - Saldo monetário disponível para o cliente após a dedução do consumo do Serviço A: 108 900 USD.
 
 ### <a name="when-to-use-a-markup"></a>Quando utilizar a margem de lucro
 
@@ -101,14 +101,14 @@ Confirme que analisa as informações comerciais (informações de saldo monetá
 
 ### <a name="how-to-add-a-price-markup"></a>Como adicionar a margem de lucro de um preço
 
-**Etapa 1: Adicionar marcação de preço**
+**Passo 1: Adicionar a margem de lucro do preço**
 
 1. No Enterprise Portal, clique em **Relatórios** no painel de navegação esquerdo.
 1. Em _Resumo da Utilização_, clique nas palavras **Margem de lucro** a azul.
 1. Introduza a percentagem da margem de lucro (entre -100 e 100) e clique em **Pré-visualização**.
 
 
-**Etapa dois: examinar e validar**
+**Passo 2: Analisar e validar**
 
 Analise o preço da margem de lucro no _Resumo da Utilização_ para o período de alocação na vista de cliente. O preço da Microsoft ainda estará disponível na vista de parceiro. Pode alternar as vistas com o botão “pessoas” da margem de lucro do parceiro no canto superior direito.
 
@@ -116,7 +116,7 @@ Analise o preço da margem de lucro no _Resumo da Utilização_ para o período 
 1. Pode fazer alterações antes da publicação. Para tal, selecione **Editar** no separador _Ver Resumo da Utilização > Vista de Cliente_ .  
   Tanto os preços de serviço como os saldos de alocação terão a margem de lucro com as mesmas percentagens. Se tiver percentagens diferentes para o saldo monetário e as taxas dos medidores ou percentagens diferentes para serviços diferentes, não utilize esta funcionalidade.
 
-**Etapa três: publicar**
+**Passo 3: Publicar**
 
 Após analisar e validar o preço, clique em **Publicar**.
   
@@ -124,7 +124,7 @@ Os preços com a margem de lucro estarão disponíveis para os administradores d
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>Que inscrições possuem uma margem de lucro ativada?
 
-Para verificar se um registro tem uma marcação publicada, clique em **gerenciar** no painel de navegação esquerdo e clique na guia **registro** . Selecione a caixa de registro a ser verificada e exiba o status de marcação em _detalhes do registro_. O estado atual da funcionalidade de margem de lucro para esse EA será apresentado como Desativado, Pré-visualização ou Publicado.
+Para confirmar se uma inscrição tem uma margem de lucro publicada, clique em **Gerir** no painel de navegação esquerdo e clique no separador **Inscrição**. Selecione a caixa da inscrição a confirmar e veja o estado da margem de lucro em _Detalhes da Inscrição_. O estado atual da funcionalidade de margem de lucro para esse EA será apresentado como Desativado, Pré-visualização ou Publicado.
 
 ### <a name="how-can-the-customer-download-usage-estimates"></a>Como pode o cliente transferir as estimativas de utilização?
 
@@ -141,14 +141,14 @@ Os parceiros podem utilizar a funcionalidade de margem de lucro (no Azure EA) a
 | **Recurso** | **Quota Predefinida** | **Comentários** |
 | --- | --- | --- |
 | Instâncias de Computação do Microsoft Azure | 20 instâncias de pequena computação simultâneas ou os equivalentes em outros tamanhos de instância de computação. | A seguinte tabela indica como calcular o número equivalente de pequenas instâncias:<ul><li> Extra Pequena – equivalente a 1 pequena instância </li><li> Pequena – equivalente a 1 pequena instância </li><li> Média – equivalente a 2 pequenas instâncias </li><li> Grande – equivalente a 4 pequenas instâncias </li><li> Extra Grande – equivalente a 8 pequenas instâncias </li> </ul>|
-| VMs de Instâncias de Computação do Microsoft Azure v2 | EA: 350 núcleos | VMs IaaS GA v2:<ul><li> Família A0\_A7 – 350 núcleos </li><li> Família B\_A0\_A4 – 350 núcleos </li><li> Família A8\_A9 – 350 núcleos </li><li> Família DF –350 núcleos</li><li> GF – 350 núcleos </li></ul>|
+| VMs de Instâncias de Computação do Microsoft Azure v2 | EA: 350 Núcleos | VMs IaaS GA v2:<ul><li> Família A0\_A7 – 350 núcleos </li><li> Família B\_A0\_A4 – 350 núcleos </li><li> Família A8\_A9 – 350 núcleos </li><li> Família DF –350 núcleos</li><li> GF – 350 núcleos </li></ul>|
 | Serviços Alojados do Microsoft Azure | 6 serviços alojados | Este limite de serviços alojados não pode ser aumentado para além de seis numa subscrição individual. Se precisar de serviços alojados adicionais, adicione subscrições adicionais. |
-| Microsoft Azure Storage | 5 contas de armazenamento, cada uma com um tamanho máximo de 100 TB cada. | Pode aumentar o número de contas de armazenamento até 20 por subscrição. Se precisar de contas de armazenamento adicionais, adicione subscrições adicionais. |
+| Armazenamento do Microsoft Azure | 5 contas de armazenamento, cada uma com um tamanho máximo de 100 TB cada. | Pode aumentar o número de contas de armazenamento até 20 por subscrição. Se precisar de contas de armazenamento adicionais, adicione subscrições adicionais. |
 | SQL Azure | 149 bases de dados de qualquer tipo (isto é, Web Edition ou Business Edition). |   |
 | Controlo de Acesso | 50 Espaços de nomes por conta. 100 milhões transações de Controlo de Acesso por mês |   |
 | Service Bus | 50 Espaços de nomes por conta. 40 ligações do Service Bus | Os clientes que comprarem ligações do Service Bus através de pacotes de ligação terão quotas iguais ao ponto médio entre o pacote de ligação que compraram e a quantidade do pacote de ligação mais elevado seguinte. Os clientes que escolherem um Pacote de 500 terão uma quota de 750. |
 
-## <a name="resource-commitment"></a>Compromisso de recursos
+## <a name="resource-commitment"></a>Alocação de recursos
 
 A Microsoft fornecerá serviços até, pelo menos, ao nível da utilização associada incluído na alocação mensal que comprou (a Alocação de Serviços), mas todos os outros aumentos nos níveis de utilização dos recursos do serviço (por exemplo, aumento do número de instâncias de comutação em execução ou o aumento da quantidade de armazenamento utilizado) estão sujeitos à disponibilidade destes recursos do serviço.
 
@@ -171,7 +171,7 @@ Se tiver encomendado uma SKU do CPP, esta destina-se a um tipo específico de co
 
 O valor comprado previamente será apresentado como um crédito na coluna “Unidades Incluídas” e a sua utilização não resultará em custos de utilização até que as “Unidades Incluídas” sejam consumidas. Uma vez consumidas, a utilização adicional será cobrada às taxas negociadas na folha de preços do cliente EA normal.
 
-A forma como os créditos são comprados baseia-se no número de computadores de uma classe por mês. Por exemplo: se tiver comprado 70 VMs A2 por ano no E.U.A. Leste 2, não veria isto no EA Portal do mesma forma como foi comprado.
+A forma como os créditos são comprados baseia-se no número de computadores de uma classe por mês. Por exemplo: se tiver comprado 70 VMs A2 por ano no E.U.A. Leste 2, não veria isto no EA Portal do mesma forma como foi comprado.
 
 Os computadores mensais são calculados como estando em execução 744 horas por mês. Ao converter esse valor em horas seria 70 vezes 744, ou seja 52 080 horas compradas de VMs A2 por mês. Dado que no Resumo da Utilização do EA Portal, as VMs A2 são indicadas em incrementos de 100 Horas, o que iria ver seria um crédito de 520,8 (52 080/100) “Unidades Incluídas” por mês e iria ver as unidades consumidas até à data no mês. Os custos de utilização devem aparecer como zero até que as unidades consumidas mensais ultrapassem as unidades mensais incluídas.
 
@@ -192,7 +192,7 @@ Os Administradores do Enterprise podem atribuir Proprietários da Conta para apr
 ### <a name="view-the-price-sheet-to-check-included-quantity"></a>Ver a folha de preços para confirmar a quantidade incluída
 
 1. Inicie sessão como Administrador do Enterprise.
-1. Clique em **Relatórios** no painel de navegação à esquerda.
+1. Clique em **Relatórios** no painel de navegação esquerdo.
 1. Clique no separador **Folha de Preços**.
 1. Clique no ícone “Transferir” no canto superior direito.
 1. Localize os números de peça das SKUS do Plano correspondentes ao filtro na coluna “Quantidade Incluída” e selecione os valores superiores a “0”.
@@ -228,7 +228,7 @@ Os administradores do Enterprise podem adicionar novos proprietários de conta, 
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Proprietários de conta novos/existentes para criar novas subscrições
 
-**Etapa 1: entrar na conta**
+**Passo 1: Iniciar sessão na conta**
 1. No Azure EA Portal, selecione o separador **Gerir** e navegue até **Subscrição** no menu superior.
 1. Verifique se tem sessão iniciada como proprietário desta conta.
 1. Clique em **+ Adicionar Subscrição**.
@@ -238,7 +238,7 @@ Na primeira vez que adicionar uma subscrição a uma conta, terá de fornecer as
 
 Na primeira vez que adicionar uma subscrição à conta, ser-lhe-á pedido que aceite o Contrato de Subscrição Online da Microsoft (MOSA) e um Plano de Taxas. Estas secções NÃO são Aplicáveis a Clientes do Contrato Enterprise, mas são atualmente necessárias para aprovisionar a subscrição. A Emenda da Inscrição do Contrato Microsoft Azure Enterprise prevalece sobre os itens acima e a sua relação contratual não será alterada. Selecione a caixa que indica que aceita os termos.
 
-**Etapa dois: atualizar o nome da assinatura**
+**Passo 2: Atualizar o nome da subscrição**
 
 Todas as novas subscrições serão adicionadas com o nome de subscrição “Microsoft Azure Enterprise” predefinido. É importante atualizar o nome da subscrição para a diferenciar das outras subscrições na Inscrição do Enterprise e garantir que é reconhecível nos relatórios ao nível da empresa.
 
@@ -259,11 +259,11 @@ Quando são adicionados novos Proprietários de Conta (AO) à inscrição pela p
 
 Este cenário ocorre quando o cliente implementou serviços ao abrigo do número de inscrição errado ou selecionou os serviços errados.
 
-Para confirmar que está a implementar ao abrigo da inscrição correta, pode consultar as informações das unidades incluídas na folha de preços. Entre como um administrador corporativo e clique em **relatórios** no painel de navegação esquerdo e selecione a guia **folha de preços** . Clique no ícone de download no canto superior direito e localize os números de peça de SKU do plano correspondente com filtro na coluna "quantidade incluída" e selecione valores maiores que "0".
+Para confirmar que está a implementar ao abrigo da inscrição correta, pode consultar as informações das unidades incluídas na folha de preços. Inicie sessão como Administrador do Enterprise, clique em **Relatórios** no painel de navegação esquerdo e selecione o separador **Folha de Preços**. Clique no ícone Transferir no canto superior direito, localize os números de peça das SKUs do Plano correspondentes ao filtro na coluna “Quantidade Incluída” e selecione os valores superiores a “0”.
 
 Confirme que o plano OMS é apresentado na folha de preços nas unidades incluídas. Se não existirem unidades incluídas para o plano OMS na inscrição, o plano OMS poderá estar noutra inscrição. Contacte o Suporte do Azure Enterprise Portal em [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
-Se as unidades incluídas para os serviços na folha de preços não corresponderem ao que você implantou, por exemplo, dados do Operational insights Premium analisados versus os dados padrão do insights operacionais analisados, isso significa que você pode ter implantado serviços que não são cobertos pelo plano, entre em contato com o suporte do Azure Enterprise Portal em [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) para que possamos ajudá
+Se as unidades incluídas para os serviços na folha de preços não corresponderem ao que implementou, por exemplo, Dados Analisados Premium de Informações Operacionais vs. Dados Analisados Standard de Informações Operacionais, significa que pode ter serviços implementados que não estão abrangidos pelo plano. Contacte o Suporte do Azure Enterprise Portal em [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) para podermos prestar-lhe mais apoio.
 
 **Serviços de SKUs do Plano aprovisionados na inscrição errada**
 

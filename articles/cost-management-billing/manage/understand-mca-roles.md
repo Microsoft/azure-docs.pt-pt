@@ -1,5 +1,5 @@
 ---
-title: Funções de cobrança para contratos de clientes da Microsoft – Azure
+title: Funções de faturação do Contrato de Cliente Microsoft – Azure
 description: Saiba mais sobre as funções de faturação para contas de faturação no Azure para Contratos de Cliente da Microsoft.
 author: amberbhargava
 manager: amberbhargava
@@ -11,17 +11,17 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: eaec828abe83164d18796cfb2e795a363353fab4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987944"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 
-Para gerir a sua conta de faturação para um Contrato de Cliente da Microsoft, utilize as funções descritas nas secções a seguir. Estas funções acrescem às funções incorporadas do Azure para controlar o acesso aos recursos. Para obter mais informações, veja as [Funções incorporadas dos recursos do Azure](../../role-based-access-control/built-in-roles.md).
+Para gerir a sua conta de faturação para um Contrato de Cliente da Microsoft, utilize as funções descritas nas secções a seguir. Estas funções acrescem às funções incorporadas do Azure para controlar o acesso aos recursos. Para obter mais informações, veja [Funções incorporadas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
-Este artigo aplica-se à conta de faturação de um Contrato de Cliente da Microsoft. Verifique se tem acesso a um Contrato de Cliente da Microsoft.
+Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da Microsoft. Verifique se tem acesso a um Contrato de Cliente da Microsoft.
 
 ## <a name="billing-role-definitions"></a>Definições de função de faturação
 
@@ -180,11 +180,11 @@ A tabela a seguir mostra qual a função necessária para realizar tarefas no co
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Gerir funções de faturação no portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/understand-mca-roles/billing-search-cost-management-billing.png)
+   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/understand-mca-roles/billing-search-cost-management-billing.png)
 
 3. Selecione **Controlo de acesso (IAM)** num âmbito, tal como conta de faturação, perfil de faturação ou secção de fatura, no qual pretende conceder acesso.
 
