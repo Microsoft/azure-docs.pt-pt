@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514124"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845480"
 ---
 ::: zone target="chromeless"
 
@@ -155,10 +155,28 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 
    Se se deparar com algum problema, contacte o Data Box Operations Asia através de adbo@microsoft.com. Indique o nome da tarefa no cabeçalho do assunto e o problema encontrado.
 
-3. Entregue a caixa ao estafeta. 
+3. Entregue a caixa ao estafeta.
 
+### <a name="in-self-managedtabin-selfmanaged"></a>[Em Envio Autónomo](#tab/in-selfmanaged)
+
+Se estiver a utilizar o Data Box Disk no Japão, Singapura, Coreia e Europa Ocidental e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções. 
+
+1. Aceda ao painel **Descrição geral** da encomenda no portal do Azure. Siga as instruções apresentadas quando selecionar **Agendar recolha**. Deverá ver um código de Autorização, o qual é utilizado no momento da entrega da encomenda.
+
+2. Envie um e-mail para a equipa de Operações do Azure Data Box através do seguinte modelo quando estiver pronto para devolver o dispositivo.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. A equipa de Operações do Azure Data Box trabalhará consigo para organizar a entrega no Datacenter do Azure.
 
 ::: zone target="docs"
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

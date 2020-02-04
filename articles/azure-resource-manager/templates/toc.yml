@@ -64,8 +64,6 @@
         - name: Integração contínua com os Pipelines do Azure
           displayName: DevOps
           href: template-tutorial-use-azure-pipelines.md
-        - name: Atualizar o script de Implementação do VS para o Az Powershell
-          href: update-visual-studio-deployment-script.md
         - name: Utilize as práticas recomendadas de implementação segura
           displayName: adm
           href: deployment-manager-tutorial.md
@@ -145,6 +143,8 @@
           href: use-vs-code-to-create-template.md
         - name: Visual Studio
           href: create-visual-studio-deployment-project.md
+        - name: Atualizar o script de Implementação do VS para o módulo Az
+          href: update-visual-studio-deployment-script.md
         - name: IntelliJ IDEA
           href: create-templates-use-intellij.md
     - name: Implementar modelos

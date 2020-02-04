@@ -1,14 +1,14 @@
 ---
-title: Índice de exemplos de Esquema
+title: Índice de exemplos de esquema
 description: Índice de exemplos de conformidade e normas para a implementação de ambientes, políticas e fundações do Framework de Adoção da Cloud com o Azure Blueprints.
-ms.date: 12/05/2019
+ms.date: 01/10/2020
 ms.topic: sample
-ms.openlocfilehash: a0be956037f6b1ee5229ecde7b1491f552113866
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa5f02af6a0e59359d6bc3c2d24515fea535a0fa
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436567"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938301"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -21,6 +21,7 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Fornece proteções para garantir a conformidade com o Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Fornece um conjunto de políticas para ajudar a cumprir as recomendações do CIS Microsoft Azure Foundations Benchmark. |
 | [FedRAMP Moderado](./fedramp-m/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o FedRAMP Moderado. |
+| [FedRAMP Alto](./fedramp-h/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o FedRAMP Alto. |
 | [HIPAA HITRUST](./HIPAA-HITRUST/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o HIPAA HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Fornece proteções para conformidade com IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Fornece proteções para conformidade com a ISO 27001. |
@@ -37,12 +38,12 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 
 ![Estratégia de exemplos de esquema](../media/blueprint-samples-strategy.png)
 
-Os esquemas Fundação do CAF e Zona de destino de migração do CAF pressupõem que o cliente está a preparar uma subscrição individual limpa existente para migrar recursos/cargas de trabalho no local para o Azure.
-(Regiões A e B na Figura acima).  
+Os esquemas Fundação do CAF e Zona de destino de migração do CAF pressupõem que o cliente está a preparar uma subscrição individual limpa já existente para migrar ativos e cargas de trabalho no local para o Azure.
+(Regiões A e B na figura).  
 
 Há a oportunidade de iterar sobre os exemplos de esquema e de procurar personalizações que um cliente esteja a aplicar. Existe também a oportunidade de abordar proativamente esquemas específicos de uma indústria como, por exemplo, serviços financeiros e comércio eletrónico (parte superior da Região B). Da mesma forma, queremos criar esquemas que sirvam considerações arquiteturais complexas, tais como várias subscrições, elevada disponibilidade, recursos entre regiões e clientes que estejam a implementar controlos em subscrições e recursos existentes (Regiões C e D).
 
-Existem exemplos de esquema adequados ao cenário de cliente em que os requisitos de conformidade são exigentes e as complexidades de arquitetura são elevadas (Região E na Figura acima). A Região F acima corresponde aos clientes e parceiros que estejam a tirar partido de exemplos de esquema e a personalizá-los para servir as respetivas necessidades exclusivas.
+Existem exemplos de esquema adequados ao cenário de cliente em que os requisitos de conformidade são exigentes e as complexidades de arquitetura são elevadas (Região E na Figura). A Região F na figura corresponde aos clientes e parceiros que estejam a tirar partido dos exemplos de esquema e a personalizá-los para servir as respetivas necessidades individuais.
 
 ## <a name="next-steps"></a>Passos seguintes
 

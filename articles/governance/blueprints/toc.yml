@@ -63,6 +63,17 @@
         - name: Passos para implementar
           displayName: 'standards, fedramp, moderate'
           href: ./samples/fedramp-m/deploy.md
+    - name: FedRAMP Alto
+      items:
+        - name: Descrição geral
+          displayName: 'standards, fedramp, high'
+          href: ./samples/fedramp-h/index.md
+        - name: Mapeamento de controlo
+          displayName: 'standards, fedramp, high'
+          href: ./samples/fedramp-h/control-mapping.md
+        - name: Passos para implementar
+          displayName: 'standards, fedramp, high'
+          href: ./samples/fedramp-h/deploy.md
     - name: HIPAA HITRUST
       items:
         - name: Descrição geral

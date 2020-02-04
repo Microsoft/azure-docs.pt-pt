@@ -1,9 +1,9 @@
-- name: Solução VMware da CloudSimple
+- name: VMware Solution by CloudSimple
   href: /azure/vmware-cloudsimple
   items:
     - name: Descrição geral
       items:
-        - name: O que é a Solução VMware da CloudSimple
+        - name: O que é a VMware Solution by CloudSimple
           href: cloudsimple-vmware-solutions-overview.md
         - name: Principais conceitos para administração
           href: key-concepts.md
@@ -136,6 +136,8 @@
               href: on-premises-dns-setup.md
             - name: Configurar ligações VPN Site a Site de elevada disponibilidade
               href: high-availability-vpn-connection.md
+            - name: Configuração do DNS de Cloud Privada para o local
+              href: private-cloud-dns-forwarding.md
         - name: Plataforma VMware
           items:
             - name: Conhecer o modelo de permissão da Cloud Privada
