@@ -47,8 +47,9 @@
     - name: Configurar a Autenticação multiaplicações do Azure AD para uma VPN de Utilizador (Pré-visualização)
       href: openvpn-azure-ad-tenant-multi-app.md
     - name: Configurar a automatização (parceiros de WAN Virtual)
-    - name: Transferir perfis de VPN globais e baseados em hub
       href: virtual-wan-configure-automation-providers.md
+    - name: Transferir perfis de VPN globais e baseados em hub
+      href: global-hub-profile.md
     - name: Configurar o encaminhamento
       items:
         - name: Encaminhar o tráfego de um hub virtual para NVA

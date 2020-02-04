@@ -12,14 +12,14 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
-  ms.date: 01/16/2019
+  ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: e361d50125dfebe9f7bf434ff4880d57ee5453c5
-  ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+  ms.openlocfilehash: 67cfa12683776490bbf0ddf27bc2ce2b1a3779a0
+  ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/20/2020
-  ms.locfileid: "76281058"
+  ms.lasthandoff: 02/04/2020
+  ms.locfileid: "76986551"
 landingContent:
 - title: Acerca da API de Análise de Texto
   linkLists:
@@ -102,15 +102,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar C#
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#named-entity-recognition-public-preview
+      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#named-entity-recognition-ner
     - text: Utilizar o Python
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#named-entity-recognition-public-preview
+      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#named-entity-recognition-ner
     - text: Com Node.js
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#named-entity-recognition-public-preview
+      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#named-entity-recognition-ner
     - text: Utilizar o Go
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#named-entity-recognition-public-preview
+      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#named-entity-recognition-ner
     - text: Utilizar o Ruby
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#named-entity-recognition-public-preview
+      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#named-entity-recognition-ner
   - linkListType: how-to-guide
     links:
     - text: Reconhecimento de entidades

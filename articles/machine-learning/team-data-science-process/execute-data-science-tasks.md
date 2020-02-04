@@ -19,18 +19,18 @@ ms.locfileid: "76722208"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelação e implementação
 
-Tarefas de ciência de dados típicos incluem a exploração de dados, modelação e implementação. Este artigo mostra como utilizar o **interativa de exploração de dados, análise e relatórios (IDEAR)** e **automatizada de modelagem e relatórios (AMAR)** utilitários para concluir várias tarefas de ciência de dados comuns Por exemplo, a exploração interativa de dados, análise de dados, relatórios e criação de um modelo. As opções de implantação de um modelo num ambiente de produção podem incluir:
+Tarefas de ciência de dados típicos incluem a exploração de dados, modelação e implementação. Este artigo mostra como utilizar os serviços interativos de **exploração, análise e reporte de dados (IDEAR)** e **modelação e reporte automatizado (AMAR)** para completar várias tarefas comuns de ciência de dados, tais como exploração interativa de dados, análise de dados, relatórios e criação de modelos. As opções de implantação de um modelo num ambiente de produção podem incluir:
 
 - [Azure Machine Learning](../index.yml)
-- [SQL Server com os serviços de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
+- [SQL-Server com serviços ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a> exploração 
+## 1. <a name='DataQualityReportUtility-1'></a> Exploração 
 
 Um cientista de dados pode realizar a exploração e relatórios de diversas formas: através da utilização de bibliotecas e os pacotes disponíveis para o Python (matplotlib por exemplo) ou com R (ggplot ou reticulado, por exemplo). Os cientistas de dados podem personalizar esse código para atender às necessidades de exploração de dados para cenários específicos. As necessidades para lidar com dados estruturados são diferentes que para dados não estruturados, como texto ou imagens. 
 
-Produtos como Azure Machine Learning também fornecem [preparação de dados avançada](../how-to-create-register-datasets.md) para Wrangling e exploração de dados, incluindo a criação de recursos. O usuário deve decidir sobre as ferramentas, bibliotecas e pacotes que melhor suite suas necessidades. 
+Produtos como o Azure Machine Learning também fornecem [uma preparação avançada de dados](../how-to-create-register-datasets.md) para a discussão e exploração de dados, incluindo a criação de recursos. O usuário deve decidir sobre as ferramentas, bibliotecas e pacotes que melhor suite suas necessidades. 
 
 O resultado final no final desta fase é um relatório de exploração de dados. O relatório deve fornecer uma visão razoavelmente abrangente dos dados a serem usados para modelagem e uma avaliação se é adequados para avançar para o passo de modelagem de dados. Os utilitários de processo de ciência de dados de equipa (TDSP) abordados nas seções a seguir para exploração semiautomática, modelagem e relatórios também fornecem relatórios de modelagem e exploração de dados padronizada. 
 
@@ -38,10 +38,10 @@ O resultado final no final desta fase é um relatório de exploração de dados.
 
 Este R com base em markdown ou um utilitário baseado no bloco de notas do Python fornece uma ferramenta de flexível e interativa para avaliar e explorar os conjuntos de dados. Os utilizadores podem rapidamente gerar relatórios do conjunto de dados com codificação mínima. Os utilizadores podem clicar de botões para exportar os resultados de exploração na ferramenta de interativo para um relatório final, o que pode ser distribuído aos clientes ou utilizado para tomar decisões sobre quais variáveis para incluir o passo de modelagem subsequentes.
 
-Neste momento, a ferramenta só funciona em quadros de dados na memória. Um ficheiro YAML é necessário especificar os parâmetros de conjunto de dados a ser explorada. Para obter mais informações, consulte [IDEAR em utilitários de ciência de dados do TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
+Neste momento, a ferramenta só funciona em quadros de dados na memória. Um ficheiro YAML é necessário especificar os parâmetros de conjunto de dados a ser explorada. Para mais informações, consulte [idear em TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a> modelagem
+## 2. <a name='ModelingUtility-2'></a> Modelação
 
 Existem vários kits de ferramentas e os pacotes de modelos de treinamento numa variedade de linguagens. Os cientistas de dados devem se sentir livres para usar a cenários de produção e de casos de utilização que ever aqueles que estão à vontade, enquanto as considerações de desempenho em relação à precisão e latência são cumpridas para as empresas e relevantes.
 
@@ -51,7 +51,7 @@ A secção de gestão de modelo seguinte mostra como ter um sistema para regista
 
 ### <a name="model-training-modeling-and-reporting-using-the-amar-utility"></a>Treinamento de modelo: modelagem e relatórios usando o utilitário AMAR
 
-O [automatizada de modelagem e utilitário de geração de relatórios (AMAR)](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) fornece uma ferramenta semiautomática personalizável para executar a criação de um modelo com o hyper-parâmetro varrimento e comparar a precisão desses modelos. 
+O Utilitário automatizado de [Modelação e Reportagem (AMAR)](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) fornece uma ferramenta personalizável e semi-automatizada para realizar a criação de modelos com varredura de hiperparâmetro e comparar a precisão desses modelos. 
 
 O utilitário de criação de modelo é um ficheiro de Markdown de R que pode ser executado para produzir independente de HTML de saída, com uma tabela de conteúdos para uma navegação fácil por meio de suas seções diferentes. Três algoritmos são executados quando o ficheiro de Markdown é executado (knit): regressão regularized usando o glmnet empacotar, aleatória floresta utilizando o pacote de randomForest e priorização baseada em árvores utilizando o pacote de xgboost). Cada um desses algoritmos produz um modelo preparado. A precisão desses modelos é então comparada e os gráficos de importância relativa de funcionalidade são comunicados. Atualmente, existem dois utilitários: um é para uma tarefa de classificação binária e um para uma tarefa de regressão. As principais diferenças entre eles é os parâmetros de controle da forma e métricas de precisão são especificadas para essas tarefas de aprendizagem. 
 
@@ -68,17 +68,17 @@ Um ficheiro YAML é utilizado para especificar:
 
 O número de algoritmos, o número de subconjuntos de otimização, os hiper parâmetros e o número de conjuntos de hyper-parâmetro varrê sobre também podem ser modificados no ficheiro Yaml para executar rapidamente os modelos. Por exemplo, podem ser executadas com um número inferior de subconjuntos de CV, um número inferior de conjuntos de parâmetros. Se ele é garantido de tarefas também podem ser executadas mais abrangente com um número superior de subconjuntos de CV ou um número maior de conjuntos de parâmetros.
 
-Para obter mais informações, consulte [automatizada de modelagem e relatórios utilitário em utilitários de ciência de dados do TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
+Para mais informações, consulte Modelação Automatizada e Utilidade de Reporte em Utilitários de Ciência de [Dados Da TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
 
 ### <a name="model-management"></a>Gestão de modelos
 Depois de tem sido construídos vários modelos, normalmente, tem de ter um sistema para registar e gerir os modelos. Normalmente, precisa de uma combinação de scripts ou APIs e um sistema back-end de base de dados ou controle de versão. Algumas opções que pode considerar para essas tarefas de gestão são:
 
-1. [O Azure Machine Learning - serviço de gestão de modelos](../index.yml)
+1. [Azure Machine Learning - serviço de gestão de modelos](../index.yml)
 2. [ModelDB do MIT](https://mitdbg.github.io/modeldb/) 
-3. [SQL-server como um sistema de gestão de modelo](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
+3. [SQL-server como um sistema de gestão de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a> implantação
+## 3. <a name='Deployment-3'></a> Implantação
 
 Implantação de produção permite que um modelo para desempenhar um papel ativo numa empresa. Predições a partir de um modelo implementado podem ser utilizadas para a tomada de decisões comerciais.
 
@@ -86,8 +86,8 @@ Implantação de produção permite que um modelo para desempenhar um papel ativ
 Existem várias abordagens e plataformas para colocar os modelos em produção. Aqui estão algumas opções:
 
 
-- [Implantação de modelo no Azure Machine Learning](../how-to-deploy-and-where.md)
-- [Implementação de um modelo no SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Implantação de modelos em Aprendizagem automática Azure](../how-to-deploy-and-where.md)
+- [Implementação de um modelo no servidor SQL](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 > [!NOTE]
@@ -95,21 +95,21 @@ Existem várias abordagens e plataformas para colocar os modelos em produção. 
 >
 >
 
-Mais exemplos estão disponíveis instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Se estão listadas e estão associados ao descrições em miniatura da [instruções passo a passo do exemplo](walkthroughs.md) artigo. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente.
+Outros exemplos estão disponíveis em passadiços que demonstram todos os passos no processo para **cenários específicos.** Estão listados e ligados com descrições de miniaturas no artigo [de walkthroughs exemplo.](walkthroughs.md) Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente.
 
 > [!NOTE]
-> Para ver a implementação com o Azure Machine Learning Studio, consulte [implementar um serviço web do Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+> Para ser implementado utilizando o Azure Machine Learning Studio, consulte [A implantação de um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 >
 >
 
-### <a name="ab-testing"></a>Testes A/B
-Quando vários modelos na produção, pode ser útil realizar [A testes a / B](https://en.wikipedia.org/wiki/A/B_testing) para comparar o desempenho dos modelos. 
+### <a name="ab-testing"></a>A testes a / B
+Quando vários modelos estão em produção, pode ser útil realizar [testes de A/B](https://en.wikipedia.org/wiki/A/B_testing) para comparar o desempenho dos modelos. 
 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Controlar o progresso dos projetos de ciência de dados](track-progress.md) mostra como um cientista de dados poderá acompanhar o progresso de um projeto de ciência de dados.
+Acompanhar o [progresso dos projetos de ciência de dados](track-progress.md) mostra como um cientista de dados pode acompanhar o progresso de um projeto de ciência de dados.
 
-[Modelo de operação e CI/CD](ci-cd-flask.md) mostra como o CI/CD podem ser executada com modelos de desenvolvidos.
+A operação do modelo e o [CI/CD](ci-cd-flask.md) mostram como o CI/CD pode ser realizado com modelos desenvolvidos.
 
 

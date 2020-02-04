@@ -25,7 +25,7 @@ Azure Cosmos DB é uma base de dados distribuída rápida e flexível que escala
 
 Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de dados?" Considere as seguintes opções:
 
-## <a name="networking"></a>Funcionamento em Rede
+## <a name="networking"></a>Redes
 <a id="direct-connection"></a>
 
 1. **Política de ligação: Utilize o modo de ligação direta**
@@ -47,7 +47,7 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
      |Modo de ligação  |Protocolo apoiado  |SDKs suportados  |Porto API/Serviço  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL(443), Mongo (10250, 10255, 10256), Quadro (443), Cassandra (10350), Gráfico (443)    |
-     |Direto    |     TCP    |  .NET SDK    | Portos dentro de 10.000-20.000 |
+     |Direct    |     TCP    |  SDK .NET    | Portos dentro de 10.000-20.000 |
 
      A Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto em HTTPS. Além disso, oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível através do SDK cliente .NET. O protocolo TCP utiliza o SSL para autenticação inicial e encriptação do tráfego. Para um melhor desempenho, utilize o protocolo TCP sempre que possível.
 
@@ -207,7 +207,7 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
 ## <a name="throughput"></a>Débito
 <a id="measure-rus"></a>
 
-1. **Medir e ajustar para unidades de solicitação menores/segundo uso**
+1. **Medir e sintonizar para unidades de pedido mais baixos/segunda utilização**
 
     A Azure Cosmos DB oferece um conjunto rico de operações de base de dados, incluindo consultas relacionais e hierárquicas com UDFs, procedimentos armazenados e gatilhos – todos operando nos documentos dentro de uma coleção de bases de dados. O custo associado a cada uma destas operações varia com base na CPU, E/S e memória necessárias para concluir a operação. Em vez de pensar e gerir recursos de hardware, pode pensar numa unidade de pedido (RU) como uma medida única para os recursos necessários para realizar várias operações de base de dados e servir um pedido de aplicação.
 
@@ -249,7 +249,7 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
 
     A taxa de pedido (isto é, custo de processamento de pedidos) de uma determinada operação está diretamente correlacionada com a dimensão do documento. As operações em grandes documentos custam mais do que as operações para pequenos documentos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para uma aplicação de amostra usada para avaliar o Azure Cosmos DB para cenários de alto desempenho em algumas máquinas de clientes, consulte performance e testes de [escala com Azure Cosmos DB](performance-testing.md).
 
 Além disso, para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [A Partilha e Escalaem em Azure Cosmos DB](partition-data.md).

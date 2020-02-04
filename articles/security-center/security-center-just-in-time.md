@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 782a23ba95519438dd369d3f69f52f7526461821
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 69a5452134e290f2072a9316ce1f067296ed2320
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156765"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939398"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando just-in-time
 
-O acesso à máquina virtual (VM) just-in-time (JIT) pode ser utilizado para bloquear o tráfego de entrada nas VMs do Azure, ao reduzir a exposição a ataques e ao proporcionar acesso fácil para ligar a VMs quando necessário.
+O acesso à máquina virtual (VM) just-in-time (VM) pode ser utilizado para bloquear o tráfego de entrada para os seus VMs Azure, reduzindo a exposição a ataques, proporcionando um fácil acesso à ligação aos VMs quando necessário.
 
 > [!NOTE]
 > O recurso just-in-time está disponível na camada Standard da central de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
@@ -48,7 +48,7 @@ Quando um usuário solicita acesso a uma VM, a central de segurança verifica se
 
 | Para permitir que um usuário: | Permissões a serem definidas|
 | --- | --- |
-| Configurar ou editar uma política JIT para uma VM | *Atribua estas ações à função:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> No escopo de uma assinatura ou grupo de recursos ou VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+| Configurar ou editar uma política JIT para uma VM | *Atribua estas ações à função:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> No âmbito de uma subscrição ou grupo de recursos de VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Solicitar acesso JIT a uma VM | *Atribua estas ações ao usuário:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  No escopo de uma assinatura ou grupo de recursos ou VM:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  No escopo de uma assinatura ou grupo de recursos ou VM:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 
 
@@ -148,7 +148,7 @@ Para editar uma política just-in-time existente de uma VM:
 
 1. Selecione **Editar**.
 1. Em **configuração de acesso à VM JIT**, você pode editar as configurações existentes de uma porta já protegida ou adicionar uma nova porta personalizada. 
-  ![acesso à VM JIT](./media/security-center-just-in-time/edit-policy.png)
+  ![jit vm acesso](./media/security-center-just-in-time/edit-policy.png)
 
 ## <a name="audit-jit-access-activity-in-security-center"></a>Auditar atividade de acesso JIT na central de segurança
 
