@@ -1,19 +1,19 @@
 ---
 title: Conectar o código do dispositivo de exemplo do IoT Plug and Play preview ao Hub IoT | Microsoft Docs
 description: Usando C# o (.net), compile e execute o código do dispositivo de exemplo de visualização de IOT plug and Play que se conecta a um hub IOT. Use a ferramenta Azure IoT Explorer para exibir as informações enviadas pelo dispositivo para o Hub.
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b32fc103b4ed4d7058c8af42ffa126ee5527f45a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: b86f58a1b6b9e3a952861dbe7dbeef4dfe06a644
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550869"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964841"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Início rápido: conectar um aplicativo de dispositivo de visualização de Plug and Play de IoTC#de exemplo ao Hub IOT ()
 
@@ -85,7 +85,7 @@ Você vê mensagens dizendo que o dispositivo foi registrado com êxito e está 
 
 1. De volta à página Visão geral de **dispositivos** , localize a identidade do dispositivo que você criou anteriormente. Com o aplicativo do dispositivo ainda em execução no prompt de comando, verifique se o **estado da conexão** do dispositivo no Azure IOT Explorer está relatando como _conectado_ (caso contrário, pressione **Atualizar** até que ele esteja). Selecione o dispositivo para exibir mais detalhes.
 
-1. Expanda a interface com ID **urn: csharp_sdk_sample: EnvironmentalSensor: 1** para revelar a interface e a IOT plug and Play primitivos — Propriedades, comandos e telemetria.
+1. Expanda a interface com **urna ID:csharp_sdk_sample:EnvironmentalSensor:1** para revelar a interface e ioT Plug e Reproduzir primitivos - propriedades, comandos e telemetria.
 
 [!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
 
