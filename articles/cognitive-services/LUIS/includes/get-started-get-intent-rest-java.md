@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a967fdb4b9c742a0ac7f372e5cd7eeb99171a906
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 1bd7a2bb6d3393aca397686a2817f1dcd5f89a38
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966868"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987803"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ ms.locfileid: "76966868"
 
 1. Assine no [portal Azure](https://portal.azure.com)
 1. Clique em [criar **compreensão linguística** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Introduza todas as definições necessárias para a tecla Runtime:
+1. Introduza todas as definições necessárias para a tecla **Runtime:**
 
     |Definição|Valor|
     |--|--|
@@ -73,7 +73,7 @@ Use Java para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) 
                 // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
                 String AppId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
 
-                // Add your endpoint key
+                // Add your prediction Runtime key
                 String Key = "YOUR-KEY";
 
                 // Add your endpoint, example is your-resource-name.api.cognitive.microsoft.com
@@ -117,11 +117,11 @@ Use Java para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) 
     }
     ```
 
-1. Substitua os valores `YOUR-KEY` e `YOUR-ENDPOINT` pela sua própria chave de previsão e ponto final.
+1. Substitua os valores `YOUR-KEY` e `YOUR-ENDPOINT` pela sua própria chave de previsão **Runtime** e ponto final.
 
     |Proteção das|Finalidade|
     |--|--|
-    |`YOUR-KEY`|A tua chave de previsão de 32 caracteres.|
+    |`YOUR-KEY`|A tua **chave** de previsão de 32 caracteres.|
     |`YOUR-ENDPOINT`| O seu ponto final de URL de previsão. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 
