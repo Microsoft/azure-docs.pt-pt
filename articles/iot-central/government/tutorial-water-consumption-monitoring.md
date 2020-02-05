@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d31ef856103d809fc02a183603bc45f9d94939c8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1bad4ab6320e757ac766776a95b8dbe6ebaa3259
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990569"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016430"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Tutorial: Criar uma aplicação de monitorização do consumo de água na IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial guia-o a criar uma aplicação de monitorização do consumo de água Central Azure IoT a partir do modelo central de aplicação de monitorização do consumo de água IoT. 
 
-O tutorial aprenderá a: 
+Neste tutorial, vai aprender a: 
 
 > [!div class="checklist"]
 > * Utilize o modelo de **monitorização** do consumo de água central Azure IoT para criar a sua aplicação de monitorização do consumo de água
@@ -34,12 +34,12 @@ O tutorial aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar este tutorial de que precisa:
+Para concluir este tutorial, precisa de:
 -  Recomenda-se uma subscrição Azure. Se não tiver uma subscrição Azure, pode criar uma na [página de inscrição](https://aka.ms/createazuresubscription)do Azure .
 
 ## <a name="create-water-consumption-monitoring-app-in-iot-central"></a>Criar app de monitorização do consumo de água na IoT Central
 
-Nesta secção, utilizaremos o modelo de **monitorização** do consumo de água central Azure IoT para criar a sua aplicação de monitorização do consumo de água na IoT Central.
+Nesta secção, utiliza o modelo de **monitorização** do consumo de água central Azure IoT para criar a sua aplicação de monitorização do consumo de água na IoT Central.
 
 Para criar uma nova aplicação de monitorização do consumo de água Azure IoT Central:  
 
@@ -60,13 +60,14 @@ Para criar uma nova aplicação de monitorização do consumo de água Azure IoT
     * **URL**: IoT Central irá autogenizar um URL para si com base no nome da aplicação. Pode optar por atualizar o URL ao seu gosto. Também pode alterar o URL mais tarde. 
     * Se tiver uma assinatura Azure, insira o seu *Diretório, subscrição Azure e Região.* Se não tiver uma subscrição, pode ativar um **teste gratuito de 7** dias e completar as informações de contacto necessárias.  
 
-    Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](../preview/quick-deploy-iot-central.md).
+    Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](../core/quick-deploy-iot-central.md).
 
 5. Clique em **Criar** o botão na parte inferior da página. 
 
     ![Página da Aplicação do Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
 
     ![Azure IoT Central Criar Informação sobre Faturação de Aplicações](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
+
 6. Criou agora uma aplicação de monitorização do consumo de água utilizando o modelo de **monitorização** do consumo de água central Do Azure IoT.
 
 Parabéns! Terminou de criar a sua aplicação de monitorização da qualidade da água, que vem com pré-configuração:
@@ -94,7 +95,7 @@ O tablier é composto por diferentes tipos de azulejos:
 
 * **Azulejo KPI**de fluxo de água médio : o azulejo KPI está configurado para mostrar como exemplo *a média nos últimos 30 minutos*. Pode personalizar azulejos KPI e definir para um tipo e intervalo de tempo diferentes.
 
-* Em seguida, tem direito no *painel* de comando de comando das telhas para **fechar**válvula, **válvula aberta,** ou **definir posição da válvula**. Clicar nos comandos irá levá-lo à página de comando do dispositivo simulado. Na IoT Central um *Comando* é um tipo de capacidade de *dispositivo* que iremos explorar mais tarde na secção de modelo de **dispositivo** deste tutorial.
+* Em seguida, tem direito no *painel* de comando de comando das telhas para **fechar**válvula, **válvula aberta,** ou **definir posição da válvula**. Clicar nos comandos irá levá-lo à página de comando do dispositivo simulado. Na IoT Central, um *Comando* é um tipo de capacidade de *dispositivo,* que pode explorar mais tarde na secção de modelo de **dispositivo** deste tutorial.
 
 *  **Mapa**da área de distribuição de água : o mapa está a usar o Azure Maps, que pode configurar diretamente no Azure IoT Central. O azulejo do mapa está a mostrar a localização do dispositivo. Tente pairar sobre o mapa e experimente os controlos sobre o mapa, como *zoom-in,* *zoom-out* ou *expandir*. 
 
@@ -106,7 +107,7 @@ O tablier é composto por diferentes tipos de azulejos:
 
 * **Redefinir**o conteúdo do limiar de alerta: pode incluir a chamada para os azulejos de conteúdo de ação que incorporam o link numa página de ação. Neste caso, o limiar de alerta de reset irá levá-lo à aplicação **Jobs** onde você pode executar atualizações para propriedades de dispositivos, que iremos explorar mais tarde na secção de **trabalhos configurados** deste tutorial.
 
-* **Azulejos**de propriedade : o painel de instrumentos exibe **informações operacionais da Valve,** **limiares**de alerta de fluxo e **informações** de manutenção que são propriedades do dispositivo.  
+* **Telhas de propriedade**: o painel de instrumentos exibe **informações operacionais da Valve,** **limiares de alerta de fluxo**e **informações de manutenção**. 
 
 
 ### <a name="customize-dashboard"></a>Personalizar dashboard 
@@ -127,7 +128,7 @@ A aplicação de **monitorização** do consumo de água vem com dois modelos de
 Para ver o modelo do dispositivo:
 
 1. Clique nos **modelos** do dispositivo a partir do painel de navegação esquerdo da sua aplicação na IoT Central. 
-    Na lista de modelos do dispositivo, verá dois modelos de dispositivo **Flow meter** e **Smart Valve**
+    Na lista de modelos do Dispositivo, você verá dois modelos de dispositivo **Flow meter** e **Smart Valve**
 
    ![Modelo de dispositivo](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
 
@@ -147,7 +148,7 @@ Tente personalizar o seguinte:
 ### <a name="add-a-cloud-property"></a>Adicione uma propriedade em nuvem 
 1. Navegue para a **propriedade Cloud** a partir do menu de modelo do dispositivo
 2. Adicione uma nova propriedade em nuvem clicando **+ Adicionar Propriedade cloud**. 
-    Na IoT Central, pode adicionar uma propriedade relevante para o dispositivo. Como exemplo, uma propriedade em nuvem pode ser um limiar de alerta específico para a área de instalação, informações de ativos ou informações de manutenção, etc. 
+    Na IoT Central, pode adicionar uma propriedade relevante para o dispositivo. Como exemplo, uma propriedade em nuvem pode ser um limiar de alerta específico para a área de instalação, informações de ativos ou outras informações de manutenção. 
 3. **Guardar** quaisquer alterações 
  
 ### <a name="views"></a>Vistas 
@@ -193,7 +194,7 @@ A aplicação de **monitorização** do consumo de água que criou tem três reg
 
    ![Regras](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-2. Selecione e clique em **alerta de pH alto,** que é uma das regras pré-configuradas na aplicação.
+2. Selecione e clique em **alerta de pH elevado,** que é uma das regras pré-configuradas na aplicação.
 
      ![Alerta de pH elevado](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 

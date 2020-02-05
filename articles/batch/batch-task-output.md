@@ -2,8 +2,8 @@
 title: Persistir na produção de trabalho e tarefa para uma loja de dados - Azure Batch
 description: Saiba mais sobre opções diferentes para persistir dados de saída de tarefas e trabalhos do lote. Você pode manter os dados no armazenamento do Azure ou em outro armazenamento de dados.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 242121ecffa76029b3e10a291ac08347da0c97ce
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 0809a838f1d34491eb4e276ce356eded9b98756e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935792"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022839"
 ---
 # <a name="persist-job-and-task-output"></a>Saída persistente de função e tarefa
 

@@ -8,14 +8,19 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a9817205a419e2b61af66dba16d09620e2c1dec9
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 2bac317d6a3a5c6895a3cea4dae22694b603cabf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310871"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024029"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas de habilitação ou exibição de Application Insights Profiler
+
+## <a name="active-issues"></a>Questões ativas
+
+* O perfil para ASP.NET aplicações Core 3.x ainda não foi suportado.
+  * Se tiver de ter o Profiler ligado, uma suticidade é utilizar o Perfil de Insights de [Aplicação para ASP.NET Core](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore). O perfilr está rotulado para Linux, mas também funciona com aplicações .NET Core 3.0+ no Windows. Para mais detalhes, consulte [versões suportadas](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions).
 
 ## <a id="troubleshooting"></a>Solução de problemas gerais
 
@@ -108,11 +113,11 @@ Quando você configura o Profiler, as atualizações são feitas nas configuraç
 
 No momento, você pode habilitar o Profiler em um máximo de quatro aplicativos Web do Azure e slots de implantação em execução no mesmo plano de serviço. Se você tiver mais de quatro aplicativos Web em execução em um plano do serviço de aplicativo, o profiler poderá gerar um *Microsoft. Service Profile. Exceptions. TooManyETWSessionException*. O criador de perfil é executado separadamente para cada aplicativo Web e tenta iniciar uma sessão ETW (rastreamento de eventos para Windows) para cada aplicativo. Mas um número limitado de sessões de ETW pode estar ativo ao mesmo tempo. Se o webjob do criador de perfil relatar muitas sessões de criação de perfil ativas, mova alguns aplicativos Web para um plano de serviço diferente.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Erro de implantação: diretório não vazio:\\Home\\site\\wwwroot\\App_Data\\Jobs
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Erro de implantação: Diretório Não Vazio 'D:\\local de\\\\wwwroot\\App_Data\\empregos'
 
 Se você estiver reimplantando seu aplicativo Web em um recurso de aplicativos Web com o criador de perfil habilitado, você poderá ver a seguinte mensagem:
 
-*Diretório não vazio:\\Home\\site\\wwwroot\\App_Data\\Jobs*
+*Diretório Não Vazio 'D: site\\\\casa\\wwwroot\\App_Data\\empregos'*
 
 Esse erro ocorrerá se você executar Implantação da Web de scripts ou do pipeline de implantação do Azure DevOps. A solução é adicionar os seguintes parâmetros de implantação adicionais à tarefa de Implantação da Web:
 

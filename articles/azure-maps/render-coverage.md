@@ -1,6 +1,6 @@
 ---
 title: Cobertura de renderização | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre regiões com Microsoft Azure mapas de renderização com cobertura junto com seus níveis de detalhes renderizados.
+description: Neste artigo, conheça regiões com o Microsoft Azure Maps que prestam cobertura juntamente com o seu nível de detalhes renderizados.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910675"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025457"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Azure Maps
 
-O Azure Maps usa blocos de rasterização e blocos de vetor para criar mapas. Em sua resolução mais baixa, o mundo inteiro se ajusta a um único bloco. Em sua resolução mais alta, um único bloco representa 38 metros quadrados. Ao ampliar um mapa, portanto, você pode ver cada vez mais detalhes sobre continentes, regiões, cidades e ruas individuais. Para obter mais informações, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
+O Azure Maps usa blocos de rasterização e blocos de vetor para criar mapas. Na resolução mais baixa, o mundo inteiro encaixa num único azulejo. Na resolução mais alta, um único azulejo representa 38 metros quadrados. À medida que se aproxima, verá mais detalhes sobre continentes, regiões, cidades e ruas individuais. Para mais informações sobre azulejos, consulte os níveis de [zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
 
-No entanto, o Maps não tem o mesmo nível de informações e precisão para todas as regiões. As tabelas a seguir fornecem informações sobre o nível de detalhes renderizados que você pode esperar de cada região.
+No entanto, o Maps não tem o mesmo nível de informações e precisão para todas as regiões. As tabelas seguintes detalham o nível de informação que pode fornecer para cada região.
 
-## <a name="legend"></a>Legenda
+## <a name="legend"></a>Lenda
 
 | Símbolo | Significado |
 |--------|---------|
@@ -43,11 +43,11 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Cabo Verde                       | ✓ | ✓ |
 | Camarões                         | ✓ | ✓ |
 | República Centro-Africana         | ✓ | Ø |
-| Chade                             | ✓ | Ø |
-| Comoros                          | ✓ | Ø |
+| Rio Chade                             | ✓ | Ø |
+| Comores                          | ✓ | Ø |
 | República Democrática do Congo | ✓ | ✓ |
 | Costa do Marfim (Côte d’Ivoire)                    | ✓ | Ø |
-| Jibuti                         | ✓ | Ø |
+| Djibuti                         | ✓ | Ø |
 | Egito                            | ✓ | ✓ |
 | Guiné Equatorial                | ✓ | Ø |
 | Eritreia                          | ✓ | Ø |
@@ -66,7 +66,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Mali                             | ✓ | ✓ |
 | Mauritânia                       | ✓ | ✓ |
 | Maurícia                        | ✓ | ✓ |
-| Maiote                          | ✓ | ✓ |
+| Mayotte                          | ✓ | ✓ |
 | Marrocos                          | ✓ | ✓ |
 | Moçambique                       | ✓ | ✓ |
 | Namíbia                          | ✓ | ✓ |
@@ -112,7 +112,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
-| Domínica                  | ✓ | ✓ |
+| Dominica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Equador                   | ✓ | ✓ |
 | Ilhas Malvinas (Malvinas) | ✓ | ✓ |
@@ -139,7 +139,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | São Cristóvão e Neves     | ✓ | ✓ |
 | Santa Lúcia               | ✓ | ✓ |
 | Saint Martin (francês)     | ✓ | ✓ |
-| São Pedro e Miquelon | ✓ | ✓ |
+| São Pierre e Miquelon | ✓ | ✓ |
 | São Vicente e Granadinas | ✓ | ✓ |
 | Santo Maarten (Holandês)      | ✓ | ✓ |
 | Ilhas Geórgia do Sul e Sandwich do Sul | ✓ | ✓ |
@@ -164,7 +164,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Brunei                    | ✓ | ✓ |
 | Camboja                  |   | Ø |
 | China                     |   | Ø |
-| Ilhas dos Cocos (Keeling)   |   | Ø |
+| Ilhas Cocos (Keeling)   |   | Ø |
 | República Democrática Popular da Coreia do Norte |   | Ø |
 | RAE de Hong Kong             | ✓ | ✓ |
 | Índia                     | Ø | ✓ | 
@@ -215,17 +215,17 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Ilhas Cook              |   | Ø |
 | Fiji                      |   | Ø |
 | Polinésia Francesa          |   | Ø |
-| Guame                      | ✓ | ✓ |
+| Rio Guam                      | ✓ | ✓ |
 | Kiribati                  |   | Ø |
 | Ilhas Marshall          |   | Ø |
 | Micronésia                |   | Ø |
 | Nauru                     |   | Ø |
-| Nova Caledónia             |   | Ø |
+| Nova Caledonia             |   | Ø |
 | Nova Zelândia               | ✓ | ✓ |
 | Niue                      |   | Ø |
 | Ilha Norfolk            |   | Ø |
 | Palau                     |   | Ø |
-| Papua-Nova Guiné          |   | Ø |
+| Papua Nova Guiné          |   | Ø |
 | Pitcairn                  |   | Ø |
 | Samoa                     |   | Ø |
 | Ilhas Salomão           |   | Ø|
@@ -261,7 +261,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Alemanha                   | ✓ | ✓ |
 | Gibraltar                 | ✓ | ✓ |
 | Grécia                    | ✓ | ✓ |
-| Guernesey                  | ✓ | ✓ |
+| Guernsey                  | ✓ | ✓ |
 | Hungria                   | ✓ | ✓ |
 | Islândia                   | ✓ | ✓ |
 | Irlanda                   | ✓ | ✓ |
@@ -284,7 +284,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Portugal                  | ✓ | ✓ |
 | Roménia                   | ✓ | ✓ |
 | Federação Russa        | ✓ | ✓ |
-| São Marinho                | ✓ | ✓ |
+| São Marino                | ✓ | ✓ |
 | Sérvia                    | ✓ | ✓ |
 | Eslováquia                  | ✓ | ✓ |
 | Eslovénia                  | ✓ | ✓ |

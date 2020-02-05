@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 02/04/2020
 ms.custom: seodec18
-ms.openlocfilehash: b60b036954691bdea12dfff559ceee86f179d44d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1caa80469504d52d3103fb2776fb3e7210971690
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973212"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024403"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar Time Series Insights recursos usando modelos de Azure Resource Manager
 
@@ -27,7 +27,7 @@ O Time Series Insights dá suporte aos seguintes recursos:
    | Recurso | Descrição |
    | --- | --- |
    | Ambiente | Um ambiente de Time Series Insights é um agrupamento lógico de eventos que são lidos de agentes de evento, armazenados e disponibilizados para consulta. Para obter mais informações, leia [planejar seu ambiente de Azure Time Series insights](time-series-insights-environment-planning.md) |
-   | Origem do Evento | Uma origem de evento é uma conexão com um agente de evento a partir do qual Time Series Insights lê e insome eventos no ambiente. As fontes de eventos com suporte no momento são Hub IoT e Hub de eventos. |
+   | Fonte de Evento | Uma origem de evento é uma conexão com um agente de evento a partir do qual Time Series Insights lê e insome eventos no ambiente. As fontes de eventos com suporte no momento são Hub IoT e Hub de eventos. |
    | Conjunto de dados de referência | Os conjuntos de dados de referência fornecem metadados sobre os eventos no ambiente. Os metadados nos conjuntos de dados de referência serão associados a eventos durante a entrada. Os conjuntos de dados de referência são definidos como recursos por suas propriedades de chave de evento. Os metadados reais que compõem o conjunto de dados de referência são carregados ou modificados por meio de APIs de plano de dados. |
    | Política de Acesso | As políticas de acesso concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e compartilhar consultas salvas e perspectivas associadas ao ambiente. Para obter mais informações, leia [conceder acesso a dados para um ambiente de time Series insights usando portal do Azure](time-series-insights-data-access.md) |
 
@@ -57,25 +57,25 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 
     <div id="required-parameters"></div>
 
-   * Parâmetros Obrigatórios
+   * Parâmetros necessários
 
      | Parâmetro | Descrição |
      | --- | --- |
      | eventHubNamespaceName | O namespace do hub de eventos de origem. |
      | eventHubName | O nome do hub de eventos de origem. |
      | consumerGroupName | O nome do grupo de consumidores que o serviço de Time Series Insights usará para ler os dados do hub de eventos. **Observação:** Para evitar a contenção de recursos, esse grupo de consumidores deve ser dedicado ao serviço de Time Series Insights e não compartilhado com outros leitores. |
-     | environmentName | O nome do ambiente. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`e quaisquer caracteres de controle. Todos os outros carateres são permitidos.|
-     | eventSourceName | O nome do recurso filho de origem do evento. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`e quaisquer caracteres de controle. Todos os outros carateres são permitidos. |
+     | environmentName | O nome do ambiente. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`e quaisquer caracteres de controlo. Todos os outros carateres são permitidos.|
+     | eventSourceName | O nome do recurso filho de origem do evento. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`e quaisquer caracteres de controlo. Todos os outros carateres são permitidos. |
 
     <div id="optional-parameters"></div>
 
-   * Parâmetros Opcionais
+   * Parâmetros opcionais
 
      | Parâmetro | Descrição |
      | --- | --- |
      | existingEventHubResourceId | Uma ID de recurso opcional de um hub de eventos existente que será conectada ao ambiente de Time Series Insights por meio da origem do evento. **Observação:** O usuário que está implantando o modelo deve ter privilégios para executar a operação listkeys no Hub de eventos. Se nenhum valor for passado, um novo hub de eventos será criado pelo modelo. |
      | environmentDisplayName | Um nome amigável opcional para mostrar em ferramentas ou interfaces do usuário em vez do nome do ambiente. |
-     | environmentSkuName | O nome do SKU. Para obter mais informações, leia a [página de preços do time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+     | environmentSkuName | O nome de SKU. Para obter mais informações, leia a [página de preços do time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | A capacidade da unidade do SKU. Para obter mais informações, leia a [página de preços do time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
      | environmentDataRetentionTime | O período mínimo em que os eventos do ambiente estarão disponíveis para consulta. O valor deve ser especificado no formato ISO 8601, por exemplo `P30D` para uma política de retenção de 30 dias. |
      | eventSourceDisplayName | Um nome amigável opcional para mostrar em ferramentas ou interfaces do usuário em vez do nome da origem do evento. |

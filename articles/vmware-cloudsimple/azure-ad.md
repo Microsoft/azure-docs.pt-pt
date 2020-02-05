@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-use o Azure AD como fonte de identidade na nuvem privada
-description: Descreve como adicionar o Azure AD como um provedor de identidade em sua nuvem privada do CloudSimple para autenticar usuários que acessam o CloudSimple do Azure
+title: Azure VMware Solutions (AVS) - Use azure AD como fonte de identidade na Nuvem Privada AVS
+description: Descreve como adicionar AD Azure como fornecedor de identidade na sua Nuvem Privada AVS para autenticar utilizadores que acedam a AVS a partir do Azure
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,101 +8,101 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1a5871a052998e9dd32d698c5a89f57064cc7d6b
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a453d40f976d11a41e1ba536d2f7baab15900b13
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72987572"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77015928"
 ---
-# <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usar o Azure AD como um provedor de identidade para o vCenter na nuvem privada do CloudSimple
+# <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-avs-private-cloud"></a>Use a AD Azure como fornecedor de identidade para vCenter em AVS Private Cloud
 
-Você pode configurar seu vCenter de nuvem privada do CloudSimple para autenticar com o Azure Active Directory (Azure AD) para que seus administradores do VMware acessem o vCenter. Depois que a fonte de identidade de logon único é configurada, o usuário **cloudowner** pode adicionar usuários da origem de identidade ao vCenter.  
+Pode configurar o seu VCenter De Nuvem Privada AVS para autenticar com o Azure Ative Directory (Azure AD) para que os seus administradores vMware acedam ao vCenter. Após a configuração da única fonte de identidade de início de sessão, o utilizador do **cloudowner** pode adicionar utilizadores da fonte de identidade ao vCenter.  
 
 Você pode configurar seu Active Directory controladores de domínio e domínio de qualquer uma das seguintes maneiras:
 
 * Active Directory controladores de domínio e domínio em execução no local
 * Active Directory controladores de domínio e domínio em execução no Azure como máquinas virtuais em sua assinatura do Azure
-* Novo Active Directory controladores de domínio e domínio em execução em sua nuvem privada do CloudSimple
+* Novos controladores de domínio e domínio de diretório ativo em execução na sua Nuvem Privada AVS
 * Serviço de Azure Active Directory
 
-Este guia explica as tarefas necessárias para configurar o Azure AD como uma fonte de identidade.  Para obter informações sobre como usar Active Directory locais ou Active Directory em execução no Azure, consulte [configurar fontes de identidade do vCenter para usar Active Directory](set-vcenter-identity.md) para obter instruções detalhadas sobre como configurar a origem da identidade.
+Este guia explica as tarefas necessárias para a criação de AD Azure como fonte de identidade. Para obter informações sobre a utilização do Diretório Ativo ou Diretório Ativo no Local em Funcionamento em Azure, consulte a Configuração de fontes de [identidade vCenter para utilizar](set-vcenter-identity.md) o Ative Directory para obter instruções detalhadas na configuração da fonte de identidade.
 
 ## <a name="about-azure-ad"></a>Sobre o Azure AD
 
-O Azure AD é o serviço de gerenciamento de identidade e diretório baseado em nuvem multilocatário da Microsoft.  O Azure AD fornece um mecanismo de autenticação escalonável, consistente e confiável para os usuários autenticarem e acessarem diferentes serviços no Azure.  Ele também fornece serviços LDAP seguros para qualquer serviço de terceiros usar o Azure AD como uma origem de autenticação/identidade.  O Azure AD combina os principais serviços de diretório, governança avançada de identidade e gerenciamento de acesso a aplicativos, que pode ser usado para conceder acesso à sua nuvem privada para usuários que administram a nuvem privada.
+A Azure AD é o serviço de gestão de vários inquilinos da Microsoft, baseado na nuvem e gestão de identidade. A Azure AD fornece um mecanismo de autenticação escalável, consistente e fiável para os utilizadores autenticarem e acederem a diferentes serviços no Azure. Também fornece serviços LDAP seguros para quaisquer serviços de terceiros para usar a Azure AD como fonte de autenticação/identidade. A Azure AD combina serviços de diretório sinuoso, governação avançada de identidade e gestão de acesso a aplicações, que podem ser usados para dar acesso à sua Nuvem Privada AVS para utilizadores que administram a Nuvem Privada AVS.
 
-Para usar o Azure AD como uma fonte de identidade com o vCenter, você deve configurar o Azure AD e os serviços de domínio do Azure AD. Siga estas instruções:
+Para utilizar o Azure AD como fonte de identidade com vCenter, tem de configurar os serviços de domínio Azure AD e Azure AD. Siga estas instruções:
 
-1. [Como configurar o Azure AD e os Azure AD Domain Services](#set-up-azure-ad-and-azure-ad-domain-services)
-2. [Como configurar uma fonte de identidade em seu vCenter de nuvem privada](#set-up-an-identity-source-on-your-private-cloud-vcenter)
+1. [Como criar serviços de domínio Azure AD e Azure AD](#set-up-azure-ad-and-azure-ad-domain-services)
+2. [Como configurar uma fonte de identidade no seu VCenter De Nuvem Privada AVS](#set-up-an-identity-source-on-your-avs-private-cloud-vcenter)
 
-## <a name="set-up-azure-ad-and-azure-ad-domain-services"></a>Configurar o Azure AD e os Azure AD Domain Services
+## <a name="set-up-azure-ad-and-azure-ad-domain-services"></a>Criar serviços de domínio Azure AD e Azure AD
 
-Antes de começar, você precisará de acesso à sua assinatura do Azure com privilégios de administrador global.  As etapas a seguir fornecem diretrizes gerais. Os detalhes estão contidos na documentação do Azure.
+Antes de começar, precisará de acesso à sua subscrição Azure com privilégios de Administrador Global. Os seguintes passos dão orientações gerais. Os detalhes estão contidos na documentação do Azure.
 
 ### <a name="azure-ad"></a>Azure AD
 
 > [!NOTE]
-> Se você já tiver o Azure AD, poderá ignorar esta seção.
+> Se já tem AD Azure, pode saltar esta secção.
 
-1. Configure o Azure AD em sua assinatura, conforme descrito na [documentação do Azure ad](../active-directory/fundamentals/get-started-azure-ad.md).
-2. Habilite Azure Active Directory Premium em sua assinatura, conforme descrito em [inscrever-se para Azure Active Directory Premium](../active-directory/fundamentals/active-directory-get-started-premium.md).
-3. Configure um nome de domínio personalizado e verifique o nome de domínio personalizado conforme descrito em [Adicionar um nome de domínio personalizado para Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
-    1. Configure um registro DNS no seu registrador de domínio com as informações fornecidas no Azure.
-    2. Defina o nome de domínio personalizado como o domínio primário.
+1. Configurar o Azure AD na sua subscrição, conforme descrito na [documentação da AD Azure.](../active-directory/fundamentals/get-started-azure-ad.md)
+2. Ative Azure Ative Directory Premium na sua subscrição conforme descrito em [Signup para Azure Ative Directory Premium](../active-directory/fundamentals/active-directory-get-started-premium.md).
+3. Configurar um nome de domínio personalizado e verificar o nome de domínio personalizado, tal como descrito em Adicionar um nome de [domínio personalizado ao Diretório Ativo azure](../active-directory/fundamentals/add-custom-domain.md).
+    1. Instale um registo DNS no seu registo de domínio com as informações fornecidas no Azure.
+    2. Desloque o nome de domínio personalizado como o domínio primário.
 
-Opcionalmente, você pode configurar outros recursos do Azure AD.  Eles não são necessários para habilitar a autenticação do vCenter com o Azure AD.
+Pode configurar opcionalmente outras funcionalidades da AD Azure. Estes não são necessários para permitir a autenticação vCenter com AD Azure.
 
-### <a name="azure-ad-domain-services"></a>Serviços de domínio do Azure AD
+### <a name="azure-ad-domain-services"></a>Serviços de domínio Azure AD
 
 > [!NOTE]
-> Esta é uma etapa importante para habilitar o Azure AD como uma fonte de identidade para o vCenter.  Para evitar problemas, certifique-se de que todas as etapas sejam executadas corretamente.
+> Este é um passo importante para permitir o Azure AD como fonte de identidade para vCenter. Para evitar quaisquer problemas, certifique-se de que todos os passos são executados corretamente.
 
-1. Habilite os serviços de domínio do Azure AD conforme descrito em [habilitar Azure Active Directory serviços de domínio usando o portal do Azure](../active-directory-domain-services/active-directory-ds-getting-started.md).
-2. Configure a rede que será usada pelos serviços de domínio do Azure AD, conforme descrito em [habilitar Azure Active Directory Domain Services usando o portal do Azure](../active-directory-domain-services/active-directory-ds-getting-started-network.md).
-3. Configure o grupo de administradores para gerenciar Azure AD Domain Services conforme descrito em [habilitar Azure Active Directory Domain Services usando o portal do Azure](../active-directory-domain-services/active-directory-ds-getting-started-admingroup.md).
-4. Atualize as configurações de DNS para seu Azure AD Domain Services conforme descrito em [habilitar Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-dns.md).  Se você quiser se conectar ao AD pela Internet, configure o registro DNS para o endereço IP público dos serviços de domínio do Azure AD para o nome de domínio.
-5. Habilitar a sincronização de hash de senha para usuários.  Esta etapa habilita a sincronização de hashes de senha necessários para a autenticação Kerberos e NTLM (NT LAN Manager) para Azure AD Domain Services. Assim que a sincronização de hash de palavras-passe estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa. Consulte [habilitar a sincronização de hash de senha para Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
-    1. Se os usuários somente na nuvem estiverem presentes, eles deverão alterar sua senha usando o <a href="http://myapps.microsoft.com/" target="_blank">painel de acesso do AD do Azure</a> para garantir que os hashes de senha sejam armazenados no formato exigido pelo NTLM ou pelo Kerberos.  Siga as instruções em [habilitar a sincronização de hash de senha para seu domínio gerenciado para contas de usuário somente em nuvem](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Esta etapa deve ser feita para usuários individuais e qualquer novo usuário criado no diretório do AD do Azure usando os cmdlets do PowerShell do portal do Azure ou do Azure AD. Os usuários que precisam de acesso aos serviços de domínio do Azure AD devem usar o <a href="http://myapps.microsoft.com/" target="_blank">painel de acesso do Azure ad</a> e acessar seu perfil para alterar a senha.
+1. Ative serviços de domínio AD Azure conforme descrito nos serviços de [domínio Ative Diretório Enable Azure utilizando o portal Azure](../active-directory-domain-services/active-directory-ds-getting-started.md).
+2. Criar a rede que será utilizada pelos serviços de domínio Da Azure AD, conforme descrito no [Enable Azure Ative Directory Domain Services utilizando o portal Azure](../active-directory-domain-services/active-directory-ds-getting-started-network.md).
+3. Configure Administrator Group para gerir os Serviços de Domínio Azure AD conforme descrito no [Enable Azure Ative Directory Domain Services utilizando o portal Azure](../active-directory-domain-services/active-directory-ds-getting-started-admingroup.md).
+4. Atualize as definições de DNS para os seus Serviços de Domínio AD Azure, conforme descrito nos Serviços de Domínio ativo enable Azure Ative [Directory](../active-directory-domain-services/active-directory-ds-getting-started-dns.md).  Se quiser ligar-se à AD através da Internet, instale o registo DNS para o endereço IP público dos serviços de domínio Azure AD com o nome de domínio.
+5. Ativar a sincronização de hash de palavra-passe para os utilizadores. Este passo permite a sincronização de hashes de senha necessárias para nt LAN Manager (NTLM) e a autenticação Kerberos para os Serviços de Domínio Azure AD. Assim que a sincronização de hash de palavras-passe estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa. Ver Ativar a sincronização de hash de [palavra-passe para os Serviços de Domínio de Diretório Ativo Azure](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+    1. Se os utilizadores apenas na nuvem estiverem presentes, devem alterar a sua palavra-passe utilizando o painel de <a href="http://myapps.microsoft.com/" target="_blank">acesso Azure AD</a> para garantir que as hashes de senha são armazenadas no formato exigido pela NTLM ou pela Kerberos. Siga as instruções em Ativação de sincronização de [hash no domínio gerido para contas de utilizador apenas](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)na nuvem . Este passo deve ser feito para utilizadores individuais e qualquer novo utilizador que seja criado no seu diretório Azure AD utilizando o portal Azure ou os cmdlets Azure AD PowerShell. Os utilizadores que necessitem de acesso aos serviços de domínio Azure AD devem utilizar o painel de <a href="http://myapps.microsoft.com/" target="_blank">acesso Azure AD</a> e aceder ao seu perfil para alterar a palavra-passe.
 
         > [!NOTE]
-        > Se sua organização tem contas de usuário somente em nuvem, todos os usuários que precisam usar Azure Active Directory Domain Services devem alterar suas senhas. Uma conta de utilizador apenas na cloud é uma conta que foi criada no diretório do Azure AD com o portal do Azure ou os cmdlets do PowerShell do Azure AD. Essas contas de utilizador não são sincronizadas a partir de um diretório no local.
+        > Se a sua organização tiver contas de utilizadores exclusivas em nuvem, todos os utilizadores que necessitem de utilizar os Serviços de Domínio do Diretório Ativo Azure devem alterar as suas palavras-passe. Uma conta de utilizador apenas na cloud é uma conta que foi criada no diretório do Azure AD com o portal do Azure ou os cmdlets do PowerShell do Azure AD. Essas contas de utilizador não são sincronizadas a partir de um diretório no local.
 
-    2. Se você estiver sincronizando senhas do seu Active Directory local, siga as etapas na [documentação do Active Directory](../active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md).
+    2. Se estiver a sincronizar palavras-passe do seu diretório Ativo no local, siga os passos na documentação do [Diretório Ativo](../active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md).
 
-6.  Configure o LDAP seguro em seu Azure Active Directory Domain Services conforme descrito em [Configurar LDAP seguro (LDAPS) para um domínio gerenciado Azure AD Domain Services](../active-directory-domain-services/tutorial-configure-ldaps.md).
-    1. Carregue um certificado para uso pelo LDAP seguro, conforme descrito no tópico do Azure [obter um certificado para LDAP seguro](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap).  O CloudSimple recomenda o uso de um certificado assinado emitido por uma autoridade de certificação para garantir que o vCenter possa confiar no certificado.
-    2. Habilite o LDAP seguro conforme descrito [habilitar LDAP seguro (LDAPS) para um domínio gerenciado Azure AD Domain Services](../active-directory-domain-services/tutorial-configure-ldaps.md).
-    3. Salve a parte pública do certificado (sem a chave privada) no formato. cer para uso com o vCenter durante a configuração da origem da identidade.
-    4. Se o acesso à Internet para os serviços de domínio do Azure AD for necessário, habilite a opção ' permitir acesso seguro ao LDAP pela Internet '.
-    5. Adicione a regra de segurança de entrada para os serviços de domínio do Azure AD NSG para a porta TCP 636.
+6.  Configure o LDAP seguro nos seus Serviços de Domínio de Diretório Ativo Azure, conforme descrito no [Configure secure LDAP (LDAPS) para um domínio gerido pelos Serviços de Domínio Azure AD](../active-directory-domain-services/tutorial-configure-ldaps.md).
+    1. Faça upload de um certificado para utilização por LDAP seguro, conforme descrito no tópico [Azure, obtenha um certificado para LDAP seguro](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). A AVS recomenda a utilização de um certificado assinado emitido por uma autoridade de certificados para garantir que o vCenter pode confiar no certificado.
+    2. Ativar o LDAP seguro como descrito [Enable Secure LDAP (LDAPS) para um domínio gerido](../active-directory-domain-services/tutorial-configure-ldaps.md)pelos Serviços de Domínio Azure AD .
+    3. Guarde a parte pública do certificado (sem a chave privada) em formato .cer para utilização com vCenter enquanto configura a fonte de identidade.
+    4. Se for necessário o acesso à Internet aos serviços de domínio Azure AD, ative a opção "Permitir um acesso seguro ao LDAP através da Internet".
+    5. Adicione a regra de segurança de entrada para os serviços de domínio Azure AD NSG para a porta TCP 636.
 
-## <a name="set-up-an-identity-source-on-your-private-cloud-vcenter"></a>Configurar uma fonte de identidade em seu vCenter de nuvem privada
+## <a name="set-up-an-identity-source-on-your-avs-private-cloud-vcenter"></a>Instale uma fonte de identidade no seu VCenter De Nuvem Privada AVS
 
-1. [Escalonar privilégios](escalate-private-cloud-privileges.md) para seu vCenter de nuvem privada.
-2. Colete os parâmetros de configuração necessários para configurar a origem da identidade.
+1. [Aumente os privilégios](escalate-private-cloud-privileges.md) para o seu VCenter De Nuvem Privada AVS.
+2. Recolher os parâmetros de configuração necessários para a configuração da fonte de identidade.
 
     | **Opção** | **Descrição** |
     |------------|-----------------|
     | **Nome** | Nome da origem da identidade. |
-    | **DN de base para usuários** | Nome distinto base para os usuários.  Para o Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
-    | **Nome de domínio** | FDQN do domínio, por exemplo, example.com. Não forneça um endereço IP nesta caixa de texto. |
-    | **Alias de domínio** | *(opcional)* O nome NetBIOS do domínio. Adicione o nome NetBIOS do domínio Active Directory como um alias da origem de identidade se você estiver usando autenticações SSPI. |
-    | **DN de base para grupos** | O nome distinto base para os grupos. Para o Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldaps://hostname:port`. A porta geralmente é 636 para conexões LDAPs. <br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa `ldaps://` na URL LDAP primária ou secundária. |
+    | **DN de base para usuários** | Nome distinto base para os usuários.  Para o Azure AD, utilize: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` Exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
+    | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça um endereço IP nesta caixa de texto. |
+    | **Alias de domínio** | *(opcional)* O nome de domínio NetBIOS. Adicione o nome NetBIOS do domínio Active Directory como um alias da origem de identidade se você estiver usando autenticações SSPI. |
+    | **DN de base para grupos** | O nome distinto base para os grupos. Para a AD Azure, utilize: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` Exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato `ldaps://hostname:port`. A porta é tipicamente 636 para ligações LDAPS. <br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa `ldaps://` na URL LDAP primária ou secundária. |
     | **URL do servidor secundário** | Endereço de um servidor LDAP do controlador de domínio secundário que é usado para failover. |
-    | **Escolher certificado** | Se você quiser usar LDAPs com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido depois que você digitar `ldaps://` na caixa de texto URL. Uma URL secundária não é necessária. |
+    | **Escolher certificado** | Se pretender utilizar o LDAPS com o seu Servidor LDAP de Diretório Ativo ou a fonte de identidade do Servidor OpenLDAP, aparece um **certificado Escolha** botão após a sua `ldaps://` na caixa de texto URL. Uma URL secundária não é necessária. |
     | **Nome de Utilizador** | ID de um usuário no domínio que tem um mínimo de acesso somente leitura ao DN base para usuários e grupos. |
     | **Palavra-passe** | Senha do usuário que é especificada pelo nome de usuário. |
 
-3. Entre em sua nuvem privada vCenter após os privilégios serem escalados.
-4. Siga as instruções em [Adicionar uma fonte de identidade no vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) usando os valores da etapa anterior para configurar Azure Active Directory como uma origem de identidade.
-5. Adicione usuários/grupos do Azure AD aos grupos do vCenter, conforme descrito no tópico VMware [adicionar membros a um grupo de logon único do vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
+3. Inscreva-se no seu VCenter De Nuvem Privada AVS depois de os privilégios serem aumentados.
+4. Siga as instruções em Adicionar uma fonte de [identidade no vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) utilizando os valores do passo anterior para configurar o Azure Ative Directory como fonte de identidade.
+5. Adicione utilizadores/grupos de Azure AD a grupos vCenter conforme descrito no tópico VMware Adicione Membros a um grupo de [sign-on único vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 > [!CAUTION]
-> Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Somente contas de serviço devem ser adicionadas ao grupo *Administradores* .
+> Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Apenas as contas de serviço devem ser adicionadas ao grupo *administradores.*
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o modelo de permissão de nuvem privada](learn-private-cloud-permissions.md)
+* [Saiba mais sobre o modelo de permissão private Cloud](learn-private-cloud-permissions.md)

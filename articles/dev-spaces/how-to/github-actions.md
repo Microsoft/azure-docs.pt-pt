@@ -1,17 +1,17 @@
 ---
 title: Ações do GitHub & serviço kubernetes do Azure
 services: azure-dev-spaces
-ms.date: 11/04/2019
+ms.date: 02/04/2020
 ms.topic: conceptual
 description: Revisar e testar alterações de uma solicitação pull diretamente no serviço kubernetes do Azure usando ações do GitHub e Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ações do GitHub, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 7d96726e829154847744d9aec07a9cb0938f75de
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771126"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026103"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Ações do GitHub & serviço kubernetes do Azure (versão prévia)
 
@@ -58,14 +58,13 @@ az ad sp create-for-rbac --sdk-auth --skip-assignment
 
 Salve a saída JSON porque ela é usada em uma etapa posterior.
 
-
-Use [AZ AKs show][az-aks-show] para exibir a *ID* do seu cluster AKs:
+Use [az aks show][az-aks-show] para mostrar a *identificação* do seu cluster AKS:
 
 ```cmd
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
-Use [AZ ACR show][az-acr-show] para exibir a *ID* do ACR:
+Use [az acr show][az-acr-show] para exibir a *identificação* do ACR:
 
 ```cmd
 az acr show --name <acrName> --query id
@@ -88,19 +87,20 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 
 Navegue até o repositório bifurcado e clique em *configurações*. Clique em *segredos* na barra lateral esquerda. Clique em *Adicionar um novo segredo* para adicionar cada novo segredo abaixo:
 
-1. *AZURE_CREDENTIALS*: toda a saída da criação da entidade de serviço.
-1. *RESOURCE_GROUP*: o grupo de recursos para o cluster AKs, que neste exemplo é *MyResource*Group.
-1. *CLUSTER_NAME*: o nome do seu cluster AKs, que neste exemplo é *MyAKS*.
-1. *CONTAINER_REGISTRY*: o *LOGINSERVER* para o ACR.
-1. *Host*: o host do seu espaço de desenvolvimento, que tem o formato *< MASTER_SPACE >. < APP_NAME >. < HOST_SUFFIX*>, que neste exemplo é *dev.bikesharingweb.fedcab0987.eus.azds.Io*.
-1. *HOST_SUFFIX*: o sufixo de host para seu espaço de desenvolvimento, que neste exemplo é *fedcab0987.eus.azds.Io*.
-1. *IMAGE_PULL_SECRET*: o nome do segredo que você deseja usar, por exemplo, o *segredo de demonstração*.
-1. *MASTER_SPACE*: o nome do seu espaço de desenvolvimento pai, que neste exemplo é um *desenvolvedor*.
-1. *REGISTRY_USERNAME*: o *CLIENTID* da saída JSON da criação da entidade de serviço.
-1. *REGISTRY_PASSWORD*: o *CLIENTSECRET* da saída JSON da criação da entidade de serviço.
+1. *AZURE_CREDENTIALS:* toda a produção da criação principal do serviço.
+1. *RESOURCE_GROUP*: o grupo de recursos para o seu cluster AKS, que neste exemplo é *o MyResourceGroup*.
+1. *CLUSTER_NAME:* o nome do seu cluster AKS, que neste exemplo é *MyAKS*.
+1. *CONTAINER_REGISTRY:* o *loginServer* para o ACR.
+1. *HOST*: o anfitrião do seu Dev Space, que toma o formulário *<MASTER_SPACE><APP_NAME>.<HOST_SUFFIX>* que neste exemplo é *dev.bikesharingweb.fedcab0987.eus.azds.io*.
+1. *IMAGE_PULL_SECRET:* o nome do segredo que deseja utilizar, por exemplo, *demo-secreto*.
+1. *MASTER_SPACE:* o nome do seu progenitor Dev Space, que neste exemplo é *dev*.
+1. *REGISTRY_USERNAME*: o *clienteId* da saída JSON da criação principal do serviço.
+1. *REGISTRY_PASSWORD*: o *clienteSecret* da saída JSON a partir da criação principal do serviço.
 
 > [!NOTE]
 > Todos esses segredos são usados pela ação do GitHub e são configurados em [. github/workflows/bikes. yml][github-action-yaml].
+
+Opcionalmente, se quiser atualizar o espaço principal após a fusão do seu PR, adicione o *GATEWAY_HOST* segredo, que assume o formulário *<MASTER_SPACE>.gateway.<HOST_SUFFIX>* que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Assim que fundir as suas alterações no ramo principal do garfo, outra ação correrá para reconstruir e executar toda a sua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev*. Essa ação está configurada em [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Criar uma nova ramificação para alterações de código
 
@@ -150,7 +150,7 @@ Depois que sua solicitação de pull for aberta, navegue até a guia *ações* .
 Depois que a ação for concluída, você verá um comentário com uma URL para o novo espaço filho com base nas alterações na solicitação de pull.
 
 > [!div class="mx-imgBorder"]
-> ![URL de ação do GitHub](../media/github-actions/github-action-url.png)
+> ![Url de Ação GitHub](../media/github-actions/github-action-url.png)
 
 Navegue até o serviço *bikesharingweb* abrindo a URL do comentário. Selecione *Aurelia Briggs (cliente)* como o usuário e, em seguida, selecione uma bicicleta para alugar. Verifique se você não vê mais a imagem de espaço reservado para a bicicleta.
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ddd7160a56a4529ee31c111f0e202ca235c71af
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 70d3e17a007e8cfa7eed299659d4cff114f72158
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544026"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023128"
 ---
 # <a name="what-is-password-writeback"></a>O que é o Write-back de senha?
 
@@ -164,7 +164,7 @@ As senhas *não* são gravadas novamente em nenhuma das seguintes situações:
    * Qualquer redefinição de senha do usuário final iniciada pelo administrador no [centro de administração Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
-> Use a caixa de seleção "o usuário deve alterar a senha no próximo logon" no local Active Directory ferramentas administrativas como Active Directory usuários e computadores ou o Centro Administrativo do Active Directory tem suporte como um recurso de visualização do Azure AD Connect. Para obter mais informações, consulte o artigo [implementar a sincronização de hash de senha com Azure ad Connect sincronização](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon).
+> Use a caixa de seleção "o usuário deve alterar a senha no próximo logon" no local Active Directory ferramentas administrativas como Active Directory usuários e computadores ou o Centro Administrativo do Active Directory tem suporte como um recurso de visualização do Azure AD Connect. Para obter mais informações, consulte o artigo [implementar a sincronização de hash de senha com Azure ad Connect sincronização](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon).
 
 ## <a name="next-steps"></a>Passos seguintes
 

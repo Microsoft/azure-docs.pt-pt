@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: fcf7051a631e74f2f6db918c7c861e32295ae9e8
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3e7402be79f7b57a426543c35f08524e0da9d283
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732642"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024539"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte a idiomas e regiões para o API de Análise de Texto
 
@@ -23,7 +23,7 @@ Este artigo explica quais idiomas têm suporte para cada operação: análise de
 
 ## <a name="language-detection"></a>Deteção de Idioma
 
-O API de Análise de Texto pode detectar uma ampla gama de linguagens, variantes, dialetos e alguns idiomas regionais/culturais.  Detecção de Idioma retorna o "script" de um idioma. Por exemplo, para a frase "Eu tenho um cachorro", ele retornará `en` em vez de `en-US`. O único caso especial é chinês, em que o recurso de detecção de idioma retornará `zh_CHS` ou `zh_CHT` se puder determinar o script fornecido pelo texto fornecido. Em situações em que um script específico não pode ser identificado para um documento chinês, ele retornará simplesmente `zh`.
+O API de Análise de Texto pode detectar uma ampla gama de linguagens, variantes, dialetos e alguns idiomas regionais/culturais.  Detecção de Idioma retorna o "script" de um idioma. Por exemplo, para a frase "Eu tenho um cachorro", ele retornará `en` em vez de `en-US`. O único caso especial é o chinês, onde a capacidade de deteção de idiomas devolverá `zh_CHS` ou `zh_CHT` se puder determinar o script dado o texto fornecido. Em situações em que um script específico não pode ser identificado para um documento chinês, ele retornará simplesmente `zh`.
 
 Não publicamos a lista exata de idiomas para esse recurso, mas ele pode detectar uma ampla gama de linguagens, variantes, dialetos e alguns idiomas regionais/culturais. 
 
@@ -63,7 +63,7 @@ O suporte a idiomas é inicialmente distribuído na visualização, graduando pa
 | Húngaro             |     `hu`      |           |             |           ✔ \*           |                |                    |
 | Italiano               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Japonês              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| Coreano                |     `ko`      |           |      ✔      |           ✔ \*           |                |                    |
+| Coreano                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
 | Norueguês (bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Polaco                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Português (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` também aceito |

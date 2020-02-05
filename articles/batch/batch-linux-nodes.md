@@ -3,8 +3,8 @@ title: Executar o Linux em nós de computação de máquina virtual – lote do 
 description: Saiba como processar suas cargas de trabalho de computação paralela em pools de máquinas virtuais do Linux no lote do Azure.
 services: batch
 documentationcenter: python
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 06/01/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 080310d5884ca82a3ff02ff0474777ea3a71997e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3691790b2e47ef43c6742fa912aff8d7777900f8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547613"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023706"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar nós de computação do Linux em pools do lote
 
@@ -70,7 +70,7 @@ O agente de nó de lote é um programa executado em cada nó no pool e fornece a
 ## <a name="create-a-linux-pool-batch-python"></a>Criar um pool do Linux: Python do lote
 O trecho de código a seguir mostra um exemplo de como usar a [biblioteca de cliente lote do Microsoft Azure para Python][py_batch_package] para criar um pool de nós de computação do Ubuntu Server. A documentação de referência para o módulo python do lote pode ser encontrada no [pacote Azure. batch][py_batch_docs] em ler os documentos.
 
-Esse trecho de código cria um [ImageReference][py_imagereference] explicitamente e especifica cada uma de suas propriedades (editor, oferta, SKU, versão). No código de produção, no entanto, é recomendável que você use o método [list_node_agent_skus][py_list_skus] para determinar e selecionar nas combinações de SKU do agente de imagem e nó disponíveis em tempo de execução.
+Esse trecho de código cria um [ImageReference][py_imagereference] explicitamente e especifica cada uma de suas propriedades (editor, oferta, SKU, versão). No código de produção, no entanto, recomendamos que utilize o método [list_node_agent_skus][py_list_skus] para determinar e selecionar a partir das combinações sku de imagem e nó disponíveis no tempo de execução.
 
 ```python
 # Import the required modules from the
@@ -126,7 +126,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Como mencionado anteriormente, recomendamos que, em vez de criar o [ImageReference][py_imagereference] explicitamente, você use o método [list_node_agent_skus][py_list_skus] para selecionar dinamicamente das combinações de imagem do agente do nó/Marketplace com suporte no momento. O trecho de código Python a seguir mostra como usar esse método.
+Como mencionado anteriormente, recomendamos que, em vez de criar explicitamente a [ImageReference,][py_imagereference] utilize o método [list_node_agent_skus][py_list_skus] para selecionar dinamicamente a partir das combinações de imagem de agente de nó/Marketplace atualmente suportadas. O trecho de código Python a seguir mostra como usar esse método.
 
 ```python
 # Get the list of node agents from the Batch service
@@ -208,7 +208,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Lista de imagens de máquina virtual
-A tabela a seguir lista as imagens de máquina virtual do Marketplace que são compatíveis com os agentes de nó do lote disponíveis quando este artigo foi atualizado pela última vez. É importante observar que essa lista não é definitiva porque as imagens e os agentes de nó podem ser adicionados ou removidos a qualquer momento. Recomendamos que seus aplicativos e serviços do lote sempre usem [list_node_agent_skus][py_list_skus] (Python) ou [ListNodeAgentSkus][net_list_skus] (.net do lote) para determinar e selecionar entre os SKUs disponíveis no momento.
+A tabela a seguir lista as imagens de máquina virtual do Marketplace que são compatíveis com os agentes de nó do lote disponíveis quando este artigo foi atualizado pela última vez. É importante observar que essa lista não é definitiva porque as imagens e os agentes de nó podem ser adicionados ou removidos a qualquer momento. Recomendamos que as suas aplicações e serviços do Lote utilizem sempre [list_node_agent_skus][py_list_skus] (Python) ou [ListNodeAgentSkus][net_list_skus] (Batch .NET) para determinar e selecionar a partir das SKUs atualmente disponíveis.
 
 > [!WARNING]
 > A lista a seguir pode ser alterada a qualquer momento. Sempre use os métodos de **SKU do agente de nó de lista** disponíveis nas APIs do lote para listar as SKUs de máquina virtual e de agente de nó compatíveis quando você executar os trabalhos do lote.
@@ -317,7 +317,7 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-Em vez de uma senha, você pode especificar uma chave pública SSH ao criar um usuário em um nó. No SDK do Python, use o parâmetro **ssh_public_key** em [ComputeNodeUser][py_computenodeuser]. No .NET, use o [ComputeNodeUser][net_computenodeuser]. Propriedade [SshPublicKey][net_ssh_key] .
+Em vez de uma senha, você pode especificar uma chave pública SSH ao criar um usuário em um nó. No SDK Python, utilize o parâmetro **ssh_public_key** no [ComputeNodeUser][py_computenodeuser]. No .NET, use o [ComputeNodeUser][net_computenodeuser]. Propriedade [SshPublicKey][net_ssh_key] .
 
 ## <a name="pricing"></a>Preços
 O lote do Azure foi criado nos serviços de nuvem do Azure e na tecnologia de máquinas virtuais do Azure. O serviço de lote em si é oferecido sem custo, o que significa que você é cobrado apenas pelos recursos de computação que suas soluções de lote consomem. Quando você escolhe **configuração de serviços de nuvem**, você é cobrado com base na estrutura de [preços dos serviços de nuvem][cloud_services_pricing] . Ao escolher a **configuração de máquina virtual**, você será cobrado com base na estrutura de [preços de máquinas virtuais][vm_pricing] . 

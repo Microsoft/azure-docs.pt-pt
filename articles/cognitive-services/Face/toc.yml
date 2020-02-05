@@ -79,8 +79,6 @@
           href: face-resource-container-config.md
         - name: Utilizar instâncias de contentor
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-    - name: Utilizar o Serviço Ligado da Face
-      href: vs-face-connected-service.md
 - name: Referência
   items:
     - name: API Face

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9633975f53b3e398537067b17a870f621d9a7435
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 03daafd383810a5e6cf086ca8e546981b06fa6eb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045060"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025712"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -26,11 +26,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando o CLI do Azure versão 2.0.74 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.81 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que você tenha um cluster AKS com o Azure Load Balancer SKU *padrão* . Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
+Este artigo assume que tem um cluster AKS com o *Standard* SKU Azure Load Balancer. Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
 A entidade de serviço de cluster AKS precisa também de permissão para gerenciar recursos de rede se você usar uma sub-rede ou grupo de recursos existente. Em geral, atribua a função de *colaborador de rede* à sua entidade de serviço nos recursos delegados. Para obter mais informações sobre permissões, consulte [delegar acesso AKs a outros recursos do Azure][aks-sp].
 
@@ -49,7 +49,7 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 * Pelo menos um IP público ou prefixo IP é necessário para permitir o tráfego de saída do cluster AKS. O IP público ou o prefixo IP também é necessário para manter a conectividade entre o plano de controle e os nós de agente, bem como para manter a compatibilidade com as versões anteriores do AKS. Você tem as seguintes opções para especificar IPs públicos ou prefixos IP com um balanceador de carga SKU *padrão* :
     * Forneça seus próprios IPs públicos.
     * Forneça seus próprios prefixos IP públicos.
-    * Especifique um número até 100 para permitir que o cluster AKS crie vários IPs públicos de SKU *padrão* no mesmo grupo de recursos criado como o cluster AKs, que geralmente é nomeado com *MC_* no início. AKS atribui o IP público ao balanceador de carga SKU *padrão* . Por padrão, um IP público será criado automaticamente no mesmo grupo de recursos que o cluster AKS, se nenhum IP público, prefixo de IP público ou número de IPs for especificado. Você também deve permitir endereços públicos e evitar a criação de qualquer Azure Policy que banimentos a criação de IP.
+    * Especifique um número até 100 para permitir que o cluster AKS crie muitos IPs públicos *Standard* SKU no mesmo grupo de recursos criado que o cluster AKS, que é geralmente nomeado com *MC_* no início. AKS atribui o IP público ao balanceador de carga SKU *padrão* . Por padrão, um IP público será criado automaticamente no mesmo grupo de recursos que o cluster AKS, se nenhum IP público, prefixo de IP público ou número de IPs for especificado. Você também deve permitir endereços públicos e evitar a criação de qualquer Azure Policy que banimentos a criação de IP.
 * Ao usar o SKU *Standard* para um balanceador de carga, você deve usar o Kubernetes versão *1,13 ou superior*.
 * Definir o SKU do balanceador de carga só pode ser feito quando você cria um cluster AKS. Você não pode alterar o SKU do balanceador de carga depois que um cluster AKS tiver sido criado.
 * Você só pode usar um tipo de SKU do balanceador de carga (básico ou padrão) em um único cluster.
@@ -67,7 +67,7 @@ Você também pode configurar o balanceador de carga para ser interno e não exp
 
 Ao usar um balanceador de carga de SKU *padrão* com IPs públicos de saída gerenciados, que são criados por padrão, você pode dimensionar o número de IPS públicos de saída gerenciados usando o parâmetro *Load-Balancer – Managed-IP-Count* .
 
-Para atualizar um cluster existente, execute o comando a seguir. Esse parâmetro também pode ser definido em tempo de criação de cluster para ter vários IPs públicos de saída gerenciados.
+Para atualizar um cluster existente, execute o seguinte comando. Esse parâmetro também pode ser definido em tempo de criação de cluster para ter vários IPs públicos de saída gerenciados.
 
 ```azurecli-interactive
 az aks update \
@@ -162,9 +162,14 @@ az aks create \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
 
-## <a name="show-the-outbound-rule-for-your-load-balancer"></a>Mostrar a regra de saída para o balanceador de carga
+## <a name="configure-outbound-ports-and-idle-timeout"></a>Configure portas de saída e tempo limite inativo
 
-Para mostrar a regra de saída criada no balanceador de carga, use [AZ Network lb Outbound List][az-network-lb-outbound-rule-list] e especifique o grupo de recursos do nó do seu cluster AKs:
+> [!WARNING]
+> A secção seguinte destina-se a cenários avançados de networking de maior escala ou para abordar problemas de exaustão sNAT com as configurações predefinidas. Deve dispor de um inventário preciso da quota disponível para VMs e endereços IP antes de alterar os *OutoutoutPorts* ou *IdleTimeoutInMinutes* do seu valor predefinido, a fim de manter clusters saudáveis.
+> 
+> Alterar os valores para *AlocadosOutboundPorts* e *IdleTimeoutInMinutes* pode alterar significativamente o comportamento da regra de saída para o seu equilíbrio de carga. Reveja as regras de saída do [Balancer de Carga,][azure-lb-outbound-rules-overview]as regras de saída do [Balancer de carga][azure-lb-outbound-rules]e as [ligações de saída em Azure][azure-lb-outbound-connections] antes de atualizar estes valores para compreender completamente o impacto das suas alterações.
+
+Os portos afetados à saída e os seus intervalos de inatividade são utilizados para [o SNAT][azure-lb-outbound-connections]. Por predefinição, o equilibrador de carga *Standard* SKU utiliza [a atribuição automática para o número de portas de saída com base no tamanho][azure-lb-outbound-preallocatedports] da piscina de backend e um tempo de inatividade de 30 minutos para cada porta. Para ver estes valores, utilize a lista de regras de saída da [rede az lb][az-network-lb-outbound-rule-list] para mostrar a regra de saída para o equilibrista de carga:
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
@@ -179,7 +184,46 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-Na saída de exemplo, *AllocatedOutboundPorts* é 0. O valor de *AllocatedOutboundPorts* significa que a alocação de porta SNAT é revertida para atribuição automática com base no tamanho do pool de back-end. Consulte [Load Balancer regras de saída][azure-lb-outbound-rules] e [conexões de saída no Azure][azure-lb-outbound-connections] para obter mais detalhes.
+A saída de exemplo mostra o valor predefinido para *OutboundPorts atribuídos* e *IdleTimeoutInMinutes*. Um valor de 0 para *AlocadosOutboundPorts* define o número de portas de saída usando a atribuição automática para o número de portas de saída com base no tamanho da piscina de backend. Por exemplo, se o cluster tiver 50 ou menos nós, 1024 portas para cada nó são atribuídas.
+
+Considere alterar a definição de *OutboundPorts ou* *IdleTimeoutInMinutes* se esperar enfrentar a exaustão SNAT com base na configuração predefinida acima. Cada endereço IP adicional permite a atribuição de 64.000 portas adicionais, no entanto o Balancer de Carga Padrão Azure não aumenta automaticamente as portas por nó quando são adicionados mais endereços IP. Pode alterar estes valores definindo as *portas de saída do equilibrador de carga* e os parâmetros de tempo limite do equilíbrio de *carga.* Por exemplo:
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ports 0 \
+    --load-balancer-idle-timeout 30
+```
+
+> [!IMPORTANT]
+> Deve [calcular a sua quota necessária][calculate-required-quota] antes de personalizar os *OutboundPorts atribuídos* para evitar problemas de conectividade ou escala. O valor que especifica para *os OutboundPorts atribuídos* também deve ser um múltiplo de 8.
+
+Também pode utilizar os *parâmetros* de tempo limite de carga e de tempo limite de equilíbrio de *carga* ao criar um cluster, mas também deve especificar os parâmetros de tempo limite de carga geridos pelo *equilibrador,* o equilíbrio de *carga-out-out-ips,* ou também os prefixos de saída do *carregador-de-saída-ip.*  Por exemplo:
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-managed-outbound-ip-count 2 \
+    --load-balancer-outbound-ports 0 \
+    --load-balancer-idle-timeout 30
+```
+
+Ao alterar os parâmetros de tempo limite de saída do *equilibrante* de carga e do tempo limite de *funcionamento* do seu padrão, afeta o comportamento do perfil do equilibrante de carga, que afeta todo o cluster.
+
+### <a name="required-quota-for-customizing-allocatedoutboundports"></a>Quota exigida para personalizar portos atribuídos
+Você deve ter capacidade IP de saída suficiente com base no número de VMs do seu nó e portas de saída desejadas. Para validar tem capacidade IP de saída suficiente, utilize a seguinte fórmula: 
+ 
+*outboundIPs* \* 64.000 \> *nósVMs* \* *desejadosOutboundPorts*.
+ 
+Por exemplo, se tiver 3 *nósVMs*, e 50.000 *OutboundOutboundPorts desejados,* precisa de ter pelo menos 3 *IPs*de saída . Recomenda-se que incorpore uma capacidade IP adicional para além do que necessita. Além disso, você deve explicar o autoescalador de cluster e a possibilidade de upgrades de piscina de nó ao calcular a capacidade IP de saída. Para o autoescalador de cluster, reveja a contagem atual do nó e a contagem máxima do nó e utilize o valor mais elevado. Para upgrade, procure um VM de nó adicional para cada piscina de nós que permita a modernização.
+ 
+Ao definir o *IdleTimeoutInMinutes* para um valor diferente do padrão de 30 minutos, considere quanto tempo as suas cargas de trabalho precisarão de uma ligação de saída. Considere também que o valor de tempo de tempo padrão para um equilibrador de carga *SKU padrão* utilizado fora do AKS é de 4 minutos. Um valor *IdleTimeoutInMinutes* que reflita com mais precisão a sua carga de trabalho específica do AKS pode ajudar a diminuir a exaustão sNAT causada pela atar ligações que já não estão a ser utilizadas.
 
 ## <a name="restrict-access-to-specific-ip-ranges"></a>Restringir o acesso a intervalos de IP específicos
 
@@ -200,7 +244,7 @@ spec:
   - MY_EXTERNAL_IP_RANGE
 ```
 
-O exemplo acima atualiza a regra para permitir somente o tráfego externo de entrada do intervalo de *MY_EXTERNAL_IP_RANGE* . Mais informações sobre como usar esse método para restringir o acesso ao serviço de balanceador de carga estão disponíveis na [documentação do kubernetes][kubernetes-cloud-provider-firewall].
+O exemplo acima atualiza a regra para permitir apenas o tráfego externo de entrada a partir da gama *MY_EXTERNAL_IP_RANGE.* Mais informações sobre como usar esse método para restringir o acesso ao serviço de balanceador de carga estão disponíveis na [documentação do kubernetes][kubernetes-cloud-provider-firewall].
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -239,9 +283,12 @@ Saiba mais sobre os serviços Kubernetess na [documentação dos serviços Kuber
 [azure-lb-comparison]: ../load-balancer/concepts-limitations.md#skus
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
+[azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
+[azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-rules-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[calculate-required-quota]: #required-quota-for-customizing-allocatedoutboundports

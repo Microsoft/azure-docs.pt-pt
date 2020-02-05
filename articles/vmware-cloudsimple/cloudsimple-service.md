@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-Service
-description: Fornece uma visão geral do serviço e dos conceitos do CloudSimple.
+title: Azure VMware Solutions (AVS) - Serviço
+description: Fornece uma visão geral do serviço e conceitos AVS.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,21 +8,21 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d128a248c2e6e1e2e35e3b633975ba081e77f028
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d09c8c34093e7d33122f934138ff9fdf4842508e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877664"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024962"
 ---
-# <a name="cloudsimple-service-overview"></a>Visão geral do serviço CloudSimple
+# <a name="avs-service-overview"></a>Visão geral do serviço AVS
 
-O serviço CloudSimple permite que você consuma a solução do Azure VMware pelo CloudSimple.  A criação do serviço permite que você compre nós, Reserve nós e crie nuvens privadas.  Você cria o serviço CloudSimple em cada região do Azure onde o serviço CloudSimple está disponível. O serviço define a rede de borda da solução do Azure VMware por CloudSimple. A rede de borda dá suporte a serviços que incluem conectividade VPN, ExpressRoute e Internet para suas nuvens privadas.
+O serviço AVS permite-lhe consumir a Solução Azure VMware pela AVS. A criação do serviço permite-lhe comprar nós, reservar nós e criar Nuvens Privadas AVS. Cria o serviço AVS em cada região do Azure onde o serviço AVS está disponível. O serviço define a rede de bordas da Azure VMware Solution pela AVS. A rede edge suporta serviços que incluem VPN, ExpressRoute e conectividade de internet com as suas Nuvens Privadas AVS.
 
-## <a name="gateway-subnet"></a>Sub-rede do gateway
+## <a name="gateway-subnet"></a>Sub-rede de gateway
 
-Uma sub-rede de gateway é necessária por serviço CloudSimple e é exclusiva para a região na qual ela é criada. A sub-rede de gateway é usada ao criar a rede de borda e requer um bloco CIDR/28.  O espaço de endereço de sub-rede de gateway deve ser exclusivo. Ele não deve se sobrepor a nenhuma rede que se comunica com o ambiente CloudSimple. As redes que se comunicam com o CloudSimple incluem redes locais e rede virtual do Azure.  Uma sub-rede de gateway não pode ser excluída depois de ser criada.  A sub-rede de gateway é removida quando o serviço é excluído.
+Uma subnet gateway é necessária por serviço AVS e é única para a região em que é criada. A sub-rede de gateway é usada ao criar a rede de borda e requer um bloco CIDR/28. O espaço de endereço de sub-rede de gateway deve ser exclusivo. Não deve sobrepor-se a qualquer rede que comunique com o ambiente AVS. As redes que comunicam com a AVS incluem redes no local e rede virtual Azure. Uma sub-rede de gateway não pode ser apagada uma vez criada. A sub-rede gateway é removida quando o serviço é eliminado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [criar um serviço CloudSimple no Azure](quickstart-create-cloudsimple-service.md).
+* Aprenda a [criar um serviço AVS no Azure.](quickstart-create-cloudsimple-service.md)

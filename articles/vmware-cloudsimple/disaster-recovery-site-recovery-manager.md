@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple – configure a nuvem privada como um site de recuperação de desastre usando o VMware Site Recovery Manager
-description: Descreve como configurar sua nuvem privada do CloudSimple como um site de recuperação de desastre para cargas de trabalho do VMware locais
+title: Azure VMware Solutions (AVS) - Configurar a Cloud Privada AVS como um local de recuperação de desastres utilizando o Gestor de Recuperação do Site VMware
+description: Descreve como configurar a sua Nuvem Privada AVS como um local de recuperação de desastres para cargas de trabalho vMware no local
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,227 +8,227 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 151058f23bed674883da57e0b728dc1df4b698d9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0bbd8a12820432ce2f131dda29af6740a2f04e18
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70846133"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024726"
 ---
-# <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurar a nuvem privada como um destino de recuperação de desastre com o VMware Site Recovery Manager
+# <a name="set-up-avs-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurar a Nuvem Privada AVS como alvo de recuperação de desastres com o Gestor de Recuperação do Site VMware
 
-Você pode usar sua nuvem privada do CloudSimple como um site de DR (recuperação de desastre) para cargas de trabalho do VMware locais.
+Você pode usar o seu AVS Private Cloud como um site de recuperação de desastres (DR) para cargas de trabalho VMware no local.
 
-A solução de DR é baseada em vSphere Replication e VMware Site Recovery Manager (SRM). Uma abordagem semelhante pode ser seguida para habilitar sua nuvem privada como um site primário que é protegido pelo site de recuperação local.
+A solução DR baseia-se na replicação vSphere e no Gestor de Recuperação do Site VMware (SRM). Uma abordagem semelhante pode ser seguida para permitir a sua Nuvem Privada AVS como um local primário que está protegido pelo seu local de recuperação no local.
 
-A solução CloudSimple:
+A solução AVS:
 
-* Elimina a necessidade de configurar um datacenter especificamente para DR.
-* Permite que você aproveite os locais do Azure onde o CloudSimple é implantado para resiliência geográfica mundial.
-* Oferece uma opção para reduzir os custos de implantação e o custo total de propriedade para estabelecer a DR.
+* Elimina a necessidade de criar um datacenter especificamente para dr.
+* Permite-lhe aproveitar as localizações do Azure onde o AVS é implantado para resiliência geográfica mundial.
+* Dá-lhe a opção de reduzir os custos de implantação e o custo total de propriedade para o estabelecimento de DR.
 
-A solução CloudSimple exige que você faça o seguinte:
+A solução AVS requer que faça o seguinte:
 
-* Instale, configure e gerencie a replicação vSphere e o SRM em sua nuvem privada.
-* Forneça suas próprias licenças para SRM quando a nuvem privada for o site protegido. Você não precisa de nenhuma licença de SRM adicional para o site CloudSimple quando ele é usado como o site de recuperação.
+* Instale, configure e gere a replicação vSphere e srm na sua Nuvem Privada AVS.
+* Forneça as suas próprias licenças para a SRM quando a Nuvem Privada AVS for o site protegido. Não necessita de licenças RM adicionais para o site AVS quando é usado como o local de recuperação.
 
-Com essa solução, você tem controle total sobre a replicação e o SRM do vSphere. A interface do usuário familiar, API e interfaces CLI permitem o uso de seus scripts e ferramentas existentes.
+Com esta solução, tem controlo total sobre a replicação vSphere e srm. A interface do usuário familiar, API e interfaces CLI permitem o uso de seus scripts e ferramentas existentes.
 
-![Implantação do Site Recovery Manager](media/srm-deployment.png)
+![Implantação do Gestor de Recuperação do Site](media/srm-deployment.png)
 
-Você pode usar qualquer versão do vRA e do SRM que seja compatível com sua nuvem privada e seus ambientes locais. Os exemplos neste guia usam o vRA 6,5 e o SRM 6,5. Essas versões são compatíveis com o vSphere 6,5, que tem suporte do CloudSimple.
+Pode utilizar quaisquer versões de vRA e SRM compatíveis com a sua Nuvem Privada AVS e ambientes no local. Os exemplos deste guia utilizam vRA 6.5 e SRM 6.5. Estas versões são compatíveis com a vSphere 6.5, que é suportada por AVS.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
-As seções a seguir descrevem como implantar uma solução de DR usando o SRM em sua nuvem privada.
+As seguintes secções descrevem como implementar uma solução DR utilizando o SRM na sua Nuvem Privada AVS.
 
 1. [Verificar se as versões do produto VMware são compatíveis](#verify-that-vmware-product-versions-are-compatible)
-2. [Estimar o tamanho do ambiente de recuperação de desastre](#estimate-the-size-of-your-dr-environment)
-3. [Criar uma nuvem privada para seu ambiente](#create-a-private-cloud-for-your-environment)
-4. [Configurar a rede de nuvem privada para a solução de SRM](#set-up-private-cloud-networking-for-the-srm-solution)
-5. [Configurar uma conexão VPN site a site entre sua rede local e a nuvem privada e abrir as portas necessárias](#set-up-a-site-to-site-vpn-connection-between-your-on-premises-network-and-the-private-cloud-and-open-required-ports)
-6. [Configurar serviços de infraestrutura em sua nuvem privada](#set-up-infrastructure-services-in-your-private-cloud)
-7. [Instalar o dispositivo de replicação vSphere no seu ambiente local](#install-vsphere-replication-appliance-in-your-on-premises-environment)
-8. [Instalar o dispositivo de replicação vSphere em seu ambiente de nuvem privada](#install-vsphere-replication-appliance-in-your-private-cloud-environment)
-9. [Instalar o servidor SRM em seu ambiente local](#install-srm-server-in-your-on-premises-environment)
-10. [Instalar o servidor de SRM em sua nuvem privada](#install-srm-server-in-your-private-cloud)
+2. [Calcule o tamanho do seu ambiente DER](#estimate-the-size-of-your-dr-environment)
+3. [Crie uma Nuvem Privada AVS para o seu ambiente](#create-an-avs-private-cloud-for-your-environment)
+4. [Configurar a rede DeVs Private Cloud para a solução SRM](#set-up-avs-private-cloud-networking-for-the-srm-solution)
+5. [Instale uma ligação VPN site-to-site entre a sua rede no local e a Nuvem Privada AVS e portas abertas necessárias](#set-up-a-site-to-site-vpn-connection-between-your-on-premises-network-and-the-avs-private-cloud-and-open-required-ports)
+6. [Instale serviços de infraestrutura na sua Nuvem Privada AVS](#set-up-infrastructure-services-in-your-avs-private-cloud)
+7. [Instale o aparelho de replicação vSphere no seu ambiente no local](#install-vsphere-replication-appliance-in-your-on-premises-environment)
+8. [Instale o aparelho de replicação vSphere no seu ambiente AVS Private Cloud](#install-vsphere-replication-appliance-in-your-avs-private-cloud-environment)
+9. [Instale o servidor SRM no seu ambiente no local](#install-srm-server-in-your-on-premises-environment)
+10. [Instale o servidor SRM na sua Nuvem Privada AVS](#install-srm-server-in-your-avs-private-cloud)
 
 ### <a name="verify-that-vmware-product-versions-are-compatible"></a>Verificar se as versões do produto VMware são compatíveis
 
-As configurações neste guia estão sujeitas aos seguintes requisitos de compatibilidade:
+As configurações deste guia estão sujeitas aos seguintes requisitos de compatibilidade:
 
-* A mesma versão do SRM deve ser implantada em sua nuvem privada e no seu ambiente local.
-* A mesma versão da replicação do vSphere deve ser implantada em sua nuvem privada e no seu ambiente local.
-* As versões do controlador de serviços de plataforma (PSC) em sua nuvem privada e seu ambiente local devem ser compatíveis.
-* As versões do vCenter em sua nuvem privada e seu ambiente local devem ser compatíveis.
-* As versões do SRM e do vSphere Replication devem ser compatíveis entre si e com as versões do PSC e do vCenter.
+* A mesma versão do SRM deve ser implantada na sua Nuvem Privada AVS e no seu ambiente no local.
+* A mesma versão da replicação vSphere deve ser implantada na sua Nuvem Privada AVS e no seu ambiente no local.
+* As versões do Controlador de Serviços da Plataforma (PSC) na sua Nuvem Privada AVS e no seu ambiente no local devem ser compatíveis.
+* As versões do vCenter na sua Nuvem Privada AVS e no seu ambiente no local devem ser compatíveis.
+* As versões de replicação SRM e vSphere devem ser compatíveis entre si e com as versões de PSC e vCenter.
 
-Para obter links para a documentação relevante do VMware e informações de compatibilidade, acesse a documentação do [vmware site Recovery Manager](https://docs.vmware.com/en/Site-Recovery-Manager/index.html) .
+Para ligações à documentação e informação de compatibilidade da VMware relevantes, vá à documentação do Gestor de Recuperação do [Site VMware.](https://docs.vmware.com/en/Site-Recovery-Manager/index.html)
 
-Para descobrir as versões do vCenter e do PSC em sua nuvem privada, abra o portal do CloudSimple. Vá para **recursos**, selecione sua nuvem privada e clique na guia **rede de gerenciamento do vSphere** .
+Para saber as versões de vCenter e PSC na sua Nuvem Privada AVS, abra o portal AVS. Vá a **Recursos,** selecione a sua Nuvem Privada AVS e clique no separador **VSphere Management Network.**
 
-![vCenter & versões do PSC na nuvem privada](media/srm-resources.png)
+![versões vCenter & PSC em AVS Private Cloud](media/srm-resources.png)
 
-### <a name="estimate-the-size-of-your-dr-environment"></a>Estimar o tamanho do ambiente de recuperação de desastre
+### <a name="estimate-the-size-of-your-dr-environment"></a>Calcule o tamanho do seu ambiente DER
 
-1. Verifique se sua configuração local identificada está dentro dos limites com suporte. Para o SRM 6,5, os limites estão documentados no artigo da base de dados de conhecimento VMware sobre [os limites operacionais do site Recovery Manager 6,5](https://kb.vmware.com/s/article/2147110).
-2. Verifique se você tem largura de banda de rede suficiente para atender aos requisitos de tamanho e RPO da carga de trabalho. O artigo da base de dados de conhecimento do VMware sobre o [cálculo dos requisitos de largura de banda para a replicação do vSphere](https://docs.vmware.com/en/vSphere-Replication/6.5/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html) fornece orientação sobre limites
-3. Use a ferramenta de dimensionador CloudSimple para estimar os recursos necessários em seu site de DR para proteger seu ambiente local.
+1. Verifique se a configuração identificada no local está dentro dos limites suportados. Para o SRM 6.5, os limites estão documentados no artigo da base de conhecimentos VMware sobre [os limites operacionais para](https://kb.vmware.com/s/article/2147110)o Gestor de Recuperação do Site 6.5 .
+2. Certifique-se de que tem largura de banda de rede suficiente para satisfazer o tamanho da carga de trabalho e os requisitos de RPO. O artigo de base de conhecimento VMware sobre o cálculo dos requisitos de largura de [banda para a replicação da vSphere](https://docs.vmware.com/en/vSphere-Replication/6.5/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html) fornece orientação sobre os limites de largura de banda.
+3. Utilize a ferramenta de sizer AVS para estimar os recursos necessários no seu site DR para proteger o seu ambiente no local.
 
-### <a name="create-a-private-cloud-for-your-environment"></a>Criar uma nuvem privada para seu ambiente
+### <a name="create-an-avs-private-cloud-for-your-environment"></a>Crie uma Nuvem Privada AVS para o seu ambiente
 
-Crie uma nuvem privada no portal do CloudSimple seguindo as instruções e as recomendações de dimensionamento em [criar uma nuvem privada](create-private-cloud.md).
+Crie uma Nuvem Privada AVS a partir do portal AVS seguindo as instruções e recomendações de dimensionamento em [Criar uma Nuvem Privada AVS](create-private-cloud.md).
 
-### <a name="set-up-private-cloud-networking-for-the-srm-solution"></a>Configurar a rede de nuvem privada para a solução de SRM
+### <a name="set-up-avs-private-cloud-networking-for-the-srm-solution"></a>Configurar a rede DeVs Private Cloud para a solução SRM
 
-Acesse o portal do CloudSimple para configurar a rede de nuvem privada para a solução de SRM.
+Aceda ao portal AVS para criar rede DeVs Private Cloud para a solução SRM.
 
-Crie uma VLAN para a rede de solução de SRM e atribua a ela um CIDR de sub-rede. Para obter instruções, consulte [criar e gerenciar VLANs/sub-redes](create-vlan-subnet.md).
+Crie um VLAN para a rede de soluções SRM e atribua-lhe um CIDR de sub-rede. Para obter instruções, consulte [criar e gerenciar VLANs/sub-redes](create-vlan-subnet.md).
 
-### <a name="set-up-a-site-to-site-vpn-connection-between-your-on-premises-network-and-the-private-cloud-and-open-required-ports"></a>Configurar uma conexão VPN site a site entre sua rede local e a nuvem privada e abrir as portas necessárias
+### <a name="set-up-a-site-to-site-vpn-connection-between-your-on-premises-network-and-the-avs-private-cloud-and-open-required-ports"></a>Instale uma ligação VPN site-to-site entre a sua rede no local e a Nuvem Privada AVS e portas abertas necessárias
 
-Para configurar a conectividade site a site entre sua rede local e sua nuvem privada. Para obter instruções, consulte [Configurar uma conexão VPN para sua nuvem privada do CloudSimple](set-up-vpn.md).
+Para configurar a conectividade Site-to-Site entre a sua rede no local e a sua Nuvem Privada AVS. Para obter instruções, consulte [Configure uma ligação VPN à sua Nuvem Privada AVS](set-up-vpn.md).
 
-### <a name="set-up-infrastructure-services-in-your-private-cloud"></a>Configurar serviços de infraestrutura em sua nuvem privada
+### <a name="set-up-infrastructure-services-in-your-avs-private-cloud"></a>Instale serviços de infraestrutura na sua Nuvem Privada AVS
 
-Configure serviços de infraestrutura na nuvem privada para facilitar o gerenciamento de suas cargas de trabalho e ferramentas.
+Configure os serviços de infraestrutura na Nuvem Privada AVS para facilitar a gestão das suas cargas de trabalho e ferramentas.
 
-Você pode adicionar um provedor de identidade externo conforme descrito em [usar o Azure ad como um provedor de identidade para o vCenter na nuvem privada do CloudSimple](azure-ad.md) se desejar fazer o seguinte:
+Pode adicionar um fornecedor de identidade externo, tal como descrito no [Use Azure AD como fornecedor de identidade para vCenter em AVS Private Cloud,](azure-ad.md) se quiser fazer qualquer um dos seguintes:
 
-* Identifique os usuários do seu Active Directory local (AD) em sua nuvem privada.
-* Configure um AD em sua nuvem privada para todos os usuários.
-* Use o Azure AD.
+* Identifique os utilizadores do seu Diretório Ativo (AD) no seu AVS Private Cloud.
+* Instale um Anúncio na sua Nuvem Privada AVS para todos os utilizadores.
+* Use Azure AD.
 
-Para fornecer pesquisa de endereço IP, gerenciamento de endereços IP e serviços de resolução de nomes para suas cargas de trabalho na nuvem privada, configure um servidor DHCP e DNS, conforme descrito em [configurar aplicativos DNS e DHCP e cargas de trabalho em sua nuvem privada do CloudSimple](dns-dhcp-setup.md).
+Para fornecer serviços de procura de endereçoip, gestão de endereços IP e serviços de resolução de nomes para as suas cargas de trabalho na Nuvem Privada AVS, configurar um servidor DHCP e DNS conforme descrito nas [aplicações dNS e DHCP e cargas](dns-dhcp-setup.md)de trabalho na sua Nuvem Privada AVS .
 
-O domínio *. cloudsimple.io é usado por VMs de gerenciamento e hosts em sua nuvem privada. Para resolver solicitações para esse domínio, configure o encaminhamento de DNS no servidor DNS, conforme descrito em [criar um encaminhador condicional](on-premises-dns-setup.md#create-a-conditional-forwarder).
+O domínio *.avs.io é utilizado por VMs de gestão e anfitriões na sua Nuvem Privada AVS. Para resolver os pedidos a este domínio, configure o reinício do DNS no servidor DNS conforme descrito em [Criar um Forwarder Condicional](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
-### <a name="install-vsphere-replication-appliance-in-your-on-premises-environment"></a>Instalar o dispositivo de replicação vSphere no seu ambiente local
+### <a name="install-vsphere-replication-appliance-in-your-on-premises-environment"></a>Instale o aparelho de replicação vSphere no seu ambiente no local
 
-Instale o vSphere Replication Appliance (vRA) no seu ambiente local seguindo a documentação do VMware. A instalação consiste nessas etapas de alto nível:
+Instale o VSphere Replication Appliance (vRA) no seu ambiente no local, seguindo a documentação vMware. A instalação consiste nestes passos de alto nível:
 
-1. Prepare seu ambiente local para a instalação do vRA.
+1. Prepare o seu ambiente no local para a instalação vRA.
 
-2. Implante o vRA no seu ambiente local usando o OVF no ISO VR do vmware.com. Para o vRA 6,5, [este blog do VMware](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) tem as informações relevantes.
+2. Coloque a vRA no seu ambiente no local utilizando o OVF no VR ISO a partir de vmware.com. Para vRA 6.5, [este blog VMware](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) tem as informações relevantes.
 
-3. Registre seu vRA local com o logon único do vCenter no site local. Para obter instruções detalhadas sobre a replicação do vSphere 6,5, consulte a instalação e a configuração do VMware Document [VMware vSphere Replication 6,5](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
+3. Registe o seu vCenter Single Sign-On no local. Para instruções detalhadas para a replicação da vSphere 6.5, consulte o documento [VMware VMware VMware vSphere Replication 6.5 Instalação e Configuração](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
 
-## <a name="install-vsphere-replication-appliance-in-your-private-cloud-environment"></a>Instalar o dispositivo de replicação vSphere em seu ambiente de nuvem privada
+## <a name="install-vsphere-replication-appliance-in-your-avs-private-cloud-environment"></a>Instale o aparelho de replicação vSphere no seu ambiente AVS Private Cloud
 
 Antes de começar, verifique se você tem o seguinte:
 
-* Acessibilidade de IP de sub-redes em seu ambiente local para a sub-rede de gerenciamento de sua nuvem privada
-* Acessibilidade de IP da sub-rede de replicação em seu ambiente vSphere local para a sub-rede da solução de SRM de sua nuvem privada
+* Alcançabilidade IP de subredes no seu ambiente no local para a sub-rede de gestão da sua Nuvem Privada AVS
+* Alcance IP desde a subnet de replicação no seu ambiente vSphere no local até à subnet de solução SRM da sua Nuvem Privada AVS
 
-Para obter instruções, consulte [Configurar uma conexão VPN para sua nuvem privada do CloudSimple](set-up-vpn.md). As etapas são semelhantes às da instalação local.
+Para obter instruções, consulte [Configure uma ligação VPN à sua Nuvem Privada AVS](set-up-vpn.md). Os passos são semelhantes aos da instalação no local.
 
-O CloudSimple recomenda usar FQDNs em vez de endereços IP durante a instalação do vRA e do SRM. Para descobrir o FQDN do vCenter e do PSC em sua nuvem privada, abra o portal do CloudSimple. Vá para **recursos**, selecione sua nuvem privada e clique na guia **rede de gerenciamento do vSphere** .
+O AVS recomenda a utilização de FQDNs em vez de endereços IP durante a instalação vRA e SRM. Para descobrir o FQDN do vCenter e PSC na sua Nuvem Privada AVS, abra o portal AVS. Vá a **Recursos,** selecione a sua Nuvem Privada AVS e clique no separador **VSphere Management Network.**
 
-![Localizando o FQDN do vCenter/PSC na nuvem privada](media/srm-resources.png)
+![Encontrar FQDN de vCenter/PSC em AVS Private Cloud](media/srm-resources.png)
 
-O CloudSimple requer que você não instale o vRA e o SRM usando o usuário padrão ' cloudowner ', mas, em vez disso, crie um novo usuário. Isso é feito para ajudar a garantir um alto tempo de atividade e disponibilidade para seu ambiente de vCenter de nuvem privada. No entanto, o usuário cloudowner padrão na nuvem privada does't do vCenter tem privilégios suficientes para criar um novo usuário com privilégios administrativos.
+O AVS exige que não instale vRA e SRM utilizando o utilizador 'cloudowner' predefinido, mas sim criar um novo utilizador. Isto é feito para ajudar a garantir o alto tempo e disponibilidade para o seu ambiente VCenter De Nuvem Privada AVS. No entanto, o utilizador predefinido do cloudowner no VCenter De Cloud Privado AVS não tem privilégios suficientes para criar um novo utilizador com privilégios administrativos.
 
-Antes de instalar o vRA e o SRM, você deve escalonar os privilégios do vCenter do usuário cloudowner e, em seguida, criar um usuário com privilégios administrativos no domínio de SSO do vCenter. Para obter detalhes sobre o usuário de nuvem privada padrão e o modelo de permissão, consulte [saiba mais sobre o modelo de permissão de nuvem privada](learn-private-cloud-permissions.md).
+Antes de instalar vRA e SRM, deve aumentar os privilégios vCenter do utilizador do cloudowner e, em seguida, criar um utilizador com privilégios administrativos no domínio VCenter SSO. Para mais detalhes sobre o modelo padrão de utilizador e permissão AVS Private Cloud, consulte O modelo de [permissão AVS Private Cloud](learn-private-cloud-permissions.md).
 
-A instalação consiste nessas etapas de alto nível:
+A instalação consiste nestes passos de alto nível:
 
-1. [Escalonar privilégios](escalate-private-cloud-privileges.md).
-2. Crie um usuário em sua nuvem privada para a replicação do vSphere e a instalação do SRM. Explicado abaixo [na interface do usuário do vCenter: Crie um usuário na nuvem privada para vRA & instalação](#vcenter-ui-create-a-user-in-private-cloud-for-vra-and-srm-installation)do SRM.
-3. Prepare seu ambiente de nuvem privada para a instalação do vRA.
-4. Implante o vRA em sua nuvem privada usando o OVF no ISO VR do vmware.com. Para o vRA 6,5, [este blog do VMware](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) tem informações relevantes.
-5. Configurar regras de firewall para vRA. Explicado abaixo [no portal do CloudSimple: Configurar regras de firewall para](#cloudsimple-portal-configure-firewall-rules-for-vra)vRA.
-6. Registre a nuvem privada vRA com o logon único do vCenter no site da nuvem privada.
-7. Configurar conexões de replicação vSphere entre os dois dispositivos. Verifique se as portas necessárias estão abertas nos firewalls. Consulte [Este artigo da base de dados de conhecimento do VMware](https://kb.vmware.com/s/article/2087769) para obter uma lista de números de porta que devem ser abertos para o vSphere Replication 6,5.
+1. [Escalar privilégios.](escalate-private-cloud-privileges.md)
+2. Crie um utilizador na sua Nuvem Privada AVS para a replicação vSphere e instalação SRM. Explicado abaixo no [vCenter UI: Criar um utilizador na Nuvem Privada AVS para instalação vRA & SRM](#vcenter-ui-create-a-user-in-the-avs-private-cloud-for-vra-and-srm-installation).
+3. Prepare o seu ambiente AVS Private Cloud para a instalação vRA.
+4. Desloque a vRA na sua Nuvem Privada AVS utilizando o OVF no VR ISO a partir de vmware.com. Para vRA 6.5, [este blog VMware](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) tem informações relevantes.
+5. Configure as regras de firewall para vRA. Explicado abaixo no [portal AVS: Configure as regras de Firewall para vRA](#avs-portal-configure-firewall-rules-for-vra).
+6. Registe a AVS Private Cloud vRA com vCenter Single Sign-On no site da AVS Private Cloud.
+7. Configure as ligações de replicação vSphere entre os dois aparelhos. Certifique-se de que as portas necessárias são abertas através das firewalls. Consulte este artigo de base de [conhecimento vMware](https://kb.vmware.com/s/article/2087769) para obter uma lista de números de porta que devem estar abertos para a replicação vSphere 6.5.
 
-Para obter instruções detalhadas de instalação do vSphere Replication 6,5, consulte a [instalação e a configuração do VMware document VMware vSphere Replication 6,5](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
+Para instruções de instalação detalhadas para a replicação vSphere 6.5, consulte o documento [VMware VMware VMware vSphere Replication 6.5 Instalação e Configuração](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
 
-#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-vra-and-srm-installation"></a>interface do usuário do vCenter: Criar um usuário na nuvem privada para a instalação do vRA e do SRM
+#### <a name="vcenter-ui-create-a-user-in-the-avs-private-cloud-for-vra-and-srm-installation"></a>vCenter UI: Criar um utilizador na Nuvem Privada AVS para instalação vRA e SRM
 
-Entre no vCenter usando as credenciais de usuário do cloudowner depois de escalonar privilégios do portal do CloudSimple.
+Inscreva-se no vCenter utilizando credenciais de utilizador do cloudowner após a escalada de privilégios do portal AVS.
 
-Crie um novo usuário, `srm-soln-admin`, no vCenter e adicione-o ao grupo Administradores no vCenter.
-Saia do vCenter como o usuário cloudowner e entre como o usuário *SRM-soln-admin* .
+Crie um novo utilizador, `srm-soln-admin`, no vCenter e adicione-o ao grupo de administradores no vCenter.
+Assine o vCenter como utilizador do cloudowner e inscreva-se como utilizador *srm-soln-administrador.*
 
-#### <a name="cloudsimple-portal-configure-firewall-rules-for-vra"></a>Portal do CloudSimple: Configurar regras de firewall para vRA
+#### <a name="avs-portal-configure-firewall-rules-for-vra"></a>Portal AVS: Configure regras de firewall para vRA
 
-Configure as regras de firewall, conforme descrito em [configurar regras e tabelas de firewall](firewall.md) para abrir portas para habilitar a comunicação entre:
+Configure as regras de firewall descritas em [tabelas e regras](firewall.md) de firewall configurar portas abertas para permitir a comunicação entre:
 
-* vRA na rede de soluções de SRM e nos hosts vCenter e ESXi na rede de gerenciamento.
-* dispositivos vRA nos dois sites.
+* vRA na rede de soluções SRM e vCenter e ESXi anfitriões na rede de gestão.
+* vRA eletrodomésticos nos dois locais.
 
-Consulte este [artigo da base de dados de conhecimento do VMware](https://kb.vmware.com/s/article/2087769) para obter uma lista de números de porta que devem ser abertos para o vSphere Replication 6,5.
+Consulte este artigo de base de [conhecimento vMware](https://kb.vmware.com/s/article/2087769) para obter uma lista de números de porta que devem estar abertos para a replicação vSphere 6.5.
 
-### <a name="install-srm-server-in-your-on-premises-environment"></a>Instalar o servidor SRM em seu ambiente local
-
-Antes de começar, verifique o seguinte:
-
-* o dispositivo de replicação vSphere é instalado em seus ambientes de nuvem privada e local.
-* Os dispositivos de replicação vSphere em ambos os sites estão conectados entre si.
-* Você analisou as informações do VMware sobre os pré-requisitos e as práticas recomendadas. Para o SRM 6,5, você pode consultar os pré-requisitos de documento do VMware [e as práticas recomendadas para o SRM 6,5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html).
-
-Siga a documentação do VMware para executar a instalação do servidor SRM na topologia de dois sites do modelo de implantação com uma instância do vCenter por controlador de serviços de plataforma, conforme descrito neste [documento do VMware](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html). As instruções de instalação do SRM 6,5 estão disponíveis no documento VMware [instalando site Recovery Manager](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html).
-
-### <a name="install-srm-server-in-your-private-cloud"></a>Instalar o servidor de SRM em sua nuvem privada
+### <a name="install-srm-server-in-your-on-premises-environment"></a>Instale o servidor SRM no seu ambiente no local
 
 Antes de começar, verifique o seguinte:
 
-* o dispositivo de replicação vSphere é instalado em seus ambientes de nuvem privada e local.
-* Os dispositivos de replicação vSphere em ambos os sites estão conectados entre si.
-* Você analisou as informações do VMware sobre os pré-requisitos e as práticas recomendadas. Para o SRM 6,5, você pode consultar os [pré-requisitos e as práticas recomendadas para a instalação do servidor do site Recovery Manager 6,5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html).
+* VSphere Replication Appliance está instalado nos seus ambientes no local e na Nuvem Privada AVS.
+* Os aparelhos de replicação vSphere em ambos os locais estão ligados entre si.
+* Reviu as informações da VMware sobre pré-requisitos e boas práticas. Para SRM 6.5, pode consultar os [pré-requisitos e as melhores práticas do](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)documento VMware para o SRM 6.5 .
 
-As etapas a seguir descrevem a instalação de SRM de nuvem privada.
+Siga a documentação vMware para realizar a instalação do servidor SRM no modelo de implementação 'Topologia de dois locais com uma instância vCenter por controlador de serviços de plataforma', conforme descrito neste [documento VMWare](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html). As instruções de instalação para SRM 6.5 estão disponíveis no documento VMware Instalando o [Gestor de Recuperação](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html)do Site .
 
-1. [interface do usuário do vCenter: Instalar o SRM](#vcenter-ui-install-srm)
-2. [Portal do CloudSimple: Configurar regras de firewall para SRM](#cloudsimple-portal-configure-firewall-rules-for-srm)
-3. [interface do usuário do vCenter: Configurar o SRM](#vcenter-ui-configure-srm)
-4. [Portal do CloudSimple: desescalonamento de privilégios](#cloudsimple-portal-de-escalate-privileges)
+### <a name="install-srm-server-in-your-avs-private-cloud"></a>Instale o servidor SRM na sua Nuvem Privada AVS
 
-#### <a name="vcenter-ui-install-srm"></a>interface do usuário do vCenter: Instalar o SRM
+Antes de começar, verifique o seguinte:
 
-Depois de registrar em log o vCenter usando as credenciais SRM-soln-admin, siga a documentação do VMware para executar a instalação do servidor SRM na topologia de dois sites do modelo de implantação com uma instância do vCenter por controlador de serviços de plataforma, conforme descrito neste [VMware documento](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html). As instruções de instalação do SRM 6,5 estão disponíveis no documento VMware [instalando site Recovery Manager](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html).
+* VSphere Replication Appliance está instalado nos seus ambientes no local e na Nuvem Privada AVS.
+* Os aparelhos de replicação vSphere em ambos os locais estão ligados entre si.
+* Reviu as informações da VMware sobre pré-requisitos e boas práticas. Para SRM 6.5, pode consultar [pré-requisitos e boas práticas para](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)a instalação do Servidor Gestor de Recuperação do Site 6.5 .
 
-#### <a name="cloudsimple-portal-configure-firewall-rules-for-srm"></a>Portal do CloudSimple: Configurar regras de firewall para SRM
+Os seguintes passos descrevem a instalação AVS Private Cloud SRM.
 
-Configure as regras de firewall, conforme descrito em [configurar regras e tabelas de firewall](firewall.md) para permitir a comunicação entre:
+1. [vCenter UI: Instalar SRM](#vcenter-ui-install-srm)
+2. [Portal AVS: Configure regras de firewall para SRM](#avs-portal-configure-firewall-rules-for-srm)
+3. [vCenter UI: Configure SRM](#vcenter-ui-configure-srm)
+4. [Portal AVS: desescalar privilégios](#avs-portal-de-escalate-privileges)
 
-O servidor de SRM e o vCenter/PSC na nuvem privada.
-Os servidores de SRM em ambos os sites
+#### <a name="vcenter-ui-install-srm"></a>vCenter UI: Instalar SRM
 
-Consulte [Este artigo da base de dados de conhecimento do VMware](https://kb.vmware.com/s/article/2087769) para obter uma lista de números de porta que devem ser abertos para o vSphere Replication 6,5.
+Depois de iniciar sessão no vCenter utilizando credenciais de administração srm-soln-admin, siga a documentação vMware para executar a instalação do servidor SRM no modelo de implementação 'Topologia de dois locais com uma instância vCenter por controlador de serviços de plataforma', conforme descrito neste [documento VMWare.](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) As instruções de instalação para SRM 6.5 estão disponíveis no documento VMware Instalando o [Gestor de Recuperação](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html)do Site .
 
-#### <a name="vcenter-ui-configure-srm"></a>interface do usuário do vCenter: Configurar o SRM
+#### <a name="avs-portal-configure-firewall-rules-for-srm"></a>Portal AVS: Configure regras de firewall para SRM
 
-Após a instalação do SRM na nuvem privada, execute as seguintes tarefas, conforme descrito nas seções do guia de instalação e configuração do VMware Site Recovery Manager. Para o SRM 6,5, as instruções estão disponíveis no documento VMware [instalando site Recovery Manager](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html).
+Configure as regras de firewall descritas em [tabelas e regras](firewall.md) de firewall configurar para permitir a comunicação entre:
 
-1. Conecte as instâncias de servidor do Site Recovery Manager nos sites protegidos e de recuperação.
-2. Estabeleça uma conexão de cliente com a instância de servidor do Gerenciador de Site Recovery remoto.
-3. Instale a chave de licença do Site Recovery Manager.
+O servidor SRM e vCenter/PSC na Nuvem Privada AVS.
+Os servidores SRM em ambos os sites
 
-#### <a name="cloudsimple-portal-de-escalate-privileges"></a>Portal do CloudSimple: Desescalonamento de privilégios
+Consulte este artigo de base de [conhecimento vMware](https://kb.vmware.com/s/article/2087769) para obter uma lista de números de porta que devem estar abertos para a replicação vSphere 6.5.
 
-Para desescalonar privilégios, consulte [desescalonamento de privilégios](escalate-private-cloud-privileges.md#de-escalate-privileges).
+#### <a name="vcenter-ui-configure-srm"></a>vCenter UI: Configure SRM
 
-## <a name="ongoing-management-of-your-srm-solution"></a>Gerenciamento contínuo da sua solução de SRM
+Depois de o SRM ser instalado na Nuvem Privada AVS, execute as seguintes tarefas descritas nas secções do Guia de Instalação e Configuração do Gestor de Recuperação do Site VMware. Para o SRM 6.5, as instruções estão disponíveis no documento VMware [Instalando o Gestor de Recuperação](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html)do Site .
 
-Você tem controle total sobre a replicação vSphere e o software de SRM em seu ambiente de nuvem privada e deve executar o gerenciamento de ciclo de vida de software necessário. Certifique-se de que qualquer nova versão do software seja compatível com o vCenter e o PSC da nuvem privada antes de atualizar ou atualizar a replicação ou o SRM do vSphere.
+1. Ligue as instâncias do servidor do Gestor de Recuperação do Site nos sites protegidos e de recuperação.
+2. Estabeleça uma ligação com o cliente à instância do servidor do gestor de recuperação do site remoto.
+3. Instale a chave de licença do Gestor de Recuperação do Site.
+
+#### <a name="avs-portal-de-escalate-privileges"></a>Portal AVS: Desescalar privilégios
+
+Para desescalar privilégios, ver [desescalar privilégios.](escalate-private-cloud-privileges.md#de-escalate-privileges)
+
+## <a name="ongoing-management-of-your-srm-solution"></a>Gestão contínua da sua solução SRM
+
+Tem controlo total sobre a replicação da vSphere e o software SRM no seu ambiente AVS Private Cloud e espera-se que realize a gestão necessária do ciclo de vida do software. Certifique-se de que qualquer nova versão do software é compatível com o VCenter e PSC da Nuvem Privada AVS antes de atualizar ou atualizar a replicação da vSphere ou SRM.
 
 > [!NOTE]
-> O CloudSimple está atualmente explorando opções para oferecer um serviço de DR gerenciado. 
+> A AVS está atualmente a explorar opções para oferecer um serviço de DR gerido. 
 
 ## <a name="multiple-replication-configuration"></a>Configuração de replicação múltipla
 
- A [replicação baseada em matriz e as tecnologias de replicação vSphere podem ser usadas junto com o SRM](https://blogs.vmware.com/virtualblocks/2017/06/22/srm-array-based-replication-vs-vsphere-replication) ao mesmo tempo. No entanto, eles devem ser aplicados a um conjunto separado de VMs (uma determinada VM pode ser protegida por replicação baseada em matriz ou replicação vSphere, mas não ambos). Além disso, o site do CloudSimple pode ser configurado como um site de recuperação para vários sites protegidos. Consulte [Opções de vários sites do SRM](https://blogs.vmware.com/virtualblocks/2016/07/28/srm-multisite/) para obter informações sobre configurações multissite.
+ Tanto as [tecnologias de replicação baseadas em matriz como as tecnologias de replicação vSphere podem ser utilizadas juntamente com](https://blogs.vmware.com/virtualblocks/2017/06/22/srm-array-based-replication-vs-vsphere-replication) a SRM ao mesmo tempo. No entanto, devem ser aplicados a um conjunto separado de VMs (um dado VM pode ser protegido quer por replicação baseada em matriz, quer por replicação vSphere, mas não ambos). Além disso, o site AVS pode ser configurado como um local de recuperação para vários sites protegidos. Consulte [as opções de vários locais srm](https://blogs.vmware.com/virtualblocks/2016/07/28/srm-multisite/) para obter informações sobre configurações multi-site.
 
 ## <a name="references"></a>Referências
 
-* [Documentação do VMware Site Recovery Manager](https://docs.vmware.com/en/Site-Recovery-Manager/index.html)
-* [Limites operacionais para o Site Recovery Manager 6,5](https://kb.vmware.com/s/article/2147110)
-* [Calculando requisitos de largura de banda para replicação do vSphere](https://kb.vmware.com/s/article/2037268)
-* [Opções de OVF ao implantar a replicação do vSphere 6,5](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices/)
-* [Instalação e configuração do VMware vSphere Replication 6,5](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)
-* [Pré-requisitos e práticas recomendadas para SRM 6,5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
-* [Site Recovery Manager em uma topologia de dois sites com uma instância de vCenter Server por controlador de serviços de plataforma](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html)
-* [Guia de instalação e configuração do VMware Site Recovery Manager 6,5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html)
-* [Blog do VMware sobre SRM com replicação baseada em matriz versus replicação vSphere](https://blogs.vmware.com/virtualblocks/2017/06/22/srm-array-based-replication-vs-vsphere-replication)
-* [Blog do VMware sobre opções de vários sites de SRM](https://blogs.vmware.com/virtualblocks/2016/07/28/srm-multisite)
-* [Os números de porta que devem ser abertos para vSphere Replication 5.8. x, 6. x e 8](https://kb.vmware.com/s/article/2147112)
+* [Documentação do Gestor de Recuperação do Site VMware](https://docs.vmware.com/en/Site-Recovery-Manager/index.html)
+* [Limites operacionais para O Gestor de Recuperação do Site 6.5](https://kb.vmware.com/s/article/2147110)
+* [Cálculo dos requisitos de largura de banda para replicação vSphere](https://kb.vmware.com/s/article/2037268)
+* [Opções OVF Ao implementar replicação vSphere 6.5](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices/)
+* [VMware vSphere Replication 6.5 Instalação e Configuração](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)
+* [Pré-requisitos e Boas Práticas para a SRM 6.5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
+* [Gestor de recuperação de site em uma topologia de dois locais com uma instância de servidor vCenter por controlador de serviços de plataforma](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html)
+* [VMware Site Recovery Manager 6.5 Guia de instalação e configuração](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html)
+* [Blog VMware na SRM com replicação baseada em matriz vs. vSphere replicação](https://blogs.vmware.com/virtualblocks/2017/06/22/srm-array-based-replication-vs-vsphere-replication)
+* [Blog VMware nas opções de vários sites da SRM](https://blogs.vmware.com/virtualblocks/2016/07/28/srm-multisite)
+* [Números de porta que devem estar abertos para a replicação vSphere 5.8.x, 6.x e 8](https://kb.vmware.com/s/article/2147112)

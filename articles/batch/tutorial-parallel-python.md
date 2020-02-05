@@ -2,20 +2,20 @@
 title: Executar uma carga de trabalho paralela – Azure Batch Python
 description: Tutorial – Processar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente Python para o Batch
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: bc73c3c40754d1c3eeb6c86f6c9578047a22d73e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029244"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023094"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API Python
 
@@ -35,7 +35,7 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python versão 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
+* [Python 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
 
 * Gestor de pacotes [pip](https://pip.pypa.io/en/stable/installing/)
 

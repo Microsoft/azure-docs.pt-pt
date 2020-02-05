@@ -2,18 +2,18 @@
 title: Use a Galeria de imagens compartilhadas para criar um pool personalizado – lote do Azure | Microsoft Docs
 description: Crie um pool do lote com a Galeria de imagens compartilhadas para provisionar imagens personalizadas para nós de computação que contêm o software e os dados de que você precisa para seu aplicativo. Imagens personalizadas são uma maneira eficiente de configurar nós de computação para executar suas cargas de trabalho do lote.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: jushiman
-ms.openlocfilehash: a933d0656bb4c22e848a663757f4e5e3fa276c61
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029659"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022941"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool personalizado
 
@@ -34,7 +34,7 @@ O uso de uma imagem compartilhada configurada para seu cenário pode fornecer v�
 * **Pré-instalar aplicativos.** A pré-instalação de aplicativos no disco do sistema operacional é mais eficiente e menos propenso a erros do que instalar aplicativos depois de provisionar os nós de computação com uma tarefa inicial.
 * **Copie grandes quantidades de dados uma vez.** Torne dados estáticos parte da imagem compartilhada gerenciada copiando-os para os discos de dados de uma imagem gerenciada. Isso só precisa ser feito uma vez e disponibiliza os dados para cada nó do pool.
 * **Aumente os pools para tamanhos maiores.** Com a Galeria de imagens compartilhadas, você pode criar pools maiores com suas imagens personalizadas juntamente com mais réplicas de imagem compartilhadas.
-* **Melhor desempenho do que a imagem personalizada.** Usando imagens compartilhadas, o tempo necessário para o pool alcançar o estado estacionário é de até 25% mais rápido e a latência de ociosidade da VM é de até 30% mais curta.
+* **Melhor desempenho do que a imagem personalizada.** Utilizando imagens partilhadas, o tempo que a piscina leva para chegar ao estado estável é até 25% mais rápido, e a latência vm idle é até 30% mais curta.
 * **Controle de versão e agrupamento de imagem para facilitar o gerenciamento.** A definição de agrupamento de imagens contém informações sobre por que a imagem foi criada, em qual sistema operacional ele é e informações sobre como usar a imagem. O agrupamento de imagens permite um gerenciamento mais fácil de imagens. Para obter mais informações, consulte [definições de imagem](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Pré-requisitos

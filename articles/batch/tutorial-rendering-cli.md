@@ -2,19 +2,19 @@
 title: Compor uma cena na cloud - Azure Batch
 description: Tutorial - como apresentar uma cena Autodesk 3DS Max com o Arnold, através do Serviço Batch Rendering e da Interface de Linha de Comandos do Azure
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: e63bd26ec226cfeba1c11570b085fd88570fbb2d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 12205fd04b015ac3cfe32765779808b636f53946
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029186"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023077"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
 
@@ -31,7 +31,7 @@ Neste tutorial, irá compor uma cena 3ds Max com o Batch, através do compositor
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma subscrição pay as you go ou de outra opção de compra do Azure para utilizar aplicações de composição no Batch no modelo de faturação de pagamento por utilização. **O licenciamento de pagamento por utilização não será suportado se utilizar uma oferta gratuita do Azure que oferece um crédito monetário.**
+Precisa de uma subscrição pay as you go ou de outra opção de compra do Azure para utilizar aplicações de composição no Batch num modelo de faturação de pagamento por utilização. **O licenciamento de pagamento por utilização não será suportado se utilizar uma oferta gratuita do Azure que oferece um crédito monetário.**
 
 A cena 3ds Max de exemplo para este tutorial encontra-se no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), em conjunto com um script Bash de exemplo e ficheiros de configuração JSON. A cena 3ds Max é proveniente dos [ficheiros de exemplo do Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os ficheiros de exemplo do Autodesk 3ds Max estão disponíveis com uma licença de Atribuição Semelhante à Partilha Não Comercial da Creative Commons. Copyright © Autodesk, Inc.)
 
@@ -43,7 +43,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 Se ainda não o tiver feito, crie um grupo de recursos, uma conta do Batch e uma conta de armazenamento ligada na sua subscrição. 
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eualeste2*.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -254,7 +254,7 @@ az batch task create \
 O Batch agenda a tarefa, e a tarefa é executada assim que um nó no conjunto estiver disponível.
 
 
-### <a name="view-task-output"></a>Ver resultado das tarefas
+### <a name="view-task-output"></a>Ver o resultado das tarefas
 
 A tarefa demora alguns minutos para ser executada. Utilize o comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para ver detalhes sobre a tarefa.
 
@@ -299,7 +299,7 @@ Crie um ficheiro na sua shell atual com o nome *myrendertask_multi.json* e copie
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 ```
 
-### <a name="view-task-output"></a>Ver resultado das tarefas
+### <a name="view-task-output"></a>Ver o resultado das tarefas
 
 A tarefa demora alguns minutos para ser executada. Utilize o comando [az batch task list](/cli/azure/batch/task#az-batch-task-list) para ver o estado das tarefas. Por exemplo:
 

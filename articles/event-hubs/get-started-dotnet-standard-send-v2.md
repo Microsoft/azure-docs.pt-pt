@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2020
 ms.author: spelluru
-ms.openlocfilehash: fc9ffc62e765f3b8c8fa418f3189f84686987821
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c8c6e2741eeeadf2afc0c027da8f9cf957c29c95
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907118"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023247"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Envie eventos ou receba eventos de Azure Event Hubs - .NET Core (Azure.Messaging.EventHubs) 
 Os Event Hubs são um serviço que processa grandes quantidades de dados de eventos (telemetria) em aplicações e dispositivos ligados. Depois de recolher dados em Centros de Eventos, pode armazenar os dados através de um cluster de armazenamento ou eventos de processamento. Por exemplo, pode transformar dados de eventos usando um fornecedor de análise em tempo real. Esta capacidade de recolha e processamento de eventos em larga escala é um componente chave das arquiteturas de aplicações modernas, incluindo a Internet das Coisas (IoT). Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -118,9 +118,9 @@ Esta secção mostra como escrever uma aplicação de consola .NET Core que rece
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Criar um armazenamento do Azure e um contêiner de BLOBs
 Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Siga estes passos para criar uma conta de Armazenamento Azure. 
 
-1. [Criar uma conta de armazenamento do Azure](/storage/common/storage-quickstart-create-account.md?tabs=azure-portal)
-2. [Criar um contêiner de BLOBs](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Obter a cadeia de conexão para a conta de armazenamento](/storage/common/storage-configure-connection-string?#view-and-copy-a-connection-string)
+1. [Criar uma conta de armazenamento do Azure](/azure/storage/common/storage-account-create?tabs=azure-portal)
+2. [Criar um contêiner de BLOBs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+3. [Obter a cadeia de conexão para a conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
 
     Anote a corda de ligação e o nome do recipiente. Você os usará no código de recebimento. 
 

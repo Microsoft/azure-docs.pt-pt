@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760832"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026154"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Características são informações sobre ações e contexto
 
@@ -132,6 +132,8 @@ Estas secções seguintes são práticas comuns para melhorar as funcionalidades
 É possível melhorar os seus conjuntos de funcionalidades editando-os para torná-los maiores e mais ou menos densos.
 
 Por exemplo, um carimbo de tempo até ao segundo é uma característica muito escassa. Poderia tornar-se mais denso (eficaz) classificando os tempos em "manhã", "meio-dia", "tarde", etc.
+
+A informação de localização também beneficia tipicamente da criação de classificações mais amplas. Por exemplo, uma coordenada latitude-longitude como Lat: 47.67402° N, Longo: 122.12154° W é muito preciso, e força o modelo a aprender latitude e longitude como dimensões distintas. Quando se está a tentar personalizar com base em informações de localização, ajuda a agrupar informações sobre localização em sectores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento apropriada para os números Lat-Long, e combinar latitude e longitude em "áreas" tornando-os em uma corda. Por exemplo, uma boa maneira de representar 47.67402° N, Longo: 122.12154° W em regiões com cerca de alguns quilómetros de largura seria "localização":"34,3 , 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandir conjuntos de funcionalidades com informações extrapoladas

@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-configure as tabelas e regras de firewall
-description: Descreve como configurar tabelas e regras de firewall de nuvem privada para restringir o tráfego em sub-redes e VLANs.
+title: Azure VMware Solutions (AVS) - Configurar tabelas e regras de firewall
+description: Descreve como configurar tabelas e regras de firewall AVS Private Cloud para restringir o tráfego em subredes e VLANs.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,72 +8,72 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: d133f4d0ac8cc8b70060563ad07da35e9fdf2d37
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606441"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025287"
 ---
-# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurar tabelas e regras de firewall para nuvens privadas
+# <a name="set-up-firewall-tables-and-rules-for-avs-private-clouds"></a>Configurar tabelas e regras de firewall para AVS Private Clouds
 
-As tabelas de firewall e as regras associadas permitem que você especifique as restrições de tráfego a serem aplicadas a sub-redes e VLANs específicas.
+As tabelas de firewall e as regras associadas permitem especificar restrições ao tráfego para aplicar a determinadas subredes e VLANs.
 
-* Uma sub-rede pode ser associada a uma tabela de firewall.
-* Uma tabela de firewall pode ser associada a várias sub-redes.
+* Uma sub-rede pode ser associada a uma mesa de firewall.
+* Uma tabela de firewall pode ser associada a várias subredes.
 
-## <a name="add-a-new-firewall-table"></a>Adicionar uma nova tabela de firewall
+## <a name="add-a-new-firewall-table"></a>Adicione uma nova tabela de firewall
 
-1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
-2. Selecione **tabelas de firewall**.
-3. Selecione **criar tabela de firewall**.
+1. [Aceda ao portal AVS](access-cloudsimple-portal.md) e selecione **Rede** no menu lateral.
+2. Selecione **Tabelas de Firewall**.
+3. Selecione **Criar tabela de firewall**.
 
     ![Página VLAN/sub-rede](media/firewall-tables-page.png)
 
-4. Insira um nome para a tabela.
-5. Uma regra padrão para a tabela é listada. Clique em **criar nova regra** para criar uma regra adicional. Consulte o procedimento a seguir para obter detalhes.
-6. Clique em **concluído** para salvar a tabela de firewall.
+4. Insira um nome para a mesa.
+5. Uma regra padrão para a tabela está listada. Clique em **Criar Nova Regra** para criar uma regra adicional. Consulte o seguinte procedimento para obter mais detalhes.
+6. Clique **em Feito** para salvar a tabela de firewall.
 
 > [!IMPORTANT]
-> Você pode criar até duas tabelas de firewall por nuvem privada.
+> Você pode criar até duas mesas firewall por Nuvem Privada.
 
 ## <a name="firewall-rules"></a>Regras da firewall
 
-As regras de firewall determinam como o firewall trata tipos específicos de tráfego. A guia **regras** para uma tabela de firewall selecionada lista todas as regras associadas.
+As regras da firewall determinam como a firewall trata tipos específicos de tráfego. O separador **Regras** para uma tabela de firewall selecionada lista todas as regras associadas.
 
 ![Tabela de regras de firewall](media/firewall-rules-tab.png)
 
 ## <a name="create-a-firewall-rule"></a>Criar uma regra de firewall
 
-1. Exiba as configurações para criar uma regra de firewall de uma das seguintes maneiras:
-    * Clique em **Adicionar regra** ao criar uma tabela de firewall.
-    * Selecione uma tabela de firewall específica na página **tabelas de firewall > Rede** e clique em **criar nova regra de firewall**.
-2. Configure a regra da seguinte maneira:
+1. Mostrar as definições para criar uma regra de firewall de cada uma destas formas:
+    * Clique em **Adicionar Regra** ao criar uma tabela de firewall.
+    * Selecione uma tabela de firewall específica na página **Network > Firewall Tables** e clique em Criar nova regra de **firewall**.
+2. Estabeleça a regra da seguinte forma:
     * **Nome**. Dê um nome à regra.
-    * **Prioridade**. Atribua uma prioridade à regra. As regras com números inferiores são executadas primeiro.
-    * **Tipo de tráfego**. Selecione se a regra é para o tráfego de nuvem privada, Internet ou VPN (sem estado) ou para um endereço IP público (com estado).
-    * **Protocolo**. Selecione o protocolo coberto pela regra (TCP, UDP ou qualquer protocolo).
-    * **Direção**. Selecione se a regra é para o tráfego de entrada ou de saída. Você deve definir regras separadas para o tráfego de entrada e de saída.
-    * **Ação**. Selecione a ação a ser tomada se a regra corresponder (permitir ou negar).
-    * **Origem**. Especifique as fontes cobertas pela regra (bloco CIDR, interno ou qualquer fonte).
-    * **Intervalo de portas de origem**. Especifique o intervalo de portas sujeitas à regra.
-    * **Direção**. Selecione entrada ou saída.
-    * **Destino**. Especifique os destinos cobertos pela regra (bloco CIDR, interno ou qualquer fonte).
-    * **Intervalo de portas de origem**. Especifique o intervalo de portas sujeitas à regra.
+    * **Prioridade.** Atribuir uma prioridade à regra. As regras com números mais baixos são executadas primeiro.
+    * **Tipo de tráfego**. Selecione se a regra é para AVS Private Cloud, Internet ou VPN tráfego (apátrida) ou para um endereço IP público (apátrida).
+    * **Protocolo**. Selecione o protocolo abrangido pela regra (TCP, UDP ou qualquer protocolo).
+    * **Direção.** Selecione se a regra é para tráfego de entrada ou saída. Deve definir regras separadas para o tráfego de entrada e saída.
+    * **Ação.** Selecione a ação a tomar se a regra corresponder (permitir ou negar).
+    * **Fonte.** Especifique as fontes abrangidas pela regra (bloco CIDR, interna ou qualquer fonte).
+    * **Gama de porta**de origem. Especifique o leque de portas sujeitas à regra.
+    * **Direção.** Selecione entrada ou saída.
+    * **Destino**. Especifique os destinos abrangidos pela regra (bloco CIDR, interno ou qualquer fonte).
+    * **Gama de porta**de origem. Especifique o leque de portas sujeitas à regra.
 
-    ![Tabela de firewall-Adicionar regra](media/firewall-rule-create.png)
+    ![Regra de adição de tabela firewall](media/firewall-rule-create.png)
 
-3. Clique em **concluído** para salvar a regra e adicioná-la à lista de regras para a tabela de firewall.
+3. Clique em **Feito** para salvar a regra e adicioná-la à lista de regras para a tabela de firewall.
 
 > [!IMPORTANT]
-> Cada tabela de firewall pode ter até 10 regras de entrada e 20 regras de saída. Esses limites podem ser aumentados [entrando em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+> Cada tabela firewall pode ter até 10 regras de entrada e 20 regras de saída. Estes limites podem ser aumentados [contactando](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)o suporte .
 
-## <a name="attach-vlanssubnets"></a>Anexar VLANs/sub-redes
+## <a name="attach-vlanssubnets"></a>Anexar VLANs/subredes
 
-Depois de definir uma tabela de firewall, você pode especificar as sub-redes que estão sujeitas às regras na tabela.
+Depois de definir uma tabela de firewall, pode especificar as subredes que estão sujeitas às regras da tabela.
 
-1. Na página tabelas de **Firewall** de > de **rede** , selecione uma tabela de firewall.
-2. Abra a guia **VLANs/sub-rede anexadas** .
-3. Clique em **anexar a uma VLAN/sub-rede**.
-4. Selecione a nuvem privada e a VLAN. O nome de sub-rede e o bloco CIDR associados são mostrados.
-5. Clique em **Enviar**.
+1. Na página Tabelas de **Firewall** ** > rede,** selecione uma tabela de firewall.
+2. Abra o separador **VLANs/Subnet anexo.**
+3. Clique **em ligar a uma VLAN/Subnet**.
+4. Selecione a Nuvem Privada AVS e a VLAN. O nome da sub-rede associado e o bloco CIDR são mostrados.
+5. Clique em **Submit** (Submeter).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: d43b580f60f5ae8d2782cf9762b02aa1360e5a40
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 57e560c52c9a8f10586c31231bcc9d6acc667558
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901197"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019541"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Coletar dados de log com o agente de Log Analytics
 
@@ -106,7 +106,6 @@ As informações abaixo listam as informações de configuração de proxy e fir
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|OMS*.azure.com |Porta 443 |Saída |Sim |
 |*.ods.opinsights.azure.com |Porta 443 |Saída|Sim |  
 |*.oms.opinsights.azure.com |Porta 443 |Saída|Sim |  
 |*.blob.core.windows.net |Porta 443 |Saída|Sim |  

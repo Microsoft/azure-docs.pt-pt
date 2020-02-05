@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-configurar o DNS para a nuvem privada do CloudSimple
-description: Descreve como configurar a resolução de nomes DNS para acesso ao vCenter Server em uma nuvem privada do CloudSimple de estações de trabalho locais
+title: Soluções Azure VMware (AVS) - Configure DNS para Nuvem Privada AVS
+description: Descreve como configurar a resolução de nome sns para acesso ao servidor vCenter numa Nuvem Privada AVS a partir de estações de trabalho no local
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,42 +8,42 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: eadedcea7e6010cf93d118b3781630053609d29f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108793"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019609"
 ---
-# <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurar o DNS para a resolução de nomes para acesso de vCenter de nuvem privada de estações de trabalho locais
+# <a name="configure-dns-for-name-resolution-for-avs-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configure DNS para resolução de nome saque para acesso a DVS Private Cloud vCenter a partir de estações de trabalho no local
 
-Para acessar o vCenter Server em uma nuvem privada do CloudSimple de estações de trabalho locais, você deve configurar a resolução de endereço DNS para que o servidor vCenter possa ser endereçado pelo nome do host, bem como pelo endereço IP.
+Para aceder ao servidor vCenter numa Nuvem Privada AVS a partir de estações de trabalho no local, deve configurar a resolução de endereços DNS para que o servidor vCenter possa ser abordado pelo nome de anfitrião, bem como pelo endereço IP.
 
-## <a name="obtain-the-ip-address-of-the-dns-server-for-your-private-cloud"></a>Obter o endereço IP do servidor DNS para sua nuvem privada
+## <a name="obtain-the-ip-address-of-the-dns-server-for-your-avs-private-cloud"></a>Obtenha o endereço IP do servidor DNS para a sua Nuvem Privada AVS
 
-1. Entre no portal do [CloudSimple](access-cloudsimple-portal.md).
+1. Inscreva-se no [portal AVS.](access-cloudsimple-portal.md)
 
-2. Navegue até **recursos** > **nuvens privadas** e selecione a nuvem privada à qual você deseja se conectar.
+2. Navegue para **Recursos** > **Nuvens Privadas AVS** e selecione a Nuvem Privada AVS a que pretende ligar.
 
-3. Na página **Resumo** da nuvem privada em **informações básicas**, copie o endereço IP do servidor DNS da nuvem privada.
+3. Na página **resumo** da Nuvem Privada AVS em **Informações Básicas,** copie o endereço IP do servidor DNS private Cloud DNS.
 
-    ![Servidores DNS da nuvem privada](media/private-cloud-dns-server.png)
+    ![Servidores DNS dNS privados da Nuvem AVS](media/private-cloud-dns-server.png)
 
 
-Use qualquer uma dessas opções para a configuração de DNS.
+Utilize qualquer uma destas opções para a configuração DNS.
 
-* [Crie uma zona no servidor DNS para *. cloudsimple.io](#create-a-zone-on-a-microsoft-windows-dns-server)
-* [Crie um encaminhador condicional no servidor DNS local para resolver *. cloudsimple.io](#create-a-conditional-forwarder)
+* [Crie uma zona no servidor DNS para *. AVS.io](#create-a-zone-on-a-microsoft-windows-dns-server)
+* [Crie um avançado condicionado no seu servidor DNS no local para resolver *. AVS.io](#create-a-conditional-forwarder)
 
-## <a name="create-a-zone-on-the-dns-server-for-cloudsimpleio"></a>Crie uma zona no servidor DNS para *. cloudsimple.io
+## <a name="create-a-zone-on-the-dns-server-for-avsio"></a>Crie uma zona no servidor DNS para *. AVS.io
 
-Você pode configurar uma zona como uma zona de stub e apontar para os servidores DNS na nuvem privada para resolução de nomes. Esta seção fornece informações sobre como usar um servidor DNS BIND ou um servidor DNS do Microsoft Windows.
+Você pode configurar uma zona como uma zona de stub e apontar para os servidores DNS na Nuvem Privada para resolução de nome. Esta secção fornece informações sobre a utilização de um servidor BIND DNS ou de um servidor DNS do Microsoft Windows.
 
-### <a name="create-a-zone-on-a-bind-dns-server"></a>Criar uma zona em um servidor DNS de associação
+### <a name="create-a-zone-on-a-bind-dns-server"></a>Criar uma zona num servidor BIND DNS
 
-O arquivo e os parâmetros específicos a serem configurados podem variar com base na configuração de DNS individual.
+O ficheiro e os parâmetros específicos para configurar podem variar em função da configuração individual do DNS.
 
-Por exemplo, para a configuração de servidor BIND padrão, edite o arquivo/etc/named.conf no servidor DNS e adicione as informações de zona a seguir.
+Por exemplo, para a configuração do servidor BIND predefinido, edite/etc/nomeado.conf no seu servidor DNS e adicione as seguintes informações de zona.
 
 ```
 zone "az.cloudsimple.io"
@@ -54,37 +54,37 @@ zone "az.cloudsimple.io"
 };
 ```
 
-### <a name="create-a-zone-on-a-microsoft-windows-dns-server"></a>Criar uma zona em um servidor DNS do Microsoft Windows
+### <a name="create-a-zone-on-a-microsoft-windows-dns-server"></a>Criar uma zona num servidor DNS do Microsoft Windows
 
-1. Clique com o botão direito do mouse no servidor DNS e selecione **nova zona**. 
+1. Clique no servidor DNS e selecione **New Zone**. 
   
-    ![Nova zona](media/DNS01.png)
-2. Selecione **zona de stub** e clique em **Avançar**.
+    ![Zona Nova](media/DNS01.png)
+2. Selecione **Stub Zone** e clique **em Seguinte**.
 
-    ![Nova zona](media/DNS02.png)
-3. Selecione a opção apropriada dependendo do seu ambiente e clique em **Avançar**.
+    ![Zona Nova](media/DNS02.png)
+3. Selecione a opção adequada dependendo do seu ambiente e clique em **Next**.
 
-    ![Nova zona](media/DNS03.png)
-4. Selecione **zona de pesquisa direta** e clique em **Avançar**.
+    ![Zona Nova](media/DNS03.png)
+4. Selecione zona de **lookup Para a Frente** e clique **em Next**.
 
-    ![Nova zona](media/DNS01.png)
-5. Insira o nome da zona e clique em **Avançar**.
+    ![Zona Nova](media/DNS01.png)
+5. Introduza o nome da zona e clique **em Seguinte**.
 
-    ![Nova zona](media/DNS05.png)
-6. Insira os endereços IP dos servidores DNS para sua nuvem privada que você obteve no portal do CloudSimple.
+    ![Zona Nova](media/DNS05.png)
+6. Introduza os endereços IP dos servidores DNS para a sua Nuvem Privada AVS que obteve no portal AVS.
 
-    ![Nova zona](media/DNS06.png)
-7. Clique em **Avançar** conforme necessário para concluir a instalação do assistente.
+    ![Zona Nova](media/DNS06.png)
+7. Clique em **Seguinte,** conforme necessário para completar a configuração do assistente.
 
-## <a name="create-a-conditional-forwarder"></a>Criar um encaminhador condicional
+## <a name="create-a-conditional-forwarder"></a>Criar um avançado condicional
 
-Um encaminhador condicional encaminha todas as solicitações de resolução de nomes DNS para o servidor designado. Com essa configuração, qualquer solicitação para *. cloudsimple.io é encaminhada para os servidores DNS localizados na nuvem privada. Os exemplos a seguir mostram como configurar encaminhadores em diferentes tipos de servidores DNS.
+Um avançado condicional reencaminha todos os pedidos de resolução de nomes DNS para o servidor designado. Com esta configuração, qualquer pedido para *. AVS.io é encaminhado para os servidores DNS localizados na Nuvem Privada AVS. Os exemplos seguintes mostram como configurar os avançados em diferentes tipos de servidores DNS.
 
-### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Criar um encaminhador condicional em um servidor DNS de associação
+### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Criar um avançado condicional num servidor BIND DNS
 
-O arquivo e os parâmetros específicos a serem configurados podem variar com base na configuração de DNS individual.
+O ficheiro e os parâmetros específicos para configurar podem variar em função da configuração individual do DNS.
 
-Por exemplo, para a configuração de servidor BIND padrão, edite o arquivo/etc/named.conf no servidor DNS e adicione as seguintes informações de encaminhamento condicional.
+Por exemplo, para a configuração do servidor BIND predefinido, edite/etc/nomeado.conf no seu servidor DNS e adicione as seguintes informações de reencaminhamento condicional.
 
 ```
 zone "az.cloudsimple.io" {
@@ -93,10 +93,10 @@ zone "az.cloudsimple.io" {
 };
 ```
 
-### <a name="create-a-conditional-forwarder-on-a-microsoft-windows-dns-server"></a>Criar um encaminhador condicional em um servidor DNS do Microsoft Windows
+### <a name="create-a-conditional-forwarder-on-a-microsoft-windows-dns-server"></a>Criar um avançado condicional num servidor DNS do Microsoft Windows
 
-1. Abra o Gerenciador DNS no servidor DNS.
-2. Clique com o botão direito do mouse em **encaminhadores condicionais** e selecione a opção para adicionar um novo encaminhador condicional.
+1. Abra o Gestor DNS no servidor DNS.
+2. Clique no direito dos **Avançados Condicionais** e selecione a opção de adicionar um novo avançado condicional.
 
-    ![Encaminhador condicional 1 DNS do Windows](media/DNS08.png)
-3. Insira o domínio DNS e o endereço IP dos servidores DNS na nuvem privada e clique em **OK**.
+    ![Forwarder Condicionado 1 Windows DNS](media/DNS08.png)
+3. Introduza o domínio DNS e o endereço IP dos servidores DNS na Nuvem Privada AVS e clique em **OK**.

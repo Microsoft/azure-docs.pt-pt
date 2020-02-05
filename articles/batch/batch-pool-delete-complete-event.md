@@ -2,21 +2,21 @@
 title: Piscina de Lote Azure elimina evento completo
 description: Referência de exclusão do pool do lote evento concluído. Esse evento é emitido quando uma operação de exclusão de pool é concluída.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: 56dc4c91566cc5c41de6c91618d09e7a0ebb7172
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: d317d7395a8246c109073a72338b55960cb50954
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76929871"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023621"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de conclusão de eliminação de conjunto
 

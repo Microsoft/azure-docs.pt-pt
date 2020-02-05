@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: e23a4c39f93ea4de7f5dd38bb266d63ed52913cb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845854"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023145"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individuais na Base de Dados Azure SQL
 
@@ -93,8 +93,8 @@ else {
 - Se estiver a atualizar para um nível de serviço mais elevado ou tamanho de computação, o tamanho máximo da base de dados não aumenta a menos que especifique explicitamente um tamanho maior (tamanho máximo).
 - Para desvalorizar uma base de dados, o espaço utilizado na base de dados deve ser inferior ao tamanho máximo permitido do nível de serviço-alvo e do tamanho da computação.
 - Ao degradar-se do **Premium** para o nível **Standard,** aplica-se um custo de armazenamento extra se ambos (1) o tamanho máximo da base de dados for suportado no tamanho da computação-alvo, e (2) o tamanho máximo exceder a quantidade de armazenamento incluída do tamanho da computação-alvo. Por exemplo, se uma base de dados P1 com um tamanho máximo de 500 GB for reduzido para S3, então um custo de armazenamento extra aplica-se uma vez que o S3 suporta um tamanho máximo de 1 TB e o seu valor de armazenamento incluído é de apenas 250 GB. Assim, o valor extra de armazenamento é de 500 GB – 250 GB = 250 GB. Para obter preços de armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço utilizado for inferior ao valor de armazenamento incluído, então este custo extra pode ser evitado reduzindo o tamanho máximo da base de dados para o valor incluído.
-- Ao atualizar uma base de dados com [geo-replicação](sql-database-geo-replication-portal.md) ativada, atualize as suas bases de dados secundárias para o nível de serviço pretendido e calcule o tamanho da computação antes de atualizar a base de dados primária (orientação geral para melhor desempenho). Quando se atualiza para uma base de dados secundária diferente, é necessário atualizar primeiro a base de dados secundária.
-- Ao degradar uma base de dados com [geo-replicação](sql-database-geo-replication-portal.md) ativada, desagrade as suas bases de dados primárias para o nível de serviço pretendido e para o tamanho da computação antes de degradar a base de dados secundária (orientação geral para melhor desempenho). Ao desvalorizar para uma edição diferente, é necessário desvalorizar a base de dados primária primeiro.
+- Ao atualizar uma base de dados com [geo-replicação](sql-database-geo-replication-portal.md) ativada, atualize as suas bases de dados secundárias para o nível de serviço pretendido e calcule o tamanho da computação antes de atualizar a base de dados primária (orientação geral para melhor desempenho). Ao atualizar para uma edição diferente, é um requisito que a base de dados secundária seja atualizada primeiro.
+- Ao degradar uma base de dados com [geo-replicação](sql-database-geo-replication-portal.md) ativada, desagrade as suas bases de dados primárias para o nível de serviço pretendido e para o tamanho da computação antes de degradar a base de dados secundária (orientação geral para melhor desempenho). Ao degradar-se para uma edição diferente, é um requisito que a base de dados primária seja desclassificada primeiro.
 - As ofertas de serviço de restauro diferem entre os vários escalões de serviço. Se estiver a degradar-se para o nível **Básico,** existe um período de retenção de backup mais baixo. Ver Backups de Base de [Dados Azure SQL](sql-database-automated-backups.md).
 - As novas propriedades para a base de dados não são aplicadas até que as alterações estejam concluídas.
 

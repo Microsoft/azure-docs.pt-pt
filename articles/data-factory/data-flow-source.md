@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 7a438a52ab69810ecf49319c148f817da974ea61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440222"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023519"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformação de origem no fluxo de dados de mapeamento 
 
@@ -44,6 +44,8 @@ Depois de adicionar uma fonte, configure por meio da guia **configurações de o
 
 ![Guia Configurações de origem](media/data-flow/source1.png "Guia Configurações de origem")
 
+**Ligação de teste:** Teste se o serviço de faíscas do fluxo de dados pode ou não ligar-se com sucesso ao serviço ligado utilizado no seu conjunto de dados de origem. O modo dedepuração deve estar ligado para que esta funcionalidade esteja ativada.
+
 **Descompasso de esquema:** a [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade do data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações na coluna.
 
 * Marque a caixa **permitir descompasso de esquema** se as colunas de origem forem alteradas com frequência. Essa configuração permite que todos os campos de origem de entrada fluam por meio das transformações para o coletor.
@@ -69,13 +71,17 @@ Como os esquemas em conjuntos de dados, a projeção em uma fonte define as colu
 
 ![Configurações na guia projeção](media/data-flow/source3.png "Projeção")
 
-Se o arquivo de texto não tiver um esquema definido, selecione **detectar tipo de dados** para que data Factory obterá amostras e inferirá os tipos de dados. Selecione **definir formato padrão** para detectar automaticamente os formatos de dados padrão. 
+Se o arquivo de texto não tiver um esquema definido, selecione **detectar tipo de dados** para que data Factory obterá amostras e inferirá os tipos de dados. Selecione **definir formato padrão** para detectar automaticamente os formatos de dados padrão.
+
+**Redefinir** o esquema repõe a projeção para o que é definido no conjunto de dados referenciado.
 
 Você pode modificar os tipos de dados de coluna em uma transformação de coluna derivada de fluxo inferior. Use uma transformação selecionar para modificar os nomes de coluna.
 
 ### <a name="import-schema"></a>Importar esquema
 
-Conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas, não exigem que definições de esquema existam no DataSet. Portanto, você poderá clicar no botão **importar esquema** na guia **projeção** para esses tipos de fontes.
+O botão **Import Schema** no separador **Projeção** permite-lhe utilizar um cluster de depuração ativo para criar uma projeção de esquemas. Disponível em todos os tipos de origem, importar o esquema aqui substituirá a projeção definida no conjunto de dados. O objeto conjunto de dados não será alterado.
+
+Isto é útil em conjuntos de dados como a Avro e a CosmosDB que suportam estruturas de dados complexas não requerem definições de esquemas para existir no conjunto de dados.
 
 ## <a name="optimize-the-source-transformation"></a>Otimizar a transformação de origem
 

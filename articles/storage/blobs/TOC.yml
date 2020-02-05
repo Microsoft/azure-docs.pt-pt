@@ -683,8 +683,6 @@
               href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Utilizar com CLI do Sistema de Ficheiros do Hadoop
           href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Utilizar com o Power BI
-          href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Referência
       items:
         - name: .NET

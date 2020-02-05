@@ -2,18 +2,18 @@
 title: Provisionar um pool personalizado de uma imagem gerenciada-Azure batch | Microsoft Docs
 description: Crie um pool do lote de um recurso de imagem gerenciada para provisionar nós de computação com o software e os dados para seu aplicativo.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: jushiman
-ms.openlocfilehash: 3c7aafb5cfdd2e0127aa9969b904976cb93db614
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 1ef6be2ba9364203dceba54ab51325c05dbbbe41
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029761"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020153"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem gerenciada para criar um pool de máquinas virtuais
 
@@ -104,7 +104,7 @@ Observe também as seguintes considerações:
 
   Se você planejar um pool com mais de 300 nós de computação, talvez seja necessário redimensionar o pool várias vezes para alcançar o tamanho do destino.
   
-Usando a [Galeria de imagens compartilhadas](batch-sig-images.md), você pode criar pools maiores com suas imagens personalizadas juntamente com mais réplicas de imagem compartilhadas. Usando imagens compartilhadas, o tempo necessário para o pool alcançar o estado estacionário é de até 25% mais rápido e a latência de ociosidade da VM é de até 30% mais curta.
+Usando a [Galeria de imagens compartilhadas](batch-sig-images.md), você pode criar pools maiores com suas imagens personalizadas juntamente com mais réplicas de imagem compartilhadas. Utilizando imagens partilhadas, o tempo que a piscina leva para chegar ao estado estável é até 25% mais rápido, e a latência vm idle é até 30% mais curta.
 
 ## <a name="considerations-for-using-packer"></a>Considerações sobre o uso do Packr
 

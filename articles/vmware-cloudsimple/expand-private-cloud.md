@@ -1,6 +1,6 @@
 ---
-title: Expanda a solução do Azure VMware da nuvem privada CloudSimple
-description: Descreve como expandir uma nuvem privada CloudSimple existente para adicionar capacidade em um cluster novo ou existente
+title: Expandir soluções Azure VMware (AVS) Private Cloud
+description: Descreve como expandir uma Nuvem Privada AVS existente para adicionar capacidade num cluster existente ou novo
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/06/2019
@@ -8,53 +8,53 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a82ba1b433e62ed1c4b72b8e942d4ade29f26c4a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 3286b7537056a6c2f282533aa629ebbe47612690
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816172"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025304"
 ---
-# <a name="expand-a-cloudsimple-private-cloud"></a>Expandir uma nuvem privada do CloudSimple
+# <a name="expand-an-avs-private-cloud"></a>Expandir uma Nuvem Privada AVS
 
-O CloudSimple fornece a flexibilidade para expandir dinamicamente uma nuvem privada. Você pode começar com uma configuração menor e, em seguida, expandir conforme precisar de maior capacidade. Ou você pode criar uma nuvem privada com base nas necessidades atuais e expandir conforme o consumo cresce.
+A AVS proporciona a flexibilidade para expandir dinamicamente uma Nuvem Privada AVS. Pode começar com uma configuração menor e depois expandir-se à medida que necessita de uma maior capacidade. Ou pode criar uma Nuvem Privada AVS com base nas necessidades atuais e depois expandir-se à medida que o consumo cresce.
 
-Uma nuvem privada consiste em um ou mais clusters vSphere. Cada cluster pode ter de 3 a 16 nós.  Ao expandir uma nuvem privada, você adiciona nós ao cluster existente ou cria um novo cluster. Para expandir um cluster existente, nós adicionais devem ser do mesmo tipo (SKU) que os nós existentes. Para criar um novo cluster, os nós podem ser de um tipo diferente. Para obter mais informações sobre limites de nuvem privada, consulte a seção limites no artigo [visão geral da nuvem privada do CloudSimple](cloudsimple-private-cloud.md) .
+Uma Nuvem Privada AVS é composta por um ou mais aglomerados vSphere. Cada aglomerado pode ter 3 a 16 nós. Ao expandir uma Nuvem Privada AVS, adicione nós ao cluster existente ou crie um novo cluster. Para expandir um cluster existente, os nós adicionais devem ser do mesmo tipo (SKU) que os nós existentes. Para criar um novo cluster, os nós podem ser de um tipo diferente. Para obter mais informações sobre os limites da Nuvem Privada AVS, consulte a secção de limites no artigo de visão geral da [nuvem privada AVS.](cloudsimple-private-cloud.md)
 
-Uma nuvem privada é criada com um **datacenter** padrão no vCenter.  Cada datacenter serve como uma entidade de gerenciamento de nível superior.  Para um novo cluster, o CloudSimple fornece a opção de adicionar ao datacenter existente ou criar um novo datacenter.
+Uma Nuvem Privada AVS é criada com um **Datacenter** padrão no vCenter. Cada datacenter serve como uma entidade de gestão de alto nível. Para um novo cluster, a AVS oferece a opção de adicionar ao datacenter existente ou criar um novo datacenter.
 
-Como parte da nova configuração de cluster, o CloudSimple configura a infra-estrutura do VMware.  As configurações incluem configurações de armazenamento para grupos de discos vSAN, alta disponibilidade do VMware e Distributed Resource Scheduler (DRS).
+Como parte da nova configuração do cluster, a AVS configura a infraestrutura VMware. As definições incluem configurações de armazenamento para grupos de discos vSAN, Alta Disponibilidade VMware e Programador de Recursos Distribuídos (DRS).
 
-Uma nuvem privada pode ser expandida várias vezes. A expansão só pode ser feita quando você permanece dentro dos limites de nó gerais. Cada vez que você expande uma nuvem privada, você adiciona ao cluster existente ou cria um novo.
+Uma Nuvem Privada AVS pode ser expandida várias vezes. A expansão só pode ser feita quando se fica dentro dos limites globais do nó. Cada vez que expande uma Nuvem Privada AVS, adiciona-se ao cluster existente ou cria uma nova.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Os nós devem ser provisionados antes que você possa expandir sua nuvem privada.  Para obter mais informações sobre os nós de provisionamento, consulte o artigo provisionar [nós para solução VMware por CloudSimple-Azure](create-nodes.md) .  Para criar um novo cluster, você deve ter pelo menos três nós disponíveis do mesmo SKU.
+Os nódosos devem ser provisionados antes de poder expandir a sua Nuvem Privada AVS. Para obter mais informações sobre o fornecimento de nós, consulte [os nós de provisionamento para a Solução VMware por avs - artigo azure.](create-nodes.md) Para criar um novo cluster, você deve ter pelo menos três nós disponíveis do mesmo SKU.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="expand-a-private-cloud"></a>Expandir uma nuvem privada
+## <a name="expand-an-avs-private-cloud"></a>Expandir uma Nuvem Privada AVS
 
-1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md).
+1. [Aceda ao portal AVS.](access-cloudsimple-portal.md)
 
-2. Abra a página **recursos** e selecione a nuvem privada para a qual você deseja expandir.
+2. Abra a página **Recursos** e selecione a Nuvem Privada AVS para a qual pretende expandir.
 
-3. Na seção Resumo, clique em **expandir**.
+3. Na secção resumo, clique em **Expandir**.
 
-    ![Expandir nuvem privada](media/resources-expand-private-cloud.png)
+    ![Expandir nuvem privada AVS](media/resources-expand-private-cloud.png)
 
-4. Escolha se deseja expandir o cluster existente ou criar um novo cluster vSphere. Conforme você faz alterações, as informações resumidas na página são atualizadas.
+4. Escolha se expande o seu cluster existente ou crie um novo cluster vSphere. À medida que faz alterações, a informação sumária na página é atualizada.
 
-    * Para expandir o cluster existente, clique em **expandir cluster existente**. Selecione o cluster que você deseja expandir e insira o número de nós a serem adicionados. Cada cluster pode ter um máximo de 16 nós.
-    * Para adicionar um novo cluster, clique em **criar novo cluster**. Introduza um nome para o cluster. Selecione um datacenter existente ou insira um nome para criar um novo datacenter. Escolha o tipo de nó. Você pode escolher um tipo de nó diferente ao criar um novo cluster vSphere, mas não ao expandir um cluster vSphere existente. Selecione o número de nós. Cada cluster novo deve ter pelo menos três nós.
+    * Para expandir o seu cluster existente, clique em Expandir o **cluster existente**. Selecione o cluster que pretende expandir e introduza o número de nós para adicionar. Cada aglomerado pode ter um máximo de 16 nós.
+    * Para adicionar um novo cluster, clique **em Criar um novo cluster**. Introduza um nome para o cluster. Selecione um datacenter existente ou introduza um nome para criar um novo datacenter. Escolha o tipo de nó. Você pode escolher um tipo de nó diferente ao criar um novo cluster vSphere, mas não quando expandir um cluster vSphere existente. Selecione o número de nós. Cada novo aglomerado deve ter pelo menos três nós.
 
-    ![Expandir nuvem privada – adicionar nós](media/resources-expand-private-cloud-add-nodes.png)
+    ![Expandir AVS Private Cloud - adicione nódosos](media/resources-expand-private-cloud-add-nodes.png)
 
-5. Clique em **Enviar** para expandir a nuvem privada.
+5. Clique **em Submeter** para expandir a Nuvem Privada AVS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
-* Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)
+* Saiba mais sobre [as Nuvens Privadas aVS](cloudsimple-private-cloud.md)

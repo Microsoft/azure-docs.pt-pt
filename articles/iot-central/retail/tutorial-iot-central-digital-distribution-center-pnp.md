@@ -7,16 +7,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 90d171e3353061ffd855d9132c8a7fe40116e3cd
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984110"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025491"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial mostra-lhe como começar implantando um modelo de aplicação do centro de **distribuição digital** IoT Central. Você vai aprender a implementar o modelo, o que está incluído fora da caixa, e o que você pode querer fazer a seguir.
 
@@ -116,4 +116,4 @@ Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicaç�
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre o [conceito](./architecture-digital-distribution-center-pnp.md) de centro de distribuição digital de centro de distribuição digital de arquitetura digital
 * Saiba mais sobre outros [modelos de retalho IoT Central](./overview-iot-central-retail-pnp.md)
-* Saiba mais sobre ioT Central consulte [a visão geral da IoT Central](../preview/overview-iot-central.md)
+* Saiba mais sobre ioT Central consulte [a visão geral da IoT Central](../core/overview-iot-central.md)

@@ -2,20 +2,20 @@
 title: Início Rápido do Azure – Executar trabalho do Batch – .NET
 description: Execute rapidamente um trabalho de exemplo do lote do Azure e C# tarefas de um aplicativo com a biblioteca de cliente .net do lote.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: a11bc1d7b9c1f3443e9d066ac18d172ff027169e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 809ca9d9aafa813e05dea81eb05616eefcc65472
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029402"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017212"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: executar o seu primeiro trabalho do Azure Batch com a API .NET
 
@@ -227,7 +227,7 @@ for (int i = 0; i < inputFiles.Count; i++)
 batchClient.JobOperations.AddTask(JobId, tasks);
 ```
 
-### <a name="view-task-output"></a>Ver resultado das tarefas
+### <a name="view-task-output"></a>Ver o resultado das tarefas
 
 A aplicação cria um [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) para monitorizar as tarefas para assegurar a sua conclusão. Em seguida, a aplicação utiliza a propriedade [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) para apresentar o ficheiro `stdout.txt` gerado por cada tarefa concluída. Quando a tarefa é executada com êxito, o resultado do comando da tarefa é escrito em `stdout.txt`:
 

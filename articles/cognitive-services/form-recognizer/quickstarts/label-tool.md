@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 158faaba1525e162c40c44179f30f7c3cea83b38
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770293"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025916"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de reconhecimento de formulário com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -26,7 +26,6 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para concluir este guia de início rápido, você deve ter:
 - Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o [formulário solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess). Você receberá um email com um link para criar um recurso de reconhecimento de formulário.
-- Acesso à ferramenta de rotulagem de amostra do reconhecedor de formulário. Para obter acesso, preencha e envie o [formulário solicitação de ferramenta de rótulo do reconhecedor de formulário](https://aka.ms/LabelToolRequestAccess). Você receberá um email com instruções sobre como obter suas credenciais e acessar o registro de contêiner privado. 
 - Um conjunto de pelo menos seis formas do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este guia de início rápido. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de BLOBs em uma conta de armazenamento do Azure.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rótulo de exemplo
@@ -38,18 +37,13 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
     |:--|:--|:--|
     |Ferramenta de rótulo de exemplo|2 núcleos, 4 GB de memória|4 núcleos, 8 GB de memória|
     
-1. Em seguida, você precisará da [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Instale-o em seu computador, se ainda não tiver feito isso.
-1. Em seguida, insira o comando a seguir em um prompt de comando. Os valores para `<username>` e `<password>` estão no seu email de reconhecimento do formulário de boas-vindas.
-    ```
-    docker login containerpreview.azurecr.io -u <username> -p <password>
-    ```
 1. Obtenha o contêiner de ferramentas de rótulo de exemplo com o comando `docker pull`.
     ```
-    docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
 1. Agora você está pronto para executar o contêiner com `docker run`.
     ```
-    docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
    Esse comando disponibilizará a ferramenta de rotulagem de exemplo por meio de um navegador da Web. Vá para [http://localhost:3000](http://localhost:3000).
@@ -72,7 +66,7 @@ Habilite o CORS em sua conta de armazenamento. Selecione sua conta de armazename
 * Idade máxima = 200
 
 > [!div class="mx-imgBorder"]
-> ![a configuração de CORS no portal do Azure](../media/label-tool/cors-setup.png)
+> ![a instalação cors no portal Azure](../media/label-tool/cors-setup.png)
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Conectar-se à ferramenta de rótulo de exemplo
 
@@ -86,7 +80,7 @@ Preencha os campos com os seguintes valores:
 
 * **Nome de exibição** -o nome de exibição da conexão.
 * **Descrição** -a descrição do seu projeto.
-* **URL SAS** -a URL de SAS (assinatura de acesso compartilhado) do seu contêiner de armazenamento de BLOBs do Azure. Para recuperar a URL SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Defina o tempo de expiração para algum tempo depois de ter usado o serviço. Verifique se as permissões de **leitura**, **gravação**, **exclusão**e **lista** estão marcadas e clique em **criar**. Em seguida, copie o valor na seção **URL** . Ele deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **URL SAS** -a URL de SAS (assinatura de acesso compartilhado) do seu contêiner de armazenamento de BLOBs do Azure. Para recuperar a URL SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Defina o tempo de expiração para algum tempo depois de ter usado o serviço. Verifique se as permissões de **leitura**, **gravação**, **exclusão**e **lista** estão marcadas e clique em **criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ![Configurações de conexão da ferramenta de rótulo de exemplo](../media/label-tool/connections.png)
 
@@ -161,7 +155,7 @@ Clique no ícone prever (retângulos) à esquerda para testar seu modelo. Carreg
 
 Dependendo da precisão relatada, talvez você queira mais treinamento para melhorar o modelo. Depois de fazer uma previsão, examine os valores de confiança para cada uma das marcas aplicadas. Se o valor de treinamento de precisão média era alto, mas as pontuações de confiança são baixas (ou os resultados são imprecisos), você deve adicionar o arquivo usado para previsão no conjunto de treinamento, rotulá-lo e treinar novamente.
 
-A precisão média relatada, as pontuações de confiança e a precisão real podem ser inconsistentes quando os documentos que estão sendo analisados são diferentes daqueles usados no treinamento. Tenha em mente que alguns documentos parecem semelhantes quando exibidos por pessoas, mas podem parecer distintos para o modelo de ia. Por exemplo, você pode treinar com um tipo de formulário que tem duas variações, em que o conjunto de treinamento consiste em 20% de variação A e 80% da variação B. Durante a previsão, as pontuações de confiança para documentos da variação A provavelmente serão menores.
+A precisão média relatada, as pontuações de confiança e a precisão real podem ser inconsistentes quando os documentos que estão sendo analisados são diferentes daqueles usados no treinamento. Tenha em mente que alguns documentos parecem semelhantes quando exibidos por pessoas, mas podem parecer distintos para o modelo de ia. Por exemplo, você pode treinar com um tipo de formulário que tem duas variações, onde o conjunto de formação consiste em variação A de 20% e 80% de variação B. Durante a previsão, as pontuações de confiança para documentos de variação A são suscetíveis de ser mais baixas.
 
 ## <a name="save-a-project-and-resume-later"></a>Salvar um projeto e retomá-lo mais tarde
 

@@ -3,19 +3,19 @@ title: Gerencie a sua conta e converta-se a partir do plano de preços gratuitos
 description: Como administrador, aprenda a gerir a sua conta e passe do plano de preços gratuitos para um plano de preços padrão na sua aplicação Azure IoT Central
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e45109842a081b437c20de81321bf70f909efa2a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 58503784f28a3ba0a6290a2209ce9fdccc14b4e4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982371"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023774"
 ---
-# <a name="view-your-bill-in-iot-central-application"></a>Consulte a sua conta na aplicação IoT Central
+# <a name="manage-your-bill-in-an-iot-central-application"></a>Gerencie a sua conta numa aplicação IoT Central
 
 Este artigo descreve como, como administrador, pode gerir a sua conta na aplicação Azure IoT Central na secção de administração. Você vai aprender como você pode mover a sua aplicação do plano de preços gratuitopara um plano de preços padrão, e também como atualizar ou desvalorizar o seu plano de preços.
 
@@ -24,6 +24,9 @@ Para aceder e utilizar a secção **Administração,** deve estar na função *d
 ## <a name="move-from-free-to-standard-pricing-plan"></a>Passar de plano de preços gratuito para padrão
 
 - As aplicações que utilizam o plano de preços gratuitos são gratuitas durante sete dias antes de expirarem. Para evitar perder dados, pode movê-los para um plano de preços padrão a qualquer momento antes de expirarem.
+- As aplicações que utilizam um plano de preços padrão são cobradas por dispositivo, com os dois primeiros dispositivos gratuitos, por aplicação.
+
+Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
 Na secção de preços, pode mover a sua aplicação do livre para um plano de preços padrão.
 
@@ -31,11 +34,11 @@ Para completar este processo de self-service, siga estes passos:
 
 1. Vá à página **de Preços** na secção **administração.**
 
-    ![Estado experimental](media/howto-administer/freetrialbilling.png)
+    ![Estado experimental](media/howto-view-bill/freetrialbilling.png)
 
 1. Selecione **Converter para um plano pago**.
 
-    ![Converter julgamento](media/howto-administer/convert.png)
+    ![Converter julgamento](media/howto-view-bill/convert.png)
 
 1. Selecione o Diretório Ativo Azure apropriado e, em seguida, a subscrição Azure para utilizar para a sua aplicação que utiliza um plano pago.
 
@@ -46,23 +49,25 @@ Para completar este processo de self-service, siga estes passos:
 
 ## <a name="how-to-change-your-application-pricing-plan"></a>Como alterar o seu plano de preços de aplicação
 
-- As aplicações que utilizam um plano de preços padrão são cobradas por dispositivo, com os dois primeiros dispositivos gratuitos, por aplicação.
+As aplicações que utilizam um plano de preços padrão são cobradas por dispositivo, com os dois primeiros dispositivos gratuitos, por aplicação.
 
 Na secção de preços, pode atualizar ou desvalorizar o seu plano de preços Azure IoT a qualquer momento.
 
 1. Vá à página **de Preços** na secção **administração.**
 
-    ![Estado experimental](media/howto-administer/pricing.png)
+    ![Estado experimental](media/howto-view-bill/pricing.png)
 
 1. Selecione o **Plano** e clique em **Guardar** para atualizar ou desvalorizar.
 
-Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
-
 ## <a name="view-your-bill"></a>Ver a sua fatura
 
-Para ver a sua conta, vá à página **de Preços** na secção **Administração.** A página de preços Azure abre num novo separador, onde pode ver a fatura de cada uma das suas aplicações Azure IoT Central.
+1. Selecione o Diretório Ativo Azure apropriado e, em seguida, a subscrição Azure para utilizar para a sua aplicação que utiliza um plano pago.
 
+1. Depois de selecionar **Converte,** a sua aplicação agora usa um plano pago e começa a ser faturada.
+
+> [!Note]
+> Por predefinição, é convertido para um plano de preços *Standard 2.*
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu a ver a sua conta na aplicação Azure IoT Central, o próximo passo sugerido é aprender sobre a [aplicação Customize UI](howto-customize-ui.md) em Azure IoT Central.
+Agora que aprendeu a gerir a sua conta na aplicação Azure IoT Central, o próximo passo sugerido é aprender sobre a [aplicação Customize UI](howto-customize-ui.md) em Azure IoT Central.

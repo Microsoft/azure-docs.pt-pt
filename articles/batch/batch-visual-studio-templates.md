@@ -3,8 +3,8 @@ title: Criar soluções com modelos do Visual Studio – lote do Azure | Microso
 description: Saiba como os modelos de projeto do Visual Studio podem ajudá-lo a implementar e executar suas cargas de trabalho de computação intensiva no lote do Azure.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: a8cbc630be684371d8dc7917870d581c9a072db5
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a71dbd1b38ff58ccf1eb7a4d50daad5b24922e2f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029579"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022754"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar soluções de lote
 
@@ -162,9 +162,9 @@ public IEnumerable<CloudTask> Split()
 
 Sua implementação de Split () tem acesso a:
 
-* Os parâmetros do trabalho, por meio do campo `_parameters`.
-* O objeto CloudJob que representa o trabalho, por meio do campo `_job`.
-* O objeto CloudTask que representa a tarefa do Gerenciador de trabalho, por meio do campo `_jobManagerTask`.
+* Os parâmetros de trabalho, através do campo `_parameters`.
+* O objeto CloudJob que representa o trabalho, através do campo `_job`.
+* O objeto CloudTask que representa a tarefa do gestor de emprego, através do campo `_jobManagerTask`.
 
 Sua implementação de `Split()` não precisa adicionar tarefas diretamente ao trabalho. Em vez disso, seu código deve retornar uma sequência de objetos CloudTask, e eles serão adicionados ao trabalho automaticamente pelas classes de estrutura que invocam o divisor de trabalho. É comum usar C#o recurso de iterador (`yield return`) do para implementar divisores de trabalho, pois isso permite que as tarefas comecem a ser executadas assim que possível, em vez de esperar que todas as tarefas sejam calculadas.
 
@@ -205,7 +205,7 @@ Esta seção descreve alguns requisitos de implementação do cliente ao invocar
 
 **Credenciais obrigatórias**
 
-Para adicionar tarefas ao trabalho do lote do Azure, a tarefa do Gerenciador de trabalho requer a URL e a chave da conta do lote do Azure. Você deve passá-los em variáveis de ambiente chamadas YOUR_BATCH_URL e YOUR_BATCH_KEY. Você pode defini-las nas configurações do ambiente de tarefas do Gerenciador de trabalho. Por exemplo, em um C# cliente:
+Para adicionar tarefas ao trabalho do lote do Azure, a tarefa do Gerenciador de trabalho requer a URL e a chave da conta do lote do Azure. Deve passá-las em variáveis ambientais chamadas YOUR_BATCH_URL e YOUR_BATCH_KEY. Você pode defini-las nas configurações do ambiente de tarefas do Gerenciador de trabalho. Por exemplo, em um C# cliente:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -355,9 +355,9 @@ O método Run () é responsável por iniciar a linha de comando, iniciar um ou m
 
 Sua implementação de Run () tem acesso a:
 
-* Os parâmetros da tarefa, por meio do campo `_parameters`.
-* As IDs de trabalho e tarefa, por meio dos campos `_jobId` e `_taskId`.
-* A configuração da tarefa, por meio do campo `_configuration`.
+* Os parâmetros de tarefa, através do campo `_parameters`.
+* O trabalho e as tarefas são ids, através dos campos `_jobId` e `_taskId`.
+* A configuração da tarefa, através do campo `_configuration`.
 
 **Falha da tarefa**
 
@@ -393,7 +393,7 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-A conta de armazenamento fica disponível na classe TaskProcessor por meio da propriedade `_configuration.StorageAccount`.
+A conta de armazenamento está então disponível na classe TaskProcessor através da propriedade `_configuration.StorageAccount`.
 
 Se preferir usar uma URL de contêiner com SAS, você também poderá passá-la por meio de uma configuração de ambiente comum de trabalho, mas o modelo de processador de tarefas não inclui atualmente suporte interno para isso.
 
@@ -414,7 +414,7 @@ O serviço de lote tem um mecanismo simples para passar configurações de ambie
 Por exemplo, para obter a instância de `BatchClient` para uma conta do lote, você pode passar como variáveis de ambiente do código do cliente a URL e as credenciais de chave compartilhada para a conta do lote. Da mesma forma, para acessar a conta de armazenamento que está vinculada à conta do lote, você pode passar o nome da conta de armazenamento e a chave da conta de armazenamento como variáveis de ambiente.
 
 ### <a name="pass-parameters-to-the-job-manager-template"></a>Passar parâmetros para o modelo do Gerenciador de trabalho
-Em muitos casos, é útil passar parâmetros por trabalho para a tarefa do Gerenciador de trabalho, para controlar o processo de divisão de trabalho ou para configurar as tarefas para o trabalho. Você pode fazer isso carregando um arquivo JSON chamado Parameters. JSON como um arquivo de recurso para a tarefa do Gerenciador de trabalho. Os parâmetros podem então ser disponibilizados no campo `JobSplitter._parameters` no modelo do Gerenciador de trabalho.
+Em muitos casos, é útil passar parâmetros por trabalho para a tarefa do Gerenciador de trabalho, para controlar o processo de divisão de trabalho ou para configurar as tarefas para o trabalho. Você pode fazer isso carregando um arquivo JSON chamado Parameters. JSON como um arquivo de recurso para a tarefa do Gerenciador de trabalho. Os parâmetros podem então ficar disponíveis no campo `JobSplitter._parameters` no modelo do Gestor de Emprego.
 
 > [!NOTE]
 > O manipulador de parâmetro interno dá suporte apenas a dicionários de cadeia de caracteres para cadeia de caracteres. Se você quiser passar valores JSON complexos como valores de parâmetro, será necessário passá-los como cadeias de caracteres e analisá-los no divisor de trabalho ou modificar o método de `Configuration.GetJobParameters` da estrutura.
@@ -426,7 +426,7 @@ Você também pode passar parâmetros para tarefas individuais implementadas usa
 
 Parameters. JSON e, se encontrado, ele o carrega como o dicionário de parâmetros. Há algumas opções para passar parâmetros para as tarefas do processador de tarefas:
 
-* Reutilize o JSON dos parâmetros do trabalho. Isso funciona bem se os únicos parâmetros forem de todo o trabalho (por exemplo, uma altura e largura de renderização). Para fazer isso, ao criar um CloudTask no divisor de trabalho, adicione uma referência ao objeto de recurso Parameters. JSON do ResourceFiles da tarefa do Gerenciador de trabalho (`JobSplitter._jobManagerTask.ResourceFiles`) à coleção ResourceFiles do CloudTask.
+* Reutilize o JSON dos parâmetros do trabalho. Isso funciona bem se os únicos parâmetros forem de todo o trabalho (por exemplo, uma altura e largura de renderização). Para tal, ao criar uma CloudTask no divisor de trabalho, adicione uma referência ao objeto de ficheiro de recursos dos parâmetros.json desde os Recursos Ficheiros de Recursos (`JobSplitter._jobManagerTask.ResourceFiles`) do gestor de trabalho à coleção de Recursos Ficheiros da CloudTask.
 * Gerar e carregar um documento. JSON de parâmetros específicos da tarefa como parte da execução do divisor de trabalho e fazer referência a esse blob na coleção de arquivos de recursos da tarefa. Isso será necessário se diferentes tarefas tiverem parâmetros diferentes. Um exemplo pode ser um cenário de renderização 3D em que o índice de quadro é passado para a tarefa como um parâmetro.
 
 > [!NOTE]

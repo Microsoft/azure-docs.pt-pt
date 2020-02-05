@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1e206d9a1b14fc8ff1b92e4eb7217824d81212cf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 90bccf76b4c98c732cb926bb4252654d20478412
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990182"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018980"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure
 
@@ -41,14 +41,9 @@ Agora, selecione **criar**.
 
 Preencha todos os campos no formulário. Esse formulário é semelhante ao formulário que você preenche para criar aplicativos no site [do Azure IOT central Application Manager](https://aka.ms/iotcentral) . Para obter mais informações, consulte o guia de início rápido [criar um aplicativo IOT central](quick-deploy-iot-central.md) .
 
-Você pode criar IoT Central aplicativo com recursos geralmente disponíveis selecionando **aplicativo herdado** como modelo de aplicativo, todos os outros modelos de aplicativo usam recursos de visualização pública.
-
 ![Criar formulário de IoT Central](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Local** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde você gostaria de criar seu aplicativo. Normalmente, você deve escolher o local que está fisicamente mais próximo de seus dispositivos para obter o desempenho ideal. No momento, o Azure IoT Central está disponível no **Estados Unidos**, na **austrália**, no **Pacífico Asiático**ou na **Europa**.  Depois de escolher um local, você não poderá mover seu aplicativo para um local diferente mais tarde.
-
-> [!NOTE]
-> Os modelos de aplicativo de visualização atualmente só estão disponíveis nos locais da **Europa** e **Estados Unidos** .
+**Localização** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde você gostaria de criar a sua aplicação. Normalmente, você deve escolher o local que está fisicamente mais próximo de seus dispositivos para obter o desempenho ideal. No momento, o Azure IoT Central está disponível no **Estados Unidos**, na **austrália**, no **Pacífico Asiático**ou na **Europa**.  Depois de escolher um local, você não poderá mover seu aplicativo para um local diferente mais tarde.
 
 
 Depois de preencher todos os campos, selecione **criar**.

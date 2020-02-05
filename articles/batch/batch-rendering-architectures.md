@@ -4,17 +4,17 @@ description: Arquiteturas para usar o lote do Azure e outros serviços do Azure 
 services: batch
 ms.service: batch
 author: davefellows
-manager: gwallace
-ms.author: jushiman
+manager: evansma
+ms.author: labrenne
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: a04f59983aca4b7db1a58ab4e8b8a2da47a52783
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 20442a6618ca9357bb3be95879b68bffca45a40d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026304"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022958"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização do Azure
 

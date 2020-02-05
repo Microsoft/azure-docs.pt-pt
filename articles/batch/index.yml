@@ -7,15 +7,15 @@ metadata:
   services: batch
   ms.service: batch
   ms.topic: landing-page
-  author: ju-shim
-  ms.author: jushiman
+  author: LauraBrenner
+  ms.author: labrenne
   ms.date: 09/23/2019
-  ms.openlocfilehash: f62b432b7a17e618fbc68335ad3655fb1bfc209d
-  ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+  ms.openlocfilehash: d44ef419ec93e890ac1f8696d3ee45aadd3cd26f
+  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/15/2020
-  ms.locfileid: "76026133"
+  ms.lasthandoff: 02/05/2020
+  ms.locfileid: "77026069"
 landingContent:
 - title: Acerca do Azure Batch
   linkLists:

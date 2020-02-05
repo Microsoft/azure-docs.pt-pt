@@ -4,7 +4,7 @@
   items:
     - name: O que é a Ligação Privada do Azure?
       href: private-link-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar um Ponto Final Privado
       items:
@@ -16,6 +16,8 @@
           href: create-private-endpoint-powershell.md
     - name: Criar um serviço de Ligação Privada
       items:
+        - name: Portal do Azure
+          href: create-private-link-service-portal.md
         - name: Azure PowerShell
           href: create-private-link-service-powershell.md
         - name: CLI do Azure

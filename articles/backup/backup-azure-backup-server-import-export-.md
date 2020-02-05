@@ -1,221 +1,281 @@
 ---
 title: Cópia de segurança offline para o DPM e Azure Backup Server
-description: O backup do Azure permite que você envie dados fora da rede usando o serviço de importação/exportação do Azure. Este artigo explica o fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (MABS).
+description: A Azure Backup permite-lhe enviar dados da rede utilizando o serviço De Importação/Exportação Azure. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server (MABS).
 ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 05/08/2018
-ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 1/28/2020
+ms.openlocfilehash: 6be75062ab0ce06784d8cd7c833e0070476acf60
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996328"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022584"
 ---
-# <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho de backup offline para DPM e Servidor de Backup do Azure
+# <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho offline-backup para DPM e Servidor de Backup Azure
 
-O backup do Azure tem várias eficiências internas que economizam os custos de rede e armazenamento durante os backups completos iniciais dos dados no Azure. Os backups completos iniciais normalmente transferem grandes quantidades de dados e exigem mais largura de banda de rede em comparação com os backups subsequentes que transferem apenas os deltas/incrementos. O backup do Azure compacta os backups iniciais. Por meio do processo de propagação offline, o backup do Azure pode usar discos para carregar os dados de backup inicial compactados offline no Azure.
+A Azure Backup tem várias eficiências incorporadas que poupam custos de rede e armazenamento durante as cópias de segurança iniciais completas de dados para o Azure. As cópias de segurança completas iniciais normalmente transferem grandes quantidades de dados e requerem mais largura de banda da rede quando comparadas com as cópias de segurança subsequentes que transferem apenas os deltas/incrementais. O backup do Azure compacta os backups iniciais. Através do processo de sementeira offline, o Azure Backup pode usar discos para carregar os dados de backup inicial comprimido offline para O Azure.
 
-O processo de propagação offline do backup do Azure é totalmente integrado ao serviço de [importação/exportação do Azure](../storage/common/storage-import-export-service.md) que permite que você transfira dados para o Azure usando discos. Se você tiver terabytes (TBs) de dados de backup inicial que precisam ser transferidos por uma rede de alta latência e baixa largura de banda, você poderá usar o fluxo de trabalho de propagação offline para enviar a cópia de backup inicial em um ou mais discos rígidos para um datacenter do Azure. Este artigo fornece uma visão geral e mais detalhes etapas que concluem este fluxo de trabalho para o System Center DPM e o Servidor de Backup do Azure.
+O processo offline de sementeir da Azure Backup está fortemente integrado com o [serviço de importação/exportação Azure](../storage/common/storage-import-export-service.md) que lhe permite transferir dados para o Azure utilizando discos. Se tiver terabytes (TBs) de dados de backup iniciais que precisam de ser transferidos através de uma rede de alta latência e largura de banda, pode utilizar o fluxo de trabalho offline para enviar a cópia de cópia de cópia de reserva inicial num ou mais discos rígidos para um centro de dados Azure. Este artigo fornece uma visão geral e mais detalhes passos que completam este fluxo de trabalho para O DPM do System Center E O Servidor de Backup Azure.
 
 > [!NOTE]
-> O processo de backup offline para o agente de Serviços de Recuperação do Microsoft Azure (MARS) é diferente do System Center DPM e Servidor de Backup do Azure. Para obter informações sobre como usar o backup offline com o agente MARS, consulte [Este artigo](backup-azure-backup-import-export.md). O backup offline não tem suporte para backups de estado do sistema feitos usando o agente de backup do Azure.
+> O processo de backup offline para o agente microsoft Azure Recovery Services (MARS) é distinto do System Center DPM e do Azure Backup Server. Para obter informações sobre a utilização de backup offline com o agente MARS, consulte [este artigo](backup-azure-backup-import-export.md). A cópia de segurança offline não é suportada para cópias de segurança do System State feitas utilizando o agente de backup Azure.
 >
 
 ## <a name="overview"></a>Visão geral
 
-Com a capacidade de propagação offline do backup do Azure e a importação/exportação do Azure, é simples carregar os dados offline no Azure usando discos. O processo de backup offline envolve as seguintes etapas:
+Com a capacidade offline de sementeir de Azure Backup e Azure Import/Export, é simples enviar os dados offline para O Azure utilizando discos. O processo de backup offline envolve os seguintes passos:
 
 > [!div class="checklist"]
 >
-> * Os dados de backup, em vez de serem enviados pela rede, são gravados em um *local de preparo*
-> * Os dados no *local de preparo* são gravados em um ou mais discos SATA usando o utilitário *AzureOfflineBackupDiskPrep*
-> * Um trabalho de importação do Azure é criado automaticamente pelo utilitário
-> * As unidades SATA são então enviadas para o datacenter do Azure mais próximo
-> * Depois que o upload dos dados de backup para o Azure for concluído, o backup do Azure copiará os dados de backup para o cofre de backup e os backups incrementais serão agendados.
+> * Os dados de backup, em vez de serem enviados sobre a rede, estão escritos para um local de *encenação*
+> * Os dados sobre a localização da *encenação* são então escritos a um ou mais discos SATA utilizando o utilitário *AzureOfflineBackupDiskPrep*
+> * Um trabalho de Importação Azure é automaticamente criado pela utilidade
+> * As unidades SATA são então enviadas para o centro de dados Azure mais próximo
+> * Após o upload dos dados de backup para o Azure, o Azure Backup copia os dados de backup para o cofre de backup e as cópias de segurança incrementais estão agendadas.
 
 ## <a name="supported-configurations"></a>Configurações suportadas
 
-O backup offline tem suporte para todos os modelos de implantação do backup do Azure que os dados de backup externo do local para o Microsoft Cloud. Isso inclui
+Offline Backup é suportado para todos os modelos de implementação de Backup Azure que dados de backup offsite de no local para o Microsoft Cloud. Isto inclui
 
 > [!div class="checklist"]
 >
-> * Backup de arquivos e pastas com o agente de Serviços de Recuperação do Microsoft Azure (MARS) ou o agente de backup do Azure.
-> * Backup de todas as cargas de trabalho e arquivos com o System Center Data Protection Manager (SC DPM)
-> * Backup de todas as cargas de trabalho e arquivos com o Backup do Microsoft Azure Server
+> * Cópia de segurança de ficheiros e pastas com o Agente de Serviços de Recuperação do Microsoft Azure (MARS) ou o agente de backup Azure.
+> * Backup de todas as cargas de trabalho e ficheiros com System Center Data Protection Manager (SC DPM)
+> * Backup de todas as cargas de trabalho e ficheiros com o Microsoft Azure Backup Server
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o fluxo de trabalho de backup offline
+Certifique-se de que os seguintes pré-requisitos são cumpridos antes de dar início ao fluxo de trabalho offline backup
 
-* Um [cofre dos serviços de recuperação](backup-azure-recovery-services-vault-overview.md) foi criado. Para criar um, consulte as etapas neste [artigo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
-* O agente de backup do Azure ou Servidor de Backup do Azure ou SC DPM foi instalado no Windows Server/cliente Windows, conforme aplicável e o computador está registrado no cofre dos serviços de recuperação. Certifique-se de que apenas a [versão mais recente do backup do Azure](https://go.microsoft.com/fwlink/?linkid=229525) seja usada.
-* [Baixe o arquivo de configurações de publicação do Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) no computador do qual você planeja fazer backup dos dados. A assinatura da qual você baixa o arquivo de configurações de publicação pode ser diferente da assinatura que contém o cofre dos serviços de recuperação. Se sua assinatura estiver em nuvens soberanas Azure, use os links a seguir, conforme apropriado, para baixar o arquivo de configurações de publicação do Azure.
+* Foi criado um cofre dos Serviços de [Recuperação.](backup-azure-recovery-services-vault-overview.md) Para criar um, consulte os passos [deste artigo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
+* O agente de backup Azure ou o Azure Backup Server ou SC DPM foram instalados em qualquer cliente do Windows Server/Windows, conforme aplicável e o computador está registado no Cofre de Serviços de Recuperação. Certifique-se de que apenas a [versão mais recente do Azure Backup](https://go.microsoft.com/fwlink/?linkid=229525) é utilizada.
+* [Descarregue o ficheiro](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) de definições da Azure Publish no computador a partir do qual planeia fazer o back-up dos seus dados. A subscrição a partir da qual descarrega o ficheiro de definições de publicação pode ser diferente da subscrição que contém o Cofre de Serviços de Recuperação. Se a sua subscrição estiver em Nuvens Azure soberanas, utilize os seguintes links conforme apropriado para descarregar o ficheiro de definições da Azure Publish.
 
-    | Região de nuvem do soberanas | Link do arquivo de configurações de publicação do Azure |
+    | Região de nuvens soberanas | Ligação de ficheiros da Azure Publish |
     | --- | --- |
     | Estados Unidos | [Ligação](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Ligação](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Uma conta de armazenamento do Azure com o modelo de implantação *clássico* foi criada na assinatura da qual você baixou o arquivo de configurações de publicação, conforme mostrado abaixo:
+* Foi criada uma conta de Armazenamento Azure com o modelo de implementação do Gestor de *Recursos* na subscrição a partir da qual descarregou o ficheiro de definições de publicação, como mostrado abaixo:
 
-  ![Criando uma conta de armazenamento clássica](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Criação de uma conta de armazenamento com desenvolvimento do Gestor de Recursos](./media/backup-azure-backup-import-export/storage-account-resource-manager.png)
 
-* Um local de preparo, que pode ser um compartilhamento de rede ou qualquer unidade adicional no computador, interno ou externo, com espaço em disco suficiente para manter a cópia inicial, é criado. Por exemplo, se você estiver tentando fazer backup de um servidor de arquivos de 500 GB, verifique se a área de preparação tem pelo menos 500 GB. (Uma quantidade menor é usada devido à compactação.)
-* Com relação aos discos que serão enviados para o Azure, certifique-se de que somente discos rígidos internos de SSD de 2,5 polegadas ou de 2,5 polegadas ou 3,5 polegadas são usados. Você pode usar discos rígidos de até 10 TB. Verifique a [documentação do serviço de importação/exportação do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para obter o conjunto mais recente de unidades às quais o serviço dá suporte.
-* As unidades SATA precisam estar conectadas a um computador (conhecido como um *computador de cópia*) de onde a cópia dos dados de backup do *local de preparo* para as unidades SATA é feita. Verifique se o BitLocker está habilitado no *computador de cópia*
+* É criado um local de encenação, que pode ser uma partilha de rede ou qualquer unidade adicional no computador, interno ou externo, com espaço suficiente para guardar a sua cópia inicial. Por exemplo, se estiver a tentar fazer o apoio a um servidor de ficheiros de 500 GB, certifique-se de que a área de paragem é de pelo menos 500 GB. (Uma quantidade menor é utilizada devido à compressão.)
+* No que diz respeito aos discos que serão enviados para o Azure, certifique-se de que apenas são utilizados discos de 2,5 polegadas, ou 2,5 polegadas ou 3,5 polegadas sATA II/III unidades rígidos internas. Pode utilizar discos rígidos até 10 TB. Consulte a documentação do [serviço Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) para obter o mais recente conjunto de unidades que o serviço suporta.
+* As unidades SATA têm de ser ligadas a um computador (referido como *um computador de cópia)* de onde a cópia dos dados de cópia da localização de *paragem* para as unidades SATA é feita. Certifique-se de que o BitLocker está ativado no *computador de cópia*
+
+## <a name="prepare-the-server-for-the-offline-backup-process"></a>Prepare o Servidor para o processo de backup offline
+
+>[!NOTE]
+> Se não encontrar os utilitários listados, como *O AzureOfflineBackupCertGen.exe* na sua instalação do agente MARS, escreva para AskAzureBackupTeam@microsoft.com para ter acesso aos mesmos.
+
+* Abra um pedido de comando elevado no servidor e execute o seguinte comando:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe CreateNewApplication SubscriptionId:<Subs ID>
+    ```
+
+    A ferramenta criará uma Aplicação AD De Backup Offline Azure se não existir.
+
+    Se já existir uma Aplicação, esta executável pedir-lhe-á que carregue manualmente o certificado para o pedido no arrendatário. Siga os passos abaixo [nesta secção](#manually-upload-offline-backup-certificate) para fazer o upload manual do certificado para a aplicação.
+
+* A ferramenta AzureOfflineBackup.exe gerará um ficheiro OfflineApplicationParams.xml.  Copie este ficheiro para o servidor com MABS ou DPM.
+* Instale o [mais recente agente MARS](https://aka.ms/azurebackup_agent) no servidor DPM/Azure Backup (MABS).
+* Registe o servidor no Azure.
+* Execute o seguinte comando:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    ```
+
+* O comando acima criará o ficheiro `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`
+
+## <a name="manually-upload-offline-backup-certificate"></a>Carregar manualmente certificado de backup offline
+
+Siga os passos abaixo para carregar manualmente o certificado de backup offline para uma aplicação de Diretório Ativo Azure previamente criada, destinada a Backup Offline.
+
+1. Inicie sessão no Portal do Azure.
+2. Vá aos **registos** **de Diretório Ativo** > Azure
+3. Navegue para o separador **Aplicações Próprias** e localize uma aplicação com o formato de nome de exibição `AzureOfflineBackup _<Azure User Id` conforme mostrado abaixo:
+
+    ![Localizar aplicação no separador De Aplicações Próprias](./media/backup-azure-backup-import-export/owned-applications.png)
+
+4. Clique na aplicação. Sob o separador **Gerir** no painel esquerdo, vá a **Certificados e segredos**.
+5. Verifique se existem certificados ou chaves públicas pré-existentes. Se não houver nenhuma, pode eliminar a aplicação com segurança clicando no botão **Eliminar** na página **'Overview'** da aplicação. A seguir a isto, pode voltar a tentar os passos para [preparar o Servidor para o](#prepare-the-server-for-the-offline-backup-process) processo de backup offline e saltar os passos abaixo. Caso contrário, execute os seguintes passos do servidor DPM /Azure Backup Server (MABS) onde pretende configurar a Cópia de Segurança Offline.
+6. Abra a **aplicação de certificado** de computador > separador **pessoal** e procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>`
+7. Selecione o certificado acima, clique à direita em **Todas as Tarefas** e, em seguida, **exportar,** sem chave privada, no formato .cer.
+8. Vá à aplicação de backup offline Azure no portal Azure.
+9. Clique em **Gerir** **certificados e segredos** de >  > **certificado de upload,** e faça upload do certificado exportado no passo anterior.
+
+    ![Faça upload do certificado](./media/backup-azure-backup-import-export/upload-certificate.png)
+10. No servidor, abra o registo digitando **regedite** na janela de execução.
+11. Vá para a entrada de registo *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
+12. Clique à direita no **CloudBackupProvider** e adicione um novo valor de cadeia com o nome `AzureADAppCertThumbprint_<Azure User Id>`
+
+    >[!NOTE]
+    > Nota: Para encontrar o Id do Utilizador Azure, execute um dos seguintes passos:
+    >
+    >1. A partir do Comando PowerShell ligado ao Azure, executa o comando `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”`.
+    >2. Navegue para o caminho do registo: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`
+
+13. Clique à direita na corda adicionada no passo anterior e selecione **Modificar**. No valor, forneça a impressão digital do certificado que exportou no passo 7 e **clique**OK .
+14. Para obter o valor da impressão digital, clique duas vezes no certificado, em seguida, selecione o separador **Detalhes** e desloque-se para baixo até ver o campo de impressão digital. Clique na impressão digital e **copie** o valor.
+
+    ![Valor de cópia do campo de impressão digital](./media/backup-azure-backup-import-export/thumbprint-field.png)
+
+15. Continue na secção [Workflow](#workflow) para prosseguir com o processo de backup offline.
 
 ## <a name="workflow"></a>Fluxo de Trabalho
 
-As informações contidas nesta seção ajudam a concluir o fluxo de trabalho de backup offline para que seus dados possam ser entregues a um datacenter do Azure e carregados no armazenamento do Azure. Se você tiver dúvidas sobre o serviço de importação ou qualquer aspecto do processo, consulte a documentação de [visão geral do serviço de importação](../storage/common/storage-import-export-service.md) referenciada anteriormente.
+A informação nesta secção ajuda-o a completar o fluxo de trabalho offline-backup para que os seus dados possam ser entregues num centro de dados Azure e enviados para o Armazenamento Azure. Se tiver dúvidas sobre o serviço de importação ou qualquer aspeto do processo, consulte a documentação geral do [serviço de importação](../storage/common/storage-import-export-service.md) referenciada anteriormente.
 
-### <a name="initiate-offline-backup"></a>Iniciar backup offline
+### <a name="initiate-offline-backup"></a>Iniciar cópia seleção offline
 
-1. Ao agendar um backup, você verá a tela a seguir (no Windows Server, Windows Client ou System Center Data Protection Manager).
+1. Ao agendar uma cópia de segurança, vê o seguinte ecrã (no Windows Server, cliente windows ou System Center Data Protection Manager).
 
-    ![Importar tela](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
+    ![Tela de importação](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
-    Aqui está a tela correspondente no System Center Data Protection Manager: <br/>
-    tela de importação do ![SC DPM e servidor de backup do Azure](./media/backup-azure-backup-import-export/dpmoffline.png)
+    Aqui está o ecrã correspondente no System Center Data Protection Manager: <br/>
+    ![ecrã de importação de servidor estoque SC DPM e Azure Backup](./media/backup-azure-backup-import-export/dpmoffline.png)
 
-    A descrição das entradas é a seguinte:
+    A descrição das inputs é a seguinte:
 
-   * **Local de preparo**: o local de armazenamento temporário para o qual a cópia de backup inicial é gravada. O local de preparo pode estar em um compartilhamento de rede ou em um computador local. Se o computador de cópia e o computador de origem forem diferentes, recomendamos que você especifique o caminho de rede completo do local de preparo.
-   * **Nome do trabalho de importação do Azure**: o nome exclusivo pelo qual o serviço de importação do Azure e o backup do Azure acompanham a transferência de dados enviados em discos para o Azure.
-   * **Configurações de publicação do Azure**: forneça o caminho local para o arquivo de configurações de publicação.
-   * **ID de assinatura do Azure**: a ID de assinatura do Azure para a assinatura de onde você baixou o arquivo de configurações de publicação do Azure.
-   * **Conta de armazenamento do Azure**: o nome da conta de armazenamento na assinatura do Azure associada ao arquivo de configurações de publicação do Azure.
-   * **Contêiner de armazenamento do Azure**: o nome do blob de armazenamento de destino na conta de armazenamento do Azure onde os dados de backup são importados.
+   * **Local de preparação**: O local de armazenamento temporário para o qual a cópia inicial de cópia de cópia de reserva está escrita. A localização da encenação pode estar numa partilha de rede ou num computador local. Se o computador de cópia e o computador de origem forem diferentes, recomendamos que especifique o percurso completo de rede do local de paragem.
+   * Nome do trabalho de **importação azure**: O nome único pelo qual o serviço de importação de Azure e a Cópia de Segurança Azure acompanham a transferência de dados enviados em discos para o Azure.
+   * **Definições**de publicação do Azure : Forneça o caminho local para o ficheiro de definições de publicação.
+   * **ID de subscrição Do Azure**: O ID de subscrição do Azure para a subscrição a partir do qual descarregou o ficheiro de definições da Azure Publish.
+   * **Conta de Armazenamento Azure**: O nome da conta de armazenamento na subscrição Azure associada ao ficheiro de definições da Azure Publish.
+   * **Recipiente de armazenamento Azure**: O nome da bolha de armazenamento de destino na conta de armazenamento Azure onde os dados de backup são importados.
 
-     Salve o *local de preparo* e o *nome do trabalho de importação do Azure* que você forneceu, pois ele é necessário para preparar os discos.  
+     Guarde o local de *preparação* e o Nome de *Trabalho de Importação Azure* que forneceu como é necessário para preparar os discos.  
 
-2. Conclua o fluxo de trabalho e inicie a cópia de backup offline, clique em **fazer backup agora** no console de gerenciamento do agente de backup do Azure. O backup inicial é gravado na área de preparação como parte desta etapa.
+2. Complete o fluxo de trabalho e, para iniciar a cópia de backup offline, clique em **Back Up Now** na consola de gestão de agente de backup Azure. O backup inicial está escrito para a área de preparação como parte deste passo.
 
-    ![Fazer cópia de segurança agora](./media/backup-azure-backup-import-export/backupnow.png)
+    ![Backup agora](./media/backup-azure-backup-import-export/backupnow.png)
 
-    Para concluir o fluxo de trabalho correspondente no System Center Data Protection Manager ou no servidor de backup do Azure, clique com o botão direito do mouse no **grupo de proteção**e escolha a opção **criar ponto de recuperação** . Em seguida, escolha a opção **proteção online** .
+    Para completar o fluxo de trabalho correspondente no System Center Data Protection Manager ou no servidor de backup Azure, clique no Grupo de **Proteção,** clique no grupo de proteção e, em seguida, escolha a opção de ponto de **recuperação Create.** Em seguida, escolha a opção **De Proteção Online.**
 
-    ![Fazer backup do SC DPM e do servidor de backup do Azure agora](./media/backup-azure-backup-import-export/dpmbackupnow.png)
+    ![SC DPM e servidor de backup Azure voltam agora](./media/backup-azure-backup-import-export/dpmbackupnow.png)
 
-    Após a conclusão da operação, o local de preparo estará pronto para ser usado para a preparação do disco.
+    Após o fim da operação, o local de preparação está pronto para ser utilizado para a preparação do disco.
 
-    ![Progresso do backup](./media/backup-azure-backup-import-export/opbackupnow.png)
+    ![Progresso de backup](./media/backup-azure-backup-import-export/opbackupnow.png)
 
-### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparar unidades SATA e enviar para o Azure
+### <a name="prepare-sata-drives-and-ship-to-azure"></a>Prepare unidades da SATA e envie para Azure
 
-O utilitário *AzureOfflineBackupDiskPrep* é usado para preparar as unidades SATA que são enviadas para o datacenter do Azure mais próximo. Esse utilitário está disponível no diretório de instalação do agente dos serviços de recuperação no seguinte caminho:
+O utilitário *AzureOfflineBackupDiskPrep* é utilizado para preparar as unidades SATA que são enviadas para o centro de dados azure mais próximo. Este utilitário está disponível no diretório de instalação do agente de Serviços de Recuperação no seguinte caminho:
 
-    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
+`*\\Microsoft Azure Recovery Services Agent\Utils\*`
 
-1. Vá para o diretório e copie o diretório **AzureOfflineBackupDiskPrep** para um computador de cópia no qual as unidades SATA a serem preparadas estejam conectadas. Verifique o seguinte em relação ao computador de cópia:
+1. Vá ao diretório e copie o diretório **AzureOfflineDiskPrep** para um computador de cópia no qual as unidades SATA para serem preparadas estão ligadas. Certifique-se do seguinte no que diz respeito ao computador de cópia:
 
-   * O computador de cópia pode acessar o local de preparo para o fluxo de trabalho de propagação offline usando o mesmo caminho de rede fornecido no fluxo de trabalho **Iniciar backup offline** .
-   * O BitLocker está habilitado no computador de cópia.
-   * O computador de cópia pode acessar o portal do Azure.
+   * O computador de cópia pode aceder ao local de preparação para o fluxo de trabalho offline de sementeing utilizando o mesmo caminho de rede que foi fornecido no fluxo de trabalho de **backup offline Iniciar.**
+   * O BitLocker está ativado no computador de cópia.
+   * O computador de cópia pode aceder ao portal Azure.
 
-     Se necessário, o computador de cópia pode ser o mesmo que o computador de origem.
+     Se necessário, o computador de cópia pode ser o mesmo que o computador-fonte.
 
      > [!IMPORTANT]
-     > Se o computador de origem for uma máquina virtual, será obrigatório usar um servidor físico ou computador cliente diferente como o computador de cópia.
+     > Se o computador de origem for uma máquina virtual, então é obrigatório utilizar um servidor físico diferente ou uma máquina cliente como computador de cópia.
 
-2. Abra um prompt de comando com privilégios elevados no computador de cópia com o diretório do utilitário *AzureOfflineBackupDiskPrep* como o diretório atual e execute o seguinte comando:
+2. Abra um pedido de comando elevado no computador de cópia com o diretório de utilidade seleção *AzureOfflineDiskPrep* como o diretório atual, e execute o seguinte comando:
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
     | Parâmetro | Descrição |
     | --- | --- |
-    | s:&lt;*caminho do local de preparo*&gt; |Entrada obrigatória que é usada para fornecer o caminho para o local de preparo que você inseriu no fluxo de trabalho **Iniciar backup offline** . |
-    | p:&lt;*caminho para PublishSettingsFile*&gt; |Entrada opcional que é usada para fornecer o caminho para o arquivo de **configurações de publicação do Azure** que você inseriu no fluxo de trabalho **Iniciar backup offline** . |
+    | s:&lt;percurso de *localização de encenação*&gt; |Entrada obrigatória que é usada para fornecer o caminho para o local de paragem que você entrou no fluxo de trabalho de **backup offline Iniciar.** |
+    | p: *&lt;Caminho para publicarDefiniçõesFile*&gt; |Entrada opcional que é usada para fornecer o caminho para o ficheiro Definições de **Publicação Azure** que inseriu no fluxo de trabalho de **backup offline Iniciar.** |
 
     > [!NOTE]
-    > O &lt;caminho para AzurePublishSettingFile&gt; valor é obrigatório quando o computador de cópia e o computador de origem são diferentes.
+    > O &lt;Caminho para o AzurePublishSettingFile&gt; valor é obrigatório quando o computador de cópia e o computador de origem são diferentes.
     >
     >
 
-    Quando você executa o comando, o utilitário solicita a seleção do trabalho de importação do Azure que corresponde às unidades que precisam ser preparadas. Se apenas um único trabalho de importação estiver associado ao local de preparo fornecido, você verá uma tela como a mostrada a seguir.
+    Quando dirige o comando, o utilitário solicita a seleção do trabalho de Importação Azure que corresponde às unidades que precisam de ser preparadas. Se apenas um único trabalho de importação estiver associado à localização de preparação fornecida, você vê um ecrã como o que se segue.
 
-    ![Entrada da ferramenta de preparação de disco do Azure](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png) <br/>
+    ![Entrada da ferramenta de preparação do disco azure](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png) <br/>
 
-3. Insira a letra da unidade sem os dois pontos à direita para o disco montado que você deseja preparar para a transferência para o Azure. Forneça a confirmação para a formatação da unidade quando solicitado.
+3. Introduza a letra de unidade sem o cólon de rasto para o disco montado que pretende preparar para a transferência para O Azure. Forneça confirmação para a formatação da unidade quando solicitado.
 
-    Em seguida, a ferramenta começa a preparar o disco e copiar os dados de backup. Talvez seja necessário anexar discos adicionais quando solicitado pela ferramenta caso o disco fornecido não tenha espaço suficiente para os dados de backup. <br/>
+    A ferramenta começa então a preparar o disco e a copiar os dados de cópia. Pode ser necessário anexar discos adicionais quando solicitado pela ferramenta no caso de o disco fornecido não dispor de espaço suficiente para os dados de backup. <br/>
 
-    No final da execução bem-sucedida da ferramenta, um ou mais discos fornecidos estão preparados para envio ao Azure. Além disso, um trabalho de importação com o nome que você forneceu durante o processo de **iniciar o backup offline** é criado no Azure. Por fim, a ferramenta exibe o endereço de envio para o datacenter do Azure onde os discos precisam ser enviados.
+    No final da execução bem sucedida da ferramenta, um ou mais discos fornecidos estão preparados para o envio para O Azure. Além disso, é criado em Azure um trabalho de importação com o nome que forneceu durante o fluxo de trabalho de **backup offline Iniciar.** Por fim, a ferramenta apresenta o endereço de envio para o centro de dados Azure, onde os discos precisam de ser enviados.
 
-    ![Preparação do disco do Azure concluída](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
+    ![Preparação do disco azure completa](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
-4. No final da execução do comando, você também verá a opção para atualizar as informações de envio, conforme mostrado abaixo:
+4. No final da execução do comando, você também vê a opção de atualizar as informações de envio como mostrado abaixo:
 
-    ![Atualizar a opção de informações de remessa](./media/backup-azure-backup-import-export/updateshippingutility.png)<br/>
+    ![Atualizar a opção de informação de envio](./media/backup-azure-backup-import-export/updateshippingutility.png)<br/>
 
-5. Você pode inserir os detalhes imediatamente. A ferramenta orienta você pelo processo que envolve uma série de entradas. No entanto, se você não tiver informações como o número de controle ou outros detalhes relacionados ao envio, você poderá encerrar a sessão. As etapas para atualizar os detalhes de envio posteriormente são fornecidas neste artigo.
+5. Pode introduzir os detalhes imediatamente. A ferramenta guia-o através do processo envolvendo uma série de inputs. No entanto, se não tiver informações como número de rastreio ou outros detalhes relacionados com o Envio, pode terminar a sessão. As etapas para atualizar os detalhes do envio são fornecidas mais tarde neste artigo.
 
-6. Envie os discos para o endereço que a ferramenta forneceu e mantenha o número de rastreamento para referência futura.
+6. Envie os discos para o endereço que a ferramenta forneceu e guarde o número de rastreio para referência futura.
 
    > [!IMPORTANT]
-   > Dois trabalhos de importação do Azure não podem ter o mesmo número de acompanhamento. Verifique se as unidades preparadas pelo utilitário em um único trabalho de importação do Azure são enviadas juntas em um único pacote e se há um único número de controle exclusivo para o pacote. Não combine unidades preparadas como parte de **diferentes** trabalhos de importação do Azure em um único pacote.
+   > Nenhum emprego de importação azure pode ter o mesmo número de rastreamento. Certifique-se de que as unidades preparadas pela utilidade sob um único Azure Import Job são enviadas juntas num único pacote e que existe um único número de rastreamento único para o pacote. Não combine unidades preparadas como parte de **diferentes** empregos de importação de Azure num único pacote.
 
-7. Quando você tiver as informações de número de rastreamento, vá para o computador de origem, que está aguardando a conclusão do trabalho de importação e execute o seguinte comando em um prompt de comando com privilégios elevados com o diretório do utilitário *AzureOfflineBackupDiskPrep* como o diretório atual:
+7. Quando tiver a informação sobre o número de rastreio, dirija-se ao computador de origem, que aguarda a conclusão do Import Job e execute o seguinte comando num pedido de comando elevado com o diretório de utilidade seleção *AzureOfflineDiskPrep* como o diretório atual:
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:`
 
-   Opcionalmente, você pode executar o seguinte comando em um computador diferente, como o *computador de cópia*, com o diretório do utilitário *AzureOfflineBackupDiskPrep* como o diretório atual:
+   Pode executar opcionalmente o seguinte comando a partir de um computador diferente, como o *computador de cópia,* com o diretório de utilidade seletiva *AzureOfflineDiskPrep* como o diretório atual:
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
     | Parâmetro | Descrição |
     | --- | --- |
-    | u: | Entrada obrigatória usada para atualizar os detalhes de envio para um trabalho de importação do Azure |
-    | s:&lt;*caminho do local de preparo*&gt; | Entrada obrigatória quando o comando não é executado no computador de origem. Usado para fornecer o caminho para o local de preparo que você inseriu no fluxo de trabalho **Iniciar backup offline** . |
-    | p:&lt;*caminho para PublishSettingsFile*&gt; | Entrada obrigatória quando o comando não é executado no computador de origem. Usado para fornecer o caminho para o arquivo de **configurações de publicação do Azure** que você inseriu no fluxo de trabalho **Iniciar backup offline** . |
+    | u: | Entrada obrigatória usada para atualizar detalhes de envio para um trabalho de Importação Azure |
+    | s:&lt;percurso de *localização de encenação*&gt; | Entrada obrigatória quando o comando não estiver executado no computador de origem. Usado para fornecer o caminho para o local de paragem que inseriu no fluxo de trabalho de **backup offline Iniciar.** |
+    | p: *&lt;Caminho para publicarDefiniçõesFile*&gt; | Entrada obrigatória quando o comando não estiver executado no computador de origem. Utilizado para fornecer o caminho para o ficheiro Definições de **Publicação Do Azure** que introduziu no fluxo de trabalho de **backup offline Iniciar.** |
 
-    O utilitário detecta automaticamente o trabalho de importação que o computador de origem está aguardando ou os trabalhos de importação associados ao local de preparo quando o comando é executado em um computador diferente. Em seguida, ele fornece a opção de atualizar as informações de envio por meio de uma série de entradas, conforme mostrado abaixo:
+    O utilitário deteta automaticamente o trabalho de Importação que o computador-fonte aguarda ou os postos de importação associados ao local de paragem quando o comando é executado num computador diferente. Em seguida, fornece a opção de atualizar as informações de envio através de uma série de inputs, como mostrado abaixo:
 
-    ![Inserindo informações de remessa](./media/backup-azure-backup-import-export/shippinginputs.png)<br/>
+    ![Introdução de Informações de Envio](./media/backup-azure-backup-import-export/shippinginputs.png)<br/>
 
-8. Depois que todas as entradas forem fornecidas, examine os detalhes cuidadosamente e confirme as informações de envio fornecidas digitando *Sim*.
+8. Uma vez fornecidas todas as inputs, reveja cuidadosamente os detalhes e comprometa as informações de envio fornecidas escrevendo *sim*.
 
-    ![Examinar informações de envio](./media/backup-azure-backup-import-export/reviewshippinginformation.png)<br/>
+    ![Rever informações sobre envio](./media/backup-azure-backup-import-export/reviewshippinginformation.png)<br/>
 
-9. Ao atualizar as informações de envio com êxito, o utilitário fornece um local local onde os detalhes de envio inseridos por você são armazenados conforme mostrado abaixo
+9. Ao atualizar a informação de envio com sucesso, o utilitário fornece uma localização local onde os dados de envio introduzidos por você são armazenados como mostrado abaixo
 
-    ![Armazenando informações de envio](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
+    ![Armazenar informações sobre o envio](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
    > [!IMPORTANT]
-   > Certifique-se de que as unidades atinjam o datacenter do Azure dentro de duas semanas de fornecimento das informações de envio usando o utilitário *AzureOfflineBackupDiskPrep* . Não fazer isso pode resultar na não processamento das unidades.  
+   > Certifique-se de que as unidades chegam ao Centro de Dados Azure no prazo de duas semanas após fornecer as informações de envio utilizando o utilitário *AzureOfflineBackupDiskPrep.* Se não o fizer, as unidades não sejam processadas.  
 
-Depois de concluir as etapas acima, o datacenter do Azure estará pronto para receber as unidades e processá-las ainda mais para transferir os dados de backup das unidades para a conta de armazenamento do Azure do tipo clássico que você criou.
+Uma vez concluído os passos acima, o Azure Datacenter está pronto para receber as unidades e processá-los para transferir os dados de backup das unidades para a conta de armazenamento de tipo clássico Azure que criou.
 
-### <a name="time-to-process-the-drives"></a>Tempo para processar as unidades
+### <a name="time-to-process-the-drives"></a>Hora de processar as unidades
 
-O tempo necessário para processar um trabalho de importação do Azure varia de acordo com os diferentes fatores, como tempo de envio, tipo de trabalho, tipo e tamanho dos dados que estão sendo copiados e o tamanho dos discos fornecidos. O serviço de importação/exportação do Azure não tem um SLA, mas depois que os discos são recebidos, o serviço se esforça para concluir a cópia de dados de backup para sua conta de armazenamento do Azure em 7 a 10 dias. A próxima seção detalha como você pode monitorar o status do trabalho de importação do Azure.
+O tempo que demora a processar um trabalho de importação do Azure varia consoante os diferentes fatores, tais como o tempo de envio, o tipo de trabalho, o tipo e a dimensão dos dados que estão a ser copiados, e o tamanho dos discos fornecidos. O serviço azure import/exportação não tem um SLA, mas após a receber os discos, o serviço esforça-se por completar a cópia de dados de backup na sua conta de armazenamento Azure em 7 a 10 dias. A secção seguinte detalha como pode monitorizar o estado do trabalho de importação de Azure.
 
-### <a name="monitoring-azure-import-job-status"></a>Monitorando o status do trabalho de importação do Azure
+### <a name="monitoring-azure-import-job-status"></a>Monitorizar o estatuto de emprego de importação de Azure
 
-Enquanto as unidades estiverem em trânsito ou no datacenter do Azure para serem copiadas para a conta de armazenamento, o agente de backup do Azure ou o SC DPM ou o console do servidor de backup do Azure no computador de origem mostrará o status do trabalho a seguir para os backups agendados.
+Enquanto as suas unidades estão em trânsito ou no centro de dados Azure para ser copiada para a conta de armazenamento, o agente de backup Azure ou O DPM SC ou a consola do servidor Azure Backup no computador de origem mostram o seguinte estado de trabalho para as suas cópias de segurança programadas.
 
   `Waiting for Azure Import Job to complete. Please check on Azure Management portal for more information on job status`
 
-Siga as etapas abaixo para verificar o status do trabalho de importação.
+Siga os passos abaixo, para verificar o estado do Emprego de Importação.
 
-1. Abra um prompt de comando com privilégios elevados no computador de origem e execute o seguinte comando:
+1. Abra um pedido de comando elevado no computador de origem e execute o seguinte comando:
 
      `AzureOfflineBackupDiskPrep.exe u:`
 
-2. A saída mostra o status atual do trabalho de importação, conforme mostrado abaixo:
+2. A produção mostra o estado atual do Emprego de Importação, tal como mostrado a seguir:
 
-    ![Verificando o status do trabalho de importação](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
+    ![Verificação do estatuto do emprego de importação](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
-Para obter mais informações sobre os vários Estados do trabalho de importação do Azure, consulte [Este artigo](../storage/common/storage-import-export-view-drive-status.md)
+Para obter mais informações sobre os vários estados do trabalho de importação de Azure, consulte [este artigo](../storage/common/storage-import-export-view-drive-status.md)
 
-### <a name="complete-the-workflow"></a>Concluir o fluxo de trabalho
+### <a name="complete-the-workflow"></a>Complete o fluxo de trabalho
 
-Depois que o trabalho de importação for concluído, os dados de backup iniciais estarão disponíveis em sua conta de armazenamento. No momento do próximo backup agendado, o backup do Azure copia o conteúdo dos dados da conta de armazenamento para o cofre dos serviços de recuperação, conforme mostrado abaixo:
+Após o trabalho de importação terminar, os dados iniciais de backup estão disponíveis na sua conta de armazenamento. No momento da próxima cópia de segurança agendada, a cópia de cópia sinuosa do Azure copia o conteúdo dos dados da conta de armazenamento para o cofre dos Serviços de Recuperação, conforme mostrado abaixo:
 
-   ![Copiando dados para o cofre dos serviços de recuperação](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
+   ![Copiar dados para o Cofre de Serviços de Recuperação](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
 
-No momento do próximo backup agendado, o backup do Azure executa o backup incremental sobre a cópia de backup inicial.
+No momento da próxima cópia de segurança agendada, o Azure Backup executa cópia de backup incremental sobre a cópia inicial de backup.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para perguntas sobre o fluxo de trabalho de importação/exportação do Azure, consulte [usar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento de BLOBs](../storage/common/storage-import-export-service.md).
-
+* Para quaisquer questões sobre o fluxo de trabalho de importação/exportação do Azure, consulte [a Utilização do serviço de importação/exportação do Microsoft Azure para transferir dados para](../storage/common/storage-import-export-service.md)o armazenamento blob .

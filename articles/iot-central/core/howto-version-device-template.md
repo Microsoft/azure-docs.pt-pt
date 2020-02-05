@@ -1,73 +1,87 @@
 ---
-title: Controle de versão de modelo de dispositivo para aplicativos de IoT Central do Azure | Microsoft Docs
-description: Iterar seus modelos de dispositivo criando novas versões e sem afetar seus dispositivos conectados ao vivo
-author: sandeeppujar
-ms.author: sandeepu
-ms.date: 07/08/2019
+title: Compreensão da versão do modelo do dispositivo para as suas aplicações Azure IoT Central  Microsoft Docs
+description: Iterar sobre os modelos do seu dispositivo criando novas versões e sem afetar os seus dispositivos conectados ao vivo
+author: sarahhubbard
+ms.author: sahubbar
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: feaa8abcb6635573b3680b77befa5ccb462ec73a
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 530208ed82c95187fac2173aa763ef5507f56b0b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930114"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018215"
 ---
-# <a name="create-a-new-device-template-version"></a>Criar uma nova versão de modelo de dispositivo
+# <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo do dispositivo
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-O Azure IoT Central permite o desenvolvimento rápido de aplicativos de IoT. Você pode iterar rapidamente seus designs de modelo de dispositivo adicionando, editando ou excluindo medidas, configurações ou propriedades. Algumas dessas alterações podem ser intrusivas para os dispositivos conectados no momento. O Azure IoT Central identifica essas alterações significativas e fornece uma maneira de implantar com segurança essas atualizações nos dispositivos.
 
-Um modelo de dispositivo tem um número de versão ao criá-lo. Por padrão, o número de versão é 1.0.0. Se você editar um modelo de dispositivo e se essa alteração puder afetar os dispositivos conectados ao vivo, o Azure IoT Central solicitará que você crie uma nova versão de modelo de dispositivo.
+A Azure IoT Central permite o rápido desenvolvimento de aplicações IoT. Pode iterar rapidamente os desenhos do modelo do seu dispositivo adicionando, editando ou apagando capacidades, vistas e personalizações do dispositivo. Uma vez publicado o modelo do dispositivo, o modelo de capacidade do dispositivo mostra como **Publicado** com ícones de bloqueio ao lado do modelo. Para fazer alterações no modelo de capacidade do dispositivo, terá de criar uma nova versão do modelo do dispositivo. Entretanto, as propriedades da nuvem, personalizações e vistas podem ser editadas a qualquer momento sem precisar em versão do modelo do dispositivo. Depois de ter guardado qualquer destas alterações, pode publicar o modelo do dispositivo para disponibilizar as mais recentes alterações para o operador visualizar no Device Explorer.
 
 > [!NOTE]
-> Para saber mais sobre como criar um modelo de dispositivo, consulte [configurar um modelo de dispositivo](howto-set-up-template.md)
+> Para saber mais sobre como criar um modelo de dispositivo, consulte [Configurar e gerir um modelo](howto-set-up-template.md) de dispositivo
 
-## <a name="changes-that-prompt-a-version-change"></a>Alterações que solicitam uma alteração de versão
+## <a name="add-customizations-to-the-device-template-without-versioning"></a>Adicione personalizações ao modelo do dispositivo sem versonização
 
-Em geral, as alterações nas configurações ou nas propriedades do seu modelo de dispositivo solicitam uma alteração de versão.
+Certos elementos das capacidades do seu dispositivo podem ser editados sem necessidade de ver o modelo e interfaces do seu dispositivo. Por exemplo, alguns destes campos incluem nome de exibição, tipo semântico, valor mínimo, valor máximo, casas decimais, cor, unidade, unidade de exibição, comentários e descrição. Para adicionar uma destas personalizações:
+
+1. Vá para a página modelos de **dispositivo.**
+1. Selecione o modelo de dispositivo que pretende personalizar.
+1. Escolha o separador **Personalizar.**
+1. Todas as capacidades definidas no seu modelo de capacidade do dispositivo serão listadas aqui. Todos os campos que pode editar aqui podem ser guardados e utilizados em toda a sua aplicação, sem precisar de ver o modelo do seu dispositivo. Se houver campos que pretende editar que sejam apenas de leitura, terá de ver o modelo do seu dispositivo para os alterar. Selecione um campo que deseje editar e introduzir em quaisquer novos valores.
+1. Clique em **Guardar**. Agora estes valores anularão tudo o que foi inicialmente guardado no modelo do seu dispositivo e serão utilizados em toda a aplicação.
+
+## <a name="versioning-a-device-template"></a>Versonionando um modelo de dispositivo
+
+A criação de uma nova versão do modelo do seu dispositivo criará uma versão de rascunho do modelo onde o modelo de capacidade do dispositivo pode ser editado. Quaisquer interfaces publicadas permanecerão publicadas até serem versões individualmente. Para modificar uma interface publicada, primeiro deve criar uma nova versão do modelo do dispositivo.
+
+O modelo do dispositivo só deve ser versão quando estiver a tentar editar uma parte do modelo de capacidade do dispositivo que não pode editar na secção de personalização do modelo do dispositivo. 
+
+Para ver um modelo de dispositivo:
+
+1. Vá para a página modelos de **dispositivo.**
+1. Selecione o modelo do dispositivo que está a tentar ver.
+1. Clique no botão **Versão** na parte superior da página e dê ao modelo um novo nome. Sugerimos um novo nome para si que pode ser editado.
+1. Clique em **Criar**.
+1. Agora o modelo do seu dispositivo está no modo de projeto. Verá que as suas interfaces ainda estão bloqueadas e devem ser editadas individualmente. 
+
+### <a name="versioning-an-interface"></a>Versonionamento de uma interface
+
+A versão de uma interface permite-lhe adicionar, atualizar e remover as capacidades dentro da interface que já tinha criado. 
+
+Para ver uma interface:
+
+1. Vá para a página modelos de **dispositivo.**
+1. Selecione o modelo de dispositivo que tem num modo de projeto.
+1. Selecione a interface que está no modo publicado que pretende ver e editar.
+1. Clique no botão **Versão** na parte superior da página da interface. 
+1. Clique em **Criar**.
+1. Agora a sua interface está em modo de projeto. Poderá adicionar ou editar capacidades à sua interface sem quebrar as personalizações e vistas existentes. 
 
 > [!NOTE]
-> As alterações feitas no modelo de dispositivo não solicitam a criação de uma nova versão quando nenhum dispositivo ou no máximo um dispositivo está conectado.
+> As interfaces standard publicadas pelo Azure IoT não podem ser versonizadas ou editadas. Estas interfaces padrão são utilizadas para a certificação do dispositivo.
 
-A lista a seguir descreve as ações do usuário que podem exigir uma nova versão:
+> [!NOTE]
+> Uma vez publicada a interface, não é possível eliminar nenhuma das suas capacidades mesmo num modo de projeto. As capacidades só podem ser editadas ou adicionadas à interface no modo de projeto.
 
-* Propriedades (obrigatória)
-    * Adicionando ou excluindo uma propriedade obrigatória
-    * Alterar o nome do campo de uma propriedade, o nome do campo que é usado pelos dispositivos para enviar mensagens.
-*  Propriedades (opcional)
-    * Excluindo uma propriedade opcional
-    * Alterar o nome do campo de uma propriedade, o nome do campo que é usado pelos dispositivos para enviar mensagens.
-    * Alterando uma propriedade opcional para uma propriedade obrigatória
-*  Definições
-    * Adicionando ou excluindo uma configuração
-    * Alterando o nome do campo de uma configuração, nome do campo que é usado pelos dispositivos para enviar e receber mensagens.
 
-## <a name="what-happens-on-version-change"></a>O que acontece na alteração de versão?
+## <a name="migrate-a-device-across-device-template-versions"></a>Migrar um dispositivo através das versões do modelo do dispositivo
 
-O que acontece com regras e painéis de dispositivos quando há uma alteração de versão?
+Pode criar várias versões do modelo do dispositivo. Com o tempo, terá vários dispositivos conectados usando estes modelos de dispositivo. Pode migrar dispositivos de uma versão do seu modelo de dispositivo para outra. Os seguintes passos descrevem como migrar um dispositivo:
 
-**As regras** na versão anterior do modelo de dispositivo continuam a funcionar inalteradas. As regras não são migradas automaticamente para a nova versão de modelo de dispositivo. Você pode criar regras na nova versão do modelo como de costume. Para obter mais informações, consulte o artigo como [criar uma regra de telemetria e configurar notificações no seu aplicativo IOT central do Azure](howto-create-telemetry-rules.md) .
-
-Os **painéis de dispositivos** podem conter vários tipos de blocos. Alguns dos blocos podem conter configurações e propriedades. Quando uma propriedade ou configuração usada em um bloco é removida, o bloco é totalmente ou parcialmente rompido. Você pode ir até o bloco e corrigir o problema removendo o bloco ou atualizando o conteúdo do bloco.
-
-## <a name="migrate-a-device-across-device-template-versions"></a>Migrar um dispositivo entre versões de modelo de dispositivo
-
-Você pode criar várias versões do modelo de dispositivo. Ao longo do tempo, você terá vários dispositivos conectados usando esses modelos de dispositivo. Você pode migrar dispositivos de uma versão do modelo de dispositivo para outra. As etapas a seguir descrevem como migrar um dispositivo:
-
-1. Vá para a página de **Device Explorer** .
-1. Selecione o dispositivo que você precisa migrar para outra versão.
-1. Escolha **migrar dispositivo**.
-1. Selecione o número de versão para o qual você deseja migrar o dispositivo e escolha **migrar**.
+1. Vá para a página do **Device Explorer.**
+1. Selecione o dispositivo necessário para migrar para outra versão.
+1. Escolha **migrar**.
+1. Selecione o modelo do dispositivo com o número da versão para onde pretende migrar o dispositivo e escolher **migrate**.
 
 ![Como migrar um dispositivo](media/howto-version-device-template/pick-version.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu a usar as versões de modelo de dispositivo em seu aplicativo IoT Central do Azure, aqui está a próxima etapa sugerida:
+Agora que aprendeu a usar versões de modelo de dispositivo na sua aplicação Azure IoT Central, eis o próximo passo sugerido:
 
 > [!div class="nextstepaction"]
-> [Como criar regras de telemetria](howto-create-telemetry-rules.md)
+> [Como criar regras de telemetria](tutorial-create-telemetry-rules.md)

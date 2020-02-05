@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por nuvens CloudSimple-Private
-description: Saiba mais sobre nuvens e conceitos privados do CloudSimple.
+title: Soluções Azure VMware (AVS) - Nuvens Privadas AVS
+description: Saiba mais sobre as Nuvens Privadas e conceitos da AVS.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,131 +8,131 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2688edf281a6d8bc3d61e8e294c920f115f0f3f6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877953"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024959"
 ---
-# <a name="cloudsimple-private-cloud-overview"></a>Visão geral da nuvem privada do CloudSimple
+# <a name="avs-private-cloud-overview"></a>Visão geral da Nuvem Privada AVS
 
-O CloudSimple transforma e estende as cargas de trabalho do VMware para nuvens públicas em minutos. Usando o serviço CloudSimple, você pode implantar o VMware nativamente na infraestrutura bare-metal do Azure. Sua implantação reside em locais do Azure e integra-se totalmente com o restante da nuvem do Azure.
+A AVS transforma e estende as cargas de trabalho vMware às nuvens públicas em minutos. Utilizando o serviço AVS, pode implantar VMware de forma nativa na infraestrutura de metal bare Azure. A sua implantação vive em localizações do Azure e integra-se totalmente com o resto da nuvem Azure.
 
-A solução CloudSimple fornece continuidade operacional VMware completa. Essa solução oferece os benefícios da nuvem pública do:
+A solução AVS proporciona uma continuidade operacional completa do VMware. Esta solução dá-lhe os benefícios da nuvem pública de:
 
 * Elasticidade
 * Inovação
 * Eficiência
 
-Com o CloudSimple, você se beneficia de um modelo de consumo de nuvem que reduz o custo total de propriedade. Ele também oferece provisionamento sob demanda, pagamento conforme o crescimento e otimização da capacidade.
+Com a AVS, beneficia-se de um modelo de consumo em nuvem que reduz o custo total de propriedade. Oferece também a provisionamento a pedido, o pagamento à sua cresce e a otimização da capacidade.
 
-O CloudSimple é totalmente compatível com:
+O AVS é totalmente compatível com:
 
 * Ferramentas existentes
 * Competências
 * Processos
 
-Essa compatibilidade permite que suas equipes gerenciem cargas de trabalho na nuvem do Azure, sem interromper esses tipos de políticas:
+Esta compatibilidade permite que as suas equipas gerem cargas de trabalho na nuvem Azure, sem perturbar este tipo de políticas:
 
 * Rede
 * Segurança  
 * Proteção de dados  
 * Auditoria
 
-O CloudSimple gerencia a infraestrutura e todos os serviços de rede e gerenciamento necessários. O serviço CloudSimple permite que sua equipe se concentre em:
+A AVS gere a infraestrutura e todos os serviços de networking e gestão necessários. O serviço AVS permite à sua equipa focar-se em:
 
-* Valor comercial
-* Provisionamento de aplicativos
-* Continuidade do negócio
+* Valor do negócio
+* Fornecimento de candidaturas
+* Continuidade de negócio
 * Suporte
 * Aplicação da política
 
-## <a name="private-cloud-environment-overview"></a>Visão geral do ambiente de nuvem privada
+## <a name="avs-private-cloud-environment-overview"></a>Visão geral do ambiente da Nuvem Privada AVS
 
-Uma nuvem privada é uma pilha VMware isolada que dá suporte a:
+Uma Nuvem Privada AVS é uma pilha de VMware isolada que suporta:
 
 * Hosts ESXi
 * vCenter
 * vSAN
 * NSX
 
-As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm seu próprio servidor vCenter em seu próprio domínio de gerenciamento.
+As Nuvens Privadas AVS são geridas através do portal AVS. Eles têm seu próprio servidor vCenter em seu próprio domínio de gerenciamento.
 
-A pilha é executada em:
+A pilha continua:
 
 * Nós dedicados
-* Nós de hardware bare metal isolados
+* Nódosos de hardware de metal isolados
 
-Os usuários consomem a pilha por meio de ferramentas nativas do VMware, incluindo:
+Os utilizadores consomem a pilha através de ferramentas VMware nativas, incluindo:
 
 * vCenter
 * NSX Manager
 
-Você pode implantar nós dedicados em locais do Azure. Em seguida, você pode gerenciá-los com o Azure e o CloudSimple. Uma nuvem privada consiste em um ou mais clusters vSphere, e cada cluster contém de 3 a 16 nós.
+Pode instalar nódosos dedicados em localizações de Azure. Depois pode geri-los com Azure e AVS. Uma Nuvem Privada AVS é composta por um ou mais aglomerados vSphere, e cada cluster contém 3 a 16 nós.
 
-Você pode criar uma nuvem privada usando os nós adquiridos, pagos conforme o uso ou nós reservados e dedicados.
+Você pode criar uma Nuvem Privada AVS usando nós comprados, pay-as-you-go, ou nós reservados e dedicados.
 
-Você pode conectar a nuvem privada ao seu ambiente local e à rede do Azure usando as seguintes conexões:
+Pode ligar a Nuvem Privada AVS ao seu ambiente no local e à rede Azure utilizando as seguintes ligações:
 
-* Proteger
+* Segura
 * VPN privada
 * Azure ExpressRoute
 
-O ambiente de nuvem privada foi projetado para eliminar pontos únicos de falha:
+O ambiente AVS Private Cloud foi concebido para eliminar pontos únicos de falha:
 
-* Os clusters ESXi são configurados com alta disponibilidade do vSphere e são dimensionados para ter pelo menos um nó sobressalente para resiliência.
-* a vSAN fornece armazenamento primário redundante. a vSan requer pelo menos três nós para fornecer proteção contra uma única falha. Você pode configurar a vSAN para fornecer maior resiliência para clusters maiores.
-* Você pode configurar VMs do vCenter, PSC e NSX Manager com a política de armazenamento RAID-10 para proteger contra falhas de armazenamento. o vSphere HA protege contra falhas de nó e rede.
+* Os clusters ESXi são configurados com alta disponibilidade vSphere e são dimensionados para ter pelo menos um nó sobressalente para resiliência.
+* vSAN fornece armazenamento primário redundante. VSan requer pelo menos três nódosos para fornecer proteção contra uma única falha. Pode configurar o vSAN para fornecer uma maior resiliência para clusters maiores.
+* Pode configurar vCenter, PSC e NSX Manager VMs com a política de armazenamento RAID-10 para proteger contra falhas de armazenamento. vSphere HA protege contra falhas de nó e rede.
 
-## <a name="scenarios-for-deploying-a-private-cloud"></a>Cenários para implantar uma nuvem privada
+## <a name="scenarios-for-deploying-an-avs-private-cloud"></a>Cenários para implantar uma Nuvem Privada AVS
 
-Aqui estão alguns exemplos de casos de uso para implantação em nuvem privada.
+Aqui estão alguns casos de uso de exemplo para a implantação de AVS Private Cloud.
 
-### <a name="data-center-retirement-or-migration"></a>Desativação ou migração do Data Center
+### <a name="data-center-retirement-or-migration"></a>Reforma ou migração de centros de dados
 
-* Obtenha capacidade adicional quando atingir os limites de seu datacenter existente ou atualizar o hardware.
-* Adicione a capacidade necessária na nuvem e elimine as dores de cabeça de gerenciamento de atualizações de hardware.
-* Reduza o risco e o custo das migrações na nuvem em comparação com conversões demoradas ou rearquitetura.
-* Use ferramentas e habilidades conhecidas do VMware para acelerar as migrações na nuvem. Na nuvem, use os serviços do Azure para modernizar seus aplicativos no seu ritmo.
+* Obtenha capacidade adicional quando atingir os limites do seu datacenter existente ou atualizar hardware.
+* Adicione a capacidade necessária na nuvem e elimine as dores de cabeça da gestão de atualizações de hardware.
+* Reduzir o risco e o custo das migrações em nuvem em comparação com conversões ou rearquitetura sem tempo.
+* Utilize ferramentas e habilidades vMware familiares para acelerar as migrações em nuvem. Na nuvem, utilize os serviços Azure para modernizar as suas aplicações ao seu ritmo.
 
-### <a name="expand-on-demand"></a>Expandir sob demanda
+### <a name="expand-on-demand"></a>Expandir a procura
 
-* Expanda para a nuvem para atender a necessidades imprevistas, como novos ambientes de desenvolvimento ou picos de capacidade sazonal.
-* Crie uma nova capacidade sob demanda e mantenha-a somente contanto que você precise dela.
-* Reduza seu investimento antecipado, acelere a velocidade do provisionamento e reduza a complexidade com a mesma arquitetura e políticas em ambos locais e na nuvem.
+* Expanda-se para a nuvem para atender a necessidades inesperadas, como novos ambientes de desenvolvimento ou explosões de capacidade sazonal.
+* Crie uma nova capacidade a pedido e guarde-a apenas o tempo que precisar.
+* Reduza o seu investimento frontal, acelere a velocidade de provisionamento e reduza a complexidade com a mesma arquitetura e políticas tanto no local como na nuvem.
 
-### <a name="disaster-recovery-and-virtual-desktops-in-the-azure-cloud"></a>Recuperação de desastres e áreas de trabalho virtuais na nuvem do Azure
+### <a name="disaster-recovery-and-virtual-desktops-in-the-azure-cloud"></a>Recuperação de desastres e ambientes de trabalho virtuais na nuvem azure
 
-* Estabeleça acesso remoto a dados, aplicativos e áreas de trabalho na nuvem do Azure. Com conexões de largura de banda alta, você carrega/baixa dados rapidamente para se recuperar de incidentes. Redes de baixa latência oferecem tempos de resposta rápidos que os usuários esperam de um aplicativo de desktop.
+* Estabeleça acesso remoto a dados, apps e desktops na nuvem Azure. Com ligações de largura de banda alta, você carrega/descarrega dados rapidamente para recuperar de incidentes. As redes de baixa latência dão-lhe tempos de resposta rápidos que os utilizadores esperam de uma aplicação de desktop.
 
-* Replique todas as suas políticas e redes na nuvem usando o portal do CloudSimple e ferramentas do VMware familiares. A replicação reduz o esforço e o risco de criar e gerenciar implementações de DR e de VDI.
+* Reproduza todas as suas políticas e networking na nuvem utilizando o portal AVS e ferramentas vMware familiares. A replicação reduz o esforço e o risco de criar e gerir implementações de DR e VDI.
 
-### <a name="high-performance-applications-and-databases"></a>Aplicativos e bancos de dados de alto desempenho
+### <a name="high-performance-applications-and-databases"></a>Aplicações e bases de dados de alto desempenho
 
-* Execute suas cargas de trabalho mais exigentes com a arquitetura hiperconvergente fornecida pelo CloudSimple.
-* Execute Oracle, Microsoft SQL Server, sistemas de middleware e bancos de dados não SQL de alto desempenho.
-* Experimente a nuvem como sua própria data center com conexões de rede de 25 Gbps de alta velocidade. Conexões de alta velocidade permitem que você execute aplicativos híbridos que abrangem locais, VMware no Azure e cargas de trabalho privadas do Azure, sem comprometer o desempenho.
+* Execute as suas cargas de trabalho mais exigentes com a arquitetura hiperconvergente fornecida pela AVS.
+* Executar o Oracle, o servidor Microsoft SQL, sistemas de middleware e bases de dados sem SQL de alto desempenho.
+* Experimente a nuvem como o seu próprio centro de dados com ligações de rede de alta velocidade de 25 Gbps. As ligações de alta velocidade permitem-lhe executar aplicações híbridas que se estendem no local, VMware no Azure e cargas de trabalho privadas Azure e Azure, sem comprometer o desempenho.
 
 ### <a name="true-hybrid"></a>Verdadeiro híbrido
 
-* Unificar o DevOps entre os serviços VMware e Azure.
-* Otimize a administração do VMware para serviços e soluções do Azure que podem ser aplicadas em todas as suas cargas de trabalho.
-* Acesse serviços de nuvem pública sem precisar expandir seu data center ou rearquitetar seus aplicativos.
-* Centralize identidades, políticas de controle de acesso, registro em log e monitoramento para aplicativos VMware no Azure.
+* Unifique os DevOps através dos serviços VMware e Azure.
+* Otimize a administração VMware para serviços e soluções Azure que podem ser aplicadas em todas as suas cargas de trabalho.
+* Aceda aos serviços públicos de nuvem sem ter de expandir o seu centro de dados ou rearquitear as suas aplicações.
+* Centralize identidades, políticas de controlo de acesso, registo e monitorização de aplicações VMware no Azure.
 
 ## <a name="limits"></a>Limites
 
-A tabela a seguir lista os limites de nó dos recursos de uma nuvem privada.
+A tabela seguinte enumera os limites do nó nos recursos de uma Nuvem Privada AVS.
 
-| Resource | Limite |
+| Recurso | Limite |
 |----------|-------|
-| Número mínimo de nós para criar uma nuvem privada | 3 |
-| Número máximo de nós em um cluster em uma nuvem privada | 16 |
-| Número máximo de nós em uma nuvem privada | 64 |
-| Número mínimo de nós em um novo cluster | 3 |
+| Número mínimo de nós para criar uma Nuvem Privada AVS | 3 |
+| Número máximo de nós em aglomerado numa Nuvem Privada AVS | 16 |
+| Número máximo de nós numa Nuvem Privada AVS | 64 |
+| Número mínimo de nós num novo aglomerado | 3 |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [criar uma nuvem privada](create-private-cloud.md)
-* Saiba como [configurar um ambiente de nuvem privada](quickstart-create-private-cloud.md)
+* Saiba como [criar uma Nuvem Privada AVS](create-private-cloud.md)
+* Saiba como [configurar um ambiente de Nuvem Privada AVS](quickstart-create-private-cloud.md)

@@ -99,10 +99,8 @@
           href: ea-portal-rest-apis.md
         - name: Instâncias reservadas de VM do Azure EA
           href: ea-portal-vm-reservations.md
-        - name: Resolver problemas de acesso ao EA Portal do Azure
+        - name: Resolver problemas de acesso ao Azure EA Portal
           href: ea-portal-troubleshoot.md
-        - name: Tarefas de EA no Contrato de Cliente Microsoft
-          href: mca-enterprise-operations.md
 - name: Resolução de problemas
   items:
     - name: Não foram encontradas subscrições

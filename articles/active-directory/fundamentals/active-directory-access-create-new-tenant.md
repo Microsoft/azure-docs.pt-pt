@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: ajburnle
-ms.custom: it-pro, seodec18
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef577f5d086b22779392cd6d8b5d43a340f7329
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de205beaf9800c2061cc41343b4153bd0e2b5dc7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423106"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024607"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início rápido: Criar um novo inquilino no Azure Active Directory
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
@@ -31,7 +31,7 @@ Depois de iniciar sessão no portal do Azure, pode criar um novo inquilino para 
 
 ### <a name="to-create-a-new-tenant"></a>Para criar um novo inquilino
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/) da sua organização com uma conta de Administrador global.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/)da sua organização.
 
 1. No menu portal do Azure, selecione **criar um recurso**.  
 
@@ -58,6 +58,7 @@ O novo inquilino é criado com o domínio contoso.onmicrosoft.com.
 ## <a name="clean-up-resources"></a>Limpar recursos
 Se não quiser continuar a utilizar esta aplicação, poderá eliminar o inquilino através dos seguintes passos:
 
+- Certifique-se de que está inscrito no diretório que pretende eliminar através do filtro de **subscrição Diretório +** no Portal Azure e de mudar para o directório-alvo, se necessário.
 - Selecione **Azure Active Directory** e, em seguida, na página **Contoso – Descrição Geral**, selecione **Eliminar diretório**.
 
     O inquilino e a informação associada são eliminados.

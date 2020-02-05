@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 114946fa37ae161aeb2efd5b7cd50444c5df4c2b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 68d4dbff364f8d3fda72fc2377722031e9cccc3d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906705"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018895"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crie e faça um trabalho na sua aplicação Azure IoT Central
 
@@ -38,7 +38,9 @@ Esta secção mostra-lhe como criar e gerir um trabalho. Mostra como aumentar a 
 
     ![Trabalho de configuração](./media/howto-run-a-job/configurejob.png)
 
-6. Depois de selecionar os seus dispositivos, escolha **Correr** ou **Guardar**. O trabalho agora aparece na sua página principal do **Jobs.** Nesta perspetiva, pode ver o seu trabalho atualmente em funcionamento e a história de quaisquer trabalhos anteriormente geridos. O teu trabalho de corrida aparece sempre no topo da lista. O seu trabalho guardado pode ser aberto novamente a qualquer momento para continuar a editar ou correr.
+6. Do lado direito, escolha os dispositivos em que gostaria de executar o trabalho. Selecionando a caixa de verificação superior, todos os dispositivos são selecionados em todo o conjunto do dispositivo. Selecionando a caixa de verificação perto do **Nome,** todos os dispositivos da página atual são selecionados.
+
+7. Depois de selecionar os seus dispositivos, escolha **Correr** ou **Guardar**. O trabalho agora aparece na sua página principal do **Jobs.** Nesta perspetiva, pode ver o seu trabalho atualmente em funcionamento e a história de quaisquer trabalhos anteriormente geridos. O teu trabalho de corrida aparece sempre no topo da lista. O seu trabalho guardado pode ser aberto novamente a qualquer momento para continuar a editar ou correr.
 
     ![Ver trabalho](./media/howto-run-a-job/viewjob.png)
 
@@ -103,6 +105,5 @@ Para ver o estado do trabalho e todos os dispositivos afetados, selecione o trab
 
 Agora que aprendeu a criar empregos na sua aplicação Azure IoT Central, eis alguns passos seguintes:
 
-- [Utilizar conjuntos de dispositivos](howto-use-device-sets.md)
 - [Gerir os seus dispositivos](howto-manage-devices.md)
 - [Verifique o seu modelo de dispositivo](howto-version-device-template.md)

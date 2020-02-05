@@ -2,21 +2,21 @@
 title: Evento de falha de tarefa do lote do Azure
 description: Referência de evento de falha de tarefa em lote. Esse evento será emitido além de um evento de conclusão de tarefa e poderá ser usado para detectar quando uma tarefa falhou.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: jushiman
-ms.openlocfilehash: a3786eed56c22dcd2c756e935265faa763ca7072
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 2bc958d6dca2b3caae665e6f9b080c651ace9ea0
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026180"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022890"
 ---
 # <a name="task-fail-event"></a>Evento de falha de tarefa
 
@@ -53,9 +53,9 @@ ms.locfileid: "76026180"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`jobId`|String|A ID do trabalho que contém a tarefa.|
-|`id`|String|A ID da tarefa.|
-|`taskType`|String|O tipo da tarefa. Pode ser ' JobManager ' indicando que se trata de uma tarefa do Gerenciador de trabalho ou ' user ', indicando que ele não é uma tarefa do Gerenciador de trabalho. Esse evento não é emitido para tarefas de preparação de trabalho, tarefas de liberação de trabalho ou tarefas de inicialização.|
+|`jobId`|Cadeia|A ID do trabalho que contém a tarefa.|
+|`id`|Cadeia|A ID da tarefa.|
+|`taskType`|Cadeia|O tipo da tarefa. Pode ser ' JobManager ' indicando que se trata de uma tarefa do Gerenciador de trabalho ou ' user ', indicando que ele não é uma tarefa do Gerenciador de trabalho. Esse evento não é emitido para tarefas de preparação de trabalho, tarefas de liberação de trabalho ou tarefas de inicialização.|
 |`systemTaskVersion`|Int32|Este é o contador de repetição interno em uma tarefa. Internamente, o serviço de lote pode repetir uma tarefa para considerar problemas transitórios. Esses problemas podem incluir erros de agendamento internos ou tentativas de recuperação de nós de computação em um estado inadequado.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação no qual a tarefa foi executada.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa de várias instâncias que requer vários nós de computação.  Consulte [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
@@ -66,8 +66,8 @@ ms.locfileid: "76026180"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|String|A ID do pool no qual a tarefa foi executada.|
-|`nodeId`|String|A ID do nó no qual a tarefa foi executada.|
+|`poolId`|Cadeia|A ID do pool no qual a tarefa foi executada.|
+|`nodeId`|Cadeia|A ID do nó no qual a tarefa foi executada.|
 
 ###  <a name="multiInstanceSettings"></a>multiInstanceSettings
 

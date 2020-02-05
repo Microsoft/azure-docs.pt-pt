@@ -1,6 +1,6 @@
 ---
-title: Reduzir a solução VMware do Azure da nuvem privada CloudSimple
-description: Descreve como reduzir uma nuvem privada CloudSimple.
+title: Shrink Azure VMware Solutions (AVS) Private Cloud
+description: Descreve como encolher uma Nuvem Privada AVS.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 07/01/2019
@@ -8,59 +8,60 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0ea764081cd0b4d5c6d44cd7364d1e9a89a3cec3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108603"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014271"
 ---
-# <a name="shrink-a-cloudsimple-private-cloud"></a>Reduzir uma nuvem privada CloudSimple
+# <a name="shrink-an-avs-private-cloud"></a>Encolher uma Nuvem Privada AVS
 
-O CloudSimple fornece a flexibilidade para reduzir dinamicamente uma nuvem privada.  Uma nuvem privada consiste em um ou mais clusters vSphere. Cada cluster pode ter de 3 a 16 nós. Ao reduzir uma nuvem privada, você remove um nó do cluster existente ou exclui um cluster inteiro. 
+A AVS proporciona a flexibilidade para encolher dinamicamente uma Nuvem Privada AVS. Uma Nuvem Privada AVS é composta por um ou mais aglomerados vSphere. Cada aglomerado pode ter 3 a 16 nós. Ao encolher uma Nuvem Privada AVS, remova um nó do cluster existente ou elimine todo um cluster. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-As condições a seguir devem ser atendidas para a redução de uma nuvem privada.  O cluster de gerenciamento (primeiro cluster) criado quando uma nuvem privada foi criada não pode ser excluído.
+As seguintes condições devem ser satisfeitas antes de encolher uma Nuvem Privada AVS. O cluster de Gestão (primeiro cluster) é criado quando a Nuvem Privada AVS foi criada. Não pode ser apagado.
 
-* Um cluster vSphere deve ter três nós.  Um cluster com apenas três nós não pode ser reduzido.
+* Um aglomerado de vSphere deve ter três nós. Um aglomerado com apenas três nós não pode ser encolhido.
 * O armazenamento total consumido não deve exceder a capacidade total após a redução do cluster.
-* Verifique se alguma regra do Distributed Resource Scheduler (DRS) impede o vMotion de uma máquina virtual.  Se houver regras, desabilite ou exclua as regras.  As regras do DRS incluem a máquina virtual para hospedar regras de afinidade.
+* Verifique se as regras do Programador de Recursos Distribuídos (DRS) impedem a vMoção de uma máquina virtual. Se as regras estiverem presentes, desative ou elimine as regras. As regras de DRS incluem máquina virtual para acolher regras de afinidade.
+
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="shrink-a-private-cloud"></a>Encolher uma Cloud Privada
+## <a name="shrinking-an-avs-private-cloud"></a>Encolher uma nuvem privada AVS
 
-1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md).
+1. [Aceda ao portal AVS.](access-cloudsimple-portal.md)
 
-2. Abra a página **recursos** .
+2. Abra a página **recursos.**
 
-3. Clique na nuvem privada que você deseja reduzir
+3. Clique na Nuvem Privada AVS que pretende encolher
 
-4. Na página Resumo, clique em **reduzir**.
+4. Na página de resumo, clique **em Encolher**.
 
-    ![Reduzir nuvem privada](media/shrink-private-cloud.png)
+    ![Encolher a Nuvem Privada AVS](media/shrink-private-cloud.png)
 
-5. Selecione o cluster que você deseja reduzir ou excluir. 
+5. Selecione o cluster que pretende encolher ou apagar. 
 
-    ![Reduzir nuvem privada-selecionar cluster](media/shrink-private-cloud-select-cluster.png)
+    ![Encolher a Nuvem Privada AVS - selecione cluster](media/shrink-private-cloud-select-cluster.png)
 
-6. Selecione **remover um nó** ou **excluir o cluster inteiro**. 
+6. **Selecione Remover um nó** ou apagar todo o **cluster**. 
 
-7. Verificar a capacidade do cluster
+7. Verifique a capacidade do cluster
 
-8. Clique em **Enviar** para reduzir a nuvem privada.
+8. Clique **em Submeter** para encolher a Nuvem Privada AVS.
 
-A redução da nuvem privada é iniciada.  Você pode monitorar o progresso em tarefas.  O processo de redução pode levar algumas horas, dependendo dos dados, que precisam ser ressincronizados no vSAN.
+Começa a encolher a Nuvem Privada da AVS. Pode monitorizar o progresso das tarefas. O processo de redução pode demorar algumas horas dependendo dos dados, que precisam de ser resincronizados na vSAN.
 
 > [!NOTE]
-> 1. Se você reduzir uma nuvem privada excluindo o último ou o único cluster no datacenter, o datacenter não será excluído.
-> 2. Se ocorrer uma violação de regra de DRS, o nó não será removido do cluster e a descrição da tarefa mostrará que a remoção de um nó violará as regras do DRS no cluster.    
+> 1. Se encolher uma nuvem privada eliminando o último ou único cluster no datacenter, o datacenter não será eliminado.
+> 2. Se ocorrer alguma violação da regra DRS, o nó não será removido do cluster e a descrição da tarefa mostra que remover um nó violará as regras de DRS no cluster.    
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
-* Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)
+* Saiba mais sobre [as Nuvens Privadas aVS](cloudsimple-private-cloud.md)

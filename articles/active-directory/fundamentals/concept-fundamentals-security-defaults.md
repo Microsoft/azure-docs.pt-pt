@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978891"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024590"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -49,7 +49,7 @@ Após a conclusão do registro com a autenticação multifator, serão necessár
 
 - Administrador global
 - Administrador do SharePoint
-- Administrador do Exchange
+- Administrador de intercâmbio
 - Administrador de acesso condicional
 - Administrador de segurança
 - Administrador de assistência técnica ou administrador de senha
@@ -95,6 +95,8 @@ Depois de habilitar os padrões de segurança em seu locatário, qualquer usuár
 
 Se o usuário não estiver registrado para autenticação multifator, o usuário será solicitado a se registrar usando o aplicativo Microsoft Authenticator para continuar. Nenhum período de registro de autenticação multifator de 14 dias será fornecido.
 
+Os inquilinos do Exchange Online pré-2017 têm a autenticação moderna desativada por defeito. Para evitar a possibilidade de um laço de login ao autenticar através destes inquilinos, deve permitir a [autenticação moderna.](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)
+
 > [!NOTE]
 > A conta de sincronização de Azure AD Connect é excluída dos padrões de segurança e não será solicitado a se registrar ou executar a autenticação multifator. As organizações não devem usar essa conta para outros fins.
 
@@ -108,10 +110,10 @@ Os padrões de segurança permitem o registro e o uso da autenticação multifat
 
 |   | Predefinições de segurança | Acesso Condicional |
 | --- | --- | --- |
-| Notificação através da aplicação para dispositivos móveis | X | X |
-| Código de verificação da aplicação para dispositivos móveis ou token de hardware |   | X |
-| Mensagem de texto para um telefone |   | X |
-| Ligar para telefone |   | X |
+| Notificação através de aplicação móvel | X | X |
+| Código de verificação de aplicativo móvel ou ficha de hardware |   | X |
+| Mensagem de texto para telefone |   | X |
+| Chamada para telefone |   | X |
 | Palavras-passe de aplicações |   | X * * |
 
 \* * As senhas de aplicativo só estarão disponíveis no MFA por usuário com cenários de autenticação herdados somente se habilitadas pelos administradores.

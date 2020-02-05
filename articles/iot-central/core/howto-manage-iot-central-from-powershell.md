@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: df663861010177ba54c56ee4495458ea1b928359
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a95b59c6cc0d486c1d4b10f39d0d272dd4b34f54
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985718"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018997"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gerir o IoT Central a partir do Azure PowerShell
 
@@ -61,30 +61,24 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -DisplayName "My Custom Display Name"
 ```
 
-O script cria primeiro um grupo de recursos no local leste dos EUA para o aplicativo. A tabela a seguir descreve os parâmetros usados com o comando **New-AzIotCentralApp** :
+O guião cria primeiro um grupo de recursos na região leste dos EUA para a aplicação. A tabela a seguir descreve os parâmetros usados com o comando **New-AzIotCentralApp** :
 
 |Parâmetro         |Descrição |
 |------------------|------------|
 |ResourceGroupName |O grupo de recursos que contém o aplicativo. Este grupo de recursos já deve existir em sua assinatura. |
-|Localização |Por padrão, esse cmdlet usa o local do grupo de recursos. No momento, você pode criar um aplicativo IoT Central no **Estados Unidos**, na **austrália**, no **Pacífico Asiático**ou nos locais da **Europa** .  |
+|Localização |Por padrão, esse cmdlet usa o local do grupo de recursos. Atualmente, você pode criar uma aplicação IoT Central nas regiões **leste dos EUA**, Oeste dos **EUA,** Norte da **Europa,** ou **na Europa Ocidental,** ou nas geografias **da Austrália** ou **Ásia-Pacífico.**  |
 |Nome              |O nome do aplicativo no portal do Azure. |
 |subdomínio         |O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é https://mysubdomain.azureiotcentral.com. |
 |SKU               |Atualmente, pode utilizar **sT1** ou **ST2**. Consulte [preços de IOT central do Azure](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modelo          | O modelo de aplicativo a ser usado. Para obter mais informações, consulte a tabela a seguir: |
 |DisplayName       |O nome do aplicativo, conforme exibido na interface do usuário. |
 
-**Modelo de aplicativo com recursos disponíveis para o público geral**
+**Modelos de aplicação**
 
 | Nome do modelo            | Descrição |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos.
-
-
-**Modelos de aplicativos com recursos de visualização pública**
-
-| Nome do modelo            | Descrição |
-| ------------------------ | ----------- |
-| iotc-pnp-preview@1.0.0   | Cria um aplicativo de visualização de plug and Play vazio para popular com seus próprios dispositivos e modelos de dispositivo. |
+| iotc-pnp-preview@1.0.0   | Cria uma aplicação vazia plug and play (pré-visualização) para que possa povoar com os seus próprios modelos e dispositivos do dispositivo. |
 | iotc-condition@1.0.0     | Cria um aplicativo com um modelo de monitoramento de condição em uma análise na loja. Use este modelo para conectar e monitorar o ambiente de armazenamento. |
 | iotc-consumption@1.0.0   | Cria um aplicativo com o modelo de monitoramento de consumo de água. Use este modelo para monitorar e controlar o fluxo de água. |
 | iotc-distribution@1.0.0  | Cria um aplicativo com um modelo de distribuição digital. Use este modelo para melhorar a eficiência da saída do depósito ao digitalização de ativos e ações de chave. |
@@ -96,9 +90,6 @@ O script cria primeiro um grupo de recursos no local leste dos EUA para o aplica
 | iotc-quality@1.0.0       | Cria um aplicativo com o modelo de monitoramento de qualidade de água. Use este modelo para monitorar digitalmente a qualidade da água.|
 | iotc-store@1.0.0         | Cria um aplicativo com um modelo de check-out de análise no repositório. Use este modelo para monitorar e gerenciar o fluxo de check-out dentro de seu repositório. |
 | iotc-waste@1.0.0         | Cria um aplicativo com um modelo de gerenciamento de resíduos conectado. Use este modelo para monitorar os operadores de lixo e de campo de expedição. |
-
-> [!NOTE]
-> Os modelos de aplicativo de visualização atualmente só estão disponíveis nos locais da **Europa** e **Estados Unidos** .
 
 ## <a name="view-your-iot-central-applications"></a>Exibir seus aplicativos de IoT Central
 

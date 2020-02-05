@@ -3,8 +3,8 @@ title: Instalar pacotes de aplicativos em nós de computação – lote do Azure
 description: Use o recurso pacotes de aplicativos do lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação em nós de computação do lote.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/26/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc136a0359c73b164eb1e175092a97f2fde4bdfa
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6cad3b3b01a98462e37a4b4b96ba02a1b61a5f62
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029784"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025933"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do lote
 
@@ -132,7 +132,7 @@ Nos detalhes do aplicativo, você pode definir as seguintes configurações para
 * **Versão padrão**: especifique um pacote de aplicativos padrão para implantar em nós de computação.
 * **Nome de exibição**: especifique um nome amigável que sua solução de lote pode usar ao exibir informações sobre o aplicativo, por exemplo, na interface do usuário de um serviço que você fornece aos clientes por meio do lote.
 
-### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
+### <a name="add-a-new-application"></a>Adicione uma nova aplicação
 Para criar um novo aplicativo, adicione um pacote de aplicativos e especifique uma ID de aplicativo nova e exclusiva. O primeiro pacote de aplicativos que você adiciona com a nova ID do aplicativo também cria o novo aplicativo.
 
 Clique em **Aplicações** > **Adicionar**.
@@ -141,7 +141,7 @@ Clique em **Aplicações** > **Adicionar**.
 
 A janela **novo aplicativo** fornece os campos a seguir para especificar as configurações do seu novo aplicativo e pacote de aplicativos.
 
-**ID da Aplicação**
+**ID de aplicação**
 
 Este campo especifica a ID do novo aplicativo, que está sujeita às regras de validação de ID de lote do Azure padrão. As regras para fornecer uma ID de aplicativo são as seguintes:
 
@@ -251,7 +251,7 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 ```
 
 ## <a name="execute-the-installed-applications"></a>Executar os aplicativos instalados
-Os pacotes que você especificou para um pool ou tarefa são baixados e extraídos para um diretório nomeado dentro do `AZ_BATCH_ROOT_DIR` do nó. O lote também cria uma variável de ambiente que contém o caminho para o diretório nomeado. As linhas de comando de tarefa usam essa variável de ambiente ao referenciar o aplicativo no nó. 
+Os pacotes que especificou para uma piscina ou tarefa são descarregados e extraídos para um diretório nomeado dentro do `AZ_BATCH_ROOT_DIR` do nó. O lote também cria uma variável de ambiente que contém o caminho para o diretório nomeado. As linhas de comando de tarefa usam essa variável de ambiente ao referenciar o aplicativo no nó. 
 
 Em nós do Windows, a variável está no seguinte formato:
 

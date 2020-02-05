@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 1f04bc18405c5a5a9612c0de6dd76f22450c7f04
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d5ea3d3420cb598693ccaede7ee10d2f8c4fd839
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990397"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025780"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: Criar e passar pelo modelo de aplicação de monitorização do painel solar 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial guia-o através do processo de criação da aplicação de monitorização do painel solar, que inclui um modelo de dispositivo de amostra com dados simulados. Neste tutorial, ficará a saber:
 

@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ef5ce9cc1cda7f1ff6b1985771e20cb20123e264
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531206"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025644"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para a visualização de IoT Plug and Play
 
 Definições de termos comuns, conforme usado nos artigos de Plug and Play de IoT.
 
-## <a name="azure-certified-for-iot-portal"></a>Portal do Azure Certified para IoT
+## <a name="azure-certified-for-iot-portal"></a>Azure Certified para portal IoT
 
 Você pode usar o site do [portal do Azure Certified para IOT](https://aka.ms/ACFI) para:
 
@@ -71,7 +71,7 @@ O Hub IoT é um serviço gerido, alojado na cloud, que atua como um centro de me
 - Dispositivos para enviar telemetria a uma solução baseada em nuvem.
 - Uma solução baseada em nuvem para gerenciar dispositivos conectados.
 
-## <a name="azure-iot-device-sdk"></a>Azure IoT Device SDK
+## <a name="azure-iot-device-sdk"></a>Dispositivo Azure IoT SDK
 
 Há SDKs de dispositivo para vários idiomas que você pode usar para criar aplicativos cliente de dispositivo de Plug and Play de IoT. Um dos requisitos para a [certificação do dispositivo](#device-certification) é que o código do cliente do dispositivo usa um dos SDKs do dispositivo IOT do Azure.
 
@@ -115,9 +115,9 @@ Um desenvolvedor de dispositivo usa um [modelo de funcionalidade de dispositivo]
 
 Um [desenvolvedor de dispositivos](#device-developer) usa a [linguagem digital de definição de entrelaçamento](#digital-twin-definition-language) para modelar os recursos de um [dispositivo de plug and Play IOT](#iot-plug-and-play-device). O modelo pode ser compartilhado usando um repositório de modelo. Um desenvolvedor de dispositivos pode gerar um esqueleto do código de dispositivo do modelo. Um [desenvolvedor de soluções](#solution-developer) pode configurar uma solução de IOT do modelo.
 
-## <a name="device-provisioning-service"></a>Serviço de Aprovisionamento de Dispositivos
+## <a name="device-provisioning-service"></a>Serviço de Provisionamento de Dispositivos
 
-O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/preview/overview-iot-central-get-connected.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
+O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/core/concepts-get-connected.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Registo de dispositivo
 
@@ -155,7 +155,7 @@ A linguagem de consulta do Hub IoT é usada para várias finalidades. Por exempl
 
 Um dispositivo de Plug and Play IoT normalmente é um dispositivo de computação independente de pequena escala que coleta dados ou controla outros dispositivos, e que executa software ou firmware que implementa um [modelo de capacidade de dispositivo](#device-capability-model).  Por exemplo, um dispositivo IoT Plug and Play pode ser um dispositivo de monitoramento ambiental ou um controlador para um sistema de irrigação inteligente do agricultura. Você pode escrever uma solução de IoT hospedada na nuvem para comando, controlar e receber dados de dispositivos de Plug and Play de IoT. O [Catálogo de dispositivos Azure Certified para IOT](#certified-for-iot-device-catalog) lista os dispositivos plug and Play IOT disponíveis. Cada dispositivo de Plug and Play IoT no catálogo foi validado e tem um [modelo de funcionalidade de dispositivo](#device-capability-model).
 
-## <a name="microsoft-partner-center"></a>Centro de Parceiros da Microsoft
+## <a name="microsoft-partner-center"></a>Microsoft Partner Center
 
 O [Microsoft Partner Center](https://docs.microsoft.com/partner-center/) é onde sua organização gerencia sua relação de ponta a ponta com a Microsoft. Você precisa de uma conta do Microsoft Partner Center para poder certificar seu [dispositivo de plug and Play de IOT](#iot-plug-and-play-device) no portal do [Azure Certified para IOT](#azure-certified-for-iot-portal).
 
@@ -179,11 +179,11 @@ As propriedades são campos de dados definidos em uma [interface](#interface) qu
 
 Há um único repositório de modelo público que armazena [modelos de recursos de dispositivo](#device-capability-model) e [interfaces](#interface) para [dispositivos certificados](#device-certification). O repositório de modelo público também armazena definições de [interface comuns](#common-interface) .
 
-## <a name="registration-id"></a>ID de Registo
+## <a name="registration-id"></a>ID de registo
 
 Uma ID de registro identifica exclusivamente um dispositivo no [serviço de provisionamento de dispositivos](#device-provisioning-service). Essa ID não é igual à ID do dispositivo que é um identificador exclusivo para um dispositivo em um [Hub IOT](#azure-iot-hub).
 
-## <a name="scope-id"></a>ID de Âmbito
+## <a name="scope-id"></a>Id de âmbito
 
 O escopo da ID de escopo identifica exclusivamente uma instância do [serviço de provisionamento de dispositivos](#device-provisioning-service) .
 

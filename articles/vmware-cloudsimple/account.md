@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de conta-solução do Azure VMware por portal do CloudSimple
-description: Descreve como gerenciar contas na solução VMware do Azure pelo portal do CloudSimple
+title: Gestão de conta - Portal Azure VMware Solutions (AVS)
+description: Descreve como gerir contas no portal Azure VMware Solutions (AVS)
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,33 +8,33 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00348d36c38fdbfdf69a2e4e80a4c720268b40c8
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1fd7cb1c55fb664828448cef0b67ea9b16323bdf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69564189"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025372"
 ---
-# <a name="manage-accounts-on-the-azure-vmware-solution-by-cloudsimple-portal"></a>Gerenciar contas na solução VMware do Azure pelo portal do CloudSimple
+# <a name="manage-accounts-on-the-azure-vmware-solutions-avs-portal"></a>Gerir contas no portal Azure VMware Solutions (AVS)
 
-Quando você cria o serviço CloudSimple, ele cria uma conta no CloudSimple. A conta está associada à sua assinatura do Azure onde o serviço está localizado. Todos os usuários com funções de proprietário e colaborador na assinatura têm acesso ao portal do CloudSimple. A ID de assinatura do Azure e a ID de locatário associada ao serviço CloudSimple são encontradas na página contas.
+Quando cria o seu serviço AVS, cria uma conta no AVS. A conta está associada à sua subscrição Azure onde o serviço está localizado. Todos os utilizadores com funções de proprietário e colaborador na subscrição têm acesso ao portal AVS. O ID de subscrição Azure e o ID do inquilino associados ao serviço AVS encontram-se na página Contas.
 
-Para gerenciar contas no portal do CloudSimple, [acesse o portal](access-cloudsimple-portal.md) e selecione **conta** no menu lateral.
+Para gerir contas no portal AVS, [aceda ao portal](access-cloudsimple-portal.md) e selecione **Conta** no menu lateral.
 
-Selecione **Resumo** para exibir informações sobre a configuração de CloudSimple da sua empresa. A capacidade atual de sua configuração de nuvem é mostrada, incluindo o número de nuvens privadas, o armazenamento total, a configuração de cluster vSphere, o número de nós e o número de núcleos de computação. Um link é incluído para comprar nós adicionais se a configuração atual não atender a todas as suas necessidades.
+Selecione **Resumo** para visualizar informações sobre a configuração AVS da sua empresa. A capacidade atual da configuração da sua nuvem é mostrada, incluindo o número de Nuvens Privadas AVS, armazenamento total, configuração de cluster vSphere, número de nós e número de núcleos de computação. Um link está incluído para comprar nós adicionais se a configuração atual não atender a todas as suas necessidades.
 
-## <a name="email-alerts"></a>Alertas de email
+## <a name="email-alerts"></a>Alertas de e-mail
 
-Você pode adicionar endereços de email de qualquer pessoa que gostaria de notificar sobre as alterações na configuração da nuvem privada.
+Pode adicionar endereços de e-mail de quaisquer pessoas que queira notificar sobre alterações na configuração da Nuvem Privada AVS.
 
-1. Na área **alertas de email adicionais** , clique em **Adicionar novo**.
-2. Insira o endereço de email.
-3. Pressione retornar.  
+1. Na área de alertas de **e-mail adicional,** clique **em Adicionar novo**.
+2. Insira o endereço de e-mail.
+3. Imprensa De regresso.  
 
 Para remover uma entrada, clique em **X**.
 
-## <a name="cloudsimple-operator-access"></a>Acesso do operador CloudSimple
+## <a name="avs-operator-access"></a>Acesso ao operador AVS
 
-A configuração de acesso do operador permite que o CloudSimple o ajude a solucionar problemas permitindo que um engenheiro de suporte entre no seu portal do CloudSimple.  A configuração é habilitada por padrão. Todas as ações executadas pelo engenheiro de suporte quando conectado à sua conta de cliente são registradas e disponíveis para sua análise na página**auditoria** de **atividade** > .
+A definição de acesso do operador permite que o AVS o ajude na resolução de problemas, permitindo que um engenheiro de suporte assine o seu portal AVS. A definição está ativada por defeito. Todas as ações realizadas pelo engenheiro de suporte quando iniciars sessão na sua conta de cliente são registadas e disponíveis para a sua revisão na página de **Auditoria** ** > Atividade.**
 
-Clique na opção **acesso do operador CloudSimple habilitado** para ativar ou desativar o acesso.
+Clique no acesso do **operador AVS habilitado** a alternar para ligar ou desligar o acesso.

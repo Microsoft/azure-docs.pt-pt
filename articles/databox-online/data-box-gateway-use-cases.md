@@ -1,6 +1,6 @@
 ---
-title: Casos de utilização do Gateway de caixa de dados do Microsoft Azure | Documentos da Microsoft
-description: Descreve os casos de utilização para o Gateway de caixa de dados do Azure, uma solução de armazenamento de aplicação virtual que permite-lhe transferir dados para o Azure
+title: Microsoft Azure Data Box Gateway utiliza casos de utilização de casos Microsoft Docs
+description: Descreve os casos de utilização do Azure Data Box Gateway, uma solução de armazenamento de aparelhos virtuais que permite transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,92 +8,92 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754173"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022686"
 ---
-# <a name="use-cases-for-azure-data-box-gateway"></a>Casos de utilização para o Gateway de caixa de dados do Azure
+# <a name="use-cases-for-azure-data-box-gateway"></a>Utilize casos para gateway de caixa de dados Azure
 
-O Gateway de caixa de dados do Azure é um dispositivo de gateway de armazenamento na cloud que reside no local e envia a sua imagem, mídia e outros dados para o Azure. Este gateway de armazenamento na cloud é uma máquina virtual aprovisionada no seu hipervisor. Escrever dados para este dispositivo virtual, utilizando os protocolos SMB e NFS, em seguida, envia para o Azure. Este artigo fornece uma descrição detalhada dos cenários em que pode implementar este dispositivo.
+O Azure Data Box Gateway é um dispositivo de porta de entrada de armazenamento em nuvem que reside nas suas instalações e envia a sua imagem, meios de comunicação e outros dados para o Azure. Este portal de armazenamento em nuvem é uma máquina virtual aprovisionada no seu hipervisor. Escreve dados para este dispositivo virtual utilizando os protocolos NFS e SMB, que depois envia para o Azure. Este artigo fornece-lhe uma descrição detalhada dos cenários onde pode implementar este dispositivo.
 
-Utilize o Gateway de caixa de dados para os seguintes cenários:
+Utilize o Portal da Caixa de Dados para os seguintes cenários:
 
-- Ingerir continuamente quantidades enormes de dados.
-- Para a nuvem de arquivamento dos dados de forma segura e eficiente.
-- Transferência de dados incrementais através da rede depois da maior parte inicial de transferência é feita com o Data Box.
+- Para ingerir continuamente quantidades massivas de dados.
+- Para o arquivo de dados em nuvem de forma segura e eficiente.
+- Para transferência incremental de dados através da rede após a transferência inicial a granel é feita usando data Box.
 
-Cada um destes cenários é descrita detalhadamente nas secções subsequentes.
+Cada um destes cenários é descrito em detalhe nas secções seguintes.
 
 
-## <a name="continuous-data-ingestion"></a>Ingestão de dados contínua
+## <a name="continuous-data-ingestion"></a>Ingestão contínua de dados
 
-Uma das principais vantagens caixa do Gateway de dados é a capacidade de ingerir continuamente os dados no dispositivo para copiar para a nuvem, independentemente do tamanho de dados.
+Uma das principais vantagens do Data Box Gateway é a capacidade de ingerir continuamente dados no dispositivo para copiar para a nuvem, independentemente do tamanho dos dados.
 
-Como os dados são escritos para o dispositivo de gateway, o dispositivo carrega os dados ao armazenamento do Azure. O dispositivo gere automaticamente o armazenamento ao remover os ficheiros localmente, mantendo os metadados quando ela atinge um certo limite. Manter uma cópia local dos metadados permite ao dispositivo de gateway carregar apenas as alterações quando o ficheiro é atualizado. Os dados carregados para o seu dispositivo de gateway devem estar de acordo com as diretrizes [limitações de carregamento de dados](data-box-gateway-limits.md#data-upload-caveats).
+À medida que os dados são escritos para o dispositivo gateway, o dispositivo envia os dados para o Armazenamento Azure. O dispositivo gere automaticamente o armazenamento removendo os ficheiros localmente, mantendo os metadados quando atinge um determinado limiar. Manter uma cópia local dos metadados permite que o dispositivo gateway apenas carregue as alterações quando o ficheiro é atualizado. Os dados enviados para o seu dispositivo gateway devem ser de acordo com as diretrizes em [ressalvas](data-box-gateway-limits.md#data-upload-caveats)de upload de dados .
 
-Como o dispositivo é preenchida com dados, este começa a limitação da taxa de entrada (conforme necessário) para corresponder a taxa a que os dados são carregados para a cloud. Para monitorizar a ingestão contínua no dispositivo, utilize alertas. Estes alertas são gerados quando a limitação é iniciado e são limpos quando a limitação parou.
+À medida que o dispositivo se enche de dados, começa a estrangular a taxa de entrada (conforme necessário) para corresponder à taxa a que os dados são carregados para a nuvem. Para monitorizar a ingestão contínua no dispositivo, utilize alertas. Estes alertas são levantados assim que a aceleração começa e são limpos uma vez que a aceleração tenha parado.
 
-## <a name="cloud-archival-of-data"></a>Arquivamento dos dados de cloud
+## <a name="cloud-archival-of-data"></a>Arquivo de dados em nuvem
 
-Utilize o Gateway de caixa de dados quando pretende manter os seus dados de longo prazo na cloud. Pode utilizar o **arquivo** camada de armazenamento para retenção a longo prazo.
+Utilize o Portal da Caixa de Dados quando pretender reter os seus dados a longo prazo na nuvem. Pode utilizar o nível de armazenamento **archive** para retenção a longo prazo.
 
-Camada de arquivo está otimizada para armazenar raramente são acedido dados durante, pelo menos, 180 dias. O **arquivo** camada oferece os custos de armazenamento mais baixos, mas tem os mais altos custos de acesso. Para obter mais informações, aceda a [camada de acesso de arquivo](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
+O nível de arquivo está otimizado para armazenar dados raramente acedidos durante pelo menos 180 dias. O nível **Archive** oferece os custos de armazenamento mais baixos, mas tem os custos de acesso mais elevados. Para mais informações, aceda ao [nível de acesso do Arquivo.](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier)
 
-### <a name="move-data-to-archive-tier"></a>Mover dados para a camada de arquivo
+### <a name="move-data-to-archive-tier"></a>Mover dados para o nível De Arquivo
 
-Antes de começar, certifique-se de que tem um dispositivo de Gateway de caixa de dados em execução. Siga os passos detalhados [Tutorial: Preparar a implementação de Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md) e manter a promover para o próximo tutorial depois de ter um dispositivo operacional.
+Antes de começar, certifique-se de que tem um dispositivo Gateway de Caixa de Dados em execução. Siga os passos detalhados no [Tutorial: Prepare-se para implementar o Portal](data-box-gateway-deploy-prep.md) da Caixa de Dados Azure e continue a avançar para o próximo tutorial até ter um dispositivo operacional.
 
-- Utilizar o dispositivo de Gateway de caixa de dados para carregar dados para o Azure através do procedimento de transferência normal, conforme descrito em [transferir dados através do Gateway de dados de caixa](data-box-gateway-deploy-add-shares.md).
-- Depois dos dados serem carregados, será necessário movê-lo para a camada de arquivo. Pode definir a camada de blob de duas formas: Script do Azure PowerShell ou uma política de gestão de ciclo de vida de armazenamento do Azure.  
-    - Se utilizar o Azure PowerShell, siga estes [passos](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) para mover os dados para a camada de arquivo.
-    - Se utilizar a gestão de ciclo de vida do Azure, siga estes passos para mover os dados para a camada de arquivo.
-        - [Registar](/azure/storage/common/storage-lifecycle-management-concepts) na pré-visualização do serviço de gestão do ciclo de vida do Blob para utilizar o arquivo do escalão.
-        - Utilize a seguinte política para [ingerir dados de arquivo no](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
-- Assim que os blobs são marcados como arquivo, eles já não podem ser modificados pelo gateway, a menos que são movidas para a camada frequente ou esporádica. Se o ficheiro estiver no armazenamento local, qualquer alteração feita a cópia local (incluindo eliminações) não é carregadas para o escalão de arquivo.
-- Para ler dados no armazenamento de arquivo, tem de ser reativado ao alterar o escalão de blob para frequente ou esporádica. [Atualizar a partilha](data-box-gateway-manage-shares.md#refresh-shares) no gateway não reidratação de Blobs.
+- Utilize o dispositivo Data Box Gateway para fazer o upload de dados para o Azure através do procedimento de transferência habitual, conforme descrito nos dados de [transferência através](data-box-gateway-deploy-add-shares.md)do Portal da Caixa de Dados .
+- Depois de os dados serem carregados, terá de os deslocar para o nível de Arquivo. Pode definir o nível de blob de duas formas: script Azure PowerShell ou uma política de Gestão de Ciclo de Vida de Armazenamento Azure.  
+    - Se utilizar o Azure PowerShell, siga estes [passos](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) para mover os dados para o nível De Arquivo.
+    - Se utilizar a Azure Lifecycle Management, siga estes passos para mover os dados para o nível De Arquivo.
+        - [Registe-se](/azure/storage/common/storage-lifecycle-management-concepts) na pré-visualização do serviço de gestão blob Lifecycle para utilizar o nível Archive.
+        - Utilize a seguinte política para [arquivar dados sobre a ingestão](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
+- Uma vez que as bolhas são marcadas como Arquivo, não podem mais ser modificadas pelo portal, a menos que sejam movidas para um nível quente ou frio. Se o ficheiro estiver no armazenamento local, quaisquer alterações feitas na cópia local (incluindo exclusões) não são enviadas para o nível de arquivo.
+- Para ler os dados no armazenamento do Arquivo, deve ser rehidratado alterando o nível de bolha para quente ou fresco. [Refrescar a parte](data-box-gateway-manage-shares.md#refresh-shares) no portal não reidrata a bolha.
 
-Para obter mais informações, saiba mais sobre como [gerir vida de armazenamento de Blobs do Azure](/azure/storage/common/storage-lifecycle-management-concepts).
+Para mais informações, saiba mais sobre como gerir o ciclo de vida de [armazenamento de blob Azure](/azure/storage/common/storage-lifecycle-management-concepts).
 
-## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Transferência em massa inicial, seguida de transferência incremental
+## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Transferência inicial a granel seguida de transferência incremental
 
-Utilize o Data Box e o Gateway de caixa de dados em conjunto quando deseja fazer um carregamento em massa de uma grande quantidade de dados, seguidos de transferências incrementais. Utilize o Data Box para a transferência em massa num modo offline (propagação inicial) e o Gateway de caixa de dados para transferências incrementais (feed em curso) através da rede.
+Utilize o Data Box e data Box Gateway juntos quando pretender fazer um upload a granel de uma grande quantidade de dados seguido de transferências incrementais. Utilize a Data Box para a transferência a granel num modo offline (semente inicial) e Data Box Gateway para transferências incrementais (feed em curso) sobre a rede.
 
-### <a name="seed-the-data-with-data-box"></a>Propagar os dados com o Data Box
+### <a name="seed-the-data-with-data-box"></a>Semente os dados com Caixa de Dados
 
-Siga estes passos para copiar os dados para Data Box e carregar para o armazenamento do Azure.
+Siga estes passos para copiar os dados para Data Box e fazer upload para o Armazenamento Azure.
 
-1. [Encomendar o Data Box](/azure/databox/data-box-deploy-ordered).
-2. [Configurar o Data Box](/azure/databox/data-box-deploy-set-up).
-3. [Copiar dados para o Data Box através do SMB](/azure/databox/data-box-deploy-copy-data).
-4. [Devolver o Data Box, verifique se o carregamento de dados para o Azure](/azure/databox/data-box-deploy-picked-up).
-5. Quando o carregamento de dados para o Azure estiver concluído, todos os dados devem ser em contentores de armazenamento do Azure. Na conta de armazenamento para o Data Box, vá para o contentor de BLOBs (e ficheiro) para se certificar de que todos os dados são copiados. Tome nota do nome do contentor, porque irá utilizar este nome mais tarde. Por exemplo, na seguinte captura de ecrã, `databox` contentor será utilizado para a transferência incremental.
+1. [Ordene seu data Box](/azure/databox/data-box-deploy-ordered).
+2. [Configurar a sua Caixa](/azure/databox/data-box-deploy-set-up)de Dados .
+3. [Copiar dados para Data Box via SMB](/azure/databox/data-box-deploy-copy-data).
+4. [Devolva a Caixa de Dados, verifique o upload de dados para o Azure](/azure/databox/data-box-deploy-picked-up).
+5. Uma vez que o envio de dados para o Azure esteja completo, todos os dados devem estar em contentores de armazenamento Azure. Na conta de armazenamento da Data Box, vá ao recipiente Blob (e File) para se certificar de que todos os dados são copiados. Tome nota do nome do recipiente, pois utilizará este nome mais tarde. Por exemplo, na seguinte imagem, `databox` recipiente será utilizado para a transferência incremental.
 
-    ![Contentor com os dados no Data Box](media/data-box-gateway-use-cases/data-container1.png)
+    ![Contentor com dados sobre Caixa de Dados](media/data-box-gateway-use-cases/data-container1.png)
 
-Esta transferência em massa conclui a fase de propagação inicial.
+Esta transferência a granel completa a fase inicial de semente.
 
-### <a name="ongoing-feed-with-data-box-gateway"></a>Contínuas com o Gateway de caixa de dados do feed
+### <a name="ongoing-feed-with-data-box-gateway"></a>Feed contínuo com Data Box Gateway
 
-Siga estes passos para ingestão em curso pelo Gateway de caixa de dados.
+Siga estes passos para a ingestão contínua pelo Data Box Gateway.
 
-1. Crie uma partilha de cloud no Gateway de caixa de dados. Esta partilha carrega automaticamente todos os dados para a conta de armazenamento do Azure. Aceda a **partilhas** no seu recurso do Gateway de caixa de dados e clique em **+ Adicionar partilha**.
+1. Crie uma partilha de nuvem no Data Box Gateway. Esta parte envia automaticamente quaisquer dados para a conta de Armazenamento Azure. Vá a **Partilhas** no seu recurso Data Box Gateway e clique **+ Adicionar partilha**.
 
-    ![Clique em + Adicionar partilha](media/data-box-gateway-use-cases/add-share1.png)
+    ![Clique +Adicionar partilha](media/data-box-gateway-use-cases/add-share1.png)
 
-2. Certifique-se de que esta partilha é mapeado para o contentor que contém os dados propagados. Para **contentor de BLOBs Select**, escolha **utilizar existente** e navegue para o contentor onde os dados de caixa de dados foi transferidos.
+2. Certifique-se de que estes mapas de partilha para o recipiente que contém os dados semeados. Para **selecionar o recipiente blob,** escolha utilizar o **existente** e navegue até ao recipiente onde os dados da Data Box foram transferidos.
 
     ![Definições de partilha](media/data-box-gateway-use-cases/share-settings-select-existing-container1.png)
 
-3. Depois de criar a partilha, atualize a partilha. Esta operação atualiza a partilha no local com o conteúdo do Azure.
+3. Depois da partilha ser criada, refresque a parte. Esta operação atualiza a partilha no local com o conteúdo do Azure.
 
-    ![Atualizar partilha](media/data-box-gateway-use-cases/refresh-share1.png)
+    ![Partilhar o artigo Atualização](media/data-box-gateway-use-cases/refresh-share1.png)
 
-    Quando a partilha está sincronizada, o Gateway de caixa de dados irá carregar as alterações incrementais se os arquivos foram modificados no cliente.
+    Quando a parte estiver sincronizada, o Data Box Gateway carregará as alterações incrementais se os ficheiros forem modificados no cliente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [requisitos de sistema do Data Box Gateway](data-box-gateway-system-requirements.md).
 - Compreenda os [Limites do Data Box Gateway](data-box-gateway-limits.md).

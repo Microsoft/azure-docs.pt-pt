@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: 42b697babe2bc004663c80e6e2f71f90ba1e5e5b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/03/2020
+ms.openlocfilehash: 377639d7a88478308709743ab842db71028686ed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765401"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023315"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o postmaster para o Azure digital gêmeos
 
@@ -33,45 +33,15 @@ Por meio do cliente do postmaster, as soluções que os desenvolvedores podem es
 
 ## <a name="configure-azure-active-directory-to-use-the-oauth-20-implicit-grant-flow"></a>Configurar Azure Active Directory para usar o fluxo de concessão implícita do OAuth 2,0
 
-Configure seu aplicativo Azure Active Directory para usar o fluxo de concessão implícita do OAuth 2,0.
-
-1. Abra o painel **permissões de API** para o registro do aplicativo. Selecione **Adicionar um botão de permissão** . No painel **solicitar permissões de API** , selecione a guia **APIs que minha organização usa** e, em seguida, pesquise por:
-    
-    1. `Azure Digital Twins`. Selecione a API de **gêmeos digital do Azure** .
-
-        [![Pesquisa API ou Gémeos Digitais Azure](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
-
-    1. Como alternativa, pesquise por `Azure Smart Spaces Service`. Selecione a API de **serviço de espaços inteligentes do Azure** .
-
-        [![Pesquisa API para espaços inteligentes Azure](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
-
-    > [!IMPORTANT]
-    > O nome e a ID da API do Azure AD que serão exibidos dependerá do seu locatário:
-    > * As contas de locatário e cliente de teste devem Pesquisar `Azure Digital Twins`.
-    > * Outras contas da Microsoft devem Pesquisar `Azure Smart Spaces Service`.
-
-1. A API selecionada aparece como **Azure digital gêmeos** no mesmo painel de **permissões de API de solicitação** . Selecione a lista suspensa **ler (1)** e, em seguida, marque a caixa de seleção **ler. gravar** . Selecione o botão **adicionar permissões** .
-
-    [![Adicionar permissões API para Gémeos Digitais Azure](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
-
-1. Dependendo das configurações da sua organização, talvez seja necessário executar etapas adicionais para conceder acesso de administrador a essa API. Contate o administrador para obter mais informações. Depois que o acesso de administrador for aprovado, a coluna **consentimento de administrador necessário** no painel **permissões de API** mostrará semelhante ao seguinte para suas APIs:
-
-    [![Aprovação de consentimento do administrador da Configuração](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
-
-1. Configure um segundo **URI de redirecionamento** para `https://www.getpostman.com/oauth2/callback`.
+1. Siga os passos [no Quickstart](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) para criar e configurar uma aplicação azure Ative Directory. Como alternativa, você pode reutilizar um registro de aplicativo existente.
 
     [![Configurar um novo Carteiro Redirecionar URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-1. Para certificar-se [de que o aplicativo está registrado como um **cliente público**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), abra o painel de **autenticação** para o registro do aplicativo e role para baixo nesse painel. Na seção **tipo de cliente padrão** , escolha **Sim** para **tratar aplicativo como um cliente público**e clique em **salvar**.
+1. Agora, adicione um **Uri Redirecionamento** para `https://www.getpostman.com/oauth2/callback`.
 
-    Verifique os **tokens de acesso** para habilitar a configuração **Oauth2AllowImplicitFlow** em seu manifest. JSON.
+1. Selecione a caixa de verificação de **fichas** de acesso > Acesso **para** permitir a sua utilizada caixa de verificação implícita o OAuth 2.0. **Selecione Configurar**e, em seguida, **guardar**.
 
-    [![configuração de configuração do cliente público](../../includes/media/digital-twins-permissions/aad-configure-public-client.png)](../../includes/media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
-
-1. Copie e mantenha a **ID do aplicativo** de seu Azure Active Directory aplicativo. Ele é usado nas etapas a seguir.
-
-   [ID de aplicação de diretório ativo ![Azure](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
-
+1. Copie a **identificação** do cliente da sua aplicação Azure Ative Directory.
 
 ## <a name="obtain-an-oauth-20-token"></a>Obter um token 2,0 do OAuth
 
@@ -91,15 +61,13 @@ Configure e configure o postmaster para obter um token de Azure Active Directory
 
 1. Acesse [www.getpostman.com](https://www.getpostman.com/) para baixar o aplicativo.
 
-1. Abra o aplicativo de postmaster e clique em novo | Crie uma nova solicitação e selecione solicitar. Insira um nome de Pedido. Selecione uma coleção ou pasta para guardá-la e clique em Guardar. 
-
 1. Queremos fazer um pedido get. Selecione o separador **Autorização,** selecione OAuth 2.0 e, em seguida, selecione **Obter novo acesso token**.
 
     | Campo  | Valor |
     |---------|---------|
     | Tipo de concessão | `Implicit` |
     | Callback URL | `https://www.getpostman.com/oauth2/callback` |
-    | Auth URL | Use a **URL de autorização** da **etapa 2** |
+    | Auth URL | Utilize o URL de **Autorização** a partir do **passo 1** |
     | ID de Cliente | Use a **ID do aplicativo** para o Azure Active Directory aplicativo que foi criado ou reutilizado da seção anterior |
     | Âmbito | Deixar em branco |
     | Estado | Deixar em branco |

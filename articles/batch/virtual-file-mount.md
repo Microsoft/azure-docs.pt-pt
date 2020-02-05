@@ -3,20 +3,20 @@ title: Montar um sistema de arquivos virtual em um pool – lote do Azure | Micr
 description: Saiba como montar um sistema de arquivos virtual em um pool do lote.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: jushiman
-ms.openlocfilehash: eab8e509e4978de50968bc1d960ee34d46bc73b0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: a22117505dff35f9b92e3dd3c91dc8540557b218
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029149"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023043"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montar um sistema de arquivos virtual em um pool do lote
 
@@ -44,12 +44,12 @@ Para montar um sistema de arquivos em um pool, crie um objeto `MountConfiguratio
 Todos os objetos de configuração de montagem precisam dos seguintes parâmetros de base. Algumas configurações de montagem têm parâmetros específicos para o sistema de arquivos que estão sendo usados, que são abordados em mais detalhes nos exemplos de código.
 
 - **Nome da conta ou origem**: para montar um compartilhamento de arquivos virtual, você precisa do nome da conta de armazenamento ou de sua origem.
-- **Caminho de montagem relativo ou origem**: o local do sistema de arquivos montado no nó de computação, em relação ao padrão `fsmounts` Directory acessível no nó por meio de `AZ_BATCH_NODE_MOUNTS_DIR`. O local exato varia dependendo do sistema operacional usado no nó. Por exemplo, o local físico em um nó Ubuntu é mapeado para `mnt\batch\tasks\fsmounts`e, em um nó CentOS, ele é mapeado para `mnt\resources\batch\tasks\fsmounts`.
+- **Caminho de montagem relativo ou Fonte**: A localização do sistema de ficheiros montado no nó da computação, em relação ao diretório de `fsmounts` padrão acessível no nó através de `AZ_BATCH_NODE_MOUNTS_DIR`. O local exato varia dependendo do sistema operacional usado no nó. Por exemplo, o local físico em um nó Ubuntu é mapeado para `mnt\batch\tasks\fsmounts`e, em um nó CentOS, ele é mapeado para `mnt\resources\batch\tasks\fsmounts`.
 - Opções **de montagem ou opções de blobfuse**: essas opções descrevem parâmetros específicos para montar um sistema de arquivos.
 
 Depois que o objeto `MountConfiguration` for criado, atribua o objeto à propriedade `MountConfigurationList` ao criar o pool. O sistema de arquivos é montado quando um nó ingressa em um pool ou quando o nó é reiniciado ou a imagem é reiniciada.
 
-Quando o sistema de arquivos é montado, uma variável de ambiente `AZ_BATCH_NODE_MOUNTS_DIR` é criada, que aponta para o local dos sistemas de arquivos montados, bem como arquivos de log, que são úteis para solução de problemas e depuração. Os arquivos de log são explicados com mais detalhes na seção [diagnosticar erros de montagem](#diagnose-mount-errors) .  
+Quando o sistema de ficheiros é montado, é criada uma variável ambiente `AZ_BATCH_NODE_MOUNTS_DIR` que aponta para a localização dos sistemas de ficheiros montados, bem como ficheiros de registo, que são úteis para resolução de problemas e depuração. Os arquivos de log são explicados com mais detalhes na seção [diagnosticar erros de montagem](#diagnose-mount-errors) .  
 
 > [!IMPORTANT]
 > O número máximo de sistemas de arquivos montados em um pool é 10. Consulte [cotas e limites do serviço de lote](batch-quota-limit.md#other-limits) para obter detalhes e outros limites.
@@ -166,7 +166,7 @@ new PoolAddParameter
 
 Se uma configuração de montagem falhar, o nó de computação no pool falhará e o estado do nó se tornará inutilizável. Para diagnosticar uma falha de configuração de montagem, inspecione a propriedade [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) para obter detalhes sobre o erro.
 
-Para obter os arquivos de log para depuração, use [OutputFiles](batch-task-output-files.md) para carregar os arquivos de `*.log`. Os arquivos de `*.log` contêm informações sobre a montagem do sistema de arquivos no local `AZ_BATCH_NODE_MOUNTS_DIR`. Os arquivos de log de montagem têm o formato: `<type>-<mountDirOrDrive>.log` para cada montagem. Por exemplo, um `cifs` montar em um diretório de montagem chamado `test` terá um arquivo de log de montagem chamado: `cifs-test.log`.
+Para obter os arquivos de log para depuração, use [OutputFiles](batch-task-output-files.md) para carregar os arquivos de `*.log`. Os ficheiros `*.log` contêm informações sobre o suporte do sistema de ficheiros no local `AZ_BATCH_NODE_MOUNTS_DIR`. Os arquivos de log de montagem têm o formato: `<type>-<mountDirOrDrive>.log` para cada montagem. Por exemplo, um `cifs` montar em um diretório de montagem chamado `test` terá um arquivo de log de montagem chamado: `cifs-test.log`.
 
 ## <a name="supported-skus"></a>SKUs com suporte
 
@@ -177,7 +177,7 @@ Para obter os arquivos de log para depuração, use [OutputFiles](batch-task-out
 | credativ | Debian | 8, 9 | :heavy_check_mark: | w.x.y. | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Observação: compatível com o CentOS 7,4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | CentOS-contêiner | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | CentOS-contêiner-RDMA | 7.4 | :heavy_check_mark: <br>Observação: dá suporte ao armazenamento de A_8 ou 9</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | CentOS-contêiner-RDMA | 7.4 | :heavy_check_mark: <br>Nota: Suporta A_8 ou 9 armazenamento</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

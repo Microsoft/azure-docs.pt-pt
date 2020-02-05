@@ -4,7 +4,7 @@ description: Saiba como utilizar o serviço Azure Batch para cargas de trabalho 
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: gwallace
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: markscu
 ms.custom: mvc
-ms.openlocfilehash: ee61f0f550a09640469914d29bde175028b59142
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ca2a5e91a0ec0d765e106baca20f135996bc26e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094331"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022805"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?
 
@@ -29,7 +29,7 @@ Os programadores podem utilizar o Batch como um serviço de plataforma para cria
 
 Não existem custos adicionais para a utilização do Batch. Paga apenas pelos recursos subjacentes consumidos, como máquinas virtuais, armazenamento e rede.
 
-Para obter uma comparação entre o lote e outras opções de solução de HPC no Azure, consulte [HPC (computação de alto desempenho) no Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+Para uma comparação entre O Lote e outras opções de solução HPC em Azure, consulte a Computação de [Alto Desempenho (HPC) no Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Executar cargas de trabalho paralelas
 O Batch funciona bem com cargas de trabalho intrinsecamente paralelas (também conhecidas como constrangedoramente paralelas). As cargas de trabalho intrinsecamente paralelas são aquelas em que as aplicações podem ser executadas separadamente e cada instância concluiu parte do trabalho. Quando as aplicações estão em execução, podem aceder a alguns dados comuns, mas não comunicam com outras instâncias da aplicação. As cargas de trabalho intrinsecamente paralelas conseguem executar em grande escala, determinado pela quantidade de recursos de computação disponíveis para executar aplicações em simultâneo.
@@ -73,12 +73,12 @@ O diagrama seguinte mostra os passos num fluxo de trabalho comum do Batch, com u
 
 |Passo  |Descrição  |
 |---------|---------|
-|1.  Carregue os **ficheiros de entrada** e as **aplicações** para processar esses ficheiros para a sua conta de Armazenamento do Azure.     |Os ficheiros de entrada podem ser quaisquer dados que a sua aplicação processa, tais como dados de modelação financeira ou ficheiros de vídeo para transcodificação. Os ficheiros da aplicação podem incluir scripts ou aplicações que processam os dados, como um transcodificador multimédia.|
-|2.  Crie um **conjunto** do Batch de nós de computação na sua conta do Batch, um **trabalho** para executar a carga de trabalho no conjunto e **tarefas** no trabalho.     | Os nós do conjunto são as VMs que executam as tarefas. Especifique as propriedades, como o número e o tamanho dos nós, uma imagem de VM do Windows ou do Linux e a aplicação a instalar quando os nós forem associados ao conjunto. Efetue a gestão do custo e do tamanho do conjunto através de [VMs de prioridade baixa](batch-low-pri-vms.md) ou do [dimensionamento automático](batch-automatic-scaling.md) do número de nós à medida que a carga de trabalho muda. <br/><br/>Ao adicionar tarefas a um trabalho, o serviço Batch agenda automaticamente as tarefas para execução nos nós de computação do conjunto. Cada tarefa utiliza a aplicação que carregou para processar os ficheiros de entrada. |
-|3.  Transfira os **ficheiros de entrada** e as **aplicações** para o Batch.     |Antes de cada tarefa ser executada, pode transferir os dados de entrada a processar para o nó de computação atribuído. Se a aplicação ainda não tiver sido instalada nos nós do conjunto, pode ser transferida aqui. Quando as transferências do Armazenamento do Azure estiverem concluídas, a tarefa é executada no nó atribuído.|
-|4.  Monitorize a **execução de tarefas**.     |À medida que as tarefas são executadas, consulte o Batch para monitorizar o progresso do trabalho e respetivas tarefas. A aplicação ou serviço de cliente comunica com o serviço Batch sobre o HTTPS. Uma vez que pode monitorizar milhares de tarefas em execução em milhares de nós de computação, certifique-se de que [consulta o serviço de Batch de forma eficiente](batch-efficient-list-queries.md).|
-|5.  Carregue o **resultado das tarefas**.     |À medida que as tarefas são concluídas, elas podem carregar os respetivos dados de resultados para o Armazenamento do Azure. Também pode obter ficheiros diretamente do sistema de ficheiros num nó de computação.|
-|6.  Transfira os **ficheiros de saída**.     |Quando a monitorização deteta que concluiu as tarefas no seu trabalho, a aplicação ou serviço de cliente pode transferir os dados de saída para processamento adicional.|
+|1. Faça upload **dos ficheiros** de entrada e das **aplicações** para processar esses ficheiros na sua conta de Armazenamento Azure.     |Os ficheiros de entrada podem ser quaisquer dados que a sua aplicação processa, tais como dados de modelação financeira ou ficheiros de vídeo para transcodificação. Os ficheiros da aplicação podem incluir scripts ou aplicações que processam os dados, como um transcodificador multimédia.|
+|2. Crie um **conjunto** de nós de computação na sua conta Batch, um **trabalho** para executar a carga de trabalho na piscina, e **tarefas** no trabalho.     | Os nós do conjunto são as VMs que executam as tarefas. Especifique as propriedades, como o número e o tamanho dos nós, uma imagem de VM do Windows ou do Linux e a aplicação a instalar quando os nós forem associados ao conjunto. Efetue a gestão do custo e do tamanho do conjunto através de [VMs de prioridade baixa](batch-low-pri-vms.md) ou do [dimensionamento automático](batch-automatic-scaling.md) do número de nós à medida que a carga de trabalho muda. <br/><br/>Ao adicionar tarefas a um trabalho, o serviço Batch agenda automaticamente as tarefas para execução nos nós de computação do conjunto. Cada tarefa utiliza a aplicação que carregou para processar os ficheiros de entrada. |
+|3. Descarregue **os ficheiros** de entrada e as **aplicações** para O Lote     |Antes de cada tarefa ser executada, pode transferir os dados de entrada a processar para o nó de computação atribuído. Se a aplicação ainda não tiver sido instalada nos nós do conjunto, pode ser transferida aqui. Quando as transferências do Armazenamento do Azure estiverem concluídas, a tarefa é executada no nó atribuído.|
+|4. Monitorizar a **execução de tarefas**     |À medida que as tarefas são executadas, consulte o Batch para monitorizar o progresso do trabalho e respetivas tarefas. A aplicação ou serviço de cliente comunica com o serviço Batch sobre o HTTPS. Uma vez que pode monitorizar milhares de tarefas em execução em milhares de nós de computação, certifique-se de que [consulta o serviço de Batch de forma eficiente](batch-efficient-list-queries.md).|
+|5. Enviar a **saída de tarefas**     |À medida que as tarefas são concluídas, elas podem carregar os respetivos dados de resultados para o Armazenamento do Azure. Também pode obter ficheiros diretamente do sistema de ficheiros num nó de computação.|
+|6. Descarregue **os ficheiros de saída**     |Quando a monitorização deteta que concluiu as tarefas no seu trabalho, a aplicação ou serviço de cliente pode transferir os dados de saída para processamento adicional.|
 
 
 
@@ -87,7 +87,7 @@ Tenha em atenção que esta é apenas uma forma de utilizar o Batch, e este cen�
 
 Veja [Descrição geral das funcionalidades do Batch para programadores](batch-api-basics.md) para obter informações mais detalhadas sobre conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch. Veja também a versão mais recente das [Atualizações de serviço do Batch](https://azure.microsoft.com/updates/?product=batch).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução ao Azure Batch com um dos seguintes inícios rápidos:
 * [Executar o seu primeiro trabalho do Batch com a CLI do Azure](quick-create-cli.md)

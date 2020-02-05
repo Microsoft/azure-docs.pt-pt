@@ -1,6 +1,6 @@
 ---
-title: Usar Aplicativo Azure gateway com máquinas virtuais VMware
-description: Descreve como usar o gateway de aplicativo do Azure para gerenciar o tráfego da Web de entrada para servidores Web em execução em máquinas virtuais VMware ganhe o ambiente de nuvem privada do CloudSimple
+title: Utilize o Portal de Aplicações Azure com máquinas virtuais VMware
+description: Descreve como usar a porta de aplicação Azure para gerir o tráfego web de entrada para servidores web que executam em máquinas virtuais VMware ganham o ambiente AVS Private Cloud
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,72 +8,72 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cbfdd358fdfd5403c677c067376142169cdc6bf
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 94cc6e40b88fe631d525f41001034f5dada05397
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576787"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77015461"
 ---
-# <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Usar Aplicativo Azure gateway com máquinas virtuais VMware no ambiente de nuvem privada do CloudSimple
+# <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-avs-private-cloud-environment"></a>Utilize o Portal de Aplicações Azure com máquinas virtuais VMware no ambiente Da Vs Private Cloud
 
-Você pode usar o gateway de Aplicativo Azure para gerenciar o tráfego da Web de entrada para seus servidores Web em execução em máquinas virtuais VMware em seu ambiente de nuvem privada do CloudSimple.
+Pode utilizar o Portal de Aplicações Azure para gerir o tráfego web para os seus servidores web que executam em máquinas virtuais VMware dentro do seu ambiente AVS Private Cloud.
 
-Ao aproveitar Aplicativo Azure gateway em uma implantação híbrida pública privada, você pode gerenciar o tráfego da Web para seus aplicativos, fornecer um front-end seguro e descarregar o processamento de SSL para seus serviços em execução no ambiente VMware. Aplicativo Azure gateway roteia o tráfego da Web de entrada para instâncias do pool de back-end que residem em ambientes VMware de acordo com as regras e investigações de integridade configuradas.
+Ao aproveitar o Portal de Aplicações Azure numa implantação híbrida público-privada, pode gerir o tráfego web para as suas aplicações, fornecer uma frontal frontal segura e descarregar o processamento de SSL para serviços em funcionamento no ambiente VMware. O Portal de Aplicações Azure rotas de entrada de tráfego web para apoiar casos de piscina que residem em ambientes VMware de acordo com regras configuradas e sondas de saúde.
 
-Essa solução de gateway Aplicativo Azure requer que você:
+Esta solução De gateway de aplicação Azure requer:
 
 * Ter uma subscrição do Azure.
-* Crie e configure uma rede virtual do Azure e uma sub-rede dentro da rede virtual.
-* Crie e configure regras de NSG e emparelhe sua vNet usando o ExpressRoute para sua nuvem privada do CloudSimple.
-* Crie & configure sua nuvem privada.
-* Criar & configurar seu gateway de Aplicativo Azure.
+* Crie e configure uma rede virtual Azure e uma subnet dentro da rede virtual.
+* Crie e configure as regras do NSG e peer your vNet usando ExpressRoute para a sua Nuvem Privada AVS.
+* Crie e configure a sua Nuvem Privada AVS.
+* Crie e configure o seu Gateway de Aplicação Azure.
 
-## <a name="azure-application-gateway-deployment-scenario"></a>Cenário de implantação de gateway Aplicativo Azure
+## <a name="azure-application-gateway-deployment-scenario"></a>Cenário de implementação do Gateway de Aplicação Azure
 
-Nesse cenário, o gateway de Aplicativo Azure é executado em sua rede virtual do Azure. A rede virtual está conectada à sua nuvem privada por um circuito do ExpressRoute. Todas as sub-redes na nuvem privada são acessíveis por IP das sub-redes da rede virtual.
+Neste cenário, o Portal de Aplicações Azure funciona na sua rede virtual Azure. A rede virtual está ligada à sua Nuvem Privada AVS sobre um circuito ExpressRoute. Todas as subredes da Nuvem Privada AVS são acessíveis a IP a partir das subredes de rede virtual.
 
-![Azure Load Balancer na rede virtual do Azure](media/load-balancer-use-case.png)
+![Equilibrador de carga Azure na rede virtual Azure](media/load-balancer-use-case.png)
 
-## <a name="how-to-deploy-the-solution"></a>Como implantar a solução
+## <a name="how-to-deploy-the-solution"></a>Como implementar a solução
 
 O processo de implantação consiste nas seguintes tarefas:
 
-1. [Verificar se os pré-requisitos foram atendidos](#1-verify-prerequisites)
-2. [Conectar sua conexão virtual do Azure à nuvem privada](#2-connect-your-azure-virtual-network-to-your-private-cloud)
-3. [Implantar um gateway de aplicativo do Azure](#3-deploy-an-azure-application-gateway)
-4. [Criar e configurar o pool de VM do servidor Web em sua nuvem privada](#4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud)
+1. [Verifique se os pré-requisitos são cumpridos](#1-verify-prerequisites)
+2. [Ligue a sua ligação virtual Azure à Nuvem Privada AVS](#2-connect-your-azure-virtual-network-to-your-avs-private-cloud)
+3. [Implementar um portal de aplicação Azure](#3-deploy-an-azure-application-gateway)
+4. [Crie e configure a piscina VM do Web Server na sua Nuvem Privada AVS](#4-create-and-configure-a-web-server-vm-pool-in-your-avs-private-cloud)
 
 ## <a name="1-verify-prerequisites"></a>1. Verificar os pré-requisitos
 
-Verifique se esses pré-requisitos foram atendidos:
+Verifique se estes pré-requisitos são cumpridos:
 
-* Um Azure Resource Manager e uma rede virtual já foram criados.
-* Uma sub-rede dedicada (para o gateway de aplicativo) em sua rede virtual do Azure já foi criada.
-* Uma nuvem privada do CloudSimple já foi criada.
-* Não há nenhum conflito de IP entre as sub-redes IP na rede virtual e sub-redes na nuvem privada.
+* Já foi criado um Gestor de Recursos Azure e uma rede virtual.
+* Já foi criada uma subnet dedicada (para Application Gateway) dentro da sua rede virtual Azure.
+* Já foi criada uma Nuvem Privada AVS.
+* Não existe um conflito ip entre subredes IP na rede virtual e subnets na Nuvem Privada.
 
-## <a name="2-connect-your-azure-virtual-network-to-your-private-cloud"></a>2. Conectar sua rede virtual do Azure à sua nuvem privada
+## <a name="2-connect-your-azure-virtual-network-to-your-avs-private-cloud"></a>2. Ligue a sua rede virtual Azure à sua Nuvem Privada AVS
 
-Para conectar sua rede virtual do Azure à sua nuvem privada, siga este processo.
+Para ligar a sua rede virtual Azure à sua Nuvem Privada AVS, siga este processo.
 
-1. [No portal do CloudSimple, copie as informações de emparelhamento do ExpressRoute](virtual-network-connection.md).
+1. [No portal AVS, copie a informação de peering ExpressRoute](virtual-network-connection.md).
 
-2. [Configure um gateway de rede virtual para sua rede virtual do Azure](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
+2. [Configure uma porta de entrada de rede virtual para a sua rede virtual Azure.](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)
 
-3. [Vincule sua rede virtual ao circuito do ExpressRoute CloudSimple](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
+3. [Ligue a sua rede virtual ao circuito AVS ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
 
-4. [Use as informações de emparelhamento que você copiou para vincular sua rede virtual ao circuito do ExpressRoute](virtual-network-connection.md).
+4. [Utilize as informações de observação que copiou para ligar a sua rede virtual ao circuito ExpressRoute](virtual-network-connection.md).
 
-## <a name="3-deploy-an-azure-application-gateway"></a>3. Implantar um gateway de aplicativo do Azure
+## <a name="3-deploy-an-azure-application-gateway"></a>3. Implementar um portal de aplicação Azure
 
-As instruções detalhadas para isso estão disponíveis em [criar um gateway de aplicativo com regras de roteamento com base em caminho usando o portal do Azure](../application-gateway/create-url-route-portal.md). Aqui está um resumo das etapas necessárias:
+As instruções detalhadas para tal estão disponíveis na [Create a application gateway com regras de encaminhamento baseadas em caminhos utilizando o portal Azure](../application-gateway/create-url-route-portal.md). Aqui está um resumo dos passos necessários:
 
-1. Crie uma rede virtual em sua assinatura e grupo de recursos.
-2. Crie uma sub-rede (para ser usada como sub-rede dedicada) em sua rede virtual.
-3. Crie um gateway de aplicativo padrão (opcionalmente, habilite WAF):  Na página inicial do portal do Azure, clique em **recursos** > **rede** > **Gateway de aplicativo** no canto superior esquerdo da página. Selecione o SKU e o tamanho padrão e forneça a assinatura do Azure, o grupo de recursos e as informações de local. Se necessário, crie um novo IP público para esse gateway de aplicativo e forneça detalhes sobre a rede virtual e a sub-rede dedicada para o gateway de aplicativo.
-4. Adicione um pool de back-end com máquinas virtuais e adicione-a ao seu gateway de aplicativo.
+1. Crie uma rede virtual no seu grupo de subscrição e recursos.
+2. Crie uma sub-rede (a ser utilizada como sub-rede dedicada) dentro da sua rede virtual.
+3. Crie um Gateway de Aplicação padrão (opcionalmente ativar o WAF): A partir da página inicial do portal Azure, clique em **Recursos** > **Networking** > **Application Gateway** do lado superior esquerdo da página. Selecione o SKU padrão, tamanho, e forneça a subscrição do Azure, grupo de recursos e informações de localização. Se necessário, crie um novo IP público para esta porta de entrada de aplicações e forneça detalhes sobre a rede virtual e a subnet dedicada para o gateway da aplicação.
+4. Adicione uma piscina de backend com máquinas virtuais e adicione-a ao seu gateway de aplicação.
 
-## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud"></a>4. Criar e configurar um pool de VM do servidor Web em sua nuvem privada
+## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-avs-private-cloud"></a>4. Crie e configure uma piscina VM do servidor web na sua Nuvem Privada AVS
 
-No vCenter, crie VMs com o sistema operacional e o servidor Web de sua escolha (como Windows/IIS ou Linux/Apache). Escolha uma sub-rede/VLAN designada para a camada da Web em sua nuvem privada. Verifique se pelo menos um vNIC das VMs do servidor Web está na sub-rede da camada da Web.
+No vCenter, crie VMs com o OS e o servidor web à sua escolha (como Windows/IIS ou Linux/Apache). Escolha uma sub-rede/VLAN que seja designada para o nível web na sua Nuvem Privada AVS. Verifique se pelo menos um vNIC dos VMs do servidor web está na sub-rede de nível web.

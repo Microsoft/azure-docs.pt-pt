@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561959"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024641"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium das Funções do Azure
 
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` com um nome para seu plano que seja exclusivo no grupo de recursos. Especifique um [`<REGION>`com suporte ](#regions). Para criar um plano Premium que ofereça suporte ao Linux, inclua a opção `--is-linux`.
+Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` por um nome para o seu plano único no grupo de recursos. Especifique um [`<REGION>`com suporte ](#regions). Para criar um plano Premium que ofereça suporte ao Linux, inclua a opção `--is-linux`.
 
 Com o plano criado, você pode usar [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) para criar seu aplicativo de funções. No portal, o plano e o aplicativo são criados ao mesmo tempo. Para obter um exemplo de um script de CLI do Azure completo, consulte [criar um aplicativo de funções em um plano Premium](scripts/functions-cli-create-premium-plan.md).
 
@@ -37,7 +37,7 @@ Os recursos a seguir estão disponíveis para aplicativos de funções implantad
 
 ### <a name="pre-warmed-instances"></a>Instâncias pré-passivas
 
-Se nenhum evento e execução ocorrer hoje no plano de consumo, seu aplicativo poderá reduzir verticalmente até zero instâncias. Quando novos eventos chegam, uma nova instância precisa ser especializada em seu aplicativo em execução.  A especialização de novas instâncias pode levar algum tempo, dependendo do aplicativo.  Essa latência adicional na primeira chamada geralmente é chamada de inicialização a frio do aplicativo.
+Se não ocorrerem eventos e execuções hoje no plano de consumo, a sua aplicação poderá dimensionar para zero instâncias. Quando novos eventos chegam, uma nova instância precisa ser especializada em seu aplicativo em execução.  A especialização de novas instâncias pode levar algum tempo, dependendo do aplicativo.  Essa latência adicional na primeira chamada geralmente é chamada de inicialização a frio do aplicativo.
 
 No plano Premium, você pode fazer com que seu aplicativo fique quente em um número especificado de instâncias, até o tamanho mínimo do plano.  As instâncias pré-configuradas também permitem que você dimensione previamente um aplicativo antes da alta carga. À medida que o aplicativo é dimensionado, ele é dimensionado primeiro para as instâncias pré-configuradas. As instâncias adicionais continuam a ficar em buffer e ficam quentes imediatamente em preparação para a próxima operação de escala. Tendo um buffer de instâncias pré-configuradas, você pode evitar latências de início frio.  As instâncias pré-configuradas são um recurso do plano Premium, e você precisa manter pelo menos uma instância em execução e disponível sempre que o plano estiver ativo.
 

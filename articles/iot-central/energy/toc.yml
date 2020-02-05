@@ -23,45 +23,45 @@
     - name: Ligar dispositivos
       items:
         - name: Preparar e ligar um DevKit de IoT MXChip
-          href: ../preview/howto-connect-devkit.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: "Preparar e ligar um Rigado Cascade\_500"
-          href: ../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Monitorizar a conectividade do dispositivo com a CLI do Azure
-          href: ../preview/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Gerir dispositivos
       items:
         - name: Faça a gestão dos seus dispositivos
-          href: ../preview/howto-manage-devices.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-manage-devices.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Executar uma tarefa
           href: ../core/howto-run-a-job.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Modelo de dispositivo da versão
-          href: ../preview/howto-version-device-template.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-version-device-template.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Monitorização e análise
       items:
         - name: Analisar os dados do seu dispositivo
-          href: ../preview/howto-create-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-create-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Criar webhooks em regras
-          href: ../preview/howto-create-webhooks.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-create-webhooks.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Ações e extensibilidade
       items:
         - name: Configurar a exportação de dados contínua
-          href: ../preview/howto-export-data.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-export-data.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Criar regras personalizadas
-          href: ../preview/howto-create-custom-rules.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Criar análises personalizadas com o Databricks
-          href: ../preview/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Administração
       items:
         - name: Alterar as definições da aplicação
-          href: ../preview/howto-administer.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-administer.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Exportar a aplicação
-          href: ../preview/howto-use-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-use-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Gerir utilizadores e funções
-          href: ../preview/howto-manage-users-roles.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-manage-users-roles.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Gerir a fatura
-          href: ../preview/howto-view-bill.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-view-bill.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Personalizar IU da aplicação
-          href: ../preview/howto-customize-ui.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-customize-ui.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Adicionar mosaicos ao dashboard
           href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Gerir a partir do portal do Azure

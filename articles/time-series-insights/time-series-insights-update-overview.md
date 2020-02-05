@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/16/2019
+ms.date: 02/04/2020
 ms.custom: seodec18
-ms.openlocfilehash: f6f6039be1d8837b4b1fe4eb225289f4cd1642cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e4f72300752c93659db4edd4610464dbebf2503
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452480"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014424"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>O que é a Pré-visualização do Azure Time Series Insights?
 
@@ -43,7 +43,7 @@ Esses dados fornecem informações consistentes, abrangentes, atuais e corretas 
 
 A imagem a seguir mostra um fluxo de dados de IoT típico.
 
-[![o fluxo de dados de IoT](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
+[fluxo de dados ioT ![](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
 
 ## <a name="azure-time-series-insights-for-industrial-iot"></a>O Azure Time Series Insights para o industrial IoT
 
@@ -70,7 +70,7 @@ Uma plataforma de análise operacional avançada combinada com nossos recursos d
 
 O diagrama a seguir mostra o fluxo de dados de alto nível.
 
-  [![principais recursos](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
+  [![principais capacidades](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
 
 O Azure Time Series Insights fornece um modelo de preços pago conforme o uso para processamento de dados, armazenamento (dados e metadados) e consulta, permitindo que os clientes ajustem seu uso para atender às suas demandas de negócios. 
  

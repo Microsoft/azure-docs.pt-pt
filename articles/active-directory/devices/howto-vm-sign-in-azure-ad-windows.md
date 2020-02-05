@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 70fe718884796ac127be38c375003dd728089be8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293458"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016039"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -233,15 +233,15 @@ A extensão AADLoginForWindows deve ser instalada com êxito para que a VM concl
    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
 
    > [!NOTE]
-   > Se a extensão for reiniciada após a falha inicial, o log com o erro de implantação será salvo como CommandExecution_YYYYMMDDHHMMSSSSS. log. 
+   > Se a extensão recomeçar após a falha inicial, o registo com o erro de implementação será guardado CommandExecution_YYYYMMDDHHMMSSSSS.log. 
 
 1. Abra um prompt de comando na VM e verifique se essas consultas no ponto de extremidade IMDS (serviço de metadados de instância) em execução no host do Azure retorna:
 
    | Comando a ser executado | Resultado esperado |
    | --- | --- |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Informações corretas sobre a VM do Azure |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | ID de locatário válida associada à assinatura do Azure |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Token de acesso válido emitido por Azure Active Directory para a identidade gerenciada atribuída a esta VM |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Informações corretas sobre a VM do Azure |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | ID de locatário válida associada à assinatura do Azure |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Token de acesso válido emitido por Azure Active Directory para a identidade gerenciada atribuída a esta VM |
 
    > [!NOTE]
    > O token de acesso pode ser decodificado usando uma ferramenta como [http://calebb.net/](http://calebb.net/). Verifique se "AppID" no token de acesso corresponde à identidade gerenciada atribuída à VM.
@@ -267,7 +267,7 @@ Se a extensão AADLoginForWindows falhar com determinado código de erro, você 
 
 #### <a name="issue-1-aadloginforwindows-extension-fails-to-install-with-terminal-error-code-1007-and-exit-code--2145648574"></a>Problema 1: a extensão AADLoginForWindows falha ao instalar com o código de erro de terminal ' 1007 ' e código de saída:-2145648574.
 
-Esse código de saída é convertido para DSREG_E_MSI_TENANTID_UNAVAILABLE porque a extensão não pode consultar as informações de locatário do Azure AD.
+Este código de saída traduz-se em DSREG_E_MSI_TENANTID_UNAVAILABLE porque a extensão não é capaz de consultar a informação do Inquilino Azure AD.
 
 1. Verifique se a VM do Azure pode recuperar a Tenantid do serviço de metadados de instância.
 
@@ -279,7 +279,7 @@ Esse código de saída é convertido para DSREG_E_MSI_TENANTID_UNAVAILABLE porqu
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problema 2: a extensão AADLoginForWindows falha ao instalar com o código de saída:-2145648607
 
-Esse código de saída é convertido para DSREG_AUTOJOIN_DISC_FAILED porque a extensão não é capaz de alcançar o ponto de extremidade de https://enterpriseregistration.windows.net.
+Este código de saída traduz-se em DSREG_AUTOJOIN_DISC_FAILED porque a extensão não é capaz de atingir o ponto final https://enterpriseregistration.windows.net.
 
 1. Verifique se os pontos de extremidade necessários estão acessíveis da VM usando a linha de comando:
 

@@ -2,22 +2,22 @@
 title: 'Início rápido: executar um trabalho do lote do Azure – API do Python'
 description: Execute rapidamente um trabalho de exemplo do lote do Azure e tarefas usando a biblioteca de cliente Python do lote. Conheça os principais conceitos do serviço de lote.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 3e87649e82bba295d8baaf06a71ace222ceeb0be
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 87c08c403a1e5eefd7645572f593b20037a8212b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029377"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017110"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a API Python
 
@@ -31,7 +31,7 @@ A aplicação carrega vários ficheiros de dados de entrada para o armazenamento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python versão 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
+* [Python 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
 
 * Gestor de pacotes [pip](https://pip.pypa.io/en/stable/installing/)
 
@@ -51,7 +51,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Vá para o diretório que contém o script Python `python_quickstart_client.py`.
+Vá ao diretório que contém o guião python `python_quickstart_client.py`.
 
 No ambiente de desenvolvimento do Python, instale os pacotes necessários através de `pip`.
 
@@ -207,7 +207,7 @@ for idx, input_file in enumerate(input_files):
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-### <a name="view-task-output"></a>Ver resultado das tarefas
+### <a name="view-task-output"></a>Ver o resultado das tarefas
 
 A aplicação monitoriza o estado da tarefa para se certificar de que as tarefas são concluídas. Em seguida, a aplicação apresenta o ficheiro `stdout.txt` gerado por cada tarefa concluída. Quando a tarefa é executada com êxito, o resultado do comando da tarefa é escrito em `stdout.txt`:
 

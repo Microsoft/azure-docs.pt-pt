@@ -8,7 +8,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: API REST
       items:
@@ -56,10 +56,6 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Atualizar da v5 para a v7 da API
       href: bing-news-upgrade-guide-v5-to-v7.md
-    - name: Trabalhar com o Visual Studio
-      items:
-        - name: Utilizar o Serviço Ligado da Pesquisa de Notícias do Bing
-          href: vs-bing-news-search-connected-service.md
 - name: Conceitos
   items:
     - name: A enviar consultas de pesquisa

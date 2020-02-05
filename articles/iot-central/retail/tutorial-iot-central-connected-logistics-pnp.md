@@ -7,29 +7,33 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 6ddf0a5300caa5e202b16fc4f376056489cd9b61
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d7050cfdae2c726a3a5bd44b4399792a400572a3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984297"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025525"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação logística conectado
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial mostra-lhe como começar implantando um modelo de aplicação **logística conectada** IoT Central. Você vai aprender a implementar o modelo, o que está incluído fora da caixa, e o que você pode querer fazer a seguir.
 
-Neste tutorial, aprende-se a, 
-* criar aplicação logística conectada 
+Neste tutorial, aprenderá como,
+
+* criar aplicação logística conectada
 * andar através da aplicação 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 * Não são necessários pré-requisitos específicos para implementar esta aplicação
 * Recomendado para ter subscrição Azure, mas pode até tentar sem ele
 
 ## <a name="create-connected-logistics-application-template"></a>Criar modelo de aplicação logística conectada
+
 Pode criar aplicação usando os seguintes passos
+
 1. Navegue para o site do gestor de aplicações Azure IoT Central. Selecione **Construir** a partir da barra de navegação à esquerda e, em seguida, clique no **separador Retail.**
 
     > [!div class="mx-imgBorder"]
@@ -41,7 +45,7 @@ Pode criar aplicação usando os seguintes passos
    * Nome da **aplicação**: pode usar o nome sugerido por defeito ou inserir o seu nome de aplicação amigável.
    * **URL:** pode utilizar URL padrão sugerido ou introduzir o seu URL memorável único amigável. Em seguida, a definição predefinida é recomendada se já tiver uma Subscrição Azure. Você pode começar com um plano de preços de teste gratuito de 7 dias e optar por converter-se em um plano de preços padrão a qualquer momento antes que o trilho livre expire.
    * **Faturação Info**: Os detalhes do Diretório, Da Subscrição Azure e da Região são necessários para fornecer os recursos.
-   * **Criar** : Selecione criar na parte inferior da página para implementar a sua aplicação.
+   * **Criar**: Selecione criar na parte inferior da página para implementar a sua aplicação.
 
     > [!div class="mx-imgBorder"]
     > ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png) de painel de logística conectado
@@ -53,7 +57,7 @@ Pode criar aplicação usando os seguintes passos
 
 ## <a name="dashboard"></a>Dashboard
 
-Depois de implementar com sucesso o modelo de aplicação, o seu dashboard padrão é um portal focado no operador logístico conectado. Northwind Trader é um fornecedor de logística fictícia que gere a frota de carga no oceano e na terra. Neste painel, você verá dois gateways diferentes fornecendo telemetria sobre envios juntamente com comandos associados, empregos e ações que você pode executar. Este dashboard é pré-configurado para mostrar a atividade crítica de operações de dispositivos logísticos.
+Depois de implementar com sucesso o modelo de aplicação, o seu dashboard padrão é um portal focado no operador logístico conectado. Northwind Trader é um fornecedor de logística fictícia que gere a frota de carga no oceano e na terra. Neste painel, você verá dois gateways diferentes fornecendo telemetria sobre envios juntamente com comandos associados, empregos e ações que você pode fazer. Este dashboard é pré-configurado para mostrar a atividade crítica de operações de dispositivos logísticos.
 O painel de instrumentos está logicamente dividido entre duas diferentes operações de gestão de dispositivos gateway, 
    * A rota logística para envio de camiões e detalhes de localização do envio do oceano é um elemento essencial para todo o transporte multimodal
    * Ver o estado do gateway e informações relevantes 
@@ -62,7 +66,7 @@ O painel de instrumentos está logicamente dividido entre duas diferentes opera�
 > ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png) de painel de logística conectado
 
    * Pode rastrear facilmente o número total de gateways, etiquetas ativas e desconhecidas.
-   * Pode realizar operações de gestão de dispositivos, tais como firmware de atualização, desativar o sensor, ativar o sensor, atualizar o limiar do sensor, atualizar intervalos de telemetria e atualizar contratos de serviço de dispositivos.
+   * Pode efetuar operações de gestão de dispositivos, tais como firmware de atualização, desativar o sensor, ativar o sensor, atualizar o limiar do sensor, atualizar intervalos de telemetria e atualizar contratos de serviço de dispositivos.
    * Ver o consumo de bateria do dispositivo
 
 > [!div class="mx-imgBorder"]
@@ -98,10 +102,10 @@ Selecione o separador de empregos para ver cinco empregos diferentes que existem
 > [!div class="mx-imgBorder"]
 > ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png) de painel de logística conectado
 
-Pode aproveitar a funcionalidade de empregos para realizar operações a nível de solução. Aqui os trabalhos estão a utilizar os comandos do dispositivo e a capacidade de gémeos para executar tarefas como desativar sensores específicos em todo o gateway ou modificar o limiar do sensor dependendo do modo de envio e da rota. 
+Pode utilizar a funcionalidade de trabalho para fazer operações a nível de solução. Aqui os trabalhos estão a usar os comandos do dispositivo e a capacidade gémea para fazer tarefas como desativar sensores específicos em toda a porta de entrada ou modificar o limiar do sensor dependendo do modo de envio e da rota. 
    * É uma operação padrão para desativar os sensores de choque durante o transporte do oceano para conservar a bateria ou diminuir o limiar de temperatura durante o transporte em cadeia fria. 
  
-   * Os trabalhos permitem-lhe realizar operações em todo o sistema, tais como atualizar firmware nos gateways ou atualizar contrato de serviço para se manter atualizado em atividades de manutenção.
+   * Os trabalhos permitem-lhe fazer operações em todo o sistema, tais como atualizar firmware nos gateways ou atualizar contrato de serviço para se manter atualizado em atividades de manutenção.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicação visitando **as definições** de > Aplicação **da Administração** e clique em **Eliminar**.
@@ -112,4 +116,4 @@ Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicaç�
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [o conceito de logística conectado](./architecture-connected-logistics-pnp.md)
 * Saiba mais sobre outros [modelos de retalho IoT Central](./overview-iot-central-retail-pnp.md)
-* Saiba mais sobre [a visão geral da IoT Central](../preview/overview-iot-central.md)
+* Saiba mais sobre [a visão geral da IoT Central](../core/overview-iot-central.md)

@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-configurar fontes de identidade do vCenter na nuvem privada
-description: Descreve como configurar seu vCenter de nuvem privada para autenticar com Active Directory para os administradores do VMware acessarem o vCenter
+title: Azure VMware Solutions (AVS) - Configurar fontes de identidade vCenter em AVS Private Cloud
+description: Descreve como configurar o seu VCenter De Nuvem Privada AVS para autenticar com Diretório Ativo para administradores vMware aceder em vCenter
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,27 +8,27 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eeced5205b836a15a43fbccfb8c6cb60b4bec29f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ad4a7b2bc67b7d50d9e9a5f8337a09dbe77366ea
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76542870"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014220"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurar fontes de identidade do vCenter para usar Active Directory
 
 ## <a name="about-vmware-vcenter-identity-sources"></a>Sobre as fontes de identidade do VMware vCenter
 
-O VMware vCenter dá suporte a diferentes fontes de identidade para autenticação de usuários que acessam o vCenter.  Seu vCenter de nuvem privada do CloudSimple pode ser configurado para autenticar com Active Directory para seus administradores do VMware acessarem o vCenter. Quando a instalação for concluída, o usuário **cloudowner** poderá adicionar usuários da origem de identidade ao vCenter.  
+O VMware vCenter dá suporte a diferentes fontes de identidade para autenticação de usuários que acessam o vCenter. O vCenter Da Nuvem Privada AVS pode ser configurado para autenticar com Diretório Ativo para os seus administradores VMware acederem ao vCenter. Quando a instalação for concluída, o usuário **cloudowner** poderá adicionar usuários da origem de identidade ao vCenter. 
 
 Você pode configurar seu Active Directory controladores de domínio e domínio de qualquer uma das seguintes maneiras:
 
 * Active Directory controladores de domínio e domínio em execução no local
 * Active Directory controladores de domínio e domínio em execução no Azure como máquinas virtuais em sua assinatura do Azure
-* Novo Active Directory controladores de domínio e domínio em execução na sua nuvem privada
+* Novos controladores de domínio e domínio de diretório ativo em execução na sua Nuvem Privada AVS
 * Serviço de Azure Active Directory
 
-Este guia explica as tarefas para configurar Active Directory controladores de domínio e domínio em execução no local ou como máquinas virtuais em suas assinaturas.  Se você quiser usar o Azure AD como a origem da identidade, consulte [usar o Azure ad como um provedor de identidade para o vCenter na nuvem privada do CloudSimple](azure-ad.md) para obter instruções detalhadas sobre como configurar a origem da identidade.
+Este guia explica as tarefas para configurar Active Directory controladores de domínio e domínio em execução no local ou como máquinas virtuais em suas assinaturas. Se quiser utilizar o Azure AD como fonte de identidade, consulte o [Usa Azure AD como fornecedor de identidade para vCenter na AVS Private Cloud](azure-ad.md) para obter instruções detalhadas na configuração da fonte de identidade.
 
 Antes de [Adicionar uma fonte de identidade](#add-an-identity-source-on-vcenter), [Escale temporariamente os privilégios do vCenter](escalate-private-cloud-privileges.md).
 
@@ -39,14 +39,14 @@ Antes de [Adicionar uma fonte de identidade](#add-an-identity-source-on-vcenter)
 ## <a name="identity-source-options"></a>Opções de origem de identidade
 
 * [Adicionar Active Directory local como uma fonte de identidade de logon único](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
-* [Configurar novos Active Directory em uma nuvem privada](#set-up-new-active-directory-on-a-private-cloud)
+* [Configurar novo diretório ativo numa nuvem privada AVS](#set-up-new-active-directory-on-an-avs-private-cloud)
 * [Configurar Active Directory no Azure](#set-up-active-directory-on-azure)
 
 ## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Adicionar Active Directory local como uma fonte de identidade de logon único
 
 Para configurar seu Active Directory local como uma fonte de identidade de logon único, você precisa:
 
-* [Conexão VPN site a site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) do seu datacenter local para sua nuvem privada.
+* [Ligação VPN do site-para-site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) desde o seu centro de dados no local até à sua Nuvem Privada AVS.
 * IP do servidor DNS local adicionado ao vCenter e ao PSC (controlador de serviços de plataforma).
 
 Use as informações na tabela a seguir ao configurar seu domínio de Active Directory.
@@ -69,9 +69,9 @@ Quando tiver as informações na tabela anterior, você poderá adicionar seu Ac
 > [!TIP]
 > Você encontrará mais informações sobre as fontes de identidade de logon único na [página de documentação do VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
-## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Configurar novos Active Directory em uma nuvem privada
+## <a name="set-up-new-active-directory-on-an-avs-private-cloud"></a>Configurar novo Diretório Ativo numa Nuvem Privada AVS
 
-Você pode configurar um novo domínio Active Directory na sua nuvem privada e usá-lo como uma fonte de identidade para logon único.  O domínio Active Directory pode fazer parte de uma floresta Active Directory existente ou pode ser configurado como uma floresta independente.
+Pode configurar um novo domínio de Diretório Ativo na sua Nuvem Privada AVS e usá-lo como fonte de identidade para o Single Sign-On. O domínio Active Directory pode fazer parte de uma floresta Active Directory existente ou pode ser configurado como uma floresta independente.
 
 ### <a name="new-active-directory-forest-and-domain"></a>Novo Active Directory floresta e domínio
 
@@ -100,15 +100,15 @@ Depois de configurar o domínio de Active Directory, você pode [Adicionar uma f
 
 ## <a name="set-up-active-directory-on-azure"></a>Configurar Active Directory no Azure
 
-Active Directory em execução no Azure é semelhante a Active Directory em execução no local.  Para configurar Active Directory em execução no Azure como uma fonte de identidade de logon único no vCenter, o servidor vCenter e o PSC devem ter conectividade de rede com a rede virtual do Azure em que Active Directory serviços estão em execução.  Você pode estabelecer essa conectividade usando a [conexão de rede virtual do Azure usando o ExpressRoute](azure-expressroute-connection.md) da rede virtual do Azure onde os serviços Active Directory estão sendo executados para a nuvem privada do CloudSimple.
+Active Directory em execução no Azure é semelhante a Active Directory em execução no local. Para configurar Active Directory em execução no Azure como uma fonte de identidade de logon único no vCenter, o servidor vCenter e o PSC devem ter conectividade de rede com a rede virtual do Azure em que Active Directory serviços estão em execução. Pode estabelecer esta conectividade utilizando a Ligação de [Rede Virtual Azure utilizando](azure-expressroute-connection.md) a ExpressRoute da rede virtual Azure, onde os Serviços de Diretório Ativo estão a funcionar para a Cloud Privada AVS.
 
-Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Active Directory local como uma origem de identidade de logon único](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) para adicioná-la como uma fonte de identidade.  
+Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Active Directory local como uma origem de identidade de logon único](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) para adicioná-la como uma fonte de identidade. 
 
 ## <a name="add-an-identity-source-on-vcenter"></a>Adicionar uma fonte de identidade no vCenter
 
-1. [Escalonar privilégios](escalate-private-cloud-privileges.md) em sua nuvem privada.
+1. [Aumente os privilégios](escalate-private-cloud-privileges.md) na sua Nuvem Privada AVS.
 
-2. Entre no vCenter para sua nuvem privada.
+2. Inscreva-se no vCenter para a sua Nuvem Privada AVS.
 
 3. Selecione **Home > administração**.
 

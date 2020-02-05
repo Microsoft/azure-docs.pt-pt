@@ -1,6 +1,6 @@
 ---
-title: Gerenciar a solução Azure VMware da nuvem privada CloudSimple
-description: Descreve os recursos disponíveis para gerenciar seus recursos e atividades de nuvem privada do CloudSimple
+title: Gerir soluções Azure VMware (AVS) Private Cloud
+description: Descreve as capacidades disponíveis para gerir os seus recursos e atividade seletivas da Nuvem Privada AVS
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/10/2019
@@ -8,87 +8,87 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 620c0226d3aca907352658ebbe1b94c7673d91cd
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 47bf2251f71204b99245c1a9d55ef87157c41dd8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812265"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014832"
 ---
-# <a name="manage-private-cloud-resources-and-activity"></a>Gerenciar recursos e atividades de nuvem privada
+# <a name="manage-avs-private-cloud-resources-and-activities"></a>Gerir recursos e atividades privadas da AVS Cloud
 
-Nuvens privadas são gerenciadas do portal do CloudSimple.  Verifique o status, os recursos disponíveis, a atividade na nuvem privada e outras configurações no portal do CloudSimple.
+As nuvens privadas aVS são geridas a partir do portal AVS. Verifique o estado, os recursos disponíveis, a atividade na nuvem privada AVS e outras configurações do portal AVS.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-the-cloudsimple-portal"></a>Aceder ao portal da CloudSimple
+## <a name="access-the-avs-portal"></a>Aceda ao portal AVS
 
-Acesse o [portal do CloudSimple](access-cloudsimple-portal.md).
+Aceda ao [portal AVS.](access-cloudsimple-portal.md)
 
-## <a name="view-the-list-of-private-clouds"></a>Exibir a lista de nuvens privadas
+## <a name="view-the-list-of-avs-private-clouds"></a>Ver a Lista de Nuvens Privadas AVS
 
-A guia **nuvens privadas** na página **recursos** lista todas as nuvens privadas em sua assinatura. As informações incluem o nome, o número de clusters vSphere, o local, o estado atual da nuvem privada e as informações de recursos.
+O separador **AVS Private Clouds** na página **Recursos** lista todas as Nuvens Privadas AVS na sua subscrição. A informação inclui o nome, número de clusters vSphere, localização, estado atual da Nuvem Privada AVS e informações de recursos.
 
-![Página nuvem privada](media/manage-private-cloud.png)
+![Página de Nuvem Privada AVS](media/manage-private-cloud.png)
 
-Selecione uma nuvem privada para obter informações e ações adicionais.
+Selecione uma Nuvem Privada AVS para obter informações e ações adicionais.
 
-## <a name="private-cloud-summary"></a>Resumo da nuvem privada
+## <a name="avs-private-cloud-summary"></a>Resumo da Nuvem Privada AVS
 
-Exiba um resumo abrangente da nuvem privada selecionada.  A página Resumo inclui os servidores DNS implantados na nuvem privada.  Você pode configurar o encaminhamento de DNS de servidores DNS locais para seus servidores DNS de nuvem privada.  Para obter mais informações sobre o encaminhamento de DNS, consulte [Configurar o DNS para resolução de nomes para o vCenter de nuvem privada local](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
+Veja um resumo abrangente da Nuvem Privada AVS selecionada. A página sumária inclui os servidores DNS implantados na Nuvem Privada AVS. Pode configurar o reencaminhado dNS dos servidores DNS no local para os seus servidores DNS Privados de Nuvem AVS. Para obter mais informações sobre o encaminhamento do DNS, consulte [configure DNS para resolução de nome si para AVS Private Cloud vCenter a partir do local](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
 
-![Resumo da nuvem privada](media/private-cloud-summary.png)
-
-### <a name="available-actions"></a>Ações disponíveis
-
-* [Inicie o cliente do vSphere](https://docs.azure.cloudsimple.com/vsphere-access/). Acesse o vCenter para esta nuvem privada.
-* [Nós de compra](create-nodes.md). Adicione nós a esta nuvem privada.
-* [Expanda](expand-private-cloud.md). Adicione nós a esta nuvem privada.
-* **Atualizar**. Atualize as informações nesta página.
-* **Excluir**. Você pode excluir a nuvem privada a qualquer momento. **Antes de excluir, certifique-se de ter feito backup de todos os sistemas e dados.** A exclusão de uma nuvem privada exclui todas as VMs, a configuração do vCenter e os dados. Clique em **excluir** na seção Resumo para a nuvem privada selecionada. Após a exclusão, todos os dados de nuvem privada são apagados em um processo de eliminação seguro e altamente compatível.
-* [Altere os privilégios de vSphere](escalate-private-cloud-privileges.md).  Escalonar seus privilégios nesta nuvem privada.
-
-## <a name="private-cloud-vlanssubnets"></a>VLANs/sub-redes de nuvem privada
-
-Exiba a lista de VLANs/sub-redes definidas para a nuvem privada selecionada.  A lista inclui as VLANs de gerenciamento/sub-redes criadas quando a nuvem privada foi criada.
-
-![Nuvem privada-VLANs/sub-redes](media/private-cloud-vlans-subnets.png) 
+![Resumo privado da nuvem da AVS](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Ações disponíveis
 
-* [Adicionar VLANs/sub-redes](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Adicione uma VLAN/subconjunto a esta nuvem privada.
+* [Lançar cliente vSphere.](https://docs.azure.cloudsimple.com/vsphere-access/) Aceda ao vCenter para esta Nuvem Privada AVS.
+* [Comprar os nódosos.](create-nodes.md) Adicione nós a esta Nuvem Privada AVS.
+* [Expandir](expand-private-cloud.md). Adicione nós a esta Nuvem Privada AVS.
+* **Refrescar.** Atualize a informação nesta página.
+* **Apagar**. Pode eliminar a Nuvem Privada AVS a qualquer momento. **Antes de apagar, certifique-se de que já fez o apoio a todos os sistemas e dados.** Eliminar uma Nuvem Privada AVS elimina todos os VMs, configuração vCenter e dados. Clique em **Apagar** na secção resumo para a Nuvem Privada AVS selecionada. Após a eliminação, todos os dados da AVS Private Cloud são apagados num processo de apagamento seguro e altamente compatível.
+* [Alterar privilégios vSphere.](escalate-private-cloud-privileges.md) Aumente os seus privilégios nesta Nuvem Privada AVS.
 
-Selecione uma VLAN/sub-rede para as seguintes ações
-* [Anexar tabela de firewall](https://docs.azure.cloudsimple.com/firewall/). Anexe uma tabela de firewall a esta nuvem privada.
+## <a name="avs-private-cloud-vlanssubnets"></a>Nuvem Privada VLANS/subnets da AVS
+
+Consulte a lista de VLANs/subredes definidas para a Nuvem Privada AVS selecionada. A lista inclui a gestão VLANs/subnets criadas quando a Nuvem Privada AVS foi criada.
+
+![Nuvem Privada AVS - VLANs/Subnets](media/private-cloud-vlans-subnets.png) 
+
+### <a name="available-actions"></a>Ações disponíveis
+
+* [Adicione VLANS/Subnets](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Adicione um VLAN/subconjunto a esta Nuvem Privada AVS.
+
+Selecione um VLAN/Subnet para as seguintes ações
+* [Fixe a tabela de firewall](https://docs.azure.cloudsimple.com/firewall/). Fixe uma tabela de firewall a esta Nuvem Privada AVS.
 * **Editar**
-* **Excluir** (somente VLANs/sub-redes definidas pelo usuário)
+* **Eliminar** (apenas VLANs/Subnets definidos pelo utilizador)
 
-## <a name="private-cloud-activity"></a>Atividade de nuvem privada
+## <a name="avs-private-cloud-activity"></a>Atividade da Nuvem Privada AVS
 
-Exiba as informações a seguir para a nuvem privada selecionada.  As informações da atividade são uma lista filtrada de todas as atividades da nuvem privada selecionada.  Esta página mostra até 25 atividades recentes.
+Consulte as seguintes informações para a Nuvem Privada AVS selecionada. A informação de atividade é uma lista filtrada de todas as atividades para a Nuvem Privada AVS selecionada. Esta página mostra 25 atividades recentes.
 
 * Alertas recentes
 * Eventos recentes
 * Tarefas recentes
 * Auditoria recente
 
-![Nuvem privada-atividade](media/private-cloud-activity.png)
+![Nuvem Privada AVS - Atividade](media/private-cloud-activity.png)
 
-## <a name="cloud-racks"></a>Racks de nuvem
+## <a name="cloud-racks"></a>Prateleiras de nuvens
 
-Racks de nuvem são os blocos de construção de sua nuvem privada. Cada rack fornece uma unidade de capacidade. O CloudSimple configura automaticamente os racks de nuvem com base em suas seleções ao criar ou expandir uma nuvem privada.  Exiba a lista completa de racks de nuvem, incluindo a nuvem privada à qual cada um está atribuído.
+As prateleiras de nuvens são os blocos de construção da sua Nuvem Privada AVS. Cada cremalheira fornece uma unidade de capacidade. O AVS configura automaticamente as prateleiras de nuvem com base nas suas seleções ao criar ou expandir uma Nuvem Privada AVS. Veja a lista completa de prateleiras de nuvem, incluindo a Nuvem Privada AVS a que cada um é atribuído.
 
-![Nuvem privada-racks de nuvem](media/private-cloud-cloudracks.png)
+![Nuvem Privada AVS - Cloud Racks](media/private-cloud-cloudracks.png)
 
-## <a name="vsphere-management-network"></a>Rede de gerenciamento de vSphere
+## <a name="vsphere-management-network"></a>rede de gestão vSphere
 
-Lista de recursos de gerenciamento e máquinas virtuais do VMware que estão configurados atualmente na nuvem privada. As informações incluem a versão do software, o FQDN (nome de domínio totalmente qualificado) e o endereço IP dos recursos.
+Lista de recursos de gestão vMware e máquinas virtuais que estão atualmente configuradas na Nuvem Privada AVS. As informações incluem a versão do software, o nome de domínio totalmente qualificado (FQDN) e o endereço IP dos recursos.
 
-![Nuvem privada – rede de gerenciamento vSphere](media/private-cloud-vsphere-management-network.png)
+![AVS Private Cloud - vSphere Management Network](media/private-cloud-vsphere-management-network.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
-* Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)
+* Saiba mais sobre [as Nuvens Privadas aVS](cloudsimple-private-cloud.md)

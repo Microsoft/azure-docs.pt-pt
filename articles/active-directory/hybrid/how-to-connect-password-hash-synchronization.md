@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 165bd93f2d35425965df9358c8d85f79ce557d66
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d3a76b06c08d670cfb3ab0757e8c46dac0988c5f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833369"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025185"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações que precisa sincronizar suas senhas de usuário de uma instância do Active Directory no local para uma instância do Azure Active Directory (Azure AD) com base na cloud.
@@ -124,7 +124,7 @@ ADVERTÊNCIA: se houver contas sincronizadas que precisam ter senhas que não ex
 > [!NOTE]
 > Este recurso está em visualização pública no momento.
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon"></a>Visualização pública de sincronização de senhas temporárias e "forçar redefinição de senha no próximo logon"
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Pré-visualização pública de sincronização de senhas temporárias e "Alteração da Palavra-Passe da Força no Próximo Logon"
 
 É comum forçar um usuário a alterar sua senha durante o primeiro logon, especialmente depois que uma redefinição de senha de administrador ocorre.  Ele é comumente conhecido como definir uma senha "temporária" e é concluído verificando o sinalizador "o usuário deve alterar a senha no próximo logon" em um objeto de usuário no Active Directory (AD).
   

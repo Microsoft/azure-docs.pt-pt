@@ -1,6 +1,6 @@
 ---
-title: Visão geral do controle de acesso no Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Entenda como o controle de acesso funciona no Azure Data Lake Storage Gen2
+title: Visão geral do controlo de acessos em Azure Data Lake Storage Gen2  Microsoft Docs
+description: Entenda como funciona o controlo de acesso sintetizar em Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,89 +8,94 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037231"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026137"
 ---
-# <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
+# <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso em Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implementa um modelo de controle de acesso que dá suporte ao RBAC (controle de acesso baseado em função) do Azure e às ACLs (listas de controle de acesso) semelhantes a POSIX. Este artigo resume os conceitos básicos do modelo de controle de acesso para Data Lake Storage Gen2.
+O Azure Data Lake Storage Gen2 implementa um modelo de controlo de acesso que suporta tanto as listas de controlo de acesso baseados em funções azure (RBAC) como as listas de controlo de acesso semelhantes a POSIX (ACLs). Este artigo resume os fundamentos do modelo de controlo de acesso para Data Lake Storage Gen2.
 
 <a id="azure-role-based-access-control-rbac" />
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-O RBAC usa atribuições de função para aplicar efetivamente conjuntos de permissões a *entidades de segurança*. Uma *entidade de segurança* é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que é definida no Azure Active Directory (AD) que está solicitando acesso aos recursos do Azure.
+O RBAC utiliza atribuições de funções para aplicar efetivamente conjuntos de permissões aos *diretores*de segurança . Um diretor de *segurança* é um objeto que representa um utilizador, grupo, diretor de serviço ou identidade gerida que é definido no Azure Ative Directory (AD) que está a solicitar o acesso aos recursos do Azure.
 
-Normalmente, esses recursos do Azure são restritos a recursos de nível superior (por exemplo: contas de armazenamento do Azure). No caso do armazenamento do Azure e, consequentemente, Azure Data Lake Storage Gen2, esse mecanismo foi estendido para o recurso de contêiner (sistema de arquivos).
+Tipicamente, esses recursos Azure estão limitados a recursos de alto nível (por exemplo: contas de armazenamento Azure). No caso do Armazenamento Azure e, consequentemente, do Azure Data Lake Storage Gen2, este mecanismo foi alargado ao recurso do contentor (sistema de ficheiros).
 
-Para saber como atribuir funções a entidades de segurança no escopo da sua conta de armazenamento, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para aprender a atribuir funções aos diretores de segurança no âmbito da sua conta de armazenamento, consulte o Acesso ao Grant ao Blob Azure e aos dados de [fila com o RBAC no portal Azure.](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>O impacto das atribuições de função em listas de controle de acesso de nível de arquivo e diretório
+### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>O impacto das atribuições de funções nas listas de controlo de acesso ao nível de ficheiros e de nível de diretório
 
-Embora o uso de atribuições de função RBAC seja um mecanismo poderoso para controlar as permissões de acesso, trata-se de um mecanismo muito mais esparso em relação às ACLs. A menor granularidade do RBAC está no nível de contêiner e isso será avaliado em uma prioridade mais alta do que as ACLs. Portanto, se você atribuir uma função a uma entidade de segurança no escopo de um contêiner, essa entidade de segurança terá o nível de autorização associado a essa função para todos os diretórios e arquivos nesse contêiner, independentemente das atribuições de ACL.
+Embora a utilização de atribuições de funções RBAC seja um poderoso mecanismo para controlar as permissões de acesso, é um mecanismo muito grosso em relação aos ACLs. A menor granularidade para rBAC está ao nível do contentor e esta será avaliada com uma prioridade superior à dos ACLs. Portanto, se atribuir uma função a um diretor de segurança no âmbito de um contentor, esse diretor de segurança tem o nível de autorização associado a esse papel para TODOS os diretórios e ficheiros desse contentor, independentemente das atribuições da ACL.
 
-Quando uma entidade de segurança recebe permissões de dados RBAC por meio de uma [função interna](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)ou por meio de uma função personalizada, essas permissões são avaliadas primeiro após a autorização de uma solicitação. Se a operação solicitada for autorizada pelas atribuições de RBAC da entidade de segurança, a autorização será imediatamente resolvida e nenhuma verificação de ACL adicional será executada. Como alternativa, se a entidade de segurança não tiver uma atribuição de RBAC ou se a operação da solicitação não corresponder à permissão atribuída, as verificações de ACL serão executadas para determinar se a entidade de segurança está autorizada a executar a operação solicitada.
+Quando um diretor de segurança recebe permissões de dados RBAC através de uma [função incorporada](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou através de uma função personalizada, estas permissões são avaliadas primeiro após a autorização de um pedido. Se a operação solicitada for autorizada pelas atribuições RBAC do diretor de segurança, a autorização é imediatamente resolvida e não são realizados controlos adicionais da ACL. Alternativamente, se o diretor de segurança não tiver uma atribuição RBAC, ou a operação do pedido não corresponder à permissão atribuída, então são efetuados controlos ACL para determinar se o diretor de segurança está autorizado a executar a operação solicitada.
 
 > [!NOTE]
-> Se a entidade de segurança tiver sido atribuída a atribuição de função interna do proprietário de dados do blob de armazenamento, a entidade de segurança será considerada um *superusuário* e terá acesso completo a todas as operações de mutação, incluindo a definição do proprietário de um diretório ou arquivo, bem como ACLs para diretórios e arquivos para os quais eles não são proprietários. O acesso de superusuário é a única maneira autorizada de alterar o proprietário de um recurso.
+> Se o diretor de segurança tiver sido atribuído a atribuição de funções incorporada ao Proprietário de Dados blob de armazenamento, então o diretor de segurança é considerado um *superutilizador* e tem acesso total a todas as operações em mutação, incluindo a definição do proprietário de um diretório ou ficheiro, bem como ACLs para diretórios e ficheiros para os quais não são o proprietário. O acesso ao super-utilizador é a única forma autorizada de alterar o proprietário de um recurso.
 
-## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticação de chave compartilhada e SAS (assinatura de acesso compartilhado)
+## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticação de assinatura de chave partilhada e assinatura de acesso partilhado (SAS)
 
-O Azure Data Lake Storage Gen2 dá suporte a métodos de chave compartilhada e SAS para autenticação. Uma característica desses métodos de autenticação é que nenhuma identidade está associada ao chamador e, portanto, a autorização baseada em permissão de entidade de segurança não pode ser executada.
+Azure Data Lake Storage Gen2 suporta os métodos de chave partilhada e SAS para autenticação. Uma característica destes métodos de autenticação é que nenhuma identidade está associada ao chamador e, portanto, a autorização baseada na permissão principal de segurança não pode ser realizada.
 
-No caso da chave compartilhada, o chamador efetivamente obtém o acesso de "superusuário", o que significa acesso completo a todas as operações em todos os recursos, incluindo a configuração de proprietário e a alteração de ACLs.
+No caso da Chave Partilhada, o chamador ganha efetivamente acesso a 'super-utilizador', o que significa acesso total a todas as operações em todos os recursos, incluindo a definição do proprietário e a alteração de ACLs.
 
-Os tokens SAS incluem permissões permitidas como parte do token. As permissões incluídas no token SAS são efetivamente aplicadas a todas as decisões de autorização, mas nenhuma verificação de ACL adicional é executada.
+As fichas SAS incluem permissões permitidas como parte do símbolo. As permissões incluídas no token SAS são efetivamente aplicadas a todas as decisões de autorização, mas não são realizados controlos adicionais da ACL.
 
-## <a name="access-control-lists-on-files-and-directories"></a>Listas de controle de acesso em arquivos e diretórios
+## <a name="access-control-lists-on-files-and-directories"></a>Listas de controlo de acesso em ficheiros e diretórios
 
-Você pode associar uma entidade de segurança a um nível de acesso para arquivos e diretórios. Essas associações são capturadas em uma *ACL (lista de controle de acesso)* . Cada arquivo e diretório na sua conta de armazenamento tem uma lista de controle de acesso.
+Pode associar um diretor de segurança a um nível de acesso para ficheiros e diretórios. Estas associações são capturadas numa lista de controlo de *acesso (ACL)* . Cada ficheiro e diretório na sua conta de armazenamento tem uma lista de controlo de acesso.
 
-Se você atribuiu uma função a uma entidade de segurança no nível da conta de armazenamento, poderá usar listas de controle de acesso para conceder a essa entidade de segurança acesso elevado a arquivos e diretórios específicos.
+Se atribuiu uma função a um diretor de segurança ao nível da conta de armazenamento, pode utilizar listas de controlo de acesso para conceder o acesso elevado ao principal de segurança a ficheiros e diretórios específicos.
 
-Você não pode usar listas de controle de acesso para fornecer um nível de acesso inferior a um nível concedido por uma atribuição de função. Por exemplo, se você atribuir a função de [colaborador de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) a uma entidade de segurança, não poderá usar listas de controle de acesso para impedir que a entidade de segurança grave em um diretório.
+Não pode usar listas de controlo de acesso para fornecer um nível de acesso inferior a um nível concedido por uma atribuição de funções. Por exemplo, se atribuir a função de Colaborador de Dados do [Depósito Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) a um diretor de segurança, então não pode utilizar listas de controlo de acesso para impedir que esse diretor de segurança escreva para um diretório.
 
-### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Definir permissões de nível de arquivo e diretório usando listas de controle de acesso
+### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Definir permissões de nível de ficheiros e diretórios utilizando listas de controlo de acesso
 
-Para definir permissões de nível de arquivo e diretório, consulte qualquer um dos seguintes artigos:
+Para definir permissões de nível de ficheiros e diretórios, consulte qualquer um dos seguintes artigos:
 
-|Se você quiser usar essa ferramenta:    |Consulte este artigo:    |
+|||
 |--------|-----------|
-|Explorador do Storage do Azure    |[Definir permissões de nível de arquivo e diretório usando Gerenciador de Armazenamento do Azure com Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|API REST    |[Caminho-atualizar](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|Explorador do Armazenamento do Azure |[Use o Azure Storage Explorer para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|.NET |[Use .NET para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
+|Java|[Use java para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
+|Python|[Use python para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
+|PowerShell|[Use powerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
+|CLI do Azure|[Utilize o Azure CLI para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|API REST |[Caminho - Atualização](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Se a entidade de segurança for uma entidade de *serviço* , é importante usar a ID de objeto da entidade de serviço e não a ID de objeto do registro do aplicativo relacionado. Para obter a ID de objeto da entidade de serviço, abra o CLI do Azure e, em seguida, use este comando: `az ad sp show --id <Your App ID> --query objectId`. Certifique-se de substituir o espaço reservado `<Your App ID>` pela ID do aplicativo do registro do aplicativo.
+> Se o diretor de segurança for um diretor de *serviço,* é importante usar o ID do objeto do diretor de serviço e não o id do objeto do registo da aplicação relacionada. Para obter a identificação do objeto do diretor de serviço abra o Azure CLI e, em seguida, use este comando: `az ad sp show --id <Your App ID> --query objectId`. Certifique-se de substituir o `<Your App ID>` espaço reservado pelo ID da aplicação do registo da sua aplicação.
 
-### <a name="types-of-access-control-lists"></a>Tipos de listas de controle de acesso
+### <a name="types-of-access-control-lists"></a>Tipos de listas de controlo de acesso
 
-Há dois tipos de listas de controle de acesso: *ACLs de acesso* e *ACLs padrão*.
+Existem dois tipos de listas de controlo de acesso: *acesso a ACLs* e *ACLs padrão*.
 
-As ACLs de acesso controlam o acesso a um objeto. Os arquivos e diretórios têm ACLs de acesso.
+Aceda ao acesso aos ACLs controle o acesso a um objeto. Os ficheiros e diretórios têm ambos acesso a ACLs.
 
-As ACLs padrão são modelos de ACLs associadas a um diretório que determinam as ACLs de acesso para qualquer item filho que são criados nesse diretório. Os arquivos não têm ACLs padrão.
+Os ACLs padrão são modelos de ACLs associados a um diretório que determinam os ACLs de acesso para quaisquer itens infantis que sejam criados sob esse diretório. Os ficheiros não têm ACLs padrão.
 
-As ACLs de acesso e as ACLs padrão têm a mesma estrutura.
+Tanto os ACLs de acesso como os ACLs predefinidos têm a mesma estrutura.
 
 > [!NOTE]
-> A alteração da ACL padrão em um pai não afeta a ACL de acesso ou a ACL padrão de itens filho que já existem.
+> Alterar o ACL padrão num progenitor não afeta o ACL de acesso ou o ACL padrão dos itens infantis que já existem.
 
 ### <a name="levels-of-permission"></a>Níveis de permissão
 
-As permissões em um objeto de contêiner são de **leitura**, **gravação**e **execução**, e podem ser usadas em arquivos e diretórios, conforme mostrado na tabela a seguir:
+As permissões num objeto de contentor estiveram **leia,** **Escreva**e **Execute,** e podem ser utilizadas em ficheiros e diretórios, como mostrado na tabela seguinte:
 
-|            |    Ficheiro     |   Diretório |
+|            |    Ficheiros     |   Diretório |
 |------------|-------------|----------|
 | **Leitura (R)** | Pode editar o conteúdo de um ficheiro | Requer **leitura** e **execução** para listar o conteúdo do diretório |
-| **Escrita (W)** | Pode escrever ou acrescentar a um ficheiro | Requer **gravação** e **execução** para criar itens filho em um diretório |
-| **Execução (X)** | Não significa nada no contexto de Data Lake Storage Gen2 | Necessário para atravessar os itens filho de um diretório |
+| **Escrita (W)** | Pode escrever ou acrescentar a um ficheiro | Requer **escrever** e **executar** para criar itens infantis num diretório |
+| **Execução (X)** | Não significa nada no contexto do Data Lake Storage Gen2 | Necessário para atravessar os itens infantis de um diretório |
 
 > [!NOTE]
-> Se você estiver concedendo permissões usando somente ACLs (sem RBAC), para conceder a uma entidade de segurança acesso de leitura ou de gravação a um arquivo, você precisará conceder permissões de **execução** da entidade de segurança para o contêiner e para cada pasta na hierarquia de pastas que levam ao arquivo.
+> Se estiver a conceder permissões utilizando apenas ACLs (sem RBAC), em seguida, conceder a um diretor de segurança ler ou escrever acesso a um ficheiro, terá de dar ao diretor de segurança **Permissões** executar ao recipiente e a cada pasta na hierarquia das pastas que conduzem ao ficheiro.
 
 #### <a name="short-forms-for-permissions"></a>Formatos curtos para as permissões
 
@@ -105,38 +110,38 @@ O **RWX** é utilizado para indicar **Leitura + Escrita + Execução**. Existe u
 
 #### <a name="permissions-inheritance"></a>Herança de permissões
 
-No modelo de estilo POSIX que é usado pelo Data Lake Storage Gen2, as permissões para um item são armazenadas no próprio item. Em outras palavras, as permissões para um item não poderão ser herdadas dos itens pai se as permissões forem definidas depois que o item filho já tiver sido criado. As permissões serão herdadas somente se as permissões padrão tiverem sido definidas nos itens pai antes de os itens filho terem sido criados.
+No modelo estilo POSIX que é usado pelo Data Lake Storage Gen2, as permissões para um item são armazenadas no próprio item. Por outras palavras, as permissões para um item não podem ser herdadas dos itens-mãe se as permissões forem definidas após a criação do artigo da criança. As permissões só são herdadas se tiverem sido definidas permissões por defeito nos itens dos pais antes da criação dos artigos da criança.
 
 ### <a name="common-scenarios-related-to-permissions"></a>Cenários comuns relacionados com as permissões
 
-A tabela a seguir lista alguns cenários comuns para ajudá-lo a entender quais permissões são necessárias para executar determinadas operações em uma conta de armazenamento.
+A tabela seguinte enumera alguns cenários comuns para ajudá-lo a entender quais as permissões necessárias para realizar determinadas operações numa conta de armazenamento.
 
-|    Operação             |    /    | Oregon | Portland / | Data.txt     |
+|    Operação             |    /    | Oregon/ | Portland / | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Ler Data. txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Anexar a data. txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Excluir Data. txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Criar data. txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Lista                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Listar/Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Listar/Oregon/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Ler Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Apêndice a Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Eliminar Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Criar Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Lista /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Lista /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Lista /Oregon/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 > [!NOTE]
-> As permissões de gravação no arquivo não são necessárias para excluí-lo, desde que as duas condições anteriores sejam verdadeiras.
+> Não são necessárias permissões de escrita no ficheiro para o apagar, desde que as duas condições anteriores sejam verdadeiras.
 
 ### <a name="users-and-identities"></a>Utilizadores e identidades
 
-Cada arquivo e diretório têm permissões distintas para essas identidades:
+Cada ficheiro e diretório tem permissões distintas para estas identidades:
 
 - O utilizador proprietário
 - O grupo proprietário
 - Utilizadores nomeados
 - Grupos nomeados
-- Entidades de serviço nomeadas
-- Identidades gerenciadas nomeadas
+- Diretores de serviço nomeados
+- Identidades geridas nomeadas
 - Todos os outros utilizadores
 
-As identidades dos utilizadores e grupos são identidades do Azure Active Directory (Azure AD). Então, salvo indicação em contrário, um *usuário*, no contexto de data Lake Storage Gen2, pode se referir a um usuário do Azure AD, entidade de serviço, identidade gerenciada ou grupo de segurança.
+As identidades dos utilizadores e grupos são identidades do Azure Active Directory (Azure AD). Assim, salvo indicação em contrário, um *utilizador,* no contexto do Data Lake Storage Gen2, pode consultar um utilizador, diretor de serviço, identidade gerida ou grupo de segurança.
 
 #### <a name="the-owning-user"></a>O utilizador proprietário
 
@@ -146,29 +151,29 @@ O utilizador que criou o item é automaticamente o utilizador proprietário do i
 * Alterar o grupo proprietário de um ficheiro que é propriedade, desde que o utilizador proprietário também seja membro do grupo de destino.
 
 > [!NOTE]
-> O usuário proprietário *não pode* alterar o usuário proprietário de um arquivo ou diretório. Somente superusuários podem alterar o usuário proprietário de um arquivo ou diretório.
+> O utilizador próprio *não pode* alterar o utilizador próprio de um ficheiro ou diretório. Apenas os super-utilizadores podem alterar o utilizador próprio de um ficheiro ou diretório.
 
 #### <a name="the-owning-group"></a>O grupo proprietário
 
-Nas ACLs de POSIX, cada usuário é associado a um *grupo primário*. Por exemplo, o usuário "Alice" pode pertencer ao grupo "Finance". Alice também pode pertencer a vários grupos, mas um grupo é sempre designado como seu grupo primário. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
+Nos ACLs POSIX, cada utilizador está associado a um *grupo primário*. Por exemplo, o utilizador "Alice" pode pertencer ao grupo "finanças". Alice também pode pertencer a vários grupos, mas um grupo é sempre designado como o seu grupo principal. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
 
-##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Atribuindo o grupo proprietário para um novo arquivo ou diretório
+##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Atribuir o grupo próprio para um novo ficheiro ou diretório
 
-* **Caso 1**: o diretório raiz "/". Esse diretório é criado quando um contêiner de Data Lake Storage Gen2 é criado. Nesse caso, o grupo proprietário é definido para o usuário que criou o contêiner se ele foi feito usando o OAuth. Se o contêiner for criado usando chave compartilhada, uma SAS de conta ou uma SAS de serviço, o proprietário e o grupo proprietário serão definidos como **$superuser**.
-* **Caso 2** (todos os outros casos): quando um novo item é criado, o grupo proprietário é copiado do diretório pai.
+* **Caso 1**: O diretório raiz "/". Este diretório é criado quando é criado um recipiente Gen2 de Armazenamento de Data Lake. Neste caso, o grupo próprio está definido para o utilizador que criou o contentor se foi feito usando o OAuth. Se o recipiente for criado utilizando a Chave Partilhada, uma Conta SAS ou um SAS de serviço, então o proprietário e o grupo proprietário estão definidos para **$superuser**.
+* **Caso 2** (Todos os outros casos): Quando um novo item é criado, o grupo próprio é copiado do diretório dos pais.
 
-##### <a name="changing-the-owning-group"></a>Alterando o grupo proprietário
+##### <a name="changing-the-owning-group"></a>Mudar o grupo próprio
 
 O grupo proprietário pode ser alterado por:
 * Qualquer superutilizador.
 * Pelo utilizador proprietário, se o utilizador proprietário também for membro do grupo de destino.
 
 > [!NOTE]
-> O grupo proprietário não pode alterar as ACLs de um arquivo ou diretório.  Embora o grupo proprietário esteja definido como o usuário que criou a conta no caso do diretório raiz, **caso 1** acima, uma única conta de usuário não é válida para fornecer permissões por meio do grupo proprietário. Pode atribuir esta permissão a um grupo de utilizadores válido, se aplicável.
+> O grupo próprio não pode alterar os ACLs de um ficheiro ou diretório.  Enquanto o grupo próprio está definido para o utilizador que criou a conta no caso do diretório raiz, **o Caso 1** acima, uma única conta de utilizador não é válida para fornecer permissões através do grupo próprio. Pode atribuir esta permissão a um grupo de utilizadores válido, se aplicável.
 
 ### <a name="access-check-algorithm"></a>Algoritmo de verificação de acesso
 
-O pseudocódigo a seguir representa o algoritmo de verificação de acesso para contas de armazenamento.
+O pseudocódigo seguinte representa o algoritmo de verificação de acesso para contas de armazenamento.
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -213,39 +218,39 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 
 #### <a name="the-mask"></a>A máscara
 
-Conforme ilustrado no algoritmo de verificação de acesso, a máscara limita o acesso para usuários nomeados, o grupo proprietário e os grupos nomeados.  
+Como ilustrado no Algoritmo de Verificação de Acesso, a máscara limita o acesso aos utilizadores nomeados, ao grupo próprio e aos grupos nomeados.  
 
 > [!NOTE]
-> Para um novo contêiner Data Lake Storage Gen2, a máscara para a ACL de acesso do diretório raiz ("/") usa como padrão 750 para diretórios e 640 para arquivos. Os arquivos não recebem o X bit, pois são irrelevantes para os arquivos em um sistema somente de armazenamento.
+> Para um novo recipiente data Lake Storage Gen2, a máscara para o acesso ACL do diretório raiz ("/") falha para 750 para diretórios e 640 para ficheiros. Os ficheiros não recebem a bit X, uma vez que é irrelevante para ficheiros num sistema apenas para lojas.
 >
-> A máscara pode ser especificada em uma base por chamada. Isso permite que diferentes sistemas de consumo, como clusters, tenham diferentes máscaras efetivas para suas operações de arquivo. Se uma máscara for especificada em uma determinada solicitação, ela substituirá completamente a máscara padrão.
+> A máscara pode ser especificada por chamada. Isto permite que diferentes sistemas de consumo, como clusters, tenham diferentes máscaras eficazes para as suas operações de ficheiros. Se uma máscara for especificada num dado pedido, substitui completamente a máscara predefinida.
 
 #### <a name="the-sticky-bit"></a>O sticky bit
 
-O bit adesivo é um recurso mais avançado de um contêiner POSIX. No contexto de Data Lake Storage Gen2, é improvável que o bit de aderência seja necessário. Em resumo, se o bit adesivo estiver habilitado em um diretório, um item filho só poderá ser excluído ou renomeado pelo usuário proprietário do item filho.
+A broca pegajosa é uma característica mais avançada de um recipiente POSIX. No contexto do Data Lake Storage Gen2, é improvável que a parte pegajosa seja necessária. Em resumo, se a broca pegajosa estiver ativada num diretório, um item infantil só pode ser eliminado ou renomeado pelo utilizador do item da criança.
 
-O bit adesivo não é mostrado na portal do Azure.
+A parte pegajosa não é mostrada no portal Azure.
 
-### <a name="default-permissions-on-new-files-and-directories"></a>Permissões padrão em novos arquivos e diretórios
+### <a name="default-permissions-on-new-files-and-directories"></a>Permissões padrão em novos ficheiros e diretórios
 
-Quando um novo arquivo ou diretório é criado em um diretório existente, a ACL padrão no diretório pai determina:
+Quando um novo ficheiro ou diretório é criado sob um diretório existente, o ACL padrão no directório-mãe determina:
 
-- ACL padrão de um diretório filho e ACL de acesso.
-- A ACL de acesso de um arquivo filho (arquivos não têm uma ACL padrão).
+- Acl padrão de um diretório infantil e acesso ACL.
+- Acesso de um ficheiro infantil ACL (os ficheiros não têm uma ACL padrão).
 
 #### <a name="umask"></a>umask
 
-Ao criar um arquivo ou diretório, umask é usado para modificar como as ACLs padrão são definidas no item filho. umask é um valor de 9 bits em diretórios pai que contém um valor de RWX para **usuário proprietário**, **grupo proprietário**e **outros**.
+Ao criar um ficheiro ou diretório, o umask é utilizado para modificar a forma como os ACLs padrão são definidos no item da criança. umask é um valor de 9 bits em diretórios parentais que contém um valor RWX para **o utilizador possuir,** **possuir grupo,** e **outros**.
 
-O umask para Azure Data Lake Storage Gen2 um valor constante que é definido como 007. Esse valor é convertido em:
+O umask para Azure Data Lake Storage Gen2 um valor constante que está definido para 007. Este valor traduz-se em:
 
 | componente de umask     | Formato numérico | Formato curto | Significado |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   `---`      | Para o usuário proprietário, copie a ACL padrão do pai para a ACL de acesso do filho | 
-| umask.owning_group  |    0         |   `---`      | Para o grupo proprietário, copie a ACL padrão do pai para a ACL de acesso do filho | 
-| umask.other         |    7         |   `RWX`      | Para outros, remova todas as permissões na ACL de acesso do filho |
+| umask.owning_user   |    0         |   `---`      | Para possuir o utilizador, copie o ACL padrão do progenitor para o acesso da criança ACL | 
+| umask.owning_group  |    0         |   `---`      | Para possuir grupo, copie o ACL padrão do progenitor para o acesso da criança ACL | 
+| umask.other         |    7         |   `RWX`      | Para outros, remova todas as permissões no acesso da criança ACL |
 
-O valor umask usado por Azure Data Lake Storage Gen2 efetivamente significa que o valor de **outro** nunca é transmitido por padrão em novos filhos, independentemente do que a ACL padrão indica. 
+O valor umask usado pelo Azure Data Lake Storage Gen2 significa efetivamente que o valor para **outros** nunca é transmitido por padrão em novas crianças, independentemente do que a ACL padrão indica. 
 
 O pseudocódigo a seguir mostra como é que a umask é aplicada ao criar as ACLs para um item subordinado.
 
@@ -265,64 +270,64 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-## <a name="common-questions-about-acls-in-data-lake-storage-gen2"></a>Perguntas comuns sobre ACLs no Data Lake Storage Gen2
+## <a name="common-questions-about-acls-in-data-lake-storage-gen2"></a>Perguntas comuns sobre ACLs em Data Lake Storage Gen2
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário ativar o suporte para as ACLs?
 
-Não. O controle de acesso por meio de ACLs é habilitado para uma conta de armazenamento, desde que o recurso de namespace hierárquico (HNS) esteja ativado.
+Não. O controlo de acesso através de ACLs está ativado para uma conta de armazenamento desde que a função Hierárquica Namespace (HNS) seja ativada.
 
-Se o HNS for desativado, as regras de autorização do RBAC do Azure ainda se aplicarão.
+Se o HNS for desligado, as regras de autorização Azure RBAC continuam a ser aplicadas.
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>Qual é a melhor maneira de aplicar ACLs?
 
-Sempre use grupos de segurança do Azure AD como a entidade atribuída em ACLs. Resista à oportunidade de atribuir diretamente usuários individuais ou entidades de serviço. Usar essa estrutura permitirá que você adicione e remova usuários ou entidades de serviço sem a necessidade de reaplicar ACLs a uma estrutura de diretório inteira. ) Em vez disso, basta adicionar ou removê-los do grupo de segurança apropriado do Azure AD. Tenha em mente que as ACLs não são herdadas e, portanto, reaplicar ACLs requer a atualização da ACL em todos os arquivos e subdiretórios. 
+Utilize sempre os grupos de segurança Azure AD como o principal designado em ACLs. Resista à oportunidade de atribuir diretamente utilizadores individuais ou diretores de serviço. A utilização desta estrutura permitir-lhe-á adicionar e remover utilizadores ou diretores de serviço sem a necessidade de reaplicar OSAC a toda uma estrutura de diretório. ) Em vez disso, basta adicioná-los ou removê-los do grupo de segurança Azure AD apropriado. Tenha em mente que os ACLs não são herdados e, por isso, a reaplicação dos ACLs requer a atualização do ACL em todos os ficheiros e subdiretórios. 
 
-### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quais permissões são necessárias para excluir recursivamente um diretório e seu conteúdo?
+### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Que permissões são necessárias para apagar recursivamente um diretório e o seu conteúdo?
 
-- O chamador tem permissões de ' superusuário ',
+- O chamador tem permissões de "super-utilizador",
 
 Ou
 
-- O diretório pai deve ter permissões Write + execute.
-- O diretório a ser excluído e todos os diretórios dentro dele requer permissões de leitura + gravação + execução.
+- O diretório dos pais deve ter permissões escritas + executar.
+- O diretório a eliminar, e todos os diretórios dentro dele, requer ler + escrever + executar permissões.
 
 > [!NOTE]
-> Você não precisa de permissões de gravação para excluir arquivos em diretórios. Além disso, o diretório raiz "/" nunca pode ser excluído.
+> Não precisa de permissões de escrita para apagar ficheiros em diretórios. Além disso, o diretório raiz "/" nunca pode ser eliminado.
 
-### <a name="who-is-the-owner-of-a-file-or-directory"></a>Quem é o proprietário de um arquivo ou diretório?
+### <a name="who-is-the-owner-of-a-file-or-directory"></a>Quem é o dono de um ficheiro ou diretório?
 
-O criador de um arquivo ou diretório se torna o proprietário. No caso do diretório raiz, essa é a identidade do usuário que criou o contêiner.
+O criador de um ficheiro ou diretório torna-se o proprietário. No caso do diretório raiz, esta é a identidade do utilizador que criou o recipiente.
 
-### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-directory-at-creation"></a>Qual grupo está definido como o grupo proprietário de um arquivo ou diretório na criação?
+### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-directory-at-creation"></a>Que grupo é definido como o grupo próprio de um arquivo ou diretório na criação?
 
-O grupo proprietário é copiado do grupo proprietário do diretório pai no qual o novo arquivo ou diretório é criado.
+O grupo próprio é copiado do grupo próprio do directório-mãe ao abrigo do qual é criado o novo ficheiro ou diretório.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Sou o utilizador proprietário de um ficheiro, mas não tenho as permissões de RWX necessárias. O que posso fazer?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Sou o utilizador proprietário de um ficheiro, mas não tenho as permissões de RWX necessárias. O que devo fazer?
 
 O utilizador proprietário pode alterar as permissões do ficheiro para atribuir as permissões de RWX necessárias a ele próprio.
 
-### <a name="why-do-i-sometimes-see-guids-in-acls"></a>Por que, às vezes, vejo GUIDs em ACLs?
+### <a name="why-do-i-sometimes-see-guids-in-acls"></a>Por que às vezes vejo GUIDs em ACLs?
 
-Um GUID será mostrado se a entrada representar um usuário e esse usuário não existir mais no Azure AD. Normalmente, isto acontece quando o utilizador já não está na empresa ou se a conta dele tiver sido eliminada no Azure AD. Além disso, as entidades de serviço e os grupos de segurança não têm um UPN (nome principal do usuário) para identificá-los e, portanto, são representados por seu atributo OID (um GUID).
+Um GUID é mostrado se a entrada representa um utilizador e esse utilizador já não existe em Azure AD. Normalmente, isto acontece quando o utilizador já não está na empresa ou se a conta dele tiver sido eliminada no Azure AD. Além disso, os diretores de serviço e os grupos de segurança não têm um Nome Principal de Utilizador (UPN) para os identificar e por isso estão representados pelo seu atributo OID (um guia).
 
-### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Como fazer definir ACLs corretamente para uma entidade de serviço?
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Como posso definir os ACLs corretamente para um diretor de serviço?
 
-Quando você define ACLs para entidades de serviço, é importante usar a OID (ID de objeto) da entidade de *serviço* para o registro do aplicativo que você criou. É importante observar que os aplicativos registrados têm uma entidade de serviço separada no locatário específico do Azure AD. Os aplicativos registrados têm um OID que é visível no portal do Azure, mas a *entidade de serviço* tem outro OID (diferente).
+Quando define ACLs para diretores de serviço, é importante utilizar o ID do Objeto (OID) do *principal de serviço* para o registo da aplicação que criou. É importante notar que as aplicações registadas têm um diretor de serviço separado no inquilino da AD Azure específico. As aplicações registadas têm um OID que é visível no portal Azure, mas o diretor de *serviço* tem outro (diferente) OID.
 
-Para obter o OID para a entidade de serviço que corresponde a um registro de aplicativo, você pode usar o comando `az ad sp show`. Especifique a ID do aplicativo como o parâmetro. Veja um exemplo de como obter o OID para a entidade de serviço que corresponde a um registro de aplicativo com ID do aplicativo = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando no CLI do Azure:
+Para obter o OID para o diretor de serviço que corresponde a um registo de aplicações, pode utilizar o comando `az ad sp show`. Especifique o ID de aplicação como parâmetro. Aqui está um exemplo sobre a obtenção do OID para o principal de serviço que corresponde a um registo de aplicação com App ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Executar o seguinte comando no Azure CLI:
 
 ```
 $ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>
 ```
 
-Quando você tiver o OID correto para a entidade de serviço, vá para a página Gerenciador de Armazenamento **gerenciar acesso** para adicionar o OID e atribuir as permissões apropriadas para o OID. Certifique-se de selecionar **salvar**.
+Quando tiver o OID correto para o diretor de serviço, aceda à página de **Acesso ao Controlo** do Explorador de Armazenamento para adicionar o OID e atribuir permissões adequadas para o OID. Certifique-se de selecionar **salvar**.
 
-### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 dá suporte à herança de ACLs?
+### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 suporta a herança de ACLs?
 
-As atribuições do RBAC do Azure herdam. As atribuições fluem de assinatura, grupo de recursos e recursos da conta de armazenamento até o recurso de contêiner.
+As atribuições azure RBAC herdam. As atribuições fluem da subscrição, do grupo de recursos e dos recursos da conta de armazenamento até ao recurso do contentor.
 
-As ACLs não herdam. No entanto, as ACLs padrão podem ser usadas para definir ACLs para subdiretórios filho e arquivos criados no diretório pai. 
+Os ACLs não herdam. No entanto, os ACLs padrão podem ser usados para definir ACLs para subdiretórios infantis e ficheiros criados sob o diretório dos pais. 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Onde posso obter mais informações sobre o modelo de controlo de acesso POSIX?
 
@@ -335,6 +340,6 @@ As ACLs não herdam. No entanto, as ACLs padrão podem ser usadas para definir A
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: using access control lists on Linux (ACL: utilizar listas de controlo de acesso no Linux)](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-* [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
+* [Visão geral do Armazenamento de Lagos De Dados Azure Gen2](../blobs/data-lake-storage-introduction.md)

@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7b04251211e716ef8e5f8c77aa3a2e74f6e9ef77
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9e954e9c1a7efa43a19849b1c5b40284ec84eeed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982512"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016005"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Criar e passar pelo modelo de aplicação de monitorização de contadores inteligentes 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial guia-o através do processo de criação da aplicação de monitorização de contadores inteligentes, que inclui um modelo de dispositivo de amostra com dados simulados. Neste tutorial, ficará a saber:
 
@@ -50,10 +50,11 @@ Pode criar esta aplicação em três passos simples:
     * **URL**: Escolha um URL Central IoT, a plataforma verificará a sua singularidade.
     * Teste gratuito de 7 dias : Se já tiver uma subscrição Azure, **recomenda-se**a definição predefinida. Se não tiver uma assinatura Azure, comece com um teste gratuito.
     * **Faturação Informação**: A aplicação em si é gratuita. Os detalhes do Diretório, Azure e Região são necessários para fornecer os recursos para a sua app.
-    * Clique em criar o botão **Na** parte inferior da página e a sua aplicação será criada dentro de um minuto ou mais.     
-         ![novo formulário de candidatura](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+    * Clique em criar o botão **Na** parte inferior da página e a sua aplicação será criada dentro de um minuto ou mais.
 
-         ![Nova informação de faturação de formulário de aplicação](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
+        ![Novo formulário de candidatura](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+
+        ![Nova informação de faturação de formulário de aplicação](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verificar a aplicação e simular dados

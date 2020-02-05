@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: criar uma nuvem privada'
-titleSuffix: Azure VMware Solution by CloudSimple
-description: Saiba como criar e configurar uma nuvem privada com a solução do Azure VMware por CloudSimple
+title: Soluções Azure VMware (AVS) Quickstart - Criar uma Nuvem Privada AVS
+description: Saiba como criar e configurar uma Nuvem Privada AVS com Soluções Azure VMware (AVS)
+titleSuffix: Azure VMware Solutions (AVS)
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/16/2019
@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e4890186022842179ef4b66c03db03dd9b58a3d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cafcf04dac0542f1506980d8b9484b82b558e100
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452383"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018572"
 ---
-# <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido-configurar um ambiente de nuvem privada
+# <a name="quickstart---configure-an-avs-private-cloud-environment"></a>Quickstart - Configure um ambiente de nuvem privada AVS
 
-Neste artigo, saiba como criar uma nuvem privada do CloudSimple e configurar seu ambiente de nuvem privada.
+Neste artigo, aprenda a criar uma Nuvem Privada AVS e crie o seu ambiente AVS Private Cloud.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -28,58 +28,58 @@ Examine os [pré-requisitos de rede](cloudsimple-network-checklist.md).
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-private-cloud"></a>Criar uma Cloud Privada
+## <a name="create-an-avs-private-cloud"></a>Criar uma Nuvem Privada AVS
 
-Uma nuvem privada é uma pilha VMware isolada que dá suporte a hosts ESXi, vCenter, vSAN e NSX.
+Uma Nuvem Privada AVS é uma pilha de VMware isolada que suporta anfitriões ESXi, vCenter, vSAN e NSX.
 
-As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm seu próprio servidor vCenter em seu próprio domínio de gerenciamento. A pilha é executada em nós dedicados e nós de hardware bare-metal isolados.
+As Nuvens Privadas AVS são geridas através do portal AVS. Eles têm seu próprio servidor vCenter em seu próprio domínio de gerenciamento. A pilha é executada em nós dedicados e nós de hardware bare-metal isolados.
 
 1. Selecione **Todos os serviços**.
-2. Procure **Serviços CloudSimples**.
-3. Selecione o serviço CloudSimple no qual você deseja criar sua nuvem privada.
-4. Em **visão geral**, clique em **criar nuvem privada** para abrir uma nova guia do navegador para o portal do CloudSimple.  Se solicitado, entre com suas credenciais de entrada do Azure.  
+2. Pesquisa de **Serviços AVS**.
+3. Selecione o serviço AVS no qual pretende criar a sua Nuvem Privada AVS.
+4. A partir de **uma visão geral,** clique **em Criar Nuvem Privada AVS** para abrir um novo separador de navegador para portal AVS. Se solicitado, entre com suas credenciais de entrada do Azure. 
 
-    ![Criar nuvem privada do Azure](media/create-private-cloud-from-azure.png)
+    ![Criar nuvem privada AVS a partir de Azure](media/create-private-cloud-from-azure.png)
 
-5. No portal do CloudSimple, forneça um nome para sua nuvem privada.
-6. Selecione o **local** da sua nuvem privada.
+5. No portal AVS, forneça um nome para a sua Nuvem Privada AVS.
+6. Selecione a **localização** da sua Nuvem Privada AVS.
 7. Selecione o **tipo de nó**, consistente com o que você provisionou no Azure.
-8. Especifique a **contagem de nós**.  Pelo menos três nós são necessários para criar uma nuvem privada.
+8. Especifique a **contagem de nós**. Pelo menos três nódosos são necessários para criar uma Nuvem Privada AVS.
 
-    ![Criar nuvem privada-informações básicas](media/create-private-cloud-basic-info.png)
+    ![Criar Nuvem Privada AVS - Informações básicas](media/create-private-cloud-basic-info.png)
 
 9. Clique em **Avançar: opções avançadas**.
 10. Insira o intervalo CIDR para sub-redes vSphere/vSAN. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma das suas sub-redes do Azure locais ou outras (redes virtuais) ou com a sub-rede de gateway.
 
-    **Opções de intervalo CIDR:** /24,/23,/22 ou/21. Um intervalo CIDR/24 dá suporte a até 26 nós, um intervalo CIDR/23 dá suporte a até 58 nós, e um intervalo CIDR/22 e/21 dá suporte a nós 64 (o número máximo de nós em uma nuvem privada).  Para saber mais e VLANs e sub-redes, consulte [visão geral de VLANs e sub-redes](cloudsimple-vlans-subnets.md).
+    **Opções de intervalo CIDR:** /24,/23,/22 ou/21. Uma gama DE /24 CIDR suporta até 26 nós, uma gama DE ICDR /23 suporta até 58 nós, e uma gama DE /22 e /21 CIDR suporta 64 nós (o número máximo de nós numa Nuvem Privada AVS). Para saber mais e VLANs e sub-redes, consulte [visão geral de VLANs e sub-redes](cloudsimple-vlans-subnets.md).
 
       > [!IMPORTANT]
-      > Os endereços IP no intervalo CIDR vSphere/vSAN são reservados para uso pela infraestrutura de nuvem privada.  Não use o endereço IP nesse intervalo em qualquer máquina virtual.
+      > Os endereços IP na gama vSphere/vSAN CIDR são reservados para utilização pela infraestrutura AVS Private Cloud. Não use o endereço IP nesse intervalo em qualquer máquina virtual.
 
 11. Clique em **Avançar: examinar e criar**.
 12. Examine as configurações. Se você precisar alterar as configurações, clique em **anterior**.
 13. Clique em **Criar**.
 
-O processo de provisionamento de nuvem particular é iniciado.  Pode levar até duas horas para que a nuvem privada seja provisionada.
+Inicia-se o processo de provisionamento da Nuvem Privada AVS. Pode levar até duas horas para que a Nuvem Privada AVS seja aprovisionada.
 
-## <a name="launch-cloudsimple-portal"></a>Iniciar o portal do CloudSimple
+## <a name="launch-avs-portal"></a>Lançar portal AVS
 
-Você pode acessar o portal do CloudSimple do portal do Azure.  O portal do CloudSimple será iniciado com suas credenciais de logon do Azure usando o SSO (logon único).  O acesso ao portal do CloudSimple exige que você autorize o aplicativo de **autorização do serviço CloudSimple** .  Para obter mais informações sobre como conceder permissões, consulte [consentimento ao aplicativo de autorização do serviço CloudSimple](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
+Pode aceder ao portal AVS a partir do portal Azure. O portal AVS será lançado com o seu sinal Azure em credenciais utilizando o Single Sign-On (SSO). O acesso ao portal AVS requer que autorize o pedido de Autorização de **Serviço DaVs.** Para obter mais informações sobre a concessão de permissões, consulte o pedido de Autorização de [Serviço Da AVS.](access-cloudsimple-portal.md#consent-to-avs-service-authorization-application)
 
 1. Selecione **Todos os serviços**.
-2. Procure **Serviços CloudSimples**.
-3. Selecione o serviço CloudSimple no qual você deseja criar sua nuvem privada.
-4. Em visão geral, clique em **ir para o portal do CloudSimple** para abrir uma nova guia do navegador para o portal do CloudSimple.  Se solicitado, entre com suas credenciais de entrada do Azure.  
+2. Pesquisa de **Serviços AVS**.
+3. Selecione o serviço AVS no qual pretende criar a sua Nuvem Privada AVS.
+4. A partir de uma visão geral, clique **em Ir ao portal AVS** para abrir um novo separador de navegador para portal AVS. Se solicitado, entre com suas credenciais de entrada do Azure. 
 
-    ![Iniciar o portal do CloudSimple](media/launch-cloudsimple-portal.png)
+    ![Lançar portal AVS](media/launch-cloudsimple-portal.png)
 
 ## <a name="create-point-to-site-vpn"></a>Criar VPN ponto a site
 
-Uma conexão VPN ponto a site é a maneira mais simples de se conectar à sua nuvem privada do seu computador. Use a conexão VPN ponto a site se você estiver se conectando à nuvem privada remotamente.  Para ter acesso rápido à sua nuvem privada, siga as etapas abaixo.  O acesso à região CloudSimple da sua rede local pode ser feito usando a [VPN site a site](vpn-gateway.md) ou o [Azure ExpressRoute](on-premises-connection.md).
+Uma ligação VPN Ponto-a-Local é a forma mais simples de se ligar à sua Nuvem Privada AVS a partir do seu computador. Utilize a ligação VPN ponto-a-local se estiver a ligar-se remotamente à Nuvem Privada AVS. Para um acesso rápido à sua Nuvem Privada AVS, siga os passos abaixo. O acesso à região AVS a partir da sua rede no local pode ser feito utilizando [vpn local](vpn-gateway.md) ou [Azure ExpressRoute](on-premises-connection.md).
 
 ### <a name="create-gateway"></a>Criar gateway
 
-1. Inicie o portal do CloudSimple e selecione **rede**.
+1. Lançar portal AVS e selecionar **Rede**.
 2. Selecione **Gateway de VPN**.
 3. Clique em **novo gateway de VPN**.
 
@@ -89,29 +89,29 @@ Uma conexão VPN ponto a site é a maneira mais simples de se conectar à sua nu
 
     * Selecione **VPN ponto a site** como o tipo de gateway.
     * Insira um nome para identificar o gateway.
-    * Selecione o local do Azure onde o serviço CloudSimple está implantado.
-    * Especifique a sub-rede do cliente para o gateway ponto a site.  Os endereços DHCP serão fornecidos dessa sub-rede quando você se conectar.
+    * Selecione a localização Azure onde o seu serviço AVS está implantado.
+    * Especifique a sub-rede do cliente para o gateway ponto a site. Os endereços DHCP serão fornecidos dessa sub-rede quando você se conectar.
 
 5. Para **conexão/usuário**, especifique as seguintes configurações e clique em **Avançar**.
 
-    * Para permitir que todos os usuários atuais e futuros acessem automaticamente a nuvem privada por meio desse gateway de ponto a site, selecione **adicionar todos os usuários automaticamente**. Quando você seleciona essa opção, todos os usuários na lista de usuários são selecionados automaticamente. Você pode substituir a opção automática desmarcando usuários individuais na lista.
+    * Para permitir automaticamente que todos os utilizadores atuais e futuros acedam à Nuvem Privada AVS através deste gateway Ponto-a-Site, selecione **adicionar automaticamente todos os utilizadores**. Quando você seleciona essa opção, todos os usuários na lista de usuários são selecionados automaticamente. Você pode substituir a opção automática desmarcando usuários individuais na lista.
     * Para selecionar somente usuários individuais, clique nas caixas de seleção na lista de usuários.
 
 6. A seção VLANs/sub-redes permite especificar VLANs de gerenciamento e de usuário/sub-redes para o gateway e as conexões.
 
     * As opções **adicionar automaticamente** definem a política global para esse gateway. As configurações se aplicam ao gateway atual. As configurações podem ser substituídas na área de **seleção** .
-    * Selecione **Adicionar VLANs de gerenciamento/sub-redes de nuvens privadas**.
+    * **Selecione Adicionar gestão VLANs/Subnets de Nuvens Privadas AVS**.
     * Para adicionar todas as VLANs/sub-redes definidas pelo usuário, clique em **Adicionar VLANs/sub-redes definidas pelo usuário**.
     * As configurações de **selecionar** substituem as configurações globais em **adicionar automaticamente**.
 
 7. Clique em **Avançar** para revisar as configurações. Clique nos ícones de edição para fazer alterações.
 8. Clique em **criar** para criar o gateway de VPN.
 
-### <a name="connect-to-cloudsimple-using-point-to-site-vpn"></a>Conectar-se ao CloudSimple usando a VPN ponto a site
+### <a name="connect-to-avs-using-point-to-site-vpn"></a>Ligue-se a AVS utilizando VPN ponto-a-local
 
-O cliente VPN é necessário para se conectar ao CloudSimple do seu computador.  Baixe o [openvpn client](https://openvpn.net/community-downloads/) para Windows ou [viscosity](https://www.sparklabs.com/viscosity/download/) para MacOS e os X.
+O cliente VPN é necessário para ligar a AVS a partir do seu computador. Baixe o [openvpn client](https://openvpn.net/community-downloads/) para Windows ou [viscosity](https://www.sparklabs.com/viscosity/download/) para MacOS e os X.
 
-1. Inicie o portal do CloudSimple e selecione **rede**.
+1. Lançar portal AVS e selecionar **Rede**.
 2. Selecione **Gateway de VPN**.
 3. Na lista de gateways de VPN, clique no gateway de VPN ponto a site.
 4. Selecione **Utilizadores**.
@@ -124,50 +124,49 @@ O cliente VPN é necessário para se conectar ao CloudSimple do seu computador. 
     * Instruções para [importar a configuração no cliente Windows](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-windows/#openvpn-open-source-openvpn-gui-program)
     * Instruções para [importar a configuração no MacOS ou no os X](https://www.sparklabs.com/support/kb/article/getting-started-with-viscosity-mac/#creating-your-first-connection)
 
-7. Conecte-se ao CloudSimple.
+7. Ligue-se ao AVS.
 
 ## <a name="create-a-vlan-for-your-workload-vms"></a>Criar uma VLAN para suas VMs de carga de trabalho
 
-Depois de criar uma nuvem privada, crie uma VLAN na qual você implantará suas VMs de carga de trabalho/aplicativo.
+Depois de criar uma Nuvem Privada AVS, crie um VLAN onde irá implementar os seus VMs de carga de trabalho/aplicação.
 
-1. No portal do CloudSimple, selecione **rede**.
+1. No portal AVS, selecione **Rede**.
 2. Clique em **VLAN/sub-redes**.
 3. Clique em **criar VLAN/sub-rede**.
 
     ![Criar VLAN/sub-rede](media/create-new-vlan-subnet.png)
 
-4. Selecione a **nuvem privada** para a nova VLAN/sub-rede.
-5. Selecione uma ID de VLAN na lista.  
+4. Selecione a **Nuvem Privada AVS** para a nova VLAN/subnet.
+5. Selecione uma ID de VLAN na lista. 
 6. Insira um nome de sub-rede para identificar a sub-rede.
-7. Especifique o intervalo e a máscara de CIDR da sub-rede.  Esse intervalo não deve se sobrepor a nenhuma sub-rede existente.
+7. Especifique o intervalo e a máscara de CIDR da sub-rede. Esse intervalo não deve se sobrepor a nenhuma sub-rede existente.
 8. Clique em **Submit** (Submeter).
 
     ![Criar detalhes de VLAN/sub-rede](media/create-new-vlan-subnet-details.png)
 
-A VLAN/sub-rede será criada.  Agora você pode usar essa ID de VLAN para criar um grupo de portas distribuídas em sua nuvem privada do vCenter.
+A VLAN/sub-rede será criada. Agora pode usar este ID VLAN para criar um grupo portuário distribuído no seu VCenter De Nuvem Privada AVS.
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Conectar seu ambiente a uma rede virtual do Azure
 
-O CloudSimple fornece um circuito de ExpressRoute para sua nuvem privada. Você pode conectar sua rede virtual no Azure ao circuito do ExpressRoute. Para obter detalhes completos sobre como configurar a conexão, siga as etapas em [conexão de rede virtual do Azure usando o ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/).
+A AVS fornece-lhe um circuito ExpressRoute para a sua Nuvem Privada AVS. Você pode conectar sua rede virtual no Azure ao circuito do ExpressRoute. Para obter detalhes completos sobre como configurar a conexão, siga as etapas em [conexão de rede virtual do Azure usando o ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/).
 
 ## <a name="sign-in-to-vcenter"></a>Entrar no vCenter
 
 Agora você pode entrar no vCenter para configurar máquinas virtuais e políticas.
 
-1. Para acessar o vCenter, inicie no portal do CloudSimple. Na Home Page, em **tarefas comuns**, clique em **Iniciar vSphere cliente**.  Selecione a nuvem privada e clique em **Iniciar vSphere cliente** na nuvem privada.
+1. Para aceder ao vCenter, comece pelo portal AVS. Na Home Page, em **tarefas comuns**, clique em **Iniciar vSphere cliente**. Selecione a Nuvem Privada AVS e, em seguida, clique em **Lançar vSphere Client** na Nuvem Privada AVS.
 
     ![Iniciar cliente do vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
-2. Selecione seu cliente vSphere preferencial para acessar o vCenter e entrar com seu nome de usuário e senha.  Os padrões são:
-    * Nome de usuário: **CloudOwner@cloudsimple.local**
-    * Senha: **CloudSimple123!**  
+2. Selecione seu cliente vSphere preferencial para acessar o vCenter e entrar com seu nome de usuário e senha. Os padrões são:
+    * Nome do utilizador: **CloudOwner@AVS.local**
+    * Senha: **AVS123!**  
 
 As telas do vCenter nos próximos procedimentos são do cliente vSphere (HTML5).
 
 ## <a name="change-your-vcenter-password"></a>Alterar sua senha do vCenter
 
-O CloudSimple recomenda que você altere sua senha na primeira vez que entrar no vCenter.  
-A senha que você definir deve atender aos seguintes requisitos:
+O AVS recomenda que altere a sua palavra-passe na primeira vez que iniciar sessão no vCenter. A senha que você definir deve atender aos seguintes requisitos:
 
 * Tempo de vida máximo: a senha deve ser alterada a cada 365 dias
 * Restringir reutilização: os usuários não podem reutilizar nenhuma das cinco senhas anteriores
@@ -189,12 +188,12 @@ Se você definir uma senha que não atenda aos requisitos:
 O NSX Manager é implantado com uma senha padrão. 
 
 * Nome de usuário: **administrador**
-* Senha: **CloudSimple123!**
+* Senha: **AVS123!**
 
-Você pode encontrar o FQDN (nome de domínio totalmente qualificado) e o endereço IP do NSX Manager no portal do CloudSimple.
+Pode encontrar o nome de domínio totalmente qualificado (FQDN) e o endereço IP do gestor NSX no portal AVS.
 
-1. Inicie o portal do CloudSimple e selecione **recursos**.
-2. Clique na nuvem privada que você deseja usar.
+1. Lance o portal AVS e selecione **Recursos.**
+2. Clique na Nuvem Privada AVS, que pretende utilizar.
 3. Selecionar **rede de gerenciamento do vSphere**
 4. Use o FQDN ou o endereço IP do **NSX Manager** e conecte-se usando um navegador da Web.
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: f0e7c3bbbdcd1edad24422163fde38e3fdce7e27
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988656"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024148"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introdução ao Caching e enriquecimento incremental no Azure Pesquisa Cognitiva
 
@@ -26,7 +26,7 @@ A sofisticação incremental adiciona cache e monitoração de estado a um pipel
 
 O enriquecimento incremental adiciona um cache ao pipeline de enriquecimento. O indexador armazena em cache os resultados de quebra de documento mais as saídas de cada habilidade para cada documento. Quando um configurador de habilidades é atualizado, somente as habilidades alteradas ou downstream são executadas novamente. Os resultados atualizados são gravados no cache e o documento é atualizado no índice de pesquisa ou na loja de conhecimento.
 
-Fisicamente, o cache é armazenado em um contêiner de BLOB em sua conta de armazenamento do Azure. Todos os índices em um serviço de pesquisa podem compartilhar a mesma conta de armazenamento para o cache do indexador. Cada indexador recebe um identificador de cache exclusivo e imutável para o contêiner que está usando.
+Fisicamente, o cache é armazenado em um contêiner de BLOB em sua conta de armazenamento do Azure. A cache também utiliza o armazenamento de mesa para um registo interno de atualizações de processamento. Todos os índices em um serviço de pesquisa podem compartilhar a mesma conta de armazenamento para o cache do indexador. Cada indexador recebe um identificador de cache exclusivo e imutável para o contêiner que está usando.
 
 ## <a name="cache-configuration"></a>Configuração de cache
 

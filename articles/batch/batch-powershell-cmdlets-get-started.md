@@ -3,8 +3,8 @@ title: Introdução ao PowerShell – lote do Azure | Microsoft Docs
 description: Introdução rápida aos cmdlets do Azure PowerShell que pode utilizar para gerir os recursos do Batch.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 48b728d0e5b710f3adaa576f012bdbd19effc20a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 26691ca6b9d078ef18ac852c67fa2ac88dff2722
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026589"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023009"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerir os recursos do Batch com os cmdlets do PowerShell
 
@@ -50,13 +50,13 @@ Este artigo se baseia em cmdlets no módulo AZ batch 1.0.0. Recomendamos que atu
 
 ### <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
-**New-AzBatchAccount** cria uma conta do lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . Especifique uma das regiões do Azure no parâmetro **Localização**, por exemplo, “EUA Central”. Por exemplo:
+**New-AzBatchAccount** cria uma conta do lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . Especifique uma das regiões do Azure no parâmetro **Localização**, por exemplo, “E.U.A. Central”. Por exemplo:
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Em seguida, crie uma conta do lote no grupo de recursos. Especifique um nome para a conta em <*account_name*> e o local e o nome do seu grupo de recursos. Criar a conta do Batch pode demorar algum tempo a concluir. Por exemplo:
+Em seguida, crie uma conta do lote no grupo de recursos. Especifique um nome para a conta em <*account_name*>, e a localização e nome do seu grupo de recursos. Criar a conta do Batch pode demorar algum tempo a concluir. Por exemplo:
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -127,7 +127,7 @@ Quando utiliza muitos destes cmdlets, além de transmitir um objeto de BatchCont
 
 Quando criar ou atualizar um conjunto do Batch, selecione a configuração de serviços cloud ou a configuração de máquina virtual para o sistema operativo nos nós de computação (veja [Descrição geral da funcionalidade do Batch](batch-api-basics.md#pool)). Se especificar a configuração de serviços cloud, a imagem dos nós de computação é feita com uma das [versões de SO Convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se você especificar a configuração de máquina virtual, poderá especificar uma das imagens de VM Linux ou Windows com suporte listadas no [Marketplace de máquinas virtuais do Azure][vm_marketplace]ou fornecer uma imagem personalizada que você preparou.
 
-Ao executar **New-AzBatchPool**, passe as configurações do sistema operacional em um objeto PSCloudServiceConfiguration ou PSVirtualMachineConfiguration. Por exemplo, o trecho a seguir cria um pool do lote com tamanho Standard_A1 nós de computação na configuração da máquina virtual, com imagem com o Ubuntu Server 18, 4-LTS. Neste caso, o parâmetro **VirtualMachineConfiguration** especifica a variável *$configuration* como o objeto PSVirtualMachineConfiguration. O parâmetro **BatchContext** especifica uma variável *$context* definida anteriormente como objeto BatchAccountContext.
+Ao executar **New-AzBatchPool**, passe as configurações do sistema operacional em um objeto PSCloudServiceConfiguration ou PSVirtualMachineConfiguration. Por exemplo, o seguinte snippet cria uma piscina de lote com tamanho Standard_A1 nós de computação na configuração da máquina virtual, imagem com Ubuntu Server 18.04-LTS. Neste caso, o parâmetro **VirtualMachineConfiguration** especifica a variável *$configuration* como o objeto PSVirtualMachineConfiguration. O parâmetro **BatchContext** especifica uma variável *$context* definida anteriormente como objeto BatchAccountContext.
 
 ```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")

@@ -3,8 +3,8 @@ title: Escolher tamanhos de VM para pools-Azure batch | Microsoft Docs
 description: Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools do lote do Azure
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/12/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 34ab09f7d8d47804992b8ef6864bfea60d1c9b4d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: be19de19dab92bc40ca5529ad578e033a98929cd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026602"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023570"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do lote do Azure
 
@@ -40,8 +40,8 @@ Os tamanhos de VM promocional ou de visualização não listados não são garan
 
 | Série de VM  | Tamanhos com suporte | Modo de alocação do pool de contas do lote<sup>1</sup> |
 |------------|---------|-----------------|
-| Série A básica | Todos os tamanhos *, exceto* Basic_A0 (a0) | Qualquer |
-| Série A | Todos os tamanhos *, exceto* Standard_A0 | Qualquer |
+| Série A básica | Todos os *tamanhos, exceto* Basic_A0 (A0) | Qualquer |
+| Série A | Todos os tamanhos, *exceto* Standard_A0 | Qualquer |
 | Série Av2 | Todos os tamanhos | Qualquer |
 | Série B | Nenhuma | Não disponível |
 | Série DC | Nenhuma | Não disponível |
@@ -54,7 +54,7 @@ Os tamanhos de VM promocional ou de visualização não listados não são garan
 | HC-série<sup>2</sup> | Todos os tamanhos | Qualquer |
 | Série Ls | Todos os tamanhos | Qualquer |
 | Série Lsv2 | Nenhuma | Não disponível |
-| Série M | Standard_M64ms (somente baixa prioridade), Standard_M128s (somente baixa prioridade) | Qualquer |
+| Série M | Standard_M64ms (apenas de baixa prioridade), Standard_M128s (apenas de baixa prioridade) | Qualquer |
 | Série Mv2 | Nenhuma | Não disponível |
 | Série NC | Todos os tamanhos | Qualquer |
 | Série NCv2<sup>2</sup> | Todos os tamanhos | Qualquer |
@@ -78,7 +78,7 @@ Os pools do lote na configuração do serviço de nuvem dão suporte a todos os 
 | Série A   | Extra pequeno       |
 | Série Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
-## <a name="size-considerations"></a>Considerações sobre o tamanho
+## <a name="size-considerations"></a>Considerações de tamanho
 
 * **Requisitos do aplicativo** -considere as características e os requisitos do aplicativo que será executado nos nós. Alguns aspetos, como se a aplicação tem vários threads e a quantidade de memória que consome, podem ajudar a determinar o tamanho de nó mais adequado e económico. Para [cargas de trabalho MPI](batch-mpi.md) de várias instâncias ou aplicativos CUDA, considere tamanhos especializados [de VM habilitados para](../virtual-machines/linux/sizes-gpu.md) o [HPC](../virtual-machines/linux/sizes-hpc.md) ou GPU, respectivamente. (Consulte [usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do lote](batch-pool-compute-intensive-sizes.md).)
 

@@ -1,6 +1,6 @@
 ---
-title: Conceitos de arquitetura no Azure IoT Central-Energy | Microsoft Docs
-description: Este artigo apresenta os principais conceitos relacionados à arquitetura do modelo de aplicativo de energia do Azure IoT Central
+title: Conceitos arquitetónicos em Azure IoT Central - Energia Microsoft Docs
+description: Este artigo introduz conceitos-chave relativos à arquitetura do modelo de aplicações de energia Azure IoT Central
 author: op-ravi
 ms.author: omravi
 ms.date: 10/22/2019
@@ -8,38 +8,38 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: cab593990369bb8a4135e82534a2eb409b574e96
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8f3772c1d65780337c421cfaaa7b70d7ac7186cf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582767"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024318"
 ---
-# <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central – arquitetura de aplicativo de medidor inteligente
+# <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central - arquitetura de aplicativos de contadores inteligentes
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Este artigo fornece uma visão geral da arquitetura de modelo do aplicativo de monitoramento do medidor inteligente. O diagrama a seguir mostra uma arquitetura comumente usada para o aplicativo de medidor inteligente no Azure usando IoT Central plataforma.
+
+Este artigo fornece uma visão geral da arquitetura do modelo de modelo de monitorização de contadores inteligentes. O diagrama abaixo mostra uma arquitetura comumente usada para app de contadores inteligentes em Azure usando a plataforma IoT Central.
 
 > [!div class="mx-imgBorder"]
-> ![arquitetura de medidor inteligente](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
+> ![](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png) de arquitetura de contadores inteligentes
 
-Esta arquitetura é composta pelos seguintes componentes. Algumas soluções podem não exigir todos os componentes listados aqui.
+Esta arquitetura é composta pelos seguintes componentes. Algumas soluções podem não requerer todos os componentes listados aqui.
 
-## <a name="smart-meters-and-connectivity"></a>Medidores inteligentes e conectividade 
+## <a name="smart-meters-and-connectivity"></a>Contadores inteligentes e conectividade 
 
-Um medidor inteligente é um dos dispositivos mais importantes entre todos os ativos de energia. Ele registra e comunica dados de consumo de energia para utilitários para monitoramento e outros casos de uso, como cobrança e resposta de demanda. Com base no tipo de medidor, ele pode se conectar a IoT Central por meio de gateways ou por meio de outros dispositivos ou sistemas intermediários, como dispositivos de borda e sistemas de cabeça-end. Crie IoT Central ponte de dispositivo para conectar dispositivos, que não podem ser conectados diretamente. A ponte de dispositivo IoT Central é uma solução de software livre e você pode encontrar os detalhes completos [aqui](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
-
-
-## <a name="iot-central-platform"></a>Plataforma IoT Central
-
-O Azure IoT Central é uma plataforma que simplifica a criação de sua solução de IoT e ajuda a reduzir a carga e os custos de gerenciamento, operações e desenvolvimento de IoT. Com o IoT Central, você pode facilmente conectar, monitorar e gerenciar seus ativos de Internet das Coisas (IoT) em escala. Depois de conectar seus medidores inteligentes ao IoT Central, o modelo de aplicativo usa recursos internos, como modelos de dispositivo, comandos e painéis. O modelo de aplicativo também usa o armazenamento de IoT Central para cenários de caminho quente, como monitoramento de dados de medidor, análise, regras e visualização quase em tempo real. 
+Um contador inteligente é um dos dispositivos mais importantes entre todos os ativos energéticos. Regista e comunica dados sobre consumo de energia a serviços públicos para monitorização e outros casos de utilização, tais como a faturação e a resposta à procura. Com base no tipo de contador, pode ligar-se à IoT Central utilizando gateways ou outros dispositivos ou sistemas intermédios, tais dispositivos de borda e sistemas de extremidade da cabeça. Construa a ponte do dispositivo Central IoT para ligar dispositivos, que não podem ser ligados diretamente. A ponte do dispositivo IoT Central é uma solução de código aberto e você pode encontrar os detalhes completos [aqui](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
 
 
-## <a name="extensibility-options-to-build-with-iot-central"></a>Opções de extensibilidade para criar com IoT Central
-A plataforma IoT Central fornece duas opções de extensibilidade: CDE (exportação de dados contínuas) e APIs. Os clientes e parceiros podem escolher entre essas opções com base para personalizar suas soluções para necessidades específicas. Por exemplo, um de nossos parceiros configuraram o CDE com Azure Data Lake Storage (ADLS). Eles estão usando ADLS para retenção de dados de longo prazo e outros cenários de armazenamento de caminho frio, tais processos de processamento em lote, auditoria e relatórios. 
+## <a name="iot-central-platform"></a>Plataforma Central IoT
+
+A Azure IoT Central é uma plataforma que simplifica a construção da sua solução IoT e ajuda a reduzir os encargos e custos da gestão, operações e desenvolvimento de IoT. Com a IoT Central, pode facilmente conectar, monitorizar e gerir os seus ativos de Internet das Coisas (IoT) em escala. Depois de ligar os seus contadores inteligentes à IoT Central, o modelo de aplicação utiliza funcionalidades incorporadas, tais como modelos de dispositivos, comandos e dashboards. O modelo de aplicação também utiliza o armazenamento IoT Central para cenários de caminhos quentes, tais como monitorização de dados, análise, regras e visualização de contadores em tempo real. 
+
+
+## <a name="extensibility-options-to-build-with-iot-central"></a>Opções de exibilidade para construir com a IoT Central
+A plataforma IoT Central fornece duas opções de extebilidade: Exportação Contínua de Dados (CDE) e APIs. Os clientes e parceiros podem escolher entre estas opções com base em personalizar as suas soluções para necessidades específicas. Por exemplo, um dos nossos parceiros configurou o CDE com o Armazenamento do Lago De Dados Azure (ADLS). Estão a usar ADLS para retenção de dados a longo prazo e outros cenários de armazenamento de caminhos frios, tais como o processamento de lotes, auditoria e comunicação. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Agora que você aprendeu sobre a arquitetura, [crie um aplicativo de medidor inteligente gratuitamente](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Para saber mais sobre IoT Central, consulte [IOT central visão geral](https://docs.microsoft.com/azure/iot-central/)
+* Agora que aprendeu sobre a arquitetura, [crie uma aplicação de contadores inteligentes gratuitamente](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
+* Para saber mais sobre a IoT Central, consulte a [visão geral da IoT Central](https://docs.microsoft.com/azure/iot-central/)

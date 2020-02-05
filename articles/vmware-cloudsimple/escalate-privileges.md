@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-escalonar privilégios de CloudSimple
-description: Descreve como escalonar permissões de CloudSimple para executar funções administrativas no vCenter de nuvem privada
+title: Azure VMware Solutions (AVS) - Escalar privilégios AVS
+description: Descreve como escalar as permissões avs para executar funções administrativas no VCenter De Nuvem Privada AVS
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 36c6969ed89d0bb9222f52aa81de0d4128b9e533
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 90dd61fc9856978bab0b68de19d48493a8e0c5fd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76542853"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025338"
 ---
-# <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>Escalonar privilégios de CloudSimple para executar funções administrativas no vCenter de nuvem privada
+# <a name="escalate-avs-privileges-to-perform-administrative-functions-in-avs-private-cloud-vcenter"></a>Escalar privilégios AVS para executar funções administrativas em AVS Private Cloud vCenter
 
-A abordagem de privilégios CloudSimple foi projetada para dar aos usuários do vCenter os privilégios necessários para executar operações normais. Em alguns casos, um usuário pode exigir privilégios adicionais para executar uma tarefa específica.  Você pode escalonar privilégios de um usuário do SSO do vCenter por um período limitado.
+A abordagem de privilégios AVS foi concebida para dar aos utilizadores vCenter os privilégios de que necessitam para realizar operações normais. Em alguns casos, um usuário pode exigir privilégios adicionais para executar uma tarefa específica. Você pode escalonar privilégios de um usuário do SSO do vCenter por um período limitado.
 
 Os motivos para escalonar privilégios podem incluir o seguinte:
 
@@ -30,11 +30,10 @@ Os motivos para escalonar privilégios podem incluir o seguinte:
 > [!WARNING]
 > As ações executadas no estado de privilégio escalonado podem afetar negativamente o sistema e podem fazer com que o sistema fique indisponível. Execute apenas as ações necessárias durante o período de escalonamento.
 
-No portal do CloudSimple, [escalonar privilégios](escalate-private-cloud-privileges.md) para o usuário local CLOUDOWNER no SSO do vCenter.  Você pode escalar o privilégio de usuário remoto somente se o provedor de identidade adicional estiver configurado no vCenter.  O escalonamento de privilégios envolve a adição do usuário selecionado ao grupo de administradores internos vSphere.  Somente um usuário pode ter privilégios escalonados.  Se você precisar escalonar os privilégios de outro usuário, primeiro desescale os privilégios dos usuários atuais.
+A partir do portal AVS, aumente os [privilégios](escalate-private-cloud-privileges.md) para o utilizador local CloudOwner no vCenter SSO. Você pode escalar o privilégio de usuário remoto somente se o provedor de identidade adicional estiver configurado no vCenter. O escalonamento de privilégios envolve a adição do usuário selecionado ao grupo de administradores internos vSphere. Somente um usuário pode ter privilégios escalonados. Se você precisar escalonar os privilégios de outro usuário, primeiro desescale os privilégios dos usuários atuais.
 
 Os usuários de fontes de identidade adicionais devem ser adicionados como membros do grupo CloudOwner.
 
 > [!CAUTION]
 > Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Somente as contas de serviço devem ser adicionadas ao grupo de *Administradores* e as contas de serviço não devem ser usadas para entrar na interface do usuário da Web do amvSphere.
-
-Durante o período de escalonamento, o CloudSimple usa o monitoramento automatizado com notificações de alerta associadas para identificar quaisquer alterações involuntárias no ambiente.
+Durante o período de escalada, a AVS utiliza monitorização automatizada com notificações de alerta associadas para identificar quaisquer alterações inadvertidas no ambiente.

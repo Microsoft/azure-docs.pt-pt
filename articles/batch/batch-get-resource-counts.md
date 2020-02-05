@@ -2,19 +2,19 @@
 title: Contar Estados para tarefas e nós-Azure batch | Microsoft Docs
 description: Conte o estado das tarefas do lote do Azure e nós de computação para ajudar a gerenciar e monitorar soluções de lote.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 5e90045b7863968e8c61c3cbc382434bc8be415a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a7b58e96918d26851812aa96c18043121c081e94
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029698"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023927"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorar soluções de lote por meio da contagem de tarefas e nós por Estado
 

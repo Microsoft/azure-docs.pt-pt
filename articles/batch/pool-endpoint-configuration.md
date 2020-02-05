@@ -2,18 +2,18 @@
 title: Configurar pontos de extremidade de nó no pool do lote do Azure | Microsoft Docs
 description: Como configurar ou desabilitar o acesso a portas SSH ou RDP em nós de computação em um pool do lote do Azure.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: jushiman
-ms.openlocfilehash: 1ac4c7647125cd6164235e98a4a828f6b072cbee
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 098ccf999391412520989c4ec2433fd73bc0a72d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029460"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017229"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar ou desabilitar o acesso remoto para nós de computação em um pool do lote do Azure
 

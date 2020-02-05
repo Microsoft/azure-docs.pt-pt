@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: jgao
-ms.openlocfilehash: 5aa2f06d24a54a4ee5ea01330d3326f76faa41ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b3c4110c8761b3e8daf324d65ac7fa1dcbcdf61f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478100"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023502"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Fornecer configurações pós-implantação usando extensões
 
@@ -22,7 +22,7 @@ As extensões existentes são:
 
 - [Microsoft.Compute/virtualMachines/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
 - [VirtualMachineScaleSets/extensões Microsoft. Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
-- [Clusters/extensões do Microsoft. HDInsight](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters/extensions)
+- [Clusters/extensões do Microsoft. HDInsight](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters)
 - [Servidores/bancos de dados/extensões Microsoft. SQL](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
 - [Microsoft.Web/sites/siteextensions](https://docs.microsoft.com/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
 

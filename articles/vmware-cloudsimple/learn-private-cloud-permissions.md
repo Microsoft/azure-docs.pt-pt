@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple – modelo de permissão de nuvem privada
-description: Descreve o modelo, os grupos e as categorias de permissão da nuvem privada do CloudSimple
+title: Soluções Azure VMware (AVS) - Modelo de permissão de permissão AVS Private Cloud
+description: Descreve o modelo de permissão de permissão, grupos e categorias de permissão DaVs Private Cloud
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,39 +8,39 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9488c59ead23fb68633ccc56a0df905ebfeea079
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544315"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014951"
 ---
-# <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permissão de nuvem privada do CloudSimple do VMware vCenter
+# <a name="avs-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permissão de nuvem privada AVS do VMware vCenter
 
-O CloudSimple mantém o acesso administrativo total ao ambiente de nuvem privada. Cada cliente do CloudSimple recebe privilégios administrativos suficientes para poder implantar e gerenciar as máquinas virtuais em seu ambiente.  Se necessário, você pode escalonar seus privilégios temporariamente para executar funções administrativas.
+A AVS mantém acesso administrativo total ao ambiente DaVs Private Cloud. A cada cliente AVS é concedido privilégios administrativos suficientes para poder implantar e gerir as máquinas virtuais no seu ambiente. Se necessário, você pode escalonar seus privilégios temporariamente para executar funções administrativas.
 
 ## <a name="cloud-owner"></a>Proprietário da nuvem
 
-Quando você cria uma nuvem privada, um usuário **CloudOwner** é criado no domínio de logon único do vCenter, com acesso de **função de proprietário de nuvem** para gerenciar objetos na nuvem privada. Esse usuário também pode configurar fontes de [identidade](set-vcenter-identity.md)adicionais do vCenter e outros usuários para a nuvem privada do vCenter.
+Ao criar uma Nuvem Privada AVS, um utilizador **cloudOwner** é criado no domínio de sign-on single vCenter, com acesso **Cloud-Owner-Role** para gerir objetos na Nuvem Privada AVS. Este utilizador também pode configurar fontes de [identidade vCenter](set-vcenter-identity.md)adicionais, e outros utilizadores para o VCenter De Nuvem Privada AVS.
 
 > [!NOTE]
-> O usuário padrão para seu vCenter de nuvem privada do CloudSimple é cloudowner@cloudsimple.local quando uma nuvem privada é criada.
+> O utilizador padrão para o seu VCenter De Nuvem Privada AVS é cloudowner@AVS.local quando é criada uma Nuvem Privada AVS.
 
 ## <a name="user-groups"></a>Grupos de Utilizadores
 
-Um grupo chamado **Cloud-Owner-Group** é criado durante a implantação de uma nuvem privada. Os usuários nesse grupo podem administrar várias partes do ambiente vSphere na nuvem privada. Esse grupo recebe automaticamente os privilégios de **função de proprietário da nuvem** e o usuário **CloudOwner** é adicionado como um membro desse grupo.  O CloudSimple cria grupos adicionais com privilégios limitados para facilitar o gerenciamento.  Você pode adicionar qualquer usuário a esses grupos criados previamente e os privilégios definidos abaixo são automaticamente atribuídos aos usuários nos grupos.
+Um grupo chamado **Cloud-Owner-Group** é criado durante a implantação de uma Nuvem Privada AVS. Os utilizadores deste grupo podem administrar várias partes do ambiente vSphere na Nuvem Privada AVS. Esse grupo recebe automaticamente os privilégios de **função de proprietário da nuvem** e o usuário **CloudOwner** é adicionado como um membro desse grupo. A AVS cria grupos adicionais com privilégios limitados para facilitar a gestão. Você pode adicionar qualquer usuário a esses grupos criados previamente e os privilégios definidos abaixo são automaticamente atribuídos aos usuários nos grupos.
 
 ### <a name="pre-created-groups"></a>Grupos pré-criados
 
 | Nome do grupo | Finalidade | Função |
 | -------- | ------- | ------ |
-| Grupo de proprietário da nuvem | Os membros deste grupo têm privilégios administrativos para a nuvem privada vCenter | [Nuvem-proprietário-função](#cloud-owner-role) |
-| Cloud-global-cluster-admin-Group | Os membros deste grupo têm privilégios administrativos no cluster do vCenter de nuvem privada | [Cloud-cluster-admin-role](#cloud-cluster-admin-role) |
-| Cloud-Global-Storage-admin-Group | Os membros deste grupo podem gerenciar o armazenamento na nuvem privada vCenter | [Cloud-Storage-admin-role](#cloud-storage-admin-role) |
-| Cloud-Global-Network-admin-Group | Os membros deste grupo podem gerenciar a rede e os grupos de portas distribuídas na nuvem privada vCenter | [Cloud-Network-admin-role](#cloud-network-admin-role) |
-| Cloud-global-VM-admin-Group | Os membros deste grupo podem gerenciar máquinas virtuais na nuvem privada vCenter | [Cloud-VM-admin-role](#cloud-vm-admin-role) |
+| Grupo de proprietário da nuvem | Membros deste grupo têm privilégios administrativos para o AVS Private Cloud vCenter | [Nuvem-proprietário-função](#cloud-owner-role) |
+| Cloud-global-cluster-admin-Group | Membros deste grupo têm privilégios administrativos no Cluster AVS Private Cloud vCenter | [Cloud-cluster-admin-role](#cloud-cluster-admin-role) |
+| Cloud-Global-Storage-admin-Group | Membros deste grupo podem gerir o armazenamento no AVS Private Cloud vCenter | [Cloud-Storage-admin-role](#cloud-storage-admin-role) |
+| Cloud-Global-Network-admin-Group | Os membros deste grupo podem gerir a rede e distribuir grupos portuários no AVS Private Cloud vCenter | [Cloud-Network-admin-role](#cloud-network-admin-role) |
+| Cloud-global-VM-admin-Group | Membros deste grupo podem gerir máquinas virtuais no VCenter De Nuvem Privada AVS | [Cloud-VM-admin-role](#cloud-vm-admin-role) |
 
-Para conceder permissões a usuários individuais para gerenciar a nuvem privada, crie contas de usuário adicionar aos grupos apropriados.
+Para conceder permissões individuais aos utilizadores para gerir a Nuvem Privada AVS, crie contas de utilizador adicionando aos grupos apropriados.
 
 > [!CAUTION]
 > Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Somente as contas de serviço devem ser adicionadas ao grupo de *Administradores* e as contas de serviço não devem ser usadas para entrar na interface do usuário da Web do amvSphere.
@@ -86,7 +86,7 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Provisionamento de > de máquina virtual** | Permitir acesso ao disco <br> Permitir acesso a arquivos <br> Permitir acesso ao disco somente leitura <br> Permitir download de máquina virtual <br> Permitir carregamento de arquivos de máquina virtual <br> Clonar modelo <br> Clonar máquina virtual <br> Criar modelo a partir da máquina virtual <br> Personalizar <br> Implementar o modelo <br> Marcar como modelo <br> Marcar como máquina virtual <br> Modificar especificação de personalização <br> Promover discos <br> Ler especificações de personalização |
 | **Configuração do serviço de > de máquina virtual** | Permitir notificações <br> Permitir sondagem de notificações de eventos globais <br> Gerenciar configurações de serviço <br> Modificar configuração de serviço <br> Configurações do serviço de consulta <br> Ler configuração de serviço |
 | **Gerenciamento de instantâneos de > de máquina virtual** | Criar instantâneo <br> Remover instantâneo <br> Renomear instantâneo <br> Reverter para instantâneo |
-| **Replicação vSphere de máquina virtual >** | Configurar a replicação <br> Gerir a replicação <br> Monitorizar a replicação |
+| **Replicação vSphere de máquina virtual >** | Configurar a replicação <br> Gerir a replicação <br> Replicação do monitor |
 | **vService** | Criar dependência <br> Destruir dependência <br> Reconfigurar a configuração de dependência <br> Atualizar dependência |
 
 ### <a name="cloud-cluster-admin-role"></a>Cloud-cluster-admin-role
@@ -108,7 +108,7 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Provisionamento de > de máquina virtual** | Permitir acesso ao disco <br> Permitir acesso a arquivos <br> Permitir acesso ao disco somente leitura <br> Permitir download de máquina virtual <br> Permitir carregamento de arquivos de máquina virtual <br> Clonar modelo <br> Clonar máquina virtual <br> Criar modelo a partir da máquina virtual <br> Personalizar <br> Implementar o modelo <br> Marcar como modelo <br> Marcar como máquina virtual <br> Modificar especificação de personalização <br> Promover discos  <br> Ler especificações de personalização |
 | **Configuração do serviço de > de máquina virtual** | Permitir notificações <br> Permitir sondagem de notificações de eventos globais <br> Gerenciar configurações de serviço <br> Modificar configuração de serviço <br> Configurações do serviço de consulta <br> Ler configuração de serviço
 | **Gerenciamento de instantâneos de > de máquina virtual** | Criar instantâneo <br> Remover instantâneo <br> Renomear instantâneo <br> Reverter para instantâneo |
-| **Replicação vSphere de máquina virtual >** | Configurar a replicação <br> Gerir a replicação <br> Monitorizar a replicação |
+| **Replicação vSphere de máquina virtual >** | Configurar a replicação <br> Gerir a replicação <br> Replicação do monitor |
 | **vService** | Criar dependência <br> Destruir dependência <br> Reconfigurar a configuração de dependência <br> Atualizar dependência |
 
 ### <a name="cloud-storage-admin-role"></a>Cloud-Storage-admin-role
@@ -144,5 +144,5 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Provisionamento de > de máquina virtual** | Permitir acesso ao disco <br> Permitir acesso a arquivos <br> Permitir acesso ao disco somente leitura <br> Permitir download de máquina virtual <br> Permitir carregamento de arquivos de máquina virtual <br> Clonar modelo <br> Clonar máquina virtual <br> Criar modelo a partir da máquina virtual <br> Personalizar <br> Implementar o modelo <br> Marcar como modelo <br> Marcar como máquina virtual <br> Modificar especificação de personalização <br> Promover discos <br> Ler especificações de personalização |
 | **Configuração do serviço de > de máquina virtual** | Permitir notificações <br> Permitir sondagem de notificações de eventos globais <br> Gerenciar configurações de serviço <br> Modificar configuração de serviço <br> Configurações do serviço de consulta <br> Ler configuração de serviço
 | **Gerenciamento de instantâneos de > de máquina virtual** | Criar instantâneo <br> Remover instantâneo <br> Renomear instantâneo <br> Reverter para instantâneo |
-| **Replicação vSphere de máquina virtual >** | Configurar a replicação <br> Gerir a replicação <br> Monitorizar a replicação |
+| **Replicação vSphere de máquina virtual >** | Configurar a replicação <br> Gerir a replicação <br> Replicação do monitor |
 | **vService** | Criar dependência <br> Destruir dependência <br> Reconfigurar a configuração de dependência <br> Atualizar dependência |

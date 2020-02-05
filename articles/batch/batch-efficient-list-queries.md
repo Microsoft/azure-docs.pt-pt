@@ -3,8 +3,8 @@ title: Criar consultas de lista eficientes – lote do Azure | Microsoft Docs
 description: Aumente o desempenho filtrando suas consultas ao solicitar informações sobre recursos do lote, como pools, trabalhos, tarefas e nós de computação.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d853302ebb0961f9e5fda9f5ecc41f3a26351170
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: df923ac479ce5f5a3668c18c616b11348dc6c0b3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027095"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022244"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar recursos do lote com eficiência
 

@@ -1,54 +1,54 @@
 ---
-title: Organizar aplicativos usando espaços de trabalho do portal meus aplicativos (versão prévia)-Azure Active Directory | Microsoft Docs
-description: Saiba como acessar e usar espaços de trabalho para aplicativos baseados em nuvem da sua organização no portal meus aplicativos (versão prévia).
+title: Organize aplicações utilizando coleções do portal My Apps - Azure Ative Directory [ Diretório Ativo Do Azure ] Microsoft Docs
+description: Saiba como aceder e utilizar coleções para aplicações baseadas na nuvem da sua organização a partir do portal My Apps.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: kasimpso
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 818e9a36f54e67ba1ea872394d470f2386485e2f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 49c5566454a93307dedd150a3508b33dbd7506e6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705042"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022363"
 ---
-# <a name="access-and-use-workspaces-on-the-my-apps-preview-portal"></a>Acessar e usar espaços de trabalho no portal meus aplicativos (versão prévia)
+# <a name="use-collections-in-the-my-apps-portal"></a>Use coleções no portal My Apps
 
-Os espaços de trabalho são exibições de aplicativo diferentes que você vê no portal **meus aplicativos** (versão prévia). Os aplicativos podem ser agrupados em espaços de trabalho por função de departamento ou função de usuário, por exemplo. Se você não vir espaços de trabalho ou categorias disponíveis, significa que o administrador não configurou nem compartilhou nenhum com você. Entre em contato com o suporte técnico da sua organização para obter assistência adicional ou permissões para ver espaços de trabalho compartilhados.
+Espaços de trabalho são diferentes vistas de aplicativos que você vê no portal **My Apps.** As aplicações podem ser agrupadas em coleções por função do departamento ou função do utilizador, por exemplo. Se não vir nenhuma coleção ou categoria disponível, significa que o seu administrador não criou ou partilhou nenhuma com você. Contacte o Helpdesk da sua organização para obter assistência adicional ou permissões para ver coleções partilhadas.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Este conteúdo destina-se aos utilizadores **das Minhas Apps.** Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
 
-## <a name="access-apps-using-workspaces"></a>Acessar aplicativos usando espaços de trabalho
+## <a name="access-apps-using-collections"></a>Aplicativos de acesso usando coleções
 
-A lista de espaços de trabalho no portal **meus aplicativos** é padronizada para mostrar um chamado **todos os aplicativos**, que tem todos os aplicativos aos quais você tem acesso:
+A lista de coleções no portal **My Apps** não apresenta uma chamada **All Apps,** que tem todas as aplicações a que tem acesso:
 
 ![Página todos os aplicativos no portal meus aplicativos](media/my-applications-portal-workspaces/my-apps-all.png)
 
-Qualquer outro espaço de trabalho que você vê nessa lista foi criado por seu administrador e compartilhado com você. Você pode escolher um desses espaços de trabalho para ver um conjunto de aplicativos com mais escopo, como *suporte* no exemplo a seguir:
+Qualquer outra coleção que veja nesta lista foi criada pelo seu administrador e partilhada consigo. Pode escolher uma dessas coleções para ver um conjunto de aplicações mais ampla, como *o Suporte* no seguinte exemplo:
 
-![Espaço de trabalho individual e conjunto de aplicativos com escopo no portal meus aplicativos](media/my-applications-portal-workspaces/my-apps-workspace.png)
+![Coleção individual e conjunto de aplicações no portal My Apps](media/my-applications-portal-workspaces/my-apps-workspace.png)
 
-Ao selecionar e exibir um espaço de trabalho, você verá apenas os aplicativos padrão aos quais você tem acesso.
+Ao selecionar e ver uma coleção, basta ver as aplicações predefinidas a que tem acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Depois de organizar seus aplicativos em várias categorias no portal **meus aplicativos** , você pode:
 
-- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para obter mais informações, consulte [Editar ou revogar permissões de aplicativo no portal meus aplicativos (versão prévia)](my-applications-portal-permissions-saved-accounts.md).
+- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para mais informações, consulte [Editar ou revogar permissões](my-applications-portal-permissions-saved-accounts.md)de aplicação no portal My Apps .
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Atualize suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais que aparecem no portal **meu perfil** (versão prévia).
+- [Atualize suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar as suas informações pessoais que aparecem no portal **My Profile.**
 
 - [Gerencie suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **organizações** do meu portal do **meu perfil** .
 

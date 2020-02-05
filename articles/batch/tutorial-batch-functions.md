@@ -1,19 +1,19 @@
 ---
 title: Disparar um trabalho em lotes usando Azure Functions
 description: Tutorial – aplicar OCR a documentos digitalizados conforme eles são adicionados a um blob de armazenamento
-author: ju-shim
+author: LauraBrenner
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: e3c85d7dfceecfb85223a9688debf4e8937e7c35
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a967fdc14b85f294ee11cbcc57a8d2280dba38e8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275975"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017195"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: disparar um trabalho em lotes usando Azure Functions
 
@@ -42,7 +42,7 @@ Nesta seção, você usará Batch Explorer para criar o pool do lote e o trabalh
     1. Defina o tipo de escala como **tamanho fixo**e defina a contagem de nós dedicados como 3.
     1. Selecione **Ubuntu 18, 4-LTS** como o sistema operacional.
     1. Escolha `Standard_f2s_v2` como o tamanho da máquina virtual.
-    1. Habilite a tarefa inicial e adicione o comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Certifique-se de definir a identidade do usuário como **usuário padrão da tarefa (admin)** , que permite que as tarefas iniciais incluam comandos com `sudo`.
+    1. Ative a tarefa inicial e adicione o comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Certifique-se de definir a identidade do usuário como **usuário padrão da tarefa (admin)** , que permite que as tarefas iniciais incluam comandos com `sudo`.
     1. Selecione **OK**.
 ### <a name="create-a-job"></a>Criar uma tarefa
 
@@ -81,7 +81,7 @@ Nesta seção, você criará a função do Azure que dispara o trabalho do lote 
 
 ## <a name="trigger-the-function-and-retrieve-results"></a>Disparar a função e recuperar os resultados
 
-Carregue um ou todos os arquivos digitalizados do diretório [`input_files`](https://github.com/Azure-Samples/batch-functions-tutorial/tree/master/input_files) no GitHub para seu contêiner de entrada. Monitor Batch Explorer para confirmar que uma tarefa é adicionada ao `ocr-pool` para cada arquivo. Depois de alguns segundos, o arquivo com OCR aplicado é adicionado ao contêiner de saída. O arquivo é então visível e recuperável em Gerenciador de Armazenamento.
+Faça upload de todos ou todos os ficheiros digitalizados do diretório [`input_files`](https://github.com/Azure-Samples/batch-functions-tutorial/tree/master/input_files) no GitHub para o seu recipiente de entrada. Monitor Batch Explorer para confirmar que uma tarefa é adicionada ao `ocr-pool` para cada arquivo. Depois de alguns segundos, o arquivo com OCR aplicado é adicionado ao contêiner de saída. O arquivo é então visível e recuperável em Gerenciador de Armazenamento.
 
 Além disso, você pode observar o arquivo de logs na parte inferior da janela do editor da Web Azure Functions, em que você verá mensagens como esta para cada arquivo que carregar para o contêiner de entrada:
 

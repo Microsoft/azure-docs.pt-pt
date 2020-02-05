@@ -11,12 +11,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae0e87fddabee9f42cbb5506dce4cd7a5f4f082
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 742bc307c90ad58b83b7d4c92f9546b87c163c3b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64918844"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019286"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Mova a base de dados do Azure AD Connect do SQL Server Express para o SQL Server 
 
@@ -25,24 +25,24 @@ Este documento descreve como mover a base de dados do Azure AD Connect do servid
 ## <a name="about-this-scenario"></a>Acerca deste cenário
 Seguem-se algumas informações breves sobre este cenário.  Neste cenário, a versão do Azure AD Connect (1.1.819.0) está instalada num controlador de domínio do Windows Server 2016 único.  Está a utilizar o SQL Server 2012 Express Edition incorporado na respetiva base de dados.  A base de dados será movida para um servidor do SQL Server de 2017.
 
-![Arquitetura do cenário](media/how-to-connect-install-move-db/move1.png)
+![arquitetura de cenário](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>Mova a base de dados do Azure AD Connect
 Utilize os seguintes passos para mover a base de dados do Azure AD Connect para um SQL Server remoto.
 
 1. No servidor do Azure AD Connect, aceda a **Serviços** e pare o serviço **Microsoft Azure AD Sync**.
-2. Localize a **% Program Files%\Microsoft do Azure AD Sync/dados/** pastas e copia o **ADSync.mdf** e **ADSync_log.ldf** ficheiros para o SQL Server remoto.
+2. Localize a pasta **%ProgramFiles%\Microsoft Azure AD Sync\Data** e copie os ficheiros **ADSync.mdf** e **ADSync_log.ldf** para o servidor Remoto SQL.
 3. Reinicie o serviço **Microsoft Azure AD Sync** no servidor do Azure AD Connect.
 4. Desinstale o Azure AD Connect ao aceder ao Painel de Controlo - Programas - Programas e Funcionalidades.  Selecione o Microsoft Azure AD Connect e clique em desinstalar na parte superior.
 5. No SQL server remoto, abra o SQL Server Management Studio.
 6. Nas Bases de dados, clique com o botão direito do rato e selecione Anexar.
 7. No ecrã **Anexar Bases de Dados**, clique em **Adicionar** e navegue para o ficheiro ADSync.mdf.  Clique em **OK**.
-   ![anexar a base de dados](media/how-to-connect-install-move-db/move2.png)
+   ![anexar](media/how-to-connect-install-move-db/move2.png) de base de dados
 
 8. Depois de anexar a base de dados, volte para o servidor do Azure AD Connect e instale o Azure AD Connect.
 9. Assim que a instalação do MSI estiver concluída, o assistente do Azure AD Connect é iniciado com a configuração do modo Express. Feche o ecrã ao clicar no ícone Sair.
    ![Bem-vindo](./media/how-to-connect-install-move-db/db1.png)
-10. Inicie uma nova linha de comandos ou a sessão do PowerShell. Navegue até à pasta \<unidade > \Programas\Microsoft do Azure AD Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Utilizar base de dados existente".
+10. Inicie uma nova linha de comandos ou a sessão do PowerShell. Navegue para pasta \<ficheiros drive>\program\Microsoft Azure AD Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Utilizar base de dados existente".
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. É recebido com o ecrã de Boas-vindas ao Azure AD Connect. Depois de aceitar os termos de licenciamento e o aviso de privacidade, clique em **Continuar**.
     ![Bem-vindo](./media/how-to-connect-install-move-db/db3.png)
@@ -70,7 +70,7 @@ Utilize os seguintes passos para mover a base de dados do Azure AD Connect para 
  
 18. Assim que a instalação estiver concluída, o servidor do Azure AD Connect é ativado automaticamente para o Modo de Teste. É recomendado que reveja se existem alterações inesperadas na configuração do servidor e nas exportações pendentes antes de desativar o Modo de Teste. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
 - [Instalar o Azure AD Connect com uma base de dados ADSync existente](how-to-connect-install-existing-database.md)

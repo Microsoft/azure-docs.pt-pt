@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas de erros encontrados 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 6baf878a1afac011997800b78f059e254e3f2a06
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9dbb76b3c0bb6c0ff1f4fb51fbf4846b74a3a1f3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845530"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019100"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -278,6 +278,6 @@ O backup da VM depende de emitir comandos de instantâneo para o armazenamento s
 O DHCP deve ser habilitado dentro do convidado para que o backup da VM IaaS funcione. Se você precisar de um IP privado estático, configure-o por meio do portal do Azure ou do PowerShell. Verifique se a opção DHCP dentro da VM está habilitada.
 Obtenha mais informações sobre como configurar um IP estático por meio do PowerShell:
 
-* [Como adicionar um IP interno estático a uma VM existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Como adicionar um IP interno estático a uma VM existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * [Alterar o método de alocação para um endereço IP privado atribuído a uma interface de rede](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 

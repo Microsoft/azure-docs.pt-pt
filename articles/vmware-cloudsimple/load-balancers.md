@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-escolha uma solução de balanceamento de carga para nuvens privadas do CloudSimple
-description: Descreve as opções de balanceamento de carga implantando um aplicativo em uma nuvem privada
+title: Azure VMware Solutions (AVS) - Escolha uma solução de equilíbrio de carga para Nuvens Privadas AVS
+description: Descreve as opções de equilíbrio de carga que implementam uma aplicação numa Nuvem Privada AVS
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,34 +8,34 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 405bc9d95b8d82e2181e2fb828d6bcc00c8c4639
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045727"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014883"
 ---
-# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Escolher uma solução de balanceamento de carga para nuvens privadas do CloudSimple
+# <a name="choose-a-load-balancing-solution-for-avs-private-clouds"></a>Escolha uma solução de equilíbrio de carga para AVS Private Clouds
 
-Ao implantar um aplicativo em uma nuvem privada do CloudSimple, você pode escolher qualquer uma das várias opções para o balanceamento de carga.
+Ao implementar uma aplicação numa Nuvem Privada AVS, pode escolher qualquer uma das várias opções para equilibrar a carga.
 
-Você pode escolher um balanceador de carga baseado em software ou virtual em sua nuvem privada do CloudSimple ou até mesmo usar o Azure L7 Load Balancer em execução na sua assinatura do Azure para front-end suas VMs de camada da Web em execução na nuvem privada do CloudSimple. Aqui, listamos algumas opções:
+Pode escolher um equilibrador de carga virtual ou baseado em software na sua nuvem privada AVS ou até mesmo utilizar o equilíbrio de carga Azure L7 a funcionar na sua subscrição Azure para frontalizar os Seus VMs de nível web em execução na Nuvem Privada AVS. Aqui, listamos algumas opções:
 
 ## <a name="virtual-load-balancers"></a>Balanceadores de carga virtuais
 
 Você pode implantar dispositivos de balanceador de carga virtual em seu ambiente VMware por meio da interface do vCenter e configurá-los para front-end do tráfego do aplicativo.
 
-Alguns fornecedores populares são: NginX: http://nginx.org/en/docs/http/load_balancing.html F5-BigIP-Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC: https://www.citrix.com/products/citrix-adc/
+Alguns vendedores populares são: NginX: http://nginx.org/en/docs/http/load_balancing.html F5- BigIP - Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC: https://www.citrix.com/products/citrix-adc/
 
 ## <a name="azure-l7-load-balancer"></a>Balanceador de carga L7 do Azure
 
-Ao usar Aplicativo Azure Gateway como um balanceador de carga L7 para seu aplicativo em execução em uma nuvem privada, você não precisa gerenciar o software do balanceador de carga. O software do balanceador de carga é gerenciado pelo Azure. Todas as VMs da camada da Web na nuvem privada usam endereços IP privados e não exigem regras NAT adicionais ou endereços IPs públicos para resolver nomes. As VMs da camada da Web se comunicam com o gateway de Aplicativo Azure por uma conexão privada, de baixa latência e de largura de banda alta.
+Quando utiliza o Portal de Aplicações Azure como um balancedor de carga L7 para a sua aplicação em funcionamento numa Nuvem Privada AVS, não precisa de gerir o software de equilíbrio de carga. O software do balanceador de carga é gerenciado pelo Azure. Todos os VMs de nível web na Nuvem Privada AVS usam endereços IP privados e não requerem regras nat adicionais ou endereços de IPs públicos para resolver nomes. As VMs da camada da Web se comunicam com o gateway de Aplicativo Azure por uma conexão privada, de baixa latência e de largura de banda alta.
 
 Para saber mais sobre como configurar essa solução, consulte o guia de solução sobre como usar Aplicativo Azure Gateway como um balanceador de carga L7.
 
 ## <a name="azure-internal-load-balancer"></a>Balanceador de carga interno do Azure
 
-Se você optar por executar seu aplicativo em uma implantação híbrida em que a camada de front-end da Web está sendo executada em uma vNet do Azure em sua assinatura do Azure e a camada de BD do aplicativo estiver sendo executada em VMs VMware na nuvem privada do CloudSimple, você poderá usar a carga interna do Azure balanceador (balanceador de carga L4) na frente de suas VMs de camada de BD para o gerenciamento de tráfego.
+Se optar por executar a sua aplicação numa implementação híbrida onde o nível frontal da web está a funcionar dentro de um Azure vNet na sua subscrição Azure e o nível DB da aplicação está a funcionar em VMware VMs em AVS Private Cloud, pode utilizar o equilíbrio de carga interna Azure (L L), pode utilizar o equilíbrio dorde carga interno Azure (L L). 4 equilibradores de carga) em frente aos seus VMs de nível DB para gestão de tráfego.
 
 Para saber mais, consulte a documentação de [Load balancer interno](../load-balancer/concepts-limitations.md#internalloadbalancer) do Azure.
 

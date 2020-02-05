@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921920"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024658"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e Hospedagem de Azure Functions
 
@@ -26,7 +26,7 @@ Os planos de consumo e Premium adicionam capacidade de computação automaticame
 
 O plano Premium fornece recursos adicionais, como instâncias de computação Premium, a capacidade de manter instâncias quentes indefinidamente e conectividade VNet.
 
-O plano do serviço de aplicativo permite que você aproveite a infraestrutura dedicada, que você gerencia. Seu aplicativo de funções não é dimensionado com base em eventos, o que significa que nunca é dimensionado para zero. (Requer que o [Always on](#always-on) esteja habilitado.)
+O plano do serviço de aplicativo permite que você aproveite a infraestrutura dedicada, que você gerencia. A sua aplicação de funções não escala com base em eventos, o que significa que nunca é escala para zero. (Requer que o [Always on](#always-on) esteja habilitado.)
 
 ## <a name="hosting-plan-support"></a>Suporte ao plano de hospedagem
 
@@ -44,9 +44,9 @@ A tabela a seguir indica o nível de suporte atual para os três planos de hospe
 
 ## <a name="consumption-plan"></a>Plano de consumo
 
-Quando você estiver usando o plano de consumo, as instâncias do host Azure Functions serão adicionadas e removidas dinamicamente com base no número de eventos de entrada. Este plano sem servidor dimensiona automaticamente, sendo-lhe cobrados os recursos de computação apenas quando as suas funções estão em execução. Num plano de consumo, a execução de uma função excede o tempo limite após um período de tempo configurável.
+Quando você estiver usando o plano de consumo, as instâncias do host Azure Functions serão adicionadas e removidas dinamicamente com base no número de eventos de entrada. Este plano sem servidor escorre automaticamente e é cobrado pelos recursos da computação apenas quando as suas funções estão em execução. Num plano de consumo, uma execução de função passa após um período de tempo configurável.
 
-A faturação baseia-se no número de execuções, no tempo de execução e na memória utilizada. A faturação é agregada entre todas as funções, dentro de uma aplicação de funções. Para obter mais informações, consulte a [página de preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+A faturação baseia-se no número de execuções, tempo de execução e memória usadas. A faturação é agregada em todas as funções dentro de uma aplicação de função. Para obter mais informações, consulte a [página de preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 O plano de consumo é o plano de hospedagem padrão e oferece os seguintes benefícios:
 
@@ -152,7 +152,7 @@ A unidade de escala para Azure Functions é o aplicativo de funções. Quando o 
 
 O dimensionamento pode variar em vários fatores e escalar de maneira diferente com base no gatilho e no idioma selecionados. Há algumas complexidades de comportamentos de dimensionamento a serem considerados:
 
-* Uma aplicação de funções individual só é aumentada verticalmente para um máximo de 200 instâncias. No entanto, uma única instância pode processar mais de uma mensagem ou solicitação por vez, portanto, não há um limite definido no número de execuções simultâneas.
+* Uma única aplicação de função apenas se eleva para um máximo de 200 instâncias. No entanto, uma única instância pode processar mais de uma mensagem ou solicitação por vez, portanto, não há um limite definido no número de execuções simultâneas.
 * Para gatilhos HTTP, novas instâncias só serão alocadas no máximo uma vez a cada 1 segundo.
 * Para gatilhos não HTTP, novas instâncias só serão alocadas no máximo uma vez a cada 30 segundos.
 

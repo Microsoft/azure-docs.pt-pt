@@ -3,8 +3,8 @@ title: Visão geral para desenvolvedores – Azure batch | Microsoft Docs
 description: Conheça as funcionalidades do serviço Batch e das respetivas APIs de um ponto de vista de programação.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 08/29/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 6ea5ce71622e98b60d68c1680382dc63c767999d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 4d6c4ff06783489ea7b6c3488cf6746d579b4c6a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029771"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025950"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -353,7 +353,7 @@ Cada tarefa executada pelo serviço Batch tem acesso às variáveis de ambiente 
 
 Pode definir variáveis de ambiente personalizadas ao nível da tarefa ou do trabalho ao preencher a propriedade *definições de ambiente* dessas entidades. Por exemplo, consulte a operação [Adicionar uma tarefa a um trabalho][rest_add_task] (API REST do lote) ou as propriedades [CloudTask. EnvironmentSettings][net_cloudtask_env] e [CloudJob. CommonEnvironmentSettings][net_job_env] no .net do lote.
 
-O aplicativo ou serviço cliente pode obter as variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [obter informações sobre uma tarefa][rest_get_task_info] (REST do lote) ou acessando a propriedade [CloudTask. EnvironmentSettings][net_cloudtask_env] (.net do lote). Os processos em execução num nó de computação podem aceder a estas e outras variáveis de ambiente no nó, por exemplo, com a sintaxe familiar `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux) .
+O aplicativo ou serviço cliente pode obter as variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [obter informações sobre uma tarefa][rest_get_task_info] (REST do lote) ou acessando a propriedade [CloudTask. EnvironmentSettings][net_cloudtask_env] (.net do lote). Os processos em execução num nó de computação podem aceder a estas e outras variáveis de ambiente no nó, por exemplo, com a sintaxe familiar `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
 
 Você pode encontrar uma lista completa de todas as variáveis de ambiente definidas pelo serviço em [variáveis de ambiente do nó de computação][msdn_env_vars].
 
@@ -379,7 +379,7 @@ O diretório de raiz contém a seguinte estrutura de diretórios:
 
 * **WorkItems**: esse diretório contém os diretórios para trabalhos e suas tarefas no nó de computação.
 
-* **Tarefas**: dentro do diretório **WorkItems** , um diretório é criado para cada tarefa executada no nó. Ele é acessado referenciando a variável de ambiente `AZ_BATCH_TASK_DIR`.
+* **Tarefas**: dentro do diretório **WorkItems** , um diretório é criado para cada tarefa executada no nó. É acessado referindo-se à variável ambiente `AZ_BATCH_TASK_DIR`.
 
     Dentro do diretório de cada tarefa, o serviço Batch cria um diretório de trabalho (`wd`) cujo caminho exclusivo é especificado pela variável de ambiente `AZ_BATCH_TASK_WORKING_DIR`. Este diretório proporciona acesso de leitura/escrita à tarefa. A tarefa pode criar, ler, atualizar e eliminar ficheiros neste diretório. Este diretório é mantido com base na restrição *RetentionTime* especificada para a tarefa.
 
@@ -509,7 +509,7 @@ Também é possível que um problema intermitente faça com que uma tarefa pare 
 Pode iniciar sessão remotamente num nó de computação para realizar depurações e resolução de problemas adicionais. Pode utilizar o portal do Azure para transferir um ficheiro do protocolo RDP (Remote Desktop Protocol) para nós do Windows e obter informações de ligação Secure Shell (SSH) para nós do Linux. Você também pode fazer isso usando as APIs do lote – por exemplo, com o [lote .net][net_rdpfile] ou o [Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)do lote.
 
 > [!IMPORTANT]
-> Para ligar a um nó através de DRP ou SSH, tem de criar, primeiro, um utilizador no nó. Para fazer isso, você pode usar o portal do Azure, [Adicionar uma conta de usuário a um nó][rest_create_user] usando a API REST do lote, chamar o método [ComputeNode. CreateComputeNodeUser][net_create_user] no .net do lote ou chamar o método [Add_user][py_add_user] no módulo python do lote.
+> Para ligar a um nó através de DRP ou SSH, tem de criar, primeiro, um utilizador no nó. Para isso, pode utilizar o portal Azure, [adicionar uma conta de utilizador a um nó][rest_create_user] utilizando a API do Lote REST, ligar para o método [ComputeNode.CreateComputeNodeUser][net_create_user] em Batch .NET, ou chamar o [método add_user][py_add_user] no módulo Batch Python.
 >
 >
 

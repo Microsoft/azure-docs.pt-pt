@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: eec8e47e75a6c92be8f893af893761a9ccddc650
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910433"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025440"
 ---
 # <a name="localization-support-in-azure-maps"></a>Suporte à localização no Azure Maps
 
@@ -29,19 +29,19 @@ Os mapas do Azure foram localizados em uma variedade de linguagens entre os serv
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
-| bilhão-BD      | Bangla (Bangladeche)    |       |       |         |     ✓    |                   |                |
+| bilhão-BD      | Bangla (Bangladesh)    |       |       |         |     ✓    |                   |                |
 | bilhão-IN      | Bangla (Índia)         |       |       |         |     ✓    |                   |                |
 | BS-BA      | Bósnio                 |       |       |         |     ✓    |                   |                |
 | UE-ES      | Basco (Basco)                 |       |    ✓   |         |         |                   |                |
 | bg-BG      | Búlgaro              |   ✓   |    ✓   |    ✓    |     ✓     |                   |        ✓       |
 | ES de AC      | Catalão                |       |    ✓   |         |    ✓      |                   |                |
 | zh-HanS    | Chinês (Simplificado)   |       |  zh-CN |         |     zh-CN   |                   |                |
-| zh-HanT    | Chinês (RAE de Hong Kong)  |  |   |    |    zh-HK   |                   |           |
+| zh-HanT    | Chinês (Hong Kong SAR)  |  |   |    |    zh-HK   |                   |           |
 | zh-HanT    | Chinês (Taiwan)  | zh-TW |  zh-TW |  zh-TW  |    zh-TW   |                   |      zh-TW     |
 | RH de RH      | Croata               |       |    ✓   |         |    ✓      |                   |                |
 | cs-CZ      | Checo                  |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
 | da-DK      | Dinamarquês                 |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| NL-ser      | Neerlandês (Bélgica)        |       |    ✓   |         |      ✓    |                   |                |
+| NL-ser      | Holandês (Bélgica)        |       |    ✓   |         |      ✓    |                   |                |
 | NL-NL      | Holandês (Países Baixos)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | EN-AU      | Inglês (Austrália)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | EN-NZ      | Inglês (Nova Zelândia)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
@@ -64,15 +64,15 @@ Os mapas do Azure foram localizados em uma variedade de linguagens entre os serv
 | it-IT      | Italiano                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | ja-JP      | Japonês               |       |        |         |     ✓    |                   |                |
 | kN-IN      | Canarim                |       |       |         |     ✓    |                   |                |
-| kk-KZ      | Cazaquistanês                 |       |    ✓   |         |     ✓    |                   |                |
+| kk-KZ      | Cazaque                 |       |    ✓   |         |     ✓    |                   |                |
 | ko-KR      | Coreano                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
 | es-419     | Espanhol da América Latina |       |    ✓   |         |         |                   |                |
 | lv-LV      | Letão                |       |    ✓   |         |     ✓    |         ✓         |                |
 | lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | MK-MK      | Macedónio             |       |       |         |     ✓    |                   |                |
 | MS-MY      | Malaio (latino)          |   ✓   |    ✓   |    ✓    |    ✓   |                   |        ✓       |
-| Mr-IN      | Marati                 |       |       |         |     ✓    |                   |                |
-| nb-NO      | Norueguês Bokmål       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| Mr-IN      | Marata                 |       |       |         |     ✓    |                   |                |
+| nb-NO      | Bokmål norueguês       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | NGT        | Linguagem de aterramento neutra-idiomas oficiais para todas as regiões em scripts locais, se disponíveis |   ✓     |        |         |       |        |      ✓          |
 | NGT-Latn   | A terra neutra de verdade – latim exonyms. O script Latin será usado se estiver disponível |   ✓     |        |         |         |                |        ✓         |
 | pl-PL      | Polaco                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -101,13 +101,15 @@ Os mapas do Azure foram localizados em uma variedade de linguagens entre os serv
 ## <a name="azure-maps-supported-views"></a>Exibições com suporte do Azure Maps
 
 > [!Note]
-> O Azure Maps foi lançado nos seguintes países/regiões em 1º de agosto de 2019:
+> Em 1 de agosto de 2019, o Azure Maps foi lançado nos seguintes países/regiões:
 >  * Argentina
 >  * Índia
 >  * Marrocos
 >  * Paquistão
 >
-> Após 1º de agosto de 2019, a configuração de parâmetros de **exibição** definirá o conteúdo do mapa retornado para as novas regiões/países listados acima. Incentivamos você a garantir que tenha configurado o parâmetro de exibição conforme necessário para as APIs REST e SDKs que seus serviços estão usando.
+> Depois de 1 de agosto de 2019, o parâmetro **View** definirá o conteúdo do mapa devolvido para as novas regiões/países acima listados. O parâmetro de **exibição** do Azure Maps (também conhecido como "parâmetro de região do usuário") é um código de país ISO-3166 de duas letras que mostrará os mapas corretos para esse país/região especificando qual conjunto de conteúdo geoestruturado geoestruturado será retornado por meio dos serviços do Azure Maps, incluindo bordas e rótulos exibidos no mapa. 
+
+Certifique-se de que criou o parâmetro **'Ver'** conforme necessário para as APIs e SDKs rest que os seus serviços estão a utilizar.
 >  
 >
 >  **APIs REST:**
@@ -135,15 +137,12 @@ Os mapas do Azure foram localizados em uma variedade de linguagens entre os serv
 >    
 >  **SDK**
 >
->  Verifique se você configurou o parâmetro de exibição conforme necessário e se tem a versão mais recente do SDK Web e SDK do Android. SDKs afetados:
+>  Certifique-se de que configura o parâmetro **'Ver'** conforme necessário e tem a versão mais recente do Web SDK e Android SDK. SDKs afetados:
 >
 >    * SDK para Web do Azure Maps
 >    * SDK do Android do Azure Maps
 
-
-O parâmetro de **exibição** do Azure Maps (também conhecido como "parâmetro de região do usuário") é um código de país ISO-3166 de duas letras que mostrará os mapas corretos para esse país/região especificando qual conjunto de conteúdo geoestruturado geoestruturado será retornado por meio dos serviços do Azure Maps, incluindo bordas e rótulos exibidos no mapa. 
-
-Por padrão, o parâmetro de exibição é definido como **unificado**, mesmo que você não o tenha definido na solicitação. É sua responsabilidade determinar o local dos usuários e, em seguida, definir o parâmetro de exibição corretamente para esse local. Como alternativa, você tem a opção de definir ' View = auto ', que retornará os dados do mapa com base no endereço IP da solicitação.  O parâmetro View no Azure Maps deve ser usado em conformidade com as leis aplicáveis, incluindo aquelas em relação ao mapeamento do país em que mapas, imagens e outros dados e conteúdo de terceiros que você está autorizado a acessar por meio do mapas do Azure são disponibilizados.
+Por defeito, o parâmetro View está definido para **Unificado,** mesmo que não o tenha definido no pedido. Determine a localização dos seus utilizadores e, em seguida, defina corretamente o parâmetro **'Ver'** para esse local. Em alternativa, pode definir 'View=Auto', que devolverá os dados do mapa com base no endereço IP do pedido.  O parâmetro **View** in Azure Maps deve ser utilizado de acordo com as leis aplicáveis, incluindo as leis sobre mapeamento do país onde mapas, imagens e outros dados e conteúdos de terceiros que está autorizado a aceder através do Azure Maps são disponibilizados.
 
 
 A tabela a seguir fornece exibições com suporte.

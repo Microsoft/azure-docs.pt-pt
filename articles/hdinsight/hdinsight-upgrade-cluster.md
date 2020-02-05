@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: 95892bba1b3152dda718a4af3c5f45072054fdae
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f7198aeff5e9ef6d37e29c2336dc38e4eec0dda1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935496"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023978"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migrar o cluster HDInsight para uma versão mais recente
 
@@ -45,9 +45,9 @@ Depois de verificar que tudo funciona como esperado, marque o tempo de paragem p
 
 Os seguintes documentos fornecem orientações sobre como migrar cargas de trabalho específicas:
 
-* [Base HEmigração](/hbase/apache-hbase-migrate-new-version.md)
-* [Emigrar Kafka](/kafka/migrate-versions.md)
-* [Colmeia migratória/Consulta Interativa](/interactive-query/apache-hive-migrate-workloads.md)
+* [Base HEmigração](./hbase/apache-hbase-migrate-new-version.md)
+* [Emigrar Kafka](./kafka/migrate-versions.md)
+* [Colmeia migratória/Consulta Interativa](./interactive-query/apache-hive-migrate-workloads.md)
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
 

@@ -2,8 +2,8 @@
 title: Usar VMs do Azure com uso intensivo de computação com o lote
 description: Como aproveitar os tamanhos de máquina virtual do HPC e da GPU nos pools do lote do Azure. Saiba mais sobre as dependências do sistema operacional e veja vários exemplos de cenário.
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
-ms.author: jushiman
-ms.openlocfilehash: 1fb490c6db5115edf32ff2562e43cf1084e0a6c8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 17cd9db1e86a66630d3b93c8295915933abb1ec2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026790"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023604"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usar instâncias RDMA ou GPU em pools do lote
 
@@ -42,7 +42,7 @@ Os recursos de RDMA ou GPU de tamanhos de computação intensiva no lote têm su
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pools do Linux – configuração de máquina virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Configurações da piscina |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16, 4 LTS ou<br/>HPC baseado em CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Drivers RDMA do Linux | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
 | [NC, NCv2, NCv3, NDv2 Series](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia por série) | Ubuntu 16, 4 LTS ou<br/>CentOS 7,3 ou 7,4<br/>(Azure Marketplace) | Drivers NVIDIA CUDA ou CUDA Toolkit | N/A | 
@@ -52,7 +52,7 @@ Os recursos de RDMA ou GPU de tamanhos de computação intensiva no lote têm su
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pools do Windows – configuração de máquina virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Configurações da piscina |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 ou<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Drivers RDMA do Windows | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
 | [NC, NCv2, NCv3, ND, NDv2 Series](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia por série) | Windows Server 2016 ou <br/>2012 R2 (Azure Marketplace) | Drivers NVIDIA CUDA ou CUDA Toolkit| N/A | 
@@ -66,7 +66,7 @@ Os recursos de RDMA ou GPU de tamanhos de computação intensiva no lote têm su
 > Não há suporte para os tamanhos da série N em pools do lote com a configuração do serviço de nuvem.
 >
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Configurações da piscina |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 ou<br/>2008 R2 (família do SO convidado) | Microsoft MPI 2012 R2 ou posterior, ou<br/>Intel MPI 5<br/><br/>Drivers RDMA do Windows | Habilitar a comunicação entre nós,<br/> desabilitar a execução de tarefas simultâneas |
 
@@ -114,7 +114,7 @@ Para executar aplicativos CUDA em um pool de nós do Windows NC, você precisa i
 | **Sku** | 2016-datacenter |
 | **Tamanho do nó** | NC6 padrão |
 | **Referências do pacote de aplicativos** | GPUDriver, versão 411,82 |
-| **Iniciar tarefa habilitada** | Verdadeiro<br> - de **linha de comando** `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidade do usuário** -autousuário do pool, administrador<br/>**Aguardar sucesso** -verdadeiro
+| **Iniciar tarefa habilitada** | Verdadeiro<br>**Linha de comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidade do usuário** -autousuário do pool, administrador<br/>**Aguardar sucesso** -verdadeiro
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Exemplo: Drivers NVIDIA GPU em um pool de VMs do Linux NC
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f858e0dd475361ff097f5a05ae01df2af00e4eca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: bd1c3d27ebedfb8479b9f30ac08d8132b2a44a04
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989999"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023468"
 ---
 # <a name="toggle-live-chat"></a>Ativar/desativar chat ao vivo
 
@@ -32,13 +32,13 @@ Pode escrever uma pergunta como mostrado na seguinte imagem:
 
 ![Formulário "Configure Detalhes do Dispositivo" com detalhes para configurações e propriedades](media/howto-show-hide-chat/sample-chat.png)
 
-## <a name="hide-chat"></a>Hide Chat
+## <a name="hide-chat"></a>Hide chat
 
 Para ocultar a conversa, escolha **Hide Chat** no painel **de Ajuda:**
 
  ![Hide Chat](media/howto-show-hide-chat/hide-chat.png)
 
-## <a name="enable-chat"></a>Ativar o Chat
+## <a name="enable-chat"></a>Ativar o chat
 
 Para mostrar o chat, escolha **Show Chat** no painel **ajuda:**
 

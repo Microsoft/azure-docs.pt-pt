@@ -1,6 +1,6 @@
 ---
-title: Excluir nós da solução VMware por CloudSimple-Azure
-description: Saiba como excluir nós de seu VMWare com a implantação do CloudSimple
+title: Eliminar nós para Soluções VMware (AVS) - Azure
+description: Saiba como eliminar os nódosos do seu VMWare com a implementação do AVS
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/05/2019
@@ -8,45 +8,45 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 30d128d6bd2f2e1e2705a7b742f02d11fd947a03
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972823"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024743"
 ---
-# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Excluir nós da solução do Azure VMware por CloudSimple
+# <a name="delete-nodes-from-azure-vmware-solution-by-avs"></a>Eliminar os nódosos da Solução Azure VMware pela AVS
 
-Os nós CloudSimple são medidos assim que são criados.  Os nós devem ser excluídos para interromper a medição dos nós.  Você exclui os nós que não são usados no portal do Azure.
+Os nódosos AVS são medidos uma vez criados. Os nódosos devem ser eliminados para parar a medição dos nódosos. Apaga os nódosos que não são utilizados no portal Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Um nó só pode ser excluído sob as seguintes condições:
+Um nó só pode ser eliminado nas seguintes condições:
 
-* Uma nuvem privada criada com os nós é excluída.  Para excluir uma nuvem privada, consulte [excluir uma solução do Azure VMware por nuvem privada CloudSimple](delete-private-cloud.md).
-* O nó foi removido da nuvem privada por meio da redução da nuvem privada.  Para reduzir uma nuvem privada, consulte [reduzir a solução do Azure VMware pela nuvem privada CloudSimple](shrink-private-cloud.md).
+* Uma Nuvem Privada AVS criada com os nódosos é eliminada. Para eliminar uma Nuvem Privada AVS, consulte [Delete a Azure VMware Solution by AVS Private Cloud](delete-private-cloud.md).
+* O nó foi removido da Nuvem Privada AVS, diminuindo a Nuvem Privada AVS. Para encolher uma Nuvem Privada AVS, consulte [AVS Solução VMware Shrink Azure by AVS Private Cloud](shrink-private-cloud.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="delete-cloudsimple-node"></a>Excluir nó CloudSimple
+## <a name="delete-avs-node"></a>Eliminar o nó AVS
 
 1. Selecione **Todos os serviços**.
 
-2. Procure **nós CloudSimple**.
+2. Pesquisa por **Nódos AVS**.
 
-   ![Pesquisar nós do CloudSimple](media/create-cloudsimple-node-search.png)
+   ![Pesquisar avs nodes](media/create-cloudsimple-node-search.png)
 
-3. Selecione **nós CloudSimple**.
+3. Selecione **Nódosos AVS**.
 
-4. Selecione os nós que não pertencem a uma nuvem privada a ser excluída.  A coluna **nome da nuvem particular** mostra o nome da nuvem privada ao qual um nó pertence.  Se um nó não for usado por uma nuvem privada, o valor estará vazio. 
+4. Selecione os nódosos que não pertencem a uma Nuvem Privada AVS para apagar. A coluna **AVS PRIVATE CLOUD NAME** mostra o nome AVS Private Cloud a que um nó pertence. Se um nó não for usado por uma Nuvem Privada AVS, o valor estará vazio. 
 
-    ![Selecionar nós CloudSimple](media/select-delete-cloudsimple-node.png)
+    ![Selecione nódosos AVS](media/select-delete-cloudsimple-node.png)
 
 > [!NOTE]
-> Somente os nós que não fazem parte da nuvem privada podem ser excluídos.
+> Apenas os nódosos que não fazem parte da Nuvem Privada AVS podem ser eliminados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a [nuvem privada](cloudsimple-private-cloud.md)
+* Saiba mais sobre [a Nuvem Privada AVS](cloudsimple-private-cloud.md)

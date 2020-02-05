@@ -3,22 +3,22 @@ title: Usar tarefas de várias instâncias para executar aplicativos MPI – lot
 description: Saiba como executar aplicativos MPI (interface de transmissão de mensagens) usando o tipo de tarefa de várias instâncias no lote do Azure.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd58a18b4926d911df8493670ccd7da97708e075
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1896fea3c401299b4f77235ab3c02d85708b7041
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029678"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023672"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usar tarefas de várias instâncias para executar aplicativos MPI (interface de transmissão de mensagens) no lote
 
@@ -171,7 +171,7 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 ```
 
 > [!NOTE]
-> Como o `mpiexec.exe` do MS-MPI usa a variável `CCP_NODES` por padrão (consulte [variáveis de ambiente](#environment-variables)), a linha de comando do aplicativo de exemplo acima a exclui.
+> Uma vez que o `mpiexec.exe` da MS-MPI utiliza a variável `CCP_NODES` por padrão (ver [variáveis ambientais),](#environment-variables)a linha de comando de aplicação de exemplo acima exclui-a.
 >
 >
 
@@ -197,12 +197,12 @@ Para obter detalhes completos sobre essas e outras variáveis de ambiente do nó
 ## <a name="resource-files"></a>Arquivos de recurso
 Há dois conjuntos de arquivos de recursos a serem considerados para tarefas de várias instâncias: **arquivos de recursos comuns** que *todas as* tarefas baixam (primárias e subtarefas) e os **arquivos de recursos** especificados para a própria tarefa de várias instâncias, que *somente a tarefa principal* baixa.
 
-Você pode especificar um ou mais **arquivos de recursos comuns** nas configurações de várias instâncias para uma tarefa. Esses arquivos de recursos comuns são baixados do [armazenamento do Azure](../storage/common/storage-introduction.md) para o **diretório compartilhado da tarefa** de cada nó pelas subtarefas primárias e todas. Você pode acessar o diretório compartilhado de tarefa de linhas de comando de aplicativo e coordenação usando a variável de ambiente `AZ_BATCH_TASK_SHARED_DIR`. O caminho de `AZ_BATCH_TASK_SHARED_DIR` é idêntico em todos os nós alocados para a tarefa de várias instâncias, assim você pode compartilhar um único comando de coordenação entre as subtarefas primária e todas. O lote não "compartilha" o diretório em um sentido de acesso remoto, mas você pode usá-lo como um ponto de montagem ou compartilhamento, conforme mencionado anteriormente na dica sobre variáveis de ambiente.
+Você pode especificar um ou mais **arquivos de recursos comuns** nas configurações de várias instâncias para uma tarefa. Esses arquivos de recursos comuns são baixados do [armazenamento do Azure](../storage/common/storage-introduction.md) para o **diretório compartilhado da tarefa** de cada nó pelas subtarefas primárias e todas. Pode aceder ao diretório partilhado de tarefas a partir das linhas de comando de aplicação e coordenação utilizando a variável ambiente `AZ_BATCH_TASK_SHARED_DIR`. O caminho `AZ_BATCH_TASK_SHARED_DIR` é idêntico em cada nó atribuído à tarefa em várias instâncias, assim pode partilhar um único comando de coordenação entre as primárias e todas as subtarefas. O lote não "compartilha" o diretório em um sentido de acesso remoto, mas você pode usá-lo como um ponto de montagem ou compartilhamento, conforme mencionado anteriormente na dica sobre variáveis de ambiente.
 
-Os arquivos de recurso que você especifica para a tarefa de várias instâncias em si são baixados para o diretório de trabalho da tarefa, `AZ_BATCH_TASK_WORKING_DIR`, por padrão. Conforme mencionado, ao contrário dos arquivos de recursos comuns, somente a tarefa principal baixa os arquivos de recursos especificados para a própria tarefa de várias instâncias.
+Os ficheiros de recursos que especifica para a tarefa em várias instâncias são descarregados para o diretório de trabalho da tarefa, `AZ_BATCH_TASK_WORKING_DIR`, por padrão. Conforme mencionado, ao contrário dos arquivos de recursos comuns, somente a tarefa principal baixa os arquivos de recursos especificados para a própria tarefa de várias instâncias.
 
 > [!IMPORTANT]
-> Sempre use as variáveis de ambiente `AZ_BATCH_TASK_SHARED_DIR` e `AZ_BATCH_TASK_WORKING_DIR` para se referir a esses diretórios em suas linhas de comando. Não tente construir os caminhos manualmente.
+> Utilize sempre as variáveis ambientais `AZ_BATCH_TASK_SHARED_DIR` e `AZ_BATCH_TASK_WORKING_DIR` para se referir a estes diretórios nas suas linhas de comando. Não tente construir os caminhos manualmente.
 >
 >
 

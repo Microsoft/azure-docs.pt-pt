@@ -6,16 +6,16 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 01/21/2020
-ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715839"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016260"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Atualização à recolha e exportação de registos da Atividade Azure
-O [registo da Atividade Azure](platform-logs-overview.md) é um registo de [plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de subscrição que ocorreram no Azure. O método para enviar entradas de registo de atividade para [um centro de eventos ou uma conta](activity-log-export.md) de armazenamento ou para um espaço de trabalho log [Analytics](activity-log-collect.md) mudou para usar [configurações de diagnóstico](diagnostic-settings.md). Este artigo descreve a diferença entre os métodos e como limpar as definições do legado na preparação para mudar para configurações de diagnóstico.
+O [log de atividades do Azure](platform-logs-overview.md) é um [log de plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de assinatura que ocorreram no Azure. O método para enviar entradas de registo de atividade para [um centro de eventos ou uma conta](activity-log-export.md) de armazenamento ou para um espaço de trabalho log [Analytics](activity-log-collect.md) mudou para usar [configurações de diagnóstico](diagnostic-settings.md). Este artigo descreve a diferença entre os métodos e como limpar as definições do legado na preparação para mudar para configurações de diagnóstico.
 
 
 ## <a name="differences-between-methods"></a>Diferenças entre métodos
@@ -54,10 +54,13 @@ Foram adicionadas as seguintes colunas:
 - Claims_d
 - Properties_d
 
+> [!IMPORTANT]
+> Em alguns casos, os valores nestas colunas podem estar em todas as maiúsculas. Se tiver uma consulta que inclua estas colunas, deve utilizar o [operador =~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) para fazer uma comparação insensível.
+
 ## <a name="work-with-legacy-settings"></a>Trabalhar com configurações herdadas
 As configurações herdadas para coletar o log de atividades continuarão a funcionar se você não optar por substituir por uma configuração de diagnóstico. Use o método a seguir para gerenciar o perfil de log para uma assinatura.
 
-1. A partir do menu **Azure Monitor** no portal Azure, selecione **registo de atividade**.
+1. No menu **Azure monitor** na portal do Azure, selecione log de **atividades**.
 3. Clique em **Definições de diagnóstico**.
 
    ![Definições de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
@@ -69,31 +72,31 @@ As configurações herdadas para coletar o log de atividades continuarão a func
 
 Consulte os artigos a seguir para obter detalhes sobre como usar os métodos de coleção herdados.
 
-- [Recolher e analisar registos de atividade do Azure no espaço de trabalho do Log Analytics no Monitor Azure](activity-log-collect.md)
-- [Colete sessão de atividade do Azure no Azure Monitor através de inquilinos do Diretório Ativo azure](activity-log-collect-tenants.md)
-- [Export Azure Activity log to storage or Azure Event Hubs](activity-log-export.md)
+- [Coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](activity-log-collect.md)
+- [Coletar logs de atividades do Azure em Azure Monitor entre locatários Azure Active Directory](activity-log-collect-tenants.md)
+- [Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure](activity-log-export.md)
 
 ## <a name="disable-existing-settings"></a>Desabilitar configurações existentes
 Você deve desabilitar a coleta existente da atividade antes de habilitá-la usando as configurações de diagnóstico. Ter ambos habilitados pode resultar em dados duplicados.
 
 ### <a name="disable-collection-into-log-analytics-workspace"></a>Desabilitar a coleta no espaço de trabalho Log Analytics
 
-1. Abra o menu de espaços de **trabalho Log Analytics** no portal Azure e selecione o espaço de trabalho para recolher o Registo de Atividades.
-2. Na secção **Fontes** de Dados do Espaço de Trabalho do menu do espaço de trabalho, selecione **o registo da Atividade Do Azure**.
+1. Abra o menu **log Analytics espaços de trabalho** na portal do Azure e selecione o espaço de trabalho para coletar o log de atividades.
+2. Na seção **fontes de dados de espaço de trabalho** do menu do espaço de trabalho, selecione **log de atividades do Azure**.
 3. Clique na assinatura que você deseja desconectar.
-4. Clique em **Desligar** e, em **seguida, sim** quando lhe for pedido para confirmar a sua escolha.
+4. Clique em **Desconectar** e em **Sim** quando solicitado a confirmar sua escolha.
 
 ### <a name="disable-log-profile"></a>Desabilitar perfil de log
 
-1. Utilize o procedimento descrito no [Trabalho com configurações antigas](#work-with-legacy-settings) para abrir as definições do legado.
+1. Use o procedimento descrito em [trabalhar com configurações herdadas](#work-with-legacy-settings) para abrir as configurações herdadas.
 2. Desabilite qualquer coleção atual para o armazenamento ou hubs de eventos.
 
 
 
 ## <a name="activity-log-monitoring-solution"></a>Solução de monitoramento do log de atividades
-A solução de monitoramento de Log Analytics do Azure inclui várias consultas de log e exibições para analisar os registros de log de atividades em seu espaço de trabalho do Log Analytics. Essa solução usa os dados de log coletados em um espaço de trabalho Log Analytics e continuará a funcionar sem nenhuma alteração se você coletar o log de atividades usando as configurações de diagnóstico. Consulte [a solução](activity-log-collect.md#activity-logs-analytics-monitoring-solution) de monitorização de Registos de Atividade Analytics para obter detalhes sobre esta solução.
+A solução de monitoramento de Log Analytics do Azure inclui várias consultas de log e exibições para analisar os registros de log de atividades em seu espaço de trabalho do Log Analytics. Essa solução usa os dados de log coletados em um espaço de trabalho Log Analytics e continuará a funcionar sem nenhuma alteração se você coletar o log de atividades usando as configurações de diagnóstico. Consulte [solução de monitoramento de análise de logs de atividade](activity-log-collect.md#activity-logs-analytics-monitoring-solution) para obter detalhes sobre esta solução.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o Registo de Atividades](../../azure-resource-manager/management/view-activity-logs.md)
-* [Saiba mais sobre as definições de diagnóstico](diagnostic-settings.md)
+* [Saiba mais sobre o log de atividades](../../azure-resource-manager/management/view-activity-logs.md)
+* [Saiba mais sobre as configurações de diagnóstico](diagnostic-settings.md)

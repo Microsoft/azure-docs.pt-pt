@@ -1,6 +1,6 @@
 ---
-title: Lista de verificação da solução Azure VMware por CloudSimple-Network
-description: Lista de verificação para alocar o CIDR de rede na solução VMware do Azure por CloudSimple
+title: Soluções Azure VMware (AVS) - Lista de verificação de rede
+description: Lista de verificação para alocar rede CIDR na Solução Azure VMware por AVS
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 09/25/2019
@@ -8,58 +8,58 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bfb170036293dc9f519259dc92737f30380aa84a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 5cbb0fc0514c17fe34f8e57806e6620cfa8b3f68
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244830"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025015"
 ---
-# <a name="networking-prerequisites-for-azure-vmware-solution-by-cloudsimple"></a>Pré-requisitos de rede para a solução do Azure VMware por CloudSimple
+# <a name="networking-prerequisites-for-azure-vmware-solution-by-avs"></a>Pré-requisitos de networking para a Solução Azure VMware por AVS
 
-A solução Azure VMware da CloudSimple oferece um ambiente de nuvem privada VMware acessível para usuários e aplicativos de ambientes locais, dispositivos gerenciados pela empresa e recursos do Azure. A conectividade é fornecida por meio de serviços de rede, como VPNs e conexões do Azure ExpressRoute. Alguns desses serviços de rede exigem que você especifique intervalos de endereços de rede para habilitar os serviços. 
+A Azure VMware Solutions (AVS) oferece um ambiente de nuvem privada VMware acessível para utilizadores e aplicações a partir de ambientes no local, dispositivos geridos pela empresa e recursos Azure. A conectividade é transmitida através de serviços de networking, tais como VPNs e ligações Azure ExpressRoute. Alguns destes serviços de networking exigem que especifique as gamas de endereços da rede para permitir os serviços. 
 
-As tabelas neste artigo descrevem o conjunto de intervalos de endereços e os serviços correspondentes que usam os endereços especificados. Alguns dos endereços são obrigatórios e alguns dependem dos serviços que você deseja implantar. Esses espaços de endereço não devem se sobrepor a nenhuma das suas sub-redes locais, sub-redes de rede virtual do Azure ou sub-redes de carga de trabalho CloudSimple planejadas.
+Os quadros deste artigo descrevem o conjunto de gamas de endereços e os serviços correspondentes que utilizam os endereços especificados. Alguns dos endereços são obrigatórios e alguns dependem dos serviços que pretende implementar. Estes espaços de endereço não devem sobrepor-se a nenhuma das suas subredes no local, subredes da Rede Virtual Azure ou subredes de carga de trabalho AVS planeadas.
 
-## <a name="network-address-ranges-required-for-creating-a-private-cloud"></a>Intervalos de endereços de rede necessários para a criação de uma nuvem privada
+## <a name="network-address-ranges-required-for-creating-an-avs-private-cloud"></a>Gamas de endereços de rede necessárias para a criação de uma Nuvem Privada AVS
 
-Durante a criação de um serviço CloudSimple e uma nuvem privada, você deve estar em conformidade com os intervalos de CIDR (roteamento entre domínios sem classe de rede) especificados, como a seguir.
+Durante a criação de um serviço AVS e de uma Nuvem Privada AVS, deve cumprir as gamas especificadas de encaminhamento inter-domínio sem classe (CIDR) da rede, da seguinte forma.
 
-| Nome/usado para     | Descrição                                                                                                                            | Intervalo de endereços            |
+| Nome/utilizado para     | Descrição                                                                                                                            | Intervalo de endereços            |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| CIDR do gateway      | Necessário para serviços de borda (gateways de VPN).  Esse CIDR é necessário durante a criação do serviço CloudSimple e deve ser do espaço RFC 1918. | /28                      |
-| CIDR vSphere/vSAN | Necessário para redes de gerenciamento do VMware. Esse CIDR deve ser especificado durante a criação da nuvem privada.                                    | /24 ou/23 ou/22 ou/21 |
+| Gateway CIDR      | Necessário para serviços de borda (gateways VPN). Este CIDR é necessário durante a criação do Serviço AVS e deve ser do espaço RFC 1918. | /28                      |
+| vSphere/vSAN CIDR | Necessário para redes de gestão VMware. Este CIDR deve ser especificado durante a criação da Nuvem Privada AVS.                                    | /24 ou /23 ou /22 ou /21 |
 
-## <a name="network-address-range-required-for-azure-network-connection-to-an-on-premises-network"></a>Intervalo de endereços de rede necessário para a conexão de rede do Azure a uma rede local
+## <a name="network-address-range-required-for-azure-network-connection-to-an-on-premises-network"></a>Gama de endereços de rede necessária para a ligação da rede Azure a uma rede no local
 
-Conectar-se de uma [rede local à rede de nuvem privada por meio do ExpressRoute](on-premises-connection.md) estabelece uma conexão alcance global.  A conexão usa Border Gateway Protocol (BGP) para trocar rotas entre sua rede local, sua rede de nuvem privada e suas redes do Azure.
+A ligação de uma [rede no local à rede AVS Private Cloud através](on-premises-connection.md) do ExpressRoute estabelece uma ligação Global Reach. A ligação utiliza o Border Gateway Protocol (BGP) para trocar rotas entre a sua rede no local, a sua rede AVS Private Cloud e as suas redes Azure.
 
-| Nome/usado para             | Descrição                                                                                                                                                                             | Intervalo de endereços |
+| Nome/utilizado para             | Descrição                                                                                                                                                                             | Intervalo de endereços |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| CIDR de emparelhamento do ExpressRoute | Necessário quando você usa o ExpressRoute Alcance Global para conectividade local. Esse CIDR deve ser fornecido quando uma solicitação de conexão Alcance Global é feita por meio de um tíquete de suporte. | /29           |
+| ExpressRoute Peering CIDR | Necessário quando utiliza o ExpressRoute Global Reach para a conectividade no local. Este CIDR deve ser fornecido quando um pedido de ligação Global Reach é feito através de um bilhete de apoio. | /29           |
 
-## <a name="network-address-range-required-for-using-a-site-to-site-vpn-connection-to-an-on-premises-network"></a>Intervalo de endereços de rede necessário para usar uma conexão VPN site a site para uma rede local
+## <a name="network-address-range-required-for-using-a-site-to-site-vpn-connection-to-an-on-premises-network"></a>Gama de endereços de rede necessária para a utilização de uma ligação VPN site-a-site a uma rede no local
 
-Conectar-se de uma [rede local à rede de nuvem privada usando VPN site a site](vpn-gateway.md) requer os seguintes endereços IP, rede local e identificadores. 
+A ligação de uma [rede no local à rede AVS Private Cloud utilizando VPN site-to-site](vpn-gateway.md) requer os seguintes endereços IP, rede no local e identificadores. 
 
 | Intervalo de endereços/endereços | Descrição                                                                                                                                                                                                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| IP par               | Endereço IP público do gateway de VPN local. Necessário para estabelecer uma conexão VPN site a site entre um datacenter local e a região do serviço CloudSimple. Esse endereço IP é necessário durante a criação do gateway de VPN site a site.                                         |
-| Identificador de par       | Identificador de par do gateway de VPN local. Isso geralmente é o mesmo que o **IP par**.  Se um identificador exclusivo for especificado no gateway de VPN local, o identificador deverá ser especificado.  A ID de par é necessária durante a criação do gateway de VPN site a site.   |
-| Redes locais   | Prefixos locais que precisam acessar redes CloudSimple na região.  Inclua todos os prefixos de uma rede local que acessará a rede CloudSimple, incluindo a rede cliente de onde os usuários acessarão a rede.                                         |
+| Peer IP               | No local, o endereço IP público de gateway VPN. Necessário para estabelecer uma ligação VPN site-to-site entre um datacenter no local e a região de Serviço AVS. Este endereço IP é necessário durante a criação de gateway VPN do site-para-site.                                         |
+| Identificador de pares       | Identificador de pares do gateway VPN no local. Isto é geralmente o mesmo que **peer IP**.  Se for especificado um identificador único no seu gateway VPN no local, o identificador deve ser especificado.  O ID peer é necessário durante a criação de gateway VPN site-to-site.   |
+| Redes no local   | Prefixos no local que precisam de acesso às redes AVS na região.  Inclua todos os prefixos de uma rede no local que acederá à rede AVS, incluindo a rede de clientes a partir de onde os utilizadores irão aceder à rede.                                         |
 
-## <a name="network-address-range-required-for-using-point-to-site-vpn-connections"></a>Intervalo de endereços de rede necessário para usar conexões VPN ponto a site
+## <a name="network-address-range-required-for-using-point-to-site-vpn-connections"></a>Gama de endereços de rede necessária para a utilização de ligações VPN ponto-a-local
 
-Uma conexão VPN ponto a site permite o acesso à rede CloudSimple de um computador cliente.  [Para configurar a VPN ponto a site](vpn-gateway.md), você deve especificar o intervalo de endereços de rede a seguir.
+Uma ligação VPN ponto-a-site permite o acesso à rede AVS a partir de uma máquina cliente. [Para configurar VPN ponto-a-local,](vpn-gateway.md)deve especificar o seguinte intervalo de endereços de rede.
 
 | Intervalo de endereços/endereços | Descrição                                                                                                                                                                                                                                                                                                  |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sub-rede do cliente         | Os endereços DHCP são fornecidos pela sub-rede do cliente quando você se conecta usando uma VPN ponto a site. Essa sub-rede é necessária enquanto você está criando um gateway de VPN ponto a site em um portal do CloudSimple.  A rede é dividida em duas sub-redes; um para a conexão UDP e o outro para conexões TCP. |
+| Sub-rede de clientes         | Os endereços DHCP são fornecidos pela sub-rede do cliente quando se conecta utilizando uma VPN ponto-a-local. Esta sub-rede é necessária enquanto está a criar um gateway VPN ponto-a-site num portal AVS. A rede é dividida em duas subredes, uma para a ligação UDP e outra para ligações TCP. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configuração de firewall local para acessar sua nuvem privada](on-premises-firewall-configuration.md)
-* [Início rápido-criar um serviço CloudSimple](quickstart-create-cloudsimple-service.md)
-* [Início rápido-configurar uma nuvem privada](quickstart-create-private-cloud.md)
-* Saiba mais sobre [as conexões de rede do Azure](cloudsimple-azure-network-connection.md)
-* Saiba mais sobre [gateways de VPN](cloudsimple-vpn-gateways.md)
+* [Configuração de firewall no local para aceder à sua Nuvem Privada AVS](on-premises-firewall-configuration.md)
+* [Quickstart - Criar um serviço AVS](quickstart-create-cloudsimple-service.md)
+* [Quickstart- Configure uma Nuvem Privada AVS](quickstart-create-private-cloud.md)
+* Saiba mais sobre [as ligações de rede Azure](cloudsimple-azure-network-connection.md)
+* Saiba mais sobre [gateways VPN](cloudsimple-vpn-gateways.md)

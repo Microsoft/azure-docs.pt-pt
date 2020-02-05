@@ -3,12 +3,12 @@ title: Criar uma regra de Azure Load Balancer para um cluster
 description: Configure um Azure Load Balancer para abrir portas para o cluster de Service Fabric do Azure.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351486"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025389"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um Cluster Service Fabric
 
@@ -60,7 +60,7 @@ O comando CLI do Azure tem alguns parâmetros descritos na tabela a seguir:
 
 
 >[!NOTE]
->Para obter mais informações sobre como criar um balanceador de carga com o CLI do Azure, consulte [criar um balanceador de carga com o CLI do Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+>Para obter mais informações sobre como criar um balanceador de carga com o CLI do Azure, consulte [criar um balanceador de carga com o CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -96,7 +96,7 @@ $lb | Set-AzLoadBalancer
 Em relação ao comando `New-AzLoadBalancerRuleConfig`, o `-FrontendPort` representa a porta que o balanceador de carga expõe para conexões externas e o `-BackendPort` representa a porta que o aplicativo do Service Fabric está ouvindo.
 
 >[!NOTE]
->Para obter mais informações sobre como criar um balanceador de carga com o PowerShell, consulte [criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+>Para obter mais informações sobre como criar um balanceador de carga com o PowerShell, consulte [criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

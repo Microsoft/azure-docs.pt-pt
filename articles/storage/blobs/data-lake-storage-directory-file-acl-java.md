@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 41e93ad19e21ae81843992b1b190d1bd37585c2e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 575f3ed1a692087cc99881798f7f0ca74c5d3a66
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835080"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024454"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usar o Java para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2 (versão prévia)
 
@@ -278,9 +278,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
     fileClient.read(targetStream);
 
     targetStream.close();
-
-    fileClient.flush(file.length());
-        
+      
 }
 
 ```

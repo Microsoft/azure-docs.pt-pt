@@ -1,6 +1,6 @@
 ---
-title: Crie soluções de saúde com o Azure IoT Central | Microsoft Docs
-description: Aprenda a criar uma solução de saúde usando os modelos de aplicativo IoT Central do Azure.
+title: Construir soluções de saúde com a Azure IoT Central [ Central De Azure IoT] Microsoft Docs
+description: Aprenda a construir uma solução de saúde utilizando modelos de aplicação Azure IoT Central.
 author: philmea
 ms.author: philmea
 ms.date: 09/24/2019
@@ -8,40 +8,40 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: a5a8c8e52c4bebda4e22e592fefa3801449504e3
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 2aee5c56b267f9243b69a48dfd0f5f64196c5f23
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027460"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021496"
 ---
-# <a name="building-healthcare-solutions-with-azure-iot-central"></a>Criando soluções de saúde com o Azure IoT Central 
+# <a name="building-healthcare-solutions-with-azure-iot-central"></a>Criar soluções para os cuidados de saúde com o Azure IoT Central 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Aprenda a criar soluções de saúde com o Azure IoT Central usando modelos de aplicativos.
 
-## <a name="what-is-continuous-patient-monitoring-template"></a>O que é o modelo de monitoramento de pacientes contínuo?
+Aprenda a construir soluções de saúde com a Azure IoT Central utilizando modelos de aplicação.
 
-No espaço de IoT de saúde, o monitoramento contínuo de pacientes é um dos principais capacitadores de reduzir o risco de readmissão, gerenciar crônicos doenças com mais eficiência e melhorar os resultados do paciente. O monitoramento contínuo do paciente pode ser dividido em duas categorias principais:
+## <a name="what-is-continuous-patient-monitoring-template"></a>O que é o modelo contínuo de monitorização do paciente?
 
-1. **Monitoramento no paciente**: usando wearables médicos e outros dispositivos no hospital, as equipes de atendimento podem monitorar os sinais médicos do paciente e as condições médicas sem precisar enviar um enfermaria para fazer o check-in de um paciente várias vezes por dia. As equipes de cuidados podem entender o momento em que um paciente precisa de atenção crítica por meio de notificações e prioriza seu tempo de forma eficaz.
-1. **Monitoramento remoto do paciente**: ao usar o wearables médico e os profissionais (resultados relatados pelo paciente) para monitorar pacientes fora do hospital, o risco de readmissão pode ser significativamente reduzido. Os dados de pacientes de doenças crônicos e pacientes lei reabilitação podem ser coletados para garantir que os pacientes estejam cumprindo os planos de atendimento e que os alertas de deterioração do paciente possam ser exibidos para as equipes de ti antes de se tornarem críticos.
+No espaço IoT dos cuidados de saúde, a Monitorização Contínua do Doente é um dos principais facilitadores da redução do risco de readmissões, gestão de doenças crónicas de forma mais eficaz e melhoria dos resultados do paciente. A monitorização contínua do paciente pode ser dividida em duas categorias principais:
 
-Este modelo de aplicativo pode ser usado para criar soluções para as duas categorias de monitoramento contínuo de pacientes. Os benefícios incluem:
+1. **Monitorização do paciente**: Utilizando wearables médicos e outros dispositivos no hospital, as equipas de cuidados podem monitorizar os sinais vitais do paciente e as condições médicas sem terem de enviar uma enfermeira para verificar um paciente várias vezes ao dia. As equipas de cuidados podem entender o momento em que um paciente precisa de atenção crítica através de notificações e prioriza o seu tempo de forma eficaz.
+1. **Monitorização remota do paciente**: Utilizando wearables médicos e resultados reportados (ROP) para monitorizar pacientes fora do hospital, o risco de readmissão pode ser reduzido. Os dados dos doentes crónicos e dos doentes de reabilitação podem ser recolhidos para garantir que os pacientes estão a aderindo aos planos de cuidados e que os alertas de deterioração do paciente podem ser apresentados às equipas de cuidados antes de se tornarem críticos.
 
-* Conecte diretamente uma variedade de wearables médicos a uma instância IoT Central.
-* Monitore e gerencie os dispositivos para garantir que eles permaneçam íntegros.
-* Crie regras personalizadas em volta dos dados do dispositivo para disparar os alertas apropriados.
-* Exporte seus dados de integridade do paciente para a API do Azure para FHIR, um armazenamento de dados em conformidade.
-* Exporte as informações agregadas em aplicativos de negócios novos ou existentes que capacitam as equipes de atendimento.
+Este modelo de aplicação pode ser usado para construir soluções para ambas as categorias de Monitorização Contínua do Paciente. Os benefícios incluem:
+
+* Ligue perfeitamente diferentes tipos de wearables médicos a uma instância central iot.
+* Monitorize e gerencie os dispositivos para garantir que se mantenham saudáveis.
+* Crie regras personalizadas em torno dos dados do dispositivo para desencadear alertas apropriados.
+* Exporte os dados de saúde do seu paciente para a API Azure para fhir, uma loja de dados conforme.
+* Exportar os conhecimentos agregados sobre as aplicações comerciais existentes ou novas.
 
 >[!div class="mx-imgBorder"] 
->![CPM-Dashboard](media/in-patient-dashboard.png)
+>![](media/in-patient-dashboard.png) do painel de instrumentos CPM
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a criar uma solução contínua de monitoramento de pacientes:
+Para começar a construir uma solução de monitorização contínua do paciente:
 
-* [Implantar o modelo de aplicativo](tutorial-continuous-patient-monitoring.md)
-* [Veja uma arquitetura de exemplo](concept-continuous-patient-monitoring-architecture.md)
+* [Implementar o modelo de aplicação](tutorial-continuous-patient-monitoring.md)
+* [Ver um exemplo de arquitetura](concept-continuous-patient-monitoring-architecture.md)

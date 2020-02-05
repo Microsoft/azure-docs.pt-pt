@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18510bd7ace6ca87278b5bf68f79b372251ac0e1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807812"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025746"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Palavra-passe vaulting para início de sessão único com o Proxy de aplicações
 
@@ -34,9 +34,11 @@ Já deve ter publicado e testou seu aplicativo com o Proxy de aplicações. Se n
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
 1. Selecione **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações**.
 1. Na lista, selecione a aplicação que pretende configurar com o SSO.  
+1. Selecione **Proxy de aplicações**. 
+1. Mude o **tipo de Pré-Autenticação** para **passar** e selecione **Guardar**. Mais tarde, pode voltar a mudar para o tipo **de Diretório Ativo Azure** novamente! 
 1. Selecione **início de sessão único**.
 
-   ![Selecione início de sessão único na página de descrição geral da aplicação](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
+   ![Selecione single sign-on a partir da página de visão geral da aplicação](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
 1. Para o modo SSO, escolha **baseado em palavra-passe de início de sessão**.
 1. Para o URL de início de sessão, introduza o URL para a página onde os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão na sua aplicação fora da rede empresarial. Isto pode ser o URL externo que criou quando que publicou a aplicação através do Proxy de aplicações.
@@ -44,6 +46,17 @@ Já deve ter publicado e testou seu aplicativo com o Proxy de aplicações. Se n
    ![Escolher com base em palavra-passe de início de sessão e introduza o URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 1. Selecione **Guardar**.
+1. Selecione **Proxy de aplicações**. 
+1. Mude o **tipo de pré-autenticação** para **O Diretório Ativo Azure** e selecione **Guardar**. 
+1. Selecione **Utilizadores e Grupos**.
+1. Atribuir os utilizadores à aplicação com a seleção **De adicionar utilizador**. 
+1. Se pretender pré-definir credenciais para um utilizador, verifique a frente da caixa do nome do utilizador e selecione **credenciais de Atualização**.
+1. Selecione **Registos** de > de **Diretório Ativo do Azure** > **todas as aplicações.**
+1. A partir da lista, selecione a aplicação que configuracom Password SSO.
+1. Selecione **identidade visual**. 
+1. Atualize o **URL da página inicial** com o URL do **URL** da página Password SSO e selecione **Guardar**.  
+
+
 
 <!-- Need to repro?
 7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
@@ -51,9 +64,9 @@ Já deve ter publicado e testou seu aplicativo com o Proxy de aplicações. Se n
 
 ## <a name="test-your-app"></a>Testar a aplicação
 
-Aceda ao URL externo que configurou para o acesso remoto à sua aplicação. Inicie sessão com as suas credenciais para essa aplicação (ou as credenciais para uma conta de teste que configurou com acesso). Depois de iniciar sessão com êxito, deve ser capaz de deixar a aplicação e voltar atrás sem introduzir as suas credenciais novamente.
+Vá ao portal My Apps. Inscreva-se com as suas credenciais (ou as credenciais para uma conta de teste que configura com acesso). Assim que assinou com sucesso, clique no ícone da aplicação. Isto pode desencadear a instalação da extensão de navegador De sessão de sinais de aplicações seguras das Minhas Aplicações. Se o utilizador tiver credenciais predefinidas, a autenticação na aplicação deve acontecer automaticamente, caso contrário deverá especificar o nome de utilizador ou palavra-passe pela primeira vez. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre outras formas de implementar [início de sessão único](what-is-single-sign-on.md)
 - Saiba mais sobre [considerações de segurança para aceder a aplicações remotamente com o Proxy de aplicações do Azure AD](application-proxy-security.md)
