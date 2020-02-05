@@ -4,24 +4,22 @@ description: Execute múltiplas ações a partir de uma única regra IoT Central
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: 1992b8925d5d9ba59c36452187f5b6eb510e72dc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 7c60728ab501d03e9c40928e730225575e76efbc
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990815"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023825"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Grupo múltiplas ações para executar a partir de uma ou mais regras
 
 *Este artigo aplica-se a construtores e administradores.*
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
-
-Na Azure IoT Central, cria-se regras para executar ações quando uma condição é satisfeita. As regras baseiam-se na telemetria do dispositivo ou em eventos. Por exemplo, pode notificar um operador quando a temperatura num dispositivo exceder um limiar. Este artigo descreve como usar *grupos* de ação [do Monitor Azure](../../azure-monitor/overview.md) para anexar múltiplas ações a uma regra IoT Central. Pode anexar um grupo de ação a várias regras. Um grupo de [ação](../../azure-monitor/platform/action-groups.md) é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure.
+Na Azure IoT Central, cria-se regras para executar ações quando uma condição é satisfeita. As regras baseiam-se na telemetria do dispositivo ou em eventos. Por exemplo, pode notificar um operador quando a temperatura de um dispositivo exceder um limiar. Este artigo descreve como usar *grupos* de ação [do Monitor Azure](../../azure-monitor/overview.md) para anexar múltiplas ações a uma regra IoT Central. Pode anexar um grupo de ação a várias regras. Um grupo de [ação](../../azure-monitor/platform/action-groups.md) é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +43,7 @@ Para utilizar um grupo de ação numa regra IoT Central, o grupo de ação deve 
 
 ## <a name="use-an-action-group"></a>Use um grupo de ação
 
-Para utilizar um grupo de ação na sua aplicação IoT Central, crie primeiro uma regra de telemetria ou evento. Quando adicionar uma ação à regra, selecione Grupos de **Ação do Monitor Azure:**
+Para utilizar um grupo de ação na sua aplicação IoT Central, primeiro crie uma regra. Quando adicionar uma ação à regra, selecione Grupos de **Ação do Monitor Azure:**
 
 ![Escolha ação](media/howto-use-action-groups/chooseaction.png)
 
@@ -64,52 +62,11 @@ O quadro seguinte resume as informações enviadas aos tipos de ação suportado
 | E-mail       | Modelo padrão de e-mail IoT Central |
 | SMS         | Alerta central Azure IoT: ${applicationName} - "${ruleName}" disparado em "${deviceName}" em ${triggerDate} ${triggerTime} |
 | Voz       | Alerta central Azure I.O.T: regra "${ruleName}" ativado no dispositivo "${deviceName}" a ${triggerDate} ${triggerTime}, na aplicação ${applicationName} |
-| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[carga útil regular do webhook](#payload)} } |
+| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[carga útil regular do webhook](howto-create-webhooks.md#payload)}} |
 
 O seguinte texto é um exemplo de mensagem SMS de um grupo de ação:
 
-`iotcentral: Azure IoT Central alert: Sample Contoso 22xu4spxjve - "Low pressure alert" triggered on "Refrigerator 2" at March 20, 2019 10:12 UTC`
-
-<a id="payload"></a>O seguinte JSON mostra um exemplo de carga de ação webhook:
-
-```json
-{
-  "schemaId":"AzureIoTCentralRuleWebhook",
-  "data":{
-    "id":"97ae27c4-17c5-4e13-9248-65c7a2c57a1b",
-    "timestamp":"2019-03-20T10:53:17.059Z",
-    "rule":{
-      "id":"031b660e-528d-47bb-b33d-f1158d7e31bf",
-      "name":"Low pressure alert",
-      "enabled":true,
-      "deviceTemplate":{
-        "id":"c318d580-39fc-4aca-b995-843719821049",
-        "version":"1.0.0"
-      }
-    },
-    "device":{
-      "id":"2383d8ba-c98c-403a-b4d5-8963859643bb",
-      "name":"Refrigerator 2",
-      "simulated":true,
-      "deviceId":"2383d8ba-c98c-403a-b4d5-8963859643bb",
-      "deviceTemplate":{
-        "id":"c318d580-39fc-4aca-b995-843719821049",
-        "version":"1.0.0"
-      },
-      "measurements":{
-        "telemetry":{
-           "pressure":343.269190673549
-        }
-      }
-    },
-    "application":{
-      "id":"8e70742b-0d5c-4a1d-84f1-4dfd42e61c7b",
-      "name":"Sample Contoso",
-      "subdomain":"sample-contoso"
-    }
-  }
-}
-```
+`iotcentral: Azure IoT Central alert: Contoso - "Low pressure alert" triggered on "Motion sensor 2" at March 20, 2019 10:12 UTC`
 
 ## <a name="next-steps"></a>Passos seguintes
 

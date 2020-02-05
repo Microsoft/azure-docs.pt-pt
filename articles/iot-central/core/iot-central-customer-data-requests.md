@@ -1,6 +1,6 @@
 ---
-title: Recursos de solicitação de dados do cliente no Azure IoT Central | Microsoft Docs
-description: Este artigo descreve como identificar, excluir e exportar dados do cliente no aplicativo IoT Central do Azure.
+title: Funcionalidades de pedido de dados de clientes no Azure IoT Central [ Central De IoT] Microsoft Docs
+description: Este artigo descreve a identificação, a pagando e exportando dados dos clientes na aplicação Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
@@ -8,41 +8,39 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 27cd2e58eabcd96414391cac1a517ea242a65c21
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3cf88b4d3c4c74493235d2997db4d464bb055b81
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809797"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023757"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
+# <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados do cliente
 
-O Azure IoT Central é uma solução de software como serviço de IoT (Internet das Coisas) totalmente gerenciada que facilita a conexão, o monitoramento e o gerenciamento de seus ativos de IoT em escala, a criação de informações aprofundadas de seus dados de IoT e a ação informada.
+A Azure IoT Central é uma solução de software de Internet das Coisas (IoT) totalmente gerida que facilita a ligação, monitorização e gestão dos seus ativos IoT em escala, cria insights profundos a partir dos seus dados IoT e toma medidas informadas.
 
 [!INCLUDE [gdpr-intro-sentence](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="identifying-customer-data"></a>Identificando dados do cliente
 
-Azure Active Directory objeto-IDs são usadas para identificar usuários e atribuir funções. O portal de IoT Central do Azure exibe endereços de email do usuário para atribuições de função, mas somente o Azure Active Directory ID do objeto é armazenado, o endereço de email é consultado dinamicamente de Azure Active Directory. Os administradores de IoT Central do Azure podem exibir, exportar e excluir usuários de aplicativos na seção de administração de usuário de um aplicativo de IoT Central do Azure.
+Os IDs de Objeto sintetismo Ativo Azure são utilizados para identificar utilizadores e atribuir funções. O portal Azure IoT Central exibe endereços de e-mail de utilizadores para atribuições de funções, mas apenas o Azure Ative Directory Object-ID está armazenado, o endereço de e-mail é dinamicamente consultado do Diretório Ativo azure. Os administradores da Azure IoT Central podem visualizar, exportar e excluir utilizadores de aplicações na secção de administração de utilizadores de uma aplicação Azure IoT Central.
 
-No aplicativo, os endereços de email podem ser configurados para receber alertas. Nesse caso, os endereços de email são armazenados no IoT Central e devem ser gerenciados na página de administração da conta no aplicativo.
+Dentro da aplicação, os endereços de e-mail podem ser configurados para receber alertas. Neste caso, os endereços de e-mail são armazenados no IoT Central e devem ser geridos a partir da página de administração da conta na aplicação.
 
-Em relação a dispositivos, a Microsoft não mantém nenhuma informação e não tem acesso aos dados que permitem a correlação do dispositivo com o usuário. Muitos dos dispositivos gerenciados no Azure IoT Central não são dispositivos pessoais, por exemplo, um computador de venda ou um café. No entanto, os clientes podem considerar que alguns dispositivos sejam identificáveis pessoalmente e, a seu critério, podem manter seus próprios ativos ou sistemas de controle de estoque que unem dispositivos a indivíduos. O Azure IoT Central gerencia e armazena todos os dados associados a dispositivos como se eles fossem dados pessoais.
+No que diz respeito aos dispositivos, a Microsoft não mantém nenhuma informação e não tem acesso a dados que permitam ao dispositivo a correlação do utilizador. Muitos dos dispositivos geridos no Azure IoT Central não são dispositivos pessoais, por exemplo uma máquina de venda automática ou máquina de café. Os clientes podem, no entanto, considerar alguns dispositivos pessoalmente identificáveis e, a seu critério, podem manter os seus próprios sistemas de rastreio de ativos ou inventários que ligam dispositivos a indivíduos. A Azure IoT Central gere e armazena todos os dados associados aos dispositivos como se fossem dados pessoais.
 
-Quando você usa os serviços corporativos da Microsoft, a Microsoft gera algumas informações, conhecidas como logs gerados pelo sistema. Esses logs constituem ações reais executadas no serviço e nos dados de diagnóstico relacionados a dispositivos individuais e não estão relacionadas à atividade do usuário. Os logs gerados pelo sistema IoT Central do Azure não estão acessíveis ou exportáveis por administradores de aplicativos.
+Quando utiliza os serviços empresariais da Microsoft, a Microsoft gera algumas informações, conhecidas como registos gerados pelo sistema. Estes registos constituem ações factuais realizadas no âmbito do serviço e dados de diagnóstico relacionados com dispositivos individuais, e não estão relacionados com a atividade do utilizador. Os registos gerados pelo sistema Azure IoT Central não são acessíveis ou exportáveis pelos administradores de aplicações.
 
-## <a name="deleting-customer-data"></a>Excluindo dados do cliente
+## <a name="deleting-customer-data"></a>A eliminação de dados do cliente
 
-A capacidade de excluir dados do usuário é fornecida somente por meio da página de administração do IoT Central. Os administradores de aplicativos podem selecionar o usuário a ser excluído e selecionar **excluir** no canto superior direito do aplicativo para excluir o registro. Os administradores de aplicativos também podem remover contas individuais que não estão mais associadas ao aplicativo em questão.
+A capacidade de eliminar os dados dos utilizadores só é fornecida através da página de administração IoT Central. Os administradores de aplicação podem selecionar o utilizador a ser eliminado e selecionar **Apagar** no canto superior direito da aplicação para apagar o registo. Os administradores de aplicações também podem remover contas individuais que já não estejam associadas à aplicação em questão.
 
-Depois que um usuário é excluído, nenhum alerta adicional é enviado a ele. No entanto, seu endereço de email deve ser removido individualmente de cada alerta configurado.
+Depois de um utilizador ser eliminado, não são enviados mais alertas por e-mail. No entanto, o seu endereço de e-mail deve ser removido individualmente de cada alerta configurado.
 
-Para obter mais informações, consulte [configurar regras e ações para seu dispositivo](tutorial-configure-rules.md).
+## <a name="exporting-customer-data"></a>Exportar dados do cliente
 
-## <a name="exporting-customer-data"></a>Exportando dados do cliente
-
-A capacidade de exportar dados é fornecida apenas por meio da página de administração de IoT Central. Os dados do cliente, incluindo as funções atribuídas, podem ser selecionados, copiados e colados por um administrador de aplicativos.
+A capacidade de exportar dados só é fornecida através da página da administração IoT Central. Os dados do cliente, incluindo as funções atribuídas, podem ser selecionados, copiados e colados por um administrador de aplicação.
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-Para obter mais informações sobre administração de conta, incluindo definições de função, consulte [como administrar seu aplicativo](howto-administer.md).
+Para obter mais informações sobre a administração de contas, incluindo definições de papéis, consulte [como administrar a sua aplicação](howto-administer.md).

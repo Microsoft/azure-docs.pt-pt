@@ -8,20 +8,20 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/11/2019
+ms.date: 02/04/2020
 ms.custom: seodec18
-ms.openlocfilehash: c068e33bc7844c464bc8a289387990128d96dd35
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a938dc69b2b0401a062b1db314d71100b4fbbc4f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861800"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024386"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights?
 
 O Azure Time Series Insights é criado para armazenar, Visualizar e consultar grandes quantidades de dados de série temporal, como os gerados por dispositivos IoT. Se quiser armazenar, gerir, consultar ou visualizar dados de séries de tempo na cloud, o Time Series Insights é provavelmente a solução adequada para si.
 
-[![Time Series Insights fluxograma](media/overview/time-series-insights-flowchart.png)](media/overview/time-series-insights-flowchart.png#lightbox)
+[fluxograma de insights da série de tempo ![](media/overview/time-series-insights-flowchart.png)](media/overview/time-series-insights-flowchart.png#lightbox)
 
 O Time Series Insights tem quatro tarefas principais:
 
@@ -41,7 +41,7 @@ Azure Time Series Insights captura e armazena cada novo evento como uma linha, e
 
 ### <a name="learn-more-about-azure-time-series-insights-the-cloud-based-iot-analytics-platformbr"></a>Saiba mais sobre o Azure Time Series Insights, a plataforma de análise IoT baseada em nuvem.</br>
 
-[VÍDEO de ![](https://img.youtube.com/vi/GaARrFfjoss/0.jpg)](https://www.youtube.com/watch?v=GaARrFfjoss)
+[vídeo ![](https://img.youtube.com/vi/GaARrFfjoss/0.jpg)](https://www.youtube.com/watch?v=GaARrFfjoss)
 
 ## <a name="primary-scenarios"></a>Cenários principais
 

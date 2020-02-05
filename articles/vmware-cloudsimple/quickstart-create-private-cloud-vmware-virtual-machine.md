@@ -1,6 +1,6 @@
 ---
-title: Início rápido-criar uma VM do VMware na nuvem privada
-description: Descreve como criar e uma VM do VMware na nuvem privada do CloudSimple
+title: Quickstart - Crie um VMware VM na Nuvem Privada AVS
+description: Descreve como criar um VMware VMnuma Nuvem Privada AVS
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,99 +8,99 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: cbe88afc4f566bad4bacb408346d4dd25a2f6c96
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972405"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020068"
 ---
-# <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Crie máquinas virtuais VMware em sua nuvem privada
+# <a name="create-vmware-virtual-machines-on-your-avs-private-cloud"></a>Crie máquinas virtuais VMware na sua Nuvem Privada AVS
 
-Para criar máquinas virtuais em sua nuvem privada, comece acessando o portal do CloudSimple da portal do Azure.
+Para criar máquinas virtuais na sua Nuvem Privada AVS, comece por aceder ao portal AVS a partir do portal Azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-the-cloudsimple-portal"></a>Aceder ao portal da CloudSimple
+## <a name="access-the-avs-portal"></a>Aceda ao portal AVS
 
 1. Selecione **Todos os serviços**.
-2. Procure **Serviços CloudSimples**.
-3. Selecione o serviço CloudSimple no qual você deseja criar sua nuvem privada.
-4. Na página **visão geral** , clique em **ir para o portal do CloudSimple** para abrir uma nova guia do navegador para o portal do CloudSimple.  Se solicitado, entre com suas credenciais de entrada do Azure.  
+2. Pesquisa de **Serviços AVS**.
+3. Selecione o serviço AVS no qual pretende criar a sua Nuvem Privada AVS.
+4. A partir da página **'Overview',** clique em **ir ao portal AVS** para abrir um novo separador de navegador para portal AVS. Se solicitado, entre com suas credenciais de entrada do Azure. 
 
-    ![Iniciar o portal do CloudSimple](media/launch-cloudsimple-portal.png)
+    ![Lançar portal AVS](media/launch-cloudsimple-portal.png)
 
-## <a name="launch-vcenter-web-ui"></a>Iniciar o vCenter Web-UI
+## <a name="launch-vcenter-web-ui"></a>Lançar vCenter web-ui
 
-Agora você pode iniciar o vCenter para configurar máquinas virtuais e políticas.
+Agora pode lançar o vCenter para configurar máquinas e políticas virtuais.
 
-Para acessar o vCenter, inicie no portal do CloudSimple. Na Home Page, em **tarefas comuns**, clique em **Iniciar vSphere cliente**.  Selecione a nuvem privada e clique em **Iniciar vSphere cliente** na nuvem privada.
+Para aceder ao vCenter, comece pelo portal AVS. Na Home Page, em **tarefas comuns**, clique em **Iniciar vSphere cliente**. Selecione a Nuvem Privada AVS e, em seguida, clique em **Lançar vSphere Client** na Nuvem Privada AVS.
 
    ![Iniciar cliente do vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
-## <a name="upload-an-iso-or-vsphere-template"></a>Carregar um modelo ISO ou vSphere
+## <a name="upload-an-iso-or-vsphere-template"></a>Faça upload de um modelo ISO ou vSphere
 
   > [!WARNING]
-  > Para o carregamento ISO, use o cliente vSphere HTML5.  O uso do cliente Flash pode resultar em um erro.
+  > Para o upload ISO, utilize o cliente vSphere HTML5. A utilização do cliente Flash pode resultar num erro.
 
-1. Obtenha o modelo ISO ou vSphere que você deseja carregar no vCenter para criar uma VM e disponibilizá-la no sistema local.
-2. No vCenter, clique no ícone de **disco** e selecione **vsanDatastore**. Clique em **arquivos** e, em seguida, clique em **nova pasta**.
-    ![ISO do vCenter](media/vciso00.png)
+1. Obtenha o modelo ISO ou vSphere que pretende enviar para vCenter para criar um VM e tê-lo disponível no seu sistema local.
+2. No vCenter, clique no ícone **Disk** e selecione **vsanDatastore**. Clique em **Ficheiros** e, em seguida, clique em **Nova Pasta**.
+    ![vCenter ISO](media/vciso00.png)
 
-3. Crie uma pasta chamada ' ISOs e templates '.
+3. Crie uma pasta intitulada "ISOs and Templates".
 
-4. Navegue até a pasta ISOs em ISOs e modelos e clique em **carregar arquivos**. Siga as instruções na tela para carregar o ISO.
+4. Navegue para a pasta ISOs em ISOs e Modelos e clique em **Upload Files**. Siga as instruções no ecrã para fazer o upload da ISO.
 
-## <a name="create-a-virtual-machine-in-vcenter"></a>Criar uma máquina virtual no vCenter
+## <a name="create-a-virtual-machine-in-vcenter"></a>Criar uma Máquina Virtual no vCenter
 
-1. No vCenter, clique no ícone **hosts e clusters** .
+1. No vCenter, clique no ícone **Anfitriões e Clusters.**
 
-2. Clique com o botão direito do mouse em **carga de trabalho** e selecione **nova máquina virtual**.
-    ![Nova VM](media/vcvm01.png)
+2. Clique na carga de **trabalho** do clique à direita e selecione **Nova Máquina Virtual**.
+    ![novo](media/vcvm01.png) VM
 
-3. Selecione **criar nova máquina virtual** e clique em **Avançar**.
-    ![Nova VM](media/vcvm02.png)
+3. Selecione **Criar uma nova máquina virtual** e clique em **Next**.
+    ![novo](media/vcvm02.png) VM
 
-4. Nomeie o computador, selecione o local **da VM de carga de trabalho** e clique em **Avançar**.
-    ![Nova VM](media/vcvm03.png)
+4. Nomeie a máquina, selecione a localização **do VM de carga de trabalho** e clique em **Next**.
+    ![novo](media/vcvm03.png) VM
 
-5. Selecione o recurso de computação de **carga de trabalho** e clique em **Avançar**.
-    ![Nova VM](media/vcvm04.png)
+5. Selecione o recurso computacional **workload** e clique **em Seguinte**.
+    ![novo](media/vcvm04.png) VM
 
-6. Selecione **vsanDatastore** e clique em **Avançar**.
-    ![Nova VM](media/vcvm05.png)
+6. Selecione **vsanDatastore** e clique **em Seguinte**.
+    ![novo](media/vcvm05.png) VM
 
-7. Mantenha a seleção de compatibilidade do ESXi 6,5 padrão e clique em **Avançar**.
-    ![Nova VM](media/vcvm06.png)
+7. Mantenha a seleção de compatibilidade ESXi 6.5 padrão e clique **em Seguinte**.
+    ![novo](media/vcvm06.png) VM
 
-8. Selecione o sistema operacional convidado do ISO para a VM que você está criando e clique em **Avançar**.
-    ![Nova VM](media/vcvm07.png)
+8. Selecione o oss o de hóspedes do ISO para o VM que está a criar e clique **em Next**.
+    ![novo](media/vcvm07.png) VM
 
-9. Selecione opções de disco rígido e rede. Para nova unidade de CD/DVD, selecione o **arquivo ISO do repositório de armazenamento**.  Se você quiser permitir o tráfego do endereço IP público para essa VM, selecione a rede como **VM-1**.
-    ![Nova VM](media/vcvm08.png)
+9. Selecione o disco rígido e as opções de rede. Para uma nova unidade de CD/DVD, selecione **ficheiro ISO**da Datastore . Se pretender permitir o tráfego do endereço IP público para este VM, selecione a rede como **vm-1**.
+    ![novo](media/vcvm08.png) VM
 
-10. Uma janela de seleção é aberta. Selecione o arquivo que você carregou anteriormente para a pasta ISOs e modelos e clique em **OK**.
-    ![Nova VM](media/vcvm10.png)
+10. Abre-se uma janela de seleção. Selecione o ficheiro que já fez o upload para a pasta ISOs e Templates e clique em **OK**.
+    ![novo](media/vcvm10.png) VM
 
-11. Examine as configurações e clique em **OK** para criar a VM.
-    ![Nova VM](media/vcvm11.png)
+11. Reveja as definições e clique **em OK** para criar o VM.
+    ![novo](media/vcvm11.png) VM
 
-A VM agora é adicionada aos recursos de computação de carga de trabalho e está pronta para uso. 
-![Nova VM](media/vcvm12.png)
+O VM é agora adicionado aos recursos computacionais da Carga de Trabalho e está pronto para ser utilizado. 
+![novo](media/vcvm12.png) VM
 
-A configuração básica agora está concluída. Você pode começar a usar sua nuvem privada semelhante a como você usaria sua infraestrutura de VM local.
+A configuração básica está agora completa. Pode começar a usar a sua Nuvem Privada AVS semelhante à forma como utilizaria a sua infraestrutura VM no local.
 
-As seções a seguir contêm informações opcionais sobre como configurar servidores DNS e DHCP para cargas de trabalho de nuvem privada e modificar a configuração de rede padrão.
+As seguintes secções contêm informações opcionais sobre a configuração de servidores DNS e DHCP para cargas de trabalho da Nuvem Privada AVS e modificando a configuração de rede predefinida.
 
-## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Adicionar usuários e fontes de identidade ao vCenter (opcional)
+## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Adicionar Utilizadores e fontes de identidade ao vCenter (Opcional)
 
-CloudSimple atribui uma conta de usuário padrão do vCenter com o `cloudowner@cloudsimple.local`nome de usuários. Nenhuma configuração de conta adicional é necessária para você começar.  CloudSimple normalmente atribui aos administradores os privilégios necessários para executar operações normais.  Configure seu Active Directory local ou o Azure AD como uma fonte de [identidade adicional](set-vcenter-identity.md) em sua nuvem privada.
+O AVS atribui uma conta de utilizador vCenter predefinida com o nome de utilizador `cloudowner@AVS.local`. Não é necessária nenhuma configuração adicional da conta para que possa começar. A AVS atribui normalmente aos administradores os privilégios de que necessitam para realizar operações normais. Instale o seu diretório ativo no local ou azure AD como [uma fonte de identidade adicional](set-vcenter-identity.md) na sua Nuvem Privada AVS.
 
-## <a name="create-a-dns-and-dhcp-server-optional"></a>Criar um servidor DNS e DHCP (opcional)
+## <a name="create-a-dns-and-dhcp-server-optional"></a>Criar um servidor DNS e DHCP (Opcional)
 
-Os aplicativos e as cargas de trabalho em execução em um ambiente de nuvem privada exigem a resolução de nomes e os serviços DHCP para pesquisa e atribuição de endereço IP. Uma infraestrutura apropriada de DHCP e DNS é necessária para fornecer esses serviços. Você pode configurar uma máquina virtual no vCenter para fornecer esses serviços em seu ambiente de nuvem privada.
+Aplicações e cargas de trabalho em funcionamento num ambiente De Nuvem Privada AVS requerem resolução de nomes e serviços DHCP para procura e atribuição de endereços IP. Uma infraestrutura apropriada de DHCP e DNS é necessária para fornecer esses serviços. Pode configurar uma máquina virtual em vCenter para fornecer estes serviços no seu ambiente AVS Private Cloud.
 
 Pré-requisitos
 
@@ -110,11 +110,11 @@ Pré-requisitos
 
 * Modelo de máquina virtual ou ISO para criar uma máquina virtual
 
-Os links a seguir fornecem orientação sobre como configurar servidores DHCP e DNS no Linux e no Windows.
+Os seguintes links fornecem orientações sobre a configuração de servidores DHCP e DNS no Linux e Windows.
 
 #### <a name="linux-based-dns-server-setup"></a>Instalação do servidor DNS baseado em Linux
 
-O Linux oferece vários pacotes para a configuração de servidores DNS.  Aqui está um link para instruções para configurar um servidor DNS de ligação de software livre.
+O Linux oferece vários pacotes para a configuração de servidores DNS. Aqui está um link para instruções para a configuração de um servidor BIND DNS de código aberto.
 
 [Configuração de exemplo](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
@@ -126,32 +126,32 @@ Estes tópicos da Microsoft descrevem como configurar um servidor do Windows com
 
 [Windows Server como servidor DHCP](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
 
-## <a name="customize-networking-configuration-optional"></a>Personalizar a configuração de rede (opcional)
+## <a name="customize-networking-configuration-optional"></a>Personalizar configuração de rede (Opcional)
 
-As páginas de rede no portal do CloudSimple permitem que você especifique a configuração de tabelas de firewall e endereços IP públicos para VMs.
+As páginas da Rede no portal AVS permitem especificar a configuração para tabelas de firewall e endereços IP públicos para VMs.
 
-### <a name="allocate-public-ips"></a>Alocar IPs públicos
+### <a name="allocate-public-ips"></a>Atribuição de IPs públicos
 
-1. Navegue até **rede > IP público** no portal do CloudSimple.
-2. Clique em **alocar IP público**.
-3. Insira um nome para identificar a entrada de endereço IP.
-4. Mantenha o local padrão.
-5. Use o controle deslizante para alterar o tempo limite de ociosidade, se desejado.
-6. Insira o endereço IP local para o qual você deseja atribuir um endereço IP público.
-7. Se desejar, insira um nome DNS associado.
+1. Navegue para **Network > PUBLIC IP** no portal AVS.
+2. Clique em **Alocar IP Público**.
+3. Insira um nome para identificar a entrada do endereço IP.
+4. Mantenha a localização padrão.
+5. Utilize o slider para alterar o tempo inativo, se desejar.
+6. Insira o endereço IP local para o qual pretende atribuir um endereço IP público.
+7. Introduza um nome DNS associado, se desejar.
 8. Clique em **Concluído**.
 
     ![IP público](media/quick-create-pc-public-ip.png)
 
-A tarefa de alocar o endereço IP público começa. Você pode verificar o status da tarefa na página **atividades > tarefas** . Quando a alocação for concluída, a nova entrada será mostrada na página IPs públicos.
+Inicia-se a tarefa de atribuição do endereço IP público. Pode verificar o estado da tarefa na página **Atividade > Tarefas.** Quando a atribuição estiver concluída, a nova entrada é mostrada na página de IPs públicos.
 
-A VM para a qual esse endereço IP deve ser mapeado precisa ser configurada com o endereço local especificado acima. O procedimento para configurar um endereço IP é específico para o sistema operacional da VM. Consulte a documentação do sistema operacional da VM para obter o procedimento correto.
+O VM a que este endereço IP deve ser mapeado tem de ser configurado com o endereço local acima especificado. O procedimento para configurar um endereço IP é específico do sistema operativo VM. Consulte a documentação do seu sistema operativo VM para o procedimento correto.
 
 #### <a name="example"></a>Exemplo
 
-Por exemplo, aqui estão os detalhes do Ubuntu 16, 4.
+Por exemplo, aqui estão os detalhes para Ubuntu 16.04.
 
-Adicione o método estático à configuração da família de endereços da inet no arquivo/etc/network/interfaces. Altere o endereço, a máscara de rede e os valores de gateway. Para este exemplo, estamos usando a interface eth0, o endereço IP interno 192.168.24.10, o endereço de gateway 192.168.24.1 e a máscara de rede 255.255.255.0. Para o seu ambiente, as informações de sub-rede disponíveis são fornecidas no email de boas-vindas.
+Adicione o método estático à configuração familiar inet address no ficheiro /etc/rede/interfaces. Altere os valores de endereço, máscara de rede e gateway. Para este exemplo, estamos a utilizar a interface eth0, o endereço IP interno 192.168.24.10, o endereço de entrada 192.168.24.1 e o netmask 255.255.255.0. Para o seu ambiente, as informações de sub-rede disponíveis são fornecidas no e-mail de boas-vindas.
 
 ```
 sudo vi /etc/network/interfaces
@@ -168,33 +168,33 @@ dns-nameservers 8.8.8.8
 dns-domain acme.com
 dns-search acme.com
 ```
-Desabilite manualmente a interface.
+Desative manualmente a interface.
 
 ```
 sudo ifdown eth0
 ```
-Habilite manualmente a interface novamente.
+Ative manualmente a interface novamente.
 
 ```
 sudo ifup eth0
 ```
 
-Por padrão, todo o tráfego de entrada da Interneté negado. Se você quiser abrir qualquer outra porta, crie uma tabela de [Firewall](firewall.md).
+Por defeito, todo o tráfego de entrada da Internet é **negado.** Se quiser abrir qualquer outra porta, crie uma mesa de [firewall.](firewall.md)
 
-Depois de configurar um endereço IP interno como o endereço IP estático, verifique se você pode acessar a Internet de dentro da VM.
+Depois de configurar um endereço IP interno como endereço IP estático, verifique se pode chegar à Internet a partir do VM.
 
 ```
 ping 8.8.8.8
 ```
-Verifique também se você pode acessar a VM da Internet usando o endereço IP público.
+Verifique também se pode chegar ao VM a partir da Internet utilizando o endereço IP público.
 
-Verifique se as regras de iptable na VM não estão bloqueando a entrada da porta 80.
+Certifique-se de que quaisquer regras iptable sobre o VM não estão bloqueando a entrada da porta 80.
         
 ```
 netstat -an | grep 80
 ```
 
-Inicie um servidor http que escuta na porta 80.
+Inicie um servidor http que ouça na porta 80.
        
 ```
 python2.7 -m SimpleHTTPServer 80
@@ -205,26 +205,26 @@ ou
 ```
 python3 -m http.server 80
 ```
-Inicie um navegador na área de trabalho e aponte-o para a porta 80 para o endereço IP público para procurar os arquivos em sua VM.
+Inicie um navegador no seu ambiente de trabalho e aponte-o para a porta 80 para o endereço IP público para navegar nos ficheiros no seu VM.
 
-### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Regras de firewall padrão do CloudSimple para IP público
+### <a name="default-avs-firewall-rules-for-public-ip"></a>Regras de firewall AVS padrão para IP público
 
-* Tráfego VPN: Todo o tráfego entre (de/para) a VPN e todas as redes de carga de trabalho e rede de gerenciamento é permitido.
-* Tráfego interno da nuvem privada: Todo o tráfego leste-oeste entre as redes de carga de trabalho (de/para) e a rede de gerenciamento (mostrada acima) é permitido.
-* Tráfego da Internet:
-  * Todo o tráfego de entrada da Internet é negado às redes de carga de trabalho e à rede de gerenciamento.
-  * Todo o tráfego de saída para a Internet de redes de carga de trabalho ou da rede de gerenciamento é permitido.
+* Tráfego VPN: Todo o tráfego entre (de/para) a VPN e todas as redes de carga de trabalho e rede de gestão é permitido.
+* Tráfego interno da AVS Private Cloud: É permitido todo o tráfego este-oeste entre (de/para) redes de carga de trabalho e a rede de gestão (mostrada acima).
+* Tráfego na Internet:
+  * Todo o tráfego de entrada da Internet é negado às redes de carga de trabalho e à rede de gestão.
+  * É permitido todo o tráfego de saída para a Internet a partir de redes de carga de trabalho ou da rede de gestão.
 
-Você também pode modificar a maneira como o tráfego é protegido, usando o recurso de regras de firewall. Para obter mais informações, consulte [configurar regras e tabelas de firewall](firewall.md).
+Também pode modificar a forma como o seu tráfego está seguro, utilizando a funcionalidade Firewall Rules. Para mais informações, consulte [Configurar tabelas e regras](firewall.md)de firewall .
 
-## <a name="install-solutions-optional"></a>Instalar soluções (opcional)
+## <a name="install-solutions-optional"></a>Instalar soluções (Opcional)
 
-Você pode instalar soluções em sua nuvem privada do CloudSimple para aproveitar ao máximo seu ambiente do vCenter de nuvem privada. Você pode configurar o backup, a recuperação de desastre, a replicação e outras funções para proteger suas máquinas virtuais. Os exemplos incluem o VMware Site Recovery Manager (VMware SRM) e o Veeam Backup & Replication.
+Pode instalar soluções na sua Nuvem Privada AVS para tirar o máximo partido do ambiente VCenter Da Nuvem Privada AVS. Pode configurar backup, recuperação de desastres, replicação e outras funções para proteger as suas máquinas virtuais. Exemplos incluem VMware Site Recovery Manager (VMware SRM) e Veeam Backup & Replication.
 
-Para instalar uma solução, você deve solicitar privilégios adicionais por um período limitado. Consulte [escalonar privilégios](escalate-private-cloud-privileges.md).
+Para instalar uma solução, deve solicitar privilégios adicionais por um período limitado. Ver [privilégios Escalate.](escalate-private-cloud-privileges.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * [Conectar-se à rede local usando o Azure ExpressRoute](on-premises-connection.md)
-* [Configurar gateways de VPN na rede CloudSimple](vpn-gateway.md)
+* [Configurar gateways VPN na rede AVS](vpn-gateway.md)

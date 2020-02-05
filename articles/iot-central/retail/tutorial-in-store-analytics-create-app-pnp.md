@@ -11,16 +11,16 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 6fa4521cb50ecfc37004cbf9cff08644dc53f000
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 6b89b667855d827acfb7c181da014cd0d0b4bfc4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990654"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022108"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de análise na loja na Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 O tutorial mostra os construtores de soluções como criar uma aplicação de análise Azure IoT Central na loja. O pedido de amostra é para uma loja de retalho. É uma solução para a necessidade do negócio comum de monitorizar e adaptar-se às condições de ocupação e ambientais.
 
@@ -64,7 +64,7 @@ Para criar uma nova aplicação do Azure IoT Central:
 
 1. Selecione **Retail**.  A página de varejo apresenta vários modelos de aplicação de retalho.
 
-Para criar uma nova aplicação de check-out de análise na loja que utiliza funcionalidades de pré-visualização:  
+Para criar uma nova aplicação de check-out de análise na loja:  
 
 1. Selecione a análise da loja - modelo de aplicação de **check-out.** Este modelo inclui modelos de dispositivopara todos os dispositivos utilizados no tutorial, exceto para os sensores RuuviTag. O modelo também fornece um painel de instrumentos do operador para monitorizar as condições de check-out e ambientais, e o estado do dispositivo. 
 
@@ -75,7 +75,7 @@ Para criar uma nova aplicação de check-out de análise na loja que utiliza fun
 
 1. Se tiver uma assinatura Azure, insira o seu *Diretório, subscrição Azure e Região.* Se não tiver uma subscrição, pode ativar um **teste gratuito de 7** dias e completar as informações de contacto necessárias.  
 
-    Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](../preview/quick-deploy-iot-central.md).
+    Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](../core/quick-deploy-iot-central.md).
 
 1. Selecione **Criar**.
 
@@ -84,6 +84,7 @@ Para criar uma nova aplicação de check-out de análise na loja que utiliza fun
     ![Azure IoT Central Criar informação sobre faturação de aplicações](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template-billinginfo.png)
 
 ## <a name="customize-application-settings"></a>Personalizar as definições de aplicação
+
 Como construtor, pode alterar várias definições para personalizar a experiência do utilizador na sua aplicação. Nesta secção, irá selecionar um tema de aplicação predefinido. Opcionalmente, você vai aprender a criar um tema personalizado, e atualizar a imagem da aplicação. Um tema personalizado permite definir as cores do navegador de aplicação, o ícone do navegador e o logótipo da aplicação que aparece no masthead.
 
 Para selecionar um tema de aplicação predefinido:
@@ -162,7 +163,7 @@ Em segundo lugar, personalize os modelos do seu dispositivo adicionando propried
 
 Terceiro, personalize os modelos do dispositivo construindo vistas personalizadas. As vistas fornecem uma forma de os operadores visualizarem a telemetria e os metadados para os seus dispositivos, tais como métricas do dispositivo e saúde.
 
-Aqui, você usa os dois primeiros métodos para personalizar o modelo do dispositivo para os seus sensores RuuviTag. Para obter informações sobre a criação de vistas para os seus sensores, consulte o [Adicionar um dispositivo simulado à sua aplicação IoT Central.](../preview/quick-create-pnp-device.md)
+Aqui, você usa os dois primeiros métodos para personalizar o modelo do dispositivo para os seus sensores RuuviTag. Para obter informações sobre a criação de vistas para os seus sensores, consulte o [Adicionar um dispositivo simulado à sua aplicação IoT Central.](../core/quick-create-pnp-device.md)
 
 Para personalizar as interfaces incorporadas do modelo do dispositivo RuuviTag:
 
@@ -202,7 +203,7 @@ Especifique os seguintes valores para criar uma propriedade personalizada para a
 
 1. Introduza o *local* de valor para o nome do **visor**. Este valor é automaticamente copiado para o campo **Nome,** que é um nome amigável para a propriedade. Pode usar o valor copiado ou mudá-lo.
 
-1. Selecione *String* no **dropdown de Schema.** Um tipo de corda permite-lhe associar uma cadeia de nome de localização a qualquer dispositivo baseado no modelo. Por exemplo, pode associar uma área numa loja a cada dispositivo. Opcionalmente, pode definir o **tipo semantico** da sua propriedade para *Localização*, e isso automaticamente define o **Schema** para *Geopoint*. Isto permite-lhe associar coordenadas de GPS a um dispositivo. 
+1. Selecione *String* no **dropdown de Schema.** Um tipo de corda permite-lhe associar uma cadeia de nome de localização a qualquer dispositivo baseado no modelo. Por exemplo, pode associar uma área numa loja a cada dispositivo. Opcionalmente, pode definir o **tipo semantico** da sua propriedade para *Localização*, e isso automaticamente define o **Schema** para *Geopoint*. Permite-lhe associar coordenadas de GPS a um dispositivo. 
 
 1. Definir **comprimento mínimo** para *2*. 
 
@@ -225,12 +226,12 @@ Para este tutorial, utiliza o seguinte conjunto de dispositivos reais e simulado
 - Um sensor de **ocupação** simulado. O sensor simulado está incluído no modelo de aplicação, por isso não precisa criá-lo. 
 
 > [!NOTE]
-> Se não tiver dispositivos reais, ainda pode completar este tutorial criando sensores RuuviTag simulados. As seguintes direções incluem passos para criar um RuuviTag simulado. Não precisa criar um portal simulado.
+> Se não tiver dispositivos reais, ainda pode completar este tutorial criando sensores RuuviTag simulados. As seguintes direções incluem passos para criar um RuuviTag simulado. Não precisas de criar um portal simulado.
 
 Complete os passos nos dois artigos seguintes para ligar um verdadeiro gateway rigado e sensores RuuviTag. Depois de terminar, volte para este tutorial. Como já criou modelos de dispositivoneste tutorial, não precisa criá-los novamente no seguinte conjunto de direções.
 
-- Para ligar um gateway Rigado, consulte [Ligue uma Cascata Rigado 500 à sua aplicação Central Azure IoT](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Para ligar os sensores RuuviTag, consulte [Connect um sensor RuuviTag à sua aplicação Central Azure IoT](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). Também pode usar estas direções para criar dois sensores simulados, se necessário.
+- Para ligar um gateway Rigado, consulte [Ligue uma Cascata Rigado 500 à sua aplicação Central Azure IoT](../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+- Para ligar os sensores RuuviTag, consulte [Connect um sensor RuuviTag à sua aplicação Central Azure IoT](../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). Também pode usar estas direções para criar dois sensores simulados, se necessário.
 
 ## <a name="add-rules-and-actions"></a>Adicionar regras e ações
 Como parte da utilização de sensores na sua aplicação Azure IoT Central para monitorizar as condições, pode criar regras para executar ações quando determinadas condições são satisfeitas. Uma regra está associada a um modelo de dispositivo e a um ou mais dispositivos, e contém condições que devem ser satisfeitas com base na telemetria do dispositivo ou eventos. Uma regra também tem uma ou mais ações associadas. As ações podem incluir o envio de notificações por e-mail ou o desencadeamento de uma ação de webhook para enviar dados para outros serviços. O modelo de aplicação **in-store - o** modelo de aplicação de check-out inclui algumas regras predefinidas para os dispositivos na aplicação.
@@ -249,7 +250,7 @@ Para criar uma regra:
 
 1. Escolha o modelo do dispositivo RuuviTag em **Scopes**. A regra que define aplicar-se-á a todos os sensores com base nesse modelo. Opcionalmente, poderia criar um filtro que aplicasse a regra apenas a um subconjunto definido dos sensores. 
 
-1. Escolha `Relative humidity` como **Telemetria.** Esta é a capacidade do dispositivo que personalizou num passo anterior.
+1. Escolha `Relative humidity` como **Telemetria.** É a capacidade do dispositivo que personalizou num passo anterior.
 
 1. Escolha `Is greater than` como **Operador**. 
 

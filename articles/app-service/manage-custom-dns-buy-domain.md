@@ -5,18 +5,18 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 6bc6f1ca29343e027730cbbd99d210f911fcb492
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967305"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023417"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para o serviço de Azure App
 
 Os domínios do serviço de aplicativo são domínios de nível superior que são gerenciados diretamente no Azure. Eles facilitam o gerenciamento de domínios personalizados para [Azure app serviço](overview.md). Este tutorial mostra como comprar um domínio do serviço de aplicativo e atribuir nomes DNS ao serviço Azure App.
 
-Para a VM do Azure ou o armazenamento do Azure, consulte [atribuir domínio do serviço de aplicativo à VM do Azure ou armazenamento do Azure](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
+Para a VM do Azure ou o armazenamento do Azure, consulte [atribuir domínio do serviço de aplicativo à VM do Azure ou armazenamento do Azure](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage). Para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,7 +108,7 @@ Em seguida, selecione as opções desejadas para seu domínio. Consulte a tabela
 
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
-|Proteção de privacidade | Ativar | Aceite a "proteção de privacidade", que está incluída no preço de compra _gratuitamente_. Alguns domínios de nível superior são gerenciados por registradores que não dão suporte à proteção de privacidade e estão listados na página **proteção de privacidade** . |
+|Proteção da privacidade | Ativar | Aceite a "proteção de privacidade", que está incluída no preço de compra _gratuitamente_. Alguns domínios de nível superior são gerenciados por registradores que não dão suporte à proteção de privacidade e estão listados na página **proteção de privacidade** . |
 | Atribuir nomes de host padrão | **www** e **\@** | Selecione as associações de nome de host desejadas, se desejar. Quando a operação de compra de domínio for concluída, seu aplicativo poderá ser acessado nos nomes de host selecionados. Se o aplicativo estiver por trás do [Gerenciador de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), você não verá a opção de atribuir o domínio raiz (@), pois o Gerenciador de tráfego não oferece suporte A registros a. Você pode fazer alterações nas atribuições de nome de host após a conclusão da compra de domínio. |
 
 ### <a name="accept-terms-and-purchase"></a>Aceitar os termos e comprar

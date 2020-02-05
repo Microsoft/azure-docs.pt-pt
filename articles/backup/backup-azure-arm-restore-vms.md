@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual do Azure de um ponto de recuperaçã
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: d0b2e85fa3dfb0168c40c6b8838c7b9890c92ab6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 23e34d65a06f5fbf3ad8ce53311862c680ddebd0
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844012"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021989"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -187,7 +187,7 @@ Há vários cenários comuns em que talvez seja necessário restaurar as VMs.
 **Restaurar vários VMs controladores de domínio em domínio único** | Se outros controladores de domínio no mesmo domínio puderem ser acessados pela rede, o controlador de domínio poderá ser restaurado como qualquer VM. Se for o último controlador de domínio restante no domínio, ou se for realizada uma recuperação numa rede isolada, utilize uma [recuperação florestal](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restaurar vários domínios numa floresta** | Recomendamos uma [recuperação florestal.](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)
 **Restauro de metal nu** | A principal diferença entre as VMs do Azure e os hipervisores locais é que não há nenhum console de VM disponível no Azure. Um console do é necessário para determinados cenários, como a recuperação usando um backup do tipo BMR (recuperação bare-metal). No entanto, a restauração da VM do cofre é uma substituição completa para BMR.
-**Restaurar VMs com configurações especiais de rede** | As configurações de rede especiais incluem VMs que usam balanceamento de carga interno ou externo, usando várias NICS ou vários endereços IP reservados. Restaure estes VMs utilizando a [opção restaurar](#restore-disks)o disco . Esta opção faz uma cópia dos VHDs na conta de armazenamento especificada, e pode então criar um VM com um equilibrador de carga [interna](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) ou [externa,](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) [múltiplos NICS,](../virtual-machines/windows/multiple-nics.md)ou [múltiplos endereços IP reservados,](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)de acordo com a sua configuração.
+**Restaurar VMs com configurações especiais de rede** | As configurações de rede especiais incluem VMs que usam balanceamento de carga interno ou externo, usando várias NICS ou vários endereços IP reservados. Restaure estes VMs utilizando a [opção restaurar](#restore-disks)o disco . Esta opção faz uma cópia dos VHDs na conta de armazenamento especificada, e pode então criar um VM com um equilibrador de carga [interna](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) ou [externa,](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell) [múltiplos NICS,](../virtual-machines/windows/multiple-nics.md)ou [múltiplos endereços IP reservados,](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)de acordo com a sua configuração.
 **Grupo de Segurança de Rede (NSG) em NIC/Subnet** | O backup de VM do Azure dá suporte a backup e restauração de informações de NSG em nível de rede virtual, sub-rede e NIC.
 **VMs da zona** | O backup do Azure dá suporte ao backup e à restauração de VMs fixadas de zona. [Saiba mais](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
@@ -214,7 +214,7 @@ Depois de disparar a operação de restauração, o serviço de backup cria um t
 Há várias coisas a serem observadas após a restauração de uma VM:
 
 - As extensões presentes durante a configuração de backup são instaladas, mas não habilitadas. Se você vir um problema, reinstale as extensões.
-- Se a VM com backup tiver um endereço IP estático, a VM restaurada terá um endereço IP dinâmico para evitar conflitos. Pode [adicionar um endereço IP estático ao VM restaurado](/previous-versions/azurevirtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
+- Se a VM com backup tiver um endereço IP estático, a VM restaurada terá um endereço IP dinâmico para evitar conflitos. Pode [adicionar um endereço IP estático ao VM restaurado](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip#how-to-add-a-static-internal-ip-to-an-existing-vm).
 - Uma VM restaurada não tem um conjunto de disponibilidade. Se utilizar a opção restaurar o disco, pode [especificar um conjunto](../virtual-machines/windows/tutorial-availability-sets.md) de disponibilidade quando criar um VM a partir do disco utilizando o modelo fornecido ou powerShell.
 - Se você usar uma distribuição Linux baseada em inicialização de nuvem, como Ubuntu, por motivos de segurança, a senha será bloqueada após a restauração. Utilize a extensão VMAccess no VM restaurado para [redefinir a palavra-passe](../virtual-machines/linux/reset-password.md). É recomendável usar chaves SSH nessas distribuições para que você não precise redefinir a senha após a restauração.
 - Se não conseguir aceder ao VM uma vez restaurado devido à relação com o controlador de domínio, siga os passos abaixo para elevar o VM:

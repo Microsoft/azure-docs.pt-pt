@@ -2,31 +2,38 @@
 title: Atualizar dados de perfis e contas do portal My Apps - Azure AD
 description: Saiba como atualizar o seu perfil e as informações sobre o seu trabalho ou conta escolar, incluindo alterar a sua palavra-passe, ligar a palavra-passe, atualizar os seus métodos de verificação de segurança, visualizar os termos de utilização da sua organização e assinar fora em todos os lugares que assinou usando o seu trabalho ou conta escolar.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704872"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022284"
 ---
-# <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Atualize o seu perfil e informação sobre o trabalho ou a conta escolar no portal My Apps
+# <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Atualize o seu perfil e informações sobre contas no portal My Apps
 
-Pode utilizar o seu trabalho ou conta escolar com o portal **My Apps** baseado na Web, para visualizar e iniciar muitas das aplicações baseadas na nuvem da sua organização, atualizar algumas das informações do seu perfil e conta, ver as informações dos seus **Grupos** e realizar **avaliações** de acesso para as suas apps e grupos. Se não tiver acesso ao portal **My Apps,** deve contactar o seu Helpdesk para obter permissão.
+Você pode usar o seu trabalho ou conta escolar com o portal **My Apps** baseado na web para 
+
+- Ver e iniciar muitas das aplicações baseadas na nuvem da sua organização
+- Atualize algumas das informações do seu perfil e conta
+- Consulte as informações dos seus **Grupos**
+- Execute **avaliações de acesso** para as suas apps e grupos. 
+
+Se não tiver acesso ao portal **My Apps,** deve contactar o seu Helpdesk para obter permissão.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
->[!Important]
->Este conteúdo destina-se aos utilizadores. Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> [!Important]
+> Este conteúdo destina-se aos utilizadores **das Minhas Apps.** Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Consulte as informações de perfil relacionadas com a organização
 

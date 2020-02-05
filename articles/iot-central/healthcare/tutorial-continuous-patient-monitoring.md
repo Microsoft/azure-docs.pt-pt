@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: c9a153cc5b1b8c43a42b37d591a8946a545f63ff
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986439"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021292"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implementar e passar por um modelo contínuo de aplicação de monitorização do paciente
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Este tutorial mostra-lhe, como construtor de soluções, como começar com a implementação de um modelo de aplicação contínua de monitorização contínua do paciente IoT Central. Você vai aprender a implementar o modelo, o que está incluído fora da caixa, e o que você pode querer fazer a seguir.
+
+Este tutorial mostra-lhe, como construtor de soluções, como começar com a implementação de um modelo de aplicação contínua de monitorização contínua do paciente IoT Central. Você vai aprender a implementar o modelo, o que está incluído fora da caixa, e o que você pode fazer a seguir.
 
 Neste tutorial, ficará a saber como:
 
@@ -34,7 +34,7 @@ Navegue para o site do gestor de [aplicações Azure IoT Central.](https://apps.
 >[!div class="mx-imgBorder"] 
 >![gestor de aplicativos Healthcare](media/app-manager-health.png)
 
-Clique no botão **de aplicação Create** para começar a criar a sua aplicação e, em seguida, iniciar sessão com uma conta pessoal, de trabalho ou escolar da Microsoft. Isto leva-o à página de **aplicação Nova.**
+Clique no botão **de aplicação Create** para começar a criar a sua aplicação e, em seguida, iniciar sessão com uma conta pessoal, de trabalho ou escolar da Microsoft. Vai levá-lo à nova página de **candidatura.**
 
 ![Criar aplicação Cuidados de Saúde](media/app-manager-health-create.png)
 
@@ -52,13 +52,13 @@ Para criar a sua aplicação:
 
 ### <a name="dashboards"></a>Dashboards
 
-Depois de implementar o modelo de aplicação, você irá primeiro aterrar no painel de **monitorização do paciente lamna**. Lamna Healthcare é um sistema hospitalar fictício que contém dois hospitais: O Hospital Woodgrove e o Hospital Burkville. Neste painel de telefonista do Hospital Woodgrove, você verá informações e telemetria sobre os dispositivos neste modelo juntamente com um conjunto de comandos, empregos e ações que você pode tomar. A partir do painel de instrumentos pode:
+Depois de implementar o modelo de aplicação, você primeiro aterrará no painel de **monitorização do paciente lamna**. Lamna Healthcare é um sistema hospitalar fictício que contém dois hospitais: O Hospital Woodgrove e o Hospital Burkville. Neste painel de telefonista do Hospital Woodgrove, você verá informações e telemetria sobre os dispositivos neste modelo juntamente com um conjunto de comandos, empregos e ações que você pode tomar. A partir do painel de instrumentos pode:
 
 * Consulte a telemetria do dispositivo e propriedades como o **nível** de bateria do seu dispositivo ou o seu estado **de conectividade.**
 
 * Veja a planta do **piso** e a localização do dispositivo Smart Vitals Patch.
 
-* **Reabastecer** o Patch Smart Vitals para um novo paciente.
+* **Reforte** o Patch Smart Vitals para um novo paciente.
 
 * Veja um exemplo de um painel de **fornecedores** que uma equipa de cuidados hospitalares pode ver para rastrear os seus pacientes.
 
@@ -72,20 +72,20 @@ Também pode clicar em **Ir ao painel de instrumentos do paciente remoto** para 
 >[!div class="mx-imgBorder"] 
 >![](media/lamna-remote.png) remoto lamna
 
-Em ambos os dashboards pode sempre ligar-se a esta documentação.
+Em ambos os dashboards, pode sempre ligar-se a esta documentação.
 
 ### <a name="device-templates"></a>Modelos de dispositivo
 
 Se clicar no separador de **modelos do Dispositivo,** verá que existem dois tipos diferentes de dispositivos que fazem parte do modelo:
 
-* **Smart Vitals Patch**: Este dispositivo representa um patch que mede uma variedade de sinais vitais que poderiam ser usados para monitorizar pacientes dentro e fora do hospital. Se clicar no modelo, verá que além de enviar dados do dispositivo, como o nível da bateria e a temperatura do dispositivo, o patch também está a enviar dados de saúde do paciente, como a taxa respiratória e a pressão arterial.
+* **Patch Smart Vitals**: Este dispositivo representa um patch que mede diferentes tipos de sinais vitais. Pode ser usado para monitorizar pacientes dentro e fora do hospital. Se clicar no modelo, verá que além de enviar dados do dispositivo, como o nível da bateria e a temperatura do dispositivo, o patch também está a enviar dados de saúde do paciente, como a taxa respiratória e a pressão arterial.
 
 * **Cinta inteligente do joelho**: Este dispositivo representa uma joelheira que os pacientes podem usar quando se recuperam de uma cirurgia de substituição do joelho. Se clicar neste modelo, verá capacidades como alcance de movimento e aceleração, além dos dados do dispositivo.
 
 >[!div class="mx-imgBorder"] 
 >![smart vitals patch dispositivo](media/smart-vitals-device-template.png)
 
-Se clicar no separador de **grupos do Dispositivo,** verá também que estes modelos de dispositivo saem automaticamente de grupos de dispositivos criados para os mesmos.
+Se clicar no separador de **grupos do Dispositivo,** também verá que estes modelos de dispositivo saem automaticamente de grupos de dispositivos criados para os mesmos.
 
 ### <a name="rules"></a>Regras
 
@@ -102,7 +102,7 @@ Ao saltar para o separador de regras, você verá três regras que existem no mo
 
 ### <a name="devices"></a>Dispositivos
 
-Clique no separador **Dispositivos** e, em seguida, selecione uma instância da **joelheira inteligente**. Verá que existem três pontos de vista para poder explorar informações sobre o dispositivo específico que selecionou. Estas vistas são criadas e publicadas ao construir o modelo do dispositivo para o seu dispositivo. Isto significa que serão consistentes em todos os dispositivos que ligar ou simular.
+Clique no separador **Dispositivos** e, em seguida, selecione uma instância da **joelheira inteligente**. Verá que existem três pontos de vista para explorar informações sobre o dispositivo em particular que selecionou. Estas vistas são criadas e publicadas ao construir o modelo do dispositivo para o seu dispositivo, o que significa que serão consistentes em todos os dispositivos que você conecta ou simula.
 
 A vista **Dashboard** dá uma visão geral da telemetria e das propriedades que vêm do dispositivo que são orientados para o operador.
 

@@ -2,21 +2,21 @@
 title: Variáveis de ambiente de tempo de execução de tarefa – lote do Azure | Microsoft Docs
 description: Orientação e referência da variável de ambiente do tempo de execução da tarefa para análise do lote do Azure.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: jushiman
-ms.openlocfilehash: fd3c8ac9e65f7f77be070e1d1d108490e61eb248
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: b6a9e21157884c86577b498671e4cfd0bc6068cd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027181"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020204"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis de ambiente de tempo de execução do lote do Azure
 
@@ -48,7 +48,7 @@ As linhas de comando executadas por tarefas em nós de computação não são ex
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | O nome da conta do lote à qual a tarefa pertence.                  | Todas as tarefas.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | A URL da conta do lote. | Todas as tarefas. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | Um prefixo de todas as variáveis de ambiente do pacote de aplicativo. Por exemplo, se a versão "1" do aplicativo "FOO" for instalada em um pool, a variável de ambiente será AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 aponta para o local em que o pacote foi baixado (uma pasta). Ao usar a versão padrão do pacote do aplicativo, use a variável de ambiente AZ_BATCH_APP_PACKAGE sem os números de versão. | Qualquer tarefa com um pacote de aplicativo associado. Também estará disponível para todas as tarefas se o próprio nó tiver pacotes de aplicativos. | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | Um prefixo de todas as variáveis de ambiente do pacote de aplicativo. Por exemplo, se a versão "FOO" da aplicação "FOO" for instalada numa piscina, a variável ambiental é AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 aponta para a localização que o pacote foi descarregado (uma pasta). Ao utilizar a versão padrão do pacote de aplicações, utilize a variável ambiente AZ_BATCH_APP_PACKAGE sem os números da versão. | Qualquer tarefa com um pacote de aplicativo associado. Também estará disponível para todas as tarefas se o próprio nó tiver pacotes de aplicativos. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Um token de autenticação que concede acesso a um conjunto limitado de operações de serviço de lote. Essa variável de ambiente só estará presente se [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) for definido quando a [tarefa for adicionada](/rest/api/batchservice/task/add#request-body). O valor do token é usado nas APIs do lote como credenciais para criar um cliente do lote, como na [API do .net BatchClient. Open ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Todas as tarefas. | Token de acesso do OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Um diretório dentro do [diretório de trabalho de tarefa][files_dirs] no qual os certificados são armazenados para nós de computação do Linux. Essa variável de ambiente não se aplica a nós de computação do Windows.                                                  | Todas as tarefas.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | A lista de nós alocados para uma [tarefa de várias instâncias][multi_instance] no formato `nodeIP,nodeIP`. | Subtarefas e primárias de várias instâncias. | `10.0.0.4,10.0.0.5` |
@@ -65,7 +65,7 @@ As linhas de comando executadas por tarefas em nós de computação não são ex
 | AZ_BATCH_NODE_SHARED_DIR        | O caminho completo do [diretório compartilhado][files_dirs] no nó. Todas as tarefas que são executadas em um nó têm acesso de leitura/gravação a esse diretório. As tarefas executadas em outros nós não têm acesso remoto a esse diretório (não é um diretório de rede "compartilhado"). | Todas as tarefas. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | O caminho completo do [diretório da tarefa inicial][files_dirs] no nó. | Todas as tarefas. | C:\user\tasks\startup |
 | AZ_BATCH_POOL_ID                | O ID do conjunto no qual a tarefa é executada. | Todas as tarefas. | batchpool001 |
-| AZ_BATCH_TASK_DIR               | O caminho completo do [diretório da tarefa][files_dirs] no nó. Esse diretório contém o `stdout.txt` e `stderr.txt` para a tarefa e o AZ_BATCH_TASK_WORKING_DIR. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
+| AZ_BATCH_TASK_DIR               | O caminho completo do [diretório da tarefa][files_dirs] no nó. Este diretório contém a `stdout.txt` e `stderr.txt` para a tarefa, e o AZ_BATCH_TASK_WORKING_DIR. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | O ID da tarefa atual. | Todas as tarefas, exceto a tarefa de início. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Um caminho de diretório que é idêntico à tarefa principal e a todas as subtarefas de uma [tarefa de várias instâncias][multi_instance]. O caminho existe em cada nó em que a tarefa de várias instâncias é executada e é acessível para leitura/gravação para os comandos de tarefa em execução nesse nó (o [comando de coordenação][coord_cmd] e o comando do [aplicativo][app_cmd]). Subtarefas ou uma tarefa primária executada em outros nós não têm acesso remoto a esse diretório (não é um diretório de rede "compartilhado"). | Subtarefas e primárias de várias instâncias. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | O caminho completo do [diretório de trabalho de tarefa][files_dirs] no nó. A tarefa em execução no momento tem acesso de leitura/gravação a esse diretório. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |

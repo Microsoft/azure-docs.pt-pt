@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c40993df8033b9dbc49c81e8db2f9f01c6de37d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0aca5019f4f7fca47195fb8fb821b1af1ae9ec77
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424927"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024250"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso condicional: bloquear autenticação herdada
 
@@ -32,7 +32,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para bl
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
 1. Em **atribuições**, selecione **usuários e grupos**
    1. Em **incluir**, selecione **todos os usuários**.
-   1. Em **excluir**, selecione **usuários e grupos** e escolha as contas que devem manter a capacidade de usar a autenticação herdada. 
+   1. Em **excluir**, selecione **usuários e grupos** e escolha as contas que devem manter a capacidade de usar a autenticação herdada. Deve excluir pelo menos uma conta para evitar que seja bloqueado. Se não excluir nenhuma conta, não poderá criar esta política.
    1. Selecione **Done** (Concluído).
 1. Em **aplicativos de nuvem ou ações** , selecione **todos os aplicativos de nuvem**.
    1. Selecione **Done** (Concluído).
@@ -40,7 +40,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para bl
    1. Marque apenas as caixas **aplicativos móveis e clientes de área de trabalho** > **outros clientes**.
    1. Selecione **Done** (Concluído).
 1. Em **controles de acesso** > **concessão**, selecione **bloquear acesso**.
-   1. Selecione **Selecionar**.
+   1. Selecione **Selecione**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.
 

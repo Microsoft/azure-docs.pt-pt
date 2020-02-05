@@ -1,6 +1,6 @@
 ---
-title: Arquitetura da análise da loja
-description: Aprenda a criar um aplicativo de análise no repositório usando o modelo de aplicativo de check-out no IoT Central
+title: Arquitetura de Análise de Loja
+description: Aprenda a construir uma aplicação de análise na loja usando o modelo de aplicação checkout na IoT Central
 author: avneets
 ms.author: avneets
 ms.date: 10/13/2019
@@ -9,18 +9,18 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 728c5dcbf94e030e860a222add6498824c66930d
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6c2514bd078cc3feee4bd2802cf314079b824311
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615405"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022125"
 ---
-# <a name="in-store-analytics-architecture"></a>Arquitetura da análise na loja
+# <a name="in-store-analytics-architecture"></a>Arquitetura de análise na loja
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-As soluções de análise no repositório permitem que você monitore várias condições no ambiente de loja de varejo. Essas soluções podem ser criadas aproveitando um dos modelos de aplicativo no IoT Central e a arquitetura abaixo como orientação.
+
+As soluções de análise na loja permitem monitorizar várias condições no ambiente da loja de retalho. Estas soluções podem ser construídas utilizando um dos modelos de aplicação dentro da IoT Central e a arquitetura abaixo como orientação.
 
 
 ![Análise do Azure IoT Central Store](./media/architecture/store-analytics-architecture-frame.png)
@@ -31,11 +31,11 @@ As soluções de análise no repositório permitem que você monitore várias co
 - Os dados podem ser estruturados no formato desejado e enviados a um serviço de armazenamento
 - Os aplicativos de negócios podem consultar dados e gerar informações que reforçam as operações de varejo
  
-Vamos dar uma olhada nos principais componentes que geralmente desempenham uma parte em uma solução de análise na loja.
+Vamos ver os componentes-chave que geralmente desempenham um papel numa solução de análise na loja.
 
 ## <a name="condition-monitoring-sensors"></a>Sensores de monitoramento de condição
 
-Uma solução de IoT começa com um conjunto de sensores capturando sinais significativos de dentro de um ambiente de loja de varejo. Ele é refletido por uma variedade de sensores na extrema esquerda do diagrama de arquitetura acima.
+Uma solução IoT começa com um conjunto de sensores que captam sinais significativos dentro de um ambiente de loja de retalho. Reflete-se por diferentes tipos de sensores na extrema esquerda do diagrama de arquitetura acima.
 
 ## <a name="gateway-devices"></a>Dispositivos do gateway
 
@@ -43,16 +43,16 @@ Muitos sensores IoT podem alimentar sinais brutos diretamente para a nuvem ou pa
 
 ## <a name="iot-central-application"></a>IoT Central aplicativo
 
-O aplicativo de IoT Central do Azure ingere dados de uma variedade de sensores IoT, bem como de dispositivos de gateway no ambiente de loja de varejo, e gera um conjunto de ideias significativas.
+A aplicação Azure IoT Central ingere dados de diferentes tipos de sensores IoT, bem como dispositivos gateway dentro do ambiente de loja de retalho e gera um conjunto de insights significativos.
 
 O Azure IoT Central também fornece uma experiência personalizada para o operador Store, permitindo que eles monitorem e gerenciem remotamente os dispositivos de infraestrutura.
 
 ## <a name="data-transform"></a>Transformação de dados
-O aplicativo de IoT Central do Azure em uma solução pode ser configurado para exportar insights brutos ou agregados para um conjunto de serviços de PaaS (plataforma como serviço) do Azure que podem executar a manipulação de dados e enriquecer essas informações antes de confazê-los em uma empresa aplicativo. 
+A aplicação Azure IoT Central dentro de uma solução pode ser configurada para exportar insights brutos ou agregados para um conjunto de serviços Azure PaaS (Plataforma-as-a-a Service) que podem realizar manipulação de dados e enriquecer esses insights antes de os aterrar numa empresa aplicação. 
 
 ## <a name="business-application"></a>Aplicativo de negócios
-Os dados de IoT podem ser usados para alimentar uma variedade de aplicativos de negócios implantados em um ambiente de varejo. Um gerente de loja de varejo ou membro da equipe pode utilizar esses aplicativos para visualizar informações de negócios e tomar ações significativas em tempo real. Para saber como criar um painel de Power BI em tempo real para sua equipe de varejo, siga o [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
+Os dados do IoT podem ser utilizados para alimentar diferentes tipos de aplicações empresariais implantadas num ambiente de retalho. Um gerente de loja de retalho ou membro do staff pode usar estas aplicações para visualizar insights de negócio e tomar ações significativas em tempo real. Para saber como criar um painel de Power BI em tempo real para sua equipe de varejo, siga o [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-* Introdução aos modelos de aplicativo de [check-out da análise na loja](https://aka.ms/checkouttemplate) e [análise no repositório](https://aka.ms/conditiontemplate) . 
-* Veja o [tutorial de ponta a ponta](https://aka.ms/storeanalytics-tutorial) que explica como criar uma solução usando um dos modelos de aplicativo de análise no repositório.
+* Inicie-se com os modelos de aplicação de [monitorização](https://aka.ms/checkouttemplate) de condições de análise na loja e na [loja.](https://aka.ms/conditiontemplate) 
+* Dê uma olhada no [tutorial de ponta a ponta](https://aka.ms/storeanalytics-tutorial) que o acompanha através de como construir uma solução usando um dos modelos de aplicação In-Store Analytics.

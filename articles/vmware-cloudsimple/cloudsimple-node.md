@@ -1,6 +1,6 @@
 ---
-title: Visão geral da solução Azure VMware por CloudSimple nós
-description: Saiba mais sobre os nós e conceitos do CloudSimple.
+title: Soluções Azure VMware (AVS) - Visão geral dos nós
+description: Saiba mais sobre os nódosos e conceitos AVS.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,55 +8,57 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 08d8fc3e6f1f2f83cf3c4fee3fdafb0bd07e336c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899021"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024930"
 ---
-# <a name="cloudsimple-nodes-overview"></a>Visão geral dos nós do CloudSimple
+# <a name="avs-nodes-overview"></a>Visão geral dos avs
 
-Os nós são os blocos de construção de uma nuvem privada. Um nó é:
+Os nódosos são os blocos de construção de uma Nuvem Privada AVS. Um nó é:
 
-* Um host de computação bare-metal dedicado em que um hipervisor VMware ESXi está instalado  
-* Uma unidade de computação que você pode provisionar ou reservar para criar nuvens privadas
-* Disponível para provisionar ou reservar em uma região onde o serviço CloudSimple está disponível
+* Um hospedeiro de computação de metal nu dedicado onde é instalado um hipervisor VMware ESXi  
+* Uma unidade de computação que pode comprar ou reservar para criar Nuvens Privadas AVS
+* Disponível para compra ou reserva numa região onde o serviço AVS está disponível
 
-Você cria uma nuvem privada a partir dos nós provisionados. Para criar uma nuvem privada, você precisa de um mínimo de três nós do mesmo SKU. Para expandir uma nuvem privada, adicione outros nós.  Você pode adicionar nós a um cluster existente ou criar um novo cluster Provisionando nós no portal do Azure e associando-os ao serviço CloudSimple.  Todos os nós provisionados são visíveis no serviço CloudSimple.  
+Cria-se uma Nuvem Privada AVS a partir dos nódosos comprados. Para criar uma Nuvem Privada AVS, você precisa de um mínimo de três nós do mesmo SKU. Para expandir uma Nuvem Privada AVS, adicione nós adicionais. Pode adicionar nós a um cluster existente ou criar um novo cluster comprando nós no portal Azure e associando-os ao serviço AVS. Todos os nós adquiridos são visíveis no serviço AVS. 
 
-## <a name="provisioned-nodes"></a>Nós provisionados
+## <a name="provisioned-nodes"></a>Nódosos provisionados
 
-Os nós provisionados fornecem capacidade de pagamento conforme o uso. O provisionamento de nós ajuda você a dimensionar rapidamente seu cluster VMware sob demanda. Você pode adicionar nós conforme necessário ou excluir um nó provisionado para reduzir verticalmente o cluster do VMware. Os nós provisionados são cobrados mensalmente e cobrados na assinatura em que são provisionados.
+Os nódosos provisionados proporcionam capacidade de pagamento. O fornecimento de nós ajuda-o a escalar rapidamente o seu cluster VMware a pedido. Pode adicionar nós conforme necessário ou apagar um nó provisionado para reduzir o seu cluster VMware. Os nódosos provisionados são faturados mensalmente e cobrados à subscrição onde são provisionados.
 
-* Se você pagar pela sua assinatura do Azure por cartão de crédito, o cartão será cobrado imediatamente.
-* Se você for cobrado por fatura, os encargos serão exibidos na próxima fatura.
+* Se pagar a sua assinatura Azure com cartão de crédito, o cartão é faturado imediatamente.
+* Se for cobrado por fatura, as acusações aparecem na sua próxima fatura.
 
-## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>Solução VMware por SKU de nós CloudSimple
+## <a name="vmware-solution-by-avs-nodes-sku"></a>Solução VMware por AVS nodes SKU
 
-Os seguintes tipos de nós estão disponíveis para provisionamento ou reserva.
+Os seguintes tipos de nódisponíveis estão disponíveis para fornecimento ou reserva.
 
-| SKU           | CS28-nó                 | CS36-nó                 | CS36m-nó                |
+| SKU           | CS28 - Nó                 | CS36 - Nó                 | CS36m - Nó                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| Região        | Leste dos EUA, oeste dos EUA            | Leste dos EUA, oeste dos EUA            | Europa Ocidental                 |
-| CPU           | 2x 2,2 GHz, 28 núcleos (56 HT) | 2x 2,3 GHz, 36 núcleos (72 HT) | 2x 2,3 GHz, 36 núcleos (72 HT) |
+| Região        | Leste dos EUA, Oeste dos EUA            | Leste dos EUA, Oeste dos EUA            | Europa Ocidental                 |
+| CPU           | 2x2.2 GHz, 28 Cores (56 HT) | 2x2,3 GHz, 36 Cores (72 HT) | 2x2,3 GHz, 36 Cores (72 HT) |
 | RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
-| Disco de Cache    | 1,6-TB NVMe                 | 3,2-TB NVMe                 | 3,2-TB NVMe                 |
-| Disco de capacidade | 5,625 TB brutos                | 11,25 TB brutos                | 15,36 TB brutos                |
-| Tipo de armazenamento  | Todos os flash                   | Todos os flash                   | Todos os flash                   |
+| Disco de Cache    | NVMe de 1,6 TB                 | 3.2 TB NVMe                 | 3.2 TB NVMe                 |
+| Disco de Capacidade | 5.625 TB Cru                | 11.25 TB Cru                | 15.36 TB Cru                |
+| Tipo de armazenamento  | Todos os Flash                   | Todos os Flash                   | Todos os Flash                   |
 
 ## <a name="limits"></a>Limites
 
-Os limites de nó a seguir se aplicam a nuvens privadas.
+Os seguintes limites do nó aplicam-se às Nuvens Privadas AVS.
 
 | Recurso | Limite |
 |----------|-------|
-| Número mínimo de nós para criar uma nuvem privada | 3 |
-| Número máximo de nós em um cluster em uma nuvem privada | 16 |
-| Número máximo de nós em uma nuvem privada | 64 |
-| Número mínimo de nós em um novo cluster | 3 |
+| Número mínimo de nós para criar uma Nuvem Privada AVS | 3 |
+| Número máximo de nós em aglomerado numa Nuvem Privada AVS | 16 |
+| Número máximo de nós numa Nuvem Privada AVS | 64 |
+| Número mínimo de nós num novo aglomerado | 3 |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [provisionar nós](create-nodes.md)
+* Saiba como [comprar nódosos](create-nodes.md)
+* Saiba mais sobre [as Nuvens Privadas aVS](cloudsimple-private-cloud.md)
+* Aprenda a [fornecer nódosos](create-nodes.md)
 * Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)

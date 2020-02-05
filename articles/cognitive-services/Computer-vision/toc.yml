@@ -5,7 +5,7 @@
   items:
     - name: O que é a Imagem Digitalizada?
       href: Home.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Utilizar o SDK de cliente
       items:
@@ -135,8 +135,6 @@
         - name: Utilizar instâncias de contentor
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
-    - name: Utilizar o Serviço Ligado de Imagem Digitalizada
-      href: vs-computer-vision-connected-service.md
     - name: Analisar vídeos em tempo real
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referência

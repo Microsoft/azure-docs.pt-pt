@@ -3,8 +3,8 @@ title: Dimensionar automaticamente nós de computação em um pool do lote do Az
 description: Habilite o dimensionamento automático em um pool de nuvem para ajustar dinamicamente o número de nós de computação no pool.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 10/24/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 6dc048651f0a4d8af81852f062206788571b9a1e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a423b123626633eac761122583c5c494af68ca65
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027332"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020442"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula automática para dimensionar nós de computação em um pool do lote
 
@@ -226,7 +226,7 @@ Algumas das funções descritas na tabela anterior podem aceitar uma lista como 
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-O valor de *doubleVecList* é convertido em um único *doubleVec* antes da avaliação. Por exemplo, se `v = [1,2,3]`, chamar `avg(v)` será equivalente a chamar `avg(1,2,3)`. Chamar `avg(v, 7)` é equivalente a chamar `avg(1,2,3,7)`.
+O valor de *doubleVecList* é convertido em um único *doubleVec* antes da avaliação. Por exemplo, se `v = [1,2,3]`, então chamar `avg(v)` equivale a chamar `avg(1,2,3)`. Chamar `avg(v, 7)` é equivalente a chamar `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Obter dados de exemplo
 
@@ -238,7 +238,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Método | Descrição |
 | --- | --- |
-| GetSample() |O método `GetSample()` retorna um vetor de exemplos de dados.<br/><br/>Um exemplo é de 30 segundos de dados de métricas. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme observado abaixo, há um atraso entre o momento em que uma amostra é coletada e quando ela está disponível para uma fórmula. Dessa forma, nem todas as amostras de um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a serem obtidas dos exemplos mais recentes que foram coletados.<br/><br/>`GetSample(1)` retorna o último exemplo disponível. No entanto, para métricas como `$CPUPercent`, isso não deve ser usado porque é impossível saber *quando* o exemplo foi coletado. Pode ser recente ou, devido a problemas do sistema, pode ser muito mais antiga. Em tais casos, é melhor usar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para a coleta de dados de exemplo. Opcionalmente, ele também especifica a porcentagem de amostras que devem estar disponíveis no período de tempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` retornará 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes no histórico de CPUPercent. No entanto, se o último minuto do histórico não estivesse disponível, apenas 18 amostras seriam retornadas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% dos exemplos estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` teria sucesso.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.<br/><br/>Conforme mencionado acima, há um atraso entre quando uma amostra é coletada e quando está disponível para uma fórmula. Considere esse atraso ao usar o método `GetSample`. Consulte `GetSamplePercent` abaixo. |
+| GetSample() |O método `GetSample()` retorna um vetor de exemplos de dados.<br/><br/>Um exemplo é de 30 segundos de dados de métricas. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme observado abaixo, há um atraso entre o momento em que uma amostra é coletada e quando ela está disponível para uma fórmula. Dessa forma, nem todas as amostras de um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a serem obtidas dos exemplos mais recentes que foram coletados.<br/><br/>`GetSample(1)` retorna o último exemplo disponível. No entanto, para métricas como `$CPUPercent`, isso não deve ser usado porque é impossível saber *quando* o exemplo foi coletado. Pode ser recente ou, devido a problemas do sistema, pode ser muito mais antiga. Em tais casos, é melhor usar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para a coleta de dados de exemplo. Opcionalmente, ele também especifica a porcentagem de amostras que devem estar disponíveis no período de tempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolveria 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes na história do CPUPercent. No entanto, se o último minuto do histórico não estivesse disponível, apenas 18 amostras seriam retornadas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% das amostras estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` teria sucesso.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.<br/><br/>Conforme mencionado acima, há um atraso entre quando uma amostra é coletada e quando está disponível para uma fórmula. Considere esse atraso ao usar o método `GetSample`. Consulte `GetSamplePercent` abaixo. |
 | GetSamplePeriod() |Retorna o período de amostras que foram executadas em um conjunto de dados de exemplo histórico. |
 | Contagem () |Retorna o número total de amostras no histórico de métricas. |
 | HistoryBeginTime() |Retorna o carimbo de data/hora do exemplo de dados mais antigo disponível para a métrica. |
@@ -255,7 +255,7 @@ Periodicamente, o serviço de lote faz amostras de métricas de tarefas e recurs
 
 Quando `samplePercent` é passado para o método `GetSample()` ou o método `GetSamplePercent()` é chamado, _percent_ se refere a uma comparação entre o número total possível de amostras que são registradas pelo serviço de lote e o número de amostras disponíveis para sua fórmula de dimensionamento automático.
 
-Vamos examinar um período de 10 minutos como exemplo. Como os exemplos são registrados a cada 30 segundos em um período de 10 minutos, o número total máximo de amostras registradas pelo lote seria de 20 amostras (2 por minuto). No entanto, devido à latência inerente do mecanismo de relatório e outros problemas no Azure, pode haver apenas 15 exemplos disponíveis para sua fórmula de dimensionamento automático para leitura. Portanto, por exemplo, para esse período de 10 minutos, somente 75% do número total de amostras gravadas podem estar disponíveis para sua fórmula.
+Vamos examinar um período de 10 minutos como exemplo. Como os exemplos são registrados a cada 30 segundos em um período de 10 minutos, o número total máximo de amostras registradas pelo lote seria de 20 amostras (2 por minuto). No entanto, devido à latência inerente do mecanismo de relatório e outros problemas no Azure, pode haver apenas 15 exemplos disponíveis para sua fórmula de dimensionamento automático para leitura. Assim, por exemplo, durante esse período de 10 minutos, apenas 75% do número total de amostras registadas pode estar disponível para a sua fórmula.
 
 **Intervalos de amostragem e de getsample ()**
 
@@ -281,7 +281,7 @@ Para obter mais segurança, você pode forçar uma avaliação de fórmula a fal
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-Como pode haver um atraso na disponibilidade de exemplo, é importante sempre especificar um intervalo de tempo com uma hora de início de retirada com mais de um minuto. Leva aproximadamente um minuto para que os exemplos se propaguem pelo sistema, portanto, os exemplos no intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` podem não estar disponíveis. Novamente, você pode usar o parâmetro percentual de `GetSample()` para forçar um requisito de percentual de exemplo específico.
+Como pode haver um atraso na disponibilidade de exemplo, é importante sempre especificar um intervalo de tempo com uma hora de início de retirada com mais de um minuto. Demora aproximadamente um minuto para as amostras se propagarem através do sistema, para que as amostras da faixa `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` possam não estar disponíveis. Novamente, você pode usar o parâmetro percentual de `GetSample()` para forçar um requisito de percentual de exemplo específico.
 
 > [!IMPORTANT]
 > É **altamente recomendável** que você **Evite confiar *apenas* em `GetSample(1)` em suas fórmulas de dimensionamento automático**. Isso ocorre porque `GetSample(1)` basicamente diz ao serviço de lote, "Dê-me o último exemplo que você tem, não importa por quanto tempo chegou." Como é apenas um exemplo, e pode ser um exemplo mais antigo, ele pode não ser representativo da visão mais recente do estado de tarefa ou recursos recentes. Se você usar `GetSample(1)`, verifique se ele faz parte de uma declaração maior e não o único ponto de dados do qual sua fórmula depende.

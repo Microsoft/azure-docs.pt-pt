@@ -6,12 +6,12 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: fc05763046da365e7770a9b208100e0366062f25
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 69fe4b98c26ac2f67fc777b754f3bc391e3b71b5
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898867"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023060"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Adicione notificações push à sua aplicação Xamarin.Forms
 
@@ -203,7 +203,7 @@ Com a parte traseira configurada com a FCM, pode adicionar componentes e código
             intent.AddFlags(ActivityFlags.ClearTop);
             //Unique request code to avoid PendingIntent collision.
             var requestCode = new Random().Next();
-
+            var pendingIntent = PendingIntent.GetActivity(this, requestCode, intent, PendingIntentFlags.OneShot);
             var notificationBuilder = new NotificationCompat.Builder(this)
                 .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                 .SetContentTitle("New Todo Item")

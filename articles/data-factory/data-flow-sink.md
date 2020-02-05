@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 1c65a456270cdca345504c07b927a7ef7e1f725b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440275"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020051"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
 
@@ -47,11 +47,17 @@ Depois de adicionar um coletor, configure por meio da guia **coletor** . Aqui, v
 
 **Validar esquema:** Se validar esquema for selecionado, o fluxo de dados falhará se nenhuma coluna no esquema definido do conjunto de dados for encontrada.
 
-## <a name="field-mapping"></a>Mapeamento de campos
+## <a name="field-mapping"></a>Mapeamento de campo
 
 Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Isso é conhecido como **mapeamento automático**.
 
 Ao desativar o mapeamento automático, você terá a opção de adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Os mapeamentos baseados em regras permitem escrever expressões com correspondência de padrões, enquanto o mapeamento fixo mapeará nomes de colunas lógicas e físicas. Para obter mais informações sobre mapeamento baseado em regras, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
+
+## <a name="custom-sink-ordering"></a>Encomenda personalizada de pia
+
+Por padrão, os dados são escritos a vários lavatórios por ordem não determinística. O motor de execução escreverá dados em paralelo à medida que a lógica de transformação estiver concluída e a ordem do lavatório pode variar cada execução. Para especificar e ordenar apiato exato, ative a encomenda de **pia personalizada** no separador geral do fluxo de dados. Quando ativados, os lavatórios serão escritos sequencialmente em ordem crescente.
+
+![Encomenda personalizada de pia](media/data-flow/custom-sink-ordering.png "Encomenda personalizada de pia")
 
 ## <a name="data-preview-in-sink"></a>Visualização de dados no coletor
 
