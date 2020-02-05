@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 246af99cfec5ca41347da70e80bfc6dfff448eb3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f17b4ee0e4ce79cd12a6fda6f056b4e63b4161c9
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368040"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991036"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -31,13 +31,13 @@ Quando os recursos implementados nas redes virtuais têm de resolver os nomes de
 O tipo de resolução de nomes que utiliza depende do modo como os recursos têm de comunicar entre si. A tabela a seguir ilustra os cenários e as soluções de resolução de nomes correspondentes:
 
 > [!NOTE]
-> Dependendo do seu cenário, talvez você queira usar o recurso Zonas Privadas do DNS do Azure, que está atualmente em visualização pública. Para obter mais informações, veja [Utilizar o DNS do Azure para domínios privados](../dns/private-dns-overview.md).
+> Dependendo do seu cenário, talvez queira usar zonas privadas Azure DNS. Para obter mais informações, veja [Utilizar o DNS do Azure para domínios privados](../dns/private-dns-overview.md).
 >
 
 | **Cenário** | **Solução** | **Sufixo** |
 | --- | --- | --- |
-| Resolução de nomes entre as VMs localizadas na mesma rede virtual ou instâncias de função dos serviços de nuvem do Azure no mesmo serviço de nuvem. | Resolução de nomes [zonas privadas do DNS do Azure](../dns/private-dns-overview.md) ou [fornecida pelo Azure](#azure-provided-name-resolution) |Nome do host ou FQDN |
-| Resolução de nomes entre VMs em diferentes redes virtuais ou instâncias de função em diferentes serviços de nuvem. |Os servidores DNS [zonas privadas do DNS do Azure](../dns/private-dns-overview.md) ou gerenciados pelo cliente encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
+| Resolução de nomes entre as VMs localizadas na mesma rede virtual ou instâncias de função dos serviços de nuvem do Azure no mesmo serviço de nuvem. | [Zonas privadas Azure DNS](../dns/private-dns-overview.md) ou [resolução de nomes fornecidas pelo Azure](#azure-provided-name-resolution) |Nome do host ou FQDN |
+| Resolução de nomes entre VMs em diferentes redes virtuais ou instâncias de função em diferentes serviços de nuvem. |[Zonas privadas Azure DNS](../dns/private-dns-overview.md) ou servidores DNS geridos pelo Cliente reencaminhando consultas entre redes virtuais para resolução por Azure (procuração DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de um serviço de Azure App (aplicativo Web, função ou bot) usando a integração de rede virtual para instâncias de função ou VMs na mesma rede virtual. |Os servidores DNS gerenciados pelo cliente encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de aplicativos Web do serviço de aplicativo para VMs na mesma rede virtual. |Os servidores DNS gerenciados pelo cliente encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de aplicativos Web do serviço de aplicativo em uma rede virtual para VMs em uma rede virtual diferente. |Os servidores DNS gerenciados pelo cliente encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
@@ -94,7 +94,7 @@ Há vários pacotes de cache DNS diferentes disponíveis (como dnsmasq). Veja co
   * Instale o pacote dnsmasq com `sudo zypper install dnsmasq`.
   * Habilite o serviço dnsmasq com `systemctl enable dnsmasq.service`. 
   * Inicie o serviço dnsmasq com `systemctl start dnsmasq.service`. 
-  * Edite **/etc/sysconfig/network/config**e altere *NETCONFIG_DNS_FORWARDER = ""* para *dnsmasq*.
+  * **Editar/etc/sysconfig/network/config,** e alterar *NETCONFIG_DNS_FORWARDER=""* para *dnsmasq*.
   * Atualize a resolução. conf com `netconfig update`para definir o cache como o resolvedor DNS local.
 * **CentOS (usa NetworkManager)** :
   * Instale o pacote dnsmasq com `sudo yum install dnsmasq`.
@@ -127,7 +127,7 @@ O arquivo de resolução. conf geralmente é gerado automaticamente e não deve 
   1. Adicione a linha de *Opções* a **/etc/resolvconf/resolv.conf.d/tail**.
   2. Execute `resolvconf -u` para atualizar.
 * **SuSE** (usa netconf):
-  1. Adicionar *tempo limite: 1 tentativas: 5* ao parâmetro **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** em **/etc/sysconfig/network/config**.
+  1. Adicione o *tempo limite:1 tentativas:5* ao parâmetro **NETCONFIG_DNS_RESOLVER_OPTIONS=""** em **/etc/sysconfig/rede/config**.
   2. Execute `netconfig update` para atualizar.
 * **CentOS** (usa NetworkManager):
   1. Adicione *echo "opções timeout: 1 tentativas: 5"* a **/etc/NetworkManager/Dispatcher.d/11-dhclient**.

@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 83462d47af49a02817dcfa05afcd8fdb5e0beab1
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 7bebc9e682f5156fa235b77ff020e502695a28be
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863711"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76981196"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights
 
@@ -57,7 +57,7 @@ Primeiro, crie a solução de simulação de dispositivo, que gera dados de test
 
 1. Em uma janela ou guia separada, acesse [azureiotsolutions.com](https://www.azureiotsolutions.com). Entre usando a mesma conta de assinatura do Azure e selecione o acelerador de **simulação de dispositivo** .
 
-   [![executar o acelerador de simulação de dispositivo](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png#lightbox)
+   [![executar o acelerador de simulação do dispositivo](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png#lightbox)
 
 1.  Selecione **experimentar agora**. Em seguida, insira os parâmetros necessários na página **criar solução de simulação de dispositivo** .
 
@@ -70,18 +70,18 @@ Primeiro, crie a solução de simulação de dispositivo, que gera dados de test
 
    Quando tiver terminado, selecione **criar** para provisionar os recursos do Azure da solução. Pode levar até 20 minutos para concluir esse processo.
 
-   [![provisionar a solução de simulação de dispositivo](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
+   [![Fornecer a solução de simulação do dispositivo](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
 1. Após a conclusão do provisionamento, duas atualizações serão exibidas notificando que o estado da implantação foi movido do **provisionamento** para **pronto**. 
 
    >[!IMPORTANT]
    > Não insira seu acelerador de solução ainda! Mantenha essa página da Web aberta, pois você retornará a ela mais tarde.
 
-   [provisionamento da solução de simulação de dispositivo ![concluído](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
+   [![a solução de simulação do dispositivo completo](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
 1. Agora, inspecione os recursos recém-criados no portal do Azure. Na página **grupos de recursos** , observe que um novo grupo de recursos foi criado usando o **nome da solução** fornecido na última etapa. Anote os recursos que foram criados para a simulação do dispositivo.
 
-   [![recursos de simulação de dispositivo](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
+   [Recursos de simulação do Dispositivo ![](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
 
 ## <a name="create-an-environment"></a>Criar um ambiente
 
@@ -106,17 +106,17 @@ Em segundo lugar, crie um ambiente de Time Series Insights em sua assinatura do 
 
    Quando terminar, selecione **Avançar: origem do evento** para prosseguir para a próxima etapa.
 
-   [![criar um recurso de ambiente de Time Series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png#lightbox)
+   [![Criar um recurso ambiental time series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png#lightbox)
 
 1. Agora, conecte o ambiente de Time Series Insights ao Hub IoT criado pelo Solution Accelerator. Defina **selecionar um hub** para `Select existing`. Em seguida, escolha o Hub IoT criado pelo Solution Accelerator ao definir o **nome do Hub IOT**.
 
-   [![conectar o ambiente de Time Series Insights ao Hub IoT criado](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png#lightbox)
+   [![Connect the Time Series Insights ambiente ao centro ioT criado](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png#lightbox)
 
    Por fim, selecione **revisar + criar**.
 
 1. Verifique o painel **notificações** para monitorar a conclusão da implantação. 
 
-   [implantação de ambiente de Time Series Insights de ![bem-sucedida](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png#lightbox)
+   [![Time Series Insights implementação ambiental conseguiu](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png#lightbox)
 
 ## <a name="run-device-simulation"></a>Executar simulação de dispositivo
 
@@ -126,11 +126,11 @@ Junto com o Hub IoT, um aplicativo Web de serviço de Azure App foi gerado para 
 
 1. Volte ao [Dashboard dos aceleradores de soluções](https://www.azureiotsolutions.com/Accelerators#dashboard). Entre novamente, se necessário, usando a mesma conta do Azure que você esteve usando neste tutorial. Selecione a "solução de dispositivo" e **vá para o Solution Accelerator** para iniciar a solução implantada.
 
-   [painel ![Solution Accelerators](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
+   [painel de aceleradores ![Solution](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
 1. O aplicativo Web de simulação de dispositivo começa solicitando que você conceda o aplicativo Web para **conectá-lo e ler a permissão de seu perfil** . Essa permissão permite que o aplicativo recupere as informações de perfil do usuário necessárias para dar suporte ao funcionamento do aplicativo.
 
-   [consentimento do aplicativo Web de simulação de dispositivo ![](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
+   [consentimento da aplicação web de simulação do dispositivo ![](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
 1. Selecione **+ nova simulação**. Depois que a página **instalação da simulação** for carregada, insira os parâmetros necessários.
 
@@ -144,11 +144,11 @@ Junto com o Hub IoT, um aplicativo Web de serviço de Azure App foi gerado para 
 
    Quando tiver terminado, selecione **Iniciar simulação**. A simulação é executada por um total de 5 minutos. Ele gera dados de 1.000 dispositivos simulados a cada 10 segundos. 
 
-   [configuração da simulação de dispositivo ![](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png#lightbox)
+   [Configuração de simulação de dispositivo ![](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png#lightbox)
 
 1. Durante a execução da simulação, observe que os campos **total de mensagens** e **mensagens por segundo** são atualizados, aproximadamente a cada 10 segundos. A simulação termina após aproximadamente 5 minutos e retorna à **configuração de simulação**.
 
-   [simulação de dispositivo ![em execução](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png#lightbox)
+   [Simulação do dispositivo ![em execução](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png#lightbox)
 
 ## <a name="verify-the-telemetry-data"></a>Verificar os dados de telemetria
 
@@ -156,23 +156,23 @@ Nesta seção final, você verifica se os dados de telemetria foram gerados e ar
 
 1. Retorne à página **visão geral** do grupo de recursos do ambiente de time Series insights. Selecione o ambiente de Time Series Insights.
 
-   [ambiente e grupo de recursos de ambiente de Time Series Insights ![](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
+   [![Time Series Insights grupo de recursos ambientais e ambiente](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
 
 1. Na página **visão geral** do ambiente de time Series insights, selecione a **URL do time Series insights Explorer** para abrir o time Series insights Explorer.
 
-   [![o Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
+   [explorador de insights da série de tempo ![](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
 1. O Time Series Insights Explorer carrega e autentica usando sua conta do portal do Azure. Inicialmente, a área do gráfico com a qual o ambiente de Time Series Insights foi populado junto com seus dados de telemetria simulados aparecerá. Para filtrar um intervalo mais estreito de tempo, selecione a lista suspensa no canto superior esquerdo. Insira um intervalo de tempo grande o suficiente para abranger a duração da simulação do dispositivo. Em seguida, selecione a lupa Pesquisar.
 
-   [filtro de intervalo de tempo do ![Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
+   [filtro de intervalo de tempo do explorador ![Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
 1. Restringir o intervalo de tempo permite que o gráfico Amplie as intermitências distintas de transferência de dados para o Hub IoT e o ambiente de Time Series Insights. Observe também o texto de **streaming completo** no canto superior direito, que mostra o número total de eventos encontrados. Você também pode arrastar o controle deslizante de **tamanho do intervalo** para controlar a granularidade da plotagem no gráfico.
 
-   [exibição filtrada do intervalo de tempo do ![Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
+   [![Time Series Insights visão filtrada de tempo](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
 
 1. Por fim, também é possível clicar com o botão esquerdo do mouse em uma região para filtrar um intervalo. Em seguida, clique com o botão direito do mouse e use **explorar eventos** para mostrar os detalhes do evento na exibição de **eventos** tabulares.
 
-   [![exibição e eventos filtrados do intervalo de tempo do Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
+   [![Time Series Insights intervalo de tempo filtrado e eventos](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

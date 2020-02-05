@@ -9,44 +9,44 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/17/2019
+ms.date: 02/03/2020
 ms.author: diberry
-ms.openlocfilehash: 2ca0f9faf1623df9212072abbc960cba41a6414b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: e06bb4c09b3ebab25c0c0ef8ac5c51f6842f34cd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76165752"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987959"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>Início rápido: obter a intenção com um navegador
 
-Para compreender o que devolve um ponto final de predição do LUIS, veja um resultado de predição num browser. 
+Para compreender o que devolve um ponto final de predição do LUIS, veja um resultado de predição num browser.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para consultar um aplicativo público, você precisa de:
 
-* Sua própria Reconhecimento vocal (LUIS) a criação ou a chave de previsão que pode ser obtida no [portal do Luis (versão prévia)](https://preview.luis.ai/). Se você ainda não tiver uma assinatura para criar uma chave, poderá registrar-se para uma [conta gratuita](https://azure.microsoft.com/free/). 
-* A ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
+* Sua própria Reconhecimento vocal (LUIS) a criação ou a chave de previsão que pode ser obtida no [portal do Luis (versão prévia)](https://preview.luis.ai/). Se você ainda não tiver uma assinatura para criar uma chave, poderá registrar-se para uma [conta gratuita](https://azure.microsoft.com/free/).
+* A ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
 
 ## <a name="use-the-browser-to-see-predictions"></a>Use o navegador para ver previsões
 
-1. Abra um browser. 
+1. Abra um browser.
 1. Use as URLs completas abaixo, substituindo `YOUR-KEY` pela sua própria LUIS de criação ou chave de previsão. As solicitações são solicitações GET e incluem a autorização, com a LUIS de criação ou a chave de previsão, como um parâmetro de cadeia de caracteres de consulta.
 
     #### <a name="v3-prediction-requesttabv3-1-1"></a>[Solicitação de previsão v3](#tab/V3-1-1)
-    
-    
+
+
     O formato da URL V3 para uma solicitação **obter** ponto de extremidade (por slots) é:
-    
+
     `
     https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
 
     #### <a name="v2-prediction-requesttabv2-1-2"></a>[V2 solicitação de previsão](#tab/V2-1-2)
-    
+
     O formato da URL v2 para uma solicitação **obter** ponto de extremidade é:
-    
+
     `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
     `
@@ -97,7 +97,7 @@ Para consultar um aplicativo público, você precisa de:
 
     * * *
 
-1. Para ver todas as intenções, adicione o parâmetro de cadeia de caracteres de consulta apropriado. 
+1. Para ver todas as intenções, adicione o parâmetro de cadeia de caracteres de consulta apropriado.
 
     #### <a name="v3-prediction-endpointtabv3-3-1"></a>[Ponto de extremidade de previsão v3](#tab/V3-3-1)
 
@@ -174,7 +174,7 @@ Para consultar um aplicativo público, você precisa de:
     ```
 
 
-<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->   
+<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->
 
 ## <a name="next-steps"></a>Passos seguintes
 

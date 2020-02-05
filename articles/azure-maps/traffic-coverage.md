@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9e9a3d13eeb0c8704e2faac1037d51e5bd322dc4
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 083f659f9392faff8f381e1552db23c291ffa8ca
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945103"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988151"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego do Azure Maps
 
 O mapas do Azure fornece informações de tráfego avançadas na forma de **fluxo** de tráfego e **incidentes**. Esses dados podem ser visualizados em mapas ou usados para gerar rotas mais inteligentes no fator em condições de condução real.
 
-No entanto, o Maps não tem o mesmo nível de informações e precisão para todos os países ou regiões. A tabela a seguir fornece informações sobre o tipo de informações de tráfego que você pode solicitar de cada país ou região: 
+No entanto, o Maps não tem o mesmo nível de informação e precisão para todos os países ou regiões. A tabela a seguir fornece informações sobre o tipo de informações de tráfego que você pode solicitar de cada país ou região: 
 
 ## <a name="americas"></a>Américas
 
@@ -96,7 +96,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |\+ Açores e madeira     |✓         |✓         |
 |Roménia     |✓         |✓         |
 |Federação Russa     |✓         |✓         |
-|São Marinho    |✓         |✓         |
+|São Marino    |✓         |✓         |
 |Sérvia   |✓         |✓         |
 |Eslováquia     |✓         |✓         |
 |Eslovénia     |✓         |✓         |

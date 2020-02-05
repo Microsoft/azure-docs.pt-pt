@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: ec6c1ef31b6cf92629be600b3b139bb2e1a0d3ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1acc17f9c2fbeb53b992891174866433d14f128d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977255"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986666"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa na Web do Bing
 
@@ -89,7 +89,7 @@ O formulário HTML inclui opções que mapeiam aos parâmetros da consulta na [A
 | `what` | Caixas de verificação para promover tipos de resultados específicos. Por exemplo, a promoção de imagens aumenta a classificação das imagens nos resultados da pesquisa. |
 | `when` | Um menu pendente que permite ao utilizador restringir os resultados da pesquisa para hoje, esta semana ou este mês. |
 | `safe` | Uma caixa de verificação para ativar a Pesquisa Segura do Bing, que filtra conteúdos para adultos. |
-| `count` | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere este valor para mostrar menos ou mais resultados por página. |
+| `count` | Campo oculto. O número de resultados de pesquisa a devolver em cada pedido. Altere este valor para mostrar menos ou mais resultados por página. |
 | `offset` | Campo oculto. O desfasamento do primeiro resultado de pesquisa no pedido, que é utilizado para paginação. O valor é reposto para `0` em todos os novos pedidos. |
 
 > [!NOTE]
@@ -105,7 +105,7 @@ function bingSearchOptions(form) {
     // Where option.
     options.push("mkt=" + form.where.value);
     // SafeSearch option.
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
     // Freshness option.
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -128,7 +128,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-O parâmetro `SafeSearch` pode ser definido para `strict`, `moderate` ou `off`. A predefinição da Pesquisa na Web do Bing é `moderate`. Este formulário utiliza uma caixa de verificação, que tem dois estados. Neste fragmento, SafeSearch (Pesquisa Segura) está definida para `strict` ou `off`. O parâmetro `moderate` não é utilizado.
+O parâmetro `SafeSearch` pode ser definido para `strict`, `moderate` ou `off`. A predefinição da Pesquisa na Web do Bing é `moderate`. Este formulário utiliza uma caixa de verificação, que tem dois estados: `strict` ou `moderate`.
 
 Se alguma das caixas de verificação **Promote** (Promover) estiver selecionada, o parâmetro `answerCount` será adicionado à consulta. Ao utilizar o parâmetro `promote`, é necessário o parâmetro `answerCount`. Neste fragmento, o valor está definido para `9` para devolver todos os tipos de resultados disponíveis.
 > [!NOTE]
@@ -285,7 +285,7 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > Um pedido HTTP com êxito *não* significa que a pesquisa teve êxito. Se ocorrer um erro na operação de pesquisa, a API de Pesquisa na Web do Bing devolve um código de estado HTTP que não 200 e inclui as informações do erro na resposta JSON. Se o pedido tiver limites de velocidade, a API devolverá uma resposta vazia.
 
-Grande parte do código em ambas as funções acima é dedicado à resolução de erros. Poderão ocorrer erros nas seguintes fases:
+A maioria do código nas funções anteriores é dedicado ao processamento de erros. Poderão ocorrer erros nas seguintes fases:
 
 | Fase | Potenciais erros | Resolvido por |
 |-------|--------------------|------------|
@@ -437,7 +437,7 @@ As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-
 
 Fornecer o cabeçalho `X-MSEdge-ClientID` permite que as APIs do Bing associem as pesquisas de um utilizador. Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que melhor satisfaçam o pedido. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela. Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem funcionalidades novas antes de serem disponibilizadas ao grande público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que foram escolhidos para ver uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do browser, como a Partilha de Recursos Transversais à Origem (CORS), poderão impedir que a aplicação de exemplo aceda ao cabeçalho `X-MSEdge-ClientID`. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
+As políticas de segurança do browser, como a Partilha de Recursos Transversais à Origem (CORS), poderão impedir que a aplicação de exemplo aceda ao cabeçalho `X-MSEdge-ClientID`. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` ficará disponível para o JavaScript.
 
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a sua chave de subscrição da API de Pesquisa do Bing terá de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.

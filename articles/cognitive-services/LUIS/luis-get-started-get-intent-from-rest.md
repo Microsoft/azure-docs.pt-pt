@@ -1,31 +1,23 @@
 ---
-title: 'Início rápido: obter a intenção com as APIs REST-LUIS'
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido da API REST, use um aplicativo LUIS público disponível para determinar a intenção de um usuário de texto de conversação.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+title: 'Quickstart: Tenha intenção com APIs REST - LUIS'
+description: Neste rest API quickstart, utilize uma aplicação PÚBLICA LUIS disponível para determinar a intenção de um utilizador a partir de texto de conversação.
 ms.topic: quickstart
-ms.date: 10/17/2019
-ms.author: diberry
+ms.date: 02/03/2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 3a8badb74bb8919876f3c0670d785f44fbcbb397
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 50d2161dc0fa738a70476fa3a9327d9d720e7c15
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499589"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987801"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Início rápido: obter a intenção com as APIs REST
+# <a name="quickstart-get-intent-with-rest-apis"></a>Quickstart: Obtenha intenção com APIs rest
 
-Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação. 
+Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
 
 Este guia de início rápido utiliza a API REST de ponto final. Para obter mais informações, veja a [documentação de APIs de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
 
-Para este artigo, precisa de uma conta gratuita do [LUIS](https://www.luis.ai). 
+Para este artigo, precisa de uma conta gratuita do [LUIS](https://www.luis.ai).
 
 <a name="create-luis-subscription-key"></a>
 

@@ -1,63 +1,63 @@
 ---
-title: Pesquisar um modo de exibição personalizado-Pesquisa Personalizada do Bing
+title: Procure uma vista personalizada - Bing Custom Search
 titleSuffix: Azure Cognitive Services
-description: Depois de configurar sua experiência de pesquisa personalizada, você pode testá-la de dentro do portal de Pesquisa Personalizada do Bing.
+description: Depois de configurar a sua experiência de pesquisa personalizada, pode testá-la dentro do portal bing Custom Search.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: maheshb
-ms.openlocfilehash: f04bfc306a89c7bb6caf3f928f5fdfec66358649
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 02/03/2020
+ms.author: aahi
+ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072750"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983117"
 ---
-# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chamar sua instância do Pesquisa Personalizada do Bing no portal
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Ligue para a sua instância de pesquisa personalizada Bing a partir do Portal
 
-Depois de configurar sua experiência de pesquisa personalizada, você pode testá-la de dentro do [portal](https://customsearch.ai)de pesquisa personalizada do Bing. 
+Depois de configurar a sua experiência de pesquisa personalizada, pode testá-la dentro do [portal](https://customsearch.ai)bing Custom Search . 
 
-![uma captura de tela do portal de pesquisa personalizada do Bing](media/portal-search-screen.png)
+![uma imagem do portal de pesquisa personalizado Bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Criar uma consulta de pesquisa 
 
-Depois de entrar no [portal](https://customsearch.ai)de pesquisa personalizada do Bing, selecione sua instância de pesquisa e clique na guia **produção** . Em **ponto**de extremidade, selecione um ponto de extremidade de API (por exemplo, API Web). Sua assinatura determina quais pontos de extremidade são mostrados.
+Depois de ter assinado o [portal](https://customsearch.ai)bing Custom Search, selecione a sua instância de pesquisa e clique no separador **Produção.** Em **Pontos Finais,** selecione um ponto final da API (por exemplo, Web API). A sua subscrição determina quais os pontos finais mostrados.
 
-Para criar uma consulta de pesquisa, insira os valores de parâmetro para seu ponto de extremidade. Observe que os parâmetros exibidos no portal podem ser alterados dependendo do ponto de extremidade que você escolher. Consulte a [referência de API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a assinatura que sua instância de pesquisa usa, adicione a chave de assinatura apropriada e atualize os parâmetros de mercado e/ou de idioma apropriados.
+Para criar uma consulta de pesquisa, introduza os valores do parâmetro para o seu ponto final. Note que os parâmetros apresentados no portal podem mudar dependendo do ponto final que escolher. Consulte a referência da [API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) de Pesquisa Personalizada para mais informações. Para alterar a subscrição que a sua instância de pesquisa utiliza, adicione a chave de subscrição apropriada e atualize os parâmetros de mercado e/ou idiomas apropriados.
 
 Alguns parâmetros importantes estão abaixo:
 
 
 |Parâmetro  |Descrição  |
 |---------|---------|
-|Consulta     | O termo de pesquisa a ser pesquisado. Disponível somente para pontos de extremidade de Web, imagem, vídeo e sugestão automática |
-|ID de configuração personalizada | A ID de configuração da instância de pesquisa personalizada selecionada. Este campo é somente leitura. |
-|Market     | O mercado do qual os resultados serão originados. Disponível somente para os pontos de extremidade da Web, imagem, vídeo e interface do usuário hospedada.        |
-|Chave de assinatura | A chave de assinatura para teste. Você pode selecionar uma chave na lista suspensa ou inseri-la manualmente.          |
+|Consulta     | O termo de pesquisa para procurar. Disponível apenas para Web, Imagem, Vídeo e Pontos finais De Sugestão Automática |
+|ID de configuração personalizado | O ID de configuração da instância de pesquisa personalizada selecionada. Este campo é lido apenas. |
+|Comercializar     | O mercado de onde os resultados se originarão. Apenas disponível para os pontos finais da Web, Imagem, Vídeo e UI hospedados.        |
+|Chave de assinatura | A chave de subscrição para testar com. Pode selecionar uma chave da lista de dropdown ou introduzir uma manualmente.          |
 
 Clicar em **parâmetros adicionais** revela os seguintes parâmetros:  
 
 |Parâmetro  |Descrição  |
 |---------|---------|
-|Safe Search     | Um filtro usado para filtrar páginas da Web para conteúdo adulto. Disponível somente para os pontos de extremidade da Web, imagem, vídeo e interface do usuário hospedada.        |
-|Idioma da interface do usuário    | O idioma usado para cadeias de caracteres da interface do usuário. Por exemplo, se você habilitar imagens e vídeos na interface do usuário hospedada, as guias **imagem** e **vídeo** usarão o idioma especificado.        |
-|Contagem     | O número de resultados da pesquisa a serem retornados na resposta. Disponível somente para pontos de extremidade da Web, imagem e vídeo.         |
-|Desvio    | O número de resultados da pesquisa a serem ignorados antes de retornar os resultados. Disponível somente para pontos de extremidade da Web, imagem e vídeo.        |
+|Safe Search     | Um filtro usado para filtrar páginas web para conteúdo adulto. Apenas disponível para os pontos finais da Web, Imagem, Vídeo e UI hospedados. Note que bing Custom Video Search apenas suporta dois valores: `moderate` e `strict`.        |
+|Idioma da interface do utilizador    | O idioma utilizado para as cordas da interface do utilizador. Por exemplo, se ativar imagens e vídeos em UI hospedado, os separadores **De Imagem** e **Vídeo** utilizam o idioma especificado.        |
+|Contagem     | O número de resultados de pesquisa para devolver na resposta. Disponível apenas para pontos finais Web, Image e Vídeo.         |
+|Desvio    | O número de resultados de pesquisa a saltar antes de devolver os resultados. Disponível apenas para pontos finais Web, Image e Vídeo.        |
     
-Depois de especificar todas as opções necessárias, clique em **chamar** para exibir a resposta JSON no painel direito. Se você selecionar o ponto de extremidade da interface do usuário hospedada, poderá testar a experiência de pesquisa no painel inferior.
+Depois de especificar todas as opções necessárias, clique em **Call** para ver a resposta JSON no painel direito. Se selecionar o ponto final do UI hospedado, pode testar a experiência de pesquisa no painel inferior.
 
-## <a name="change-your-bing-custom-search-subscription"></a>Alterar sua assinatura do Pesquisa Personalizada do Bing
+## <a name="change-your-bing-custom-search-subscription"></a>Altere a subscrição de Bing Custom Search
 
-Você pode alterar a assinatura associada à sua instância de Pesquisa Personalizada do Bing sem criar uma nova instância. Para que as chamadas à API sejam enviadas e cobradas para uma nova assinatura, crie um novo recurso de Pesquisa Personalizada do Bing no portal do Azure. Use a nova chave de assinatura em suas solicitações de API, juntamente com a ID de configuração personalizada da sua instância.
+Pode alterar a subscrição associada à sua instância de Pesquisa Personalizada Bing sem criar uma nova instância. Para que as chamadas API enviem e colhedas para uma nova subscrição, crie um novo recurso bing Custom Search no portal Azure. Utilize a nova chave de subscrição nos seus pedidos DePI, juntamente com o ID de configuração personalizado da sua instância.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Chame sua exibição personalizada comC#](./call-endpoint-csharp.md)
-- [Chame seu modo de exibição personalizado com Java](./call-endpoint-java.md)
-- [Chame sua exibição personalizada com NodeJs](./call-endpoint-nodejs.md)
-- [Chame sua exibição personalizada com o Python](./call-endpoint-python.md)
+- [Ligue para a sua vista personalizada comC#](./call-endpoint-csharp.md)
+- [Ligue para a sua vista personalizada com Java](./call-endpoint-java.md)
+- [Ligue para a sua vista personalizada com NodeJs](./call-endpoint-nodejs.md)
+- [Ligue para a sua vista personalizada com Python](./call-endpoint-python.md)
 
-- [Chamar sua exibição personalizada com o C# SDK](./sdk-csharp-quick-start.md)
+- [Ligue para a C# sua vista personalizada com o SDK](./sdk-csharp-quick-start.md)

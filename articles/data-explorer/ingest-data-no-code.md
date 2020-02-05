@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Ingerir dados de monitorização no Azure Data Explorer sem uma linha de código'
+title: 'Tutorial: Ingerir dados de monitorização sem código - Azure Data Explorer'
 description: Neste tutorial, aprende-se a ingerir dados de monitorização ao Azure Data Explorer sem uma linha de código e consulta desses dados.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: c160f04ef7120a6c90991d8e6ecdf98b2f0d348e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 24e09f6578431e6b7f2a83be13bae59bf2e707de
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836564"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986211"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutorial: Ingerir e consultar dados de monitorização no Azure Data Explorer 
 

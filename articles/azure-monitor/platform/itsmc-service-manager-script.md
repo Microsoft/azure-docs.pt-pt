@@ -1,44 +1,44 @@
 ---
-title: Script automatizado para criar Service Manager aplicativo Web para se conectar com Conector de Gerenciamento de Serviços de TI no Azure | Microsoft Docs
-description: Crie um aplicativo Web Service Manager usando um script automatizado para se conectar com Conector de Gerenciamento de Serviços de TI no Azure e monitorar e gerenciar centralmente os itens de trabalho de ITSM.
+title: Script automatizado para criar aplicação Web do Gestor de Serviços para se conectar com o Conector de Gestão de Serviços de TI em Azure  Microsoft Docs
+description: Crie uma aplicação Web do Gestor de Serviços utilizando um script automatizado para se conectar com o Conector de Gestão de Serviços de TI em Azure e monitorizar centralmente e gerir os itens de trabalho ITSM.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 443fe6aa7e97e666075a2fbb985a9b8b00baf81a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a97ea4d505d17d1d5fb2f2035fb23f3fce94aebe
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932256"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990951"
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar Service Manager aplicativo Web usando o script automatizado
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web do Gestor de Serviços utilizando o script automatizado
 
-Use o script a seguir para criar o aplicativo Web para sua instância de Service Manager. Mais informações sobre Service Manager conexão estão aqui: [Service Manager aplicativo Web](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Utilize o seguinte script para criar a aplicação Web para a sua instância de Gestor de Serviços. Mais informações sobre a ligação do Gestor de Serviços estão aqui: [Aplicação Web do Gestor de Serviços](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da assinatura do Azure
 - Nome do grupo de recursos
 - Localização
-- Detalhes do Service Manager Server (nome do servidor, domínio, nome de usuário e senha)
+- Detalhes do servidor do Gestor de Serviços (nome do servidor, domínio, nome de utilizador e palavra-passe)
 - Prefixo do nome do site para seu aplicativo Web
 - Namespace do ServiceBus.
 
-O script criará o aplicativo Web usando o nome que você especificou (juntamente com algumas cadeias de caracteres adicionais para torná-lo exclusivo). Ele gera a **URL do aplicativo Web**, a **ID do cliente**e o **segredo do cliente**.
+O script criará a aplicação Web utilizando o nome que especificou (juntamente com algumas cordas adicionais para torná-la única). Gera o URL da **aplicação Web,** **o ID**do cliente e o segredo **do cliente.**
 
-Salve esses valores, você precisará desses valores ao criar uma conexão com Conector de Gerenciamento de Serviços de TI.
+Guarde estes valores, necessitará destes valores quando criar uma ligação com o Conector de Gestão de Serviços de TI.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
- Windows Management Framework 5,0 ou superior.
-O Windows 10 tem 5,1 por padrão. Você pode baixar a estrutura [aqui](https://www.microsoft.com/download/details.aspx?id=50395):
+ Quadro de Gestão do Windows 5.0 ou superior.
+O Windows 10 tem 5.1 por padrão. Pode baixar o quadro a partir [daqui:](https://www.microsoft.com/download/details.aspx?id=50395)
 
-Use o seguinte script:
+Utilize o seguinte guião:
 
 ```powershell
 ####################################

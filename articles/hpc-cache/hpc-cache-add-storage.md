@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 75d657fd9f3ee13c331450b324fd3b99e9cb6ca5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647233"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990611"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -38,8 +38,6 @@ Você pode criar um novo contêiner desta página logo antes de adicioná-lo.
 Para definir um contêiner de blob do Azure, insira essas informações.
 
 ![captura de tela da página Adicionar destino de armazenamento, preenchida com informações para um novo destino de armazenamento de BLOBs do Azure](media/hpc-cache-add-blob.png)
-
-<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
 * **Nome do destino de armazenamento** -defina um nome que identifique esse destino de armazenamento no cache do HPC do Azure.
 * **Tipo de destino** -escolha **blob**.
@@ -138,7 +136,7 @@ Existem três opções:
 
   Não use essa opção se houver um risco de que um arquivo possa ser modificado diretamente no sistema de armazenamento sem primeiro gravá-lo no cache. Se isso acontecer, a versão armazenada em cache do arquivo nunca será atualizada com alterações do back-end e o conjunto de dados poderá se tornar inconsistente.
 
-* **Mais de 15% de gravações** – essa opção acelera o desempenho de leitura e gravação. Ao usar essa opção, todos os clientes devem acessar arquivos por meio do cache HPC do Azure em vez de montar o armazenamento de back-end diretamente. Os arquivos armazenados em cache terão alterações recentes que não são armazenadas no back-end.
+* **Mais de 15% escreve** - Esta opção acelera tanto a leitura como a escrita. Ao usar essa opção, todos os clientes devem acessar arquivos por meio do cache HPC do Azure em vez de montar o armazenamento de back-end diretamente. Os arquivos armazenados em cache terão alterações recentes que não são armazenadas no back-end.
 
   Nesse modelo de uso, os arquivos no cache não são verificados em relação aos arquivos no armazenamento de back-end. Pressupõe-se que a versão em cache do arquivo seja mais atual. Um arquivo modificado no cache é gravado somente no sistema de armazenamento de back-end depois que ele estiver no cache por uma hora sem nenhuma alteração adicional.
 
@@ -151,7 +149,7 @@ Esta tabela resume as diferenças do modelo de uso:
 | Modelo de uso | Modo de cache | Verificação de back-end | Atraso máximo de write-back |
 | ---- | ---- | ---- | ---- |
 | Leia gravações pesadas e frequentes | Leitura | Nunca | Nenhuma |
-| Mais de 15% de gravações | Leitura/escrita | Nunca | 1 hora |
+| Maior de 15% escreve | Ler/escrever | Nunca | 1 hora |
 | Clientes ignoram o cache | Leitura | 30 segundos | Nenhuma |
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 60c1109d0f540c8301cc536c2079537dca5115f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e206d9a1b14fc8ff1b92e4eb7217824d81212cf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435012"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990182"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure
 
@@ -50,7 +50,6 @@ Você pode criar IoT Central aplicativo com recursos geralmente disponíveis sel
 > [!NOTE]
 > Os modelos de aplicativo de visualização atualmente só estão disponíveis nos locais da **Europa** e **Estados Unidos** .
 
-![Portal de gerenciamento: criar IoT Central recurso](media/howto-manage-iot-central-from-portal/image1a.png)  
 
 Depois de preencher todos os campos, selecione **criar**.
 
@@ -59,7 +58,7 @@ Depois de preencher todos os campos, selecione **criar**.
 Se você já tiver um aplicativo de IoT Central do Azure, poderá excluí-lo ou movê-lo para uma assinatura ou grupo de recursos diferente no portal do Azure.
 
 > [!NOTE]
-> Você não pode ver os aplicativos de avaliação no portal do Azure porque eles não estão associados à sua assinatura.
+> Não é possível ver aplicações criadas no plano de preços gratuitos no portal Azure porque não estão associadas à sua subscrição.
 
 Para começar, selecione **todos os recursos** no painel principal à esquerda. Use a caixa de pesquisa para digitar o nome do seu aplicativo para localizá-lo em sua lista de recursos. Em seguida, selecione o aplicativo IoT Central que você gostaria de gerenciar.
 

@@ -3,12 +3,12 @@ title: Alterar as configurações de Cluster Service Fabric do Azure
 description: Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 284e8ad566192f027d466ad08d66c2fc5265381d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f42cfd1b41ab463c3c3042987b5d0a0b3b00f67e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905198"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986194"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar configurações de Cluster Service Fabric
 Este artigo descreve as várias configurações de malha para o Cluster Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizar as configurações por meio do [portal do Azure](https://portal.azure.com) ou usando um modelo de Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autônomos, você personaliza as configurações atualizando o arquivo *ClusterConfig. JSON* e realizando uma atualização de configuração no cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -831,7 +831,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|Cadeia de caracteres, o padrão é ""| Estático |O nome da rede a ser usada ao configurar uma rede de contêiner.|
-|ContainerNetworkSetup|bool, o padrão é FALSE| Estático |Se uma rede de contêiner deve ser configurada.|
+|ContainerNetworkSetup|bool, padrão é FALSO (Linux) e padrão é TRUE (Windows)| Estático |Se uma rede de contêiner deve ser configurada.|
 |FabricDataRoot |Cadeia | Não permitido |Service Fabric diretório raiz de dados. O padrão para o Azure é d:\svcfab |
 |FabricLogRoot |Cadeia | Não permitido |Diretório raiz de log do Service Fabric. É aí que os logs e rastreamentos do it são colocados. |
 |NodesToBeRemoved|Cadeia de caracteres, o padrão é ""| Dinâmico |Os nós que devem ser removidos como parte da atualização de configuração. (Somente para implantações autônomas)|

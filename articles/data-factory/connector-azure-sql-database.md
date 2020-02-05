@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/13/2019
-ms.openlocfilehash: 1268dc0d78bf64e0a4b79592c28a9c1e70db7bf3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/28/2020
+ms.openlocfilehash: def57dc125a148abd330643fc5848a35cd3b52bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892911"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991015"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados no banco de dados SQL do Azure usando Azure Data Factory
 
@@ -589,6 +589,10 @@ As configurações específicas para o banco de dados SQL do Azure estão dispon
 As configurações específicas para o banco de dados SQL do Azure estão disponíveis na guia **configurações** da transformação coletor.
 
 **Método de atualização:** Determina quais operações são permitidas no destino do banco de dados. O padrão é permitir apenas inserções. Para atualizar, upsertr ou excluir linhas, uma transformação ALTER-Row é necessária para marcar linhas para essas ações. Para atualizações, upserts e exclusões, uma coluna ou colunas de chave deve ser definida para determinar qual linha alterar.
+
+![Colunas-chave](media/data-flow/keycolumn.png "Colunas-chave")
+
+O nome da coluna que escolher como chave aqui será utilizado pela ADF como parte da atualização subsequente, upsert, eliminar. Portanto, deve escolher uma coluna que exista no mapeamento da Pia. Se desejar não escrever o valor desta coluna de teclas, clique em "Saltar as colunas de teclas".
 
 **Ação da tabela:** Determina se deve-se recriar ou remover todas as linhas da tabela de destino antes da gravação.
 * Nenhum: nenhuma ação será feita para a tabela.

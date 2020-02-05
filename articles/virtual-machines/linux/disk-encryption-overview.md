@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f78ef583a58b8a51276823a2a4730540b6735bb0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 96ac1becfed74141b3b1544646f5d82bd0985045
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896360"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988425"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs Linux 
 
-A Azure Disk Encryption ajuda a proteger e a salvaguardar os seus dados para cumprir as obrigações de conformidade e segurança da sua organização. Ele usa o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados das VMs (máquinas virtuais) do Azure e é integrado com o [Azure Key Vault](../../key-vault/index.yml) para ajudá-lo a controlar e gerenciar as chaves e os segredos de criptografia de disco. 
+A Encriptação do Disco Azure ajuda a proteger e salvaguardar os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. Ele usa o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados das VMs (máquinas virtuais) do Azure e é integrado com o [Azure Key Vault](../../key-vault/index.yml) para ajudá-lo a controlar e gerenciar as chaves e os segredos de criptografia de disco. 
 
 Se você usar a [central de segurança do Azure](../../security-center/index.yml), você será alertado se tiver VMs que não estão criptografadas. Os alertas mostram como de gravidade alta e a recomendação é de encriptar estas VMs.
 
@@ -37,7 +37,7 @@ As VMs do Linux estão disponíveis em [vários tamanhos](sizes.md). O Azure Dis
 
 | Máquina virtual | Requisito mínimo de memória |
 |--|--|
-| VMs do Linux ao criptografar apenas os volumes de dados| 2GB |
+| VMs do Linux ao criptografar apenas os volumes de dados| 2 GB |
 | VMs do Linux ao criptografar volumes de dados e de so e onde o uso do sistema de arquivos raiz (/) é de 4 GB ou menos | 8 GB |
 | VMs do Linux ao criptografar volumes de dados e de so e onde o uso do sistema de arquivos raiz (/) é maior que 4 GB | O uso do sistema de arquivos raiz * 2. Por exemplo, os 16 GB de uso do sistema de arquivos raiz exigem pelo menos 32 GB de RAM |
 
@@ -78,7 +78,9 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não d�
 | SLES | 12-SP3 | Disco de dados |
 
 > [!NOTE]
-> A nova implementação de ADE tem suporte para o sistema operacional RHEL e o disco de dados para imagens pré-pagas do RHEL7. No momento, o ADE não tem suporte para imagens do RHEL BYOS (traga sua própria assinatura). 
+> A nova implementação de encriptação de disco azure é suportada para O RHEL OS e disco de dados para imagens RHEL7 Pay-As-You-Go.  
+>
+> O ADE também é suportado para Imagens Douradas RHEL Bring-Your-Your-Own-Subscription, mas apenas **depois** de a subscrição ter sido registada . Para mais informações, consulte [Red Hat Enterprise Linux Bring-Your-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 
 ## <a name="additional-vm-requirements"></a>Requisitos adicionais de VM
 
@@ -97,7 +99,7 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 ## <a name="networking-requirements"></a>Requisitos de rede
 
 Para habilitar o recurso Azure Disk Encryption, as VMs do Linux devem atender aos seguintes requisitos de configuração de ponto de extremidade de rede:
-  - Para obter um token para se conectar ao cofre de chaves, a VM do Linux deve ser capaz de se conectar a um ponto de extremidade Azure Active Directory, \[login.microsoftonline.com\].
+  - Para obter um símbolo para ligar ao seu cofre chave, o VM Linux deve ser capaz de ligar a um ponto final do Diretório Ativo Azure, \[login.microsoftonline.com\].
   - Para gravar as chaves de criptografia no cofre de chaves, a VM do Linux deve ser capaz de se conectar ao ponto de extremidade do cofre de chaves.
   - A VM do Linux deve ser capaz de se conectar a um ponto de extremidade de armazenamento do Azure que hospeda o repositório de extensões do Azure e uma conta de armazenamento do Azure que hospeda os arquivos VHD.
   -  Se a política de segurança limita o acesso a partir de VMs do Azure para a Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída para os IPs. Para obter mais informações, consulte [do Azure Key Vault protegido por uma firewall](../../key-vault/key-vault-access-behind-firewall.md).  

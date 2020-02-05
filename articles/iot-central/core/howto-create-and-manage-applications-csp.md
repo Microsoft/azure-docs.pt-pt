@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 22ed36c3c55d55ab9a733c2a0552f0ac3dcce1f5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453982"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987677"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Criar e gerenciar um aplicativo de IoT Central do Azure no portal do CSP
 
@@ -39,9 +39,11 @@ Para criar um aplicativo de IoT Central do Azure, selecione **Compilar** no menu
 
 ![Criar página de aplicativo para CSPs](media/howto-create-application-csp/image4-1.png)
 
-## <a name="payment-plan"></a>Plano de pagamento
+![Criar página de aplicação para Informações de Faturação de CSPs](media/howto-create-application-csp/image4-2.png)
 
-Você só pode criar aplicativos pagos conforme o uso como um CSP. Para demonstrar o Azure IoT Central ao seu cliente, você pode criar um aplicativo de avaliação separadamente. Saiba mais sobre os aplicativos de avaliação e pagamento conforme o uso na página de [preços do Azure IOT central](https://azure.microsoft.com/pricing/details/iot-central/).
+## <a name="pricing-plan"></a>Plano de preços
+
+Só é possível criar aplicações que utilizem um plano de preços padrão como CSP. Para mostrar o Azure IoT Central ao seu cliente, pode criar uma aplicação que utilize o plano de preços gratuitos separadamente. Saiba mais sobre os planos de preços gratuitos e standard na página de [preços Do Azure IoT Central.](https://azure.microsoft.com/pricing/details/iot-central/)
 
 ## <a name="application-name"></a>Nome da Aplicação
 
@@ -63,7 +65,7 @@ Para saber mais, consulte [Azure Active Directory](https://docs.microsoft.com/az
 
 ## <a name="azure-subscription"></a>Subscrição do Azure
 
-Uma subscrição do Azure permite-lhe criar instâncias de serviços do Azure. O Azure IoT Central localiza automaticamente todas as assinaturas do Azure do cliente aos quais você tem acesso e as exibe em uma lista suspensa na página **criar aplicativo** . Escolha uma assinatura do Azure para criar um novo aplicativo de IoT Central do Azure.
+Uma subscrição Azure permite criar instâncias de serviços Azure. O Azure IoT Central localiza automaticamente todas as assinaturas do Azure do cliente aos quais você tem acesso e as exibe em uma lista suspensa na página **criar aplicativo** . Escolha uma assinatura do Azure para criar um novo aplicativo de IoT Central do Azure.
 
 Se você não tiver uma assinatura do Azure, poderá criar uma no Microsoft Partner Center. Depois de criar a subscrição, regresse à página **Create Application** (Criar Aplicação). A subscrição nova aparece no menu pendente **Azure Subscription** (Subscrição do Azure).
 

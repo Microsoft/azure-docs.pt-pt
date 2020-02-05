@@ -4,13 +4,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 12/06/2019
-ms.openlocfilehash: dec7f022a73c5eb47c99b2d2d38e1a3258bcf14e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 02/03/2020
+ms.openlocfilehash: 6a3837d01815306e469a684404ab76506f547f43
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861472"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013784"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperação de desastres de negócios
 

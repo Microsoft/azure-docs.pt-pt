@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39d99b8b6167411fc75677878b7f82a27deab958
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435037"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987633"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda o IoT Central do Azure com análises personalizadas usando Azure Databricks
 
@@ -39,8 +39,8 @@ Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager
 
 | Definição | Valor |
 | ------- | ----- |
-| Plano de pagamento | "Pay-As-You-Go" |
-| Modelo de aplicação | Aplicativo herdado |
+| Plano de preços | Padrão |
+| Modelo de aplicação | Aplicação Legacy |
 | Nome da aplicação | Aceite o padrão ou escolha seu próprio nome |
 | URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
 | Diretório | Seu locatário Azure Active Directory |
@@ -72,7 +72,7 @@ Use o [portal do Azure para criar um serviço de Azure Databricks](https://porta
 
 | Definição | Valor |
 | ------- | ----- |
-| Nome da área de trabalho    | Escolha o nome do seu espaço de trabalho |
+| Nome do espaço de trabalho    | Escolha o nome do seu espaço de trabalho |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | IoTCentralAnalysis |
 | Localização | E.U.A. Leste |
@@ -112,7 +112,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
     | Hub de eventos | centralexport |
     | Medições | Ativado |
     | Dispositivos | Desativado |
-    | Modelos de Dispositivos | Desativado |
+    | Modelos de dispositivo | Desativado |
 
 ![Configuração de exportação de dados contínuas](media/howto-create-custom-analytics/cde-configuration.png)
 
@@ -131,14 +131,14 @@ Use as informações na tabela a seguir para criar o cluster:
 | Definição | Valor |
 | ------- | ----- |
 | Nome do cluster | centralanalysis |
-| Modo do Cluster | Padrão |
-| Versão do Databricks Runtime | 5,3 (escala 2,11, Spark 2.4.0) |
-| Versão de Python | 3 |
+| Modo cluster | Padrão |
+| Versão de tempo de execução de databricks | 5,3 (escala 2,11, Spark 2.4.0) |
+| Versão Python | 3 |
 | Ativar o Dimensionamento Automático | Não |
 | Terminar após minutos de inatividade | 30 |
-| Tipo de Função de Trabalho | Standard_DS3_v2 |
+| Tipo de trabalhador | Standard_DS3_v2 |
 | Pelos | 1 |
-| Tipo de Controlador | O mesmo que a função de trabalho |
+| Tipo de condutor | O mesmo que o trabalhador |
 
 A criação de um cluster pode levar vários minutos, aguarde a conclusão da criação do cluster antes de continuar.
 
@@ -156,7 +156,7 @@ As etapas a seguir mostram como importar a biblioteca que seu exemplo precisa pa
 
 1. Na página **instalar biblioteca** , escolha **Maven** como a origem da biblioteca.
 
-1. Na caixa de texto **coordenadas** , insira o seguinte valor: `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+1. Na caixa de texto **Coordenadas,** introduza o seguinte valor: `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
 
 1. Escolha **instalar** para instalar a biblioteca no cluster.
 
@@ -170,7 +170,7 @@ Use as etapas a seguir para importar um bloco de anotações do databricks que c
 
 1. Navegue até a página do **espaço de trabalho** em seu ambiente do databricks. Selecione o menu suspenso ao lado do nome da sua conta e escolha **importar**.
 
-1. Escolha Importar de uma URL e insira o seguinte endereço: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. Opte por importar a partir de um URL e introduza o seguinte endereço: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. Para importar o bloco de anotações, escolha **importar**.
 

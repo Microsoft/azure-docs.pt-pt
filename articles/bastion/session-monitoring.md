@@ -1,56 +1,56 @@
 ---
-title: Monitoramento e gerenciamento de sessão de bastiões do Azure | Microsoft Docs
-description: Neste artigo, saiba como selecionar uma sessão em andamento e forçar a desconexão ou exclusão.
+title: Monitorização e gestão da sessão azure Bastião Microsoft Docs
+description: Neste artigo, aprenda a selecionar uma sessão em curso e a desconectá-la ou eliminá-la.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a4a97ebd0e44bfd3b0ee167a2f3a7da435ac5087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f56a724174b81966642b2870360014597436eade
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513006"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76981094"
 ---
-# <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitoramento e gerenciamento de sessão para bastiões do Azure
+# <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitorização e gestão de sessões para o Bastião Azure
 
-Depois que o serviço de bastiões for provisionado e implantado em sua rede virtual, você poderá usá-lo para se conectar diretamente a qualquer VM nessa rede virtual. À medida que os usuários se conectam a cargas de trabalho, a bastiões do Azure pode ser usada para monitorar as sessões remotas e fazer ações de gerenciamento rápido. O monitoramento de sessão de bastiões do Azure permite exibir quais usuários estão conectados a quais VMs. Ele mostra o IP ao qual o usuário se conectou, por quanto tempo eles foram conectados e quando eles se conectaram. A experiência de gerenciamento de sessão permite que você selecione uma sessão em andamento e force a desconexão ou exclua uma sessão para desconectar o usuário da sessão em andamento.
+Uma vez que o serviço Bastion é aprovisionado e implantado na sua rede virtual, pode usá-lo para ligar perfeitamente a qualquer VM nesta rede virtual. À medida que os utilizadores se ligam às cargas de trabalho, o Azure Bastion pode ser usado para monitorizar as sessões remotas e tomar ações de gestão rápidas. A monitorização da sessão azure Bastion permite-lhe visualizar quais os utilizadores ligados aos quais VMs. Mostra o IP de que o utilizador ligou, quanto tempo estão ligados e quando se conectam. A experiência de gestão da sessão permite selecionar uma sessão em curso e desligar a força ou apagar uma sessão de forma a desligar o utilizador da sessão em curso.
 
-## <a name="monitor"></a>Monitorar sessões remotas
+## <a name="monitor"></a>Monitorize sessões remotas
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até o recurso de bastiões do Azure e selecione **sessões** na página de bastiões do Azure.
+1. No [portal Azure,](https://portal.azure.com)navegue para o seu recurso Azure Bastion e selecione **Sessions** a partir da página Do Bastião Azure.
 
-   ![das](./media/session-monitoring/sessions.png)
-2. Na página **sessões** , você pode ver as sessões remotas em andamento no lado direito.
+   ![sessões](./media/session-monitoring/sessions.png)
+2. Na página **Sessions,** pode ver as sessões remotas em curso no lado direito.
 
-   ![Exibir sessão](./media/session-monitoring/view-session.png)
-3. Selecione **Atualizar** para ver a lista atualizada de sessões remotas. Quando você seleciona atualizar, a bastiões do Azure buscará as informações de monitoramento mais recentes e as atualizará no Portal.
+   ![ver sessão](./media/session-monitoring/view-session.png)
+3. Selecione **Refresh** para ver a lista atualizada de sessões remotas. Quando selecionar refresh, o Azure Bastion irá buscar as últimas informações de monitorização e refresca-as no portal.
 
-   ![Nova](./media/session-monitoring/refresh.png)
+   ![refrescar](./media/session-monitoring/refresh.png)
 
 >[!IMPORTANT]
-> Habilite a porta 4443 para o tráfego de entrada do Gerenciador de gateway para que o monitoramento de sessão funcione.
+> Ativar a porta 4443 para o tráfego de entrada do Gateway Manager para a monitorização da sessão funcionar.
 >
 
-## <a name="view"></a>Excluir ou forçar a desconexão de uma sessão remota em andamento
+## <a name="view"></a>Eliminar ou desligar a força de uma sessão remota em curso
 
-Você pode selecionar um conjunto de sessões e forçar a desconexão. As etapas a seguir mostram como excluir sessões remotas:
+Pode selecionar um conjunto de sessões e desconectá-las à força. Os seguintes passos mostram-lhe como eliminar sessões remotas:
 
-1. Navegue até o recurso de bastiões do Azure e selecione **sessões** na página de bastiões do Azure.
+1. Navegue para o seu recurso Azure Bastion e selecione **Sessões** a partir da página Do Bastião Azure.
 
-   ![Navegue até](./media/session-monitoring/navigate.png)
-2. Depois de selecionar sessões, você verá uma lista de sessões remotas.
+   ![navegar](./media/session-monitoring/navigate.png)
+2. Depois de selecionar As Sessões, consulte uma lista de sessões remotas.
 
-   ![listar sessões](./media/session-monitoring/list.png)
-3. Selecione uma sessão remota específica e, em seguida, selecione as três reticências na extremidade direita da linha da sessão e, em seguida, selecione **excluir**.
+   ![sessões de lista](./media/session-monitoring/list.png)
+3. Selecione uma sessão remota específica e, em seguida, selecione as três elipses na extremidade direita da linha de sessão e, em seguida, **selecione Delete**.
 
    ![delete](./media/session-monitoring/delete.png)
-4. Quando você seleciona excluir, a sessão remota será desconectada e o usuário receberá uma mensagem "você foi desconectado" na sessão remota.
+4. Quando selecionar Apagar, a sessão remota será desligada e o utilizador será mostrado uma mensagem "Foi desligado" na sessão remota.
 
-   ![Desligar](./media/session-monitoring/disconnect.png)
+   ![desligar](./media/session-monitoring/disconnect.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).
+Leia o [Bastião FAQ.](bastion-faq.md)

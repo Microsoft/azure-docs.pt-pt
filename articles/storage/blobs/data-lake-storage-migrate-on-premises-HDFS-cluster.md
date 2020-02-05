@@ -1,6 +1,6 @@
 ---
-title: Migrar do repositório HDFS local para o armazenamento do Azure com Azure Data Box
-description: Migrar dados de um repositório HDFS local para o armazenamento do Azure
+title: Migrar da loja on-prem HDFS para o Armazenamento Azure com caixa de dados Azure
+description: Migrar dados de uma loja HDFS no local para o Armazenamento Azure
 author: normesta
 ms.service: storage
 ms.date: 11/19/2019
@@ -8,78 +8,78 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3360209e9de54d6011a2a430cd2c1fb54a315c43
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e82c325ad5ad91e6b4503949e6534b054023f1f2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327608"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990968"
 ---
-# <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrar do repositório HDFS local para o armazenamento do Azure com Azure Data Box
+# <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrar da loja on-prem HDFS para o Armazenamento Azure com caixa de dados Azure
 
-Você pode migrar dados de um repositório HDFS local de seu cluster Hadoop para o armazenamento do Azure (armazenamento de BLOBs ou Data Lake Storage Gen2) usando um dispositivo Data Box. Você pode escolher entre um Data Box de 80 TB ou um Data Box Heavy de 770 TB.
+Pode migrar dados de uma loja HDFS no local do seu cluster Hadoop para o Armazenamento Azure (armazenamento de blob ou Data Lake Storage Gen2) utilizando um dispositivo Data Box. Pode escolher entre uma Caixa de Dados de 80 TB ou uma caixa de dados de 770 TB Pesada.
 
-Este artigo ajuda você a concluir estas tarefas:
+Este artigo ajuda-o a completar estas tarefas:
 
 > [!div class="checklist"]
-> * Prepare-se para migrar seus dados.
-> * Copie seus dados para um Data Box ou um dispositivo Data Box Heavy.
+> * Prepare-se para migrar os seus dados.
+> * Copie os seus dados para uma Caixa de Dados ou para um dispositivo Data Box Heavy.
 > * Envie o dispositivo de volta para a Microsoft.
-> * Mover os dados para Data Lake Storage Gen2.
+> * Mova os dados para Data Lake Storage Gen2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa dessas coisas para concluir a migração.
+Precisas destas coisas para completar a migração.
 
-* Duas contas de armazenamento; um que tem um namespace hierárquico habilitado nele e outro que não faz isso.
+* Duas contas de armazenamento; um que tem um espaço de nome hierárquico habilitado nele, e um que não tem.
 
-* Um cluster Hadoop local que contém os dados de origem.
+* Um aglomerado hadoop no local que contém os seus dados de origem.
 
-* Um [dispositivo Azure data Box](https://azure.microsoft.com/services/storage/databox/).
+* Um dispositivo Caixa de [Dados Azure](https://azure.microsoft.com/services/storage/databox/).
 
-  * [Ordene seu data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) ou [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). Ao solicitar seu dispositivo, lembre-se de escolher uma conta de armazenamento que **não** tenha namespaces hierárquicos habilitados nele. Isso ocorre porque Data Box dispositivos ainda não dão suporte à ingestão direta no Azure Data Lake Storage Gen2. Você precisará copiar para uma conta de armazenamento e, em seguida, fazer uma segunda cópia na conta de ADLS Gen2. As instruções para isso são fornecidas nas etapas abaixo.
+  * [Encomende a sua Caixa](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) de Dados ou [Caixa de Dados Pesada](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). Ao encomendar o seu dispositivo, lembre-se de escolher uma conta de armazenamento que **não** tenha espaços hierárquicos habilitados nele. Isto porque os dispositivos Data Box ainda não suportam a ingestão direta no Azure Data Lake Storage Gen2. Terá de copiar para uma conta de armazenamento e, em seguida, fazer uma segunda cópia na conta ADLS Gen2. As instruções para tal são dadas nos degraus abaixo.
 
-  * Conectar o cabo e conecte seu [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) ou [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) a uma rede local.
+  * Cabo e ligue a sua Caixa de [Dados](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) ou Caixa de [Dados Pesada](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) a uma rede no local.
 
-Se você estiver pronto, vamos começar.
+Se estiver pronto, vamos começar.
 
-## <a name="copy-your-data-to-a-data-box-device"></a>Copiar seus dados para um dispositivo Data Box
+## <a name="copy-your-data-to-a-data-box-device"></a>Copie os seus dados para um dispositivo Data Box
 
-Se os dados couberem em um único dispositivo Data Box, você copiará os dados para o dispositivo Data Box. 
+Se os seus dados se enquadrarem num único dispositivo data Box, então irá copiar os dados para o dispositivo Data Box. 
 
-Se o tamanho dos dados exceder a capacidade do dispositivo Data Box, use o [procedimento opcional para dividir os dados em vários dispositivos data Box](#appendix-split-data-across-multiple-data-box-devices) e, em seguida, execute esta etapa. 
+Se o tamanho dos seus dados exceder a capacidade do dispositivo Data Box, utilize o [procedimento opcional para dividir os dados em vários dispositivos da Data Box](#appendix-split-data-across-multiple-data-box-devices) e, em seguida, executar este passo. 
 
-Para copiar os dados do seu repositório HDFS local para um dispositivo Data Box, você definirá algumas coisas e, em seguida, usará a ferramenta [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) .
+Para copiar os dados da sua loja HDFS no local para um dispositivo Data Box, irá configurar algumas coisas e, em seguida, utilizar a ferramenta [DistCp.](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html)
 
-Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de blob/objeto para o dispositivo Data Box. A interface da API REST fará com que o dispositivo apareça como um repositório HDFS para o cluster.
+Siga estes passos para copiar dados através das APIs REST do armazenamento blob/objeto para o seu dispositivo Data Box. A interface REST API fará com que o dispositivo apareça como uma loja HDFS para o seu cluster.
 
-1. Antes de copiar os dados via REST, identifique os primitivos de segurança e conexão para se conectar à interface REST no Data Box ou Data Box Heavy. Entre na interface do usuário da Web local do Data Box e vá para a página **conectar e copiar** . Na conta de armazenamento do Azure para seu dispositivo, em **configurações de acesso**, localize e selecione **REST**.
+1. Antes de copiar os dados via REST, identifique os primitivos de segurança e ligação para se ligar à interface REST na Caixa de Dados ou Caixa de Dados Pesada. Inscreva-se na Web UI local da Data Box e vá para **connect e página de cópia.** Contra a conta de armazenamento Azure do seu dispositivo, sob **as definições**de Acesso, localize e selecione **REST**.
 
-    ![Página "conectar e copiar"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
+    ![Página "Ligar e copiar"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
-2. Na caixa de diálogo acessar conta de armazenamento e carregar dados, copie o **ponto de extremidade do serviço blob** e a **chave da conta de armazenamento**. No ponto de extremidade do serviço BLOB, omita o `https://` e a barra à direita.
+2. Na conta de armazenamento de acesso e no diálogo de dados de upload, copie o ponto final do **serviço Blob** e a **chave da conta de armazenamento**. Do ponto final do serviço de blob, omita o `https://` e o corte de rasto.
 
-    Nesse caso, o ponto de extremidade é: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. A parte do host do URI que você usará é: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Para obter um exemplo, consulte como [se conectar ao REST sobre http](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    Neste caso, o ponto final é: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. A parte hospedeira do URI que vai usar é: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Por exemplo, veja como [ligar para descansar em http](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
-     ![Caixa de diálogo "acessar conta de armazenamento e carregar dados"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
+     ![Diálogo "conta de armazenamento de acesso e upload de dados"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Adicione o ponto de extremidade e o Data Box ou o endereço IP do nó Data Box Heavy para `/etc/hosts` em cada nó.
+3. Adicione o ponto final e a caixa de dados ou endereço IP do nó pesado para `/etc/hosts` em cada nó.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
     ```
 
-    Se você estiver usando algum outro mecanismo para DNS, certifique-se de que o ponto de extremidade de Data Box possa ser resolvido.
+    Se estiver a utilizar outro mecanismo para o DNS, deve certificar-se de que o ponto final da Caixa de Dados pode ser resolvido.
 
-4. Defina a variável do Shell `azjars` como o local do `hadoop-azure` e `azure-storage` arquivos jar. Você pode encontrar esses arquivos no diretório de instalação do Hadoop.
+4. Deteto a variável do reservatório `azjars` à localização dos ficheiros `hadoop-azure` e `azure-storage` jarros. Pode encontrar estes ficheiros sob o diretório de instalação hadoop.
 
-    Para determinar se esses arquivos existem, use o seguinte comando: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Substitua o espaço reservado `<hadoop_install_dir>` pelo caminho para o diretório em que você instalou o Hadoop. Certifique-se de usar caminhos totalmente qualificados.
+    Para determinar se estes ficheiros existem, utilize o seguinte comando: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Substitua o `<hadoop_install_dir>` espaço reservado pelo caminho para o diretório onde instalou Hadoop. Certifique-se de que utiliza caminhos totalmente qualificados.
 
     Exemplos:
 
     `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar` `azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
 
-5. Crie o contêiner de armazenamento que você deseja usar para a cópia de dados. Você também deve especificar um diretório de destino como parte desse comando. Esse pode ser um diretório de destino fictício neste ponto.
+5. Crie o recipiente de armazenamento que pretende utilizar para cópia de dados. Deve também especificar um diretório de destino como parte deste comando. Este pode ser um diretório de destino idiota neste momento.
 
     ```
     hadoop fs -libjars $azjars \
@@ -88,15 +88,15 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
     -mkdir -p  wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * Substitua o espaço reservado `<blob_service_endpoint>` pelo nome do ponto de extremidade do serviço BLOB.
+    * Substitua o espaço reservado `<blob_service_endpoint>` com o nome do seu ponto final de serviço blob.
 
     * Substitua o espaço reservado `<account_key>` pela chave de acesso da sua conta.
 
-    * Substitua o espaço reservado `<container-name>` pelo nome do seu contêiner.
+    * Substitua o espaço reservado `<container-name>` com o nome do seu recipiente.
 
-    * Substitua o espaço reservado `<destination_directory>` pelo nome do diretório no qual você deseja copiar os dados.
+    * Substitua o espaço reservado `<destination_directory>` pelo nome do diretório para o que pretende copiar os seus dados.
 
-6. Execute um comando de lista para garantir que o contêiner e o diretório foram criados.
+6. Execute um comando de lista para garantir que o seu recipiente e diretório foram criados.
 
     ```
     hadoop fs -libjars $azjars \
@@ -105,13 +105,13 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
     -ls -R  wasb://<container_name>@<blob_service_endpoint>/
     ```
 
-   * Substitua o espaço reservado `<blob_service_endpoint>` pelo nome do ponto de extremidade do serviço BLOB.
+   * Substitua o espaço reservado `<blob_service_endpoint>` com o nome do seu ponto final de serviço blob.
 
    * Substitua o espaço reservado `<account_key>` pela chave de acesso da sua conta.
 
-   * Substitua o espaço reservado `<container-name>` pelo nome do seu contêiner.
+   * Substitua o espaço reservado `<container-name>` com o nome do seu recipiente.
 
-7. Copie dados do HDFS do Hadoop para Data Box armazenamento de BLOBs no contêiner que você criou anteriormente. Se o diretório no qual você está copiando não for encontrado, o comando o criará automaticamente.
+7. Copie os dados do Hadoop HDFS para o armazenamento da Caixa de Dados Blob, no recipiente que criou anteriormente. Se o diretório em que está a copiar não for encontrado, o comando cria-o automaticamente.
 
     ```
     hadoop distcp \
@@ -123,21 +123,21 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
            wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * Substitua o espaço reservado `<blob_service_endpoint>` pelo nome do ponto de extremidade do serviço BLOB.
+    * Substitua o espaço reservado `<blob_service_endpoint>` com o nome do seu ponto final de serviço blob.
 
     * Substitua o espaço reservado `<account_key>` pela chave de acesso da sua conta.
 
-    * Substitua o espaço reservado `<container-name>` pelo nome do seu contêiner.
+    * Substitua o espaço reservado `<container-name>` com o nome do seu recipiente.
 
-    * Substitua o espaço reservado `<exlusion_filelist_file>` pelo nome do arquivo que contém a lista de exclusões de arquivo.
+    * Substitua o espaço reservado `<exlusion_filelist_file>` pelo nome do ficheiro que contém a sua lista de exclusões de ficheiros.
 
-    * Substitua o espaço reservado `<source_directory>` pelo nome do diretório que contém os dados que você deseja copiar.
+    * Substitua o espaço reservado `<source_directory>` pelo nome do diretório que contém os dados que pretende copiar.
 
-    * Substitua o espaço reservado `<destination_directory>` pelo nome do diretório no qual você deseja copiar os dados.
+    * Substitua o espaço reservado `<destination_directory>` pelo nome do diretório para o que pretende copiar os seus dados.
 
-    A opção `-libjars` é usada para disponibilizar os `hadoop-azure*.jar` e os arquivos dependentes `azure-storage*.jar` disponíveis para `distcp`. Isso pode já ocorrer em alguns clusters.
+    A opção `-libjars` é utilizada para disponibilizar os ficheiros `hadoop-azure*.jar` e `azure-storage*.jar` dependentes para `distcp`. Isto pode já ocorrer para alguns aglomerados.
 
-    O exemplo a seguir mostra como o comando `distcp` é usado para copiar dados.
+    O exemplo que se segue mostra como o comando `distcp` é usado para copiar dados.
 
     ```
      hadoop distcp \
@@ -149,123 +149,123 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
     wasb://hdfscontainer@mystorageaccount.blob.mydataboxno.microsoftdatabox.com/data
     ```
   
-    Para melhorar a velocidade de cópia:
+    Para melhorar a velocidade da cópia:
 
-    * Tente alterar o número de Mapeadores. (O exemplo acima usa `m` = 4 Mapeadores.)
+    * Tente mudar o número de mappers. (O exemplo acima usa `m` = 4 mappers.)
 
-    * Tente executar vários `distcp` em paralelo.
+    * Tente correr várias `distcp` em paralelo.
 
-    * Lembre-se de que arquivos grandes têm desempenho melhor do que arquivos pequenos.
+    * Lembre-se que os ficheiros grandes funcionam melhor do que ficheiros pequenos.
 
-## <a name="ship-the-data-box-to-microsoft"></a>Envie o Data Box para a Microsoft
+## <a name="ship-the-data-box-to-microsoft"></a>Envie a Caixa de Dados para a Microsoft
 
-Siga estas etapas para preparar e enviar o dispositivo de Data Box para a Microsoft.
+Siga estes passos para preparar e enviar o dispositivo Data Box para a Microsoft.
 
-1. Primeiro, [preparação para o envio em seu data Box ou data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
+1. Primeiro, [prepare-se para enviar na sua Caixa de Dados ou Caixa de Dados Pesada](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
 
-2. Após a conclusão da preparação do dispositivo, baixe os arquivos da BOM. Você usará esses arquivos de manifesto ou BOM posteriormente para verificar os dados carregados no Azure.
+2. Depois de concluída a preparação do dispositivo, faça o download dos ficheiros BOM. Utilizará estes ficheiros BOM ou manifestos mais tarde para verificar os dados enviados para o Azure.
 
-3. Desligue o dispositivo e remova os cabos.
+3. Desligue o aparelho e retire os cabos.
 
 4. Agende uma recolha com a UPS.
 
-    * Para dispositivos Data Box, consulte [enviar sua data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+    * Para dispositivos Data Box, consulte [Enviar a sua Caixa de Dados](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
 
-    * Para dispositivos Data Box Heavy, consulte [enviar sua data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
+    * Para dispositivos pesados data Box, consulte [Enviar a sua caixa de dados heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
 
-5. Depois que a Microsoft receber seu dispositivo, ele será conectado à rede data center e os dados serão carregados na conta de armazenamento especificada (com namespaces hierárquicos desabilitados) quando você colocou a ordem do dispositivo. Verifique nos arquivos da BOM que todos os dados são carregados no Azure. Agora você pode mover esses dados para uma conta de armazenamento Data Lake Storage Gen2.
+5. Depois de a Microsoft receber o seu dispositivo, está ligado à rede do data center e os dados são enviados para a conta de armazenamento que especificou (com espaços hierárquicos desativados) quando fez a encomenda do dispositivo. Verifique nos ficheiros BOM que todos os seus dados são enviados para o Azure. Agora pode mover estes dados para uma conta de armazenamento gen2 de armazenamento de data Lake.
 
-## <a name="move-the-data-into-azure-data-lake-storage-gen2"></a>Mover os dados para Azure Data Lake Storage Gen2
+## <a name="move-the-data-into-azure-data-lake-storage-gen2"></a>Mova os dados para Azure Data Lake Storage Gen2
 
-Você já tem os dados em sua conta de armazenamento do Azure. Agora, você copiará os dados para sua conta de armazenamento Azure Data Lake e aplicará permissões de acesso a arquivos e diretórios.
+Já tem os dados na sua conta de Armazenamento Azure. Agora irá copiar os dados na sua conta de armazenamento do Lago de Dados Azure e aplicar permissões de acesso a ficheiros e diretórios.
 
 > [!NOTE]
-> Essa etapa será necessária se você estiver usando Azure Data Lake Storage Gen2 como seu armazenamento de dados. Se você estiver usando apenas uma conta de armazenamento de BLOBs sem namespace hierárquico como seu armazenamento de dados, poderá ignorar esta seção.
+> Este passo é necessário se estiver a utilizar o Azure Data Lake Storage Gen2 como loja de dados. Se estiver a utilizar apenas uma conta de armazenamento blob sem espaço de nome hierárquico como o seu armazenamento de dados, pode saltar esta secção.
 
-### <a name="copy-data-to-the-azure-data-lake-storage-gen-2-account"></a>Copiar dados para a conta do Azure Data Lake Storage Gen 2
+### <a name="copy-data-to-the-azure-data-lake-storage-gen-2-account"></a>Copiar dados para a conta Azure Data Lake Storage Gen 2
 
-Você pode copiar dados usando Azure Data Factory ou usando o cluster Hadoop baseado no Azure.
+Pode copiar dados utilizando a Azure Data Factory ou utilizando o seu cluster Hadoop baseado em Azure.
 
-* Para usar Azure Data Factory, consulte [Azure data Factory para mover dados para ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Certifique-se de especificar o **armazenamento de BLOBs do Azure** como a origem.
+* Para utilizar a Azure Data Factory, consulte a [Azure Data Factory para mover dados para a ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Certifique-se de especificar o **Armazenamento de Blob Azure** como fonte.
 
-* Para usar o cluster Hadoop baseado no Azure, execute este comando DistCp:
+* Para utilizar o seu cluster Hadoop baseado em Azure, execute este comando DistCp:
 
     ```bash
     hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
     ```
 
-    * Substitua os espaços reservados `<source_account>` e `<dest_account>` pelos nomes das contas de armazenamento de origem e de destino.
+    * Substitua os espaços reservados `<source_account>` e `<dest_account>` pelos nomes das contas de armazenamento de origem e destino.
 
-    * Substitua os espaços reservados `<source_container>` e `<dest_container>` pelos nomes dos contêineres de origem e de destino.
+    * Substitua os `<source_container>` e `<dest_container>` espaços reservados pelos nomes dos contentores de origem e destino.
 
-    * Substitua os espaços reservados `<source_path>` e `<dest_path>` pelos caminhos de diretório de origem e de destino.
+    * Substitua os `<source_path>` e `<dest_path>` espaços reservados pelas vias de direção de origem e destino.
 
     * Substitua o espaço reservado `<source_account_key>` pela chave de acesso da conta de armazenamento que contém os dados.
 
-    Esse comando copia dados e metadados de sua conta de armazenamento para sua conta de armazenamento Data Lake Storage Gen2.
+    Este comando copia dados e metadados da sua conta de armazenamento na sua conta de armazenamento Gen2 data Lake.
 
-### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Criar uma entidade de serviço para sua conta de Azure Data Lake Storage Gen2
+### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Crie um diretor de serviço para a sua conta Azure Data Lake Storage Gen2
 
-Para criar uma entidade de serviço, consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Para criar um diretor de serviço, consulte [Como: Utilize o portal para criar uma aplicação e um diretor de serviço seletiva seletiva que possa aceder a recursos.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
 
-* Ao executar as etapas na seção [atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, certifique-se de atribuir a função de **colaborador de dados de blob de armazenamento** à entidade de serviço.
+* Ao executar os passos na [Atribuição da aplicação a uma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) secção de papel do artigo, certifique-se de atribuir a função de Contribuinte de Dados **blob** de armazenamento ao diretor de serviço.
 
-* Ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, salve a ID do aplicativo e os valores de segredo do cliente em um arquivo de texto. Você precisará delas em breve.
+* Ao executar os passos nos [valores Get para assinar na](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, guarde o ID da aplicação e os valores secretos do cliente num ficheiro de texto. Você precisará delas em breve.
 
-### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>Gerar uma lista de arquivos copiados com suas permissões
+### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>Gerar uma lista de ficheiros copiados com as suas permissões
 
-No cluster Hadoop local, execute este comando:
+A partir do aglomerado de Hadoop no local, executar este comando:
 
 ```bash
 
 sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 ```
 
-Esse comando gera uma lista de arquivos copiados com suas permissões.
+Este comando gera uma lista de ficheiros copiados com as suas permissões.
 
 > [!NOTE]
-> Dependendo do número de arquivos no HDFS, esse comando pode levar muito tempo para ser executado.
+> Dependendo do número de ficheiros no HDFS, este comando pode demorar muito tempo a ser executado.
 
-### <a name="generate-a-list-of-identities-and-map-them-to-azure-active-directory-add-identities"></a>Gerar uma lista de identidades e mapeá-las para Azure Active Directory (Adicionar) identidades
+### <a name="generate-a-list-of-identities-and-map-them-to-azure-active-directory-add-identities"></a>Gere uma lista de identidades e mapeie-as para identidades do Azure Ative Directory (ADD)
 
-1. Baixe o script de `copy-acls.py`. Consulte a seção [baixar scripts auxiliares e configurar o nó de borda para executá-los](#download-helper-scripts) deste artigo.
+1. Descarregue o guião `copy-acls.py`. Consulte os scripts de [ajuda de download e instale o seu nó de borda para executar a](#download-helper-scripts) secção deste artigo.
 
-2. Execute este comando para gerar uma lista de identidades exclusivas.
+2. Executar este comando para gerar uma lista de identidades únicas.
 
    ```bash
    
    ./copy-acls.py -s ./filelist.json -i ./id_map.json -g
    ```
 
-   Esse script gera um arquivo chamado `id_map.json` que contém as identidades que você precisa mapear para as identidades baseadas em Adicionar.
+   Este script gera um ficheiro chamado `id_map.json` que contém as identidades que precisa de mapear para identidades baseadas em ADD.
 
-3. Abra o arquivo `id_map.json` em um editor de texto.
+3. Abra o ficheiro `id_map.json` num editor de texto.
 
-4. Para cada objeto JSON que aparece no arquivo, atualize o atributo `target` de um nome UPN ou ObjectId (OID) do AAD, com a identidade mapeada apropriada. Depois de terminar, salve o arquivo. Você precisará desse arquivo na próxima etapa.
+4. Para cada objeto JSON que apareça no ficheiro, atualize o atributo `target` de um Nome Principal de Utilizador AAD (UPN) ou ObjectId (OID), com a identidade mapeada apropriada. Depois de terminar, guarde o ficheiro. Vai precisar deste ficheiro no próximo passo.
 
-### <a name="apply-permissions-to-copied-files-and-apply-identity-mappings"></a>Aplicar permissões a arquivos copiados e aplicar mapeamentos de identidade
+### <a name="apply-permissions-to-copied-files-and-apply-identity-mappings"></a>Aplicar permissões a ficheiros copiados e aplicar mapeamentos de identidade
 
-Execute este comando para aplicar permissões aos dados que você copiou para a conta de Data Lake Storage Gen2:
+Execute este comando para aplicar permissões aos dados que copiou na conta Data Lake Storage Gen2:
 
 ```bash
 ./copy-acls.py -s ./filelist.json -i ./id_map.json  -A <storage-account-name> -C <container-name> --dest-spn-id <application-id>  --dest-spn-secret <client-secret>
 ```
 
-* Substitua o espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
+* Substitua o espaço reservado `<storage-account-name>` com o nome da sua conta de armazenamento.
 
-* Substitua o espaço reservado `<container-name>` pelo nome do seu contêiner.
+* Substitua o espaço reservado `<container-name>` com o nome do seu recipiente.
 
-* Substitua os espaços reservados `<application-id>` e `<client-secret>` pela ID do aplicativo e pelo segredo do cliente que você coletou ao criar a entidade de serviço.
+* Substitua os `<application-id>` e `<client-secret>` espaços reservados pelo ID da aplicação e pelo segredo do cliente que recolheu quando criou o diretor de serviço.
 
-## <a name="appendix-split-data-across-multiple-data-box-devices"></a>Apêndice: dividir dados em vários dispositivos Data Box
+## <a name="appendix-split-data-across-multiple-data-box-devices"></a>Apêndice: Divida dados em vários dispositivos da Data Box
 
-Antes de mover seus dados para um dispositivo Data Box, você precisará baixar alguns scripts auxiliares, garantir que seus dados sejam organizados para caber em um dispositivo de Data Box e excluir quaisquer arquivos desnecessários.
+Antes de transferir os seus dados para um dispositivo Data Box, terá de descarregar alguns scripts de ajuda, certificar-se de que os seus dados estão organizados para se encaixarem num dispositivo Data Box e excluir quaisquer ficheiros desnecessários.
 
 <a id="download-helper-scripts" />
 
-### <a name="download-helper-scripts-and-set-up-your-edge-node-to-run-them"></a>Baixar scripts auxiliares e configurar o nó de borda para executá-los
+### <a name="download-helper-scripts-and-set-up-your-edge-node-to-run-them"></a>Descarregue scripts de ajudante e crie o seu nó de borda para executá-los
 
-1. No seu nó de borda ou de cabeçalho do seu cluster Hadoop local, execute este comando:
+1. A partir da sua borda ou nó de cabeça do seu aglomerado hadoop no local, executar este comando:
 
    ```bash
    
@@ -273,23 +273,23 @@ Antes de mover seus dados para um dispositivo Data Box, você precisará baixar 
    cd databox-adls-loader
    ```
 
-   Esse comando clona o repositório do GitHub que contém os scripts auxiliares.
+   Este comando clona o repositório GitHub que contém os scripts de ajudante.
 
-2. Certifique-se de que o pacote [JQ](https://stedolan.github.io/jq/) esteja instalado no computador local.
+2. Certifique-se de que tem a embalagem [jq](https://stedolan.github.io/jq/) instalada no seu computador local.
 
    ```bash
    
    sudo apt-get install jq
    ```
 
-3. Instale o pacote Python de [solicitações](http://docs.python-requests.org/en/master/) .
+3. Instale o pacote [Requests](https://2.python-requests.org/en/master/) python.
 
    ```bash
    
    pip install requests
    ```
 
-4. Defina as permissões de execução nos scripts necessários.
+4. Detete permissões de execução nos scripts necessários.
 
    ```bash
    
@@ -297,13 +297,13 @@ Antes de mover seus dados para um dispositivo Data Box, você precisará baixar 
 
    ```
 
-### <a name="ensure-that-your-data-is-organized-to-fit-onto-a-data-box-device"></a>Verifique se os dados estão organizados para caber em um dispositivo Data Box
+### <a name="ensure-that-your-data-is-organized-to-fit-onto-a-data-box-device"></a>Certifique-se de que os seus dados estão organizados para se encaixarem num dispositivo Data Box
 
-Se o tamanho de seus dados exceder o tamanho de um único dispositivo Data Box, você poderá dividir arquivos em grupos que podem ser armazenados em vários dispositivos Data Box.
+Se o tamanho dos seus dados exceder o tamanho de um único dispositivo Data Box, pode dividir ficheiros em grupos que pode armazenar em vários dispositivos data Box.
 
-Se os dados não excederem o tamanho de um único dispositivo Data Box, você poderá prosseguir para a próxima seção.
+Se os seus dados não excederem o tamanho de um dispositivo caixa de dados de singe, pode passar para a secção seguinte.
 
-1. Com permissões elevadas, execute o `generate-file-list` script que você baixou seguindo as orientações na seção anterior.
+1. Com permissões elevadas, execute o roteiro `generate-file-list` que descarregou seguindo a orientação na secção anterior.
 
    Aqui está uma descrição dos parâmetros de comando:
 
@@ -333,17 +333,17 @@ Se os dados não excederem o tamanho de um único dispositivo Data Box, você po
                         Level of log information to output. Default is 'INFO'.
    ```
 
-2. Copie as listas de arquivos geradas para HDFS para que elas sejam acessíveis para o trabalho [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) .
+2. Copie as listas de ficheiros geradas para HDFS de modo a que estejam acessíveis ao trabalho [da DistCp.](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html)
 
    ```
    hadoop fs -copyFromLocal {filelist_pattern} /[hdfs directory]
    ```
 
-### <a name="exclude-unnecessary-files"></a>Excluir arquivos desnecessários
+### <a name="exclude-unnecessary-files"></a>Excluir ficheiros desnecessários
 
-Você precisará excluir alguns diretórios do trabalho DisCp. Por exemplo, exclua diretórios que contêm informações de estado que mantêm o cluster em execução.
+Terá de excluir alguns diretórios do trabalho da DisCp. Por exemplo, excluir diretórios que contenham informações estatais que mantenham o cluster em funcionamento.
 
-No cluster Hadoop local em que você planeja iniciar o trabalho DistCp, crie um arquivo que especifique a lista de diretórios que você deseja excluir.
+No aglomerado de Hadoop no local onde planeia iniciar o trabalho da DistCp, crie um ficheiro que especifique a lista de diretórios que pretende excluir.
 
 Segue-se um exemplo:
 
@@ -354,4 +354,4 @@ Segue-se um exemplo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como Data Lake Storage Gen2 funciona com clusters HDInsight. Consulte [usar Azure data Lake Storage Gen2 com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Saiba como o Data Lake Storage Gen2 funciona com clusters HDInsight. Consulte a utilização do Armazenamento de [Lagos Azure Data Gen2 com clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).

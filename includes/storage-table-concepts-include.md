@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 83f66fb7e4d9b07cdcd72e47da1b397a85886e29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91a52e7eac40c0ac2ab682f251a2ae0013259b25
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469714"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013651"
 ---
 ## <a name="what-is-table-storage"></a>O que é o armazenamento de Tabelas
 O armazenamento de Tabelas do Azure armazena grandes quantidades de dados estruturados. O serviço é um arquivo de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais. Utilizações comuns do Armazenamento de Tabelas:
@@ -31,7 +31,7 @@ O armazenamento de tabelas contém os seguintes componentes:
   As Contas da API de Tabela do Azure Cosmos DB utilizam este formato: `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   Pode também endereçar diretamente as tabelas do Azure utilizando este endereço com o protocolo OData. Para obter mais informações, consulte [OData.org][OData.org].
-* **Contas:** todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Para obter mais informações sobre contas de armazenamento, consulte [Visão geral da conta de armazenamento] [.. /articles/storage/common/storage-account-overview.md].
+* **Contas:** todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Para obter mais informações sobre contas de armazenamento, consulte a [visão geral da conta de armazenamento](../articles/storage/common/storage-account-overview.md).
 
     Todos os acessos ao Azure Cosmos DB são realizados através de uma conta de API de Tabela. Veja [Criar uma conta da API de Tabela](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) para mais detalhes sobre a criação de uma conta de API de Tabela.
 * **Tabela**: uma tabela é uma coleção de entidades. As tabelas não impõem um esquema a entidades, o que significa que uma única tabela pode conter entidades que tenham conjuntos diferentes de propriedades.  

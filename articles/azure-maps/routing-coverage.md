@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f6e16ed6646340a5c623ecd027e8b0fe323bf7f9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910617"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988945"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de roteamento do Azure Maps
 
-Este artigo fornece informações de cobertura para o roteamento do Azure Maps. Quando você pesquisa A rota ideal do local A para o B, o Azure Maps pode fornecer tempos de viagem altamente precisos, informações de viagem atualizadas ao vivo e instruções de rota. A rota levará em conta termos de pesquisa adicionais, como o tráfego atual, o tipo de veículo e as condições a serem evitadas. A capacidade de otimizar a rota depende da região, pois o mapas do Azure tem vários níveis de informações e precisão para regiões diferentes. A tabela a seguir lista as regiões e o tipo de informações que você pode solicitar para elas.
+Este artigo fornece informações de cobertura para o roteamento do Azure Maps. Após uma consulta de pesquisa, o Azure Maps retorna uma rota ideal desde o local A até ao local B. Você está equipado com tempos de viagem precisos, atualizações ao vivo de informações de viagem e instruções de rota. Também pode adicionar parâmetros de pesquisa adicionais, tais como tráfego atual, tipo de veículo e condições para evitar. A otimização do percurso depende da região. Isto porque, o Azure Maps tem vários níveis de informação e precisão para diferentes regiões. A tabela a seguir lista as regiões e o tipo de informações que você pode solicitar para elas.
  
 Confira a cobertura de [**geocodificação**](geocoding-coverage.md).       
 Confira a cobertura do [**tráfego**](traffic-coverage.md).  
 Fazer check-out da cobertura para [**renderização**](render-coverage.md).
 <br>  
-**Legenda**
+**Lenda**
 
 | Símbolo             | Significado                                |
 |--------------------|----------------------------------------|
@@ -69,7 +69,7 @@ A tabela a seguir fornece informações de cobertura para o roteamento do Azure 
 | Nigéria                        |        ✓       |         ✓            |             |
 | Ruanda                         |        ✓       |                       |             |
 | Senegal                        |        ✓       |                       |             |
-| Seicheles                     |        ✓       |                       |             |
+| Seychelles                     |        ✓       |                       |             |
 | África do Sul                   |        ✓       ||         ✓            |             |
 | Suazilândia                      |        ✓       |                       |             |
 | Tanzânia                       |        ✓       |                       |             |
@@ -95,7 +95,7 @@ A tabela a seguir fornece informações de cobertura para o roteamento do Azure 
 | Colômbia                       |        ✓       |         ✓            |             |
 | Costa Rica                     |        ✓       |                      |             |
 | Cuba                           |        ✓       |                      |             |
-| Domínica                       |        ✓       |                      |             |
+| Dominica                       |        ✓       |                      |             |
 | República Dominicana             |        ✓       |                      |             |
 | Equador                        |        ✓       |                      |             |
 | El Salvador                    |        ✓       |                      |             |
@@ -115,7 +115,7 @@ A tabela a seguir fornece informações de cobertura para o roteamento do Azure 
 | Santa Lúcia                      |        ✓       |                      |             |
 | São Vicente & Granadinas       |        ✓       |                      |             |
 | Suriname                       |        ✓       |                      |             |
-| Trindade e Tobago              |        ✓       |                      |             |
+| Trinidad e Tobago              |        ✓       |                      |             |
 | Estados Unidos                  |        ✓       |         ✓            |     ✓      | 
 | \+ Samoa Americana                |        ✓       |                      |             |
 | \+ Ilhas Marianas do Norte      |        ✓       |                      |             |
@@ -134,7 +134,7 @@ A tabela a seguir fornece informações de cobertura para o roteamento do Azure 
 | Brunei                         |        ✓       |         ✓            |             |
 | Camboja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
-| Guame                           |        ✓       |                      |             |
+| Rio Guam                           |        ✓       |                      |             |
 | RAE de Hong Kong                  |        ✓       |         ✓            |             |
 | Índia                          |        ✓       |         ✓            |             |
 | Indonésia                      |        ✓       |         ✓            |             |
@@ -180,7 +180,7 @@ A tabela a seguir fornece informações de cobertura para o roteamento do Azure 
 | Geórgia                        |        ✓       |                      |             |
 | Alemanha                        |        ✓       |         ✓            |     ✓      | 
 | Grécia                         |        ✓       |         ✓            |     ✓      |  
-| Guernesey                       |        ✓       |                      |             |
+| Guernsey                       |        ✓       |                      |             |
 | Hungria                        |        ✓       |         ✓            |     ✓      | 
 | Islândia                        |        ✓       |         ✓            |             |
 | Irlanda                        |        ✓       |         ✓            |     ✓      | 
@@ -205,7 +205,7 @@ A tabela a seguir fornece informações de cobertura para o roteamento do Azure 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Roménia                        |        ✓       |         ✓            |     ✓      | 
 | Federação Russa             |        ✓       |         ✓            |     ✓      | 
-| São Marinho                     |        ✓       |         ✓            |             |
+| São Marino                     |        ✓       |         ✓            |             |
 | \+ Santo Maarten                  |        ✓       |                      |             |
 | Sérvia                         |        ✓       |                      |     ✓      | 
 | Eslováquia                       |        ✓       |         ✓            |     ✓      | 

@@ -1,91 +1,90 @@
 ---
-title: Perguntas frequentes sobre monitoramento de alertas e relatórios
-description: Neste artigo, descubra respostas para perguntas comuns sobre o alerta de monitoramento de backup do Azure e os relatórios de backup do Azure.
+title: Alerta de monitorização e relatórios FAQ
+description: Neste artigo, descubra respostas a perguntas comuns sobre os relatórios azure backup monitoring alert e Azure Backup.
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 9cf7bf49d29b5faa9811a591b45179fe83c1d483
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172917"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989574"
 ---
-# <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
+# <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitorização de backup azure - FAQ
 
-Este artigo responde a perguntas comuns sobre o alerta de monitoramento do Azure.
+Este artigo responde a perguntas comuns sobre monitorização e reporte de backup do Azure.
 
 ## <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Como fazer verificar se os dados de relatório começaram a fluir para uma conta de armazenamento?
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Como posso verificar se os dados de reporte começaram a fluir para um espaço de trabalho de Log Analytics (LA) ?
 
-Vá para a conta de armazenamento que você configurou e selecione contêineres. Se o contêiner tiver uma entrada para insights-logs-azurebackupreport, isso indica que os dados de relatório começaram a fluir.
+Navegue para o espaço de trabalho de LA configurado, navegue para o item do menu **Logs** e faça a consulta CoreAzureBackup  tomar 1. Se vir um registo a ser devolvido, significa que os dados começaram a fluir para o espaço de trabalho. O impulso inicial de dados pode demorar até 24 horas.
 
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Qual é a frequência de envio de dados por push para uma conta de armazenamento e o pacote de conteúdo do backup do Azure no Power BI?
+### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual é a frequência dos dados para um espaço de trabalho de LA?
 
-  Para usuários do dia 0, leva cerca de 24 horas para enviar dados por push a uma conta de armazenamento. Após a conclusão desse Push inicial, os dados são atualizados com a frequência mostrada na figura a seguir.
+Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho Log Analytics com algum retardo. Todos os eventos chegam ao espaço de trabalho log Analytics 20 a 30 minutos depois de ser empurrado do cofre dos Serviços de Recuperação. Aqui estão mais detalhes sobre o retardo:
 
-* Os dados relacionados a **trabalhos**, **alertas**, **itens de backup**, **cofres**, **servidores protegidos**e **políticas** são enviados por push para uma conta de armazenamento de cliente como e quando são registrados.
+* Em todas as soluções, os alertas internos do serviço de backup são enviados por push assim que são criados. Eles geralmente aparecem no espaço de trabalho Log Analytics após 20 a 30 minutos.
+* Em todas as soluções, os postos de trabalho a pedido e a restauração dos postos de trabalho são empurrados assim que terminam.
+* Para todas as soluções, com exceção do backup SQL, os trabalhos de backup programados são empurrados assim que terminam.
+* Para o backup do SQL, como os backups de log podem ocorrer a cada 15 minutos, as informações para todos os trabalhos de backup agendados concluídos, incluindo logs, são colocadas em lote e enviadas a cada 6 horas.
+* Em todas as soluções, outras informações como o item de backup, política, pontos de recuperação, armazenamento, e assim por diante, é empurrada pelo menos uma vez por dia.
+* Uma alteração na configuração de backup (como alteração de política ou política de edição) dispara um envio por push de todas as informações de backup relacionadas.
 
-* Os dados relacionados ao **armazenamento** são enviados por push para uma conta de armazenamento do cliente a cada 24 horas.
+### <a name="how-long-can-i-retain-reporting-data"></a>Quanto tempo posso reter dados de reporte?
 
-    ![Frequência de envio de dados de relatórios de backup do Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+Depois de criar um espaço de trabalho em LA, pode optar por reter dados por um período máximo de 2 anos. Por padrão, um espaço de trabalho de LA retém dados durante 31 dias.
 
-* Power BI tem uma [atualização agendada uma vez por dia](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Você pode executar uma atualização manual dos dados em Power BI para o pacote de conteúdo.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>Verei todos os meus dados em relatórios depois de configurar o espaço de trabalho de LA?
 
-### <a name="how-long-can-i-retain-reports"></a>Por quanto tempo posso reter relatórios?
+ Todos os dados gerados após configurar as definições de diagnóstico são empurrados para o Espaço de Trabalho de LA e estão disponíveis em relatórios. Os trabalhos em curso não são pressionados para reportar. Após o trabalho terminar ou falhar, é enviado para relatórios.
 
-Ao configurar uma conta de armazenamento, você pode selecionar um período de retenção para dados de relatório na conta de armazenamento. Siga a etapa 6 na seção [configurar conta de armazenamento para relatórios](backup-azure-configure-reports.md#configure-storage-account-for-reports) . Você também pode [analisar relatórios no Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) e salvá-los por um período de retenção mais longo, com base em suas necessidades.
+### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Posso ver relatórios através de cofres e assinaturas?
 
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Eu verá todos os meus dados em relatórios depois de configurar a conta de armazenamento?
+Sim, pode ver relatórios em cofres e subscrições, bem como em regiões. Os seus dados podem residir num único espaço de trabalho de LA ou num grupo de espaços de trabalho de LA.
 
- Todos os dados gerados após a configuração de uma conta de armazenamento são enviados por push para a conta de armazenamento e estão disponíveis em relatórios. Trabalhos em andamento não são enviados por push para relatórios. Depois que o trabalho for concluído ou falhar, ele será enviado aos relatórios.
+### <a name="can-i-view-reports-across-tenants"></a>Posso ver relatórios entre inquilinos?
 
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Se eu já configurei a conta de armazenamento para exibir relatórios, posso alterar a configuração para usar outra conta de armazenamento?
+Se for um utilizador do [Farol Azure](https://azure.microsoft.com/services/azure-lighthouse/) com acesso delegado às subscrições dos seus clientes ou espaços de trabalho de LA, pode utilizar relatórios de backup para visualizar dados em todos os seus inquilinos.
 
-Sim, você pode alterar a configuração para apontar para uma conta de armazenamento diferente. Use a conta de armazenamento recém configurada enquanto você se conecta ao pacote de conteúdo do backup do Azure. Além disso, após a configuração de uma conta de armazenamento diferente, novos fluxos de dados nessa conta de armazenamento. Os dados mais antigos (antes de alterar a configuração) ainda permanecem na conta de armazenamento mais antiga.
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo demora o estatuto de agente de apoio Azure a refletir no portal?
 
-### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Posso exibir relatórios em cofres e assinaturas?
+O portal Azure pode demorar até 15 minutos a refletir o estatuto de agente de backup Azure.
 
-Sim, você pode configurar a mesma conta de armazenamento em vários cofres para exibir relatórios de cofres cruzados. Além disso, você pode configurar a mesma conta de armazenamento para cofres entre assinaturas. Em seguida, você pode usar essa conta de armazenamento enquanto se conecta ao pacote de conteúdo do backup do Azure no Power BI para exibir os relatórios. A conta de armazenamento selecionada deve estar na mesma região que o cofre dos serviços de recuperação.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de reserva falha, quanto tempo demora a levantar um alerta?
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para o status do trabalho do agente de backup do Azure refletir no portal?
+Um alerta é levantado dentro de 20 minutos da falha de reserva azure.
 
-O portal do Azure pode levar até 15 minutos para refletir o status do trabalho do agente de backup do Azure.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há algum caso em que um e-mail não será enviado se as notificações forem configuradas?
 
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de backup falha, quanto tempo leva para gerar um alerta?
+Sim. Nas seguintes situações, as notificações não são enviadas.
 
-Um alerta é gerado dentro de 20 minutos da falha do backup do Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há um caso em que um email não será enviado se as notificações forem configuradas?
-
-Sim. Nas situações a seguir, as notificações não são enviadas.
-
-* Se as notificações estiverem configuradas por hora, e um alerta for gerado e resolvido dentro da hora
+* Se as notificações forem configuradas de hora em hora, e um alerta for levantado e resolvido dentro de uma hora
 * Quando um trabalho é cancelado
-* Se um segundo trabalho de backup falhar porque o trabalho de backup original está em andamento
+* Se um segundo trabalho de reserva falhar porque o trabalho original de backup está em andamento
 
-## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
+## <a name="recovery-services-vault"></a>Cofre de Serviços de Recuperação
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para o status do trabalho do agente de backup do Azure refletir no portal?
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo demora o estatuto de agente de apoio Azure a refletir no portal?
 
-O portal do Azure pode levar até 15 minutos para refletir o status do trabalho do agente de backup do Azure.
+O portal Azure pode demorar até 15 minutos a refletir o estatuto de agente de backup Azure.
 
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de backup falha, quanto tempo leva para gerar um alerta?
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de reserva falha, quanto tempo demora a levantar um alerta?
 
-Um alerta é gerado dentro de 20 minutos da falha do backup do Azure.
+Um alerta é levantado dentro de 20 minutos da falha de reserva azure.
 
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há um caso em que um email não será enviado se as notificações forem configuradas?
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há algum caso em que um e-mail não será enviado se as notificações forem configuradas?
 
-Sim. Nas situações a seguir, as notificações não são enviadas:
+Sim. Nas seguintes situações, não são enviadas notificações:
 
-* Se as notificações estiverem configuradas por hora, e um alerta for gerado e resolvido dentro da hora
+* Se as notificações forem configuradas de hora em hora, e um alerta for levantado e resolvido dentro de uma hora
 * Quando um trabalho é cancelado
-* Se um segundo trabalho de backup falhar porque o trabalho de backup original está em andamento
+* Se um segundo trabalho de reserva falhar porque o trabalho original de backup está em andamento
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia as outras perguntas frequentes:
+Leia as outras FAQs:
 
-* [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre backups de VM do Azure.
-* [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente de backup do Azure
+* [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre cópias de segurança de VMs do Azure.
+* [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente do Azure Backup

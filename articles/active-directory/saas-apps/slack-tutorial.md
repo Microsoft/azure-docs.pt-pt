@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com a margem de atraso | Microsoft Docs'
-description: Saiba como configurar o logon único entre Azure Active Directory e a margem de atraso.
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com Slack  SsO) integração com Slack  Slack Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Slack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/23/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f67a5b5513ad5d8a07551b2a9f5605fc32a9bf6
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 6c80963976783321d05fc6f32bb24daed36fa105
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561852"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985561"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com a margem de atraso
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com A Folga
 
-Neste tutorial, você aprenderá a integrar a margem de atraso com o Azure Active Directory (Azure AD). Ao integrar a margem de atraso ao Azure AD, você pode:
+Neste tutorial, aprenderá a integrar o Slack com o Azure Ative Directory (Azure AD). Quando integrar o Slack com o Azure AD, pode:
 
-* Controle no Azure AD quem tem acesso à margem de atraso.
-* Permita que os usuários sejam automaticamente conectados à margem de atraso com suas contas do Azure AD.
+* Controlo em Azure AD que tem acesso a Slack.
+* Permita que os seus utilizadores sejam automaticamente inscritos no Slack com as suas contas Azure AD.
 * Gerencie suas contas em um local central-o portal do Azure.
 
 Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -37,48 +37,49 @@ Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consult
 Para começar, você precisa dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para logon único (SSO).
+* Slack single sign-on (SSO) enabled subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* A margem de atraso dá suporte ao SSO iniciado pelo **SP**
+* Slack apoia **SP** iniciado SSO
 * A margem de atraso dá suporte ao provisionamento **de usuário just in time**
 * A margem de atraso dá suporte ao [provisionamento **automatizado** de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
+* Assim que configurar o Slack, pode impor o controlo da Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controle de sessão com Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
-## <a name="adding-slack-from-the-gallery"></a>Adicionando a margem de atraso da Galeria
+## <a name="adding-slack-from-the-gallery"></a>Adicionando folga da galeria
 
-Para configurar a integração da margem de atraso no Azure AD, você precisa adicionar a margem de atraso da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração da Slack no Azure AD, precisa de adicionar Slack da galeria à sua lista de aplicações saaS geridas.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
 1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite margem de **atraso** na caixa de pesquisa.
-1. Selecione **margem de atraso** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. No Add da secção **galeria,** digite **Slack** na caixa de pesquisa.
+1. Selecione **A folga** no painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-slack"></a>Configurar e testar o logon único do Azure AD para a margem de atraso
+## <a name="configure-and-test-azure-ad-single-sign-on-for-slack"></a>Configure e teste Azure AD único sign-on para Slack
 
-Configure e teste o SSO do Azure AD com a margem de atraso usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado na margem de atraso.
+Configure e teste Azure AD SSO com Slack utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Slack.
 
-Para configurar e testar o SSO do Azure AD com a margem de atraso, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com o Slack, complete os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
     * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-1. **[Configurar o SSO de margem de atraso](#configure-slack-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste de margem de atraso](#create-slack-test-user)** – para ter um equivalente de B. Simon na margem de atraso vinculada à representação do usuário no Azure AD.
+1. **[Configure slack SSO](#configure-slack-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    * **[Crie um utilizador](#create-slack-test-user)** de teste Slack - para ter uma contraparte de B.Simon em Slack que esteja ligada à representação do utilizador da AD Azure.
 1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos de **margem de atraso** , localize a seção **gerenciar** e selecione **logon único**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Slack,** encontre a secção **Gerir** e selecione **um único sinal.**
 1. Na página **selecionar um método de logon único** , selecione **SAML**.
 1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
@@ -88,10 +89,10 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.slack.com`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL: `https://slack.com`
+    b. Na caixa de texto **identificador (Id** da entidade), escreva um URL: `https://slack.com`
 
     > [!NOTE]
-    > O valor da URL de logon não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente de margem de atraso](https://slack.com/help/contact) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > O valor do Signon on URL não é real. Atualize o valor com o sinal real no URL. Contacte a equipa de suporte do [Cliente Slack](https://slack.com/help/contact) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
 1. O aplicativo de margem de atraso espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -108,7 +109,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar margem de atraso** , copie as URLs apropriadas com base em seu requisito.
+1. Na secção **'Slack' configurar,** copie os URL(s) adequados com base no seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -126,10 +127,10 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso à margem de atraso.
+Nesta secção, permitirá que b.Simon use o único sign-on Azure, concedendo acesso ao Slack.
 
 1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **margem de atraso**.
+1. Na lista de aplicações, selecione **Slack**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
@@ -142,47 +143,47 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-## <a name="configure-slack-sso"></a>Configurar o SSO de margem de atraso
+## <a name="configure-slack-sso"></a>Configure Slack SSO
 
-1. Em uma janela diferente do navegador da Web, entre no site da empresa de margem de atraso como administrador.
+1. Numa janela diferente do navegador web, inscreva-se no site da sua empresa Slack como administrador.
 
 2. Navegue até **Microsoft Azure ad** , em seguida, vá para **configurações da equipe**.
 
-     ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial_slack_001.png)
+     ![Configure um único sinal on no lado da aplicação](./media/slack-tutorial/tutorial_slack_001.png)
 
-3. Na seção **configurações da equipe** , clique na guia **autenticação** e, em seguida, clique em **alterar configurações**.
+3. Na secção Definições de **Equipa,** clique no separador **Autenticação** e, em seguida, clique em **Alterar Definições**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial_slack_002.png)
+    ![Configure um único sinal on no lado da aplicação](./media/slack-tutorial/tutorial_slack_002.png)
 
-4. Na caixa de diálogo **configurações de autenticação do SAML** , execute as seguintes etapas:
+4. No diálogo de definições de **autenticação SAML,** execute os seguintes passos:
 
-    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial_slack_003.png)
+    ![Configure um único sinal on no lado da aplicação](./media/slack-tutorial/tutorial_slack_003.png)
 
-    a.  Na caixa de texto **ponto de extremidade SAML 2,0 (http)** , Cole o valor da **URL de logon**copiado de portal do Azure.
+    a.  Na caixa de texto **SAML 2.0 Endpoint (HTTP),** cola o valor do URL de **Login,** que copiou do portal Azure.
 
-    b.  Na caixa de texto **emissor do provedor de identidade** , Cole o valor do identificador do **Azure ad**que você copiou do portal do Azure.
+    b.  Na caixa de texto **emitentes** de fornecedor de identidade, colhe o valor do **Identificador De Ad Azure,** que copiou do portal Azure.
 
-    c.  Abra o arquivo de certificado baixado no bloco de notas, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **certificado público** .
+    c.  Abra o seu ficheiro de certificado descarregado no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto do **Certificado Público.**
 
-    d. Defina as três configurações acima conforme apropriado para sua equipe de margem de atraso. Para obter mais informações sobre as configurações, encontre o **Guia de configuração de SSO da margem de atraso** aqui. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
+    d. Configure as três configurações acima conforme apropriado para a sua equipa Slack. Para mais informações sobre as definições, consulte aqui o **guia de configuração SSO do Slack.** `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    e.  Clique em **salvar configuração**.
+    e.  Clique na **configuração de guardar**.
 
-### <a name="create-slack-test-user"></a>Criar usuário de teste de margem de atraso
+### <a name="create-slack-test-user"></a>Criar utilizador de teste Slack
 
-O objetivo desta seção é criar um usuário chamado B. Simon na margem de atraso. A margem de atraso dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há nenhum item de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar a margem de atraso, caso ele ainda não exista. A margem de atraso também dá suporte ao provisionamento automático de usuário. você pode encontrar mais detalhes [aqui](slack-provisioning-tutorial.md) sobre como configurar o provisionamento automático de usuário.
-
-> [!NOTE]
-> Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte da margem de atraso](https://slack.com/help/contact).
+O objetivo desta secção é criar um utilizador chamado B.Simon em Slack. A folga suporta o fornecimento just-in-time, que é por defeito habilitado. Não há nenhum item de ação para você nesta seção. Um novo utilizador é criado durante uma tentativa de aceder ao Slack se ainda não existir. A Slack também suporta o fornecimento automático de utilizadores, pode encontrar mais detalhes [aqui](slack-provisioning-tutorial.md) sobre como configurar o fornecimento automático de utilizadores.
 
 > [!NOTE]
-> Azure AD Connect é a ferramenta de sincronização que pode ser sincronizada localmente Active Directory identidades ao Azure AD e, em seguida, esses usuários sincronizados também podem usar os aplicativos como outros usuários de nuvem.
+> Se precisar de criar um utilizador manualmente, tem de contactar a equipa de [suporte Slack](https://slack.com/help/contact).
+
+> [!NOTE]
+> O Azure AD Connect é a ferramenta de sincronização que pode sincronizar nas instalações Identidades de Diretório Ativo para a AD Azure e, em seguida, estes utilizadores sincronizados também podem usar as aplicações como outros utilizadores da nuvem.
 
 ## <a name="test-sso"></a>Testar SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar no bloco de margem de atraso no painel de acesso, você deverá entrar automaticamente na margem de atraso para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Slack no Painel de Acesso, deve ser automaticamente inscrito na Folga para a qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -190,6 +191,8 @@ Ao clicar no bloco de margem de atraso no painel de acesso, você deverá entrar
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente a margem de atraso com o Azure AD](https://aad.portal.azure.com/)
+- [Experimente slack com Azure AD](https://aad.portal.azure.com/)
+
+- [O que é o controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

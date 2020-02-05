@@ -1,43 +1,43 @@
 ---
-title: Conectar-se a um conjunto de dimensionamento de máquinas virtuais do Windows usando a bastiões do Azure | Microsoft Docs
-description: Neste artigo, saiba como se conectar a um conjunto de dimensionamento de máquinas virtuais do Azure usando a bastiões do Azure.
+title: Ligue-se a um conjunto de máquinas virtuais do Windows utilizando o Bastião Azure  Microsoft Docs
+description: Neste artigo, aprenda a ligar-se a um conjunto de máquinas virtuais Azure utilizando o Azure Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 446784155cf6f72cfaa80523ed3913eacc7e5cfc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f513aaf113ef4bd6e75e5c4b31e0f0252d45f10
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513136"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988095"
 ---
-# <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Conectar-se a um conjunto de dimensionamento de máquinas virtuais usando a bastiões do Azure
+# <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Ligue-se a um conjunto de escala de máquina virtual usando o Bastião Azure
 
-Este artigo mostra como usar o RDP de forma segura e direta para a instância do conjunto de dimensionamento de máquinas virtuais do Windows em uma rede virtual do Azure usando a bastiões do Azure. Você pode se conectar a uma instância do conjunto de dimensionamento de máquinas virtuais diretamente da portal do Azure. Ao utilizar o Azure Bastion, as VMs não precisam de um cliente, agente ou software adicional. Para obter mais informações sobre a bastiões do Azure, consulte a [visão geral](bastion-overview.md).
+Este artigo mostra-lhe como de forma segura e perfeita rdp para a sua escala de máquina virtual Windows numa rede virtual Azure utilizando o Azure Bastion. Pode ligar-se a uma instância de conjunto de escala de máquina virtual diretamente do portal Azure. Ao utilizar o Azure Bastion, as VMs não precisam de um cliente, agente ou software adicional. Para mais informações sobre o Bastião Azure, consulte a [visão geral.](bastion-overview.md)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Verifique se você configurou um host de bastiões do Azure para a rede virtual na qual o conjunto de dimensionamento de máquinas virtuais reside. Para obter mais informações, consulte [criar um host de bastiões do Azure](bastion-create-host-portal.md). Depois que o serviço de bastiões for provisionado e implantado em sua rede virtual, você poderá usá-lo para se conectar a uma instância do conjunto de dimensionamento de máquinas virtuais nessa rede virtual. A bastiões pressupõe que você esteja usando o RDP para se conectar a um conjunto de dimensionamento de máquinas virtuais do Windows e o SSH para se conectar ao conjunto de dimensionamento de máquinas virtuais do Linux. Para obter informações sobre a conexão a uma VM do Linux, consulte [conectar-se a uma VM-Linux](bastion-connect-vm-ssh.md).
+Certifique-se de que criou um anfitrião do Azure Bastion para a rede virtual em que reside o conjunto de escala de máquina virtual. Para mais informações, consulte [Create a Azure Bastion host](bastion-create-host-portal.md). Uma vez que o serviço Bastion é aprovisionado e implantado na sua rede virtual, pode usá-lo para ligar a uma instância de conjunto de escala de máquina virtual nesta rede virtual. A Bastion assume que está a utilizar RDP para se ligar a um conjunto de escala de máquinas virtuais do Windows e sSH para se ligar ao conjunto de escala de máquinavirtual Linux. Para obter informações sobre a ligação a um VM Linux, consulte [Connect to a VM - Linux](bastion-connect-vm-ssh.md).
 
-## <a name="rdp"></a>Conectar usando RDP
+## <a name="rdp"></a>Conecte-se usando RDP
 
-1. Abra o [Portal do Azure](https://portal.azure.com). Navegue até o conjunto de dimensionamento de máquinas virtuais ao qual você deseja se conectar.
+1. Abra o [Portal do Azure](https://portal.azure.com). Navegue para o conjunto de escala de máquina virtual a que pretende ligar.
 
-   ![Navegue até](./media/bastion-connect-vm-scale-set/1.png)
-2. Navegue até a instância do conjunto de dimensionamento de máquinas virtuais à qual você deseja se conectar e, em seguida, selecione **conectar**. Ao usar uma conexão RDP, o conjunto de dimensionamento de máquinas virtuais deve ser um conjunto de dimensionamento de máquinas virtuais do Windows.
+   ![navegar](./media/bastion-connect-vm-scale-set/1.png)
+2. Navegue para a instância de conjunto de escala de máquina virtual a que pretende ligar e, em seguida, selecione **Connect**. Ao utilizar uma ligação RDP, o conjunto de escala de máquina virtual deve ser um conjunto de escala de máquina virtual do Windows.
 
-   ![conjunto de dimensionamento de máquinas virtuais](./media/bastion-connect-vm-scale-set/2.png)
-3. Depois de selecionar **conectar**, uma barra lateral aparece com três guias – RDP, SSH e bastiões. Selecione a guia **bastião** na barra lateral. Se você não provisionar a bastiões para a rede virtual, poderá selecionar o link para configurar a bastiões. Para obter instruções de configuração, consulte [Configurar a bastiões](bastion-create-host-portal.md).
+   ![conjunto de escala de máquina virtual](./media/bastion-connect-vm-scale-set/2.png)
+3. Depois de selecionar **Connect**, aparece uma barra lateral que tem três separadores – RDP, SSH e Bastion. Selecione o separador **Bastion** da barra lateral. Se não disponibilizou a Bastion para a rede virtual, pode selecionar o link para configurar o Bastion. Para instruções de configuração, consulte [Configure Bastion](bastion-create-host-portal.md).
 
-   ![Guia de bastiões](./media/bastion-connect-vm-scale-set/3.png)
-4. Na guia bastião, insira o nome de usuário e a senha para o conjunto de dimensionamento de máquinas virtuais e, em seguida, selecione **conectar**.
+   ![Guia de bastião](./media/bastion-connect-vm-scale-set/3.png)
+4. No separador Bastion, introduza o nome de utilizador e a palavra-passe para o conjunto de escala de máquina virtual e, em seguida, selecione **Connect**.
 
    ![ligar](./media/bastion-connect-vm-scale-set/4.png)
-5. A conexão RDP com essa máquina virtual via bastiões será aberta diretamente no portal do Azure (sobre o HTML5) usando a porta 443 e o serviço de bastiões.
+5. A ligação RDP a esta máquina virtual via Bastion abrirá diretamente no portal Azure (mais HTML5) utilizando a porta 443 e o serviço Bastião.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).
+Leia o [Bastião FAQ.](bastion-faq.md)

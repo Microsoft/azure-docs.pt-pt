@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ed3e2cf9830e3776886e662fd27f43f76728d6b2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545896"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988724"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Inserir Video Indexer widgets em seus aplicativos
 
@@ -54,7 +54,7 @@ Você pode usar o widget editor para criar novos projetos e gerenciar informaç�
 
 |Nome|Definição|Descrição|
 |---|---|---|
-|`accessToken`<sup>*</sup>|String|Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o parâmetro `accessToken`.|
+|`accessToken`<sup>*</sup>|Cadeia|Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o parâmetro `accessToken`.|
 |`language`|Um código de idioma|Controla o idioma do jogador. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`.|
 |`locale`|Um código de idioma curto|Controla o idioma do insights. O valor predefinido é `en`.<br/>Exemplo: `language=de`.|
 
@@ -86,9 +86,9 @@ Para inserir um vídeo privado, você deve passar um token de acesso no atributo
     
 Para obter o conteúdo do widget do insights cognitiva, use um dos seguintes:<br/>
 - A API do [widget obter insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
-- O [token de acesso obter vídeo](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). Adicione-o como um parâmetro de consulta à URL. Especifique essa URL como o valor **src** para o iframe, conforme mostrado anteriormente.
+- O [token de acesso obter vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Adicione-o como um parâmetro de consulta à URL. Especifique essa URL como o valor **src** para o iframe, conforme mostrado anteriormente.
 
-Para fornecer recursos de edição de informações em seu widget inserido, você deve passar um token de acesso que inclui permissões de edição. Use o [widget obter informações](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou [obtenha o token de acesso do vídeo](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) com `&allowEdit=true`. 
+Para fornecer recursos de edição de informações em seu widget inserido, você deve passar um token de acesso que inclui permissões de edição. Use o [widget obter informações](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou [obtenha o token de acesso do vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) com `&allowEdit=true`. 
 
 ## <a name="widgets-interaction"></a>Interação de widgets
 
@@ -264,6 +264,23 @@ Se você quiser desabilitar legendas, poderá passar o valor do parâmetro `capt
 
 #### <a name="autoplay"></a>AutoPlay
 Por padrão, o Player começará a reproduzir o vídeo. Você pode optar por não passar `&autoplay=false` para a URL de inserção anterior.
+
+## <a name="code-samples"></a>Exemplos de código
+
+Consulte o repo de [amostras](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) de código que contém amostras para a API e Widgets do Indexer de Vídeo:
+
+| Arquivo/pasta                       | Descrição                                |
+|-----------------------------------|--------------------------------------------|
+| `azure-media-player`              | Carregue vídeo indexador de vídeo em um Azure Media Player personalizado                        |
+| `azure-media-player-vi-insights`  | Incorporação VI Insights com um Leitor de Mídia Azure personalizado                             |
+| `control-vi-embedded-player`      | Inbed VI Player e controlá-lo de fora                                    |
+| `custom-index-location`           | Incorporar VIS Insights de uma localização externa personalizada (pode ser cliente uma bolha)     |
+| `embed-both-insights`             | Utilização básica de VI Insights tanto jogador como insights                            |
+| `embed-insights-with-AMP`         | Widget Inbed VI Insights com um Azure Media Player personalizado                      |
+| `customize-the-widgets`           | Widgets Inbed VI com opções personalizadas                                     |
+| `embed-both-widgets`              | Incorporar o Jogador VI e insights e comunicar entre eles                      |
+| `url-generator`                   | Gera widgets personalizado incorporado saque com base em opções especificadas pelo utilizador             |
+| `html5-player`                    | Incorporar VI Insights com um leitor de vídeo HTML5 padrão                            |
 
 ## <a name="next-steps"></a>Passos seguintes
 

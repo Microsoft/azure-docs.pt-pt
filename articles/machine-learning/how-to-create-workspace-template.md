@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 6cd450ac18007e31d9d8144fdb0e8554dd31c363
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b8584a77eaf9f8db13c948051c34b18236e2cc1a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968667"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986381"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -55,6 +55,9 @@ O modelo de exemplo tem dois parâmetros:
     O modelo usará o local que você selecionar para a maioria dos recursos. A exceção é o serviço Application Insights, que não está disponível em todos os locais em que os outros serviços estão. Se você selecionar um local onde ele não está disponível, o serviço será criado no local do EUA Central do Sul.
 
 * O **nome do espaço de trabalho**, que é o nome amigável do espaço de trabalho Azure Machine Learning.
+
+    > [!NOTE]
+    > O nome do espaço de trabalho é insensível a casos.
 
     Os nomes dos outros serviços são gerados aleatoriamente.
 
@@ -166,7 +169,7 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
         },
         ```
 
-    * **Remova** a linha de `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` da seção `dependsOn` do espaço de trabalho. Além disso, **altere** a entrada `keyVault` na seção `properties` do espaço de trabalho para fazer referência ao parâmetro `keyVaultId`:
+    * **Retire** a linha `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` da secção `dependsOn` do espaço de trabalho. Além disso, **altere** a entrada `keyVault` na seção `properties` do espaço de trabalho para fazer referência ao parâmetro `keyVaultId`:
 
         ```json
         {

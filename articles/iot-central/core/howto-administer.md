@@ -1,6 +1,6 @@
 ---
-title: Gerenciar seu aplicativo de IoT Central do Azure | Microsoft Docs
-description: Como administrador, como gerenciar seu aplicativo de IoT Central do Azure alterando o nome do aplicativo, a URL, o upload de imagem, a cópia e a exclusão de um aplicativo
+title: Gerencie a sua aplicação Azure IoT Central / Microsoft Docs
+description: Como administrador, como gerir a sua aplicação Azure IoT Central alterando o nome da aplicação, URL, imagem de upload, cópia e eliminação de uma aplicação
 author: viv-liu
 ms.author: viviali
 ms.date: 08/26/2019
@@ -8,68 +8,68 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4c729d2502464df021df4d03e989d489b2d1ecea
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 89c4dd294cbbf0953545e1055e32adfc5f7cce28
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954594"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990798"
 ---
-# <a name="manage-your-iot-central-application"></a>Gerenciar seu aplicativo IoT Central
+# <a name="manage-your-iot-central-application"></a>Gerencie a sua aplicação IoT Central
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-Este artigo descreve como, como administrador, você pode gerenciar o aplicativo alterando o nome e a URL do aplicativo, carregando a imagem, também pode aprender a copiar e excluir um aplicativo no aplicativo IoT Central do Azure.
+Este artigo descreve como, como administrador, pode gerir a aplicação alterando o nome da aplicação e url, carregando imagem, podendo também aprender a copiar e eliminar uma aplicação na sua aplicação Azure IoT Central.
 
-Para acessar e usar a seção **Administração** , você deve estar na função **administrador** para um aplicativo IOT central do Azure. Se você criar um aplicativo de IoT Central do Azure, você será automaticamente atribuído à função de **administrador** para esse aplicativo. 
+Para aceder e utilizar a secção **Administração,** deve estar na função **de Administrador** para uma aplicação Azure IoT Central. Se criar uma aplicação Azure IoT Central, é automaticamente designado para o papel de **Administrador** para essa aplicação. 
 
-## <a name="change-application-name-and-url"></a>Alterar nome e URL do aplicativo
+## <a name="change-application-name-and-url"></a>Alterar o nome da aplicação e o URL
 
-Na página **configurações do aplicativo** , você pode alterar o nome e a URL do seu aplicativo e, em seguida, selecionar **salvar**.
+Na página Definições de **Aplicação,** pode alterar o nome e o URL da sua aplicação e, em seguida, selecionar **Guardar**.
 
-![Página Configurações do aplicativo](media/howto-administer/image0-a.png)
+![Página de definições de aplicação](media/howto-administer/image0-a.png)
 
-Se o administrador criar um tema personalizado para seu aplicativo, essa página incluirá uma opção para ocultar o **nome do aplicativo** na interface do usuário. Isso será útil se o logotipo do aplicativo no tema personalizado incluir o nome do aplicativo. Para obter mais informações, consulte [Personalizar a interface do usuário IOT central do Azure](./howto-customize-ui.md).
+Se o seu administrador criar um tema personalizado para a sua aplicação, esta página inclui uma opção para ocultar o Nome de **Aplicação** na UI. Isto é útil se o logótipo da aplicação no tema personalizado incluir o nome da aplicação. Para mais informações, consulte [Personalize o Azure IoT Central UI](./howto-customize-ui.md).
 
 > [!Note]
-> Se você alterar a URL, a URL antiga poderá ser utilizada por outro cliente do Azure IoT Central. Se isso acontecer, ele não estará mais disponível para uso. Quando você altera a URL, a URL antiga não funciona mais, e você precisa notificar seus usuários sobre a nova URL a ser usada.
+> Se alterar o seu URL, o seu url antigo pode ser tomado por outro cliente Central Azure IoT. Se isso acontecer, já não está disponível para si. Quando muda o seu URL, o URL antigo já não funciona e precisa de notificar os seus utilizadores sobre o novo URL a utilizar.
 
 ## <a name="prepare-and-upload-image"></a>Preparar e carregar imagem
 
-Para alterar a imagem do aplicativo, consulte [preparar e carregar imagens para o aplicativo de IOT central do Azure](howto-prepare-images.md).
+Para alterar a imagem da aplicação, consulte [Preparar e carregar imagens para a sua aplicação Central Azure IoT](howto-prepare-images.md).
 
-## <a name="copy-an-application"></a>Copiar um aplicativo
+## <a name="copy-an-application"></a>Copiar um pedido
 
-Você pode criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dispositivo, histórico de dados do dispositivo e dados do usuário. A cópia é um aplicativo pago conforme o uso para o qual você será cobrado. Você não pode criar um aplicativo de avaliação dessa maneira.
+Pode criar uma cópia de qualquer aplicação, menos quaisquer instâncias do dispositivo, histórico de dados do dispositivo e dados do utilizador. A cópia usa um plano de preços padrão para o qual será cobrado. Não pode criar uma aplicação que utilize o plano de preços gratuitos desta forma.
 
-Selecione **copiar**. Na caixa de diálogo, insira os detalhes do novo aplicativo pago conforme o uso. Em seguida, selecione **copiar** para confirmar que deseja continuar. Saiba mais sobre os campos neste formulário em [criar um aplicativo](quick-deploy-iot-central.md) de início rápido.
+Selecione **Copiar**. Na caixa de diálogo, introduza os detalhes para a nova aplicação. Em seguida, selecione **Copy** para confirmar que pretende continuar. Saiba mais sobre os campos desta forma em Criar um arranque rápido de [aplicação.](quick-deploy-iot-central.md)
 
-![Página Configurações do aplicativo](media/howto-administer/appcopy2.png)
+![Página de definições de aplicação](media/howto-administer/appcopy2.png)
 
-Depois que a operação de cópia do aplicativo for realizada com sucesso, você poderá navegar para o novo aplicativo usando o link.
+Após o sucesso da operação de cópia da aplicação, pode navegar para a nova aplicação utilizando o link.
 
-![Página Configurações do aplicativo](media/howto-administer/appcopy3a.png)
+![Página de definições de aplicação](media/howto-administer/appcopy3a.png)
 
-Copiar um aplicativo também copia a definição de regras e a ação de email. Algumas ações como fluxo, aplicativos lógicos etc. são vinculadas a regras específicas por meio da ID de regra. Quando uma regra é copiada para um aplicativo diferente, ela obtém sua própria ID de regra. Nesse caso, os usuários terão que criar uma nova ação e associar a nova regra a ela. Em geral, é uma boa ideia verificar as regras e ações para certificar-se de que elas estão atualizadas no novo aplicativo.
+Copiar uma aplicação também copia a definição de regras e ação por e-mail. Algumas ações como Flow, Logic Apps, etc. estão ligadas a regras específicas através do ID da regra. Quando uma regra é copiada para uma aplicação diferente, obtém o seu próprio ID de regra. Neste caso, os utilizadores terão de criar uma nova ação e, em seguida, associar a nova regra com a sua. Em geral, é uma boa ideia verificar as regras e ações para garantir que estão atualizadas na nova app.
 
 > [!WARNING]
-> Se um painel inclui blocos que exibem informações sobre dispositivos específicos, esses blocos mostram que **o recurso solicitado não foi encontrado** no novo aplicativo. Você deve reconfigurar esses blocos para exibir informações sobre dispositivos em seu novo aplicativo.
+> Se um dashboard inclui azulejos que exibem informações sobre dispositivos específicos, então esses azulejos mostram **que o recurso solicitado não foi encontrado** na nova aplicação. Tem de reconfigurar estes azulejos para exibir informações sobre dispositivos na sua nova aplicação.
 
-## <a name="delete-an-application"></a>Excluir um aplicativo
+## <a name="delete-an-application"></a>Apagar uma aplicação
 
-Use o botão **excluir** para excluir permanentemente seu aplicativo IOT central. Essa ação exclui permanentemente todos os dados associados ao aplicativo.
+Utilize o botão **Eliminar** para eliminar permanentemente a sua aplicação IoT Central. Esta ação elimina permanentemente todos os dados associados à aplicação.
 
 > [!Note]
-> Para excluir um aplicativo, você também deve ter permissões para excluir recursos na assinatura do Azure que você escolheu ao criar o aplicativo. Para saber mais, confira [usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de assinatura do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> Para eliminar uma aplicação, deve também ter permissões para eliminar recursos na subscrição do Azure que escolheu quando criou a aplicação. Para saber mais, consulte Use o [controlo de acesso baseado em papéis para gerir o acesso aos seus recursos de subscrição Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
 
-## <a name="manage-programatically"></a>Gerenciar programaticamente
+## <a name="manage-programatically"></a>Gerir programaticamente
 
-IoT Central pacotes do SDK do Azure Resource Manager estão disponíveis para o Node C#, Python,, Ruby, Java e go. Você pode usar esses pacotes para criar, listar, atualizar ou excluir aplicativos IoT Central. Os pacotes incluem auxiliares para gerenciar a autenticação e o tratamento de erros.
+Os pacotes SDK do IoT Central Azure Resource C#Manager estão disponíveis para os pacotes Node, Python, Ruby, Java e Go. Pode utilizar estes pacotes para criar, listar, atualizar ou eliminar aplicações IoT Central. Os pacotes incluem ajudantes para gerir a autenticação e o manuseamento de erros.
 
-Você pode encontrar exemplos de como usar os SDKs de Azure Resource Manager em [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples).
+Pode encontrar exemplos de como utilizar os SDKs do Gestor de Recursos Azure em [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples).
 
-Para saber mais, confira os seguintes repositórios e pacotes do GitHub:
+Para saber mais, consulte os seguintes repositórios e pacotes gitHub:
 
 | Linguagem | Repositório | Pacote |
 | ---------| ---------- | ------- |
@@ -82,4 +82,4 @@ Para saber mais, confira os seguintes repositórios e pacotes do GitHub:
 
 ## <a name="next-steps"></a>Passos seguintes
  
-Agora que você aprendeu sobre como administrar seu aplicativo de IoT Central do Azure, a próxima etapa sugerida é aprender a [gerenciar usuários e funções](howto-manage-users-roles.md) no Azure IOT central.
+Agora que aprendeu a administrar a sua aplicação Azure IoT Central, o próximo passo sugerido é aprender sobre [gerir utilizadores e papéis](howto-manage-users-roles.md) no Azure IoT Central.

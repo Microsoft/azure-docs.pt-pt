@@ -10,17 +10,22 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702526"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983100"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações de URI/URI de resposta
 
 Um URI redirecionado, ou URL de resposta, é a localização para a qual o servidor de autorização enviará o utilizador uma vez que a aplicação tenha sido autorizada com sucesso, e concedeu um código de autorização ou ficha de acesso. O código ou token está contido no uri redirecionamento ou token de resposta, pelo que é importante que registe a localização correta como parte do processo de registo da aplicação.
 
+ As seguintes restrições aplicam-se à resposta dos URLs:
+
+    * O URL de resposta deve começar com o esquema `https`.
+    * O URL de resposta é sensível a casos. O seu caso deve coincidir com o caso do percurso url da sua aplicação de execução. Por exemplo, se a sua aplicação incluir como parte do seu caminho `.../abc/response-oidc`, não especifique `.../ABC/response-oidc` no URL de resposta. Uma vez que o navegador da Web trata os caminhos como sensíveis a casos, os cookies associados à `.../abc/response-oidc` podem ser excluídos se forem redirecionados para o URL de `.../ABC/response-oidc` desajustado.
+    
 ## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URIs redirecionais
 
 A tabela que se segue mostra o número máximo de URIs redirecionais que pode adicionar quando registar a sua aplicação.

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9042f3d34ee550af50e043167db6339f36b71bd0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435008"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987599"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender IoT Central do Azure com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid
 
@@ -40,8 +40,8 @@ Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager
 
 | Definição | Valor |
 | ------- | ----- |
-| Plano de pagamento | "Pay-As-You-Go" |
-| Modelo de aplicação | Aplicativo herdado |
+| Plano de preços | Padrão |
+| Modelo de aplicação | Aplicação Legacy |
 | Nome da aplicação | Aceite o padrão ou escolha seu próprio nome |
 | URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
 | Diretório | Seu locatário Azure Active Directory |
@@ -67,7 +67,7 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 | Localização | E.U.A. Leste |
 | Unidades de Débito | 1 |
 
-### <a name="stream-analytics-job"></a>Tarefa do Stream Analytics
+### <a name="stream-analytics-job"></a>Trabalho de Análise de Fluxo
 
 Use o [portal do Azure para criar um trabalho de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) com as seguintes configurações:
 
@@ -90,9 +90,9 @@ Use o [portal do Azure para criar um aplicativo de funções](https://portal.azu
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
 | SO | Windows |
-| Hosting Plan | Plano de Consumo |
+| Plano de Hospedagem | Plano de Consumo |
 | Localização | E.U.A. Leste |
-| Pilha de Runtime | .NET |
+| Pilha de tempo de execução | .NET |
 | Armazenamento | Criar novo |
 
 ### <a name="sendgrid-account"></a>Conta do SendGrid
@@ -318,7 +318,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
     | Hub de eventos | centralexport |
     | Medições | Ativado |
     | Dispositivos | Desativado |
-    | Modelos de Dispositivos | Desativado |
+    | Modelos de dispositivo | Desativado |
 
 ![Configuração de exportação de dados contínuas](media/howto-create-custom-rules/cde-configuration.png)
 

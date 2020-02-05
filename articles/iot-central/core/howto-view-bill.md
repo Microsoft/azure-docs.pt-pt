@@ -1,6 +1,6 @@
 ---
-title: Exibir sua fatura e converter a avaliação para pagamento conforme o uso no aplicativo de IoT Central do Azure | Microsoft Docs
-description: Como administrador, saiba como exibir sua fatura e o aplicativo de avaliação para pagamento à medida que você estiver usando o aplicativos de IoT Central do Azure
+title: Gerencie a sua conta e converta-se a partir do plano de preços gratuitos na aplicação Azure IoT Central  Microsoft Docs
+description: Como administrador, aprenda a gerir a sua conta e passe do plano de preços gratuitos para um plano de preços padrão na sua aplicação Azure IoT Central
 author: v-krghan
 ms.author: v-krghan
 ms.date: 07/26/2019
@@ -8,46 +8,61 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 16a58bfc3fa245ed1ede19b0439419ab4590234e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e45109842a081b437c20de81321bf70f909efa2a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952579"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982371"
 ---
-# <a name="view-your-bill-in-iot-central-application"></a>Exibir sua fatura no aplicativo IoT Central
+# <a name="view-your-bill-in-iot-central-application"></a>Consulte a sua conta na aplicação IoT Central
 
-Este artigo descreve como, como administrador, você pode exibir sua fatura no aplicativo IoT Central do Azure na seção Administração e também como você pode converter sua versão de avaliação para pré-pago.
+Este artigo descreve como, como administrador, pode gerir a sua conta na aplicação Azure IoT Central na secção de administração. Você vai aprender como você pode mover a sua aplicação do plano de preços gratuitopara um plano de preços padrão, e também como atualizar ou desvalorizar o seu plano de preços.
 
-Para acessar e usar a seção **Administração** , você deve estar na função **administrador** para um aplicativo IOT central do Azure. Se você criar um aplicativo de IoT Central do Azure, você será automaticamente atribuído à função de **administrador** para esse aplicativo.
+Para aceder e utilizar a secção **Administração,** deve estar na função *de Administrador* ou ter uma *função de utilizador personalizada* que lhe permita visualizar a faturação de uma aplicação Azure IoT Central. Se criar uma aplicação Azure IoT Central, é automaticamente designado para o papel de **Administrador** para essa aplicação.
 
-## <a name="view-your-bill"></a>Ver a sua fatura
+## <a name="move-from-free-to-standard-pricing-plan"></a>Passar de plano de preços gratuito para padrão
 
-Para exibir sua fatura, vá para a página de **cobrança** na seção **Administração** . A página de cobrança do Azure é aberta em uma nova guia, na qual você pode ver a fatura de cada um dos seus aplicativos de IoT Central do Azure.
+- As aplicações que utilizam o plano de preços gratuitos são gratuitas durante sete dias antes de expirarem. Para evitar perder dados, pode movê-los para um plano de preços padrão a qualquer momento antes de expirarem.
 
-## <a name="convert-your-trial-to-pay-as-you-go"></a>Converta sua avaliação para pré-paga
+Na secção de preços, pode mover a sua aplicação do livre para um plano de preços padrão.
 
-- Os aplicativos de **avaliação** são gratuitos por sete dias antes de expirarem. Podem ser convertidas em Pay As You Go a qualquer momento antes de expirarem.
-- Os aplicativos **pagos conforme o uso** são cobrados por dispositivo, com os primeiros cinco dispositivos gratuitos, por assinatura.
+Para completar este processo de self-service, siga estes passos:
+
+1. Vá à página **de Preços** na secção **administração.**
+
+    ![Estado experimental](media/howto-administer/freetrialbilling.png)
+
+1. Selecione **Converter para um plano pago**.
+
+    ![Converter julgamento](media/howto-administer/convert.png)
+
+1. Selecione o Diretório Ativo Azure apropriado e, em seguida, a subscrição Azure para utilizar para a sua aplicação que utiliza um plano pago.
+
+1. Depois de selecionar **Converte,** a sua aplicação agora usa um plano pago e começa a ser faturada.
+
+> [!Note]
+> Por predefinição, é convertido para um plano de preços *Standard 2.*
+
+## <a name="how-to-change-your-application-pricing-plan"></a>Como alterar o seu plano de preços de aplicação
+
+- As aplicações que utilizam um plano de preços padrão são cobradas por dispositivo, com os dois primeiros dispositivos gratuitos, por aplicação.
+
+Na secção de preços, pode atualizar ou desvalorizar o seu plano de preços Azure IoT a qualquer momento.
+
+1. Vá à página **de Preços** na secção **administração.**
+
+    ![Estado experimental](media/howto-administer/pricing.png)
+
+1. Selecione o **Plano** e clique em **Guardar** para atualizar ou desvalorizar.
 
 Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
-Na seção de cobrança, você pode converter seus aplicativos de avaliação em pré-pago.
+## <a name="view-your-bill"></a>Ver a sua fatura
 
-Para concluir esse processo de autoatendimento, siga estas etapas:
+Para ver a sua conta, vá à página **de Preços** na secção **Administração.** A página de preços Azure abre num novo separador, onde pode ver a fatura de cada uma das suas aplicações Azure IoT Central.
 
-1. Vá para a página de **cobrança** na seção **Administração** .
-
-    ![Estado de avaliação](media/howto-administer/freetrialbilling.png)
-
-1. Selecione **converter para pago conforme o uso**.
-
-    ![Converter avaliação](media/howto-administer/convert.png)
-
-1. Selecione o Azure Active Directory apropriado e, em seguida, a assinatura do Azure a ser usada para seu aplicativo pago pelo uso.
-
-1. Depois de selecionar **converter**, seu aplicativo agora é um aplicativo pago conforme o uso e você começa a ser cobrado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu sobre como exibir sua fatura no aplicativo IoT Central do Azure, a próxima etapa sugerida é saber mais sobre como [Personalizar a interface do usuário do aplicativo](howto-customize-ui.md) no Azure IOT central.
+Agora que aprendeu a ver a sua conta na aplicação Azure IoT Central, o próximo passo sugerido é aprender sobre a [aplicação Customize UI](howto-customize-ui.md) em Azure IoT Central.

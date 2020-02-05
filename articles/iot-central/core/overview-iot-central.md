@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: a1aa2f12f62a95ac14750c821079df2bac46e8ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6c62b247da9447138bd7e5d84dfe49fdf75a06fd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434959"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990764"
 ---
 <!---
 Purpose of an Overview article: 
@@ -69,6 +69,13 @@ Como construtor, também pode personalizar a IU da aplicação do Azure IoT Cent
 - Definir o esquema de propriedades e definições num modelo de dispositivo.
 - Configurar dashboards personalizados para ajudar os operadores a detetar informações e resolver os problemas mais rapidamente.
 - Configurar uma análise personalizada para explorar os dados de séries de tempo dos seus dispositivos ligados.
+
+## <a name="pricing"></a>Preços
+
+Você pode criar aplicação IoT Central usando um teste gratuito de 7 dias, ou usar um plano de preços padrão.
+
+- As aplicações que cria utilizando o plano *gratuito* são gratuitas durante sete dias e suportam até cinco dispositivos. Pode convertê-los para usar um plano de preços padrão a qualquer momento antes de expirarem.
+- As aplicações que cria utilizando o plano *padrão* são faturadas por dispositivo, pode escolher o plano de preços **Standard 1** ou **Standard 2,** com os dois primeiros dispositivos gratuitos. Saiba mais sobre [preços de IOT central](https://aka.ms/iotcentral-pricing).
 
 ## <a name="connect-your-devices"></a>Ligue os seus dispositivos
 

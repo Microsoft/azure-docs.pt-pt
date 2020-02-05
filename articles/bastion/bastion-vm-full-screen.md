@@ -1,36 +1,36 @@
 ---
-title: 'Bastiões do Azure: Exibir sessão de máquina virtual: tela inteira'
-description: Neste artigo, saiba como alterar a exibição para tela inteira.
+title: 'Azure Bastion: Ver sessão de máquina virtual: ecrã completo'
+description: Neste artigo, aprenda a mudar a vista para ecrã completo.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 87a6c046d5f20b8f38381acbfefbfef43b09092c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ff19fd056aa81ca8a1f53c387a208d35fb9a3265
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014234"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989438"
 ---
-# <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Alterar para exibição de tela inteira de uma sessão de VM: bastiões do Azure
+# <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Mude para a vista de ecrã completo para uma sessão vm: Azure Bastion
 
-Este artigo ajuda você a alterar a exibição de máquina virtual para tela inteira e de volta em seu navegador. Antes de trabalhar com uma VM, certifique-se de ter seguido as etapas para [criar um host de bastiões](bastion-create-host-portal.md). Em seguida, conecte-se à VM com a qual você deseja trabalhar usando o [RDP](bastion-connect-vm-rdp.md) ou [SSH](bastion-connect-vm-ssh.md).
+Este artigo ajuda-o a mudar a visão da máquina virtual para o ecrã completo e de volta ao seu navegador. Antes de trabalhar com um VM, certifique-se de ter seguido os passos para [criar um hospedeiro bastião.](bastion-create-host-portal.md) Em seguida, ligue-se ao VM com o que pretende trabalhar utilizando [rdp](bastion-connect-vm-rdp.md) ou [SSH](bastion-connect-vm-ssh.md).
 
-## <a name="launch-the-clipboard-tool"></a>Iniciar a ferramenta da área de transferência
+## <a name="launch-the-clipboard-tool"></a>Lançar a ferramenta de clipboard
 
-Durante a sessão remota, inicie a paleta de ferramentas de acesso à área de transferência de bastiões selecionando as duas setas localizadas no centro esquerdo da sessão.
+Durante a sessão remota, lance a paleta de ferramentas de acesso à pasta Bastion selecionando as duas setas que se situam no centro esquerdo da sessão.
 
 ![ferramentas](./media/bastion-vm-manage/left.png)
 
-## <a name="select-full-screen"></a>Selecionar tela inteira
+## <a name="select-full-screen"></a>Selecione ecrã completo
 
-Selecione o botão **tela inteira** para alternar a sessão para uma experiência de tela inteira. Depois de alternar, a sessão será reinicializada para tela inteira.
+Selecione o botão **Fullscreen** para mudar a sessão para uma experiência de ecrã completo. Assim que mudar, a sessão reincionará para o ecrã completo.
 
-![tela inteira](./media/bastion-vm-manage/full-screen.png)
+![tela completa](./media/bastion-vm-manage/full-screen.png)
  
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).
-Saiba como [copiar e colar](bastion-vm-copy-paste.md) de e para uma VM do Azure.
+Leia o [Bastião FAQ.](bastion-faq.md)
+Aprenda a [copiar e colar](bastion-vm-copy-paste.md) de e para um VM Azure.

@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 922e8a71a22db975685cb82bbd51a125c619ccf2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469660"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989502"
 ---
 ### <a name="regions"></a>Quais regiões estão disponíveis?
 
@@ -21,7 +21,7 @@ ms.locfileid: "75469660"
 
 ### <a name="publicip"></a>Preciso de um IP público em minha máquina virtual?
 
-Você não precisa de um IP público na máquina virtual do Azure ao qual está se conectando com o serviço de bastiões do Azure. O serviço de bastiões abrirá a sessão/conexão RDP/SSH para sua máquina virtual por meio do IP privado de sua máquina virtual, dentro de sua rede virtual.
+Quando se liga a um VM utilizando o Azure Bastion, NÃO precisa de um IP público na Máquina Virtual Azure a que está a ligar. O serviço de bastiões abrirá a sessão/conexão RDP/SSH para sua máquina virtual por meio do IP privado de sua máquina virtual, dentro de sua rede virtual.
 
 ### <a name="is-ipv6-supported"></a>Há suporte para IPv6?
 
@@ -33,7 +33,7 @@ Não precisa de um cliente RDP ou SSH para permitir o acesso RDP/SSH à sua máq
 
 ### <a name="agent"></a>Preciso de um agente em execução na máquina virtual do Azure?
 
-Não tem de instalar um agente ou qualquer software no browser ou na sua máquina virtual do Azure. O serviço Bastion não utiliza agentes nem requer software adicional para RDP/SSH.
+Não precisa de instalar um agente ou qualquer software no seu navegador ou na sua máquina virtual Azure. O serviço Bastion não utiliza agentes nem requer software adicional para RDP/SSH.
 
 ### <a name="browsers"></a>Quais navegadores têm suporte?
 
@@ -62,7 +62,7 @@ Atualmente, a bastiões do Azure dá suporte ao layout de teclado en-US-QWERTY d
 ### <a name="udr"></a>O UDR (roteamento definido pelo usuário) tem suporte em uma sub-rede de bastiões do Azure?
 
 Não. Não há suporte para UDR em uma sub-rede de bastiões do Azure.
-Para cenários que incluem o Azure bastião e o Firewall do Azure/NVA (dispositivo virtual de rede) na mesma rede virtual, você não precisa forçar o tráfego de uma sub-rede de bastiões do Azure para o Firewall do Azure, pois a comunicação entre a bastiões do Azure e suas VMs é privada. Para obter mais detalhes, consulte [acessando VMs por trás do firewall do Azure com bastiões](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+Para cenários que incluem o Azure bastião e o Firewall do Azure/NVA (dispositivo virtual de rede) na mesma rede virtual, você não precisa forçar o tráfego de uma sub-rede de bastiões do Azure para o Firewall do Azure, pois a comunicação entre a bastiões do Azure e suas VMs é privada. Para mais informações, consulte [Aceder a VMs atrás do Azure Firewall com a Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="filetransfer"></a>Há suporte para a transferência de arquivos com a sessão RDP de bastiões do Azure?
 

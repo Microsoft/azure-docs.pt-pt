@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f0e7c3bbbdcd1edad24422163fde38e3fdce7e27
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028522"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988656"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introdução ao Caching e enriquecimento incremental no Azure Pesquisa Cognitiva
 
@@ -97,7 +97,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 A finalidade do cache é evitar o processamento desnecessário, mas suponha que você faça uma alteração em uma habilidade que o indexador não detecta (por exemplo, alterando algo no código externo, como uma habilidade personalizada).
 
-Nesse caso, você pode usar as [habilidades de redefinição](preview-api-resetskills.md) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades de downstream que tenham uma dependência na saída dessa habilidade. Essa API aceita uma solicitação POST com uma lista de habilidades que devem ser invalidadas e marcadas para reprocessamento. Após a redefinição das habilidades, execute o indexador para invocar o pipeline.
+Nesse caso, você pode usar as [habilidades de redefinição](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades de downstream que tenham uma dependência na saída dessa habilidade. Essa API aceita uma solicitação POST com uma lista de habilidades que devem ser invalidadas e marcadas para reprocessamento. Após a redefinição das habilidades, execute o indexador para invocar o pipeline.
 
 ## <a name="change-detection"></a>Detecção de alteração
 
@@ -109,7 +109,7 @@ Uma alteração de invalidação é aquela em que o cache inteiro não é mais v
 
 * Alterar para o tipo de fonte de dados
 * Alterar para o contêiner de fonte de dados
-* Credenciais de origem de dados
+* Credenciais de fonte de dados
 * Política de detecção de alteração da fonte de dados
 * Política de detecção de exclusão de fontes de dados
 * Mapeamentos de campo do indexador
@@ -136,39 +136,27 @@ O processamento incremental avalia sua definição de qualificações e determin
 * Alterações nas projeções da loja de conhecimento resultam em reprojetar documentos
 * Os mapeamentos de campo de saída alterados em um indexador resultam na Reprojeção de documentos para o índice
 
-## <a name="api-reference-content-for-incremental-enrichment"></a>Conteúdo de referência de API para enriquecimento incremental
+## <a name="api-reference"></a>Referência de API
 
-REST `api-version=2019-05-06-Preview` fornece as APIs para enriquecimento incremental, com adições a indexadores, habilidades e fontes de dados. A [documentação de referência oficial](https://docs.microsoft.com/rest/api/searchservice/) é para APIs de disponibilidade geral e não abrange recursos de visualização. A seção a seguir fornece o conteúdo de referência para APIs afetadas.
+A versão REST API `2019-05-06-Preview` fornece enriquecimento incremental através de propriedades adicionais em indexadores, habilidades e fontes de dados. Além da documentação de referência, consulte [o caching de Configuração para obter](search-howto-incremental-index.md) um enriquecimento incremental para obter detalhes sobre como chamar as APIs.
 
-Informações de uso e exemplos podem ser encontrados em [Configurar o Caching para enriquecimento incremental](search-howto-incremental-index.md).
++ [Criar Indexer (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-### <a name="indexers"></a>Indexadores
++ [Indexante de atualização (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-[Criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) e [Atualizar indexador](https://docs.microsoft.com/rest/api/searchservice/update-indexer) agora vão expor novas propriedades relacionadas ao cache:
++ [Atualização Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (Novo parâmetro URI no pedido)
 
-+ `StorageAccountConnectionString`: a cadeia de conexão para a conta de armazenamento que será usada para armazenar em cache os resultados intermediários.
++ [Reset Skills (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ `EnableReprocessing`: definido como `true` por padrão, quando definido como `false`, os documentos continuarão a ser gravados no cache, mas nenhum documento existente será reprocessado com base nos dados do cache.
++ Índices de base de dados (Azure SQL, Cosmos DB). Alguns indexadores recuperam dados por meio de consultas. Para consultas que recuperem dados, [a Atualização Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) suporta um novo parâmetro num pedido ignore **ResetRequirement**, que deve ser definido para `true` quando a sua ação de atualização não deve invalidar a cache. 
 
-+ `ID` (somente leitura): o `ID` é o identificador do contêiner dentro da conta de armazenamento `annotationCache` que será usada como o cache para esse indexador. Esse cache será exclusivo para esse indexador e, se o indexador for excluído e recriado com o mesmo nome, o `ID` será regenerado. O `ID` não pode ser definido, sempre é gerado pelo serviço.
-
-### <a name="skillsets"></a>Conjuntos de competências
-
-+ O conjunto de [qualificações de atualização](https://docs.microsoft.com/rest/api/searchservice/update-skillset) dá suporte a um novo parâmetro na solicitação: `disableCacheReprocessingChangeDetection`, que deve ser definido como `true` quando você não deseja atualizar os documentos existentes com base na ação atual.
-
-+ A [redefinição de habilidades](preview-api-resetskills.md) é uma nova operação usada para invalidar um skillset.
-
-### <a name="datasources"></a>Origens de dados
-
-+ Alguns indexadores recuperam dados por meio de consultas. Para consultas que recuperam dados, a [fonte de dados de atualização](https://docs.microsoft.com/rest/api/searchservice/update-data-source) dá suporte a um novo parâmetro em uma solicitação `ignoreResetRequirement`, que deve ser definida como `true` quando a ação de atualização não deve invalidar o cache.
-
-Use o `ignoreResetRequirement` com moderação, pois isso pode levar à inconsistência indesejada em seus dados que não serão detectados com facilidade.
+  Utilize **ignore ResetRequirement** com moderação, pois pode levar a inconsistências não intencionais nos seus dados que não serão detetados facilmente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O aprimoramento incremental é um recurso poderoso que estende o controle de alterações para o habilidades e o enriquecimento de ia. À medida que o habilidades evolui, o aprimoramento incremental garante que o menor trabalho possível seja feito ao mesmo tempo que ainda leva seus documentos para consistência eventual.
+O aprimoramento incremental é um recurso poderoso que estende o controle de alterações para o habilidades e o enriquecimento de ia. O enriquecimento AIncremental permite a reutilização do conteúdo processado existente à medida que itera sobre o design de skillset.
 
-Comece adicionando um cache a um indexador existente ou adicione o cache ao definir um novo indexador.
+Como próximo passo, permita o cache num indexante existente ou adicione uma cache ao definir um novo indexante.
 
 > [!div class="nextstepaction"]
 > [Configurar o Caching para enriquecimento incremental](search-howto-incremental-index.md)

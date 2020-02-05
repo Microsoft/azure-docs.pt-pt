@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/29/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a20f40c893c36823906d5cecadd9be21b8a4fd2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0bda94344a22f39daf104e7b95e33723187c4aa1
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836019"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983015"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -52,7 +52,7 @@ O elemento **ClaimsProvider** contém os seguintes elementos infantis:
 | Elemento | Ocorrências | Descrição |
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | Uma cadeia que contém o nome de domínio para o fornecedor de reclamações. Por exemplo, se o seu fornecedor de reclamações incluir o perfil técnico do Facebook, o nome de domínio é Facebook.com. Este nome de domínio é utilizado para todos os perfis técnicos definidos no fornecedor de sinistros, a menos que seja ultrapassado pelo perfil técnico. O nome de domínio também pode ser referenciado num **domain_hint**. Para mais informações, consulte o **redirecionamento para uma** secção de prestador social de configuração de entrada direta utilizando o [Diretório Ativo Azure B2C](direct-signin.md). |
-| DisplayName | 1:1 | Uma cadeia que contém o nome do fornecedor de sinistros que pode ser exibida aos utilizadores. |
+| DisplayName | 1:1 | Uma cadeia que contém o nome do fornecedor de sinistros. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos suportados pelo prestador de sinistros |
 
 **A ClaimsProvider** organiza a forma como os seus perfis técnicos se relacionam com o prestador de sinistros. O exemplo seguinte mostra o fornecedor de sinistros Azure Ative Directory com os perfis técnicos do Diretório Ativo Azure:

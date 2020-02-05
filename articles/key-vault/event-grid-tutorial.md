@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5c959dc7fa36fb41307d286b1e7d0b475d5b56c6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981600"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988469"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Receber e responder a notificações do cofre de chaves com a grade de eventos do Azure (versão prévia)
 
@@ -119,8 +119,6 @@ Crie um webhook para disparar seu runbook recém-criado.
 ## <a name="create-an-event-grid-subscription"></a>Criar uma subscrição do Event Grid
 
 Crie uma assinatura de grade de eventos por meio do [portal do Azure](https://portal.azure.com).
-
-1.  Abra o [Portal do Azure](https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
 1.  Vá para o cofre de chaves e selecione a guia **eventos** . Se você não conseguir vê-lo, verifique se está usando a [versão de visualização do portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 

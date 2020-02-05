@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2a2ac42f546895a1135651bd5ef1266776f02ad1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5454d2f80d1febccb0c57ecf2e80d930bb5cb761
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756097"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988809"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: usar scripts de implantação para criar um certificado autoassinado (versão prévia)
 
@@ -172,11 +172,12 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
       "type": "string",
       "defaultValue": "[utcNow()]"
     }
+    ```
 
-1. Add a deploymentScripts resource:
+1. Adicione um recurso de implementaçãoScripts:
 
     > [!NOTE]
-    > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is **&#92;**.
+    > Como os scripts de implantação embutidos são colocados entre aspas duplas, as cadeias de caracteres dentro dos scripts de implantação precisam ser colocadas entre aspas simples em vez disso. O caractere de escape para o **&#92;** PowerShell é.
 
     ```json
     {

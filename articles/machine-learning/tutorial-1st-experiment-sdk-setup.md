@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 84fa6b1d7f48ac7aea44e693a7df8945ba180d29
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 125cde85d3caa6fd1a33045e85c5383f83a669bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658649"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982539"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: introdução à criação de seu primeiro experimento do ML com o SDK do Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -101,7 +101,7 @@ Você conclui as seguintes etapas de configuração e execução do experimento 
 Se você tiver widgets personalizados ou preferir usar Jupyter/JupyterLab, selecione o menu suspenso **Jupyter** na extrema direita e, em seguida, selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador será aberta.
 
 > [!NOTE]
-> As instâncias de computação (versão prévia) estão disponíveis no momento somente para espaços de trabalho com uma região de **EUA Central norte** ou **sul do Reino Unido**, com suporte para outras regiões em breve.
+> Os casos computacionais (pré-visualização) estão atualmente disponíveis apenas para espaços de trabalho com uma região do **Norte Dos EUA**, Leste dos **EUA 2**, Norte da **Europa** ou Reino **Unido Sul,** com apoio para outras regiões em breve.
 >Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do bloco de anotações](concept-compute-instance.md#notebookvm) .  Você pode usar uma VM de bloco de anotações ou uma instância de computação para executar o bloco de anotações. Uma VM continuará em execução e incorrerá em custo, a menos que você a interrompa. Você pode interrompê-lo manualmente na guia **computação** no estúdio ou conferir a [postagem no blog](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) sobre como habilitar o desligamento automático agendado para VMs do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 27ad81c42a079485d8eab95bb1250cba41e8fb5b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: a87d778bff5a52f4251d83e401028c9949713e33
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281279"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988078"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -72,7 +72,7 @@ O acesso a todas as URLs e endereços IP listados acima usa o protocolo HTTPS na
 **Funcionalidade** | **Detalhes**
 --- | ---
 Controle de largura de banda | Suportado. No agente MARS, use **alterar propriedades** para ajustar a largura de banda.
-Limitação da rede | Não disponível para computadores com backup que executam o Windows Server 2008 R2, o Windows Server 2008 SP2 ou o Windows 7.
+Estrangulamento da rede | Não disponível para computadores com backup que executam o Windows Server 2008 R2, o Windows Server 2008 SP2 ou o Windows 7.
 
 ## <a name="support-for-direct-backups"></a>Suporte para backups diretos
 
@@ -95,8 +95,6 @@ Windows 7 (Ultimate, Enterprise, pro, Home Premium/Basic, Starter) | Sim | Não 
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim |-.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sim | Sim | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sim | Não | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe) <br> -Servidor virtual 2005 base + KB KB948515 para O
 Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 
@@ -129,10 +127,10 @@ Comprimidos | Suportado.
 Dispersos | Suportado.
 Compactados e esparsos |Suportado.
 Ligações fixas| Não suportado. Ignorada.
-Ponto de reanálise| Não suportado. Ignorada.
+Ponto reparse| Não suportado. Ignorada.
 Criptografado e esparso |Não suportado. Ignorada.
-Sequência comprimida| Não suportado. Ignorada.
-Sequência dispersa| Não suportado. Ignorada.
+Fluxo comprimido| Não suportado. Ignorada.
+Riacho escasso| Não suportado. Ignorada.
 OneDrive (arquivos sincronizados são fluxos esparsos)| Não suportado.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades ou volumes com suporte para backup
@@ -144,7 +142,7 @@ Volumes offline| Não suportado |O VSS só funcionará se o volume estiver onlin
 Compartilhamento de rede| Não suportado |O volume deve ser local no servidor.
 Volumes bloqueados pelo BitLocker| Não suportado |O volume deve ser desbloqueado antes do início do backup.
 Identificação do sistema de arquivos| Não suportado |Há suporte apenas para NTFS.
-Mídia removível| Não suportado |Todas as fontes de itens de backup devem ter um status *fixo* .
+Meios amovíveis| Não suportado |Todas as fontes de itens de backup devem ter um status *fixo* .
 Unidades com eliminação de duplicação | Suportadas | O backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
 
 ## <a name="support-for-initial-offline-backup"></a>Suporte para backup offline inicial

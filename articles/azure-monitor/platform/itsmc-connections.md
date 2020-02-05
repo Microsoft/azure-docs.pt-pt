@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como conectar seus produtos
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 4dbc830ea106dee7ef21a28eb3aee63c94680be2
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: a4b8e1ca245d90018647577f338ed0833cbaf324
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664862"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990288"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM com o Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o Conector de Gerenciamento de Serviços de TI (ITSMC) em Log Analytics para gerenciar centralmente seus itens de trabalho. Para obter mais informações sobre ITSMC, consulte [visão geral](../../azure-monitor/platform/itsmc-overview.md).
@@ -205,7 +205,7 @@ Use o procedimento a seguir para criar uma conexão do ServiceNow:
 1. Em portal do Azure, vá para **todos os recursos** e procure **YourWorkspaceName)**
 
 2.  Em **fontes de dados do espaço de trabalho** , clique em **conexões de ITSM**.
-    ![nova conexão](media/itsmc-connections/add-new-itsm-connection.png)
+    ![nova ligação](media/itsmc-connections/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **Adicionar**.
 
@@ -300,7 +300,7 @@ Use o procedimento a seguir para criar uma conexão Provance:
 1. Em portal do Azure, vá para **todos os recursos** e procure **YourWorkspaceName)**
 
 2.  Em **fontes de dados do espaço de trabalho** , clique em **conexões de ITSM**.
-    ![nova conexão](media/itsmc-connections/add-new-itsm-connection.png)
+    ![nova ligação](media/itsmc-connections/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **Adicionar**.
 
@@ -315,7 +315,7 @@ Use o procedimento a seguir para criar uma conexão Provance:
 | **Nome da Ligação**   | Digite um nome para a instância de Provance que você deseja conectar com ITSMC.  Você usará esse nome posteriormente ao configurar itens de trabalho neste ITSM/exibir log Analytics detalhado. |
 | **Tipo de parceiro**   | Selecione **Provance**. |
 | **Nome de Utilizador**   | Digite o nome de usuário que pode se conectar ao ITSMC.    |
-| **Palavra-passe**   | Digite a senha associada a este nome de usuário. **Observação:** O nome de usuário e a senha são usados para gerar somente tokens de autenticação e não são armazenados em nenhum lugar no serviço ITSMC. _|
+| **Palavra-passe**   | Digite a senha associada a este nome de usuário. **Nota:** O nome e a palavra-passe do utilizador são utilizados apenas para gerar fichas de autenticação e não são armazenados em nenhum lugar dentro do serviço ITSMC._|
 | **URL do servidor**   | Digite a URL da instância do Provance que você deseja conectar ao ITSMC. |
 | **ID do cliente**   | Digite a ID do cliente para autenticar essa conexão, que você gerou em sua instância do Provance.  Para obter mais informações sobre a ID do cliente, consulte [como configurar a autenticação do Active Directory](../../app-service/configure-authentication-provider-aad.md). |
 | **Escopo de sincronização de dados**   | Selecione os itens de trabalho do Provance que você deseja sincronizar com o Azure Log Analytics, por meio de ITSMC.  Esses itens de trabalho são importados para o log Analytics.   **Opções:**   Incidentes, solicitações de alteração.|
@@ -351,7 +351,7 @@ Use o procedimento a seguir para criar uma conexão Provance:
 1. Em portal do Azure, vá para **todos os recursos** e procure **YourWorkspaceName)**
 
 2.  Em **fontes de dados do espaço de trabalho** , clique em **conexões de ITSM**.
-    ![nova conexão](media/itsmc-connections/add-new-itsm-connection.png)
+    ![nova ligação](media/itsmc-connections/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **Adicionar**.
 

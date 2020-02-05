@@ -3,12 +3,12 @@ title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: cdf56c5c84f8837538c2f59b34c3bcf4265d78cb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d16c5fe148f8b6c907c897963e72cb84bc9ae2d5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644312"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984375"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -32,8 +32,8 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | núcleo |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing | [Faturação](/azure/billing/) |
-| Microsoft.BingMaps | [Mapas Bing](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
+| Microsoft.Billing | [Gestão de Custos e Faturação](/azure/billing/) |
+| Microsoft.BingMaps | [Mapas bing](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Serviço Blockchain do Azure](/azure/blockchain/workbench/) |
 | Microsoft.Blueprint | [Plantas do Azure](/azure/governance/blueprints/) |
 | Microsoft.BotService | [Serviço de bot do Azure](/azure/bot-service/) |
@@ -102,7 +102,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.MachineLearningServices | [Serviço de Machine Learning](../../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [Identidades geridas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft. Managedservices | [Azure Lighthouse](/azure/lighthouse/) |
-| Microsoft.Management | [Grupos de Gerenciamento](/azure/governance/management-groups/) |
+| Microsoft.Management | [Grupos de Gestão](/azure/governance/management-groups/) |
 | Microsoft.Maps | [Mapas do Azure](../../azure-maps/index.yml) |
 | Microsoft.Marketplace | núcleo |
 | Microsoft.MarketplaceApps | núcleo |
@@ -120,7 +120,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.Portal | [Portal do Azure](/azure/azure-portal/) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
-| Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
+| Microsoft.PowerBIDedicated | [Power BI Incorporado](/azure/power-bi-embedded/) |
 | Microsoft.RecoveryServices | [Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.Relay | [Retransmissão do Azure](../../service-bus-relay/relay-what-is-it.md) |
 | Microsoft.ResourceGraph | [Grafo de recursos do Azure](/azure/governance/resource-graph/) |
@@ -130,11 +130,11 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Scheduler | [Scheduler](/azure/scheduler/) |
 | Microsoft.Search | [Azure Search](../../search/index.yml) |
 | Microsoft.Security | [Central de segurança](../../security-center/index.yml) |
-| Microsoft. SecurityInsights | [Azure Sentinel](/azure/sentinel/) |
+| Microsoft. SecurityInsights | [Sentinela-azul](/azure/sentinel/) |
 | Microsoft. SerialConsole | [Console serial do Azure](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
-| Microsoft.ServiceFabricMesh | [Malha de Service Fabric](../../service-fabric-mesh/index.yml) |
+| Microsoft.ServiceFabricMesh | [Malha de tecido de serviço](../../service-fabric-mesh/index.yml) |
 | Microsoft.SignalRService | [Serviço de Signaler do Azure](../../azure-signalr/index.yml) |
 | Microsoft.SiteRecovery | [Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.Solutions | [Aplicativos gerenciados do Azure](../managed-applications/index.yml) |

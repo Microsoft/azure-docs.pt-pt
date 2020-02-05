@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do dispositivo de migrações para Azure usado em avaliação e migração de servidor.
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: efad1c48dd2c92c0fd5f268013b4a59f34b3a766
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6311f24a9c977b5f8b34384f0754f041a0c57ce7
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028819"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990747"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -21,7 +21,7 @@ O dispositivo migrações para Azure é usado nos cenários a seguir.
 **Cenário** | **Ferramenta** | **Utilizado para** 
 --- | --- | ---
 VM VMware | Migrações para Azure: avaliação do servidor<br/><br/> Migrações para Azure: migração de servidor | Descobrir VMs VMware<br/><br/> Descobrir aplicativos e dependências de computador<br/><br/> Coletar metadados de computador e metadados de desempenho para avaliações.<br/><br/> Replique VMs VMware com migração sem agente.
-VM do Hyper-V | Migrações para Azure: avaliação do servidor | Descobrir VMs do Hyper-V<br/><br/> Coletar metadados de computador e metadados de desempenho para avaliações.
+VM hiper-V | Migrações para Azure: avaliação do servidor | Descobrir VMs do Hyper-V<br/><br/> Coletar metadados de computador e metadados de desempenho para avaliações.
 Computador físico |  Migrações para Azure: avaliação do servidor |  Descobrir servidores físicos<br/><br/> Coletar metadados de computador e metadados de desempenho para avaliações.
 
 ## <a name="appliance---vmware"></a>Dispositivo – VMware 
@@ -29,17 +29,17 @@ Computador físico |  Migrações para Azure: avaliação do servidor |  Descobr
 **Requisito** | **VMware** 
 --- | ---
 **Formato de download** | . OVA 
-**Ligação para transferência** | https://aka.ms/migrate/appliance/vmware 
+**Link de descarregamento** | https://aka.ms/migrate/appliance/vmware 
 **Tamanho do download** | 11,2 GB
 **Licença** | O modelo de dispositivo baixado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
-**Implementação** | Você implanta o dispositivo como uma VM VMware. Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/><br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.<br/> A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior.<br/><br/> O dispositivo pode se conectar a um único vCenter Server.
+**Implementação** | Você implanta o dispositivo como uma VM VMware. Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.<br/> O dispositivo pode se conectar a um único vCenter Server.
 **Hardware** | Recursos no vCenter para alocar uma VM com 32 GB de RAM 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo. 
 **Valor de hash** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 **servidor/host do vCenter** | A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior.<br/><br/> vCenter Server executando 5,5, 6,0, 6,5 ou 6,7.
 **Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto. <br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> 
 **Deteção** | Um dispositivo pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um único vCenter Server.
 **Componentes do dispositivo** | Aplicativo de gerenciamento: aplicativo Web no dispositivo para entrada do usuário durante a implantação.<br/> Agente de descoberta: coleta dados de configuração do computador.<br/> Agente de avaliação: coletar dados de desempenho.<br/> DRA: Orquestra a replicação de VM e coordena a comunicação entre computadores/Azure.<br/> Gateway: envia dados replicados para o Azure.<br/> Serviço de atualização automática: atualizar componentes (é executado a cada 24 horas).
-**VDDK (migração sem agente)** | Se você estiver executando uma migração sem agente com a migração de servidor de migrações para Azure, o VMware vSphere VDDK deverá ser instalado na VM do dispositivo).
+**VDDK (migração sem agente)** | Se você estiver executando uma migração sem agente com a migração de servidor de migrações para Azure, o VMware vSphere VDDK deverá ser instalado na VM do dispositivo.
 
 
 ## <a name="appliance---hyper-v"></a>Dispositivo – Hyper-V
@@ -47,7 +47,7 @@ Computador físico |  Migrações para Azure: avaliação do servidor |  Descobr
 **Requisito** | **Hyper-V** 
 --- | ---
 **Formato de download** | Pasta compactada (com VHD)
-**Ligação para transferência** | https://aka.ms/migrate/appliance/hyperv 
+**Link de descarregamento** | https://aka.ms/migrate/appliance/hyperv 
 **Tamanho do download** | 10 GB
 **Licença** | O modelo de dispositivo baixado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
 **Implantação de dispositivo**   |  Você implanta o dispositivo como uma VM do Hyper-V.<br/> A VM do dispositivo fornecida pela migração do Azure é a VM Hyper-V versão 5,0.<br/> O host Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior.<br/> O host precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
@@ -64,16 +64,14 @@ Computador físico |  Migrações para Azure: avaliação do servidor |  Descobr
 **Requisito** | **Físico** 
 --- | ---
 **Formato de download** | Pasta compactada (com o script do instalador do PowerShell)
-**Ligação para transferência** | [Ligação para transferência](https://go.microsoft.com/fwlink/?linkid=2105112)
+**Link de descarregamento** | [Link de descarregamento](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Tamanho do download** | 59,7 MB
-**Hardware** | Máquina física dedicada ou VM. A máquina que executa o dispositivo precisa de 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo.<br/><br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
-**Valor de hash** | MD5:96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+**Hardware** | Máquina física dedicada ou VM. A máquina que executa o dispositivo precisa de 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
+**Valor de hash** | MD5: 1e92ede3e87c03bd148e56a708cd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e666de7b9f475b6542beef114b20bfdac3c
 **Software** | A máquina do dispositivo deve executar o Windows Server 2016. 
 **Implantação de dispositivo**   |  O script do instalador do dispositivo é baixado do portal (em uma pasta compactada). <br/> Descompacte a pasta e execute o script do PowerShell (AzureMigrateInstaller. ps1).
 **Deteção** | Um dispositivo pode descobrir até 250 servidores físicos.
 **Componentes do dispositivo** | Aplicativo de gerenciamento: aplicativo Web no dispositivo para entrada do usuário durante a implantação.<br/> Agente de descoberta: coleta dados de configuração do computador.<br/> Agente de avaliação: coletar dados de desempenho.<br/>  Serviço de atualização automática: atualizar componentes (é executado a cada 24 horas).
-**Acesso à porta** | Depois de configurar o dispositivo, as conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ' https://< dispositivo-IP-ou-Name >: 44368.<br/><br/> Conexões de saída na porta 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
-
 
 
 ## <a name="url-access"></a>Acesso à URL
@@ -85,7 +83,7 @@ O dispositivo de migrações para Azure precisa de conectividade com a Internet.
 
 **URL** | **Detalhes**  
 --- | --- |
-*.portal.azure.com  | Navegue para o portal do Azure.
+*.portal.azure.com  | Navegue para o portal Azure.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *. live.com | Entre em sua assinatura do Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Crie Active Directory aplicativos para o dispositivo se comunicar com as migrações para Azure.
 management.azure.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
@@ -93,9 +91,9 @@ dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoram
 *.vault.azure.net | Gerenciar segredos no Azure Key Vault.
 aka.ms/* | Permitir acesso a links conhecidos. Usado para atualizações do dispositivo de migração do Azure.
 download.microsoft.com/download | Permitir downloads do download da Microsoft.
-*.servicebus.windows.net | Usado para migração sem agente do VMware.<br/><br/> Comunicação entre o dispositivo e o serviço de migrações para Azure.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Usado para migração sem agente do VMware.<br/><br/> Conecte-se às URLs de serviço de migrações para Azure.
-*.blob.core.windows.net |  Usado para migração sem agente do VMware.<br/><br/>Carregar dados no armazenamento.
+*.servicebus.windows.net | **Usado para migração sem agente VMware**<br/><br/> Comunicação entre o dispositivo e o serviço de migrações para Azure.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | **Usado para migração sem agente VMware**<br/><br/> Conecte-se às URLs de serviço de migrações para Azure.
+*.blob.core.windows.net |  **Usado para migração sem agente VMware**<br/><br/>Carregar dados no armazenamento.
 
 
 
@@ -181,8 +179,8 @@ Aqui estão os dados de desempenho do Hyper VM que o dispositivo coleta e envia 
 
 **Classe de contador de desempenho** | **Neutraliza** | **Impacto da avaliação**
 --- | --- | ---
-Processador virtual do hipervisor do Hyper-V | % De tempo de execução de convidado | Tamanho/custo da VM recomendado
-VM Memória Dinâmica Hyper-V | Pressão atual (%)<br/> Memória física visível de convidado (MB) | Tamanho/custo da VM recomendado
+Processador virtual do hipervisor do Hyper-V | % Tempo de execução de hóspedes | Tamanho/custo da VM recomendado
+VM Memória Dinâmica Hyper-V | Pressão Atual (%)<br/> Memória física visível de convidado (MB) | Tamanho/custo da VM recomendado
 Dispositivo de armazenamento virtual do Hyper-V | Bytes de leitura/segundo | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
 Dispositivo de armazenamento virtual do Hyper-V | Bytes de gravação/segundo | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
 Adaptador de rede virtual do Hyper-V | Bytes recebidos/segundo | Cálculo para o tamanho da VM
@@ -201,13 +199,13 @@ Aqui está a lista completa de metadados de VM do Hyper-V que o dispositivo cole
 **Detalhes do computador** | 
 Número de série de BIOS _ Msvm_BIOSElement | BIOSSerialNumber
 Tipo de VM (Gen 1 ou 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
-Nome de exibição da VM | Msvm_VirtualSystemSettingData | ElementName
+Nome de exibição da VM | Msvm_VirtualSystemSettingData | Nome do elemento
 Versão da VM | Msvm_ProcessorSettingData | VirtualQuantity
 Memória (bytes) | Msvm_MemorySettingData | VirtualQuantity
 Memória máxima que pode ser consumida pela VM | Msvm_MemorySettingData | Limite
 Memória dinâmica habilitada | Msvm_MemorySettingData | DynamicMemoryEnabled
 Nome/versão/FQDN do sistema operacional | Msvm_KvpExchangeComponent | Dados do nome do GuestIntrinsicExchangeItems
-Status de energia da VM | Msvm_ComputerSystem | EnabledState
+Status de energia da VM | Msvm_ComputerSystem | Estado habilitado
 **Detalhes de por disco** | 
 Identificador de disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
 Tipo de disco rígido virtual | Msvm_VirtualHardDiskSettingData | Tipo
@@ -216,9 +214,9 @@ Pai do disco rígido virtual | Msvm_VirtualHardDiskSettingData | ParentPath
 **Por detalhes da NIC** | 
 Endereços IP (NICs sintéticas) | Msvm_GuestNetworkAdapterConfiguration | IPAddresses
 DHCP habilitado (NICs sintéticas) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
-ID da NIC (NICs sintéticas) | Msvm_SyntheticEthernetPortSettingData | InstanceID
+ID da NIC (NICs sintéticas) | Msvm_SyntheticEthernetPortSettingData | Instância
 Endereço MAC NIC (NICs sintéticas) | Msvm_SyntheticEthernetPortSettingData | Endereço
-ID da NIC (NICs herdadas) | Dados do MsvmEmulatedEthernetPortSetting | InstanceID
+ID da NIC (NICs herdadas) | Dados do MsvmEmulatedEthernetPortSetting | Instância
 ID de NIC MAC (NICs herdadas) | Dados do MsvmEmulatedEthernetPortSetting | Endereço
 
 
@@ -253,7 +251,7 @@ O dispositivo é atualizado conforme os agentes de migração do Azure em execu�
 
 - Isso ocorre automaticamente porque a atualização automática está habilitada no dispositivo por padrão.
 - Você pode alterar essa configuração padrão para atualizar os agentes manualmente.
-- Para desabilitar a atualização automática, vá para o editor do registro > HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance e defina a chave do registro-"AutoUpdate" como 0 (DWORD).
+- Para desativar a atualização automática, vá ao Editor de Registo>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance e defina a chave de registo - "AutoUpdate" para 0 (DWORD).
  
 ### <a name="set-agent-updates-to-manual"></a>Definir atualizações do agente para manual
 

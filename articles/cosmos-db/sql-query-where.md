@@ -1,21 +1,21 @@
 ---
-title: Cláusula WHERE em Azure Cosmos DB
-description: Saiba mais sobre a cláusula WHERE do SQL para Azure Cosmos DB
-author: markjbrown
+title: ONDE a cláusula em Azure Cosmos DB
+description: Conheça a cláusula SQL WHERE para Azure Cosmos DB
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: cd5643d8be06afcd43c5bfe38d6f5e9caa6f906e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 02/03/2020
+ms.author: tisande
+ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326643"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982234"
 ---
-# <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE em Azure Cosmos DB
+# <a name="where-clause-in-azure-cosmos-db"></a>ONDE a cláusula em Azure Cosmos DB
 
-A cláusula WHERE opcional (`WHERE <filter_condition>`) especifica a (s) condição (ões) que os itens JSON de origem devem satisfazer para que a consulta as inclua nos resultados. Um item JSON deve avaliar as condições especificadas para `true` ser considerado para o resultado. A camada de índice usa a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
+A cláusula opcional WHERE (`WHERE <filter_condition>`) especifica condição(s) que os itens JSON de origem devem satisfazer para que a consulta os inclua nos resultados. Um item JSON deve avaliar as condições especificadas para `true` a considerar para o resultado. A camada de índice utiliza a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -33,7 +33,7 @@ WHERE <filter_condition>
   
 - `<scalar_expression>`  
   
-   Expressão que representa o valor a ser calculada. Consulte [expressões escalares](sql-query-scalar-expressions.md) para obter detalhes.  
+   Expressão que representa o valor a ser calculada. Consulte [expressões scalar](sql-query-scalar-expressions.md) para mais detalhes.  
   
 
 ## <a name="remarks"></a>Observações
@@ -42,7 +42,7 @@ WHERE <filter_condition>
 
 ## <a name="examples"></a>Exemplos
 
-A consulta a seguir solicita itens que contêm uma propriedade `id` cujo valor é `AndersenFamily`. Ele exclui qualquer item que não tenha uma propriedade `id` ou cujo valor não corresponda `AndersenFamily`.
+A consulta seguinte solicita itens que contenham uma propriedade `id` cujo valor é `AndersenFamily`. Exclui qualquer item que não tenha uma propriedade `id` ou cujo valor não corresponda `AndersenFamily`.
 
 ```sql
     SELECT f.address
@@ -62,11 +62,11 @@ Os resultados são:
     }]
 ```
 
-### <a name="scalar-expressions-in-the-where-clause"></a>Expressões escalares na cláusula WHERE
+### <a name="scalar-expressions-in-the-where-clause"></a>Expressões escalar na cláusula WHERE
 
-O exemplo anterior mostrou uma consulta simples de igualdade. A API do SQL também dá suporte a várias [expressões escalares](sql-query-scalar-expressions.md). O uso mais comum é expressões binário e unário. Referências de propriedade do objeto JSON de origem também são as expressões válidas.
+O exemplo anterior mostrou uma consulta simples de igualdade. A API SQL também suporta [várias expressões escalar.](sql-query-scalar-expressions.md) O uso mais comum é expressões binário e unário. Referências de propriedade do objeto JSON de origem também são as expressões válidas.
 
-Você pode usar os seguintes operadores binários com suporte:  
+Pode utilizar os seguintes operadores binários suportados:  
 
 |**Tipo de operador**  | **Valores** |
 |---------|---------|
@@ -76,7 +76,7 @@ Você pode usar os seguintes operadores binários com suporte:
 |Comparação | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |Cadeia     |  \|\| (concatenar) |
 
-As consultas a seguir usam operadores binários:
+As seguintes consultas utilizam operadores binários:
 
 ```sql
     SELECT *
@@ -92,7 +92,7 @@ As consultas a seguir usam operadores binários:
     WHERE c.grade >= 5    -- matching grades == 5
 ```
 
-Você também pode usar os operadores unários +,-, ~, e não em consultas, conforme mostrado nos exemplos a seguir:
+Também pode utilizar os operadores não-,-, ~, e NÃO em consultas, como mostram os seguintes exemplos:
 
 ```sql
     SELECT *
@@ -104,10 +104,10 @@ Você também pode usar os operadores unários +,-, ~, e não em consultas, conf
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a propriedade `isRegistered` com valor igual a `true`. Qualquer outro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`ou `<array>`, exclui o item do resultado. 
+Também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` devolve o item JSON contendo o `isRegistered` de propriedade com valor igual a `true`. Qualquer outro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`ou `<array>`, exclui o item do resultado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Na palavra-chave](sql-query-keywords.md#in)
 - [Cláusula FROM](sql-query-from.md)

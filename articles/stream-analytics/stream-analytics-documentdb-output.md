@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: cf6b94418516f681bf6c782fe02f3434faa5374e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426283"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986993"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics ao Azure Cosmos DB  
 Azure Stream Analytics pode direcionar [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para saída JSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento abrange algumas das melhores práticas para implementar esta configuração.
@@ -91,13 +91,13 @@ O exemplo a seguir mostra dois trabalhos de Stream Analytics idênticos lendo da
 
 ![Comparação de métricas de Stream Analytics](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-3.png)
 
-A taxa de eventos de entrada nos hubs de eventos é duas vezes maior do que Azure Cosmos DB contêineres (20.000 RUs) são configurados para serem necessários, portanto, a limitação é esperada em Azure Cosmos DB. No entanto, o trabalho com 1,2 está gravando consistentemente em uma taxa de transferência mais alta (eventos de saída por minuto) e com uma menor utilização média de SU%. Em seu ambiente, essa diferença dependerá de mais alguns fatores. Esses fatores incluem opções de formato de evento, tamanho de evento/mensagem de entrada, chaves de partição e consulta.
+A taxa de eventos de entrada nos hubs de eventos é duas vezes maior do que Azure Cosmos DB contêineres (20.000 RUs) são configurados para serem necessários, portanto, a limitação é esperada em Azure Cosmos DB. No entanto, o trabalho com 1.2 é consistentemente escrito a uma produção mais alta (eventos de saída por minuto) e com uma utilização média mais baixa da SU%. Em seu ambiente, essa diferença dependerá de mais alguns fatores. Esses fatores incluem opções de formato de evento, tamanho de evento/mensagem de entrada, chaves de partição e consulta.
 
 ![Comparação de métricas de Azure Cosmos DB](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
 Com o 1,2, Stream Analytics é mais inteligente na utilização de 100% da taxa de transferência disponível em Azure Cosmos DB com poucos reenvios de limitação ou limitação de taxa. Isso fornece uma experiência melhor para outras cargas de trabalho, como consultas em execução no contêiner ao mesmo tempo. Se você quiser ver como Stream Analytics é dimensionada com Azure Cosmos DB como um coletor de 1.000 a 10.000 mensagens por segundo, experimente [este projeto de exemplo do Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
 
-A taxa de transferência de Azure Cosmos DB saída é idêntica com 1,0 e 1,1. Como 1,2 atualmente não é o padrão, você pode [definir o nível de compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) para um trabalho de Stream Analytics usando o portal ou usando a [chamada de API REST de trabalho criar Stream Analytics](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). É *altamente recomendável* que você use o nível de compatibilidade 1,2 em Stream Analytics com Azure Cosmos DB.
+A taxa de transferência de Azure Cosmos DB saída é idêntica com 1,0 e 1,1. É *altamente recomendável* que você use o nível de compatibilidade 1,2 em Stream Analytics com Azure Cosmos DB.
 
 ## <a name="azure-cosmos-db-settings-for-json-output"></a>Configurações de Azure Cosmos DB para saída JSON
 

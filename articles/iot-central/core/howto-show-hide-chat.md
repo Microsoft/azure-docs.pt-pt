@@ -1,6 +1,6 @@
 ---
-title: O Azure IoT Central mostrar/ocultar o chat | Microsoft Docs
-description: Este artigo descreve como mostrar e ocultar o chat em seu aplicativo IoT Central. Você pode usar o chat ao vivo para acessar o suporte técnico.
+title: Azure IoT Central show/hide chat [ Conversa central ] Microsoft Docs
+description: Este artigo descreve como mostrar e esconder conversas na sua aplicação IoT Central. Você pode usar chat ao vivo para aceder ao suporte técnico.
 author: v-krghan
 ms.author: v-krghan
 ms.date: 08/23/2019
@@ -8,45 +8,45 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: d861a5d1da6ebc9cedbe2dff764cd5b6e7dd04e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f858e0dd475361ff097f5a05ae01df2af00e4eca
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827394"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989999"
 ---
 # <a name="toggle-live-chat"></a>Ativar/desativar chat ao vivo
 
-Este artigo de instruções mostra como alternar o chat ao vivo em seu aplicativo IoT Central. Você pode usar o chat ao vivo para acessar o suporte técnico.
+Este artigo de como-fazer mostra como alternar a conversa ao vivo na sua aplicação IoT Central. Você pode usar chat ao vivo para aceder ao suporte técnico.
 
 > [!NOTE]
-> A opção de chat está disponível somente para assinaturas de avaliação.
+> A opção de chat está disponível apenas para aplicações criadas usando o plano de preços gratuitos.
 
-## <a name="chat-with-us"></a>Fale connosco
+## <a name="chat-with-us"></a>Converse connosco
 
-Para obter suporte técnico, abra o aplicativo IoT Central e selecione **conversar conosco**.
+Para obter suporte técnico, abra a sua aplicação IoT Central e selecione **Chat connosco**.
 
-![Fale connosco](media/howto-show-hide-chat/chat-with-us.png)
+![Converse connosco](media/howto-show-hide-chat/chat-with-us.png)
 
-Você pode digitar uma pergunta, conforme mostrado na seguinte captura de tela:
+Pode escrever uma pergunta como mostrado na seguinte imagem:
 
-![Formulário "configurar detalhes do dispositivo" com detalhes para configurações e propriedades](media/howto-show-hide-chat/sample-chat.png)
+![Formulário "Configure Detalhes do Dispositivo" com detalhes para configurações e propriedades](media/howto-show-hide-chat/sample-chat.png)
 
-## <a name="hide-chat"></a>Ocultar o chat
+## <a name="hide-chat"></a>Hide Chat
 
-Para ocultar o chat, escolha **ocultar chat** no painel de **ajuda** :
+Para ocultar a conversa, escolha **Hide Chat** no painel **de Ajuda:**
 
- ![Ocultar o chat](media/howto-show-hide-chat/hide-chat.png)
+ ![Hide Chat](media/howto-show-hide-chat/hide-chat.png)
 
-## <a name="enable-chat"></a>Habilitar o chat
+## <a name="enable-chat"></a>Ativar o Chat
 
-Para mostrar o chat, escolha **Mostrar chat** no painel de **ajuda** :
+Para mostrar o chat, escolha **Show Chat** no painel **ajuda:**
 
- ![Mostrar chat](media/howto-show-hide-chat/show-chat.png)
+ ![Show Chat](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu a ativar o chat ao vivo no Azure IoT Central, aqui está a próxima etapa sugerida:
+Agora que aprendeu a alternar a conversa ao vivo na Central Azure IoT, eis o próximo passo sugerido:
 
 > [!div class="nextstepaction"]
-> [Adicionar blocos ao seu painel](howto-add-tiles-to-your-dashboard.md)
+> [Adicione azulejos ao seu painel de instrumentos](howto-add-tiles-to-your-dashboard.md)

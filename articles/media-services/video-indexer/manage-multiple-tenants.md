@@ -1,6 +1,6 @@
 ---
-title: Gerir vários inquilinos com o indexador de vídeo - Azure
-description: Este artigo sugere opções diferentes de integração para o gerenciamento de vários inquilinos com o indexador de vídeo.
+title: Gerir vários inquilinos com Indexer de Vídeo - Azure
+description: Este artigo sugere diferentes opções de integração para gerir vários inquilinos com Video Indexer.
 services: media-services
 documentationcenter: ''
 author: ika-microsoft
@@ -13,70 +13,70 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949464"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990509"
 ---
 # <a name="manage-multiple-tenants"></a>Gerir vários inquilinos
 
-Este artigo discute as diferentes opções para gerir vários inquilinos com o indexador de vídeo. Escolha um método que é mais adequado para o seu cenário:
+Este artigo discute diferentes opções para gerir vários inquilinos com O Indexante de Vídeo. Escolha um método mais adequado para o seu cenário:
 
-* Conta de indexador de vídeo por inquilino
-* Conta do Video Indexer única para todos os inquilinos
-* Subscrição do Azure por inquilino
+* Conta Indexer de vídeo por inquilino
+* Conta Indexer de Vídeo Único para todos os inquilinos
+* Assinatura Azure por inquilino
 
-## <a name="video-indexer-account-per-tenant"></a>Conta de indexador de vídeo por inquilino
+## <a name="video-indexer-account-per-tenant"></a>Conta Indexer de vídeo por inquilino
 
-Quando utilizar esta arquitetura, é criada uma conta do Video Indexer para cada inquilino. Os inquilinos têm isolamento completo no persistente e camada de computação.  
+Ao utilizar esta arquitetura, é criada uma conta de Indexer de Vídeo para cada inquilino. Os inquilinos têm isolamento total na camada persistente e computacional.  
 
-![Conta de indexador de vídeo por inquilino](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
+![Conta Indexer de vídeo por inquilino](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
 
 ### <a name="considerations"></a>Considerações
 
-* Os clientes não partilhe contas de armazenamento (a não ser configuradas manualmente pelo cliente).
-* Os clientes não partilham computação (unidades reservadas) e não afetam os tempos de tarefas de processamento de um do outro.
-* Pode facilmente remover um inquilino do sistema ao eliminar a conta do Video Indexer.
-* Não existe nenhuma capacidade de compartilhar modelos personalizados entre inquilinos.
+* Os clientes não partilham contas de armazenamento (a não ser que sejam configuradas manualmente pelo cliente).
+* Os clientes não partilham a computação (unidades reservadas) e não impactam os tempos de processamento uns dos outros.
+* Pode facilmente remover um inquilino do sistema eliminando a conta do Indexer de Vídeo.
+* Não há capacidade de partilhar modelos personalizados entre inquilinos.
 
-    Certifique-se de que não existe nenhum requisito de negócio para compartilhar modelos personalizados.
-* Mais difícil de gerir devido a vários Video Indexer (e os serviços de suporte de dados associados) contas por inquilino.
+    Certifique-se de que não existe nenhum requisito de negócio para partilhar modelos personalizados.
+* Mais difícil de gerir devido a várias contas de Indexer de Vídeo (e Serviços de Media associados) por inquilino.
 
 > [!TIP]
-> Criar um utilizador de administrador para o seu sistema na [Portal do Programador de indexador de vídeo](https://api-portal.videoindexer.ai/) e utilizar a API de autorização para fornecer aos seus inquilinos a relevantes [token de acesso de conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+> Crie um utilizador administrativo para o seu sistema no Portal de Desenvolvimento de [Indexantes](https://api-portal.videoindexer.ai/) de Vídeo e utilize a API de Autorização para fornecer aos seus inquilinos o [token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token)de acesso à conta relevante .
 
-## <a name="single-video-indexer-account-for-all-users"></a>Conta do Video Indexer única para todos os utilizadores
+## <a name="single-video-indexer-account-for-all-users"></a>Conta Indexer de Vídeo Único para todos os utilizadores
 
-Quando utilizar esta arquitetura, o cliente é responsável por isolamento de inquilinos. Todos os inquilinos têm de utilizar uma única conta do Video Indexer com uma única conta de serviço de multimédia do Azure. Ao carregar, procurar ou eliminar o conteúdo, o cliente precisará filtrar os resultados de adequada para esse inquilino.
+Ao utilizar esta arquitetura, o cliente é responsável pelo isolamento dos inquilinos. Todos os inquilinos têm de usar uma única conta de Indexer de Vídeo com uma única conta azure media service. Ao fazer o upload, pesquisa ou apagamento de conteúdos, o cliente terá de filtrar os resultados adequados para esse inquilino.
 
-![Conta do Video Indexer única para todos os utilizadores](./media/manage-multiple-tenants/single-video-indexer-account-for-all-users.png)
+![Conta Indexer de Vídeo Único para todos os utilizadores](./media/manage-multiple-tenants/single-video-indexer-account-for-all-users.png)
 
-Com esta opção, os modelos de personalização (pessoa, idioma e marcas) podem ser partilhados ou isolados entre inquilinos ao filtrar os modelos por inquilino.
+Com esta opção, os modelos de personalização (Pessoa, Língua e Marcas) podem ser partilhados ou isolados entre inquilinos filtrando os modelos pelo inquilino.
 
-Quando [carregar vídeos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), pode especificar um atributo de partição diferente por inquilino. Isso permitirá que o isolamento no [API de pesquisa](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Especificando o atributo de partição na API de pesquisa obterá apenas os resultados da partição especificada. 
+Ao fazer o upload de [vídeos,](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)pode especificar um atributo de partição diferente por inquilino. Isto permitirá o isolamento na [pesquisa API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Especificando o atributo de partição na API de pesquisa, só obterá resultados da partição especificada. 
 
 ### <a name="considerations"></a>Considerações
 
-* Capacidade de compartilhar conteúdo e personalização de modelos entre inquilinos.
+* Capacidade de partilhar conteúdos e modelos de personalização entre inquilinos.
 * Um inquilino impacta o desempenho de outros inquilinos.
-* Cliente tem de criar uma camada de gerenciamento complexas sobre o Video Indexer.
+* O cliente precisa de construir uma camada de gestão complexa em cima do Indexer de Vídeo.
 
 > [!TIP]
-> Pode utilizar o [prioridade](upload-index-videos.md) atributo para dar prioridade às tarefas de inquilinos.
+> Você pode usar o atributo [prioritário](upload-index-videos.md) para priorizar o emprego dos inquilinos.
 
-## <a name="azure-subscription-per-tenant"></a>Subscrição do Azure por inquilino 
+## <a name="azure-subscription-per-tenant"></a>Assinatura Azure por inquilino 
 
-Quando utilizar esta arquitetura, cada inquilino terá sua própria subscrição do Azure. Para cada utilizador, irá criar uma nova conta do Video Indexer na subscrição do inquilino.
+Ao utilizar esta arquitetura, cada inquilino terá a sua própria assinatura Azure. Para cada utilizador, irá criar uma nova conta de Indexer de Vídeo na subscrição do inquilino.
 
-![Subscrição do Azure por inquilino](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
+![Assinatura Azure por inquilino](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 
 ### <a name="considerations"></a>Considerações
 
-* Esta é a única opção que permite a separação de faturação.
-* Esta integração tem mais sobrecarga de gerenciamento do que a conta do Video Indexer por inquilino. Se a faturação não é um requisito, recomenda-se para utilizar uma das outras opções descritas neste artigo.
+* Esta é a única opção que permite a separação da faturação.
+* Esta integração tem mais despesas de gestão do que a conta do Indexer de Vídeo por inquilino. Se a faturação não for um requisito, recomenda-se a utilização de uma das outras opções descritas neste artigo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição Geral](video-indexer-overview.md)

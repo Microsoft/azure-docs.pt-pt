@@ -4,23 +4,23 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 12c2f1bd2a3185d26eae02b5cd756392b5b87c16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533275"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989094"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
 
-Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a um computador no local com a base de dados do SQL Server. O tempo de execução de integração auto-hospedado é o componente que copia dados de SQL Server em seu computador para o banco de dados SQL do Azure. 
+Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a um computador no local com a base de dados do SQL Server. O tempo de execução de integração auto-hospedado é o componente que copia dados do SQL Server na sua máquina para a base de dados Azure SQL. 
 
 1. Crie uma variável para o nome do integration runtime. Utilize um nome exclusivo e tome nota do mesmo. Vai utilizá-lo mais tarde no tutorial. 
 
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
-2. Criar um integration runtime autoalojado. 
+2. Crie um integration runtime autoalojado. 
 
    ```powershell
    Set-AzDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -83,7 +83,8 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
 5. Copie uma das chaves (exclua as aspas) utilizadas para registar o integration runtime autoalojado que instalar no computador nos passos seguintes.  
 
-## <a name="install-the-integration-runtime"></a>Instalar o integration runtime
+## <a name="install-the-integration-runtime-tool"></a>Instale a ferramenta de tempo de execução de integração
+
 1. Se já tiver o integration runtime no seu computador, desinstale-o utilizando **Adicionar ou Remover Programas**. 
 
 2. [Transfira](https://www.microsoft.com/download/details.aspx?id=39717) o integration runtime autoalojado num computador windows local. Execute a instalação.
@@ -102,7 +103,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
     ![Registar o integration runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
-9. Na página **novo nó Integration Runtime (auto-hospedado)** , selecione **concluir**. 
+9. Na página do Novo Tempo de **Integração (Auto-hospedado)** do nó, selecione **Finish**. 
 
 10. Quando o integration runtime autoalojado for registado com êxito, verá a mensagem seguinte:
 
@@ -130,10 +131,9 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
     f. Introduza o nome de utilizador.
 
-    g. Insira a senha que está associada ao nome de usuário.
+    g. Introduza a palavra-passe associada ao nome do utilizador.
 
     h. Selecione **Testar** para confirmar que o integration runtime se consegue ligar ao SQL Server. Se a ligação for bem-sucedida, verá uma marca de verificação verde. Se a ligação não for bem-sucedida, verá uma mensagem de erro. Corrija os problemas e confirme que o runtime de integração se consegue ligar ao SQL Server.    
 
     > [!NOTE]
-    > Tome nota dos valores para o tipo de autenticação, servidor, base de dados, utilizador e palavra-passe. Vai utilizá-los mais tarde no tutorial. 
-    
+    > Tome nota dos valores para o tipo de autenticação, servidor, base de dados, utilizador e palavra-passe. Vai utilizá-los mais tarde no tutorial.

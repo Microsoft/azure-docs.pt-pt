@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772039"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990713"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -39,14 +39,7 @@ Se você receber o erro "o arquivo de manifesto fornecido é inválido: entrada 
 Isso pode acontecer se a máquina do dispositivo estiver atrás de um proxy.
 
 - Certifique-se de fornecer as credenciais de autorização se o proxy precisar delas.
-- Se você estiver usando um proxy de firewall baseado em URL para controlar a conectividade de saída, adicione essas URLs a uma lista de permissões:
-
-    - [URLs para avaliação do VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URLs para avaliação do Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-    - [URLs para migração sem agente do VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URLS para migração baseada em agente do VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URLs para migração do Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-
+- Se estiver a utilizar um representante de firewall baseado em URL para controlar a conectividade de saída, adicione [estes URLs](migrate-appliance.md#url-access) a uma lista de autorizações.
 - Se você estiver usando um proxy de interceptação para se conectar à Internet, importe o certificado de proxy para a VM do dispositivo usando [estas etapas](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ##  <a name="datetime-synchronization-error"></a>Erro de sincronização de data/hora

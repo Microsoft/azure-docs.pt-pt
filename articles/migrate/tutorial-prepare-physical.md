@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a487e0c9d565993b45f7e271af23a622e61389ad
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028663"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990832"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para avaliação e migração de servidores físicos para o Azure
 
@@ -41,10 +41,10 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Você precisa configurar permissões para a implantação de migrações para Azure.
 
-- Permissões para sua conta do Azure para criar um projeto de migrações para Azure.
-- Permissões para sua conta para registrar o dispositivo de migrações para Azure. O dispositivo é usado para descoberta e migração do Hyper-V. Durante o registro do dispositivo, as migrações para Azure criam dois aplicativos Azure Active Directory (Azure AD) que identificam exclusivamente o dispositivo:
-    - O primeiro aplicativo se comunica com os pontos de extremidade de serviço de migrações para Azure.
-    - O segundo aplicativo acessa uma Azure Key Vault que é criada durante o registro, para armazenar as informações de aplicativo do Azure AD e as configurações de dispositivo.
+**Tarefa** | **Permissões**
+--- | ---
+**Criar um projeto de migrações para Azure** | Sua conta do Azure precisa de permissões para criar um projeto.
+**Registrar o dispositivo de migrações para Azure** | A Azure Migrate utiliza um aparelho ligeiro de migração Azure para descobrir e avaliar servidores físicos com avaliação do servidor de migração Azure. Este aparelho descobre servidores e envia os seus metadados e dados de desempenho para o Azure Migrate.<br/><br/>Durante o registo do aparelho, os seguintes Fornecedores de Registo saem registados com a subscrição escolhida no aparelho: Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Para registar os fornecedores de recursos, necessita de uma função de Colaborador ou Proprietário na subscrição.<br/><br/> Como parte do embarque, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD):<br/> A aplicação AAD é utilizada para comunicação (autenticação e autorização) entre os agentes que estão a trabalhar no aparelho com os respetivos serviços em funcionamento no Azure. Esta aplicação não tem privilégios para fazer chamadas ARM ou acesso RBAC em qualquer recurso.
 
 
 
@@ -61,15 +61,14 @@ Verifique se você tem permissões para criar um projeto de migrações para Azu
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Atribuir permissões para registrar o dispositivo
 
-Você pode atribuir permissões para migrações para Azure para criar os aplicativos do Azure AD criados durante o registro do dispositivo, usando um dos seguintes métodos:
+Pode atribuir permissões para a Azure Migrate criar a aplicação Azure AD durante o registo do aparelho, utilizando um dos seguintes métodos:
 
 - Um locatário/administrador global pode conceder permissões a usuários no locatário para criar e registrar aplicativos do Azure AD.
 - Um locatário/administrador global pode atribuir a função de desenvolvedor de aplicativo (que tem as permissões) à conta.
 
-Vale a pena observar que:
-
-- Os aplicativos não têm nenhuma outra permissão de acesso na assinatura diferente daquelas descritas acima.
-- Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo for configurado.
+> [!NOTE]
+> - A aplicação não tem quaisquer outras permissões de acesso na subscrição que não as descritas acima.
+> - Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo for configurado.
 
 
 #### <a name="grant-account-permissions"></a>Permissões de conta de concessão
@@ -123,7 +122,7 @@ Examine os requisitos para a migração de servidores físicos.
 - [Examine](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico para a migração.
 - Migrações para Azure: a migração de servidor usa um servidor de replicação para migração de servidor físico:
     - [Examine](migrate-replication-appliance.md#appliance-requirements) os requisitos de implantação do dispositivo de replicação e as [Opções](migrate-replication-appliance.md#mysql-installation) de instalação do MySQL no dispositivo.
-    - Examine os requisitos de acesso de [URL](migrate-replication-appliance.md#url-access) e [porta] (migrate-Replication-Appliance. MD # Port-Access) para o dispositivo de replicação.
+    - Reveja os requisitos de acesso ao [URL](migrate-replication-appliance.md#url-access) e [porta] (migração-replicação-aparelho.md#port-access) para o aparelho de replicação.
 
 
 ## <a name="next-steps"></a>Passos seguintes

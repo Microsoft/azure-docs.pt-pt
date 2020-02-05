@@ -3,18 +3,18 @@ title: referência de host. JSON para Azure Functions 2. x
 description: Documentação de referência para o arquivo Azure Functions host. JSON com o tempo de execução v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6c4cfbb40c0337a6141d3b1f9844a33227a4963f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978819"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988707"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
-> * [Versão 2](functions-host-json.md)
+> * [Versão 2+](functions-host-json.md)
 
 O arquivo de metadados *host. JSON* contém opções de configuração globais que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações que estão disponíveis a partir da versão 2. x do tempo de execução de Azure Functions.  
 
@@ -27,7 +27,7 @@ Algumas configurações de host. JSON são usadas apenas ao executar localmente 
 
 ## <a name="sample-hostjson-file"></a>Arquivo host. JSON de exemplo
 
-O arquivo *host. JSON* de exemplo a seguir tem todas as opções possíveis especificadas (excluindo as que são apenas para uso interno).
+O ficheiro *host.json* da seguinte amostra para a versão 2.x+ tem todas as opções possíveis especificadas (excluindo quaisquer que sejam apenas para uso interno).
 
 ```json
 {
@@ -151,7 +151,7 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior de arquivo ho
 | enableLiveMetrics | true | Habilita a coleta de métricas em tempo real. |
 | enableDependencyTracking | true | Habilita o rastreamento de dependência. |
 | enablePerformanceCountersCollection | true | Habilita a coleta de contadores de desempenho kudu. |
-| liveMetricsInitializationDelay | 00:00:15 | Apenas para utilização interna. |
+| liveMetricsInitializationDelay | 00:00:15 | Apenas para uso interno. |
 | httpAutoCollectionOptions | n/d | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
 | snapshotConfiguration | n/d | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
@@ -197,12 +197,12 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 | problemCounterResetInterval | 24:00:00 | Com que frequência os contadores de problema são redefinidos em um intervalo de um minuto a sete dias. Quando esse intervalo é atingido, todas as contagens de problemas são redefinidas para zero. Problemas existentes que já atingiram o limite para fazer instantâneos, mas ainda não geraram o número de instantâneos em `maximumSnapshotsRequired`, permanecerão ativos. |
 | provideAnonymousTelemetry | true | Determina se o uso anônimo e a telemetria de erro devem ser enviados à Microsoft. Essa telemetria poderá ser usada se você entrar em contato com a Microsoft para ajudar a solucionar problemas com o Depurador de Instantâneos. Ele também é usado para monitorar padrões de uso. |
 | reconnectInterval | 00:15:00 | Com que frequência reconectamos ao ponto de extremidade de Depurador de Instantâneos. O intervalo permitido é de um minuto a um dia. |
-| shadowCopyFolder | nulo | Especifica a pasta a ser usada para binários de cópia de sombra. Se não estiver definido, as pastas especificadas pelas seguintes variáveis de ambiente serão tentadas em ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
+| shadowCopyFolder | nulo | Especifica a pasta a ser usada para binários de cópia de sombra. Se não for definido, as pastas especificadas pelas seguintes variáveis ambientais são experimentadas por ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
 | shareUploaderProcess | true | Se for true, apenas uma instância de SnapshotUploader coletará e carregará instantâneos para vários aplicativos que compartilham o InstrumentationKey. Se definido como false, o SnapshotUploader será exclusivo para cada tupla (ProcessName, InstrumentationKey). |
 | snapshotInLowPriorityThread | true | Determina se os instantâneos devem ou não ser processados em um thread de prioridade baixa e/s. A criação de um instantâneo é uma operação rápida, mas, para carregar um instantâneo no serviço de Depurador de Instantâneos, ele deve ser gravado primeiro no disco como um minidespejo. Isso acontece no processo de SnapshotUploader. Definir esse valor como true usa a e/s de baixa prioridade para gravar o minidespejo, que não concorrerá em seu aplicativo para recursos. Definir esse valor como false acelera a criação de minidespejos com a despesa de reduzir o seu aplicativo. |
 | snapshotsPerDayLimit | 30 | O número máximo de instantâneos permitido em um dia (24 horas). Esse limite também é imposto no lado do serviço Application Insights. Os carregamentos têm uma taxa limitada a 50 por dia por aplicativo (isto é, por chave de instrumentação). Esse valor ajuda a impedir a criação de instantâneos adicionais que eventualmente serão rejeitados durante o carregamento. Um valor de zero remove totalmente o limite, o que não é recomendado. |
 | snapshotsPerTenMinutesLimit | 1 | O número máximo de instantâneos permitido em 10 minutos. Embora não haja nenhum limite superior nesse valor, tome cuidado ao aumentá-lo nas cargas de trabalho de produção, pois isso pode afetar o desempenho do seu aplicativo. Criar um instantâneo é rápido, mas criar um minidespejo do instantâneo e carregá-lo para o serviço de Depurador de Instantâneos é uma operação muito mais lenta que conseguirá competir com seu aplicativo para recursos (CPU e e/s). |
-| tempFolder | nulo | Especifica a pasta para gravar minidespejos e arquivos de log do carregador. Se não for definido, *%Temp%\Dumps* será usado. |
+| tempFolder | nulo | Especifica a pasta para gravar minidespejos e arquivos de log do carregador. Se não estiver definido, então *são utilizados depósitos de despejos %TEMP%\.\.* |
 | thresholdForSnapshotting | 1 | Quantas vezes Application Insights precisa ver uma exceção antes de solicitar instantâneos. |
 | uploaderProxy | nulo | Substitui o servidor proxy usado no processo de carregador de instantâneo. Talvez seja necessário usar essa configuração se o aplicativo se conectar à Internet por meio de um servidor proxy. O Snapshot Collector é executado no processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o carregador de instantâneos é executado como um processo separado e talvez seja necessário configurar o servidor proxy manualmente. Se esse valor for nulo, Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System .net. WebRequest. DefaultWebProxy e passando o valor para o carregador de instantâneos. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui deverá ser usado no carregador de instantâneos. |
 
@@ -280,7 +280,7 @@ Definições de configuração do [Monitor de integridade do host](https://githu
 
 As definições de configuração podem ser encontradas em [gatilhos e associações http](functions-bindings-http-webhook.md#hostjson-settings).
 
-## <a name="logging"></a>registo
+## <a name="logging"></a>exploração madeireira
 
 Controla os comportamentos de log do aplicativo de funções, incluindo Application Insights.
 
@@ -377,7 +377,7 @@ Definições de configuração para comportamento de bloqueio singleton. Para ob
 
 ## <a name="version"></a>versão
 
-A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que tem como destino o tempo de execução v2.
+Este valor indica a versão schema do host.json. A versão `"version": "2.0"` é necessária para uma aplicação de função que se direcione para o tempo de execução v2, ou uma versão posterior. Não há mudanças de esquema son.json entre v2 e v3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

@@ -1,42 +1,42 @@
 ---
-title: Exemplos de transformação de declarações StringCollection para políticas personalizadas
+title: StringCollection reclama exemplos de transformação para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Exemplos de transformação de declarações StringCollection para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
+description: A StringCollection reclama exemplos de transformação para o esquema do Quadro de Experiência de Identidade (IEF) do Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fbbd7b4bdddf2b58e66cb1203414b5a63eec2f27
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8f91db91eff3320691a5979d9453bf515ccd59a2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951008"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982301"
 ---
-# <a name="stringcollection-claims-transformations"></a>Transformações de declarações de StringCollection
+# <a name="stringcollection-claims-transformations"></a>StringCollection reclama transformações
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos de como usar as transformações de declarações de coleção de cadeia de caracteres do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para a utilização da recolha de cordas alega transformações do quadro de experiência de identidade em Azure Ative Directory B2C (Azure AD B2C). Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Adiciona uma declaração de cadeia de caracteres a uma nova declaração StringCollection.
+Adiciona uma reivindicação de cordas a uma nova reivindicação de stringCollection.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | item | string | O ClaimType a ser adicionado à declaração de saída. |
-| inputClaim | coleção | stringCollection | Adicional Se especificado, a transformação declarações copiará os itens dessa coleção e adicionará o item ao final da declaração de coleta de saída. |
-| OutputClaim | coleção | stringCollection | O ClaimTypes que é produzido depois desse ClaimsTransformation foi invocado. |
+| InputClaim | item | string | O ClaimType a adicionar à reivindicação de saída. |
+| InputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de sinistros copia os itens desta coleção e adiciona o item ao fim da reclamação de recolha de saída. |
+| OutputClaim | coleção | stringCollection | Os Tipos de Reclamação que são produzidos após esta Transformação de Reclamações foi invocado. |
 
-Use esta transformação de declarações para adicionar uma cadeia de caracteres a uma StringCollection nova ou existente. Ele é comumente usado em um perfil técnico do **AAD-UserWriteUsingAlternativeSecurityId** . Antes que uma nova conta social seja criada, a transformação de declarações **CreateOtherMailsFromEmail** lê o ClaimType e adiciona o valor ao ClaimType **otherMails** .
+Use esta transformação de reclamações para adicionar uma corda a uma nova ou existente stringCollection. É comumente usado num perfil técnico **AAD-UserWriteUsingAlternativeSecurityId.** Antes de ser criada uma nova conta social, a **CreateOtherMailsFromEmail** afirma que a transformação de reclamações lê o ClaimType e adiciona o valor ao **outro MailS** ClaimType.
 
-A transformação declarações a seguir adiciona o **email** ClaimType a **otherMails** ClaimType.
+A seguinte transformação de sinistros adiciona o **email** ClaimType a **outros Mensagens** ClaimType.
 
 ```XML
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
@@ -53,22 +53,22 @@ A transformação declarações a seguir adiciona o **email** ClaimType a **othe
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **coleção**: ["someone@outlook.com"]
-  - **Item**: "admin@contoso.com"
+  - **:** ["someone@outlook.com"]
+  - **item**: "admin@contoso.com"
 - Declarações de saída:
   - **coleção**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Adiciona um parâmetro de cadeia de caracteres a uma nova declaração StringCollection.
+Adiciona um parâmetro de corda a uma nova reivindicação de stringCollection.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | coleção | stringCollection | Adicional Se especificado, a transformação declarações copiará os itens dessa coleção e adicionará o item ao final da declaração de coleta de saída. |
-| InputParameter | item | string | O valor a ser adicionado à declaração de saída. |
-| OutputClaim | coleção | stringCollection | O ClaimTypes que será produzido depois que esse ClaimsTransformation tiver sido invocado. |
+| InputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de sinistros copia os itens desta coleção e adiciona o item ao fim da reclamação de recolha de saída. |
+| InputParameter | item | string | O valor a ser acrescentado à reivindicação de saída. |
+| OutputClaim | coleção | stringCollection | Os Tipos de Reclamação que serão produzidos após esta Transformação de Reclamações ter sido invocada. |
 
-Use esta transformação de declarações para adicionar um valor de cadeia de caracteres a uma StringCollection nova ou existente. O exemplo a seguir adiciona um endereço de email constante (admin@contoso.com) à Declaração **otherMails** .
+Utilize esta transformação de sinistros para adicionar um valor de cadeia a uma nova ou existente stringCollection. O exemplo seguinte adiciona um endereço de e-mail constante (admin@contoso.com) à reivindicação de **outros Mails.**
 
 ```XML
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
@@ -87,22 +87,22 @@ Use esta transformação de declarações para adicionar um valor de cadeia de c
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **coleção**: ["someone@outlook.com"]
+  - **:** ["someone@outlook.com"]
 - Parâmetros de entrada
-  - **Item**: "admin@contoso.com"
+  - **item**: "admin@contoso.com"
 - Declarações de saída:
   - **coleção**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
-Obtém o primeiro item da coleção de cadeia de caracteres fornecida.
+Obtém o primeiro item da coleção de cordas fornecida.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | coleção | stringCollection | Os ClaimTypes que são usados pela transformação de declarações para obter o item. |
-| OutputClaim | extractedItem | string | O ClaimTypes que é produzido depois desse ClaimsTransformation foi invocado. O primeiro item na coleção. |
+| InputClaim | coleção | stringCollection | Os ClaimTypes que são usados pela transformação de declarações para obter o item. |
+| OutputClaim | extractedItem | string | Os Tipos de Reclamação que são produzidos após esta Transformação de Reclamações foi invocado. O primeiro item da coleção. |
 
-O exemplo a seguir lê a Declaração **otherMails** e retorna o primeiro item para a declaração de **email** .
+O exemplo seguinte lê os **outros Mails** reclamare devolver o primeiro item na reclamação de **e-mail.**
 
 ```XML
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
@@ -120,5 +120,43 @@ O exemplo a seguir lê a Declaração **otherMails** e retorna o primeiro item p
 - Declarações de entrada:
   - **coleção**: ["someone@outlook.com", "someone@contoso.com"]
 - Declarações de saída:
-  - **extractedItem**: "someone@outlook.com"
+  - **item extraído**: "someone@outlook.com"
+
+
+## <a name="stringcollectioncontains"></a>StringCollectionContém
+
+Verifica se um tipo de reclamação stringCollection contém um elemento
+
+| Item | TransformationClaimType | Tipo de Dados | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | InputClaim | stringCollection | O tipo de reclamação que deve ser revistado. |
+|InputParameter|item|string|O valor para procurar.|
+|InputParameter|ignoreCase|string|Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas.|
+| OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. Um indicador booleano se a coleção contiver tal corda |
+
+Na sequência do exemplo, verifica se o tipo de reclamação `roles` stringCollection contém o valor da **administração**.
+
+```XML
+<ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="item" DataType="string" Value="Admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+- Declarações de entrada:
+    - **inputClaim**: ["leitor", "autor", "administrador"]
+- Parâmetros de entrada:
+    - **artigo**: "Administrador"
+    - **ignoraCaso**: "verdadeiro"
+- Declarações de saída:
+    - **saídaReivindicação**: "verdadeiro"
+
 

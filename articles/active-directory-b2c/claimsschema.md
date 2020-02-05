@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e72e100bcb3d06403af1514dea13de59c623310
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3c3bb0cb6726326cda7ede46ba09fa6d17c2ba2c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713069"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983049"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,16 +42,16 @@ O elemento **ClaimsSchema** define os tipos de reclamação que podem ser refere
 
 O elemento **ClaimType** contém o seguinte atributo:
 
-| Atributo | Required | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador que é usado para o tipo de reclamação. Outros elementos podem utilizar este identificador na política. |
+| Id | Sim | Um identificador que é usado para o tipo de reclamação. Outros elementos podem utilizar este identificador na política. |
 
 O elemento **ClaimType** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | O título que é exibido aos utilizadores em vários ecrãs. O valor pode ser [localizado.](localization.md) |
-| Tipo de dados | 0:1 | O tipo de reclamação. Podem ser utilizados os tipos de dados de boolean, data, dataTime, int, long, string, stringCollection, alternativeSecurityIdCollection. |
+| DisplayName | 1:1 | O título que é exibido aos utilizadores em vários ecrãs. O valor pode ser [localizado.](localization.md) |
+| Tipo de dados | 1:1 | O tipo de reclamação. Os tipos de dados de boolean, data, dataTime, int, long, string, stringCollection podem ser usados. O tipo de dados C# primitivos representa o equivalente ao tipo de dados variáveis. stringCollection representa uma coleção de cordas. Para mais informações consulte [ C# Tipos e variáveis.](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables) A data segue a convenção ISO 8601. |
 | DefaultPartnerClaimTypes | 0:1 | Os tipos de reclamação por defeito do parceiro para utilizar para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **'Claimclaim'** ou **OutputClaim.** Utilize este elemento para especificar o nome predefinido para um protocolo.  |
 | Máscara | 0:1 | Uma cadeia opcional de caracteres mascarados que podem ser aplicados ao exibir a alegação. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de reclamação que pode ser útil para os utilizadores entenderem o seu propósito. O valor pode ser [localizado.](localization.md) |
@@ -65,11 +65,11 @@ Os Tipos de **Reclamação por Predefinição** podem conter o seguinte elemento
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Protocol | 0: n | Lista de protocolos com o nome do tipo de reclamação do parceiro predefinido. |
+| Protocolo | 1: n | Lista de protocolos com o nome do tipo de reclamação do parceiro predefinido. |
 
-O elemento **Protocolo** contém os seguintes atributos:
+O elemento **Protocol** contém os seguintes atributos:
 
-| Atributo | Required | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sim | O nome do tipo de reclamação a utilizar. |
@@ -104,7 +104,7 @@ Como resultado, o símbolo JWT emitido pelo Azure AD B2C, emite o `family_name` 
 
 O elemento **Máscara** contém os seguintes atributos:
 
-| Atributo | Required | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo de máscara de reivindicação. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma simples máscara de texto é aplicada à parte principal de uma reivindicação de cordas. O valor `Regex` indica que uma expressão regular é aplicada à reivindicação da cadeia no seu conjunto.  Se o valor `Regex` for especificado, um atributo opcional também deve ser definido com a expressão regular a utilizar. |
 | `Regex` | Não | Se **`Type`** estiver programado para `Regex`, especifique a expressão regular a utilizar.
@@ -144,7 +144,7 @@ O Quadro de Experiência de Identidade torna apenas a primeira letra do endereç
 
 O elemento **restrição** pode conter o seguinte atributo:
 
-| Atributo | Required | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Função Função Behavior | Não | O método utilizado para fundir valores de enumeração com um ClaimType numa política-mãe com o mesmo identificador. Use este atributo quando substituir uma reclamação especificada na política de base. Valores possíveis: `Append`, `Prepend`ou `ReplaceAll`. O valor `Append` é uma recolha de dados que deve ser anexado ao fim da recolha especificada na política-mãe. O valor `Prepend` é uma recolha de dados que deve ser adicionado antes da recolha especificada na política-mãe. O valor `ReplaceAll` é uma recolha de dados especificados na política-mãe que deve ser ignorada. |
 
@@ -159,7 +159,7 @@ O elemento **restrição** contém os seguintes elementos:
 
 O elemento **Enumeração** contém os seguintes atributos:
 
-| Atributo | Required | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Texto | Sim | A cadeia de visualização que é mostrada ao utilizador na interface do utilizador para esta opção. |
 |Valor | Sim | O valor de reclamação que está associado à seleção desta opção. |
@@ -188,7 +188,7 @@ Lista de cidades dropdown com um valor padrão definido para Nova Iorque:
 
 O elemento **Padrão** pode conter os seguintes atributos:
 
-| Atributo | Required | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Expressão regular | Sim | A expressão regular que reclama deste tipo deve coincidir para ser válida. |
 | Texto de Ajuda | Não | O padrão ou expressão regular para esta afirmação. |

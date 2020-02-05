@@ -1,6 +1,6 @@
 ---
 title: Definir um estilo de mapa usando o Azure Maps SDK do Android | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre as funcionalidades relacionadas ao estilo do Microsoft Azure Maps para o SDK do Android.
+description: Neste artigo, você vai aprender sobre as funcionalidades relacionadas com o estilo Do Microsoft Azure Maps para o Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fe0aa662234166249433634ccb45d1931d176319
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4adb38148acc0c18ac73709efbe7628ca9497897
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910475"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988962"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Definir o estilo de mapa usando o Azure Maps SDK do Android
 
@@ -27,7 +27,7 @@ Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK 
 
 ## <a name="set-map-style-in-the-layout"></a>Definir o estilo de mapa no layout
 
-Você pode definir um estilo de mapa no arquivo de layout para sua classe de atividade. Edite o **layout de > res > activity_main. xml**, portanto, é semelhante ao seguinte:
+Você pode definir um estilo de mapa no arquivo de layout para sua classe de atividade. Editar **res > layout > activity_main.xml,** para que se pareça com o abaixo:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ Você pode definir um estilo de mapa no arquivo de layout para sua classe de ati
 </FrameLayout>
 ```
 
-O atributo `mapcontrol_style` acima define o estilo de mapa como **grayscale_dark**. 
+O atributo `mapcontrol_style` acima define o estilo do mapa para **grayscale_dark**. 
 
 <center>
 
@@ -59,7 +59,7 @@ O atributo `mapcontrol_style` acima define o estilo de mapa como **grayscale_dar
 
 ## <a name="set-map-style-in-the-activity-class"></a>Definir o estilo de mapa na classe de atividade
 
-O estilo de mapa pode ser definido na classe de atividade. Copie o trecho de código a seguir para o método **OnCreate ()** da sua classe `MainActivity.java`. Isso definirá o estilo do mapa como **satellite_road_labels**.
+O estilo de mapa pode ser definido na classe de atividade. Copie o trecho de código a seguir para o método **OnCreate ()** da sua classe `MainActivity.java`. Este código definirá o estilo do mapa para **satellite_road_labels**.
 
 ```Java
 mapControl.onReady(map -> {

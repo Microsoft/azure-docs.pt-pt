@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 2dd74f13f9342e45e38dafed2de8338876c8ae36
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 02cb7738e20df6aba8690c9fe2ee718144bad114
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966762"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987804"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ ms.locfileid: "76966762"
 
 1. Assine no [portal Azure](https://portal.azure.com)
 1. Clique em [criar **compreensão linguística** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Introduza todas as definições necessárias para a tecla Runtime:
+1. Introduza todas as definições necessárias para a tecla **Runtime:**
 
     |Definição|Valor|
     |--|--|
@@ -63,7 +63,7 @@ Use Ir para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) da
         // utterance for public app
         var utterance = "turn on all lights"
 
-        // YOUR-KEY - your  key
+        // YOUR-KEY - your **Runtime** key
         var endpointKey = "YOUR-KEY"
 
         // YOUR-ENDPOINT - example is your-resource-name.api.cognitive.microsoft.com
@@ -96,11 +96,11 @@ Use Ir para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) da
     }
     ```
 
-1. Substitua os valores `YOUR-KEY` e `YOUR-ENDPOINT` pela sua própria chave de previsão e ponto final.
+1. Substitua os valores `YOUR-KEY` e `YOUR-ENDPOINT` pela sua própria chave de previsão **Runtime** e ponto final.
 
     |Proteção das|Finalidade|
     |--|--|
-    |`YOUR-KEY`|A tua chave de previsão de 32 caracteres.|
+    |`YOUR-KEY`|A tua **chave** de previsão de 32 caracteres.|
     |`YOUR-ENDPOINT`| O seu ponto final de URL de previsão. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 1. Com um pedido de comando no mesmo diretório onde criou o ficheiro, insira o seguinte comando para compilar o ficheiro Go:

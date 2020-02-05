@@ -1,174 +1,176 @@
 ---
-title: Gerenciar e monitorar backups de VM do Azure
-description: Saiba como gerenciar e monitorar backups de VM do Azure usando o serviço de backup do Azure.
+title: Gerir e monitorizar backups Azure VM
+description: Aprenda a gerir e monitorizar as cópias de segurança Do Azure VM utilizando o serviço de backup Azure.
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 3c4c4341286b7ee4f382192d291e08c83ff64994
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172964"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989693"
 ---
-# <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
+# <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
 
-Este artigo descreve como gerenciar VMs (máquinas virtuais) do Azure cujo backup é feito usando o serviço de [backup do Azure](backup-overview.md). O artigo também resume as informações de backup que você pode encontrar no painel do cofre.
+Este artigo descreve como gerir as máquinas virtuais Azure (VMs) que são apoiadas utilizando o [serviço de backup Azure](backup-overview.md). O artigo também resume as informações de reserva que pode encontrar no painel de instrumentos do cofre.
 
-No portal do Azure, o painel do cofre dos serviços de recuperação fornece acesso a informações do cofre, incluindo:
+No portal Azure, o painel de abóbadas dos Serviços de Recuperação fornece acesso a informações sobre cofres, incluindo:
 
-* O backup mais recente, que também é o ponto de restauração mais recente.
-* A política de backup.
-* O tamanho total de todos os instantâneos de backup.
-* O número de VMs que estão habilitadas para backups.
+* O mais recente reforço, que é também o mais recente ponto de restauro.
+* A política de reserva.
+* O tamanho total de todas as fotos de reserva.
+* O número de VMs que estão habilitados para cópias de segurança.
 
-Você pode gerenciar backups usando o painel e fazendo Drill down para VMs individuais. Para iniciar os backups do computador, abra o cofre no painel.
+Pode gerir backups utilizando o painel de instrumentos e perfurando para VMs individuais. Para começar as cópias de segurança da máquina, abra o cofre no tablier.
 
-![Exibição de painel completa com controle deslizante](./media/backup-azure-manage-vms/bottom-slider.png)
+![Vista completa do painel com slider](./media/backup-azure-manage-vms/bottom-slider.png)
 
-## <a name="view-vms-on-the-dashboard"></a>Exibir VMs no painel
+## <a name="view-vms-on-the-dashboard"></a>Ver VMs no painel de instrumentos
 
-Para exibir as VMs no painel do cofre:
+Para ver VMs no painel do cofre:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. No menu Hub, selecione **procurar**. Na lista de recursos, escreva **Serviços de Recuperação**. Conforme você digita, a lista é filtrada com base em sua entrada. Selecione **cofres dos serviços de recuperação**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. No menu Hub, **selecione Browse**. Na lista de recursos, escreva **Serviços de Recuperação**. À medida que escreve, a lista é filtrada com base na sua entrada. Selecione **cofres de Serviços**de Recuperação .
 
     ![Criar um cofre dos Serviços de Recuperação](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
-3. Para facilitar o uso, clique com o botão direito do mouse no cofre e selecione **fixar no painel**.
+3. Para facilitar a utilização, clique no cofre e selecione **Pin para painel de instrumentos**.
 4. Abra o painel do cofre.
 
-    ![Abra o painel do cofre e a folha de configurações](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+    ![Abra o painel do painel do cofre e as definições](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-5. No bloco **itens de backup** , selecione **máquinas virtuais do Azure**.
+5. No azulejo **de backup itens,** selecione **Máquinas Virtuais Azure**.
 
-    ![Abrir o bloco itens de backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Abra o azulejo de backup itens](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. Na folha **itens de backup** , você pode exibir a lista de VMs protegidas. Neste exemplo, o cofre protege uma máquina virtual: demobackup.  
+6. No painel **de itens de backup,** pode ver a lista de VMs protegidos. Neste exemplo, o cofre protege uma máquina virtual: demobackup.  
 
-    ![Exibir a folha itens de backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Ver o painel de itens de backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-7. No painel do item do cofre, modifique as políticas de backup, execute um backup sob demanda, pare ou retome a proteção de VMs, exclua dados de backup, exiba pontos de restauração e execute uma restauração.
+7. A partir do painel de instrumentos do item do cofre, modificar as políticas de backup, executar uma cópia de segurança a pedido, parar ou retomar a proteção dos VMs, eliminar dados de backup, ver pontos de restauro e executar um restauro.
 
-    ![O painel itens de backup e a folha configurações](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+    ![O painel de itens de backup e o painel de definições](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-## <a name="manage-backup-policy-for-a-vm"></a>Gerenciar a política de backup para uma VM
+## <a name="manage-backup-policy-for-a-vm"></a>Gerir a política de backup para um VM
 
-Para gerenciar uma política de backup:
+Para gerir uma política de backup:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
-2. No bloco **itens de backup** , selecione **máquinas virtuais do Azure**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
+2. No azulejo **de backup itens,** selecione **Máquinas Virtuais Azure**.
 
-    ![Abrir o bloco itens de backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Abra o azulejo de backup itens](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3. Na folha **itens de backup** , você pode exibir a lista de VMs protegidas e o status do último backup com o tempo dos pontos de restauração mais recentes.
+3. No painel de itens de backup, pode ver a lista de VMs protegidos e o último estado de backup com o tempo de **pontos** de restauro mais recentes.
 
-    ![Exibir a folha itens de backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Ver o painel de itens de backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-4. No painel do item do cofre, você pode selecionar uma política de backup.
+4. A partir do painel do objeto do cofre, pode selecionar uma política de backup.
 
-   * Para alternar políticas, selecione uma política diferente e, em seguida, selecione **salvar**. A nova política é imediatamente aplicada ao cofre.
+   * Para mudar de política, selecione uma política diferente e, em seguida, selecione **Guardar**. A nova política é imediatamente aplicada ao cofre.
 
-     ![Escolher uma política de backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+     ![Escolha uma política de backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 
-Você pode executar um backup sob demanda de uma VM depois de configurar sua proteção. Tenha estes detalhes em mente:
+Pode fazer um backup a pedido de um VM depois de configurar a sua proteção. Tenha em mente estes detalhes:
 
-* Se o backup inicial estiver pendente, o backup sob demanda criará uma cópia completa da VM no cofre dos serviços de recuperação.
-* Se o backup inicial for concluído, um backup sob demanda só enviará alterações do instantâneo anterior para o cofre dos serviços de recuperação. Ou seja, os backups posteriores são sempre incrementais.
-* O período de retenção para um backup sob demanda é o valor de retenção que você especifica ao disparar o backup.
+* Se o backup inicial estiver pendente, a cópia de segurança a pedido cria uma cópia completa do VM no cofre dos Serviços de Recuperação.
+* Se a cópia de segurança inicial estiver completa, uma cópia de segurança a pedido apenas enviará alterações do instantâneo anterior para o cofre dos Serviços de Recuperação. Ou seja, os reforços posteriores são sempre incrementais.
+* O intervalo de retenção para uma cópia de segurança a pedido é o valor de retenção que especifica quando aciona a cópia de segurança.
 
-Para disparar um backup sob demanda:
+Para desencadear um reforço a pedido:
 
-1. No [painel do item do cofre](#view-vms-on-the-dashboard), em **item protegido**, selecione **item de backup**.
+1. No painel de instrumentos do [cofre,](#view-vms-on-the-dashboard)em **item protegido,** selecione **'Backup Item**' .
 
-    ![A opção fazer backup agora](./media/backup-azure-manage-vms/backup-now-button.png)
+    ![A opção Backup agora](./media/backup-azure-manage-vms/backup-now-button.png)
 
-2. Em **tipo de gerenciamento de backup**, selecione **máquina virtual do Azure**. A folha **item de backup (máquina virtual do Azure)** é exibida.
-3. Selecione uma VM e selecione **fazer backup agora** para criar um backup sob demanda. A folha **fazer backup agora** é exibida.
-4. No campo **reter backup até** , especifique uma data para o backup a ser retido.
+2. Do Tipo de **Gestão de Backup,** selecione **Máquina Virtual Azure**. Aparece o painel **de backup (Máquina Virtual Azure).**
+3. Selecione um VM e selecione **Backup Agora** para criar uma cópia de segurança a pedido. O painel **de backup agora** aparece.
+4. No campo **'Reter Cópia de Segurança',** especifique uma data para a reserva a manter.
 
-    ![O calendário de backup agora](./media/backup-azure-manage-vms/backup-now-check.png)
+    ![O calendário backup agora](./media/backup-azure-manage-vms/backup-now-check.png)
 
-5. Selecione **OK** para executar o trabalho de backup.
+5. Selecione **OK** para executar o trabalho de reserva.
 
-Para acompanhar o progresso do trabalho, no painel do cofre, selecione o bloco **trabalhos de backup** .
+Para acompanhar o progresso do trabalho, no painel do cofre, selecione o azulejo **backup Jobs.**
 
-## <a name="stop-protecting-a-vm"></a>Interromper a proteção de uma VM
+## <a name="stop-protecting-a-vm"></a>Pare de proteger um VM
 
-Há duas maneiras de interromper a proteção de uma VM:
+Há duas maneiras de parar de proteger um VM:
 
-* **Interromper a proteção e manter os dados de backup**. Esta opção impedirá que todos os trabalhos de backup futuros protejam sua VM; no entanto, o serviço de backup do Azure manterá os pontos de recuperação que foram armazenados em backup.  Você precisará pagar para manter os pontos de recuperação no cofre (consulte [preços de backup do Azure](https://azure.microsoft.com/pricing/details/backup/) para obter detalhes). Você poderá restaurar a VM, se necessário. Se você decidir retomar a proteção da VM, poderá usar a opção *retomar backup* .
-* **Interrompa a proteção e exclua os dados de backup**. Esta opção impedirá que todos os trabalhos de backup futuros protejam sua VM e exclua todos os pontos de recuperação. Você não poderá restaurar a VM nem usar a opção *retomar backup* .
+* **Interromper a proteção e manter os dados de backup**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM; no entanto, o serviço de backup Azure manterá os pontos de recuperação que foram apoiados.  Terá de pagar para manter os pontos de recuperação no cofre (ver preços de [backup azure](https://azure.microsoft.com/pricing/details/backup/) para mais detalhes). Será capaz de restaurar o VM, se necessário. Se decidir retomar a proteção VM, pode utilizar a opção *de backup Do Currículo.*
+* **Interrompa a proteção e exclua os dados de backup**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM e apaguem todos os pontos de recuperação. Não poderá restaurar o VM nem utilizar a opção *de reserva Resume.*
 
 >[!NOTE]
->Se você excluir uma fonte de dados sem interromper os backups, novos backups falharão. Os pontos de recuperação antigos expirarão de acordo com a política, mas um último ponto de recuperação será sempre mantido até que você interrompa os backups e exclua os dados.
+>Se você excluir uma fonte de dados sem interromper os backups, novos backups falharão. Os antigos pontos de recuperação expirarão de acordo com a apólice, mas um último ponto de recuperação será mantido sempre até parar as cópias de segurança e apagar os dados.
 >
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Interromper a proteção e manter os dados de backup
 
-Para interromper a proteção e manter os dados de uma VM:
+Para parar a proteção e reter dados de um VM:
 
-1. No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **parar backup**.
-2. Escolha **reter dados de backup**e confirme sua seleção, conforme necessário. Se desejar, adicione um comentário. Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome.
+1. No [painel do objeto do cofre,](#view-vms-on-the-dashboard)selecione **parar de reserva**.
+2. Escolha **reter dados**de backup e confirme a sua seleção conforme necessário. Adicione um comentário se quiser. Se não tem certeza do nome do artigo, paire sobre o ponto de exclamação para ver o nome.
 
     ![Reter dados de backup](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-Uma notificação permite que você saiba que os trabalhos de backup foram interrompidos.
+Uma notificação permite-lhe saber que os trabalhos de reserva foram interrompidos.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Interromper a proteção e excluir dados de backup
 
-Para interromper a proteção e excluir dados de uma VM:
+Para parar a proteção e eliminar dados de um VM:
 
-1. No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **parar backup**.
-2. Escolha **excluir dados de backup**e confirme sua seleção, conforme necessário. Insira o nome do item de backup e adicione um comentário, se desejar.
+1. No [painel do objeto do cofre,](#view-vms-on-the-dashboard)selecione **parar de reserva**.
+2. Escolha **Eliminar dados**de backup e confirme a sua seleção conforme necessário. Introduza o nome do item de reserva e adicione um comentário se quiser.
 
     ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-## <a name="resume-protection-of-a-vm"></a>Retomar a proteção de uma VM
+## <a name="resume-protection-of-a-vm"></a>Retomar a proteção de um VM
 
-Se você tiver escolhido a opção [parar proteção e manter dados de backup](#stop-protection-and-retain-backup-data) durante a proteção da VM de parada, você poderá usar **retomar backup**. Essa opção não estará disponível se você escolher a opção [parar proteção e excluir dados de backup](#stop-protection-and-delete-backup-data) ou [excluir dados de backup](#delete-backup-data).
+Se escolheu a [proteção stop e retém a](#stop-protection-and-retain-backup-data) opção de dados de backup durante a proteção stop VM, então pode utilizar a **cópia de segurança do Resume**. Esta opção não está disponível se escolher a [proteção Stop e eliminar](#stop-protection-and-delete-backup-data) a opção de dados de backup ou [eliminar dados](#delete-backup-data)de backup .
 
-Para retomar a proteção de uma VM:
+Para retomar a proteção de um VM:
 
-1. No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **retomar backup**.
+1. No [painel do objeto do cofre,](#view-vms-on-the-dashboard)selecione **backup de currículo**.
 
-2. Siga as etapas em [gerenciar políticas de backup](#manage-backup-policy-for-a-vm) para atribuir a política para a VM. Você não precisa escolher a política de proteção inicial da VM.
-3. Depois de aplicar a política de backup à VM, você verá a seguinte mensagem:
+2. Siga os passos em [Gerir as políticas](#manage-backup-policy-for-a-vm) de backup para atribuir a política para o VM. Não precisas de escolher a política inicial de proteção do VM.
+3. Depois de aplicar a política de backup ao VM, consulte a seguinte mensagem:
 
-    ![Mensagem indicando uma VM protegida com êxito](./media/backup-azure-manage-vms/success-message.png)
+    ![Mensagem indicando um VM protegido com sucesso](./media/backup-azure-manage-vms/success-message.png)
 
 ## <a name="delete-backup-data"></a>Eliminar dados de cópia de segurança
 
-Há duas maneiras de excluir os dados de backup de uma VM:
+Existem duas formas de eliminar os dados de backup de um VM:
 
-* No painel do item do cofre, selecione parar backup e siga as instruções para [parar proteção e excluir dados de backup](#stop-protection-and-delete-backup-data) .
+* A partir do painel de instrumentos de objeto do cofre, selecione parar a cópia de segurança e siga as instruções para [a proteção stop e elimine](#stop-protection-and-delete-backup-data) a opção de dados de backup.
 
   ![Selecione parar backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
-* No painel do item do cofre, selecione excluir dados de backup. Essa opção será habilitada se você tiver optado por [interromper a proteção e manter a opção de dados de backup](#stop-protection-and-retain-backup-data) durante a proteção da VM de parada
+* A partir do painel de instrumentos de objeto do cofre, selecione Eliminar dados de backup. Esta opção está ativada se tiver optado por parar a [proteção e reter](#stop-protection-and-retain-backup-data) a opção de dados de backup durante a proteção stop VM
 
-  ![Selecione Excluir backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  ![Selecione eliminar a cópia de segurança](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-  * No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **excluir dados de backup**.
+  * No painel de instrumentos de [objeto do cofre,](#view-vms-on-the-dashboard)selecione **Eliminar dados**de backup .
   * Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
 
     ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
   * Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
 
+Para proteger os seus dados, o Azure Backup inclui a funcionalidade de eliminação suave. Com a eliminação suave, mesmo após a cópia de segurança (todos os pontos de recuperação) de um VM ser eliminada, os dados de backup são conservados por 14 dias adicionais. Para mais informações, consulte [a documentação de eliminação suave](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+
   > [!NOTE]
-  > Ao excluir dados de backup, você exclui todos os pontos de recuperação associados. Você não pode escolher pontos de recuperação específicos para excluir.
+  > Ao eliminar os dados de backup, elimina todos os pontos de recuperação associados. Não é possível escolher pontos de recuperação específicos para eliminar.
 
-### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Item de backup em que a fonte de dados primária não existe mais
+### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Artigo de backup onde a fonte de dados primários já não existe
 
-* Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup sob demanda com falha (trabalhos agendados com falha não são exibidos).
-* Esses itens de backup permanecem ativos no sistema que aderem à política de backup e retenção definida pelo usuário. Os dados de backup para essas VMs do Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o período de retenção definido na política de backup.
-* Os usuários são recomendados para excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o último ponto de recuperação é mantido para sempre e o usuário é cobrado de acordo com o preço de backup aplicável.
+* Se os VMs Azure configurados para cópia de segurança Azure forem eliminados ou movidos sem proteção de paragem, então ambos os trabalhos de backup programados e a pedido (ad-hoc) de reserva falharão com o erro UserErrorVmNotFoundV2. O pré-controlo de reserva só será crítico para trabalhos de backup a pedido falhados (não são apresentados empregos programados falhados).
+* Estes itens de backup permanecem ativos no sistema aderindo à política de backup e retenção definida pelo utilizador. Os dados com reserva destes VMs Azure serão conservados de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o intervalo de retenção estabelecido na política de backup.
+* Recomenda-se aos utilizadores que apaguem os itens de backup onde a fonte de dados primária já não exista para evitar qualquer custo adicional, se o item/dados de cópia de segurança para os recursos de eliminação já não for necessário, uma vez que o último ponto de recuperação é mantido para sempre e o utilizador é cobrado de acordo com os preços de backup aplicáveis.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [fazer backup de VMs do Azure nas configurações da VM](backup-azure-vms-first-look-arm.md).
-* Saiba como [restaurar VMs](backup-azure-arm-restore-vms.md).
-* Saiba como [monitorar backups de VM do Azure](backup-azure-monitor-vms.md).
+* Aprenda a apoiar os [VMs Azure a partir das definições do VM](backup-azure-vms-first-look-arm.md).
+* Aprenda a [restaurar os VMs.](backup-azure-arm-restore-vms.md)
+* Saiba como [monitorizar as cópias de segurança do Azure VM](backup-azure-monitor-vms.md).

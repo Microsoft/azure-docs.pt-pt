@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: criar um aplicativo de análise de medidor inteligente com IoT Central'
-description: 'Tutorial: saiba como criar um aplicativo de monitoramento do medidor inteligente usando os modelos de aplicativo IoT Central do Azure.'
+title: 'Tutorial: Criar uma aplicação de análise de contadores inteligentes com a IoT Central'
+description: 'Tutorial: Aprenda a criar uma aplicação de monitorização de contadores inteligentes utilizando modelos de aplicação Azure IoT Central.'
 author: op-ravi
 ms.author: omravi
 ms.date: 11/12/2019
@@ -8,102 +8,103 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a73f4d75811a384eb822d1f8594a22506509d560
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7b04251211e716ef8e5f8c77aa3a2e74f6e9ef77
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112533"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982512"
 ---
-# <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: criar e percorrer o modelo de aplicativo de monitoramento do medidor inteligente 
+# <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Criar e passar pelo modelo de aplicação de monitorização de contadores inteligentes 
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Este tutorial orienta você pelo processo de criação do aplicativo de monitoramento do medidor inteligente, que inclui um modelo de dispositivo de exemplo com dados simulados. Neste tutorial, ficará a saber:
+Este tutorial guia-o através do processo de criação da aplicação de monitorização de contadores inteligentes, que inclui um modelo de dispositivo de amostra com dados simulados. Neste tutorial, ficará a saber:
 
 > [!div class="checklist"]
-> * Criar o aplicativo de medidor inteligente gratuitamente
-> * Passo a passo do aplicativo
+> * Crie gratuitamente a App Smart Meter
+> * Candidatura walk-through
 > * Limpar recursos
 
 
-Se você não tiver uma assinatura, [crie uma conta de avaliação gratuita](https://azure.microsoft.com/free)
+Se não tem uma subscrição, [crie uma conta de teste gratuita](https://azure.microsoft.com/free)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Nenhum
-- A assinatura do Azure é recomendada, mas não é necessária para experimentar
+- Nenhuma
+- A subscrição do Azure é recomendada, mas não é necessária para experimentar
 
 ## <a name="create-a-smart-meter-monitoring-app"></a>Criar uma aplicação de monitorização de medidores inteligentes 
 
-Você pode criar esse aplicativo em três etapas simples:
+Pode criar esta aplicação em três passos simples:
 
-1. Abra o [Azure IoT Central Home Page](https://apps.azureiotcentral.com) e clique em **Compilar** para criar um novo aplicativo. 
+1. Abra a [página inicial do Azure IoT Central](https://apps.azureiotcentral.com) e clique em **Construir** para criar uma nova aplicação. 
 
-2. Selecione a guia **energia** e clique em **criar aplicativo** no bloco aplicativo de **monitoramento do medidor inteligente** .
+2. Selecione o separador **Energia** e clique **em Criar app** sob o azulejo de **monitorização de contadores inteligentes.**
 
     > [!div class="mx-imgBorder"]
-    > ![](media/tutorial-iot-central-smart-meter/smart-meter-build.png) de aplicativo de compilação
+    > ![construir app](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
-3. **Criar aplicativo** abrirá o formulário **novo aplicativo** . Preencha os detalhes solicitados, conforme mostrado na figura abaixo:
-    * **Nome do aplicativo**: escolha um nome para seu aplicativo IOT central. 
-    * **URL**: escolha uma url de IOT central, a plataforma verificará sua exclusividade.
-    * **avaliação gratuita de 7 dias**: se você já tiver uma assinatura do Azure, a configuração padrão será recomendada. Se você não tiver uma assinatura do Azure, comece com a avaliação gratuita.
-    * **Informações de cobrança**: o próprio aplicativo é gratuito. O diretório, a assinatura do Azure e os detalhes de região são necessários para provisionar os recursos para seu aplicativo.
-    * Clique no botão **criar** na parte inferior da página e seu aplicativo será criado em um minuto.     
-        > [!div class="mx-imgBorder"]
-        > ![formulário de novo aplicativo](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+3. **A Create app** abrirá o novo formulário de **aplicação.** Preencha os detalhes solicitados, conforme indicado no valor abaixo:
+    * **Nome da candidatura**: Escolha um nome para a sua aplicação IoT Central. 
+    * **URL**: Escolha um URL Central IoT, a plataforma verificará a sua singularidade.
+    * Teste gratuito de 7 dias : Se já tiver uma subscrição Azure, **recomenda-se**a definição predefinida. Se não tiver uma assinatura Azure, comece com um teste gratuito.
+    * **Faturação Informação**: A aplicação em si é gratuita. Os detalhes do Diretório, Azure e Região são necessários para fornecer os recursos para a sua app.
+    * Clique em criar o botão **Na** parte inferior da página e a sua aplicação será criada dentro de um minuto ou mais.     
+         ![novo formulário de candidatura](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+
+         ![Nova informação de faturação de formulário de aplicação](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
 
 
-### <a name="verify-the-application-and-simulated-data"></a>Verificar o aplicativo e os dados simulados
+### <a name="verify-the-application-and-simulated-data"></a>Verificar a aplicação e simular dados
 
-O aplicativo de medidor inteligente recém-criado é seu aplicativo e você pode modificá-lo a qualquer momento. Vamos garantir que o aplicativo seja implantado e funcione conforme o esperado antes de modificá-lo.
+A aplicação de contadores inteligentes recém-criada é a sua aplicação e pode modificá-la a qualquer momento. Vamos garantir que a aplicação é implementada e funciona como esperado antes de a modificar.
 
-Para verificar a criação do aplicativo e a simulação de dados, vá para o **painel**. Se você puder ver os blocos com alguns dados, a implantação do aplicativo foi bem-sucedida. A simulação de dados pode levar alguns minutos para gerar os dados, portanto, forneça 1-2 minutos. 
+Para verificar a criação da aplicação e simulação de dados, vá ao **Dashboard**. Se conseguir ver os azulejos com alguns dados, então a implementação da sua aplicação foi bem sucedida. A simulação de dados pode demorar alguns minutos a gerar os dados, por isso dê-lhe 1-2 minutos. 
 
-## <a name="application-walk-through"></a>Passo a passo do aplicativo
-Depois de implantar com êxito o modelo de aplicativo, ele vem com o dispositivo de medidor inteligente de exemplo, o modelo de dispositivo e um painel. 
+## <a name="application-walk-through"></a>Candidatura walk-through
+Depois de implementar com sucesso o modelo de aplicação, ele vem com dispositivo de contador inteligente de amostra, modelo de dispositivo e um dashboard. 
 
-Adatum é uma empresa de energia fictícia, que monitora e gerencia medidores inteligentes. No painel Monitoramento do medidor inteligente, você vê as propriedades do medidor inteligente, dados e comandos de exemplo. Ele permite que os operadores e as equipes de suporte executem proativamente as seguintes atividades antes que ele se transforme em incidentes de suporte: 
-* Examine as informações de medidor mais recentes e seu local de instalação no mapa
-* Verificar proativamente a rede do medidor e o status da conexão 
-* Monitorar leituras mínimas e máximas de tensão para a integridade da rede 
-* Examine as tendências de energia, energia e voltagem para capturar quaisquer padrões anormais 
-* Acompanhar o consumo de energia total para fins de planejamento e cobrança
-* Operações de comando e controle, como reconectar medidor e atualizar versão do firmware. No modelo, os botões de comando mostram as funcionalidades possíveis e não enviam comandos reais. 
+A Adatum é uma empresa de energia fictícia, que monitoriza e gere contadores inteligentes. No painel de monitorização de contadores inteligentes, você vê propriedades de contadores inteligentes, dados e comandos de amostra. Permite que os operadores e equipas de apoio realizem proactivamente as seguintes atividades antes de se transformar em incidentes de apoio: 
+* Reveja a informação mais recente do medidor e a sua localização instalada no mapa
+* Verifique proativamente a rede de contadores e o estado de ligação 
+* Monitor Min e Max leituras de tensão para a saúde da rede 
+* Reveja as tendências de energia, energia e tensão para capturar quaisquer padrões anómalos 
+* Acompanhe o consumo total de energia para fins de planeamento e faturação
+* Operações de comando e controlo, tais como reconectar o medidor e atualizar a versão firmware. No modelo, os botões de comando mostram as possíveis funcionalidades e não enviam comandos reais. 
 
 > [!div class="mx-imgBorder"]
-> ![painel de monitoramento do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
+> ![](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png) de monitorização do painel de monitorização do contador Inteligente
 
 ### <a name="devices"></a>Dispositivos
-O aplicativo vem com um dispositivo de medidor inteligente de exemplo. Você pode ver os detalhes do dispositivo clicando na guia **dispositivos** .
+A aplicação vem com um dispositivo de contador inteligente de amostras. Pode ver os detalhes do dispositivo clicando no separador **Dispositivos.**
 
 > [!div class="mx-imgBorder"]
-> ![dispositivos de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
+> ![dispositivos de contador Inteligente](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
 
-Clique no link **SM0123456789** do dispositivo de exemplo para ver os detalhes do dispositivo. Você pode atualizar as propriedades graváveis do dispositivo na página **Propriedades da atualização** e visualizar os valores atualizados no painel.
+Clique no dispositivo de amostra **sM0123456789** para ver os detalhes do dispositivo. Pode atualizar as propriedades do dispositivo na página **Update Properties** e visualizar os valores atualizados no painel de instrumentos.
 
 > [!div class="mx-imgBorder"]
-> ![Propriedades de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
+> ![propriedades do contador Inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
 
 ### <a name="device-template"></a>Modelo de dispositivo
-Clique na guia **modelos de dispositivo** para ver o modelo de dispositivo do medidor inteligente. O modelo tem a interface predefinida para dados, propriedade, comandos e exibições.
+Clique no separador de **modelos do Dispositivo** para ver o modelo do dispositivo de contador inteligente. O modelo tem interface pré-definido para Dados, Propriedades, Comandos e Vistas.
 
 > [!div class="mx-imgBorder"]
-> ![modelos de dispositivo do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
+> ![modelos de dispositivo de contador inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se você decidir não continuar usando este aplicativo, exclua seu aplicativo com as seguintes etapas:
+Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação com os seguintes passos:
 
-1. No painel esquerdo, abra a guia Administração
-2. Selecione Configurações do aplicativo e clique no botão excluir na parte inferior da página. 
+1. Do painel esquerdo, separador de administração aberto
+2. Selecione as definições de Aplicação e clique em Eliminar o botão na parte inferior da página. 
 
     > [!div class="mx-imgBorder"]
-    > ![excluir](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png) de aplicativo
+    > ![Eliminar](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png) de aplicação
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre a arquitetura do aplicativo de medidor inteligente consulte [o artigo conceito](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
-* Crie modelos de aplicativo de medidor inteligente gratuitamente: [aplicativo de medidor inteligente](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Saiba mais sobre IoT Central, consulte [IOT central visão geral](https://docs.microsoft.com/azure/iot-central/)
+* Saiba mais sobre a arquitetura de aplicativos smart meter consulte [o artigo de conceito](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+* Crie modelos de aplicação de contadores inteligentes gratuitamente: [app smart meter](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
+* Saiba mais sobre a IoT Central, consulte a [visão geral da IoT Central](https://docs.microsoft.com/azure/iot-central/)

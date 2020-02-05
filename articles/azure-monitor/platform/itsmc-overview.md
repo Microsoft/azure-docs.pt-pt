@@ -4,15 +4,15 @@ description: Este artigo fornece uma visão geral de Conector de Gerenciamento d
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 83d5b7ffb49a08d02d5dd34ad561ce725ead7e0e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 68aff01ea541a24be1f8d526fecbb6a9d2c30086
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289140"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990679"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -25,7 +25,7 @@ Os serviços do Azure, como Log Analytics e Azure Monitor fornecem ferramentas p
 O ITSMC dá suporte a conexões com as seguintes ferramentas de ITSM:
 
 -   ServiceNow
--   System Center Service Manager
+-   Gestor de serviços do Centro de Sistema
 -   Provance
 -   Cherwell
 
@@ -88,7 +88,7 @@ Depois de ter preparado suas ferramentas de ITSM, siga as etapas abaixo para cri
 
 1. Vá para **todos os recursos**, procure por **YourWorkspaceName (assistência técnica)** .
 2. Em **fontes de dados do espaço de trabalho** no painel esquerdo, clique em **conexões de ITSM**.
-   ![conexões de ITSM](media/itsmc-overview/itsm-connections.png)
+   ![ligações ITSM](media/itsmc-overview/itsm-connections.png)
 
    Esta página exibe a lista de conexões.
 3. Clique em **adicionar ligação**.
@@ -152,7 +152,7 @@ O painel também fornece informações sobre o status do conector que pode ser u
 
 Você também pode visualizar os incidentes sincronizados em relação aos computadores afetados, dentro da solução Mapa do Serviço.
 
-Mapa do Serviço descobre automaticamente os componentes do aplicativo em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores, como os concebe: sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre os servidores, processos e portas em qualquer arquitetura com ligação TCP, e não requer qualquer configuração para além da instalação de um agente. [Saiba mais](../../azure-monitor/insights/service-map.md).
+Mapa do Serviço descobre automaticamente os componentes do aplicativo em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores tal como os pensa – como sistemas interligados que prestam serviços críticos. O Mapa de Serviço mostra ligações entre servidores, processos e portas em qualquer arquitetura ligada ao TCP sem qualquer configuração necessária que não seja a instalação de um agente. [Saiba mais](../../azure-monitor/insights/service-map.md).
 
 Se você estiver usando a solução Mapa do Serviço, poderá exibir os itens da central de serviços criados nas soluções de ITSM, conforme mostrado no exemplo a seguir:
 
@@ -170,7 +170,7 @@ As informações a seguir mostram exemplos de dados coletados pelo ITSMC:
 
 > [!NOTE]
 >
-> Dependendo do tipo de item de trabalho importado para Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
+> Dependendo do tipo de artigo de trabalho importado para o Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
 
 **Item de trabalho:** **incidentes**  
 ServiceDeskWorkItemType_s="Incident"
@@ -185,10 +185,10 @@ ServiceDeskWorkItemType_s="Incident"
 - Prioridade
 - Escalamento
 - Criado por
-- Resolvido Por
+- Resolvido por
 - Fechado por
 - Origem
-- Atribuído A
+- Atribuído a
 - Categoria
 - Título
 - Descrição
@@ -209,7 +209,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Criado por
 - Fechado por
 - Origem
-- Atribuído A
+- Atribuído a
 - Título
 - Tipo
 - Categoria
@@ -220,7 +220,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Prioridade
 - Risco
 - Impacto
-- Atribuído A
+- Atribuído a
 - Data de criação
 - Data de fecho
 - Data da última modificação
@@ -247,7 +247,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Source_s| Tipo de contato |
 | AssignedTo_s | Atribuído a  |
 | Category_s | Categoria |
-| Title_s|  Breve descrição |
+| Title_s|  Descrição curta |
 | Description_s|  Notas |
 | CreatedDate_t|  Aberto |
 | ClosedDate_t| Fechado|
@@ -262,7 +262,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | CreatedBy_s | Solicitado por |
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
-| Title_s|  Breve descrição |
+| Title_s|  Descrição curta |
 | Type_s|  Tipo |
 | Category_s|  Categoria |
 | CRState_s|  Estado|
@@ -271,13 +271,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Risk_s| Risco|
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por data |
-| ClosedDate_t | Data de fecho |
+| ClosedDate_t | Data fechada |
 | PlannedStartDate_t  |     Data de início planejada |
 | PlannedEndDate_t  |   Data de término planejada |
 | WorkStartDate_t  | Data de início real |
-| WorkEndDate_t | Data de fim real|
+| WorkEndDate_t | Data final real|
 | Description_s | Descrição |
-| Computador  | Item de Configuração |
+| Computador  | Item de configuração |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Solucionar problemas de conexões de ITSM
@@ -290,8 +290,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 2. Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow às vezes entram em suspensão quando ociosas por um longo período. Caso contrário, relate o problema.
 3. Se Log Analytics alertas forem acionados, mas os itens de trabalho não forem criados em itens de configuração ou produtos de ITSM não forem criados/vinculados a itens de trabalho ou para outras informações genéricas, procure nos seguintes locais:
-   -  ITSMC: a solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Examine os registros de log com LogType_S como erro para obter mais informações.
-   - Página **pesquisa de logs** : exiba os erros/informações relacionadas diretamente usando o ServiceDeskLog_CL de consulta `*``*`.
+   -  ITSMC: a solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Veja os registos de registo com LogType_S como ERROR para obter mais informações.
+   - **Página de pesquisa de registo:** consulte os erros/informações relacionadas diretamente utilizando a consulta `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas Service Manager implantação de aplicativo Web
 1.  No caso de problemas com a implantação de aplicativo Web, verifique se você tem permissões suficientes na assinatura mencionada para criar/implantar recursos.

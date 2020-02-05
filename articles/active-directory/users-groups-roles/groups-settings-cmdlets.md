@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7547608e227ca6b8d57bc1d4384ccdee181d9970
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b5d74c7c599f31694a68e7582a6447af8471508
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430860"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984953"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 
@@ -152,7 +152,7 @@ Aqui estão as configurações definidas no Group. Unified Settingstemplate. Sal
 |  <ul><li>EnableGroupCreation<li>Tipo: booliano<li>Padrão: true |O sinalizador que indica se a criação do grupo do Office 365 é permitida no diretório por usuários não administradores. Essa configuração não requer uma licença Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Tipo: Cadeia<li>Padrão: "" |GUID do grupo de segurança para o qual os membros têm permissão para criar grupos do Office 365 mesmo quando EnableGroupCreation = = false. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: Cadeia<li>Padrão: "" |Um link para as diretrizes de uso do grupo. |
-|  <ul><li>ClassificationDescriptions<li>Tipo: Cadeia<li>Padrão: "" | Uma lista delimitada por vírgulas de descrições de classificação. O valor de ClassificationDescriptions é válido somente neste formato:<br>$setting ["ClassificationDescriptions"] = "classificação: descrição, classificação: Descrição"<br>em que a classificação corresponde às cadeias de caracteres na classificação.<br>Essa configuração não se aplica quando EnableMIPLabels = = true.|
+|  <ul><li>ClassificationDescriptions<li>Tipo: Cadeia<li>Padrão: "" | Uma lista delimitada por vírgulas de descrições de classificação. O valor de ClassificationDescriptions é válido somente neste formato:<br>$setting["Descrições de classificações"] ="Classificação:Descrição,Classificação:Descrição".<br>em que a classificação corresponde às cadeias de caracteres na classificação.<br>Essa configuração não se aplica quando EnableMIPLabels = = true.|
 |  <ul><li>Defaultclassização<li>Tipo: Cadeia<li>Padrão: "" | A classificação a ser usada como a classificação padrão para um grupo se nenhuma tiver sido especificada.<br>Essa configuração não se aplica quando EnableMIPLabels = = true.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: Cadeia<li>Padrão: "" | Cadeia de caracteres de um comprimento máximo de 64 caracteres que define a Convenção de nomenclatura configurada para grupos do Office 365. Para obter mais informações, consulte [impor uma política de nomenclatura para grupos do Office 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Tipo: Cadeia<li>Padrão: "" | Cadeia de caracteres separada por vírgulas que os usuários não terão permissão para usar em nomes de grupo ou aliases. Para obter mais informações, consulte [impor uma política de nomenclatura para grupos do Office 365](groups-naming-policy.md). |
@@ -178,9 +178,9 @@ Aqui estão as configurações definidas no Group. Unified Settingstemplate. Sal
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Em seguida, atualize a configuração AllowAddGuests
+4. Em seguida, atualizar a definição de AllowToAddGuests
    ```powershell
-   $Setting["AllowAddGuests"] = $False
+   $Setting["AllowToAddGuests"] = $False
    ```  
 5. Em seguida, aplique a configuração:
   
@@ -234,7 +234,7 @@ Essas etapas lêem as configurações no nível do diretório, que se aplicam a 
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowAddGuests              True
+   AllowToAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -271,7 +271,7 @@ Essa etapa remove as configurações no nível do diretório, que se aplicam a t
 
 4. Defina a configuração para o valor necessário:
    ```powershell
-   $SettingCopy["AllowAddGuests"]=$False
+   $SettingCopy["AllowToAddGuests"]=$False
    ```
 5. Obtenha a ID do grupo ao qual você deseja aplicar essa configuração:
    ```powershell
@@ -297,7 +297,7 @@ Essa etapa remove as configurações no nível do diretório, que se aplicam a t
    ```
 3. Atualize a configuração do grupo conforme necessário, por exemplo,
    ```powershell
-   $Setting["AllowAddGuests"] = $True
+   $Setting["AllowToAddGuests"] = $True
    ```
 4. Em seguida, obtenha a ID da configuração para este grupo específico:
    ```powershell

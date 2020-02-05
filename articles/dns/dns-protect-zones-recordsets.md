@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: rohink
-ms.openlocfilehash: 64c71047c60482ff198dbba833d4d0a35c80c60d
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 549090f04f4969b00dc1c8ee8d5cc70a50523ca8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932423"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983831"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger registros e zonas DNS
 
@@ -205,7 +205,7 @@ O comando do PowerShell a seguir cria um bloqueio CanNotDelete em relação ao r
 
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
-New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType "Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Outra maneira de evitar a exclusão acidental de zona é usar uma função personalizada para garantir que as contas de operador e de serviço usadas para gerenciar suas zonas não tenham permissões de exclusão de zona. Quando você precisa excluir uma zona, é possível impor uma exclusão em duas etapas, primeiro concedendo permissões de exclusão de zona (no escopo de zona, para evitar a exclusão da zona errada) e a segunda para excluir a zona.

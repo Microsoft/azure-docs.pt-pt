@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: c2d6e3e42c581c255f207af4a5008e2d09c50a7d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 1a413ce55604ef8b5c3219e8de466fcc23d41bac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887126"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990946"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP
 
@@ -78,7 +78,7 @@ Leia as seguintes notas e documentos SAP primeiro:
 * A nota SAP [2243692][2243692] tem informações sobre o licenciamento SAP no Linux no Azure.
 * A nota SAP [1984787][1984787] tem informações gerais sobre o SuSE Linux Enterprise Server 12.
 * A nota SAP [1999351][1999351] tem informações adicionais para solução de problemas para a extensão de monitoramento avançado do Azure para SAP.
-* SAP Community WIKI] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas SAP necessárias para o Linux.
+* SAP Community WIKI.(https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) exigiu todas as notas SAP para linux.
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
@@ -224,7 +224,7 @@ As instruções nesta seção só serão aplicáveis se você estiver usando Azu
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** verificar `nfs4_disable_idmapping`. Ele deve ser definido como **Y**. Para criar a estrutura de diretório onde `nfs4_disable_idmapping` está localizado, execute o comando Mount. Você não poderá criar o diretório manualmente em/sys/modules, pois o acesso é reservado para o kernel/drivers.  
+4. **[A]** Verificar `nfs4_disable_idmapping`. Deve ser definido para **Y.** Para criar a estrutura do diretório onde está localizada `nfs4_disable_idmapping`, execute o comando do suporte. Você não poderá criar o diretório manualmente em/sys/modules, pois o acesso é reservado para o kernel/drivers.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -253,7 +253,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
          1. Insira o nome do novo pool de IPS de front-end (por exemplo, **frontend. QAS. ASCS**)
          1. Defina a atribuição como estática e insira o endereço IP (por exemplo **10.1.1.20**)
-         1. Clique em OK
+         1. Clique OK
       1. Endereço IP 10.1.1.21 para ASCS ERS
          * Repita as etapas acima em "a" para criar um endereço IP para o ERS (por exemplo, **10.1.1.21** e **frontend. QAS. ERS**)
    1. Criar os pools de back-end
@@ -269,7 +269,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Abra o balanceador de carga, selecione investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **integridade. QAS. ASCS**)
          1. Selecione TCP como protocolo, porta 620**00**, manter intervalo 5 e limite não íntegro 2
-         1. Clique em OK
+         1. Clique OK
       1. Porta 621**01** para ASCS ers
             * Repita as etapas acima em "c" para criar uma investigação de integridade para o ERS (por exemplo, 621**01** e a **integridade. QAS. ERS**)
    1. Regras de balanceamento de carga
@@ -280,7 +280,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Selecionar **portas de alta disponibilidade**
          1. Aumentar o tempo limite de ociosidade para 30 minutos
          1. **Certifique-se de habilitar o IP flutuante**
-         1. Clique em OK
+         1. Clique OK
          * Repita as etapas acima para criar regras de balanceamento de carga para ERS (por exemplo, **lb. QAS. ERS**)
 1. Como alternativa, se seu cenário exigir o Load Balancer básico (interno), siga estas etapas:  
    1. Criar os endereços IP de front-end
@@ -288,7 +288,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
          1. Insira o nome do novo pool de IPS de front-end (por exemplo, **frontend. QAS. ASCS**)
          1. Defina a atribuição como estática e insira o endereço IP (por exemplo **10.1.1.20**)
-         1. Clique em OK
+         1. Clique OK
       1. Endereço IP 10.1.1.21 para ASCS ERS
          * Repita as etapas acima em "a" para criar um endereço IP para o ERS (por exemplo, **10.1.1.21** e **frontend. QAS. ERS**)
    1. Criar os pools de back-end
@@ -298,13 +298,13 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Clique em adicionar uma máquina virtual.
          1. Selecione o conjunto de disponibilidade que você criou anteriormente para ASCS 
          1. Selecione as máquinas virtuais do cluster (A) SCS
-         1. Clique em OK
+         1. Clique OK
    1. Criar as investigações de integridade
       1. Porta 620**00** para ASCS
          1. Abra o balanceador de carga, selecione investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **integridade. QAS. ASCS**)
          1. Selecione TCP como protocolo, porta 620**00**, manter intervalo 5 e limite não íntegro 2
-         1. Clique em OK
+         1. Clique OK
       1. Porta 621**01** para ASCS ers
             * Repita as etapas acima em "c" para criar uma investigação de integridade para o ERS (por exemplo, 621**01** e a **integridade. QAS. ERS**)
    1. Regras de balanceamento de carga
@@ -315,7 +315,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Mantenha o protocolo **TCP**, insira a porta **3200**
          1. Aumentar o tempo limite de ociosidade para 30 minutos
          1. **Certifique-se de habilitar o IP flutuante**
-         1. Clique em OK
+         1. Clique OK
       1. Portas adicionais para o ASCS
          * Repita as etapas acima em "d" para as portas**36 00**,**39 00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP para o ASCS
       1. Portas adicionais para o ASCS ERS
@@ -325,7 +325,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
       > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
       > [!IMPORTANT]
-      > Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+      > Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
 
@@ -335,15 +335,15 @@ Siga as etapas em [Configurando pacemaker em SuSE Linux Enterprise Server no Azu
 
 Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
 
-1. **[A]** instalar o conector SuSE
+1. **[A]** Instalar conector SUSE
 
    <pre><code>sudo zypper install sap-suse-cluster-connector
    </code></pre>
 
    > [!NOTE]
-   > Não use traços nos nomes de host dos nós de cluster. Caso contrário, o cluster não funcionará. Essa é uma limitação conhecida e o SUSE está trabalhando em uma correção. A correção será lançada como um patch do pacote SAP-SuSE-Cloud-Connector.
+   > O problema conhecido com a utilização de um traço nos nomes do anfitrião é fixado com a versão **3.1.1** do **conector de conjunto sap-suse-suse.** Certifique-se de que está a utilizar pelo menos a versão 3.1.1 do conector de aglomerado de seiva-suse,se utilizar nós de cluster com traço no nome do hospedeiro. Caso contrário, o cluster não funcionará. 
 
-   Certifique-se de que você instalou a nova versão do conector de cluster do SAP SUSE. O antigo era chamado de sap_suse_cluster_connector e o novo é chamado de **conector SAP-SuSE-cluster**.
+   Certifique-se de que você instalou a nova versão do conector de cluster do SAP SUSE. O antigo chamava-se sap_suse_cluster_connector e o novo **chama-se conector de aglomerado de sáb.**
 
    <pre><code>sudo zypper info sap-suse-cluster-connector
    
@@ -362,7 +362,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
     # Summary        : SUSE High Availability Setup for SAP Products
    </code></pre>
 
-2. **[A]** atualizar agentes de recursos SAP  
+2. **[A]** Atualizar agentes de recursos SAP  
    
    Um patch para o pacote de agentes de recursos é necessário para usar a nova configuração, que é descrita neste artigo. Você pode verificar se o patch já está instalado com o comando a seguir
 
@@ -374,7 +374,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    <pre><code>&lt;parameter name="IS_ERS" unique="0" required="0"&gt;
    </code></pre>
 
-   Se o comando grep não encontrar o parâmetro IS_ERS, você precisará instalar o patch listado na [página de download do SUSE](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
+   Se o comando grep não encontrar o parâmetro IS_ERS, tem de instalar o patch listado na página de [descarregamento sUSE](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
 
    <pre><code># example for patch for SLES 12 SP1
    sudo zypper in -t patch SUSE-SLE-HA-12-SP1-2017-885=1
@@ -405,7 +405,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 ## <a name="prepare-for-sap-netweaver-installation"></a>Preparar para a instalação do SAP NetWeaver
 
-1. **[A]** criar os diretórios compartilhados
+1. **[A]** Criar os diretórios partilhados
 
    <pre><code>sudo mkdir -p /sapmnt/<b>QAS</b>
    sudo mkdir -p /usr/sap/trans
@@ -420,7 +420,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo chattr +i /usr/sap/<b>QAS</b>/ERS<b>01</b>
    </code></pre>
 
-2. **[A]** configurar `autofs`
+2. **Configurar** `autofs`
 
    <pre><code>
    sudo vi /etc/auto.master
@@ -457,7 +457,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
       sudo service autofs restart
      </code></pre>
 
-3. **[A]** configurar arquivo de permuta
+3. **[A]** Arquivo SWAP configurar
 
    <pre><code>sudo vi /etc/waagent.conf
    
@@ -478,7 +478,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 ### <a name="installing-sap-netweaver-ascsers"></a>Instalando o SAP NetWeaver ASCS/ERS
 
-1. **[1]** criar um recurso de IP virtual e uma investigação de integridade para a instância de ASCS
+1. **[1]** Criar um recurso IP virtual e uma sonda de saúde para a instância ASCS
 
    > [!IMPORTANT]
    > Testes recentes revelaram situações em que o netcat para de responder às solicitações devido à pendência e sua limitação de manipular apenas uma conexão. O recurso netcat para de escutar as solicitações do Azure Load Balancer e o IP flutuante fica indisponível.  
@@ -525,11 +525,11 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
   
-2. **[1]** instalar o ASCS do SAP NetWeaver  
+2. **[1]** Instalar asCS SAP NetWeaver  
 
    Instale o ASCS do SAP NetWeaver como raiz no primeiro nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ASCS, por exemplo, <b>anftstsapvh</b>, <b>10.1.1.20</b> e o número da instância que você usou para a investigação do balanceador de carga, por exemplo <b>00</b>.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst. Você pode usar o parâmetro SAPINST_USE_HOSTNAME para instalar o SAP, usando o nome de host virtual.
+   Pode utilizar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador sem raízes se coneca ao sapinst. Pode utilizar SAPINST_USE_HOSTNAME de parâmetros para instalar o SAP, utilizando o nome de anfitrião virtual.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
@@ -541,7 +541,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    chgrp sapsys /usr/sap/<b>QAS</b>/ASCS<b>00</b>
    </code></pre>
 
-3. **[1]** criar um recurso de IP virtual e uma investigação de integridade para a instância de ers
+3. **[1]** Criar um recurso IP virtual e uma sonda de saúde para a instância DA
 
    <pre><code>
    sudo crm node online <b>anftstsapcl2</b>
@@ -592,11 +592,11 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    #      vip_QAS_ERS  (ocf::heartbeat:IPaddr2):     <b>Started anftstsapcl2</b>
    </code></pre>
 
-4. **[2]** instalar o ers do SAP NetWeaver
+4. **[2]** Instalar SAP NetWeaver ERS
 
    Instale o ERS do SAP NetWeaver como raiz no segundo nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ERS, por exemplo, <b>anftstsapers</b>, <b>10.1.1.21</b> e o número da instância que você usou para a investigação do balanceador de carga, por exemplo <b>01</b>.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst. Você pode usar o parâmetro SAPINST_USE_HOSTNAME para instalar o SAP, usando o nome de host virtual.
+   Pode utilizar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador sem raízes se coneca ao sapinst. Pode utilizar SAPINST_USE_HOSTNAME de parâmetros para instalar o SAP, utilizando o nome de anfitrião virtual.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
@@ -612,7 +612,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    </code></pre>
 
 
-5. **[1]** adaptar os perfis de instância ASCS/SCS e ers
+5. **[1]** Adaptar os perfis de instância ASCS/SCS e ERS
  
    * Perfil do ASCS/SCS
 
@@ -648,25 +648,25 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    # Autostart = 1
    </code></pre>
 
-6. **[A]** configurar Keep Alive
+6. **[A]** Configure Manter Vivo
 
    A comunicação entre o servidor de aplicativos SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as configurações do sistema Linux. Leia a [Observação do SAP 1410736][1410736] para obter mais informações.
 
-   O parâmetro de perfil ASCS/SCS enfileirar/encni/set_so_keepalive já foi adicionado na última etapa.
+   O parâmetro de perfil ASCS/SCS enque/ncni/set_so_keepalive já foi adicionado no último passo.
 
    <pre><code>
    # Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    </code></pre>
 
-7. **[A]** configurar os usuários do SAP após a instalação
+7. **[A]** Configurar os utilizadores do SAP após a instalação
 
    <pre><code>
    # Add sidadm to the haclient group
    sudo usermod -aG haclient <b>qas</b>adm
    </code></pre>
 
-8. **[1]** adicionar os serviços SAP ASCS e ers ao arquivo `sapservice`
+8. **[1]** Adicione os serviços ASCS e ERS SAP ao ficheiro `sapservice`
 
    Adicione a entrada de serviço ASCS ao segundo nó e copie a entrada de serviço ERS para o primeiro nó.
 
@@ -675,7 +675,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo ssh <b>anftstsapcl2</b> "cat /usr/sap/sapservices" | grep ERS<b>01</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
-9. **[1]** criar os recursos de cluster do SAP
+9. **[1]** Criar os recursos de cluster SAP
 
 Se estiver usando a arquitetura do enqueue Server 1 (ENSA1), defina os recursos da seguinte maneira:
 
@@ -758,7 +758,7 @@ Alguns bancos de dados exigem que a instalação da instância do banco de dados
 
 As etapas abaixo pressupõem que você instale o servidor de aplicativos em um servidor diferente dos servidores ASCS/SCS e HANA. Caso contrário, algumas das etapas abaixo (como configurar a resolução de nome de host) não são necessárias.
 
-Os seguintes itens são prefixados com **[A]** -aplicável ao pas e ao AAS, **[P]** – aplicável somente ao pas ou **[S]** – aplicável somente ao AAS.
+Os seguintes itens são pré-fixados com **[A]** - aplicável tanto ao PAS como ao AAS, **[P]** - apenas aplicáveis ao PAS ou **[S]** - apenas aplicáveis à AAS.
 
 
 1. **[A]**  Configurar sistema operativo
@@ -793,7 +793,7 @@ Os seguintes itens são prefixados com **[A]** -aplicável ao pas e ao AAS, **[P
    <b>10.1.1.16 anftstsapa02</b>
    </code></pre>
 
-1. **[A]** criar o diretório sapmnt
+1. **[A]** Criar o diretório sapmnt
 
    <pre><code>
    sudo mkdir -p /sapmnt/<b>QAS</b>
@@ -803,21 +803,21 @@ Os seguintes itens são prefixados com **[A]** -aplicável ao pas e ao AAS, **[P
    sudo chattr +i /usr/sap/trans
    </code></pre>
 
-1. **[P]** criar o diretório do Pas
+1. **[P]** Criar o diretório PAS
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>02</b>
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>02</b>
    </code></pre>
 
-1. **[S]** criar o diretório AAS
+1. **[S]** Criar o diretório AAS
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>03</b>
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>03</b>
    </code></pre>
 
-1. **[P]** configurar `autofs` no Pas
+1. **[P]** Configurar `autofs` em PAS
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -852,7 +852,7 @@ Os seguintes itens são prefixados com **[A]** -aplicável ao pas e ao AAS, **[P
    sudo service autofs restart
    </code></pre>
 
-1. **[P]** configurar `autofs` no AAS
+1. **[P]** Configurar `autofs` na AAS
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -887,7 +887,7 @@ Os seguintes itens são prefixados com **[A]** -aplicável ao pas e ao AAS, **[P
    sudo service autofs restart
    </code></pre>
 
-1. **[A]** configurar arquivo de permuta
+1. **[A]** Arquivo SWAP configurar
 
    <pre><code>
    sudo vi /etc/waagent.conf
@@ -915,7 +915,7 @@ Neste exemplo, o SAP NetWeaver está instalado em SAP HANA. Você pode usar cada
 
    Instale a instância de banco de dados do SAP NetWeaver como raiz usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o banco de dados.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst.
+   Pode utilizar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador sem raízes se coneca ao sapinst.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
@@ -924,16 +924,16 @@ Neste exemplo, o SAP NetWeaver está instalado em SAP HANA. Você pode usar cada
 
 Siga estas etapas para instalar um servidor de aplicativos SAP.
 
-1. **[A]** preparar o servidor de aplicativos siga as etapas no capítulo [preparação do servidor de aplicativos do SAP NetWeaver](high-availability-guide-suse-netapp-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) acima para preparar o servidor de aplicativos.
+1. **[A]** Prepare o servidor de aplicações Siga os passos na preparação do servidor de [aplicações SAP NetWeaver](high-availability-guide-suse-netapp-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) acima para preparar o servidor de aplicações.
 
-2. **[A]** instalar o servidor de aplicativos SAP NetWeaver instale um servidor de aplicativos SAP NetWeaver primário ou adicional.
+2. **[A]** Instale o servidor de aplicações SAP NetWeaver Instale um servidor de aplicações SAP NetWeaver primário ou adicional.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst.
+   Pode utilizar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador sem raízes se coneca ao sapinst.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-3. **[A]** atualizar SAP Hana repositório seguro
+3. **[A]** Loja segura Update SAP HANA
 
    Atualize o SAP HANA repositório seguro para apontar para o nome virtual da configuração de replicação do sistema do SAP HANA.
 

@@ -1,6 +1,6 @@
 ---
-title: Usar modelos de aplicativos no Azure IoT Central | Microsoft Docs
-description: Como um operador, como usar conjuntos de dispositivos em seu aplicativo IoT Central do Azure.
+title: Utilize modelos de aplicação em Azure IoT Central [ Central De Azure IoT ] Microsoft Docs
+description: Como operador, como utilizar os conjuntos de dispositivos na sua aplicação Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/30/2019
@@ -8,67 +8,67 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: d682c49aa833b9e11dbbddc5e9f6afd52cbb6e84
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3cc6f82676f426240fba4cc4910246073aa9a556
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952878"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982465"
 ---
 # <a name="use-application-templates"></a>Utilizar modelos de aplicação
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-Este artigo descreve como, como um Gerenciador de soluções, criar e usar modelos de aplicativos.
+Este artigo descreve como, como gestor de soluções, criar e utilizar modelos de aplicação.
 
-Ao criar um aplicativo de IoT Central do Azure, você tem a opção de modelos de exemplo internos. Você também pode criar seus próprios modelos de aplicativos de aplicativos IoT Central existentes. Você pode usar seus próprios modelos de aplicativo ao criar novos aplicativos.
+Quando você cria uma aplicação Azure IoT Central, você tem uma escolha de modelos de amostra incorporados. Também pode criar os seus próprios modelos de aplicação a partir de aplicações IoT Central existentes. Em seguida, pode utilizar os seus próprios modelos de aplicação quando criar novas aplicações.
 
-Quando você cria um modelo de aplicativo, ele inclui os seguintes itens de seu aplicativo existente:
+Quando cria um modelo de aplicação, inclui os seguintes itens da sua aplicação existente:
 
-- O painel do aplicativo padrão, incluindo o layout do painel e todos os blocos que você definiu.
-- Modelos de dispositivo, incluindo medições, configurações, propriedades, comandos e painel.
-- Regras. Todas as definições de regra estão incluídas. No entanto, as ações, exceto as ações de email, não são incluídas.
-- Conjuntos de dispositivos, incluindo suas condições e painéis.
+- O painel de aplicações predefinido, incluindo o layout do painel de instrumentos e todos os azulejos que definiu.
+- Modelos de dispositivo, incluindo medições, configurações, propriedades, comandos e painel de instrumentos.
+- As regras. Todas as definições de regras estão incluídas. No entanto, as ações, exceto as ações de e-mail, não estão incluídas.
+- Conjuntos de dispositivos, incluindo as suas condições e tabliers.
 
 > [!WARNING]
-> Se um painel inclui blocos que exibem informações sobre dispositivos específicos, esses blocos mostram que **o recurso solicitado não foi encontrado** no novo aplicativo. Você deve reconfigurar esses blocos para exibir informações sobre dispositivos em seu novo aplicativo.
+> Se um dashboard inclui azulejos que exibem informações sobre dispositivos específicos, então esses azulejos mostram **que o recurso solicitado não foi encontrado** na nova aplicação. Tem de reconfigurar estes azulejos para exibir informações sobre dispositivos na sua nova aplicação.
 
-Quando você cria um modelo de aplicativo, ele não inclui os seguintes itens:
+Quando cria um modelo de aplicação, não inclui os seguintes itens:
 
 - Dispositivos
 - Utilizadores
-- Definições de trabalho
-- Definições de exportação de dados contínuas
+- Definições de emprego
+- Definições contínuas de exportação de dados
 
-Adicione esses itens manualmente a qualquer aplicativo criado a partir de um modelo de aplicativo.
+Adicione estes itens manualmente a quaisquer aplicações criadas a partir de um modelo de aplicação.
 
-## <a name="create-an-application-template"></a>Criar um modelo de aplicativo
+## <a name="create-an-application-template"></a>Criar um modelo de aplicação
 
-Para criar um modelo de aplicativo a partir de um aplicativo de IoT Central existente:
+Para criar um modelo de aplicação a partir de uma aplicação IoT central existente:
 
-1. Vá para a seção **Administração** em seu aplicativo.
-1. Selecione **Exportar modelo de aplicativo**.
-1. Na página **exportar do modelo de aplicativo** , insira um nome e uma descrição para o modelo.
-1. Selecione o botão **Exportar** para criar o modelo de aplicativo. Agora você pode copiar o **link compartilhável** que permite que alguém crie um novo aplicativo a partir do modelo:
+1. Vá à secção **de Administração** na sua candidatura.
+1. Selecione a exportação do modelo de **aplicação.**
+1. Na página de exportação do modelo de **aplicação,** introduza um nome e descrição para o seu modelo.
+1. Selecione o botão **Export** para criar o modelo de aplicação. Agora pode copiar o **Link Partilhável** que permite a alguém criar uma nova aplicação a partir do modelo:
 
-![Criar um modelo de aplicativo](media/howto-use-app-templates/create-template.png)
+![Criar um modelo de aplicação](media/howto-use-app-templates/create-template.png)
 
-## <a name="use-an-application-template"></a>Usar um modelo de aplicativo
+## <a name="use-an-application-template"></a>Use um modelo de aplicação
 
-Para usar um modelo de aplicativo para criar um novo aplicativo IoT Central, você precisa de um **link compartilhável**criado anteriormente. Cole o **link compartilhável** na barra de endereços do navegador. A página **criar um aplicativo** é exibida com o modelo de aplicativo personalizado selecionado:
+Para utilizar um modelo de aplicação para criar uma nova aplicação IoT Central, precisa de um **Link Partilhável**previamente criado. Colhe o **Link Compartilhável** na barra de endereços do seu navegador. A **Criação de uma** página de aplicação exibe com o seu modelo de aplicação personalizado selecionado:
 
-![Criar um aplicativo com base em um modelo](media/howto-use-app-templates/create-app.png)
+![Criar uma aplicação a partir de um modelo](media/howto-use-app-templates/create-app.png)
 
-Selecione seu plano de pagamento e preencha os outros campos no formulário. Em seguida, selecione **criar** para criar um novo aplicativo IOT central no modelo de aplicativo.
+Selecione o seu plano de preços e preencha os outros campos no formulário. Em seguida, selecione **Criar** para criar uma nova aplicação IoT Central a partir do modelo de aplicação.
 
-## <a name="manage-application-templates"></a>Gerenciar modelos de aplicativos
+## <a name="manage-application-templates"></a>Gerir modelos de aplicação
 
-Na página **exportar do modelo de aplicativo** , você pode excluir ou atualizar o modelo de aplicativo.
+Na página de exportação do modelo de **aplicação,** pode eliminar ou atualizar o modelo de aplicação.
 
-Se você excluir um modelo de aplicativo, não poderá mais usar o link compartilhável gerado anteriormente para criar novos aplicativos.
+Se eliminar um modelo de aplicação, já não pode utilizar o link partilhável anteriormente gerado para criar novas aplicações.
 
-Para atualizar o modelo de aplicativo, altere o nome ou a descrição do modelo na página **exportar do modelo de aplicativo** . Em seguida, selecione o botão **Exportar** novamente. Essa ação gera um novo **link compartilhável** e invalida qualquer URL de **link compartilhável** anterior.
+Para atualizar o seu modelo de aplicação, altere o nome do modelo ou descrição na página de exportação do modelo de **aplicação.** Em seguida, selecione novamente o botão **Export.** Esta ação gera um novo **link Partilhável** e invalida qualquer URL de **ligação partilhável** anterior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu a usar modelos de aplicativos, a próxima etapa sugerida é aprender a [gerenciar IOT central da portal do Azure](howto-manage-iot-central-from-portal.md)
+Agora que aprendeu a usar modelos de aplicação, o próximo passo sugerido é aprender a [gerir a IoT Central a partir do portal Azure](howto-manage-iot-central-from-portal.md)

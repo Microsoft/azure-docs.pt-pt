@@ -1,110 +1,110 @@
 ---
-title: UserJourneys | Documentos da Microsoft
-description: Especifique o elemento de UserJourneys de uma política personalizada no Azure Active Directory B2C.
+title: UserJourneys [ UserJourneys] Microsoft Docs
+description: Especifique o elemento UserJourneys de uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ec2d24c399e44bf973fc1ee78466dbee26f0394
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512036"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983185"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Jornadas utilizador especificar caminhos explícitos, por meio do qual uma diretiva permite que um aplicativo de parte confiável obter as declarações pretendidas para um utilizador. O utilizador é direcionado por meio destes caminhos para obter as afirmações que são apresentados à entidade confiadora. Em outras palavras, jornadas de usuário definem a lógica de negócios do que um utilizador final aborda como os processos de arquitetura de experiências de identidade do Azure AD B2C, o pedido.
+As viagens de utilizador especificam caminhos explícitos através dos quais uma política permite que uma aplicação de parte dependente obtenha as reclamações desejadas para um utilizador. O utilizador é levado por estes caminhos para recuperar as reclamações que devem ser apresentadas à parte que depende. Por outras palavras, as viagens de utilizador definem a lógica de negócio do que um utilizador final passa à medida que o Quadro de Experiência de Identidade Azure AD AD B2C processa o pedido.
 
-Estes jornadas de utilizador podem ser consideradas como modelos disponíveis para satisfazer a necessidade de núcleo das várias entidades confiadoras da Comunidade de interesse. Jornadas utilizador facilitam a definição a parte de terceiros entidade confiadora de uma política. Uma política pode definir vários jornadas de utilizador. Cada percurso do utilizador é uma seqüência de etapas da orquestração.
+Estas viagens de utilizador podem ser consideradas como modelos disponíveis para satisfazer a necessidade central das várias partes dependentes da comunidade de interesse. As viagens dos utilizadores facilitam a definição da parte que depende de uma política. Uma política pode definir várias viagens de utilizador. Cada viagem do utilizador é uma sequência de passos de orquestração.
 
-Para definir as Jornadas utilizador suportadas pela política, uma **UserJourneys** elemento é adicionado sob o elemento de nível superior do ficheiro de política. 
+Para definir as viagens de utilizador suportadas pela apólice, um elemento **UserJourneys** é adicionado sob o elemento de nível superior do ficheiro de política. 
 
-O **UserJourneys** elemento contém o seguinte elemento:
+O elemento **UserJourneys** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| UserJourney | 1:n | Um percurso do utilizador que define todas as construções necessárias para um fluxo de utilizador completo. | 
+| Jornada do Utilizador | 1: n | Uma viagem de utilizador que define todas as construções necessárias para um fluxo completo do utilizador. | 
 
-O **UserJourney** elemento contém o atributo seguinte:
+O elemento **UserJourney** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador de um percurso do utilizador que pode ser utilizado para fazer referência a ela partir de outros elementos na política. O **DefaultUserJourney** elemento da [da entidade confiadora política de terceiros](relyingparty.md) aponta para esse atributo. |
+| Id | Sim | Um identificador de uma viagem de utilizador que pode ser usado para referenciar a partir de outros elementos da política. O elemento **DefaultUserJourney** da [política do partido que depende](relyingparty.md) aponta para este atributo. |
 
-O **UserJourney** elemento contém os seguintes elementos:
-
-| Elemento | Ocorrências | Descrição |
-| ------- | ----------- | ----------- |
-| OrchestrationSteps | 1:n | Uma sequência de orquestração que deve ser seguida por meio de uma transação concluída com êxito. Cada percurso do utilizador consiste numa lista ordenada de etapas da orquestração que são executadas em seqüência. Se falhar qualquer passo, a transação falhar. |
-
-## <a name="orchestrationsteps"></a>OrchestrationSteps
-
-Um percurso do utilizador é representado como uma sequência de orquestração que deve ser seguida por meio de uma transação concluída com êxito. Se falhar qualquer passo, a transação falhar. Estes passos de orquestração referenciam os blocos de construção e os fornecedores de afirmações permitido no ficheiro de política. Qualquer passo de orquestração responsável para mostrar ou compor uma experiência de utilizador também tem uma referência para o identificador de definição de conteúdo correspondente.
-
-Etapas da orquestração podem ser executadas de forma condicional com base em pré-condições definidas no elemento de passo de orquestração. Por exemplo, pode verificar para realizar um passo de orquestração, apenas se existir um afirmações específicas, ou se uma afirmação é igual ou não com o valor especificado. 
-
-Para especificar a lista ordenada de passos de orquestração, um **OrchestrationSteps** elemento é adicionado como parte da política. Este elemento é necessário.
-
-O **OrchestrationSteps** elemento contém o seguinte elemento:
+O elemento **UserJourney** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| OrchestrationStep | 1:n | Um passo de orquestração ordenada. | 
+| OrquestraçõesSteps | 1: n | Uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. Cada viagem de utilizador consiste numa lista ordenada de passos de orquestração que são executados em sequência. Se algum passo falhar, a transação falha. |
 
-O **OrchestrationStep** elemento contém os seguintes atributos:
+## <a name="orchestrationsteps"></a>OrquestraçõesSteps
 
-| Atributo | Necessário | Descrição |
+Uma viagem de utilizador é representada como uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. Se algum passo falhar, a transação falha. Estes passos de orquestração referem tanto os blocos de construção como os fornecedores de sinistros permitidos no ficheiro político. Qualquer passo de orquestração responsável por mostrar ou renderizar uma experiência de utilizador também tem uma referência ao identificador de definição de conteúdo correspondente.
+
+Os passos de orquestração podem ser executados condicionalmente com base nas condições prévias definidas no elemento passo da orquestração. Por exemplo, só pode verificar se existe uma reclamação específica ou se existe uma reclamação igual ou não ao valor especificado. 
+
+Para especificar a lista ordenada de passos de orquestração, um elemento **OrquestraçãoSteps** é adicionado como parte da política. Este elemento é necessário.
+
+O elemento **OrchestrationSteps** contém o seguinte elemento:
+
+| Elemento | Ocorrências | Descrição |
+| ------- | ----------- | ----------- |
+| OrquestraçãoStep | 1: n | Um passo de orquestração ordenado. | 
+
+O elemento **OrchestrationStep** contém os seguintes atributos:
+
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| `Order` | Sim | A ordem dos passos de orquestração. | 
-| `Type` | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** -indica que o passo de orquestração apresenta vários fornecedores de afirmações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** -indica que o passo de orquestração apresenta um provedor social combinado página de inscrição de conta de início de sessão e locais.</li><li>**ClaimsExchange** -indica que o passo de orquestração troca de afirmações com um fornecedor de afirmações.</li><li>**SendClaims** -indica que o passo de orquestração envia as afirmações para a entidade confiadora com um token emitido por um emissor de afirmações.</li></ul> | 
-| ContentDefinitionReferenceId | Não | O identificador do [definição de conteúdo](contentdefinitions.md) associadas a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico de declaração própria. Mas, existem alguns casos quando precisa exibir alguma coisa sem um perfil técnico do Azure AD B2C. Existem dois exemplos - se o tipo de passo de orquestração é um dos seguintes procedimentos: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, tem de apresentar a seleção do fornecedor de identidade sem ter um perfil técnico do Azure AD B2C. | 
-| CpimIssuerTechnicalProfileReferenceId | Não | O tipo de passo de orquestração é `SendClaims`. Esta propriedade define o identificador do perfil técnico do fornecedor de afirmações que emite o token para a entidade confiadora.  Se estiver ausente, não é criado nenhum token da entidade confiadora de terceiros. |
+| `Order` | Sim | A ordem dos passos da orquestração. | 
+| `Type` | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** - Indica que o passo da orquestração apresenta vários fornecedores de sinistros ao utilizador para selecionar um.</li><li>**CombinedSignInAndSignUp** - Indica que o passo da orquestração apresenta uma página combinada de inscrição de prestador social e de inscrição de conta local.</li><li>**ClaimsExchange** - Indica que o passo da orquestra troca reclamações com um prestador de sinistros.</li><li>**SendClaims** - Indica que o passo da orquestração envia as reivindicações para a parte que depende com um token emitido por um emitente de reclamações.</li></ul> | 
+| ContentDefinitionReferenceId | Não | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico autoafirmado. Mas, há alguns casos em que o Azure AD B2C precisa de mostrar algo sem perfil técnico. Existem dois exemplos - se o tipo de passo de orquestração é um dos seguintes: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, o Azure AD B2C precisa de mostrar a seleção do fornecedor de identidade sem ter um perfil técnico. | 
+| CpimIssuerTechnicalProfileReferenceId | Não | O tipo de passo de orquestração é `SendClaims`. Este imóvel define o identificador de perfil técnico do prestador de sinistros que emite o símbolo para a parte que depende.  Se ausente, não é criado nenhum símbolo do partido. |
 
 
-O **OrchestrationStep** elemento pode conter os seguintes elementos:
+O elemento **OrchestrationStep** pode conter os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- | 
-| Pré-condições | 0:n | Uma lista de pré-condições que devem ser satisfeitos para o passo de orquestração executar. | 
-| ClaimsProviderSelections | 0:n | Uma lista de seleções de fornecedor de afirmações para o passo de orquestração. | 
-| ClaimsExchanges | 0:n | Uma lista de trocas de afirmações para o passo de orquestração. | 
+| Condições prévias | 0: n | Uma lista de condições prévias que devem ser satisfeitas para que o passo de orquestração seja executado. | 
+| ClaimsProviderSelections | 0: n | Uma lista de seleções de fornecedores de sinistros para o passo da orquestração. | 
+| ReclamaçõesTroca | 0: n | Uma lista de reclamações trocam pelo passo da orquestração. | 
 
-### <a name="preconditions"></a>Pré-condições
+### <a name="preconditions"></a>Condições prévias
 
-O **pré-condições** elemento contém o seguinte elemento:
+O elemento **Preconditions** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- | 
-| Pré-condição | 0:n | Dependendo do perfil técnico a ser utilizado, um redireciona o cliente de acordo com a seleção do fornecedor de afirmações ou faz uma chamada de servidor para a troca de afirmações. | 
+| Pré-condição | 1: n | Dependendo do perfil técnico utilizado, ou redireciona o cliente de acordo com a seleção do fornecedor de sinistros ou faz uma chamada de servidor para trocar reclamações. | 
 
 
 #### <a name="precondition"></a>Pré-condição
 
-O **pré-condição** elemento contém os seguintes atributos:
+O elemento **Pré-condição** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| `Type` | Sim | O tipo de verificação ou a consulta para executar para esta pré-condição. O valor pode ser **ClaimsExist**, que especifica que as ações devem ser efetuadas se as afirmações especificadas existem no conjunto de afirmações atual do usuário, ou **ClaimEquals**, que especifica que as ações deve ser efetuada se a afirmação especificado existe e o valor é igual ao valor especificado. |
-| `ExecuteActionsIf` | Sim | Utilize um teste de VERDADEIRO ou FALSO para decidir se as ações na pré-condição devem ser efetuadas. | 
+| `Type` | Sim | O tipo de verificação ou consulta a realizar para esta condição prévia. O valor pode ser **ClaimsExist**, que especifica que as ações devem ser executadas se as reclamações especificadas existirem no conjunto de reclamações do utilizador, ou **ClaimEquals,** que especifica que as ações devem ser executadas se a reclamação especificada existir e o seu valor for igual ao valor especificado. |
+| `ExecuteActionsIf` | Sim | Utilize um teste verdadeiro ou falso para decidir se as ações no pré-estado devem ser executadas. | 
 
-O **pré-condição** elementos contém os seguintes elementos:
+Os elementos **de pré-condição** contêm os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Value | 1:n | Um ClaimTypeReferenceId para ser consultada para. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
-| Ação | 1:1 | A ação que deve ser efetuada se a verificação de pré-condição dentro de um passo de orquestração for verdadeira. Se o valor do `Action` está definido como `SkipThisOrchestrationStep`, associada `OrchestrationStep` não deve ser executado. | 
+| Valor | 1: n | Um ClaimTypeReferenceId a ser consultado. Outro elemento de valor contém o valor a verificar.</li></ul>|
+| Ação | 1:1 | A ação que deve ser executada se a verificação prévia dentro de um passo de orquestração for verdadeira. Se o valor da `Action` for fixado para `SkipThisOrchestrationStep`, o `OrchestrationStep` associado não deve ser executado. | 
 
-#### <a name="preconditions-examples"></a>Exemplos de pré-condições
+#### <a name="preconditions-examples"></a>Exemplos pré-condições
 
-As seguintes pré-condições verifica a existência de objectId do utilizador. No percurso do utilizador, o usuário tiver selecionado para iniciar sessão com a conta local. Se existir o objectId, ignore este passo de orquestração.
+As seguintes condições prévias verificam se o objectid do utilizador existe. Na viagem de utilizador, o utilizador selecionou para iniciar sessão através da conta local. Se o objectid existir, ignore este passo de orquestração.
 
 ```XML
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -121,7 +121,7 @@ As seguintes pré-condições verifica a existência de objectId do utilizador. 
 </OrchestrationStep>
 ```
 
-As seguintes pré-condições verifica se o utilizador tiver iniciado sessão com uma conta de redes sociais. É efetuada uma tentativa de encontrar a conta de utilizador no diretório. Se o utilizador inicia sessão ou iniciar sessão com uma conta local, ignore este passo de orquestração.
+As seguintes condições prévias verificase se o utilizador assinou com uma conta social. É feita uma tentativa de encontrar a conta de utilizador no diretório. Se o utilizador entrar ou se inscrever com uma conta local, ignore este passo de orquestração.
 
 ```XML
 <OrchestrationStep Order="3" Type="ClaimsExchange">
@@ -138,7 +138,7 @@ As seguintes pré-condições verifica se o utilizador tiver iniciado sessão co
 </OrchestrationStep>
 ```
 
-Pré-condições podem verificar as pré-condições vários. O exemplo a seguir verifica se "objectId" ou "email" existe. Se a primeira condição for verdadeira, ignora a jornada para o próximo passo de orquestração.
+As condições prévias podem verificar várias condições prévias. O exemplo que se segue verifica se existe 'objectId' ou 'email'. Se a primeira condição for verdadeira, a viagem salta para o próximo passo de orquestração.
 
 ```XML
 <OrchestrationStep Order="4" Type="ClaimsExchange">
@@ -160,24 +160,30 @@ Pré-condições podem verificar as pré-condições vários. O exemplo a seguir
 
 ## <a name="claimsproviderselection"></a>ClaimsProviderSelection
 
-Um passo de orquestração do tipo `ClaimsProviderSelection` ou `CombinedSignInAndSignUp` pode conter uma lista de fornecedores de afirmações que um utilizador pode iniciar sessão. A ordem dos elementos dentro do `ClaimsProviderSelections` elementos controla a ordem dos fornecedores de identidade apresentado ao usuário.
+Um passo de orquestração de tipo `ClaimsProviderSelection` ou `CombinedSignInAndSignUp` pode conter uma lista de fornecedores de sinistros com os quais um utilizador pode iniciar sessão. A ordem dos elementos no interior dos elementos `ClaimsProviderSelections` controla a ordem dos fornecedores de identidade apresentados ao utilizador.
 
-O **ClaimsProviderSelection** elemento contém o seguinte elemento:
+O elemento **ClaimsProviderSelections** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ClaimsProviderSelection | 0:n | Fornece a lista de fornecedores de afirmações que podem ser selecionadas.|
+| ClaimsProviderSelection | 1: n | Fornece a lista de fornecedores de sinistros que podem ser selecionados.|
 
-O **ClaimsProviderSelection** elemento contém os seguintes atributos: 
+O elemento **ClaimsProviderSelections** contém os seguintes atributos: 
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Não | O identificador da troca de afirmações, que é executada no próximo passo de orquestração da seleção do fornecedor de afirmações. Este atributo ou o atributo de ValidationClaimsExchangeId tem de ser especificado, mas não ambos. | 
-| ValidationClaimsExchangeId | Não | O identificador da troca de afirmações, que é executado o passo de orquestração atual para validar a seleção do fornecedor de afirmações. Este atributo ou o atributo de TargetClaimsExchangeId tem de ser especificado, mas não ambos. |
+| Opção de exibição| Não | Controla o comportamento de um caso em que está disponível uma única seleção de fornecedores de sinistros. Valores possíveis: `DoNotShowSingleProvider` (predefinido) , o utilizador é redirecionado imediatamente para o fornecedor de identidade federado. Ou `ShowSingleProvider` Azure AD B2C apresenta a página de entrada com a seleção de fornecedor de identidade única. Para utilizar este atributo, a versão de [definição](page-layout.md) de conteúdo deve ser `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` e acima.| 
 
-### <a name="claimsproviderselection-example"></a>Exemplo de ClaimsProviderSelection
+O elemento **ClaimsProviderSelection** contém os seguintes atributos: 
 
-O seguinte passo de orquestração, o utilizador pode optar por iniciar sessão com o Facebook, LinkedIn, Twitter, Google ou uma conta local. Se o usuário seleciona um dos fornecedores de identidade de redes sociais, o segundo passo de orquestração é executado com o exchange de afirmação selecionado especificado no `TargetClaimsExchangeId` atributo. O segundo passo de orquestração redirecionará o usuário para o fornecedor de identidade de redes sociais para concluir o processo de início de sessão. Se o utilizador optar por iniciar sessão com a conta local, o Azure AD B2C mantém-se no passo de orquestração mesmo (a mesma página de inscrição ou início de sessão da página) e ignora o segundo passo de orquestração.
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| TargetClaimsExchangeId | Não | O identificador da troca de sinistros, que é executada na próxima etapa de orquestração da seleção do prestador de sinistros. Este atributo ou o atributo ValidaçãoClaimsExchangeId deve ser especificado, mas não ambos. | 
+| ValidationClaimsExchangeId | Não | O identificador da troca de sinistros, que é executada na atual etapa de orquestração para validar a seleção do prestador de sinistros. Este atributo ou o atributo TargetClaimsExchangeId devem ser especificados, mas não ambos. |
+
+### <a name="claimsproviderselection-example"></a>Exemplo de Seleção ClaimsProvider
+
+No seguinte passo de orquestração, o utilizador pode optar por iniciar sessão com o Facebook, LinkedIn, Twitter, Google ou uma conta local. Se o utilizador selecionar um dos fornecedores de identidade social, o segundo passo de orquestração executa com a troca de reclamações selecionada especificada no atributo `TargetClaimsExchangeId`. O segundo passo de orquestração redireciona o utilizador para o fornecedor de identidade social para completar o processo de início de sessão. Se o utilizador optar por iniciar sessão com a conta local, o Azure AD B2C permanece no mesmo passo de orquestração (a mesma página de inscrição ou página de inscrição) e salta o segundo passo de orquestração.
 
 ```XML
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
@@ -212,17 +218,17 @@ O seguinte passo de orquestração, o utilizador pode optar por iniciar sessão 
 </OrchestrationStep>
 ```
 
-## <a name="claimsexchanges"></a>ClaimsExchanges
+## <a name="claimsexchanges"></a>ReclamaçõesTroca
 
-O **ClaimsExchanges** elemento contém o seguinte elemento:
+O elemento **Reclamações Exchanges** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ClaimsExchange | 0:n | Dependendo do perfil técnico a ser utilizado, um redireciona o cliente de acordo com o ClaimsProviderSelection que foi selecionado ou faz uma chamada de servidor para a troca de afirmações. | 
+| ClaimsExchange | 1: n | Dependendo do perfil técnico utilizado, ou redireciona o cliente de acordo com a Seleção Reclamada que foi selecionada, ou faz uma chamada de servidor para trocar reclamações. | 
 
-O **ClaimsExchange** elemento contém os seguintes atributos:
+O elemento **ClaimsExchange** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador do passo de exchange afirmações. O identificador é utilizado para a troca de afirmações entre uma seleção de fornecedor de afirmações passo na política de referência. | 
-| TechnicalProfileReferenceId | Sim | O identificador do perfil técnico que está a ser executado. |
+| Id | Sim | Um identificador da etapa de troca de reclamações. O identificador é utilizado para fazer referência à troca de sinistros a partir de um passo de seleção do fornecedor de sinistros na apólice. | 
+| TechnicalProfileReferenceId | Sim | O identificador do perfil técnico que deve ser executado. |

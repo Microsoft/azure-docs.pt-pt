@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2019
+ms.date: 02/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: caa7cbed7c56b63bcbf5ad8f287ab6cf32575c15
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7659c8187f7f4763b51b09362c94dad9554ed1c0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840303"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982845"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -126,6 +126,8 @@ O elemento **logon único** contém no seguinte atributo:
 | --------- | -------- | ----------- |
 | Âmbito | Sim | O escopo do comportamento de logon único. Valores possíveis: `Suppressed`, `Tenant`, `Application`ou `Policy`. O valor `Suppressed` indica que o comportamento é suprimido. Por exemplo, no caso de uma sessão de logon único, nenhuma sessão é mantida para o usuário e o usuário sempre será solicitado a fornecer uma seleção de provedor de identidade. O valor `TrustFramework` indica que o comportamento é aplicado a todas as políticas na estrutura de confiança. Por exemplo, um usuário navegando por duas viagens de política para uma estrutura de confiança não é solicitado para uma seleção de provedor de identidade. O valor `Tenant` indica que o comportamento é aplicado a todas as políticas no locatário. Por exemplo, um usuário navegando por duas viagens de política para um locatário não é solicitado para uma seleção de provedor de identidade. O valor `Application` indica que o comportamento é aplicado a todas as políticas para o aplicativo que faz a solicitação. Por exemplo, um usuário navegando por duas viagens de política para um aplicativo não é solicitado para uma seleção de provedor de identidade. O valor `Policy` indica que o comportamento se aplica somente a uma política. Por exemplo, um usuário navegando por duas viagens de política para uma estrutura confiável é solicitado a fornecer uma seleção de provedor de identidade ao alternar entre as políticas. |
 | KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. Definir o valor como 0 desativa a funcionalidade KMSI. Para obter mais informações, consulte [Mantenha-me conectado](custom-policy-keep-me-signed-in.md). |
+|EnforceIdTokenHintOnLogout| Não|  Forçar a passar um token de identificação previamente emitido para o ponto final de início de sessão como uma dica sobre a atual sessão autenticada do utilizador final com o cliente. Valores possíveis: `false` (predefinido) ou `true`. Para mais informações, consulte o acesso à Web com o [OpenID Connect](openid-connect.md).  |
+
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -176,12 +178,12 @@ O **TechnicalProfile** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | A cadeia de caracteres que contém o nome do perfil técnico que é exibido aos usuários. |
-| Descrição | 0:1 | A cadeia de caracteres que contém a descrição do perfil técnico exibido aos usuários. |
+| DisplayName | 1:1 | A corda que contém o nome do perfil técnico. |
+| Descrição | 0:1 | A corda que contém a descrição do perfil técnico. |
 | Protocolo | 1:1 | O protocolo usado para a Federação. |
 | Metadados | 0:1 | A coleção de *itens* de pares chave/valor utilizados pelo protocolo para se comunicar com o ponto de extremidade no decorrer de uma transação para configurar a interação entre a terceira parte confiável e outros participantes da Comunidade. |
-| OutputClaims | 0:1 | Uma lista de tipos de declaração que são usados como saída no perfil técnico. Cada um desses elementos contém referência a um **ClaimType** já definido na seção **ClaimsSchema** ou em uma política da qual esse arquivo de política herda. |
-| SubjectNamingInfo | 0:1 | O nome da entidade usada em tokens. |
+| OutputClaims | 1:1 | Uma lista de tipos de declaração que são usados como saída no perfil técnico. Cada um desses elementos contém referência a um **ClaimType** já definido na seção **ClaimsSchema** ou em uma política da qual esse arquivo de política herda. |
+| SubjectNamingInfo | 1:1 | O nome da entidade usada em tokens. |
 
 O elemento **Protocol** contém o seguinte atributo:
 

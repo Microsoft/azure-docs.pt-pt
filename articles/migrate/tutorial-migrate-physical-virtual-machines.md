@@ -1,27 +1,23 @@
 ---
-title: Migrar máquinas físicas locais ou máquinas virtualizadas para o Azure com migração de servidor de migrações para Azure | Microsoft Docs
-description: Este artigo descreve como migrar máquinas físicas locais ou máquinas virtualizadas para o Azure com a migração de servidor de migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Migrar máquinas como servidor físico para Azure com O Migração Azure.
+description: Este artigo descreve como migrar máquinas físicas para Azure com Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.author: raynew
+ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 4a6e33770f93c365d5ccd034803c7c7f247d528a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6cdd107cb761aab3a85b73067fd646a36fe97d63
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028800"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989761"
 ---
-# <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrar servidores físicos ou virtualizados para o Azure 
+# <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar máquinas como servidores físicos para O Azure
 
-Este artigo mostra como migrar servidores físicos ou virtualizados para o Azure. A ferramenta de migração de servidor de migrações para Azure oferece migração de servidores físicos e virtualizados, usando a replicação baseada em agente. Usando essa ferramenta, você pode migrar uma ampla variedade de máquinas para o Azure:
+Este artigo mostra-lhe como migrar máquinas como servidores físicos para o Azure, utilizando a ferramenta Migração De Migração De Migração De Migração De Migração De Migração De Migração De Migração De Migração De Migração De Migração De Migração De Migração De Migração De Migração de Emigrantes Azure.Server. As máquinas migratórias, tratando-as como servidores físicos, são úteis em vários cenários:
 
 - Migrar servidores físicos locais.
 - Migre VMs virtualizadas por plataformas como Xen, KVM.
-- Migre VMs Hyper-V ou VMware. Isso é útil se, por alguma razão, você não conseguir usar o fluxo de migração padrão que migrar para o servidor de migração do Azure oferece para [Hyper-V](tutorial-migrate-hyper-v.md), migração [sem agente do VMware](tutorial-migrate-vmware.md) ou migração [baseada em agente do VMware](tutorial-migrate-vmware-agent.md) .
+- Migrar VMs Hyper-V ou VMware, se por alguma razão você não puder usar o processo de migração padrão para a migração [hyper-V](tutorial-migrate-hyper-v.md)ou [VMware.](server-migrate-overview.md)
 - Migre VMs em execução em nuvens privadas.
 - Migre VMs em execução em nuvens públicas, como Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
 
@@ -175,7 +171,7 @@ A primeira etapa da migração é configurar o dispositivo de replicação. Voc�
 
 ### <a name="download-the-replication-appliance-installer"></a>Baixar o instalador do dispositivo de replicação
 
-1. No projeto de migrações para Azure > **servidores**, em ***migrações para Azure: migração de servidor**, clique em **descobrir**.
+1. No projeto de migrações para Azure > **servidores**, em **migrações para Azure: migração de servidor**, clique em **descobrir**.
 
     ![Detetar VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -205,10 +201,10 @@ Pode levar até 15 minutos após a finalização do registro até que os computa
 
 ## <a name="install-the-mobility-service"></a>Instalar o serviço de Mobilidade
 
-Em computadores que você deseja migrar, você precisa instalar o agente do serviço de mobilidade. Os instaladores de agente estão disponíveis no dispositivo de replicação. Você encontra o instalador correto e instala o agente em cada computador que deseja migrar. Proceda da seguinte forma:
+Em computadores que você deseja migrar, você precisa instalar o agente do serviço de mobilidade. Os instaladores de agente estão disponíveis no dispositivo de replicação. Você encontra o instalador correto e instala o agente em cada computador que deseja migrar. Faça isto da seguinte forma:
 
 1. Entre no dispositivo de replicação.
-2. Navegue até **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
+2. Navegue para **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repositório**.
 3. Localize o instalador para a versão e o sistema operacional do computador. Examine os [sistemas operacionais com suporte](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines). 
 4. Copie o arquivo do instalador para o computador que você deseja migrar.
 5. Certifique-se de que você tenha a frase secreta que foi gerada quando você implantou o dispositivo.
@@ -266,8 +262,7 @@ Agora, selecione computadores para migração.
 
 2. No **replicate**, > **configurações de origem** > **seus computadores são virtualizados?** , selecione **não virtualizados/outros**.
 3. Em **dispositivo local**, selecione o nome do dispositivo de migrações para Azure que você configurou.
-4. No **vCenter Server**, especifique o nome do servidor vCenter que gerencia as VMs ou o servidor vSphere no qual as VMs estão hospedadas.
-5. Em **servidor de processo**, selecione o nome do dispositivo de replicação.
+4. Em **servidor de processo**, selecione o nome do dispositivo de replicação.
 6. Em **credenciais de convidado**, você especifica uma conta de administrador de VM que será usada para a instalação por push do serviço de mobilidade. Neste tutorial, estamos instalando o serviço de mobilidade manualmente, para que você possa adicionar qualquer conta fictícia. Em seguida, clique em **Avançar: máquinas virtuais**.
 
     ![Replicar VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
@@ -275,7 +270,7 @@ Agora, selecione computadores para migração.
 7. Em **máquinas virtuais**, em **Importar configurações de migração de uma avaliação?** , deixe a configuração padrão **não, vou especificar as configurações de migração manualmente**.
 8. Verifique cada VM que você deseja migrar. Em seguida, clique em **Avançar: configurações de destino**.
 
-    ![Selecionar VMs](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
+    ![Selecione VMs](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
 
 9. Em **Definições de destino**, selecione a subscrição, assim como a região de destino para a qual vai migrar, e especifique o grupo de recursos no qual as VMs do Azure vão residir após a migração.

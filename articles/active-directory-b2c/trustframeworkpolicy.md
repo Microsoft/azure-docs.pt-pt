@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/31/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5737a53d3eca0da440f178f9fd34adf5e968dd62
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b49c873112358db4fec2992ef3d2d61161e8b373
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840184"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982420"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -45,7 +45,7 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 | TenantId | Sim | O identificador único do inquilino a que pertence esta apólice. |
 | `PolicyId` | Sim | O identificador único para a apólice. Este identificador deve ser pré-fixado *B2C_1A_* |
 | PublicPolicyUri | Sim | O URI para a apólice, que é a combinação da identificação do inquilino e da identificação política. |
-| DeploymentMode | Não | Valores possíveis: `Production`, `Debugging`ou `Development`. `Production` é a predefinição. Use esta propriedade para desinbugijá-lo. Para mais informações, consulte [Registos de Recolha](troubleshoot-with-application-insights.md). |
+| DeploymentMode | Não | Valores possíveis: `Production`, ou `Development`. `Production` é a predefinição. Use esta propriedade para desinbugijá-lo. Para mais informações, consulte [Registos de Recolha](troubleshoot-with-application-insights.md). |
 | UserJourneyRecorderEndpoint | Não | O ponto final utilizado quando o **Modo de Implantação** está programado para `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para mais informações, consulte [Registos de Recolha](troubleshoot-with-application-insights.md). |
 
 

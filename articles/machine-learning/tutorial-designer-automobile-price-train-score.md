@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/30/2020
-ms.openlocfilehash: c7a21bb3f086257b7f6a5edde5cbfdf835645a70
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934047"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982624"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: prever o preço do automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -135,11 +135,13 @@ Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Neste co
 
 1. Selecione o módulo **selecionar colunas no conjunto** de módulos.
 
-1. No módulo os detalhes espumem à direita da tela, selecione **Todas as colunas**.
+1. No módulo os detalhes painelem à direita da tela, selecione **coluna Editar**.
+
+1. Expanda os **nomes da Coluna** ao lado de **Incluir**, e selecione Todas **as colunas**.
 
 1. Selecione o **+** para adicionar uma nova regra.
 
-1. No menu suspenso, selecione **excluir** e **nomes de coluna**.
+1. A partir dos menus suspensos, selecione **excluir** e **colunas nomes**.
     
 1. Insira as *perdas normalizadas* na caixa de texto.
 

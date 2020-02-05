@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c832982a5525b0296155197d89684932cebaa95
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfbf54c19aef00cbda886a4531797cda7ef3a191
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418831"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986109"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Suporte ao módulo AZ na automação do Azure
 
@@ -18,7 +18,7 @@ A automação do Azure dá suporte à capacidade de usar o [módulo AZ do Azure 
 
 ## <a name="considerations"></a>Considerações
 
-Há muitas coisas a serem levadas em consideração ao usar o módulo AZ na automação do Azure. Runbooks e módulos podem ser usados por soluções de nível superior em sua conta de automação. Editar runbooks ou atualizar módulos pode potencialmente causar problemas com seus runbooks. Você deve testar todos os runbooks e soluções com cuidado em uma conta de automação separada antes de importar os novos módulos de `Az`. Qualquer modificação nos módulos pode negativamente a solução [iniciar/parar](automation-solution-vm-management.md) . É recomendável não alterar módulos e runbooks em contas de automação que contenham qualquer solução. Esse comportamento não é específico para os módulos AZ. Esse comportamento deve ser levado em consideração ao introduzir qualquer alteração em sua conta de automação.
+Há muitas coisas a serem levadas em consideração ao usar o módulo AZ na automação do Azure. Runbooks e módulos podem ser usados por soluções de nível superior em sua conta de automação. Editar runbooks ou atualizar módulos pode potencialmente causar problemas com seus runbooks. Você deve testar todos os runbooks e soluções com cuidado em uma conta de automação separada antes de importar os novos módulos de `Az`. Quaisquer modificações nos módulos podem afetar negativamente a solução [Iniciar/Parar.](automation-solution-vm-management.md) Não recomendamos alterar módulos e livros de execução em Contas de Automação que contenham quaisquer soluções. Esse comportamento não é específico para os módulos AZ. Esse comportamento deve ser levado em consideração ao introduzir qualquer alteração em sua conta de automação.
 
 Importar um módulo `Az` na sua conta de automação não importa automaticamente o módulo na sessão do PowerShell que os runbooks usam. Os módulos são importados para a sessão do PowerShell nas seguintes situações:
 
@@ -27,7 +27,7 @@ Importar um módulo `Az` na sua conta de automação não importa automaticament
 * Quando outro módulo, dependendo do módulo, é importado para uma sessão do PowerShell
 
 > [!IMPORTANT]
-> É importante verificar se os runbooks em uma conta de automação importam somente `Az` ou `AzureRM` módulos nas sessões do PowerShell usadas por runbooks e não ambos. Se `Az` for importado antes de `AzureRM` em um runbook, o runbook será concluído, mas um [erro de referência ao método de get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) será exibido nos fluxos de trabalho e os cmdlets podem não ter sido executados corretamente. Se você importar `AzureRM` e `Az` o runbook ainda será concluído, mas você verá um erro nos fluxos de trabalho declarando que ambos `Az` e `AzureRM` não podem ser importados na mesma sessão ou usados no mesmo runbook.
+> É importante verificar se os runbooks em uma conta de automação importam somente `Az` ou `AzureRM` módulos nas sessões do PowerShell usadas por runbooks e não ambos. Se `Az` for importada antes `AzureRM` num livro de execução, o livro de execução estará completo, mas um [erro que refira o método get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) mostrará nos fluxos de trabalho e os cmdlets podem não ter sido executados corretamente. Se você importar `AzureRM` e `Az` o runbook ainda será concluído, mas você verá um erro nos fluxos de trabalho declarando que ambos `Az` e `AzureRM` não podem ser importados na mesma sessão ou usados no mesmo runbook.
 
 ## <a name="migrating-to-az-modules"></a>Migrando para módulos AZ
 

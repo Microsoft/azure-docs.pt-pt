@@ -9,38 +9,38 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 83e8f6d684d6d39102fd682653cd19816a9f7b10
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911093"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988605"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de mosaico a um mapa
 
-Este artigo mostra como você pode sobrepor uma camada de bloco no mapa. As camadas de bloco permitem sobreimpor imagens na parte superior dos blocos de mapa base do Azure Maps. Mais informações sobre o sistema de divisão de mapas do Azure podem ser encontradas na documentação [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md) .
+Este artigo mostra-lhe como sobrepor uma camada de azulejos no mapa. As camadas de bloco permitem sobreimpor imagens na parte superior dos blocos de mapa base do Azure Maps. Para obter mais informações sobre o sistema de azulejos Azure Maps, consulte os níveis de [zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
 
-Uma camada de bloco é carregada em blocos de um servidor. Essas imagens podem ser previamente renderizadas e armazenadas como qualquer outra imagem em um servidor usando uma Convenção de nomenclatura que a camada de bloco entenda ou um serviço dinâmico que gera as imagens em tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) do Azure Maps: 
+Uma camada de bloco é carregada em blocos de um servidor. Estas imagens podem ser pré-renderizadas ou renderizadas dinamicamente. As imagens pré-renderizadas são armazenadas como qualquer outra imagem num servidor usando uma convenção de nomeação que a camada de azulejos entende. Imagens renderizadas dinamicamente usam um serviço para carregar as imagens perto do tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) do Azure Maps: 
 
-* X, Y, aplicar notação de zoom-com base no nível de zoom, x é a coluna e Y é a posição de linha do bloco na grade de blocos.
-* Notação de Quadkey – combinação x, y, informações de zoom em um único valor de cadeia de caracteres que é um identificador exclusivo para um bloco.
-* A caixa delimitadora – as coordenadas da caixa delimitadora podem ser usadas para especificar uma imagem no formato `{west},{south},{east},{north}` que é normalmente usado pelos [serviços de mapeamento da Web (WMS)](https://www.opengeospatial.org/standards/wms).
+* X, Y, Zoom notação - X é a coluna, Y é a posição da linha do azulejo na grelha de azulejos, e a notação zoom um valor baseado no nível de zoom.
+* Notação quadkey - Combina informações x, y e zoom num único valor de corda. Este valor de cadeia torna-se um identificador único para um único azulejo.
+* Caixa de delimitação - Especifique uma imagem no formato de coordenadas de delimitação: `{west},{south},{east},{north}`. Este formato é comumente utilizado pelos Serviços de [Mapeamento Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> Um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma ótima maneira de Visualizar grandes conjuntos de dados no mapa. Uma camada de bloco não só pode ser gerada a partir de uma imagem, mas os dados vetoriais também podem ser renderizados como uma camada de bloco. Ao renderizar dados de vetor como uma camada de bloco, o controle de mapa só precisa carregar os blocos que podem ser muito menores no tamanho do arquivo do que os dados de vetor que eles representam. Essa técnica é usada por muitos que precisam renderizar milhões de linhas de dados no mapa.
+> Um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma ótima maneira de Visualizar grandes conjuntos de dados no mapa. Não só uma camada de azulejo pode ser gerada a partir de uma imagem, como os dados vetoriais também podem ser renderizados como uma camada de azulejos também. Ao tornar os dados vetoriais como uma camada de azulejos, o controlo do mapa só precisa de carregar os azulejos que são menores no tamanho do ficheiro do que os dados vetoriais que representam. Esta técnica é comumente usada para renderizar milhões de linhas de dados no mapa.
 
-A URL do bloco passada para uma camada de bloco deve ser uma URL http/https para um recurso TileJSON ou um modelo de URL de bloco que usa os seguintes parâmetros: 
+O URL de azulejos passado para uma camada de azulejos deve ser um http ou um URL https para um recurso TileJSON ou um modelo de URL de azulejos que usa os seguintes parâmetros: 
 
 * posição `{x}`-X do bloco. Também precisa de `{y}` e `{z}`.
 * posição `{y}`-Y do bloco. Também precisa de `{x}` e `{z}`.
 * `{z}`-nível de zoom do bloco. Também precisa de `{x}` e `{y}`.
 * identificador de quadkey de bloco de `{quadkey}` com base na Convenção de nomenclatura do sistema de blocos do Bing Maps.
 * `{bbox-epsg-3857}`-uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
-* `{subdomain}`-um espaço reservado onde os valores de subdomínio se especificados serão adicionados.
+* `{subdomain}` - Um espaço reservado para os valores do subdomínio, se especificado o `subdomain` será adicionado.
 
 ## <a name="add-a-tile-layer"></a>Adicionar uma camada de mosaico
 
- Este exemplo mostra como criar uma camada de peça que aponta para um conjunto de blocos que usam o sistema de divisão x, y e zoom. A origem dessa camada de peça é uma sobreposição de radar do [Iowa ambiente Mesonet da Universidade de estado do Iowa](https://mesonet.agron.iastate.edu/ogc/). Ao exibir dados de radar, o ideal é que os usuários possam ver claramente os rótulos das cidades à medida que navegam no mapa, o que pode ser feito inserindo-se a camada de peça abaixo da camada de `labels`.
+ Esta amostra mostra como criar uma camada de azulejos que aponta para um conjunto de azulejos. Esta amostra utiliza o sistema de tiling x, y, zoom. A origem dessa camada de peça é uma sobreposição de radar do [Iowa ambiente Mesonet da Universidade de estado do Iowa](https://mesonet.agron.iastate.edu/ogc/). Ao visualizar dados de radar, idealmente os utilizadores veriam claramente os rótulos das cidades enquanto navegam no mapa. Este comportamento pode ser implementado inserindo a camada de azulejos abaixo da camada `labels`.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.

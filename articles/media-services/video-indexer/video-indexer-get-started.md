@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 01/13/2020
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 3a5ddf5bd4614b68e97e7616173a3e0640007530
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1f3d442ea7cf6d95427aaa9c072410119e2735af
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941548"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989812"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início rápido: como se inscrever e carregar seu primeiro vídeo
 
@@ -36,7 +36,7 @@ Para começar a criar com o Video Indexer, aceda ao site do [Video Indexer](http
 
 Consulte o artigo [formatos de contêiner/arquivo de entrada](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para obter uma lista de formatos de arquivo que você pode usar com Video indexer.
 
-### <a name="upload-a-video"></a>Carregar um vídeo
+### <a name="upload-a-video"></a>Faça upload de um vídeo
 
 1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/).
 2. Para carregar um vídeo, selecione o botão ou ligação **Upload** (Carregar)
@@ -49,15 +49,17 @@ Consulte o artigo [formatos de contêiner/arquivo de entrada](../latest/media-en
 
     Quando o Video Indexer concluir a análise, será apresentada uma notificação com uma ligação para o seu vídeo juntamente com uma breve descrição dos conteúdos encontrados no mesmo. Por exemplo: people (pessoas), topics (tópicos), OCRs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 Consulte [carregar e indexar vídeos](upload-index-videos.md) para obter mais detalhes.
 
 Depois de carregar e indexar um vídeo, você pode começar a usar [Video indexer](video-indexer-view-edit.md) site ou [Video indexer portal do desenvolvedor](video-indexer-use-apis.md) para ver as informações do vídeo. 
 
-## <a name="see-also"></a>Ver também
+[Comece a usar APIs](video-indexer-use-apis.md)
 
-[Descrição geral do Video Indexer](video-indexer-overview.md)
+## <a name="next-steps"></a>Passos seguintes
 
-[Começar a utilizar APIs](video-indexer-use-apis.md)
+Para uma introdução detalhada visite o nosso laboratório de [introdução.](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) 
+
+No final do workshop terá uma boa compreensão do tipo de informação que pode ser extraída a partir de conteúdos de vídeo e áudio, estará mais preparado para identificar oportunidades relacionadas com a inteligência de conteúdo, pitch video AI no Azure e demo vários cenários no Indexer de Vídeo.
 

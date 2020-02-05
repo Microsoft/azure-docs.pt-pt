@@ -1,152 +1,152 @@
 ---
-title: Níveis de compatibilidade Azure Stream Analytics
-description: Saiba como definir um nível de compatibilidade para um trabalho Azure Stream Analytics e alterações importantes no nível de compatibilidade mais recente
+title: Níveis de compatibilidade do Azure Stream Analytics
+description: Saiba como configurar um nível de compatibilidade para uma tarefa do Azure Stream Analytics e as principais alterações no nível de compatibilidade mais recentes
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 888c1f0bb38a5317cc27790ea47917c182d49593
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 02/03/2020
+ms.openlocfilehash: e1eb852b7cf7aea887dea429e19b0a3b1ac5805a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925630"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989863"
 ---
-# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos de Azure Stream Analytics
+# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para tarefas do Azure Stream Analytics
 
-Este artigo descreve a opção de nível de compatibilidade no Azure Stream Analytics. O Stream Analytics é um serviço gerenciado, com atualizações de recursos regulares e melhorias de desempenho. A maioria das atualizações de tempos de execução do serviço é disponibilizada automaticamente para os usuários finais. 
+Este artigo descreve a opção de nível de compatibilidade no Azure Stream Analytics. O Stream Analytics é um serviço gerido, com atualizações regulares de funcionalidades e melhorias de desempenho. A maioria das atualizações de tempos de execução do serviço são automaticamente disponibilizadas aos utilizadores finais. 
 
-No entanto, algumas novas funcionalidades do serviço podem introduzir uma alteração importante, como uma alteração no comportamento de um trabalho existente ou uma alteração na maneira como os dados são consumidos em trabalhos em execução. Você pode manter os trabalhos de Stream Analytics existentes em execução sem alterações importantes, deixando a configuração de nível de compatibilidade reduzida. Quando estiver pronto para os comportamentos de tempo de execução mais recentes, você poderá optar por gerar o nível de compatibilidade. 
+No entanto, algumas novas funcionalidades no serviço podem introduzir uma grande mudança, como uma mudança no comportamento de um emprego existente, ou uma mudança na forma como os dados são consumidos em postos de trabalho. Pode manter os seus empregos de Stream Analytics existentes em funcionamento sem grandes alterações, deixando a definição do nível de compatibilidade reduzida. Quando estiver pronto para os mais recentes comportamentos de tempo de execução, pode optar por entrar aumentando o nível de compatibilidade. 
 
-## <a name="choose-a-compatibility-level"></a>Escolher um nível de compatibilidade
+## <a name="choose-a-compatibility-level"></a>Escolha um nível de compatibilidade
 
-O nível de compatibilidade controla o comportamento de tempo de execução de um trabalho do Stream Analytics. 
+Nível de compatibilidade controla o comportamento de tempo de execução de uma tarefa do stream analytics. 
 
-O Azure Stream Analytics atualmente dá suporte a três níveis de compatibilidade:
+O Azure Stream Analytics suporta atualmente três níveis de compatibilidade:
 
-* 1,0-comportamento anterior
-* 1,1-comportamento padrão
-* 1,2 (versão prévia) – comportamento mais recente com melhorias mais recentes na avaliação
+* 1.0 - Comportamento anterior
+* 1.1 - Comportamento predefinido
+* 1.2 - Comportamento mais recente com as mais recentes melhorias
 
-O nível de compatibilidade 1,0 original foi introduzido durante a disponibilidade geral de Azure Stream Analytics há vários anos.
+O nível original de compatibilidade 1.0 foi introduzido durante a disponibilidade geral do Azure Stream Analytics há vários anos.
 
-Quando você cria um novo trabalho de Stream Analytics, é uma prática recomendada criá-lo usando o nível de compatibilidade mais recente. Inicie seu design de trabalho contando com os comportamentos mais recentes, para evitar alterações e complexidade adicionais posteriormente.
+Quando cria um novo trabalho no Stream Analytics, é uma boa prática criá-lo usando o mais recente nível de compatibilidade. Inicie o seu design de trabalho contando com os mais recentes comportamentos, para evitar mudanças adicionais e complexidade mais tarde.
 
 ## <a name="set-the-compatibility-level"></a>Definir o nível de compatibilidade
 
-Você pode definir o nível de compatibilidade para um trabalho de Stream Analytics no portal do Azure ou usando a [chamada de API REST de trabalho Create](/rest/api/streamanalytics/stream-analytics-job).
+Pode definir o nível de compatibilidade para um trabalho de Stream Analytics no portal Azure ou utilizando a [chamada de criação REST API](/rest/api/streamanalytics/stream-analytics-job).
 
-Para atualizar o nível de compatibilidade do trabalho no portal do Azure:
+Para atualizar o nível de compatibilidade do trabalho no portal Azure:
 
-1. Use o [portal do Azure](https://portal.azure.com) para localizar em seu trabalho de Stream Analytics.
-2. **Pare** o trabalho antes de atualizar o nível de compatibilidade. Você não poderá atualizar o nível de compatibilidade se seu trabalho estiver em um estado de execução.
-3. No cabeçalho **Configurar** , selecione **nível de compatibilidade**.
-4. Escolha o valor do nível de compatibilidade desejado.
-5. Selecione **salvar** na parte inferior da página.
+1. Utilize o [portal Azure](https://portal.azure.com) para localizar o seu trabalho em Stream Analytics.
+2. **Pare** o trabalho antes de atualizar o nível de compatibilidade. Não é possível atualizar o nível de compatibilidade, se o seu trabalho está num Estado em execução.
+3. Sob a rubrica **Configuração,** selecione **o nível**de compatibilidade .
+4. Escolha o valor de nível de compatibilidade que deseja.
+5. Selecione **Guardar** na parte inferior da página.
 
-![Nível de compatibilidade Stream Analytics no portal do Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Nível de compatibilidade do Stream Analytics no portal do Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
-Quando você atualiza o nível de compatibilidade, o compilador T-SQL valida o trabalho com a sintaxe que corresponde ao nível de compatibilidade selecionado.
+Ao atualizar o nível de compatibilidade, o compilador T valida o trabalho com a sintaxe que corresponde ao nível de compatibilidade selecionado.
 
-## <a name="compatibility-level-12-preview"></a>Nível de compatibilidade 1,2 (versão prévia)
+## <a name="compatibility-level-12"></a>Nível de compatibilidade 1.2
 
-As seguintes alterações principais são introduzidas no nível de compatibilidade 1,2:
+As seguintes grandes alterações são introduzidas no nível de compatibilidade 1.2:
 
 ### <a name="geospatial-functions"></a>Funções geoespaciais
 
-**Níveis anteriores:** Azure Stream Analytics os cálculos de Geografia usados.
+**Níveis anteriores:** O Azure Stream Analytics utilizou cálculos de geografia.
 
-**nível de 1,2:** Azure Stream Analytics permite computar coordenadas geográficas projetadas geométricas. Não há nenhuma alteração na assinatura das funções geoespaciais. No entanto, sua semântica é um pouco diferente, permitindo uma computação mais precisa do que antes.
+**1.2 nível:** O Azure Stream Analytics permite-lhe calcular geocoordenadas geométricas projetadas. Não há alteração na assinatura das funções geoespaciais. No entanto, a sua semântica é ligeiramente diferente, permitindo uma computação mais precisa do que antes.
 
-O Azure Stream Analytics dá suporte à indexação de dados de referência geoespacial. Os dados de referência contendo elementos geoespaciais podem ser indexados para uma computação de junção mais rápida.
+O Azure Stream Analytics suporta a indexação de dados de referência geoespacial. Os dados de referência que contêm elementos geoespaciais podem ser indexados para uma computação de adesão mais rápida.
 
-As funções geoespaciais atualizadas trazem a expressividade completa do formato geoespacial de texto bem conhecido (WKT). Você pode especificar outros componentes geoespaciais que anteriormente não eram compatíveis com o geojson.
+As funções geoespaciais atualizadas trazem toda a expressividade do formato geoespacial do Texto Bem Conhecido (WKT). Pode especificar outros componentes geoespaciais que não foram previamente suportados com GeoJson.
 
-Para obter mais informações, consulte [atualizações para recursos geoespaciais no Azure Stream Analytics – Cloud e IOT Edge](https://azure.microsoft.com/blog/updates-to-geospatial-functions-in-azure-stream-analytics-cloud-and-iot-edge/).
+Para mais informações, consulte [Atualizações para funcionalidades geoespaciais no Azure Stream Analytics – Cloud e IoT Edge](https://azure.microsoft.com/blog/updates-to-geospatial-functions-in-azure-stream-analytics-cloud-and-iot-edge/).
 
-### <a name="parallel-query-execution-for-input-sources-with-multiple-partitions"></a>Execução de consulta paralela para fontes de entrada com várias partições
+### <a name="parallel-query-execution-for-input-sources-with-multiple-partitions"></a>Execução de consulta paralela para fontes de entrada com múltiplas divisórias
 
-**Níveis anteriores:** Azure Stream Analytics consultas exigiam o uso da cláusula PARTITION BY para paralelizar o processamento de consulta nas partições de origem de entrada.
+**Níveis anteriores:** As consultas do Azure Stream Analytics exigiram a utilização da cláusula PARTITION BY para paralelor o processamento de consultas através das divisórias de origem de entrada.
 
-**nível de 1,2:** Se a lógica de consulta puder ser paralelizada entre as partições de origem de entrada, Azure Stream Analytics criar instâncias de consulta separadas e executar cálculos em paralelo.
+**1.2 nível:** Se a lógica da consulta pode ser paralela através de divisórias de origem de entrada, o Azure Stream Analytics cria instâncias de consulta separadas e executa computações em paralelo.
 
-### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Integração de API em massa nativa com saída de CosmosDB
+### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Integração nativa da API a granel com saída cosmosDB
 
-**Níveis anteriores:** O comportamento de Upsert foi *INSERT ou Merge*.
+**Níveis anteriores:** O comportamento mais forte foi *inserir ou fundir.*
 
-**nível de 1,2:** A integração de API em massa nativa com saída CosmosDB maximiza a taxa de transferência e manipula com eficiência as solicitações de limitação. Para obter mais informações, consulte [a página Azure Stream Analytics saída para Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
+**1.2 nível:** A integração nativa da API a granel com a saída cosmosDB maximiza a produção e lida eficientemente com pedidos de estrangulamento. Para mais informações, consulte [a saída do Azure Stream Analytics para a página DD Do Azure Cosmos.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12)
 
-O comportamento de Upsert é *Inserir ou substituir*.
+O comportamento de upsert é *inserir ou substituir*.
 
-### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset ao gravar na saída do SQL
+### <a name="datetimeoffset-when-writing-to-sql-output"></a>DataTimeOffset ao escrever para a saída SQL
 
-**Níveis anteriores: os** tipos de [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) foram ajustados para UTC.
+**Níveis anteriores:** Os tipos [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) foram ajustados à UTC.
 
-**nível de 1,2:** DateTimeOffset não está mais ajustado.
+**1.2 nível:** DateTimeOffset já não está ajustado.
 
-### <a name="long-when-writing-to-sql-output"></a>Longo ao gravar na saída do SQL
+### <a name="long-when-writing-to-sql-output"></a>Muito tempo ao escrever para a saída SQL
 
-**Níveis anteriores:** Os valores foram truncados com base no tipo de destino.
+**Níveis anteriores:** Os valores foram truncados com base no tipo alvo.
 
-**nível de 1,2:** Os valores que não se ajustam ao tipo de destino são tratados de acordo com a política de erro de saída.
+**1.2 nível:** Os valores que não se enquadram no tipo-alvo são tratados de acordo com a política de erro de saída.
 
-### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>Registro e serialização de matriz ao gravar na saída do SQL
+### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>Registar e matriz de serialização ao escrever para a saída SQL
 
-**Níveis anteriores:** Os registros foram gravados como "registro" e as matrizes foram escritas como "matriz".
+**Níveis anteriores:** Os discos foram escritos como "Record" e as matrizes foram escritas como "Array".
 
-**nível de 1,2:** Os registros e as matrizes são serializados no formato JSON.
+**1.2 nível:** Os registos e matrizes são serializados em formato JSON.
 
-### <a name="strict-validation-of-prefix-of-functions"></a>Validação estrita do prefixo das funções
+### <a name="strict-validation-of-prefix-of-functions"></a>Validação rigorosa do prefixo de funções
 
-**Níveis anteriores:** Não havia validação estrita dos prefixos de função.
+**Níveis anteriores:** Não houve validação rigorosa dos prefixos de função.
 
-**nível de 1,2:** Azure Stream Analytics tem uma validação estrita dos prefixos de função. A adição de um prefixo a uma função interna causa um erro. Por exemplo, não há suporte para`myprefix.ABS(…)`.
+**1.2 nível:** O Azure Stream Analytics tem uma validação rigorosa dos prefixos de função. Adicionar um prefixo a uma função incorporada causa um erro. Por exemplo,`myprefix.ABS(…)` não é apoiado.
 
-Adicionar um prefixo a agregações internas também resulta em erro. Por exemplo, não há suporte para `myprefix.SUM(…)`.
+Adicionar um prefixo aos agregados incorporados também resulta em erro. Por exemplo, `myprefix.SUM(…)` não é apoiado.
 
-O uso do prefixo "System" para qualquer função definida pelo usuário resulta em erro.
+A utilização do "sistema" prefixo para quaisquer funções definidas pelo utilizador resulta em erro.
 
-### <a name="disallow-array-and-object-as-key-properties-in-cosmos-db-output-adapter"></a>Não permitir matriz e objeto como propriedades de chave em Cosmos DB adaptador de saída
+### <a name="disallow-array-and-object-as-key-properties-in-cosmos-db-output-adapter"></a>Disallow Array e Objeto como propriedades-chave no adaptador de saída Cosmos DB
 
-**Níveis anteriores:** Os tipos de objeto e de matriz eram suportados como uma propriedade de chave.
+**Níveis anteriores:** Os tipos de matriz e objeto foram suportados como uma propriedade chave.
 
-**nível de 1,2:** Os tipos de objeto e de matriz não têm mais suporte como uma propriedade de chave.
+**1.2 nível:** Os tipos de matriz e objeto já não são suportados como uma propriedade chave.
 
-## <a name="compatibility-level-11"></a>Nível de compatibilidade 1,1
+## <a name="compatibility-level-11"></a>Compatibilidade nível 1.1
 
-As seguintes alterações principais são introduzidas no nível de compatibilidade 1,1:
+As seguintes alterações principais foram introduzidas no nível de compatibilidade 1.1:
 
-### <a name="service-bus-xml-format"></a>Formato XML do barramento de serviço
+### <a name="service-bus-xml-format"></a>Formato XML de ônibus de serviço
 
-**nível de 1,0:** Azure Stream Analytics o DataContractSerializer usado, portanto, o conteúdo da mensagem incluía marcas XML. Por exemplo:
+**Nível 1.0:** O Azure Stream Analytics utilizou dataContractSerializer, pelo que o conteúdo da mensagem incluía tags XML. Por exemplo:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**nível de 1,1:** O conteúdo da mensagem contém o fluxo diretamente sem marcas adicionais. Por exemplo: `{ "SensorId":"1", "Temperature":64}`
+**1.1 nível:** O conteúdo da mensagem contém o fluxo diretamente sem etiquetas adicionais. Por exemplo: `{ "SensorId":"1", "Temperature":64}`
 
-### <a name="persisting-case-sensitivity-for-field-names"></a>Persistência de maiúsculas e minúsculas para nomes de campo
+### <a name="persisting-case-sensitivity-for-field-names"></a>Sensibilidade de caso persistente para nomes de campo
 
-**nível de 1,0:** Os nomes de campo foram alterados para minúsculas quando processados pelo mecanismo de Azure Stream Analytics.
+**Nível 1.0:** Os nomes de campo foram alterados para minúsculas quando processados pelo motor Azure Stream Analytics.
 
-**nível 1,1:** a diferenciação de maiúsculas e minúsculas é persistida para nomes de campo quando eles são processados pelo mecanismo de Azure Stream Analytics.
+**Nível 1.1:** persiste a sensibilidade à caixa para os nomes de campo quando são processados pelo motor Azure Stream Analytics.
 
 > [!NOTE]
-> Manter a diferenciação de maiúsculas e minúsculas ainda não está disponível para trabalhos de análise de fluxo hospedados usando o ambiente de borda. Como resultado, todos os nomes de campo serão convertidos em minúsculas se o trabalho estiver hospedado no Edge.
+> Sensibilidade mantendo ainda não está disponível para tarefas de análise de Stream alojadas utilizando o ambiente do Edge. Como resultado, todos os nomes de campo são convertidos em minúsculas, se o seu trabalho está alojado no Edge.
 
-### <a name="floatnandeserializationdisabled"></a>FloatNaNDeserializationDisabled
+### <a name="floatnandeserializationdisabled"></a>FlutuanaNDeserializaçãoDeficiente
 
-**nível de 1,0:** CREATE TABLE comando não filtrou eventos com NaN (não é um número. Por exemplo, infinito,-Infinity) em um tipo de coluna FLOAT porque estão fora do intervalo documentado para esses números.
+**Nível 1.0:** O comando CREATE TABLE não filtrava eventos com NaN (Not-a-Number. Por exemplo, infinito, - Infinity) numa coluna de número de vírgula FLUTUANTE escreva por estarem fora do intervalo documentado para esses números.
 
-**nível de 1,1:** CREATE TABLE permite que você especifique um esquema forte. O mecanismo de Stream Analytics valida que os dados estão de acordo com esse esquema. Com esse modelo, o comando pode filtrar eventos com valores NaN.
+**1.1 nível:** Tabela CREATE permite especificar um esquema forte. O motor do Stream Analytics valida que os dados estão em conformidade com esse esquema. Com esse modelo, o comando pode filtrar eventos com valores de NaN.
 
-### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Desabilitar o upcast automático para cadeias de caracteres DateTime em JSON
+### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Desative o upcast automático para cordas de data em JSON
 
-**nível de 1,0:** O analisador JSON fazer automaticamente upcast de valores de cadeia de caracteres com informações de data/hora/zona para o tipo DateTime e, em seguida, converta-o em UTC. Esse comportamento resultou na perda das informações de fuso horário.
+**Nível 1.0:** O parser JSON aumentaria automaticamente os valores das cordas com informações de data/hora/zona para o tipo DateTime e, em seguida, convertê-lo-ia para UTC. Este comportamento resultou na perda da informação do fuso horário.
 
-**nível de 1,1:** Não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/zona para o tipo DateTime. Como resultado, as informações de fuso horário são mantidas.
+**1.1 nível:** Não existe mais automaticamente adifusão de valores de cordas com informações de data/hora/zona para o tipo DateTime. Como resultado, as informações de fuso horário são mantidas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Solucionar problemas Azure Stream Analytics entradas](stream-analytics-troubleshoot-input.md)
-* [Stream Analytics o Resource Health](stream-analytics-resource-health.md)
+* [Resolver problemas de entradas do Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
+* [Saúde de recursos stream analytics](stream-analytics-resource-health.md)

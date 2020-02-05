@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de VMs do Hype
 ms.topic: tutorial
 ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: 6140d9689dafe8a97ae77346ea2212846e964cdc
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1315b52e4ee6f39c27d21e3307d228219bc953d7
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028915"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984749"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs do Hyper-V para o Azure
 
@@ -39,10 +39,10 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Você precisa configurar permissões para a implantação de migrações para Azure.
 
-- Permissões para sua conta do Azure para criar um projeto de migrações para Azure.
-- Permissões para sua conta para registrar o dispositivo de migrações para Azure. O dispositivo é usado para descoberta e avaliação de VMs do Hyper-V que você migra. Durante o registro do dispositivo, as migrações para Azure criam dois aplicativos Azure Active Directory (Azure AD) que identificam exclusivamente o dispositivo:
-    - O primeiro aplicativo se comunica com os pontos de extremidade de serviço de migrações para Azure.
-    - O segundo aplicativo acessa uma Azure Key Vault que é criada durante o registro, para armazenar as informações de aplicativo do Azure AD e as configurações de dispositivo.
+**Tarefa** | **Permissões**
+--- | ---
+**Criar um projeto de migrações para Azure** | Sua conta do Azure precisa de permissões para criar um projeto.
+**Registrar o dispositivo de migrações para Azure** | A Azure Migrate utiliza um aparelho azure migratório leve para descobrir e avaliar os VMs Hiper-v com a Avaliação do Servidor Migratório Azure. Esse dispositivo descobre VMs e envia metadados de VM e dados de desempenho para migrações para Azure.<br/><br/>Durante o registo do aparelho, os seguintes Fornecedores de Registo saem registados com a subscrição escolhida no aparelho: Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Para registar os fornecedores de recursos, necessita de uma função de Colaborador ou Proprietário na subscrição.<br/><br/> Como parte do embarque, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD):<br/> A aplicação AAD é utilizada para comunicação (autenticação e autorização) entre os agentes que estão a trabalhar no aparelho com os respetivos serviços em funcionamento no Azure. Esta aplicação não tem privilégios para fazer chamadas ARM ou acesso RBAC em qualquer recurso.
 
 
 
@@ -59,15 +59,14 @@ Verifique se você tem permissões para criar um projeto de migrações para Azu
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Atribuir permissões para registrar o dispositivo
 
-Você pode atribuir permissões para migrações para Azure para criar os aplicativos do Azure AD criados durante o registro do dispositivo, usando um dos seguintes métodos:
+Pode atribuir permissões para a Azure Migrate criar a aplicação Azure AD durante o registo do aparelho, utilizando um dos seguintes métodos:
 
 - Um locatário/administrador global pode conceder permissões a usuários no locatário para criar e registrar aplicativos do Azure AD.
 - Um locatário/administrador global pode atribuir a função de desenvolvedor de aplicativo (que tem as permissões) à conta.
 
-Vale a pena observar que:
-
-- Os aplicativos não têm nenhuma outra permissão de acesso na assinatura diferente daquelas descritas acima.
-- Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo for configurado.
+> [!NOTE]
+> - A aplicação não tem quaisquer outras permissões de acesso na subscrição que não as descritas acima.
+> - Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo for configurado.
 
 
 #### <a name="grant-account-permissions"></a>Permissões de conta de concessão
@@ -109,8 +108,8 @@ O script faz o seguinte:
 - Verifica se você (o usuário que está executando o script) tem privilégios administrativos no host Hyper-V.
 - Permite que você crie uma conta de usuário local (não administrador) que o serviço migrações para Azure usa para se comunicar com o host Hyper-V. Essa conta de usuário é adicionada a esses grupos no host:
     - Utilizadores de Gestão Remota
-    - Administradores de Hyper-V
-    - Usuários do Monitor de Desempenho
+    - Administradores hiper-V
+    - Utilizadores do Monitor de Desempenho
 - Verifica se o host está executando uma versão com suporte do Hyper-V e a função do Hyper-V.
 - Habilita o serviço WinRM e abre as portas 5985 (HTTP) e 5986 (HTTPS) no host (necessário para a coleta de metadados).
 - Habilita a comunicação remota do PowerShell no host.
@@ -140,7 +139,7 @@ Execute o script da seguinte maneira:
 
 Os valores de hash são:
 
-| **Hash** | **Valor** |
+| **Estação Hash** | **Valor** |
 | --- | --- |
 | **MD5** | 0ef418f31915d01f896ac42a80dc414e |
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
@@ -166,8 +165,8 @@ As migrações para Azure precisam de permissões para descobrir VMs locais.
     - A conta pode ser uma conta local ou de domínio. Recomendamos que ele tenha permissões de administrador nos hosts ou clusters do Hyper-V.
     - Como alternativa, se você não quiser atribuir permissões de administrador, as seguintes permissões serão necessárias:
         - Utilizadores de Gestão Remota
-        - Administradores de Hyper-V
-        - Usuários do Monitor de Desempenho
+        - Administradores hiper-V
+        - Utilizadores do Monitor de Desempenho
 
 ### <a name="verify-hyper-v-host-settings"></a>Verificar as configurações do host Hyper-V
 

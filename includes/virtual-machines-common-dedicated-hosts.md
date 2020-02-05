@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 934a4fdf7cabb89c4b98c7800252cb24d4e23abf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833867"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013809"
 ---
 ## <a name="limitations"></a>Limitações
 
 - Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-- Há suporte para a série de VMs a seguir: DSv3 e ESv3. 
+- As seguintes séries VM são suportadas: DSv3, ESv3 e FSv2. 
 
 ## <a name="benefits"></a>Vantagens 
 
@@ -73,7 +73,7 @@ O modelo de exemplo do Resource Manager encontrado [aqui](https://github.com/Azu
 O **controle de manutenção** fornece aos clientes uma opção para ignorar atualizações de plataforma regulares agendadas em seus hosts dedicados e, em seguida, aplicá-las no momento de sua escolha dentro de uma janela sem interrupção de 35 dias.
 
 > [!NOTE]
->  O controle de manutenção está atualmente em um estágio de visualização limitado e requer um processo de integração. Inscreva-se para esta visualização enviando uma [pesquisa de nominação](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
+>  O controlo de manutenção está atualmente em pré-visualização pública. Para mais informações, consulte as atualizações de Controlo com controlo de **manutenção utilizando [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) ou [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)** .
 
 ## <a name="capacity-considerations"></a>Considerações sobre capacidade
 
@@ -107,7 +107,7 @@ Diferentes `types` para a mesma série de VMs serão de fornecedores de CPU dife
 
 Consulte a página de [preços](https://aka.ms/ADHPricing) do host para saber mais.
 
-Hosts dedicados dão suporte ao seguinte host SKU\types: DSv3_Type1 e ESv3_Type1
+Anfitriões dedicados apoiam os seguintes tipos de anfitriões SKU:: DSv3_Type1 e ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Ciclo de vida do host
@@ -115,7 +115,7 @@ Hosts dedicados dão suporte ao seguinte host SKU\types: DSv3_Type1 e ESv3_Type1
 
 O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes Estados serão retornados quando você consultar o host:
 
-| Estado de Funcionamento   | Descrição       |
+| Estado da Saúde   | Descrição       |
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 11/19/2019
-ms.openlocfilehash: 4f1fe1ea031cd7831ffb24ee4302d6834a8d9976
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/03/2019
+ms.openlocfilehash: 305af8e8acd7e7a54fae8c831d36bee0aad4ad6b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981889"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990985"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do SQL do Azure com chave gerenciada pelo cliente
 
@@ -124,7 +124,7 @@ Depois que o acesso à chave for restaurado, colocar o banco de dados online nov
 
 - Se o acesso à chave for restaurado dentro de 8 horas, o banco de dados será reparado automaticamente na próxima hora.
 
-- Se o acesso à chave for restaurado após mais de 8 horas, a reintegração automática não será possível e colocar o banco de dados novamente poderá levar um tempo significativo dependendo do tamanho do banco de dados e exigirá a abertura de um tíquete de suporte. Quando o banco de dados estiver online novamente, as configurações de nível de servidor definidas anteriormente, como configuração do [grupo de failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) , histórico de restauração pontual e marcas serão perdidas. Portanto, é recomendável implementar um sistema de notificação que permita que você identifique e resolva os problemas de acesso de chave subjacente dentro de 8 horas.
+- Se o acesso chave for restaurado após mais de 8 horas, a cicatrização automática não é possível e a recolocação da base de dados requer passos adicionais no portal e pode demorar um tempo significativo dependendo do tamanho da base de dados. Uma vez que a base de dados esteja novamente on-line, configurações de nível de servidor previamente configuradas, tais como configuração do [grupo failover,](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) histórico de restauração de pontono e etiquetas **serão perdidas**. Portanto, é recomendável implementar um sistema de notificação que permita que você identifique e resolva os problemas de acesso de chave subjacente dentro de 8 horas.
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Revogação de acesso de protetor de TDE acidental
 
