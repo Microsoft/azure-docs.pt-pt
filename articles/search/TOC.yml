@@ -345,8 +345,8 @@
       items:
         - name: Pesquisa 2019-05-06
           href: /rest/api/searchservice
-        - name: Repor Competências (api-version=2019-05-06-Preview)
-          href: preview-api-resetskills.md
+        - name: Pesquisa 2019-05-06-Preview
+          href: /rest/api/searchservice/index-2019-05-06-preview
         - name: Gestão 2015-08-15
           href: /rest/api/searchmanagement
         - name: Gestão 2019-10-01-Preview

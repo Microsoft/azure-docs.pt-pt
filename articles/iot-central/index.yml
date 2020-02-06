@@ -10,72 +10,72 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: f43c21d483bbb43bb270a7a70c4de6be1fb90f35
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: ab2843a4076e4700b584a1e09c0c58271cf61328
+  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73890750"
+  ms.lasthandoff: 02/05/2020
+  ms.locfileid: "77021258"
 highlightedContent:
   items:
   - title: O que é o IoT Central?
     itemType: overview
-    url: ./preview/overview-iot-central.md
+    url: ./core/overview-iot-central.md
   - title: O que são modelos de aplicação?
     itemType: concept
     url: ./core/concepts-app-templates.md
   - title: Arquitetura do Azure IoT Central
     itemType: architecture
-    url: ./preview/concepts-architecture.md
+    url: ./core/concepts-architecture.md
   - title: Criar uma nova aplicação
     itemType: quickstart
-    url: ./preview/quick-deploy-iot-central.md
+    url: ./core/quick-deploy-iot-central.md
   - title: Definir um tipo de dispositivo e adicionar um dispositivo
     itemType: tutorial
-    url: ./preview/howto-set-up-template.md
+    url: ./core/howto-set-up-template.md
   - title: Monitorizar os dispositivos
     itemType: tutorial
-    url: ./preview/tutorial-create-telemetry-rules.md
+    url: ./core/tutorial-create-telemetry-rules.md
 conceptualContent:
   items:
-  - title: Estar ligado (funcionalidades de pré-visualização)
+  - title: Estar ligado
     links:
-    - url: ./preview/howto-set-up-template.md
+    - url: ./core/howto-set-up-template.md
       itemType: how-to-guide
       text: Configurar um modelo de dispositivo
-    - url: ./preview/tutorial-connect-pnp-device.md
+    - url: ./core/tutorial-connect-pnp-device.md
       itemType: tutorial
-      text: Ligar um dispositivo IoT Plug and Play
+      text: Ligar um dispositivo Plug and Play IoT (pré-visualização)
     footerLink:
-      url: ./preview/index.yml
+      url: ./core/index.yml
       text: Ver mais
-  - title: Manter-se ligado (funcionalidades de pré-visualização)
+  - title: Manter-se ligado
     links:
-    - url: ./preview/tutorial-use-device-groups.md
+    - url: ./core/tutorial-use-device-groups.md
       itemType: how-to-guide
       text: Utilizar grupos de dispositivos
-    - url: ./preview/howto-manage-devices.md
+    - url: ./core/howto-manage-devices.md
       itemType: how-to-guide
       text: Faça a gestão dos seus dispositivos
     - url: ./core/howto-run-a-job.md
       itemType: concept
       text: Como executar uma tarefa
-    - url: ./preview/howto-create-analytics.md
+    - url: ./core/howto-create-analytics.md
       itemType: how-to-guide
       text: Analisar os dados do seu dispositivo
     footerLink:
-      url: ./preview/index.yml
+      url: ./core/index.yml
       text: Ver mais
-  - title: Transformar (funcionalidades de pré-visualização)
+  - title: Transformação
     links:
-    - url: ./preview/tutorial-create-telemetry-rules.md
+    - url: ./core/tutorial-create-telemetry-rules.md
       itemType: how-to-guide
       text: Criar uma regra de telemetria
-    - url: ./preview/howto-export-data.md
+    - url: ./core/howto-export-data.md
       itemType: how-to-guide
       text: Configurar exportação de dados contínua
     footerLink:
-      url: ./preview/index.yml
+      url: ./core/index.yml
       text: Ver mais
 productDirectory:
   title: Introdução à criação com modelos de aplicação do setor

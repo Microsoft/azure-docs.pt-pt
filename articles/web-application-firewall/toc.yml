@@ -44,6 +44,8 @@
           href: ./ag/application-gateway-waf-configuration.md
         - name: Descrição geral de Políticas do WAF
           href: ./ag/policy-overview.md
+        - name: Descrição geral da proteção de bots
+          href: ./ag/bot-protection-overview.md
     - name: Front Door
       items:
         - name: Regras personalizadas

@@ -40,6 +40,12 @@
       href: disable-private-link-service-network-policy.md
     - name: Gerir pontos finais privados
       href: manage-private-endpoint.md
+    - name: Resolução de problemas
+      items:
+        - name: Resolver problemas de conectividade do Ponto Final Privado
+          href: troubleshoot-private-endpoint-connectivity.md
+        - name: Resolver problemas de conectividade do Serviço Private Link
+          href: troubleshoot-private-link-connectivity.md
 - name: Referência
   items:
     - name: CLI do Azure

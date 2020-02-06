@@ -1,6 +1,6 @@
 ---
-title: Solução VMware no Azure da CloudSimple
-description: Portal da documentação da Solução VMware no Azure da CloudSimple.
+title: Azure VMware Solutions (AVS)
+description: Portal da documentação do Azure VMware Solutions (AVS).
 author: sharaths-cs
 ms.author: b-mashar
 ms.date: 08/20/2019
@@ -8,23 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 936a9eb4d9b33b45800fab213fc72a306a04146e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: d81ea6778f3ba31d72c34334b1439994b076647c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972746"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025219"
 ---
-# <a name="azure-vmware-solution-by-cloudsimple"></a>Solução VMware no Azure da CloudSimple
+# <a name="azure-vmware-solution-by-avs"></a>Azure VMware Solution by AVS
 
-Bem-vindo ao portal único onde pode obter ajuda para a Solução VMware no Azure da CloudSimple.
+Bem-vindo ao portal único onde pode obter ajuda para o Azure VMware Solution by AVS.
 No site da documentação, pode saber mais sobre os seguintes tópicos:
 
 ## <a name="overview"></a>Descrição geral
 
-Saiba mais sobre a Solução VMware no Azure da CloudSimple
+Saiba mais sobre o Azure VMware Solutions (AVS)
 
-* Saiba mais sobre os benefícios, funcionalidades e cenários de utilização em [O que é a Solução VMware no Azure da CloudSimple](cloudsimple-vmware-solutions-overview.md)
+* Saiba mais sobre os benefícios, funcionalidades e cenários de utilização em [O que é o Azure VMware Solution by AVS](cloudsimple-vmware-solutions-overview.md)
 * Consulte os [principais conceitos para administração](key-concepts.md)
 
 ## <a name="quickstart"></a>Início Rápido
@@ -32,17 +32,17 @@ Saiba mais sobre a Solução VMware no Azure da CloudSimple
 Saiba como começar a utilizar a solução
 
 * Compreenda como [inicializar o serviço e comprar capacidade](quickstart-create-cloudsimple-service.md)
-* Saiba como criar um novo ambiente VMware em [Configurar um Ambiente de Cloud Privada](quickstart-create-private-cloud.md)
+* Saiba como criar um novo ambiente VMware em [Configurar um Ambiente de Cloud Privada do AVS](quickstart-create-private-cloud.md)
 * Saiba como unificar a gestão no VMware e no Azure no artigo [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 
 ## <a name="concepts"></a>Conceitos
 
 Saiba mais sobre os seguintes conceitos
 
-* Um [Serviço da CloudSimple](cloudsimple-service.md) (também conhecido como "Solução VMware no Azure da CloudSimple - Serviço"). Este recurso tem de ser criado uma vez por região.
-* Compre capacidade para o seu ambiente ao criar um ou mais recursos do [Nó da CloudSimple](cloudsimple-node.md). Estes recursos também são conhecidos como "Solução VMware no Azure da CloudSimple - Nó".
-* Inicialize e configure o seu ambiente VMware com as [Cloud Privadas](cloudsimple-private-cloud.md).
-* Unifique a gestão com as [Máquinas Virtuais da CloudSimple](cloudsimple-virtual-machines.md) (também conhecidas como "Solução VMware no Azure da CloudSimple - Máquina virtual").
+* [Serviço AVS](cloudsimple-service.md) (também conhecido como "Azure VMware Solutions (AVS) - Serviço"). Este recurso tem de ser criado uma vez por região.
+* Compre capacidade para o seu ambiente ao criar um ou mais recursos do [Nó do AVS](cloudsimple-node.md). Estes recursos também são conhecidos como "Azure VMware Solution by AVS - Nó".
+* Inicialize e configure o seu ambiente VMware com as [Clouds Privadas do AVS](cloudsimple-private-cloud.md).
+* Unifique a gestão com as [Máquinas Virtuais do AVS](cloudsimple-virtual-machines.md) (também conhecidas como "Azure VMware Solutions (AVS) - Máquina virtual").
 * Crie a rede subjacente com [VLANs/sub-redes](cloudsimple-vlans-subnets.md).
 * Segmente e proteja a sua rede subjacente com o recurso [Tabela de Firewall](cloudsimple-firewall-tables.md).
 * Obtenha acesso seguro aos seus ambientes VMware através da WAN com [Gateways de VPN](cloudsimple-vpn-gateways.md).
@@ -56,10 +56,10 @@ Saiba mais sobre os seguintes conceitos
 
 Saiba como realizar tarefas comuns, tais como:
 
-* [Criar um Serviço da CloudSimple](create-cloudsimple-service.md) uma vez por região, na qual quer implementar ambientes VMware.
-* Gerir a funcionalidade de serviço principal no [portal da CloudSimple](access-cloudsimple-portal.md).
-* Ativar a capacidade e otimizar a faturação para a sua infraestrutura ao [Comprar nós da CloudSimple](create-nodes.md).
-* Gerir configurações de ambiente VMware com Clouds Privadas. Pode [criar](create-private-cloud.md), [gerir](manage-private-cloud.md), [expandir](expand-private-cloud.md) ou [encolher](shrink-private-cloud.md) Clouds Privadas.
+* [Criar um Serviço AVS](create-cloudsimple-service.md) uma vez por região, na qual quer implementar ambientes VMware.
+* Gerir a funcionalidade de serviço principal no [portal do AVS](access-cloudsimple-portal.md).
+* Ativar a capacidade e otimizar a faturação para a sua infraestrutura ao [Comprar nós do AVS](create-nodes.md).
+* Gerir configurações de ambiente VMware com Clouds Privadas do AVS. Pode [criar](create-private-cloud.md), [gerir](manage-private-cloud.md), [expandir](expand-private-cloud.md) ou [encolher](shrink-private-cloud.md) Clouds Privadas do AVS.
 * Ativar a gestão unificada ao [mapear Subscrições do Azure](azure-subscription-mapping.md).
 * Monitorizar as atividades do utilizador e do sistema com as [Páginas de Atividades](monitor-activity.md).
 * Configurar a rede para os seus ambientes ao [criar e gerir sub-redes](create-vlan-subnet.md).
@@ -68,7 +68,7 @@ Saiba como realizar tarefas comuns, tais como:
 * Permitir a conectividade a partir das suas redes internas ou estações de trabalho de cliente ao [configurar uma VPN](vpn-gateway.md).
 * Permitir as comunicações a partir dos seus [ambientes no local](on-premises-connection.md) e, também, para as [Redes virtuais do Azure](virtual-network-connection.md).
 * Configurar destinos de alerta e ver a capacidade total adquirida no [resumo da conta](account.md)
-* Ver os [utilizadores](users.md) que acederam ao portal da CloudSimple.
+* Ver os [utilizadores](users.md) que acederam ao portal do AVS.
 * Gerir máquinas virtuais do VMware no portal do Azure:
     * [Crie máquinas virtuais](azure-create-vm.md) no portal do Azure.
     * [Gira as máquinas virtuais](azure-manage-vm.md) criadas por si.

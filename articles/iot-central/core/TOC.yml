@@ -9,134 +9,132 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Criar uma nova aplicação
+    - name: 1. Criar uma nova aplicação
       href: quick-deploy-iot-central.md
+    - name: 2. Adicionar um dispositivo simulado
+      href: quick-create-pnp-device.md
+    - name: 3. Configurar regras e ações
+      href: quick-configure-rules.md
+    - name: 4. Monitorizar os dispositivos
+      href: quick-monitor-devices.md
 - name: Tutoriais
   items:
-    - name: 1 - Definir um novo tipo de dispositivo
-      href: tutorial-define-device-type.md
-    - name: 2 - Configurar regras
-      href: tutorial-configure-rules.md
-    - name: 3 - Personalizar a vista do operador
-      href: tutorial-customize-operator.md
-    - name: 4 - Monitorizar os seus dispositivos
-      href: tutorial-monitor-devices.md
-    - name: 5 - Adicionar um dispositivo
-      href: tutorial-add-device.md
+    - name: Estar ligado
+      items:
+        - name: Ligar um dispositivo Plug and Play (pré-visualização)
+          href: tutorial-connect-pnp-device.md
+        - name: Criar um modelo de dispositivo de gateway
+          href: tutorial-define-gateway-device-type.md
+        - name: Ligar um dispositivo do IoT Edge
+          href: tutorial-add-edge-as-leaf-device.md
+    - name: Manter-se ligado
+      items:
+        - name: Criar um grupo de dispositivos
+          href: tutorial-use-device-groups.md
+    - name: Transformação
+      items:
+        - name: Criar uma regra
+          href: tutorial-create-telemetry-rules.md
+        - name: Utilizar a API REST
+          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
 - name: Conceitos
   items:
     - name: Arquitetura
       href: concepts-architecture.md
-    - name: Conectividade
-      href: concepts-connectivity.md
     - name: O que são modelos de aplicação?
       href: concepts-app-templates.md
+    - name: Estar ligado
+      href: concepts-get-connected.md
+    - name: Ligar dispositivos do IoT Edge
+      href: concepts-iot-edge.md
 - name: Guias de procedimentos
   items:
-    - name: Ligar dispositivos
-      items:
-        - name: Preparar e ligar uma aplicação (genérica) do Node.js
-          href: howto-connect-nodejs.md
-        - name: Preparar e ligar um DevKit de IoT MXChip
-          href: howto-connect-devkit.md
-        - name: Preparar e ligar um Raspberry Pi (Python)
-          href: howto-connect-raspberry-pi-python.md
-        - name: 'Preparar e ligar um Raspberry Pi (C#)'
-          href: howto-connect-raspberry-pi-csharp.md
-        - name: Preparar e ligar um dispositivo Windows Core de IoT
-          href: howto-connect-windowsiotcore.md
-        - name: Preparar e ligar um dispositivo SensorTile.box
-          href: howto-connect-sensortile.md
-        - name: Monitorizar a conectividade do dispositivo com a linha de comandos
-          href: howto-use-iotc-explorer.md
-    - name: Gerir dispositivos
+    - name: Estar ligado
       items:
         - name: Configurar um modelo de dispositivo
           href: howto-set-up-template.md
-        - name: Faça a gestão dos seus dispositivos
-          href: howto-manage-devices.md
-        - name: Executar uma tarefa
-          href: howto-run-a-job.md
-        - name: Utilizar conjuntos de dispositivos
-          href: howto-use-device-sets.md
-        - name: Modelo de dispositivo da versão
-          href: howto-version-device-template.md
-    - name: Monitorização e análise
-      items:
-        - name: Criar regra de telemetria
-          href: howto-create-telemetry-rules.md
-        - name: Criar uma regra de eventos
-          href: howto-create-event-rules.md
-        - name: Analisar os dados do seu dispositivo
-          href: howto-create-analytics.md
-    - name: Ações e extensibilidade
-      items:
-        - name: Agrupar várias ações nas regras
-          href: howto-use-action-groups.md
-        - name: Criar ações de webhook em regras
-          href: howto-create-webhooks.md
-        - name: Criar fluxos de trabalho no Microsoft Flow
-          href: howto-add-microsoft-flow.md
-        - name: Criar fluxos de trabalho no Azure Logic Apps
-          href: howto-build-azure-logic-apps.md
-        - name: Acionar Funções do Azure
-          href: howto-trigger-azure-functions.md
-        - name: Exportar os seus dados
-          items:
-            - name: Exportar para os Hubs de Eventos e o Service Bus
-              href: howto-export-data-event-hubs-service-bus.md
-            - name: Exportar para o Armazenamento de Blobs
-              href: howto-export-data-blob-storage.md
-        - name: Criar regras personalizadas
-          href: howto-create-custom-rules.md
-        - name: Criar análise personalizada
-          href: howto-create-custom-analytics.md
-        - name: Ver os seus dados no Power BI
-          href: howto-connect-powerbi.md
+        - name: Preparar e ligar um DevKit de IoT MXChip
+          href: howto-connect-devkit.md
+        - name: Preparar e ligar um dispositivo RuuviTag
+          href: howto-connect-ruuvi.md
+        - name: "Preparar e ligar um Rigado Cascade\_500"
+          href: howto-connect-rigado-cascade-500.md
         - name: Ligar outras clouds de IoT
           href: howto-build-iotc-device-bridge.md
+    - name: Manter-se ligado
+      items:
+        - name: Monitorizar a conectividade do dispositivo com a CLI do Azure
+          href: howto-monitor-devices-azure-cli.md
+        - name: Modelo de dispositivo da versão
+          href: howto-version-device-template.md
+        - name: Faça a gestão dos seus dispositivos
+          href: howto-manage-devices.md
+        - name: Configurar regras
+          href: howto-configure-rules.md
+        - name: Analisar os dados do seu dispositivo
+          href: howto-create-analytics.md
+        - name: Adicionar mosaicos ao dashboard
+          href: howto-add-tiles-to-your-dashboard.md
+        - name: "Criar dashboards pessoais do Azure\_IoT Central"
+          href: howto-create-personal-dashboards.md
+        - name: Executar uma tarefa
+          href: howto-run-a-job.md
+        - name: Modelo de dispositivo da versão
+          href: howto-version-device-template.md
+    - name: Transformação
+      items:
+        - name: Configurar a exportação de dados contínua
+          href: howto-export-data.md
+        - name: Criar webhooks em regras
+          href: howto-create-webhooks.md
+        - name: Ligar grupos de ações do Azure Monitor em regras
+          href: howto-use-action-groups.md
+        - name: Criar regras personalizadas
+          href: howto-create-custom-rules.md
+        - name: Criar análises personalizadas com o Databricks
+          href: howto-create-custom-analytics.md
     - name: Administração
       items:
         - name: Gerir a aplicação
-          href: howto-administer.md
-        - name: Gerir utilizadores e funções
-          href: howto-manage-users-roles.md
-        - name: Ver a sua fatura
-          href: howto-view-bill.md
-        - name: Personalizar IU da aplicação
-          href: howto-customize-ui.md
-        - name: Preparar e carregar imagem
-          href: howto-prepare-images.md
-        - name: Adicionar mosaicos ao dashboard
-          href: howto-add-tiles-to-your-dashboard.md
-        - name: Utilizar mosaicos de dashboard
-          href: howto-use-tiles.md
-        - name: Utilizar modelos de aplicação
-          href: howto-use-app-templates.md
-        - name: Gerir a partir do portal do Azure
-          href: howto-manage-iot-central-from-portal.md
-        - name: Gerir a partir da CLI do Azure
-          href: howto-manage-iot-central-from-cli.md
-        - name: Gerir a partir do Azure PowerShell
-          href: howto-manage-iot-central-from-powershell.md
-        - name: Criar e gerir uma aplicação como CSP
-          href: howto-create-and-manage-applications-csp.md
-    - name: Personalização
-      items:
-        - name: "Criar dashboards pessoais do Azure\_IoT Central"
-          href: howto-create-personal-dashboards.md
-        - name: Gerir as suas preferências
-          href: howto-manage-preferences.md
-        - name: Ativar/desativar chat ao vivo
-          href: howto-show-hide-chat.md
+          items:
+            - name: Alterar as definições da aplicação
+              href: howto-administer.md
+            - name: Gerir utilizadores e funções
+              href: howto-manage-users-roles.md
+            - name: Gerir a fatura
+              href: howto-view-bill.md
+            - name: Personalizar IU da aplicação
+              href: howto-customize-ui.md
+            - name: Exportar a aplicação
+              href: howto-use-app-templates.md
+        - name: Gerir a partir de outros locais
+          items:
+            - name: Gerir a partir do portal do Azure
+              href: howto-manage-iot-central-from-portal.md
+            - name: Gerir a partir da CLI do Azure
+              href: howto-manage-iot-central-from-cli.md
+            - name: Gerir a partir do Azure PowerShell
+              href: howto-manage-iot-central-from-powershell.md
+            - name: Gerir a partir do portal CSP
+              href: howto-create-and-manage-applications-csp.md
+        - name: Personalizar aplicação
+          items:
+            - name: Gerir preferências pessoais
+              href: howto-manage-preferences.md
+            - name: Ativar/desativar chat ao vivo
+              href: howto-show-hide-chat.md
 - name: Relacionado
   items:
-    - name: Soluções
+    - name: Modelos de aplicação do setor
       items:
-        - name: Centro de IoT
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-        - name: Aceleradores de soluções IoT
-          href: /azure/iot-accelerators
+        - name: Retalho
+          href: ../retail/overview-iot-central-retail-pnp.md
+        - name: Energia
+          href: ../energy/overview-iot-central-energy.md
+        - name: Governo
+          href: ../government/overview-iot-central-government.md
+        - name: Cuidados de saúde
+          href: ../healthcare/overview-iot-central-healthcare.md
     - name: Serviços de Plataforma
       items:
         - name: IoT Hub
@@ -161,6 +159,8 @@
   items:
     - name: Opções de suporte e ajuda
       href: /azure/iot-fundamentals/iot-support-help
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/iotcentral/'
     - name: Pedidos de dados do cliente
       href: iot-central-customer-data-requests.md
     - name: Browsers suportados

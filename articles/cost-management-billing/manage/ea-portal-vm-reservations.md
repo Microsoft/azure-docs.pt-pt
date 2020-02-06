@@ -4,16 +4,16 @@ description: Este artigo resume como as reservas do Azure para instâncias reser
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 26c132d42bfc89c9b6e887c8ca02232848513698
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f9a9da6176269876cff9d5137972c7aac5dea5fd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75992078"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025678"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instâncias reservadas de VM do Azure EA
 

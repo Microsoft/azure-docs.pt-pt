@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentação do Azure Data Explorer
 metadata:
-  title: 'Documentação do Azure Data Explorer - Inícios rápidos, tutoriais e referências de linguagem e da API'
+  title: 'Inícios rápidos, tutoriais e documentos de linguagens/API - Azure Data Explorer'
   description: O Azure Data Explorer é uma plataforma de cloud de análise de registos otimizada para consultas de macrodados ad hoc.
   author: orspod
   ms.author: orspodek

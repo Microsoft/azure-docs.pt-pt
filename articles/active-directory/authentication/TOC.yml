@@ -4,16 +4,13 @@
   items:
     - name: O que é a autenticação?
       href: overview-authentication.md
-- name: Início Rápido
-  items:
-    - name: Configurar a reposição de palavra-passe
-      href: quickstart-sspr.md
 - name: Tutoriais
+  expanded: true
   items:
-    - name: 1 Ativar o MFA para Aplicações
+    - name: Ativar a reposição de palavras-passe self-service
+      href: tutorial-enable-sspr.md
+    - name: Ativar a MFA para Aplicações
       href: tutorial-mfa-applications.md
-    - name: 2 Ativar um piloto de SSPR
-      href: tutorial-sspr-pilot.md
     - name: Ativar a integração local de SSPR
       href: tutorial-enable-writeback.md
     - name: Integrar o Azure Identity Protection
