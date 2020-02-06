@@ -1,164 +1,171 @@
 ---
-title: Integrar Azure Active Directory com o serviço kubernetes do Azure
-description: Como criar clusters do AKS (serviço kubernetes do Azure) habilitados para Azure Active Directory
+title: Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes
+description: Como criar clusters azure Ative Directory Service (AKS) habilitados para o Azure Ative Directory
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 02/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 9a82b51083a7d31bc39c4556712c1489bad8bca0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103781"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031480"
 ---
-# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar Azure Active Directory com o serviço kubernetes do Azure
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes
 
-O AKS (serviço kubernetes do Azure) pode ser configurado para usar o Azure Active Directory (AD do Azure) para autenticação de usuário. Nessa configuração, você pode entrar em um cluster AKS usando o token de autenticação do Azure AD.
+O Serviço Azure Kubernetes (AKS) pode ser configurado para utilizar o Azure Ative Directory (Azure AD) para autenticação do utilizador. Nessa configuração, você pode entrar em um cluster AKS usando o token de autenticação do Azure AD.
 
-Os administradores de cluster podem configurar o RBAC (controle de acesso baseado em função) kubernetes com base na identidade de um usuário ou no grupo de diretórios.
+Os administradores de cluster podem configurar o controlo de acesso baseado em funções da Kubernetes (RBAC) com base na identidade de um utilizador ou na adesão de um grupo de diretórios.
 
 Este artigo explica como:
 
-- Implante os pré-requisitos para o AKS e o Azure AD.
-- Implante um cluster habilitado para o Azure AD.
-- Crie uma função de RBAC básica no cluster AKS usando o portal do Azure.
+- Implemente os pré-requisitos para AKS e Azure AD.
+- Implementar um cluster ativado por AD Azure.
+- Crie uma função rBAC básica no cluster AKS utilizando o portal Azure.
 
-Você também pode concluir essas etapas usando o [CLI do Azure][azure-ad-cli].
+Também pode completar estes passos utilizando o [Azure CLI][azure-ad-cli].
 
 > [!NOTE]
-> O Azure AD só pode ser habilitado quando você cria um novo cluster habilitado para RBAC. Não é possível habilitar o Azure AD em um cluster AKS existente.
+> O Azure AD só pode ser ativado quando criar um novo cluster ativado por RBAC. Não se pode ativar o Azure AD num aglomerado AKS existente.
 
 ## <a name="authentication-details"></a>Detalhes da autenticação
 
-A autenticação do Azure AD é fornecida para clusters AKS que têm o OpenID Connect. O OpenID Connect é uma camada de identidade criada sobre o protocolo OAuth 2,0.
+A autenticação Azure AD é fornecida aos clusters AKS que têm OpenID Connect. OpenID Connect é uma camada de identidade construída em cima do protocolo OAuth 2.0.
 
-Para obter mais informações sobre o OpenID Connect, consulte [autorizar o acesso a aplicativos Web usando o OpenID Connect e o Azure ad][open-id-connect].
+Para mais informações sobre o OpenID Connect, consulte [Autorizar o acesso a aplicações web utilizando o OpenID Connect e o Azure AD][open-id-connect].
 
-Dentro de um cluster kubernetes, a autenticação de token de webhook é usada para tokens de autenticação. A autenticação de token de webhook é configurada e gerenciada como parte do cluster AKS.
+Dentro de um cluster Kubernetes, a autenticação de token webhook é usada para autenticar tokens. A autenticação token webhook é configurada e gerida como parte do cluster AKS.
 
-Para obter mais informações sobre a autenticação de token de webhook, consulte a seção [autenticação de token de webhook][kubernetes-webhook] na documentação do kubernetes.
+Para obter mais informações sobre a autenticação do webhook token, consulte a secção de [autenticação token webhook][kubernetes-webhook] na Documentação Kubernetes.
 
-Para fornecer autenticação do Azure AD para um cluster AKS, dois aplicativos do Azure AD são criados. O primeiro aplicativo é um componente de servidor que fornece autenticação de usuário. O segundo aplicativo é um componente de cliente que é usado quando você é solicitado pela CLI para autenticação. Esse aplicativo cliente usa o aplicativo de servidor para a autenticação real das credenciais fornecidas pelo cliente.
+Para fornecer autenticação Azure AD para um cluster AKS, são criadas duas aplicações Azure AD. A primeira aplicação é um componente do servidor que fornece a autenticação do utilizador. A segunda aplicação é um componente cliente que é usado quando é solicitado pelo CLI para autenticação. Esta aplicação de cliente utiliza a aplicação do servidor para a autenticação real das credenciais fornecidas pelo cliente.
 
 > [!NOTE]
-> Quando você configura o Azure AD para autenticação AKS, dois aplicativos do Azure AD são configurados. As etapas para delegar permissões para cada aplicativo devem ser concluídas por um administrador de locatários do Azure.
+> Quando configura ruma a AD Azure para autenticação AKS, duas aplicações Azure AD são configuradas. As medidas para delegar permissões para cada pedido devem ser preenchidas por um administrador de inquilino sinuoso azure.
 
-## <a name="create-the-server-application"></a>Criar o aplicativo de servidor
+## <a name="create-the-server-application"></a>Criar a aplicação do servidor
 
-O primeiro aplicativo do Azure AD é aplicado para obter a associação de grupo do Azure AD de um usuário. Para criar esse aplicativo no portal do Azure:
+A primeira aplicação Azure AD é aplicada para obter a adesão de um utilizador ao grupo Azure AD. Para criar esta aplicação no portal Azure:
 
-1. Selecione **Azure Active Directory** > registros de aplicativonovo > **registro**.
+1. Selecione **Registos** de > de **Diretório Ativo do Azure** > **Nova inscrição.**
 
-    a. Dê um nome ao aplicativo, como *AKSAzureADServer*.
+    a. Dê à aplicação um nome, como *AKSAzureADServer*.
 
-    b. Para **tipos de conta com suporte**, selecione **contas somente neste diretório organizacional**.
+    b. Para **tipos de conta suportados,** selecione Contas **apenas neste diretório organizacional**.
     
-    c. Escolha **Web** para o tipo de URI de redirecionamento e, em seguida, insira qualquer valor *https://aksazureadserver* formatado por URI, como.
+    c. Escolha web para o tipo URI redirecionamento e, em seguida, introduza qualquer valor formato URI, como *https://aksazureadserver* .
 
-    d. Selecione **registrar** quando tiver terminado.
+    d. Selecione **Registar-se** quando terminar.
 
-2. Selecione **manifesto**e edite o **groupMembershipClaims:** valor como **tudo**. Quando tiver concluído as atualizações, selecione **salvar**.
+2. Selecione **Manifesto**, e depois editar o **grupoMembershipClaims:** valor como **Todos**. Quando terminar as atualizações, selecione **Guardar**.
 
-    ![Atualizar Associação de grupo para todos](media/aad-integration/edit-manifest.png)
+    ![Atualizar a adesão ao grupo para todos](media/aad-integration/edit-manifest.png)
 
-3. No painel esquerdo do aplicativo Azure AD, selecione **certificados & segredos**.
+3. No painel esquerdo da aplicação Azure AD, selecione **Certificados e segredos.**
 
-    a. Selecione **+ novo segredo do cliente**.
+    a. Selecione **+ Novo segredo de cliente.**
 
-    b. Adicione uma descrição de chave, como *AKs servidor do Azure ad*. Escolha uma hora de expiração e, em seguida, selecione **Adicionar**.
+    b. Adicione uma descrição chave, como *o servidor AKS Azure AD*. Escolha um tempo de validade e, em seguida, selecione **Adicionar**.
 
-    c. Observe o valor da chave, que é exibido somente no momento. Quando você implanta um cluster AKS habilitado para Azure AD, esse valor é chamado de segredo do aplicativo do servidor.
+    c. Note o valor-chave, que é apresentado apenas neste momento. Quando implementa um cluster AKS ativado por AD, este valor chama-se segredo de aplicação do servidor.
 
-4. No painel esquerdo do aplicativo Azure AD, selecione permissões de **API**e, em seguida, selecione **+ Adicionar uma permissão**.
+4. No painel esquerdo da aplicação Azure AD, selecione **permissões API,** e, em seguida, selecione **+ Adicione uma permissão**.
 
-    a. Em **APIs da Microsoft**, selecione **Microsoft Graph**.
+    a. Em **apis da Microsoft,** selecione **Microsoft Graph**.
 
-    b. Selecione **permissões delegadas**e, em seguida, marque a caixa de seleção ao lado de **diretório > Directory. Read. All (ler dados do diretório)** .
+    b. Selecione **permissões delegadas**, e, em seguida, selecione a caixa de verificação ao lado do **Diretório > Diretório.Read.All (Ler dados de diretório)** .
 
-    c. Se uma permissão delegada padrão para usuário **> usuário. ler (entrar e ler perfil de usuário)** não existir, marque a caixa de seleção ao lado dela.
+    c. Se não existir uma permissão dedelegado predefinida para **o Utilizador > User.Read (Iniciar sessão e ler o perfil** do utilizador) não existir, selecione a caixa de verificação ao lado.
 
-    d. Selecione **permissões de aplicativo**e, em seguida, marque a caixa de seleção ao lado de **diretório > Directory. Read. All (ler dados do diretório)** .
+    d. Selecione **permissões de aplicação**, e, em seguida, selecione a caixa de verificação ao lado do **Diretório > Diretório.Read.All (Ler dados de diretório)** .
 
     ![Definir permissões de gráfico](media/aad-integration/graph-permissions.png)
 
-    e. Selecione **adicionar permissões** para salvar as atualizações.
+    e. Selecione **Adicionar permissões** para guardar as atualizações.
 
-    f. Em **conceder consentimento**, selecione **conceder consentimento do administrador**. Esse botão não estará disponível a conta atual que está sendo usada não está listada como um administrador de locatário.
+    f. Sob o consentimento do **Grant,** selecione **Grant admin consent**. Este botão não estará disponível a conta corrente que está a ser utilizada não está listada como administradora de inquilinos.
 
-    Quando as permissões são concedidas com êxito, a notificação a seguir é exibida no Portal:
+    Quando as permissões são concedidas com sucesso, a seguinte notificação é apresentada no portal:
 
-   ![Notificação de permissões bem-sucedidas concedidas](media/aad-integration/permissions-granted.png)
+   ![Notificação de permissões bem sucedidas concedidas](media/aad-integration/permissions-granted.png)
 
-5. No painel esquerdo do aplicativo Azure AD, selecione **expor uma API**e, em seguida, selecione **+ Adicionar um escopo**.
+5. No painel esquerdo da aplicação Azure AD, selecione **Expor uma API,** e, em seguida, selecione **+ Adicione um âmbito**.
     
-    a. Insira um **nome de escopo**, um **nome de exibição de consentimento de administrador**e uma descrição de consentimento de **administrador** , como *AKSAzureADServer*.
+    a. Introduza um **nome de âmbito,** um nome de **exibição**de consentimento do Administrador e, em seguida, uma descrição de **consentimento do Administrador,** como *AKSAzureADServer*.
 
-    b. Verifique se **estado** está definido como **habilitado**.
+    b. Certifique-se de que o **Estado** está definido para **ativado**.
 
-    ![Expor o aplicativo de servidor como uma API para uso com outros serviços](media/aad-integration/expose-api.png)
+    ![Expor a aplicação do servidor como uma API para uso com outros serviços](media/aad-integration/expose-api.png)
 
-    c. Selecione **Adicionar escopo**.
+    c. **Selecione Adicionar âmbito**.
 
-6. Retorne à página **visão geral** do aplicativo e anote a **ID do aplicativo (cliente)** . Quando você implanta um cluster AKS habilitado para Azure AD, esse valor é chamado de ID de aplicativo de servidor.
+6. Volte à página de **visão geral** da aplicação e note o ID da **Aplicação (cliente).** Quando implementa um cluster AKS ativado por AD, este valor chama-se ID de aplicação do servidor.
 
     ![Obter ID do aplicativo](media/aad-integration/application-id.png)
 
-## <a name="create-the-client-application"></a>Criar o aplicativo cliente
+## <a name="create-the-client-application"></a>Criar a aplicação do cliente
 
-O segundo aplicativo do Azure AD é usado quando você entra com a CLI do kubernetes (kubectl).
+A segunda aplicação Azure AD é usada quando se inscreveu no Kubernetes CLI (kubectl).
 
-1. Selecione **Azure Active Directory** > registros de aplicativonovo > **registro**.
+1. Selecione **Registos** de > de **Diretório Ativo do Azure** > **Nova inscrição.**
 
-    a. Dê um nome ao aplicativo, como *AKSAzureADClient*.
+    a. Dê à aplicação um nome, como *AKSAzureADClient*.
 
-    b. Para **tipos de conta com suporte**, selecione **contas somente neste diretório organizacional**.
+    b. Para **tipos de conta suportados,** selecione Contas **apenas neste diretório organizacional**.
 
-    c. Selecione **Web** para o tipo de URI de redirecionamento e, em seguida, insira qualquer *https://aksazureadclient* valor formatado por URI, como.
+    c. Selecione **Web** para o tipo URI redirecionamento e, em seguida, introduza qualquer valor formato URI, como *https://aksazureadclient* .
 
-    d. Selecione **registrar** quando tiver terminado.
+    >[!NOTE]
+    >Se estiver a criar um novo cluster ativado por RBAC para suportar o Monitor Azure para contentores, adicione os seguintes dois URLs adicionais de redirecionamento a esta lista como tipos de aplicações **Web.** O valor url da primeira base deve ser `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e o valor url da segunda base deve ser `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >Se estiver a utilizar esta funcionalidade na Azure China, o valor url da primeira base deve ser `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e o valor de URL da segunda base deve ser `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >Para mais informações, consulte [como configurar a funcionalidade Live Data (pré-visualização)](../azure-monitor/insights/container-insights-livedata-setup.md) para o Monitor Azure para contentores e as etapas para configurar a autenticação no âmbito da secção de [autenticação integrada da Configuração AD.](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication)
 
-2. No painel esquerdo do aplicativo Azure AD, selecione permissões de **API**e, em seguida, selecione **+ Adicionar uma permissão**.
+    d. Selecione **Registar-se** quando terminar.
 
-    a. Selecione **minhas APIs**e, em seguida, escolha o aplicativo de servidor do Azure ad criado na etapa anterior, como *AKSAzureADServer*.
+2. No painel esquerdo da aplicação Azure AD, selecione **permissões API,** e, em seguida, selecione **+ Adicione uma permissão**.
 
-    b. Selecione **permissões delegadas**e, em seguida, marque a caixa de seleção ao lado de seu aplicativo de servidor do Azure AD.
+    a. Selecione **As Minhas APIs**e, em seguida, escolha a sua aplicação de servidor AD Azure criada na etapa anterior, como *AKSAzureADServer*.
 
-    ![Configurar permissões de aplicativo](media/aad-integration/select-api.png)
+    b. Selecione **permissões delegadas**e, em seguida, selecione a caixa de verificação ao lado da sua aplicação de servidor AD Azure.
 
-    c. Selecione **adicionar permissões**.
+    ![Configurar permissões de candidatura](media/aad-integration/select-api.png)
 
-    d. Em **conceder consentimento**, selecione **conceder consentimento do administrador**. Esse botão não estará disponível se a conta atual não for um administrador de locatário. Quando as permissões são concedidas, a notificação a seguir é exibida no Portal:
+    c. **Selecione Adicionar permissões**.
 
-    ![Notificação de permissões bem-sucedidas concedidas](media/aad-integration/permissions-granted.png)
+    d. Sob o consentimento do **Grant,** selecione **Grant admin consent**. Este botão não está disponível se a conta corrente não for administradora de inquilinos. Quando as permissões são concedidas, a seguinte notificação é apresentada no portal:
 
-3. No painel esquerdo do aplicativo Azure AD, selecione **autenticação**.
+    ![Notificação de permissões bem sucedidas concedidas](media/aad-integration/permissions-granted.png)
 
-    - Em **tipo de cliente padrão**, selecione **Sim** para **tratar o cliente como um cliente público**.
+3. No painel esquerdo da aplicação Azure AD, **selecione Autenticação**.
 
-5. No painel esquerdo do aplicativo Azure AD, observe a ID do aplicativo. Quando você implanta um cluster AKS habilitado para Azure AD, esse valor é chamado de ID do aplicativo cliente.
+    - Sob o tipo de **cliente Predefinido,** selecione **Sim** para Tratar o cliente como **cliente público**.
 
-   ![Obter a ID do aplicativo](media/aad-integration/application-id-client.png)
+5. No painel esquerdo da aplicação Azure AD, note o ID da aplicação. Quando implementa um cluster AKS ativado por AD, este valor chama-se ID de aplicação de cliente.
+
+   ![Obtenha o ID da aplicação](media/aad-integration/application-id-client.png)
 
 ## <a name="get-the-tenant-id"></a>Obter a ID do locatário
 
-Em seguida, obtenha a ID do seu locatário do Azure. Esse valor é usado quando você cria o cluster AKS.
+Em seguida, pegue a identificação do seu inquilino Azure. Este valor é usado quando se cria o cluster AKS.
 
-No portal do Azure, selecione **Azure Active Directory** > **Propriedades** e anote a **ID do diretório**. Quando você cria um cluster AKS habilitado para Azure AD, esse valor é chamado de ID de locatário.
+A partir do portal Azure, selecione **Azure Ative Directory** > **Properties** e note o ID do **Diretório**. Quando você cria um cluster AKS ativado por AD Azure, este valor é chamado de ID do inquilino.
 
-![Obter a ID de locatário do Azure](media/aad-integration/tenant-id.png)
+![Obtenha a identificação do inquilino Azure](media/aad-integration/tenant-id.png)
 
-## <a name="deploy-the-aks-cluster"></a>Implantar o cluster AKS
+## <a name="deploy-the-aks-cluster"></a>Implementar o cluster AKS
 
-Use o comando [AZ Group Create][az-group-create] para criar um grupo de recursos para o cluster AKs.
+Use o [grupo AZ criar][az-group-create] comando para criar um grupo de recursos para o cluster AKS.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Use o comando [AZ AKs Create][az-aks-create] para implantar o cluster AKs. Em seguida, substitua os valores no comando de exemplo a seguir. Use os valores coletados quando você criou os aplicativos do Azure AD para a ID do aplicativo do servidor, o segredo do aplicativo, a ID do aplicativo cliente e a ID do locatário.
+Use as [aks az criar][az-aks-create] comando para implantar o cluster AKS. Em seguida, substitua os valores no comando da amostra seguinte. Utilize os valores recolhidos quando criou as aplicações Azure AD para o ID da aplicação do servidor, segredo de aplicação, ID da aplicação do cliente e ID do inquilino.
 
 ```azurecli
 az aks create \
@@ -171,32 +178,32 @@ az aks create \
   --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
 ```
 
-Um cluster AKS leva alguns minutos para ser criado.
+Um aglomerado AKS leva alguns minutos para criar.
 
-## <a name="create-an-rbac-binding"></a>Criar uma associação RBAC
+## <a name="create-an-rbac-binding"></a>Criar uma ligação RBAC
 
 > [!NOTE]
-> O nome da Associação de função de cluster diferencia maiúsculas de minúsculas.
+> O nome de ligação do cluster é sensível ao caso.
 
-Antes de usar uma conta de Azure Active Directory com um cluster AKS, você deve criar a associação de função ou a associação de função de cluster. As funções definem as permissões a serem concedidas e as associações as aplicam aos usuários desejados. Essas atribuições podem ser aplicadas a um determinado namespace ou em todo o cluster. Para obter mais informações, consulte [usando a autorização do RBAC][rbac-authorization].
+Antes de utilizar uma conta de Diretório Ativo Azure com um cluster AKS, deve criar uma ligação de funções ou de ligação ao cluster. As funções definem as permissões de concessão e as encadernações aplicam-nas aos utilizadores pretendidos. Estas atribuições podem ser aplicadas a um determinado espaço de nome, ou em todo o cluster. Para mais informações, consulte [a utilização da autorização RBAC][rbac-authorization].
 
-Primeiro, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] com `--admin` o argumento para entrar no cluster com acesso de administrador.
+Primeiro, use o comando [az aks get-credentials][az-aks-get-credentials] com o argumento `--admin` para assinar no cluster com acesso administrativo.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Em seguida, crie ClusterRoleBinding para uma conta do Azure AD que você deseja conceder acesso ao cluster AKS. O exemplo a seguir dá à conta acesso completo a todos os namespaces no cluster:
+Em seguida, crie clusterRoleBinding para uma conta Azure AD que pretende conceder acesso ao cluster AKS. O exemplo seguinte dá à conta acesso total a todos os espaços de nome no cluster:
 
-- Se o usuário para o qual você concede a associação de RBAC estiver no mesmo locatário do Azure AD, atribua permissões com base no nome principal do usuário (UPN). Vá para a etapa para criar o manifesto YAML para ClusterRoleBinding.
+- Se o utilizador que conceder a ligação RBAC estiver no mesmo inquilino Azure AD, atribua permissões com base no nome principal do utilizador (UPN). Passe para o passo para criar o manifesto YAML para ClusterRoleBinding.
 
-- Se o usuário estiver em um locatário do Azure AD diferente, consulte e use a propriedade **ObjectID** em seu lugar. Se necessário, obtenha o objectId da conta de usuário necessária usando o comando [AZ ad User show][az-ad-user-show] . Forneça o nome principal do usuário (UPN) da conta necessária:
+- Se o utilizador estiver num inquilino Azure AD diferente, questione e utilize a propriedade **objectId.** Se necessário, obtenha o objectId da conta de utilizador necessária utilizando o comando de [show de utilizadores az az.][az-ad-user-show] Fornecer o nome principal do utilizador (UPN) da conta requerida:
 
     ```azurecli-interactive
     az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
     ```
 
-Crie um arquivo, como *RBAC-AAD-User. YAML*e cole o conteúdo a seguir. Na última linha, substitua **userPrincipalName_or_objectId** com a ID de objeto ou UPN. A escolha depende se o usuário é o mesmo locatário do Azure AD ou não.
+Crie um ficheiro, como *rbac-aad-user.yaml,* e, em seguida, colá-se os seguintes conteúdos. Na última linha, substitua **userPrincipalName_or_objectId** pelo UPN ou identificação do objeto. A escolha depende se o utilizador é ou não o mesmo inquilino azure AD.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -213,15 +220,15 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-Aplique a Associação usando o comando [kubectl Apply][kubectl-apply] , conforme mostrado no exemplo a seguir:
+Aplicar a ligação utilizando o comando de [aplicação kubectl,][kubectl-apply] tal como mostrado no seguinte exemplo:
 
 ```console
 kubectl apply -f rbac-aad-user.yaml
 ```
 
-Uma associação de função também pode ser criada para todos os membros de um grupo do Azure AD. Os grupos do Azure AD são especificados usando a ID de objeto de grupo, conforme mostrado no exemplo a seguir.
+Um papel vinculativo também pode ser criado para todos os membros de um grupo Azure AD. Os grupos AD Azure são especificados utilizando o ID do objeto de grupo, como mostra o seguinte exemplo.
 
-Crie um arquivo, como *RBAC-AAD-Group. YAML*e cole o conteúdo a seguir. Atualize a ID de objeto de grupo com uma do seu locatário do Azure AD:
+Crie um ficheiro, como *o rbac-aad-group.yaml,* e, em seguida, colá-se os seguintes conteúdos. Atualize o ID do objeto de grupo com um do seu inquilino Azure AD:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -238,23 +245,23 @@ subjects:
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
-Aplique a Associação usando o comando [kubectl Apply][kubectl-apply] , conforme mostrado no exemplo a seguir:
+Aplicar a ligação utilizando o comando de [aplicação kubectl,][kubectl-apply] tal como mostrado no seguinte exemplo:
 
 ```console
 kubectl apply -f rbac-aad-group.yaml
 ```
 
-Para obter mais informações sobre como proteger um cluster kubernetes com o RBAC, consulte [usando a autorização do RBAC][rbac-authorization].
+Para obter mais informações sobre a segurança de um cluster Kubernetes com RBAC, consulte A Utilização da [Autorização RBAC][rbac-authorization].
 
-## <a name="access-the-cluster-with-azure-ad"></a>Acessar o cluster com o Azure AD
+## <a name="access-the-cluster-with-azure-ad"></a>Aceda ao cluster com AD Azure
 
-Receba o contexto do usuário não administrador usando o comando [AZ AKs Get-Credentials][az-aks-get-credentials] .
+Puxe o contexto para o utilizador não administrador utilizando o comando [az aks get-credentials.][az-aks-get-credentials]
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Depois de executar o `kubectl` comando, você será solicitado a autenticar usando o Azure. Siga as instruções na tela para concluir o processo, conforme mostrado no exemplo a seguir:
+Depois de executar o comando `kubectl`, será solicitado a autenticar usando Azure. Siga as instruções no ecrã para terminar o processo, como mostra o seguinte exemplo:
 
 ```console
 $ kubectl get nodes
@@ -267,26 +274,26 @@ aks-nodepool1-79590246-1   Ready     agent     1h        v1.13.5
 aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 ```
 
-Quando o processo for concluído, o token de autenticação será armazenado em cache. Você será solicitado a entrar novamente quando o token expirar ou o arquivo de configuração kubernetes for recriado.
+Quando o processo estiver concluído, o símbolo de autenticação é emcached. Só lhe é pedido que assine de novo quando o símbolo expirar, ou o ficheiro config Kubernetes seja recriado.
 
-Se você vir uma mensagem de erro de autorização depois de entrar com êxito, verifique os seguintes critérios:
+Se vir uma mensagem de erro de autorização depois de iniciar sessão com sucesso, verifique os seguintes critérios:
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
 
 
-- Você definiu a ID de objeto ou o UPN apropriado, dependendo de se a conta de usuário está no mesmo locatário do Azure AD ou não.
-- O usuário não é membro de mais de 200 grupos.
-- O segredo definido no registro do aplicativo para o servidor corresponde ao valor configurado `--aad-server-app-secret`usando.
+- Definiu o ID ou UPN de objeto apropriado, dependendo se a conta de utilizador está ou não no mesmo inquilino Azure AD.
+- O utilizador não é membro de mais de 200 grupos.
+- O segredo definido no registo de aplicação para servidor corresponde ao valor configurado através da utilização `--aad-server-app-secret`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para usar os usuários e grupos do Azure AD para controlar o acesso aos recursos de cluster, consulte [controlar o acesso a recursos de cluster usando o controle de acesso baseado em função e identidades do Azure AD no AKs][azure-ad-rbac].
+Para utilizar utilizadores e grupos da AD Azure para controlar o acesso aos recursos de cluster, consulte o controlo do acesso aos recursos de cluster utilizando o [controlo de acesso baseado em papéis e identidades azure ad em AKS][azure-ad-rbac].
 
-Para obter mais informações sobre como proteger clusters do kubernetes, consulte [Opções de acesso e identidade para AKs][rbac-authorization].
+Para obter mais informações sobre como proteger os clusters kubernetes, consulte opções de [acesso e identidade para AKS][rbac-authorization].
 
-Para saber mais sobre identidade e controle de recursos, consulte [práticas recomendadas para autenticação e autorização no AKs][operator-best-practices-identity].
+Para saber mais sobre identidade e controlo de recursos, consulte [as melhores práticas de autenticação e autorização no AKS.][operator-best-practices-identity]
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication

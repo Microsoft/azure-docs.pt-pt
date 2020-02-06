@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461125"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906765"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
@@ -33,6 +33,22 @@ Para obter informações sobre a política de suporte para VMs do Azure, consult
 > As instruções neste artigo se aplicam a:
 >1. A versão de 64 bits do Windows Server 2008 R2 e sistemas operacionais Windows Server posteriores. Para obter informações sobre como executar um sistema operacional de 32 bits no Azure, consulte [suporte para sistemas operacionais de 32 bits em VMs do Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 >2. Se qualquer ferramenta de recuperação de desastre for usada para migrar a carga de trabalho, como Azure Site Recovery ou migrações para Azure, esse processo ainda precisará ser feito e seguido no SO convidado para preparar a imagem antes da migração.
+
+## <a name="system-file-checker-sfc-command"></a>Comando de verificador de ficheiros do sistema (SFC)
+
+### <a name="run-windows-system-file-checker-utility-run-sfc-scannow-on-os-prior-to-generalization-step-of-creating-customer-os-image"></a>Executar utilitário de verificador de ficheiros do sistema windows (executar sfc /scannow) no OS antes do passo de generalização de criar imagem de OS do cliente
+
+O comando System File Checker (SFC) é utilizado para verificar e substituir ficheiros do sistema Windows.
+
+Para dirigir o comando SFC:
+
+1. Abra um aviso CMD elevado como Administrador.
+1. Digite `sfc /scannow` e selecione **Enter**.
+
+    ![Verificador de ficheiros do sistema](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+Depois de concluída a digitalização do SFC, tente instalar as Atualizações do Windows e reiniciar o computador.
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>Converter o disco virtual em um tamanho fixo e VHD
 
@@ -156,7 +172,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 Verifique se as seguintes configurações estão definidas corretamente para acesso remoto:
 
 >[!NOTE] 
->Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Pode ignorar esta mensagem. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
+>Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Pode ignorar esta mensagem com segurança. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
 
 1. O protocolo RDP (RDP) está habilitado:
    
@@ -225,7 +241,7 @@ Verifique se as seguintes configurações estão definidas corretamente para ace
     | Política de grupo NLA                         | Configuration\policies\windows Templates\Components\Remote Desktop \ \ sessão de área de trabalho \ Host\Security                                                    | Exigir autenticação de usuário para acesso remoto usando NLA |
     | Configurações Keep-Alive                      | Computador \ \ \ \ \ Configuration\policies\windows Administrativos\Componentes da área de trabalho do Remota \ sessão do Host\Connections | Configurar intervalo de conexão Keep Alive                                                 |
     | Reconectar configurações                       | Computador \ \ \ \ \ Configuration\policies\windows Administrativos\Componentes da área de trabalho do Remota \ sessão do Host\Connections | Reconectar automaticamente                                                                   |
-    | Número limitado de configurações de conexão | Computador \ \ \ \ \ Configuration\policies\windows Administrativos\Componentes da área de trabalho do Remota \ sessão do Host\Connections | Limitar o número de ligações                                                              |
+    | Número limitado de configurações de conexão | Computador \ \ \ \ \ Configuration\policies\windows Administrativos\Componentes da área de trabalho do Remota \ sessão do Host\Connections | Número limite de ligações                                                              |
 
 ## <a name="configure-windows-firewall-rules"></a>Configurar regras de firewall do Windows
 1. Ative o Firewall do Windows nos três perfis (domínio, padrão e público):
@@ -346,9 +362,9 @@ Verifique se a VM está íntegra, segura e RDP acessível:
 
    - Administradores
 
-   - Operadores de Cópia de Segurança
+   - Operadores de backup
 
-   - Todos os utilizadores
+   - Todos
 
    - Utilizadores
 
@@ -424,7 +440,7 @@ Nem toda função ou aplicativo instalado em um computador baseado no Windows d�
 
 1. Entre na VM do Windows.
 1. Execute o **prompt de comando** como administrador. 
-1. Altere o diretório para `%windir%\system32\sysprep`. Em seguida, execute o `sysprep.exe`.
+1. Mude o diretório para `%windir%\system32\sysprep`. Em seguida, execute o `sysprep.exe`.
 1. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Experiência 1ª Execução (OOBE) do Sistema** e certifique-se de que a caixa de verificação **Generalizar** está selecionada.
 
     ![Ferramenta de preparação do sistema](media/prepare-for-upload-vhd-image/syspre.png)

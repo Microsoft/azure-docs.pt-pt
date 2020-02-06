@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 3ab02f0522ab52870d24f667ff91665e8aa0a4eb
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 59c38423f771685dc79a8be12a383cfdec6a0266
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281330"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031531"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL (versão prévia) usando a CLI
 
@@ -24,18 +24,18 @@ Um ponto de extremidade privado é o bloco de construção fundamental para o li
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você decidir instalar e usar CLI do Azure localmente, este guia de início rápido exigirá que você use CLI do Azure versão 2.0.28 ou posterior. Para localizar sua versão instalada, execute `az --version`. Consulte [instalar CLI do Azure](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
+Se você decidir instalar e usar CLI do Azure localmente, este guia de início rápido exigirá que você use CLI do Azure versão 2.0.28 ou posterior. Para encontrar a sua versão instalada, execute `az --version`. Consulte [o Azure CLI](/cli/azure/install-azure-cli) para instalar ou atualizar informações.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
-Para poder criar qualquer recurso, você precisa criar um grupo de recursos para hospedar a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *MyResource* Group no local *westeurope* :
+Para poder criar qualquer recurso, você precisa criar um grupo de recursos para hospedar a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *myResourceGroup* na localização *da Europa Ocidental:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Criar uma Rede Virtual
-Crie uma rede virtual com [AZ Network vnet Create](/cli/azure/network/vnet). Este exemplo cria uma rede virtual padrão chamada *myVirtualNetwork* com uma sub-rede chamada *mysubnet*:
+Criar uma Rede Virtual com a [z network vnet criar](/cli/azure/network/vnet). Este exemplo cria uma rede virtual padrão chamada *myVirtualNetwork* com uma subnet chamada *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -45,7 +45,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Desabilitar políticas de ponto de extremidade privado de sub-rede 
-O Azure implanta recursos em uma sub-rede em uma rede virtual, portanto, você precisa criar ou atualizar a sub-rede para desabilitar as políticas de rede de ponto de extremidade privadas. Atualize uma configuração de sub-rede chamada *mysubnet* com [AZ Network vnet subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+O Azure implanta recursos em uma sub-rede em uma rede virtual, portanto, você precisa criar ou atualizar a sub-rede para desabilitar as políticas de rede de ponto de extremidade privadas. Atualize uma configuração de sub-rede chamada *mySubnet* com [aaz rede vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -55,7 +55,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Crie a VM 
-Crie uma VM com AZ VM Create. Quando solicitado, forneça uma senha a ser usada como as credenciais de entrada para a VM. Este exemplo cria uma VM chamada *myVm*: 
+Crie uma VM com AZ VM Create. Quando solicitado, forneça uma senha a ser usada como as credenciais de entrada para a VM. Este exemplo cria um VM chamado *myVm:* 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -78,7 +78,7 @@ az mysql server create \
 --sku-name GP_Gen5_2
 ```
 
-Observe que a ID do servidor MySQL é semelhante à ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` você usará a ID do servidor MySQL na próxima etapa. 
+Note que o ID do Servidor MySQL é semelhante ao ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` Utilizará o ID do Servidor MySQL no próximo passo. 
 
 ## <a name="create-the-private-endpoint"></a>Criar o ponto de extremidade privado 
 Crie um ponto de extremidade privado para o servidor MySQL em sua rede virtual: 
@@ -114,18 +114,18 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
  
 #Create DNS records 
 az network private-dns record-set a create --name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
-Conecte-se à VM *myVm* da Internet da seguinte maneira:
+Ligue-se ao *myVm* VM da internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, insira *myVm*.
+1. Na barra de pesquisa do portal, entre no *myVm.*
 
-1. Selecione o botão **Ligar**. Depois de selecionar o botão **conectar** , **Conecte-se à máquina virtual** é aberto.
+1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **ligue-se à máquina virtual.**
 
-1. Selecione **transferir ficheiro RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
+1. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop *(.rdp)* e transfere-o para o computador.
 
 1. Abra o arquivo. rdp * baixado.
 
@@ -134,17 +134,17 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
     1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
-        > Talvez seja necessário selecionar **mais escolhas** > **usar uma conta diferente**, para especificar as credenciais inseridas quando você criou a VM.
+        > Poderá ter de selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se você receber um aviso de certificado, selecione **Sim** ou **continuar**.
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
 
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para a área de trabalho local.  
 
 ## <a name="access-the-mysql-server-privately-from-the-vm"></a>Acessar o servidor MySQL de forma privada da VM
 
-1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
+1. No Ambiente de Trabalho Remoto do *myVM,* abra a PowerShell.
 
 2. Introduza  `nslookup mydemomysqlserver.privatelink.mysql.database.azure.com`. 
 
@@ -185,4 +185,4 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [o que é o ponto de extremidade privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- Saiba mais sobre [o que é o ponto final privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

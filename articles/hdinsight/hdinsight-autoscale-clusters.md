@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 45804bd3e81e7363010979b7a6e028356b3a5080
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: ace9794bd72aa124137a6b543c79979e8f5ca7c0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780067"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031278"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -33,7 +33,7 @@ A tabela a seguir descreve os tipos de cluster e as versões que são compatíve
 | HDInsight 3,6 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 | HDInsight 4,0 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 
-\* clusters HBase só podem ser configurados para dimensionamento baseado em agendamento, não baseado em carga.
+\* os clusters HBase só podem ser configurados para escalas baseadas em horários e não baseadas em carga.
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -45,12 +45,12 @@ O dimensionamento baseado em agendamento altera o número de nós no cluster com
 
 O dimensionamento automático monitora continuamente o cluster e coleta as seguintes métricas:
 
-* **Total de CPU pendente**: o número total de núcleos necessários para iniciar a execução de todos os contêineres pendentes.
-* **Memória total pendente**: a memória total (em MB) necessária para iniciar a execução de todos os contêineres pendentes.
-* **Total de CPU livre**: a soma de todos os núcleos não utilizados nos nós de trabalho ativos.
-* **Memória livre total**: a soma da memória não utilizada (em MB) nos nós de trabalho ativos.
-* **Memória usada por nó**: a carga em um nó de trabalho. Um nó de trabalho no qual são usados 10 GB de memória, é considerado sob mais carga do que um trabalhador com 2 GB de memória usada.
-* **Número de mestres de aplicativo por nó**: o número de contêineres do aplicativo mestre (AM) em execução em um nó de trabalho. Um nó de trabalho que está hospedando dois contêineres AM é considerado mais importante do que um nó de trabalho que está hospedando zero contêineres AM.
+* **CpU Total Pendente**: O número total de núcleos necessários para iniciar a execução de todos os contentores pendentes.
+* **Memória Total Pendente**: A memória total (em MB) necessária para iniciar a execução de todos os recipientes pendentes.
+* **Total De CPU Livre**: A soma de todos os núcleos não utilizados nos nós dos trabalhadores ativos.
+* **Memória Total Livre**: A soma da memória não utilizada (em MB) nos nós dos trabalhadores ativos.
+* **Memória Usada por Nó**: A carga num nó de trabalhador. Um nó de trabalho no qual são usados 10 GB de memória, é considerado sob mais carga do que um trabalhador com 2 GB de memória usada.
+* **Número de Mestrados de Aplicação por Nó**: O número de contentores Master de Aplicação (AM) em funcionamento num nó de trabalhador. Um nó de trabalho que está hospedando dois contêineres AM é considerado mais importante do que um nó de trabalho que está hospedando zero contêineres AM.
 
 As métricas acima são verificadas a cada 60 segundos. O dimensionamento automático faz decisões de redução e redução com base nessas métricas.
 
@@ -72,35 +72,35 @@ Quando as seguintes condições forem detectadas, o dimensionamento automático 
 
 Com base no número de contêineres AM por nó e nos requisitos atuais de CPU e memória, o dimensionamento automático emite uma solicitação para remover um determinado número de nós. O serviço também detecta quais nós são candidatos para remoção com base na execução do trabalho atual. A operação de redução vertical primeiro encerra os nós e, em seguida, remove-os do cluster.
 
-## <a name="get-started"></a>Começar
+## <a name="get-started"></a>Introdução
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Criar um cluster com dimensionamento automático baseado em carga
 
-Para usar o dimensionamento automático em um cluster, a opção **Habilitar dimensionamento automático** deve ser habilitada quando o cluster é criado. 
+Para utilizar a escala automática num cluster, a opção **ativação** de escala automática deve ser ativada quando o cluster é criado. 
 
 Para habilitar o recurso de dimensionamento automático com dimensionamento baseado em carga, conclua as seguintes etapas como parte do processo normal de criação do cluster:
 
-1. Na guia **configuração + preços** , marque a caixa de seleção **Habilitar dimensionamento automático** .
-1. Selecione **baseado em carga** em **tipo de dimensionamento automático**.
+1. No separador **de preços Configuração +,** verifique a caixa de verificação **enable autoscale.**
+1. Selecione **baseado em carga sob** o tipo de escala **automática**.
 1. Insira os valores desejados para as seguintes propriedades:  
 
-    * **Número inicial de nós** para o **nó de trabalho**.
-    * Número **mínimo** de nós de trabalho.
-    * Número **máximo** de nós de trabalho.
+    * Número inicial **de nós** para o **nó operário.**
+    * **Número min** de nós operários.
+    * **Número máximo** de nós operários.
 
     ![Habilitar dimensionamento automático baseado em carga de nó de trabalho](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
 
-O número inicial de nós de trabalho deve estar entre o mínimo e o máximo, inclusive. Esse valor define o tamanho inicial do cluster quando ele é criado. O número mínimo de nós de trabalho deve ser definido como três ou mais. . Dimensionar o cluster para menos de três nós pode fazer com que ele fique preso no modo de segurança devido à replicação de arquivo insuficiente. Veja [como ficar preso no modo de segurança]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) para obter mais informações.
+O número inicial de nós de trabalho deve estar entre o mínimo e o máximo, inclusive. Esse valor define o tamanho inicial do cluster quando ele é criado. O número mínimo de nós de trabalho deve ser definido como três ou mais. . Dimensionar o cluster para menos de três nós pode fazer com que ele fique preso no modo de segurança devido à replicação de arquivo insuficiente. Veja [ficar preso em modo de segurança]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) para obter mais informações.
 
 ### <a name="create-a-cluster-with-schedule-based-autoscaling"></a>Criar um cluster com dimensionamento automático baseado em agendamento
 
 Para habilitar o recurso de dimensionamento automático com dimensionamento baseado em agendamento, conclua as seguintes etapas como parte do processo normal de criação do cluster:
 
-1. Na guia **configuração + preços** , marque a caixa de seleção **Habilitar dimensionamento automático** .
-1. Insira o **número de nós** para o **nó de trabalho**, que controla o limite para escalar verticalmente o cluster.
-1. Selecione a opção **baseado em agendamento** em **tipo de dimensionamento automático**.
-1. Clique em **Configurar** para abrir a janela **configuração de dimensionamento automático** .
-1. Selecione seu fuso horário e clique em **+ Adicionar condição**
+1. No separador **de preços Configuração +,** verifique a caixa de verificação **enable autoscale.**
+1. Introduza o **número de nós** para o nó **operário,** que controla o limite para a escala ção do cluster.
+1. Selecione a opção **Baseada no horário sob** o tipo de escala **automática**.
+1. Clique em **Configurar** para abrir a janela de configuração de **escala automática.**
+1. Selecione o seu fuso horário e, em seguida, clique **em + Adicionar condição**
 1. Selecione os dias da semana aos quais a nova condição deve ser aplicada.
 1. Edite a hora em que a condição deve entrar em vigor e o número de nós para o qual o cluster deve ser dimensionado.
 1. Adicione mais condições, se necessário.
@@ -111,7 +111,7 @@ O número de nós deve estar entre 3 e o número máximo de nós de trabalho que
 
 ### <a name="final-creation-steps"></a>Etapas de criação final
 
-Para o dimensionamento baseado em carga e em agendamento, selecione o tipo de VM para nós de trabalho selecionando uma VM na lista suspensa em **tamanho do nó**. Depois de escolher o tipo de VM para cada tipo de nó, você poderá ver o intervalo de custo estimado para todo o cluster. Ajuste os tipos de VM para se ajustarem ao seu orçamento.
+Para uma escala baseada em carga e para a escalação baseada no horário, selecione o tipo VM para nós de trabalhador, selecionando um VM da lista de abandono em tamanho do **nó**. Depois de escolher o tipo de VM para cada tipo de nó, você poderá ver o intervalo de custo estimado para todo o cluster. Ajuste os tipos de VM para se ajustarem ao seu orçamento.
 
 ![Habilitar o tamanho do nó de dimensionamento automático baseado na agenda do nó de trabalho](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
 
@@ -120,13 +120,13 @@ Sua assinatura tem uma cota de capacidade para cada região. O número total de 
 > [!Note]  
 > Se você exceder o limite de cota de núcleo total, receberá uma mensagem de erro informando ' o nó máximo excedeu os núcleos disponíveis nesta região, escolha outra região ou entre em contato com o suporte para aumentar a cota. '
 
-Para obter mais informações sobre a criação do cluster HDInsight usando o portal do Azure, consulte [Criar clusters baseados em Linux no HDInsight usando o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md).  
+Para obter mais informações sobre a criação de clusterS HDInsight utilizando o portal Azure, consulte [Create Linux clusters em HDInsight utilizando o portal Azure](hdinsight-hadoop-create-linux-clusters-portal.md).  
 
 ### <a name="create-a-cluster-with-a-resource-manager-template"></a>Criar um cluster com um modelo do Resource Manager
 
 #### <a name="load-based-autoscaling"></a>Dimensionamento automático baseado em carga
 
-Você pode criar um cluster HDInsight com dimensionamento automático baseado em carga um modelo de Azure Resource Manager, adicionando um nó `autoscale` à seção `computeProfile` > `workernode` com as propriedades `minInstanceCount` e `maxInstanceCount`, conforme mostrado no trecho de JSON abaixo.
+Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure baseado em carga, adicionando um nó de `autoscale` à secção `computeProfile` > `workernode` com as propriedades `minInstanceCount` e `maxInstanceCount` como mostrado no snippet json abaixo.
 
 ```json
 {
@@ -152,11 +152,11 @@ Você pode criar um cluster HDInsight com dimensionamento automático baseado em
 }
 ```
 
-Para obter mais informações sobre como criar clusters com modelos do Resource Manager, consulte [Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
+Para obter mais informações sobre a criação de clusters com modelos de Gestor de Recursos, consulte [create Apache Hadoop clusters in HDInsight utilizando modelos de Gestor](hdinsight-hadoop-create-linux-clusters-arm-templates.md)de Recursos .  
 
 #### <a name="schedule-based-autoscaling"></a>Dimensionamento automático baseado em agendamento
 
-Você pode criar um cluster HDInsight com dimensionamento automático baseado em agendamento um modelo de Azure Resource Manager, adicionando um nó `autoscale` à seção `computeProfile` > `workernode`. O nó `autoscale` contém uma `recurrence` que tem um `timezone` e `schedule` que descreve quando ocorrerá a alteração.
+Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure baseado em horários, adicionando um nó de `autoscale` à secção `computeProfile` > `workernode`. O nó `autoscale` contém uma `recurrence` que tem um `timezone` e `schedule` que descreve quando a mudança vai ocorrer.
 
 ```json
 {
@@ -190,9 +190,9 @@ Você pode criar um cluster HDInsight com dimensionamento automático baseado em
 
 #### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
-Para habilitar o dimensionamento automático em um cluster em execução, selecione **tamanho do cluster** em **configurações**. Em seguida, clique em **Habilitar dimensionamento automático**. Selecione o tipo de dimensionamento automático desejado e insira as opções para o dimensionamento baseado em carga ou em agendamento. Finalmente, clique em **Guardar**.
+Para ativar a escala automática num cluster de execução, selecione **o tamanho do cluster** em **definições**. Em seguida, clique em **ativar automaticamente**. Selecione o tipo de dimensionamento automático desejado e insira as opções para o dimensionamento baseado em carga ou em agendamento. Finalmente, clique em **Guardar**.
 
-![Habilitar dimensionamento automático baseado em agenda de nó de trabalho executando cluster](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+![Habilitar dimensionamento automático baseado em agenda de nó de trabalho executando cluster](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
 
 #### <a name="using-the-rest-api"></a>Utilizar a API REST
 
@@ -202,13 +202,13 @@ Para habilitar ou desabilitar o dimensionamento automático em um cluster em exe
 https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
 ```
 
-Use os parâmetros apropriados na carga de solicitação. A carga JSON abaixo pode ser usada para habilitar o dimensionamento automático. Use o `{autoscale: null}` de carga para desabilitar o dimensionamento automático.
+Use os parâmetros apropriados na carga de solicitação. A carga JSON abaixo pode ser usada para habilitar o dimensionamento automático. Utilize a carga útil `{autoscale: null}` para desativar a escala automática.
 
 ```json
 { autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }
 ```
 
-Consulte a seção anterior sobre como [habilitar o dimensionamento automático baseado em carga](#load-based-autoscaling) para obter uma descrição completa de todos os parâmetros de carga.
+Consulte a secção anterior sobre [a escala automática baseada em carga](#load-based-autoscaling) para obter uma descrição completa de todos os parâmetros de carga útil.
 
 ## <a name="best-practices"></a>Melhores práticas
 
@@ -233,7 +233,7 @@ Os trabalhos em execução continuarão a ser executados e concluídos. Os traba
 
 ### <a name="minimum-cluster-size"></a>Tamanho mínimo do cluster
 
-Não dimensione o cluster para menos de três nós. Dimensionar o cluster para menos de três nós pode fazer com que ele fique preso no modo de segurança devido à replicação de arquivo insuficiente. Veja [como ficar preso no modo de segurança]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) para obter mais informações.
+Não dimensione o cluster para menos de três nós. Dimensionar o cluster para menos de três nós pode fazer com que ele fique preso no modo de segurança devido à replicação de arquivo insuficiente. Veja [ficar preso em modo de segurança]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) para obter mais informações.
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -253,16 +253,16 @@ Todas as mensagens de status do cluster que você pode ver são explicadas na li
 | Erro de atualização  | O HDInsight encontrou problemas durante a atualização de configuração de dimensionamento automático. Os clientes podem optar por repetir a atualização ou desabilitar o dimensionamento automático.  |
 | Erro  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |
 
-Para exibir o número atual de nós no cluster, acesse o gráfico **de tamanho do cluster** na página **visão geral** do cluster ou clique em **tamanho do cluster** em **configurações**.
+Para ver o número atual de nós no seu cluster, vá ao gráfico de **tamanho do Cluster** na página **'Visão Geral'** para o seu cluster, ou clique no tamanho do **Cluster** em **Definições**.
 
 ### <a name="operation-history"></a>Histórico de operação
 
 Você pode exibir o histórico de expansão e redução do cluster como parte das métricas do cluster. Você também pode listar todas as ações de dimensionamento no dia anterior, semana ou outro período de tempo.
 
-Selecione **métricas** em **monitoramento**. Em seguida, clique em **Adicionar métrica** e **número de operadores ativos** na caixa suspensa de **métrica** . Clique no botão no canto superior direito para alterar o intervalo de tempo.
+Selecione **Métricas** sob **monitorização**. Em seguida, clique em **Adicionar métrica** e Número **de Trabalhadores Ativos** a partir da caixa de dropdown **Métrica.** Clique no botão no canto superior direito para alterar o intervalo de tempo.
 
 ![Habilitar métrica de dimensionamento automático baseado em agenda de nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Leia sobre as práticas recomendadas para dimensionar clusters manualmente em [práticas recomendadas de dimensionamento](hdinsight-scaling-best-practices.md)
+* Leia sobre as melhores práticas para escalonar clusters manualmente nas [melhores práticas](hdinsight-scaling-best-practices.md) de escala

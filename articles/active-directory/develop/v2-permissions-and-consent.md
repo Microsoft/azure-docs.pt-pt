@@ -17,12 +17,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 567df85fa634570b0ac04fe6da906776a74c0550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e673c2dfd9b3bef6d443498fc96a8c71e0737851
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833351"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030766"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma Microsoft Identity
 
@@ -31,7 +31,7 @@ ms.locfileid: "76833351"
 Os aplicativos que se integram à plataforma Microsoft Identity seguem um modelo de autorização que oferece aos usuários e administradores o controle sobre como os dados podem ser acessados. A implementação do modelo de autorização foi atualizada no ponto final da plataforma de identidade da Microsoft, e altera a forma como uma aplicação deve interagir com a plataforma de identidade da Microsoft. Este artigo abrange os conceitos básicos deste modelo de autorização, incluindo âmbitos, permissões e consentimento.
 
 > [!NOTE]
-> O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e funcionalidades. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
+> O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e funcionalidades. Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações](active-directory-v2-limitations.md)da plataforma de identidade da Microsoft .
 
 ## <a name="scopes-and-permissions"></a>Âmbitos e permissões
 
@@ -59,7 +59,7 @@ No OAuth 2.0, este tipo de permissões são *chamados de âmbitos*. Também são
 * Escreva para o calendário de um utilizador usando `Calendars.ReadWrite`
 * Envie correio como utilizador usando por `Mail.Send`
 
-Uma aplicação mais frequentemente solicita estas permissões especificando os âmbitos nos pedidos para a plataforma de identidade da Microsoft autorizar o ponto final. No entanto, certas permissões de privilégio elevado só podem ser concedidas através do consentimento do administrador e solicitadas/concedidas através do [ponto final](v2-permissions-and-consent.md#admin-restricted-permissions)do consentimento do administrador . Continue a ler para obter mais informações.
+Uma aplicação mais frequentemente solicita estas permissões especificando os âmbitos nos pedidos para a plataforma de identidade da Microsoft autorizar o ponto final. No entanto, certas permissões de privilégio elevado só podem ser concedidas através do consentimento do administrador e solicitadas/concedidas através do [ponto final](v2-permissions-and-consent.md#admin-restricted-permissions)do consentimento do administrador . Leia para saber mais.
 
 ## <a name="permission-types"></a>Tipos de permissão
 
@@ -178,13 +178,13 @@ As permissões de aplicação só podem ser solicitadas através do uso de [`/.d
 1. Vá à sua aplicação no portal Azure – Experiência de registos de [aplicações,](https://go.microsoft.com/fwlink/?linkid=2083908) ou [crie uma app](quickstart-register-app.md) se ainda não o fez.
 2. Localize a secção **de permissões DaPI** e dentro das permissões da API clique em Adicionar uma permissão.
 3. Selecione o seu recurso preferido (por **exemplo, Microsoft Graph)** da lista de APIs disponíveis e, em seguida, adicione as permissões que a sua aplicação necessita.
-3. **Salve** o registro do aplicativo.
+3. **Guarde** o registo da aplicação.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Recomendado: conectar o usuário ao seu aplicativo
 
 Normalmente, quando se constrói uma aplicação que utiliza o ponto final do consentimento do administrador, a aplicação precisa de uma página ou vista na qual o administrador pode aprovar as permissões da app. Esta página pode fazer parte do fluxo de inscrição da aplicação, parte das definições da aplicação, ou pode ser um fluxo dedicado de "connect". Em muitos casos, faz sentido que o aplicativo mostre esse modo de exibição "conectar" somente depois que um usuário tiver entrado com uma conta Microsoft corporativa ou de estudante.
 
-Ao assinar o utilizador na sua aplicação, pode identificar a organização a que pertence o administrador antes de pedir-lhes que aprovem as permissões necessárias. Embora não seja estritamente necessário, pode ajudá-lo a criar uma experiência mais intuitiva para os seus utilizadores organizacionais. Para conectar o usuário, siga nossos [tutoriais de protocolo de plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
+Ao assinar o utilizador na sua aplicação, pode identificar a organização a que pertence o administrador antes de pedir-lhes que aprovem as permissões necessárias. Embora não seja estritamente necessário, pode ajudá-lo a criar uma experiência mais intuitiva para os seus utilizadores organizacionais. Para iniciar sessão com o utilizador, siga os [nossos tutoriais](active-directory-v2-protocols.md)de protocolo de plataforma de identidade da Microsoft .
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitar as permissões de um administrador de diretório
 
@@ -204,11 +204,11 @@ Quando estiver pronto para solicitar permissões ao administrador da sua organiz
 
 | Parâmetro     | Condição     | Descrição                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Obrigatório | O locatário do diretório do qual você deseja solicitar permissão. Pode ser fornecido em formato de nome GUIA ou amigável OU genericamente referenciado com `common` como se pode ver no exemplo. |
-| `client_id` | Obrigatório | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `redirect_uri` | Obrigatório |O URI de redirecionamento no qual você deseja que a resposta seja enviada para que seu aplicativo manipule. Deve corresponder exatamente a uma das URIs redirecionais que registou no portal de registo da aplicação. |
+| `tenant` | Necessário | O locatário do diretório do qual você deseja solicitar permissão. Pode ser fornecido em formato de nome GUIA ou amigável OU genericamente referenciado com organizações como visto no exemplo. Não utilize "comum", uma vez que as contas pessoais não podem dar consentimento à administração, exceto no contexto de um inquilino. Para garantir a melhor compatibilidade com contas pessoais que gerem os inquilinos, utilize o ID do inquilino sempre que possível. |
+| `client_id` | Necessário | O ID de **Aplicação (cliente)** que o [portal Azure – App registra](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua app. |
+| `redirect_uri` | Necessário |O URI de redirecionamento no qual você deseja que a resposta seja enviada para que seu aplicativo manipule. Deve corresponder exatamente a uma das URIs redirecionais que registou no portal de registo da aplicação. |
 | `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma série de qualquer conteúdo que queiras. Utilize o Estado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que se encontrava. |
-|`scope`        | Obrigatório      | Define o conjunto de permissões que estão a ser solicitadas pelo pedido. Isto pode ser estático (utilizando [`/.default`) ](#the-default-scope)ou âmbitos dinâmicos.  Isto pode incluir os âmbitos OIDC (`openid`, `profile`, `email`). Se necessitar de permissões de pedido, deve utilizar `/.default` para solicitar a lista de permissões estáticas.  | 
+|`scope`        | Necessário      | Define o conjunto de permissões que estão a ser solicitadas pelo pedido. Isto pode ser estático (utilizando [`/.default`) ](#the-default-scope)ou âmbitos dinâmicos.  Isto pode incluir os âmbitos OIDC (`openid`, `profile`, `email`). Se necessitar de permissões de pedido, deve utilizar `/.default` para solicitar a lista de permissões estáticas.  | 
 
 
 Neste momento, a Azure AD exige que um administrador inquilino assine o pedido. Pede-se ao administrador que aprove todas as permissões que solicitou no parâmetro `scope`.  Se tiver usado um valor estático (`/.default`), funcionará como o ponto final de consentimento da administração v1.0 e solicitará o consentimento de todos os âmbitos encontrados nas permissões necessárias para a app.

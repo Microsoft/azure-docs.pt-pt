@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a487e0c9d565993b45f7e271af23a622e61389ad
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 42eb603be0152b9e8cfb36d02e8f0602c40afe54
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990832"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031208"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para avaliação e migração de servidores físicos para o Azure
 
-Este artigo descreve como se preparar para a avaliação de servidores físicos locais com as [migrações para Azure](migrate-services-overview.md).
+Este artigo descreve como se preparar para a avaliação de servidores físicos no local com [o Azure Migrate](migrate-services-overview.md).
 
-As [migrações para Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros. 
+[A Azure Migrate](migrate-overview.md) fornece um centro de ferramentas que o ajudam a descobrir, avaliar e migrar apps, infraestruturas e cargas de trabalho para o Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros. 
 
 Este tutorial é o primeiro de uma série que mostra como avaliar servidores físicos com as migrações para Azure. Neste tutorial, ficará a saber como:
 
@@ -43,8 +43,8 @@ Você precisa configurar permissões para a implantação de migrações para Az
 
 **Tarefa** | **Permissões**
 --- | ---
-**Criar um projeto de migrações para Azure** | Sua conta do Azure precisa de permissões para criar um projeto.
-**Registrar o dispositivo de migrações para Azure** | A Azure Migrate utiliza um aparelho ligeiro de migração Azure para descobrir e avaliar servidores físicos com avaliação do servidor de migração Azure. Este aparelho descobre servidores e envia os seus metadados e dados de desempenho para o Azure Migrate.<br/><br/>Durante o registo do aparelho, os seguintes Fornecedores de Registo saem registados com a subscrição escolhida no aparelho: Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Para registar os fornecedores de recursos, necessita de uma função de Colaborador ou Proprietário na subscrição.<br/><br/> Como parte do embarque, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD):<br/> A aplicação AAD é utilizada para comunicação (autenticação e autorização) entre os agentes que estão a trabalhar no aparelho com os respetivos serviços em funcionamento no Azure. Esta aplicação não tem privilégios para fazer chamadas ARM ou acesso RBAC em qualquer recurso.
+**Criar um projeto Azure Migrate** | Sua conta do Azure precisa de permissões para criar um projeto.
+**Registe o aparelho Azure Migrate** | A Azure Migrate utiliza um aparelho ligeiro de migração Azure para descobrir e avaliar servidores físicos com avaliação do servidor de migração Azure. Este aparelho descobre servidores e envia os seus metadados e dados de desempenho para o Azure Migrate.<br/><br/>Durante o registo do aparelho, os seguintes Fornecedores de Recursos estão registados com a subscrição escolhida no aparelho: Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Para registar os fornecedores de recursos, necessita de uma função de Colaborador ou Proprietário na subscrição.<br/><br/> Como parte do embarque, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD):<br/> A aplicação AAD é utilizada para comunicação (autenticação e autorização) entre os agentes que estão a trabalhar no aparelho com os respetivos serviços em funcionamento no Azure. Esta aplicação não tem privilégios para fazer chamadas ARM ou acesso RBAC em qualquer recurso.
 
 
 
@@ -52,9 +52,9 @@ Você precisa configurar permissões para a implantação de migrações para Az
 
 Verifique se você tem permissões para criar um projeto de migrações para Azure.
 
-1. No portal do Azure, abra a assinatura e selecione **controle de acesso (iam)** .
-2. Em **verificar acesso**, localize a conta relevante e clique nela para exibir permissões.
-3. Você deve ter permissões de **colaborador** ou de **proprietário** .
+1. No portal Azure, abra a subscrição e selecione controlo de **acesso (IAM)** .
+2. No **Check access,** encontre a conta relevante e clique nela para visualizar permissões.
+3. Deve ter permissões de **Contribuinte** ou **Proprietário.**
     - Se você acabou de criar uma conta gratuita do Azure, você é o proprietário da sua assinatura.
     - Se você não for o proprietário da assinatura, trabalhe com o proprietário para atribuir a função.
 
@@ -75,8 +75,8 @@ Pode atribuir permissões para a Azure Migrate criar a aplicação Azure AD dura
 
 O locatário/administrador global pode conceder permissões da seguinte maneira:
 
-1. No Azure AD, o locatário/administrador global deve navegar até **Azure Active Directory** > **usuários** > **configurações de usuário**.
-2. O administrador deve definir **registros de aplicativo** como **Sim**.
+1. Em Azure AD, o inquilino/administrador global deve navegar para **o Diretório Ativo do Azure** > **utilizadores** > **Definições**de utilizador .
+2. O administrador deve definir **os registos** da App para **Sim**.
 
     ![Permissões do Azure AD](./media/tutorial-prepare-hyper-v/aad.png)
 
@@ -94,34 +94,34 @@ Para se preparar para a avaliação do servidor físico, você precisa verificar
 
 ### <a name="verify-physical-server-settings"></a>Verificar as configurações do servidor físico
 
-1. Verifique [os requisitos do servidor físico](migrate-support-matrix-physical.md#physical-server-requirements) para avaliação do servidor.
-2. Verifique se as [portas necessárias](migrate-support-matrix-physical.md#port-access) estão abertas em servidores físicos.
+1. Verifique [os requisitos físicos do servidor](migrate-support-matrix-physical.md#physical-server-requirements) para a avaliação do servidor.
+2. Certifique-se de que as [portas necessárias](migrate-support-matrix-physical.md#port-access) estão abertas nos servidores físicos.
 
 
 ### <a name="verify-appliance-settings"></a>Verificar as configurações do dispositivo
 
 Antes de configurar o dispositivo migrações para Azure e iniciar a avaliação no próximo tutorial, prepare-se para a implantação do dispositivo.
 
-1. [Verifique](migrate-appliance.md#appliance---physical) os requisitos do dispositivo para servidores físicos.
-2. [Examine](migrate-appliance.md#url-access) as URLs do Azure que o dispositivo precisará acessar.
-3. [Examine](migrate-appliance.md#collected-data---vmware) se o dispositivo será coletado durante a descoberta e a avaliação.
-4. [Observação](migrate-support-matrix-physical.md#port-access) requisitos de acesso da porta avaliação do servidor físico.
+1. [Verifique os](migrate-appliance.md#appliance---physical) requisitos do aparelho para servidores físicos.
+2. [Reveja](migrate-appliance.md#url-access) os URLs Azure a que o aparelho terá de aceder.
+3. [Reveja](migrate-appliance.md#collected-data---vmware) se o aparelho irá recolher durante a descoberta e avaliação.
+4. [Note que](migrate-support-matrix-physical.md#port-access) o acesso à porta requer a avaliação física do servidor.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Configurar uma conta para descoberta de servidor físico
 
 As migrações para Azure precisam de permissões para descobrir servidores locais.
 
-- **Windows:** Configure uma conta de usuário local em todos os servidores Windows que você deseja incluir na descoberta. A conta de usuário precisa ser adicionada aos seguintes grupos:-usuários de gerenciamento remoto-usuários do monitor de desempenho-usuários de log de desempenho
-- **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir.
+- **Janelas:** Configurar uma conta de utilizador local em todos os servidores do Windows que pretende incluir na descoberta. A conta de utilizador precisa de ser adicionada aos seguintes grupos: - Utilizadores de Gestão Remota - Utilizadores de Monitor de Desempenho - Utilizadores de Registo de Desempenho
+- **Linux:** Precisa de uma conta de raiz nos servidores Linux que pretende descobrir.
 
 ## <a name="prepare-for-physical-server-migration"></a>Preparar para migração de servidor físico
 
 Examine os requisitos para a migração de servidores físicos.
 
-- [Examine](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico para a migração.
+- [Reveja](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico para a migração.
 - Migrações para Azure: a migração de servidor usa um servidor de replicação para migração de servidor físico:
-    - [Examine](migrate-replication-appliance.md#appliance-requirements) os requisitos de implantação do dispositivo de replicação e as [Opções](migrate-replication-appliance.md#mysql-installation) de instalação do MySQL no dispositivo.
+    - [Reveja](migrate-replication-appliance.md#appliance-requirements) os requisitos de implantação do aparelho de replicação e as [opções](migrate-replication-appliance.md#mysql-installation) para instalar o MySQL no aparelho.
     - Reveja os requisitos de acesso ao [URL](migrate-replication-appliance.md#url-access) e [porta] (migração-replicação-aparelho.md#port-access) para o aparelho de replicação.
 
 

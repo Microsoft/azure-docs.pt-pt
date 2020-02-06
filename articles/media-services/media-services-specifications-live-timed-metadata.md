@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 03b40dea4949bb50c30f7755b56294ac53107403
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514243"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905241"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Sinalizando metadados cronometrados na transmissão ao vivo 
 
@@ -239,8 +239,8 @@ A seção a seguir mostra o conteúdo RTMP "modo simples", que pode ser usado pa
 
 | Nome do Campo | Tipo de campo | Necessário? | Descrições                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tipo       | String     | Obrigatório  | A mensagem do evento.  Deve ser "Splice" para designar uma junção de modo simples.                                                                                                                                                                                                         |
-| ID         | String     | Obrigatório  | Um identificador exclusivo que descreve a junção ou o segmento. Identifica esta instância da mensagem                                                                                                                                                                                       |
+| tipo       | Cadeia     | Obrigatório  | A mensagem do evento.  Deve ser "Splice" para designar uma junção de modo simples.                                                                                                                                                                                                         |
+| ID         | Cadeia     | Obrigatório  | Um identificador exclusivo que descreve a junção ou o segmento. Identifica esta instância da mensagem                                                                                                                                                                                       |
 | duration   | Número     | Obrigatório  | A duração da junção. As unidades são segundos fracionários.                                                                                                                                                                                                                           |
 | elapsed    | Número     | Opcional  | Quando o sinal está sendo repetido para dar suporte ao ajuste no, esse campo deve ser a quantidade de tempo de apresentação decorrido desde o início da União. As unidades são segundos fracionários. Ao usar o modo simples, esse valor não deve exceder a duração original da junção. |
 | hora       | Número     | Obrigatório  | Deve ser a hora da junção, em tempo de apresentação. As unidades são segundos fracionários.                                                                                                                                                                                                |
@@ -249,7 +249,7 @@ A seção a seguir mostra o conteúdo RTMP "modo simples", que pode ser usado pa
  
 #### <a name="example-mpeg-dash-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exemplo de saída do manifesto de MPEG DASH ao usar o modo simples do Adobe RTMP
 
-Consulte o exemplo [3.3.2.1 para MPEG Dash. MPD EventStream usando o modo simples da Adobe](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
+Consulte o exemplo [3.3.2.1 MPEG DASH .mpd EventStream utilizando o modo adobe simples](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
 
 Consulte o exemplo [de manifesto 3.3.3.1 Dash com um único ponto e modo simples do Adobe](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
 
@@ -267,9 +267,9 @@ Nesse cenário, a carga a seguir deve ser enviada do codificador local usando o 
 
 | Nome do Campo | Tipo de campo | Necessário? | Descrições                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| marcar        | String     | Obrigatório  | A mensagem do evento.  Para mensagens [SCTE-35], ele deve ser o binário codificado na base64 [RFC4648] splice_info_section () para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash.                                                                                                                                                                                                                               |
-| tipo       | String     | Obrigatório  | Um URN ou URL que identifica o esquema de mensagem. Para mensagens [SCTE-35], isso **deve** ser **"scte35"** para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash, em conformidade com [Adobe-Primetime]. Opcionalmente, o URN "urn: SCTE: scte35:2013: bin" também pode ser usado para sinalizar uma mensagem [SCTE-35].                                                                                                        |
-| ID         | String     | Obrigatório  | Um identificador exclusivo que descreve a junção ou o segmento. Identifica essa instância da mensagem.  As mensagens com semântica equivalente devem ter o mesmo valor.                                                                                                                                                                                                                                                       |
+| marcar        | Cadeia     | Obrigatório  | A mensagem do evento.  Para mensagens [SCTE-35], ele deve ser o binário codificado na base64 [RFC4648] splice_info_section () para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash.                                                                                                                                                                                                                               |
+| tipo       | Cadeia     | Obrigatório  | Um URN ou URL que identifica o esquema de mensagem. Para mensagens [SCTE-35], isso **deve** ser **"scte35"** para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash, em conformidade com [Adobe-Primetime]. Opcionalmente, o URN "urn: SCTE: scte35:2013: bin" também pode ser usado para sinalizar uma mensagem [SCTE-35].                                                                                                        |
+| ID         | Cadeia     | Obrigatório  | Um identificador exclusivo que descreve a junção ou o segmento. Identifica essa instância da mensagem.  As mensagens com semântica equivalente devem ter o mesmo valor.                                                                                                                                                                                                                                                       |
 | duration   | Número     | Obrigatório  | A duração do evento ou do AD Splice-Segment, se conhecido. Se for desconhecido, o valor **deverá** ser 0.                                                                                                                                                                                                                                                                                                                    |
 | elapsed    | Número     | Opcional  | Quando o sinal do AD [SCTE-35] está sendo repetido para ajuste, esse campo deve ser a quantidade de tempo de apresentação decorrido desde o início da União. As unidades são segundos fracionários. No modo [SCTE-35], esse valor pode exceder a duração especificada original da junção ou segmento.                                                                                                                   |
 | hora       | Número     | Obrigatório  | A hora da apresentação do evento ou a junção do AD.  A hora e a duração da apresentação **devem** alinhar-se com os pontos de acesso do fluxo (SAP) do tipo 1 ou 2, conforme definido em [ISO-14496-12] anexo I. Para saída de HLS, o tempo e a duração **devem ser** alinhados com limites de segmento. A hora da apresentação e a duração de diferentes mensagens de evento dentro do mesmo fluxo de eventos não devem se sobrepor. As unidades são segundos fracionários. |
@@ -280,7 +280,7 @@ Nesse cenário, a carga a seguir deve ser enviada do codificador local usando o 
 Consulte [a seção 3.3.3.2 exemplo de manifesto com SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
 
 #### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>Exemplo de manifesto HLS. M3U8 com sinal de modo SCTE-35
-Confira o exemplo [3.3.1.1 exemplo de manifesto HLS com SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+Ver [Secção 3.2.1.1 exemplo HLS manifesto com SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
 
 ## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>sinalização de anúncio RTMP 2.1.5 com "onCuePoint" para elemento ao vivo
 
@@ -418,11 +418,11 @@ A faixa esparsa **deve** ser declarada na caixa do manifesto do Live Server com 
 | **Nome do atributo** | **Tipo de campo** | **Necessário?** | **Descrição**                                                                                                                                                                                                              |
 | ------------------ | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | systemBitrate      | Número         | Obrigatório      | **Deve** ser "0", indicando uma faixa com taxa de bits de variável desconhecida.                                                                                                                                                          |
-| parentTrackName    | String         | Obrigatório      | **Deve** ser o nome da faixa pai, para a qual os códigos de tempo de faixa esparsa são alinhados em escala temporal. A faixa pai não pode ser uma faixa esparsa.                                                                             |
+| parentTrackName    | Cadeia         | Obrigatório      | **Deve** ser o nome da faixa pai, para a qual os códigos de tempo de faixa esparsa são alinhados em escala temporal. A faixa pai não pode ser uma faixa esparsa.                                                                             |
 | manifestOutput     | Booleano        | Obrigatório      | **Deve** ser "true" para indicar que a faixa esparsa será inserida no manifesto do cliente suave.                                                                                                                        |
-| Subtipo            | String         | Obrigatório      | **Deve** ser o código de quatro caracteres "dados".                                                                                                                                                                                  |
-| Esquema             | String         | Obrigatório      | **Deve** ser um urn ou uma URL que identifica o esquema de mensagem. Para mensagens [SCTE-35], **deve** ser "urn: SCTE: scte35:2013: bin" para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash em conformidade com [SCTE-35]. |
-| trackName          | String         | Obrigatório      | **Deve** ser o nome da faixa esparsa. O trackname pode ser usado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo **deve** ter um nome de faixa exclusivo.                                |
+| Subtipo            | Cadeia         | Obrigatório      | **Deve** ser o código de quatro caracteres "dados".                                                                                                                                                                                  |
+| Esquema             | Cadeia         | Obrigatório      | **Deve** ser um urn ou uma URL que identifica o esquema de mensagem. Para mensagens [SCTE-35], **deve** ser "urn: SCTE: scte35:2013: bin" para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash em conformidade com [SCTE-35]. |
+| trackName          | Cadeia         | Obrigatório      | **Deve** ser o nome da faixa esparsa. O trackname pode ser usado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo **deve** ter um nome de faixa exclusivo.                                |
 | timescale          | Número         | Opcional      | **Deve** ser a escala de temporal da faixa pai.                                                                                                                                                                               |
 
 ---
@@ -1172,7 +1172,7 @@ Ao testar sua implementação com a plataforma de serviços de mídia do Azure, 
 
 ## <a name="change-history"></a>Histórico de Alterações
 
-| Data     | Alterações                                                                                                             |
+| Date     | Alterações                                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------------------- |
 | 07/2/19  | Ingestão RTMP revisada para suporte a SCTE35, adicionado "onCuePoint" RTMP para o elemento ao vivo                                  |
 | 08/22/19 | Atualizado para adicionar OnUserDataEvent a RTMP para metadados personalizados                                                          |

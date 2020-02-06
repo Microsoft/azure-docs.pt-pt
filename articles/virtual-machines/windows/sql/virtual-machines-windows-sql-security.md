@@ -1,6 +1,6 @@
 ---
-title: Considerações de segurança para SQL Server no Azure | Microsoft Docs
-description: Este tópico fornece diretrizes gerais para proteger SQL Server em execução em uma máquina virtual do Azure.
+title: Considerações de segurança para o Servidor SQL em Azure Microsoft Docs
+description: Este tópico fornece orientações gerais para assegurar o Servidor SQL em execução numa Máquina Virtual Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -15,91 +15,100 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2f9853c2699b69a0c9be13e6925a4b30f358f7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5ea0ddff38532b119d8d984f2dabd6d898b44a5
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102033"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031361"
 ---
-# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações de Segurança para SQL Server em Máquinas Virtuais do Azure
+# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações de segurança para o Servidor SQL em Máquinas Virtuais Azure
 
-Este tópico inclui diretrizes gerais de segurança que ajudam a estabelecer acesso seguro a instâncias de SQL Server em uma VM (máquina virtual) do Azure.
+Este tópico inclui diretrizes de segurança globais que ajudam a estabelecer acesso seguro às instâncias do SQL Server numa máquina virtual Azure (VM).
 
-O Azure está em conformidade com várias normas e padrões do setor que podem permitir que você crie uma solução em conformidade com SQL Server em execução em uma máquina virtual. Para obter informações sobre a conformidade regulatória com o Azure, consulte [central de confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/).
+O Azure cumpre vários regulamentos e padrões da indústria que lhe permitem construir uma solução compatível com o SQL Server a funcionar numa máquina virtual. Para obter informações sobre o cumprimento regulamentar do Azure, consulte [o Azure Trust Center.](https://azure.microsoft.com/support/trust-center/)
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="control-access-to-the-sql-vm"></a>Controlar o acesso à VM do SQL
+## <a name="control-access-to-the-sql-vm"></a>Controlar o acesso ao SQL VM
 
-Ao criar sua máquina virtual SQL Server, considere como controlar cuidadosamente quem tem acesso ao computador e SQL Server. Em geral, você deve fazer o seguinte:
+Quando criar a sua máquina virtual SQL Server, considere como controlar cuidadosamente quem tem acesso à máquina e ao Servidor SQL. Em geral, deve fazer o seguinte:
 
-- Restringir o acesso a SQL Server apenas aos aplicativos e clientes que precisam dele.
-- Siga as práticas recomendadas para gerenciar contas de usuário e senhas.
+- Restringir o acesso ao SQL Server apenas às aplicações e clientes que dele necessitem.
+- Siga as melhores práticas para gerir as contas de utilizador e as palavras-passe.
 
-As seções a seguir fornecem sugestões sobre como pensar nesses pontos.
+As seguintes secções fornecem sugestões sobre a reflexão através destes pontos.
 
-## <a name="secure-connections"></a>Conexões seguras
+## <a name="secure-connections"></a>Ligações seguras
 
-Quando você cria uma máquina virtual SQL Server com uma imagem da galeria, a **SQL Server** opção de conectividade oferece a opção de **local (dentro da VM)** , **privada (dentro da rede virtual)** ou **pública (Internet)** .
+Quando cria uma máquina virtual SQL Server com uma imagem de galeria, a opção **de conectividade do Servidor SQL** dá-lhe a escolha de Local (dentro de **VM)** , **Privado (dentro da Rede Virtual)** ou **Público (Internet)** .
 
-![Conectividade de SQL Server](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
+![Conectividade Do Servidor SQL](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-Para obter a melhor segurança, escolha a opção mais restritiva para seu cenário. Por exemplo, se você estiver executando um aplicativo que acessa SQL Server na mesma VM, o **local** será a opção mais segura. Se você estiver executando um aplicativo do Azure que requer acesso ao SQL Server, o **privado** protegerá a comunicação com SQL Server somente dentro da [rede virtual do Azure](../../../virtual-network/virtual-networks-overview.md)especificada. Se você precisar de acesso **público** (Internet) à VM SQL Server, certifique-se de seguir outras práticas recomendadas neste tópico para reduzir a área de superfície de ataque.
+Para obter a melhor segurança, escolha a opção mais restritiva para o seu cenário. Por exemplo, se estiver a executar uma aplicação que acede ao SQL Server no mesmo VM, então **o Local** é a escolha mais segura. Se estiver a executar uma aplicação Azure que requer acesso ao Servidor SQL, então o **Private** assegura a comunicação ao SQL Server apenas dentro da [rede virtual do Azure](../../../virtual-network/virtual-networks-overview.md)especificada . Se necessitar de acesso **público** (internet) ao VM do Servidor SQL, certifique-se de seguir outras boas práticas neste tópico para reduzir a sua área de superfície de ataque.
 
-As opções selecionadas no portal usam regras de segurança de entrada no NSG ( [grupo de segurança de rede](../../../virtual-network/security-overview.md) ) da VM para permitir ou negar o tráfego de rede para sua máquina virtual. Você pode modificar ou criar novas regras de NSG de entrada para permitir o tráfego para a porta de SQL Server (padrão 1433). Você também pode especificar endereços IP específicos que têm permissão para se comunicar por essa porta.
+As opções selecionadas no portal utilizam regras de segurança de entrada no grupo de segurança de [rede](../../../virtual-network/security-overview.md) (NSG) da VM para permitir ou negar o tráfego de rede à sua máquina virtual. Pode modificar ou criar novas regras de NSG de entrada para permitir o tráfego na porta SQL Server (padrão 1433). Também pode especificar endereços IP específicos que podem comunicar através desta porta.
 
 ![Regras do grupo de segurança de rede](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 
-Além das regras NSG para restringir o tráfego de rede, você também pode usar o Firewall do Windows na máquina virtual.
+Além das regras do NSG para restringir o tráfego de rede, também pode utilizar o Firewall do Windows na máquina virtual.
 
-Se você estiver usando pontos de extremidade com o modelo de implantação clássico, remova todos os pontos de extremidade na máquina virtual se não os usar. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Manage The ACL on a Endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Isso não é necessário para VMs que usam o Gerenciador de recursos.
+Se estiver a utilizar pontos finais com o modelo de implementação clássico, remova quaisquer pontos finais na máquina virtual se não os utilizar. Para obter instruções sobre a utilização de ACLs com pontos finais, consulte [Gerir o ACL num ponto final](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Isto não é necessário para vMs que usam o Gestor de Recursos.
 
-Por fim, considere habilitar conexões criptografadas para a instância do SQL Server Mecanismo de Banco de Dados em sua máquina virtual do Azure. Configure a instância do SQL Server com um certificado assinado. Para obter mais informações, consulte [habilitar conexões criptografadas com a mecanismo de banco de dados e a sintaxe da cadeia de](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) [conexão](https://msdn.microsoft.com/library/ms254500.aspx).
+Por fim, considere permitir ligações encriptadas para a instância do Motor de Base de Dados do Servidor SQL na sua máquina virtual Azure. Configure a instância do servidor SQL com um certificado assinado. Para mais informações, consulte [Enable Encrypted Connections to the Database Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) and Connection String [Syntax](https://msdn.microsoft.com/library/ms254500.aspx).
 
-## <a name="use-a-non-default-port"></a>Usar uma porta não padrão
+## <a name="encryption"></a>Encriptação
 
-Por padrão, SQL Server escuta em uma porta conhecida, 1433. Para aumentar a segurança, configure SQL Server para escutar em uma porta não padrão, como 1401. Se você provisionar uma imagem da Galeria de SQL Server no portal do Azure, poderá especificar essa porta na folha **configurações de SQL Server** .
+Os discos geridos oferecem encriptação lateral do servidor e encriptação do disco Azure. [A Encriptação do Lado](/azure/virtual-machines/windows/disk-encryption) do Servidor fornece encriptação em repouso e salvaguarda os seus dados para atender aos seus compromissos de segurança organizacional e conformidade. [A Encriptação do Disco Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) utiliza tecnologia Bitlocker ou DM-Crypt e integra-se com o Azure Key Vault para encriptar tanto os DISCOS como os discos de dados. 
+
+## <a name="use-a-non-default-port"></a>Utilize uma porta não predefinida
+
+Por padrão, o SQL Server ouve uma porta conhecida, 1433. Para uma maior segurança, configure o SQL Server para ouvir uma porta não predefinida, como o 1401. Se fornecer uma imagem de galeria SQL Server no portal Azure, pode especificar esta porta na lâmina de definições do **Servidor SQL.**
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Para configurar isso após o provisionamento, você tem duas opções:
+Para configurar isto após o fornecimento, tem duas opções:
 
-- Para VMs do Gerenciador de recursos, você pode selecionar **segurança** no [recurso de máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource). Isso fornece uma opção para alterar a porta.
+- Para VMs de Gestor de Recursos, pode selecionar **segurança** a partir do recurso de [máquinas virtuais SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource). Isto fornece uma opção para alterar a porta.
 
-  ![Alteração de porta TCP no portal](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
+  ![Mudança de porta TCP no portal](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 
-- Para VMs clássicas ou para VMs SQL Server que não foram provisionadas com o portal, você pode configurar manualmente a porta conectando-se remotamente à VM. Para obter as etapas de configuração, consulte [configurar um servidor para escutar em uma porta TCP específica](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port). Se você usar essa técnica manual, também precisará adicionar uma regra de firewall do Windows para permitir o tráfego de entrada nessa porta TCP.
+- Para VMs clássicos ou para VMs de servidor SQL que não foram aprovisionados com o portal, pode configurar manualmente a porta ligando-a remotamente ao VM. Para os passos de configuração, consulte [Configure um Servidor para ouvir uma porta Específica de TCP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port). Se utilizar esta técnica manual, também precisa de adicionar uma regra do Windows Firewall para permitir o tráfego de entrada naquela porta TCP.
 
 > [!IMPORTANT]
-> A especificação de uma porta não padrão é uma boa ideia se sua porta de SQL Server estiver aberta para conexões de Internet pública.
+> Especificar uma porta não predefinida é uma boa ideia se a sua porta SQL Server estiver aberta a ligações de internet pública.
 
-Quando SQL Server estiver escutando em uma porta não padrão, você deverá especificar a porta ao se conectar. Por exemplo, considere um cenário em que o endereço IP do servidor é 13.55.255.255 e SQL Server está escutando na porta 1401. Para se conectar ao SQL Server, você especificaria `13.55.255.255,1401` na cadeia de conexão.
+Quando o SQL Server estiver a ouvir uma porta não predefinida, deve especificar a porta quando se ligar. Por exemplo, considere um cenário em que o endereço IP do servidor é 13.55.255.255 e o Servidor SQL está a ouvir na porta 1401. Para ligar ao SQL Server, especifice `13.55.255.255,1401` na cadeia de ligação.
 
 ## <a name="manage-accounts"></a>Gerir contas
 
-Você não quer que os invasores adivinhem facilmente nomes de conta ou senhas. Use as seguintes dicas para ajudar:
+Não queres que os atacantes adivinhem facilmente nomes de contas ou palavras-passe. Utilize as seguintes dicas para ajudar:
 
-- Crie uma conta de administrador local exclusiva que não seja denominada **administrador**.
+- Crie uma conta única de administrador local que não seja nomeada **Administradora.**
 
-- Use senhas fortes complexas para todas as suas contas. Para obter mais informações sobre como criar uma senha forte, consulte [o artigo criar uma senha forte](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password) .
+- Utilize senhas fortes complexas para todas as suas contas. Para obter mais informações sobre como criar uma senha forte, consulte Criar um artigo [de senha forte.](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password)
 
-- Por padrão, o Azure seleciona a autenticação do Windows durante SQL Server configuração da máquina virtual. Portanto, o logon **SA** é desabilitado e uma senha é atribuída pela instalação do. Recomendamos que o logon de **SA** não seja usado ou habilitado. Se você precisar ter um logon do SQL, use uma das estratégias a seguir:
+- Por predefinição, o Azure seleciona a autenticação do Windows durante a configuração da Máquina Virtual do Servidor SQL. Portanto, o login **SA** é desativado e uma palavra-passe é atribuída por configuração. Recomendamos que o login **SA** não seja utilizado ou ativado. Se tiver de ter um login SQL, utilize uma das seguintes estratégias:
 
-  - Crie uma conta SQL com um nome exclusivo que tenha a associação **sysadmin** . Você pode fazer isso no portal habilitando a **autenticação do SQL** durante o provisionamento.
+  - Crie uma conta SQL com um nome único que tenha filiação em **sysadmin.** Pode fazê-lo a partir do portal, permitindo a **Autenticação SQL** durante o fornecimento.
 
     > [!TIP] 
-    > Se você não habilitar a autenticação do SQL durante o provisionamento, será necessário alterar manualmente o modo de autenticação para **SQL Server e o modo de autenticação do Windows**. Para obter mais informações, consulte [alterar o modo de autenticação do servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Se não ativar a Autenticação SQL durante o fornecimento, tem de alterar manualmente o modo de autenticação para o Modo de Autenticação do **Servidor SQL e para o Windows**. Para mais informações, consulte o Modo de [Autenticação do Servidor de Alteração](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode).
 
-  - Se você precisar usar o logon **SA** , habilite o logon após o provisionamento e atribua uma nova senha forte.
+  - Se tiver de utilizar o login **SA,** ative o login após o fornecimento e atribua uma nova senha forte.
 
-## <a name="follow-on-premises-best-practices"></a>Siga as práticas recomendadas locais
+## <a name="additional-best-practices"></a>Melhores práticas adicionais
 
-Além das práticas descritas neste tópico, recomendamos que você revise e implemente as práticas de segurança locais tradicionais, quando aplicável. Para obter mais informações, consulte [Security Considerations for a SQL Server Installation](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation)
+Para além das práticas descritas neste tema, recomendamos que reveja e implemente as melhores práticas de segurança, tanto a partir das práticas tradicionais de segurança no local, como das melhores práticas de segurança das máquinas virtuais. 
 
-## <a name="next-steps"></a>Próximos Passos
+Para obter mais informações sobre práticas de segurança no local, consulte [considerações de segurança para uma instalação do servidor SQL](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) e o centro de [segurança](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
 
-Se você também estiver interessado em práticas recomendadas sobre o desempenho, consulte [práticas recomendadas de desempenho para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md).
+Para obter mais informações sobre a segurança das máquinas virtuais, consulte a visão geral da segurança das [máquinas virtuais](/azure/security/fundamentals/virtual-machines-overview).
 
-Para outros tópicos relacionados à execução de SQL Server em VMs do Azure, consulte [visão geral de SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md). Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Se também está interessado nas melhores práticas em torno do desempenho, consulte as [Melhores Práticas de Desempenho para o Servidor SQL em Máquinas Virtuais Azure](virtual-machines-windows-sql-performance.md).
+
+Para outros tópicos relacionados com a execução do Servidor SQL em VMs Azure, consulte [o SQL Server na visão geral das Máquinas Virtuais Azure](virtual-machines-windows-sql-server-iaas-overview.md). Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 

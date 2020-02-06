@@ -1,17 +1,17 @@
 ---
 title: Tecnologias de implantação no Azure Functions
 description: Conheça as diferentes maneiras como você pode implantar código para Azure Functions.
-author: ColbyTresness
+author: georgewallace
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: cotresne
-ms.openlocfilehash: 39b3a96ddd3a9007600d1fa956c4e2d48f6adae9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.author: gwallace
+ms.openlocfilehash: 7b95fae3c7b713a9f97c31578a3bb24a9062fa2e
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714803"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029865"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -196,7 +196,7 @@ A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à 
 
 Ao implantar seu aplicativo de funções no Azure, você pode implantar em um slot de implantação separado em vez de diretamente na produção. Para obter mais informações sobre as ranhuras de implantação, consulte a documentação de slots de implantação de [funções azure](../app-service/deploy-staging-slots.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia estes artigos para saber mais sobre como implantar seus aplicativos de funções: 
 

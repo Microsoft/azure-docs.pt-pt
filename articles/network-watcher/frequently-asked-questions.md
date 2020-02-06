@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 1cc3664ff8472a6b5a73fa89588611f59ac27e6a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: de644e49d998ad260532078de5c93c482cbc6fbc
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720275"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029496"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre o observador de rede do Azure
 O serviço [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece um conjunto de ferramentas para monitorizar, diagnosticar, visualizar métricas e ativar ou desativar registos de recursos numa rede virtual Azure. Este artigo responde a perguntas comuns sobre o serviço.
@@ -54,17 +54,29 @@ Visite a [página de Preços](https://azure.microsoft.com/pricing/details/networ
 ### <a name="which-regions-is-network-watcher-supportedavailable-in"></a>Em quais regiões o observador de rede tem suporte/está disponível?
 Pode ver a mais recente disponibilidade regional na página de disponibilidade do [Serviço Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
-### <a name="what-are-resource-limits-on-network-watcher"></a>O que são limites de recursos no observador de rede?
-Consulte a página [limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) de serviço para todos os limites.  
+### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Que permissões são necessárias para usar o Observador da Rede?
+Consulte a lista de [permissões RBAC necessárias para utilizar](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)o Observador de Rede . Para a implementação de recursos, necessita de permissões contributivas para o NetworkWatcherRG (ver abaixo).
 
-### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Por que apenas uma instância do observador de rede é permitida por região?
-O observador de rede precisa ser habilitado apenas uma vez para uma assinatura para que seus recursos funcionem, esse não é um limite de serviço.
+### <a name="how-do-i-enable-network-watcher"></a>Como posso ativar o Observador de Rede?
+O serviço De Observador de Rede está [ativado automaticamente](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) para cada subscrição.
+
+### <a name="what-is-the-network-watcher-deployment-model"></a>Qual é o modelo de implantação do Observador de Rede?
+O recurso-mãe do Observador de Rede é implantado com um caso único em todas as regiões. Formato de nomeação: NetworkWatcher_RegionName. Exemplo: NetworkWatcher_centralus é o recurso Network Watcher para a região "Centro dos EUA".
+
+### <a name="what-is-the-networkwatcherrg"></a>O que é o NetworkWatcherRG?
+Os recursos do Network Watcher estão localizados no grupo de recursos **NetworkWatcherRG** oculto que é criado automaticamente. Por exemplo, o recurso NSG Flow Logs é um recurso infantil do Observador de Rede e está ativado no NetworkWatcherRG.
 
 ### <a name="why-do-i-need-to-install-the-network-watcher-extension"></a>Por que preciso instalar a extensão do observador de rede? 
 A extensão do observador de rede é necessária para qualquer recurso que precise gerar ou interceptar o tráfego de uma VM. 
 
 ### <a name="which-features-require-the-network-watcher-extension"></a>Quais recursos exigem a extensão do observador de rede?
-Somente a captura de pacote, a solução de problemas de conexão e o monitor de conexão precisam que a extensão do observador de rede esteja presente.
+As funcionalidades de captura de pacotes, de resolução de problemas de ligação e de monitorização de ligação precisam da extensão do Observador da Rede para estar presente.
+
+### <a name="what-are-resource-limits-on-network-watcher"></a>O que são limites de recursos no observador de rede?
+Consulte a página [limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) de serviço para todos os limites.  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Por que apenas uma instância do observador de rede é permitida por região?
+O observador de rede precisa ser habilitado apenas uma vez para uma assinatura para que seus recursos funcionem, esse não é um limite de serviço.
 
 ## <a name="nsg-flow-logs"></a>Logs de fluxo do NSG
 
@@ -85,11 +97,11 @@ Pode verificar os registos de armazenamento após alguns minutos; deve ver um ca
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>Como uso os Registos de Fluxo NSG com uma conta de Armazenamento atrás de um ponto final de serviço?
 
-Os registos de fluxo NSG são compantáveis com pontos finais de serviço sem necessitar de qualquer configuração extra. Consulte o tutorial sobre a ativação de [pontos finais](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) de serviço na sua rede virtual.
+Os registos de fluxo NSG são compatíveis com os Pontos Finais do Serviço sem necessitar de qualquer configuração extra. Consulte o tutorial sobre a ativação de [pontos finais](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) de serviço na sua rede virtual.
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual é a diferença entre as versões 1 & 2 dos logs de fluxo?
 A versão 2 do Flow Logs introduz o conceito de *Flow State* & stores information about bytes and packets transmitidos. [Ler mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
  - Dirija-se à nossa página de visão geral de [documentação](https://docs.microsoft.com/azure/network-watcher/) para alguns tutoriais para começar com o Network Watcher.

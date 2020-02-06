@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 575f3ed1a692087cc99881798f7f0ca74c5d3a66
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0f9489cd702eab6038689f6ac710c32427665093
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024454"
+ms.locfileid: "77031123"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usar o Java para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2 (versão prévia)
 
@@ -22,17 +22,17 @@ Este artigo mostra como usar o Java para criar e gerenciar diretórios, arquivos
 > [!IMPORTANT]
 > A biblioteca Java que está em destaque neste artigo está atualmente em visualização pública.
 
-[Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [referência de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [mapeamento Gen1 para Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [fornecer comentários](https://github.com/Azure/azure-sdk-for-java/issues)
+[Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [referência DaPI](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Gen1 para mapeamento Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Dar Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+> * Uma subscrição do Azure. Veja [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Uma conta de armazenamento que tem o namespace hierárquico (HNS) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
 
 ## <a name="set-up-your-project"></a>Configurar seu projeto
 
-Para começar, abra [esta página](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) e localize a versão mais recente da biblioteca do Java. Em seguida, abra o arquivo *pom. xml* em seu editor de texto. Adicione um elemento Dependency que faz referência a essa versão.
+Para começar, abra [esta página](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) e encontre a versão mais recente da biblioteca Java. Em seguida, abra o ficheiro *pom.xml* no seu editor de texto. Adicione um elemento Dependency que faz referência a essa versão.
 
 Em seguida, adicione essas instruções Imports ao arquivo de código.
 
@@ -53,9 +53,9 @@ import com.azure.storage.file.datalake.models.RolePermissions;
 
 ## <a name="connect-to-the-account"></a>Conectar-se à conta 
 
-Para usar os trechos de código neste artigo, você precisará criar uma instância de **DataLakeServiceClient** que representa a conta de armazenamento. A maneira mais fácil de obter um é usar uma chave de conta. 
+Para utilizar os cortes neste artigo, terá de criar uma instância **DataLakeServiceClient** que represente a conta de armazenamento. A maneira mais fácil de obter um é usar uma chave de conta. 
 
-Este exemplo cria uma instância do **DataLakeServiceClient** usando uma chave de conta.
+Este exemplo cria uma instância do **DataLakeServiceClient** utilizando uma chave de conta.
 
 ```java
 
@@ -76,9 +76,9 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 ```
 ## <a name="create-a-file-system"></a>Criar um sistema de arquivos
 
-Um sistema de arquivos atua como um contêiner para seus arquivos. Você pode criar um chamando o método **DataLakeServiceClient. createfilesystem** .
+Um sistema de arquivos atua como um contêiner para seus arquivos. Pode criar um, ligando para o método **DataLakeServiceClient.createFileSystem.**
 
-Este exemplo cria um sistema de arquivos chamado `my-file-system`. 
+Este exemplo cria um sistema de ficheiros denominado `my-file-system`. 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -90,9 +90,9 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 ## <a name="create-a-directory"></a>Criar um diretório
 
-Crie uma referência de diretório chamando o método **DataLakeFileSystemClient. CreateDirectory** .
+Crie uma referência de diretório, ligando para o método **DataLakeFileSystemClient.createDirectory.**
 
-Este exemplo adiciona um diretório chamado `my-directory` a um sistema de arquivos e, em seguida, adiciona um subdiretório chamado `my-subdirectory`. 
+Este exemplo adiciona um diretório chamado `my-directory` a um sistema de ficheiros, e depois adiciona um sub-directório chamado `my-subdirectory`. 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -110,9 +110,9 @@ static public DataLakeDirectoryClient CreateDirectory
 
 ## <a name="rename-or-move-a-directory"></a>Renomear ou mover um diretório
 
-Renomeie ou mova um diretório chamando o método **DataLakeDirectoryClient. Rename** . Passe o caminho do diretório desejado de um parâmetro. 
+Mude o nome ou mova um diretório chamando o método **DataLakeDirectoryClient.rename.** Passe o caminho do diretório desejado de um parâmetro. 
 
-Este exemplo renomeia um subdiretório para o nome `my-subdirectory-renamed`.
+Este exemplo renomea um sub-directório para o nome `my-subdirectory-renamed`.
 
 ```java
 static public DataLakeDirectoryClient
@@ -125,7 +125,7 @@ static public DataLakeDirectoryClient
 }
 ```
 
-Este exemplo move um diretório chamado `my-subdirectory-renamed` para um subdiretório de um diretório chamado `my-directory-2`. 
+Este exemplo move um diretório chamado `my-subdirectory-renamed` para um sub-directório de um diretório chamado `my-directory-2`. 
 
 ```java
 static public DataLakeDirectoryClient MoveDirectory
@@ -140,9 +140,9 @@ static public DataLakeDirectoryClient MoveDirectory
 
 ## <a name="delete-a-directory"></a>Eliminar um diretório
 
-Exclua um diretório chamando o método **DataLakeDirectoryClient. deleteWithResponse** .
+Elimine um diretório ligando para o método **DataLakeDirectoryClient.deleteWithResponse.**
 
-Este exemplo exclui um diretório chamado `my-directory`.   
+Este exemplo elimina um diretório chamado `my-directory`.   
 
 ```java
 static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -156,10 +156,10 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
 
 ## <a name="manage-a-directory-acl"></a>Gerenciar uma ACL de diretório
 
-Este exemplo obtém e define a ACL de um diretório chamado `my-directory`. Este exemplo fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros acesso de leitura.
+Este exemplo recebe e, em seguida, define o ACL de um diretório chamado `my-directory`. Este exemplo fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros acesso de leitura.
 
 > [!NOTE]
-> Se seu aplicativo autorizar o acesso usando Azure Active Directory (Azure AD), verifique se a entidade de segurança que seu aplicativo usa para autorizar o acesso recebeu a [função de proprietário de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões de ACL são aplicadas e os efeitos de alterá-las, consulte [controle de acesso em Azure data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Se a sua aplicação autorizar o acesso utilizando o Azure Ative Directory (Azure AD), certifique-se de que o responsável pela segurança que a sua aplicação utiliza para autorizar o acesso foi atribuído à função de [Proprietário de Dados blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)de armazenamento . Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de [acesso em Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ```java
 static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
@@ -192,9 +192,9 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 
 ## <a name="upload-a-file-to-a-directory"></a>Carregar um arquivo em um diretório
 
-Primeiro, crie uma referência de arquivo no diretório de destino criando uma instância da classe **DataLakeFileClient** . Carregue um arquivo chamando o método **DataLakeFileClient. Append** . Certifique-se de concluir o carregamento chamando o método **DataLakeFileClient. FlushAsync** .
+Em primeiro lugar, crie uma referência de ficheiro no directório-alvo, criando uma instância da classe **DataLakeFileClient.** Faça upload de um ficheiro ligando para o método **DataLakeFileClient.append.** Certifique-se de completar o upload ligando para o método **DataLakeFileClient.FlushAsync.**
 
-Este exemplo carrega um arquivo de texto em um diretório chamado `my-directory`. '
+Este exemplo envia um ficheiro de texto para um diretório chamado `my-directory`.'
 
 ```java
 static public void UploadFile(DataLakeFileSystemClient fileSystemClient) 
@@ -219,10 +219,10 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="manage-a-file-acl"></a>Gerenciar uma ACL de arquivo
 
-Este exemplo obtém e define a ACL de um arquivo chamado `upload-file.txt`. Este exemplo fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros acesso de leitura.
+Este exemplo recebe e, em seguida, define o ACL de um ficheiro chamado `upload-file.txt`. Este exemplo fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros acesso de leitura.
 
 > [!NOTE]
-> Se seu aplicativo autorizar o acesso usando Azure Active Directory (Azure AD), verifique se a entidade de segurança que seu aplicativo usa para autorizar o acesso recebeu a [função de proprietário de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões de ACL são aplicadas e os efeitos de alterá-las, consulte [controle de acesso em Azure data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Se a sua aplicação autorizar o acesso utilizando o Azure Ative Directory (Azure AD), certifique-se de que o responsável pela segurança que a sua aplicação utiliza para autorizar o acesso foi atribuído à função de [Proprietário de Dados blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)de armazenamento . Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de [acesso em Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ```java
 static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
@@ -257,9 +257,7 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 
 ## <a name="download-from-a-directory"></a>Baixar de um diretório
 
-Primeiro, crie uma instância de **DataLakeFileClient** que representa o arquivo que você deseja baixar. Use o método **DataLakeFileClient. Read** para ler o arquivo. Use qualquer API de processamento de arquivo .NET para salvar bytes do fluxo em um arquivo. 
-
-Certifique-se de concluir o download chamando o método **DataLakeFileClient. Flush** .
+Em primeiro lugar, crie uma instância **DataLakeFileClient** que represente o ficheiro que pretende descarregar. Utilize o método **DataLakeFileClient.read** para ler o ficheiro. Use qualquer API de processamento de arquivo .NET para salvar bytes do fluxo em um arquivo. 
 
 ```java
 static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
@@ -285,7 +283,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="list-directory-contents"></a>Listar conteúdo do diretório
 
-Este exemplo, imprime os nomes de cada arquivo localizado em um diretório chamado `my-directory`.
+Este exemplo, imprime os nomes de cada ficheiro que está localizado num diretório chamado `my-directory`.
 
 ```java
 static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -316,11 +314,11 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
-* [Documentação de referência de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html)
+* [Documentação de referência da API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html)
 * [Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar)
 * [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
-* [Mapeamento de Gen1 para Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+* [Gen1 para mapeamento Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Enviar comentários](https://github.com/Azure/azure-sdk-for-java/issues)
+* [Dar Feedback](https://github.com/Azure/azure-sdk-for-java/issues)

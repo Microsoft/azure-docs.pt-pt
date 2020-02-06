@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: 8c63d314c253152d2815a70831870fe331071c68
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 256510f855256e648ae9203f46eb9f66c9ffaed6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964168"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029021"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
@@ -42,14 +42,14 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na subs
     
 1.  Quando concluído, os seguintes recursos Azure são criados na sua subscrição:
 
-    + **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** : contém todos os recursos do Azure criados. O nome é baseado no nome do aplicativo de funções.
-    + **[Conta de armazenamento](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)** : uma conta de armazenamento padrão é criada com um nome exclusivo com base no nome do aplicativo de funções.
-    + **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** : um plano de consumo é criado na região oeste dos EUA para hospedar seu aplicativo de funções sem servidor.
-    + **Aplicativo de funções**: seu projeto é implantado e executado nesse novo aplicativo de funções.
-    + **[Insights de aplicação]()** : Uma instância, que está ligada à sua aplicação de funções, é criada com base no seu nome de função.
+    + **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** : Contém todos os recursos azure criados. O nome é baseado no nome do aplicativo de funções.
+    + **[Conta de armazenamento](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)** : Uma conta de armazenamento padrão é criada com um nome único que é baseado no nome da sua app de função.
+    + **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** : Um plano de consumo é criado na região oeste dos EUA para acolher a sua aplicação de função sem servidores.
+    + **App de funções**: O seu projeto está implantado e funciona nesta nova aplicação de funções.
+    + **Insights de aplicação**: Uma instância, que está ligada à sua aplicação de funções, é criada com base no seu nome de função.
 
     Depois de criar a aplicação de funções, é apresentada uma notificação e o pacote de implementação é aplicado. 
     
-1. Selecione **Exibir saída** nesta notificação para exibir os resultados de criação e implantação, incluindo os recursos do Azure que você criou. Se perder a notificação, selecione o ícone do sino no canto inferior direito para vê-lo novamente.
+1. Selecione **Ver Output** nesta notificação para visualizar os resultados da criação e implementação, incluindo os recursos Azure que criou. Se perder a notificação, selecione o ícone do sino no canto inferior direito para vê-lo novamente.
 
     ![Criar notificação completa](media/functions-publish-project-vscode/function-create-notifications.png)

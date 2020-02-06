@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/23/2020
+ms.date: 02/03/2020
 ms.custom: include file
-ms.openlocfilehash: a1576e4a97af5de0b936c662de636aae542a19b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: cfe3eb4c0ac1378b7c519b3b34094945612d8508
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748976"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029078"
 ---
 >[!NOTE]
 >Esta secção fornece instruções para o registo da [aplicação Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
@@ -27,24 +27,40 @@ ms.locfileid: "76748976"
 
     [![Selecione o novo botão de registo](./media/digital-twins-permissions/aad-app-register.png)](./media/digital-twins-permissions/aad-app-register.png#lightbox)
 
-1. Dê um nome amigável para este registo de aplicação na caixa **Nome.** No âmbito da secção **Redirect URI (opcional),** escolha cliente **público/nativo (mobile & desktop)** no menu suspenso à esquerda e introduza `https://microsoft.com` na caixa de texto à direita. Selecione **Registar**.
+1. Dê um nome amigável para este registo de aplicação na caixa **Nome.** 
+
+    1. Na secção **Redirect URI (opcional),** introduza `https://microsoft.com` na caixa de texto.     
+
+    1. Verifique quais as contas e inquilinos que são apoiados pela sua aplicação Azure Ative Directory.
+
+    1. Selecione **Registar**.
 
     [![Criar o painel](./media/digital-twins-permissions/aad-app-reg-create.png)](./media/digital-twins-permissions/aad-app-reg-create.png#lightbox)
 
-1. Para se certificar de que [a aplicação está registada como **cliente público,** ](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)abra o painel de **Autenticação** para o registo da sua aplicação e desloque-se para baixo nesse painel. Na secção **de tipo de cliente Predefinido,** escolha **sim** para **tratar aplicação como cliente público**, e bata **save**.
+1. A lâmina **de autenticação** especifica definições importantes de configuração de autenticação. 
+
+    1. Adicione **URIs redirecionamento** e configure **tokens** de acesso selecionando **+ Adicione uma plataforma**.
+
+    1. Selecione **Sim** para especificar que a aplicação é um **cliente público.**
+
+    1. Verifique quais as contas e inquilinos que são apoiados pela sua aplicação Azure Ative Directory.
+
+    [![configuração de configuração do cliente público](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+
+1. Depois de selecionar a plataforma apropriada, configure os seus **URIs de Redirecionamento** e **Tokens** de Acesso no painel lateral à direita da interface do utilizador.
 
     1. **As URIs de redirecionamento** devem coincidir com o endereço fornecido pelo pedido de autenticação:
 
-        * Para aplicações hospedadas num ambiente de desenvolvimento local, selecione **cliente Público (mobile & desktop)** . Certifique-se de definir o tipo de **cliente Padrão** para sim.
+        * Para aplicações hospedadas num ambiente de desenvolvimento local, selecione **cliente Público (mobile & desktop)** . Certifique-se de definir o **cliente público** para **Sim**.
         * Para aplicações de página única hospedadas no Serviço de Aplicações Azure, selecione **Web**.
 
-        Selecione **cliente público (mobile & desktop)** e introduza `http://localhost:8080/`.
+    1. Determine se um URL de **logout** é apropriado.
 
-        [![configurar URIs de redirecionamento](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
+    1. Ativar o fluxo implícito da subvenção verificando **fichas** de acesso ou **fichas de identificação**.
+                
+    [![configurar URIs de redirecionamento](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
 
-    1. Verifique as **fichas** de acesso para configurar a definição **oauth2AllowImplicitFlow** para `true` no **Manifesto** JSON do seu recurso.
-
-        [![configuração de configuração do cliente público](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+    Clique em **Configurar** **e,** em seguida, guardar .
 
 1.  Abra o painel de **visão geral** da sua app registada e copie os valores das seguintes entidades para um ficheiro temporário. Você usará esses valores para configurar o aplicativo de exemplo nas seções a seguir.
 

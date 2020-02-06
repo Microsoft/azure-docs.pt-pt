@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8c3e377faef4e18bff01fd7001751d1f1e347b8d
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747870"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030880"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade de clusters de Apache Hadoop no HDInsight
 
@@ -27,24 +27,24 @@ O Hadoop alcança alta disponibilidade e confiabilidade replicando serviços e d
 Os nós em um cluster HDInsight são implementados usando máquinas virtuais do Azure. As seções a seguir discutem os tipos de nó individuais usados com o HDInsight.
 
 > [!NOTE]  
-> Nem todos os tipos de nós são usados para um tipo de cluster. Por exemplo, um tipo de cluster Hadoop não tem nenhum nó Nimbus. Para obter mais informações sobre os nós usados pelos tipos de cluster HDInsight, consulte a seção tipos de cluster do documento [Criar clusters Hadoop baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) .
+> Nem todos os tipos de nós são usados para um tipo de cluster. Por exemplo, um tipo de cluster Hadoop não tem nenhum nó Nimbus. Para obter mais informações sobre os nós utilizados pelos tipos de cluster HDInsight, consulte a secção de tipos de Cluster dos [clusters Hadoop baseados em Linux no documento HDInsight.](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)
 
 ### <a name="head-nodes"></a>Nós de cabeça
 
 Para garantir a alta disponibilidade dos serviços do Hadoop, o HDInsight fornece dois nós de cabeçalho. Ambos os nós de cabeça estão ativos e em execução no cluster HDInsight simultaneamente. Alguns serviços, como Apache HDFS ou Apache Hadoop YARN, são apenas "ativos" em um nó de cabeçalho em um determinado momento. Outros serviços, como HiveServer2 ou metastore do hive, estão ativos em ambos os nós de cabeçalho ao mesmo tempo.
 
-Para obter os nomes de host para diferentes tipos de nó em seu cluster, use a [API REST do amAmbari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+Para obter os nomes de anfitriões para diferentes tipos de nó no seu cluster, utilize a [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Não associe o valor numérico a se um nó for primário ou secundário. O valor numérico só está presente para fornecer um nome exclusivo para cada nó.
 
-### <a name="nimbus-nodes"></a>Nós do Nimbus
+### <a name="nimbus-nodes"></a>Nódeos Nimbus
 
 Os nós Nimbus estão disponíveis com clusters Apache Storm. Os nós Nimbus fornecem funcionalidade semelhante ao JobTracker do Hadoop distribuindo e monitorando o processamento entre nós de trabalho. O HDInsight fornece dois nós Nimbus para clusters Storm
 
 ### <a name="apache-zookeeper-nodes"></a>Nós do Apache Zookeeper
 
-Os nós [ZooKeeper](https://zookeeper.apache.org/) são usados para eleição de líder de serviços mestres em nós de cabeçalho. Eles também são usados para garantir que os serviços, os nós de dados (trabalho) e os gateways saibam em qual nó de cabeçalho um serviço mestre está ativo. Por padrão, o HDInsight fornece três nós ZooKeeper.
+Os nódosos [do ZooKeeper](https://zookeeper.apache.org/) são usados para a eleição de líderes de serviços principais em narizes de cabeça. Eles também são usados para garantir que os serviços, os nós de dados (trabalho) e os gateways saibam em qual nó de cabeçalho um serviço mestre está ativo. Por padrão, o HDInsight fornece três nós ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nós de trabalho
 
@@ -56,7 +56,7 @@ Um nó de borda não participa ativamente da análise de dados no cluster. Ele �
 
 Atualmente, os serviços de ML no HDInsight são o único tipo de cluster que fornece um nó de borda por padrão. Para serviços de ML no HDInsight, o nó de borda é usado para testar o código R localmente no nó antes de enviá-lo ao cluster para processamento distribuído.
 
-Para obter informações sobre como usar um nó de borda com outros tipos de cluster, consulte o documento [usar nós de borda no HDInsight](hdinsight-apps-use-edge-node.md) .
+Para obter informações sobre a utilização de um nó de borda com outros tipos de cluster, consulte os nós de borda de utilização no documento [HDInsight.](hdinsight-apps-use-edge-node.md)
 
 ## <a name="accessing-the-nodes"></a>Acessando os nós
 
@@ -68,15 +68,15 @@ O acesso ao gateway público é limitado às portas 443 (HTTPS), 22 e 23.
 |---|---|
 |443|Usado para acessar o Ambari e outra interface do usuário da Web ou APIs REST hospedadas nos nós de cabeçalho.|
 |22|Usado para acessar o nó principal ou o nó de borda primário com SSH.|
-|23|Usado para acessar o nó principal secundário com SSH. Por exemplo, `ssh username@mycluster-ssh.azurehdinsight.net` se conecta ao nó principal do cluster chamado **mycluster**.|
+|23|Usado para acessar o nó principal secundário com SSH. Por exemplo, `ssh username@mycluster-ssh.azurehdinsight.net` liga-se ao nó principal da cabeça do cluster chamado **mycluster**.|
 
-Para obter mais informações sobre como usar o SSH, consulte o documento [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) .
+Para obter mais informações sobre a utilização do SSH, consulte o SSH use com o documento [HDInsight.](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ### <a name="internal-fully-qualified-domain-names-fqdn"></a>FQDN (nomes de domínio totalmente qualificados) internos
 
 Os nós em um cluster HDInsight têm um endereço IP interno e um FQDN que só podem ser acessados do cluster. Ao acessar serviços no cluster usando o FQDN ou endereço IP interno, você deve usar Ambari para verificar o IP ou FQDN a ser usado ao acessar o serviço.
 
-Por exemplo, o serviço Apache Oozie só pode ser executado em um nó de cabeçalho e o uso do comando `oozie` de uma sessão SSH requer a URL para o serviço. Essa URL pode ser recuperada de Ambari usando o seguinte comando:
+Por exemplo, o serviço Apache Oozie só pode funcionar com um nó de cabeça, e usar o comando `oozie` de uma sessão SSH requer o URL para o serviço. Essa URL pode ser recuperada de Ambari usando o seguinte comando:
 
 ```bash
 export password='PASSWORD'
@@ -85,13 +85,13 @@ export clusterName="CLUSTERNAME"
 curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 ```
 
-Esse comando retorna um valor semelhante ao seguinte, que contém a URL interna a ser usada com o comando `oozie`:
+Este comando devolve um valor semelhante ao seguinte, que contém o URL interno para utilizar com o comando `oozie`:
 
 ```output
 "oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
-Para obter mais informações sobre como trabalhar com a API REST do Ambari, consulte [monitorar e gerenciar o HDInsight usando a API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+Para obter mais informações sobre o trabalho com a Ambari REST API, consulte [Monitor e Gerencie o HDInsight utilizando a API De REPOUSO Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ### <a name="accessing-other-node-types"></a>Acessando outros tipos de nó
 
@@ -100,8 +100,8 @@ Você pode se conectar a nós que não são diretamente acessíveis pela Interne
 |Método |Descrição |
 |---|---|
 |SSH|Uma vez conectado a um nó de cabeçalho usando SSH, você pode usar o SSH do nó principal para se conectar a outros nós no cluster. Para obter mais informações, veja o documento [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
-|Túnel SSH|Se precisar acessar um serviço Web hospedado em um dos nós que não está exposto à Internet, você deverá usar um túnel SSH. Para obter mais informações, consulte o documento [usar um túnel SSH com o HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) .|
-|Rede Virtual do Azure|Se o seu cluster HDInsight fizer parte de uma rede virtual do Azure, qualquer recurso na mesma rede virtual poderá acessar diretamente todos os nós no cluster. Para obter mais informações, consulte o documento [planejar uma rede virtual para o HDInsight](hdinsight-plan-virtual-network-deployment.md) .|
+|Túnel SSH|Se precisar acessar um serviço Web hospedado em um dos nós que não está exposto à Internet, você deverá usar um túnel SSH. Para mais informações, consulte o [Utilize um túnel SSH com documento HDInsight.](hdinsight-linux-ambari-ssh-tunnel.md)|
+|Rede Virtual do Azure|Se o seu cluster HDInsight fizer parte de uma rede virtual do Azure, qualquer recurso na mesma rede virtual poderá acessar diretamente todos os nós no cluster. Para mais informações, consulte o Plano uma rede virtual para o documento [HDInsight.](hdinsight-plan-virtual-network-deployment.md)|
 
 ## <a name="how-to-check-on-a-service-status"></a>Como verificar um status de serviço
 
@@ -109,13 +109,13 @@ Para verificar o status dos serviços que são executados nos nós de cabeçalho
 
 ### <a name="ambari-web-ui"></a>Interface do usuário da Web do amAmbari
 
-A interface do usuário da Web do amAmbari é visível em `https://CLUSTERNAME.azurehdinsight.net`. Substitua **CLUSTERNAME** pelo nome do cluster. Se solicitado, insira as credenciais de usuário HTTP para o cluster. O nome de usuário HTTP padrão é **admin** e a senha é a senha que você inseriu ao criar o cluster.
+O Ambari Web UI é visível em `https://CLUSTERNAME.azurehdinsight.net`. Substitua **CLUSTERNAME** pelo nome do cluster. Se solicitado, insira as credenciais de usuário HTTP para o cluster. O nome de utilizador 'HTTP' predefinido é **administrador** e a palavra-passe é a palavra-passe que introduziu ao criar o cluster.
 
 Quando você chegar à página Ambari, os serviços instalados serão listados à esquerda da página.
 
 ![Serviços instalados do Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
-Há uma série de ícones que podem aparecer ao lado de um serviço para indicar o status. Todos os alertas relacionados a um serviço podem ser exibidos usando o link **alertas** na parte superior da página.  O Ambari oferece vários alertas predefinidos.
+Há uma série de ícones que podem aparecer ao lado de um serviço para indicar o status. Quaisquer alertas relacionados com um serviço podem ser vistos utilizando o link **Alertas** na parte superior da página.  O Ambari oferece vários alertas predefinidos.
 
 Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 
@@ -129,7 +129,7 @@ Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 | Servidor Spark2 thrift                     | Esse alerta em nível de host será disparado se o servidor Spark2 Thrift não puder ser determinado como ativo.                                                                                                |
 | Processo do servidor de histórico                   | Esse alerta em nível de host será disparado se o processo do servidor de histórico não puder ser estabelecido para estar ativo e escutando na rede.                                                                |
 | IU da Web do servidor de histórico                    | Esse alerta no nível do host será disparado se a interface do usuário da Web do servidor de histórico estiver inacessível.                                                                                                              |
-| interface do usuário da Web do `ResourceManager`                   | Esse alerta no nível do host será disparado se a interface do usuário da Web do `ResourceManager` estiver inacessível.                                                                                                             |
+| `ResourceManager` Web UI                   | Este alerta de nível de hospedeiro é desencadeado se o `ResourceManager` Web UI for inacessível.                                                                                                             |
 | Resumo de integridade do NodeManager               | Esse alerta de nível de serviço é disparado se houver NodeManagers não íntegros                                                                                                                    |
 | Linha do tempo de aplicativo da Web                      | Esse alerta no nível do host será disparado se a interface do usuário da Web do servidor de linha do tempo do aplicativo estiver inacessível.                                                                                                         |
 | Resumo de integridade do datanode                  | Esse alerta de nível de serviço é disparado se houver datanodes não íntegros                                                                                                                       |
@@ -139,7 +139,7 @@ Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 | Status do servidor Oozie                      | Esse alerta no nível do host será disparado se o servidor Oozie não puder ser determinado como ativo e respondendo às solicitações do cliente.                                                                      |
 | Processo de metastore do hive                   | Esse alerta em nível de host será disparado se o processo de metastore do hive não puder ser determinado como ativo e escutando na rede.                                                                 |
 | Processo de HiveServer2                      | Esse alerta no nível do host será disparado se o HiveServer não puder ser determinado como ativo e respondendo às solicitações do cliente.                                                                        |
-| Status do servidor WebHCat                    | Esse alerta em nível de host será disparado se o status do servidor de `templeton` não estiver íntegro.                                                                                                            |
+| Status do servidor WebHCat                    | Este alerta de nível de hospedeiro é desencadeado se o estado do servidor `templeton` não for saudável.                                                                                                            |
 | Porcentagem de servidores ZooKeeper disponíveis      | Esse alerta será disparado se o número de servidores ZooKeeper no cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo do ZooKeeper.     |
 | Servidor Spark2 Livy                       | Esse alerta no nível do host será disparado se o servidor Livy2 não puder ser determinado como ativo.                                                                                                        |
 | Servidor de histórico do Spark2                    | Esse alerta em nível de host será disparado se o servidor de histórico Spark2 não puder ser determinado como ativo.                                                                                               |
@@ -160,7 +160,7 @@ Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 
 Você pode selecionar cada serviço para exibir mais informações sobre ele.
 
-Enquanto a página de serviço fornece informações sobre o status e a configuração de cada serviço, ela não fornece informações sobre em qual nó de cabeçalho o serviço está sendo executado. Para exibir essas informações, use o link **hosts** na parte superior da página. Essa página exibe os hosts no cluster, incluindo os nós de cabeçalho.
+Enquanto a página de serviço fornece informações sobre o status e a configuração de cada serviço, ela não fornece informações sobre em qual nó de cabeçalho o serviço está sendo executado. Para ver esta informação, utilize o link **Hosts** na parte superior da página. Essa página exibe os hosts no cluster, incluindo os nós de cabeçalho.
 
 ![Lista de hosts do Apache Ambari cabeçalho](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
@@ -168,7 +168,7 @@ Selecionar o link para um dos nós de cabeçalho exibe os serviços e os compone
 
 ![Status do componente Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
-Para obter mais informações sobre como usar o Ambari, consulte [monitorar e gerenciar o HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md).
+Para obter mais informações sobre a utilização de Ambari, consulte [monitor e gerencie o HDInsight utilizando o Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ### <a name="ambari-rest-api"></a>API REST do Ambari
 
@@ -180,11 +180,11 @@ Você pode usar o seguinte comando para verificar o estado de um serviço por me
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 ```
 
-* Substitua a **senha** pela senha da conta de usuário http (administrador).
+* Substitua a **palavra-passe** com a palavra-passe da conta http (administradora).
 * Substitua **CLUSTERNAME** pelo nome do cluster.
-* Substitua ServiceName pelo nome do serviço do qual você deseja verificar o status.
+* Substitua o **SERVICENAME** pelo nome do serviço que pretende verificar o estado.
 
-Por exemplo, para verificar o status do serviço **HDFS** em um cluster chamado **mycluster**, com uma senha de **senha**, você usaria o seguinte comando:
+Por exemplo, para verificar o estado do serviço **HDFS** num cluster denominado **mycluster,** com uma palavra-passe de **senha,** utilizaria o seguinte comando:
 
 ```bash
 curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
@@ -203,9 +203,9 @@ A resposta é semelhante ao JSON a seguir:
 }
 ```
 
-A URL nos informa que o serviço está sendo executado no momento em um nó de cabeçalho chamado **mycluster. wutj3h4ic1zejluqhxzvckxq0g**.
+O URL diz-nos que o serviço está atualmente a funcionar num nó de cabeça chamado **mycluster.wutj3h4ic1zejluqhxzvckxq0g**.
 
-O estado informa que o serviço está em execução no momento ou **foi iniciado**.
+O Estado diz-nos que o serviço está a funcionar, ou **OSTARTED.**
 
 Se você não souber quais serviços estão instalados no cluster, poderá usar o seguinte comando para recuperar uma lista:
 
@@ -213,7 +213,7 @@ Se você não souber quais serviços estão instalados no cluster, poderá usar 
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 ```
 
-Para obter mais informações sobre como trabalhar com a API REST do Ambari, consulte [monitorar e gerenciar o HDInsight usando a API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+Para obter mais informações sobre o trabalho com a Ambari REST API, consulte [Monitor e Gerencie o HDInsight utilizando a API De REPOUSO Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 #### <a name="service-components"></a>Componentes de serviço
 
@@ -233,7 +233,7 @@ curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CL
 
 ### <a name="ssh"></a>SSH
 
-Enquanto estiver conectado a um nó de cabeçalho por meio de SSH, os arquivos de log podem ser encontrados em **/var/log**. Por exemplo, **/var/log/Hadoop-yarn/yarn** contêm logs para yarn.
+Enquanto está ligado a um nó de cabeça através do SSH, os ficheiros de registo podem ser encontrados em **/var/log**. Por exemplo, **/var/log/hadoop-fios/fios** contêm registos para o ARN.
 
 Cada nó de cabeçalho pode ter entradas de log exclusivas, portanto, você deve verificar os logs em ambos.
 
@@ -241,47 +241,47 @@ Cada nó de cabeçalho pode ter entradas de log exclusivas, portanto, você deve
 
 Você também pode se conectar ao nó principal usando o SSH protocolo FTP ou o protocolo FTP seguro (SFTP) e baixar os arquivos de log diretamente.
 
-Semelhante ao uso de um cliente SSH, ao se conectar ao cluster, você deve fornecer o nome da conta de usuário SSH e o endereço SSH do cluster. Por exemplo, `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a senha para a conta quando solicitado ou forneça uma chave pública usando o parâmetro `-i`.
+Semelhante ao uso de um cliente SSH, ao se conectar ao cluster, você deve fornecer o nome da conta de usuário SSH e o endereço SSH do cluster. Por exemplo, `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a palavra-passe para a conta quando solicitado ou forneça uma chave pública utilizando o parâmetro `-i`.
 
-Uma vez conectado, você verá um prompt de `sftp>`. Nesse prompt, você pode alterar os diretórios, carregar e baixar arquivos. Por exemplo, os comandos a seguir alteram os diretórios para o diretório **/var/log/Hadoop/HDFS** e, em seguida, baixam todos os arquivos no diretório.
+Uma vez ligado, é-lhe apresentado um `sftp>`. Nesse prompt, você pode alterar os diretórios, carregar e baixar arquivos. Por exemplo, os seguintes comandos mudam de diretórios para o diretório **/var/log/hadoop/hdfs** e, em seguida, descarregue todos os ficheiros no diretório.
 
     cd /var/log/hadoop/hdfs
     get *
 
-Para obter uma lista de comandos disponíveis, digite `help` no prompt de `sftp>`.
+Para obter uma lista de comandos disponíveis, introduza `help` no `sftp>` pronta.
 
 > [!NOTE]  
-> Também há interfaces gráficas que permitem visualizar o sistema de arquivos quando conectado usando SFTP. Por exemplo, [MobaXTerm](https://mobaxterm.mobatek.net/) permite que você procure o sistema de arquivos usando uma interface semelhante ao Windows Explorer.
+> Também há interfaces gráficas que permitem visualizar o sistema de arquivos quando conectado usando SFTP. Por exemplo, o [MobaXTerm](https://mobaxterm.mobatek.net/) permite-lhe navegar no sistema de ficheiros utilizando uma interface semelhante ao Windows Explorer.
 
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]  
-> Para acessar os arquivos de log usando o Ambari, você deve usar um túnel SSH. As interfaces da Web para os serviços individuais não são expostas publicamente na Internet. Para obter informações sobre como usar um túnel SSH, consulte o documento [usar túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md) .
+> Para acessar os arquivos de log usando o Ambari, você deve usar um túnel SSH. As interfaces da Web para os serviços individuais não são expostas publicamente na Internet. Para obter informações sobre a utilização de um túnel SSH, consulte o documento de [túnel SSH de utilização.](hdinsight-linux-ambari-ssh-tunnel.md)
 
-Na interface do usuário da Web do amAmbari, selecione o serviço para o qual você deseja exibir os logs (por exemplo, YARN). Em seguida, use **links rápidos** para selecionar em qual nó de cabeçalho exibir os logs.
+Na interface do usuário da Web do amAmbari, selecione o serviço para o qual você deseja exibir os logs (por exemplo, YARN). Em seguida, utilize **ligações rápidas** para selecionar qual o nó de cabeça para ver os registos.
 
 ![Usando links rápidos para exibir logs](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>Como configurar o tamanho do nó
 
-O tamanho de um nó só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista dos diferentes tamanhos de VM disponíveis para o HDInsight na [página de preços do hdinsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+O tamanho de um nó só pode ser selecionado durante a criação do cluster. Pode encontrar uma lista dos diferentes tamanhos vm disponíveis para HDInsight na página de [preços HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientações sobre como especificar o tamanho usando o [portal do Azure](https://portal.azure.com/), o [módulo Azure PowerShell Az](/powershell/azureps-cmdlets-docs)e o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+Ao criar um cluster, você pode especificar o tamanho dos nós. As seguintes informações fornecem orientações sobre como especificar o tamanho utilizando o [portal Azure,](https://portal.azure.com/) [o módulo Azure PowerShell Az](/powershell/azureps-cmdlets-docs)e o [Azure CLI:](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-* **Portal do Azure**: ao criar um cluster, você pode definir o tamanho dos nós usados pelo cluster:
+* **Portal Azure**: Ao criar um cluster, pode definir o tamanho dos nós utilizados pelo cluster:
 
-    ![Imagem do assistente de criação de cluster com seleção de tamanho de nó](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
+    ![Imagem do assistente de criação de cluster com seleção de tamanho de nó](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-* **CLI do Azure**: ao usar o comando [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os parâmetros `--headnode-size`, `--workernode-size`e `--zookeepernode-size`.
+* **Azure CLI**: Ao utilizar o comando [`az hdinsight create`,](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) pode definir o tamanho da cabeça, dos pés de trabalho e do ZooKeeper utilizando os parâmetros `--headnode-size`, `--workernode-size`e `--zookeepernode-size`.
 
-* **Azure PowerShell**: ao usar o cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os parâmetros `-HeadNodeSize`, `-WorkerNodeSize`e `-ZookeeperNodeSize`.
+* **Azure PowerShell**: Ao utilizar o cmdlet [New-AzHDInsightCluster,](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) pode definir o tamanho dos nós da cabeça, do trabalhador e do ZooKeeper utilizando os `-HeadNodeSize`, `-WorkerNodeSize`e `-ZookeeperNodeSize` parâmetros.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 
-* [Referência REST do Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Instalar e configurar o CLI do Azure](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Instalar e configurar o módulo de Azure PowerShell AZ](/powershell/azure/overview)
-* [Gerenciar o HDInsight usando o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
+* [Referência de repouso Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
+* [Instale e configure o Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Instale e configure o módulo Azure PowerShell Az](/powershell/azure/overview)
+* [Gerir o HDInsight usando Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)

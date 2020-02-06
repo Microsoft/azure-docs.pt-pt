@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5adc94061cd656b0654fba6609d36ecfd38c75d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4d804499116631be6f922f67f8b8f6c7063a6d5c
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988044"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030732"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Trabalhadores do livro híbrido de troubleshoot
 
@@ -28,23 +28,21 @@ O Trabalhador do Livro Híbrido depende de um agente para comunicar com a sua co
 
 #### <a name="issue"></a>Problema
 
-A execução do livro de corridas falha e recebe o seguinte erro:
+A execução do livro de corridas falha e recebe o seguinte erro.
 
 ```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-O seu livro de corridas é suspenso pouco depois de tentar executar três vezes. Existem condições que podem interromper o livro de execução de completar. A mensagem de erro relacionada pode não incluir qualquer informação adicional.
+O seu livro de corridas é suspenso pouco depois de tentar executar três vezes. Há condições que podem interromper o livro de execução de completar. A mensagem de erro relacionada pode não incluir qualquer informação adicional.
 
 #### <a name="cause"></a>Causa
 
-As seguintes são as possíveis causas:
+A seguir são indicadas causas possíveis:
 
-* Os livros não podem autenticar com recursos locais
+* Os livros não podem autenticar com recursos locais.
 
-* O trabalhador híbrido está por trás de um proxy ou firewall
-
-* Os livros não podem autenticar com recursos locais
+* O trabalhador híbrido está por trás de um proxy ou firewall.
 
 * O computador configurado para executar a função Hybrid Runbook Worker não satisfaz os requisitos mínimos de hardware.
 
@@ -54,15 +52,15 @@ Verifique se o computador tem acesso de saída a *.azure-automation.net na porta
 
 Os computadores que executam o Hybrid Runbook Worker devem cumprir os requisitos mínimos de hardware antes de o trabalhador ser configurado para hospedar esta funcionalidade. Os livros de execução e o processo de fundo que utilizam podem fazer com que o sistema seja usado em excesso e causar atrasos ou intervalos de trabalho.
 
-Confirme que o computador que executará a função Hybrid Runbook Worker cumpre os requisitos mínimos de hardware. Se isso acontecer, monitorize o CPU e o uso da memória para determinar qualquer correlação entre o desempenho dos processos híbridos do Runbook Worker e do Windows. Qualquer pressão de memória ou CPU pode indicar a necessidade de atualizar os recursos. Também pode selecionar um recurso de computação diferente que possa suportar os requisitos mínimos e a escala quando as exigências de carga de trabalho indicam que é necessário um aumento.
+Confirme que o computador para executar a função Hybrid Runbook Worker cumpre os requisitos mínimos de hardware. Se isso acontecer, monitorize o CPU e o uso da memória para determinar qualquer correlação entre o desempenho dos processos híbridos do Runbook Worker e do Windows. Qualquer pressão de memória ou CPU pode indicar a necessidade de atualizar os recursos. Também pode selecionar um recurso computacional diferente que suporte os requisitos mínimos e a escala quando as exigências de carga de trabalho indicam que é necessário um aumento.
 
-Verifique o registo do evento **Microsoft-SMA** para um evento correspondente com descrição *Win32 Process Exited with code [4294967295]* . A causa deste erro é que não configurau a autenticação nos seus livros de execução ou especificou a Execução Como credenciais para o grupo de trabalhadores Híbridos. Rever [Permissões](../automation-hrw-run-runbooks.md#runbook-permissions) do Livro de Execução para confirmar que configuracorrectamente a autenticação para os seus livros de execução.
+Verifique o registo do evento **Microsoft-SMA** para um evento correspondente com descrição *Win32 Process Exited with code [4294967295]* . A causa deste erro é que não configurau a autenticação nos seus livros de execução ou especificou a Execução Como credenciais para o grupo Trabalhador Híbrido. Reveja [as permissões do Livro](../automation-hrw-run-runbooks.md#runbook-permissions) de Execução para confirmar que configuracorrectamente a autenticação para os seus livros de execução.
 
 ### <a name="no-cert-found"></a>Cenário: Não foi encontrado nenhum certificado na loja de certificados da Hybrid Runbook Worker
 
 #### <a name="issue"></a>Problema
 
-Um livro de corridas em execução num Trabalhador de Runbook Híbrido falha com a seguinte mensagem de erro:
+Um livro de corridas em execução num Trabalhador de Runbook Híbrido falha com a seguinte mensagem de erro.
 
 ```error
 Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
@@ -74,11 +72,11 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>Causa
 
-Este erro ocorre quando se tenta utilizar uma [Conta Run As](../manage-runas-account.md) num livro que funciona num Trabalhador de Resta Híbrida onde o certificado de conta Run As não está presente. Os trabalhadores híbridos não possuem o ativo do certificado localmente por padrão, o que é exigido pela Conta Run As para funcionar corretamente.
+Este erro ocorre quando se tenta utilizar uma [conta Run As](../manage-runas-account.md) num livro de execução que funciona num Trabalhador de Runbook Híbrido onde o certificado de conta Run As não está presente. Os trabalhadores híbridos não possuem o ativo do certificado localmente por padrão, o que é exigido pela conta Run As para funcionar corretamente.
 
 #### <a name="resolution"></a>Resolução
 
-Se o seu Executbook Worker híbrido for um VM Azure, pode utilizar [identidades geridas para recursos Azure.](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) Este cenário simplifica a autenticação, permitindo-lhe autenticar recursos Azure utilizando a identidade gerida do Azure VM em vez da Conta Run As. Quando o Trabalhador do Livro Híbrido é uma máquina no local, é necessário instalar o certificado 'Conta Executar As' na máquina. Para saber instalar o certificado, consulte os passos para executar o livro de execução PowerShell Export-RunAsCertificateToHybridWorker em [runbook em execução de um trabalhador de resta híbrida](../automation-hrw-run-runbooks.md).
+Se o seu Executbook Worker híbrido for um VM Azure, pode utilizar [identidades geridas para recursos Azure.](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) Este cenário simplifica a autenticação, permitindo-lhe autenticar recursos Azure utilizando a identidade gerida do VM Azure em vez da conta Run As. Quando o Trabalhador do Livro Híbrido é uma máquina no local, é necessário instalar o certificado de conta Run As na máquina. Para saber instalar o certificado, consulte os passos para executar o livro de execução PowerShell Export-RunAsCertificateToHybridWorker em [runbook em execução de um trabalhador de resta híbrida](../automation-hrw-run-runbooks.md).
 
 ### <a name="error-403-on-registration"></a>Cenário: Erro 403 durante o registo do Trabalhador do Livro Híbrido
 
@@ -92,7 +90,7 @@ A fase inicial de registo do trabalhador falha e recebe o seguinte erro (403).
 
 #### <a name="cause"></a>Causa
 
-As seguintes são as possíveis causas:
+A seguir são indicadas causas possíveis:
 * Há uma identificação do espaço de trabalho enevoado ou chave do espaço de trabalho (primária) nas configurações do agente. 
 * O Trabalhador do Livro Híbrido não pode descarregar a configuração, causando um erro de ligação de conta. Quando o Azure permite soluções, suporta apenas certas regiões para ligar um espaço de trabalho log Analytics e uma conta de Automação. Também é possível que uma data e/ou hora incorretas seja definida no computador. Se o tempo for de +/-15 minutos a partir do tempo atual, o embarque falha.
 
@@ -103,7 +101,7 @@ Para verificar se o ID ou a chave do espaço de trabalho do agente foram enevoad
 
 ##### <a name="configuration-not-downloaded"></a>Configuração não descarregada
 
-O seu espaço de trabalho log Analytics e a Conta de Automação devem estar numa região ligada. Para obter uma lista de regiões apoiadas, consulte [o Azure Automation e o Log Analytics workspace mapeamentos.](../how-to/region-mappings.md)
+O seu espaço de trabalho log Analytics e a sua conta de Automação devem estar numa região ligada. Para obter uma lista de regiões apoiadas, consulte [o Azure Automation e o Log Analytics workspace mapeamentos.](../how-to/region-mappings.md)
 
 Também poderá ser necessário atualizar a data e o fuso horário do seu computador. Se selecionar um intervalo de tempo personalizado, certifique-se de que o intervalo está em UTC, que pode diferir do seu fuso horário local.
 
@@ -133,10 +131,9 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 A lista seguinte mostra os processos iniciados para um Linux Hybrid Runbook Worker. Estão todos localizados no diretório `/var/opt/microsoft/omsagent/state/automationworker/`.
 
-
 * **oms.conf** - O processo de gerente de trabalho. Começou diretamente da DSC.
 
-* **worker.conf** - O processo de trabalhador híbrido auto registado, é iniciado pelo gestor do trabalhador. Este processo é utilizado pela Update Management e é transparente para o utilizador. Este processo não está presente se a solução de Gestão de Atualização não estiver ativada na máquina.
+* **worker.conf** - O processo de trabalhador híbrido auto registado. É iniciado pelo gerente dos trabalhadores. Este processo é utilizado pela Update Management e é transparente para o utilizador. Este processo não está presente se a solução de Gestão de Atualização não estiver ativada na máquina.
 
 * **diy/worker.conf** - O processo de trabalhador híbrido DIY. O processo de trabalhador híbrido DIY é usado para executar livros de execução de utilizadores no Trabalhador do Livro híbrido. Apenas difere do processo de trabalhador híbrido registado automaticamente no detalhe chave que utiliza uma configuração diferente. Este processo não está presente se a solução Deautomação Azure estiver desativada e o Diy Linux Hybrid Worker não estiver registado.
 
@@ -240,4 +237,4 @@ Se você não tiver visto seu problema ou não conseguir resolver o problema, vi
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+* Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
