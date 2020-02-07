@@ -1,5 +1,5 @@
 ---
-title: Configure Azure AD funções personalizadas em Gestão de Identidade Privilegiada (PIM) Microsoft Docs
+title: Configure Azure AD papel personalizado - Gestão de Identidade Privilegiada (PIM)
 description: Como configurar funções personalizadas da Azure AD na Gestão de Identidade Privilegiada (PIM)
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82d0c001ecea4c3afbcb800b68246b628c130ff2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d6251c1576d38b191ca1cba48075cc869c48d004
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896542"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048117"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configure Funções personalizadas da AD Azure na Gestão de Identidade Privilegiada
 
@@ -71,11 +71,11 @@ Privileged Identity Management fornece imposição opcional da autenticação mu
 
   Pode exigir utilizadores elegíveis atribuídos a uma função de inscrição na Autenticação Multi-Factor Azure antes de poderem ser ativados. Este processo garante que o utilizador que está a solicitar a ativação é quem diz ser com certeza razoável. A aplicação desta opção protege funções críticas em situações em que a conta de utilizador pode ter sido comprometida. Para exigir que um membro elegível execute a autenticação de multi-factores Azure antes da ativação, selecione a **autenticação de vários fatores na caixa de ativação.**
 
-Para obter mais informações, consulte [autenticação multifator e Privileged Identity Management](pim-how-to-require-mfa.md).
+Para mais informações, consulte a [autenticação multifactor e a Gestão de Identidade Privilegiada.](pim-how-to-require-mfa.md)
 
 ### <a name="activation-maximum-duration"></a>Duração máxima da ativação
 
-Use o controle deslizante **duração máxima de ativação** para definir o tempo máximo, em horas, que uma função permanece ativa antes de expirar. Este valor pode ser de 1 e 24 horas.
+Utilize o slider de **duração máxima** de ativação para definir o tempo máximo, em horas, para que uma função permaneça ativa antes de expirar. Este valor pode ser de 1 e 24 horas.
 
 ### <a name="require-justification"></a>Exigir justificação
 
@@ -96,6 +96,6 @@ Se você quiser exigir aprovação para ativar uma função, siga estas etapas.
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar uma função personalizada da AD Azure](azure-ad-custom-roles-assign.md)
-- [Atribuir uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
-- [Remover ou atualizar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-update-remove.md)
-- [Definições de função no Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Atribuir uma função personalizada azure AD](azure-ad-custom-roles-assign.md)
+- [Remova ou atualize uma atribuição de funções personalizadas da AD Azure](azure-ad-custom-roles-update-remove.md)
+- [Definições de papéis em Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/04/2020
+ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982426"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048289"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: criar seu primeiro modelo de classificação com o Machine Learning automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -34,11 +34,11 @@ Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://aka.ms/AMLFree)
 
-* Baixe o arquivo de dados [**bankmarketing_train. csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . A coluna **y** indica se um cliente assinou um depósito de termo fixo, que é posteriormente identificado como a coluna de destino para previsões neste tutorial. 
+* Faça o download do ficheiro de dados [**bankmarketing_train.csv.** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) A coluna **y** indica se um cliente subscreveu um depósito a prazo fixo, que é mais tarde identificado como a coluna alvo para previsões neste tutorial. 
 
-## <a name="create-a-workspace"></a>Criar áreas de trabalho
+## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
 Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de aprendizado de máquina. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço. 
 
@@ -47,115 +47,119 @@ Você cria um espaço de trabalho por meio do Azure Machine Learning Studio, um 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 >[!IMPORTANT] 
-> Anote seu espaço de **trabalho** e sua **assinatura**. Você precisará delas para garantir que crie seu experimento no lugar certo. 
+> Tome nota do seu espaço de **trabalho** e **subscrição.** Você precisará delas para garantir que crie seu experimento no lugar certo. 
 
 ## <a name="create-and-run-the-experiment"></a>Criar e executar o experimento
 
 Você conclui as seguintes etapas de configuração e execução do experimento no Azure Machine Learning Studio, uma interface consolidada que inclui ferramentas de Machine Learning para executar cenários de ciência de dados para profissionais de ciência de dados de todos os níveis de habilidade. Não há suporte para o estúdio em navegadores do Internet Explorer.
 
-1. Entre no [Azure Machine Learning Studio](https://ml.azure.com).
+1. Inscreva-se no [estúdio Azure Machine Learning.](https://ml.azure.com)
 
 1. Selecione sua assinatura e o espaço de trabalho que você criou.
 
-1. Selecione **introdução**.
+1. Selecione **Começar**.
 
-1. No painel esquerdo, selecione **ml automatizado** na seção **autor** .
+1. No painel esquerdo, **selecione ML automatizado** na secção **Autor.**
 
    Como este é seu primeiro experimento de ML automatizado, você verá uma lista vazia e links para a documentação.
 
    ![Azure Machine Learning studio](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Selecione **nova execução automática de ml**. 
+1. Selecione **Nova execução automática ml**. 
 
-1. Crie um novo conjunto de uma seleção **de arquivos locais** na lista suspensa **+ criar conjunto de DataSet** . 
+1. Crie um novo conjunto de dados selecionando **a partir de ficheiros locais** a partir do **+Create dataset** drop-down. 
+
+    1. No formulário **de informação Basic,** dê um nome ao seu conjunto de dados e forneça uma descrição opcional. O ML automatizado no estúdio Azure Machine Learning atualmente apenas suporta conjuntos de dados tabular, pelo que o tipo de conjunto de dados deve ser padrão para Tabular.
+
+    1. Selecione **Seguinte** na parte inferior esquerda
+
+    1. No formulário de **datastore e seleção de ficheiros,** selecione a loja de dados predefinida que foi configurada automaticamente durante a sua criação do espaço de trabalho, **workspaceblobstore (Armazenamento Azure Blob)** . É aqui que irá fazer o upload do seu ficheiro de dados para o disponibilizar ao seu espaço de trabalho.
 
     1. Selecione **Procurar**.
     
-    1. Escolha o arquivo **bankmarketing_train. csv** no computador local. Esse é o arquivo que você baixou como um [pré-requisito](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
-
-    1. Selecione **tabular** como seu tipo de conjunto de texto. 
+    1. Escolha o ficheiro **bankmarketing_train.csv** no seu computador local. Este é o ficheiro que descarregou como [pré-requisito.](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv)
 
     1. Dê um nome exclusivo ao seu conjunto de dado e forneça uma descrição opcional. 
 
-    1. Selecione **Avançar** na parte inferior esquerda para carregá-lo no contêiner padrão que foi configurado automaticamente durante a criação do espaço de trabalho.  
+    1. Selecione **Next** na parte inferior esquerda, para carregá-lo para o recipiente predefinido que foi configurado automaticamente durante a sua criação do espaço de trabalho.  
     
        Quando o upload for concluído, as configurações e o formulário de visualização serão preenchidos previamente com base no tipo de arquivo. 
        
-    1. Verifique se as **configurações e** o formulário de visualização estão preenchidos da seguinte maneira e selecione **Avançar**.
+    1. Verifique se o formulário **definições e pré-visualização** está povoado da seguinte forma e selecione **Next**.
         
         Campo|Descrição| Valor do tutorial
         ---|---|---
-        Formato de arquivo|Define o layout e o tipo de dados armazenados em um arquivo.| Delimitados
-        Delimitador|Um ou mais caracteres para especificar o limite entre&nbsp; regiões separadas e independentes em texto sem formatação ou outros fluxos de dados. |Vírgula
-        Encoding|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
+        Formato de ficheiro|Define o layout e o tipo de dados armazenados em um arquivo.| Delimitados
+        Delimitador|Um ou mais caracteres para especificar a fronteira entre&nbsp; regiões separadas e independentes em texto simples ou outros fluxos de dados. |Víris
+        Codificação|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.| Todos os arquivos têm os mesmos cabeçalhos
-        Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.| Nenhuma
+        Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.| Nenhum
 
-    1. O formulário de **esquema** permite a configuração adicional de seus dados para esse experimento. Para este exemplo, selecione a opção Alternar para o recurso **day_of_week** , para que não o inclua neste experimento. Selecione **Seguinte**.
+    1. O formulário **Schema** permite uma maior configuração dos seus dados para esta experiência. Para este exemplo, selecione o interruptor de alternância para a **funcionalidade day_of_week,** de modo a não incluí-lo para esta experiência. Selecione **Seguinte**.
 
         ![Configuração da guia de visualização](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
-    1. No formulário **confirmar detalhes** , verifique se as informações correspondem ao que foi previamente populado nas **informações básicas** e **nas configurações e** na versão prévia dos formulários.
-    1. Selecione **criar** para concluir a criação do conjunto de seus conjuntos de seus.
+    1. No formulário **confirmar** detalhes, verifique as informações correspondem às anteriormente povoadas nas **informações** básicas e configurações e formulários de **pré-visualização.**
+    1. Selecione **Criar** para completar a criação do seu conjunto de dados.
     1. Selecione o conjunto de seus conjuntos de seus quando ele aparecer na lista.
-    1. Examine a **visualização de dados** para garantir que você não incluiu **day_of_week** , em seguida, selecione **OK**.
+    1. Reveja a **pré-visualização de Dados** para garantir que não incluiu **day_of_week** então, selecione **OK**.
 
     1. Selecione **Seguinte**.
 
-1. Preencha o formulário de **execução de configuração** da seguinte maneira:
-    1. Insira este nome de experimento: `my-1st-automl-experiment`
+1. Povoar o formulário **Configure Run** da seguinte forma:
+    1. Introduza este nome da experiência: `my-1st-automl-experiment`
 
-    1. Selecione **y** como a coluna de destino, o que você deseja prever. Esta coluna indica se o cliente assinou um termo de depósito ou não.
-    1. Selecione **criar uma nova computação** e configure seu destino de computação. Um destino de computação é um ambiente de recursos local ou baseado em nuvem usado para executar o script de treinamento ou hospedar sua implantação de serviço. Para este experimento, usamos uma computação baseada em nuvem. 
+    1. Selecione **y** como a coluna do alvo, o que pretende prever. Esta coluna indica se o cliente assinou um termo de depósito ou não.
+    1. Selecione **Criar um novo cálculo** e configurar o seu alvo de cálculo. Um destino de computação é um ambiente de recursos local ou baseado em nuvem usado para executar o script de treinamento ou hospedar sua implantação de serviço. Para este experimento, usamos uma computação baseada em nuvem. 
 
         Campo | Descrição | Valor do tutorial
         ----|---|---
         Nome da computação |Um nome exclusivo que identifica o contexto de computação.|automl-computação
-        Tamanho do&nbsp;máquina&nbsp;virtual| Selecione o tamanho da máquina virtual para sua computação.|Standard_DS12_V2
+        Tamanho&nbsp;máquina de&nbsp;virtual| Selecione o tamanho da máquina virtual para sua computação.|Standard_DS12_V2
         Nós mín./máx. (em configurações avançadas)| Para criar o perfil de dados, você deve especificar um ou mais nós.|Nós mínimos: 1<br>Máximo de nós: 6
   
-        1. Selecione **criar** para obter o destino de computação. 
+        1. Selecione **Criar** para obter o alvo da computação. 
 
-            **Isso leva alguns minutos para ser concluído.** 
+            **Isto leva alguns minutos para ser concluído.** 
 
         1. Após a criação, selecione o novo destino de computação na lista suspensa.
 
     1. Selecione **Seguinte**.
 
-1. No formulário **tipo de tarefa e configurações** , selecione **classificação** como o tipo de tarefa de aprendizado de máquina.
+1. No formulário de **tipo de tarefa e configurações,** selecione **Classificação** como o tipo de tarefa de aprendizagem automática.
 
-    1. Selecione **Exibir definições de configuração adicionais** e preencha os campos da seguinte maneira. Essas configurações são para controlar melhor o trabalho de treinamento. Caso contrário, os padrões serão aplicados com base na seleção de experimento e nos dados.
+    1. Selecione **Ver configurações adicionais** de configuração e povoar os campos da seguinte forma. Essas configurações são para controlar melhor o trabalho de treinamento. Caso contrário, os padrões serão aplicados com base na seleção de experimento e nos dados.
 
         >[!NOTE]
         > Neste tutorial, você não definirá uma pontuação de métrica ou um limite máximo de núcleos por iterações. Nem você bloqueará o teste de algoritmos.
    
-        Configurações de&nbsp;adicionais|Descrição|&nbsp;de valor para o tutorial de&nbsp;
+        Configurações adicionais de&nbsp;|Descrição|Valor&nbsp;para tutoriais&nbsp;
         ------|---------|---
         Métrica primária| Métrica de avaliação para a qual o algoritmo de aprendizado de máquina será medido.|AUC_weighted
         Personalização automática| Habilita o pré-processamento. Isso inclui a limpeza automática de dados, a preparação e a transformação para gerar recursos sintéticos.| Ativar
-        Algoritmos bloqueados | Algoritmos que você deseja excluir do trabalho de treinamento| Nenhuma
-        Critério de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |Tempo de&nbsp;do trabalho de treinamento&nbsp;(horas): 1 <br> &nbsp;limite da classificação de&nbsp;métrica: nenhum
-        Validação | Escolha um tipo de validação cruzada e um número de testes.|Tipo de validação:<br>&nbsp;de validação cruzada de &nbsp;k-fold <br> <br> Número de validações: 2
-        Simultaneidade| O número máximo de iterações paralelas executadas e núcleos usados por iteração| Máximo&nbsp;iterações de&nbsp;simultâneas: 5<br> Máximo de núcleos de&nbsp;&nbsp;por iteração de&nbsp;: nenhum
+        Algoritmos bloqueados | Algoritmos que você deseja excluir do trabalho de treinamento| Nenhum
+        Critério de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |Formação&nbsp;trabalho&nbsp;horário (horas): 1 <br> Pontuação de&nbsp;métrica&nbsp;limiar: Nenhum
+        Validação | Escolha um tipo de validação cruzada e um número de testes.|Tipo de validação:<br>&nbsp;k-fold&nbsp;validação cruzada <br> <br> Número de validações: 2
+        Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Iterações&nbsp;simultâneas&nbsp;: 5
         
         Selecione **Guardar**.
 
-1. Selecione **concluir** para executar o experimento. A tela **executar detalhes** é aberta com o **status de execução** à medida que a preparação do experimento é iniciada.
+1. Selecione **Terminar** para executar a experiência. O ecrã **'Executar Detail'** abre com o **estado de Execução** na parte superior à medida que a preparação da experiência começa.
 
 >[!IMPORTANT]
-> A preparação leva de **10-15 minutos** para preparar a execução do experimento.
-> Uma vez em execução, leva **2-3 minutos mais para cada iteração**.  
-> Selecione **Atualizar** periodicamente para ver o status da execução durante o andamento do experimento.
+> A preparação leva **10-15 minutos** para preparar a experiência.
+> Uma vez em execução, leva **2-3 minutos a mais para cada iteração**.  
+> Selecione **Refresh** periodicamente para ver o estado da execução à medida que a experiência progride.
 >
-> Em produção, você provavelmente se desapareceria por um pouco. Mas para este tutorial, sugerimos que você comece a explorar os algoritmos testados na guia modelos à medida que eles forem concluídos enquanto os outros ainda estiverem em execução. 
+> Em produção, você provavelmente se desapareceria por um pouco. Mas para este tutorial, sugerimos que comece a explorar os algoritmos testados no separador **Models** à medida que completam enquanto os outros ainda estão em execução. 
 
 ##  <a name="explore-models"></a>Explorar modelos
 
-Navegue até a guia **modelos** para ver os algoritmos (modelos) testados. Por padrão, os modelos são ordenados pela pontuação da métrica à medida que são concluídos. Para este tutorial, o modelo que classifica o mais alto com base na métrica de **AUC_weighted** escolhida está na parte superior da lista.
+Navegue para o separador **Models** para ver os algoritmos (modelos) testados. Por padrão, os modelos são ordenados pela pontuação da métrica à medida que são concluídos. Para este tutorial, o modelo que marca mais com base na métrica **de AUC_weighted** escolhida está no topo da lista.
 
-Enquanto você aguarda que todos os modelos de experimento sejam concluídos, selecione o **nome do algoritmo** de um modelo concluído para explorar seus detalhes de desempenho. 
+Enquanto espera que todos os modelos de experimentação terminem, selecione o **nome Algoritmo** de um modelo completo para explorar os seus detalhes de desempenho. 
 
-O seguinte navega pelas guias **detalhes do modelo** e **visualizações** para exibir as propriedades, as métricas e os gráficos de desempenho do modelo selecionado. 
+Os seguintes navegam através dos detalhes do **Modelo** e dos separadores **de Visualização** para visualizar as propriedades, métricas e gráficos de desempenho do modelo selecionado. 
 
 ![Detalhes da execução de iteração](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
@@ -165,31 +169,31 @@ O Machine Learning automatizado no Azure Machine Learning Studio permite que voc
 
 Para este experimento, a implantação em um serviço Web significa que a instituição financeira agora tem uma solução Web iterativa e escalonável para identificar clientes de depósito de prazo fixo. 
 
-Quando a execução for concluída, navegue de volta para a página de **detalhes da execução** e selecione a guia **modelos** . Selecione **Atualizar**. 
+Uma vez concluída a execução, navegue de volta para a página **'Executar Detalhes'** e selecione o separador **Modelos.**
 
-Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo, com base na métrica de **AUC_weighted** .  Implantamos esse modelo, mas é recomendável que a implantação demore cerca de 20 minutos para ser concluída. O processo de implantação envolve várias etapas, incluindo o registro do modelo, a geração de recursos e a configuração deles para o serviço Web.
+Neste contexto de experiência, o **VoteEnsemble** é considerado o melhor modelo, com base na **métrica AUC_weighted.**  Implantamos esse modelo, mas é recomendável que a implantação demore cerca de 20 minutos para ser concluída. O processo de implantação envolve várias etapas, incluindo o registro do modelo, a geração de recursos e a configuração deles para o serviço Web.
 
-1. Selecione o botão **implantar melhor modelo** no canto inferior esquerdo.
+1. Selecione o **botão de melhor modelo de implantação** no canto inferior esquerdo.
 
-1. Preencha o painel **implantar um modelo** da seguinte maneira:
+1. Povoar o painel **de modelos da** seguinte forma:
 
     Campo| Valor
     ----|----
     Nome da implantação| meu-automl-implantar
     Descrição da implantação| Minha primeira implantação de experimento automatizada do Machine Learning
-    Tipo de computação | Selecionar instância de computação do Azure (ACI)
-    Ativar autenticação| Desativar. 
+    Tipo computacional | Selecionar instância de computação do Azure (ACI)
+    Ativar a autenticação| Desativar. 
     Usar implantações personalizadas| Desativar. Permite que o arquivo de driver padrão (script de pontuação) e o arquivo de ambiente sejam gerados automaticamente. 
     
-    Para este exemplo, usamos os padrões fornecidos no menu *avançado* . 
+    Para este exemplo, utilizamos as predefinições fornecidas no menu *Avançado.* 
 
 1. Selecione **Implementar**.  
 
-    Uma mensagem de êxito verde aparece na parte superior da tela de **execução** e, no painel **modelo recomendado** , uma mensagem de status aparece em **implantar status**. Selecione **Atualizar** periodicamente para verificar o status da implantação.
+    Uma mensagem de sucesso verde aparece na parte superior do ecrã **Executar,** e no painel do **modelo Recomendado,** uma mensagem de estado aparece sob o estado de **Implantação**. Selecione **Refresh** periodicamente para verificar o estado de implantação.
     
 Agora você tem um serviço Web operacional para gerar previsões. 
 
-Prossiga para as [**próximas etapas**](#next-steps) para saber mais sobre como consumir seu novo serviço Web e testar suas previsões usando o suporte Azure Machine Learning interno do Power bi.
+Proceda aos [**Próximos Passos**](#next-steps) para saber mais sobre como consumir o seu novo serviço web e testar as suas previsões utilizando o Power BI's construído em suporte azure machine learning.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -199,11 +203,11 @@ Os arquivos de implantação são maiores que os dados e os arquivos de teste, p
 
 Exclua apenas a instância de implantação do Azure Machine Learning Studio, se você quiser manter o grupo de recursos e o espaço de trabalho para outros tutoriais e explorações. 
 
-1. Vá para o [Azure Machine Learning Studio](https://ml.azure.com/). Navegue até seu espaço de trabalho e, à esquerda, no painel **ativos** , selecione **pontos de extremidade**. 
+1. Vá ao [estúdio de Aprendizagem automática Azure.](https://ml.azure.com/) Navegue para o seu espaço de trabalho e à esquerda sob o painel **De Ativos,** selecione **Pontos Finais**. 
 
-1. Selecione a implantação que você deseja excluir e selecione **excluir**. 
+1. Selecione a implementação que pretende eliminar e selecionar **Eliminar**. 
 
-1. Selecione **continuar**.
+1. Selecione **Proceder**.
 
 ### <a name="delete-the-resource-group"></a>Eliminar o grupo de recursos
 
@@ -214,13 +218,13 @@ Exclua apenas a instância de implantação do Azure Machine Learning Studio, se
 Neste tutorial de aprendizado de máquina automatizado, você usou o Azure Machine Learning Studio para criar e implantar um modelo de classificação. Consulte estes artigos para obter mais informações e as próximas etapas:
 
 > [!div class="nextstepaction"]
-> [Consumir um serviço Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consumir um serviço web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Saiba mais sobre o [pré-processamento](how-to-create-portal-experiments.md#preprocess).
-+ Saiba mais sobre a [criação de perfil de dados](how-to-create-portal-experiments.md#profile).
-+ Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
-+ Para obter mais informações sobre métricas de classificação e gráficos, consulte o artigo [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md#classification) .
++ Saiba mais sobre [a caracterização.](how-to-create-portal-experiments.md#featurization)
++ Saiba mais sobre [o perfil de dados.](how-to-create-portal-experiments.md#profile)
++ Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
++ Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo de [resultados automatizados](how-to-understand-automated-ml.md#classification) de machine learning.
 
 >[!NOTE]
-> Esse conjunto de Cco de marketing bancário é disponibilizado na [licença Creative Commons (: Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/). Todos os direitos no conteúdo individual do banco de dados são licenciados sob a [licença de conteúdo do banco de dados](https://creativecommons.org/publicdomain/zero/1.0/) e estão disponíveis em [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Esse conjunto de dados estava originalmente disponível no [banco de dados de Machine Learning UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
-> [Moro et al., 2014] S. moro, P. Cortez e P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Sistemas de suporte a decisões, Elsevier, 62:22-31, junho 2014.
+> Este conjunto de dados de Marketing Bancário é disponibilizado ao abrigo da [Licença Creative Commons (CCO: Domínio Público).](https://creativecommons.org/publicdomain/zero/1.0/) Quaisquer direitos em conteúdo individual da base de dados são licenciados na Licença de [Conteúdo da Base](https://creativecommons.org/publicdomain/zero/1.0/) de Dados e disponíveis em [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Este conjunto de dados estava originalmente disponível na Base de Dados de [Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml/datasets/bank+marketing)<br><br>
+> [Moro et al., 2014] S. Moro, P. Cortez e P. Rita. Uma abordagem baseada em dados para prever o sucesso do Telemarketing Bancário. Sistemas de suporte a decisões, Elsevier, 62:22-31, junho 2014.

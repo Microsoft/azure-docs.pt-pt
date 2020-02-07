@@ -1,5 +1,5 @@
 ---
-title: Visão geral de usuários, grupos, licenciamento e funções – Azure AD | Microsoft Docs
+title: Utilizadores, grupos, licenciamento e funções em geral - Azure AD [ AD ] Microsoft Docs
 description: A relação entre utilizadores e licenças atribuídas, funções de administrador, adesão a grupos no Azure Active Directory
 keywords: ''
 author: curtand
@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a647f4a5f051ec89bb82b6e7f89dcb677c95371
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a3cc2de5a2f297e8133011905ff2961b44476d6b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027744"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046328"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Utilizadores, grupos, licenciamento e funções para grandes organizações
 
@@ -31,7 +31,7 @@ Este artigo apresenta o administrador do Azure AD relativamente às principais t
 
 ## <a name="assign-users-to-groups"></a>Atribuir utilizadores a grupos
 
-Pode utilizar os grupos no Azure AD para atribuir licenças a um grande número de utilizadores ou atribuir acesso de utilizador a aplicações empresariais implementadas. Pode utilizar grupos para atribuir funções de administrador no Azure AD ou pode conceder acesso a recursos externos, como aplicações SaaS ou sites do SharePoint.
+Pode utilizar os grupos no Azure AD para atribuir licenças a um grande número de utilizadores ou atribuir acesso de utilizador a aplicações empresariais implementadas. Pode utilizar grupos para atribuir todas as funções de administrador, exceto para administrador global em AD Azure, ou pode conceder acesso a recursos externos, tais como aplicações SaaS ou sites SharePoint.
 
 Para obter flexibilidade adicional e reduzir o trabalho de gestão da adesão a grupos, pode utilizar [grupos dinâmicos](groups-create-rule.md) no Azure AD para expandir e efetuar automaticamente a adesão a grupos. Precisará de uma licença do Azure AD Premium P1 para cada utilizador exclusivo que seja membro de um ou mais grupos dinâmicos.
 
@@ -52,7 +52,7 @@ Muitas organizações grandes querem opções para que os seus utilizadores obte
 
  Nome da função | Resumo das permissões
  --------- | -------------------
- **Administrador de Aplicações** | Pode adicionar e gerir aplicações empresariais e registos de aplicações, e configurar as definições de proxy de aplicações. Os administradores de aplicativos podem exibir dispositivos e políticas de acesso condicional, mas não gerenciá-los.
+ **Administrador de Aplicações** | Pode adicionar e gerir aplicações empresariais e registos de aplicações, e configurar as definições de proxy de aplicações. Os Administradores de Aplicações podem ver políticas e dispositivos de Acesso Condicional, mas não geri-los.
  **Administrador de Aplicações na Cloud** | Pode adicionar e gerir aplicações empresariais e registos de aplicações empresariais. Esta função tem todas as permissões do administrador do aplicações, exceto que não é possível gerir as definições de proxy de aplicações.
 **Programador de Aplicações** | Pode adicionar e atualizar os registos de aplicações, mas não pode gerir aplicações empresariais nem configurar um proxy de aplicação.
 

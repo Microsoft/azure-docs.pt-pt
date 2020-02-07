@@ -3,12 +3,12 @@ title: Políticas de autor para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões linguísticas matrizes, avalie o pseudónimo [*] e aprenda elementos com regras de definição de Política Azure.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023196"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050071"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz sobre recursos Azure
 
@@ -140,8 +140,7 @@ O **tipo** de condição esperado `equals` é _corda_. Uma vez **que as localiza
 
 ### <a name="evaluating-the--alias"></a>Avaliação do pseudónimo [*]
 
-Os aliases que **\[\*\]** ligados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **\[\*\]** permite avaliar cada elemento da matriz individualmente, com lógica e entre eles. Existem três cenários padrão que esta avaliação por item é útil em: _Nenhum, qualquer_, _qualquer_ou _todos os_ elementos correspondem.
-Para cenários complexos, [a contagem de](../concepts/definition-structure.md#count)utilização.
+Os aliases que **\[\*\]** ligados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **\[\*\]** permite avaliar cada elemento da matriz individualmente, com lógica e entre eles. Existem três cenários padrão que esta avaliação por item é útil em: _Nenhum, qualquer_, _qualquer_ou _todos os_ elementos correspondem. Para cenários complexos, [a contagem de](../concepts/definition-structure.md#count)utilização.
 
 O motor de política desencadeia o **efeito** só nessa **altura** quando a regra **se** avalia como verdadeira.
 Este facto é importante de compreender no contexto da forma como **\[\*\]** avalia cada elemento individual da matriz.
@@ -206,9 +205,9 @@ Para mais informações, consulte os [exemplos do apêndice.](../concepts/effect
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
+- Reveja exemplos nas [amostras da Política Azure.](../samples/index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).
-- Entenda como [criar políticas programaticamente](programmatically-create.md).
-- Saiba como [corrigir recursos sem conformidade](remediate-resources.md).
-- Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).
+- Compreender como [criar políticas programáticas.](programmatically-create.md)
+- Aprenda a [remediar recursos não conformes](remediate-resources.md).
+- Reveja o que é um grupo de gestão com organizar os seus recursos com grupos de [gestão Azure.](../../management-groups/overview.md)

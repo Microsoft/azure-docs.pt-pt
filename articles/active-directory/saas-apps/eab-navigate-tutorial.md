@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03de10f9ea3bc3bf13a0fffaf22805412456a6f9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8e185f4065fee0399104feadc27f038dd9c4a612
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992353"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046682"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate"></a>Tutorial: Azure Ative Diretório integração de um único sign-on (SSO) com a EAB Navigate
 
@@ -30,13 +30,13 @@ Neste tutorial, você vai aprender a integrar a EAB Navigate com o Azure Ative D
 * Ative que os seus utilizadores sejam automaticamente inscritos na EAB Navigate com as suas contas Azure AD.
 * Gerencie suas contas em um local central-o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure AD. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 * EAB Navegar única subscrição ativada por si (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -45,19 +45,19 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * EAB Navigate apoia **SP** iniciado SSO
 
-* Assim que configurar o EAB Navigate, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controles de sessão se estendem do acesso condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
 ## <a name="adding-eab-navigate-from-the-gallery"></a>Adicionar EAB Navigate da galeria
 
 Para configurar a integração da EAB Navigate em Azure AD, você precisa adicionar EAB Navigate da galeria à sua lista de aplicações saaS geridas.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. No **Add da** secção galeria, digite **EAB Navigate** na caixa de pesquisa.
 1. Selecione **EAB Navigate** a partir do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-eab-navigate"></a>Configure e teste Azure AD único sign-on para EAB Navigate
 
@@ -65,104 +65,93 @@ Configure e teste Azure AD SSO com EAB Navigate utilizando um utilizador de test
 
 Para configurar e testar o Azure AD SSO com o EAB Navigate, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    * Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
 1. **[Configure o EAB Navigate SSO](#configure-eab-navigate-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
     * **[Crie o utilizador de teste EAB Navigate](#create-eab-navigate-test-user)** - para ter uma contrapartida de B.Simon no EAB Navigate que esteja ligada à representação do utilizador da AD Azure.
-1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **EAB Navigate,** encontre a secção **Gerir** e selecione **um único sinal.**
-1. Na página **selecionar um método de logon único** , selecione **SAML**.
-1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
+1. Na página **de método de inscrição, selecione** **SAML**.
+1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , se você tiver um **arquivo de metadados do provedor de serviços**, execute as seguintes etapas:
+1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
+    
+    Na caixa de texto **Identificador (Id da Entidade),** introduza exatamente o seguinte valor: `https://bouncer.eab.com`
+    
+    Na caixa de texto URL de **resposta (URL do Serviço de Consumidor de Afirmação),** introduza os seguintes valores como linhas separadas: `https://bouncer.eab.com/sso/saml2/acs`
+    `https://bouncer.eab.com/sso/saml2/acs/`
+    
+    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.navigate.eab.com/`
 
-    a. Clique em **carregamento de ficheiro de metadados**.
+    > [!NOTE]
+    > O valor não é real. Atualize o valor com a URL de logon real. Contacte a equipa de suporte do [Cliente EAB Navigate](mailto:EABTechSupport@eab.com) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-    ![Carregar arquivo de metadados](common/upload-metadata.png)
+1. No **set single sign-on com** a página SAML, na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
 
-    b. Clique em **logótipo da pasta** para selecionar o ficheiro de metadados e clique em **carregar**.
-
-    ![escolher arquivo de metadados](common/browse-upload-metadata.png)
-
-    c. Depois que o arquivo de metadados for carregado com êxito, o valor do **identificador** será preenchido automaticamente na seção configuração básica do SAML.
-
-    ![EAB Navigate Domain e URLs informações únicas de inscrição](common/sp-identifier.png)
-
-    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.navigate.eab.com`
-
-    > [!Note]
-    > Se o valor do **identificador** não obtiver polulated automático, preencha o valor manualmente de acordo com seu requisito. O valor da URL de logon não é real. Atualize esse valor com a URL de logon real. Contacte a equipa de suporte do [Cliente EAB Navigate](mailto:jmahoney@eab.com) para obter este valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
-
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **certificado (bruto)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
-
-    ![O link de download de certificado](common/certificateraw.png)
-
-1. Na secção **'Navegar' EAB, copie** os URL(s) adequados com base no seu requisito.
-
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![O link de download de certificado](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **usuário** , siga estas etapas:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. No campo **de nome do utilizador,** introduza o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso à EAB Navigate.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **EAB Navigate**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
     ![O link Adicionar usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
 ## <a name="configure-eab-navigate-sso"></a>Configure EAB Navigate SSO
 
-Para configurar um único sinal no lado **EAB Navigate,** você precisa enviar o Certificado descarregado **(Raw)** e URLs copiados apropriados do portal Azure para a equipa de [suporte EAB Navigate](mailto:jmahoney@eab.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar um único sinal no lado **eAB Navigate,** você precisa enviar o Url de **Metadados da Federação de Aplicações** para a equipa de [suporte EAB Navigate](mailto:EABTechSupport@eab.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-eab-navigate-test-user"></a>Criar o utilizador de teste EAB Navigate
 
-Nesta secção, cria-se um utilizador chamado B.Simon no EAB Navigate. Trabalhe com a equipa de [suporte EAB Navigate](mailto:jmahoney@eab.com) para adicionar os utilizadores na plataforma EAB Navigate. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, cria-se um utilizador chamado B.Simon no EAB Navigate. Trabalhe com a equipa de [suporte EAB Navigate](mailto:EABTechSupport@eab.com) para adicionar os utilizadores na plataforma EAB Navigate. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Testar SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clicar no azulejo EAB Navigate no Painel de Acesso, deve ser automaticamente inscrito no EAB Navigate para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo EAB Navigate no Painel de Acesso, deve ser automaticamente inscrito no EAB Navigate para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o EAB Navigate com a Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Como proteger o EAB Navigate com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

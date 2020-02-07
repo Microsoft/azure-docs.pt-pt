@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar um pipeline de CI/CD para Java-Azure DevOps Projects'
-description: DevOps Projects facilita a introdução ao Azure. Ajuda-o a utilizar o seu próprio código e o repositório GitHub para lançar uma aplicação num serviço do Azure à sua escolha com alguns passos rápidos.
+title: 'Quickstart: Criar um oleoduto CI/CD para java - Projetos Azure DevOps'
+description: A DevOps Projects facilita o início do Azure. Ajuda-o a utilizar o seu próprio código e o repositório GitHub para lançar uma aplicação num serviço do Azure à sua escolha com alguns passos rápidos.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -16,97 +16,97 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1a276770887bee39972ba8630fb13f52bcbe802d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203716"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049947"
 ---
-# <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Início rápido: Configurar um pipeline de CI/CD para um aplicativo Java com Azure DevOps Projects
+# <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Quickstart: Criar um pipeline CI/CD para uma app Java com projetos Azure DevOps
 
-Neste artigo de início rápido, você usa Azure DevOps Projects "experiência simplificada para configurar um pipeline de integração contínua (CI) e entrega contínua (CD) para seu aplicativo Java no Azure Pipelines. Você também pode usar Azure DevOps Projects para criar outros recursos do Azure.  
+Neste arranque rápido, utiliza a experiência simplificada de Projetos Azure DevOps para criar um pipeline de integração contínua (CI) e entrega contínua (CD) para a sua aplicação Java em Pipelines Azure. Pode utilizar projetos Azure DevOps para configurar tudo o que precisa para desenvolver, implementar e monitorizar a sua aplicação. 
 
-Se você não tiver uma assinatura do Azure, poderá obter uma gratuitamente por meio de [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 
+- Uma conta [azure DevOps](https://azure.microsoft.com/services/devops/) e organização.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-  DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. Você pode criar uma nova organização de DevOps do Azure ou usar uma organização existente. Projetos de DevOps também cria os recursos do Azure na subscrição do Azure à sua escolha.
+A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar uma nova organização de DevOps do Azure ou usar uma organização existente. Projetos de DevOps também cria os recursos do Azure na subscrição do Azure à sua escolha.
 
-1. Inicie sessão no [Portal do Microsoft Azure](https://portal.azure.com).
+1. Inscreva-se no [portal Azure](https://portal.azure.com), e no painel esquerdo, selecione **Criar um recurso**. 
 
-1. No painel esquerdo, selecione **criar um recurso**e procure **DevOps Projects**.  
+   ![Criar um recurso Azure no portal Azure](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
-2. Selecione **Criar**.
+1. Procure e selecione **Projetos DevOps,** e, em seguida, **selecione Criar**.
 
-    ![Criar um recurso do Azure no DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
+## <a name="select-a-sample-application-and-azure-service"></a>Selecione um exemplo de aplicação e o serviço do Azure
 
-## <a name="select-a-sample-application-and-azure-service"></a>Selecione um exemplo de aplicação e serviço do Azure
-
-1. Selecione o aplicativo de exemplo Java.  
+1. Selecione a aplicação da amostra Java.  
 Os exemplos de Java incluem várias opções de arquiteturas de aplicações.
 
-1. A estrutura de exemplo padrão é Spring. Deixe a configuração padrão e, em seguida, selecione **Avançar**.  O aplicativo Web para contêineres é o destino de implantação padrão. A estrutura do aplicativo, que você escolheu anteriormente, dita o tipo de destino de implantação de serviço do Azure disponível aqui. 
+1. A estrutura da amostra padrão é primavera. Deixe a definição predefinida e, em seguida, selecione **Seguinte**.  Web App For Containers é o alvo de implementação padrão. O quadro de aplicação, que escolheu anteriormente, dita o tipo de alvo de implementação de serviço seleções Azure aqui disponível. 
 
-2. Deixe o serviço padrão e, em seguida, selecione **Avançar**.
+2. Deixe o serviço predefinido e, em seguida, selecione **Seguinte**.
  
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar o Azure DevOps e uma subscrição do Azure 
 
-1. Crie uma nova organização de DevOps do Azure ou escolha uma organização existente. 
+1. Crie uma nova organização Azure DevOps ou escolha uma organização existente. 
+   
+   1. Escolha um nome para o seu projeto. 
+   
+   1. Selecione a sua subscrição e localização Azure, escolha um nome para a sua aplicação e, em seguida, selecione **Done**.  
+   Após alguns minutos, o painel de instrumentos DevOps Projects é apresentado no portal Azure. Uma aplicação de amostra é configurada num repositório na sua organização Azure DevOps, uma construção é executada, e a sua aplicação é implantada para o Azure. Este dashboard fornece visibilidade para o repositório de código, o pipeline de CI/CD e a sua aplicação no Azure.
+   
+2. **Selecione Browse** para visualizar a sua aplicação de execução.
+   
+   ![Ver painel de aplicações no portal Azure](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
 
-    a. Escolha um nome para o seu projeto. 
-
-    b. Selecione a subscrição do Azure e a localização, escolha um nome para a sua aplicação e, em seguida, selecione **feito**.  
-    Depois de alguns minutos, o painel de DevOps Projects é exibido na portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização DevOps do Azure, uma compilação é executada e seu aplicativo é implantado no Azure. Este dashboard fornece visibilidade para o repositório de código, o pipeline de CI/CD e a sua aplicação no Azure.
-    
-
-2. Selecione **procurar** para exibir o aplicativo em execução.
-
-    ![Exibir painel de aplicativos no portal do Azure](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
-    
-   DevOps Projects configurou automaticamente um gatilho de Build e versão de CI.  Agora, está pronto para colaborar com uma equipa na sua aplicação Java com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente no seu site.
+Os Projetos DevOps configuraram automaticamente um gatilho de construção e libertação de CI.  Agora, está pronto para colaborar com uma equipa na sua aplicação Java com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente no seu site.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Consolidar as alterações de código e executar o CI/CD
 
-DevOps Projects cria um repositório git no Azure Repos ou no GitHub. Para exibir o repositório e fazer alterações de código em seu aplicativo, faça o seguinte:
+A DevOps Projects cria um repositório Git em Azure Repos ou GitHub. Para visualizar o repositório e fazer alterações de código na sua aplicação, faça o seguinte:
 
-1. À esquerda do painel de DevOps Projects, selecione o link para o Branch mestre.  
+1. À esquerda do painel de projetos DevOps, selecione o link para o seu ramo principal.  
 Esta ligação abre uma vista para o repositório Git recentemente criado.
 
-1. Para exibir a URL de clone do repositório, selecione **clonar** na parte superior direita do navegador.   
+1. Para ver o URL do clone repositório, selecione **Clone** no canto superior direito do navegador.   
     Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o browser para fazer e consolidar alterações de código diretamente no ramo principal.
 
-1. No lado esquerdo do navegador, vá para o arquivo **src/main/webapp/index.html** .
+1. Do lado esquerdo do navegador, vá ao ficheiro **src/main/webapp/index.html.**
 
-1. Selecione **Editar**e, em seguida, faça uma alteração em algum texto.
+1. Selecione **Editar**e, em seguida, fazer uma alteração em alguns dos textos.
     Por exemplo, altere algum texto para uma das etiquetas div.
 
-1. Selecione **consolidar**e, em seguida, guarde as alterações.
+1. Selecione **'Cometer'** e, em seguida, guardar as suas alterações.
 
-1. No navegador, vá para o painel de DevOps Projects.   
-Agora você deve ver uma compilação em andamento. As alterações que você acabou de fazer são criadas automaticamente e implantadas por meio de um pipeline de CI/CD.
+1. No seu navegador, vá ao painel de projetos DevOps.   
+Agora deve ver uma construção em andamento. As alterações que acabou de fazer são automaticamente construídas e implantadas através de um oleoduto CI/CD.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examine o pipeline de CI/CD
 
- Na etapa anterior, DevOps Projects configurou automaticamente um pipeline de CI/CD completo. Explore e personalize o pipeline, conforme necessário. Execute as etapas a seguir para se familiarizar com os pipelines de compilação e versão.
+ No passo anterior, os Projetos DevOps configuraram automaticamente um pipeline CI/CD completo. Explore e personalize o pipeline, conforme necessário. Tome os seguintes passos para se familiarizar com os oleodutos de construção e libertação.
 
-1. Na parte superior do dashboard de projetos de DevOps, selecione **criar Pipelines**.  
-Esse link abre uma guia do navegador e o pipeline de compilação para seu novo projeto.
+1. No topo do painel de projetos DevOps, selecione **Build Pipelines**.  
+Este link abre um separador de navegador e o pipeline de construção para o seu novo projeto.
 
-1. Aponte para o campo **status** e, em seguida, selecione as reticências (...).  
-    Essa ação abre um menu em que você pode iniciar várias atividades, como enfileirar uma nova compilação, pausar uma compilação e editar o pipeline de compilação.
+1. Aponte para o campo **Status** e, em seguida, selecione a elipse (...).  
+    Esta ação abre um menu onde pode iniciar várias atividades como fazer fila de uma nova construção, fazer uma pausa na construção e editar o pipeline de construção.
 
 1. Selecione **Editar**.
 
 1. Neste painel, pode examinar as várias tarefas para o seu pipeline de compilação.  
-A compilação executa uma variedade de tarefas, como busca de fontes do repositório git, restauração de dependências e publicação de saídas que são usadas para implantações.
+A construção executa uma variedade de tarefas como obter fontes do repositório Git, restaurar dependências e publicar saídas que são usadas para implementações.
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Altere o nome do seu pipeline de compilação para algo mais descritivo, selecione **guardar e colocar em fila**e, em seguida, selecione **guardar**.
+1. Mude o nome do seu pipeline de construção para algo mais descritivo, selecione **Save & queue,** e, em seguida, selecione **Guardar**.
 
 1. No nome do pipeline de compilação, selecione **Histórico**.   
-Na **histórico** painel, verá uma trilha de auditoria das alterações recentes para a compilação.  Pipelines do Azure mantém um registro de quaisquer alterações efetuadas no pipeline de compilação e permite-lhe comparar versões.
+No painel **história,** você vê um rasto de auditoria das suas recentes mudanças para a construção.  Pipelines do Azure mantém um registro de quaisquer alterações efetuadas no pipeline de compilação e permite-lhe comparar versões.
 
 1. Selecione **Acionadores**.   
  Projetos de DevOps criado automaticamente um acionador de CI e cada consolidação no repositório inicia uma nova compilação.  Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
@@ -114,40 +114,40 @@ Na **histórico** painel, verá uma trilha de auditoria das alterações recente
 1. Selecione **Retenção**.   
 Dependendo do seu cenário, pode especificar políticas de manter ou remover um determinado número de compilações.
 
-1. Selecione **Compilar e liberar**e, em seguida, selecione **versões**.  
- DevOps Projects cria um pipeline de liberação para gerenciar implantações no Azure.
+1. Selecione **Construir e Soltar**e, em seguida, selecione **Lançamentos**.  
+ A DevOps Projects cria um oleoduto de libertação para gerir as implantações para o Azure.
 
-1. À esquerda, selecione as reticências (...) ao lado de seu pipeline de lançamento e, em seguida, selecione **Editar**.  
+1. À esquerda, selecione a elipse (...) junto ao seu gasoduto de libertação e, em seguida, **selecione Editar**.  
 O pipeline de lançamento contém um pipeline, que define o processo de liberação.  
     
 12. Em **Artefactos**, selecione **Remover**.  
-O pipeline de Build que você examinou nas etapas anteriores produz a saída usada para o artefato. 
+O oleoduto de construção que examinou nos passos anteriores produz a saída que é usada para o artefacto. 
 
-1. Junto a **Drop** ícone, selecione a **acionador de implementação contínua**.  
+1. Ao lado do ícone **Drop,** selecione o **gatilho de implantação Contínua**.  
 Esta versão de pipeline tem um acionador de CD ativado, o que é executada uma implantação sempre que houver um artefacto de compilação nova disponível. Opcionalmente, pode desativar o acionador para que as suas implementações exigem execução manual. 
 
-1. No lado esquerdo, selecione **tarefas**.   
-As tarefas são as atividades que executa o processo de implementação. Neste exemplo, uma tarefa foi criada para ser implantada no serviço Azure App.
+1. À esquerda, selecione **Tarefas**.   
+As tarefas são as atividades que executa o processo de implementação. Neste exemplo, foi criada uma tarefa para implantar no Azure App Service.
 
-1. À direita, selecione **ver versões**.  
+1. À direita, selecione **versões**.  
 Esta vista mostra um histórico das versões.
 
-1. Selecione as reticências (...) junto a um dos seus lançamentos e, em seguida, selecione **aberto**.  
+1. Selecione a elipse (...) ao lado de um dos seus lançamentos e, em seguida, selecione **Open**.  
 Existem vários menus para explorar, como um resumo de lançamento, itens de trabalho associados e testes.
 
 1. Selecione **Consolidações**.   
 Esta vista mostra as confirmações de código que estão associadas a implementação específica. 
 
-1. Selecionar **Registos**.  
+1. Selecione **Registos**.  
 Os registos contêm informações úteis sobre o processo de implementação. Podem ser vistos durante e após as implementações.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Você pode excluir Azure App serviço e outros recursos relacionados quando não precisar mais deles. Utilize o **eliminar** funcionalidade no dashboard de projetos de DevOps.
+Pode eliminar o Serviço de Aplicações Azure e outros recursos relacionados quando já não precisa deles. Utilize a funcionalidade **Eliminar** no painel de instrumentos de Projetos DevOps.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Quando você configurou o processo de CI/CD, os pipelines de compilação e de versão foram criados automaticamente. Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Para saber mais sobre o pipeline de CI/CD, consulte:
+Quando configurao o seu processo CI/CD, os gasodutos de construção e de libertação foram automaticamente criados. Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Para saber mais sobre o oleoduto CI/CD, consulte:
 
 > [!div class="nextstepaction"]
 > [Personalizar o processo de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

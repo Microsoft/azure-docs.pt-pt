@@ -8,12 +8,12 @@ ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 058fe9aea87879fe85dcbc6dcb864fd841fcb049
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a3d60bf38c4a9dad13dacf8ba9798c4078c1df1a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026799"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049715"
 ---
 # <a name="export-your-azure-iot-central-data"></a>Exporte os seus dados Centrais Azure IoT
 
@@ -62,10 +62,14 @@ Quando escolhe o Ônibus de Serviço como destino de exportação, as filas e t�
 
 Se não tiver uma conta de Armazenamento Azure existente para exportar, siga estes passos:
 
-1. Crie uma nova conta de [armazenamento no portal Azure.](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) Pode saber mais sobre a criação de novas contas de [armazenamento de Blob Azure](https://aka.ms/blobdocscreatestorageaccount) ou contas de armazenamento V2 do [Lago De dados Azure.](../../storage/blobs/data-lake-storage-quickstart-create-account.md)
+1. Crie uma nova conta de [armazenamento no portal Azure.](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) Pode saber mais sobre a criação de novas contas de [armazenamento de Blob Azure](https://aka.ms/blobdocscreatestorageaccount) ou contas de armazenamento V2 do [Lago De dados Azure.](../../storage/blobs/data-lake-storage-quickstart-create-account.md) A exportação de dados só pode escrever dados para contas de armazenamento que suportem bolhas de blocos. Segue-se uma lista de tipos de contas de armazenamento compatíveis conhecidos: 
 
-    - Se optar por exportar dados para uma conta de armazenamento V2 do Lago De dados, deve escolher **o BlobStorage** como **Tipo de Conta**.
-    - Pode exportar dados para contas de armazenamento em subscrições diferentes das da sua aplicação IoT Central. Irá ligar-se utilizando uma corda de ligação neste caso.
+    |Nível de Desempenho|Tipo de conta|
+    |-|-|
+    |Standard|Propósito Geral V2|
+    |Standard|Propósito Geral V1|
+    |Standard|Armazenamento de Blobs|
+    |Premium|Armazenamento blob bloco|
 
 2. Crie um recipiente na sua conta de armazenamento. Vá para sua conta de armazenamento. No **serviço Blob,** selecione **Browse Blobs**. Selecione **+ Recipiente** na parte superior para criar um novo recipiente.
 

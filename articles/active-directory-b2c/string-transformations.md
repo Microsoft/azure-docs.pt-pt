@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 774d3325cff98ef01dc0b2e8d5c1db38e449d1b5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982762"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045351"
 ---
 # <a name="string-claims-transformations"></a>Transformações de sinistros de cordas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos para a utilização das transformações de sinistros de cadeia do quadro de experiência de identidade no Azure Ative Directory B2C (Azure AD B2C). Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para a utilização das transformações de sinistros de cadeia do quadro de experiência de identidade no Azure Ative Directory B2C (Azure AD B2C). Para mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual
 
@@ -81,7 +81,7 @@ O perfil técnico autoafirmado chama o perfil técnico **login-nonInteractive** 
 - Declarações de entrada:
   - **inputClaim1**: someone@contoso.com
   - **inputClaim2**: someone@outlook.com
-    - Parâmetros de entrada:
+- Parâmetros de entrada:
   - **stringComcom :** ordinalIgnoreCase
 - Resultado: Erro lançado
 
@@ -91,7 +91,7 @@ Altera o caso da reclamação fornecida para maiúsculas inferiores ou superiore
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | O ClaimType que será alterado. |
+| InputClaim | inputClaim1 | string | O ClaimType a ser alterado. |
 | InputParameter | toCase | string | Um dos seguintes valores: `LOWER` ou `UPPER`. |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
@@ -157,7 +157,7 @@ Determine se uma reivindicação de corda é igual a outra. O resultado é um no
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Primeiro tipo de reclamação, que deve ser comparado. |
 | InputClaim | inputClaim2 | string | Segundo tipo de reclamação, que deve ser comparado. |
-| InputParameter | operator | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
+| InputParameter | operador | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
 | OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
@@ -197,7 +197,7 @@ Determina se um valor de reclamação é igual ao valor do parâmetro de entrada
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | O tipo de reclamação, que deve ser comparado. |
-| InputParameter | operator | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
+| InputParameter | operador | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | compareTo | string | comparação de cordas, um dos valores: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
 | OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
@@ -260,7 +260,7 @@ Seguir o exemplo gera uma identificação única global. Esta transformação de
 - Parâmetros de entrada:
     - **randomGeneratorType**: GUID
 - Declarações de saída:
-    - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
+    - **saídaSReclamação**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 Seguindo o exemplo gera um valor aleatório inteiro entre 0 e 1000. O valor é formatado para OTP_{valor aleatório}.
 
@@ -291,7 +291,7 @@ Seguindo o exemplo gera um valor aleatório inteiro entre 0 e 1000. O valor é f
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
-Forme uma reclamação de acordo com a cadeia de formato fornecida. Essa transformação usa o C# método `String.Format`.
+Forme uma reclamação de acordo com a cadeia de formato fornecida. Esta transformação C# usa o método `String.Format`.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -326,7 +326,7 @@ Utilize esta transformação de reclamações para formatar qualquer corda com u
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
-Formato duas reclamações de acordo com a cadeia de formato fornecida. Esta transformação C# utiliza o método **String.Format.**
+Formato duas reclamações de acordo com a cadeia de formato fornecida. Esta transformação C# usa o método `String.Format`.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -361,6 +361,76 @@ Utilize esta transformação de sinistros para formatar qualquer cadeia com dois
     - **stringFormat**: {0} {1}
 - Declarações de saída:
     - **saídaSClaim**: Joe Fernando
+
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+
+Cópias localizadas cordas em reivindicações.
+
+| Item | TransformationClaimType | Tipo de Dados | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| OutputClaim | O nome da corda localizada | string | Lista de tipos de reclamações que são produzidos após esta transformação de sinistros ter sido invocada. |
+
+Para utilizar a transformação de sinistros GetLocalizedStringsTransformation:
+
+1. Defina uma cadeia de [localização](localization.md) e associe-a a um [perfil auto-afirmou-técnico.](self-asserted-technical-profile.md)
+1. O `ElementType` do elemento `LocalizedString` deve `GetLocalizedStringsTransformationClaimType`.
+1. O `StringId` é um identificador único que define, e usa-o mais tarde na transformação das suas reivindicações.
+1. Na transformação de sinistros, especifique a lista de reclamações a definir com a cadeia localizada. O `ClaimTypeReferenceId` é uma referência a um ClaimType já definido na secção ClaimsSchema na política. O `TransformationClaimType` é o nome da cadeia localizada, tal como definido no `StringId` do elemento `LocalizedString`.
+1. Num [perfil técnico autoafirmado](self-asserted-technical-profile.md), ou numa entrada de controlo de [visualização](display-controls.md) ou transformação de sinistros de saída, faça uma referência à transformação das suas reclamações.
+
+![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
+
+O exemplo que se segue procura o assunto do e-mail, o corpo, a sua mensagem de código e a assinatura do e-mail, a partir de cordas localizadas. Estas alegações mais tarde utilizadas por modelo de verificação de e-mail personalizado.
+
+Defina cordas localizadas para inglês (padrão) e espanhol.
+
+```XML
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+     </LocalizedStrings>
+   </LocalizedResources>
+   <LocalizedResources Id="api.localaccountsignup.es">
+     <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Atentamente</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+A transformação de sinistros define o valor do *sujeito* do tipo de reclamação com o valor do *`StringId` email_subject*.
+
+```XML
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemplo
+
+- Declarações de saída:
+  - **assunto**: Código de verificação de email de conta Contoso
+  - **mensagem**: Obrigado por verificar a sua conta! 
+  - **codeIntro**: O seu código é 
+  - **assinatura**: Sinceramente  
+
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
 
@@ -414,7 +484,7 @@ Procure um valor de reclamação de uma lista de valores com base no valor de ou
 | InputClaim | inputParameterId | string | A alegação que contém o valor de procura |
 | InputParameter | |string | Coleção de inputParâmetros. |
 | InputParameter | errorOnFailedLookup | boolean | Controlando se um erro é devolvido quando não há procuração correspondente. |
-| OutputClaim | inputParameterId | string | Os Tipos de Reclamação que serão produzidos após esta transformação de sinistros ter sido invocado. O valor do id correspondente. |
+| OutputClaim | inputParameterId | string | Os Tipos de Reclamação que serão produzidos após esta transformação de sinistros ter sido invocado. O valor da `Id`correspondente. |
 
 O exemplo seguinte procura o nome de domínio numa das coleções inputParameters. A transformação de sinistros procura o nome de domínio no identificador e devolve o seu valor (um ID de aplicação).
 
@@ -438,14 +508,14 @@ O exemplo seguinte procura o nome de domínio numa das coleções inputParameter
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputParameterId**: test.com
+    - **entradaParameterId**: test.com
 - Parâmetros de entrada:
     - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
     - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
     - **test.com**: c7026f88-4299-4cdb-965d-3f16644b8a9
     - **errorOnFailedLookup**: falso
 - Declarações de saída:
-    - **outputClaim**:  c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **saídaSReclamação**: c7026f88-4299-4cdb-965d-3f16644b8a9
 
 ## <a name="nullclaim"></a>NullClaim
 
@@ -479,7 +549,7 @@ Obtém a parte de domínio de um endereço de e-mail.
 | InputClaim | emailAddress | string | O ClaimType que contém o endereço de e-mail. |
 | OutputClaim | domínio | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado - o domínio. |
 
-Utilize esta transformação de reclamações para analisar o nome de domínio após o símbolo @ do utilizador. Isto pode ser útil na remoção de informações pessoalmente identificáveis (PII) de dados de auditoria. A transformação de reclamações seguinte demonstra como analisar o nome de domínio a partir de uma reclamação de **e-mail.**
+Utilize esta transformação de reclamações para analisar o nome de domínio após o símbolo @ do utilizador. A transformação de reclamações seguinte demonstra como analisar o nome de domínio a partir de uma reclamação de **e-mail.**
 
 ```XML
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
@@ -587,7 +657,7 @@ Pode utilizar esta transformação de reclamações para verificar se uma reclam
 - Declarações de saída:
     - **saídaClaim1**: B2C_V1_90005
     - **saídaClaim2**: O TOS é atualizado para v2
-    - **stringCompareResultClaim**: true
+    - **stringCompareResultClaim**: verdadeiro
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
@@ -681,7 +751,7 @@ Extrai partes de um tipo de reclamação de cordas, começando pelo personagem n
 | InputClaim | InputClaim | string | O tipo de reclamação, que contém a corda. |
 | InputParameter | startIndex | int | A posição de personagem inicial de uma subcorda baseada em zero neste caso. |
 | InputParameter | length | int | O número de caracteres na subcadeia. |
-| OutputClaim | outputClaim | boolean | Uma cadeia equivalente à subcadeia de comprimento que começa no inícioIndex neste caso, ou Empty Se o startIndex for igual ao comprimento desta instância e comprimento é zero. |
+| OutputClaim | outputClaim | boolean | Uma cadeia equivalente à subcadeia de comprimento que começa no inícioIndex neste caso, ou Empty se o startIndex for igual ao comprimento desta instância e comprimento é zero. |
 
 Por exemplo, obtenha o prefixo do país do número de telefone.  
 
@@ -758,7 +828,7 @@ Concatena os elementos de um tipo de reivindicação de recolha de cordas especi
 | InputParameter | delimitador | string | A corda para usar como separador, como vírpara `,`. |
 | OutputClaim | outputClaim | string | Uma cadeia que consiste nos membros da coleção de cordas `inputClaim`, delimitada pelo parâmetro de entrada `delimiter`. |
   
-O exemplo seguinte pega numa coleção de cordas de funções de utilizador e converte-a numa cadeia de delimitador de vírposta. Pode usar este método para armazenar uma coleção de cordas na conta de utilizador da AD Azure. Mais tarde, quando ler a conta do diretório, use o `StringSplit` para converter a corda de limitador da vírce de volta à coleção de cordas.
+O exemplo seguinte pega numa coleção de cordas de funções de utilizador e converte-a numa cadeia de delimitador de vírposta. Pode utilizar este método para armazenar uma coleção de cordas na conta de utilizador da AD Azure. Mais tarde, quando ler a conta do diretório, use o `StringSplit` para converter a corda de limitador da vírce de volta à coleção de cordas.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">

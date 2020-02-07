@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901573"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048170"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -159,7 +159,7 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | E.U.A. Leste | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
 | E.U.A. Leste 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
 | E.U.A. Oeste | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
-| E.U.A. Oeste 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
+| E.U.A.Oeste 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
 | E.U.A. Centro-Oeste | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
 | E.U.A. Centro-Norte | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
 | E.U.A. Centro-Sul | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
@@ -175,15 +175,15 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Oeste do Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Sul de França | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
-| Norte da Suíça | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
-| Oeste da Suíça | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
-| Norte da Alemanha | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
-| Alemanha Centro-Oeste | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
-| Leste da Noruega | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
-| Oeste da Noruega | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
+| Suíça Norte | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Suíça Oeste | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Alemanha Norte | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Alemanha West Central | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Noruega Leste | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
+| Noroeste da Noruega | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Ásia-Pacífico** | |
 | Ásia Oriental | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
-| Sudeste Asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
+| Sudeste asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japão** | |
 | Leste do Japão | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
 | Oeste do Japão | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
@@ -201,11 +201,11 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Sul da Coreia do Sul | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
 | Coreia do Sul Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **África do Sul**| |
-| Norte da África do Sul | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| Oeste da África do Sul | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
-| **DOS EAU**| |
-| Norte dos E.A.U. | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
-| E.A.U. Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
+| África do Sul Norte | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
+| África do Sul Ocidental | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| **Emirados Sea**| |
+| Emirados Unidos norte | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
+| Central dos Emirados Emirados Unidos | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
 
 Todas as rotas anunciadas a partir da Microsoft serão etiquetadas com o valor da comunidade adequado. 
@@ -223,13 +223,14 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | Troca online** | 12076:5010 |
 | SharePoint Online** | 12076:5020 |
 | Skype para negócios online** | 12076:5030 |
-| CRM Online |12076:5040 |
+| CRM Online*** |12076:5040 |
 | Serviços globais do Azure * | 12076:5050 |
 | Azure Active Directory |12076:5060 |
 | Outros Serviços Online do Office 365** | 12076:5100 |
 
-*A Azure Global Services inclui apenas a Azure DevOps neste momento.
-** Autorização necessária da Microsoft, consulte filtros de [rotas Configure para Microsoft Peering](how-to-routefilter-portal.md) 
+*A Azure Global Services inclui apenas A Azure DevOps neste momento.\
+** Autorização necessária da Microsoft, consulte filtros de [rota Configure para Microsoft Peering](how-to-routefilter-portal.md)\
+CrM Online suporta Dynamics v8.2 e abaixo. Para versões mais altas, selecione a comunidade regional para as suas implementações De Dinâmica.
 
 > [!NOTE]
 > A Microsoft não honra valores das comunidades de BGP definidos por si nas rotas anunciadas para a Microsoft.
@@ -242,11 +243,11 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | --- | --- |
 | **US Gov da América** |  |
 | US Gov - Arizona | 12076:51106 |
-| US Gov - Virginia | 12076:51109 |
+| US Gov - Iowa | 12076:51109 |
 | US Gov - Virginia | 12076:51105 |
 | US Gov - Texas | 12076:51108 |
-| US DoD - Centro | 12076:51209 |
-| US Gov - Arizona | 12076:51205 |
+| US DoD Centro | 12076:51209 |
+| US DoD - Leste | 12076:51205 |
 
 
 | **Serviço nas Clouds Nacionais** | **Valor da comunidade BGP** |

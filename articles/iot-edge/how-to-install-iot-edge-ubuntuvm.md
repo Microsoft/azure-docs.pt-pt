@@ -8,42 +8,42 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: gregman
-ms.openlocfilehash: 84dd1b6d657dfe5061f53698114f3dc4e0197571
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.author: philmea
+ms.openlocfilehash: 49a783e1360aeddc8eeaadba442acf578d9d6f7f
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510061"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046051"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em máquinas virtuais Ubuntu
 
 O tempo de execução do Azure IoT Edge é o que transforma um dispositivo num dispositivo IoT Edge. O tempo de execução pode ser implementado nos dispositivos como pequena como um Raspberry Pi ou tão grande quanto um servidor industrial. Quando um dispositivo estiver configurado com o runtime do IoT Edge, pode começar a implementar lógica de negócios para o mesmo da cloud.
 
-Para saber mais sobre como funciona o runtime do IoT Edge e que componentes são incluídos, veja [compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura](iot-edge-runtime.md).
+Para saber mais sobre como funciona o tempo de funcionamento do IoT Edge e quais os componentes incluídos, consulte Compreender o tempo de funcionamento do [Azure IoT Edge e a sua arquitetura.](iot-edge-runtime.md)
 
-Este artigo lista as etapas para executar o tempo de execução de Azure IoT Edge em uma máquina virtual Ubuntu 16, 4 usando o [Azure IOT Edge pré-configurado na oferta do Azure Marketplace do Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm).
+Este artigo lista os passos para executar o tempo de execução do Azure IoT Edge numa Máquina Virtual Ubuntu 16.04 utilizando a borda preconfigurada [do Azure IoT edge na oferta do Ubuntu Azure Marketplace.](https://aka.ms/azure-iot-edge-ubuntuvm)
 
 Na primeira inicialização, o Azure IoT Edge na VM Ubuntu desinstala a versão mais recente do tempo de execução de Azure IoT Edge. Ele também inclui um script para definir a cadeia de conexão e, em seguida, reiniciar o tempo de execução, que pode ser disparado remotamente por meio do portal de VM do Azure ou da linha de comando do Azure, permitindo que você configure e conecte facilmente o dispositivo IoT Edge sem iniciar um SSH ou remoto sessão da área de trabalho. Esse script aguardará a definição da cadeia de conexão até que o cliente do IoT Edge esteja totalmente instalado para que você não precise criá-la em sua automação.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Implantar do Azure Marketplace
 
-1. Navegue até o [Azure IOT Edge na](https://aka.ms/azure-iot-edge-ubuntuvm) oferta do Ubuntu Marketplace ou pesquisando "Azure IOT Edge no Ubuntu" no [Azure Marketplace](https://azuremarketplace.microsoft.com/)
-2. Selecione **obter agora** e, em seguida, **continue** na próxima caixa de diálogo.
-3. Na portal do Azure, selecione **criar** e siga o assistente para implantar a VM.
+1. Navegue até à [borda Azure IoT na oferta do Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace ou pesquisando "Azure IoT Edge on Ubuntu" no [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+2. Selecione **GET IT NOW** **e,** em seguida, Continue no dialog seguinte.
+3. Uma vez no portal Azure, selecione **Criar** e siga o assistente para implementar o VM.
     * Se for sua primeira vez experimentando uma VM, é mais fácil usar uma senha e habilitar o SSH no menu porta de entrada pública.
     * Se você tiver uma carga de trabalho com uso intensivo de recursos, deverá atualizar o tamanho da máquina virtual adicionando mais CPUs e/ou memória.
 4. Depois que a máquina virtual for implantada, configure-a para se conectar ao seu hub IoT:
-    1. Copie a cadeia de conexão do dispositivo de seu dispositivo IoT Edge criado no Hub IoT (você pode seguir a [cadeia de conexão recuperar o no procedimento portal do Azure](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) se você não estiver familiarizado com esse processo)
-    1. Selecione o recurso de máquina virtual criado recentemente na portal do Azure e abra a opção **executar comando**
+    1. Copie a sua cadeia de ligação ao dispositivo a partir do seu dispositivo IoT Edge criado no seu Hub IoT (Pode seguir a [cadeia de ligação Recuperar a cadeia de ligação no](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) procedimento do portal Azure se não estiver familiarizado com este processo)
+    1. Selecione o seu recurso de máquina virtual recém-criado a partir do portal Azure e abra a opção **de comando de execução**
     1. Selecione a opção **RunShellScript**
-    1. Execute o script abaixo por meio da janela de comando com a cadeia de conexão do dispositivo: `/etc/iotedge/configedge.sh "{device_connection_string}"`
-    1. Selecione **executar**
+    1. Execute o script abaixo através da janela de comando com a sua cadeia de ligação do dispositivo: `/etc/iotedge/configedge.sh "{device_connection_string}"`
+    1. Selecione **Executar**
     1. Aguarde alguns instantes e a tela deve fornecer uma mensagem de êxito indicando que a cadeia de conexão foi definida com êxito.
 
 ## <a name="deploy-from-the-azure-portal"></a>Implantar do portal do Azure
 
-Na portal do Azure, procure "Azure IoT Edge" e selecione **Ubuntu Server 16, 4 LTS + Azure IOT Edge tempo de execução** para iniciar o fluxo de trabalho de criação de VM. A partir daí, conclua as etapas 3 e 4 nas instruções "implantar do Azure Marketplace" acima.
+A partir do portal Azure, procure "Azure IoT Edge" e selecione **Ubuntu Server 16.04 LTS + Azure IoT Edge** tempo de funcionamento para iniciar o fluxo de trabalho de criação VM. A partir daí, conclua as etapas 3 e 4 nas instruções "implantar do Azure Marketplace" acima.
 
 ## <a name="deploy-from-azure-cli"></a>Implantar do CLI do Azure
 
@@ -74,7 +74,7 @@ Na portal do Azure, procure "Azure IoT Edge" e selecione **Ubuntu Server 16, 4 L
    az group create --name IoTEdgeResources --location westus2
    ```
 
-1. Aceite os termos de uso da máquina virtual. Se você quiser revisar os termos primeiro, siga as etapas em [implantar do Azure Marketplace](#deploy-from-the-azure-marketplace).
+1. Aceite os termos de uso da máquina virtual. Se quiser rever os termos primeiro, siga os passos em [Deploy a partir do Mercado Azure](#deploy-from-the-azure-marketplace).
 
    ```azurecli-interactive
    az vm image terms accept --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
@@ -86,20 +86,20 @@ Na portal do Azure, procure "Azure IoT Edge" e selecione **Ubuntu Server 16, 4 L
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
-1. Defina a cadeia de conexão do dispositivo (você pode seguir a cadeia de conexão [de recuperação com o procedimento CLI do Azure](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) se não estiver familiarizado com esse processo):
+1. Detete a cadeia de ligação do dispositivo (Pode seguir a [cadeia de ligação Recuperar a linha de ligação com o procedimento Azure CLI](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) se não estiver familiarizado com este processo):
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
-Se você quiser usar o SSH nessa VM após a instalação, use o publicIpAddress com o comando: `ssh azureuser@{publicIpAddress}`
+Se pretender entrar neste VM após a configuração, utilize o publicIpAddress com o comando: `ssh azureuser@{publicIpAddress}`
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tiver um dispositivo IoT Edge aprovisionado com o tempo de execução instalado, pode [implementar módulos IoT Edge](how-to-deploy-modules-portal.md).
+Agora que tem um dispositivo IoT Edge aprovisionado com o tempo de funcionar instalado, pode [implementar módulos IoT Edge](how-to-deploy-modules-portal.md).
 
-Se você estiver tendo problemas com o tempo de execução do IoT Edge sendo instalado corretamente, confira a página de [solução de problemas](troubleshoot.md) .
+Se estiver a ter problemas com o tempo de funcionamento do IoT Edge a instalar corretamente, consulte a página de resolução de [problemas.](troubleshoot.md)
 
-Para atualizar uma instalação existente para a versão mais recente do IoT Edge, consulte [atualizar o daemon de segurança IOT Edge e o tempo de execução](how-to-update-iot-edge.md).
+Para atualizar uma instalação existente para a versão mais recente do IoT Edge, consulte [Atualizar o daemon de segurança IoT Edge e o tempo](how-to-update-iot-edge.md)de execução .
 
-Se você quiser abrir portas para acessar a VM por meio de SSH ou de outras conexões de entrada, consulte a documentação da máquina virtual do Azure [para abrir portas e pontos de extremidade em uma VM do Linux](../virtual-machines/linux/nsg-quickstart.md)
+Se quiser abrir portas para aceder ao VM através de SSH ou outras ligações de entrada, consulte a documentação da Máquina Virtual Azure sobre a abertura de [portas e pontos finais para um VM Linux](../virtual-machines/linux/nsg-quickstart.md)

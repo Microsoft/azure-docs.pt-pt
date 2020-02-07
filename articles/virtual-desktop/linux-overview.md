@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: f7d62487605c26a68e7c71b6d95d7814da0a07c9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 47e38d79e8aa4656b8164c94b4ef439bf431e01d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776394"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049670"
 ---
-# <a name="linux-support"></a>Suporte do Linux
+# <a name="linux-support"></a>Apoio Técnico para Linux
 
 Pode utilizar o Linux SDK para o Windows Virtual Desktop para construir um cliente autónomo do Windows Virtual Desktop. Também pode utilizá-lo para ativar o suporte ao Windows Virtual Desktop na sua aplicação de cliente. Este guia rápido explicará o que é o Linux SDK e como começar a usá-lo.
 
@@ -22,7 +22,7 @@ Pode utilizar o Linux SDK para o Windows Virtual Desktop para construir um clien
 
 Pode utilizar as APIs sDK para recuperar feeds de recursos, ligar-se a sessões de desktop ou aplicações remotas e utilizar muitas das redirecionações que os nossos clientes de primeira parte suportam.
 
-### <a name="supported-linux-distributions"></a>Distribuições Linux suportadas
+### <a name="supported-linux-distributions"></a>Distribuição de Linux suportada
 
 O SDK é compatível com a maioria dos sistemas operativos com base em Ubuntu 18.04 ou posterior. Se tiver uma distribuição linux diferente, podemos trabalhar consigo para descobrir como melhor suportar as suas necessidades.
 
@@ -30,7 +30,7 @@ O SDK é compatível com a maioria dos sistemas operativos com base em Ubuntu 18
 
 O SDK suporta múltiplas ligações a sessões de desktop e aplicações remotas. São apoiadas as seguintes redirecionamentos:
 
-| Redirecionamento       | Suportadas |
+| Redirecionamento       | Suportado |
 | :---------------- | :-------: |
 | Teclado          | &#10004;  |
 | Rato             | &#10004;  |
@@ -55,7 +55,7 @@ Antes de poder desenvolver um cliente Linux para o Windows Virtual Desktop, tem 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você pode solicitar acesso ao Linux SDK no nosso [fórum Tech Community](https://go.microsoft.com/fwlink/?linkid=2116541).
+O SDK está atualmente em desenvolvimento. Atualizaremos este documento com instruções para aceder ao SDK quando estiver disponível.
 
 Confira a nossa documentação para os seguintes clientes:
 
