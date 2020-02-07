@@ -3,8 +3,8 @@ title: Migrar VMs para o Gerenciador de recursos usando CLI do Azure
 description: Este artigo percorre a migração de recursos com suporte da plataforma do clássico para o Azure Resource Manager usando CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d6f5a877-05b6-4127-a545-3f5bede4e479
@@ -12,17 +12,17 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: kasing
-ms.openlocfilehash: 1ebb1ee5056d3b1e6e85bea43473de5918ddba5c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/06/2020
+ms.author: tagore
+ms.openlocfilehash: 4273ca00110a2966ca794eaa3d6b5fcc5ec9f00e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645179"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057401"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrar recursos de IaaS do clássico para o Azure Resource Manager usando CLI do Azure
-Estas etapas mostram como usar os comandos da CLI (interface de linha de comando) do Azure para migrar recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o modelo de implantação de Azure Resource Manager. O artigo requer a [CLI clássica do Azure](../../cli-install-nodejs.md). Como CLI do Azure é aplicável somente para recursos de Azure Resource Manager, ele não pode ser usado para essa migração.
+Estas etapas mostram como usar os comandos da CLI (interface de linha de comando) do Azure para migrar recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o modelo de implantação de Azure Resource Manager. O artigo requer o [clássico CLI azure.](../../cli-install-nodejs.md) Como CLI do Azure é aplicável somente para recursos de Azure Resource Manager, ele não pode ser usado para essa migração.
 
 > [!NOTE]
 > Todas as operações descritas aqui são idempotentes. Se você tiver um problema que não seja um recurso sem suporte ou um erro de configuração, recomendamos que repita a operação de preparação, anulação ou confirmação. A plataforma tentará executar a ação novamente.
@@ -37,18 +37,18 @@ Aqui está um fluxograma para identificar a ordem em que as etapas precisam ser 
 ## <a name="step-1-prepare-for-migration"></a>Etapa 1: preparar para a migração
 Aqui estão algumas práticas recomendadas que recomendamos ao avaliar a migração de recursos de IaaS do clássico para o Resource Manager:
 
-* Leia a [lista de recursos ou configurações sem suporte](../windows/migration-classic-resource-manager-overview.md). Se você tiver máquinas virtuais que usam recursos ou configurações sem suporte, recomendamos que aguarde até que o suporte a recursos/configurações seja anunciado. Como alternativa, você pode remover esse recurso ou sair dessa configuração para habilitar a migração se atender às suas necessidades.
+* Leia a [lista de configurações ou funcionalidades não suportadas](../windows/migration-classic-resource-manager-overview.md). Se você tiver máquinas virtuais que usam recursos ou configurações sem suporte, recomendamos que aguarde até que o suporte a recursos/configurações seja anunciado. Como alternativa, você pode remover esse recurso ou sair dessa configuração para habilitar a migração se atender às suas necessidades.
 * Se você tiver scripts automatizados que implantam sua infraestrutura e seus aplicativos hoje, tente criar uma configuração de teste semelhante usando esses scripts para migração. Como alternativa, você pode configurar ambientes de exemplo usando o portal do Azure.
 
 > [!IMPORTANT]
 > Atualmente, os gateways de aplicativo não têm suporte para migração do clássico para o Gerenciador de recursos. Para migrar uma rede virtual clássica com um gateway de aplicativo, remova o gateway antes de executar uma operação de preparação para mover a rede. Depois de concluir a migração, reconecte o gateway em Azure Resource Manager. 
 >
->Os gateways de ExpressRoute que se conectam a circuitos do ExpressRoute em outra assinatura não podem ser migrados automaticamente. Nesses casos, remova o gateway de ExpressRoute, migre a rede virtual e recrie o gateway. Consulte [migrar circuitos de ExpressRoute e redes virtuais associadas do modelo de implantação clássico para o Gerenciador de recursos](../../expressroute/expressroute-migration-classic-resource-manager.md) para obter mais informações.
+>Os gateways de ExpressRoute que se conectam a circuitos do ExpressRoute em outra assinatura não podem ser migrados automaticamente. Nesses casos, remova o gateway de ExpressRoute, migre a rede virtual e recrie o gateway. Consulte [os circuitos Migrate ExpressRoute e redes virtuais associadas do clássico ao modelo](../../expressroute/expressroute-migration-classic-resource-manager.md) de implementação do Gestor de Recursos para obter mais informações.
 > 
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Etapa 2: definir sua assinatura e registrar o provedor
-Para cenários de migração, você precisa configurar seu ambiente para o clássico e o Resource Manager. [Instale CLI do Azure](../../cli-install-nodejs.md) e [Selecione sua assinatura](/cli/azure/authenticate-azure-cli).
+Para cenários de migração, você precisa configurar seu ambiente para o clássico e o Resource Manager. [Instale o Azure CLI](../../cli-install-nodejs.md) e [selecione a sua subscrição](/cli/azure/authenticate-azure-cli).
 
 Entre em sua conta.
 
@@ -61,7 +61,7 @@ Selecione a assinatura do Azure usando o comando a seguir.
 > [!NOTE]
 > O registro é uma etapa única, mas precisa ser feito uma vez antes de tentar a migração. Sem o registro, você verá a seguinte mensagem de erro 
 > 
-> *BadRequest: a assinatura não está registrada para migração.* 
+> *BadRequest : A subscrição não está registada para migração.* 
 > 
 > 
 
@@ -69,28 +69,28 @@ Registre-se com o provedor de recursos de migração usando o comando a seguir. 
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
-Aguarde cinco minutos para que o registro seja concluído. Você pode verificar o status da aprovação usando o comando a seguir. Verifique se o Registrostate está `Registered` antes de continuar.
+Aguarde cinco minutos para que o registro seja concluído. Você pode verificar o status da aprovação usando o comando a seguir. Certifique-se de que o Estado de Registo está `Registered` antes de prosseguir.
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
-Agora, alterne a CLI para o modo de `asm`.
+Agora mude o CLI para o modo `asm`.
 
     azure config mode asm
 
 ## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Etapa 3: Verifique se você tem uma máquina virtual de Azure Resource Manager suficiente vCPUs na região do Azure de sua implantação atual ou VNET
-Para esta etapa, você precisará alternar para o modo de `arm`. Faça isso com o comando a seguir.
+Para este passo, terá de mudar para `arm` modo. Faça isso com o comando a seguir.
 
 ```
 azure config mode arm
 ```
 
-Você pode usar o seguinte comando da CLI para verificar o número atual de vCPUs que você tem em Azure Resource Manager. Para saber mais sobre cotas de vCPU, consulte [limites e o Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager)
+Você pode usar o seguinte comando da CLI para verificar o número atual de vCPUs que você tem em Azure Resource Manager. Para saber mais sobre as quotas vCPU, consulte [Limits e o Gestor de Recursos Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-Quando terminar de verificar esta etapa, você poderá voltar para o modo de `asm`.
+Uma vez feito o check-in, pode voltar a `asm` modo.
 
     azure config mode asm
 
@@ -120,7 +120,7 @@ Se você quiser migrar para uma rede virtual existente no modelo de implantaçã
 
     azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
-Depois que a operação de preparação for bem-sucedida, você poderá examinar a saída detalhada para obter o estado de migração das VMs e garantir que elas estejam no estado de `Prepared`.
+Depois de a operação de preparação ser bem sucedida, pode olhar através da produção verbosa para obter o estado de migração dos VMs e garantir que estão no estado `Prepared`.
 
     azure vm show <vmName> -vv
 
@@ -145,7 +145,7 @@ A saída terá uma aparência semelhante a esta:
 
 ![Captura de tela da linha de comando com o nome de rede virtual inteiro realçado.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-No exemplo acima, **virtualNetworkName** é o nome completo **"Group classicubuntu16 classicubuntu16"** .
+No exemplo acima, o **virtualNetworkName** é o nome completo **"Grupo classicubuntu16"** .
 
 Primeiro, valide se você pode migrar a rede virtual usando o seguinte comando:
 
@@ -182,10 +182,10 @@ Se a configuração preparada estiver correta, você poderá avançar e confirma
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Visão geral da migração apoiada pela plataforma de recursos IaaS do clássico para o Gestor de Recursos Azure](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Usar o PowerShell para migrar recursos de IaaS do clássico para o Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Ferramentas da Comunidade para auxiliar na migração de recursos de IaaS do clássico para o Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use a PowerShell para migrar os recursos iaaS do clássico para o Gestor de Recursos Azure](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Ferramentas comunitárias para ajudar na migração de recursos iaaS do clássico para o Gestor de Recursos Azure](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Consultar os erros de migração mais comuns](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Examine as perguntas mais frequentes sobre a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Reveja as perguntas mais frequentes sobre a migração de recursos IaaS do clássico para o Gestor de Recursos Azure](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -9,24 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/03/2020
+ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 49c5566454a93307dedd150a3508b33dbd7506e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022363"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064041"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Use coleções no portal My Apps
 
-Espaços de trabalho são diferentes vistas de aplicativos que você vê no portal **My Apps.** As aplicações podem ser agrupadas em coleções por função do departamento ou função do utilizador, por exemplo. Se não vir nenhuma coleção ou categoria disponível, significa que o seu administrador não criou ou partilhou nenhuma com você. Contacte o Helpdesk da sua organização para obter assistência adicional ou permissões para ver coleções partilhadas.
+As coleções são diferentes vistas de aplicações que você vê no portal **My Apps.** As aplicações podem ser agrupadas em coleções por função do departamento ou função do utilizador, por exemplo. Se não vir nenhuma coleção ou categoria disponível, significa que o seu administrador não criou ou partilhou nenhuma com você. Contacte o Helpdesk da sua organização para obter assistência adicional ou permissões para ver coleções partilhadas.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores **das Minhas Apps.** Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Este conteúdo destina-se aos utilizadores **das Minhas Apps.** Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na Documentação de Gestão de [Aplicações.](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces)
 
 ## <a name="access-apps-using-collections"></a>Aplicativos de acesso usando coleções
 
@@ -42,14 +42,14 @@ Ao selecionar e ver uma coleção, basta ver as aplicações predefinidas a que 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de organizar seus aplicativos em várias categorias no portal **meus aplicativos** , você pode:
+Depois de organizar as suas apps nas várias categorias do portal **My Apps,** pode:
 
 - Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para mais informações, consulte [Editar ou revogar permissões](my-applications-portal-permissions-saved-accounts.md)de aplicação no portal My Apps .
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Atualize suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar as suas informações pessoais que aparecem no portal **My Profile.**
+- [Atualize o seu perfil e informações sobre a conta.](my-account-portal-overview.md) Instruções sobre como atualizar as suas informações pessoais que aparecem no portal **My Profile.**
 
-- [Gerencie suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **organizações** do meu portal do **meu perfil** .
+- [Gerencie as suas organizações.](my-account-portal-organizations-page.md) Instruções sobre como visualizar e gerir as suas informações relacionadas com a organização na página das **Organizações** do portal **My Profile.**
 
-- [Gerencie seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **dispositivos** do meu portal do **meu perfil** .
+- [Gerencie os seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerir os dispositivos a que está ligado a utilizar o seu trabalho ou conta escolar, na página de **Dispositivos** do portal **My Profile.**

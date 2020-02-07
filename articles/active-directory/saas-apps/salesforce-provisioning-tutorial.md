@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ed3307f2802e5372cf007f1df8eee2f26e6a39f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5b8038896a11b65e835ce71f5fc34e85723cc91a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714390"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060526"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce para fornecimento automático de utilizadores
 
@@ -117,7 +117,7 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 Isto inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Salesforce na secção Utilizadores e Grupos. Note que a sincronização inicial demora mais tempo a realizar do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Salesforce.
 
-Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../manage-apps/check-status-user-account-provisioning.md)de conta de utilizador .
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="common-issues"></a>Problemas comuns
 * Se tiver problemas que autorizem o acesso à Salesforce, certifique-se do seguinte:

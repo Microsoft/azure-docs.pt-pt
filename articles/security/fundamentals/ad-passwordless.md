@@ -1,5 +1,6 @@
 ---
-title: Compreendendo um mundo sem senhas com Azure Active Directory | Microsoft Docs
+title: Autenticação sem palavra-passe com AD Azure
+titleSuffix: Active Directory
 description: Este guia ajuda CEOs, CIOs, CISOss, arquitetos de identidade, arquitetos empresariais e tomadores de decisões de ti responsáveis por escolher um método de autenticação com senha para sua implementação de Azure Active Directory.
 keywords: com senha, azuread
 author: martincoetzer
@@ -9,30 +10,30 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 39078e298093c2c2ab4835925a2ba8a70269f5f5
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 5fc6a4a23573995cf791a21ec7cf3a7d68d048e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945590"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064483"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Um mundo sem senhas com Azure Active Directory
 
-É hora de dividir seu relacionamento com senhas. As senhas foram boas para nós no passado, mas no local de trabalho digital de hoje eles se tornaram um vetor de ataque relativamente fácil para hackers. Os hackers adoram as senhas e não é difícil perceber por que quando você considera que as senhas mais comumente rejeitadas no Azure Active Directory (AD do Azure) incluem termos como o ano, o mês, a temporada ou uma equipe esportiva local. Além disso, a [pesquisa mostrou](https://aka.ms/passwordguidance) que as recomendações tradicionais para o gerenciamento de senhas, como requisitos de comprimento, requisitos de complexidade e frequências de alteração, são comprodutivas por vários motivos relacionados à natureza humana.
+É hora de dividir seu relacionamento com senhas. As senhas foram boas para nós no passado, mas no local de trabalho digital de hoje eles se tornaram um vetor de ataque relativamente fácil para hackers. Os hackers adoram as senhas e não é difícil perceber por que quando você considera que as senhas mais comumente rejeitadas no Azure Active Directory (AD do Azure) incluem termos como o ano, o mês, a temporada ou uma equipe esportiva local. Além disso, [a investigação demonstrou](https://aka.ms/passwordguidance) que as recomendações tradicionais para a gestão de senhas, tais como requisitos de comprimento, requisitos de complexidade e frequências de mudança são contraproducentes por uma variedade de razões relacionadas com a natureza humana.
 
-Três tipos de ataques normalmente usados para comprometer as contas de usuário são a irrigação de senha, o phishing e a repetição de violação. Recursos do Azure AD, como [bloqueio inteligente](../../active-directory/authentication/howto-password-smart-lockout.md), [senhas banidas](../../active-directory/authentication/concept-password-ban-bad-on-premises.md)e [proteção por senha](../../active-directory/authentication/concept-password-ban-bad-on-premises.md) , podem ajudar a proteger contra esses tipos de ataques. Da mesma forma, implementar a MFA ( [autenticação multifator](../../active-directory/authentication/concept-mfa-howitworks.md) ) ou a verificação em duas etapas fornece segurança adicional, exigindo uma segunda forma de autenticação. Mas, a longo prazo, uma solução sem senha é a melhor solução para garantir o método de autenticação mais seguro.
+Três tipos de ataques normalmente usados para comprometer as contas de usuário são a irrigação de senha, o phishing e a repetição de violação. Funcionalidades da AD Azure, tais como [bloqueio inteligente,](../../active-directory/authentication/howto-password-smart-lockout.md) [senhas proibidas,](../../active-directory/authentication/concept-password-ban-bad-on-premises.md)e [proteção de passwords](../../active-directory/authentication/concept-password-ban-bad-on-premises.md) podem ajudar a proteger contra este tipo de ataques. Do mesmo modo, a implementação da [autenticação de vários fatores](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA), ou verificação em duas etapas, proporciona segurança adicional exigindo uma segunda forma de autenticação. Mas, a longo prazo, uma solução sem senha é a melhor solução para garantir o método de autenticação mais seguro.
 
 Este artigo é o início de sua jornada para ajudá-lo a entender e implementar soluções com senha da Microsoft e ajudá-lo a escolher entre uma ou mais das seguintes opções:
 
-* **Windows Hello para empresas**. No Windows 10, o Windows Hello para empresas substitui senhas com autenticação forte de dois fatores em PCs e dispositivos móveis. Essa autenticação consiste em um novo tipo de credencial de usuário que está vinculado a um dispositivo e usa um PIN ou um reconhecimento biométrico.
+* **Windows Olá para Negócios.** No Windows 10, o Windows Hello para empresas substitui senhas com autenticação forte de dois fatores em PCs e dispositivos móveis. Essa autenticação consiste em um novo tipo de credencial de usuário que está vinculado a um dispositivo e usa um PIN ou um reconhecimento biométrico.
 
-* **Entrada sem senha com Microsoft Authenticator**. O aplicativo Microsoft Authenticator pode ser usado para entrar em uma conta do Azure AD sem usar uma senha. Semelhante à tecnologia do Windows Hello para empresas, o Microsoft Authenticator usa a autenticação baseada em chave para habilitar uma credencial de usuário vinculada a um dispositivo e usa uma biométrica ou um PIN.
+* **Sem palavras-passe com**o Autenticador Microsoft . O aplicativo Microsoft Authenticator pode ser usado para entrar em uma conta do Azure AD sem usar uma senha. Semelhante à tecnologia do Windows Hello para empresas, o Microsoft Authenticator usa a autenticação baseada em chave para habilitar uma credencial de usuário vinculada a um dispositivo e usa uma biométrica ou um PIN.
 
-* **FIDO2 chaves de segurança**. O FIDO2 fornece credenciais de logon criptográfico que são exclusivas em todos os sites e são armazenadas em um dispositivo local, como o Windows Hello ou as chaves de segurança externas. Essas chaves de segurança são resistentes aos riscos de phishing, roubo de senha e ataques de repetição. Combinado com a verificação de usuário por meio de biometria ou PIN, a solução é a verificação de dois fatores que atende às necessidades de segurança modernas.
+* **Chaves de segurança FIDO2**. O FIDO2 fornece credenciais de logon criptográfico que são exclusivas em todos os sites e são armazenadas em um dispositivo local, como o Windows Hello ou as chaves de segurança externas. Essas chaves de segurança são resistentes aos riscos de phishing, roubo de senha e ataques de repetição. Combinado com a verificação de usuário por meio de biometria ou PIN, a solução é a verificação de dois fatores que atende às necessidades de segurança modernas.
 
 ## <a name="the-future-of-passwordless-authentication"></a>O futuro da autenticação com senha
 
-Atualmente, bancos, empresas de cartões de crédito e outras organizações e serviços online geralmente protegem sua conta, exigindo que você verifique sua identidade duas vezes: uma vez usando sua senha e, novamente, por telefone, texto ou um aplicativo. Embora a autenticação multifator resolva o problema de segurança de senhas sendo compartilhadas, roubadas ou adivinhadas, ela não resolve o fator de inconveniência de tentar se lembrar delas. O que os usuários e as organizações desejam na era da nuvem de hoje são métodos de autenticação sem senha que são altamente seguros *e* convenientes.
+Atualmente, bancos, empresas de cartões de crédito e outras organizações e serviços online geralmente protegem sua conta, exigindo que você verifique sua identidade duas vezes: uma vez usando sua senha e, novamente, por telefone, texto ou um aplicativo. Embora a autenticação multifator resolva o problema de segurança de senhas sendo compartilhadas, roubadas ou adivinhadas, ela não resolve o fator de inconveniência de tentar se lembrar delas. O que os utilizadores e organizações querem na era da nuvem de hoje são métodos de autenticação sem palavras-passe altamente seguros *e* convenientes.
 
 ![Conveniência vs segurança](./media/ad-passwordless/azure-ad-pwdless-image1.png)
 
@@ -48,23 +49,23 @@ O Windows Hello para empresas é ideal para os operadores de informações que t
 
 ### <a name="windows-hello-for-business-deployment-considerations"></a>Considerações de implantação do Windows Hello para empresas
 
-O Windows Hello for Business é um sistema distribuído que usa vários componentes para realizar o registro, o provisionamento e a autenticação de dispositivos. Portanto, a implantação requer um planejamento adequado em várias equipes na organização. O [Guia de planejamento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) do Windows Hello para empresas pode ser usado para ajudá-lo a tomar decisões sobre o tipo de implantação do Windows Hello para empresas e as opções que você precisará considerar.
+O Windows Hello for Business é um sistema distribuído que usa vários componentes para realizar o registro, o provisionamento e a autenticação de dispositivos. Portanto, a implantação requer um planejamento adequado em várias equipes na organização. O guia de [planeamento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) do Windows Hello for Business pode ser usado para ajudá-lo a tomar decisões sobre o tipo de implementação do Windows Hello for Business e as opções que terá de considerar.
 
 Há muitas opções que você pode escolher ao implantar o Windows Hello para empresas. Fornecer várias opções garante que quase todas as organizações possam implantar o Windows Hello para empresas. Considere os seguintes tipos de implantações com suporte:
 
-* [Implantação de confiança de chave unida do Azure AD híbrido](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-key-trust)
+* [Hybrid Azure AD juntou-se à implantação de fundos chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-key-trust)
 
-* [Implantação de confiança de certificado ingressado no Azure AD híbrido](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
+* [Implantação de fidedignidade de certificado sacado hybrid Azure](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
 
-* [Guias de implantação de logon único do ingresso no Azure AD](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso)
+* [Azure AD junta-se a guias de implantação de placas únicas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso)
 
-* [Implantação de confiança de chave local](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-key-trust)
+* [No local principal de implantação de fundos](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-key-trust)
 
-* [Implantação de confiança de certificado local](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-cert-trust)
+* [No Local Certificate Trust Deployment](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-cert-trust)
 
 Fornecer muitas opções faz com que a implantação pareça complexa. No entanto, a maioria das organizações provavelmente determinará que já implementaram a maior parte da infraestrutura na qual a implantação do Windows Hello para empresas depende. Independentemente disso, é importante entender que o Windows Hello for Business é um sistema distribuído e um planejamento adequado é recomendado.
 
-Recomendamos que você leia [planejando uma implantação do Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) para ajudá-lo a decidir sobre o modelo de implantação mais adequado para sua organização em particular. Em seguida, com base no planejamento que você faz, consulte o [Guia de implantação do Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide) para ajudar a garantir uma implantação bem-sucedida do Windows Hello para empresas em seu ambiente existente.
+Recomendamos que leia [Planejando um Windows Hello para Implementação de Negócios](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) para ajudá-lo a decidir sobre o modelo de implementação mais adequado para a sua organização em particular. Em seguida, com base no planeamento que efaz, consulte o Guia de Implementação de [Negócios do Windows Hello para](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide) ajudar a garantir uma implementação bem-sucedida do Windows Hello for Business no seu ambiente existente.
 
 ### <a name="how-windows-hello-for-business-works"></a>Como funciona o Windows Hello para empresas
 
@@ -103,13 +104,13 @@ As etapas a seguir ilustram a autenticação de entrada para Azure Active Direct
 
 7. O provedor de AP de nuvem retorna uma resposta de autenticação bem-sucedida para o Windows após o qual o usuário é capaz de acessar o Windows, bem como aplicativos locais e na nuvem sem a necessidade de autenticar novamente (SSO).
 
-Para obter uma análise mais profunda do processo de autenticação em outros cenários que envolvem o Windows Hello para empresas, consulte [Windows Hello para empresas e autenticação](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-authentication#azure-ad-join-authentication-to-active-directory-using-a-key).
+Para uma análise mais profunda do processo de autenticação noutros cenários que envolvam o Windows Hello for Business, consulte [o Windows Hello para Negócios e Autenticação](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-authentication#azure-ad-join-authentication-to-active-directory-using-a-key).
 
 #### <a name="user-manages-their-windows-hello-for-business-credentials"></a>O usuário gerencia suas credenciais do Windows Hello para empresas
 
-Os [serviços de redefinição de PIN da Microsoft](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) são um recurso do Azure AD que permite que os usuários redefinam seu PIN, se necessário. Usando a política de grupo, Microsoft Intune ou um MDM compatível, um administrador pode configurar dispositivos Windows 10 para usar com segurança o serviço de redefinição de PIN da Microsoft que permite que os usuários redefinam seu PIN esquecido por meio de configurações ou acima da tela de bloqueio sem exigir novo registro.
+Os serviços de [reset do Microsoft PIN](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) são uma funcionalidade no Azure AD que permite aos utilizadores redefinir em caso de necessidade o seu PIN. Usando a política de grupo, Microsoft Intune ou um MDM compatível, um administrador pode configurar dispositivos Windows 10 para usar com segurança o serviço de redefinição de PIN da Microsoft que permite que os usuários redefinam seu PIN esquecido por meio de configurações ou acima da tela de bloqueio sem exigir novo registro.
 
-Às vezes, os usuários precisam fazer fallback para usar senhas. A [redefinição de senha de autoatendimento](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) é outro recurso do Azure AD que permite que os usuários redefinam suas senhas sem precisar entrar em contato com a equipe de ti. Os usuários devem se registrar no ou ser registrados para redefinição de senha de autoatendimento antes de usar o serviço. Durante o registro, o usuário escolhe um ou mais métodos de autenticação habilitados pela organização. O SSPR permite que os usuários sejam desbloqueados rapidamente e continuem trabalhando independentemente de onde estiverem ou a hora do dia. Ao permitir que os usuários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
+Às vezes, os usuários precisam fazer fallback para usar senhas. [O reset de palavra-passe self-service](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) é outra funcionalidade da AD Azure que permite aos utilizadores redefinir as suas palavras-passe sem precisar de contactar o pessoal de TI. Os usuários devem se registrar no ou ser registrados para redefinição de senha de autoatendimento antes de usar o serviço. Durante o registro, o usuário escolhe um ou mais métodos de autenticação habilitados pela organização. O SSPR permite que os usuários sejam desbloqueados rapidamente e continuem trabalhando independentemente de onde estiverem ou a hora do dia. Ao permitir que os usuários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Entrada sem senha com o Microsoft Authenticator
 
@@ -127,7 +128,7 @@ Os pré-requisitos para usar o aplicativo Microsoft Authenticator para fazer log
 
 * É recomendável que os usuários registrem seus dispositivos usando Microsoft Intune ou uma solução de MDM (gerenciamento de dispositivo móvel) de terceiros para facilitar a implantação do aplicativo
 
-Supondo que esses requisitos sejam atendidos, os administradores habilitam a entrada por telefone sem senha no locatário usando o [Windows PowerShell.](../../active-directory/authentication/howto-authentication-passwordless-phone.md) Quando a entrada pelo telefone está habilitada no locatário, os usuários finais podem optar por entrar usando seu telefone selecionando sua conta corporativa ou de estudante na tela **contas** do aplicativo e, em seguida, selecionando **Habilitar entrada pelo telefone**.
+Assumindo que estes requisitos são cumpridos, os administradores permitem o acesso ao telemóvel sem palavras-passe no inquilino utilizando o [Windows PowerShell.](../../active-directory/authentication/howto-authentication-passwordless-phone.md) Uma vez ativada a inscrição no telefone no inquilino, os utilizadores finais podem optar por iniciar sessão utilizando o seu telemóvel selecionando o seu trabalho ou conta escolar no **ecrã** contas da app e, em seguida, selecionando **Enable phone'in**.
 
 Supondo que a entrada sem senha seja habilitada por um administrador, os usuários finais precisarão atender aos seguintes requisitos:
 
@@ -137,9 +138,9 @@ Supondo que a entrada sem senha seja habilitada por um administrador, os usuári
 
 * Conta corporativa ou de estudante com notificações por push adicionadas ao aplicativo
 
-Para evitar o potencial de ser bloqueado da sua conta ou de recriar contas em um novo dispositivo, é recomendável que você use Microsoft Authenticator para [fazer backup de suas credenciais de conta](../../active-directory/user-help/user-help-auth-app-backup-recovery.md) na nuvem. Após o backup, você também pode usar o aplicativo para recuperar suas informações em um novo dispositivo, potencialmente evitando o bloqueio ou a recriação de contas.
+Para evitar o potencial de ficar bloqueado fora da sua conta ou ter de recriar contas num novo dispositivo, recomenda-se que utilize o Microsoft Authenticator para fazer backup das [credenciais](../../active-directory/user-help/user-help-auth-app-backup-recovery.md) da sua conta para a nuvem. Após o backup, você também pode usar o aplicativo para recuperar suas informações em um novo dispositivo, potencialmente evitando o bloqueio ou a recriação de contas.
 
-Como a maioria dos usuários está acostumado a usar apenas senhas para autenticar, é importante que sua organização instrua os usuários sobre esse processo. A conscientização pode reduzir a probabilidade de que os usuários liguem para o suporte técnico para quaisquer [problemas](../../active-directory/authentication/howto-authentication-passwordless-phone.md) relacionados à entrada usando o aplicativo Microsoft Authenticator.
+Como a maioria dos usuários está acostumado a usar apenas senhas para autenticar, é importante que sua organização instrua os usuários sobre esse processo. A consciência pode reduzir a probabilidade de os utilizadores ligarem para o seu balcão de ajuda para quaisquer [problemas relacionados](../../active-directory/authentication/howto-authentication-passwordless-phone.md) com a assinatura na aplicação Microsoft Authenticator.
 
 > [!NOTE]
 > Um possível ponto de falha para essa solução é quando um usuário móvel está em um local em que não há conectividade com a Internet. As chaves de segurança do FIDO2 e do Windows Hello para empresas não estão sujeitas à mesma limitação.
@@ -150,9 +151,9 @@ Como a maioria dos usuários está acostumado a usar apenas senhas para autentic
 
 Antes que o aplicativo Microsoft Authenticator possa ser usado como uma solução sem senha para entrar em uma conta do Azure AD, as etapas devem ser executadas tanto pelo administrador quanto pelos usuários finais.
 
-Primeiro, um administrador precisará [habilitar o uso do aplicativo como uma credencial](../../active-directory/authentication/howto-authentication-passwordless-phone.md) no locatário usando o Windows PowerShell. O administrador também precisará habilitar os usuários finais para a autenticação multifator do Azure (Azure MFA) e configurar o aplicativo Microsoft Authenticator como um dos [métodos de verificação](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
+Em primeiro lugar, um administrador terá de [ativar a utilização da app como credencial](../../active-directory/authentication/howto-authentication-passwordless-phone.md) no inquilino utilizando o Windows PowerShell. O administrador também terá de ativar os utilizadores finais para a Autenticação Multi-Factor Azure (Azure MFA) e configurar a aplicação Microsoft Authenticator como um dos métodos de [verificação.](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods)
 
-Os usuários finais precisarão [baixar e instalar](../../active-directory/user-help/user-help-auth-app-download-install.md) o aplicativo Microsoft Authenticator e [configurar sua conta](../../active-directory/user-help/security-info-setup-auth-app.md) para usar o aplicativo Microsoft Authenticator como um dos métodos de verificação.
+Os utilizadores finais terão de [descarregar e instalar](../../active-directory/user-help/user-help-auth-app-download-install.md) a aplicação Microsoft Authenticator e [configurar](../../active-directory/user-help/security-info-setup-auth-app.md) a sua conta para utilizar a aplicação Microsoft Authenticator como um dos métodos de verificação.
 
 > [!VIDEO https://www.youtube.com/embed/uWbkLuI4g30]
 
@@ -184,13 +185,13 @@ A autenticação sem senha usando Microsoft Authenticator segue o mesmo padrão 
 
 #### <a name="user-manages-their-passwordless-sign-in-with-microsoft-authenticator-credentials"></a>O usuário gerencia sua entrada sem senha com credenciais de Microsoft Authenticator
 
-Com o [registro combinado](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md), os usuários podem registrar e obter os benefícios da autenticação multifator do Azure e da redefinição de senha de autoatendimento. Os usuários registram e gerenciam essas configurações navegando até a [página meu perfil](https://aka.ms/mysecurityinfo). Além de habilitar o SSPR, o registro combinado dá suporte a vários métodos e ações de autenticação.
+Com [o registo combinado,](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)os utilizadores podem registar-se e obter os benefícios tanto da Autenticação Multi-Factor Azure como do reset da palavra-passe self-service. Os utilizadores registam e gerem estas definições navegando na página [My Profile](https://aka.ms/mysecurityinfo). Além de habilitar o SSPR, o registro combinado dá suporte a vários métodos e ações de autenticação.
 
 ## <a name="fido2-security-keys"></a>Chaves de segurança do FIDO2
 
 FIDO2 é a versão mais recente do FIDO Alliance Standard e tem dois componentes – W3C's padrão de autenticação na Web (webauthn) e o CTAP2 (protocolo para autenticação) do cliente de aliança FIDO correspondente. Os padrões FIDO2 permitem que os usuários aproveitem autenticadores baseados em hardware, móveis e biométricos para autenticar facilmente com muitos aplicativos e sites em ambientes móveis e de área de trabalho.
 
-Os parceiros da Microsoft e do setor trabalham juntos em dispositivos de segurança FIDO2 para o Windows Hello para permitir a autenticação segura e fácil em dispositivos compartilhados. As chaves de segurança do FIDO2 permitem que você carregue suas credenciais com você e autentique-se com segurança em um dispositivo Windows 10 ingressado no [Azure ad](https://aka.ms/azuread418)que faz parte de sua organização.
+Os parceiros da Microsoft e do setor trabalham juntos em dispositivos de segurança FIDO2 para o Windows Hello para permitir a autenticação segura e fácil em dispositivos compartilhados. As chaves de segurança FIDO2 permitem-lhe transportar consigo a sua credencial e autenticar com segurança um dispositivo [Azure AD-joined](https://aka.ms/azuread418)Windows 10 que faz parte da sua organização.
 
 Webauthn define uma API que permite o desenvolvimento e a implementação de autenticação forte e com senha por aplicativos Web e serviços. O protocolo CTAP permite que dispositivos externos, como chaves de segurança compatíveis com FIDO, trabalhem com o webauthn e sirvam como autenticadores. Com a autenticação da Web, os usuários podem entrar no serviços online com as chaves de segurança de face, impressão digital, PIN ou FIDO2 portáteis, utilizando credenciais de chave pública forte em vez de senhas. Atualmente, há suporte para webauthn no Microsoft Edge e o suporte para Chrome e Firefox está em desenvolvimento.
 
@@ -204,7 +205,7 @@ As chaves de segurança do FIDO2 podem ser usadas para entrar no Azure AD escolh
 
 Os administradores podem habilitar o suporte do FIDO2 no Azure AD e atribuir a capacidade a usuários ou grupos. As políticas também podem ser criadas para o modo como as chaves são provisionadas e configurar restrições, como permitir ou bloquear um conjunto específico de chaves de segurança de hardware. As chaves devem ser fisicamente distribuídas aos usuários finais.
 
-**Os requisitos para habilitar a entrada sem senha no Azure AD e sites usando chaves de segurança FIDO2 incluem o seguinte:**
+**Os requisitos para permitir o acesso sem palavras-passe à AD Azure e aos web sites utilizando chaves de segurança FIDO2 incluem:**
 
 * Azure AD
 
@@ -226,9 +227,9 @@ Também recomendamos que cada organização crie um protocolo para que os usuár
 
 #### <a name="user-sets-up-fido2-security-key"></a>O usuário configura a chave de segurança FIDO2
 
-Embora os administradores possam [provisionar manualmente as chaves](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) e distribuí-las aos usuários finais, o provisionamento e a habilitação do provedor de credenciais FIDO2 na tela de bloqueio do Windows 10 terão suporte por meio do [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Os administradores também precisarão usar o [portal do Azure](https://portal.azure.com/) para habilitar dispositivos de token de hardware como um método de autenticação com senha.
+Embora os administradores possam [fornecer manualmente chaves](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) e distribuí-las aos utilizadores finais, o fornecimento e a ativação do prestador de credenciais FIDO2 no ecrã de bloqueio do Windows 10 serão suportados através do [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Os administradores também terão de utilizar o [portal Azure](https://portal.azure.com/) para permitir que os dispositivos de ficha de hardware sejam um método de autenticação sem palavras-passe.
 
-A implantação de chaves de segurança do FIDO2 também exige que os usuários registrem suas chaves usando o [registro combinado](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Com o registro combinado, os usuários se registram uma vez e obtêm os benefícios da autenticação multifator do Azure e da SSPR (redefinição de senha de logon único).
+A implementação das teclas de segurança FIDO2 também requer que os utilizadores registem as suas chaves através do [registo combinado](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Com o registro combinado, os usuários se registram uma vez e obtêm os benefícios da autenticação multifator do Azure e da SSPR (redefinição de senha de logon único).
 
 Além de selecionar o token de hardware como o método de autenticação multifator padrão, é recomendável que você também selecione uma opção de verificação adicional.
 
@@ -249,7 +250,7 @@ O FIDO2 fornece uma camada de abstração entre o fator forma usado como autenti
 As chaves de segurança FIDO2 fornecem autenticação segura, independentemente do fator forma. A chave de segurança contém a credencial e deve ser protegida com um segundo fator adicional, como uma impressão digital (integrada à chave de segurança) ou um PIN a ser inserido na entrada do Windows. Os parceiros da Microsoft estão trabalhando em uma variedade de fatores forma de chave de segurança. Alguns exemplos incluem chaves de segurança USB e cartões inteligentes habilitados para NFC.
 
 > [!NOTE]
-> Uma chave de segurança deve implementar determinados recursos e extensões do protocolo FIDO2 CTAP para ser [compatível](https://aka.ms/fido2securitykeys)com a Microsoft. A Microsoft testou essas soluções para compatibilidade com o Windows 10 e o Azure Active Directory.
+> Uma chave de segurança DEVE implementar certas funcionalidades e extensões do protocolo FIDO2 CTAP para ser [compatível com](https://aka.ms/fido2securitykeys)a Microsoft . A Microsoft testou essas soluções para compatibilidade com o Windows 10 e o Azure Active Directory.
 
 ![Processo de entrada do FIDO2](./media/ad-passwordless/azure-ad-pwdless-image9.png)
 
@@ -281,23 +282,23 @@ A escolha entre essas três opções de senha depende dos requisitos de seguran�
 
 Aqui estão alguns fatores a serem considerados ao escolher a tecnologia sem senha da Microsoft:
 
-||**Windows Hello para empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança do FIDO2**|
+||**Windows Hello para empresas**|**Sem palavras-passe com a aplicação Microsoft Authenticator**|**Chaves de segurança FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou posterior<br>Azure Active Directory| Aplicação Microsoft Authenticator<br>Telefone (dispositivos iOS e Android que executam o Android 6,0 ou superior.)|Windows 10, versão 1809 ou posterior<br>Azure Active Directory|
-|**Mode**|Plataforma|Software|Hardware|
+|**Modo**|Plataforma|Software|Hardware|
 |**Sistemas e dispositivos**|PC com um Trusted Platform Module interno (TPM)<br>Reconhecimento de PIN e Biometria |Reconhecimento de PIN e biometria no telefone|Dispositivos de segurança FIDO2 que são compatíveis com a Microsoft|
-|**Experiência do usuário**|Entre usando um PIN ou um reconhecimento biométrico (facial, íris ou impressão digital) com dispositivos Windows.<br>A autenticação do Windows Hello está vinculada ao dispositivo; o usuário precisa do dispositivo e de um componente de entrada, como um PIN ou um fator biométrico para acessar recursos corporativos.|Entre usando um telefone celular com verificação de impressão digital, reconhecimento facial ou íris ou PIN.<br>Os usuários entram na conta corporativa ou pessoal de seu PC ou telefone celular.|Entrar usando o dispositivo de segurança FIDO2 (biometria, PIN e NFC)<br>O usuário pode acessar o dispositivo com base nos controles da organização e autenticar com base no PIN, a biometria usando dispositivos como chaves de segurança USB e cartões inteligentes, chaves ou wearables habilitados para NFC.|
+|**Experiência do utilizador**|Entre usando um PIN ou um reconhecimento biométrico (facial, íris ou impressão digital) com dispositivos Windows.<br>A autenticação do Windows Hello está vinculada ao dispositivo; o usuário precisa do dispositivo e de um componente de entrada, como um PIN ou um fator biométrico para acessar recursos corporativos.|Entre usando um telefone celular com verificação de impressão digital, reconhecimento facial ou íris ou PIN.<br>Os usuários entram na conta corporativa ou pessoal de seu PC ou telefone celular.|Entrar usando o dispositivo de segurança FIDO2 (biometria, PIN e NFC)<br>O usuário pode acessar o dispositivo com base nos controles da organização e autenticar com base no PIN, a biometria usando dispositivos como chaves de segurança USB e cartões inteligentes, chaves ou wearables habilitados para NFC.|
 |**Cenários habilitados**| Experiência sem senha com o dispositivo Windows.<br>Aplicável a um PC de trabalho dedicado com capacidade de logon único para dispositivos e aplicativos.|Solução sem senha em qualquer lugar usando o telefone celular.<br>Aplicável para acessar aplicativos pessoais ou de trabalho na Web de qualquer dispositivo.|Experiência sem senha para trabalhadores que usam biometria, PIN e NFC.<br>Aplicável a PCs compartilhados e onde um telefone celular não é uma opção viável (por exemplo, para pessoal de suporte técnico, quiosque público ou equipe de hospital)|
 
 Use a tabela a seguir para escolher qual método dará suporte a seus requisitos e usuários.
 
 |Persona|Cenário|Ambiente|Tecnologia com senha|
 |:-|:-|:-|:-|
-|**ADM**|Proteger o acesso a um dispositivo para tarefas de gerenciamento|Dispositivo Windows 10 atribuído|Chave de segurança do Windows Hello para empresas e/ou FIDO2|
-|**ADM**|Tarefas de gerenciamento em dispositivos que não são do Windows| Dispositivo móvel ou não Windows|Entrada sem senha com o aplicativo Microsoft Authenticator|
-|**Operador de informações**|Trabalho de produtividade|Dispositivo Windows 10 atribuído|Chave de segurança do Windows Hello para empresas e/ou FIDO2|
-|**Operador de informações**|Trabalho de produtividade| Dispositivo móvel ou não Windows|Entrada sem senha com o aplicativo Microsoft Authenticator|
-|**Frente Worker**|Quiosques em uma fábrica, fábrica, varejo ou entrada de dados|Dispositivos Windows 10 compartilhados|Chaves de segurança do FIDO2|
+|**Administrador**|Proteger o acesso a um dispositivo para tarefas de gerenciamento|Dispositivo Windows 10 atribuído|Chave de segurança do Windows Hello para empresas e/ou FIDO2|
+|**Administrador**|Tarefas de gerenciamento em dispositivos que não são do Windows| Dispositivo móvel ou não Windows|Entrada sem senha com o aplicativo Microsoft Authenticator|
+|**Trabalhador da informação**|Trabalho de produtividade|Dispositivo Windows 10 atribuído|Chave de segurança do Windows Hello para empresas e/ou FIDO2|
+|**Trabalhador da informação**|Trabalho de produtividade| Dispositivo móvel ou não Windows|Entrada sem senha com o aplicativo Microsoft Authenticator|
+|**Trabalhador da linha da frente**|Quiosques em uma fábrica, fábrica, varejo ou entrada de dados|Dispositivos Windows 10 compartilhados|Chaves de segurança do FIDO2|
 
 ## <a name="getting-started"></a>Introdução
 
@@ -332,7 +333,7 @@ Para atingir essas metas, recomendamos a seguinte abordagem:
 6. Preparar-se para as chaves de segurança do FIDO2.
 
 > [!NOTE]
-> Consulte a página de [licenciamento](https://azure.microsoft.com/pricing/details/active-directory/) Azure Active Directory para obter detalhes sobre os requisitos de licenciamento para métodos com senha.
+> Consulte a página de [licenciamento](https://azure.microsoft.com/pricing/details/active-directory/) do Azure Ative Directory para obter informações sobre os requisitos de licenciamento para métodos sem palavras-passe.
 
 ## <a name="conclusion"></a>Conclusão
 
@@ -342,5 +343,5 @@ A adoção de tecnologias de autenticação multifator modernas, como biometria 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Uma visão geral do [que é com senha?](../../active-directory/authentication/concept-authentication-passwordless.md)
-* [Como habilitar senhas no Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
+* Uma visão geral do [que é sem palavra-passe?](../../active-directory/authentication/concept-authentication-passwordless.md)
+* [Como ativar a password sem palavras-passe em Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)

@@ -2,7 +2,7 @@
 title: Ver informações relacionadas com a privacidade do portal My Account - Azure AD
 description: Saiba como a sua organização utiliza as suas informações relacionadas com a privacidade a partir da página de Privacidade do portal My Account.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: 232a17a21c7172bbf5056ae990679d87600ee6a0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 94187cc7c0c3500a86d47a5f244457ee020581a3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705093"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062443"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Veja como a sua organização utiliza os seus dados relacionados com a privacidade
 
@@ -24,7 +24,7 @@ Pode ver como a sua organização utiliza os seus dados a partir da página de *
 
 ## <a name="view-your-privacy-related-info"></a>Ver as suas informações relacionadas com a privacidade
 
-1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página https://myprofile.microsoft.com/.
+1. Inscreva-se na sua conta de trabalho ou escola e depois vá à sua página de https://myprofile.microsoft.com/.
 
 2. Selecione **Privacidade** a partir do painel de navegação esquerdo ou selecione o link de **privacidade Rever** do bloco **Privacidade.**
 
@@ -40,12 +40,12 @@ Pode ver como a sua organização utiliza os seus dados a partir da página de *
 
 Depois de ver como a sua organização utiliza os seus dados, pode:
 
-- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
+- Veja ou gere a sua informação de [segurança.](user-help-security-info-overview.md)
 
-- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
+- Veja ou gerencie os seus [dispositivos conectados](my-account-portal-devices-page.md).
 
-- Exiba ou gerencie suas [organizações](my-account-portal-organizations-page.md).
+- Ver ou gerir as suas [organizações.](my-account-portal-organizations-page.md)
 
-- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
+- Consulte a sua [atividade de inscrição](my-account-portal-sign-ins-page.md).
 
 - Também pode visualizar as preferências de contacto relacionadas com o Microsoft Office e informações de privacidade a partir do [portal do Office, página](https://portal.office.com/account/#security)de Segurança e Privacidade.

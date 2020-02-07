@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o enstack para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o enfileiramento.
+title: 'Tutorial: Configure Airstack para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizadores ao Airstack.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,146 +15,146 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: Zhchia
-ms.openlocfilehash: b2f8d5dacbf5f3a59a6e6c9e794cee5f67a34b2c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 17736f5215c4ed80a2140cfc664ef76b1a055f79
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530033"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060395"
 ---
-# <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Tutorial: configurar o enstack para o provisionamento automático de usuário
+# <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Tutorial: Configure Airstack para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no enstack e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no enfileiramento de esvidências.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no Airstack e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos para o Airstack.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em visualização pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um locatário do BackStack](https://airstack.com/pricing/)
-* Uma conta de usuário no enstack com permissões de administrador.
+* [Um inquilino da Airstack](https://airstack.com/pricing/)
+* Uma conta de utilizador no Airstack com permissões de administrador.
 
-## <a name="assigning-users-to-airstack"></a>Atribuindo usuários ao enstack
+## <a name="assigning-users-to-airstack"></a>Atribuir utilizadores ao Airstack
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao enstack. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao enstack, seguindo as instruções aqui:
-* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Airstack. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao Airstack seguindo as instruções aqui:
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-airstack"></a>Dicas importantes para atribuir usuários ao enfileiramento de entradas
+## <a name="important-tips-for-assigning-users-to-airstack"></a>Dicas importantes para atribuir utilizadores ao Airstack
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao enstack para testar a configuração automática de provisionamento de usuário. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído ao Airstack para testar a configuração automática de fornecimento do utilizador. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao enstack, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um utilizador ao Airstack, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="setup-airstack-for-provisioning"></a>Configurar o enstack para provisionamento
+## <a name="setup-airstack-for-provisioning"></a>Configuração Airstack para provisionamento
 
-1. Entre no console de [Administração do The enstack](https://airstack-qa.lenovosoftware.com/). Navegue até **configurações**.
+1. Inscreva-se na sua [Consola de Administração Airstack](https://airstack-qa.lenovosoftware.com/). Navegar para **Definições**.
 
-    ![Console de administração do BackStack](media/airstack-provisioning-tutorial/airstackadminmenu.png)
+    ![Consola de admina de airstack](media/airstack-provisioning-tutorial/airstackadminmenu.png)
 
-2.  Navegue até **configuração do Azure** no menu localizado no lado esquerdo da tela.
+2.  Navegue até **Azure Config** no menu localizado no lado esquerdo do ecrã.
 
-    ![Adição de pilha de SCIM](media/airstack-provisioning-tutorial/azureconfig.png)
+    ![Airstack Adicionar SCIM](media/airstack-provisioning-tutorial/azureconfig.png)
 
-3.  Clique no botão **gerar** . Copie o **token secreto para o Azure**. Esse valor será inserido no campo token secreto na guia provisionamento do aplicativo do enstack na portal do Azure.
+3.  Clique no botão **Generate.** Copie o **Símbolo Secreto para Azure.** Este valor será inserido no campo Secret Token no separador de fornecimento da sua aplicação Airstack no portal Azure.
 
-    ![Token de criação de pilha de espost](media/airstack-provisioning-tutorial/generatetoken.png)
+    ![Airstack Criar Token](media/airstack-provisioning-tutorial/generatetoken.png)
 
-## <a name="add-airstack-from-the-gallery"></a>Adicionar o enstack da Galeria
+## <a name="add-airstack-from-the-gallery"></a>Adicione airstack da galeria
 
-Antes de configurar o enstack para o provisionamento automático de usuário com o Azure AD, você precisa adicionar o enstack da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar o Airstack para o fornecimento automático de utilizadores com a AD Azure, é necessário adicionar airstack da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
 
-**Para adicionar o enstack da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar airstack da galeria de aplicações Azure AD, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira o **enstack**, selecione o **enstack** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, introduza **airstack**, **selecione Airstack** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-    ![Pilha de entrada na lista de resultados](common/search-new-app.png)
+    ![Stack de ar na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-airstack"></a>Configurando o provisionamento automático de usuário para o enstack 
+## <a name="configuring-automatic-user-provisioning-to-airstack"></a>Configurar o fornecimento automático de utilizadores ao Airstack 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no enfileiramento com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Airstack com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o enstack, seguindo as instruções fornecidas no [tutorial de logon único do enstack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem uns aos outros
+> Também pode optar por ativar um único sinal baseado em SAML para airstack, seguindo as instruções fornecidas no tutorial de [sinalização Single Airstack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático de utilizadores, embora estas duas funcionalidades se elogiem mutuamente
 
-### <a name="to-configure-automatic-user-provisioning-for-airstack-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o enstack no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-airstack-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para airstack em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione o **enstack**.
+2. Na lista de aplicações, selecione **Airstack**.
 
-    ![O link do enstack na lista de aplicativos](common/all-applications.png)
+    ![O link Airstack na lista de aplicações](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** .
+3. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://api-as.lenovosoftware.com/0/as/common/scim` na **URL do locatário**. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao enstack. Se a conexão falhar, verifique se sua conta do enstack tem permissões de administrador e tente novamente.
+5. No âmbito da secção **de Credenciais de Administrador,** a entrada `https://api-as.lenovosoftware.com/0/as/common/scim` no **URL do Arrendatário**. Insera o valor token de **autenticação SCIM** recuperado anteriormente em **Ficha Secreta**. Clique em **Ligação de Teste** para garantir que o Azure AD pode ligar-se ao Airstack. Se a ligação falhar, certifique-se de que a sua conta Airstack tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o enstack**.
+8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Airstack**.
 
-    ![Mapeamentos de usuário da pilha de espost](media/airstack-provisioning-tutorial/mappings.png)
+    ![Mapeamento de utilizadores de pilha de ar](media/airstack-provisioning-tutorial/mappings.png)
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o enstack na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no enstack para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Airstack na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no Airstack para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Atributos de usuário do enstack](media/airstack-provisioning-tutorial/attributes.png)
+    ![Atributos de utilizador de pilha de ar](media/airstack-provisioning-tutorial/attributes.png)
 
-10. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para o enstack, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Para ativar o serviço de provisionamento de AD Azure para airstack, altere o Estado de **Provisionamento** para **Ligado** na secção **Definições.**
 
     ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para o enstack escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os utilizadores e/ou grupos que deseja fornecer ao Airstack, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para provisionar, clique em **salvar**.
+13. Quando estiver pronto para fornecer, clique em **Guardar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no enstack.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure no Airstack.
 
-Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

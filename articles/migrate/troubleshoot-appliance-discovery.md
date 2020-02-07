@@ -6,21 +6,21 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990713"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048695"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
-Este artigo ajuda você a solucionar problemas ao implantar o dispositivo de [migrações para Azure](migrate-services-overview.md) e usar o dispositivo para descobrir computadores locais.
+Este artigo ajuda-o a resolver problemas ao implantar o aparelho [Azure Migrate](migrate-services-overview.md) e a utilizar o aparelho para descobrir máquinas no local.
 
 
 ## <a name="whats-supported"></a>O que é suportado?
 
-[Examine](migrate-appliance.md) os requisitos de suporte do dispositivo.
+[Reveja](migrate-appliance.md) os requisitos de suporte do aparelho.
 
 
 ## <a name="invalid-ovf-manifest-entry"></a>"Entrada de manifesto OVF inválida"
@@ -30,8 +30,8 @@ Se você receber o erro "o arquivo de manifesto fornecido é inválido: entrada 
 1. Verifique se o arquivo OVA do dispositivo de migração do Azure foi baixado corretamente verificando seu valor de hash. [Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se o valor de hash não corresponder, baixe o arquivo OVA novamente e repita a implantação.
 2. Se a implantação ainda falhar e você estiver usando o VMware vSphere cliente para implantar o arquivo OVF, tente implantá-lo por meio do cliente Web vSphere. Se a implantação ainda falhar, tente usar um navegador da Web diferente.
 3. Se você estiver usando o cliente Web vSphere e tentando implantá-lo no vCenter Server 6,5 ou 6,7, tente implantar o OVA diretamente no host ESXi:
-   - Conecte-se diretamente ao host ESXi (em vez de vCenter Server) com o cliente Web (*endereço IP do host*do https://< >/UI).
-   - Em **início** > **inventário**, selecione **arquivo** > **implantar o modelo OVF**. Navegue até o OVA e conclua a implantação.
+   - Ligue-se diretamente ao anfitrião ESXi (em vez de vCenter Server) com o cliente web (https://<*host IP Address*>/ui).
+   - No **inventário**de > **em casa,** selecione **File** > Implementar **modelo OVF**. Navegue até o OVA e conclua a implantação.
 4. Se a implantação ainda falhar, entre em contato com o suporte para migrações para Azure.
 
 ## <a name="cant-connect-to-the-internet"></a>Não é possível conectar à Internet
@@ -40,25 +40,25 @@ Isso pode acontecer se a máquina do dispositivo estiver atrás de um proxy.
 
 - Certifique-se de fornecer as credenciais de autorização se o proxy precisar delas.
 - Se estiver a utilizar um representante de firewall baseado em URL para controlar a conectividade de saída, adicione [estes URLs](migrate-appliance.md#url-access) a uma lista de autorizações.
-- Se você estiver usando um proxy de interceptação para se conectar à Internet, importe o certificado de proxy para a VM do dispositivo usando [estas etapas](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Se estiver a utilizar um representante de interceção para se ligar à internet, importe o certificado de procuração para o VM do aparelho utilizando [estes passos](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ##  <a name="datetime-synchronization-error"></a>Erro de sincronização de data/hora
 
 Um erro sobre a sincronização de data e hora (802) indica que o relógio do servidor pode estar fora de sincronização com a hora atual em mais de cinco minutos. Altere a hora do relógio na VM do coletor para corresponder à hora atual:
 
 1. Abra um prompt de comando de administrador na VM.
-2. Para verificar o fuso horário, execute **w32tm/TZ**.
-3. Para sincronizar o tempo, execute **w32tm/resync**.
+2. Para verificar o fuso horário, corra **w32tm /tz**.
+3. Para sincronizar o tempo, executar **w32tm /resincronização**.
 
 
 ## <a name="unabletoconnecttoserver"></a>UnableToConnectToServer
 
-Se você receber esse erro de conexão, talvez não consiga se conectar ao vCenter Server *ServerName*. com: 9443. Os detalhes do erro indicam que não há nenhum ponto de extremidade ouvindo em https://*ServerName*. com: 9443/SDK que pode aceitar a mensagem.
+Se tiver este erro de ligação, poderá não conseguir ligar-se ao vCenter *Server Servername*.com:9443. Os detalhes do erro indicam que não há ponto final a ouvir o nome de*servidor*https://.com:9443/sdk que pode aceitar a mensagem.
 
-- Verifique se você está executando a versão mais recente do dispositivo. Se você não tiver, atualize o dispositivo para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Verifique se você está executando a versão mais recente do dispositivo. Se não estiver, atualize o aparelho para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 - Se o problema ainda ocorrer na versão mais recente, o dispositivo poderá não conseguir resolver o nome de vCenter Server especificado ou a porta especificada poderá estar errada. Por padrão, se a porta não for especificada, o coletor tentará se conectar ao número da porta 443.
 
-    1. Execute o ping *ServerName*. com do dispositivo.
+    1. Ping *Servername*.com do aparelho.
     2. Se a etapa 1 falhar, tente se conectar ao servidor do vCenter usando o endereço IP.
     3. Identifique o número da porta correto para se conectar ao vCenter Server.
     4. Verifique se vCenter Server está em execução.
@@ -71,7 +71,7 @@ Se você receber esse erro de conexão, talvez não consiga se conectar ao vCent
     - [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as funções e permissões necessárias do Azure.
 - O erro 60039, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" pode ocorrer se o registro falhar porque o projeto de migrações para Azure usado para registrar o dispositivo não foi encontrado.
     - No portal do Azure e verifique se o projeto existe no grupo de recursos.
-    - Se o projeto não existir, crie um novo projeto de migrações para Azure em seu grupo de recursos e registre o dispositivo novamente. [Saiba como](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) criar um novo projeto.
+    - Se o projeto não existir, crie um novo projeto de migrações para Azure em seu grupo de recursos e registre o dispositivo novamente. [Aprenda a](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) criar um novo projeto.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Erro 60030/60031: falha na operação de gerenciamento de Key Vault
 
@@ -79,14 +79,14 @@ Se você receber o erro 60030 ou 60031, "falha em uma operação de gerenciament
 - Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
 - Verifique se a conta tem acesso ao cofre de chaves especificado na mensagem de erro e repita a operação.
 - Se o problema persistir, contacte o suporte da Microsoft.
-- [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as funções e permissões do Azure necessárias.
+- [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as funções e permissões necessárias do Azure.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Erro 60028: não foi possível iniciar a descoberta
 
 Erro 60028: "não foi possível iniciar a descoberta devido a um erro. A operação falhou para a lista especificada de hosts ou clusters "indica que a descoberta não pôde ser iniciada nos hosts listados no erro devido a um problema no acesso ou na recuperação de informações da VM. O restante dos hosts foi adicionado com êxito.
 
-- Adicione os hosts listados no erro novamente, usando a opção **Adicionar host** .
-- Se houver um erro de validação, examine as diretrizes de correção para corrigir os erros e tente a opção **salvar e iniciar descoberta** novamente.
+- Adicione novamente os anfitriões listados no erro, utilizando a opção Adicionar o **anfitrião.**
+- Se houver um erro de validação, reveja a orientação de reparação para corrigir os erros e, em seguida, tente a opção **Salvar e reinicie** a descoberta novamente.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: falha na operação do Azure AD 
 Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Efetue uma das seguintes ações:
@@ -94,7 +94,7 @@ Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atu
 - Verifique se a conta de usuário que está iniciando a descoberta é a mesma usada para registrar o dispositivo.
 - Forneça Azure Active Directory permissões de acesso do aplicativo à conta de usuário para a qual a operação de descoberta está falhando.
 - Exclua o grupo de recursos criado anteriormente para o projeto de migrações para Azure. Crie outro grupo de recursos para iniciar novamente.
-- [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as permissões de aplicativo Azure Active Directory.
+- [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as permissões de aplicação do Azure Ative Directory.
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Erro 50004: não é possível conectar-se ao host ou cluster
@@ -115,20 +115,20 @@ Se o estado da descoberta for "descoberta em andamento", mas ainda não estiver 
 - Leva cerca de 15 minutos para uma VM VMware.
 - Leva cerca de dois minutos para cada host adicionado para a descoberta de VM do Hyper-V.
 
-Se você aguardar e o estado não for alterado, selecione **Atualizar** na guia **servidores** . Isso deve mostrar a contagem dos servidores descobertos em migrações para Azure: avaliação de servidor e migrações para Azure: migração de servidor.
+Se esperar e o estado não mudar, selecione **Refresh** no separador **Servidores.** Isto deve mostrar a contagem dos servidores descobertos em Azure Migrate: Server Assessment e Azure Migrate: Server Migration.
 
 Se isso não funcionar e você estiver descobrindo servidores VMware:
 
 - Verifique se a conta do vCenter especificada tem permissões definidas corretamente, com acesso a pelo menos uma VM.
-- As migrações para Azure não poderão descobrir VMs do VMware se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. [Saiba mais](tutorial-assess-vmware.md#set-the-scope-of-discovery) sobre a descoberta de escopo.
+- As migrações para Azure não poderão descobrir VMs do VMware se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. [Saiba mais](tutorial-assess-vmware.md#set-the-scope-of-discovery) sobre a descoberta de scoping.
 
 ## <a name="vm-data-not-in-portal"></a>Dados da VM não estão no portal
 
 Se os VM saem descobertos não aparecem no portal ou se os dados vm estão desatualizados, aguarde alguns minutos. Leva até 30 minutos para que as alterações nos dados de configuração VM descobertos apareçam no portal. Pode levar algumas horas para que as alterações nos dados da aplicação apareçam. Se não houver dados depois deste tempo, tente refrescar,como se segue
 
-1. Em **servidores** > **avaliação do servidor de migrações para Azure**, selecione **visão geral**.
-2. Em **gerenciar**, selecione **integridade do agente**.
-3. Selecione **Atualizar agente**.
+1. Nos **servidores** > Avaliação do **Servidor Migrador Azure,** selecione **visão geral**.
+2. Em **'Gerir',** selecione **Agent Health**.
+3. Selecione **Agente Refresh**.
 4. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
 
 ## <a name="deleted-vms-appear-in-portal"></a>VMs excluídas aparecem no portal
@@ -137,9 +137,9 @@ Se você excluir VMs e elas ainda aparecerem no portal, aguarde 30 minutos. Se e
 
 ## <a name="common-app-discovery-errors"></a>Erros comuns do App Discovery
 
-As migrações para Azure dão suporte à descoberta de aplicativos, funções e recursos usando migrações para Azure: avaliação do servidor. Atualmente, o app Discovery tem suporte apenas para VMware. [Saiba mais](how-to-discover-applications.md) sobre os requisitos e as etapas para configurar a descoberta de aplicativos.
+As migrações para Azure dão suporte à descoberta de aplicativos, funções e recursos usando migrações para Azure: avaliação do servidor. Atualmente, o app Discovery tem suporte apenas para VMware. [Saiba mais](how-to-discover-applications.md) sobre os requisitos e passos para a criação de apps.
 
-Erros típicos de descoberta de aplicativo são resumidos na tabela.
+Erros típicos de descoberta de aplicativo são resumidos na tabela. 
 
 **Erro** | **Motivo** | **Ação**
 --- | --- | --- | ---
@@ -158,11 +158,11 @@ Erros típicos de descoberta de aplicativo são resumidos na tabela.
 9008: "não é possível recuperar os aplicativos instalados no servidor". | Pode ser um erro interno.  | Tf o problema não é resolvido em até 24 horas, entre em contato com o suporte.
 9009: "não é possível recuperar os aplicativos instalados no servidor". | Pode ocorrer se as configurações de UAC (controle de conta de usuário) do Windows no servidor forem restritivas e impedir a descoberta de aplicativos instalados. | Procure configurações de ' controle de conta de usuário ' no servidor e defina a configuração do UAC no servidor para um dos dois níveis inferiores.
 9010: "não é possível recuperar os aplicativos instalados no servidor". | Pode ser um erro interno.  | Tf o problema não é resolvido em até 24 horas, entre em contato com o suporte.
-8084: "não é possível descobrir aplicativos devido ao erro do VMware: <Exception from VMware>" | O dispositivo de migrações para Azure usa APIs do VMware para descobrir aplicativos. Esse problema pode ocorrer se uma exceção for lançada pelo vCenter Server ao tentar descobrir aplicativos. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no Portal. | Pesquise a mensagem na documentação do [VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga as etapas para corrigir. Se você não puder corrigir, entre em contato com o suporte da Microsoft.
+8084: "Incapaz de descobrir aplicações devido a erro de VMware: <Exception from VMware>" | O dispositivo de migrações para Azure usa APIs do VMware para descobrir aplicativos. Esse problema pode ocorrer se uma exceção for lançada pelo vCenter Server ao tentar descobrir aplicativos. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no Portal. | Procure a mensagem na [documentação vMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga os passos a corrigir. Se você não puder corrigir, entre em contato com o suporte da Microsoft.
 9012: "Incapaz de descobrir as aplicações instaladas no servidor" | O problema pode ocorrer devido a um erro interno.  | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
 9013: "Incapaz de descobrir as aplicações instaladas no servidor" | Um novo perfil temporário é criado cada vez que há login no VM.  | Certifique-se de que não é criado um perfil temporário para o utilizador convidado fornecido.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Configure um dispositivo para [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md).
+Instale um aparelho para [VMware,](how-to-set-up-appliance-vmware.md) [Hiper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md).

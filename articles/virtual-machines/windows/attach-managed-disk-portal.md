@@ -4,48 +4,48 @@ description: Como anexar um disco de dados geridos para uma VM do Windows com o 
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0610b235d218c24c108e39aeb9bd3b2cf8c9c663
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b651d6e5ca9262d38f5bfb9e10c404e2614809e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463428"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77055673"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados geridos para uma VM do Windows com o portal do Azure
 
-Este artigo mostra-lhe como anexar um novo disco de dados geridos para uma máquina virtual de Windows (VM) com o portal do Azure. O tamanho da VM determina quantos discos de dados, pode anexar. Para obter mais informações, consulte [tamanhos de máquinas virtuais](sizes.md).
+Este artigo mostra-lhe como anexar um novo disco de dados geridos para uma máquina virtual de Windows (VM) com o portal do Azure. O tamanho da VM determina quantos discos de dados, pode anexar. Para mais informações, consulte [Tamanhos para máquinas virtuais](sizes.md).
 
 
 ## <a name="add-a-data-disk"></a>Adicionar um disco de dados
 
-1. Vá para a [portal do Azure](https://portal.azure.com) para adicionar um disco de dados. Pesquise e selecione **máquinas virtuais**.
+1. Vá ao [portal Azure](https://portal.azure.com) para adicionar um disco de dados. Procure e selecione **máquinas Virtuais**.
 2. Selecione uma máquina virtual a partir da lista.
-3. Sobre o **Máquina Virtual** página, selecione **discos**.
-4. Sobre o **discos** página, selecione **adicionar disco de dados**.
-5. Na lista pendente para o novo disco, selecione **criar disco**.
-6. Na **disco gerido de criar** página, escreva um nome para o disco e ajustar as outras definições conforme necessário. Quando terminar, selecione **Criar**.
-7. Na **discos** página, selecione **guardar** para guardar a nova configuração de disco para a VM.
-8. Depois do Azure cria o disco e anexa-o para a máquina virtual, o novo disco está listado nas definições de disco da máquina virtual em **discos de dados**.
+3. Na página da **máquina Virtual,** selecione **Discos**.
+4. Na página **De Discos,** selecione **Adicionar disco de dados**.
+5. Na gota para o novo disco, selecione **Criar disco**.
+6. Na página de **disco gerida** create, digite um nome para o disco e ajuste as outras definições conforme necessário. Quando terminar, selecione **Criar**.
+7. Na página **De Discos,** selecione **Guardar** para guardar a nova configuração do disco para o VM.
+8. Depois de o Azure criar o disco e ligá-lo à máquina virtual, o novo disco está listado nas definições do disco da máquina virtual sob **os discos data**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Inicializar um novo disco de dados
 
 1. Ligue à VM.
-1. Selecione o Windows **começar** menu no interior da VM em execução e introduza **Diskmgmt. msc** na caixa de pesquisa. O **gestão de discos** consola é aberta.
-2. Gestão de discos reconhece que tem um disco novo, não inicializado e o **Inicializar disco** é apresentada a janela.
-3. Certifique-se de que o novo disco está selecionado e, em seguida, selecione **OK** para inicializá-la.
-4. O novo disco aparece como **não alocado**. Com o botão direito em qualquer lugar no disco e selecione **novo volume simples**. O **Assistente de novo Volume simples** é aberta a janela.
-5. Avance no assistente, manter todos os padrões, e quando terminar, selecione **concluir**.
-6. Fechar **gestão de discos**.
-7. É apresentada uma janela de pop-up a notificá-lo de que precisa de formatar o disco novo antes de poder utilizá-lo. Selecione **formatar disco**.
-8. Na **Formatar novo disco** janela, verifique as definições e, em seguida, selecione **iniciar**.
+1. Selecione o menu Windows **Iniciar** dentro do VM em execução e introduza **diskmgmt.msc** na caixa de pesquisa. A consola **de Gestão de Discos** abre.
+2. A Disk Management reconhece que tem um disco novo e não inicializado e aparece a janela **do Disco Inicialize.**
+3. Verifique se o novo disco está selecionado e, em seguida, selecione **OK** para inicializá-lo.
+4. O novo disco aparece como **não atribuído**. Clique à direita em qualquer lugar do disco e selecione **Novo volume simples**. A janela **do Novo Assistente** de Volume Simples abre.
+5. Proceda através do assistente, mantendo todos os predefinições, e quando terminar, selecione **Finish**.
+6. Fechar **a Gestão do Disco.**
+7. É apresentada uma janela de pop-up a notificá-lo de que precisa de formatar o disco novo antes de poder utilizá-lo. Selecione **o disco de formato**.
+8. Na nova janela do **formato,** verifique as definições e, em seguida, selecione **Iniciar**.
 9. É apresentado um aviso a informar de que os discos de formatação apague todos os dados. Selecione **OK**.
-10. Quando a formatação estiver concluída, selecione **OK**.
+10. Quando a formatação estiver completa, selecione **OK**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Também pode [anexar um disco de dados com o PowerShell](attach-disk-ps.md).
-- Se a sua aplicação precisa de utilizar o *D:* unidade para armazenar dados, pode [alterar a letra de unidade do disco temporário Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+- Também pode anexar um disco de [dados utilizando powerShell](attach-disk-ps.md).
+- Se a sua aplicação necessitar de utilizar o *D:* dirija para armazenar dados, pode [alterar a letra de unidade do disco temporário windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

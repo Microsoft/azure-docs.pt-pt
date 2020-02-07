@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: 630d178a4f1a802d5c98b570544822e4f4013a5a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 648338f2ba57ad1c460c1c5b4a8d9a2ee91ebb1b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697018"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063718"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Debug SAML com base em assinaturaúnica para aplicações no Diretório Ativo Azure
 
@@ -101,4 +101,4 @@ Para resolver o problema, siga estes passos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que o único sinal está a funcionar para a sua aplicação, pode [automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS](../manage-apps/user-provisioning.md) ou [começar com](../conditional-access/app-based-conditional-access.md)o Acesso Condicional .
+Agora que o único sinal está a funcionar para a sua aplicação, pode [automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS](../app-provisioning/user-provisioning.md) ou [começar com](../conditional-access/app-based-conditional-access.md)o Acesso Condicional .

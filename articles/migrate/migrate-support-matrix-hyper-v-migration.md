@@ -3,12 +3,12 @@ title: Suporte para migração do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte para migração do Hyper-V com migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 4ca946597417ccde0e00c8bf09c70207bc4f85b9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 1eab96df7ee58a8170f75b41c5a2a06f033ced19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031651"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064466"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração do Hyper-V
 
@@ -23,10 +23,10 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
-| **Implementação**       | O host Hyper-V pode ser autônomo ou implantado em um cluster. |
+| **Implementação**       | O host Hyper-V pode ser autônomo ou implantado em um cluster. <br/>O software de replicação da Migração Azure (fornecedor de replicação Hyper-V) precisa de ser instalado nos anfitriões Hyper-V.|
 | **Permissões**           | Você precisa de permissões de administrador no host do Hyper-V. |
 | **Sistema operativo anfitrião** | Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2. |
-| **Acesso url** | Os hosts Hyper-V precisam de acesso a essas URLS:<br/><br/> -login.microsoftonline.com: controle de acesso e gerenciamento de identidade usando Active Directory.<br/><br/> -*. backup.windowsazure.com: transferência e coordenação de dados de replicação. Migrar URLs de serviço.<br/><br/> -*. blob.core.windows.net: carregar dados em contas de armazenamento.<br/><br/> -dc.services.visualstudio.com: carregar logs de aplicativo usados para monitoramento interno.<br/><br/> - time.windows.com | Verifica a sincronização de hora entre o sistema e o horário global.
+| **Acesso url** | O software do fornecedor de replicação nos anfitriões hyper-V precisará de acesso a estes URLS:<br/><br/> -login.microsoftonline.com: controle de acesso e gerenciamento de identidade usando Active Directory.<br/><br/> -*. backup.windowsazure.com: transferência e coordenação de dados de replicação. Migrar URLs de serviço.<br/><br/> -*. blob.core.windows.net: carregar dados em contas de armazenamento.<br/><br/> -dc.services.visualstudio.com: carregar logs de aplicativo usados para monitoramento interno.<br/><br/> - time.windows.com: Verifica a sincronização do tempo entre o sistema e o tempo global.
 | **Acesso portuário** |  Conexões de saída na porta HTTPS 443 para enviar dados de replicação da VM.
 
 ## <a name="hyper-v-vms"></a>VMs Hyper-V
@@ -34,8 +34,6 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Suporte**                  | **Detalhes**               
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Todos os sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) que são suportados pelo Azure. |
-| **Permissões**           | Você precisa de permissões de administrador em cada VM do Hyper-V que deseja avaliar. |
-| **Serviços de Integração**       | Os [Serviços de Integração Hiper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) devem estar a funcionar em VMs que avalia, de modo a capturar informações do sistema operativo. |
 | **Alterações necessárias para O Azure** | Algumas VMs podem exigir alterações para que possam ser executadas no Azure. Tens de fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso. |
 | **Bota Linux**                 | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos. |
 | **Bota UEFI**                  | A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS. A VM deve estar executando apenas o Windows Server 2012 e posterior. O disco do sistema operacional deve ter até cinco partições ou menos e o tamanho do disco do sistema operacional deve ser inferior a 300 GB.
@@ -55,15 +53,13 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
-Todas as VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela. Quando Site Recovery executar uma verificação de pré-requisitos para replicação, a verificação falhará se alguns dos requisitos não forem atendidos.
+Todas as VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela.
 
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operativo convidado | Verifica os sistemas operacionais de VM VMware com suporte para migração.<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. | A verificação falhará se não houver suporte.
-Arquitetura do sistema operacional convidado | 64-bit. | A verificação falhará se não houver suporte.
 Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falhará se não houver suporte.
 Contagem de disco do sistema operacional | 1 | A verificação falhará se não houver suporte.
-Contagem de disco de dados | 64 ou menos. | A verificação falhará se não houver suporte.
+Contagem de disco de dados | 16 ou menos. | A verificação falhará se não houver suporte.
 Tamanho do disco de dados | Até 4.095 GB | A verificação falhará se não houver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
 VHD Partilhado | Não suportado. | A verificação falhará se não houver suporte.

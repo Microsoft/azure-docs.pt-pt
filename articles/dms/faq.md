@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 9fdbf3888b4302946fe20259a333842caa122836
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f27d398af723a54443f531c05a503a5f2fbe13f6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717785"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064840"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre como usar o serviço de migração de banco de dados do Azure
 
@@ -46,7 +46,7 @@ Você pode usar o serviço de migração de banco de dados do Azure para realiza
 > Usar o serviço de migração de banco de dados do Azure para executar uma migração online requer a criação de uma instância com base no tipo de preço premium. Para mais informações, consulte a página de preços do Serviço de [Migração](https://azure.microsoft.com/pricing/details/database-migration/) da Base de Dados Azure.
 
 **P. Como é que o Azure Database Migration Service se compara a outras ferramentas de migração da base de dados da Microsoft, como o Assistant de Migração de Bases de Dados (DMA) ou o Assistente de Migração do Servidor SQL (SSMA)?**
-O serviço de migração de banco de dados do Azure é o método preferencial para a migração de banco de dados para Microsoft Azure em escala. Para mais detalhes sobre como o Azure Database Migration Service se compara a outras ferramentas de migração de bases de dados da Microsoft e para recomendações sobre a utilização do serviço para vários cenários, consulte o blog [publicando Differentiating](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/)Database Migration Tools and Services da Microsoft .
+O serviço de migração de banco de dados do Azure é o método preferencial para a migração de banco de dados para Microsoft Azure em escala. Para mais detalhes sobre como o Azure Database Migration Service se compara a outras ferramentas de migração de bases de dados da Microsoft e para recomendações sobre a utilização do serviço para vários cenários, consulte o blog [publicando Differentiating](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529)Database Migration Tools and Services da Microsoft .
 
 **Q. Como é que o Serviço de Migração de Bases de Dados Azure se compara à oferta de migração Azure?**
 As migrações para Azure auxiliam na migração de máquinas virtuais locais para IaaS do Azure. O serviço avalia a adequação da migração e o dimensionamento com base no desempenho e fornece estimativas de custo para executar suas máquinas virtuais locais no Azure. As migrações para Azure são úteis para migrações de comparação de precisão e deslocamento de cargas de trabalho baseadas em VM locais para VMs IaaS do Azure. No entanto, ao contrário do serviço de migração de banco de dados do Azure, Instância Gerenciada do Banco de Dados SQL do Azure as migrações para Azure não são uma oferta de serviço de migração de banco de dados especializada para plataformas de banco de dados relacionais do Azure PaaS
@@ -117,6 +117,6 @@ Você pode fazer algumas coisas para acelerar a migração de banco de dados usa
 * Use o tipo de preço Uso Geral de várias CPUs ao criar sua instância de serviço para permitir que o serviço Aproveite vários vCPUs para paralelização e transferência de dados mais rápida.
 * Escale horizontalmente sua instância de destino do banco de dados SQL do Azure para a SKU da camada Premium durante a operação de migração, para minimizar a limitação do banco de dados SQL do Azure que pode afetar as atividades de transferência, ao usar SKUs de nível inferior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral do Serviço de Migração da Base de Dados Azure e da disponibilidade regional, consulte o artigo O que é o Serviço de Migração de Bases de [Dados Azure.](dms-overview.md)

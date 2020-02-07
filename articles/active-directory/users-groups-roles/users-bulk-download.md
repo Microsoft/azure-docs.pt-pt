@@ -1,56 +1,55 @@
 ---
-title: Baixar uma lista de usuários (versão prévia) no portal de Azure Active Directory | Microsoft Docs
-description: Baixe registros de usuário em massa no centro de administração do Azure em Azure Active Directory.
+title: Faça o download de uma lista de utilizadores (pré-visualização) no portal de Diretório Ativo Do Azure  Microsoft Docs
+description: Descarregue os registos dos utilizadores a granel no centro de administração Azure em Azure Ative Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 07/15/2019
+manager: daveba
+ms.date: 02/06/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720297"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063837"
 ---
-# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Baixar uma lista de usuários (versão prévia) no portal Azure Active Directory
+# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Faça o download de uma lista de utilizadores (pré-visualização) no portal de Diretório Ativo Do Azure
 
-O Azure Active Directory (AD do Azure) dá suporte a operações de importação (criação) de usuário em massa.
+O Azure Ative Directory (Azure AD) suporta operações de importação de utilizadores a granel (criar) operações.
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Para baixar a lista de usuários do centro de administração do Azure AD, você deve estar conectado com um usuário atribuído a uma ou mais funções de administrador de nível de organização no Azure AD. O convite para convidados e o desenvolvedor de aplicativos não são considerados funções de administrador.
+Para descarregar a lista de utilizadores do centro de administração da AD Azure, deve ser contratado com um utilizador atribuído a uma ou mais funções de administrador de nível de organização em Azure AD. Convidado convidado e desenvolvedor de aplicações não são considerados papéis de administrador.
 
-## <a name="to-download-a-list-of-users"></a>Para baixar uma lista de usuários
+## <a name="to-download-a-list-of-users"></a>Para descarregar uma lista de utilizadores
 
-1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta de administrador de usuário na organização.
-2. Navegue até Azure Active Directory > usuários. Em seguida, selecione os usuários que deseja incluir no download marcando a caixa na coluna esquerda ao lado de cada usuário. Observação: neste momento, não há como selecionar todos os usuários para exportação. Cada um deve ser selecionado individualmente.
-3. No Azure AD, selecione **usuários** > **baixar usuários**.
-4. Na página **baixar usuários** , selecione **Iniciar** para receber um arquivo CSV listando propriedades de perfil de usuário. Se houver erros, você poderá baixar e exibir o arquivo de resultados na página resultados da operação em massa. O arquivo contém o motivo de cada erro.
+1. [Inscreva-se na sua organização Azure AD](https://aad.portal.azure.com) com uma conta de administrador de utilizador na organização.
+2. Navegue para Azure Ative Directory > Users. Em seguida, selecione os utilizadores que pretende incluir no download, marcando a caixa na coluna esquerda ao lado de cada utilizador. Nota: Neste momento, não há forma de selecionar todos os utilizadores para exportação. Cada um deve ser selecionado individualmente.
+3. No Azure AD, selecione **Utilizadores** > **Descarregue os utilizadores.**
+4. Na página de **Utilizadores de Descarregamento,** selecione **Iniciar** a receber um ficheiro CSV listando propriedades de perfil de utilizador. Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da operação Bulk. O ficheiro contém a razão de cada erro.
 
-   ![Selecione onde você deseja que a lista os usuários que deseja baixar](./media/users-bulk-download/bulk-download.png)
+   ![Selecione onde deseja a lista os utilizadores que pretende descarregar](./media/users-bulk-download/bulk-download.png)
 
-   O arquivo de download conterá a lista filtrada de usuários.
+   O ficheiro de descarregamento conterá a lista filtrada dos utilizadores.
 
-   Os seguintes atributos de usuário serão incluídos: 
+   Estão incluídos os seguintes atributos do utilizador:
 
    - userPrincipalName
    - displayName
-   - sobrenome
-   - mescla
+   - Apelido
+   - mail
    - givenName
    - objectId
    - userType
    - jobTitle
-   - inteiros
-   - Manager
+   - Departamento
    - accountEnabled
    - usageLocation
    - streetAddress
@@ -60,27 +59,27 @@ Para baixar a lista de usuários do centro de administração do Azure AD, você
    - city
    - postalCode
    - telephoneNumber
-   - móveis
-   - authenticationPhoneNumber
-   - authenticationAlternativePhoneNumber
-   - authenticationEmail
-   - alternateEmailAddress
+   - móvel
+   - autenticaçãoNúmero de Telefone
+   - autenticaçãoAlternativePhoneNumber
+   - autenticaçãoEmail
+   - endereço de email alternativo
    - ageGroup
    - consentProvidedForMinor
    - legalAgeGroupClassification
 
 ## <a name="check-status"></a>Verificar o estado
 
-Você pode ver o status de suas solicitações em massa pendentes na página **resultados da operação em massa (versão prévia)** .
+Pode ver o estado dos seus pedidos a granel pendentes na página de resultados da **operação Bulk (pré-visualização).**
 
-   ![Verificar o status do carregamento na página de resultados de operações em massa](./media/users-bulk-download/bulk-center.png)
+   ![Verifique o estado de upload na página resultados das operações a granel](./media/users-bulk-download/bulk-center.png)
 
-## <a name="bulk-download-service-limits"></a>Limites do serviço de download em massa
+## <a name="bulk-download-service-limits"></a>Limites de serviço de descarregamento a granel
 
-Cada atividade em massa para criar uma lista de usuários pode ser executada por até uma hora. Isso permite a criação e o download de uma lista de pelo menos 500.000 usuários.
+Cada atividade a granel para criar uma lista de utilizadores pode funcionar até uma hora. Isto permite a criação e o download de uma lista de pelo menos 500.000 utilizadores.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar usuários em massa](users-bulk-add.md)
-- [Excluir usuários em massa](users-bulk-delete.md)
-- [Usuários de restauração em massa](users-bulk-restore.md)
+- [A granel adicionar utilizadores](users-bulk-add.md)
+- [A granel, apaga os utilizadores](users-bulk-delete.md)
+- [A granel restaura utentes](users-bulk-restore.md)

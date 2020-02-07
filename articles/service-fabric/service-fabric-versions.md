@@ -2,22 +2,22 @@
 title: Versões de cluster com suporte no Azure Service Fabric
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
-ms.date: 01/28/2020
-ms.openlocfilehash: 80ecf0861f3d740fff6b68b0373f94d0e2845a9d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/05/2020
+ms.openlocfilehash: 0950c93c09c89ad92fc4f77f9f82937deb9e489e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903474"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064857"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões Service Fabric com suporte
 
-Verifique se o cluster está sempre executando uma versão de Service Fabric do Azure com suporte. No mínimo 60 dias depois de anunciarmos o lançamento de uma nova versão do Service Fabric, o suporte para a versão anterior termina. Você encontrará anúncios de novas versões no blog da [equipe do Service Fabric](https://azure.microsoft.com/updates/?product=service-fabric).
+Verifique se o cluster está sempre executando uma versão de Service Fabric do Azure com suporte. No mínimo 60 dias depois de anunciarmos o lançamento de uma nova versão do Service Fabric, o suporte para a versão anterior termina. Encontrará anúncios de novos lançamentos no blog da [equipa service Fabric.](https://azure.microsoft.com/updates/?product=service-fabric)
 
 Consulte os seguintes documentos para obter detalhes sobre como manter o cluster executando uma versão de Service Fabric com suporte:
 
-- [Atualizar um cluster de Service Fabric do Azure](service-fabric-cluster-upgrade.md)
-- [Atualizar a versão de Service Fabric que é executada em seu cluster autônomo do Windows Server](service-fabric-cluster-upgrade-windows-server.md)
+- [Atualizar um cluster de tecido de serviço Azure](service-fabric-cluster-upgrade.md)
+- [Atualize a versão Service Fabric que funciona no seu cluster de Servidor Windows autónomo](service-fabric-cluster-upgrade-windows-server.md)
 
 ## <a name="supported-versions"></a>Versões suportadas
 
@@ -58,26 +58,26 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 
 | Nome da versão | Número de versão do Windows | Número de versão do Linux |
 | --- | --- | --- |
-| RTO DE 5,3 | 5.3.121.9494 | N/D |
-| 5,3 CU1 | 5.3.204.9494 | N/D |
-| 5,3 CU2 | 5.3.301.9590 | N/D |
-| 5,3 CU3 | 5.3.311.9590 | N/D |
-| 5,4 CU2 | 5.4.164.9494 | N/D |
-| 5,5 CU1 | 5.5.216.0    | N/D |
-| 5,5 CU2 | 5.5.219.0    | N/D |
-| 5,5 CU3 | 5.5.227.0    | N/D |
-| 5,5 CU4 | 5.5.232.0    | N/D |
-| RTO DE 5,6 | 5.6.204.9494 | N/D |
-| 5,6 CU2 | 5.6.210.9494 | N/D |
-| 5,6 CU3 | 5.6.220.9494 | N/D |
-| RTO DE 5,7 | 5.7.198.9494 | N/D |
-| 5,7 CU4 | 5.7.221.9494 | N/D |
+| RTO DE 5,3 | 5.3.121.9494 | ND |
+| 5,3 CU1 | 5.3.204.9494 | ND |
+| 5,3 CU2 | 5.3.301.9590 | ND |
+| 5,3 CU3 | 5.3.311.9590 | ND |
+| 5,4 CU2 | 5.4.164.9494 | ND |
+| 5,5 CU1 | 5.5.216.0    | ND |
+| 5,5 CU2 | 5.5.219.0    | ND |
+| 5,5 CU3 | 5.5.227.0    | ND |
+| 5,5 CU4 | 5.5.232.0    | ND |
+| RTO DE 5,6 | 5.6.204.9494 | ND |
+| 5,6 CU2 | 5.6.210.9494 | ND |
+| 5,6 CU3 | 5.6.220.9494 | ND |
+| RTO DE 5,7 | 5.7.198.9494 | ND |
+| 5,7 CU4 | 5.7.221.9494 | ND |
 | RTO DE 6,0 | 6.0.211.9494 | 6.0.120.1 |
 | 6,0 CU1 | 6.0.219.9494 | 6.0.127.1 |
 | 6,0 CU2 | 6.0.232.9494 | 6.0.133.1 |
 | 6,1 CU1 | 6.1.456.9494 | 6.1.183.1 |
 | 6,1 CU2 | 6.1.467.9494 | 6.1.185.1 |
-| 6,1 CU3 | 6.1.472.9494 | N/D |
+| 6,1 CU3 | 6.1.472.9494 | ND |
 | 6,1 CU4 | 6.1.480.9494 | 6.1.187.1 |
 | RTO DE 6,2 | 6.2.269.9494 | 6.2.184.1 | 
 | 6,2 CU1 | 6.2.274.9494 | 6.2.191.1 |
@@ -87,13 +87,13 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 | 6,3 CU1 | 6.3.176.9494 | 6.3.124.1 |
 | 6,3 CU1 | 6.3.187.9494 | 6.3.129.1 |
 | RTO DE 6,4 | 6.4.617.9590 | 6.4.625.1 |
-| 6,4 CU2 | 6.4.622.9590 | N/D |
+| 6,4 CU2 | 6.4.622.9590 | ND |
 | 6,4 CU3 | 6.4.637.9590 | 6.4.634.1 |
 | 6,4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6,4 CU5 | 6.4.654.9590 | 6.4.649.1 |
-| 6,4 CU6 | 6.4.658.9590 | N/D |
+| 6,4 CU6 | 6.4.658.9590 | ND |
 | 6,4 CU7 | 6.4.664.9590 | 6.4.661.1 |
-| 6,4 CU8 | 6.4.670.9590 | N/D |
+| 6,4 CU8 | 6.4.670.9590 | ND |
 | RTO DE 6,5 | 6.5.639.9590 | 6.5.435.1 |
 | 6,5 CU1 | 6.5.641.9590 | 6.5.454.1 |
 | 6,5 CU2 | 6.5.658.9590 | 6.5.460.1 |
@@ -101,3 +101,4 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 | 6,5 CU5 | 6.5.676.9590 | 6.5.467.1 |
 | RTO DE 7,0 | 7.0.457.9590 | 7.0.457.1 |
 | 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |
+| 7.0 CU3 | 7.0.466.9590 | 7.0.465.1 |

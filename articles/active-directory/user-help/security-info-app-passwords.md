@@ -2,7 +2,7 @@
 title: Criar palavras-passe de aplicativo sintetizar informações de Segurança (pré-visualização) - Azure AD
 description: Crie senhas geradas automaticamente (palavras-passe de aplicação) para usar com qualquer aplicação não-navegador, ou qualquer aplicação que não suporte a verificação de dois fatores, na sua organização. Esta palavra-passe da aplicação é separada de uma senha normal e pode ser configurada a partir da página de informações de Segurança.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
-ms.author: lizross
-ms.openlocfilehash: d4076e379755518421ef79eca542ebdc99294a11
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704895"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064075"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Criar senhas de aplicação a partir da página informação de segurança (pré-visualização)
 
@@ -45,11 +45,11 @@ Se utilizar a verificação em duas etapas com o seu trabalho ou conta escolar e
 
 ### <a name="to-create-a-new-app-password"></a>Para criar uma nova senha de aplicação
 
-1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página https://myprofile.microsoft.com/.
+1. Inscreva-se na sua conta de trabalho ou escola e depois vá à sua página de https://myprofile.microsoft.com/.
 
     ![Minha página de perfil, mostrando links de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selecione **informações de segurança** no painel de navegação esquerdo ou no link no bloco **informações de segurança** e, em seguida, selecione **Adicionar método** na página **informações de segurança** .
+2. Selecione **informações de segurança** a partir do painel de navegação esquerdo ou do link no bloco de **informações** de Segurança e, em seguida, selecione **adicionar método** a partir da página de informações de **Segurança.**
 
     ![Página informações de segurança com a opção Adicionar método realçado](media/security-info/securityinfo-myprofile-addmethod-page.png)
 

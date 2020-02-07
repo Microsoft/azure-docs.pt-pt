@@ -1,146 +1,147 @@
 ---
-title: Arquitetura de rede de trânsito global de WAN virtual do Azure | Microsoft Docs
-description: Saiba mais sobre a arquitetura de rede de trânsito global para WAN virtual
+title: 'Arquitetura: Arquitetura global da rede de trânsito'
+titleSuffix: Azure Virtual WAN
+description: Conheça a arquitetura da rede global de trânsito para o Virtual WAN
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9b736e897278c4656df83c30388efc812ac6193d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607375"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064976"
 ---
-# <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e WAN virtual
+# <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global da rede de trânsito e WAN Virtual
 
-As empresas modernas exigem conectividade onipresente entre aplicativos, dados e usuários do Hyper-Distributed na nuvem e no local. A arquitetura de rede de trânsito global está sendo adotada pelas empresas para consolidar, conectar e controlar a superfície de ti global moderna, centrada em nuvem.
+As empresas modernas requerem conectividade ubíqua entre aplicações hiperdistribuídas, dados e utilizadores através da nuvem e no local. A arquitetura global da rede de trânsito está a ser adotada pelas empresas para consolidar, conectar e controlar a pegada de TI moderna e global centrada na nuvem.
 
-A arquitetura de rede de trânsito global é baseada em um modelo de conectividade de Hub e spoke clássico em que o ' hub ' de rede hospedada na nuvem permite a conectividade transitiva entre pontos de extremidade que podem ser distribuídos entre diferentes tipos de ' spokes '.
+A arquitetura global da rede de trânsito baseia-se num modelo clássico de conectividade hub-and-spoke onde o 'hub' da rede hospedada em nuvem permite conectividade transitiva entre pontos finais que podem ser distribuídos por diferentes tipos de 'raios'.
 
-Nesse modelo, um spoke pode ser:
+Neste modelo, um discurso pode ser:
 * Rede virtual (VNets)
-* Site do Branch físico
-* Usuário remoto
+* Site de ramo físico
+* Utilizador remoto
 * Internet
 
-![Hub e spoke](./media/virtual-wan-global-transit-network-architecture/figure1.png)
+![hub e falou](./media/virtual-wan-global-transit-network-architecture/figure1.png)
 
-**Figura 1: rede hub e spoke de trânsito global**
+**Figura 1: Rede global de centros de trânsito e porta-voz**
 
-A Figura 1 mostra a exibição lógica da rede de trânsito global em que usuários distribuídos geograficamente, sites físicos e VNets são interconectados por meio de um hub de rede hospedado na nuvem. Essa arquitetura permite a conectividade de trânsito de um salto lógico entre os pontos de extremidade de rede.
+A Figura 1 mostra a visão lógica da rede global de trânsito onde utilizadores geograficamente distribuídos, sites físicos e VNets estão interligados através de um centro de networking alojado na nuvem. Esta arquitetura permite a conectividade lógica de um lúpulo entre os pontos finais de networking.
 
-## <a name="globalnetworktransit"></a>Rede de trânsito global com WAN virtual
+## <a name="globalnetworktransit"></a>Rede global de trânsito com o Wan Virtual
 
-A WAN virtual do Azure é um serviço de rede de nuvem gerenciado pela Microsoft. Todos os componentes de rede dos quais esse serviço é composto são hospedados e gerenciados pela Microsoft. Para obter mais informações sobre WAN virtual, consulte o artigo [visão geral da WAN virtual](virtual-wan-about.md) .
+Azure Virtual WAN é um serviço de rede de cloud gerido pela Microsoft. Todos os componentes de rede de que este serviço é composto são hospedados e geridos pela Microsoft. Para mais informações sobre o WAN Virtual, consulte o artigo [Virtual WAN Overview.](virtual-wan-about.md)
 
-A WAN virtual do Azure permite uma arquitetura de rede de trânsito global permitindo uma conectividade onipresente, de qualquer a qualquer entre conjuntos distribuídos globalmente de cargas de trabalho de nuvem em VNets, sites de filiais, aplicativos SaaS e PaaS e usuários.
+O Azure Virtual WAN permite uma arquitetura global de rede de trânsito, permitindo uma conectividade ubíqua e qualquer conectividade entre conjuntos distribuídos globalmente de cargas de trabalho em nuvem em VNets, sites de filiais, aplicações SaaS e PaaS, e utilizadores.
 
 ![WAN Virtual do Azure](./media/virtual-wan-global-transit-network-architecture/figure2.png)
 
-**Figura 2: rede de trânsito global e WAN virtual**
+**Figura 2: Rede global de trânsito e WAN Virtual**
 
-Na arquitetura WAN virtual do Azure, os hubs de WAN virtuais são provisionados nas regiões do Azure, às quais você pode optar por conectar seus branches, VNets e usuários remotos. Os sites de ramificação física estão conectados ao Hub por VPNs do Premium ExpressRoute ou site a site-para-redes, VNets estão conectados ao Hub por conexões de VNet, e os usuários remotos podem se conectar diretamente ao Hub usando VPN de usuário (VPNs ponto a site). A WAN virtual também dá suporte à conexão VNet entre regiões, em que uma VNet em uma região pode ser conectada a um hub de WAN virtual em uma região diferente.
+Na arquitetura Azure Virtual WAN, os centros virtuais WAN são aprovisionados nas regiões de Azure, às quais pode optar por ligar os seus balcões, VNets e utilizadores remotos. Os sites de ramificação física estão ligados ao hub por Premium ExpressRoute ou site-to-VPNs, VNets são ligados ao hub por ligações VNet, e os utilizadores remotos podem ligar-se diretamente ao hub usando VPN do utilizador (VPNs ponto-a-site). O WAN virtual também suporta a ligação VNet transversal onde um VNet numa região pode ser ligado a um centro virtual WAN numa região diferente.
 
-Você pode estabelecer uma WAN virtual criando um único Hub de WAN virtual na região que tem o maior número de spokes (branches, VNets, Users) e, em seguida, conectando os spokes que estão em outras regiões ao Hub. Essa é uma boa opção quando uma superfície corporativa está em grande parte de uma região com alguns spokes remotos.  
+Você pode estabelecer um WAN virtual criando um único centro de WAN virtual na região que tem o maior número de porta-vozes (ramos, VNets, utilizadores), e, em seguida, conectando os raios que estão em outras regiões ao centro. Esta é uma boa opção quando uma pegada empresarial está principalmente numa região com alguns raios remotos.  
   
-## <a name="hubtohub"></a>Conectividade Hub para Hub
+## <a name="hubtohub"></a>Conectividade hub-to-hub
 
-Uma superfície de nuvem corporativa pode abranger várias regiões de nuvem e é ideal (de latência) acessar a nuvem de uma região mais próxima de seu site físico e usuários. Um dos principais princípios da arquitetura de rede de trânsito global é habilitar a conectividade entre regiões entre todos os pontos de extremidade de rede local e na nuvem. Isso significa que o tráfego de um Branch que está conectado à nuvem em uma região pode alcançar outro Branch ou uma VNet em uma região diferente usando conectividade de Hub para Hub habilitada pela [rede global do Azure](https://azure.microsoft.com/global-infrastructure/global-network/).
+Uma pegada de nuvem da Enterprise pode abranger várias regiões de nuvem e é ideal (em termos de latência) para aceder à nuvem de uma região mais próxima do seu site físico e utilizadores. Um dos princípios fundamentais da arquitetura global da rede de trânsito é permitir a conectividade entre todas as nuvens e os pontos finais da rede no local. Isto significa que o tráfego de um ramo ligado à nuvem numa região pode chegar a outro ramo ou um VNet numa região diferente, utilizando a conectividade hub-to-hub ativada pela [Azure Global Network.](https://azure.microsoft.com/global-infrastructure/global-network/)
 
-![entre regiões](./media/virtual-wan-global-transit-network-architecture/figure3.png)
+![região transversal](./media/virtual-wan-global-transit-network-architecture/figure3.png)
 
-**Figura 3: conectividade entre regiões virtuais da WAN**
+**Figura 3: Conectividade virtual wan inter-região**
 
-Quando vários hubs estão habilitados em uma única WAN virtual, os hubs são automaticamente interconectados por meio de links de Hub para Hub, permitindo assim a conectividade global entre branches e Vnets que são distribuídos em várias regiões. 
+Quando vários centros são ativados num único WAN virtual, os centros são automaticamente interligados através de ligações hub-to-hub, permitindo assim a conectividade global entre ramos e Vnets que são distribuídos por várias regiões. 
 
-Além disso, os hubs que fazem parte da mesma WAN virtual podem ser associados a diferentes políticas de acesso regional e de segurança. Para obter mais informações, consulte [segurança e controle de diretivas](#security) mais adiante neste artigo.
+Além disso, os centros que fazem parte do mesmo WAN virtual, podem ser associados a diferentes políticas de acesso e segurança regionais. Para mais informações, consulte a [Segurança e o Controlo de Políticas](#security) mais tarde neste artigo.
 
-## <a name="anytoany"></a>Conectividade qualquer-para-qualquer
+## <a name="anytoany"></a>Qualquer conectividade para qualquer
 
-A arquitetura de rede de trânsito global habilita qualquer conectividade por meio de hubs de WAN virtual. Essa arquitetura elimina ou reduz a necessidade de malha completa ou conectividade de malha parcial entre spokes, que são mais complexas de criar e manter. Além disso, o controle de roteamento em vs. redes de malhas é mais fácil de configurar e manter.
+A arquitetura global da rede de trânsito permite qualquer conectividade através de centros WAN virtuais. Esta arquitetura elimina ou reduz a necessidade de conectividade de malha completa ou de malha parcial entre os raios, que são mais complexos para construir e manter. Além disso, o controlo de encaminhamento em redes de rede hub-e-spoke vs. malha é mais fácil de configurar e manter.
 
-Qualquer conectividade (no contexto de uma arquitetura global) permite que uma empresa com usuários distribuídos globalmente, branches, data centers, VNets e aplicativos se conectem entre si por meio dos hubs de "trânsito". A WAN virtual do Azure atua como o sistema de trânsito global.
+Qualquer conectividade a qualquer (no contexto de uma arquitetura global) permite que uma empresa com utilizadores, sucursais, datacenters, VNets e aplicações se conectem entre si através do hub ou do "trânsito"). O Azure Virtual WAN atua como o sistema de trânsito global.
 
-![qualquer para qualquer](./media/virtual-wan-global-transit-network-architecture/figure4.png)
+![qualquer a qualquer](./media/virtual-wan-global-transit-network-architecture/figure4.png)
 
-**Figura 4: caminhos de tráfego de WAN virtual**
+**Figura 4: Vias de tráfego virtual WAN**
 
-A WAN virtual do Azure dá suporte aos seguintes caminhos de conectividade de trânsito globais. As letras entre parênteses são mapeadas para a Figura 4.
+O Azure Virtual WAN suporta os seguintes caminhos globais de conectividade de trânsito. As letras em parênteses mapeiam para a Figura 4.
 
-* Ramificação para VNet (a)
-* Ramificação para ramificação (b)
-  * ExpressRoute Alcance Global e WAN virtual
-* Usuário remoto para VNet (c)
-* Usuário remoto para ramificação (d)
-* VNet a VNet (e)
-* Branch-to-Hub-Hub para ramificação (f)
-* Branch-to-Hub-Hub para VNet (g)
-* VNet a Hub-Hub-para-VNet (h)
+* Sucursal-para-VNet (a)
+* Ramo-a-ramo b
+  * ExpressRoute Global Reach e Virtual WAN
+* Remoto User-to-VNet (c)
+* Remoto Utilizador-a-ramo (d)
+* VNet-to-VNet (e)
+* Ramo-a-hub-hub-to-Branch (f)
+* Branch-to-hub-hub-to-VNet (g)
+* VNet-to-hub-hub-to-VNet (h)
 
-### <a name="branch-to-vnet-a-and-branch-to-vnet-cross-region-g"></a>Entre regiões (a) de ramificação para rede virtual (a) e ramificação para VNet (g)
+### <a name="branch-to-vnet-a-and-branch-to-vnet-cross-region-g"></a>Sucursal-para-VNet a e Região Transversal Branch-to-VNet (g)
 
-O Branch-to-VNet é o caminho principal com suporte da WAN virtual do Azure. Esse caminho permite que você conecte branches a cargas de trabalho corporativas do Azure IAAS implantadas no Azure VNets. As ramificações podem ser conectadas à WAN virtual via ExpressRoute ou VPN site a site. O tráfego está em trânsito para VNets que estão conectados aos hubs de WAN virtuais por meio de conexões VNet. O [tráfego de gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) explícito não é necessário para a WAN virtual porque a WAN virtual habilita automaticamente o tráfego de gateway para o site de ramificação. Confira o artigo [parceiros de WAN virtual](virtual-wan-configure-automation-providers.md) sobre como conectar um SD-Wan CPE à WAN virtual.
+Branch-to-VNet é o caminho principal suportado pelo Azure Virtual WAN. Este caminho permite-lhe ligar balcões às cargas de trabalho da empresa Azure IAAS que são implantadas em VNets Azure. As sucursais podem ser ligadas ao WAN virtual via ExpressRoute ou VPN site-to-site. Os trânsitos transitam para VNets que estão ligados aos centros virtuais WAN através de Ligações VNet. O trânsito explícito de [gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) não é necessário para o WAN virtual porque o WAN virtual automaticamente permite o trânsito de gateway para o local da sucursal. Consulte o artigo [virtual wan partners](virtual-wan-configure-automation-providers.md) sobre como ligar um CPE SD-WAN ao Wan Virtual.
 
-### <a name="expressroute-global-reach-and-virtual-wan"></a>ExpressRoute Alcance Global e WAN virtual
+### <a name="expressroute-global-reach-and-virtual-wan"></a>ExpressRoute Global Reach e Virtual WAN
 
-O ExpressRoute é uma maneira privada e resiliente de conectar suas redes locais ao Microsoft Cloud. A WAN virtual dá suporte a conexões de circuito de rota expressa. Conectar um site de ramificação à WAN virtual com rota expressa requer 1) circuito do circuito Premium 2) para estar em um local Alcance Global habilitado.
+O ExpressRoute é uma forma privada e resiliente de ligar as suas redes no local ao Microsoft Cloud. O VIRTUAL WAN suporta as ligações do circuito Express Route. Ligar um site de ramificação ao Virtual WAN com a Rota expressa requer 1) Circuito Premium 2) Circuito para estar num local global ativado.
 
-O ExpressRoute Alcance Global é um recurso complementar para o ExpressRoute. Com o Alcance Global, você pode vincular circuitos do ExpressRoute juntos para fazer uma rede privada entre suas redes locais. As ramificações que estão conectadas à WAN virtual do Azure usando o ExpressRoute exigem que os Alcance Global do ExpressRoute se comuniquem entre si.
+ExpressRoute Global Reach é uma funcionalidade de complemento para o ExpressRoute. Com o Global Reach, pode ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes no local. Os balcões ligados ao Azure Virtual WAN utilizando o ExpressRoute exigem que o ExpressRoute Global Reach se comunique entre si.
 
-Nesse modelo, cada ramificação conectada ao Hub de WAN virtual usando o ExpressRoute pode se conectar ao VNets usando o caminho de ramificação para VNet. O tráfego de ramificação para ramificação não transita o Hub porque o ExpressRoute Alcance Global permite um caminho mais ideal na WAN do Azure.
+Neste modelo, cada ramo ligado ao hub virtual WAN utilizando o ExpressRoute pode ligar-se a VNets utilizando o caminho ramificação-vNet. O tráfego de ramificação para sucursal não vai transitar o centro porque o ExpressRoute Global Reach permite um caminho mais ideal sobre o Azure WAN.
 
-### <a name="branch-to-branch-b-and-branch-to-branch-cross-region-f"></a>Ramificação para ramificação (b) e Branch para ramificação entre regiões (f)
+### <a name="branch-to-branch-b-and-branch-to-branch-cross-region-f"></a>Ramo-a-ramo b e região transversal ramificação-a-ramo -a-filial f
 
-As ramificações podem ser conectadas a um hub de WAN virtual do Azure usando circuitos de ExpressRoute e/ou conexões VPN site a site. Você pode conectar as ramificações ao Hub de WAN virtual que está na região mais próxima da ramificação.
+Os balcões podem ser ligados a um hub wan virtual Azure utilizando circuitos ExpressRoute e/ou ligações VPN site-to-site. Pode ligar os ramos ao centro virtual WAN que se encontra na região mais próxima do ramo.
 
-Essa opção permite que as empresas aproveitem o backbone do Azure para conectar branches. No entanto, embora esse recurso esteja disponível, você deve avaliar os benefícios de conectar branches pela WAN virtual do Azure versus usar uma WAN privada.  
+Esta opção permite que as empresas aproveitem a espinha dorsal azure para ligar balcões. No entanto, mesmo que esta capacidade esteja disponível, deve pesar os benefícios de ligar balcões através do Azure Virtual WAN vs. usando um WAN privado.  
 
-### <a name="remote-user-to-vnet-c"></a>Usuário remoto para VNet (c)
+### <a name="remote-user-to-vnet-c"></a>Remoto User-to-VNet (c)
 
-Você pode habilitar o acesso remoto direto e seguro ao Azure usando a conexão ponto a site de um cliente de usuário remoto para uma WAN virtual. Os usuários remotos da empresa não precisam mais hairpin-los para a nuvem usando uma VPN corporativa.
+Pode ativar o acesso remoto direto e seguro ao Azure utilizando a ligação ponto-a-local de um cliente utilizador remoto para um WAN virtual. Os utilizadores remotos da Enterprise já não têm de fixar o cabelo na nuvem usando uma VPN corporativa.
 
-### <a name="remote-user-to-branch-d"></a>Usuário remoto para ramificação (d)
+### <a name="remote-user-to-branch-d"></a>Remoto Utilizador-a-ramo (d)
 
-O caminho do usuário para a ramificação remota permite que usuários remotos que usam uma conexão ponto a site acessem cargas de trabalho e aplicativos locais de acesso do Azure por meio da nuvem. Esse caminho dá aos usuários remotos a flexibilidade para acessar as cargas de trabalho que são implantadas no Azure e no local. As empresas podem habilitar o serviço de acesso remoto seguro baseado em nuvem central na WAN virtual do Azure.
+O caminho Remoto user-to-branch permite que os utilizadores remotos que estão a usar uma ligação ponto-a-local ao acesso ao Azure acedam às cargas de trabalho e aplicações no local, transitando através da nuvem. Este caminho confere aos utilizadores remotos a flexibilidade para aceder em cargas de trabalho que são implantadas tanto no Azure como no local. As empresas podem ativar o serviço central de acesso remoto seguro baseado em nuvem em Azure Virtual WAN.
 
-### <a name="vnet-to-vnet-transit-e-and-vnet-to-vnet-cross-region-h"></a>Trânsito de VNet a VNet (e) e VNet para VNet entre regiões (h)
+### <a name="vnet-to-vnet-transit-e-and-vnet-to-vnet-cross-region-h"></a>Trânsito VNet-to-VNet (e) e VNet-to-VNet cross-region (h)
 
-O trânsito de VNet para VNet permite que o VNets se conecte entre si para interconectar aplicativos multicamadas que são implementados em vários VNets. Opcionalmente, você pode conectar o VNets entre si por meio do emparelhamento de VNet e isso pode ser adequado para alguns cenários em que o trânsito por meio do Hub VWAN não é necessário.
+O trânsito VNet-to-VNet permite que os VNets se conectem entre si de forma a interligar aplicações de vários níveis que são implementadas em vários VNets. Opcionalmente, pode ligar VNets entre si através do VNet Peering e isso pode ser adequado para alguns cenários em que o trânsito através do hub VWAN não é necessário.
 
-## <a name="security"></a>Segurança e controle de política
+## <a name="security"></a>Controlo de segurança e política
 
-Os hubs de WAN virtual do Azure interconectam todos os pontos de extremidade de rede na rede híbrida e potencialmente veem todo o tráfego de rede de trânsito. Os hubs de WAN virtuais podem ser convertidos em hubs virtuais protegidos implantando o Firewall do Azure dentro de hubs de VWAN para habilitar a segurança, o acesso e o controle de políticas baseados em nuvem. A orquestração de firewalls do Azure em hubs de WAN virtual pode ser executada pelo Gerenciador de firewall do Azure.
+Os hubs Azure Virtual WAN interligam todos os pontos finais de rede através da rede híbrida e potencialmente vêem todo o tráfego da rede de trânsito. Os hubs virtuais WAN podem ser convertidos para Centros Virtuais Seguros, implantando o Firewall Azure dentro dos hubs VWAN para permitir a segurança, acesso e controlo de políticas baseados na nuvem. A orquestração de Firewalls Azure em centros wan virtuais pode ser executada pelo Azure Firewall Manager.
 
-O [Gerenciador de firewall do Azure](https://go.microsoft.com/fwlink/?linkid=2107683) fornece os recursos para gerenciar e dimensionar a segurança para redes de trânsito globais. O Gerenciador de firewall do Azure fornece a capacidade de gerenciar centralmente o roteamento, o gerenciamento de políticas globais e os serviços avançados de segurança da Internet por meio de terceiros, juntamente com o Firewall do Azure.
+[O Azure Firewall Manager](https://go.microsoft.com/fwlink/?linkid=2107683) fornece as capacidades para gerir e escalar a segurança das redes de trânsito globais. O Azure Firewall Manager oferece capacidade para gerir centralmente o encaminhamento, a gestão de políticas globais, os serviços avançados de segurança da Internet através de terceiros, juntamente com o Azure Firewall.
 
-![Hub virtual protegido com o Firewall do Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
+![centro virtual seguro com Firewall Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
-**Figura 5: Hub virtual protegido com o Firewall do Azure**
+**Figura 5: Centro virtual seguro com Firewall Azure**
 
-O Firewall do Azure para a WAN virtual dá suporte aos seguintes caminhos de conectividade de trânsito seguro global. As letras entre parênteses são mapeadas para a Figura 5.
+O Azure Firewall para o WAN virtual suporta os seguintes caminhos globais de conectividade de trânsito garantido. As letras em parênteses mapeiam para a Figura 5.
 
-* Trânsito seguro de VNet a VNet (e)
-* VNet a Internet ou serviço de segurança de terceiros (i)
-* Branch-to-Internet ou serviço de segurança de terceiros (j)
+* Trânsito seguro VNet-to-VNet (e)
+* VNet-to-Internet ou Serviço de Segurança de terceiros (i)
+* Serviço de Segurança Sucursal para internet ou serviço de segurança de terceiros (j)
 
-### <a name="vnet-to-vnet-secured-transit-e"></a>Trânsito seguro de VNet a VNet (e)
+### <a name="vnet-to-vnet-secured-transit-e"></a>Trânsito seguro VNet-to-VNet (e)
 
-O trânsito seguro de VNet para VNet permite que o VNets se conecte entre si por meio do firewall do Azure no Hub de WAN virtual.
+O trânsito seguro VNet-to-VNet permite que os VNets se conectem entre si através da Firewall Azure no centro virtual WAN.
 
-### <a name="vnet-to-internet-or-third-party-security-service-i"></a>VNet a Internet ou serviço de segurança de terceiros (i)
+### <a name="vnet-to-internet-or-third-party-security-service-i"></a>VNet-to-Internet ou Serviço de Segurança de terceiros (i)
 
-A VNet para a Internet ou o trânsito protegido de terceiros permite que o VNets se conecte à Internet ou a serviços de segurança de terceiros com suporte por meio do firewall do Azure no Hub de WAN virtual.
+O vnet-to-Internet ou o trânsito seguro de terceiros permite que os VNets se conectem à internet ou a serviços de segurança de terceiros suportados através do Firewall Azure no centro virtual WAN.
 
-### <a name="branch-to-internet-or-third-party-security-service-j"></a>Branch-to-Internet ou serviço de segurança de terceiros (j)
-A filial para a Internet ou o trânsito seguro de terceiros permite que as ramificações se conectem à Internet ou a serviços de segurança de terceiros com suporte por meio do firewall do Azure no Hub de WAN virtual.
+### <a name="branch-to-internet-or-third-party-security-service-j"></a>Serviço de Segurança Sucursal para internet ou serviço de segurança de terceiros (j)
+O trânsito seguro de sucursais para internet ou de terceiros permite que as agências se conectem à internet ou a serviços de segurança de terceiros apoiados através do Azure Firewall no centro virtual WAN.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Crie uma conexão usando a WAN virtual e implante o Firewall do Azure em VWAN Hub (s).
+Criar uma ligação utilizando o Virtual WAN e implementar firewall Azure em hub(s VWAN).
 
-* [Conexões site a site usando a WAN virtual](virtual-wan-site-to-site-portal.md)
-* [Conexões do ExpressRoute usando a WAN virtual](virtual-wan-expressroute-portal.md)
-* [Gerenciador de firewall do Azure para implantar o FW do Azure no VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Ligações site-to-site usando WAN virtual](virtual-wan-site-to-site-portal.md)
+* [Ligações ExpressRoute usando WAN virtual](virtual-wan-expressroute-portal.md)
+* [Gestor de firewall azure vai implantar Azure FW na VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)

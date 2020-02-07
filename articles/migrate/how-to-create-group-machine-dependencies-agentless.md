@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c8ddd343cd00b24506382521361ebad33ad112a7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288965"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049763"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência sem agente para avaliação
 
@@ -50,11 +50,11 @@ A visualização de dependência sem agente não exige a instalação de agentes
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- Certifique-se de ter [criado](how-to-add-tool-first-time.md) um projeto de migrações para Azure.
+- Certifique-se de [ter criado](how-to-add-tool-first-time.md) um projeto Azure Migrate.
 - Atualmente, a análise de dependência sem agente está disponível apenas para máquinas VMware.
-- Se você já tiver criado um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment.
-- Verifique se você descobriu suas máquinas VMware nas migrações para Azure; Você pode fazer isso Configurando um dispositivo de migrações para Azure para [VMware](how-to-set-up-appliance-vmware.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor. [Saiba mais](migrate-appliance.md).
-- [Examine os requisitos](migrate-support-matrix-vmware.md#agentless-dependency-visualization) para configurar a visualização de dependência sem agente.
+- Se já criou um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta de avaliação do servidor Azure Migrate.
+- Certifique-se de ter descoberto as suas máquinas VMware em Azure Migrate; pode fazê-lo instalando um aparelho Azure Migrate para [VMware](how-to-set-up-appliance-vmware.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor. [Saiba mais](migrate-appliance.md).
+- [Reveja os requisitos](migrate-support-matrix-vmware.md#agentless-dependency-visualization) para a criação de uma visualização de dependência sem agente.
 
 
 
@@ -62,8 +62,8 @@ A visualização de dependência sem agente não exige a instalação de agentes
 
 Configure uma conta de usuário que tenha as permissões necessárias para que a avaliação do servidor possa acessar a VM para descoberta. Você pode especificar uma conta de usuário.
 
-- **Permissão necessária em VMs do Windows**: a conta de usuário requer acesso "convidado".
-- **Permissão necessária em VMs do Linux**: o privilégio raiz é necessário na conta. Como alternativa, a conta de usuário requer esses dois recursos em arquivos/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
+- **Autorização necessária nos VMs do Windows**: A conta de utilizador tem de ser um administrador local ou de domínio.
+- **Autorização necessária sobre Os VMs Linux**: O privilégio de raiz é exigido na conta. Alternadamente, a conta de utilizador requer estas duas capacidades em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Adicionar a conta de usuário ao dispositivo
 
@@ -71,13 +71,13 @@ Você precisa adicionar a conta de usuário ao dispositivo.
 
 Adicione a conta da seguinte maneira:
 
-1. Abra o aplicativo de gerenciamento de dispositivo. Navegue até o painel **fornecer detalhes do vCenter** .
-2. Na seção **descobrir aplicativo e dependências nas VMs** , clique em **Adicionar credenciais**
-3. Escolha o **sistema operacional**.
+1. Abra o aplicativo de gerenciamento de dispositivo. Navegue para o painel de **detalhes Provide vCenter.**
+2. Na **aplicação Discover e dependências na secção VMs,** clique em **Adicionar credenciais**
+3. Escolha o **sistema operativo**.
 4. Forneça um nome amigável para a conta.
-5. Forneça o **nome de usuário** e a **senha**
+5. Fornecer o nome de **utilizador** e **palavra-passe**
 6. Clique em **Guardar**.
-7. Clique em **salvar e iniciar descoberta**.
+7. Clique em **Guardar e começar a descoberta**.
 
     ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
 
@@ -85,10 +85,10 @@ Adicione a conta da seguinte maneira:
 
 Escolha os computadores nos quais você deseja habilitar a descoberta de dependência.
 
-1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
-2. Clique no ícone **análise de dependência** .
+1. Em **Azure Migrate: Avaliação do servidor,** clique em **servidores descobertos**.
+2. Clique no ícone de análise da **Dependência.**
 3. Clique em **adicionar servidores**.
-3. Na página **adicionar servidores** , escolha o dispositivo que está descobrindo os computadores relevantes.
+3. Na página **adicionar servidores,** escolha o aparelho que está a descobrir as máquinas relevantes.
 4. Na lista computador, selecione os computadores.
 5. Clique em **adicionar servidores**.
 
@@ -96,15 +96,15 @@ Escolha os computadores nos quais você deseja habilitar a descoberta de depend�
 
 Você poderá visualizar as dependências 6 horas depois de iniciar a descoberta de dependência.
 
-## <a name="visualize-dependencies"></a>Visualize dependências
+## <a name="visualize-dependencies"></a>Visualizar dependências
 
-1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
+1. Em **Azure Migrate: Avaliação do servidor,** clique em **servidores descobertos**.
 2. Pesquise o computador para o qual você deseja exibir o mapa de dependências.
-3. Clique em **Exibir dependências** na coluna **dependências** .
-4. Altere o período de tempo para o qual você deseja exibir o mapa usando a lista suspensa **duração de tempo** .
-5. Expanda o grupo de **clientes** para listar os computadores que têm uma dependência no computador selecionado.
-6. Expanda o grupo de **portas** para listar os computadores que têm uma dependência do computador selecionado.
-7. Para navegar até o modo de exibição de mapa de qualquer um dos computadores dependentes, clique no nome do computador e, em seguida, clique em **carregar mapa do servidor**
+3. Clique em **ver dependências** na coluna **Dependencies.**
+4. Altere o período de tempo para o qual pretende visualizar o mapa utilizando a descida da duração da **hora.**
+5. Expandir o grupo **Cliente** para listar as máquinas que têm uma dependência da máquina selecionada.
+6. Expanda o grupo **Portuário** para listar as máquinas que têm uma dependência da máquina selecionada.
+7. Para navegar para a vista do mapa de qualquer uma das máquinas dependentes, clique no nome da máquina e, em seguida, clique no mapa do **servidor load**
 
     ![Expandir o grupo de portas do servidor e carregar o mapa do servidor](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
 
@@ -121,14 +121,14 @@ Você poderá visualizar as dependências 6 horas depois de iniciar a descoberta
 
 Escolha os computadores nos quais você deseja parar a descoberta de dependência.
 
-1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
-2. Clique no ícone **análise de dependência** .
-3. Clique em **remover servidores**.
-3. Na página **remover servidores** , escolha o **dispositivo** que está descobrindo as VMs nas quais você procura parar a descoberta de dependência.
+1. Em **Azure Migrate: Avaliação do servidor,** clique em **servidores descobertos**.
+2. Clique no ícone de análise da **Dependência.**
+3. Clique em **Remover servidores**.
+3. Na página **remover servidores,** escolha o **aparelho** que está a descobrir os VMs em que procura impedir a descoberta da dependência.
 4. Na lista computador, selecione os computadores.
-5. Clique em **remover servidores**.
+5. Clique em **Remover servidores**.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Agrupar os computadores](how-to-create-a-group.md)
+[Agrupar as máquinas](how-to-create-a-group.md)

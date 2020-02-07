@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar Proxyclick para aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
-description: Saiba como configurar o Azure Active Directory para aprovisionar e desaprovisionar contas de utilizador para Proxyclick automaticamente.
+title: 'Tutorial: Configure Proxyclick para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo azure para fornecer e desfornecer automaticamente contas de utilizador para proxyclick.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,166 +15,166 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: c1656e6cc0c690e5a2bccfd2efab02aa843875b8
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 95cb0371c4b2181d8f09991fe6e652c0e939f3e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672894"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063361"
 ---
-# <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Tutorial: Configurar Proxyclick para aprovisionamento automático de utilizadores
+# <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Tutorial: Configure Proxyclick para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no Proxyclick e o Azure Active Directory (Azure AD) para configurar o Azure AD automaticamente aprovisionar e desaprovisionar utilizadores e/ou grupos para Proxyclick.
+O objetivo deste tutorial é demonstrar os passos a serem realizados em Proxyclick e Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos para proxyclick.
 
 > [!NOTE]
-> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em pré-visualização pública. Para obter mais informações sobre os Microsoft Azure termos de utilização gerais para funcionalidades de pré-visualização, veja [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial parte do princípio de que já tem os seguintes pré-requisitos:
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* Um inquilino do Azure AD
-* [Um inquilino Proxyclick](https://www.proxyclick.com/pricing)
-* Uma conta de utilizador no Proxyclick com permissões de administrador.
+* Um locatário do Azure AD
+* [Um inquilino proxyclick](https://www.proxyclick.com/pricing)
+* Uma conta de utilizador em Proxyclick com permissões de Administrador.
 
-## <a name="add-proxyclick-from-the-gallery"></a>Adicionar Proxyclick a partir da Galeria
+## <a name="add-proxyclick-from-the-gallery"></a>Adicione Proxyclick da galeria
 
-Antes de configurar Proxyclick para automático de utilizadores de aprovisionamento com o Azure AD, terá de adicionar Proxyclick a partir da Galeria de aplicações do Azure AD à sua lista de aplicações de SaaS geridas.
+Antes de configurar proxyclick para o fornecimento automático de utilizadores com AD Azure, você precisa adicionar Proxyclick da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
 
-**Para adicionar Proxyclick a partir da Galeria de aplicações do Azure AD, execute os seguintes passos:**
+**Para adicionar Proxyclick na galeria de aplicações Azure AD, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Aceda a **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **Proxyclick**, selecione **Proxyclick** no painel de resultados e, em seguida, clique o **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, introduza **Proxyclick**, **selecione Proxyclick** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Proxyclick na lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-proxyclick"></a>Atribuir utilizadores a Proxyclick
 
-O Azure Active Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento automático de utilizadores, apenas a utilizadores e/ou grupos que foram atribuídos a uma aplicação no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e ativar o aprovisionamento de utilizador automático, deve decidir o que os utilizadores e/ou grupos no Azure AD precisam de acesso a Proxyclick. Depois de decidir, pode atribuir estes utilizadores e/ou grupos a Proxyclick ao seguir as instruções aqui:
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em AD Azure que precisam de acesso ao Proxyclick. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos à Proxyclick seguindo as instruções aqui:
 
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-proxyclick"></a>Dicas importantes para atribuir utilizadores a Proxyclick
 
-* Recomenda-se que um único utilizador do Azure AD está atribuído a Proxyclick para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído ao Proxyclick para testar a configuração automática de fornecimento do utilizador. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um utilizador para Proxyclick, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
+* Ao atribuir um utilizador ao Proxyclick, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="configuring-automatic-user-provisioning-to-proxyclick"></a>Configurar o aprovisionamento automático de utilizadores para Proxyclick 
+## <a name="configuring-automatic-user-provisioning-to-proxyclick"></a>Configurar o fornecimento automático de utilizadores a Proxyclick 
 
-Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de aprovisionamento para criar, atualizar e desativar os utilizadores e/ou grupos no Proxyclick com base em atribuições de utilizador e/ou grupo no Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Proxyclick com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar baseado em SAML início de sessão único para Proxyclick, seguindo as instruções fornecidas no [Proxyclick único início de sessão tutorial](proxyclick-tutorial.md). Início de sessão único a pode ser configurada independentemente de aprovisionamento automático de utilizadores, embora esses dois recursos complementar entre si.
+> Também pode optar por ativar um único sinal baseado em SAML para Proxyclick, seguindo as instruções fornecidas no [tutorial de inscrição única proxyclick](proxyclick-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
-### <a name="to-configure-automatic-user-provisioning-for-proxyclick-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores para Proxyclick no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-proxyclick-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para Proxyclick em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações empresariais**, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Proxyclick**.
 
-    ![A ligação de Proxyclick na lista de aplicações](common/all-applications.png)
+    ![O link Proxyclick na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o **aprovisionamento** separador.
+3. Selecione o separador **Provisioning.**
 
-    ![Guia de aprovisionamento](common/provisioning.png)
+    ![Guia provisionamento](common/provisioning.png)
 
-4. Definir o **modo de aprovisionamento** ao **automática**.
+4. Detete o **modo de provisionamento** para **automático**.
 
-    ![Guia de aprovisionamento](common/provisioning-automatic.png)
+    ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Para obter o **URL de inquilino** e **segredo de Token** da sua conta de Proxyclick, siga o passo a passo, conforme descrito no passo 6.
+5. Para recuperar o URL do **Inquilino** e o **Token Secreto** da sua conta Proxyclick, siga o passo como descrito no Passo 6.
 
-6. Inicie sessão no seu [consola de administração de Proxyclick](https://app.proxyclick.com/login//?destination=%2Fdefault). Navegue para **configurações** > **integrações** > **procurar Marketplace**.
+6. Inscreva-se na consola [Proxyclick Admin](https://app.proxyclick.com/login//?destination=%2Fdefault). Navegue para **Definições** > **Integrações** > **Navegar no Mercado**.
 
-    ![Definições de Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick09.png)
+    ![Definições proxyclick](media/proxyclick-provisioning-tutorial/proxyclick09.png)
 
-    ![Integrações de Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick01.png)
+    ![Integrações proxyclick](media/proxyclick-provisioning-tutorial/proxyclick01.png)
 
-    ![Proxyclick Marketplace](media/proxyclick-provisioning-tutorial/proxyclick02.png)
+    ![Mercado Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick02.png)
 
-    Selecione **do Azure AD**. Clique em **instalar agora**.
+    Selecione **Azure AD**. Clique em **Instalar agora**.
 
-    ![Proxyclick do Azure AD](media/proxyclick-provisioning-tutorial/proxyclick03.png)
+    ![Proxyclick Azure AD](media/proxyclick-provisioning-tutorial/proxyclick03.png)
 
-    ![Instalação de Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick04.png)
+    ![Instalação proxyclick](media/proxyclick-provisioning-tutorial/proxyclick04.png)
 
-    Selecione **aprovisionamento de utilizadores** e clique em **iniciar integração**. 
+    Selecione **fornecimento de utilizador** e clique em iniciar a **integração**. 
 
-    ![Aprovisionamento de utilizadores de Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick05.png)
+    ![Proxyclick Fornecimento de Utilizador](media/proxyclick-provisioning-tutorial/proxyclick05.png)
 
-    A configuração de definições apropriada IU deve agora apresentados no **configurações** > **integrações**. Selecione **configurações** sob **(aprovisionamento de utilizador) do Azure AD**.
+    A Configuração UI de configuração adequada deve agora aparecer em **Definições** > **Integrações**. Selecione **Definições** em **Azure AD (Fornecimento de Utilizador)** .
 
-    ![Criar Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick06.png)
+    ![Proxyclick Criar](media/proxyclick-provisioning-tutorial/proxyclick06.png)
 
-    Pode encontrar os **URL de inquilino** e **segredo de Token** aqui.
+    Você pode encontrar o URL do **Inquilino** e **O Token Secreto** aqui.
 
-    ![Proxyclick criar Token](media/proxyclick-provisioning-tutorial/proxyclick07.png)
+    ![Proxyclick Criar Token](media/proxyclick-provisioning-tutorial/proxyclick07.png)
 
-7. Após preencher os campos mostrados no passo 5, clique em **Testar ligação** para garantir que o Azure AD pode ligar-se Proxyclick. Se a ligação falhar, certifique-se de que a conta de Proxyclick tem permissões de administrador e tente novamente.
+7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se a Proxyclick. Se a ligação falhar, certifique-se de que a sua conta Proxyclick tem permissões de Administrador e tente novamente.
 
     ![Certificado de](common/provisioning-testconnection-tenanturltoken.png)
 
-8. Na **notificação por E-Mail** campo, introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação - **enviar uma notificação por e-mail quando uma falha ocorre**.
+8. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
-    ![E-Mail de notificação](common/provisioning-notification-email.png)
+    ![Email de notificação](common/provisioning-notification-email.png)
 
 9. Clique em **Guardar**.
 
-10. Sob o **mapeamentos** secção, selecione **sincronizar utilizadores do Azure Active Directory para Proxyclick**.
+10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Proxyclick**.
 
-    ![Mapeamentos de utilizador de Proxyclick](media/proxyclick-provisioning-tutorial/Proxyclick-user-mappings.png)
+    ![Proxyclick Mappings de utilizador](media/proxyclick-provisioning-tutorial/Proxyclick-user-mappings.png)
 
-11. Reveja os atributos de utilizador que são sincronizados a partir do Azure AD para Proxyclick no **mapeamento do atributo** secção. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no Proxyclick para operações de atualização. Selecione o **guardar** botão para consolidar as alterações.
+11. Reveja os atributos do utilizador que são sincronizados de Azure AD para Proxyclick na secção de Mapeamento do **Atributo.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Proxyclick para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Atributos de utilizador Proxyclick](media/proxyclick-provisioning-tutorial/Proxyclick-user-attribute.png)
+    ![Proxyclick Atributos de utilizador](media/proxyclick-provisioning-tutorial/Proxyclick-user-attribute.png)
 
-13. Para configurar filtros de âmbito, consulte as seguintes instruções fornecidas a [tutorial de filtro de Scoping](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Para ativar o Azure AD para Proxyclick do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção.
+14. Para ativar o serviço de provisionamento de AD Azure para Proxyclick, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
-    ![Estado de aprovisionamento ativado](common/provisioning-toggle-on.png)
+    ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
 
-15. Definir a utilizadores e/ou grupos que deseja fazer o aprovisionamento Proxyclick escolhendo os valores pretendidos na **âmbito** no **definições** secção.
+15. Defina os utilizadores e/ou grupos que deseja fornecer ao Proxyclick, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Âmbito de aprovisionamento](common/provisioning-scope.png)
+    ![Escopo de provisionamento](common/provisioning-scope.png)
 
-16. Quando estiver pronto para aprovisionar, clique em **guardar**.
+16. Quando estiver pronto para fornecer, clique em **Guardar**.
 
-    ![A guardar a configuração de aprovisionamento](common/provisioning-configuration-save.png)
+    ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **âmbito** no **definições** secção. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do AD do Azure está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para o relatório de atividade, que descreve todas as ações executadas pelo Azure AD no Proxyclick do serviço de aprovisionamento de aprovisionamento.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividadede provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure no Proxyclick.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
-## <a name="connector-limitations"></a>Limitações de conector
+## <a name="connector-limitations"></a>Limitações do conector
 
-* Requer Proxyclick **e-mails** e **userName** para ter o mesmo valor de origem. Todas as atualizações para qualquer um dos atributos irão modificar o outro valor.
-* Proxyclick não suporta o aprovisionamento de grupos.
+* Proxyclick requer **que os e-mails** e **o userName** tenham o mesmo valor de origem. Quaisquer atualizações de qualquer atributo modificarão o outro valor.
+* Proxyclick não suporta o provisionamento para grupos.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

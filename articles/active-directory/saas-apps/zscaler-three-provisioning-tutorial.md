@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o Zscaler três para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Neste tutorial, você aprenderá a configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para Zscaler três.
+title: 'Tutorial: Configure Zscaler Três para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Neste tutorial, você aprenderá a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizador para Zscaler Três.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,150 +15,150 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 43ae028e57578634c34c69357a264fdb180b8a1f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 177bc34162c2b5e4dadc54e1166c5f6061068bae
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515367"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064109"
 ---
-# <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zscaler três para o provisionamento automático de usuário
+# <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Tutorial: Configure Zscaler Três para fornecimento automático de utilizadores
 
-Neste tutorial, você aprenderá a configurar o Azure Active Directory (Azure AD) para provisionar e desprovisionar automaticamente usuários e/ou grupos para Zscaler três.
+Neste tutorial, você aprenderá a configurar o Azure Ative Directory (Azure AD) para fornecer e desfornecer automaticamente utilizadores e/ou grupos para Zscaler Três.
 
 > [!NOTE]
-> Este tutorial descreve um conector que é criado no serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz e como ele funciona, e as respostas para perguntas frequentes, consulte automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> Este tutorial descreve um conector que é construído no serviço de fornecimento de utilizadores da AD Azure. Para detalhes importantes sobre o que este serviço faz e como funciona, e respostas a perguntas frequentes, consulte o fornecimento e o [deprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../active-directory-saas-app-provisioning.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas descritas neste tutorial, você precisará do seguinte:
+Para completar os passos descritos neste tutorial, precisa do seguinte:
 
 * Um inquilino do Azure AD.
-* Um locatário Zscaler três.
-* Uma conta de usuário no Zscaler três com permissões de administrador.
+* Um inquilino Zscaler Three.
+* Uma conta de utilizador em Zscaler 3 com permissões de administração.
 
 > [!NOTE]
-> A integração de provisionamento do Azure AD depende da API Zscaler ZSCloud SCIM, que está disponível para contas corporativas.
+> A integração de provisionamento de AD Azure baseia-se na Zscaler ZSCloud SCIM API, que está disponível para contas da Enterprise.
 
-## <a name="adding-zscaler-three-from-the-gallery"></a>Adicionando Zscaler três da Galeria
+## <a name="adding-zscaler-three-from-the-gallery"></a>Adicionando Zscaler Três da galeria
 
-Antes de configurar o Zscaler três para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o Zscaler três da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar o Zscaler Three para o fornecimento automático de utilizadores com a AD Azure, é necessário adicionar zscaler Three da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
 
-No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
+No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory:**
 
 ![Selecione Azure Active Directory](common/select-azuread.png)
 
-Vá para **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**:
+Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações:**
 
 ![Aplicações empresariais](common/enterprise-applications.png)
 
-Para adicionar um aplicativo, selecione **novo aplicativo** na parte superior da janela:
+Para adicionar uma aplicação, selecione **Nova aplicação** na parte superior da janela:
 
-![Selecionar novo aplicativo](common/add-new-app.png)
+![Selecione Nova aplicação](common/add-new-app.png)
 
-Na caixa de pesquisa, digite **Zscaler três**. Selecione **Zscaler três** nos resultados e, em seguida, selecione **Adicionar**.
+Na caixa de pesquisa, introduza **o Zscaler 3**. **Selecione Zscaler Three** nos resultados e, em seguida, selecione **Adicionar**.
 
 ![Lista de resultados](common/search-new-app.png)
 
-## <a name="assign-users-to-zscaler-three"></a>Atribuir usuários ao Zscaler três
+## <a name="assign-users-to-zscaler-three"></a>Atribuir utilizadores ao Zscaler Three
 
-Os usuários do Azure AD precisam receber acesso aos aplicativos selecionados antes de poderem usá-los. No contexto do provisionamento automático de usuário, somente os usuários ou grupos atribuídos a um aplicativo no Azure AD são sincronizados.
+Os utilizadores de Anúncios Azure precisam de ter acesso a aplicações selecionadas antes de poderem utilizá-las. No contexto do fornecimento automático de utilizadores, apenas os utilizadores ou grupos que são atribuídos a uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso a Zscaler três. Depois de decidir isso, você pode atribuir esses usuários e grupos ao Zscaler três seguindo as instruções em [atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Zscaler Three. Depois de decidir isso, pode atribuir estes utilizadores e grupos ao Zscaler Three seguindo as instruções em [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
-### <a name="important-tips-for-assigning-users-to-zscaler-three"></a>Dicas importantes para atribuir usuários ao Zscaler três
+### <a name="important-tips-for-assigning-users-to-zscaler-three"></a>Dicas importantes para atribuir utilizadores ao Zscaler Three
 
-* Recomendamos que você primeiro atribua um único usuário do Azure AD a Zscaler três para testar a configuração automática de provisionamento de usuário. Você pode atribuir mais usuários e grupos mais tarde.
+* Recomendamos que atribua primeiro um único utilizador da AD Azure ao Zscaler Three para testar a configuração automática de fornecimento do utilizador. Mais tarde pode atribuir mais utilizadores e grupos.
 
-* Ao atribuir um usuário ao Zscaler três, você precisa selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um utilizador ao Zscaler Three, tem de selecionar qualquer função específica de aplicação válida (se disponível) na caixa de diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="set-up-automatic-user-provisioning"></a>Configurar o provisionamento automático de usuário
+## <a name="set-up-automatic-user-provisioning"></a>Configurar o fornecimento automático de utilizadores
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e grupos no Zscaler três com base em atribuições de usuário e de grupo no Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e grupos em Zscaler Three com base em atribuições de utilizador e grupo em Azure AD.
 
 > [!TIP]
-> Talvez você também queira habilitar o logon único baseado em SAML para Zscaler três. Se você fizer isso, siga as instruções no [tutorial de logon único do Zscaler 3](zscaler-three-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, mas os dois recursos se complementam.
+> Também pode querer ativar um único sinal baseado em SAML para zscaler 3. Se o fizer, siga as instruções no [tutorial de inscrição individual Zscaler Three](zscaler-three-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático do utilizador, mas as duas funcionalidades complementam-se mutuamente.
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione **aplicativos** > empresariais**todos os aplicativos** > **Zscaler três**:
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **aplicações da Enterprise** > Todas as **aplicações** > **Zscaler Three**:
 
     ![Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Zscaler três**:
+2. Na lista de candidaturas, **selecione Zscaler Três:**
 
-    ![Lista de aplicativos](common/all-applications.png)
+    ![Lista de candidaturas](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** :
+3. Selecione o separador **Provisioning:**
 
-    ![Zscaler três provisionamento](./media/zscaler-three-provisioning-tutorial/provisioning-tab.png)
+    ![Fornecimento Zscaler Três](./media/zscaler-three-provisioning-tutorial/provisioning-tab.png)
 
-4. Defina o **modo de provisionamento** como **automático**:
+4. Desloque o modo de **provisionamento** para **automático:**
 
     ![Definir o modo de provisionamento](./media/zscaler-three-provisioning-tutorial/provisioning-credentials.png)
 
-5. Na seção **credenciais de administrador** , insira a **URL do locatário** e o **token secreto** de sua conta do Zscaler três, conforme descrito na próxima etapa.
+5. Na secção **de Credenciais de Administrador,** insira o **URL** do Inquilino e o **Token Secreto** da sua conta Zscaler Three, conforme descrito no passo seguinte.
 
-6. Para obter a **URL do locatário** e o **token secreto**, acesse **Administração** > **configurações de autenticação** no portal do Zscaler três e selecione **SAML** em **tipo de autenticação**:
+6. Para obter o **URL** do Inquilino e **Token Secreto,** vá à **Administração** > Definições de **Autenticação** no portal Zscaler Three e selecione **SAML** sob o tipo de **autenticação:**
 
-    ![Zscaler três configurações de autenticação](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
+    ![Zscaler Três Definições de Autenticação](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 
-    Selecione **Configurar SAML** para abrir a janela **Configurar SAML** :
+    **Selecione Configure SAML** para abrir a janela **SAML configurar:**
 
-    ![Configurar janela SAML](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
+    ![Configurar a janela SAML](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
 
-    Selecione **habilitar provisionamento baseado em scim** e copie a **URL base** e o **token**de portador e salve as configurações. No portal do Azure, Cole a **URL base** na caixa **URL do locatário** e o token de **portador** na caixa **token secreto** .
+    **Selecione ativar o fornecimento baseado no SCIM** e copie o **URL base** e **o token**do portador e, em seguida, guarde as definições. No portal Azure, colhe o **URL base** na caixa **URL** do Inquilino e o Token do Portador na caixa **Secreta Token.**
 
-7. Depois de inserir os valores nas caixas **URL do locatário** e **token secreto** , selecione **testar conexão** para verificar se o Azure AD pode se conectar ao Zscaler três. Se a conexão falhar, verifique se sua conta do Zscaler três tem permissões de administrador e tente novamente.
+7. Depois de introduzir os valores nas **caixas DEURL** do Inquilino e **secretas,** selecione **Test Connection** para se certificar de que o Azure AD pode ligar-se ao Zscaler 3. Se a ligação falhar, certifique-se de que a sua conta Zscaler Three tem permissões de administração e tente novamente.
 
     ![Testar a ligação](./media/zscaler-three-provisioning-tutorial/test-connection.png)
 
-8. Na caixa **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento. Selecione **Enviar uma notificação por email quando ocorrer uma falha**:
+8. Na caixa de **e-mail de notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento. Selecione Enviar uma notificação por **e-mail quando ocorrer uma falha:**
 
-    ![Configurar email de notificação](./media/zscaler-three-provisioning-tutorial/notification.png)
+    ![Configurar e-mail de notificação](./media/zscaler-three-provisioning-tutorial/notification.png)
 
 9. Selecione **Guardar**.
 
-10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para ZscalerThree**:
+10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to ZscalerThree**:
 
-    ![Sincronizar usuários do Azure AD](./media/zscaler-three-provisioning-tutorial/user-mappings.png)
+    ![Utilizadores de Anúncios Azure Sincronizados](./media/zscaler-three-provisioning-tutorial/user-mappings.png)
 
-11. Examine os atributos de usuário que são sincronizados do Azure AD para Zscaler três na seção mapeamentos de **atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Zscaler três para operações de atualização. Selecione **salvar** para confirmar as alterações.
+11. Reveja os atributos do utilizador que são sincronizados de Azure AD para Zscaler Three na secção **DeMapeamentos de Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Zscaler Three para operações de atualização. Selecione **Guardar** para cometer quaisquer alterações.
 
-    ![Mapeamentos de Atributos](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
+    ![Mapeamentos de atributos](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
 
-12. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para ZscalerThree**:
+12. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to ZscalerThree**:
 
-    ![Sincronizar grupos do Azure AD](./media/zscaler-three-provisioning-tutorial/group-mappings.png)
+    ![Synchronize Grupos AD Azure](./media/zscaler-three-provisioning-tutorial/group-mappings.png)
 
-13. Examine os atributos de grupo que são sincronizados do Azure AD para Zscaler três na seção mapeamentos de **atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no Zscaler três para operações de atualização. Selecione **salvar** para confirmar as alterações.
+13. Reveja os atributos do grupo que são sincronizados de Azure AD para Zscaler Three na secção **DeMapeamentos de Atributos.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar os grupos em Zscaler Three para operações de atualização. Selecione **Guardar** para cometer quaisquer alterações.
 
-    ![Mapeamentos de Atributos](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
+    ![Mapeamentos de atributos](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
-14. Para configurar filtros de escopo, consulte as instruções no [tutorial filtro de escopo](./../active-directory-saas-scoping-filters.md).
+14. Para configurar filtros de deteção, consulte as instruções do tutorial do [filtro Descodificação](./../active-directory-saas-scoping-filters.md).
 
-15. Para habilitar o serviço de provisionamento do Azure AD para o Zscaler três, altere o **status de provisionamento** para **ativado** na seção **configurações** :
+15. Para ativar o serviço de provisionamento AD Azure para zscaler 3, altere o Estado de **Provisionamento** para **On** na secção **Definições:**
 
-    ![Estado do Aprovisionamento](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
+    ![Estado de Aprovisionamento](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
 
-16. Defina os usuários e/ou grupos que você deseja provisionar para Zscaler três escolhendo os valores desejados em **escopo** na seção **configurações** :
+16. Defina os utilizadores e/ou grupos que pretende fornecer ao Zscaler Three, escolhendo os valores que pretende no âmbito do **Âmbito** na secção **Definições:**
 
     ![Valores de escopo](./media/zscaler-three-provisioning-tutorial/scoping.png)
 
-17. Quando estiver pronto para provisionar, selecione **salvar**:
+17. Quando estiver pronto para fornecer, selecione **Guardar:**
 
-    ![Selecione salvar](./media/zscaler-three-provisioning-tutorial/save-provisioning.png)
+    ![Selecione Guardar](./media/zscaler-three-provisioning-tutorial/save-provisioning.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e grupos definidos em **escopo** na seção **configurações** . A sincronização inicial demora mais do que as sincronizações subsequentes, que ocorrem a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode monitorar o progresso na seção **detalhes de sincronização** . Você também pode seguir links para um relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Zscaler três.
+Esta operação inicia a sincronização inicial de todos os utilizadores e grupos definidos no âmbito do **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo do que as sincronizações subsequentes, que ocorrem a cada 40 minutos, desde que o serviço de provisionamento DaD Azure esteja em funcionamento. Pode monitorizar o progresso na secção Detalhes de **Sincronização.** Também pode seguir ligações a um relatório de atividade de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento da AD Azure no Zscaler Three.
 
-Para obter informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../active-directory-saas-provisioning-reporting.md).
+Para obter informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático de conta](../active-directory-saas-provisioning-reporting.md)de utilizador .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-three-provisioning-tutorial/tutorial-general-01.png

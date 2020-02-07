@@ -1,40 +1,40 @@
 ---
-title: Transformação coluna derivada no fluxo de dados de mapeamento
-description: Saiba como transformar dados em escala em Azure Data Factory com a transformação coluna derivada de fluxo de dados de mapeamento.
+title: Transformação de coluna derivada no fluxo de dados de mapeamento
+description: Aprenda a transformar dados à escala na Azure Data Factory com o fluxo de dados de mapeamento Transformação de Coluna derivada.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: c2d4c9b089a6673a5cff716d2901cc2b9483ede1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 66396de52b3709c1d9357f32a375a29a8dcdbd1d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972256"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048740"
 ---
-# <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformação coluna derivada no fluxo de dados de mapeamento
+# <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformação de coluna derivada no fluxo de dados de mapeamento
 
-Use a transformação coluna derivada para gerar novas colunas no fluxo de dados ou para modificar os campos existentes.
+Utilize a transformação da coluna derivada para gerar novas colunas no fluxo de dados ou para modificar os campos existentes.
 
-## <a name="derived-column-settings"></a>Configurações de coluna derivadas
+## <a name="derived-column-settings"></a>Definições de colunaderivadas
 
-Para substituir uma coluna existente, selecione-a por meio da lista suspensa coluna. Caso contrário, use o campo seleção de coluna como uma caixa de texto e digite o nome da nova coluna. Para criar a expressão da coluna derivada, clique na caixa ' Inserir expressão ' para abrir o construtor de [expressões de fluxo de dados](concepts-data-flow-expression-builder.md).
+Para sobrepor uma coluna existente, selecione-a através da queda da coluna. Caso contrário, utilize o campo de seleção da coluna como caixa de texto e escreva o nome da nova coluna. Para construir a expressão da coluna derivada, clique na caixa 'Enter expression' para abrir o Builder de Expressão de Fluxo de [Dados](concepts-data-flow-expression-builder.md).
 
-![Configurações de coluna derivadas](media/data-flow/dc1.png "Configurações de coluna derivadas")
+![Definições de colunaderivadas](media/data-flow/dc1.png "Definições de colunaderivadas")
 
-Para adicionar mais colunas derivadas, passe o mouse sobre uma coluna derivada existente e clique no ícone de adição. Escolha o padrão **adicionar coluna** ou **adicionar coluna**. Padrões de coluna poderão ser úteis se os nomes de coluna forem variáveis de suas fontes. Para obter mais informações, consulte [padrões de coluna](concepts-data-flow-column-pattern.md).
+Para adicionar colunas derivadas adicionais, paire sobre uma coluna derivada existente e clique no ícone plus. Escolha adicionar **coluna** ou **adicionar padrão**de coluna . Os padrões das colunas podem ser úteis se os nomes das colunas forem variáveis a partir das suas fontes. Para mais informações, consulte Os [Padrões](concepts-data-flow-column-pattern.md)da Coluna .
 
-![Nova seleção de coluna derivada](media/data-flow/columnpattern.png "Nova seleção de coluna derivada")
+![Nova seleção de colunas derivadas](media/data-flow/columnpattern.png "Nova seleção de colunas derivadas")
 
-## <a name="build-schemas-in-output-schema-pane"></a>Criar esquemas no painel de esquema de saída
+## <a name="build-schemas-in-output-schema-pane"></a>Construa esquemia no painel de Schema de saída
 
-As colunas que você está modificando e adicionando ao seu esquema são listadas no painel esquema de saída,. Você pode criar interativamente estruturas de dados simples e complexas aqui. Para adicionar outros campos, selecione **adicionar coluna**. Para criar hierarquias, selecione **Adicionar subcoluna**.
+As colunas que está a modificar e a adicionar ao seu esquema estão listadas no painel De saída schema,. Pode construir estruturas de dados simples e complexas aqui. Para adicionar campos adicionais, selecione **Adicionar coluna**. Para construir hierarquias, selecione **Adicionar subcoluna**.
 
-![Adicionar subcoluna](media/data-flow/addsubcolumn.png "Adicionar subcoluna")
+![Adicionar subcoluna](media/data-flow/addsubcolumn.png "Adicionar Subcoluna")
 
-Para obter mais informações sobre como lidar com tipos complexos no fluxo de dados, consulte [manipulação de JSON no fluxo de dados de mapeamento](concepts-data-flow-json.md)
+Para obter mais informações sobre o manuseamento de tipos complexos no fluxo de dados, consulte o [manuseamento da JSON no fluxo](format-json.md#mapping-data-flow-properties)de dados de mapeamento .
 
 ![Adicionar coluna complexa](media/data-flow/complexcolumn.png "Adicionar colunas")
 
@@ -57,11 +57,11 @@ Para obter mais informações sobre como lidar com tipos complexos no fluxo de d
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma coluna derivada chamada `CleanData` que usa um fluxo de entrada `MoviesYear` e cria duas colunas derivadas. A primeira coluna derivada substitui a coluna `Rating` com o valor da classificação como um tipo inteiro. A segunda coluna derivada é um padrão que corresponde a cada coluna cujo nome começa com ' filmes '. Para cada coluna correspondente, ele cria uma coluna `movie` que é igual ao valor da coluna correspondente prefixada com ' movie_ '. 
+O exemplo abaixo é uma coluna derivada chamada `CleanData` que leva um fluxo de entrada `MoviesYear` e cria duas colunas derivadas. A primeira coluna derivada substitui a coluna `Rating` pelo valor do Rating como um tipo inteiro. A segunda coluna derivada é um padrão que combina com cada coluna cujo nome começa com 'filmes'. Para cada coluna compatível, cria uma coluna `movie` igual ao valor da coluna correspondida pré-fixada com 'movie_'. 
 
 No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 
-![Obter exemplo](media/data-flow/derive-script1.png "Obter exemplo")
+![Exemplo de derivar](media/data-flow/derive-script1.png "Exemplo de derivar")
 
 O script de fluxo de dados para essa transformação está no trecho de código abaixo:
 
@@ -77,4 +77,4 @@ MoviesYear derive(
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a [linguagem de expressão de fluxo de dados de mapeamento](data-flow-expression-functions.md).
+- Saiba mais sobre a linguagem de expressão de fluxo de [dados de mapeamento.](data-flow-expression-functions.md)

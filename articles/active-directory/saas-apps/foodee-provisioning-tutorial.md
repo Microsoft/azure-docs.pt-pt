@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o alimento para o provisionamento automático de usuário usando Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o alimento.
+title: 'Tutorial: Configure Foodee para fornecimento automático de utilizadores utilizando o Diretório Ativo Azure  ) Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizadores à Foodee.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,164 +15,164 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 97ecf3ea324f43753030f415c8a5e254b87595e5
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170077"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057831"
 ---
-# <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: configurar o alimento para provisionamento automático de usuário
+# <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: Configure Foodee para fornecimento automático de utilizadores
 
-Este artigo mostra como configurar o Azure Active Directory (Azure AD) no alimento e no Azure AD para provisionar ou desprovisionar automaticamente usuários ou grupos para o alimento.
+Este artigo mostra-lhe como configurar o Azure Ative Directory (Azure AD) em Foodee e Azure AD para fornecer ou desfornecer automaticamente utilizadores ou grupos à Foodee.
 
 > [!NOTE]
-> O artigo descreve um conector que é criado sobre o serviço de provisionamento de usuário do Azure AD. Para saber o que esse serviço faz e como ele funciona e obter respostas para perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+> O artigo descreve um conector que é construído em cima do serviço de fornecimento de utilizadores da AD Azure. Para saber o que este serviço faz e como funciona, e para obter respostas a perguntas frequentes, consulte o fornecimento e o desprovisionamento de utilizadores [da Automatização para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em visualização. Para obter mais informações sobre o recurso de termos de uso do Azure para recursos de visualização, vá para [termos de uso complementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector está atualmente em pré-visualização. Para obter mais informações sobre a funcionalidade de utilização do Azure para funcionalidades de pré-visualização, vá a [Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial pressupõe que você atende aos seguintes pré-requisitos:
+Este tutorial assume que cumpriu os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um locatário do alimento](https://www.food.ee/about/)
-* Uma conta de usuário no alimento com permissões de administrador
+* [Um inquilino da Foodee](https://www.food.ee/about/)
+* Uma conta de utilizador em Foodee com permissões de Administrador
 
-## <a name="assign-users-to-foodee"></a>Atribuir usuários ao alimento 
+## <a name="assign-users-to-foodee"></a>Atribuir utilizadores ao Foodee 
 
-O Azure AD usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+A Azure AD utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários ou grupos no Azure AD precisam de acesso ao alimento. Depois de fazer essa determinação, você pode atribuir esses usuários ou grupos ao alimento seguindo as instruções em [atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md).
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores ou grupos da AD Azure que precisam de acesso ao Foodee. Depois de ter feito esta determinação, pode atribuir estes utilizadores ou grupos à Foodee seguindo as instruções em [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md).
 
-## <a name="important-tips-for-assigning-users-to-foodee"></a>Dicas importantes para atribuir usuários ao alimento 
+## <a name="important-tips-for-assigning-users-to-foodee"></a>Dicas importantes para atribuir utilizadores à Foodee 
 
-Quando você estiver atribuindo usuários, tenha em mente as seguintes dicas:
+Ao atribuir os utilizadores, tenha em mente as seguintes dicas:
 
-* Recomendamos que você atribua apenas um único usuário do Azure AD ao alimento para testar a configuração do provisionamento automático de usuário. Você pode atribuir usuários ou grupos adicionais mais tarde.
+* Recomendamos que atribua apenas um único utilizador da AD Azure à Foodee para testar a configuração do fornecimento automático de utilizadores. Mais tarde, pode atribuir utilizadores ou grupos adicionais.
 
-* Quando você estiver atribuindo um usuário ao alimento, selecione qualquer função específica do aplicativo válida, se estiver disponível, no painel de **atribuição** . Os usuários que têm a função de *acesso padrão* são excluídos do provisionamento.
+* Quando estiver a atribuir um utilizador ao Foodee, selecione qualquer função específica de aplicação válida, se estiver disponível, no painel **de Atribuição.** Os utilizadores que tenham a função *de Acesso Predefinido* estão excluídos do fornecimento.
 
-## <a name="set-up-foodee-for-provisioning"></a>Configurar o alimento para provisionamento
+## <a name="set-up-foodee-for-provisioning"></a>Configurar foodee para o fornecimento
 
-Antes de configurar o alimento para o provisionamento automático de usuário usando o AD do Azure, você precisa habilitar o sistema de provisionamento do SCIM (gerenciamento de identidade entre domínios) no alimento.
+Antes de configurar o Foodee para o fornecimento automático de utilizadores utilizando o Azure AD, é necessário ativar o fornecimento de Sistema de Gestão de Identidade de Domínio Transversal (SCIM) no Foodee.
 
-1. Entre no [alimento](https://www.food.ee/login/)e selecione sua ID de locatário.
+1. Inscreva-se na [Foodee](https://www.food.ee/login/)e, em seguida, selecione o seu ID de inquilino.
 
     ![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
 
-1. Em **Enterprise Portal**, selecione **logon único**.
+1. No **portal Enterprise,** selecione **Single Sign On**.
 
-    ![O Enterprise Portal menu do painel esquerdo](media/Foodee-provisioning-tutorial/scim.png)
+    ![O menu foodee enterprise portal left-pane](media/Foodee-provisioning-tutorial/scim.png)
 
-1. Copie o valor na caixa **token de API** para uso posterior. Você vai inseri-lo na caixa **token secreto** na guia **provisionamento** do aplicativo do alimento na portal do Azure.
+1. Copie o valor na caixa **Token DaPi** para posterior utilização. Você vai inseri-lo na caixa **Token Secreta** no separador **de provisionamento** da sua aplicação Foodee no portal Azure.
 
     ![Foodee](media/Foodee-provisioning-tutorial/token.png)
 
-## <a name="add-foodee-from-the-gallery"></a>Adicionar o alimento da Galeria
+## <a name="add-foodee-from-the-gallery"></a>Adicione Foodee da galeria
 
-Para configurar o alimento para o provisionamento automático de usuário usando o Azure AD, você precisará adicionar o alimento da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Para configurar o Foodee para o fornecimento automático de utilizadores utilizando o Azure AD, é necessário adicionar foodee da galeria de aplicações Azure AD à sua lista de aplicações saaS geridas.
 
-Para adicionar o alimento da Galeria de aplicativos do Azure AD, faça o seguinte:
+Para adicionar Foodee da galeria de aplicações Azure AD, faça o seguinte:
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
+1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory**.
 
-    ![O comando Azure Active Directory](common/select-azuread.png)
+    ![O comando azure ative diretório](common/select-azuread.png)
 
-1. Selecione **aplicativos empresariais** > **todos os aplicativos**.
+1. Selecione **aplicações da Enterprise** > **todas as aplicações**.
 
-    ![O painel aplicativos empresariais](common/enterprise-applications.png)
+    ![O painel de aplicações da Enterprise](common/enterprise-applications.png)
 
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo** na parte superior do painel.
+1. Para adicionar uma nova aplicação, selecione **Nova aplicação** na parte superior do painel.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-1. Na caixa de pesquisa, insira **alimento**, selecione **alimento** no painel de resultados e, em seguida, selecione **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, introduza **Foodee,** selecione **Foodee** no painel de resultados e, em seguida, selecione **Adicionar** para adicionar a aplicação.
 
-    ![Comida na lista de resultados](common/search-new-app.png)
+    ![Foodee na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-automatic-user-provisioning-to-foodee"></a>Configurar o provisionamento automático de usuário para o alimento 
+## <a name="configure-automatic-user-provisioning-to-foodee"></a>Configure o fornecimento automático de utilizadores ao Foodee 
 
-Nesta seção, você configura o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários ou grupos no alimento com base em atribuições de usuário ou de grupo no Azure AD.
+Nesta secção, configura o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores ou grupos em Foodee com base em atribuições de utilizador ou grupo em Azure AD.
 
 > [!TIP]
-> Você também pode habilitar o logon único baseado em SAML para o alimento seguindo as instruções no [tutorial de logon único do alimento](Foodee-tutorial.md). Você pode configurar o logon único independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+> Também pode ativar um único sinal baseado em SAML para a Foodee seguindo as instruções no tutorial de [inscrição individual foodee](Foodee-tutorial.md). Pode configurar um único sinal independente do fornecimento automático de utilizadores, embora estas duas funcionalidades se complementem.
 
-Configure o provisionamento automático de usuário para o alimento no Azure AD fazendo o seguinte:
+Configure o fornecimento automático de utilizadores para Foodee em Azure AD fazendo o seguinte:
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **aplicativos empresariais** > **todos os aplicativos**.
+1. No [portal Azure,](https://portal.azure.com)selecione **Aplicações Empresariais** > **Todas as aplicações.**
 
-    ![Painel aplicativos empresariais](common/enterprise-applications.png)
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-1. Na lista de **aplicativos** , selecione **alimento**.
+1. Na lista de **Aplicações,** selecione **Foodee**.
 
-    ![O link do alimento na lista de aplicativos](common/all-applications.png)
+    ![O link Foodee na lista de aplicações](common/all-applications.png)
 
-1. Selecione a guia **provisionamento** .
+1. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-1. Na lista suspensa **modo de provisionamento** , selecione **automático**.
+1. Na lista de desistência do **Modo de Provisionamento,** selecione **Automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-1. Em **credenciais de administrador**, faça o seguinte:
+1. Sob **as credenciais de administrador,** faça o seguinte:
 
-   a. Na caixa **URL do locatário** , insira o valor **https: \//concierge. food. ee/scim/v2** que você recuperou anteriormente.
+   a. Na caixa URL do **Arrendatário,** introduza o **valor https:\//concierge.food.ee/scim/v2** valor que recuperou anteriormente.
 
-   b. Na caixa **token secreto** , insira o valor do **token de API** que você recuperou anteriormente.
+   b. Na caixa **Secreta Token,** insira o valor **da API Token** que recuperou anteriormente.
    
-   c. Para garantir que o Azure AD possa se conectar ao alimento, selecione **testar conexão**. Se a conexão falhar, verifique se sua conta do alimento tem permissões de administrador e tente novamente.
+   c. Para garantir que o Azure AD pode ligar-se ao Foodee, selecione **Test Connection**. Se a ligação falhar, certifique-se de que a sua conta Foodee tem permissões de administrador e, em seguida, tente novamente.
 
-    ![O link testar conexão](common/provisioning-testconnection-tenanturltoken.png)
+    ![A ligação de ligação de teste](common/provisioning-testconnection-tenanturltoken.png)
 
-1. Na caixa **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
+1. Na caixa de **e-mail de notificação,** introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e, em seguida, selecione a **notificação de e-mail enviar uma notificação de e-mail quando ocorrer uma falha** verificar a caixa.
 
-    ![A caixa de texto email de notificação](common/provisioning-notification-email.png)
+    ![A caixa de texto de e-mail de notificação](common/provisioning-notification-email.png)
 
 1. Selecione **Guardar**.
 
-1. Em **mapeamentos**, selecione **sincronizar Azure Active Directory usuários para o alimento**.
+1. Em **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Foodee**.
 
-    ![Mapeamentos de usuário do alimento](media/Foodee-provisioning-tutorial/usermapping.png)
+    ![Mapeamento de utilizadores foodee](media/Foodee-provisioning-tutorial/usermapping.png)
 
-1. Em **mapeamentos de atributo**, examine os atributos de usuário que são sincronizados do Azure ad para o alimento. Os atributos que são selecionados como propriedades **correspondentes** são usados para corresponder as *contas de usuário* no alimento para operações de atualização. 
+1. No âmbito do **Attribute Mappings,** reveja os atributos do utilizador que são sincronizados de Azure AD para Foodee. Os atributos que são selecionados como propriedades **correspondentes** são *usados* para combinar as contas de utilizador em Foodee para operações de atualização. 
 
-    ![Mapeamentos de usuário do alimento](media/Foodee-provisioning-tutorial/userattribute.png)
+    ![Mapeamento de utilizadores foodee](media/Foodee-provisioning-tutorial/userattribute.png)
 
-1. Para confirmar suas alterações, selecione **salvar**.
-1. Em **mapeamentos**, selecione **sincronizar grupos de Azure Active Directory com o alimento**.
+1. Para comprometer as suas alterações, selecione **Guardar**.
+1. Em **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Foodee**.
 
-    ![Mapeamentos de usuário do alimento](media/Foodee-provisioning-tutorial/groupmapping.png)
+    ![Mapeamento de utilizadores foodee](media/Foodee-provisioning-tutorial/groupmapping.png)
 
-1. Em **mapeamentos de atributo**, examine os atributos de usuário que são sincronizados do Azure ad para o alimento. Os atributos que são selecionados como propriedades **correspondentes** são usados para corresponder as *contas de grupo* no alimento para operações de atualização.
+1. No âmbito do **Attribute Mappings,** reveja os atributos do utilizador que são sincronizados de Azure AD para Foodee. Os atributos que são selecionados como propriedades **correspondentes** são *usados* para corresponder às contas de grupo em Foodee para operações de atualização.
 
-    ![Mapeamentos de usuário do alimento](media/Foodee-provisioning-tutorial/groupattribute.png)
+    ![Mapeamento de utilizadores foodee](media/Foodee-provisioning-tutorial/groupattribute.png)
 
-1. Para confirmar suas alterações, selecione **salvar**.
-1. Configure os filtros de escopo. Para saber como, consulte as instruções no [tutorial filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Para comprometer as suas alterações, selecione **Guardar**.
+1. Configure os filtros de deteção. Para saber como, consulte as instruções do tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. Para habilitar o serviço de provisionamento do Azure AD para o alimento, na seção **configurações** , altere o **status de provisionamento** para **ativado**.
+1. Para ativar o serviço de provisionamento de AD Azure para a Foodee, na secção **Definições,** altere o Estado de **Provisionamento** para **On**.
 
-    ![A opção de status de provisionamento](common/provisioning-toggle-on.png)
+    ![O interruptor de estado de provisionamento](common/provisioning-toggle-on.png)
 
-1. Em **configurações**, na lista suspensa **escopo** , defina os usuários ou grupos que você deseja provisionar para o alimento.
+1. Em **Definições**, na lista de **drop-down** scope, defina os utilizadores ou grupos que pretende fornecer ao Foodee.
 
-    ![A lista suspensa escopo de provisionamento](common/provisioning-scope.png)
+    ![A lista de entrega do Âmbito de Provisionamento](common/provisioning-scope.png)
 
-1. Quando estiver pronto para provisionar, selecione **salvar**.
+1. Quando estiver pronto para fornecer, selecione **Guardar**.
 
-    ![O botão de salvamento da configuração de provisionamento](common/provisioning-configuration-save.png)
+    ![O botão de poupança de configuração de fornecimento](common/provisioning-configuration-save.png)
 
-A operação anterior inicia a sincronização inicial dos usuários ou grupos que você definiu na lista suspensa **escopo** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações, consulte [quanto tempo levará para provisionar os usuários?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+A operação anterior inicia a sincronização inicial dos utilizadores ou grupos que definiu na lista de drop-down scope. A sincronização inicial demora mais tempo a executar do que as sincronizações subsequentes. Para mais informações, veja [quanto tempo demorará a fornecer aos utilizadores?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)
 
-Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento. O relatório descreve todas as ações que são executadas pelo serviço de provisionamento do Azure AD no alimento. Para obter mais informações, consulte [verificar o status do provisionamento do usuário](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Pode utilizar a secção **Estado Atual** para monitorizar o progresso e seguir as ligações ao seu relatório de atividade de provisionamento. O relatório descreve todas as ações que são realizadas pelo serviço de provisionamento da AD Azure na Foodee. Para mais informações, [consulte Verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerir o provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

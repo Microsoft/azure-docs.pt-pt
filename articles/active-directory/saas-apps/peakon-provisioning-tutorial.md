@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o provisionamento automático de usuário de pico com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o pico.
+title: 'Tutorial: Configure Peakon fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizadores a Peakon .
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,144 +15,144 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: cc572206e20a1f2ef1a77efb8120ad4d2f805174
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 0a67dc8069ee71305a47bd5d2a724a61cec234a0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847941"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063405"
 ---
-# <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: Configurar o pico para o provisionamento automático de usuário
+# <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: Configure Peakon para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas em pico e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para picos.
+O objetivo deste tutorial é demonstrar os passos a serem realizados em Peakon e Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos para Peakon.
 
 > [!NOTE]
->  Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+>  Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em visualização. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tenha os seguintes pré-requisitos
+O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos
 
 * Um inquilino do Azure AD.
-* [Um locatário de pico](https://peakon.com/us/pricing/).
-* Uma conta de usuário em pico com permissões de administrador.
+* [Um inquilino de Peakon.](https://peakon.com/us/pricing/)
+* Uma conta de utilizador em Peakon com permissões de administrador.
 
-## <a name="assigning-users-to-peakon"></a>Atribuindo usuários ao pico
+## <a name="assigning-users-to-peakon"></a>Atribuir utilizadores a Peakon
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao pico. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao pico, seguindo as instruções aqui:
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Peakon. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos a Peakon seguindo as instruções aqui:
 
-* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-peakon"></a>Dicas importantes para atribuir usuários ao pico 
+## <a name="important-tips-for-assigning-users-to-peakon"></a>Dicas importantes para atribuir utilizadores a Peakon 
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao pico para testar a configuração automática de provisionamento de usuário. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído a Peakon para testar a configuração automática de fornecimento do utilizador. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao pico, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um utilizador a Peakon, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="set-up-peakon-for-provisioning"></a>Configurar o pico do provisionamento
+## <a name="set-up-peakon-for-provisioning"></a>Configurar Peakon para o provisionamento
 
-1.  Entre em seu [console do administrador de pico](https://app.Peakon.com/login). Clique em **configuração**. 
+1.  Inscreva-se na consola [De Administração Peakon](https://app.Peakon.com/login). Clique na **Configuração**. 
 
-    ![Console de administração de pico](media/Peakon-provisioning-tutorial/Peakon-admin-configuration.png)
+    ![Consola de Administração Peakon](media/Peakon-provisioning-tutorial/Peakon-admin-configuration.png)
 
-2.  Selecione **integrações**.
+2.  Selecione **Integrações**.
     
-    ![Pico-provisão do funcionário](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
+    ![Oferta de funcionários peakon](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
 
-3.  Habilite o **provisionamento de funcionários**.
+3.  Ativar **o fornecimento de funcionários**.
 
-    ![Pico-provisão do funcionário](media/Peakon-provisioning-tutorial/peakon05.png)
+    ![Oferta de funcionários peakon](media/Peakon-provisioning-tutorial/peakon05.png)
 
-4.  Copie os valores para a **URL do SCIM 2,0** e o **token de portador OAuth**. Esses valores serão inseridos no campo **URL do locatário** e **token secreto** na guia provisionamento do seu aplicativo de pico no portal do Azure.
+4.  Copie os valores para **SCIM 2.0 URL** e **OAuth Bearer Token**. Estes valores serão inseridos no **campo URL** do Tenant e no campo **Secret Token** no separador de provisionamento da sua aplicação Peakon no portal Azure.
 
-    ![Criar token de pico](media/Peakon-provisioning-tutorial/peakon04.png)
+    ![Peakon Criar Token](media/Peakon-provisioning-tutorial/peakon04.png)
 
-## <a name="add-peakon-from-the-gallery"></a>Adicionar pico da Galeria
+## <a name="add-peakon-from-the-gallery"></a>Adicione Peakon da galeria
 
-Para configurar o pico para o provisionamento automático de usuário com o Azure AD, você precisa adicionar o pico da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Para configurar o Peakon para o fornecimento automático de utilizadores com a AD Azure, é necessário adicionar peakon da galeria de aplicações Azure AD à sua lista de aplicações saaS geridas.
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **pico**, selecione **pico** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, introduza **Peakon**, selecione **Peakon** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-    ![Pico na lista de resultados](common/search-new-app.png)
+    ![Peakon na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-peakon"></a>Configurando o provisionamento automático de usuário para o pico 
+## <a name="configuring-automatic-user-provisioning-to-peakon"></a>Configurar o fornecimento automático de utilizadores a Peakon 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos em pico com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Peakon com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o pico, seguindo as instruções fornecidas no tutorial de [pico de logon único](peakon-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+> Também pode optar por ativar um único sinal baseado em SAML para Peakon, seguindo as instruções fornecidas no tutorial de [sinalização Peakon Single](peakon-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
-### <a name="to-configure-automatic-user-provisioning-for-peakon--in-azure-ad"></a>Para configurar o provisionamento automático de usuário para pico no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-peakon--in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para Peakon em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **pico**.
+2. Na lista de aplicações, selecione **Peakon**.
 
-    ![O link de pico na lista de aplicativos](common/all-applications.png)
+    ![A ligação Peakon na lista de Aplicações](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** .
+3. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira os valores de token de **portador OAuth** e **URL do scim 2,0** recuperados anteriormente na **URL do locatário** e no **token secreto** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao pico. Se a conexão falhar, verifique se sua conta de pico tem permissões de administrador e tente novamente.
+5. De acordo com a secção **de Credenciais de Administrador,** insere os valores **de URL SCIM 2.0** e **OAuth Bearer Token** recuperados anteriormente em **URL** de Inquilino e **Token Secreto,** respectivamente. Clique em **Ligação de Teste** para garantir que o Azure AD pode ligar-se a Peakon. Se a ligação falhar, certifique-se de que a sua conta Peakon tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
+7. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
 8. Clique em **Guardar**.
 
-9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o pico**.
+9. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Peakon**.
 
-    ![Mapeamentos de usuário de pico](media/Peakon-provisioning-tutorial/Peakon-user-mappings.png)
+    ![Mapmapeamento de utilizadores de Peakon](media/Peakon-provisioning-tutorial/Peakon-user-mappings.png)
 
-10. Examine os atributos de usuário que são sincronizados do Azure AD para o pico na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário em pico para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+10. Reveja os atributos do utilizador que são sincronizados de Azure AD para Peakon na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Peakon para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Atributos de usuário de pico](media/Peakon-provisioning-tutorial/Peakon-user-attributes.png)
+    ![Atributos de utilizador de Peakon](media/Peakon-provisioning-tutorial/Peakon-user-attributes.png)
 
-12. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
     
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para provisionar, clique em **salvar**.
+15. Quando estiver pronto para fornecer, clique em **Guardar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no pico.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure em Peakon.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* Todos os atributos de usuário personalizados em picos devem ser estendidos da extensão de usuário de SCIM personalizada `urn:ietf:params:scim:schemas:extension:peakon:2.0:User`de pico.
+* Todos os atributos personalizados do utilizador em Peakon têm de ser estendidos a partir da extensão personalizada de utilizador SCIM da Peakon de `urn:ietf:params:scim:schemas:extension:peakon:2.0:User`.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

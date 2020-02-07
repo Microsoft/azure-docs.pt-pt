@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c993a08a4163d50a9632055da355e39b5bdde004
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5dc705fbd17a12ee001e1e8de15b49e841f08b81
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026890"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049265"
 ---
-# <a name="overview"></a>Visão geral
+# <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorização unificada da conectividade com o Monitor de Ligação (Pré-visualização)
 
 O Monitor de Ligação (Pré-visualização) fornece capacidades unificadas de monitorização de ligação de ponta a ponta no Vigilante da Rede Azure para implementações híbridas e azure cloud. O Azure Network Watcher fornece ferramentas para monitorizar, diagnosticar e visualizar métricas relacionadas com conectividade para as suas implementações Azure.
 
@@ -78,8 +78,8 @@ _O Connection Monitor_ monitoriza a comunicação a intervalos regulares e infor
 
 ### <a name="accessing-connection-monitor-preview"></a>Monitor de ligação de acesso (Pré-visualização)
 
-1. Access Network Watcher utilizando o seguinte link:[https://ms.portal.azure.com/?Microsoft\_Azure\_Network\_connectionmonitorpreview=true#blade/Microsoft\_Azure\_Network/NetworkWatcherMenuBlade/connectionMonitorPreview](https://ms.portal.azure.com/?Microsoft_Azure_Network_connectionmonitorpreview=true#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/connectionMonitorPreview)
-2. Clique no separador "Monitor de Ligação (Pré-visualização)" na secção de monitorização no painel esquerdo do Observador da Rede. Este separador só será visível se o Observador de Rede for acedido utilizando o link especificado no passo 1.
+1. A partir da página inicial do portal Azure, visite o Network Watcher
+2. Clique no separador "Monitor de Ligação (Pré-visualização)" na secção de monitorização no painel esquerdo do Observador da Rede.
 3. Pode ver todos os Monitores de Ligação criados utilizando a experiência do Monitor de Ligação (Pré-visualização). Todos os Monitores de Ligação criados utilizando a experiência clássica do separador Monitor de Ligação serão visíveis no separador Monitor de Ligação.
 
     ![Criar um Monitor de Ligação](./media/connection-monitor-2-preview/cm-resource-view.png)
@@ -384,7 +384,7 @@ Para criar um Grupo de Teste num Monitor de Ligação, especifice o valor para o
 
       ![Adicionar Fontes](./media/connection-monitor-2-preview/add-azure-sources.png)
 
-   2. Clique no separador "Agentes Não - Azure" para selecionar agentes no local. Por defeito, verá agentes agrupados em espaços de trabalho numa região. Apenas serão listados os espaços de trabalho que tenham a solução de Monitor de Desempenho da Rede configurada. Adicione a solução Monitor de Desempenho de Rede ao seu espaço de trabalho do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Também pode utilizar o processo descrito nas [soluções Add Azure Monitor da Galeria Solutions](https://docs.microsoft.com/azure/azure-monitor/insights/solutions) . Por predefinição, verá a região selecionada no separador Informação Básica na vista Create Connection Monitor. Pode mudar a região e escolher agentes de espaços de trabalho da região recém-seleccionada. Também pode alterar o valor do campo "Group by" para agrupar-se nas subredes.
+   2. Clique no separador "Agentes Não - Azure" para selecionar agentes no local. Por defeito, verá agentes agrupados em espaços de trabalho numa região. Apenas serão listados os espaços de trabalho que tenham a solução de Monitor de Desempenho da Rede configurada. Adicione a solução de Monitor de Desempenho da Rede ao seu espaço de trabalho a partir do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Também pode utilizar o processo descrito nas [soluções Add Azure Monitor da Galeria Solutions](https://docs.microsoft.com/azure/azure-monitor/insights/solutions) . Por predefinição, verá a região selecionada no separador Informação Básica na vista Create Connection Monitor. Pode mudar a região e escolher agentes de espaços de trabalho da região recém-seleccionada. Também pode alterar o valor do campo "Group by" para agrupar-se nas subredes.
 
       ![Fontes não-azuras](./media/connection-monitor-2-preview/add-non-azure-sources.png)
 
@@ -550,7 +550,7 @@ Para ver as tendências dos controlos falharam % e a RTT para:
    5. Alterar o intervalo de tempo para ver mais dados
    6. Pode alterar a vista no passo b e optar por ver por fontes, destinos ou configurações de teste. Em seguida, escolha uma entidade para investigar os 5 testes falhados do top 5.  Por exemplo: Escolha a vista por: Fontes e Destinos para investigar todos os testes que executam entre essa combinação no Monitor de Ligação selecionado.
 
-3. Testar
+3. Teste
    1. Clique na Fonte + Destino + Configuração de Teste que pretende investigar em detalhe
    2. Para o intervalo de tempo selecionado, para verificações falhadas %, verá limiar e valores reais. Para rtt msec, você verá limiar, avg, min e valores máximos. Também verá alertas disparados específicos para o teste que selecionou.
 
@@ -578,8 +578,8 @@ Tipo de Recursos - Microsoft.Network/NetworkWatchers/connectionMonitors
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % sondas falhadas | Percentagem | Média | % das sondas de monitorização da conectividade falharam | Nenhuma dimensão |
 | AverageRoundtripMs | Média de tempo de ida e volta (MS) | Milissegundos | Média | Tempo de ida e volta médio da rede (MS) para investigações de monitoramento de conectividade enviadas entre a origem e o destino |             Nenhuma dimensão |
-| ChecksFailedPercent (Pré-visualização) | % de verificações falhadas (pré-visualização) | Percentagem | Média | % dos controlos falharam para um teste |Lista: - ConnectionMonitorResourceid - SourceAddress - SourceName - SourceResourceID - SourceType - Protocol - DestinationAddress - DestinationResourceid - DestinationType -Destinationport - TestGroupName - TestconfigurationName - Região |
-| RoundTripTimeMs (Pré-visualização) | Tempo de ida e volta (ms) (Pré-visualização) | Milissegundos | Média | Tempo de ida e volta (MS) para verificações enviadas entre fonte e destino. Este valor não é mediado | Lista: - ConnectionMonitorResourceid - SourceAddress - SourceName - SourceResourceID - SourceType - Protocol - DestinationAddress - DestinationResourceid - DestinationResourceid - DestinationPort - Destinationport - TestGroupName - TestconfigurationName - Região |
+| ChecksFailedPercent (Pré-visualização) | % de verificações falhadas (pré-visualização) | Percentagem | Média | % dos controlos falharam para um teste | * ConnectionMonitorResourceId <br> * Endereço de origem <br> * Nome de origem <br> * SourceResourceId <br> * Tipo de fonte <br> * Protocolo <br> * Endereço de destino <br> * Nome de destino <br> * DestinationResourceid <br> * DestinoTipo <br> * DestinationPort <br> * TestGroupName <br> * Nome de Configuração de Teste <br> * Região |
+| RoundTripTimeMs (Pré-visualização) | Tempo de ida e volta (ms) (Pré-visualização) | Milissegundos | Média | Tempo de ida e volta (MS) para verificações enviadas entre fonte e destino. Este valor não é mediado | * ConnectionMonitorResourceId <br> * Endereço de origem <br> * Nome de origem <br> * SourceResourceId <br> * Tipo de fonte <br> * Protocolo <br> * Endereço de destino <br> * Nome de destino <br> * DestinationResourceid <br> * DestinoTipo <br> * DestinationPort <br> * TestGroupName <br> * Nome de Configuração de Teste <br> * Região |
 
  ![Monitorizar Métricas](./media/connection-monitor-2-preview/monitor-metrics.png)
 

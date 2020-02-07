@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 2aaf1d2b377abc0b10b0b14de03d01c7f6fae5b7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2c5d91894ba35233f3fbebffdff9104edcfdd27b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767771"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063166"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configure floco de neve para fornecimento automático de utilizadores
 
 O objetivo deste tutorial é demonstrar os passos a serem realizados no Snowflake e azure Ative Directory (Azure AD) para configurar a Azure AD para fornecer e desfornecer automaticamente utilizadores e/ou grupos para Snowflake.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
 > Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
@@ -41,16 +41,16 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="assigning-users-to-snowflake"></a>Atribuir utilizadores a Snowflake
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
 Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Floco de Neve. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao Floco de Neve seguindo as instruções aqui:
-* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-snowflake"></a>Dicas importantes para atribuir utilizadores a Snowflake
 
 * Recomenda-se que um único utilizador da AD Azure seja atribuído ao Snowflake para testar a configuração automática de fornecimento do utilizador. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um utilizador ao Snowflake, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um utilizador ao Snowflake, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
 ## <a name="setup-snowflake-for-provisioning"></a>Configurar floco de neve para o provisionamento
 
@@ -74,15 +74,15 @@ Para configurar o Floco de Neve para o fornecimento automático de utilizadores 
 
 **Para adicionar Floco de Neve da galeria de aplicações azure AD, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
@@ -99,7 +99,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 ### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para Floco de Neve em Azure AD:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
@@ -107,11 +107,11 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
     ![O link do floco de neve na lista de aplicativos](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** .
+3. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
@@ -121,7 +121,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
+7. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
@@ -131,7 +131,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
     ![Mapeamento de utilizador de flocos de neve](media/Snowflake-provisioning-tutorial/user-mapping.png)
 
-10. Reveja os atributos do utilizador que são sincronizados de Azure AD para Snowflake na secção de Mapeamento do **Atributo.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Snowflake para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+10. Reveja os atributos do utilizador que são sincronizados de Azure AD para Snowflake na secção de Mapeamento do **Atributo.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Snowflake para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
     ![Atributos do utilizador do floco de neve](media/Snowflake-provisioning-tutorial/user-attribute.png)
 
@@ -139,11 +139,11 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
     ![Mapeamentodo do grupo Snowflake](media/Snowflake-provisioning-tutorial/group-mapping.png)
 
-12. Reveja os atributos do grupo que são sincronizados de Azure AD para Snowflake na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar os grupos em Snowflake para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+12. Reveja os atributos do grupo que são sincronizados de Azure AD para Snowflake na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar os grupos em Snowflake para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
     ![Atributos do Grupo Snowflake](media/Snowflake-provisioning-tutorial/group-attribute.png)
 
-13. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 14. Para ativar o serviço de provisionamento de AD Azure para floco de neve, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
@@ -153,13 +153,13 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-16. Quando estiver pronto para provisionar, clique em **salvar**.
+16. Quando estiver pronto para fornecer, clique em **Guardar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-    Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento da AD Azure em Snowflake.
+    Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento da AD Azure em Snowflake.
 
-    Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [Relatórios sobre o provisionamento automático da conta de utilizador](../manage-apps/check-status-user-account-provisioning.md)
+    Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [Relatórios sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md)
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
@@ -167,8 +167,8 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o provisionamento de contas de utilizador para aplicações empresariais.](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerir o provisionamento de contas de utilizador para aplicações empresariais.](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Aprenda a rever os registos e obtenha relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md).
+* [Aprenda a rever os registos e obtenha relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md).

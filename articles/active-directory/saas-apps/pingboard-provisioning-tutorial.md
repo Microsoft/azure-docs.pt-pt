@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: provisionamento de usuário para Pingboard-Azure AD'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Pingboard.
+title: 'Tutorial: Fornecimento de utilizadores para Pingboard - Azure AD'
+description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizador ao Pingboard.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -15,91 +15,91 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81988f2643fd9acb911e6f70765cedbb4786f14c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278261"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061280"
 ---
-# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: configurar o Pingboard para o provisionamento automático de usuário
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configure pingboard para fornecimento automático de utilizadores
 
-A finalidade deste tutorial é mostrar as etapas que você precisa seguir para habilitar o provisionamento automático e desprovisionamento de contas de usuário do Azure Active Directory (Azure AD) para o Pingboard.
+O objetivo deste tutorial é mostrar-lhe os passos que precisa seguir para permitir o fornecimento automático e o desprovisionamento das contas de utilizador de Azure Ative Directory (Azure AD) para Pingboard.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Um locatário do Azure AD
-* Uma [conta pro](https://pingboard.com/pricing) locatário do Pingboard
-* Uma conta de usuário no Pingboard com permissões de administrador
+* Uma conta [pro](https://pingboard.com/pricing) de inquilino pingboard
+* Uma conta de utilizador em Pingboard com permissões de administração
 
 > [!NOTE]
-> A integração de provisionamento do Azure AD depende da [API do Pingboard](https://pingboard.docs.apiary.io/#), que está disponível para sua conta.
+> A integração do fornecimento de AD Azure baseia-se na [API do Pingboard,](https://pingboard.docs.apiary.io/#)que está disponível para a sua conta.
 
-## <a name="assign-users-to-pingboard"></a>Atribuir usuários ao Pingboard
+## <a name="assign-users-to-pingboard"></a>Atribuir utilizadores ao Pingboard
 
-O Azure AD usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários atribuídos a um aplicativo no Azure AD são sincronizados. 
+A Azure AD utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de conta de utilizador, apenas os utilizadores afetados a uma aplicação em Azure AD são sincronizados. 
 
-Antes de configurar e habilitar o serviço de provisionamento, você deve decidir quais usuários no Azure AD precisam de acesso ao seu aplicativo Pingboard. Em seguida, você pode atribuir esses usuários ao seu aplicativo Pingboard seguindo estas instruções:
+Antes de configurar e ativar o serviço de provisionamento, deve decidir quais os utilizadores do Azure AD que precisam de acesso à sua aplicação Pingboard. Em seguida, pode atribuir estes utilizadores à sua aplicação Pingboard seguindo as instruções aqui:
 
-[Atribuir um usuário a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+[Atribuir um utilizador a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-pingboard"></a>Dicas importantes para atribuir usuários ao Pingboard
+### <a name="important-tips-for-assigning-users-to-pingboard"></a>Dicas importantes para atribuir utilizadores ao Pingboard
 
-Recomendamos que você atribua um único usuário do Azure AD ao Pingboard para testar a configuração de provisionamento. Usuários adicionais podem ser atribuídos posteriormente.
+Recomendamos que atribua um único utilizador da AD Azure ao Pingboard para testar a configuração de provisionamento. Os utilizadores adicionais podem ser atribuídos mais tarde.
 
-## <a name="configure-user-provisioning-to-pingboard"></a>Configurar o provisionamento de usuário para o Pingboard 
+## <a name="configure-user-provisioning-to-pingboard"></a>Configure o fornecimento de utilizadores ao Pingboard 
 
-Esta seção orienta você pela conexão do Azure AD à API de provisionamento de conta de usuário do Pingboard. Você também configura o serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas no Pingboard que se baseiam em atribuições de usuário no Azure AD.
+Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador pingboard que aprovisiona API. Configura também o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas no Pingboard que se baseiam em atribuições de utilizadores em Azure AD.
 
 > [!TIP]
-> Para habilitar o logon único baseado em SAML para o Pingboard, siga as instruções fornecidas na [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos se complementem.
+> Para ativar o único sinal baseado em SAML para o Pingboard, siga as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal instável pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se complementem.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Para configurar o provisionamento automático de conta de usuário para o Pingboard no Azure AD
+### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Para configurar o fornecimento automático de conta de utilizador ao Pingboard em Azure AD
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory** > **aplicativos empresariais** > **todos os aplicativos** .
+1. No [portal Azure,](https://portal.azure.com)navegue pelo **Diretório Ativo do Azure** > **Aplicações Empresariais** > **todas as aplicações.**
 
-1. Se você já tiver configurado o Pingboard para logon único, pesquise sua instância do Pingboard usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Pingboard** na Galeria de aplicativos. Selecione **Pingboard** nos resultados da pesquisa e adicione-o à lista de aplicativos.
+1. Se já configurar o Pingboard para uma única inscrição, procure a sua instância de Pingboard utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **pingboard** na galeria de aplicações. Selecione **Pingboard** a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
-1. Selecione sua instância do Pingboard e, em seguida, selecione a guia **provisionamento** .
+1. Selecione a sua instância de Pingboard e, em seguida, selecione o separador **Provisioning.**
 
-1. Defina o **modo de provisionamento** como **automático**.
+1. Definir **o modo de provisionamento** para **automático**.
 
-    ![Provisionamento do Pingboard](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
+    ![Provisionamento de pingboard](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
 
-1. Na seção **credenciais de administrador** , use as seguintes etapas:
+1. No âmbito da secção **de Credenciais de Administrador,** utilize os seguintes passos:
 
-    a. Em **URL do locatário**, insira `https://your_domain.pingboard.com/scim/v2`e substitua "your_domain" por seu domínio real.
+    a. No **URL do Arrendatário,** introduza `https://your_domain.pingboard.com/scim/v2`, e substitua "your_domain" pelo seu domínio real.
 
-    b. Entre no [Pingboard](https://pingboard.com/) usando sua conta de administrador.
+    b. Inscreva-se no [Pingboard](https://pingboard.com/) utilizando a sua conta de administração.
 
-    c. Selecione **complementos** > **integrações** > **Azure Active Directory**.
+    c. Selecione **Add-Ons** > **Integrações** > **Diretório Ativo Azure**.
 
-    d. Vá para a guia **Configurar** e selecione **habilitar provisionamento de usuário do Azure**.
+    d. Vá ao **separador Configure** e selecione **Ativar o fornecimento do utilizador a partir do Azure**.
 
-    e. Copie o token no **token de portador OAuth**e insira-o no **token secreto**.
+    e. Copie o símbolo em **Token OAuth Bearer**e insira-o em **Secret Token**.
 
-1. No portal do Azure, selecione **testar conexão** para testar o Azure AD pode se conectar ao seu aplicativo Pingboard. Se a conexão falhar, teste se sua conta do Pingboard tem permissões de administrador e tente a etapa **testar conexão** novamente.
+1. No portal Azure, selecione **Test Connection** para testar o Azure AD pode ligar-se à sua aplicação Pingboard. Se a ligação falhar, teste que a sua conta Pingboard tem permissões de administração e tente novamente o passo de Ligação de **Teste.**
 
-1. Insira o endereço de email de uma pessoa ou grupo que você deseja receber notificações de erro de provisionamento no **email de notificação**. Marque a caixa de seleção abaixo.
+1. Insira o endereço de e-mail de uma pessoa ou grupo que deseja receber notificações de erro no Email de **Notificação**. Selecione a caixa de verificação por baixo.
 
 1. Selecione **Guardar**.
 
-1. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Pingboard**.
+1. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Pingboard**.
 
-1. Na seção **mapeamentos de atributo** , examine os atributos de usuário a serem sincronizados do Azure ad para o Pingboard. Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Pingboard para operações de atualização. Selecione **salvar** para confirmar as alterações. Para obter mais informações, consulte [Personalizar mapeamentos de atributo de provisionamento de usuário](../manage-apps/customize-application-attributes.md).
+1. Na secção **DeMapeamentos** de Atributos, reveja os atributos do utilizador a serem sincronizados de Azure AD a Pingboard. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no Pingboard para operações de atualização. Selecione **Guardar** para cometer quaisquer alterações. Para mais informações, consulte [Personalizar o fornecimento de mapeamentos de atributos.](../app-provisioning/customize-application-attributes.md)
 
-1. Para habilitar o serviço de provisionamento do Azure AD para o Pingboard, na seção **configurações** , altere o **status de provisionamento** para **ativado**.
+1. Para ativar o serviço de provisionamento de AD Azure para o Pingboard, na secção **Definições,** altere o **Estado de Provisionamento** para **On**.
 
-1. Selecione **salvar** para iniciar a sincronização inicial de usuários atribuídos ao Pingboard.
+1. Selecione **Guardar** para iniciar a sincronização inicial dos utilizadores atribuídos ao Pingboard.
 
-A sincronização inicial demora mais para ser executada do que as sincronizações a seguir, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **detalhes de sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento. Os logs descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Pingboard.
+A sincronização inicial demora mais tempo a ser executada do que a seguir sincronizações, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Utilize a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividade de provisionamento. Os registos descrevem todas as ações tomadas pelo serviço de provisionamento na sua aplicação Pingboard.
 
-Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatório sobre o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de fornecimento de AD Azure, consulte [relatório sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerir o provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configure single sign-on](pingboard-tutorial.md) (Configurar o início de sessão único)

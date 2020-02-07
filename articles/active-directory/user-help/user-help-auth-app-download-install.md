@@ -2,7 +2,7 @@
 title: Baixar e instalar o aplicativo Microsoft Authenticator-Azure AD
 description: Baixe e instale o aplicativo Microsoft Authenticator para verificar sua identidade ao usar a verificação de dois fatores.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ba6f4d8d7c8bae73d998ee09de3adba7601e25b8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9d8ea02c91dc6aec41a1b548eff148e85111fc32
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704719"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063905"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Baixar e instalar o aplicativo Microsoft Authenticator
 
@@ -30,41 +30,41 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, inclui
 
 - **Verificação de dois fatores.** O método de verificação padrão, em que um dos fatores é sua senha. Depois de entrar usando seu nome de usuário e senha, você pode aprovar uma notificação ou inserir um código de verificação fornecido.
 
-- **Entrada pelo telefone.** Uma versão da verificação de dois fatores que permite que você entre sem exigir uma senha, usando seu nome de usuário e seu dispositivo móvel com sua impressão digital, face ou PIN.
+- **Registo telefónico.** Uma versão da verificação de dois fatores que permite que você entre sem exigir uma senha, usando seu nome de usuário e seu dispositivo móvel com sua impressão digital, face ou PIN.
 
-- **Geração de código.** Como um gerador de código para outras contas que dão suporte a aplicativos autenticadores.
+- **Geração de códigos.** Como um gerador de código para outras contas que dão suporte a aplicativos autenticadores.
 
 > [!Important]
 > O aplicativo Microsoft Authenticator funciona com qualquer conta que usa a verificação de dois fatores e dá suporte aos padrões TOTP (senha de uso único) com base no tempo.
 >
-> Sua organização pode exigir que você use um aplicativo autenticador para entrar e acessar seus dados e documentos organizacionais. Embora seu nome de usuário possa aparecer no aplicativo, a conta não está realmente configurada para atuar como um método de verificação até que você conclua o processo de registro. Para obter mais informações, consulte [adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md).
+> Sua organização pode exigir que você use um aplicativo autenticador para entrar e acessar seus dados e documentos organizacionais. Embora seu nome de usuário possa aparecer no aplicativo, a conta não está realmente configurada para atuar como um método de verificação até que você conclua o processo de registro. Para mais informações, consulte [Adicionar o seu trabalho ou conta escolar.](user-help-auth-app-add-work-school-account.md)
 > 
 > [!NOTE]
-> Se você estiver tendo problemas para entrar em sua conta, consulte [quando não é possível entrar em seu conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obtenha mais informações sobre o que fazer ao receber a mensagem ["esse conta Microsoft não existe"](https://support.microsoft.com/help/13811) ao tentar entrar no seu conta Microsoft.
+> Se tiver problemas em iniciar sessão na sua conta, consulte [Quando não pode iniciar sessão na sua conta da Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obtenha mais informações sobre o que fazer quando receber a mensagem ["That Microsoft account doesn't exist"](https://support.microsoft.com/help/13811) quando tentar iniciar sessão na sua conta microsoft.
 
 ## <a name="download-and-install-the-app"></a>Transferir e instalar a aplicação
 
 Instale a versão mais recente do aplicativo Microsoft Authenticator, com base no seu sistema operacional:
 
-- **Google Android.** Em seu dispositivo Android, vá para Google Play para [baixar e instalar o aplicativo Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).
+- **Google Android.** No seu dispositivo Android, vá ao Google Play para [descarregar e instalar a aplicação Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).
 
-- **Apple iOS.** No seu dispositivo iOS da Apple, vá para a loja de aplicativos para [baixar e instalar o aplicativo Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+- **Apple iOS.** No seu dispositivo Apple iOS, vá à App Store para [descarregar e instalar a aplicação Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->Se você não estiver no seu dispositivo móvel no momento, ainda poderá obter o aplicativo Microsoft Authenticator enviando a você mesmo um link de download da [página Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
+>Se não estiver atualmente no seu dispositivo móvel, ainda pode obter a aplicação Microsoft Authenticator enviando um link de descarregamento a partir da [página do Autenticador](https://www.microsoft.com/en-us/account/authenticator)microsoft .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de baixar e instalar o aplicativo, você deve adicionar suas várias contas. Para obter mais informações, veja:
+Depois de baixar e instalar o aplicativo, você deve adicionar suas várias contas. Para obter mais informações, consulte:
 
-- **Aplicativo autenticador.** Baixe e use um aplicativo autenticador para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
+- **Aplicação autenticadora.** Baixe e use um aplicativo autenticador para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como configurar e utilizar a aplicação Microsoft Authenticator, consulte [Configurar informações de segurança para utilizar uma aplicação autenticadora](security-info-setup-auth-app.md).
 
-- **Texto do dispositivo móvel.** Insira o número do seu dispositivo móvel e obtenha um texto de um código que você usará para a verificação em duas etapas ou a redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma mensagem de texto (SMS), consulte [configurar informações de segurança para usar mensagens de texto (SMS)](security-info-setup-text-msg.md).
+- **Texto do dispositivo móvel.** Insira o número do seu dispositivo móvel e obtenha um texto de um código que você usará para a verificação em duas etapas ou a redefinição de senha. Para obter instruções passo a passo sobre como verificar a sua identidade com uma mensagem de texto (SMS), consulte Configurar informações de segurança para utilizar mensagens de [texto (SMS)](security-info-setup-text-msg.md).
 
-- **Chamada telefônica de dispositivo ou trabalho móvel.** Insira o número do seu dispositivo móvel e obtenha uma chamada telefônica para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
+- **Dispositivo móvel ou chamada telefónica de trabalho.** Insira o número do seu dispositivo móvel e obtenha uma chamada telefônica para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar a sua identidade com um número de telefone, consulte [Configurar informações](security-info-setup-phone-number.md)de segurança para utilizar chamadas telefónicas .
 
-- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
+- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar a sua identidade com uma chave de segurança, consulte [Configurar informações](security-info-setup-security-key.md)de segurança para utilizar uma chave de segurança .
 
-- **Endereço de email.** Insira seu endereço de email corporativo ou de estudante para obter um email para redefinição de senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções detalhadas sobre como configurar seu email, consulte [configurar informações de segurança para usar email](security-info-setup-email.md).
+- **Endereço de e-mail.** Insira seu endereço de email corporativo ou de estudante para obter um email para redefinição de senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar o seu e-mail, consulte [Configurar informações](security-info-setup-email.md)de segurança para utilizar o e-mail .
 
-- **Perguntas de segurança.** Responda a algumas perguntas de segurança criadas pelo administrador da sua organização. Essa opção só está disponível para a redefinição de senha e não para a verificação em duas etapas. Para obter instruções passo a passo sobre como configurar suas perguntas de segurança, consulte o artigo [configurar informações de segurança para usar perguntas de segurança](security-info-setup-questions.md) .
+- **Questões de segurança.** Responda a algumas perguntas de segurança criadas pelo administrador da sua organização. Essa opção só está disponível para a redefinição de senha e não para a verificação em duas etapas. Para obter instruções passo a passo sobre como configurar as suas questões de segurança, consulte a informação de [segurança configurar para utilizar](security-info-setup-questions.md) o artigo de questões de segurança.

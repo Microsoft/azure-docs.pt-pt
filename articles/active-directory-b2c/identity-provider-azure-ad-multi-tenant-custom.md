@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/06/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8a222aa63387f7c57f8896b013f71f0c1bf40b2e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2f7bf9fea1b1e15d1ca24686a84e272dd60ceaf5
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849620"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061595"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sign-in para o diretório ativo azure multi-inquilino utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -32,11 +32,11 @@ Complete os passos em [Get started com políticas personalizadas no Azure Ative 
 
 Para permitir o início de sessão para utilizadores de uma organização específica da AD Azure, é necessário registar uma aplicação dentro do inquilino da AD Azure organizacional.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino ad organizacional Azure (por exemplo, contoso.com). Selecione o filtro de **subscrição Do Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
-1. Selecione **novo registro**.
-1. Insira um **nome** para seu aplicativo. Por exemplo, `Azure AD B2C App`.
+1. Selecione **Novo registo**.
+1. Insira um **Nome** para a sua candidatura. Por exemplo, `Azure AD B2C App`.
 1. Selecione **Contas em qualquer diretório organizacional** para esta aplicação.
 1. Para o **Redirect URI,** aceite o valor da **Web**e introduza o seguinte URL em todas as letras minúsculas, onde `your-B2C-tenant-name` é substituído pelo nome do seu inquilino Azure AD B2C.
 
@@ -46,7 +46,7 @@ Para permitir o início de sessão para utilizadores de uma organização espec�
 
     Por exemplo, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
-1. Selecione **Registar**. Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
+1. Selecione **Registar**. Grave o ID de **Aplicação (cliente)** para utilização num passo posterior.
 1. Selecione **Certificados e segredos**e, em seguida, selecione **novo segredo do cliente**.
 1. Introduza uma **Descrição** para o segredo, selecione uma expiração e, em seguida, **selecione Adicionar**. Grave o **valor** do segredo para uso num passo posterior.
 
@@ -55,14 +55,27 @@ Para permitir o início de sessão para utilizadores de uma organização espec�
 Você precisa armazenar a chave de aplicação que criou no seu inquilino Azure AD B2C.
 
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino Azure AD AD B2C.
-1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-1. Em **políticas**, selecione **estrutura de experiência de identidade**.
+1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+1. No âmbito **das Políticas,** selecione Quadro de **Experiência de Identidade**.
 1. Selecione **teclas Policy** e, em seguida, selecione **Adicionar**.
-1. Para **Opções**, escolha `Manual`.
+1. Para **opções,** escolha `Manual`.
 1. Introduza um **nome** para a chave política. Por exemplo, `AADAppSecret`.  O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave quando é criado, pelo que a sua referência no XML na secção seguinte é *B2C_1A_AADAppSecret*.
 1. Em **Segredo,** insira o seu segredo de cliente que gravou anteriormente.
 1. Para **a utilização da chave,** selecione `Signature`.
 1. Selecione **Criar**.
+
+## <a name="configuring-optional-claims"></a>Configurando declarações opcionais
+
+Se pretender obter as `family_name` e `given_name` reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Ative Directory**.
+1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
+1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
+1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)** .
+1. **Selecione Adicionar reclamação opcional**.
+1. Selecione o tipo de ficha que pretende configurar.
+1. Selecione as reclamações opcionais a adicionar.
+1. Clique em **Adicionar**.
 
 ## <a name="add-a-claims-provider"></a>Adicione um fornecedor de sinistros
 

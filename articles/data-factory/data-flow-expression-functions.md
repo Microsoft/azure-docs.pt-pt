@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 68771ee3d2ae2d43245bd217bedcf59b987786f1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5492850944b04ea4b4d30dd206e7b297b34c075c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716731"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062851"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento 
 
@@ -934,8 +934,8 @@ A função CumeDist computa a posição de um valor em relação a todos os valo
 * ``cumeDist()``
 ___
 ### <code>denseRank</code>
-<code><b>denseRank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Computa a classificação de um valor em um grupo de valores. O resultado é um mais o número de linhas precedentes ou iguais à linha atual na ordenação da partição. Os valores não produzirão lacunas na sequência. Dense Rank funciona mesmo quando os dados não são classificados e procura mudanças nos valores * ``denseRank(salesQtr, salesAmt)``
+<code><b>denseRank() => integer</b></code><br/><br/>
+Calcula a classificação de um valor num grupo de valores especificado por ordem por cláusula. O resultado é um mais o número de linhas precedentes ou iguais à linha atual na ordenação da partição. Os valores não produzirão lacunas na sequência. Dense Rank funciona mesmo quando os dados não são classificados e procura mudanças nos valores * ``denseRank()``
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
@@ -954,13 +954,13 @@ A função NTile divide as linhas para cada divisória de janela em baldes `n` q
 * ``nTile(numOfBuckets)``
 ___
 ### <code>rank</code>
-<code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Computa a classificação de um valor em um grupo de valores. O resultado é um mais o número de linhas precedentes ou iguais à linha atual na ordenação da partição. Os valores produzirão lacunas na sequência. O rank funciona mesmo quando os dados não são classificados e procura mudanças nos valores * ``rank(salesQtr, salesAmt)``
+<code><b>rank() => integer</b></code><br/><br/>
+Calcula a classificação de um valor num grupo de valores especificado por ordem por cláusula. O resultado é um mais o número de linhas precedentes ou iguais à linha atual na ordenação da partição. Os valores produzirão lacunas na sequência. O rank funciona mesmo quando os dados não são classificados e procura mudanças nos valores * ``rank()``
 ___
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>
 Atribui uma linha sequencial numerando para linhas numa janela a partir de 1 * ``rowNumber()``
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Aprenda a usar o Expression Builder.](concepts-data-flow-expression-builder.md)

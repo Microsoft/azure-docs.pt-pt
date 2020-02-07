@@ -2,7 +2,7 @@
 title: Registe dispositivos pessoais na rede de uma organização - Azure AD
 description: Aprenda a registar o seu dispositivo pessoal na rede da sua organização para que possa aceder aos recursos protegidos da sua organização.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 2e3bd9ffa968038ae3f03eaf8de9c5271d6248f4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e2e6585bac100a09f3f98037e90b24738e22816f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704617"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063871"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registe o seu dispositivo pessoal na rede da sua organização
 Registe o seu dispositivo pessoal (normalmente um telefone ou tablet) na rede da sua organização. Depois de registado o seu dispositivo, poderá aceder aos recursos restritos da sua organização.
@@ -41,7 +41,7 @@ Enquanto está a registar o seu dispositivo na rede da sua organização, as seg
 
 Siga estes passos para registar o seu dispositivo pessoal na sua rede.
 
-1. Abra **Definições** e, em seguida, selecione **Contas**.
+1. Abra **as Definições**e, em seguida, selecione **Contas**.
 
     ![Contas no ecrã Definições](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
@@ -58,7 +58,7 @@ Siga estes passos para registar o seu dispositivo pessoal na sua rede.
 ## <a name="to-verify-that-youre-registered"></a>Para verificar se está registado
 Pode certificar-se de que está registado olhando para as suas definições.
 
-1. Abra **Definições** e, em seguida, selecione **Contas**.
+1. Abra **as Definições**e, em seguida, selecione **Contas**.
 
     ![Contas no ecrã Definições](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 

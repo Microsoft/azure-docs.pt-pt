@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o Wrike para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Wrike.
+title: 'Tutorial: Configure Wrike para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizadores à Wrike.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,161 +15,161 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 46972209a8fa509ff2f17832ab8329aa3cef2548
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 5dd4f5ac6152c22b5e2a84ecc0774672bcd5590b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840317"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064197"
 ---
-# <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: Configurar o Wrike para provisionamento automático de usuário
+# <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: Configure Wrike para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas que você executa em Wrike e Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários ou grupos no Wrike.
+O objetivo deste tutorial é demonstrar os passos que executa em Wrike e Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores ou grupos para Wrike.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS (software como serviço) com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+> Este tutorial descreve um conector construído em cima do serviço de fornecimento de utilizadores DaAzure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o [fornecimento e o desprovisionamento de utilizadores automate para aplicações de software como um serviço (SaaS) com o Diretório Ativo Azure.](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
 >
-> Este conector está atualmente em visualização pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os termos suplementares de utilização para as pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um locatário do Wrike](https://www.wrike.com/price/)
-* Uma conta de usuário no Wrike com permissões de administrador
+* [Um inquilino de Wrike](https://www.wrike.com/price/)
+* Uma conta de utilizador em Wrike com permissões de administração
 
-## <a name="assign-users-to-wrike"></a>Atribuir usuários ao Wrike
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+## <a name="assign-users-to-wrike"></a>Atribuir utilizadores a Wrike
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores ou grupos que foram atribuídos a uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, decida quais usuários ou grupos no Azure AD precisam de acesso ao Wrike. Em seguida, atribua esses usuários ou grupos ao Wrike seguindo as instruções aqui:
+Antes de configurar e ativar o fornecimento automático de utilizadores, decida quais os utilizadores ou grupos em AD Azure que precisam de acesso ao Wrike. Em seguida, atribua estes utilizadores ou grupos a Wrike seguindo as instruções aqui:
 
-* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-wrike"></a>Dicas importantes para atribuir usuários ao Wrike
+## <a name="important-tips-for-assigning-users-to-wrike"></a>Dicas importantes para atribuir utilizadores a Wrike
 
-* Recomendamos que você atribua um único usuário do Azure AD ao Wrike para testar a configuração automática de provisionamento de usuário. Usuários ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomendamos que atribua um único utilizador da AD Azure à Wrike para testar a configuração automática de fornecimento de utilizadores. Usuários ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao Wrike, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de acesso padrão são excluídos do provisionamento.
+* Ao atribuir um utilizador ao Wrike, deve selecionar qualquer função específica de aplicação válida (se disponível) na caixa de diálogo de atribuição. Os utilizadores com a função de Acesso Predefinido estão excluídos do fornecimento.
 
-## <a name="set-up-wrike-for-provisioning"></a>Configurar o Wrike para provisionamento
+## <a name="set-up-wrike-for-provisioning"></a>Configurar Wrike para o provisionamento
 
-Antes de configurar o Wrike para o provisionamento automático de usuário com o Azure AD, você precisa habilitar o sistema de provisionamento do SCIM (gerenciamento de identidade entre domínios) no Wrike.
+Antes de configurar o Wrike para o fornecimento automático de utilizadores com a AD Azure, tem de ativar o fornecimento do Sistema de Gestão de Identidade de Domínio Cruzado (SCIM) em Wrike.
 
-1. Entre no console do [administrador do Wrike](https://www.Wrike.com/login/). Vá para sua ID de locatário. Selecione **aplicativos & integrações**.
+1. Inscreva-se na sua [consola de administração Wrike.](https://www.Wrike.com/login/) Vá para a sua identificação do inquilino. Selecione **Apps & Integrações.**
 
-    ![Integrações de & de aplicativos](media/Wrike-provisioning-tutorial/admin.png)
+    ![Apps & Integrações](media/Wrike-provisioning-tutorial/admin.png)
 
-2.  Vá para **Azure ad** e selecione-o.
+2.  Vá ao **Azure AD** e selecione-o.
 
     ![Azure AD](media/Wrike-provisioning-tutorial/Capture01.png)
 
-3.  Selecione SCIM. Copie a **URL base**.
+3.  Selecione SCIM. Copiar o **URL base**.
 
-    ![URL Base](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
+    ![Base URL](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
 
-4. Selecione **API** > **scim do Azure**.
+4. Selecione **API** > **Azure SCIM**.
 
-    ![SCIM do Azure](media/Wrike-provisioning-tutorial/Wrike-add-scim.png)
+    ![Azure SCIM](media/Wrike-provisioning-tutorial/Wrike-add-scim.png)
 
-5.  Um pop-up é aberto. Insira a mesma senha que você criou anteriormente para criar uma conta.
+5.  Abre-se um pop-up. Introduza a mesma senha que criou anteriormente para criar uma conta.
 
-    ![Wrike criar token](media/Wrike-provisioning-tutorial/password.png)
+    ![Wrike Criar símbolo](media/Wrike-provisioning-tutorial/password.png)
 
-6.  Copie o **token secreto**e cole-o no Azure AD. Selecione **salvar** para concluir a configuração de provisionamento no Wrike.
+6.  Copie o **Símbolo Secreto**e cole-o em Azure AD. Selecione **Guardar** para terminar a configuração de provisionamento em Wrike.
 
-    ![Token de acesso permanente](media/Wrike-provisioning-tutorial/Wrike-create-token.png)
+    ![Ficha de acesso permanente](media/Wrike-provisioning-tutorial/Wrike-create-token.png)
 
 
-## <a name="add-wrike-from-the-gallery"></a>Adicionar o Wrike da Galeria
+## <a name="add-wrike-from-the-gallery"></a>Adicione Wrike da galeria
 
-Antes de configurar o Wrike para o provisionamento automático de usuário com o Azure AD, adicione o Wrike da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar wrike para o fornecimento automático de utilizadores com AD Azure, adicione Wrike da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
 
-Para adicionar o Wrike da Galeria de aplicativos do Azure AD, siga estas etapas.
+Para adicionar Wrike da galeria de aplicações da AD Azure, siga estes passos.
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione **Azure Active Directory**.
+1. No [portal Azure,](https://portal.azure.com)no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Wrike**, selecione **Wrike** no painel de resultados e, em seguida, selecione **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, introduza **Wrike**, selecione **Wrike** no painel de resultados e, em seguida, selecione **Adicionar** para adicionar a aplicação.
 
     ![Wrike na lista de resultados](common/search-new-app.png)
 
 
-## <a name="configure-automatic-user-provisioning-to-wrike"></a>Configurar o provisionamento automático de usuário para o Wrike 
+## <a name="configure-automatic-user-provisioning-to-wrike"></a>Configure o fornecimento automático de utilizadores a Wrike 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários ou grupos no Wrike com base em atribuições de usuário ou de grupo no Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores ou grupos em Wrike com base em atribuições de utilizador ou grupo em Azure AD.
 
 > [!TIP]
-> Para habilitar o logon único baseado em SAML para o Wrike, siga as instruções no [tutorial de logon único do Wrike](wrike-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+> Para ativar o único sinal baseado em SAML para Wrike, siga as instruções no tutorial de [inscrição única de Wrike](wrike-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
 
-### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Configurar o provisionamento automático de usuário para Wrike no Azure AD
+### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para Wrike em Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais** > **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais** > **Todas as aplicações**.
 
     ![Todas as aplicações](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Wrike**.
+2. Na lista de aplicações, selecione **Wrike**.
 
-    ![O link do Wrike na lista de aplicativos](common/all-applications.png)
+    ![O link Wrike na lista de aplicações](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** .
+3. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
-    ![Modo de provisionamento definido como automático](common/provisioning-automatic.png)
+    ![Modo de provisionamento definido para automático](common/provisioning-automatic.png)
 
-5. Na seção credenciais de administrador, insira a **URL base** e os valores de **token de acesso permanentes** recuperados anteriormente na **URL do locatário** e no **token secreto**, respectivamente. Selecione **testar conexão** para garantir que o Azure ad possa se conectar ao Wrike. Se a conexão falhar, verifique se sua conta do Wrike tem permissões de administrador e tente novamente.
+5. No âmbito da secção de Credenciais de Administrador, insere o **URL base** e os valores **acessos de acesso permanente** recuperados anteriormente em URL de **Inquilino** e **Token Secreto,** respectivamente. Selecione **Ligação** de Teste para garantir que o Azure AD pode ligar-se a Wrike. Se a ligação falhar, certifique-se de que a sua conta Wrike tem permissões de administração e tente novamente.
 
-    ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![URL do inquilino + símbolo](common/provisioning-testconnection-tenanturltoken.png)
 
-7. Na caixa **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
+7. Na caixa de **e-mail de notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento. Selecione a **notificação de e-mail enviar uma notificação de e-mail quando ocorrer uma falha** verificar a caixa.
 
     ![E-mail de notificação](common/provisioning-notification-email.png)
 
 8. Selecione **Guardar**.
 
-9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Wrike**.
+9. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Wrike**.
 
-    ![Mapeamentos de usuário Wrike](media/Wrike-provisioning-tutorial/Wrike-user-mappings.png)
+    ![Mapeamento de utilizadores wrike](media/Wrike-provisioning-tutorial/Wrike-user-mappings.png)
 
-10. Examine os atributos de usuário que são sincronizados do Azure AD para o Wrike na seção **mapeamentos de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Wrike para operações de atualização. Selecione **salvar** para confirmar as alterações.
+10. Reveja os atributos do utilizador que são sincronizados de Azure AD para Wrike na secção **DeMapeamentos de Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Wrike para operações de atualização. Selecione **Guardar** para cometer quaisquer alterações.
 
-    ![Atributos de usuário do Wrike](media/Wrike-provisioning-tutorial/Wrike-user-attributes.png)
+    ![Atributos de utilizador wrike](media/Wrike-provisioning-tutorial/Wrike-user-attributes.png)
 
-11. Para configurar filtros de escopo, siga as instruções no [tutorial filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Para configurar filtros de deteção, siga as instruções no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para habilitar o serviço de provisionamento do Azure AD para o Wrike, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+12. Para ativar o serviço de provisionamento de AD Azure para wrike, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
-    ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
+    ![Estado de provisionamento alternado](common/provisioning-toggle-on.png)
 
-13. Defina os usuários ou grupos que você deseja provisionar para Wrike escolhendo os valores desejados no **escopo** na seção **configurações** .
+13. Defina os utilizadores ou grupos que pretende fornecer ao Wrike, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-14. Quando estiver pronto para provisionar, selecione **salvar**.
+14. Quando estiver pronto para fornecer, selecione **Guardar**.
 
-    ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
+    ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo leva para o provisionamento de usuários ou grupos, consulte [quanto tempo levará para provisionar os usuários?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Esta operação inicia a sincronização inicial de todos os utilizadores ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a executar do que as sincronizações subsequentes. Para obter mais informações sobre o tempo que os utilizadores ou grupos demoram a fornecer, veja [quanto tempo demorará a fornecer utilizadores?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)
 
-Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Wrike. Para obter mais informações, consulte [verificar o status do provisionamento do usuário](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Pode utilizar a secção **Current Status** para monitorizar o progresso e seguir ligações ao seu relatório de atividade de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure em Wrike. Para mais informações, [consulte Verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerir o provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

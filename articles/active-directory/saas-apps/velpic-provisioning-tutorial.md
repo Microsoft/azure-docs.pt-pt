@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar Velpic para aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
-description: Saiba como configurar o Azure Active Directory para aprovisionar e desaprovisionar contas de utilizador para Velpic automaticamente.
+title: 'Tutorial: Configurar velpic para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizador à Velpic.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -16,88 +16,88 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16c302fbe151d6cd8c2198240bc31a2bd69dbd7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9b7a6c2c9b7ecb0b160f7481d95f7682f3f7a109
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337685"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064126"
 ---
-# <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Tutorial: Configurar Velpic para aprovisionamento automático de utilizadores
+# <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Tutorial: Configurar velpic para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é mostrar a os passos que necessários para executar no Velpic e do Azure AD para aprovisionar e desaprovisionar contas de utilizador do Azure AD para Velpic automaticamente.
+O objetivo deste tutorial é mostrar-lhe os passos necessários para realizar em Velpic e Azure AD para fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para Velpic.
 
 > [!NOTE]
-> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Um inquilino do Azure Active Directory
-* Um inquilino Velpic com o [plano Enterprise](https://www.velpic.com/pricing.html) ou melhor ativado
-* Uma conta de utilizador no Velpic com permissões de administrador
+* Um inquilino velpic com o [plano da Enterprise](https://www.velpic.com/pricing.html) ou melhor habilitado
+* Uma conta de utilizador em Velpic com permissões admina
 
 ## <a name="assigning-users-to-velpic"></a>Atribuir utilizadores a Velpic
 
-O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento de contas de utilizadores automático, serão sincronizados apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação no Azure AD. 
+O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de conta de utilizador, apenas os utilizadores e grupos que tenham sido "atribuídos" a uma aplicação em Azure AD serão sincronizados. 
 
-Antes de configurar e ativar o serviço de aprovisionamento, terá de decidir quais os utilizadores e/ou grupos no Azure AD representam os utilizadores que necessitam de aceder à sua aplicação Velpic. Depois de decidir, pode atribuir estes utilizadores à sua aplicação Velpic ao seguir as instruções aqui:
+Antes de configurar e ativar o serviço de provisionamento, terá de decidir quais os utilizadores e/ou grupos em Azure AD que representam os utilizadores que precisam de acesso à sua aplicação Velpic. Uma vez decidido, pode atribuir estes utilizadores à sua aplicação Velpic seguindo as instruções aqui:
 
 [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-velpic"></a>Dicas importantes para atribuir utilizadores a Velpic
+### <a name="important-tips-for-assigning-users-to-velpic"></a>Dicas importantes para atribuir utilizadores à Velpic
 
-* Recomenda-se que um único utilizador do Azure AD ser atribuídos a Velpic para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído à Velpic para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um utilizador para Velpic, tem de selecionar um a **utilizador** função, ou outro válido específico do aplicativo função (se disponível) na caixa de diálogo atribuição. Tenha em atenção que o **acesso predefinido** função não funciona para o aprovisionamento e estes utilizadores vão ser ignorados.
+* Ao atribuir um utilizador à Velpic, deve selecionar a função **Utilizador** ou outra função específica de aplicação válida (se disponível) no diálogo de atribuição. Note que a função **de Acesso Predefinido** não funciona para o fornecimento, e estes utilizadores serão ignorados.
 
-## <a name="configuring-user-provisioning-to-velpic"></a>Configurar o aprovisionamento para Velpic
+## <a name="configuring-user-provisioning-to-velpic"></a>Configurar o fornecimento de utilizadores à Velpic
 
-Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisionamento da conta de utilizador do Velpic e configurar o serviço de aprovisionamento para criar, atualizar e desativar atribuídos a contas de utilizador no Velpic com base no utilizador e a atribuição de grupo no Azure AD.
+Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador da Velpic que aprovisiona a API, e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas em Velpic com base na atribuição de utilizador e grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativada baseado em SAML início de sessão único para Velpic, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementar entre si.
+> Também pode optar por ativar o Single Sign-On baseado em SAML para Velpic, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se elogiem mutuamente.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-velpic-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores conta para Velpic no Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-velpic-in-azure-ad"></a>Para configurar o fornecimento automático de conta de utilizador à Velpic em Azure AD:
 
-1. Na [portal do Azure](https://portal.azure.com), navegue para o **Azure Active Directory > aplicações empresariais > todos os aplicativos** secção.
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
 
-2. Se já tiver configurado Velpic para início de sessão único, procure a sua instância do Velpic usando o campo de pesquisa. Caso contrário, selecione **Add** e procure **Velpic** na Galeria de aplicações. Selecione Velpic resultados da pesquisa e adicioná-lo à sua lista de aplicações.
+2. Se já configurou velpic para um único sinal, procure a sua instância de Velpic utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **velpic** na galeria de aplicações. Selecione Velpic a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
-3. Selecione a sua instância de Velpic, em seguida, selecione o **aprovisionamento** separador.
+3. Selecione a sua instância de Velpic e, em seguida, selecione o separador **Provisioning.**
 
-4. Definir o **modo de aprovisionamento** ao **automática**.
+4. Detete o **modo de provisionamento** para **automático**.
 
-    ![Aprovisionamento Velpic](./media/velpic-provisioning-tutorial/Velpic1.png)
+    ![Provisionamento Velpic](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. Sob o **credenciais de administrador** secção, de entrada a **URL de inquilino e o segredo de Token** de Velpic. ( Pode encontrar estes valores na sua conta de Velpic: **Gerir** > **integração** > **Plug-in** > **SCIM**)
+5. Sob a secção **de Credenciais de Administrador,** insere o **URL&Secret Token** de Velpic. (Pode encontrar estes valores na sua conta Velpic: **Gerir** a **integração** >  > **Plugin** > **SCIM)**
 
-    ![Valores de autorização](./media/velpic-provisioning-tutorial/Velpic2.png)
+    ![Valores de Autorização](./media/velpic-provisioning-tutorial/Velpic2.png)
 
-6. No portal do Azure, clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação de Velpic. Se a ligação falhar, certifique-se de que a conta de Velpic tem permissões de administrador e tente novamente o passo 5.
+6. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação Velpic. Se a ligação falhar, certifique-se de que a sua conta Velpic tem permissões de Administrador e tente novamente o passo 5.
 
-7. Introduza o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de aprovisionamento no **notificação por E-Mail** campo e marque a caixa de verificação abaixo.
+7. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo de email de **notificação** e verifique a caixa de verificação abaixo.
 
 8. Clique em **Guardar**.
 
-9. Na secção de mapeamentos, selecione **sincronizar utilizadores do Azure Active Directory para Velpic**.
+9. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to Velpic**.
 
-10. Na **mapeamentos de atributos** secção, reveja os atributos de utilizador que serão sincronizados do Azure AD para Velpic. Tenha em atenção que os atributos selecionados como **correspondência** propriedades serão utilizadas para corresponder as contas de utilizador no Velpic para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+10. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que serão sincronizados de Azure AD a Velpic. Note que os atributos selecionados como propriedades **correspondentes** serão utilizados para combinar as contas de utilizador em Velpic para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 
-11. Para ativar o Azure AD para Velpic do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção
+11. Para ativar o serviço de provisionamento de AD Azure para velpic, altere o Estado de **Provisionamento** para **Ligado** na secção **Definições**
 
 12. Clique em **Guardar**.
 
-Isso iniciará a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a Velpic na secção utilizadores e grupos. Tenha em atenção que a sincronização inicial demora mais tempo a executar que sincroniza subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para relatórios de atividade, que descrevem a todas as ações executadas pelo serviço de aprovisionamento de aprovisionamento.
+Isto iniciará a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Velpic na secção Utilizadores e Grupos. Note que a sincronização inicial demorará mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos relatórios de atividadede provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

@@ -2,28 +2,28 @@
 title: Adicione contas não Microsoft à aplicação Microsoft Authenticator - Azure AD
 description: Adicione contas não Microsoft, como para google ou Facebook à aplicação Microsoft Authenticator para verificar a sua identidade enquanto utiliza a verificação de dois fatores.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: da5e2f60334148be1206ce61a9c6397a3acf85e3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8650d0170e8ff910140e2b432dd1c998d19e72d8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704770"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063956"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicione contas não Microsoft à aplicação Microsoft Authenticator
 
 Adicione as suas contas não Microsoft, como google, Facebook ou GitHub à aplicação Microsoft Authenticator para verificação de dois fatores. A aplicação Microsoft Authenticator funciona com qualquer aplicação que utilize verificação de dois fatores e qualquer conta que suporte os padrões de senha de uma vez (TOTP) baseados no tempo.
 
 >[!Important]
->Para poder adicionar sua conta, você deve baixar e instalar o aplicativo Microsoft Authenticator. Se ainda não tiver feito isso, siga as etapas no artigo [baixar e instalar o aplicativo](user-help-auth-app-download-install.md) .
+>Para poder adicionar sua conta, você deve baixar e instalar o aplicativo Microsoft Authenticator. Se ainda não o fez, siga os passos no Download e instale o artigo [da aplicação.](user-help-auth-app-download-install.md)
 
 ## <a name="add-personal-accounts"></a>Adicionar contas pessoais
 
@@ -34,7 +34,7 @@ Geralmente, para todas as suas contas pessoais, deve:
 2. Adicione a conta à aplicação Microsoft Authenticator. Pode ser-lhe pedido que escaneie um código QR como parte deste processo.
 
     >[!Note]
-    >Se esta for a primeira vez que você estiver configurando o aplicativo Microsoft Authenticator, você poderá receber um prompt perguntando se deseja permitir que o aplicativo acesse sua câmera (iOS) ou permitir que o aplicativo tire fotos e grave vídeo (Android). Você deve selecionar **permitir** para que o aplicativo autenticador possa acessar sua câmera para tirar uma imagem do código QR na próxima etapa. Se você não permitir a câmera, ainda poderá configurar o aplicativo autenticador, mas precisará adicionar as informações de código manualmente. Para obter informações sobre como adicionar o código manualmente, consulte [adicionar manualmente uma conta ao aplicativo](user-help-auth-app-add-account-manual.md).
+    >Se esta for a primeira vez que você estiver configurando o aplicativo Microsoft Authenticator, você poderá receber um prompt perguntando se deseja permitir que o aplicativo acesse sua câmera (iOS) ou permitir que o aplicativo tire fotos e grave vídeo (Android). Deve selecionar **Permitir** para que a aplicação autenticadora possa aceder à sua câmara para tirar uma fotografia do código QR no próximo passo. Se você não permitir a câmera, ainda poderá configurar o aplicativo autenticador, mas precisará adicionar as informações de código manualmente. Para obter informações sobre como adicionar o código manualmente, consulte [Manualmente adicionar uma conta à aplicação](user-help-auth-app-add-account-manual.md).
 
 Estamos a fornecer o processo aqui para as suas contas facebook, Google, GitHub e Amazon, mas este processo é o mesmo para qualquer outra aplicação, como o Instagram, Netflix ou Adobe.
 
@@ -163,7 +163,7 @@ Adicione a sua conta Amazon ligando a verificação de dois fatores e, em seguid
 
     Aparece a página De **Definições de Segurança Avançada.**
 
-3. Selecione **introdução**.
+3. Selecione **Começar**.
 
 4. Selecione **App Autenticador** a partir da **página Escolha como receberá códigos.**
 
@@ -195,6 +195,6 @@ Adicione a sua conta Amazon ligando a verificação de dois fatores e, em seguid
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Depois de adicionar suas contas ao aplicativo, você pode entrar usando o aplicativo autenticador em seu dispositivo. Para obter mais informações, consulte [entrar usando o aplicativo](user-help-auth-app-sign-in.md).
+- Depois de adicionar suas contas ao aplicativo, você pode entrar usando o aplicativo autenticador em seu dispositivo. Para mais informações, consulte [O Sign in usando a aplicação](user-help-auth-app-sign-in.md).
 
-- Para dispositivos que executam o iOS, você também pode fazer backup de suas credenciais de conta e configurações de aplicativo relacionadas, como a ordem de suas contas, para a nuvem. Para obter mais informações, consulte [fazer backup e recuperar com Microsoft Authenticator aplicativo](user-help-auth-app-backup-recovery.md).
+- Para dispositivos que executam o iOS, você também pode fazer backup de suas credenciais de conta e configurações de aplicativo relacionadas, como a ordem de suas contas, para a nuvem. Para mais informações, consulte [Backup e recupere com a aplicação Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

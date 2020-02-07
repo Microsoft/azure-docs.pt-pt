@@ -3,24 +3,26 @@ title: Perguntas comuns – descoberta, avaliação e análise de dependência e
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 201d67c38e9583de16cb6075cc1c4bf826c204fd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513291"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059492"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Perguntas comuns sobre descoberta, avaliação e análise de dependência
 
-Este artigo responde a perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure. Se você tiver outras consultas depois de ler este artigo, poste-as no [Fórum de migrações para Azure](https://aka.ms/AzureMigrateForum). Se você tiver outras dúvidas, leia estes artigos:
+Este artigo responde a perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure. Se tiver mais dúvidas depois de ler este artigo, publique-as no [fórum Azure Migrate](https://aka.ms/AzureMigrateForum). Se você tiver outras dúvidas, leia estes artigos:
 
-- [Perguntas gerais](resources-faq.md) sobre as migrações para Azure.
-- [Perguntas](common-questions-appliance.md) sobre o dispositivo migrações para Azure.
+- [Perguntas gerais](resources-faq.md) sobre Azure Migrate.
+- [Perguntas](common-questions-appliance.md) sobre o aparelho Azure Migrate.
+- [Perguntas](common-questions-server-migration.md) sobre migração de servidores.
+
 
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantas VMs posso descobrir com um dispositivo?
 
-Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 250 servidores com um único dispositivo. Se você tiver mais computadores no seu ambiente local, leia sobre dimensionamento do [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) e avaliação [física](scale-physical-assessment.md) .
+Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 250 servidores com um único dispositivo. Se tiver mais máquinas no seu ambiente no local, leia sobre a escala [hyper-V,](scale-hyper-v-assessment.md) [VMware](scale-vmware-assessment.md) e avaliação [física.](scale-physical-assessment.md)
 
 
 
@@ -43,7 +45,7 @@ Sim, as migrações para Azure precisam vCenter Server para executar a descobert
 
 Com o dimensionamento local, as migrações para Azure não consideram os dados de desempenho da VM para avaliação. Ele avalia os tamanhos de VM com base na configuração local. Com o dimensionamento baseado em desempenho, o dimensionamento é baseado nos dados de utilização.
 
-- Por exemplo, se uma VM local tiver 4 núcleos e 8 GB de memória às 50% de utilização da CPU e 50% de utilização da memória, ocorrerá o seguinte:
+- Por exemplo, se um VM no local tiver 4 núcleos e 8 GB de memória a 50% de utilização de CPU e 50% de utilização da memória, ocorrerá o seguinte:
     - O dimensionamento local recomendará um SKU de VM do Azure que tenha 4 núcleos e 8 GB de memória.
     - O dimensionamento baseado em desempenho recomendará uma SKU de VM com 2 núcleos e 4 GB de memória, pois a porcentagem de utilização é considerada.
 
@@ -68,7 +70,7 @@ Quando você cria uma avaliação no Azure, com base no valor de duração de de
 
 ## <a name="what-is-dependency-visualization"></a>O que é a visualização de dependência?
 
-Use a visualização de dependência para avaliar grupos de VMs para migração com maior confiança. A visualização de dependência faz verificações entre as dependências do computador antes de executar uma avaliação. Ele ajuda a garantir que nada seja deixado para trás e, portanto, ajuda a evitar interrupções inesperadas ao migrar para o Azure. As migrações para Azure usam a solução Mapa do Serviço no Azure Monitor para habilitar a visualização de dependência. [saiba mais](concepts-dependency-visualization.md).
+Use a visualização de dependência para avaliar grupos de VMs para migração com maior confiança. A visualização de dependência faz verificações entre as dependências do computador antes de executar uma avaliação. Ele ajuda a garantir que nada seja deixado para trás e, portanto, ajuda a evitar interrupções inesperadas ao migrar para o Azure. As migrações para Azure usam a solução Mapa do Serviço no Azure Monitor para habilitar a visualização de dependência. [aprender mais.](concepts-dependency-visualization.md)
 
 > [!NOTE]
 > A visualização de dependência não está disponível no Azure governamental.
@@ -82,7 +84,7 @@ Para usar a visualização de dependência, você precisa baixar e instalar agen
 
 Você precisa instalar os seguintes agentes em cada computador:
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
-- [Agente de dependência](../azure-monitor/platform/agents-overview.md#dependency-agent).
+- [Agente de dependência.](../azure-monitor/platform/agents-overview.md#dependency-agent)
 - Se você tiver computadores sem conectividade com a Internet, será necessário baixar e instalar Log Analytics gateway neles.
 
 Você não precisa desses agentes, a menos que esteja usando a visualização de dependência.
@@ -93,28 +95,28 @@ Sim, você pode anexar um espaço de trabalho existente ao projeto de migração
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>Posso exportar o relatório de visualização de dependência?
 
-Não, a visualização de dependência não pode ser exportada. No entanto, as migrações para Azure usam Mapa do Serviço e você pode usar a [API REST mapa do serviço](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para recuperar as dependências no formato JSON.
+Não, a visualização de dependência não pode ser exportada. No entanto, o Azure Migrate utiliza o Mapa de Serviço, e pode utilizar o Mapa de [Serviço REST API](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para recuperar as dependências em formato JSON.
 
 ## <a name="can-i-automate--mmadependency-agent-installation"></a>Posso automatizar a instalação do MMA/agente de dependência?
 
-Use esse [script para instalar o Dependency Agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Siga estas [instruções para instalar o MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) usando a linha de comando ou automação. Para MMA, use [este script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+Utilize este [script para instalar o agente Dependency](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Siga estas [instruções para instalar o MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) utilizando a linha de comando ou automação. Para MMA, use [este script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
-Além de scripts, você também pode usar ferramentas de implantação como o Microsoft Endpoint Configuration Manager e o [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implantar os agentes.
+Além de scripts, também pode utilizar ferramentas de implementação como o Microsoft Endpoint Configuration Manager e [a Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implementar os agentes.
 
 
 ## <a name="what-operating-systems-does-mma-support"></a>A quais sistemas operacionais o MMA dá suporte?
 
-- Exiba a lista de [sistemas operacionais Windows com suporte pelo MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
-- Exiba a lista de [sistemas operacionais Linux com suporte do MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+- Ver a lista de [sistemas operativos Windows suportados pelo MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+- Ver a lista de [sistemas operativos Linux suportados pelo MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
 
 ## <a name="can-i-visualize-dependencies-for-more-than-an-hour"></a>Posso Visualizar dependências por mais de uma hora?
-Não. Você pode visualizar dependências por até uma hora. Você pode voltar para uma data específica no histórico, até um mês, mas a duração máxima da visualização é de uma hora. Por exemplo, você pode usar a duração de tempo no mapa de dependências para exibir dependências de ontem, mas você pode exibir dependências somente para uma janela de uma hora. No entanto, você pode usar os logs de Azure Monitor para [consultar dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração maior.
+Não. Você pode visualizar dependências por até uma hora. Você pode voltar para uma data específica no histórico, até um mês, mas a duração máxima da visualização é de uma hora. Por exemplo, você pode usar a duração de tempo no mapa de dependências para exibir dependências de ontem, mas você pode exibir dependências somente para uma janela de uma hora. No entanto, pode utilizar registos do Monitor Azure para [consultar dados](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) de dependência durante uma duração mais longa.
 
 ## <a name="can-visualize-dependencies-for-groups-of-more-than-10-vms"></a>Pode visualizar dependências de grupos com mais de 10 VMs?
-Você pode [Visualizar dependências](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) para grupos que contêm até 10 VMS. Se você tiver um grupo com mais de 10 VMs, é recomendável dividir o grupo em grupos menores e, em seguida, Visualizar as dependências.
+Pode [visualizar dependências](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) de grupos que contenham até 10 VMs. Se você tiver um grupo com mais de 10 VMs, é recomendável dividir o grupo em grupos menores e, em seguida, Visualizar as dependências.
 
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Leia a [visão geral de migrações para Azure](migrate-services-overview.md).
+Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)

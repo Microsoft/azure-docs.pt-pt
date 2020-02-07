@@ -2,13 +2,13 @@
 title: Implementação clássica e Resource Manager
 description: Descreve as diferenças entre o modelo de implementação Resource Manager e o modelo de implementação clássica (ou Gestão de Serviço).
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: 4d7f17dace81198724a62dcc665c8c31acbcf6de
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.date: 02/06/2020
+ms.openlocfilehash: 85691d562f2b58cdced3264de11f3dd29a7ca168
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168837"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064517"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implementação Azure Resource Manager vs. implementação clássica: Compreender os modelos de implementação e o estado dos seus recursos.
 
@@ -19,7 +19,7 @@ Neste artigo, vai ficar a saber mais sobre os modelos de implementação Azure R
 
 Para simplificar a implementação e gestão de recursos, a Microsoft recomenda que utilize o Resource Manager para todos os recursos novos. Se for possível, a Microsoft recomenda que reimplemente os recursos existentes através do Resource Manager.
 
-Se você for novo no Gerenciador de recursos, convém primeiro examinar a terminologia definida na [visão geral de Azure Resource Manager](overview.md).
+Se é novo em Gestor de Recursos, pode querer rever primeiro a terminologia definida na visão geral do [Gestor de Recursos do Azure](overview.md).
 
 ## <a name="history-of-the-deployment-models"></a>Histórico dos modelos de implementação
 
@@ -64,7 +64,7 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-No entanto, o cmdlet do Gerenciador de recursos **Get-AzVM** só retorna máquinas virtuais implantadas por meio do Resource Manager. O comando a seguir não retorna a máquina virtual criada por meio da implantação clássica.
+No entanto, o Gestor de Recursos cmdlet **Get-AzVM** apenas devolve máquinas virtuais implantadas através do Gestor de Recursos. O comando a seguir não retorna a máquina virtual criada por meio da implantação clássica.
 
 ```powershell
 Get-AzVM -ResourceGroupName ExampleGroup
@@ -76,7 +76,7 @@ Só os recursos criados com o Resource Manager suportam etiquetas. Você não po
 
 O diagrama seguinte apresenta recursos de computação, rede e armazenamento implementados através do Resource Manager.
 
-![Arquitetura do Gestor de Recursos](./media/deployment-models/arm_arch3.png)
+![Arquitetura do Resource Manager](./media/deployment-models/arm_arch3.png)
 
 Repare nas seguintes relações entre os recursos:
 
@@ -99,7 +99,7 @@ A solução clássica para alojar uma máquina virtual inclui:
 
 A tabela seguinte descreve as alterações na forma como os fornecedores de Computação, Rede e Armazenamento interagem:
 
-| Item | Clássico | Resource Manager |
+| Item | Clássica | Resource Manager |
 | --- | --- | --- |
 | Serviço em Nuvem para Máquinas Virtuais |O Serviço em Nuvem era um contentor para manter máquinas virtuais que exigiam Disponibilidade a partir de plataforma e o Balanceamento de Carga. |O Serviço em Nuvem já não é um objeto necessário para criar uma Máquina Virtual com o novo modelo. |
 | Redes Virtuais |Uma rede virtual é opcional para a máquina virtual. Se incluído, a rede virtual não pode ser implantada com o Gerenciador de recursos. |A máquina virtual requer uma rede virtual que tenha sido implementada com o Resource Manager. |

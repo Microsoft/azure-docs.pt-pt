@@ -2,7 +2,7 @@
 title: Problemas e soluções comuns com autenticação de conta - Azure AD
 description: Conheça potenciais problemas e soluções para alguns dos problemas de verificação de dois fatores mais comuns e o seu trabalho ou conta escolar.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 498c150706cd62168b7c45b1bcf36ad6c3a8b63b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 3f44884f54278f7b4d07a265604f4a256d66e8a8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705212"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062545"
 ---
 # <a name="common-problems-and-solutions-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas e soluções comuns com verificação de dois fatores e sua conta de trabalho ou escola
 
@@ -105,7 +105,7 @@ Se já tentou estes passos, mas ainda está com problemas, contacte o seu balcã
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Gerenciar as configurações do método de verificação de dois fatores](multi-factor-authentication-end-user-manage-settings.md)
+- [Gerencie as definições do método de verificação de dois fatores](multi-factor-authentication-end-user-manage-settings.md)
 
 - [Configurar a minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md)
 

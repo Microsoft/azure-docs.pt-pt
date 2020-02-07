@@ -2,7 +2,7 @@
 title: Junte-se ao seu dispositivo de trabalho na rede da sua organização - AD
 description: Aprenda a aderir ao seu dispositivo de trabalho na rede da sua organização.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 149c0298ee7883aa130756bfc4d0cbbb9e002065
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704651"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062273"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte-se ao seu dispositivo de trabalho na rede da sua organização
 Junte-se ao seu dispositivo Windows 10 de propriedade própria na rede da sua organização para que possa aceder a recursos potencialmente restritos.
@@ -57,7 +57,7 @@ Se o seu dispositivo for novo e ainda não tiver sido configurado, pode passar p
 ## <a name="to-make-sure-youre-joined"></a>Para ter certeza de que está se juntando
 Pode certificar-se de que está acompanhado olhando para as suas definições.
 
-1. Abra **Definições** e, em seguida, selecione **Contas**.
+1. Abra **as Definições**e, em seguida, selecione **Contas**.
 
     ![Contas no ecrã Definições](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
@@ -69,7 +69,7 @@ Pode certificar-se de que está acompanhado olhando para as suas definições.
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Para se juntar a um dispositivo já configurado do Windows 10
 Se já tem o seu dispositivo há algum tempo e já foi configurado, pode seguir estes passos para se juntar ao seu dispositivo à rede.
 
-1. Abra **Definições** e, em seguida, selecione **Contas**.
+1. Abra **as Definições**e, em seguida, selecione **Contas**.
 
 2. Selecione **O trabalho de acesso ou escola**e, em seguida, selecione **Connect**.
 
@@ -85,7 +85,7 @@ Se já tem o seu dispositivo há algum tempo e já foi configurado, pode seguir 
 
 5. No ecrã de **palavra-passe Introduza,** escreva a sua palavra-passe e, em seguida, selecione **Iniciar sessão**.
 
-    ![Introduzir palavra-passe](./media/user-help-join-device-on-network/join-device-setup-password.png)
+    ![Insira a palavra-passe](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
 6. No seu dispositivo móvel, aprove o seu dispositivo para que possa aceder à sua conta. 
 
@@ -102,7 +102,7 @@ Se já tem o seu dispositivo há algum tempo e já foi configurado, pode seguir 
 ## <a name="to-make-sure-youre-joined"></a>Para ter certeza de que está se juntando
 Pode certificar-se de que está acompanhado olhando para as suas definições.
 
-1. Abra **Definições** e, em seguida, selecione **Contas**.
+1. Abra **as Definições**e, em seguida, selecione **Contas**.
 
     ![Contas no ecrã Definições](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 

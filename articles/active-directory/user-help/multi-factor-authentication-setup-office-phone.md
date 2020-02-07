@@ -2,20 +2,20 @@
 title: Configure um telefone comercial como seu método de verificação de dois fatores-Azure Active Directory | Microsoft Docs
 description: Saiba como configurar um telefone comercial como seu método de verificação de dois fatores.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
-ms.author: lizross
-ms.openlocfilehash: 32d58a5536cda5a5a446eee15401dabc0c936304
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: b94c739abffa8792afbfab4285c54a67f3eb4b65
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705229"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062528"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configurar um telefone comercial como seu método de verificação de dois fatores
 
@@ -26,7 +26,7 @@ Você pode configurar seu telefone comercial para atuar como seu método de veri
 
 ## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Configurar seu número de telefone comercial como seu método de verificação
 
-1. Na página **verificação de segurança adicional** , selecione **telefone comercial** na lista suspensa **etapa 1: como devemos entrar em contato com** a sua área, selecione seu país ou região no menu suspenso, digite seu número de telefone comercial e, em seguida, digite sua extensão, se você tiver uma.
+1. Na página adicional de **verificação** de segurança, selecione o **telefone do Office** a partir do Passo **1: Como devemos contactar você** área, selecionar o seu país ou região a partir da lista de drop-down, digitar o seu número de telefone do escritório e, em seguida, digitar a sua extensão, se tiver um.
 
     ![Página de verificação de segurança adicional, com telefone de autenticação e chamada telefônica](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone.png)
 
@@ -34,12 +34,12 @@ Você pode configurar seu telefone comercial para atuar como seu método de veri
 
     ![Testando o número de telefone especificado](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone-test.png)
 
-3. Na área **etapa 3: continuar usando seus aplicativos existentes** , copie a senha de aplicativo fornecida e cole-a em um local seguro.
+3. A partir do Passo 3: Continue a utilizar a área de **aplicações existente,** copie a senha da aplicação fornecida e cole-a em algum lugar seguro.
 
     ![Área de senhas de aplicativo da página de verificação de segurança adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
-    >Para obter informações sobre como usar a senha de aplicativo com seus aplicativos mais antigos, consulte [gerenciar senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md). Você só precisa usar senhas de aplicativo se estiver continuando a usar aplicativos mais antigos que não dão suporte à verificação de dois fatores.
+    >Para obter informações sobre como usar a palavra-passe da aplicação com as suas aplicações mais antigas, consulte [Gerir palavras-passe](multi-factor-authentication-end-user-app-passwords.md)da aplicação . Você só precisa usar senhas de aplicativo se estiver continuando a usar aplicativos mais antigos que não dão suporte à verificação de dois fatores.
 
 4. Selecione **Done** (Concluído).
 
@@ -47,10 +47,10 @@ Você pode configurar seu telefone comercial para atuar como seu método de veri
 
 Depois de configurar o método de verificação de dois fatores, você pode adicionar outros métodos, gerenciar suas configurações e senhas de aplicativo, entrar ou obter ajuda com alguns problemas comuns relacionados à verificação de dois fatores.
 
-- [Gerenciar as configurações do método de verificação de dois fatores](multi-factor-authentication-end-user-manage-settings.md)
+- [Gerencie as definições do método de verificação de dois fatores](multi-factor-authentication-end-user-manage-settings.md)
 
 - [Gerir as palavras-passe das aplicações](multi-factor-authentication-end-user-app-passwords.md)
 
-- [Entrar usando a verificação de dois fatores](multi-factor-authentication-end-user-signin.md)
+- [Iniciar sessão utilizando verificação de dois fatores](multi-factor-authentication-end-user-signin.md)
 
-- [Obter ajuda com a verificação de dois fatores](multi-factor-authentication-end-user-troubleshoot.md)
+- [Obtenha ajuda com verificação de dois fatores](multi-factor-authentication-end-user-troubleshoot.md)

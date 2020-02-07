@@ -1,67 +1,67 @@
 ---
-title: Entender o bloqueio de recursos
-description: Saiba mais sobre as opções de bloqueio em plantas do Azure para proteger recursos ao atribuir um plano gráfico.
+title: Compreender o bloqueio de recursos
+description: Conheça as opções de bloqueio em Plantas Azure para proteger os recursos ao atribuir uma planta.
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406412"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057350"
 ---
-# <a name="understand-resource-locking-in-azure-blueprints"></a>Entender o bloqueio de recursos em plantas do Azure
+# <a name="understand-resource-locking-in-azure-blueprints"></a>Compreenda o bloqueio de recursos em Plantas Azure
 
-A criação de ambientes consistentes em escala só será verdadeiramente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como o bloqueio de recursos funciona em plantas do Azure. Para ver um exemplo de bloqueio de recursos e aplicação de _atribuições de negação_, consulte o tutorial [protegendo novos recursos](../tutorials/protect-new-resources.md) .
+A criação de ambientes consistentes à escala só é verdadeiramente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como funciona o bloqueio de recursos em Plantas Azure. Para ver um exemplo de bloqueio de recursos e aplicação de _missões de negação,_ consulte a [proteção](../tutorials/protect-new-resources.md) de novos recursos tutoriais.
 
-## <a name="locking-modes-and-states"></a>Modos de bloqueio e Estados
+## <a name="locking-modes-and-states"></a>Modos e estados de bloqueio
 
-O modo de bloqueio se aplica à atribuição Blueprint e tem três opções: **não bloquear**, **somente leitura**ou **não excluir**. O modo de bloqueio é configurado durante a implantação do artefato durante uma atribuição de Blueprint. Um modo de bloqueio diferente pode ser definido atualizando a atribuição Blueprint.
-No entanto, os modos de bloqueio não podem ser alterados fora dos planos gráficos.
+O modo de bloqueio aplica-se à atribuição da planta e tem três opções: **Não bloquear,** **ler apenas**ou **não eliminar**. O modo de bloqueio é configurado durante a implantação do artefacto durante uma atribuição de plantas. Um modo de bloqueio diferente pode ser definido atualizando a atribuição da planta.
+Os modos de bloqueio, no entanto, não podem ser alterados fora das Plantas.
 
-Os recursos criados por artefatos em uma atribuição Blueprint têm quatro Estados: **não bloqueado**, **somente leitura**, **não é possível editar/Excluir**ou **não pode excluir**. Cada tipo de artefato pode estar no estado **não bloqueado** . A tabela a seguir pode ser usada para determinar o estado de um recurso:
+Os recursos criados por artefactos numa atribuição de plantas têm quatro estados: **Não bloqueado,** **Leia Apenas,** **Não Pode Editar / Excluir,** ou **Não Pode Excluir**. Cada tipo de artefacto pode estar no estado **não bloqueado.** A tabela a seguir pode ser utilizada para determinar o estado de um recurso:
 
-|Modo|Tipo de recurso de artefato|Estado|Descrição|
+|Modo|Tipo de recurso de artefacto|Estado|Descrição|
 |-|-|-|-|
-|Não bloquear|*|Não bloqueado|Os recursos não são protegidos por plantas. Esse estado também é usado para recursos adicionados a um artefato **somente leitura** ou **não excluir** do grupo de recursos de fora de uma atribuição Blueprint.|
-|Só de Leitura|Grupo de recursos|Não é possível editar/excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Recursos **não bloqueados** podem ser adicionados, movidos, alterados ou excluídos deste grupo de recursos.|
-|Só de Leitura|Grupo de não recursos|Só de Leitura|O recurso não pode ser alterado de nenhuma forma, sem alterações e não pode ser excluído.|
-|Não excluir|*|Não é possível excluir|Os recursos podem ser alterados, mas não podem ser excluídos. Recursos **não bloqueados** podem ser adicionados, movidos, alterados ou excluídos deste grupo de recursos.|
+|Não tranque|*|Não trancado|Os recursos não estão protegidos por plantas. Este estado também é usado para recursos adicionados a um artefacto de grupo **de recursos Read Only** ou Not **Delete** from outside a blueprint assignment.|
+|Só de Leitura|Grupo de recursos|Não pode Editar / Excluir|O grupo de recursos é lido apenas e as etiquetas no grupo de recursos não podem ser modificadas. Os recursos **bloqueados não** podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
+|Só de Leitura|Grupo sem recursos|Só de Leitura|O recurso não pode ser alterado de forma alguma.|
+|Não apague|*|Não pode Excluir|Os recursos podem ser alterados, mas não podem ser apagados. Os recursos **bloqueados não** podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
 
-## <a name="overriding-locking-states"></a>Substituindo Estados de bloqueio
+## <a name="overriding-locking-states"></a>Estados de bloqueio dominantes
 
-Normalmente, é possível que alguém com RBAC ( [controle de acesso baseado em função](../../../role-based-access-control/overview.md) ) apropriado na assinatura, como a função ' proprietário ', tenha permissão para alterar ou excluir qualquer recurso. Esse acesso não é o caso quando os planos gráficos aplicam bloqueio como parte de uma atribuição implantada. Se a atribuição tiver sido definida com a opção **somente leitura** ou **não excluir** , nem mesmo o proprietário da assinatura poderá executar a ação bloqueada no recurso protegido.
+É tipicamente possível que alguém com um controlo de acesso baseado [em funções](../../../role-based-access-control/overview.md) apropriado (RBAC) na subscrição, como a função 'Proprietário', seja autorizado a alterar ou apagar qualquer recurso. Este acesso não é o caso quando as plantas se aplicam ao bloqueio como parte de uma missão implementada. Se a atribuição foi definida com a opção **Ler Apenas** ou **Não Eliminar,** nem mesmo o proprietário da subscrição pode executar a ação bloqueada no recurso protegido.
 
-Essa medida de segurança protege a consistência do plano gráfico definido e do ambiente que ele foi projetado para criar de uma exclusão acidental ou programática ou alteração.
+Esta medida de segurança protege a consistência do projeto definido e do ambiente que foi concebido para criar a partir de supressão ou alteração acidental ou programática.
 
-## <a name="removing-locking-states"></a>Removendo Estados de bloqueio
+## <a name="removing-locking-states"></a>Remoção de estados de bloqueio
 
-Se for necessário modificar ou excluir um recurso protegido por uma atribuição, há duas maneiras de fazer isso.
+Se for necessário modificar ou eliminar um recurso protegido por uma atribuição, existem duas formas de o fazer.
 
-- Atualizar a atribuição Blueprint para um modo de bloqueio de **não bloquear**
-- Excluir a atribuição de Blueprint
+- Atualizar a atribuição da planta para um modo de bloqueio de **Don't Lock**
+- Eliminar a atribuição da planta
 
-Quando a atribuição é removida, os bloqueios criados por plantas são removidos. No entanto, o recurso é deixado para trás e precisa ser excluído por meio de meios normais.
+Quando a atribuição é removida, as fechaduras criadas por Plantas são removidas. No entanto, o recurso é deixado para trás e teria de ser apagado através de meios normais.
 
-## <a name="how-blueprint-locks-work"></a>Como os bloqueios de plantas funcionam
+## <a name="how-blueprint-locks-work"></a>Como funcionam as fechaduras de plantas
 
-Uma ação negar [atribuições de negação](../../../role-based-access-control/deny-assignments.md) de RBAC será aplicada aos recursos de artefato durante a atribuição de um plano gráfico se a atribuição tiver selecionado a opção **somente leitura** ou **não excluir** . A ação Deny é adicionada pela identidade gerenciada da atribuição Blueprint e só pode ser removida dos recursos de artefato pela mesma identidade gerenciada. Essa medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio Blueprint fora dos planos gráficos.
+Um RBAC [nega que as atribuições](../../../role-based-access-control/deny-assignments.md) negem que a ação é aplicada aos recursos de artefactos durante a atribuição de um projeto se a atribuição selecionou a opção **Ler Apenas** ou **Não Excluir.** A ação de negação é adicionada pela identidade gerida da atribuição do projeto e só pode ser removida dos recursos do artefacto pela mesma identidade gerida. Esta medida de segurança aplica o mecanismo de bloqueio e impede a remoção do bloqueio de plantas fora das plantas.
 
-![Atribuição de negação de plano gráfico no grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
+![Projeto negar atribuição no grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
 
-As [Propriedades de atribuição de negação](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são as seguintes:
+As propriedades de [atribuição de negar](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são as seguintes:
 
-|Modo |Permissões. ações |Permissões. \ ações |Entidades de segurança [i]. Escreva |ExcludePrincipals [i]. Sessão | DoNotApplyToChildScopes |
+|Modo |Permissões.Ações |Permissões.NotActions |Diretores[i]. Tipo |Excluir os Diretores[i]. Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Só de Leitura |**\*** |**\*/Read** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
-|Não excluir |**\*/Delete** | |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
+|Só de Leitura |**\*** |**\*/ler** |SystemDefined (Todos) |atribuição de plantas e definida pelo utilizador em **diretores excluídos** |Grupo de recursos - _verdadeiro;_ Recurso - _falso_ |
+|Não apague |**\*/excluir** | |SystemDefined (Todos) |atribuição de plantas e definida pelo utilizador em **diretores excluídos** |Grupo de recursos - _verdadeiro;_ Recurso - _falso_ |
 
 > [!IMPORTANT]
-> Azure Resource Manager armazena em cache detalhes de atribuição de função por até 30 minutos. Como resultado, as atribuições de negação da ação de negação dos recursos do Blueprint podem não estar imediatamente em pleno efeito. Durante esse período de tempo, pode ser possível excluir um recurso destinado a ser protegido por bloqueios do Blueprint.
+> O Gestor de Recursos Azure caches detalhes de atribuição de funções por um máximo de 30 minutos. Como resultado, negar atribuições negam que as ações sobre os recursos de projeto podem não estar imediatamente em vigor. Durante este período de tempo, poderá ser possível eliminar um recurso destinado a ser protegido por fechaduras de plantas.
 
-## <a name="exclude-a-principal-from-a-deny-assignment"></a>Excluir uma entidade de segurança de uma atribuição de negação
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Excluir um diretor de uma atribuição de negação
 
-Em alguns cenários de design ou segurança, pode ser necessário excluir uma entidade da atribuição de [negação](../../../role-based-access-control/deny-assignments.md) criada pela atribuição Blueprint. Isso é feito na API REST adicionando até cinco valores à matriz **excludedPrincipals** na propriedade **Locks** ao [criar a atribuição](/rest/api/blueprints/assignments/createorupdate). Este é um exemplo de um corpo de solicitação que inclui **excludedPrincipals**:
+Em alguns cenários de conceção ou segurança, pode ser necessário excluir um diretor da atribuição de [negação](../../../role-based-access-control/deny-assignments.md) que a atribuição de plantas cria. Isto é feito em REST API adicionando até cinco **valores** à matriz excluída dos Principais na propriedade **locks** ao criar [a atribuição](/rest/api/blueprints/assignments/createorupdate). Este é um exemplo de um órgão de pedido que inclui **os diretores excluídos:**
 
 ```json
 {
@@ -103,9 +103,29 @@ Em alguns cenários de design ou segurança, pode ser necessário excluir uma en
 }
 ```
 
+## <a name="exclude-an-action-from-a-deny-assignment"></a>Excluir uma ação de uma atribuição de negação
+
+Semelhante a [excluir um principal](#exclude-a-principal-from-a-deny-assignment) numa atribuição de [negação](../../../role-based-access-control/deny-assignments.md) numa atribuição de projeto, pode excluir [operações rBAC específicas](../../../role-based-access-control/resource-provider-operations.md). Dentro do bloco **de propriedades.fechaduras,** no mesmo local que os **Diretores excluídos,** pode ser adicionada uma **ação excluída:**
+
+```json
+"locks": {
+    "mode": "AllResourcesDoNotDelete",
+    "excludedPrincipals": [
+        "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+        "38833b56-194d-420b-90ce-cff578296714"
+    ],
+    "excludedActions": [
+        "Microsoft.ContainerRegistry/registries/push/write",
+        "Microsoft.Authorization/*/read"
+    ]
+},
+```
+
+Embora **os Diretores excluídos sejam explícitos,** as entradas **excluídas podem** utilizar `*` para a correspondência de wildcard das operações RBAC.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Siga o tutorial [proteger novos recursos](../tutorials/protect-new-resources.md) .
+- Siga o tutorial [de novos recursos protegidos.](../tutorials/protect-new-resources.md)
 - Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).

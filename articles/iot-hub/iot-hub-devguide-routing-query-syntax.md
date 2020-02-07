@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 04db62f402c25dd4a04281047f684dc23d41a502
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934626"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064823"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de encaminhamento de mensagens IoT Hub
 
@@ -196,7 +196,7 @@ O encaminhamento de mensagens permite-lhe consultar as etiquetas e propriedades 
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Uma consulta no corpo da mensagem tem de ser pré-fixada com o `$twin`. A sua expressão de consulta também pode combinar uma etiqueta dupla ou referência de propriedade com uma referência corporal, propriedades do sistema de mensagens e referência de propriedades de aplicação de mensagens. Recomendamos a utilização de nomes únicos em etiquetas e propriedades, uma vez que a consulta não é sensível a casos. Isto aplica-se tanto aos gémeos dispositivos como aos gémeos módulos. Abstenha-se também de utilizar `twin`, `$twin`, `body`ou `$body`, como nomes de propriedade. Por exemplo, todos os seguintes são expressões de consulta válidas: 
+Uma consulta no gémeo da mensagem tem de ser pré-fixada com o `$twin`. A sua expressão de consulta também pode combinar uma etiqueta dupla ou referência de propriedade com uma referência corporal, propriedades do sistema de mensagens e referência de propriedades de aplicação de mensagens. Recomendamos a utilização de nomes únicos em etiquetas e propriedades, uma vez que a consulta não é sensível a casos. Isto aplica-se tanto aos gémeos dispositivos como aos gémeos módulos. Abstenha-se também de utilizar `twin`, `$twin`, `body`ou `$body`, como nomes de propriedade. Por exemplo, todos os seguintes são expressões de consulta válidas: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

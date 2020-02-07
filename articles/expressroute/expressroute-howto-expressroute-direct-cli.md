@@ -1,22 +1,22 @@
 ---
-title: 'Azure ExpressRoute: configurar ExpressRoute direto: CLI'
-description: Este artigo ajuda você a configurar o ExpressRoute direto usando o CLI do Azure
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
+description: Este artigo ajuda-o a configurar o ExpressRoute Direct utilizando o Azure CLI
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6a17570a62728d5b4f9c99e3c4c939b5c77cb3df
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 47ee05113d46f66efd02978fed09cf72edc5ac1c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74080220"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049931"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direto usando o CLI do Azure
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configure ExpressRoute Direct utilizando o Azure CLI
 
-Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. Para obter mais informações, consulte [sobre o ExpressRoute direto ligar](expressroute-erdirect-about.md).
+Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. Para mais informações, consulte sobre o [ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
 ## <a name="resources"></a>Criar o recurso
 
@@ -38,13 +38,18 @@ Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global 
    az account set --subscription "<subscription ID>"
    ```
 
-2. Liste todas as localizações onde ExpressRoute direta é suportada:
+2. Re-registe a sua subscrição para microsoft.Network para aceder às APIs de autorrotação e de porta expressa
+
+   ```azurecli
+   az provider register --namespace Microsoft.Network
+   ```
+3. Liste todas as localizações onde ExpressRoute direta é suportada:
     
    ```azurecli
    az network express-route port location list
    ```
 
-   **Exemplo de saída**
+   **Saída de exemplo**
   
    ```azurecli
    [
@@ -105,13 +110,13 @@ Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global 
    }
    ]
    ```
-3. Determine se uma das localizações apresentadas no passo anterior tem largura de banda disponível:
+4. Determine se uma das localizações apresentadas no passo anterior tem largura de banda disponível:
 
    ```azurecli
    az network express-route port location show -l "Equinix-Ashburn-DC2"
    ```
 
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```azurecli
    {
@@ -131,7 +136,7 @@ Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global 
    "type": "Microsoft.Network/expressRoutePortsLocations"
    }
    ```
-4. Crie um recurso direto do ExpressRoute com base na localização que escolheu nos passos anteriores.
+5. Crie um recurso direto do ExpressRoute com base na localização que escolheu nos passos anteriores.
 
    ExpressRoute Direct suporta QinQ e Dot1Q encapsulamento. Se selecionar QinQ, cada circuito ExpressRoute é dinamicamente atribuído uma marca de S e é exclusivo em todo o recurso direto do ExpressRoute. Cada etiqueta-C no circuito tem de ser exclusiva no circuito, mas não entre o recurso direto do ExpressRoute.  
 
@@ -146,10 +151,10 @@ Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global 
    ```
 
    > [!NOTE]
-   > Também pode definir o **encapsulamento** para o atributo **Dot1Q**. 
+   > Também pode definir o atributo de **encapsulação** ao **Dot1Q**. 
    >
 
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```azurecli
    {
@@ -203,11 +208,11 @@ Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global 
    }  
    ```
 
-## <a name="state"></a>Alteração AdminState das hiperligações
+## <a name="state"></a>Alterar o AdminState para links
 
 Utilize este processo para conduzir um teste de camada 1. Certifique-se de que cada ligação cruzada efetuado tiver patch em cada router nas portas primárias e secundárias.
 
-1. Definir ligações **ativado**. Repita este passo para definir cada ligação **ativado**.
+1. Definir ligações para **Ativado**. Repita este passo para definir cada ligação a **Ativado**.
 
    Ligações [0] é a porta primária e Links [1] é a porta secundária.
 
@@ -217,7 +222,7 @@ Utilize este processo para conduzir um teste de camada 1. Certifique-se de que c
    ```azurecli
    az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
    ```
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```azurecli
    {
@@ -271,7 +276,7 @@ Utilize este processo para conduzir um teste de camada 1. Certifique-se de que c
    }
    ```
 
-   Utilize o mesmo procedimento para reduzir as portas utilizando `AdminState = "Disabled"`.
+   Utilize o mesmo procedimento para descer as portas utilizando `AdminState = "Disabled"`.
 
 ## <a name="circuit"></a>Criar um circuito
 
@@ -279,9 +284,9 @@ Por predefinição, pode criar 10 circuitos na subscrição que contém o recurs
 
 Pode utilizar larguras de banda do circuito adicionais no ExpressRoute Direct apenas para suportar os cenários descritos aqui. As larguras de banda são 40 Gbps e 100 Gbps.
 
-**SkuTier** pode ser local, Standard ou Premium.
+**SkuTier** pode ser Local, Standard ou Premium.
 
-**SkuFamily** deve ser MeteredData somente como ilimitado não tem suporte no ExpressRoute Direct.
+**O SkuFamily** deve ser MedidoData apenas uma vez que ilimitado não é suportado no ExpressRoute Direct.
 Crie um circuito no recurso direto do ExpressRoute:
 
   ```azurecli
@@ -290,7 +295,7 @@ Crie um circuito no recurso direto do ExpressRoute:
 
   Outras larguras de banda de incluem 5 Gbps, 10 Gbps e 40 Gbps.
 
-  **Exemplo de saída**
+  **Saída de exemplo**
 
   ```azurecli
   {
@@ -328,4 +333,4 @@ Crie um circuito no recurso direto do ExpressRoute:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Direct do ExpressRoute, consulte a [descrição geral](expressroute-erdirect-about.md).
+Para mais informações sobre o ExpressRoute Direct, consulte a [visão geral](expressroute-erdirect-about.md).

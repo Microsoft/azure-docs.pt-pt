@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8e3c2b7f4087f0f47466eff47b22c59dad19892e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774944"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050011"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publique o conteúdo dos Serviços De Mídia Azure utilizando o REST 
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Pode transmitir um BIT4 bitrate adaptativo, criando um localizador de streaming 
 
 Também pode utilizar um localizador de streaming OnDemand para construir URLs que apontam para ficheiros MP4 que podem ser descarregados progressivamente.  
 
-Este artigo mostra como criar um localizador de streaming OnDemand para publicar o seu ativo e construir um URLs de streaming Smooth, MPEG DASH e HLS. Também mostra quente para construir URLs de download progressivo.
+Este artigo mostra como criar um localizador de streaming OnDemand para publicar o seu ativo e construir um URLs de streaming Smooth, MPEG DASH e HLS. Também mostra como construir URLs de download progressivo.
 
 A [secção seguinte](#types) mostra os tipos de enum cujos valores são utilizados nas chamadas REST.   
 
@@ -41,7 +41,7 @@ A [secção seguinte](#types) mostra os tipos de enum cujos valores são utiliza
 > Ao aceder a entidades em Serviços de Media, deve definir campos e valores específicos nos seus pedidos HTTP. Para mais informações, consulte [Configuração para Media Services REST API Development](media-services-rest-how-to-use.md).
 > 
 
-## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
+## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
 Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -193,7 +193,7 @@ exemplo:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 [Media Services operações REST API visão geral](media-services-rest-how-to-use.md)
 
 [Configurar a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)

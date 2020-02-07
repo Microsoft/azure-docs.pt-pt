@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/05/2020
+ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030932"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064636"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
@@ -216,6 +216,10 @@ Se o hive for deixado para trás dos arquivos temporários, você poderá limpar
 Se os clusters ficarem presos no modo de segurança com frequência ao reduzir verticalmente para menos de três nós de trabalho e as etapas anteriores não funcionarem, você poderá evitar que o cluster vá para o modo de segurança completamente mantendo pelo menos três nós de trabalho.
 
 Reter três nós de trabalho é mais dispendioso do que escalar verticalmente para apenas um nó de trabalho, mas impedirá que o cluster fique preso no modo de segurança.
+
+### <a name="scale-hdinsight-down-to-one-worker-node"></a>Scale HDInsight até um nó de trabalhador
+
+Mesmo quando o aglomerado é reduzido a 1 nó, o nó de trabalhador0 0 ainda sobreviverá. O nó 0 dos trabalhadores nunca pode ser desativado.
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>Execute o comando para sair do modo de segurança
 

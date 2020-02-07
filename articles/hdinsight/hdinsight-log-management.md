@@ -1,125 +1,137 @@
 ---
-title: Gerenciar logs para um cluster HDInsight-Azure HDInsight
-description: Determine os tipos, tamanhos e políticas de retenção para arquivos de log de atividades do HDInsight.
+title: Gerir registos para um cluster HDInsight - Azure HDInsight
+description: Determine os tipos, tamanhos e políticas de retenção para ficheiros de registo de atividade sonantes da Atividade HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837960"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064687"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
-HDInsight An cluster produz uma variedade de arquivos de log. Por exemplo, Apache Hadoop e serviços relacionados, como Apache Spark, produzem logs de execução de trabalho detalhados. O gerenciamento de arquivos de log faz parte da manutenção de um cluster HDInsight íntegro. Também pode haver requisitos regulatórios para o arquivamento de log.  Devido ao número e tamanho dos arquivos de log, otimizar o armazenamento e o arquivamento de log ajuda com o gerenciamento de custos de serviço.
+Um cluster HDInsight produz uma variedade de ficheiros de registo. Por exemplo, apache Hadoop e serviços relacionados, como Apache Spark, produzem registos de execução de emprego detalhados. A gestão de ficheiros de log faz parte da manutenção de um cluster HDInsight saudável. Também pode haver requisitos regulamentares para arquivar log.  Devido ao número e tamanho dos ficheiros de registo, otimizar o armazenamento de registos e arquivar ajuda na gestão de custos do serviço.
 
-O gerenciamento de logs do cluster HDInsight inclui reter informações sobre todos os aspectos do ambiente de cluster. Essas informações incluem todos os logs de serviço do Azure associados, configuração de cluster, informações de execução do trabalho, quaisquer Estados de erro e outros dados, conforme necessário.
+A gestão dos registos de cluster SDInsight inclui a retenção de informações sobre todos os aspetos do ambiente de cluster. Estas informações incluem todos os registos do Serviço Azure associados, configuração de cluster, informações de execução de emprego, quaisquer estados de erro e outros dados conforme necessário.
 
-As etapas típicas no gerenciamento de log do HDInsight são:
+Os passos típicos na gestão de log sons HDInsight são:
 
-* Etapa 1: determinar as políticas de retenção de log
-* Etapa 2: gerenciar logs de configuração de versões de serviço de cluster
-* Etapa 3: gerenciar arquivos de log de execução de trabalho do cluster
-* Etapa 4: custos e tamanhos de armazenamento de volume de log de previsão
-* Etapa 5: determinar políticas e processos de arquivo de log
+* Passo 1: Determinar as políticas de retenção de registos
+* Passo 2: Gerir os registos de configuração de versões de serviço de cluster
+* Passo 3: Gerir ficheiros de registo de execução de trabalho de cluster
+* Passo 4: Previsão de tamanhos e custos de armazenamento de volume de registo
+* Passo 5: Determinar as políticas e processos de arquivo de registo
 
-## <a name="step-1-determine-log-retention-policies"></a>Etapa 1: determinar as políticas de retenção de log
+## <a name="step-1-determine-log-retention-policies"></a>Passo 1: Determinar as políticas de retenção de registos
 
-A primeira etapa na criação de uma estratégia de gerenciamento de log de cluster HDInsight é reunir informações sobre cenários de negócios e requisitos de armazenamento de histórico de execução de trabalhos.
+O primeiro passo para a criação de uma estratégia de gestão de loglog hDInsight é recolher informações sobre cenários de negócio sintetizadores e requisitos de armazenamento de histórico de execução de emprego.
 
 ### <a name="cluster-details"></a>Detalhes do cluster
 
-Os detalhes do cluster a seguir são úteis para ajudar a reunir informações em sua estratégia de gerenciamento de log. Reúna essas informações de todos os clusters HDInsight que você criou em uma conta específica do Azure.
+Os seguintes detalhes do cluster são úteis para ajudar a recolher informações na sua estratégia de gestão de registos. Reúna esta informação de todos os clusters HDInsight que criou numa determinada conta Azure.
 
 * Nome do cluster
-* Região de cluster e zona de disponibilidade do Azure
-* Estado do cluster, incluindo detalhes da última alteração de estado
-* Tipo e número de instâncias do HDInsight especificado para os nós mestre, principal e tarefa
+* Região de cluster e zona de disponibilidade de Azure
+* Estado de aglomerado, incluindo detalhes da última mudança de estado
+* Tipo e número de instâncias HDInsight especificadas para os nós de mestre, núcleo e tarefa
 
-Você pode obter a maioria dessas informações de nível superior usando o portal do Azure.  Como alternativa, você pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para obter informações sobre seus clusters HDInsight:
+Pode obter a maior parte desta informação de alto nível utilizando o portal Azure.  Em alternativa, pode utilizar [o Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para obter informações sobre o seu cluster HDInsight( s):
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
 az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
-Você também pode usar o PowerShell para exibir essas informações.  Para obter mais informações, consulte [Apache Manage Hadoop clusters no HDInsight usando Azure PowerShell](hdinsight-administer-use-powershell.md).
+Também pode utilizar o PowerShell para visualizar esta informação.  Para mais informações, consulte os [clusters Apache Manage Hadoop no HDInsight utilizando o Azure PowerShell](hdinsight-administer-use-powershell.md).
 
-### <a name="understand-the-workloads-running-on-your-clusters"></a>Entender as cargas de trabalho em execução em seus clusters
+### <a name="understand-the-workloads-running-on-your-clusters"></a>Compreenda as cargas de trabalho que correm nos seus aglomerados
 
-É importante entender os tipos de carga de trabalho em execução em seus clusters HDInsight para criar estratégias de registro em log apropriadas para cada tipo.
+É importante compreender os tipos de carga de trabalho que estão a ser geridos no seu cluster HDInsight para conceber estratégias de registo apropriadas para cada tipo.
 
 * As cargas de trabalho são experimentais (como desenvolvimento ou teste) ou qualidade de produção?
-* Com que frequência as cargas de trabalho de qualidade de produção normalmente são executadas?
-* Alguma das cargas de trabalho consome muitos recursos e/ou execução longa?
-* Qualquer uma das cargas de trabalho usa um conjunto complexo de serviços do Hadoop para os quais vários tipos de logs são produzidos?
-* Alguma das cargas de trabalho tem requisitos de linhagem de execução regulatória associados?
+* Com que frequência funcionam as cargas de trabalho de qualidade de produção?
+* Alguma das cargas de trabalho é intensiva em recursos e/ou a longo prazo?
+* Alguma das cargas de trabalho utiliza um conjunto complexo de serviços Hadoop para os quais são produzidos vários tipos de troncos?
+* Alguma das cargas de trabalho tem requisitos de linhagem de execução regulamentar associados?
 
-### <a name="example-log-retention-patterns-and-practices"></a>Padrões e práticas de retenção de log de exemplo
+### <a name="example-log-retention-patterns-and-practices"></a>Padrões e práticas de retenção de registos de exemplo
 
-* Considere manter o controle de linhagem de dados adicionando um identificador a cada entrada de log ou por outras técnicas. Isso permite que você rastreie de volta a fonte original dos dados e da operação e siga os dados em cada estágio para entender sua consistência e validade.
+* Considere manter o rastreio da linhagem de dados adicionando um identificador a cada entrada de registo, ou através de outras técnicas. Isto permite-lhe rastrear a origem original dos dados e a operação, e seguir os dados através de cada fase para compreender a sua consistência e validade.
 
-* Considere como você pode coletar logs do cluster ou de mais de um cluster e agrupá-los para fins como auditoria, monitoramento, planejamento e alertas. Você pode usar uma solução personalizada para acessar e baixar os arquivos de log regularmente e combiná-los e analisá-los para fornecer uma exibição de painel. Você também pode adicionar recursos adicionais para alertas de segurança ou detecção de falha. Você pode criar esses utilitários usando o PowerShell, os SDKs do HDInsight ou o código que acessa o modelo de implantação clássico do Azure.
+* Considere como pode recolher registos do cluster, ou de mais de um cluster, e colá-los para fins como auditoria, monitorização, planeamento e alerta. Pode utilizar uma solução personalizada para aceder e descarregar os ficheiros de registo regularmente e combiná-los e analisá-los para fornecer um ecrã de dashboard. Também pode adicionar capacidades adicionais para alertar para a deteção de segurança ou falha. Pode construir estes utilitários utilizando powerShell, os SDKs HDInsight ou código que aceda ao modelo de implementação clássico do Azure.
 
-* Considere se uma solução ou um serviço de monitoramento seria um benefício útil. O Microsoft System Center fornece um [pacote de gerenciamento do HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Você também pode usar ferramentas de terceiros, como Apache Chukwa e Ganglia, para coletar e centralizar logs. Muitas empresas oferecem serviços para monitorar soluções de Big Data baseadas em Hadoop, por exemplo: Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
+* Considere se uma solução ou serviço de monitorização seria um benefício útil. O Microsoft System Center fornece um pacote de [gestão HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Também pode utilizar ferramentas de terceiros como Apache Chukwa e Ganglia para recolher e centralizar registos. Muitas empresas oferecem serviços para monitorizar as soluções de big data baseadas em Hadoop, por exemplo: Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Etapa 2: gerenciar versões de serviço de cluster e exibir logs de ação de script
+## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Passo 2: Gerir versões de serviço de cluster e ver registos
 
-Um cluster HDInsight típico usa vários serviços e pacotes de software de código aberto (como o Apache HBase, Apache Spark e assim por diante). Para algumas cargas de trabalho, como bioinformática, talvez seja necessário manter o histórico do log de configuração do serviço além dos logs de execução do trabalho.
+Um cluster típico do HDInsight utiliza vários serviços e pacotes de software de código aberto (tais como Apache HBase, Apache Spark, e assim por diante). Para algumas cargas de trabalho, como bioinformática, pode ser necessário manter o histórico de registos de configuração de serviço, além de registos de execução de emprego.
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Exibir definições de configuração de cluster com a interface do usuário do amAmbari
 
-O Apache Ambari simplifica o gerenciamento, a configuração e o monitoramento de um cluster HDInsight, fornecendo uma interface do usuário da Web e uma API REST. O Ambari está incluído em clusters HDInsight baseados em Linux. Selecione o painel **painel do cluster** na página portal do Azure HDInsight para abrir a página de link painéis do **cluster** .  Em seguida, selecione o painel de **painel do cluster HDInsight** para abrir a interface do usuário do amAmbari.  Suas credenciais de logon do cluster serão solicitadas.
+Apache Ambari simplifica a gestão, configuração e monitorização de um cluster HDInsight fornecendo uma UI web e uma API REST. O Ambari está incluído em clusters HDInsight baseados em Linux. Selecione o painel do Painel de **Cluster** na página HDInsight do portal Azure para abrir a página de link **do Cluster Dashboards.**  Em seguida, selecione o painel de painel de painel de **cluster HDInsight** para abrir o Ambari UI.  Foi solicitado para as credenciais de login do seu cluster.
 
-Para abrir uma lista de exibições de serviço, selecione o painel **modos de exibição Ambari** na página portal do Azure para o HDInsight.  Essa lista varia, dependendo de quais bibliotecas você instalou.  Por exemplo, você pode ver YARN Queue Manager, Hive View e tez View.  Selecione qualquer link de serviço para ver as informações de configuração e de serviço.  A página **pilha e versão** da interface do usuário do Ambari fornece informações sobre o histórico de versão de serviço e configuração de serviços de cluster. Para navegar até esta seção da interface do usuário do amAmbari, selecione o menu **admin** e, em seguida, **pilhas e versões**.  Selecione a guia **versões** para ver as informações de versão do serviço.
+Para abrir uma lista de vistas de serviço, selecione o painel **Ambari Views** na página do portal Azure para HDInsight.  Esta lista varia, dependendo das bibliotecas que instalou.  Por exemplo, você pode ver YARN Queue Manager, Hive View e tez View.  Selecione qualquer link de serviço para ver informações de configuração e serviço.  A página Ambari UI **Stack and Version** fornece informações sobre o histórico de configuração e versão de serviço dos serviços de cluster. Para navegar nesta secção do Ambari UI, selecione o menu **Admin** e, em seguida, **Pilhas e Versões**.  Selecione o separador **Versões** para ver informações sobre a versão do serviço.
 
-![Pilha e versões do administrador do Apache Ambari](./media/hdinsight-log-management/ambari-stack-versions.png)
+![Apache Ambari administrador stack e versões](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Usando a interface do usuário do amAmbari, você pode baixar a configuração para qualquer serviço (ou todos) em execução em um host (ou nó) específico no cluster.  Selecione o menu **hosts** e, em seguida, o link para o host de interesse. Na página desse host, selecione o botão **ações do host** e, em seguida, **Baixe as configurações do cliente**.
+Utilizando o Ambari UI, pode descarregar a configuração para quaisquer (ou todos) serviços que executem um determinado anfitrião (ou nó) no cluster.  Selecione o menu **Anfitriões** e, em seguida, o link para o anfitrião de interesse. Na página do anfitrião, selecione o botão **Host Actions** e, em seguida, baixe **os Configs**do Cliente .
 
-![Configurações do cliente host de download do Apache Ambari](./media/hdinsight-log-management/download-client-configs.png)
+![Apache Ambari descarregue configs de cliente anfitrião](./media/hdinsight-log-management/download-client-configs.png)
 
-### <a name="view-the-script-action-logs"></a>Exibir os logs de ação de script
+### <a name="view-the-script-action-logs"></a>Ver os registos de ação do script
 
-As [ações de script](hdinsight-hadoop-customize-cluster-linux.md) do HDInsight executam scripts em um cluster, seja manualmente ou quando especificado. Por exemplo, as ações de script podem ser usadas para instalar software adicional no cluster ou alterar definições de configuração dos valores padrão. Os logs de ação de script podem fornecer informações sobre erros que ocorreram durante a instalação do cluster e também alterações de definições de configuração que podem afetar o desempenho e a disponibilidade do cluster.  Para ver o status de uma ação de script, selecione o botão **Ops** na sua interface do usuário do Ambari ou acesse os logs de status na conta de armazenamento padrão. Os logs de armazenamento estão disponíveis em `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
+[As ações](hdinsight-hadoop-customize-cluster-linux.md) do script HDInsight executam scripts num cluster, manualmente ou quando especificados. Por exemplo, as ações de script podem ser usadas para instalar software adicional no cluster ou alterar definições de configuração dos valores padrão. Os registos de ação do script podem fornecer informações sobre os erros ocorridos durante a configuração do cluster, bem como alterações de configuração que podem afetar o desempenho e disponibilidade do cluster.  Para ver o estado de uma ação de script, selecione o botão **de operações** no seu Ambari UI ou aceda aos registos de estado na conta de armazenamento predefinido. Os registos de armazenamento estão disponíveis em `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Etapa 3: gerenciar os arquivos de log de execução do trabalho do cluster
+### <a name="view-ambari-alerts-status-logs"></a>Ver Registos de estado de alerta de Ambari
 
-A próxima etapa é examinar os arquivos de log de execução do trabalho para os vários serviços.  Os serviços podem incluir o Apache HBase, o Apache Spark e muitos outros. Um cluster Hadoop produz um grande número de logs detalhados, portanto, determinar quais logs são úteis (e quais não são) pode ser demorado.  Compreender o sistema de registro em log é importante para o gerenciamento direcionado de arquivos de log.  Este é um exemplo de arquivo de log.
+Apache Ambari escreve alterações de estado de alerta para `ambari-alerts.log`. O caminho completo é `/var/log/ambari-server/ambari-alerts.log`. Para permitir a depuração do registo, altere uma propriedade em `/etc/ambari-server/conf/log4j.properties.` Alterar e, em seguida, entrar sob `# Log alert state changes` a partir de:
 
-![Exemplo de saída do arquivo de log do HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
+```
+log4j.logger.alerts=INFO,alerts
 
-### <a name="access-the-hadoop-log-files"></a>Acessar os arquivos de log do Hadoop
+to
 
-O HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Você pode examinar os arquivos de log no cluster abrindo uma conexão [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para o cluster e navegando no sistema de arquivos ou usando o portal de status do Hadoop yarn no servidor do nó de cabeçalho remoto. Você pode examinar os arquivos de log no armazenamento do Azure usando qualquer uma das ferramentas que podem acessar e baixar dados do armazenamento do Azure. Os exemplos são [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e o Visual Studio Gerenciador de servidores. Você também pode usar o PowerShell e as bibliotecas de cliente de armazenamento do Azure, ou os SDKs do .NET do Azure, para acessar dados no armazenamento de BLOBs do Azure.
+log4j.logger.alerts=DEBUG,alerts
+```
 
-O Hadoop executa o trabalho dos trabalhos como *tentativas de tarefas* em vários nós no cluster. O HDInsight pode iniciar tentativas de tarefa especulativa, encerrando as outras tentativas de tarefa que não são concluídas primeiro. Isso gera uma atividade significativa que é registrada nos arquivos de log do controlador, stderr e syslog imediatamente. Além disso, várias tentativas de tarefas são executadas simultaneamente, mas um arquivo de log só pode exibir resultados linearmente.
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Passo 3: Gerir os ficheiros de registo de execução de trabalho do cluster
 
-#### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>Logs do HDInsight gravados no armazenamento de BLOBs do Azure
+O próximo passo é rever os ficheiros de registo de execução de emprego para os vários serviços.  Os serviços podem incluir Apache HBase, Apache Spark, e muitos outros. Um cluster Hadoop produz um grande número de troncos verbosos, de modo que determinar quais os troncos são úteis (e que não são) pode ser demorado.  Compreender o sistema de registo é importante para a gestão direcionada dos ficheiros de registo.  A imagem que se segue é um ficheiro de registo de exemplo.
 
-Os clusters HDInsight são configurados para gravar logs de tarefas em uma conta de armazenamento de BLOBs do Azure para qualquer trabalho enviado usando os cmdlets Azure PowerShell ou as APIs de envio de trabalho do .NET.  Se você enviar trabalhos por meio de SSH para o cluster, as informações de log de execução serão armazenadas nas tabelas do Azure, conforme discutido na seção anterior.
+![Saída de amostra de ficheiro de registo de exemplo HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
 
-Além dos principais arquivos de log gerados pelo HDInsight, os serviços instalados, como o YARN, também geram arquivos de log de execução do trabalho.  O número e o tipo de arquivos de log dependem dos serviços instalados.  Os serviços comuns são Apache HBase, Apache Spark e assim por diante.  Investigue os arquivos de execução de log de trabalho de cada serviço para entender os arquivos de log gerais disponíveis no cluster.  Cada serviço tem seus próprios métodos exclusivos de registro em log e locais para armazenar arquivos de log.  Por exemplo, os detalhes para acessar os arquivos de log de serviço mais comuns (de YARN) são discutidos na seção a seguir.
+### <a name="access-the-hadoop-log-files"></a>Aceda aos ficheiros de registo hadoop
 
-### <a name="hdinsight-logs-generated-by-yarn"></a>Logs do HDInsight gerados pelo YARN
+O HDInsight armazena os seus ficheiros de registo tanto no sistema de ficheiros de cluster como no Armazenamento Azure. Pode examinar ficheiros de registo no cluster abrindo uma ligação [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ao cluster e navegando no sistema de ficheiros, ou utilizando o portal Hadoop YARN Status no servidor de nódeame de cabeça remota. Pode examinar os ficheiros de registo no Armazenamento Azure utilizando qualquer uma das ferramentas que podem aceder e transferir dados do Armazenamento Azure. Exemplos são [AzCopy,](../storage/common/storage-use-azcopy.md) [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e o Visual Studio Server Explorer. Também pode utilizar as bibliotecas PowerShell e Azure Storage Client, ou os SDKs Azure .NET, para aceder a dados no armazenamento de blob Azure.
 
-O YARN agrega logs em todos os contêineres em um nó de trabalho e armazena esses logs como um arquivo de log agregado por nó de trabalho. Esse log é armazenado no sistema de arquivos padrão após a conclusão de um aplicativo. Seu aplicativo pode usar centenas ou milhares de contêineres, mas os logs para todos os contêineres que são executados em um único nó de trabalho são sempre agregados a um único arquivo. Há apenas um log por nó de trabalho usado pelo seu aplicativo. A agregação de log é habilitada por padrão nos clusters HDInsight versão 3,0 e posteriores. Os logs agregados estão localizados no armazenamento padrão para o cluster.
+Hadoop dirige o trabalho dos trabalhos como tentativas de tarefa em *vários* nós do cluster. O HDInsight pode iniciar tentativas de tarefa especulativas, terminando quaisquer outras tentativas de tarefa que não completem primeiro. Isto gera uma atividade significativa que é registada no controlador, stderr e ficheiros de log syslog no voo. Além disso, várias tentativas de tarefa estão a decorrer simultaneamente, mas um ficheiro de registo só pode apresentar resultados linearmente.
+
+#### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>Registos HDInsight escritos para armazenamento De Blob Azure
+
+Os clusters HDInsight são configurados para escrever registos de tarefas para uma conta de armazenamento Azure Blob para qualquer trabalho que seja submetido usando os cmdlets Azure PowerShell ou as APIs de submissão de trabalho .NET.  Se submeter os trabalhos através do SSH ao cluster, então a informação de registo de execução é armazenada nas Tabelas Azure, conforme discutido na secção anterior.
+
+Além dos ficheiros de registo core gerados pelo HDInsight, serviços instalados como o YARN também geram ficheiros de registo de execução de emprego.  O número e o tipo de ficheiros de registo dependem dos serviços instalados.  Os serviços comuns são Apache HBase, Apache Spark, e assim por diante.  Investigue os ficheiros de execução de registo de trabalho de cada serviço para compreender os ficheiros de registo globais disponíveis no seu cluster.  Cada serviço tem os seus próprios métodos únicos de registo e locais para armazenar ficheiros de registo.  Como exemplo, os detalhes para aceder aos ficheiros de registo de serviço mais comuns (da Arn) são discutidos na secção seguinte.
+
+### <a name="hdinsight-logs-generated-by-yarn"></a>Registos HDInsight gerados por ARN
+
+O YARN agrega os registos em todos os recipientes num nó de trabalhador e armazena esses registos como um ficheiro de registo agregado por nó de trabalhador. Este registo é armazenado no sistema de ficheiros predefinido após o acabamento de uma aplicação. A sua aplicação pode utilizar centenas ou milhares de contentores, mas os registos para todos os recipientes que são executados num único nó de trabalhador esgotam-se sempre num único ficheiro. Só há um log por nó de trabalhador usado pela sua aplicação. A agregação de registoé ativada por padrão na versão 3.0 dos clusters HDInsight. Os logs agregados estão localizados no armazenamento padrão para o cluster.
 
 ```
 /app-logs/<user>/logs/<applicationId>
 ```
 
-Os logs agregados não são diretamente legíveis, pois são gravados em um formato binário TFile indexado pelo contêiner. Use os logs ResourceManager do YARN ou as ferramentas da CLI para exibir esses logs como texto sem formatação para aplicativos ou contêineres de interesse.
+Os registos agregados não são diretamente legíveis, uma vez que estão escritos num formato binário TFile indexado por recipiente. Use os logs ResourceManager do YARN ou as ferramentas da CLI para exibir esses logs como texto sem formatação para aplicativos ou contêineres de interesse.
 
 #### <a name="yarn-cli-tools"></a>Ferramentas da CLI do YARN
 
-Para usar as ferramentas da CLI do YARN, primeiro você deve se conectar ao cluster HDInsight usando SSH. Especifique as informações de `<applicationId>`, `<user-who-started-the-application>`, `<containerId>`e `<worker-node-address>` ao executar esses comandos. Você pode exibir os logs como texto sem formatação com um dos seguintes comandos:
+Para usar as ferramentas da CLI do YARN, primeiro você deve se conectar ao cluster HDInsight usando SSH. Especifique as informações `<applicationId>`, `<user-who-started-the-application>`, `<containerId>`e `<worker-node-address>` ao executar estes comandos. Pode ver os registos como texto simples com um dos seguintes comandos:
 
 ```bash
 yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
@@ -128,52 +140,52 @@ yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-applica
 
 #### <a name="yarn-resourcemanager-ui"></a>Interface do usuário do ResourceManager YARN
 
-A interface do usuário do ResourceManager YARN é executada no nó principal do cluster e é acessada por meio da interface do usuário da Web do amAmbari. Use as etapas a seguir para exibir os logs do YARN:
+O YARN ResourceManager UI funciona no nó da cabeça do cluster, e é acedido através da UI web ambari. Use as etapas a seguir para exibir os logs do YARN:
 
-1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`. Substitua CLUSTERname pelo nome do seu cluster HDInsight.
-2. Na lista de serviços à esquerda, selecione YARN.
-3. Na lista suspensa links rápidos, selecione um dos nós de cabeçalho do cluster e, em seguida, selecione **logs de ResourceManager**. Você verá uma lista de links para logs do YARN.
+1. Num navegador web, navegue para `https://CLUSTERNAME.azurehdinsight.net`. Substitua CLUSTERname pelo nome do seu cluster HDInsight.
+2. A partir da lista de serviços à esquerda, selecione YARN.
+3. A partir do dropdown quick Links, selecione um dos nós da cabeça do cluster e, em seguida, selecione **registos do ResourceManager**. Você verá uma lista de links para logs do YARN.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Etapa 4: custos e tamanhos de armazenamento de volume de log de previsão
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Passo 4: Previsão de tamanhos e custos de armazenamento de volume de registo
 
-Depois de concluir as etapas anteriores, você compreenderá os tipos e volumes de arquivos de log que seus clusters HDInsight estão produzindo.
+Após completar os passos anteriores, tem uma compreensão dos tipos e volumes de ficheiros de registo que o seu cluster HDInsight está a produzir.
 
-Em seguida, analise o volume de dados de log em locais de armazenamento de log de chaves durante um período de tempo. Por exemplo, você pode analisar o volume e o crescimento em intervalos de 30-60-90 dias.  Registre essas informações em uma planilha ou use outras ferramentas, como o Visual Studio, o Gerenciador de Armazenamento do Azure ou o Power Query para Excel. Para obter mais informações, consulte [analisar logs do HDInsight](hdinsight-debug-jobs.md).  
+Em seguida, analise o volume de dados de registo em locais de armazenamento de registo sintetizadores durante um período de tempo. Por exemplo, pode analisar o volume e o crescimento ao longo de 30-60-90 períodos de dia.  Grave estas informações numa folha de cálculo ou use outras ferramentas como o Estúdio Visual, o Explorador de Armazenamento Azure ou a Power Query para o Excel. Para mais informações, consulte [os registos do Analyze HDInsight](hdinsight-debug-jobs.md).  
 
-Agora você tem informações suficientes para criar uma estratégia de gerenciamento de log para os logs de chave.  Use sua planilha (ou ferramenta de escolha) para prever o crescimento do tamanho do log e o armazenamento de log que os custos do serviço do Azure avançando.  Considere também quaisquer requisitos de retenção de log para o conjunto de logs que você está examinando.  Agora você pode reprever os custos de armazenamento de log futuros, depois de determinar quais arquivos de log podem ser excluídos (se houver) e quais logs devem ser retidos e arquivados em um armazenamento do Azure menos dispendioso.
+Agora tem informação suficiente para criar uma estratégia de gestão de registos para os registos chave.  Utilize a sua folha de cálculo (ou ferramenta de eleição) para prever tanto o crescimento do tamanho do registo como os custos do serviço de armazenamento de registo Saque Azure.  Considere também quaisquer requisitos de retenção de registos para o conjunto de registos que está a examinar.  Agora pode reprever os custos futuros de armazenamento de registo, depois de determinar quais os ficheiros de registo que podem ser eliminados (se houver) e quais os registos que devem ser mantidos e arquivados para armazenamento azure mais barato.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>Etapa 5: determinar políticas e processos de arquivo de log
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>Passo 5: Determinar as políticas e processos de arquivo de registo
 
-Depois de determinar quais arquivos de log podem ser excluídos, você pode ajustar os parâmetros de log em muitos serviços do Hadoop para excluir automaticamente os arquivos de log após um período de tempo especificado.
+Depois de determinar quais os ficheiros de registo que podem ser eliminados, pode ajustar os parâmetros de registo em muitos serviços hadoop para eliminar automaticamente ficheiros de registo após um período de tempo especificado.
 
-Para determinados arquivos de log, você pode usar uma abordagem de arquivamento de arquivo de log de menor preço. Para Azure Resource Manager logs de atividades, você pode explorar essa abordagem usando o portal do Azure.  Configure o arquivamento dos logs do Gerenciador de recursos selecionando o link **log de atividades** no portal do Azure para sua instância do HDInsight.  Na parte superior da página de pesquisa do log de atividades, selecione o item de menu **Exportar** para abrir o painel **Exportar log de atividades** .  Preencha a assinatura, a região, se deseja exportar para uma conta de armazenamento e quantos dias para manter os logs. Nesse mesmo painel, você também pode indicar se deseja exportar para um hub de eventos.
+Para certos ficheiros de registo, pode utilizar uma abordagem de arquivamento de ficheiros de registo a preços mais baixos. Para registos de atividade do Gestor de Recursos Azure, pode explorar esta abordagem utilizando o portal Azure.  Configurar o arquivo dos registos do Gestor de Recursos selecionando o link **De Registo de Atividade** no portal Azure para a sua instância HDInsight.  No topo da página de pesquisa do Registo de Atividades, selecione o item do menu **Export** para abrir o painel de registo da **atividade de exportação.**  Preencha a subscrição, região, quer exporte para uma conta de armazenamento, e quantos dias para reter os registos. Neste mesmo painel, também pode indicar se deve exportar para um centro de eventos.
 
-![Visualização de portal do Azure exportar log de atividades](./media/hdinsight-log-management/hdi-export-log-files.png)
+![Pré-visualização do registo da atividade de exportação do portal Azure](./media/hdinsight-log-management/hdi-export-log-files.png)
 
-Como alternativa, você pode fazer script de arquivamento de log com o PowerShell.  Para obter um exemplo de script do PowerShell, consulte [arquivar logs de automação do Azure no armazenamento de BLOBs do Azure](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
+Em alternativa, pode script log arquivar com PowerShell.  Por exemplo, script PowerShell, consulte [registos de Automação Archive Azure para armazenamento de Blob Azure](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 
-### <a name="accessing-azure-storage-metrics"></a>Acessando as métricas do armazenamento do Azure
+### <a name="accessing-azure-storage-metrics"></a>Aceder às métricas de armazenamento azure
 
-O armazenamento do Azure pode ser configurado para registrar operações de armazenamento e acesso. Você pode usar esses logs muito detalhados para monitoramento e planejamento de capacidade e para auditar solicitações de armazenamento. As informações registradas incluem detalhes de latência, permitindo que você monitore e ajuste o desempenho de suas soluções.
-Você pode usar o SDK do .NET para Hadoop para examinar os arquivos de log gerados para o armazenamento do Azure que contém os dados de um cluster HDInsight.
+O Armazenamento Azure pode ser configurado para registar operações de armazenamento e acesso. Pode utilizar estes registos muito detalhados para monitorização e planeamento de capacidades e para auditoria de pedidos de armazenamento. As informações registadas incluem detalhes de latência, permitindo-lhe monitorizar e afinar o desempenho das suas soluções.
+Pode utilizar o .NET SDK para hadoop para examinar os ficheiros de registo gerados para o Armazenamento Azure que detém os dados para um cluster HDInsight.
 
-### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Controlar o tamanho e o número de índices de backup para arquivos de log antigos
+### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Controlar o tamanho e o número de índices de backup para ficheiros de registo antigos
 
-Para controlar o tamanho e o número de arquivos de log retidos, defina as seguintes propriedades do `RollingFileAppender`:
+Para controlar o tamanho e o número de ficheiros de registo retidos, detete as seguintes propriedades do `RollingFileAppender`:
 
-* `maxFileSize` é o tamanho crítico do arquivo, acima do qual o arquivo é revertido. O valor padrão é 10 MB.
-* `maxBackupIndex` especifica o número de arquivos de backup a serem criados, o padrão é 1.
+* `maxFileSize` é o tamanho crítico do ficheiro, acima do qual o ficheiro é enrolado. O valor padrão é de 10 MB.
+* `maxBackupIndex` especifica o número de ficheiros de backup a criar, padrão 1.
 
-### <a name="other-log-management-techniques"></a>Outras técnicas de gerenciamento de log
+### <a name="other-log-management-techniques"></a>Outras técnicas de gestão de registos
 
-Para evitar a indisponibilidade de espaço em disco, você pode usar algumas ferramentas do sistema operacional, como o [logrotate](https://linux.die.net/man/8/logrotate) , para gerenciar a manipulação de arquivos de log. Você pode configurar o `logrotate` para ser executado diariamente, compactando arquivos de log e removendo os antigos. Sua abordagem depende de seus requisitos, como por quanto tempo manter os arquivos de log em nós locais.  
+Para evitar o escoamento do espaço do disco, pode utilizar algumas ferramentas de S, como [o logrotate](https://linux.die.net/man/8/logrotate) para gerir o manuseamento de ficheiros de registo. Pode configurar `logrotate` para executar diariamente, comprimindo ficheiros de registo e removendo os antigos. A sua abordagem depende dos seus requisitos, tais como por quanto tempo manter os ficheiros de registo nos nós locais.  
 
-Você também pode verificar se o log de depuração está habilitado para um ou mais serviços, o que aumenta muito o tamanho do log de saída.  
+Também pode verificar se a exploração madeireira DEBUG está ativada para um ou mais serviços, o que aumenta consideravelmente o tamanho do registo de saída.  
 
-Para coletar os logs de todos os nós para um local central, você pode criar um fluxo de dados, como ingerir todas as entradas de log em Solr.
+Para recolher os registos de todos os nós para uma localização central, pode criar um fluxo de dados, como ingerir todas as entradas de registo em Solr.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Monitoramento e prática de registro em log para o HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Acessar Apache Hadoop logs de aplicativo do YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Como controlar o tamanho dos arquivos de log para vários componentes do Apache Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)
+* [Prática de Monitorização e Exploração Madeudentária para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
+* [Aceder aos registos de aplicações yARN apache hadoop em HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Como controlar o tamanho dos ficheiros de registo para vários componentes Apache Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

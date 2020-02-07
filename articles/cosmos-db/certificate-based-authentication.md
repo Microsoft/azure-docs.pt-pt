@@ -7,44 +7,44 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9e9dd529edea23b27de2e3841079244558d6689a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: acdf268874b1dc1c24116ba36e2b4233a2702a5f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442104"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064500"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticação baseada em certificado para uma identidade do Azure AD para acessar chaves de uma conta de Azure Cosmos DB
 
-A autenticação baseada em certificado permite que o aplicativo cliente seja autenticado usando Azure Active Directory (AD do Azure) com um certificado de cliente. Você pode executar a autenticação baseada em certificado em um computador onde precisa de uma identidade, como um computador local ou uma máquina virtual no Azure. Em seguida, seu aplicativo pode ler Azure Cosmos DB chaves sem ter as chaves diretamente no aplicativo. Este artigo descreve como criar um aplicativo de exemplo do Azure AD, configurá-lo para autenticação baseada em certificado, entrar no Azure usando a nova identidade do aplicativo e, em seguida, recuperar as chaves de sua conta do Azure Cosmos. Este artigo usa Azure PowerShell para configurar as identidades e fornece um C# aplicativo de exemplo que autentica e acessa chaves de sua conta do Azure Cosmos.  
+A autenticação baseada em certificados permite que a aplicação cliente seja autenticada através da utilização do Azure Active Directory (AAD) com um certificado de cliente. Pode executar a autenticação baseada em certificados num computador onde precisa de uma identidade, como um computador no local ou uma máquina virtual no Azure. Em seguida, seu aplicativo pode ler Azure Cosmos DB chaves sem ter as chaves diretamente no aplicativo. Este artigo descreve como criar um aplicativo de exemplo do Azure AD, configurá-lo para autenticação baseada em certificado, entrar no Azure usando a nova identidade do aplicativo e, em seguida, recuperar as chaves de sua conta do Azure Cosmos. Este artigo usa Azure PowerShell para configurar as identidades e fornece um C# aplicativo de exemplo que autentica e acessa chaves de sua conta do Azure Cosmos.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Instale a [versão mais recente](/powershell/azure/install-az-ps) do Azure PowerShell.
 
-* Se você não tiver uma [assinatura do Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+* Se não tiver uma [subscrição Azure, crie](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-## <a name="register-an-app-in-azure-ad"></a>Registar uma aplicação no Azure AD
+## <a name="register-an-app-in-azure-ad"></a>Registe uma aplicação em Azure AD
 
 Nesta etapa, você registrará um aplicativo Web de exemplo em sua conta do Azure AD. Esse aplicativo é usado posteriormente para ler as chaves de sua conta de Azure Cosmos DB. Use as seguintes etapas para registrar um aplicativo: 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. Abra o painel **Active Directory** do Azure, vá para o painel **registros de aplicativo** e selecione **novo registro**. 
+1. Abra o painel de **Diretório Ativo** Azure, vá ao painel de **inscrições** da App e selecione **Nova inscrição.** 
 
    ![Novo registro de aplicativo no Active Directory](./media/certificate-based-authentication/new-app-registration.png)
 
-1. Preencha o formulário **registrar um aplicativo** com os seguintes detalhes:  
+1. Preencha o **formulário de inscrição** com os seguintes detalhes:  
 
-   * **Nome** – forneça um nome para seu aplicativo, pode ser qualquer nome, como "sampleApp".
-   * **Tipos de conta com suporte** – escolha **contas neste diretório organizacional somente (diretório padrão)** para permitir que recursos em seu diretório atual acessem este aplicativo. 
-   * **URL de redirecionamento** – escolha aplicativo do tipo **Web** e forneça uma URL onde seu aplicativo está hospedado, podendo ser qualquer URL. Para este exemplo, você pode fornecer uma URL de teste, como `https://sampleApp.com` ela é bem, mesmo que o aplicativo não exista.
+   * **Nome** – Forneça um nome para a sua aplicação, podendo ser qualquer nome como "sampleApp".
+   * Tipos de **conta suportados** – Escolha **contas apenas neste diretório organizacional (Diretório Padrão)** para permitir que recursos no seu diretório atual acedam a esta aplicação. 
+   * **Redirecione o URL** – Escolha a aplicação do tipo **Web** e forneça um URL onde a sua aplicação esteja hospedada, pode ser qualquer URL. Para este exemplo, pode fornecer um URL de teste como `https://sampleApp.com` está tudo bem mesmo que a aplicação não exista.
 
    ![Registrando um aplicativo Web de exemplo](./media/certificate-based-authentication/register-sample-web-app.png)
 
-1. Selecione **registrar** depois de preencher o formulário.
+1. Selecione **Registar-se** depois de preencher o formulário.
 
-1. Depois que o aplicativo for registrado, anote a ID do **aplicativo (cliente)** e a **ID do objeto**, você usará esses detalhes nas próximas etapas. 
+1. Depois de a aplicação estar registada, tome nota do ID da **Aplicação (cliente)** e do ID do **Objeto,** utilizará estes detalhes nos próximos passos. 
 
    ![Obter o aplicativo e as IDs de objeto](./media/certificate-based-authentication/get-app-object-ids.png)
 
@@ -55,7 +55,6 @@ Nesta etapa, você instalará o módulo do PowerShell do Azure AD. Esse módulo 
 1. Abra ISE do Windows PowerShell com direitos de administrador. Se ainda não tiver feito isso, instale o módulo AZ PowerShell e conecte-se à sua assinatura. Se você tiver várias assinaturas, poderá definir o contexto da assinatura atual, conforme mostrado nos seguintes comandos:
 
    ```powershell
-
    Install-Module -Name Az -AllowClobber
    Connect-AzAccount
 
@@ -106,13 +105,13 @@ O comando acima resulta na saída semelhante à captura de tela abaixo:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. Navegue até sua conta do Azure Cosmos, abra a folha **controle de acesso (iam)** .
+1. Navegue na sua conta Azure Cosmos, abra a lâmina de controlo de **acesso (IAM).**
 
-1. Selecione **Adicionar** e **Adicionar atribuição de função**. Adicione o sampleApp criado na etapa anterior com a função de **colaborador** , conforme mostrado na seguinte captura de tela:
+1. Selecione **Adicionar** e Adicionar atribuição de **funções**. Adicione a amostraApp que criou no passo anterior com a função **De Colaborador,** como mostra a seguinte imagem:
 
    ![Configurar a conta do Azure Cosmos para usar a nova identidade](./media/certificate-based-authentication/configure-cosmos-account-with-identify.png)
 
-1. Selecione **salvar** depois de preencher o formulário
+1. Selecione **Guardar** depois de preencher o formulário
 
 ## <a name="register-your-certificate-with-azure-ad"></a>Registrar seu certificado com o Azure AD
 
@@ -122,9 +121,9 @@ No registro do aplicativo do Azure para o aplicativo cliente:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. Abra o painel de **Active Directory** do Azure, vá para o painel de **registros de aplicativo** e abra o aplicativo de exemplo que você criou na etapa anterior. 
+1. Abra o painel de **Diretório Ativo** Azure, vá ao painel de **registos** da App e abra a aplicação de amostra que criou no passo anterior. 
 
-1. Selecione **certificados & segredos** e, em seguida, **carregue o certificado**. Procure o arquivo de certificado criado na etapa anterior para carregar.
+1. Selecione **Certificados e segredos** e, em seguida, **faça upload de certificado**. Procure o arquivo de certificado criado na etapa anterior para carregar.
 
 1. Selecione **Adicionar**. Depois que o certificado for carregado, os valores de impressão digital, data de início e expiração serão exibidos.
 
@@ -246,4 +245,4 @@ Semelhante à seção anterior, você pode exibir o log de atividades da sua con
 
 * [Proteger as chaves do Azure Cosmos com o Azure Key Vault](access-secrets-from-keyvault.md)
 
-* [Controles de segurança para Azure Cosmos DB](cosmos-db-security-controls.md)
+* [Controlos de segurança para Azure Cosmos DB](cosmos-db-security-controls.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o Druva para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Druva.
+title: 'Tutorial: Configure Druva para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizadores à Druva.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,156 +15,156 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 27c8ca3a4b68d5f3a42777ff2cf9afa4b923c00b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3d1bb0bcbc0df98d7a884004cf96fe9810589185
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641828"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058115"
 ---
-# <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutorial: Configurar o Druva para provisionamento automático de usuário
+# <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutorial: Configure Druva para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no Druva e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no Druva.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no Druva e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos à Druva.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em visualização pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um inquilino do Azure AD.
-* [Um locatário do Druva](https://www.druva.com/products/pricing-plans/).
-* Uma conta de usuário no Druva com permissões de administrador.
+* [Um inquilino druva.](https://www.druva.com/products/pricing-plans/)
+* Uma conta de utilizador em Druva com permissões de administrador.
 
-## <a name="assigning-users-to-druva"></a>Atribuindo usuários ao Druva
+## <a name="assigning-users-to-druva"></a>Atribuir utilizadores à Druva
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao Druva. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Druva seguindo as instruções aqui:
-* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Druva. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos à Druva seguindo as instruções aqui:
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-druva"></a>Dicas importantes para atribuir usuários ao Druva
+## <a name="important-tips-for-assigning-users-to-druva"></a>Dicas importantes para atribuir utilizadores à Druva
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao Druva para testar a configuração automática de provisionamento de usuário. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído à Druva para testar a configuração automática de fornecimento do utilizador. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao Druva, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um utilizador à Druva, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="setup-druva-for-provisioning"></a>Configurar o Druva para provisionamento
+## <a name="setup-druva-for-provisioning"></a>Configurar druva para provisionamento
 
-Antes de configurar o Druva para o provisionamento automático de usuário com o Azure AD, será necessário habilitar o provisionamento do SCIM no Druva.
+Antes de configurar o Druva para o fornecimento automático de utilizadores com a AD Azure, terá de ativar o fornecimento de SCIM na Druva.
 
-1. Entre no console do [administrador do Druva](https://console.druva.com). Navegue até **Druva > insincronia**.
+1. Inscreva-se na sua [Consola De Administração Druva](https://console.druva.com). Navegue para **Druva > inSync**.
 
-    ![Console de administração do Druva](media/druva-provisioning-tutorial/menubar.png)
+    ![Consola De Administração Druva](media/druva-provisioning-tutorial/menubar.png)
 
-2. Navegue até **gerenciar** > implantações > **usuários**.
+2. Navegar para **gerir** ** > implementações** > **utilizadores**.
 
-    ![Druva adicionar SCIM](media/druva-provisioning-tutorial/manage.png)
+    ![Druva Adicionar SCIM](media/druva-provisioning-tutorial/manage.png)
 
-3.  Navegue até **configurações**. Clique em **gerar token**.
+3.  Navegar para **Definições**. Clique em **Gerar Token**.
 
-    ![Druva adicionar SCIM](media/druva-provisioning-tutorial/settings.png)
+    ![Druva Adicionar SCIM](media/druva-provisioning-tutorial/settings.png)
 
-4.  Copie o valor do **token de autenticação** . Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo Druva no portal do Azure.
+4.  Copie o valor **do símbolo Auth.** Este valor será inserido no campo **Secret Token** no separador de provisionamento da sua aplicação Druva no portal Azure.
     
-    ![Druva adicionar SCIM](media/druva-provisioning-tutorial/auth.png)
+    ![Druva Adicionar SCIM](media/druva-provisioning-tutorial/auth.png)
 
-## <a name="add-druva-from-the-gallery"></a>Adicionar o Druva da Galeria
+## <a name="add-druva-from-the-gallery"></a>Adicione Druva da galeria
 
-Para configurar o Druva para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o Druva da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Para configurar o Druva para o fornecimento automático de utilizadores com a AD Azure, é necessário adicionar o Druva da galeria de aplicações Azure AD à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar o Druva da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar druva da galeria de aplicações Azure AD, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **Druva**, selecione **Druva** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, **introduza druva**, selecione **Druva** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Druva na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-druva"></a>Configurando o provisionamento automático de usuário para o Druva 
+## <a name="configuring-automatic-user-provisioning-to-druva"></a>Configurar o fornecimento automático de utilizadores à Druva 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no Druva com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Druva com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o Druva, seguindo as instruções fornecidas no [tutorial de logon único do Druva](druva-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+> Também pode optar por ativar um único sinal baseado em SAML para o Druva, seguindo as instruções fornecidas no tutorial de [inscrição Single Druva](druva-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
-### <a name="to-configure-automatic-user-provisioning-for-druva-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Druva no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-druva-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para druva em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Druva**.
+2. Na lista de candidaturas, selecione **Druva**.
 
-    ![O link do Druva na lista de aplicativos](common/all-applications.png)
+    ![O link Druva na lista de aplicações](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** .
+3. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5.  Na seção credenciais de administrador, insira `https://apis.druva.com/insync/scim` a **URL de locatário**. Insira o valor do **token de autenticação** no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Druva. Se a conexão falhar, verifique se sua conta do Druva tem permissões de administrador e tente novamente.
+5.  No âmbito da secção de Credenciais de Administrador, a entrada `https://apis.druva.com/insync/scim` no **URL do Arrendatário**. Insera o valor simbólico do **Auth** em **Secret Token.** Clique em **Ligação de Teste** para garantir que o Azure AD pode ligar-se ao Druva. Se a ligação falhar, certifique-se de que a sua conta Druva tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e selecione **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo de email de **notificação,** introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e selecione Enviar uma notificação por **e-mail quando ocorrer uma falha**.
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+    ![Email de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Druva**.
+8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Druva**.
 
-    ![Mapeamentos de usuário Druva](media/druva-provisioning-tutorial/usermapping.png)
+    ![Mapeamento de utilizadores druva](media/druva-provisioning-tutorial/usermapping.png)
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o Druva na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Druva para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Druva na secção De Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Druva para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Atributos de usuário do Druva](media/druva-provisioning-tutorial/userattribute.png)
+    ![Atributos de utilizador druva](media/druva-provisioning-tutorial/userattribute.png)
 
 
-10. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para o Druva, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Para ativar o serviço de provisionamento de AD Azure para a Druva, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
     ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para o Druva escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os utilizadores e/ou grupos que gostaria de fornecer à Druva, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para provisionar, clique em **salvar**.
+13. Quando estiver pronto para fornecer, clique em **Guardar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-    Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Druva.
+    Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento da AD Azure na Druva.
 
-    Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+    Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
     
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* Druva requer **email** como um atributo obrigatório. 
+* Druva requer **e-mail** como um atributo obrigatório. 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md).
+* [Gerir o provisionamento de contas de utilizador para aplicações empresariais.](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md).
+* [Aprenda a rever os registos e obtenha relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md).

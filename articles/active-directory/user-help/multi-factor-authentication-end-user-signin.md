@@ -2,7 +2,7 @@
 title: Início de sessão com autenticação com conta de trabalho ou escola - Azure AD
 description: Aprenda a inscrever-se no seu trabalho ou na conta escolar utilizando os vários métodos de verificação de dois fatores.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.workload: identity
@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 04/02/2017
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 648de7903a965d477343b974fdd615df45c3adc3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 33cf9e284d2206ea497af7a5da7c3cf4a890cc87
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705246"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064092"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Inscreva-se no seu trabalho ou conta escolar utilizando o seu método de verificação de dois fatores
 

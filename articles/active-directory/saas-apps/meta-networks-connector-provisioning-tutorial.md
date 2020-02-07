@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o conector de metaredes para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o conector de metaredes.
+title: 'Tutorial: Configure Meta Networks Connector para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizador ao Meta Networks Connector.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,180 +15,180 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: 40927597031205b5fb1bcc5869922bcc4f3f265c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 03c2dc6253fba5c2c7d59f3aefc5c1c663ed8248
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518736"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061365"
 ---
-# <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: configurar o conector de metaredes para provisionamento automático de usuário
+# <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: Configure Meta Networks Connector para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no conector de metaredes e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no conector de metaredes.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no Meta Networks Connector e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos para o Conector meta redes.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em visualização pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um locatário do conector de metaredes](https://www.metanetworks.com/)
-* Uma conta de usuário no conector de metaredes com permissões de administrador.
+* [Um inquilino de Conector meta redes](https://www.metanetworks.com/)
+* Uma conta de utilizador no Conector meta redes com permissões de administrador.
 
-## <a name="assigning-users-to-meta-networks-connector"></a>Atribuindo usuários ao conector de metaredes
+## <a name="assigning-users-to-meta-networks-connector"></a>Atribuir utilizadores ao Conector meta redes
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao conector de metaredes. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao conector de metaredes seguindo estas instruções:
-* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Conector meta redes. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao Conector meta redes seguindo as instruções aqui:
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-meta-networks-connector"></a>Dicas importantes para atribuir usuários ao conector meta Networks
+## <a name="important-tips-for-assigning-users-to-meta-networks-connector"></a>Dicas importantes para atribuir utilizadores ao Conector meta redes
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao conector meta Networks para testar a configuração automática de provisionamento de usuário. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído ao Conector meta redes para testar a configuração automática de fornecimento do utilizador. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao conector de metaredes, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um utilizador ao Conector Meta Networks, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="setup-meta-networks-connector-for-provisioning"></a>Conector de metaredes de instalação para provisionamento
+## <a name="setup-meta-networks-connector-for-provisioning"></a>Configurar o Conector meta redes para o fornecimento
 
-1. Entre no console do [administrador do conector de Metaredes](https://login.metanetworks.com/login/) usando o nome da sua organização. Navegue até **administração > chaves de API**.
+1. Inscreva-se na consola de administrador a [conector meta redes](https://login.metanetworks.com/login/) utilizando o nome da sua organização. Navegue para **Administração > Chaves API**.
 
-    ![Console de administração do conector de metaredes](media/meta-networks-connector-provisioning-tutorial/apikey.png)
+    ![Consola de administradora de conector de redes meta](media/meta-networks-connector-provisioning-tutorial/apikey.png)
 
-2.  Clique no sinal de adição no lado superior direito da tela para criar uma nova chave de **API**.
+2.  Clique no sinal de mais no lado superior direito do ecrã para criar uma nova **Chave API**.
 
-    ![Conector de metaredes e ícone](media/meta-networks-connector-provisioning-tutorial/plusicon.png)
+    ![Conector de Meta Networks mais ícone](media/meta-networks-connector-provisioning-tutorial/plusicon.png)
 
-3.  Defina o **nome da chave de API** e a **Descrição da chave de API**.
+3.  Detete o nome da **chave API** e **a descrição da chave API**.
 
-    ![Token de criação de conector de metaredes](media/meta-networks-connector-provisioning-tutorial/keyname.png)
+    ![Conector de redes de meta criar token](media/meta-networks-connector-provisioning-tutorial/keyname.png)
 
-4.  Ative os privilégios de **gravação** para **grupos** e **usuários**.
+4.  Ligue os privilégios **de Escrita** para **Grupos** e **Utilizadores**.
 
-    ![Privilégios do conector de metaredes](media/meta-networks-connector-provisioning-tutorial/privileges.png)
+    ![Privilégios de Conector de Redes Meta](media/meta-networks-connector-provisioning-tutorial/privileges.png)
 
-5.  Clique em **Adicionar**. Copie o **segredo** e salve-o, pois essa será a única vez que você pode exibi-lo. Esse valor será inserido no campo token secreto na guia provisionamento do aplicativo conector de metaredes na portal do Azure.
+5.  Clique em **Adicionar**. Copie o **SECRET** e guarde-o pois esta será a única altura em que poderá vê-lo. Este valor será inserido no campo Secret Token no separador provisionamento da sua aplicação Meta Networks Connector no portal Azure.
 
-    ![Token de criação de conector de metaredes](media/meta-networks-connector-provisioning-tutorial/token.png)
+    ![Conector de redes de meta criar token](media/meta-networks-connector-provisioning-tutorial/token.png)
 
-6.  Adicione um IdP navegando até **administração > configurações > IdP > criar novo**.
+6.  Adicione um IdP navegando para **Administration > Settings > IdP > Create New**.
 
-    ![Conector de metaredes adicionar IdP](media/meta-networks-connector-provisioning-tutorial/newidp.png)
+    ![Conector de redes de meta adicionar IDP](media/meta-networks-connector-provisioning-tutorial/newidp.png)
 
-7.  Na página de **configuração do IDP** , você pode **nomear** sua configuração IDP e escolher um **ícone**.
+7.  Na página **de Configuração IDP** pode **nomear** a configuração idp e escolher um **Ícone**.
 
-    ![Nome do IdP do conector de redes meta](media/meta-networks-connector-provisioning-tutorial/idpname.png)
+    ![Nome idP do conector de redes meta](media/meta-networks-connector-provisioning-tutorial/idpname.png)
 
-    ![Ícone de IdP do conector de metaredes](media/meta-networks-connector-provisioning-tutorial/icon.png)
+    ![Ícone idp do conector de redes meta](media/meta-networks-connector-provisioning-tutorial/icon.png)
 
-8.  Em **Configurar scim** , selecione o nome da chave de API criado nas etapas anteriores. Clique em **Guardar**.
+8.  Em **Configurar o SCIM, selecione** o nome chave API criado nos passos anteriores. Clique em **Guardar**.
 
-    ![Conector de metaredes configurar SCIM](media/meta-networks-connector-provisioning-tutorial/configure.png)
+    ![Rede de Meta Rede configurar SCIM](media/meta-networks-connector-provisioning-tutorial/configure.png)
 
-9.  Navegue até **administração > configurações > guia IDP**. Clique no nome da configuração IdP criada nas etapas anteriores para exibir a **ID do IDP**. Essa **ID** é adicionada ao final da **URL do locatário** ao inserir o valor no campo **URL do locatário** na guia provisionamento do aplicativo conector de metaredes na portal do Azure.
+9.  Navegue para **Administration > Settings > separador IdP**. Clique no nome da configuração IDP criada nos passos anteriores para visualizar o **ID Id**. Este **ID** é adicionado ao final do **URL** do Inquilino ao introduzir o valor no campo URL do **Arrendatário** no separador provisionamento da sua aplicação Meta Networks Connector no portal Azure.
 
-    ![ID IdP do conector de redes meta](media/meta-networks-connector-provisioning-tutorial/idpid.png)
+    ![Id id id id do conector de redes meta](media/meta-networks-connector-provisioning-tutorial/idpid.png)
 
-## <a name="add-meta-networks-connector-from-the-gallery"></a>Adicionar conector de metaredes da Galeria
+## <a name="add-meta-networks-connector-from-the-gallery"></a>Adicione o Conector meta networks da galeria
 
-Antes de configurar o conector de metaredes para o provisionamento automático de usuário com o Azure AD, você precisa adicionar o conector de metaredes da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar o Conector Meta Networks para o fornecimento automático de utilizadores com a AD Azure, tem de adicionar o Conector Meta Networks da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
 
-**Para adicionar o conector de metaredes da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar meta networks Connector da galeria de aplicações Azure AD, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **conector de Metaredes**, selecione **conector de metaredes** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, introduza o **Conector meta redes,** selecione **Meta Networks Connector** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-    ![Conector de metaredes na lista de resultados](common/search-new-app.png)
+    ![Conector meta redes na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-meta-networks-connector"></a>Configurando o provisionamento automático de usuário para o conector de metaredes 
+## <a name="configuring-automatic-user-provisioning-to-meta-networks-connector"></a>Configurar o fornecimento automático de utilizadores ao Conector meta redes 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no conector de metaredes com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Conector meta redes com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o conector de metaredes, seguindo as instruções fornecidas no [tutorial de logon único do conector de Metaredes](https://docs.microsoft.com/azure/active-directory/saas-apps/metanetworksconnector-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem uns aos outros
+> Também pode optar por ativar um único sinal baseado em SAML para o Conector meta networks, seguindo as instruções fornecidas no tutorial de inscrição single do [Conector](https://docs.microsoft.com/azure/active-directory/saas-apps/metanetworksconnector-tutorial)de Meta Networks . O único sinal de inscrição pode ser configurado independentemente do fornecimento automático de utilizadores, embora estas duas funcionalidades se elogiem mutuamente
 
-### <a name="to-configure-automatic-user-provisioning-for-meta-networks-connector-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o conector meta Networks no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-meta-networks-connector-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o Conector meta redes em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **conector de Metaredes**.
+2. Na lista de aplicações, selecione **Meta Networks Connector**.
 
-    ![O link do conector de metaredes na lista de aplicativos](common/all-applications.png)
+    ![O link de conector meta redes na lista de Aplicações](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** .
+3. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://api.metanetworks.com/v1/scim/<IdP ID>` na **URL do locatário**. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao conector de metaredes. Se a conexão falhar, verifique se a conta do conector de metaredes tem permissões de administrador e tente novamente.
+5. No âmbito da secção **de Credenciais de Administrador,** a entrada `https://api.metanetworks.com/v1/scim/<IdP ID>` no **URL do Arrendatário**. Insera o valor token de **autenticação SCIM** recuperado anteriormente em **Ficha Secreta**. Clique na **ligação de teste** para garantir que o Azure AD pode ligar-se ao Conector de Redes Meta. Se a ligação falhar, certifique-se de que a sua conta Deconector Meta Networks tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para conector de metaredes**.
+8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Meta Networks Connector**.
 
-    ![Mapeamentos de usuário do conector de metaredes](media/meta-networks-connector-provisioning-tutorial/usermappings.png)
+    ![Mapeamento de utilizadores de conector de redes de meta](media/meta-networks-connector-provisioning-tutorial/usermappings.png)
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o conector de metaredes na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no conector meta Networks para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Meta Networks Connector na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no Conector meta redes para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Atributos de usuário do conector de metaredes](media/meta-networks-connector-provisioning-tutorial/userattributes.png)
+    ![Atributos do utilizador do conector de redes meta](media/meta-networks-connector-provisioning-tutorial/userattributes.png)
 
-10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para conector de metaredes**.
+10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Meta Networks Connector**.
 
-    ![Mapeamentos do grupo de conectores de metaredes](media/meta-networks-connector-provisioning-tutorial/groupmappings.png)
+    ![Mapeamentos de grupo de conector de redes meta](media/meta-networks-connector-provisioning-tutorial/groupmappings.png)
 
-11. Examine os atributos de grupo que são sincronizados do Azure AD para o conector de metaredes na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no conector de metaredes para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+11. Reveja os atributos do grupo que são sincronizados de Azure AD para Meta Networks Connector na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar os grupos no Conector meta redes para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Atributos do grupo de conectores de metaredes](media/meta-networks-connector-provisioning-tutorial/groupattributes.png)
+    ![Atributos do Grupo de Conector de Redes Meta](media/meta-networks-connector-provisioning-tutorial/groupattributes.png)
 
-12. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar o serviço de provisionamento do Azure AD para o conector de metaredes, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+13. Para ativar o serviço de provisionamento de AD Azure para o Conector de Redes Meta, altere o Estado de **Provisionamento** para **Ligar** na secção **Definições.**
 
     ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
 
-14. Defina os usuários e/ou grupos que você deseja provisionar para o conector de metaredes escolhendo os valores desejados no **escopo** na seção **configurações** .
+14. Defina os utilizadores e/ou grupos que deseja fornecer ao Conector meta redes, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para provisionar, clique em **salvar**.
+15. Quando estiver pronto para fornecer, clique em **Guardar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no conector de metaredes.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividadede provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure no Meta Networks Connector.
 
-Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

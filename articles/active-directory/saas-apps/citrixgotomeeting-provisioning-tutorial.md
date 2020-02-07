@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o GoToMeeting para aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o GoToMeeting.
+title: 'Tutorial: Configure GoToMeeting para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o GoToMeeting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,86 +15,86 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e3145d0faaa3aecb90b582b3b6ef0063572ff43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0ac06fc3018b4230cbf32712067c48400599082
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60430790"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058268"
 ---
-# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configurar o GoToMeeting para aprovisionamento automático de utilizadores
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configure GoToMeeting para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é mostrar a os passos que necessários para executar no GoToMeeting e do Azure AD para aprovisionar e desaprovisionar contas de utilizador do Azure AD para o GoToMeeting automaticamente.
+O objetivo deste tutorial é mostrar-lhe os passos necessários para realizar no GoToMeeting e azure AD para fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para GoToMeeting.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-*   Um inquilino do Azure Active directory.
-*   Um GoToMeeting início de sessão único ativado na subscrição.
-*   Uma conta de utilizador no GoToMeeting com permissões de administrador da equipa.
+*   Um inquilino de diretório Azure Ative.
+*   Uma subscrição ativada por um único sinal GoToMeeting.
+*   Uma conta de utilizador no GoToMeeting com permissões de Team Admin.
 
-## <a name="assigning-users-to-gotomeeting"></a>Atribuir utilizadores a GoToMeeting
+## <a name="assigning-users-to-gotomeeting"></a>Atribuir utilizadores ao GoToMeeting
 
-O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento de contas de utilizadores automático, apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação no Azure AD é sincronizado.
+O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de conta de utilizador, apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e ativar o serviço de aprovisionamento, precisa decidir quais os utilizadores e/ou grupos no Azure AD representam os utilizadores que necessitam de aceder à sua aplicação GoToMeeting. Depois de decidir, pode atribuir estes utilizadores à sua aplicação GoToMeeting ao seguir as instruções aqui:
+Antes de configurar e ativar o serviço de provisionamento, tem de decidir quais os utilizadores e/ou grupos em Azure AD que representam os utilizadores que precisam de acesso à sua aplicação GoToMeeting. Uma vez decidido, pode atribuir estes utilizadores à sua aplicação GoToMeeting seguindo as instruções aqui:
 
 [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-gotomeeting"></a>Dicas importantes para atribuir utilizadores a GoToMeeting
+### <a name="important-tips-for-assigning-users-to-gotomeeting"></a>Dicas importantes para atribuir utilizadores ao GoToMeeting
 
-*   Recomenda-se que um único utilizador do Azure AD é atribuído a GoToMeeting para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+*   Recomenda-se que um único utilizador da AD Azure seja designado para o GoToMeeting para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-*   Ao atribuir um utilizador para o GoToMeeting, tem de selecionar uma função de utilizador válido. A função de "Acesso predefinido" não funciona para o aprovisionamento.
+*   Ao atribuir um utilizador ao GoToMeeting, deve selecionar uma função de utilizador válida. A função "Acesso Predefinido" não funciona para o provisionamento.
 
-## <a name="enable-automated-user-provisioning"></a>Ativar o aprovisionamento automatizado do utilizador
+## <a name="enable-automated-user-provisioning"></a>Ativar o fornecimento automatizado de utilizadores
 
-Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisionamento da conta de utilizador do GoToMeeting e configurar o serviço de aprovisionamento para criar, atualizar e desativar as contas de utilizador atribuído no GoToMeeting com base na atribuição de utilizadores e grupos no Azure AD.
+Esta secção orienta-o através da ligação do seu AD Azure à conta de utilizador do GoToMeeting que aprovisiona a API, e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas no GoToMeeting com base na atribuição de utilizador e grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativada baseado em SAML início de sessão único para o GoToMeeting, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementar entre si.
+> Também pode optar por ativar o Single Sign-On baseado em SAML para o GoToMeeting, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se elogiem mutuamente.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Para configurar o aprovisionamento de contas de utilizador automáticas:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Para configurar o fornecimento automático de conta de utilizador:
 
-1. Na [portal do Azure](https://portal.azure.com), navegue para o **Azure Active Directory > aplicações empresariais > todos os aplicativos** secção.
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
 
-1. Se já tiver configurado o GoToMeeting para início de sessão único, procure a sua instância do GoToMeeting usando o campo de pesquisa. Caso contrário, selecione **Add** e procure **GoToMeeting** na Galeria de aplicações. Selecione o GoToMeeting resultados da pesquisa e adicioná-lo à sua lista de aplicações.
+1. Se já configurou o GoToMeeting para um único sinal, procure a sua instância de GoToMeeting utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **goToMeeting** na galeria de aplicações. Selecione GoToMeeting a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
-1. Selecione a sua instância do GoToMeeting, em seguida, selecione o **aprovisionamento** separador.
+1. Selecione a sua instância de GoToMeeting e, em seguida, selecione o separador **Provisioning.**
 
-1. Definir o **aprovisionamento** modo **automática**. 
+1. Detete o modo **de provisionamento** para **automático**. 
 
-    ![Aprovisionamento](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![provisionamento](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
-1. Na secção de credenciais de administrador, execute os seguintes passos:
+1. No âmbito da secção de Credenciais de Administrador, execute os seguintes passos:
    
-    a. Na **nome de utilizador de administrador do GoToMeeting** caixa de texto, escreva o nome de utilizador do administrador.
+    a. Na caixa de **texto GoToMeeting Admin User Name,** digite o nome de utilizador de um administrador.
 
-    b. Na **palavra-passe de administrador do GoToMeeting** caixa de texto, a senha do administrador.
+    b. Na caixa de **texto GoToMeeting Admin Password,** a palavra-passe do administrador.
 
-1. No portal do Azure, clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação de GoToMeeting. Se a ligação falhar, certifique-se de que a conta de GoToMeeting tem permissões de administrador da equipa e tente a **"Credenciais de administrador"** passo novamente.
+1. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação GoToMeeting. Se a ligação falhar, certifique-se de que a sua conta GoToMeeting tem permissões de Team Admin e tente novamente o passo **"Credenciais de Administrador".**
 
-1. Introduza o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de aprovisionamento no **notificação por E-Mail** campo e marque a caixa de verificação.
+1. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo de email de **notificação** e verifique a caixa de verificação.
 
-1. Clique em **guardar.**
+1. Clique em **Guardar.**
 
-1. Na secção de mapeamentos, selecione **sincronizar utilizadores do Azure Active Directory para GoToMeeting.**
+1. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to GoToMeeting.**
 
-1. Na **mapeamentos de atributos** secção, reveja os atributos de utilizador que são sincronizados a partir do Azure AD para o GoToMeeting. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no GoToMeeting para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+1. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para GoToMeeting. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no GoToMeeting para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 
-1. Para ativar o Azure AD para o GoToMeeting do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** na secção de definições
+1. Para ativar o serviço de provisionamento de AD Azure para GoToMeeting, altere o Estado de **Provisionamento** para **On** na secção Definições
 
-1. Clique em **guardar.**
+1. Clique em **Guardar.**
 
-Ele começa a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a GoToMeeting, na secção utilizadores e grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades, que descrevem a todas as ações executadas pelo serviço de aprovisionamento na sua aplicação GoToMeeting de aprovisionamento.
+Inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos ao GoToMeeting na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação GoToMeeting.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](tutorial-list.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configurar o início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
+* [Configurar um único signo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

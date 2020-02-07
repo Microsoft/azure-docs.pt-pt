@@ -2,7 +2,7 @@
 title: Gerenciar suas organizações no portal minha conta – Azure AD
 description: Como exibir e deixar as organizações conectadas à sua conta corporativa ou de estudante na página organizações do portal minha conta.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 ms.service: active-directory
@@ -10,19 +10,19 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: e8bea2c8eed210278b52b7ce6095a77c41fdd6ab
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: fbaca387dd8062f50bb7555c7be6e7f65ce346bf
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705144"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062477"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gerenciar suas organizações conectadas na página organizações
 
-A página **organizações** do portal **minha conta** ajuda você a gerenciar as organizações (normalmente, o nome da sua organização) conectado à sua conta corporativa ou de estudante. Há dois tipos de organizações mostrados na página **organizações** :
+A página de **Organizações** do portal **My Account** ajuda-o a gerir as organizações (tipicamente, nome da sua organização) ligadas ao seu trabalho ou conta escolar. Existem dois tipos de organizações mostradas na página das **Organizações:**
 
-- **Organização inicial.** Sua organização doméstica é a organização que possui sua conta corporativa ou de estudante. Você não pode sair de sua organização doméstica.
+- **Organização doméstica.** Sua organização doméstica é a organização que possui sua conta corporativa ou de estudante. Você não pode sair de sua organização doméstica.
 
     >[!NOTE]
     > Se você não tiver uma organização inicial atribuída, verá apenas um único título que diz às organizações a lista de suas organizações associadas.
@@ -30,17 +30,17 @@ A página **organizações** do portal **minha conta** ajuda você a gerenciar a
 - **Outras organizações.** As outras organizações são qualquer grupo que você tenha entrado para usar anteriormente sua conta corporativa ou de estudante. Você pode deixar qualquer uma dessas organizações a qualquer momento.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar as informações da organização conectadas a uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de grupo e de usuário para seus funcionários e outros usos, consulte a [documentação de gerenciamento de usuário empresarial](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>Este artigo destina-se a usuários que tentam atualizar as informações da organização conectadas a uma conta corporativa ou de estudante. Se for um administrador à procura de informações sobre gestão de grupos e utilizadores para os seus colaboradores e outras utilizações, consulte a documentação de [gestão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index)do utilizador da Enterprise .
 
 ## <a name="view-your-organizations"></a>Exibir suas organizações
 
-1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página **minha conta** (https://myprofile.microsoft.com/).
+1. Inscreva-se na sua conta de trabalho ou escola e, em seguida, vá para a **página My Account** (https://myprofile.microsoft.com/).
 
-2. Selecione **organizações** no painel de navegação esquerdo ou selecione o link **gerenciar organizações** no bloco **organizações** .
+2. Selecione **Organizações** do painel de navegação esquerdo ou selecione a ligação de **organizações de Gestão** do bloco **de Organizações.**
 
     ![Página minha conta, mostrando links para organizações realçadas](media/my-account-portal/my-account-portal-organizations.png)
 
-3. Examine as informações da sua **organização doméstica**.
+3. Reveja as informações para a sua **organização Domiciliária.**
 
     ![Página organizações](media/my-account-portal/my-account-portal-organization-page.png)
 
@@ -53,7 +53,7 @@ Você pode deixar qualquer organização que não seja sua organização domést
 >[!Important]
 >Se você deixar uma organização por engano, não há como desfazê-la. Você precisará aguardar o administrador dessa organização para convidá-lo novamente.
 
-- Selecione **deixar organização** ao lado da organização que você deseja sair e selecione **deixar** para confirmar que deseja sair.
+- Selecione **a organização Leave** ao lado da organização que pretende deixar e, em seguida, selecione **Leave** para confirmar que pretende sair.
 
     ![Página organizações com o link deixar organização realçado](media/my-account-portal/my-account-portal-organizations-leave.png)
 
@@ -61,10 +61,10 @@ Você pode deixar qualquer organização que não seja sua organização domést
 
 Depois de exibir suas organizações, você pode:
 
-- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
+- Veja ou gere a sua informação de [segurança.](user-help-security-info-overview.md)
 
-- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
+- Veja ou gerencie os seus [dispositivos conectados](my-account-portal-devices-page.md).
 
-- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
+- Consulte a sua [atividade de inscrição](my-account-portal-sign-ins-page.md).
 
-- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).
+- Veja como a sua organização [utiliza os seus dados relacionados com](my-account-portal-privacy-page.md)a privacidade.

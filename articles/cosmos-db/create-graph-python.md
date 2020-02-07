@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: API Gremlin com Python-Azure Cosmos DB'
+title: 'Início rápido: Gremlin API com Python - Azure Cosmos DB'
 description: Este início rápido mostra como utilizar a API do Gremlin do Azure Cosmos DB para criar uma aplicação de consola com o portal do Azure e Python
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,40 +8,34 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
-ms.openlocfilehash: 545f679b11295485567a817d144225b361a262ce
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b1286daaa76c71f88d44ea387a92876a8676783c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815237"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062246"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Início rápido: Criar um banco de dados de grafo em Azure Cosmos DB usando Python e o portal do Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Quickstart: Criar uma base de dados de gráficos em Azure Cosmos DB utilizando python e o portal Azure
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
-> * [Python](create-graph-python.md)
+> * [python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
-Este início rápido mostra como utilizar Python e a [API do Gremlin](graph-introduction.md) do Azure Cosmos DB para criar uma aplicação de consola através da clonagem de um exemplo do GitHub. Este guia de introdução também o acompanha ao longo da criação de uma conta do Azure Cosmos DB ao utilizar o portal do Azure baseado na Web.   
+Neste arranque rápido, cria-se e gere-se uma conta API Azure Cosmos DB Gremlin (gráfico) do portal Azure, e adiciona dados utilizando uma aplicação Python clonada do GitHub. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, basede-chaves e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a tabela, a chave/valor e as bases de dados de gráficos que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.  
+## <a name="prerequisites"></a>Pré-requisitos
+- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Ou [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure.
+- [Python 3.5+](https://www.python.org/downloads/) incluindo o instalador de pacotes [pip.](https://pip.pypa.io/en/stable/installing/)
+- [Condutor python para Gremlin.](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
+- [Git](https://git-scm.com/downloads).
 
 > [!NOTE]
 > Este guia de introdução exige uma conta de base de dados de gráficos que tenha sido criada numa data posterior a 20 de dezembro de 2017. As contas existentes irão suportar Python depois de serem migradas para disponibilidade geral.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Em alternativa, pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos.
-
-Além disso:
-* [Python](https://www.python.org/downloads/) versão 3.5 ou mais recente
-* [Gestor de pacotes pip](https://pip.pypa.io/en/stable/installing/)
-* [Git](https://git-scm.com/)
-* [Controlador de Python para Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -55,7 +49,7 @@ Antes de poder criar uma base de dados de gráficos, tem de criar uma conta de b
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos trabalhar com código. Vamos clonar uma aplicação API do Gremlin a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente.  
+Agora, vamos trabalhar com código. Vamos clonar uma aplicação da API do Gremlin a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente.  
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 
@@ -77,9 +71,9 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação API do Gremlin 
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Os fragmentos são obtidos a partir do ficheiro connect.py na pasta C:\git-samples\azure-cosmos-db-graph-python-getting-started\. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-information). 
+Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Os cortes são todos retirados do ficheiro *connect.py* na pasta *c:\git-samples\azure-cosmos-db-graph-python-start-start-start-start\\* pasta. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-information). 
 
-* O `client` do Gremlin é inicializado na linha 104 em `connect.py`
+* O `client` Gremlin é rubricado na linha 104 em *connect.py:*
 
     ```python
     ...
@@ -89,23 +83,23 @@ Este passo é opcional. Se estiver interessado em aprender de que forma os recur
     ...
     ```
 
-* No início do ficheiro `connect.py`, é declarada uma série de passos de Gremlin. Em seguida, são executados com o método `client.submitAsync()`:
+* Uma série de passos Gremlin são declarados no início do ficheiro *connect.py.* Em seguida, são executados com o método `client.submitAsync()`:
 
     ```python
     client.submitAsync(_gremlin_cleanup_graph)
     ```
 
-## <a name="update-your-connection-information"></a>Atualizar as informações da ligação
+## <a name="update-your-connection-information"></a>Atualizar a informação de ligação
 
 Agora, regresse ao portal do Azure para obter as informações da ligação e copie-as para a aplicação. Estas definições permitem à aplicação comunicar com a base de dados alojada.
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **Chaves**. 
+1. Na sua conta Azure Cosmos DB no [portal Azure,](https://portal.azure.com/)selecione **Keys**. 
 
     Copie a primeira parte do valor do URI.
 
     ![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/create-graph-python/keys.png)
 
-2. Abra o ficheiro connect.py e, na linha 104, cole o valor do URI sobre `<YOUR_ENDPOINT>` aqui:
+2. Abra o ficheiro *connect.py* e na linha 104 pasta o valor URI sobre `<YOUR_ENDPOINT>` aqui:
 
     ```python
     client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
@@ -133,7 +127,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
         password="<YOUR_PASSWORD>")
     ```
 
-4. No portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `<YOUR_PASSWORD>` no parâmetro `password=<YOUR_PASSWORD>`.
+4. Na página **Keys,** utilize o botão de cópia para copiar a TECLA PRIMÁRIA e cole-a sobre `<YOUR_PASSWORD>` no parâmetro `password=<YOUR_PASSWORD>`.
 
     A definição do objeto `client` completa deve agora ser semelhante a este código:
     ```python
@@ -142,7 +136,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-6. Guarde o ficheiro `connect.py`.
+6. Guarde o ficheiro *connect.py.*
 
 ## <a name="run-the-console-app"></a>Executar a aplicação de consola
 
@@ -173,60 +167,60 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Rever e adicionar dados de exemplo
 
-Depois que os vértices e as bordas forem inseridos, agora você poderá voltar para Data Explorer e ver os vértices adicionados ao grafo e adicionar pontos de dados adicionais.
+Depois de inseridos os vértices e bordas, pode agora voltar ao Data Explorer e ver os vértices adicionados ao gráfico e adicionar pontos de dados adicionais.
 
-1. Clique em **Data Explorer**, expanda **sample-graph**, clique em **Gráfico** e clique em **Aplicar Filtro**. 
+1. Na sua conta Azure Cosmos DB no portal Azure, selecione **Data Explorer,** expanda **o sample-graph,** selecione **Graph,** e, em seguida, selecione **Apply Filter**. 
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Na lista de **resultados** , observe que três novos usuários são adicionados ao grafo. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista **de Resultados,** reparem que três novos utilizadores são adicionados ao gráfico. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
    ![Vértices novos no gráfico no Data Explorer no portal do Azure](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
 
-3. Vamos adicionar alguns utilizadores novos. Clique no botão **Vértice Novo** para adicionar os dados ao gráfico.
+3. Vamos adicionar alguns utilizadores novos. Selecione o botão **New Vertex** para adicionar dados ao seu gráfico.
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png)
 
 4. Introduza uma etiqueta de *pessoa*.
 
-5. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave de id.
+5. Selecione **Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave de id.
 
     key|valor|Notas
     ----|----|----
-    PK|/pk| 
-    id|ashley|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    pk|/pk| 
+    ID|ashley|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
     género|feminino| 
     técnico | java | 
 
     > [!NOTE]
     > Neste guia de introdução, criámos uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
 
-6. Clique em **OK**. Poderá ter de expandir o ecrã para ver **OK**, na parte inferior.
+6. Selecione **OK**. Poderá ter de expandir o ecrã para ver **OK**, na parte inferior.
 
-7. Clique em **Vértice Novo** novamente e adicione outro utilizador. 
+7. Selecione novamente o **New Vertex** e adicione um novo utilizador adicional. 
 
 8. Introduza uma etiqueta de *pessoa*.
 
-9. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
+9. Selecione **Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
 
     key|valor|Notas
     ----|----|----
-    PK|/pk| 
-    id|rakesh|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    pk|/pk| 
+    ID|rakesh|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
     género|masculino| 
     escola|MIT| 
 
-10. Clique em **OK**. 
+10. Selecione **OK**. 
 
-11. Clique no botão **Aplicar Filtro** com o filtro `g.V()` predefinido para apresentar todos os valores no gráfico. Todos os utilizadores aparecem agora na lista **Resultados**. 
+11. Selecione o botão **'Aplicar filtro'** com o filtro `g.V()` predefinido para visualizar todos os valores do gráfico. Todos os utilizadores aparecem agora na lista **Resultados**. 
 
-    À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se tiver alterado o filtro, altere o filtro de volta para `g.V()` e clique em **Aplicar Filtro** para apresentar todos os resultados novamente.
+    À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se mudar o filtro, mude o filtro para `g.V()` e selecione **Apply Filter** para mostrar todos os resultados novamente.
 
-12. Agora, podemos ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão Editar junto a **Destinos**, no canto inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades**.
+12. Agora, podemos ligar rakesh e ashley. Certifique-se de que a **Ashley** é selecionada na lista **de Resultados** e, em seguida, selecione o botão de edição **ao** lado direito inferior. Poderá ter de alargar a janela para ver a área **Propriedades**.
 
     ![Alterar o destino de um vértice de um gráfico](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. Na caixa **Destino**, escreva *rakesh*, na caixa **Etiqueta da extremidade**, escreva *Conhece* e clique no visto.
+13. No *rakesh*do tipo caixa **Target,** e no tipo de caixa de **etiqueta Edge** *sabe,* e, em seguida, selecione a verificação.
 
     ![Adicionar uma ligação entre ashley e rakesh no Data Explorer](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
 
@@ -234,7 +228,7 @@ Depois que os vértices e as bordas forem inseridos, agora você poderá voltar 
 
     ![Dois vértices ligados no Data Explorer](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
 
-    Esta ação conclui a parte da criação de recursos deste tutorial. Pode continuar a adicionar vértices ao seu gráfico, modificar os vértices existentes ou alterar as consultas. Agora vamos rever as métricas que o Azure Cosmos DB oferece e, em seguida, limpar os recursos. 
+Esta ação conclui a parte da criação de recursos deste tutorial. Pode continuar a adicionar vértices ao seu gráfico, modificar os vértices existentes ou alterar as consultas. Agora vamos rever as métricas que o Azure Cosmos DB oferece e, em seguida, limpar os recursos. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
@@ -244,9 +238,9 @@ Depois que os vértices e as bordas forem inseridos, agora você poderá voltar 
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer e a executar uma aplicação. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
+Neste arranque rápido, aprendeu a criar uma conta Azure Cosmos DB, criar um gráfico usando o Data Explorer, e executar uma aplicação Python para adicionar dados ao gráfico. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md) (Utilizar Gremlin para consultar)

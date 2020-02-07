@@ -2,7 +2,7 @@
 title: Iniciar sessão utilizando a sua informação de autenticação de identidade - Azure AD
 description: Saiba como iniciar sessão utilizando os vários métodos de verificação de identidade em informações de segurança.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: lizross
+ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: c7dea5acfce9ad964b050b6787f29e5d116a306b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7d1d27cede6c593150d3937bb3aa0ca59394eea9
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704600"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062171"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inscreva-se usando informações de verificação ou segurança em duas etapas
 
@@ -90,10 +90,10 @@ Se por alguma razão não puder utilizar o seu método de inscrição principal,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre informações de segurança no artigo [visão geral de informações de segurança (versão prévia)](user-help-security-info-overview.md) .
+- Saiba mais sobre informações de segurança no artigo de visão geral da informação de [segurança (pré-visualização).](user-help-security-info-overview.md)
 
 - Conheça a verificação em duas etapas no artigo [de verificação em duas etapas.](user-help-two-step-verification-overview.md)
 
 - Redefinir a sua palavra-passe se a perdeu ou esqueceu, a partir do [portal de reset password](https://passwordreset.microsoftonline.com/)
 
-- Obtenha dicas de solução de problemas e ajuda para problemas de conexão no artigo [não é possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .
+- Obtenha dicas de resolução de problemas e ajude a iniciar sessão no [Artigo da conta da Microsoft.](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)

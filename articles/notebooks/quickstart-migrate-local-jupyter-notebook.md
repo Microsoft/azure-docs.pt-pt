@@ -3,60 +3,66 @@ title: Migrar um bloco de anotações Jupyter local para Azure Notebooks visuali
 description: Transfira rapidamente um notebook Jupyter para Azure Notebooks visualização do seu computador local ou de uma URL da Web e, em seguida, compartilhe-o para colaboração.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647055"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064330"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Início rápido: migrar um bloco de anotações Jupyter local no Azure Notebooks versão prévia
 
-Blocos de notas do Jupyter que criar localmente no seu próprio computador estão acessíveis apenas para si. Pode compartilhar seus arquivos por meio de diversas maneiras, mas, em seguida, os destinatários têm sua própria cópia local do bloco de notas e é difícil para incorporar todas as alterações que podem fazer. Pode também armazenar blocos de notas num repositório partilhado online, como o GitHub, mas ainda fazer isso requer que cada funcionário tem sua própria instalação local do Jupyter com a mesma configuração como sua.
+Neste arranque rápido, migra-se um caderno Jupyter do seu computador local ou outro URL de ficheiro acessível para Os Cadernos Azure. 
 
-Ao migrar seus blocos de notas do locais ou baseada no repositório para blocos de notas do Azure, armazená-las na cloud a partir do qual pode instantaneamente partilhá-los com seus colaboradores. Os funcionários precisam apenas um browser para ver e executar o bloco de notas e se eles [iniciar sessão](quickstart-sign-in-azure-notebooks.md) para blocos de notas do Azure também fazer alterações.
+Os cadernos jupyter no seu próprio computador só estão acessíveis a si. Pode partilhar os seus ficheiros, mas os destinatários têm as suas próprias cópias locais do caderno, e é difícil incorporar as suas alterações. Mesmo que você armazene cadernos num repositório online partilhado como gitHub, cada colaborador deve ter uma instalação jupyter local configurada como a sua.
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+Ao migrar os seus cadernos locais ou repositórios para os Cadernos Azure, pode partilhá-los instantaneamente com os seus colaboradores, que precisam apenas de um navegador para visualizar e executar os seus cadernos. Se assinarem nos Cadernos Azure, também podem fazer alterações.
 
-Este início rápido demonstra o processo de migração de um bloco de notas do seu computador local ou outra URL do arquivo acessível. Para migrar blocos de notas a partir de um repositório do GitHub, consulte [início rápido: clonar um bloco de notas](quickstart-clone-jupyter-notebook.md).
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Um [caderno Jupyter](https://jupyter-notebook.readthedocs.io) no seu computador local ou em outro URL de ficheiro acessível. 
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Criar um projeto em blocos de notas do Azure
 
-1. Aceda a [blocos de notas do Azure](https://notebooks.azure.com) e iniciar sessão. (Para obter detalhes, consulte [início rápido - início de sessão para blocos de notas do Azure](quickstart-sign-in-azure-notebooks.md)).
+Este quickstart demonstra a migração de um caderno do seu computador local ou de outro URL de ficheiro acessível. Para migrar cadernos de um repositório GitHub, consulte [Quickstart: Clone um caderno](quickstart-clone-jupyter-notebook.md).
 
-1. Na sua página de perfil público, selecione **meus projetos** na parte superior da página:
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. (Para mais detalhes, consulte [Quickstart - Inscreva-se nos Cadernos Azure).](quickstart-sign-in-azure-notebooks.md)
+
+1. Na sua página de perfil público, selecione **My Projects** no topo da página:
 
     ![Meu link de projetos na parte superior da janela do browser](media/quickstarts/my-projects-link.png)
 
-1. Sobre o **meus projetos** página, selecione **+ novo projeto** (atalho de teclado: n); o botão poderá aparecer apenas como **+** se a janela do browser estreita:
+1. Na página **My Projects,** selecione **New Project** (atalho de teclado: n). O botão só pode aparecer como **+** se a janela do navegador for estreita:
 
     ![Comando de novo projeto na página meus projetos](media/quickstarts/new-project-command.png)
 
-1. Na **criar novo projeto** pop-up apresentado, introduza os valores adequados para o bloco de notas no qual está a migrar o **nome do projeto** e **ID de projeto** campos, desmarque a Opções de **projeto público** e **criar um README.md**, em seguida, selecione **criar**.
+1. No popup **Create New Project** que aparece, introduza valores apropriados para o caderno que está a migrar nos campos de Identificação do Projeto e Do **Projeto,** limpe as opções para o projeto **Público** e **Crie um README.md,** em seguida, selecione **Criar**.
 
 ## <a name="upload-the-local-notebook"></a>Carregar o bloco de notas local
 
-1. Na página do projeto, selecione **carregar** (que podem aparecer como um se seta apenas se a janela do navegador é pequeno), em seguida, selecione 1. Na caixa que aparece, selecione **do computador** se o bloco de notas estiver localizado no sistema de arquivos local, ou **de URL** se seu bloco de notas se encontra online:
+1. Na página do projeto, selecione **Upload** (que só pode aparecer como uma seta up se a janela do seu navegador for pequena), em seguida, selecione 1. No popup que aparece, selecione **A partir do computador** se o seu caderno estiver localizado no seu sistema de ficheiros local, ou no **URL** se o seu caderno estiver localizado online:
 
     ![Comando para carregar um bloco de notas de um URL ou o computador local](media/quickstarts/upload-from-computer-url-command.png)
 
-   (Novamente, se seu bloco de notas estiver num repositório do GitHub, siga os passos [início rápido: clonar um bloco de notas](quickstart-clone-jupyter-notebook.md) em vez disso.)
+   Mais uma vez, se o seu caderno estiver num repositório GitHub, siga os passos em [Quickstart: Clone um caderno](quickstart-clone-jupyter-notebook.md) em vez disso.
 
-   - Se utilizar **de computador**, arraste e largue sua *.ipynb* ficheiros para o pop-up ou selecione o **escolher ficheiros**, em seguida, procure e selecione os ficheiros que pretende importar. Em seguida, selecione **carregar**. Os ficheiros carregados recebem o mesmo nome que os ficheiros locais. (Não precisa de carregar o conteúdo de qualquer *.ipynb_checkpoints* pastas.)
+   - Se utilizar **o From Computer,** arraste e deixe cair os seus ficheiros *.ipynb* no popup, ou selecione **'Escolher Ficheiros',** então navegue e selecione os ficheiros que pretende importar. Em seguida, selecione **Carregar**. Os ficheiros carregados recebem o mesmo nome que os ficheiros locais. Não precisa de carregar o conteúdo de quaisquer pastas *.ipynb_checkpoints.*
 
      ![Carregar a partir do pop-up de computador](media/quickstarts/upload-from-computer-popup.png)
 
-   - Se utilizar **de URL**, introduza o endereço de origem na **URL de ficheiro** campo e o nome de ficheiro para atribuir ao bloco de notas no seu projeto no **nome de ficheiro** campo. Em seguida, selecione **carregar**. Se tiver vários ficheiros com URLs separados, utilize o **+ adicionar ficheiro** comando para verificar o primeiro URL que introduziu, após o qual o pop-up fornece novos campos para outro ficheiro.
+   - Se utilizar **o URL**, introduza o endereço de origem no campo URL do **Ficheiro** e o nome de ficheiro para atribuir ao caderno no seu projeto no campo Nome de **Ficheiros.** Em seguida, selecione **Carregar**. Se tiver vários ficheiros com URLs separados, utilize o comando **Add File** para verificar o primeiro URL introduzido, após o qual o popup fornece novos campos para outro ficheiro.
 
      ![Carregar a partir do pop-up de URL](media/quickstarts/upload-from-url-popup.png)
 
-1. Abra e execute seu bloco de notas recém-carregada para verificar o seu conteúdo e a operação. Quando tiver terminado, selecione **arquivo** > **interrompido e fechar** para fechar o bloco de notas.
+1. Abra e execute seu bloco de notas recém-carregada para verificar o seu conteúdo e a operação. Quando terminar, selecione **File** > **Halt e feche perto** de fechar o caderno.
 
-1. Para partilhar uma ligação para o bloco de notas carregado, clique com botão direito no projeto e selecione o ficheiro de **copiar ligação** (atalho de teclado: y), em seguida, cole o link para a mensagem apropriada. Em alternativa, pode partilhar o projeto como um todo utilizando o **partilhar** controle na página do projeto.
+1. Para partilhar um link para o seu caderno carregado, clique no ficheiro no projeto e selecione **Copy Link** (atalho de teclado: y), em seguida, cole esse link na mensagem apropriada. Em alternativa, pode partilhar o projeto como um todo utilizando o controlo **de Partilha** na página do projeto.
 
-1. Para editar ficheiros diferentes dos blocos de notas, clique com botão direito no projeto e selecione o ficheiro de **Editar ficheiro** (atalho de teclado: eu). A ação de predefinição **executar** (atalho de teclado: r), apenas mostra o conteúdo do ficheiro e não permite a edição.
+1. Para editar ficheiros que não os cadernos, clique no ficheiro no projeto e selecione **o ficheiro Editar** (atalho do teclado: i). A ação predefinida, **Executar** (atalho do teclado: r), apenas mostra o conteúdo do ficheiro e não permite a edição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar uma execução de um bloco de notas do Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Crie e execute um caderno jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)

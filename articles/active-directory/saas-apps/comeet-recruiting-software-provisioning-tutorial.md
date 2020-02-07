@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o Software de recrutamento Comeet para aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
-description: Saiba como configurar o Azure Active Directory para aprovisionar e desaprovisionar contas de utilizador com o Software de recrutamento Comeet automaticamente.
+title: 'Tutorial: Configure Comeet Software de Recrutamento para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo do Azure para fornecer e desfornecer automaticamente contas de utilizadores ao Comeet Recruiting Software.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,143 +15,143 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d54750e731f92a574ac6571612f8dbd9054a9530
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: f427fb75cfaeda79b037c327992e4ad482a7e689
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672972"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058342"
 ---
-# <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configurar o Software de recrutamento Comeet para aprovisionamento automático de utilizadores
+# <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configure Comeet Software de Recrutamento para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no Software de recrutamento Comeet e Azure Active Directory (Azure AD) para configurar o Azure AD para aprovisionar e desaprovisionar utilizadores e/ou grupos para o Software de recrutamento Comeet automaticamente.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no Comeet Recruiting Software e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos para comeet Recruiting Software.
 
 > [!NOTE]
-> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em pré-visualização pública. Para obter mais informações sobre os Microsoft Azure termos de utilização gerais para funcionalidades de pré-visualização, veja [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial parte do princípio de que já tem os seguintes pré-requisitos:
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* Um inquilino do Azure AD
-* [Um inquilino de Software de recrutamento Comeet](https://www.comeet.co/)
-* Uma conta de utilizador no Software de recrutamento Comeet com permissões de administrador.
+* Um locatário do Azure AD
+* [Um inquilino de Software de Recrutamento Comeet](https://www.comeet.co/)
+* Uma conta de utilizador em Comeet Recruiting Software com permissões de Administrador.
 
-## <a name="add-comeet-recruiting-software-from-the-gallery"></a>Adicionar o Software de recrutamento Comeet partir da Galeria
+## <a name="add-comeet-recruiting-software-from-the-gallery"></a>Adicione software de recrutamento Comeet da galeria
 
-Antes de configurar o Software de recrutamento Comeet para aprovisionamento automático de utilizadores com o Azure AD, terá de adicionar a Software de recrutamento Comeet a partir da Galeria de aplicações do Azure AD à sua lista de aplicações de SaaS geridas.
+Antes de configurar o Software de Recrutamento Comeet para o fornecimento automático de utilizadores com a AD Azure, precisa de adicionar software de recrutamento Comeet da galeria de aplicações Azure AD à sua lista de aplicações geridas do SaaS.
 
-**Para adicionar o Software de recrutamento Comeet a partir da Galeria de aplicações do Azure AD, execute os seguintes passos:**
+**Para adicionar software de recrutamento Comeet da galeria de aplicações Azure AD, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Aceda a **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **Software de recrutamento Comeet**, selecione **Software de recrutamento Comeet** no painel de resultados e, em seguida, clique o **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, introduza o Software de **Recrutamento Comeet,** selecione **Comeet Recruiting Software** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-    ![Software de recrutamento comeet na lista de resultados](common/search-new-app.png)
+    ![Comeet Recruiting Software na lista de resultados](common/search-new-app.png)
 
-## <a name="assigning-users-to-comeet-recruiting-software"></a>Atribuir utilizadores a Software de recrutamento Comeet
+## <a name="assigning-users-to-comeet-recruiting-software"></a>Atribuir utilizadores ao Software de Recrutamento Comeet
 
-O Azure Active Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento automático de utilizadores, apenas a utilizadores e/ou grupos que foram atribuídos a uma aplicação no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e ativar o aprovisionamento de utilizador automático, deve decidir o que os utilizadores e/ou grupos no Azure AD precisam de acesso a Software de recrutamento Comeet. Depois de decidir, pode atribuir estes utilizadores e/ou grupos a Software de recrutamento Comeet ao seguir as instruções aqui:
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Software de Recrutamento Comeet. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao Comeet Recruiting Software seguindo as instruções aqui:
 
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-comeet-recruiting-software"></a>Dicas importantes para atribuir utilizadores a Software de recrutamento Comeet
+### <a name="important-tips-for-assigning-users-to-comeet-recruiting-software"></a>Dicas importantes para atribuir utilizadores ao Software de Recrutamento Comeet
 
-* Recomenda-se que um único utilizador do Azure AD é atribuído ao Software de recrutamento Comeet para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído ao Software de Recrutamento Comeet para testar a configuração automática de fornecimento de utilizadores. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um utilizador para o Software de recrutamento Comeet, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
+* Ao atribuir um utilizador ao Software de Recrutamento Comeet, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="configuring-automatic-user-provisioning-to-comeet-recruiting-software"></a>Configurar o aprovisionamento automático de utilizadores para o Software de recrutamento Comeet 
+## <a name="configuring-automatic-user-provisioning-to-comeet-recruiting-software"></a>Configurar o fornecimento automático de utilizadores ao Software de Recrutamento Comeet 
 
-Este guias de secção os passos para configurar o Azure AD do serviço de aprovisionamento para criar, atualizar e desativar os utilizadores e/ou grupos no Software de recrutamento Comeet com base no utilizador e/ou atribuições de grupo no Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Software de Recrutamento Comeet com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar baseado em SAML início de sessão único para o Software de recrutamento Comeet, seguindo as instruções fornecidas no [Software de recrutamento Comeet único início de sessão tutorial](comeetrecruitingsoftware-tutorial.md). Início de sessão único a pode ser configurada independentemente de aprovisionamento automático de utilizadores, embora esses dois recursos complementar entre si.
+> Também pode optar por ativar um único sign-on baseado em SAML para o Software de Recrutamento Comeet, seguindo as instruções fornecidas no [tutorial de inscrição individual](comeetrecruitingsoftware-tutorial.md)do Software de Recrutamento Comeet . O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
-### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores para o Software de recrutamento Comeet no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o Software de Recrutamento Comeet em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações empresariais**, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Software de recrutamento Comeet**.
+2. Na lista de aplicações, selecione **Comeet Recruiting Software**.
 
-    ![A ligação de Software de recrutamento Comeet na lista de aplicações](common/all-applications.png)
+    ![O link comeet recruiting software na lista de aplicações](common/all-applications.png)
 
-3. Selecione o **aprovisionamento** separador.
+3. Selecione o separador **Provisioning.**
 
-    ![Guia de aprovisionamento](common/provisioning.png)
+    ![Guia provisionamento](common/provisioning.png)
 
-4. Definir o **modo de aprovisionamento** ao **automática**.
+4. Detete o **modo de provisionamento** para **automático**.
 
-    ![Guia de aprovisionamento](common/provisioning-automatic.png)
+    ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Sob o **credenciais de administrador** secção, de entrada a **URL de inquilino** e **segredo de Token** da conta de sua Comeet recrutamento do Software, tal como descrito no passo 6.
+5. De acordo com a secção **de Credenciais de Administrador,** insera o **URL** do Inquilino e o **Token Secreto** da conta do software de recrutamento comeet como descrito no Passo 6.
 
-6. Na [consola de administração do Software de recrutamento Comeet](https://app.comeet.co/), navegue até à **Comeet > Definições > autenticação > Microsoft Azure**e copie o **segredo de Token para a sua empresa**valor para o **segredo de Token** campo no Azure AD.
+6. Na [consola de administração comeet Recruiting Software,](https://app.comeet.co/)navegue para **Comeet > Settings > Authentication > Microsoft Azure,** e copie o **Secret Token pelo** valor da sua empresa para o campo **Secret Token** em Azure AD.
 
-    ![Comeet recrutamento aprovisionamento de Software](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
+    ![Comeet Recrutamento de Software Provisioning](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
-7. Após preencher os campos mostrados no passo 5, clique em **Testar ligação** para garantir que o Azure AD pode ligar-se a Software de recrutamento Comeet. Se a ligação falhar, certifique-se de que a conta de Software de recrutamento Comeet tem permissões de administrador e tente novamente.
+7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se ao Software de Recrutamento Comeet. Se a ligação falhar, certifique-se de que a sua conta comeet Recruiting Software tem permissões de Administrador e tente novamente.
 
     ![Certificado de](common/provisioning-testconnection-token.png)
 
-8. Na **notificação por E-Mail** campo, introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação - **enviar uma notificação por e-mail quando uma falha ocorre**.
+8. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
-    ![E-Mail de notificação](common/provisioning-notification-email.png)
+    ![Email de notificação](common/provisioning-notification-email.png)
 
 9. Clique em **Guardar**.
 
-10. Sob o **mapeamentos** secção, selecione **sincronizar utilizadores do Azure Active Directory para Comeet**.
+10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Comeet**.
 
-    ![Comeet recrutamento mapeamentos de utilizador de Software](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
+    ![Comeet Recrutamento De Software Mapeamento de utilizadores](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
-11. Reveja os atributos de utilizador que são sincronizados a partir do Azure AD com o Software de recrutamento Comeet na **mapeamento do atributo** secção. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no Software de recrutamento Comeet para operações de atualização. Selecione o **guardar** botão para consolidar as alterações.
+11. Reveja os atributos do utilizador que são sincronizados de Azure AD para Comeet Recruiting Software na secção De Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no Software de Recrutamento Comeet para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Comeet recrutamento atributos de grupo de Software](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
+    ![Comeet Recrutamento Software Group Atributos](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
-12. Para configurar filtros de âmbito, consulte as seguintes instruções fornecidas a [tutorial de filtro de Scoping](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para ativar o Azure AD para o Software de recrutamento Comeet do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção.
+13. Para ativar o serviço de provisionamento de AD Azure para o Software de Recrutamento Comeet, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
-    ![Estado de aprovisionamento ativado](common/provisioning-toggle-on.png)
+    ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
 
-14. Definir a utilizadores e/ou grupos que pretende fazer o aprovisionamento de Software de recrutamento Comeet escolhendo os valores pretendidos na **âmbito** no **definições** secção.
+14. Defina os utilizadores e/ou grupos que deseja fornecer ao Comeet Recruiting Software, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Âmbito de aprovisionamento](common/provisioning-scope.png)
+    ![Escopo de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para aprovisionar, clique em **guardar**.
+15. Quando estiver pronto para fornecer, clique em **Guardar**.
 
-    ![A guardar a configuração de aprovisionamento](common/provisioning-configuration-save.png)
+    ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **âmbito** no **definições** secção. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do AD do Azure está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para o relatório de atividade, que descreve todas as ações executadas pelo Azure AD no Software de recrutamento Comeet do serviço de aprovisionamento de aprovisionamento.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de Anúncios Azure no Software de Recrutamento Comeet.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
-## <a name="connector-limitations"></a>Limitações de conector
+## <a name="connector-limitations"></a>Limitações do conector
 
-* Atualmente, o Software de recrutamento comeet não suporta grupos.
+* O Comeet Recruiting Software não suporta atualmente grupos.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

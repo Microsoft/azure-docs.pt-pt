@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre redefinição de senha de autoatendimento-Azure Active Directory
-description: Perguntas frequentes sobre a redefinição de senha de autoatendimento do Azure AD
+title: Palavra-passe self-service redefinir FAQ - Diretório Ativo Azure
+description: Perguntas frequentes sobre o reset da palavra-passe autosserviço da AD Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,269 +11,269 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 790a948611c6cfa336964397282a38d2b9c00e11
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848787"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061459"
 ---
-# <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre o gerenciamento de senhas
+# <a name="password-management-frequently-asked-questions"></a>Gestão de passwords frequentemente perguntas
 
-Veja a seguir algumas perguntas frequentes (FAQ) para todas as coisas relacionadas à redefinição de senha.
+Seguem-se algumas perguntas frequentes (FAQ) para todas as coisas relacionadas com o reset da palavra-passe.
 
-Se você tiver uma pergunta geral sobre o Azure Active Directory (Azure AD) e a redefinição de senha de autoatendimento (SSPR) que não é respondida aqui, você pode pedir à Comunidade para obter assistência no [Fórum do Azure ad](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Os membros da comunidade incluem engenheiros, gerentes de produto, MVPs e colegas profissionais de ti.
+Se tiver uma pergunta geral sobre o Azure Ative Directory (Azure AD) e o reset de senha de autosserviço (SSPR) que não seja respondida aqui, pode pedir ajuda à comunidade no [fórum Azure AD.](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD) Membros da comunidade incluem engenheiros, gestores de produtos, MVPs e outros profissionais de TI.
 
-Estas perguntas frequentes são divididas nas seguintes seções:
+Este FAQ é dividido nas seguintes secções:
 
-* [Perguntas sobre o registro de redefinição de senha](#password-reset-registration)
-* [Perguntas sobre a redefinição de senha](#password-reset)
-* [Perguntas sobre alteração de senha](#password-change)
-* [Perguntas sobre relatórios de gerenciamento de senhas](#password-management-reports)
-* [Perguntas sobre write-back de senha](#password-writeback)
+* [Perguntas sobre o registo de redefinição de palavra-passe](#password-reset-registration)
+* [Perguntas sobre reset de palavra-passe](#password-reset)
+* [Perguntas sobre mudança de palavra-passe](#password-change)
+* [Perguntas sobre relatórios de gestão de passwords](#password-management-reports)
+* [Perguntas sobre a reescrita de palavra-passe](#password-writeback)
 
 ## <a name="password-reset-registration"></a>Registo de reposição de palavra-passe
 
-* **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
+* **P: Os meus utilizadores podem registar os seus próprios dados de redefinição de palavra-passe?**
 
-  > **R:** Sim. Desde que a redefinição de senha esteja habilitada e seja licenciada, os usuários poderão acessar o portal de registro de redefinição de senha (https://aka.ms/ssprsetup) para registrar suas informações de autenticação. Os usuários também podem se registrar por meio do painel de acesso (https://myapps.microsoft.com). Para registrar-se por meio do painel de acesso, eles precisam selecionar sua imagem de perfil, selecionar **perfil**e, em seguida, selecionar a opção **registrar para redefinição de senha** .
+  > **R:** Sim. Enquanto a redefinição da palavra-passe estiver ativada e estiverem licenciadas, os utilizadores podem ir ao portal de registo de redefinição de passwords (https://aka.ms/ssprsetup) registar as suas informações de autenticação. Os utilizadores também podem registar-se através do Painel de Acesso (https://myapps.microsoft.com). Para se registar através do Painel de Acesso, eles precisam selecionar a sua imagem de perfil, selecionar **Perfil,** e, em seguida, selecionar o Registo para a opção de **redefinição de palavra-passe.**
   >
   >
-* **P: se eu habilitar a redefinição de senha para um grupo e decidir habilitá-la para todos os meus usuários precisarem registrar novamente?**
+* **P: Se eu ativar o reset de palavra-passe para um grupo e, em seguida, decidir enableit-lo para todos os meus utilizadores são obrigados a reregistar??**
 
-  > **R:** Não. Os usuários que preencheram os dados de autenticação não precisam ser registrados novamente.
+  > **R:** Não. Os utilizadores que tenham dados de autenticação preenchidos não são obrigados a reregistar-se.
   >
   >
-* **P: posso definir dados de redefinição de senha em nome dos meus usuários?**
+* **P: Posso definir dados de redefinição de palavra-passe em nome dos meus utilizadores?**
 
-  > **R:** Sim, você pode fazer isso com Azure AD Connect, PowerShell, o [portal do Azure](https://portal.azure.com)ou o [centro de administração do Microsoft 365](https://admin.microsoft.com). Para obter mais informações, consulte [dados usados pela redefinição de senha de autoatendimento do Azure ad](howto-sspr-authenticationdata.md).
+  > **A:** Sim, pode fazê-lo com o Azure AD Connect, PowerShell, o [portal Azure,](https://portal.azure.com)ou o [centro de administração Microsoft 365](https://admin.microsoft.com). Para mais informações, consulte dados [utilizados pelo reset da palavra-passe autosserviço Azure AD](howto-sspr-authenticationdata.md).
   >
   >
-* **P: posso sincronizar dados de perguntas de segurança do local?**
+* **P: Posso sincronizar dados para questões de segurança a partir do local?**
 
-  > **R:** Não, isso não é possível hoje.
+  > **A:** Não, isto não é possível hoje.
   >
   >
-* **P: meus usuários podem registrar dados de forma que outros usuários não possam ver esses dados?**
+* **P: Os meus utilizadores podem registar dados de forma a que outros utilizadores não possam ver estes dados?**
 
-  > **R:** Sim. Quando os usuários registram dados usando o portal de registro de redefinição de senha, os dados são salvos em campos de autenticação privada que são visíveis somente para administradores globais e o usuário.
+  > **R:** Sim. Quando os utilizadores registam dados utilizando o portal de registo de redefinição de palavra-passe, os dados são guardados em campos de autenticação privados que são visíveis apenas para administradores globais e para o utilizador.
   >
   >
-* **P: meus usuários precisam ser registrados antes de poderem usar a redefinição de senha?**
+* **P: Os meus utilizadores têm de ser registados antes de poderem utilizar a redefinição da palavra-passe?**
 
-  > **R:** Não. Se você definir informações de autenticação suficientes em seu nome, os usuários não precisarão se registrar. A redefinição de senha funciona contanto que você tenha formatado corretamente os dados armazenados nos campos apropriados no diretório.
+  > **R:** Não. Se definir informações de autenticação suficientes em seu nome, os utilizadores não têm de se registar. O reset de palavra-passe funciona desde que tenha devidamente formatado os dados armazenados nos campos apropriados do diretório.
   >
   >
-* **P: posso sincronizar ou definir os campos telefone de autenticação, email de autenticação ou telefone alternativo de autenticação em nome dos meus usuários?**
+* **P: Posso sincronizar ou definir o telefone de autenticação, o email de autenticação ou os campos telefónicos alternativos de autenticação em nome dos meus utilizadores?**
 
-  > **R:** Os campos que podem ser definidos por um administrador global são definidos no artigo [SSPR data requirements](howto-sspr-authenticationdata.md).
+  > **A:** Os campos que podem ser definidos por um Administrador Global são definidos no artigo Requisitos de [Dados SSPR](howto-sspr-authenticationdata.md).
   >
   >
-* **P: como o portal de registro determina quais opções mostrar aos meus usuários?**
+* **P: Como é que o portal de registo determina quais as opções a mostrar aos meus utilizadores?**
 
-  > **R:** O portal de registro de redefinição de senha mostra apenas as opções que você habilitou para os usuários. Essas opções são encontradas na seção **política de redefinição de senha do usuário** da guia **Configurar** do seu diretório. Por exemplo, se você não habilitar perguntas de segurança, os usuários não poderão se registrar para essa opção.
+  > **A:** O portal de registo de redefinição de palavra-passe mostra apenas as opções que tem ativado para os seus utilizadores. Estas opções encontram-se na secção política de **redefinição da palavra-passe** do utilizador do separador **Configurado** do seu diretório. Por exemplo, se não ativar questões de segurança, então os utilizadores não podem registar-se para essa opção.
   >
   >
-* **P: quando um usuário é considerado registrado?**
+* **P: Quando é considerado registado um utilizador?**
 
-  > **R:** Um usuário é considerado registrado para SSPR quando registrou pelo menos o **número de métodos necessários para redefinir** uma senha que você definiu no [portal do Azure](https://portal.azure.com).
+  > **A:** Um utilizador é considerado registado para SSPR quando tiver registado pelo menos o **Número de métodos necessários para redefinir** uma palavra-passe que definiu no [portal Azure](https://portal.azure.com).
   >
   >
 
 ## <a name="password-reset"></a>Reposição de palavras-passe
 
-* **P: você impede que os usuários de várias tentativas redefinam uma senha em um curto período de tempo?**
+* **P: Impede os utilizadores de várias tentativas de redefinir uma palavra-passe num curto espaço de tempo?**
 
-  > **R:** Sim, há recursos de segurança incorporados na redefinição de senha para protegê-los contra uso indevido. 
+  > **A:** Sim, existem funcionalidades de segurança incorporadas no reset de palavra-passe para protegê-la do uso indevido. 
   >
-  > Os usuários podem tentar apenas cinco tentativas de redefinição de senha dentro de um período de 24 horas antes de serem bloqueadas por 24 horas. 
+  > Os utilizadores podem tentar apenas cinco tentativas de reset de senha num período de 24 horas antes de serem bloqueados durante 24 horas. 
   >
-  > Os usuários podem tentar validar um número de telefone, enviar um SMS ou validar perguntas de segurança e responder apenas cinco vezes em uma hora antes que eles sejam bloqueados por 24 horas. 
+  > Os utilizadores podem tentar validar um número de telefone, enviar um SMS ou validar questões de segurança e respostas apenas cinco vezes no prazo de uma hora antes de serem bloqueados durante 24 horas. 
   >
-  > Os usuários podem enviar um email no máximo 10 vezes em um período de 10 minutos antes que eles sejam bloqueados por 24 horas.
+  > Os utilizadores podem enviar um e-mail no máximo 10 vezes num período de 10 minutos antes de serem bloqueados durante 24 horas.
   >
-  > Os contadores são redefinidos quando um usuário redefine sua senha.
+  > Os contadores são redefinidos assim que um utilizador repõe a sua palavra-passe.
   >
   >
-* **P: quanto tempo devo esperar para receber um email, SMS ou chamada telefônica da redefinição de senha?**
+* **P: Quanto tempo devo esperar para receber um e-mail, SMS ou chamada telefónica a partir do reset da palavra-passe?**
 
-  > **R:** Emails, mensagens SMS e chamadas telefônicas devem chegar em menos de um minuto. O caso normal é de 5 a 20 segundos.
-  > Se você não receber a notificação neste período de tempo:
-  > * Verifique sua pasta de lixo eletrônico.
-  > * Verifique se o número ou o email que está sendo contatado é o que você espera.
-  > * Verifique se os dados de autenticação no diretório estão formatados corretamente, por exemplo, + 1 4255551234 ou *usuário\@contoso.com*. 
-* **P: quais idiomas têm suporte na redefinição de senha?**
+  > **A:** E-mails, mensagens SMS e chamadas telefónicas devem chegar em menos de um minuto. O caso normal é de 5 a 20 segundos.
+  > Se não receber a notificação neste período de tempo:
+  > * Verifique a sua pasta de lixo.
+  > * Verifique se o número ou e-mail que está a ser contactado é o que espera.
+  > * Verifique se os dados de autenticação no diretório estão corretamente formatados, por exemplo, +1 4255551234 ou *\@utilizador contoso.com*. 
+* **P: Que idiomas são suportados por reset de palavra-passe?**
 
-  > **R:** A interface do usuário de redefinição de senha, as mensagens SMS e as chamadas de voz são localizadas nos mesmos idiomas com suporte no Office 365.
+  > **A:** A palavra-passe repõe UI, Mensagens SMS e chamadas de voz estão localizadas nas mesmas línguas que são suportadas no Office 365.
   >
   >
-* **P: quais partes da experiência de redefinição de senha ficam marcadas quando eu defino os itens da marca organizacional na guia Configurar do meu diretório?**
+* **P: Que partes da experiência de reset de palavra-passe são marcadas quando eu coloco os itens de marca organizacional no separador configurado do meu diretório?**
 
-  > **R:** O portal de redefinição de senha mostra o logotipo da sua organização e permite que você configure o link "entre em contato com seu administrador" para apontar para um email ou URL personalizado. Qualquer email enviado pela redefinição de senha inclui o logotipo, as cores e o nome da sua organização no corpo do email e é personalizado com base nas configurações desse nome específico.
+  > **A:** O portal de reset de palavra-passe mostra o logótipo da sua organização e permite configurar o link "Contacte o seu administrador" para apontar para um e-mail ou URL personalizados. Qualquer e-mail enviado por reset de palavra-passe inclui o logótipo, cores e nome da sua organização no corpo do e-mail, e é personalizado a partir das definições para esse nome em particular.
   >
   >
-* **P: como posso instruir meus usuários sobre onde ir para redefinir suas senhas?**
+* **P: Como posso educar os meus utilizadores sobre onde ir para redefinir as suas palavras-passe?**
 
-  > **R:** Experimente algumas das sugestões em nosso artigo de [implantação do SSPR](howto-sspr-deployment.md#communications-plan) .
+  > **A:** Experimente algumas das sugestões no nosso artigo de implantação da [SSPR.](howto-sspr-deployment.md#plan-communications)
   >
   >
-* **P: posso usar esta página de um dispositivo móvel?**
+* **P: Posso usar esta página a partir de um dispositivo móvel?**
 
-  > **R:** Sim, esta página funciona em dispositivos móveis.
+  > **A:** Sim, esta página funciona em dispositivos móveis.
   >
   >
-* **P: há suporte para desbloqueio de contas de Active Directory locais quando os usuários redefinem suas senhas?**
+* **P: Suporta desbloquear contas locais do Diretório Ativo quando os utilizadores redefinirem as suas palavras-passe?**
 
-  > **R:** Sim. Quando um usuário redefine sua senha, se o Write-back de senha tiver sido implantado por meio de Azure AD Connect, a conta desse usuário será desbloqueada automaticamente quando a senha for redefinida.
+  > **R:** Sim. Quando um utilizador repõe a sua palavra-passe, se a reescrita de palavra-passe tiver sido implementada através do Azure AD Connect, a conta desse utilizador é automaticamente desbloqueada quando redefinir a sua palavra-passe.
   >
   >
-* **P: como posso integrar a redefinição de senha diretamente à experiência de entrada da área de trabalho do usuário?**
+* **P: Como posso integrar a redefinição da palavra-passe diretamente na experiência de entrada no ambiente de trabalho do meu utilizador?**
 
-  > **R:** Se você for um cliente Azure AD Premium, poderá instalar o Microsoft Identity Manager sem custo adicional e implantar a solução de redefinição de senha local.
+  > **A:** Se for um cliente Azure AD Premium, pode instalar o Microsoft Identity Manager sem custos adicionais e implementar a solução de reset de palavra-passe no local.
   >
   >
-* **P: posso definir perguntas de segurança diferentes para localidades diferentes?**
+* **P: Posso definir diferentes questões de segurança para diferentes locais?**
 
-  > **R:** Não, isso não é possível hoje.
+  > **A:** Não, isto não é possível hoje.
   >
   >
-* **P: quantas perguntas posso configurar para a opção de autenticação de perguntas de segurança?**
+* **P: Quantas perguntas posso configurar para a opção de autenticação de questões de segurança?**
 
-  > **R:** Você pode configurar até 20 perguntas de segurança personalizadas no [portal do Azure](https://portal.azure.com).
+  > **A:** Pode configurar até 20 questões de segurança personalizadas no [portal Azure](https://portal.azure.com).
   >
   >
-* **P: por quanto tempo as perguntas de segurança podem ser?**
+* **P: Quanto tempo podem ser as questões de segurança?**
 
-  > **R:** As perguntas de segurança podem ter de 3 a 200 caracteres de comprimento.
+  > **A:** As questões de segurança podem ter 3 a 200 caracteres de comprimento.
   >
   >
-* **P: quanto tempo as respostas às perguntas de segurança podem ser?**
+* **P: Quanto tempo podem ser as respostas às questões de segurança?**
 
-  > **R:** As respostas podem ter de 3 a 40 caracteres de comprimento.
+  > **A:** As respostas podem ter 3 a 40 caracteres de comprimento.
   >
   >
-* **P: há respostas duplicadas para perguntas de segurança rejeitadas?**
+* **P: As respostas duplicadas às questões de segurança são rejeitadas?**
 
-  > **R:** Sim, rejeitamos respostas duplicadas para perguntas de segurança.
+  > **A:** Sim, rejeitamos respostas duplicadas a questões de segurança.
   >
   >
-* **P: um usuário pode registrar a mesma pergunta de segurança mais de uma vez?**
+* **P: Um utilizador pode registar a mesma questão de segurança mais de uma vez?**
 
-  > **R:** Não. Depois que um usuário registra uma pergunta específica, ele não pode se registrar para essa pergunta uma segunda vez.
+  > **R:** Não. Depois de um utilizador registar uma pergunta específica, não pode registar-se pela segunda vez.
   >
   >
-* **P: é possível definir um limite mínimo de perguntas de segurança para registro e redefinição?**
+* **P: É possível estabelecer um limite mínimo de questões de segurança para registo e reset?**
 
-  > **R:** Sim, um limite pode ser definido para registro e outro para redefinição. Três a cinco perguntas de segurança podem ser necessárias para o registro, e três a cinco perguntas podem ser necessárias para redefinição.
+  > **A:** Sim, um limite pode ser definido para o registo e outro para reset. Três a cinco questões de segurança podem ser necessárias para o registo, e três a cinco questões podem ser necessárias para repor.
   >
   >
-* **P: configurei minha política para exigir que os usuários usem perguntas de segurança para redefinição, mas os administradores do Azure parecem estar configurados de forma diferente.**
+* **P: Configurei a minha política para exigir que os utilizadores utilizem questões de segurança para reset, mas os administradores do Azure parecem estar configurados de forma diferente.**
 
-  > **R:** Esse é o comportamento esperado. A Microsoft impõe uma política de reposição de palavra-passe predefinida forte de duas portas para qualquer função de administrador do Azure. Isso impede que os administradores usem perguntas de segurança. Você pode encontrar mais informações sobre essa política nas [diretivas e restrições de senha no artigo Azure Active Directory](concept-sspr-policy.md) .
+  > **A:** Este é o comportamento esperado. A Microsoft impõe uma política de reposição de palavra-passe predefinida forte de duas portas para qualquer função de administrador do Azure. Isto impede os administradores de utilizarem questões de segurança. Pode encontrar mais informações sobre esta política nas políticas e restrições de Password no artigo [do Diretório Ativo Azure.](concept-sspr-policy.md)
   >
   >
-* **P: se um usuário tiver registrado mais do que o número máximo de perguntas necessárias para a redefinição, como as perguntas de segurança são selecionadas durante a redefinição?**
+* **P: Se um utilizador registou mais do que o número máximo de perguntas necessárias para repor, como são selecionadas as questões de segurança durante o reset?**
 
-  > **R:** *N* número de perguntas de segurança são selecionadas aleatoriamente do número total de perguntas que um usuário registrou, em que *N* é o valor definido para a opção **número de perguntas obrigatórias para redefinir** . Por exemplo, se um usuário tiver registrado cinco perguntas de segurança, mas apenas três forem necessárias para redefinir uma senha, três das cinco perguntas serão selecionadas aleatoriamente e serão apresentadas em reinicialização. Para evitar a escolha de uma pergunta, se o usuário obtiver as respostas para as perguntas erradas, o processo de seleção será iniciado.
+  > **R:** *N* número de questões de segurança são selecionadas aleatoriamente fora do número total de perguntas para as quais um utilizador registou, onde *N* é o valor definido para o Número de **Perguntas necessárias para redefinir a** opção. Por exemplo, se um utilizador tiver registado cinco questões de segurança, mas apenas três são obrigados a redefinir uma palavra-passe, três das cinco perguntas são selecionadas aleatoriamente e são apresentadas no reset. Para evitar a martelada de perguntas, se o utilizador obtiver as respostas às perguntas erradas, o processo de seleção recomeça.
   >
   >
-* **P: quanto tempo os emails e as senhas de uso único do SMS são válidos?**
+* **P: Quanto tempo é válido o e-mail e as senhas de sms únicas?**
 
-  > **R:** O tempo de vida da sessão para a redefinição de senha é de 15 minutos. Desde o início da operação de redefinição de senha, o usuário tem 15 minutos para redefinir sua senha. O email e a senha de uso único do SMS são válidos por 5 minutos durante a sessão de redefinição de senha.
+  > **A:** O tempo de vida útil da sessão para reset de palavra-passe é de 15 minutos. Desde o início da operação de reset da palavra-passe, o utilizador tem 15 minutos para redefinir a sua palavra-passe. O e-mail e a senha de uma única vez são válidos por 5 minutos durante a sessão de reset da palavra-passe.
   >
   >
-* **P: posso impedir que os usuários redefinam sua senha?**
+* **P: Posso bloquear os utilizadores de redefinir a sua palavra-passe?**
 
-  > **R:** Sim, se você usar um grupo para habilitar o SSPR, poderá remover um usuário individual do grupo que permite que os usuários redefinam sua senha. Se o usuário for um administrador global, ele manterá a capacidade de redefinir sua senha e isso não poderá ser desabilitado.
+  > **A:** Sim, se utilizar um grupo para ativar o SSPR, pode remover um utilizador individual do grupo que permite aos utilizadores redefinirem a sua palavra-passe. Se o utilizador for um Administrador Global, manterá a capacidade de redefinir a sua palavra-passe e esta não pode ser desativada.
   >
   >
 
 ## <a name="password-change"></a>Alteração da palavra-passe
 
-* **P: onde meus usuários devem ir para alterar suas senhas?**
+* **P: Onde devem os meus utilizadores alterar as suas palavras-passe?**
 
-  > **R:** Os usuários podem alterar suas senhas em qualquer lugar em que veem sua imagem ou ícone de perfil, como no canto superior direito de suas experiências do portal do [Office 365 ou do](https://portal.office.com) [painel de acesso](https://myapps.microsoft.com) . Os usuários podem alterar suas senhas na [página de perfil do painel de acesso](https://account.activedirectory.windowsazure.com/r#/profile). Os usuários também podem ser solicitados a alterar suas senhas automaticamente na página de entrada do Azure AD se suas senhas tiverem expirado. Por fim, os usuários podem navegar para o [portal de alteração de senha do Azure ad](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) diretamente se quiserem alterar suas senhas.
+  > **A:** Os utilizadores podem alterar as suas palavras-passe em qualquer lugar que vejam a sua imagem de perfil ou ícone, como no canto superior direito do seu portal [office 365](https://portal.office.com) ou [experiências do Painel](https://myapps.microsoft.com) de Acesso. Os utilizadores podem alterar as suas palavras-passe a partir da página de Perfil do Painel de [Acesso](https://account.activedirectory.windowsazure.com/r#/profile). Os utilizadores também podem ser convidados a alterar automaticamente as suas palavras-passe na página de entrada de anúncios da AD Azure se as suas palavras-passe tiverem expirado. Finalmente, os utilizadores podem navegar diretamente no portal de alteração de [palavras-passe DaA Azure](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) se quiserem alterar as suas palavras-passe.
   >
   >
-* **P: meus usuários podem ser notificados no portal do Office quando sua senha local expirar?**
+* **P: Os meus utilizadores podem ser notificados no portal do Office quando a sua senha no local expirar?**
 
-  > **R:** Sim, isso é possível hoje se você usar Serviços de Federação do Active Directory (AD FS) (AD FS). Se você usar AD FS, siga as instruções no artigo [enviando declarações de política de senha com AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) . Se você usar a sincronização de hash de senha, isso não é possível hoje. Não sincronizamos políticas de senha de diretórios locais, portanto, não é possível postar notificações de expiração para experiências de nuvem. Em ambos os casos, também é possível [notificar os usuários cujas senhas estão prestes a expirar por meio do PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **A:** Sim, isso é possível hoje se você usar Serviços da Federação de Diretório Ativo (AD FS). Se utilizar AD FS, siga as instruções na política de envio de passwords com o artigo [AD FS.](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) Se utilizar a sincronização de haxixe de senha, isso não é possível hoje em dia. Não sincronizamos as políticas de passwords de diretórios no local, por isso não é possível publicar notificações de expiração para experiências na nuvem. Em qualquer dos casos, também é possível [notificar os utilizadores cujas palavras-passe estão prestes a expirar através](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx)do PowerShell .
   >
   >
-* **P: posso impedir que os usuários alterem suas senhas?**
+* **P: Posso impedir os utilizadores de alterarem a sua palavra-passe?**
 
-  > **R:** Para usuários somente na nuvem, as alterações de senha não podem ser bloqueadas. Para usuários locais, você pode definir a opção o **usuário não pode alterar a senha** como selecionada. Os usuários selecionados não podem alterar sua senha.
+  > **A:** Para utilizadores apenas na nuvem, as alterações de palavra-passe não podem ser bloqueadas. Para os utilizadores no local, pode definir o Utilizador não pode alterar a opção de **palavra-passe** para selecionada. Os utilizadores selecionados não podem alterar a sua palavra-passe.
   >
   >
 
-## <a name="password-management-reports"></a>Relatórios de gerenciamento de senhas
+## <a name="password-management-reports"></a>Relatórios de gestão de passwords
 
-* **P: quanto tempo leva para que os dados sejam exibidos nos relatórios de gerenciamento de senhas?**
+* **P: Quanto tempo leva para os dados aparecerem nos relatórios de gestão de passwords?**
 
-  > **R:** Os dados devem aparecer nos relatórios de gerenciamento de senha em 5 a 10 minutos. Em alguns casos, pode levar até uma hora para aparecer.
+  > **A:** Os dados devem aparecer nos relatórios de gestão de senhas em 5 a 10 minutos. Em alguns casos, pode levar até uma hora para aparecer.
   >
   >
-* **P: como posso filtrar os relatórios de gerenciamento de senhas?**
+* **P: Como posso filtrar os relatórios de gestão de passwords?**
 
-  > **R:** Para filtrar os relatórios de gerenciamento de senhas, selecione a pequena lupa até a extrema direita dos rótulos de coluna, próximo à parte superior do relatório. Se desejar fazer uma filtragem mais avançada, você poderá baixar o relatório no Excel e criar uma tabela dinâmica.
+  > **A:** Para filtrar os relatórios de gestão de passwords, selecione a pequena lupa para a extrema direita das etiquetas da coluna, perto do topo do relatório. Se quiser fazer uma filtragem mais rica, pode transferir o relatório para o Excel e criar uma tabela de pivôs.
   >
   >
-* **P: Qual é o número máximo de eventos que são armazenados nos relatórios de gerenciamento de senhas?**
+* **P: Qual é o número máximo de eventos que são armazenados nos relatórios de gestão de passwords?**
 
-  > **R:** Até 75.000 eventos de redefinição de senha ou de registro de redefinição de senha são armazenados nos relatórios de gerenciamento de senha, abrangendo de volta até 30 dias. Estamos trabalhando para expandir esse número para incluir mais eventos.
+  > **A:** Até 75.000 eventos de reset de palavra-passe ou reset de palavra-passe são armazenados nos relatórios de gestão de passwords, até 30 dias. Estamos a trabalhar para expandir este número para incluir mais eventos.
   >
   >
-* **P: qual a distância dos relatórios de gerenciamento de senhas?**
+* **P: Até onde vão os relatórios de gestão de passwords?**
 
-  > **R:** Os relatórios de gerenciamento de senhas mostram as operações ocorridas nos últimos 30 dias. Por enquanto, se você precisar arquivar esses dados, poderá baixar os relatórios periodicamente e salvá-los em um local separado.
+  > **A:** Os relatórios de gestão de passwords mostram operações que ocorreram nos últimos 30 dias. Por enquanto, se precisar de arquivar estes dados, pode descarregar os relatórios periodicamente e guardá-los num local separado.
   >
   >
-* **P: há um número máximo de linhas que podem aparecer nos relatórios de gerenciamento de senhas?**
+* **P: Existe um número máximo de linhas que podem aparecer nos relatórios de gestão de passwords?**
 
-  > **R:** Sim. Um máximo de 75.000 linhas pode aparecer em qualquer um dos relatórios de gerenciamento de senha, sejam eles mostrados na interface do usuário ou baixados.
+  > **R:** Sim. Um máximo de 75.000 linhas podem aparecer em qualquer um dos relatórios de gestão de passwords, quer sejam mostrados na UI ou descarregados.
   >
   >
-* **P: há uma API para acessar os dados de redefinição de senha ou de relatório de registro?**
+* **P: Existe uma API para aceder aos dados de reset ou registo de informação de informação?**
 
-  > **R:** Sim. Para saber como você pode acessar o fluxo de dados de relatório de redefinição de senha, consulte [saiba como acessar eventos de relatório de redefinição de senha programaticamente](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **R:** Sim. Para saber como pode aceder ao fluxo de dados de redefinição de password, consulte [Saiba como aceder programaticamente a eventos de redefinição](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent)de passwords .
   >
   >
 
 ## <a name="password-writeback"></a>Repetição de escrita de palavras-passe
 
-* **P: como funciona o Write-back de senha em segundo plano?**
+* **P: Como funciona a escrita da palavra-passe nos bastidores?**
 
-  > **R:** Consulte o artigo [como funciona o Write-back de senha](howto-sspr-writeback.md) para obter uma explicação do que acontece quando você habilita o Write-back de senha e como os dados fluem pelo sistema de volta ao seu ambiente local.
+  > **A:** Veja o artigo Como funciona a [redação de palavras-passe](howto-sspr-writeback.md) para uma explicação do que acontece quando permite a reescrita de palavra-passe e como os dados fluem através do sistema de volta para o seu ambiente no local.
   >
   >
-* **P: quanto tempo leva para o Write-back de senha funcionar? Há um atraso de sincronização como há com a sincronização de hash de senha?**
+* **P: Quanto tempo demora a reescrita da palavra-passe para o trabalho? Existe um atraso de sincronização como existe com sincronização de hash password?**
 
-  > **R:** O Write-back de senha é instantâneo. É um pipeline síncrono que funciona fundamentalmente diferentemente da sincronização de hash de senha. O Write-back de senha permite que os usuários obtenham comentários em tempo real sobre o sucesso da operação de alteração ou redefinição de senha. O tempo médio para um write-back bem-sucedido de uma senha é inferior a 500 ms.
+  > **A:** A reescrita da palavra-passe é instantânea. É um pipeline sincronizado que funciona fundamentalmente diferente da sincronização do hash password. A reescrita de palavra-passe permite que os utilizadores obtem feedback em tempo real sobre o sucesso da sua reset ou alteração da operação de alteração da sua palavra-passe. O tempo médio para uma reescrita bem sucedida de uma palavra-passe é inferior a 500 ms.
   >
   >
-* **P: se minha conta local estiver desabilitada, como a minha conta de nuvem e o acesso serão afetados?**
+* **P: Se a minha conta no local está desativada, como é que a minha conta na nuvem e o meu acesso são afetados?**
 
-  > **R:** Se sua ID local estiver desabilitada, sua ID de nuvem e acesso também serão desabilitados no próximo intervalo de sincronização por meio de Azure AD Connect. Por padrão, essa sincronização é a cada 30 minutos.
+  > **A:** Se o seu ID no local estiver desativado, o id e o acesso na nuvem também serão desativados no intervalo de sincronização seguinte através do Azure AD Connect. Por padrão, esta sincronização é a cada 30 minutos.
   >
   >
-* **P: se minha conta local for restrita por uma política de senha de Active Directory local, o SSPR obedecerá essa política quando eu alterar minha senha?**
+* **P: Se a minha conta no local está limitada por uma política de senhade diretório ativo no local, a SSPR obedece a esta política quando mudo a minha palavra-passe?**
 
-  > **R:** Sim, o SSPR depende e segue a política de senha de Active Directory local. Essa política inclui a diretiva de senha de domínio Active Directory típica, bem como as políticas de senha definidas e refinadas que são destinadas a um usuário.
+  > **A:** Sim, a SSPR baseia-se e cumpre a política de senhas de diretório ativo no local. Esta política inclui a típica política de palavras-passe de domínio do Diretório Ativo, bem como quaisquer políticas de senha definidas e finas que sejam direcionadas para um utilizador.
   >
   >
-* **P: para que tipos de contas o Write-back de senha funciona?**
+* **P: Para que tipos de contas funciona a escrita por palavra-passe?**
 
-  > **R:** O Write-back de senha funciona para contas de usuário que são sincronizadas do Active Directory local para o Azure AD, incluindo usuários federados, sincronizados com hash de senha e autenticação de passagem.
+  > **A:** A reescrita de palavra-passe funciona para contas de utilizador sincronizadas de diretório ativo no local para Azure AD, incluindo utilizadores federados, de hash de palavra-passe sincronizados e utilizadores de autenticação pass-through.
   >
   >
-* **P: o Write-back de senha impõe as políticas de senha do meu domínio?**
+* **P: A reescrita da palavra-passe aplica as políticas de senha do meu domínio?**
 
-  > **R:** Sim. O Write-back de senha impõe a duração da senha, o histórico, a complexidade, os filtros e qualquer outra restrição que você possa colocar em vigor em senhas em seu domínio local.
+  > **R:** Sim. A reversão da palavra-passe aplica a idade da palavra-passe, histórico, complexidade, filtros e qualquer outra restrição que possa colocar em palavras-passe no seu domínio local.
   >
   >
-* **P: o Write-back de senha é seguro?  Como eu posso ter certeza de que não serei invadido?**
+* **P: A reescrita da palavra-passe é segura?  Como posso ter a certeza que não vou ser hackeado?**
 
-  > **R:** Sim, o Write-back de senha é seguro. Para ler mais sobre as várias camadas de segurança implementadas pelo serviço de write-back de senha, confira a seção [segurança de write-back](concept-sspr-writeback.md#password-writeback-security) de senha no artigo [visão geral do write-back de senha](howto-sspr-writeback.md) .
+  > **A:** Sim, a redação da palavra-passe é segura. Para ler mais sobre as várias camadas de segurança implementadas pelo serviço de redação de palavras-passe, consulte a secção de segurança de recompra de [palavra-passe](concept-sspr-writeback.md#password-writeback-security) no artigo de resumo da [palavra-passe.](howto-sspr-writeback.md)
   >
   >
 
@@ -289,4 +289,4 @@ Estas perguntas frequentes são divididas nas seguintes seções:
 * [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
 * [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
-* [Acho que algo está quebrado. Como fazer solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo está partido. Como posso resolver problemas com a SSPR?](active-directory-passwords-troubleshoot.md)

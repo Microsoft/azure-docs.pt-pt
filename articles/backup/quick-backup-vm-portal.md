@@ -1,17 +1,17 @@
 ---
-title: Início rápido-fazer backup de uma VM com o portal do Azure
-description: Neste guia de início rápido, saiba como criar um cofre dos serviços de recuperação, habilitar a proteção em uma VM do Azure e fazer backup da VM, com o portal do Azure.
+title: Quickstart - Back up a VM with the Azure portal
+description: Neste Quickstart, aprenda a criar um cofre de Serviços de Recuperação, permita proteção num VM Azure, e faça backup o VM, com o portal Azure.
 ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 07/17/2018
+ms.date: 02/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 430a560f3ae8e9abc6c5e7a34c24d9d2f262fd79
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172010"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057180"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 
@@ -76,7 +76,7 @@ Se quiser avançar para um tutorial de Cópia de segurança que explique como re
 
 3. Selecione **Eliminar Dados da Cópia de Segurança** no menu pendente.
 
-4. Na caixa de diálogo **Escrever o nome do item de Cópia de segurança**, introduza o nome da VM, como, por exemplo, *myVM*. Selecione **parar backup**.
+4. Na caixa de diálogo **Escrever o nome do item de Cópia de segurança**, introduza o nome da VM, como, por exemplo, *myVM*. Selecione **Stop Backup**.
 
     Depois de a cópia de segurança da VM ter sido parada e os pontos de recuperação removidos, pode eliminar o grupo de recursos. Se utilizou uma VM existente, pode querer deixar o grupo de recursos e a VM no local.
 

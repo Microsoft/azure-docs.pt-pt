@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0c6fab0c9e26630bd54830044da56dba20564b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025901"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048636"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
-Saiba como criar uma conta do lote do Azure no [portal do Azure][azure_portal]e escolha as propriedades da conta que se ajustam ao seu cenário de computação. Saiba onde encontrar as propriedades da conta importantes, como as teclas de acesso e os URLs de conta.
+Saiba como criar uma conta Azure Batch no [portal Azure][azure_portal]e escolha as propriedades da conta que se adequam ao seu cenário de computação. Saiba onde encontrar as propriedades da conta importantes, como as teclas de acesso e os URLs de conta.
 
 Para informações sobre contas do Batch e cenários, consulte a [descrição geral da funcionalidade](batch-api-basics.md).
 
@@ -31,7 +31,7 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-1. Inicie sessão no [Portal do Azure][azure_portal].
+1. Inicie sessão no [portal do Azure][azure_portal].
 
 1. Selecione **Criar um recurso** > **Computação** > **Serviço do Batch**.
 
@@ -49,11 +49,11 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
     d. **Localização**: a região do Azure na qual se cria a conta do Batch. Apenas as regiões suportadas pela sua subscrição e grupo de recursos são apresentadas como opções.
 
-    e. **Conta de armazenamento**: uma conta de armazenamento do Azure opcional que você associa à sua conta do lote. Uma conta de armazenamento de uso geral V2 é recomendada para o melhor desempenho. Para todas as opções de conta de armazenamento no lote, consulte a [visão geral do recurso de lote](batch-api-basics.md#azure-storage-account). No portal, selecione uma conta de armazenamento existente ou crie uma nova.
+    e. **Conta de armazenamento**: Uma conta opcional de Armazenamento Azure que associa à sua conta Batch. Uma conta de armazenamento de uso geral V2 é recomendada para o melhor desempenho. Para todas as opções da conta de armazenamento em Batch, consulte a visão geral da [funcionalidade lote](batch-api-basics.md#azure-storage-account). No portal, selecione uma conta de armazenamento existente ou crie uma nova.
 
-      ![Create a storage account][storage_account]
+      ![Criar uma conta de armazenamento][storage_account]
 
-    f. **Modo de alocação de pool**: na guia configurações **avançadas** , você pode especificar o modo de alocação de pool como **serviço de lote** ou assinatura de **usuário**. Para a maioria dos cenários, aceite o **serviço de lote**padrão.
+    f. **Modo de atribuição da piscina**: No separador **definições avançadas** pode especificar o modo de atribuição do pool como **serviço de lote** ou **subscrição do Utilizador**. Para a maioria dos cenários, aceite o serviço de **lote**padrão .
 
       ![Modo de alocação do pool do lote][pool_allocation]
 
@@ -83,7 +83,7 @@ Se optar por criar uma conta do Batch no modo de subscrição de utilizador, exe
 
 Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador, tem de registar a sua subscrição no Batch. (Se anteriormente efetuou este procedimento, avance para a secção seguinte.)
 
-1. Inicie sessão no [Portal do Azure][azure_portal].
+1. Inicie sessão no [portal do Azure][azure_portal].
 
 1. Selecione **Todos os Serviços** > **Subscrições** e selecione a subscrição que pretende utilizar para a conta do Batch.
 
@@ -91,11 +91,11 @@ Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador
 
     ![Registar fornecedor do Microsoft.Batch][register_provider]
 
-1. Na página **assinatura** , selecione **controle de acesso (iam)**  > **atribuições de função** > **Adicionar atribuição de função**.
+1. Na página **de Subscrição,** selecione o controlo de **acesso (IAM)**  > atribuições de **funções** > **Adicionar a atribuição de funções**.
 
     ![Controlo de acesso da subscrição][subscription_access]
 
-1. Na página **Adicionar atribuição de função** , selecione a função **colaborador** , procure a API do lote. Procure para cada uma destas cadeias até encontrar a API:
+1. Na página de atribuição de **funções Adicionar,** selecione a função **Contributiva,** procure a API do Lote. Procure para cada uma destas cadeias até encontrar a API:
     1. **MicrosoftAzureBatch**.
     1. **Batch do Microsoft Azure**. Os inquilinos mais recentes podem utilizar este nome.
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** é o ID para a API do Batch.
@@ -108,25 +108,33 @@ Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador
 
 No modo de subscrição de utilizador, é necessário um cofre de chaves do Azure que pertence ao mesmo grupo de recursos que a conta do Batch a ser criada. Certifique-se de que o grupo de recursos está numa região onde o Batch está [disponível](https://azure.microsoft.com/regions/services/) e que a sua subscrição suporta.
 
-1. Na [portal do Azure][azure_portal], selecione **novo** > **segurança** > **Key Vault**.
+1. No [portal Azure,][azure_portal]selecione **New** > **Security** > **Key Vault**.
 
 1. Na página **Criar Key Vault**, introduza um nome para o cofre de chaves e crie um grupo de recursos na região em que quer a sua conta do Batch. Deixe as definições restantes nos valores predefinidos e selecione **Criar**.
 
-Ao criar a conta do lote no modo de assinatura do usuário, use o grupo de recursos para o cofre de chaves. Especifique a **assinatura do usuário** como o modo de alocação do pool, selecione o cofre de chaves e marque a caixa para conceder acesso ao lote do Azure ao cofre de chaves. 
+Ao criar a conta do lote no modo de assinatura do usuário, use o grupo de recursos para o cofre de chaves. Especifique a **subscrição** do Utilizador como o modo de atribuição da piscina, selecione o cofre chave e verifique a caixa para conceder acesso ao Lote Azure ao cofre da chave. 
 
-Se você preferir conceder acesso ao key Vault manualmente, vá para a seção **políticas de acesso** do cofre de chaves e selecione **Adicionar política de acesso** e procure **lote do Microsoft Azure**. Depois de selecionado, você precisará configurar as **permissões secretas** usando o menu suspenso. O lote do Azure deve receber, no mínimo, as permissões **obter**, **listar**, **definir**e **excluir** .
+Se preferir conceder acesso manual mente ao cofre chave, aceda à secção **de políticas** de acesso do cofre chave e selecione Adicionar Política de **Acesso** e procurar o **Microsoft Azure Batch**. Uma vez selecionado, terá de configurar as **permissões Secretas** utilizando o menu drop down. O Lote Azure deve ter um mínimo de **obter,** **lista,** **conjunto**e **eliminar** permissões.
 
 ![Permissões secretas para o lote do Azure](./media/batch-account-create-portal/secret-permissions.png)
+
+
+> [!NOTE]
+> Certifique-se de que as **Máquinas Virtuais Azure para implantação** e o Gestor de **Recursos Azure para** caixas de verificação de implementação de modelos são selecionadas no âmbito das políticas de **Acesso** para o recurso **Key Vault** ligado.
+> 
+> ![Política obrigatória de acesso ao cofre de chaves](./media/batch-account-create-portal/key-vault-access-policy.png) Isto não é obrigatório na criação de uma conta De Lote no portal Azure. A opção é selecionada por defeito.
+
+
 
 ### <a name="configure-subscription-quotas"></a>Configurar cotas de assinatura
 
 As cotas de núcleo não são definidas por padrão nas contas do lote de assinatura do usuário. As cotas de núcleo devem ser definidas manualmente porque as cotas de núcleo do lote padrão não se aplicam a contas no modo de assinatura do usuário.
 
-1. Na [portal do Azure][azure_portal], selecione a conta do lote do modo de assinatura do usuário para exibir suas configurações e propriedades.
+1. No [portal Azure,][azure_portal]selecione a sua conta de modo de subscrição do utilizador Para exibir as suas definições e propriedades.
 
-1. No menu à esquerda, selecione **cotas** para exibir e configurar as cotas principais associadas à sua conta do lote.
+1. A partir do menu esquerdo, selecione **Quotas** para visualizar e configurar as quotas centrais associadas à sua conta Batch.
 
-Consulte as [cotas e limites do serviço de lote](batch-quota-limit.md) para obter mais informações sobre as cotas de núcleo do modo de assinatura do usuário.
+Consulte as [quotas de serviço do Lote e limites](batch-quota-limit.md) para obter mais informações sobre as quotas centrais do modo de subscrição do utilizador.
 
 ## <a name="other-batch-account-management-options"></a>Outras opções de gestão de contas do Batch
 

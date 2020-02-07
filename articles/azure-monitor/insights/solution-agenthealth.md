@@ -6,19 +6,19 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/19/2017
-ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/06/2020
+ms.openlocfilehash: 9a7cb80b5510ff0ac4a2491d896aded866180c19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402434"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062137"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Integridade do Agente solução no Azure Monitor
 A solução Integridade do Agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho Log Analytics no Azure Monitor ou um grupo de gerenciamento System Center Operations Manager conectado a Azure Monitor, que não respondem e enviando dados operacionais.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implantar essa solução, confirme se você tem suporte para os [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) que se reportam ao espaço de trabalho log Analytics ou relatórios para um grupo de [Gerenciamento de Operations Manager](../../azure-monitor/platform/om-agents.md) integrado ao seu espaço de trabalho.
+Antes de implementar esta solução, confirme que atualmente tem [suportado agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) reportando ao espaço de trabalho log Analytics ou reportando a um grupo de [gestão de Gestor](../../azure-monitor/platform/om-agents.md) de Operações integrado com o seu espaço de trabalho.
 
 ## <a name="solution-components"></a>Componentes da solução
 Esta solução consiste nos recursos seguintes que são adicionados à sua área de trabalho e a agentes ligados diretamente ou a grupos de gestão ligados do Operations Manager.
@@ -32,24 +32,24 @@ Se o grupo de gerenciamento do System Center Operations Manager estiver conectad
 Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="configuration"></a>Configuração
-Adicione a solução Integridade do Agente ao seu espaço de trabalho do Log Analytics usando o processo descrito em [Adicionar soluções](solutions.md). Não há nenhuma configuração adicional.
+Adicione a solução De Saúde do Agente ao seu espaço de trabalho Log Analytics utilizando o processo descrito em [soluções Add](solutions.md). Não há nenhuma configuração adicional.
 
 
 ## <a name="data-collection"></a>Recolha de dados
 ### <a name="supported-agents"></a>Agentes suportados
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução.
 
-| Origem Ligada | Suportadas | Descrição |
+| Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
 | Agentes do Windows | Sim | Os eventos de heartbeat são recolhidos de agentes do Windows diretos.|
 | Grupo de gestão do System Center Operations Manager | Sim | Os eventos de pulsação são coletados dos agentes subordinados ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados para o Azure Monitor. Uma conexão direta de agentes de Operations Manager para Azure Monitor não é necessária. Os dados do evento de pulsação são encaminhados do grupo de gerenciamento para o espaço de trabalho Log Analytics.|
 
 ## <a name="using-the-solution"></a>Utilizar a solução
-Quando você adicionar a solução ao seu espaço de trabalho do Log Analytics, o bloco **integridade do agente** será adicionado ao seu painel. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico Solução Funcionamento de Agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quando adicionar a solução ao seu espaço de trabalho Log Analytics, o azulejo **Agent Health** será adicionado ao seu painel de instrumentos. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico Solução Funcionamento de Agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Clique no mosaico **Funcionamento de Agente** para abrir o dashboard **Funcionamento de Agente**.  O dashboard inclui as colunas da tabela seguinte. Cada coluna mostra os dez principais eventos por ocorrência que correspondem aos critérios dessa coluna relativamente ao intervalo de tempo especificado. Pode executar uma pesquisa de registos que forneça a lista completa ao selecionar **Ver tudo**, no canto inferior direito de cada coluna, ou ao clicar no cabeçalho das colunas.
 
-| Column | Descrição |
+| Coluna | Descrição |
 |--------|-------------|
 | Contagem de agentes ao longo do tempo | Uma tendência da contagem de agentes ao longo de um período de sete dias, para agentes do Linux e do Windows.|
 | Contagem de agentes sem resposta | Uma lista dos agentes que não enviaram um heartbeat nas últimas 24 horas.|
@@ -78,15 +78,15 @@ A solução cria um tipo de registro no espaço de trabalho Log Analytics.
 | `OSMinorVersion` | Versão inferior do sistema operativo.|
 | `Version` | Agente de Log Analytics ou versão do agente de Operations Manager.|
 | `SCAgentChannel` | O valor é *Direto* e/ou *SCManagementServer*.|
-| `IsGatewayInstalled` | Se Log Analytics Gateway estiver instalado, o valor será *true*, caso contrário, o valor será *false*.|
-| `ComputerIP` | O endereço IP do computador.|
+| `IsGatewayInstalled` | Se o gateway Log Analytics estiver instalado, o valor é *verdadeiro,* caso contrário o valor é *falso*.|
+| `ComputerIP` | O endereço IP público do computador. Em VMs Azure, isto mostrará o IP público se um estiver disponível. Para os VMs que utilizam IPs privados, este irá exibir o endereço Azure SNAT (não o endereço IP privado). |
 | `RemoteIPCountry` | A localização geográfica onde o computador está implementado.|
 | `ManagementGroupName` | O nome do grupo de gestão do Operations Manager.|
 | `SourceComputerId` | ID exclusivo do computador.|
 | `RemoteIPLongitude` | Longitude da localização geográfica do computador.|
 | `RemoteIPLatitude` | Latitude da localização geográfica do computador.|
 
-Cada agente que se reporta a um servidor de gerenciamento de Operations Manager enviará duas pulsações e o valor da propriedade SCAgentChannel incluirá **Direct** e **SCManagementServer** dependendo de quais fontes de dados e soluções de monitoramento você habilitou em sua assinatura. Se você se lembrar, os dados das soluções serão enviados diretamente de um servidor de gerenciamento de Operations Manager para Azure Monitor, ou devido ao volume de dados coletados no agente, serão enviados diretamente do agente para Azure Monitor. Para eventos de heartbeat que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gestão, pois os dados são efetivamente carregados por este.  Relativamente a heatbeats em que SCAgentChannel está definido como **Direto**, é o endereço IP público do agente.  
+Cada agente que reporte a um servidor de gestão do Gestor de Operações enviará dois batimentos cardíacos, e o valor da propriedade do SCAgentChannel incluirá tanto o **Direct** como **o SCManagementServer** dependendo das fontes de dados e das soluções de monitorização que tenha ativado na sua subscrição. Se você se lembrar, os dados das soluções serão enviados diretamente de um servidor de gerenciamento de Operations Manager para Azure Monitor, ou devido ao volume de dados coletados no agente, serão enviados diretamente do agente para Azure Monitor. Para eventos de heartbeat que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gestão, pois os dados são efetivamente carregados por este.  Relativamente a heatbeats em que SCAgentChannel está definido como **Direto**, é o endereço IP público do agente.  
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos que esta solução recolhe.
@@ -111,4 +111,4 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos q
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [alertas no Azure monitor](../platform/alerts-overview.md) para obter detalhes sobre como gerar alertas de consultas de log. 
+* Saiba mais sobre [alertas no Monitor Azure](../platform/alerts-overview.md) para obter detalhes sobre a geração de alertas a partir de consultas de registo. 

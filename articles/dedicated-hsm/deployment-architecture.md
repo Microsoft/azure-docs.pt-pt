@@ -1,6 +1,6 @@
 ---
-title: Arquitetura de implantação-HSM dedicado do Azure | Microsoft Docs
-description: Considerações básicas de design ao usar o HSM dedicado do Azure como parte de uma arquitetura de aplicativo
+title: Arquitetura de implementação - HSM dedicada do Azure | Documentos da Microsoft
+description: Considerações de design básico ao utilizar o HSM do Azure dedicada como parte de uma arquitetura de aplicativos
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -10,34 +10,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ff86c25de006495e3536f2ff907e1cf40a216f8e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927851"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048559"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitetura de implementação do Azure Dedicated HSM
 
-O HSM dedicado do Azure fornece armazenamento de chave de criptografia no Azure. Ele atende aos rigorosos requisitos de segurança. Os clientes se beneficiarão do uso do HSM dedicado do Azure, se:
+HSM dedicada do Azure fornece armazenamento de chaves criptográfico no Azure. Ele atende aos requisitos de segurança rigorosas. Os clientes beneficiarão de utilizar o HSM do Azure dedicado se eles:
 
-* Deve atender à certificação FIPS 140-2 nível 3
-* Exigir que eles tenham acesso exclusivo ao HSM
-* deve ter controle total de seus dispositivos
+* Tem de cumprir FIPS 140-2 nível 3 certificação
+* Exigir que têm acesso exclusivo para o HSM
+* deve ter controle completo dos respetivos dispositivos
 
-Os HSMs são distribuídos entre os data centers da Microsoft e podem ser facilmente provisionados como um par de dispositivos como a base de uma solução altamente disponível. Eles também podem ser implantados entre regiões para uma solução resiliente de desastres. As regiões com HSM dedicado disponíveis atualmente são:
+Os HSMs são distribuídos em datacenters da Microsoft e podem ser facilmente aprovisionados como um par de dispositivos como a base de uma solução de elevada disponibilidade. Eles também podem ser implementados em várias regiões para uma solução resiliente após desastre. As regiões com o HSM dedicados disponíveis atualmente são:
 
 * E.U.A. Leste
 * E.U.A. Leste 2
 * E.U.A. Oeste
-* E.U.A. Oeste 2
 * E.U.A. Centro-Sul
 * Sudeste asiático
 * Ásia Oriental
+* Índia Central
+* Índia do Sul
+* Leste do Japão
+* Oeste do Japão
 * Europa do Norte
-* Europa ocidental
+* Europa Ocidental
 * Sul do Reino Unido
 * Oeste do Reino Unido
 * Canadá Central
@@ -45,29 +48,29 @@ Os HSMs são distribuídos entre os data centers da Microsoft e podem ser facilm
 * Leste da Austrália
 * Sudeste da Austrália
 
-Cada uma dessas regiões tem racks HSM implantados em dois data centers independentes ou pelo menos duas zonas de disponibilidade independentes. O Ásia Oriental do Sul tem três zonas de disponibilidade e o leste dos EUA 2 tem dois. Há um total de oito regiões na Europa, na Ásia e nos EUA que oferecem o serviço HSM dedicado. Para obter mais informações sobre regiões do Azure, consulte as [informações oficiais das regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-Alguns fatores de design para qualquer solução dedicada baseada em HSM são localização/latência, alta disponibilidade e suporte para outros aplicativos distribuídos.
+Cada uma dessas regiões tem racks HSM implementados em dois datacenters independentes ou, pelo menos, duas zonas de disponibilidade independentes. Sudeste asiático tem três zonas de disponibilidade e E.U.A. Leste 2 tem dois. Há um total de oito regiões na Europa, Ásia e EUA que oferecem o serviço de HSM dedicados. Para obter mais informações sobre as regiões de Azure, consulte as regiões oficiais de [Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
+Alguns fatores de design para qualquer solução baseada em HSM dedicados são localização/latência, elevada disponibilidade e suportam para outros aplicativos distribuídos.
 
 ## <a name="device-location"></a>Localização do dispositivo
 
-A localização ideal do dispositivo HSM está mais próxima à proximidade com os aplicativos que executam operações criptográficas. Espera-se que a latência na região seja de milissegundos de dígito único. A latência entre regiões poderia ser de 5 a 10 vezes maior do que isso.
+Localização do dispositivo HSM ideal está na proximidade mais próxima para os aplicativos que executam operações criptográficas. Latência de na região e deve ser milissegundos de dígito. Latência em várias regiões pode ser 5 a 10 vezes maior do que isso.
 
 ## <a name="high-availability"></a>Elevada disponibilidade
 
-Para obter alta disponibilidade, um cliente deve usar dois dispositivos HSM em uma região configurada usando o software Gemalto como um par de alta disponibilidade. Esse tipo de implantação garante a disponibilidade das chaves se um único dispositivo enfrentar um problema, impedindo-o de processar operações de chave. Ele também reduz significativamente o risco ao executar manutenção de conserto/conserto, como a substituição da fonte de energia. É importante que um design leve em consideração qualquer tipo de falha de nível regional. As falhas de nível regional podem ocorrer quando há desastres naturais, como furacões, inundações ou terremotos. Esses tipos de eventos devem ser mitigados pelo provisionamento de dispositivos HSM em outra região. Dispositivos implantados em outra região podem ser emparelhados por meio da configuração de software Gemalto. Isso significa que a implantação mínima para uma solução de alta disponibilidade e resistente a desastres é de quatro dispositivos HSM em duas regiões. Redundância local e redundância entre regiões podem ser usadas como uma linha de base para adicionar outras implantações de dispositivo HSM para dar suporte à latência, à capacidade ou atender a outros requisitos específicos do aplicativo.
+Para assegurar elevada disponibilidade, um cliente tem de utilizar dois dispositivos HSM numa região utilizando a Gemalto software como um par de elevada disponibilidade. Este tipo de implementação garante a disponibilidade de chaves, se um dispositivo único sofrer um problema impedir que esta chave operações de processamento. Ela reduz consideravelmente também os riscos quando efetuar a manutenção de garantia de reparação/assistência como substituição de fonte de alimentação de energia. É importante para um design para levar em conta para qualquer tipo de falha de nível regional. Falhas de nível regionais podem acontecer quando existem desastres naturais, como furacões, inundações ou sismos. Esses tipos de eventos devem ser mitigados ao aprovisionamento de dispositivos HSM noutra região. Dispositivos implementados noutra região podem ser emparelhados através de uma configuração de software da Gemalto. Isso significa que a implementação mínima para uma elevada disponibilidade e a desastres solução resiliente é quatro dispositivos HSM em duas regiões. Redundância local e a redundância em várias regiões podem servir como uma linha de base para adicionar qualquer outra Implantações de dispositivos do HSM para latência, capacidade de suporte ou para cumprir outros requisitos específicos de aplicativo.
 
-## <a name="distributed-application-support"></a>Suporte a aplicativos distribuídos
+## <a name="distributed-application-support"></a>Distribuído de suporte técnico da aplicação
 
-Dispositivos HSM dedicados normalmente são implantados para dar suporte a aplicativos que precisam executar operações de armazenamento de chave e de recuperação de chave. Dispositivos HSM dedicados têm 10 partições para suporte independente de aplicativo. O local do dispositivo deve ser baseado em uma exibição holística de todos os aplicativos que precisam usar o serviço.
+Dispositivos HSM dedicados são normalmente implantados para oferecer suporte a aplicativos que precisam para realizar operações de obtenção de chaves e de armazenamento de chaves. Dispositivos HSM dedicados tem 10 partições para o suporte de aplicativos independentes. Localização do dispositivo deve basear-se uma vista holística de todas as aplicações que precisam de utilizar o serviço.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois que a arquitetura de implantação for determinada, a maioria das atividades de configuração para implementar essa arquitetura será fornecida pelo Gemalto. Isso inclui a configuração do dispositivo, bem como os cenários de integração de aplicativos. Para obter mais informações, use o portal de [suporte ao cliente do Gemalto](https://supportportal.gemalto.com/csm/) e baixe os guias de administração e configuração. O site de parceiros da Microsoft tem uma variedade de guias de integração.
-É recomendável que todos os principais conceitos do serviço, como alta disponibilidade e segurança, por exemplo, sejam bem compreendidos antes do provisionamento de dispositivos ou design e implantação de aplicativos.
-Tópicos de nível de conceito adicionais:
+Depois de arquitetura de implantação é determinada, a maioria das atividades de configuração para implementar essa arquitetura serão fornecidas pela Gemalto. Isto inclui a configuração do dispositivo, bem como a aplicação de cenários de integração. Para mais informações, utilize o portal de apoio ao [cliente Gemalto](https://supportportal.gemalto.com/csm/) e descarregue guias de administração e configuração. O site de parceiro da Microsoft tem uma variedade de guias de integração.
+Recomenda-se que todos os principais conceitos do serviço, como elevada disponibilidade e segurança, por exemplo, são bem compreendidos antes do aprovisionamento de dispositivos ou de design do aplicativo e de implementação.
+Mais tópicos de nível de conceito:
 
-* [Alta disponibilidade](high-availability.md)
-* [Segurança física](physical-security.md)
+* [Elevada Disponibilidade](high-availability.md)
+* [Segurança Física](physical-security.md)
 * [Redes](networking.md)
-* [Capacidade](supportability.md)
+* [Capacidade de apoio](supportability.md)
 * [Monitorização](monitoring.md)

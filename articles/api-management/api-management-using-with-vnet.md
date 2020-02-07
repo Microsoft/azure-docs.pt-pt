@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 02/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 59839df1e67c5ea7f18df373ad0530a2ea740209
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: c5a1aaac0edea1e5ab2e6cdf35f91f61eed23db5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030902"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047487"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o gerenciamento de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Essas redes podem ser conectadas às suas redes locais usando várias tecnologias de VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Visão geral da rede virtual Azure](../virtual-network/virtual-networks-overview.md).
@@ -136,7 +136,7 @@ Veja a seguir uma lista de problemas comuns de configuração incorreta que pode
 
     | Ambiente do Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com onde está eastus2.warm.ingestion.msftcloudes.com `East US 2`</li></ul> |
+    | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net(**novo)**</li><li>prod.warmpath.msftcloudes.com a**ser depreciado**</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com onde está eastus2.warm.ingestion.msftcloudes.com `East US 2`</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 

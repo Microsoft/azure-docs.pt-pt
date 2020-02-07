@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709f8083e50391718d34587bd0ea1d847cc41923
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cf6c89e5f891c5f16551885fb40e8d5082fd6ba5
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841970"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063514"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configure a inscrição única baseada em SAML em aplicações não-galerias
 
@@ -53,10 +53,10 @@ Se a aplicação não tiver sido adicionada ao seu inquilino DaD Azure, consulte
     | Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Descrição |
     |:--|:--|:--|:--|
     | **Identificador (ID da entidade)** | Necessário para algumas aplicações | Necessário para algumas aplicações | Identifica exclusivamente a aplicação. A Azure AD envia o identificador para a aplicação como parâmetro do público do símbolo SAML. Espera-se que a aplicação o valide. Este valor também aparece como o ID da Entidade nos metadados SAML que a aplicação fornece. Introduza um URL que utilize o seguinte padrão: 'https://<subdomain>.contoso.com' *Pode encontrar este valor como elemento **emitente** no **Pedido AuthnRequest** (pedido SAML) enviado pelo pedido.* |
-    | **URL de resposta** | Obrigatório | Obrigatório | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). Pode utilizar os campos de URL de resposta adicional para especificar URLs de resposta múltipla. Por exemplo, pode necessitar de URLs de resposta adicional para vários subdomínios. Ou, para efeitos de teste, pode especificar urLs de resposta múltipla (hospedeiro local e URLs públicos) de uma só vez. |
-    | **URL de início de sessão** | Obrigatório | Não especifique | Quando um utilizador abre este URL, o fornecedor de serviços redireciona para o Azure AD para autenticar e iniciar a sessão do utilizador. A Azure AD utiliza o URL para iniciar a aplicação a partir do Office 365 ou do Painel de Acesso AD Azure. Quando em branco, a Azure AD executa o sinal iniciado pelo IdP quando um utilizador lança a aplicação a partir do Office 365, do Painel de Acesso AD Azure ou do URL Azure AD SSO.|
+    | **URL de resposta** | Required | Required | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). Pode utilizar os campos de URL de resposta adicional para especificar URLs de resposta múltipla. Por exemplo, pode necessitar de URLs de resposta adicional para vários subdomínios. Ou, para efeitos de teste, pode especificar urLs de resposta múltipla (hospedeiro local e URLs públicos) de uma só vez. |
+    | **URL de início de sessão** | Required | Não especifique | Quando um utilizador abre este URL, o fornecedor de serviços redireciona para o Azure AD para autenticar e iniciar a sessão do utilizador. A Azure AD utiliza o URL para iniciar a aplicação a partir do Office 365 ou do Painel de Acesso AD Azure. Quando em branco, a Azure AD executa o sinal iniciado pelo IdP quando um utilizador lança a aplicação a partir do Office 365, do Painel de Acesso AD Azure ou do URL Azure AD SSO.|
     | **Estado de Retransmissão** | Opcional | Opcional | Especifica à aplicação para onde deve redirecionar o utilizador após a conclusão da autenticação. Tipicamente, o valor é um URL válido para a aplicação. No entanto, algumas aplicações utilizam este campo de forma diferente. Para obter mais informações, contacte o fornecedor da aplicação.
-    | **URL de logout** | Opcional | Opcional | Usado para enviar as respostas de logout SAML de volta para a aplicação.
+    | **Logout URL** | Opcional | Opcional | Usado para enviar as respostas de logout SAML de volta para a aplicação.
 
 Para mais informações, consulte [o protocolo SAML de inscrição única](../develop/single-sign-on-saml-protocol.md).
 
@@ -122,7 +122,7 @@ A partir do Azure AD, pode descarregar o certificado ativo em formato Base64 ou 
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Passo 4. Configurar a aplicação para utilizar a Azure AD
 
-A **Configuração \<aplicaçãoName>** secção lista os valores que precisam de ser configurados na aplicação para que utilize a Azure AD como fornecedor de identidade SAML. Os valores exigidos variam de acordo com a aplicação. Para mais detalhes, consulte a documentação SAML da aplicação. Para encontrar a documentação, vá ao **Nome de aplicação \<** título e selecione **Ver instruções passo a passo**. A documentação aparece na página de inscrição do **Configure.** Esta página guia-o no preenchimento do URL de **Login,** **do Identificador AD Azure**e dos valores de URL de **Logout** no Configurar \<nome de **aplicação>** título.
+A **Configuração \<aplicaçãoName>** secção lista os valores que precisam de ser configurados na aplicação para que utilize a Azure AD como fornecedor de identidade SAML. Os valores exigidos variam de acordo com a aplicação. Para mais detalhes, consulte a documentação SAML da aplicação. Para encontrar a documentação, vá ao **Nome de aplicação \<>** título e selecione **Ver instruções passo a passo**. A documentação aparece na página de inscrição do **Configure.** Esta página guia-o no preenchimento do URL de **Login,** **do Identificador AD Azure**e dos valores de URL de **Logout** no Configurar \<nome de **aplicação>** título.
 
 1. Desloque-se até à **configuração \<aplicaçãoName>** secção. 
    
@@ -163,4 +163,4 @@ Para mais informações, consulte o [único sign-on baseado em Debug SAML para a
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)
-- [Configurar o fornecimento automático de conta de utilizador](configure-automatic-user-provisioning-portal.md)
+- [Configurar o fornecimento automático de conta de utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)

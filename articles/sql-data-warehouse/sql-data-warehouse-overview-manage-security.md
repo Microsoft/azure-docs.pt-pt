@@ -11,25 +11,25 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8e9ab9dddad35708b58d32802452789adf84a19e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5eeb1c25264c36909774ec689b7410765881c8e2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759470"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064738"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteja uma base de dados no Armazém de Dados SQL
 > [!div class="op_single_selector"]
 > * [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
 > * [Encriptação (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> * [Encriptação (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 
 Este artigo percorre o básico de garantir a sua base de dados azure SQL Data Warehouse. Em particular, este artigo faz com que você tenha começado com recursos para limitar o acesso, proteger dados e monitorizar atividades numa base de dados.
 
-## <a name="connection-security"></a>Segurança das ligações
+## <a name="connection-security"></a>Segurança da Ligação
 A Segurança da Ligação diz respeito à forma como restringe e protege as ligações à sua base de dados através de regras de firewall e de encriptação da ligação.
 
 As regras de firewall são utilizadas tanto pelo servidor como pela base de dados para rejeitar tentativas de ligação a partir de endereços IP que não tenham sido explicitamente listadas com a lista branca. Para permitir ligações a partir da sua aplicação ou endereço IP público da máquina cliente, você deve primeiro criar uma regra de firewall ao nível do servidor usando o portal Azure, REST API ou PowerShell. 

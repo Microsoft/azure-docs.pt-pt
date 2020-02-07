@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: provisionamento de usuário para a margem de atraso-Azure AD'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente as contas de usuário para a margem de atraso.
+title: 'Tutorial: Fornecimento de utilizadores para Slack - Azure AD'
+description: Aprenda a configurar o Diretório Ativo azure para fornecer automaticamente e desfornecer contas de utilizador à Slack.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -15,116 +15,116 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cd8e483d6c189e311fdb1925ad0f2effc2affe1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: cdc912c2df435f9b7e591d7c5475e126e6b0aeb7
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849156"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062834"
 ---
-# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: configurar a margem de atraso para o provisionamento automático de usuário
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configure a folga para o fornecimento automático de utilizadores
 
-O objetivo deste tutorial é mostrar as etapas que precisam ser executadas na margem de atraso e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD até a margem de atraso.
+O objetivo deste tutorial é mostrar-lhe os passos necessários para realizar em Slack e Azure AD para fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para Slack.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Um inquilino do Azure Active Directory
-* Um locatário de margem de atraso com o [plano de adição](https://aadsyncfabric.slack.com/pricing) ou melhor habilitado
-* Uma conta de usuário na margem de atraso com permissões de administrador de equipe
+* Um inquilino Slack com o [plano Plus](https://aadsyncfabric.slack.com/pricing) ou melhor habilitado
+* Uma conta de utilizador em Slack com permissões team admin
 
-Observação: a integração de provisionamento do Azure AD depende da [API scim de margem de atraso](https://api.slack.com/scim), que está disponível para as equipes de margem de atraso no plano mais ou melhor.
+Nota: A integração de fornecimento de AD Azure baseia-se na [Slack SCIM API,](https://api.slack.com/scim)que está disponível para equipas Slack no plano Plus ou melhor.
 
-## <a name="assigning-users-to-slack"></a>Atribuindo usuários à margem de atraso
+## <a name="assigning-users-to-slack"></a>Atribuir utilizadores à Slack
 
-Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e grupos que foram "atribuídos" a um aplicativo no Azure AD serão sincronizados.
+O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de conta de utilizador, apenas os utilizadores e grupos que tenham sido "atribuídos" a uma aplicação em Azure AD serão sincronizados.
 
-Antes de configurar e habilitar o serviço de provisionamento, você precisará decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao seu aplicativo de margem de atraso. Depois de decidir, você pode atribuir esses usuários ao seu aplicativo de margem de atraso seguindo estas instruções:
+Antes de configurar e ativar o serviço de provisionamento, terá de decidir quais os utilizadores e/ou grupos em Azure AD que representam os utilizadores que precisam de acesso à sua aplicação Slack. Uma vez decidido, pode atribuir estes utilizadores à sua aplicação Slack seguindo as instruções aqui:
 
-[Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+[Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-slack"></a>Dicas importantes para atribuir usuários à margem de atraso
+### <a name="important-tips-for-assigning-users-to-slack"></a>Dicas importantes para atribuir utilizadores à Slack
 
-* É recomendável que um único usuário do Azure AD seja atribuído à margem de atraso para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído à Slack para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário à margem de atraso, você deve selecionar a função **usuário** ou "grupo" na caixa de diálogo de atribuição. A função de "acesso padrão" não funciona para provisionamento.
+* Ao atribuir um utilizador à Slack, deve selecionar a função **Utilizador** ou "Grupo" no diálogo de atribuição. A função "Acesso Predefinido" não funciona para o provisionamento.
 
-## <a name="configuring-user-provisioning-to-slack"></a>Configurando o provisionamento de usuário para a margem de atraso 
+## <a name="configuring-user-provisioning-to-slack"></a>Configurar o fornecimento de utilizadores à Slack 
 
-Esta seção orienta você pela conexão do Azure AD com a API de provisionamento de conta de usuário da margem de atraso e pela configuração do serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas na margem de atraso com base na atribuição de usuário e de grupo no Azure AD.
+Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador da Slack que aprovisiona a API, e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas em Slack com base na atribuição de utilizador e grupo em Azure AD.
 
-**Dica:** Você também pode optar por habilitar o logon único baseado em SAML para a margem de atraso, seguindo as instruções fornecidas em [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos se complementem.
+**Dica:** Também pode optar por ativar o Single Sign-On baseado em SAML para slack, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se elogiem mutuamente.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o provisionamento automático de conta de usuário para a margem de atraso no Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o fornecimento automático de conta de utilizador à Slack em Azure AD:
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > aplicativos empresariais > todos os aplicativos** .
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
 
-2. Se você já tiver configurado a margem de atraso para logon único, pesquise por sua instância de margem de atraso usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise a **margem de atraso** na Galeria de aplicativos. Selecione a margem de atraso nos resultados da pesquisa e adicione-a à lista de aplicativos.
+2. Se já configurou o Slack para um único sinal, procure a sua instância de Slack utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **Por Slack** na galeria de aplicações. Selecione A folga dos resultados da pesquisa e adicione-a à sua lista de aplicações.
 
-3. Selecione sua instância de margem de atraso e, em seguida, selecione a guia **provisionamento** .
+3. Selecione a sua instância de Slack e, em seguida, selecione o separador **Provisioning.**
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
-   ![Provisionamento de margem de atraso](./media/slack-provisioning-tutorial/slack1.png)
+   ![Fornecimento de folga](./media/slack-provisioning-tutorial/slack1.png)
 
-5. Na seção **credenciais de administrador** , clique em **autorizar**. Isso abre uma caixa de diálogo de autorização de margem de atraso em uma nova janela do navegador.
+5. Na secção **credenciais de administrador,** clique **em Autorizar**. Isto abre um diálogo de autorização Slack numa nova janela do navegador.
 
-6. Na nova janela, entre na margem de atraso usando sua conta de administrador da equipe. na caixa de diálogo autorização resultante, selecione a equipe de margem de atraso para a qual você deseja habilitar o provisionamento e, em seguida, selecione **autorizar**. Depois de concluído, retorne ao portal do Azure para concluir a configuração de provisionamento.
+6. Na nova janela, assine em Slack usando a sua conta Team Admin. no diálogo de autorização resultante, selecione a equipa Slack que pretende ativar o provisionamento e, em seguida, **selecione Autorizar**. Uma vez concluído, volte ao portal Azure para completar a configuração de provisionamento.
 
-    ![Caixa de diálogo de autorização](./media/slack-provisioning-tutorial/slackauthorize.png)
+    ![Diálogo de Autorização](./media/slack-provisioning-tutorial/slackauthorize.png)
 
-7. No portal do Azure, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao seu aplicativo de margem de atraso. Se a conexão falhar, verifique se a sua conta de margem de atraso tem permissões de administrador de equipe e tente a etapa "autorizar" novamente.
+7. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação Slack. Se a ligação falhar, certifique-se de que a sua conta Slack tem permissões de Team Admin e tente novamente o passo "Autorizar".
 
-8. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **email de notificação** e marque a caixa de seleção abaixo.
+8. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo de email de **notificação** e verifique a caixa de verificação abaixo.
 
 9. Clique em **Guardar**.
 
-10. Na seção mapeamentos, selecione **sincronizar Azure Active Directory usuários para a margem de atraso**.
+10. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to Slack**.
 
-11. Na seção **mapeamentos de atributo** , examine os atributos de usuário que serão sincronizados do Azure ad para a margem de atraso. Observe que os atributos selecionados como propriedades **correspondentes** serão usados para corresponder as contas de usuário na margem de atraso das operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+11. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que serão sincronizados de Azure AD para Slack. Note que os atributos selecionados como propriedades **correspondentes** serão usados para combinar as contas de utilizador em Slack para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 
-12. Para habilitar o serviço de provisionamento do Azure AD para a margem de atraso, altere o **status de provisionamento** para **ativado** na seção **configurações**
+12. Para ativar o serviço de provisionamento de AD Azure para a Folga, altere o Estado de **Provisionamento** para **On** na secção **Definições**
 
 13. Clique em **Guardar**.
 
-Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos à margem de atraso na seção usuários e grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 10 minutos, desde que o serviço esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo de margem de atraso.
+Isto iniciará a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Slack na secção Utilizadores e Grupos. Note que a sincronização inicial demorará mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 10 minutos, desde que o serviço esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos relatórios de atividadede provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Slack.
 
-## <a name="optional-configuring-group-object-provisioning-to-slack"></a>Adicional Configurando o provisionamento de objeto de grupo para a margem de atraso
+## <a name="optional-configuring-group-object-provisioning-to-slack"></a>[Opcional] Configurar o fornecimento de objetos de grupo à Slack
 
-Opcionalmente, você pode habilitar o provisionamento de objetos de grupo do Azure AD para a margem de atraso. Isso é diferente de "atribuir grupos de usuários", pois o objeto de grupo real, além de seus membros, será replicado do Azure AD para a margem de atraso. Por exemplo, se você tiver um grupo chamado "meu grupo" no Azure AD, um grupo idêntico chamado "meu grupo" será criado dentro da margem de atraso.
+Opcionalmente, pode ativar o fornecimento de objetos de grupo de Azure AD a Slack. Isto é diferente dos "grupos de atribuição de utilizadores", na medida em que o objeto de grupo real para além dos seus membros será replicado de Azure AD para Slack. Por exemplo, se tiver um grupo chamado "My Group" em Azure AD, um grupo idêntico chamado "My Group" será criado dentro de Slack.
 
-### <a name="to-enable-provisioning-of-group-objects"></a>Para habilitar o provisionamento de objetos de Grupo:
+### <a name="to-enable-provisioning-of-group-objects"></a>Para permitir o fornecimento de objetos de grupo:
 
-1. Na seção mapeamentos, selecione **sincronizar Azure Active Directory grupos à margem de atraso**.
+1. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Groups to Slack**.
 
-2. Na folha mapeamento de atributo, defina habilitado como Sim.
+2. Na lâmina de mapeamento do atributo, coloque ativado a Sim.
 
-3. Na seção **mapeamentos de atributo** , examine os atributos de grupo que serão sincronizados do Azure ad para a margem de atraso. Observe que os atributos selecionados como propriedades **correspondentes** serão usados para corresponder os grupos na margem de atraso das operações de atualização. 
+3. Na secção **De Mapeamentos de Atributos,** reveja os atributos do grupo que serão sincronizados de Azure AD a Slack. Note que os atributos selecionados como propriedades **correspondentes** serão usados para combinar os grupos em Slack para operações de atualização. 
 
 4. Clique em **Guardar**.
 
-Isso resulta em qualquer objeto de grupo atribuído à margem de atraso na seção **usuários e grupos** sendo totalmente sincronizada do Azure ad até a margem de atraso. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo de margem de atraso.
+Isto resulta em quaisquer objetos de grupo atribuídos à Slack na secção **Utilizadores e Grupos** sendo totalmente sincronizados de Azure AD para Slack. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Slack.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* Ao configurar o atributo **DisplayName** de margem de atraso, esteja ciente dos seguintes comportamentos:
+* Ao configurar o atributo de nome de **exibição** de Slack, esteja atento aos seguintes comportamentos:
 
-  * Os valores não são totalmente exclusivos (por exemplo, 2 usuários podem ter o mesmo nome de exibição)
+  * Os valores não são inteiramente únicos (por exemplo, 2 utilizadores podem ter o mesmo nome de exibição)
 
-  * Dá suporte a caracteres que não estão em inglês, espaços, maiúsculas e minúsculas. 
+  * Suporta personagens não ingleses, espaços, capitalização. 
   
-  * A pontuação permitida inclui pontos, sublinhados, hifens, apóstrofos, colchetes (por exemplo, **([{}])** ) e separadores (por exemplo **,/;** ).
+  * A pontuação permitida inclui períodos, sublinhados, hífenes, apóstrofos, parênteses (por exemplo **, ( [ { ] ) )** e separadores (por **exemplo, / ;**
   
-  * Somente as atualizações se essas duas configurações forem definidas no local de trabalho/a **sincronização de perfil da organização será habilitada** e **os usuários não poderão alterar seu nome de exibição**.
+  * Apenas atualizações se estas duas definições estiverem configuradas no local de trabalho/organização da Slack - A sincronização de **perfis está ativada** e os Utilizadores não podem alterar o seu nome de **exibição**.
   
-* O atributo de **nome de usuário** da margem de atraso deve ter menos de 21 caracteres e ter um valor exclusivo.
+* O atributo de nome de **utilizador** da Slack tem de ter menos de 21 caracteres e ter um valor único.
 
-* A margem de atraso só permite correspondência com os atributos **username** e **email**.  
+* A folga só permite combinar com os atributos **userName** e **email**.  
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)

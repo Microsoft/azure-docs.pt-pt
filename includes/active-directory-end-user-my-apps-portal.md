@@ -5,17 +5,17 @@ services: active-directory
 author: eross-msft
 ms.service: active-directory
 ms.topic: include
-ms.date: 03/06/2019
+ms.date: 02/03/2020
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: c7f3fec478067a9b321d8c7bc5e371f5a6a330cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df529de23b5d964dd80dd9fa5dd17c460a2c4f28
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468513"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77062387"
 ---
 | |
 |--|
-|Se o administrador tiver ativado a nova experiência de visualização **meus aplicativos** para sua organização, agora você verá uma faixa na parte superior da página **meus** aplicativos que diz, **uma experiência atualizada de meus aplicativos está disponível**. Se você selecionar **experimentar**, acessará imediatamente a nova URL (myapplications.Microsoft.com) e a experiência atualizada. Depois disso, sempre que retornar para a página **meus aplicativos** , você irá automaticamente para a nova experiência.<br><br>Para parar de usar a nova experiência, você pode selecionar **Sim** na faixa **deixar nova experiência** na parte superior da página novo **meus aplicativos** . Você retornará imediatamente para a URL antiga (myapps.microsoft.com) e a experiência. Depois disso, sempre que retornar para a página **meus aplicativos** , você irá automaticamente para a experiência antiga.|
+|Se o seu administrador tiver ativado a nova experiência de pré-visualização **das Minhas Aplicações** para a sua organização, verá agora um link quando selecionar o ícone da conta para ver as informações da sua conta no topo da página **My Apps.** Se selecionar **Experimente a nova experiência My Apps https://myapplications.microsoft.com)!** Depois disso, quando voltar à página **My Apps,** irá automaticamente para a nova experiência.<br><br>Para parar de usar a nova experiência, pode selecionar a experiência de **pré-visualização do Leave** quando selecionar o ícone da conta para ver as informações da sua conta no topo da página **My Apps.** Você retornará imediatamente para a URL antiga (myapps.microsoft.com) e a experiência. Depois disso, sempre que voltar à página **My Apps,** irá automaticamente à experiência antiga.|
 |

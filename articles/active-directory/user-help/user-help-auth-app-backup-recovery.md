@@ -2,21 +2,21 @@
 title: Backup e recuperar contas com a app Microsoft Authenticator - Azure AD
 description: Aprenda a fazer back up e a recuperar as suas credenciais de conta apoiadas, utilizando a aplicação Microsoft Authenticator.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8d4c3d76a1ff7c3fcedbb4d2c22a699f4a2e77d0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d1b28000a14ec0825435742efe238e713f116ba7
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704787"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063939"
 ---
 # <a name="backup-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Backup e recuperar credenciais de conta usando a aplicação Microsoft Authenticator
 
@@ -102,7 +102,7 @@ Para contas pessoais da Microsoft, pode provar a sua identidade inserindo a sua 
     >[!NOTE]
     >Para obter mais informações sobre códigos QR e como obter um, consulte Iniciar com [a aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) ou [configurar informações de segurança para utilizar uma aplicação autenticadora](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), com base em se o seu administrador ligou informações de segurança.
     >
-    >Se esta for a primeira vez que você estiver configurando o aplicativo Microsoft Authenticator, você poderá receber um prompt perguntando se deseja permitir que o aplicativo acesse sua câmera (iOS) ou permitir que o aplicativo tire fotos e grave vídeo (Android). Você deve selecionar **permitir** para que o aplicativo autenticador possa acessar sua câmera para tirar uma imagem do código QR na próxima etapa. Se você não permitir a câmera, ainda poderá configurar o aplicativo autenticador, mas precisará adicionar as informações de código manualmente. Para obter informações sobre como adicionar o código manualmente, consulte [adicionar manualmente uma conta ao aplicativo](user-help-auth-app-add-account-manual.md).
+    >Se esta for a primeira vez que você estiver configurando o aplicativo Microsoft Authenticator, você poderá receber um prompt perguntando se deseja permitir que o aplicativo acesse sua câmera (iOS) ou permitir que o aplicativo tire fotos e grave vídeo (Android). Deve selecionar **Permitir** para que a aplicação autenticadora possa aceder à sua câmara para tirar uma fotografia do código QR no próximo passo. Se você não permitir a câmera, ainda poderá configurar o aplicativo autenticador, mas precisará adicionar as informações de código manualmente. Para obter informações sobre como adicionar o código manualmente, consulte [Manualmente adicionar uma conta à aplicação](user-help-auth-app-add-account-manual.md).
 
 ## <a name="troubleshoot-backup-and-recovery-problems"></a>Problemas de backup e recuperação
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o BitaBIZ para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o BitaBIZ.
+title: 'Tutorial: Configure BitaBIZ para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo azure para fornecer e desfornecer automaticamente contas de utilizador ao BitaBIZ.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,154 +15,154 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: a143164f43f999dcb0740cfc25951882000eafbe
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ad9176614c4a5235e5138444d4197286204a747f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641646"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059244"
 ---
-# <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: Configurar o BitaBIZ para provisionamento automático de usuário
+# <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: Configure bitaBIZ para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no BitaBIZ e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no BitaBIZ.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no BitaBIZ e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecer automaticamente e desfornecer utilizadores e/ou grupos para o BitaBIZ.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em visualização pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um inquilino do Azure AD.
-* [Um locatário do BitaBIZ](https://bitabiz.dk/en/price/).
-* Uma conta de usuário no BitaBIZ com permissões de administrador.
+* [Um inquilino bitaBIZ.](https://bitabiz.dk/en/price/)
+* Uma conta de utilizador no BitaBIZ com permissões admin.
 
-## <a name="assigning-users-to-bitabiz"></a>Atribuindo usuários ao BitaBIZ
+## <a name="assigning-users-to-bitabiz"></a>Atribuir utilizadores ao BitaBIZ
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao BitaBIZ. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao BitaBIZ seguindo as instruções aqui:
-* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao BitaBIZ. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao BitaBIZ seguindo as instruções aqui:
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-bitabiz"></a>Dicas importantes para atribuir usuários ao BitaBIZ
+## <a name="important-tips-for-assigning-users-to-bitabiz"></a>Dicas importantes para atribuir utilizadores ao BitaBIZ
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao BitaBIZ para testar a configuração automática de provisionamento de usuário. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído ao BitaBIZ para testar a configuração automática de fornecimento do utilizador. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao BitaBIZ, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um utilizador ao BitaBIZ, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="setup-bitabiz-for-provisioning"></a>Configurar o BitaBIZ para provisionamento
+## <a name="setup-bitabiz-for-provisioning"></a>Configurar bitaBIZ para provisionamento
 
-Antes de configurar o BitaBIZ para o provisionamento automático de usuário com o Azure AD, será necessário habilitar o provisionamento do SCIM no BitaBIZ.
+Antes de configurar o BitaBIZ para o fornecimento automático de utilizadores com a AD Azure, terá de ativar o fornecimento de SCIM no BitaBIZ.
 
-1. Entre no console do [administrador do BitaBIZ](https://www.bitabiz.com/login?lang=en). Clique em **Configurar Administrador**.
+1. Inscreva-se na consola [BitaBIZ Admin](https://www.bitabiz.com/login?lang=en). Clique em **CONFIGURAUP ADMIN**.
 
-    ![Console de administração do BitaBIZ](media/bitabiz-provisioning-tutorial/setup-admin.png)
+    ![Consola de administrador bitaBIZ](media/bitabiz-provisioning-tutorial/setup-admin.png)
 
-2.  Navegue até **integração**.
+2.  Navegar para **integração.**
 
-    ![Console de administração do BitaBIZ](media/bitabiz-provisioning-tutorial/integration.png)
+    ![Consola de administrador bitaBIZ](media/bitabiz-provisioning-tutorial/integration.png)
 
-2.  Navegue até **Microsoft Azure ad provisionamento**.  Selecione **habilitado** no provisionamento automático de usuário. Copie os valores para **URL de ponto de extremidade de provisionamento scim** e **token**de portador. Esses valores serão inseridos nos campos URL do locatário e token secreto na guia provisionamento do aplicativo BitaBIZ no portal do Azure.
+2.  Navegue para o **Microsoft Azure AD Provisioning**.  Selecione **Ativado** no fornecimento automático de utilizadores. Copie os valores para URL final de ponto final de **fornecimento de SCIM** e **token**bearer . Estes valores serão inseridos nos campos URL do Tenant e Secret Token no separador de provisionamento da sua aplicação BitaBIZ no portal Azure.
 
-    ![BitaBIZ adicionar SCIM](media/bitabiz-provisioning-tutorial/authentication.png)
+    ![BitaBIZ Adicionar SCIM](media/bitabiz-provisioning-tutorial/authentication.png)
 
 
-## <a name="add-bitabiz-from-the-gallery"></a>Adicionar o BitaBIZ da Galeria
+## <a name="add-bitabiz-from-the-gallery"></a>Adicione bitaBIZ da galeria
 
-Para configurar o BitaBIZ para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o BitaBIZ da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Para configurar o BitaBIZ para o fornecimento automático de utilizadores com a AD Azure, é necessário adicionar o BitaBIZ da galeria de aplicações Azure AD à sua lista de aplicações saaS geridas.
 
-**Para adicionar o BitaBIZ da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar bitaBIZ da galeria de aplicações Azure AD, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **BitaBIZ**, selecione **BitaBIZ** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, introduza o **BitaBIZ,** selecione **BitaBIZ** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![BitaBIZ na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-bitabiz"></a>Configurando o provisionamento automático de usuário para o BitaBIZ 
+## <a name="configuring-automatic-user-provisioning-to-bitabiz"></a>Configurar o fornecimento automático de utilizadores ao BitaBIZ 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no BitaBIZ com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta secção orienta-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no BitaBIZ com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o BitaBIZ, seguindo as instruções fornecidas no [tutorial de logon único do BitaBIZ](BitaBIZ-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem uns aos outros
+> Também pode optar por ativar um único sinal baseado em SAML para o BitaBIZ, seguindo as instruções fornecidas no [tutorial de inscrição single BitaBIZ](BitaBIZ-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático de utilizadores, embora estas duas funcionalidades se elogiem mutuamente
 
-### <a name="to-configure-automatic-user-provisioning-for-bitabiz-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para BitaBIZ no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-bitabiz-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para bitaBIZ em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **BitaBIZ**.
+2. Na lista de aplicações, selecione **BitaBIZ**.
 
-    ![O link do BitaBIZ na lista de aplicativos](common/all-applications.png)
+    ![O link BitaBIZ na lista de Aplicações](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** .
+3. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção credenciais de administrador, insira a **URL do ponto de extremidade de provisionamento scim** e os valores de **token** de portador recuperados anteriormente na URL do locatário e no token secreto, respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao BitaBIZ. Se a conexão falhar, verifique se sua conta do BitaBIZ tem permissões de administrador e tente novamente.
+5. No âmbito da secção de Credenciais de Administrador, insera o URL final do Ponto Final do **SCIM** e os valores do **Token do Portador** recuperados anteriormente em URL de Inquilino e Token Secreto, respectivamente. Clique em **Ligação de Teste** para garantir que o Azure AD pode ligar-se ao BitaBIZ. Se a ligação falhar, certifique-se de que a sua conta BitaBIZ tem permissões de Administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+    ![Email de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para BitaBIZ**.
+8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to BitaBIZ**.
 
-    ![Mapeamentos de usuário BitaBIZ](media/bitabiz-provisioning-tutorial/usermapping.png)
+    ![Mapeamento de utilizadores bitaBIZ](media/bitabiz-provisioning-tutorial/usermapping.png)
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o BitaBIZ na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no BitaBIZ para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD para BitaBIZ na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no BitaBIZ para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Atributos de usuário do BitaBIZ](media/bitabiz-provisioning-tutorial/user-attribute.png)
+    ![Atributos de utilizador bitaBIZ](media/bitabiz-provisioning-tutorial/user-attribute.png)
 
 
-10. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para o BitaBIZ, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Para ativar o serviço de provisionamento de AD Azure para o BitaBIZ, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
     ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para o BitaBIZ escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os utilizadores e/ou grupos que gostaria de fornecer ao BitaBIZ, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para provisionar, clique em **salvar**.
+13. Quando estiver pronto para fornecer, clique em **Guardar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no BitaBIZ.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure no BitaBIZ.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* BitaBIZ requer **nome de usuário**, **email**, **nome** e **sobrenome** como atributos obrigatórios. 
-* O BitaBIZ não oferece suporte a exclusões rígidas no momento.
+* BitaBIZ requer **nome de utilizador**, **e-mail,** primeiro **nome** e **apelido** como atributos obrigatórios. 
+* A BitaBIZ não suporta aeliminações duras atualmente.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md).
+* [Gerir o provisionamento de contas de utilizador para aplicações empresariais.](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md).
+* [Aprenda a rever os registos e obtenha relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md).

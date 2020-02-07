@@ -3,26 +3,27 @@ title: Perguntas comuns sobre o dispositivo de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o dispositivo de migrações para Azure
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: de9583b7983dda904e06ea258ecb0d202644586b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292337"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064704"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
-Este artigo responde a perguntas comuns sobre o dispositivo migrações para Azure. Se você tiver outras consultas depois de ler este artigo, poste-as no [Fórum de migrações para Azure](https://aka.ms/AzureMigrateForum). Se você tiver outras dúvidas, leia estes artigos:
+Este artigo responde a perguntas comuns sobre o dispositivo migrações para Azure. Se tiver mais dúvidas depois de ler este artigo, publique-as no [fórum Azure Migrate](https://aka.ms/AzureMigrateForum). Se você tiver outras dúvidas, leia estes artigos:
 
-- [Perguntas gerais](resources-faq.md) sobre as migrações para Azure.
-- [Perguntas](common-questions-discovery-assessment.md) sobre a descoberta, avaliação e visualização de dependência.
+- [Perguntas gerais](resources-faq.md) sobre Azure Migrate.
+- [Perguntas](common-questions-discovery-assessment.md) sobre a descoberta, avaliação e visualização da dependência.
+- [Perguntas](common-questions-server-migration.md) sobre migração de servidores.
 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>O que é o dispositivo de migrações para Azure?
 
 O dispositivo de migrações para Azure é um dispositivo leve usado pela ferramenta migrações para Azure: Server Assessment para descobrir e avaliar servidores locais e usado pela migração do Azure: ferramenta de migração de servidor para migrar sem agente de VMs VMware locais. 
 
-O dispositivo é implantado localmente como uma VM ou uma máquina física. O dispositivo descobre máquinas locais e envia continuamente metadados de máquina e dados de desempenho para migrações para Azure. A descoberta de dispositivo é sem agente. Nada é instalado em computadores descobertos. [Saiba mais](migrate-appliance.md) sobre o dispositivo.
+O dispositivo é implantado localmente como uma VM ou uma máquina física. O dispositivo descobre máquinas locais e envia continuamente metadados de máquina e dados de desempenho para migrações para Azure. A descoberta de dispositivo é sem agente. Nada é instalado em computadores descobertos. [Saiba mais](migrate-appliance.md) sobre o aparelho.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como o dispositivo se conecta ao Azure?
 
@@ -40,17 +41,17 @@ Ao criar a VM do dispositivo usando o modelo baixado, você pode adicionar compo
 ## <a name="what-network-connectivity-is-needed"></a>Qual é a conectividade de rede necessária?
 
 Examine o seguinte:
-- Avaliação do VMware usando o dispositivo de migrações para Azure: requisitos de acesso de [URL](migrate-appliance.md#url-access) e [porta](migrate-support-matrix-vmware.md#port-access) .
-- Migração sem agente do VMware usando o dispositivo de migrações para Azure: requisitos de acesso de [URL](migrate-appliance.md#url-access) e [porta](migrate-support-matrix-vmware-migration.md#agentless-ports) .
-- Avaliação do Hyper-V usando o dispositivo de migrações para Azure: requisitos de acesso de [URL](migrate-appliance.md#url-access) e [porta](migrate-support-matrix-hyper-v.md#port-access) .
+- Avaliação vMware utilizando o aparelho Migratório Azure: [URL](migrate-appliance.md#url-access) e requisitos de acesso à [porta.](migrate-support-matrix-vmware.md#port-access)
+- Migração sem agente VMware utilizando o aparelho Azure Migrate: [URL](migrate-appliance.md#url-access) e requisitos de acesso à [porta.](migrate-support-matrix-vmware-migration.md#agentless-ports)
+- Avaliação de hiper-V utilizando o aparelho Migratório Azure: [URL](migrate-appliance.md#url-access) e requisitos de acesso à [porta.](migrate-support-matrix-hyper-v.md#port-access)
 
 
 ## <a name="what-data-does-the-appliance-collect"></a>Quais dados o dispositivo coleta?
 
 Examine os dados coletados:
 
-- [Metadados](migrate-appliance.md#collected-metadata-vmware)e [dados de desempenho](migrate-appliance.md#collected-performance-data-vmware) de VM do VMware.
-- [Metadados](migrate-appliance.md#collected-metadata-hyper-v)e dados de [desempenho](migrate-appliance.md#collected-performance-data-hyper-v) da VM do Hyper-V.
+- [VMware](migrate-appliance.md#collected-performance-data-vmware) VM dados de desempenho vM e [metadados](migrate-appliance.md#collected-metadata-vmware).
+- Dados de [desempenho](migrate-appliance.md#collected-performance-data-hyper-v) de VM hiper-V e [metadados.](migrate-appliance.md#collected-metadata-hyper-v)
 
 
 ## <a name="how-is-data-stored"></a>Como são armazenados os dados?
@@ -58,7 +59,7 @@ Examine os dados coletados:
 Os dados coletados pelo dispositivo migrações para Azure são armazenados no local do Azure que você escolhe ao criar o projeto de migração. 
 
 - Os dados são armazenados com segurança em uma assinatura da Microsoft e são excluídos quando você exclui o projeto de migrações para Azure.
-- Se você usar a [visualização de dependência](concepts-dependency-visualization.md), os dados coletados serão armazenados no Estados Unidos, em um espaço de trabalho log Analytics criado na assinatura do Azure. Esses dados são excluídos quando você exclui o espaço de trabalho Log Analytics em sua assinatura.
+- Se utilizar a visualização da [dependência,](concepts-dependency-visualization.md)os dados recolhidos são armazenados nos Estados Unidos, num espaço de trabalho log Analytics criado na subscrição do Azure. Esses dados são excluídos quando você exclui o espaço de trabalho Log Analytics em sua assinatura.
 
 ## <a name="how-much-data-is-uploaded-in-continuous-profiling"></a>Qual a quantidade de dados carregada na criação de perfil contínua?
 
@@ -69,7 +70,7 @@ O volume de dados enviados para migrações para Azure depende de vários parâm
 Sim, para ambos.
 
 - Os metadados são enviados com segurança para o serviço de migrações para Azure pela Internet, via HTTPS.
-- Os metadados são armazenados em um banco de dados [Cosmos do Azure](../cosmos-db/database-encryption-at-rest.md) e no [armazenamento de BLOBs do Azure](../storage/common/storage-service-encryption.md), em uma assinatura da Microsoft. Os metadados são criptografados em repouso.
+- Os metadados são armazenados numa base de dados [da Azure Cosmos,](../cosmos-db/database-encryption-at-rest.md) e no [armazenamento do Azure Blob,](../storage/common/storage-service-encryption.md)numa subscrição da Microsoft. Os metadados são criptografados em repouso.
 - Os dados para análise de dependência também são criptografados em trânsito (HTTPS seguro). Ele é armazenado em um espaço de trabalho Log Analytics em sua assinatura. Ele também é criptografado em repouso.
 
 ## <a name="how-does-the-appliance-connect-to-vcenter-server"></a>Como o dispositivo se conecta ao vCenter Server?
@@ -85,7 +86,7 @@ Não. Há um mapeamento de um para um entre um dispositivo e vCenter Server. Par
 
 ### <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantas VMs ou servidores posso descobrir com um dispositivo?
 
-Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 250 servidores com um único dispositivo. Se você tiver mais computadores no seu ambiente local, leia sobre dimensionamento do [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) e avaliação [física](scale-physical-assessment.md) .
+Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 250 servidores com um único dispositivo. Se tiver mais máquinas no seu ambiente no local, leia sobre a escala [hyper-V,](scale-hyper-v-assessment.md) [VMware](scale-vmware-assessment.md) e avaliação [física.](scale-physical-assessment.md)
 
 ## <a name="can-i-delete-an-appliance"></a>Posso excluir um dispositivo?
 
@@ -111,7 +112,7 @@ Por padrão, o dispositivo e seus agentes instalados são atualizados automatica
 
 ## <a name="can-i-check-agent-health"></a>Posso verificar a integridade do agente?
 
-No portal, acesse a página de **integridade do agente** na ferramenta de avaliação do servidor ou de migração do servidor. Lá, você pode verificar o status da conexão entre os agentes de descoberta e avaliação no dispositivo e no Azure.
+No portal, vá na página de **saúde** do Agente na ferramenta de avaliação do servidor ou migração do servidor. Lá, você pode verificar o status da conexão entre os agentes de descoberta e avaliação no dispositivo e no Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
-Leia a [visão geral de migrações para Azure](migrate-services-overview.md).
+Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)

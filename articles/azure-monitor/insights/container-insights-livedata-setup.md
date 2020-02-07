@@ -3,12 +3,12 @@ title: Azure Monitor de instalação para contêineres de dados dinâmicos (visu
 description: Este artigo descreve como configurar a exibição em tempo real de logs de contêiner (stdout/stderr) e eventos sem usar o kubectl com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: cf42eea99e437a76bb437b23f6eaffae1f1f3bc6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030693"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063769"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 
@@ -114,7 +114,7 @@ Para obter mais informações sobre a configuração avançada de segurança em 
     >[!NOTE]
     >Se estiver a utilizar esta funcionalidade na Azure China, o valor url da primeira base deve ser `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e o valor de URL da segunda base deve ser `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
     
-4. Depois de registar os URLs redirecionais, em **definições avançadas,** selecione as opções **Fichas** de acesso e **fichas de ID** e, em seguida, guarde as suas alterações.
+4. Depois de registar os URLs redirecionais, sob **a subvenção implícita,** selecione as opções **Fichas** de acesso e **fichas de IDENTIFICAção** e, em seguida, guarde as suas alterações.
 
 >[!NOTE]
 >A configuração da autenticação com o Azure Active Directory para logon único só pode ser realizada durante a implantação inicial de um novo cluster AKS. Não é possível configurar o início de sessão único para um cluster do AKS já implementado.

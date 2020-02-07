@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 808a17fcf303c6eb72f11f5379fa172302dc782a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022142"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059862"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Criar soluções para o comércio com o Azure IoT Central
 
@@ -28,7 +28,7 @@ Este artigo descreve vários modelos de aplicativo IoT Central específicos do v
 
 As seções a seguir descrevem os recursos desses modelos de aplicativos:
 
-## <a name="connected-logistics"></a>Logística interligada
+## <a name="connected-logistics"></a>Logística associada
 
 Os gastos globais de logística deverão atingir os 10,6 biliões de dólares em 2020. O transporte de contas de bens para a maioria desses gastos e provedores de envio está sob pressão intensa e restrições competitivas.
 
@@ -50,7 +50,7 @@ As capturas de tela a seguir mostram o painel integrado no modelo de aplicativo.
 > [!div class="mx-imgBorder"]
 > ![](./media/overview-iot-central-retail/connected-logistics-dashboard2.png) de painel de logística conectado
 
-Para saber mais, consulte o tutorial [implantar e percorrer um modelo de aplicativo de logística conectado](./tutorial-iot-central-connected-logistics-pnp.md) .
+Para saber mais, consulte o Deploy e caminhe através de um tutorial [de modelo de aplicação logística conectado.](./tutorial-iot-central-connected-logistics-pnp.md)
 
 ## <a name="digital-distribution-center"></a>Centro de distribuição digital
 
@@ -72,7 +72,7 @@ A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O 
 > [!div class="mx-imgBorder"]
 > ![](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png) do Painel de Instrumentos do Centro de Distribuição Digital
 
-Para saber mais, consulte o tutorial [implantar e percorrer um modelo de aplicativo do centro de distribuição digital](./tutorial-iot-central-digital-distribution-center-pnp.md) .
+Para saber mais, consulte o [Deploy e caminhe através](./tutorial-iot-central-digital-distribution-center-pnp.md) de um tutorial de modelo de aplicação do centro de distribuição digital.
 
 ## <a name="in-store-analytics---condition-monitoring"></a>Análise na loja – monitoramento de condição
 
@@ -95,7 +95,7 @@ A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O 
 > [!div class="mx-imgBorder"]
 > ![](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png) de monitorização da condição de análise na loja
 
-Para saber mais, consulte o tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) .
+Para saber mais, consulte a aplicação de análise Create na loja no tutorial [Central Azure IoT.](./tutorial-in-store-analytics-create-app-pnp.md)
 
 ## <a name="in-store-analytics---checkout"></a>Análise na loja-check-out
 
@@ -118,7 +118,7 @@ A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O 
 > [!div class="mx-imgBorder"]
 > ![](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png) de check-out de análise na loja
 
-Para saber mais, consulte o tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) .
+Para saber mais, consulte a aplicação de análise Create na loja no tutorial [Central Azure IoT.](./tutorial-in-store-analytics-create-app-pnp.md)
 
 ## <a name="smart-inventory-management"></a>Gestão de inventário inteligente
 
@@ -139,7 +139,7 @@ A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O 
 > [!div class="mx-imgBorder"]
 > ![smart inventory management dashboard](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
 
-Para saber mais, confira o tutorial [implantar e percorrer um modelo de aplicativo de gerenciamento de inventário inteligente](./tutorial-iot-central-smart-inventory-management-pnp.md) .
+Para saber mais, consulte o [Deploy e caminhe através](./tutorial-iot-central-smart-inventory-management-pnp.md) de um tutorial de modelo de aplicação de gestão de inventário inteligente.
 
 ## <a name="micro-fulfillment-center"></a>Centro de microatendimento
 
@@ -160,15 +160,15 @@ A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O 
 > [!div class="mx-imgBorder"]
 > ![Centro de Micro-realização](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-Para saber mais, confira o tutorial [implantar e percorrer o modelo de aplicativo do centro de distribuição](./tutorial-iot-central-smart-inventory-management-pnp.md) .
+Para saber mais, consulte o Deploy e caminhe pelo tutorial [de modelo de aplicação do centro de micro-realização.](./tutorial-micro-fulfillment-center-pnp.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para começar a criar uma solução de varejo:
 
-* Introdução ao tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) que explica como criar uma solução com um dos modelos de aplicativo de análise no repositório.
-* [Implante e percorra um modelo de aplicativo de logística conectado](./tutorial-iot-central-connected-logistics-pnp.md).
-* [Implante e percorra um modelo de aplicativo do centro de distribuição digital](./tutorial-iot-central-digital-distribution-center-pnp.md).
-* [Implante e percorra um modelo de aplicativo de gerenciamento de inventário inteligente](./tutorial-iot-central-smart-inventory-management-pnp.md).
-* [Implante e percorra o modelo de aplicativo do centro de microatendimento](./tutorial-iot-central-smart-inventory-management-pnp.md).
-* Saiba mais sobre IoT Central na [IOT central visão geral](../preview/overview-iot-central.md).
+* Inicie-se com a aplicação de análise Create a store no tutorial [Central Azure IoT](./tutorial-in-store-analytics-create-app-pnp.md) que o acompanha como construir uma solução com um dos modelos de aplicação de análise na loja.
+* [Desdobre e caminhe através de um modelo de aplicação logística conectado](./tutorial-iot-central-connected-logistics-pnp.md).
+* [Desdobre e caminhe através de um modelo](./tutorial-iot-central-digital-distribution-center-pnp.md)de aplicação do centro de distribuição digital .
+* [Desdobre e caminhe através de um modelo de aplicação](./tutorial-iot-central-smart-inventory-management-pnp.md)de gestão de inventário inteligente .
+* [Desloque e caminhe pelo modelo de aplicação do centro de micro-realização](./tutorial-micro-fulfillment-center-pnp.md).
+* Saiba mais sobre a IoT Central na visão geral da [IoT Central.](../preview/overview-iot-central.md)

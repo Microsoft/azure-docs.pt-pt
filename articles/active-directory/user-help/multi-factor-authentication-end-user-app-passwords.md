@@ -2,7 +2,7 @@
 title: Como gerir as palavras-passe das apps - Diretório Ativo Azure / Microsoft Docs
 description: Saiba mais sobre as palavras-passe das aplicações e para que são usadas no que diz respeito à verificação em duas etapas.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: lizross
+ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 74d443cc87a71950a31732db48e94ea3b5ced7ba
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5f81181ac3107307a352cdbcd0b5cc4a555deacb
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705314"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062630"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir senhas de aplicação para verificação em duas etapas
 

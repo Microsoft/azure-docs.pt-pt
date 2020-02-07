@@ -1,249 +1,343 @@
 ---
-title: Implantação de redefinição de senha de autoatendimento-Azure Active Directory
-description: Estratégia para a implementação bem-sucedida da redefinição de senha de autoatendimento do Azure AD
+title: Implementação de passwordde autosserviço - Diretório Ativo Azure
+description: Estratégia para implementação bem sucedida de reset de senha de autosserviço da AD Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.date: 01/31/2020
+ms.author: baselden
+author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc2c68c53a7c03d1de08e5cde528f27aa61b0096
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 785a8a031a10232a37b235711ba919fdc1df35d3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847274"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061432"
 ---
-# <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar a reposição personalizada de palavra-passe do Azure AD
+# <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Planeie um reset de senha de autosserviço do Azure Ative Diretório
 
 > [!NOTE]
-> Este guia explica a redefinição de senha de autoatendimento e como implantá-la. Se você estiver procurando a ferramenta de redefinição de senha de autoatendimento para voltar à sua conta, vá para [https://aka.ms/sspr](https://aka.ms/sspr). 
+> Este plano de implementação oferece orientação de planeamento e boas práticas para implementar o reset de senha de autosserviço azure AD (SSPR). <br>**Se procura a ferramenta SSPR para voltar à sua conta, vá a [https://aka.ms/sspr](https://aka.ms/sspr)** .
 
-A SSPR (autoatendimento de redefinição de senha) é um recurso Azure Active Directory que permite aos funcionários redefinir suas senhas sem precisar entrar em contato com a equipe de ti. Os funcionários devem se registrar ou ser registrados para redefinição de senha de autoatendimento antes de usar o serviço. Durante o registro, o funcionário escolhe um ou mais métodos de autenticação habilitados pela organização.
+[O Reset de Passwords self-Service (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) é uma funcionalidade azure Ative Directory (AD) que permite aos utilizadores redefinir as suas palavras-passe sem contactar o pessoal de TI para obter ajuda. Os utilizadores podem desbloquear-se rapidamente e continuar a trabalhar independentemente de onde estejam ou da hora do dia. Ao permitir que os colaboradores se desbloqueiem, a sua organização pode reduzir o tempo não produtivo e os elevados custos de apoio para as questões mais comuns relacionadas com a palavra-passe. 
 
-O SSPR permite que os funcionários sejam desbloqueados rapidamente e continuem trabalhando independentemente de onde estiverem ou a hora do dia. Ao permitir que os usuários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
+A SSPR tem as seguintes capacidades-chave:
 
-Ajude os usuários a se registrarem rapidamente implantando SSPR junto com outro aplicativo ou serviço em sua organização. Essa ação gerará um grande volume de entradas e irá orientar o registro.
+* O self-service permite que os utilizadores finais reporem as suas palavras-passe expiradas ou não expiradas sem contactar um administrador ou um helpdesk para obter suporte.
 
-Antes de implantar o SSPR, as organizações podem querer determinar a quantidade de redefinição de senha relacionada às chamadas de suporte técnico que ocorrem ao longo do tempo e o custo médio de cada chamada. Eles podem usar esses dados após a implantação para mostrar o valor que o SSPR está trazendo para sua organização.  
+* [A Password Writeback](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) permite a gestão de senhas no local e a resolução do bloqueio da conta embora a nuvem.
 
-## <a name="how-sspr-works"></a>Como funciona a SSPR
+* Os relatórios de atividade de gestão de passwords dão aos administradores informações sobre o reset de passwords e a atividade de registo que ocorre na sua organização.
 
-1. Quando um usuário tenta redefinir uma senha, ele deve verificar seu método de autenticação registrado anteriormente ou métodos para provar sua identidade.
-1. Em seguida, o usuário insere uma nova senha.
-   1. Para usuários somente na nuvem, a nova senha é armazenada em Azure Active Directory. Para obter mais informações, consulte o artigo [como o SSPR funciona](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
-   1. Para usuários híbridos, a senha é gravada no Active Directory local por meio do serviço Azure AD Connect. Para obter mais informações, consulte o artigo [o que é Write-back de senha](concept-sspr-writeback.md#how-password-writeback-works).
+## <a name="learn-about-sspr"></a>Saiba mais sobre sSPR
 
-## <a name="licensing-considerations"></a>Considerações sobre licenciamento
+Saiba mais sobre a SSPR. Ver [como funciona: Reset de senha de autosserviço Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks).
 
-Azure Active Directory é licenciado por usuário, o que significa que cada usuário precisa ter uma licença apropriada para os recursos que eles utilizam.
+### <a name="key-benefits"></a>Principais vantagens
 
-Mais informações sobre o licenciamento podem ser encontradas na [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+Os principais benefícios de permitir o SSPR são:
 
-## <a name="enable-combined-registration-for-sspr-and-mfa"></a>Habilitar o registro combinado para SSPR e MFA
+* **Gerir o custo.** A SSPR reduz os custos de suporte de TI, permitindo que os utilizadores reporem as palavras-passe por si só. Também reduz o custo de tempo perdido devido a senhas perdidas e bloqueios. 
 
-A Microsoft recomenda que as organizações habilitem a experiência de registro combinada para SSPR e autenticação multifator. Quando você habilita essa experiência de registro combinada, os usuários só precisam selecionar suas informações de registro uma vez para habilitar os dois recursos.
+* **Experiência intuitiva do utilizador.** Fornece um processo intuitivo de registo de utilizadores únicos que permite aos utilizadores redefinir palavras-passe e desbloquear contas a pedido de qualquer dispositivo ou localização. A SSPR permite que os utilizadores voltem ao trabalho mais rapidamente e sejam mais produtivos.
 
-![Registro de informações de segurança combinadas](./media/howto-sspr-deployment/combined-security-info.png)
+* **Flexibilidade e segurança.** A SSPR permite às empresas aceder à segurança e flexibilidade que uma plataforma em nuvem proporciona. Os administradores podem alterar as definições para acomodar novos requisitos de segurança e lançar estas alterações para os utilizadores sem interromper o seu sessão.
 
-A experiência de registro combinada não exige que as organizações habilitem o SSPR e a autenticação multifator do Azure para usar o. A experiência de registro combinada fornece às organizações uma experiência de usuário melhor em comparação com os componentes individuais tradicionais. Mais informações sobre o registro combinado e como habilitar o podem ser encontradas no artigo registro de [informações de segurança combinadas (versão prévia)](concept-registration-mfa-sspr-combined.md)
+* **Auditoria robusta e rastreio de utilização.** Uma organização pode garantir que os sistemas de negócio permanecem seguros enquanto os seus utilizadores redefinirem as suas próprias palavras-passe. Os registos de auditoria robustos incluem informações de cada passo do processo de reset da palavra-passe. Estes registos estão disponíveis a partir de uma API e permitem ao utilizador importar os dados para um sistema de escolha de Incidentes de Segurança e Deevento (SIEM).
 
-## <a name="plan-the-configuration"></a>Planejar a configuração
+### <a name="licensing"></a>Licenciamento
 
-As configurações a seguir são necessárias para habilitar o SSPR juntamente com os valores recomendados.
+O Azure Ative Directory é licenciado por utilizador, o que significa que cada utilizador necessita de uma licença adequada para as funcionalidades que utiliza. Recomendamos o licenciamento baseado em grupo para sPr. 
 
-| Área | Definição | Valor |
-| --- | --- | --- |
-| **Propriedades de SSPR** | Redefinição de senha de autoatendimento habilitada | Grupo **selecionado** para o piloto/ **tudo** para produção |
-| **Métodos de autenticação** | Métodos de autenticação necessários para registrar | Sempre 1 mais do que o necessário para redefinir |
-|   | Métodos de autenticação necessários para redefinir | Um ou dois |
-| **Registo** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
-|   | Número de dias até ser pedido aos utilizadores que reconfirmem as informações de autenticação | 90 – 180 dias |
-| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
-|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
-| **Customization** | Personalizar ligação do suporte técnico | Sim |
-|   | URL ou e-mail do suporte técnico personalizado | Site de suporte ou endereço de email |
-| **Integração no local** | Write-back de senhas para o AD local | Sim |
-|   | Permitir que os usuários desbloqueiem a conta sem redefinir a senha | Sim |
+Para comparar edições e funcionalidades e ativar o licenciamento de grupo ou utilizador, consulte os requisitos de licenciamento para o reset de [palavra-passe autosserviço Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-licensing).
 
-### <a name="sspr-properties-recommendations"></a>Recomendações de propriedades de SSPR
+Para obter mais informações sobre preços, consulte [o preço do Diretório Ativo Azure.](https://azure.microsoft.com/pricing/details/active-directory/)
 
-Ao habilitar a redefinição de senha de autoatendimento, escolha um grupo de segurança a ser usado durante o piloto.
+### <a name="prerequisites"></a>Pré-requisitos
 
-Quando você planeja iniciar o serviço mais amplamente, é recomendável usar a opção All para impor o SSPR para todos na organização. Se não for possível definir como todos, selecione o grupo de segurança do Azure AD apropriado ou o grupo do AD sincronizado com o Azure AD.
+* Um inquilino do Azure AD em funcionamento com, pelo menos, uma licença de avaliação ativada. Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-### <a name="authentication-methods"></a>Métodos de autenticação
+* Uma conta com privilégios de Administrador Global.
 
-Defina os métodos de autenticação necessários para se registrar em pelo menos um número maior que o necessário para a redefinição. Permitir vários dá aos usuários flexibilidade quando eles precisam ser redefinidos.
 
-Defina o **número de métodos necessários para redefinir** para um nível apropriado para sua organização. Uma delas requer o menor conflito, enquanto duas podem aumentar sua postura de segurança.
+### <a name="training-resources"></a>Recursos de treinamento
 
-Confira [o que são métodos de autenticação](concept-authentication-methods.md) para obter informações detalhadas sobre quais métodos de autenticação estão disponíveis para SSPR, perguntas de segurança predefinidas e como criar perguntas de segurança personalizadas.
+| Recursos| Link e descrição |
+| - | - |
+| Vídeos| [Capacitar os seus utilizadores com melhor escalabilidade de TI](https://youtu.be/g9RpRnylxS8) 
+| |[O que é o reset da palavra-passe self-service?](https://youtu.be/hc97Yx5PJiM)|
+| |[Implementação de reset de senha de autosserviço](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[Como configurar o reset de palavra-passe self-service para utilizadores em Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
+| |[Como [preparar os utilizadores] para registar [as suas] informações de segurança para o Diretório Ativo do Azure](https://youtu.be/gXuh0XS18wA) |
+| Cursos online|[Gestão de Identidades no Diretório Ativo microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Utilize o SSPR para dar aos seus utilizadores uma experiência moderna e protegida. Consulte especialmente o módulo "[Managing Azure Ative Directory Users and Groups](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)". |
+|Cursos pagos pluralsight |[As Questões de Gestão de Identidade e Acesso](https://www.pluralsight.com/courses/identity-access-management-issues) Saiba mais sobre o IAM e questões de segurança para estar atento na sua organização. Consulte especialmente o módulo "Outros Métodos de Autenticação".|
+| |[Começando com a Microsoft Enterprise Mobility Suite](https://www.pluralsight.com/courses/microsoft-enterprise-mobility-suite-getting-started) Aprenda as melhores práticas para alargar os ativos no local à nuvem de uma forma que permita a autenticação, autorização, encriptação e uma experiência móvel segura. Consulte especialmente o módulo "Configurar Funcionalidades Avançadas do Microsoft Azure Ative Directory Premium".
+|Tutoriais |[Complete uma senha de autosserviço Azure AD reset-out piloto](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
+| |[Habilitar a reescrita da palavra-passe](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback) |
+| |[Palavra-passe da AD Azure redefinida a partir do ecrã de login para windows 10](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows) |
+| FAQ|[Gestão de passwords frequentemente perguntas](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |
 
-### <a name="registration-settings"></a>Configurações de registro
 
-Defina **exigir que os usuários se registrem ao entrar** em **Sim**. Essa configuração significa que os usuários são forçados a se registrar ao entrar, garantindo que todos os usuários estejam protegidos.
+### <a name="solution-architecture"></a>Arquitetura de soluções
 
-Defina **o número de dias antes que os usuários sejam solicitados a confirmar novamente suas informações de autenticação** entre **90** e **180** dias, a menos que sua organização tenha uma necessidade comercial por um período de tempo menor.
+O exemplo seguinte descreve a arquitetura de solução de reset de palavra-passe para ambientes híbridos comuns.
 
-### <a name="notifications-settings"></a>Definições de notificações
+![diagrama de arquitetura de solução](./media/howto-sspr-deployment//solutions-architecture.png)
 
-Configure os **usuários de notificação em redefinições de senha** e **notifique todos os administradores quando outros administradores redefinirem sua senha** como **Sim**. A seleção de **Sim** em ambos aumenta a segurança, garantindo que os usuários saibam quando sua senha foi redefinida e que todos os administradores estão cientes quando um administrador altera uma senha. Se os usuários ou administradores receberem tal notificação e eles não tiverem iniciado a alteração, eles poderão relatar imediatamente uma possível violação de segurança.
+Descrição do fluxo de trabalho
 
-### <a name="customization"></a>Personalização
+Para redefinir a palavra-passe, os utilizadores vão para o portal de reset de [palavra-passe](https://aka.ms/sspr). Devem verificar o método ou métodos de autenticação previamente registados para provar a sua identidade. Se conseguirem redefinir a palavra-passe com sucesso, iniciam o processo de reset.
 
-É essencial personalizar o **email ou a URL da assistência técnica** para garantir que os usuários que tenham problemas possam obter ajuda rapidamente. Defina essa opção como um endereço de email comum da assistência técnica ou página da Web com a qual os usuários estão familiarizados.
+* Para utilizadores apenas na nuvem, a SSPR armazena a nova senha em Azure AD. 
 
-### <a name="on-premises-integration"></a>Integração no local
+* Para utilizadores híbridos, a SSPR reescreve a palavra-passe para o Diretório Ativo on-prem através do serviço Azure AD Connect. 
 
-Se você tiver um ambiente híbrido, verifique se **a gravação de senhas no AD local** está definida como **Sim**. Defina também a opção permitir que os usuários desbloqueiem a conta sem redefinir a senha como Sim, pois ela oferece mais flexibilidade.
+Nota: Para utilizadores que tenham sincronização de [hash password (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) desativado, a SSPR armazena as palavras-passe apenas no Diretório Ativo on-prem.
 
-### <a name="changingresetting-passwords-of-administrators"></a>Alterando/redefinindo senhas de administradores
+### <a name="best-practices"></a>Melhores práticas
 
-As contas de administrador são contas especiais com permissões elevadas. Para protegê-los, as seguintes restrições se aplicam à alteração de senhas de administradores:
+Pode ajudar os utilizadores a registarem-se rapidamente, implementando o SSPR ao lado de outra aplicação ou serviço popular na organização. Esta ação gerará um grande volume de inscrições e conduzirá o registo.
 
-- Os administradores corporativos locais ou os administradores de domínio não podem redefinir sua senha por meio de SSPR. Eles só podem alterar sua senha em seu ambiente local. Portanto, recomendamos não sincronizar contas de administrador do AD local para o Azure AD.
-- Um administrador não pode usar perguntas secretas & respostas como um método para redefinir a senha.
+Antes de implementar o SSPR, pode optar por determinar o número e o custo médio de cada chamada de reset de palavra-passe. Você pode usar este post de envio de dados para mostrar o valor que a SSPR está a trazer para a organização.
 
-### <a name="environments-with-multiple-identity-management-systems"></a>Ambientes com vários sistemas de gerenciamento de identidade
+#### <a name="enable-combined-registration-for-sspr-and-mfa"></a>Permitir o registo combinado de SSPR e MFA
 
-Se houver vários sistemas de gerenciamento de identidade em um ambiente, como os gerenciadores de identidade locais, como Oracle AM, SiteMinder ou outros sistemas, as senhas gravadas no Active Directory talvez precisem ser sincronizadas para os outros sistemas usando uma ferramenta como o serviço de notificação de alteração de senha (PCNS) com o MIM (Microsoft Identity Manager). Para encontrar informações sobre esse cenário mais complexo, consulte o artigo [implantar o serviço de notificação de alteração de senha do mim em um controlador de domínio](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+A Microsoft recomenda que as organizações permitam a experiência de registo combinado para SSPR e autenticação de vários fatores. Quando ativar esta experiência de registo combinado, os utilizadores só precisam de selecionar as suas informações de registo uma vez para ativar ambas as funcionalidades.
 
-## <a name="plan-deployment-and-support-for-sspr"></a>Planejar a implantação e o suporte para SSPR
+A experiência de registo combinado não requer que as organizações permitam tanto a Autenticação Multi-Factor SSPR como a Azure. O registo combinado proporciona às organizações uma melhor experiência de utilizador. Para mais informações, consulte o registo combinado de informações de [segurança (pré-visualização)](concept-registration-mfa-sspr-combined.md)
+
+## <a name="plan-the-deployment-project"></a>Planejar o projeto de implantação
+
+Considere suas necessidades organizacionais enquanto determina a estratégia para essa implantação em seu ambiente.
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, certifique-se de que você esteja participando dos participantes certos e que as funções de Stakeholder no projeto sejam bem compreendidas ao documentar os participantes e suas informações de projeto e responsabilidade.
+Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar estas armadilhas, [certifique-se](https://aka.ms/deploymentplans) de que está a envolver as partes interessadas certas e que as partes interessadas no projeto são bem compreendidas documentando as partes interessadas e as suas inputs e responsabilidades do projeto.
 
-### <a name="communications-plan"></a>Plano de comunicações
+#### <a name="required-administrator-roles"></a>Funções de administrador necessárias
 
-A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique-se proativamente com seus usuários como usar o serviço e o que eles podem fazer para obter ajuda se algo não funcionar conforme o esperado. Examine os [materiais de distribuição de redefinição de senha de autoatendimento no centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=56768) para obter ideias sobre como planejar sua estratégia de comunicação do usuário final.
 
-### <a name="testing-plan"></a>Plano de teste
+| Papel Empresarial/Persona| Função Azure AD (se necessário) |
+| - | - |
+| Mesa de apoio de nível 1| Administrador de palavras-passe |
+| Mesa de apoio de nível 2| Administrador do usuário |
+| Administrador da SSPR| Administrador global |
 
-Para garantir que sua implantação funcione conforme o esperado, você deve planejar um conjunto de casos de teste que será usado para validar a implementação. A tabela a seguir inclui alguns cenários de teste úteis que você pode usar para documentar os resultados esperados de suas organizações com base em suas políticas.
 
-| Caso prático | Resultado esperado |
-| --- | --- |
-| O portal do SSPR pode ser acessado de dentro da rede corporativa | Determinado pela sua organização |
-| O portal do SSPR pode ser acessado de fora da rede corporativa | Determinado pela sua organização |
-| Redefinir a senha do usuário do navegador quando o usuário não estiver habilitado para redefinição de senha | O usuário não consegue acessar o fluxo de redefinição de senha |
-| Redefinir a senha do usuário do navegador quando o usuário não tiver se registrado para redefinição de senha | O usuário não consegue acessar o fluxo de redefinição de senha |
-| O usuário entra quando o registro de redefinição de senha é imposto | O usuário é solicitado a registrar informações de segurança |
-| O usuário entra quando o registro de redefinição de senha foi concluído | Não é solicitado que o usuário registre informações de segurança |
-| O portal do SSPR é acessível quando o usuário não tem uma licença | Está acessível |
-| Redefinir a senha de usuário da tela de bloqueio do dispositivo ingressado no Azure AD ou ingressado no Azure Active Directory após o registro do usuário | O usuário pode redefinir a senha |
-| Os dados de registro e de uso do SSPR estão disponíveis para os administradores quase em tempo real | Está disponível por meio de logs de auditoria |
+### <a name="plan-communications"></a>Plan communications
 
-### <a name="support-plan"></a>Plano de suporte
+A comunicação é fundamental para o sucesso de qualquer novo serviço. Você deve se comunicar proativamente com seus usuários como sua experiência será alterada, quando ele será alterado e como obter suporte se eles tiverem problemas. Reveja a [palavra-passe self-service redefinir materiais de lançamento no centro de descarregamento da Microsoft](https://www.microsoft.com/download/details.aspx?id=56768) para ideias sobre como planear a sua estratégia de comunicação de utilizador final.
 
-Embora o SSPR normalmente não crie problemas de usuário, é importante que a equipe de suporte tenha preparado para lidar com problemas que possam surgir.
+### <a name="plan-a-pilot"></a>Planejar um piloto
 
-Embora um administrador possa alterar ou redefinir a senha para usuários finais por meio do portal do AD do Azure, é melhor ajudar a resolver o problema por meio de um processo de suporte de autoatendimento.
+Recomendamos que a configuração inicial do SSPR seja num ambiente de teste. Comece com um grupo piloto, permitindo a SSPR para um subconjunto de utilizadores na sua organização. Consulte [as melhores práticas para um piloto.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans)
 
-Na seção guia operacional deste documento, crie uma lista de casos de suporte e suas causas prováveis e crie um guia para resolução.
+Para criar um grupo, veja como [criar um grupo e adicionar membros no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal). 
 
-### <a name="auditing-and-reporting"></a>Auditoria e relatórios
+## <a name="plan-configuration"></a>Configuração do plano
 
-Após a implantação, muitas organizações desejam saber como ou se a redefinição de senha de autoatendimento (SSPR) está realmente sendo usada. O recurso de relatório que o Azure Active Directory (Azure AD) fornece ajuda a responder perguntas usando relatórios predefinidos.
+São necessárias as seguintes definições para ativar o SSPR juntamente com os valores recomendados.
 
-Os logs de auditoria para registro e redefinição de senha estão disponíveis por 30 dias. Portanto, se a auditoria de segurança dentro de uma empresa exigir maior retenção, os logs precisarão ser exportados e consumidos em uma ferramenta SIEM, como o [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk ou ArcSight.
+| Área | Definição | Valor |
+| --- | --- | --- |
+| **Propriedades SSPR** | Reset de palavra-passe de autosserviço ativado | **Grupo selecionado** para piloto / **Tudo** para produção |
+| **Métodos de autenticação** | Métodos de autenticação necessários para se registar | Sempre mais 1 do que o necessário para reset |
+|   | Métodos de autenticação necessários para redefinir | Um ou dois |
+| **Registo** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
+|   | Número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação | 90 - 180 dias |
+| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
+|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
+| **Personalização** | Personalizar link de helpdesk | Sim |
+|   | E-mail ou URL de helpdesk personalizado | Site de suporte ou endereço de e-mail |
+| **Integração no local** | Escreva palavras-passe para a AD no local | Sim |
+|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Sim |
 
-Em uma tabela, como a abaixo, documente o agendamento de backup, o sistema e as partes responsáveis. Talvez você não precise de backups de auditoria e de relatórios separados, mas deve ter um backup separado do qual você pode se recuperar de um problema.
+### <a name="sspr-properties"></a>Propriedades SSPR
 
-|   | Frequência de download | Sistema de destino | Parte responsável |
-| --- | --- | --- | --- |
-| Backup de auditoria |   |   |   |
-| Backup de relatórios |   |   |   |
-| Backup de recuperação de desastre |   |   |   |
+Ao ativar o SSPR, escolha um grupo de segurança adequado no ambiente piloto.
 
-## <a name="implementation"></a>Implementação
+* Para impor o registo de SSPR para todos, recomendamos a utilização da opção **All.**
+* Caso contrário, selecione o grupo de segurança Azure AD ou AD apropriado.
 
-A implementação ocorre em três estágios:
+### <a name="authentication-methods"></a>Métodos de autenticação
 
-- Configurar usuários e licenças
-- Configurar o Azure AD SSPR para registro e autoatendimento
-- Configurar Azure AD Connect para Write-back de senha
+Quando o SSPR está ativado, os utilizadores só podem redefinir a sua palavra-passe se tiverem dados presentes nos métodos de autenticação que o administrador ativou. Os métodos incluem notificação de telefone, autenticador, questões de segurança, etc. Para mais informações, consulte [Os métodos de autenticação?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
 
-### <a name="communicate-the-change"></a>Comunicar a alteração
+Recomendamos as seguintes definições do método de autenticação:
 
-Comece a implementação do plano de comunicações que você desenvolveu na fase de planejamento.
+* Detete os métodos de **autenticação necessários para se registar** em pelo menos mais um do que o número necessário para repor. Permitir a autenticação múltipla confere flexibilidade aos utilizadores quando precisam de ser redefinidos.
 
-### <a name="ensure-groups-are-created-and-populated"></a>Garantir que os grupos sejam criados e preenchidos
+* Definir **número de métodos necessários para repor** para um nível adequado à sua organização. Um requer menos atrito, enquanto dois podem aumentar a sua postura de segurança. 
 
-Consulte a seção planejando métodos de autenticação de senha e verifique se os grupos do piloto ou da implementação de produção estão disponíveis e se todos os usuários apropriados são adicionados aos grupos.
+Nota: O utilizador deve ter os métodos de autenticação configurados nas políticas e restrições de [password no Diretório Ativo do Azure](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
 
-### <a name="apply-licenses"></a>Aplicar licenças
+### <a name="registration-settings"></a>Configurações de registro
 
-Os grupos que você vai implementar devem ter a licença do Azure AD Premium atribuída a eles. Você pode atribuir licenças diretamente ao grupo ou pode usar políticas de licença existentes, como por meio do PowerShell ou licenciamento baseado em grupo.
+Definir **Exigir que os utilizadores se registem ao iniciar sessão** no **Yes**. Esta definição requer que os utilizadores se registem ao iniciar sessão, garantindo que todos os utilizadores estão protegidos.
 
-Informações sobre a atribuição de licenças a grupos de usuários podem ser encontradas no artigo [atribuir licenças a usuários por associação de grupo no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
+Set **Número de dias antes de os utilizadores forem solicitados a reconfirmar as suas informações** de autenticação entre **90** e **180** dias, a menos que a sua organização tenha uma necessidade de negócio para um prazo mais curto.
 
-### <a name="configure-sspr"></a>Configurar a SSPR
+### <a name="notifications-settings"></a>Definições de notificações
 
-#### <a name="enable-groups-for-sspr"></a>Habilitar grupos para SSPR
+Configure tanto os **utilizadores notificar em resets de palavra-passe** como os administradores notificar em todos os administradores quando outros administradores redefinirem a sua **palavra-passe** para **Sim**. Selecionar **Sim** em ambos aumenta a segurança, garantindo que os utilizadores estão cientes quando a sua palavra-passe é redefinida. Também garante que todos os administradores estão cientes quando um administrador muda uma palavra-passe. Se os utilizadores ou administradores receberem uma notificação e não tiverem iniciado a alteração, podem reportar imediatamente um potencial problema de segurança.
 
-1. Acesse a portal do Azure com uma conta de administrador.
-1. Selecione todos os serviços e, na caixa filtro, digite Azure Active Directory e, em seguida, selecione Azure Active Directory.
-1. Na folha Active Directory, selecione redefinição de senha.
-1. No painel Propriedades, selecione selecionado. Se você quiser que todos os usuários estejam habilitados, selecione tudo.
-1. Na folha política de redefinição de senha padrão, digite o nome do primeiro grupo, selecione-o e, em seguida, clique em selecionar na parte inferior da tela e selecione salvar na parte superior da tela.
-1. Repita esse processo para cada grupo.
+### <a name="customization-settings"></a>Definições de personalização
 
-#### <a name="configure-the-authentication-methods"></a>Configurar os métodos de autenticação
+É fundamental personalizar o e-mail ou URL do helpdesk para garantir que os utilizadores que sofrem de problemas possam obter ajuda imediatamente. Detete esta opção para um endereço de e-mail de helpdesk comum ou página web que os seus utilizadores estão familiarizados. 
 
-Faça referência ao seu planejamento na seção planejando métodos de autenticação de senha deste documento.
+Para mais informações, consulte [Personalize a funcionalidade Azure AD para redefinir a palavra-passe de autosserviço](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization).
 
-1. Selecione registro, em exigir que o usuário se registre ao entrar, selecione Sim e, em seguida, defina o número de dias antes da expiração e, em seguida, selecione salvar.
-1. Selecione notificação e configure de acordo com seu plano e, em seguida, selecione salvar.
-1. Selecione personalização e configurar de acordo com seu plano e, em seguida, selecione salvar.
-1. Selecione integração local e configure de acordo com seu plano e, em seguida, selecione salvar.
+### <a name="password-writeback"></a>Reescrita de palavra-passe
 
-### <a name="enable-sspr-in-windows"></a>Habilitar SSPR no Windows
+**A Password Writeback** está ativada com [o Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) e escreve resets de palavra-passe na nuvem de volta a um diretório existente no local em tempo real. Para mais informações, consulte [o que é a Palavra-passe Writeback?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
 
-Dispositivos Windows 10 que executam a versão 1803 ou superior que são ingressadas no Azure AD ou no Azure AD híbrido podem redefinir suas senhas na tela de logon do Windows. As informações e as etapas para configurar esse recurso podem ser encontradas no artigo [redefinição de senha do Azure ad na tela de logon](tutorial-sspr-windows.md)
+Recomendamos as seguintes definições:
 
-### <a name="configure-password-writeback"></a>Configurar write-back de senha
+* Certifique-se de que **as palavras-passe de redação para a AD no local** estão definidas para **Sim**. 
+* Defina o **Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe** para **Sim**.
 
-As etapas para configurar o Write-back de senha para sua organização podem ser encontradas no artigo [como: configurar o Write-back de senha](howto-sspr-writeback.md).
+Por padrão, o Azure AD desbloqueia contas quando executa uma reposição de palavra-passe.
 
-## <a name="manage-sspr"></a>Gerenciar SSPR
+### <a name="administrator-password-setting"></a>Definição de palavra-passe do administrador
 
-Funções necessárias para gerenciar recursos associados à redefinição de senha de autoatendimento.
+As contas dos administradores têm permissões elevadas. Os administradores empresariais ou de domínio no local não podem redefinir as suas palavras-passe através do SSPR. As contas de administração no local têm as seguintes restrições:
 
-| Função corporativa/persona | Função do Azure AD (se necessário) |
-| :---: | :---: |
-| Suporte técnico nível 1 | Administrador de palavras-passe |
-| Suporte técnico nível 2 | Administrador do usuário |
-| Administrador do SSPR | Administrador global |
+* só pode alterar a sua palavra-passe no seu ambiente on-prem.
+* nunca pode usar as perguntas e respostas secretas como um método para redefinir a sua palavra-passe.
 
-### <a name="support-scenarios"></a>Cenários de suporte
+Recomendamos que não sincronize as suas contas de administração de diretório sinuoso com a Azure AD.
 
-Para habilitar o sucesso da equipe de suporte, você pode criar perguntas frequentes com base nas perguntas que você recebe dos usuários. A tabela a seguir contém cenários de suporte comuns.
+### <a name="environments-with-multiple-identity-management-systems"></a>Ambientes com múltiplos sistemas de gestão de identidade
 
-| Cenários | Descrição |
-| --- | --- |
-| O usuário não tem nenhum método de autenticação registrado disponível | Um usuário está tentando redefinir sua senha, mas não tem nenhum dos métodos de autenticação que eles registraram disponíveis (exemplo: elas deixaram seu telefone celular em casa e não podem acessar o email) |
-| O usuário não está recebendo um texto ou uma chamada em seu escritório ou telefone celular | Um usuário está tentando verificar sua identidade por meio de texto ou chamada, mas não está recebendo um texto/chamada. |
-| O usuário não pode acessar o portal de redefinição de senha | Um usuário deseja redefinir sua senha, mas não está habilitado para redefinição de senha e, portanto, não pode acessar a página para atualizar senhas. |
-| O usuário não pode definir uma nova senha | Um usuário conclui a verificação durante o fluxo de redefinição de senha, mas não pode definir uma nova senha. |
-| O usuário não vê um link Redefinir senha em um dispositivo Windows 10 | Um usuário está tentando redefinir a senha da tela de bloqueio do Windows 10, mas o dispositivo não está associado ao Azure AD ou a política de dispositivo do Intune não está habilitada |
+Alguns ambientes têm múltiplos sistemas de gestão de identidade. Os gestores de identidade on-premesis como o Oracle AM e o SiteMinder, requerem sincronização com AD para senhas. Pode fazê-lo utilizando uma ferramenta como o Serviço de Notificação de Alteração de Passwords (PCNS) com o Microsoft Identity Manager (MIM). Para encontrar informações sobre este cenário mais complexo, consulte o artigo Implementar o Serviço de Notificação de Alteração de [Palavras-Passe MIM num controlador](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller)de domínio .
 
-Talvez você também queira incluir informações como as seguintes para solução de problemas adicionais.
+## <a name="plan-testing-and-support"></a>Teste e Suporte de Planos
 
-- Quais grupos estão habilitados para SSPR.
-- Quais métodos de autenticação são configurados.
-- As políticas de acesso relacionadas ao na rede corporativa ou da.
-- Etapas de solução de problemas para cenários comuns.
+Em cada fase da sua implantação de grupos piloto iniciais através de toda a organização, certifique-se de que os resultados são como esperado.
 
-Você também pode consultar nossa documentação online sobre solução de problemas de redefinição de senha de autoatendimento para entender as etapas gerais de solução de problemas para os cenários de SSPR mais comuns.
+### <a name="plan-testing"></a>Teste de plano
+
+Para garantir que a sua implementação funciona como esperado, planeje um conjunto de casos de teste para validar a implementação. Para avaliar os casos de teste, precisa de um utilizador de teste não administrador com uma palavra-passe. Se precisar de criar um utilizador, consulte [Adicionar novos utilizadores ao Diretório Ativo Do Azure](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+
+A tabela seguinte inclui cenários de teste úteis que pode usar para documentar os resultados esperados das suas organizações com base nas suas políticas.
+<br>
+
+
+| Caso de negócios| Resultados esperados |
+| - | - |
+| Portal SSPR é acessível a partir da rede corporativa| Determinado pela sua organização |
+| Portal SSPR é acessível de fora da rede corporativa| Determinado pela sua organização |
+| Redefinir a palavra-passe do utilizador a partir do navegador quando o utilizador não está ativado para redefinir palavra-passe| O utilizador não é capaz de aceder ao fluxo de redefinição da palavra-passe |
+| Redefinir a palavra-passe do utilizador do navegador quando o utilizador não se registou para redefinir a palavra-passe| O utilizador não é capaz de aceder ao fluxo de redefinição da palavra-passe |
+| O utilizador insere-se quando é obrigado a fazer o registo de redefinição da palavra-passe| Solicita ao utilizador que registe informações de segurança |
+| O utilizador insere-se quando o registo de reset da palavra-passe estiver completo| Solicita ao utilizador que registe informações de segurança |
+| Portal SSPR é acessível quando o utilizador não tem licença| É acessível |
+| Redefinir a palavra-passe do utilizador a partir do Windows 10 Azure AD juntou-se ao ecrã de bloqueio do dispositivo| O utilizador pode redefinir a palavra-passe |
+| Os dados de registo e utilização da SSPR estão disponíveis para administradores em tempo quase real| Está disponível através de registos de auditoria |
+
+Também pode consultar uma palavra-passe de reset de [autosserviço Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot). Neste tutorial, permitirá um lançamento piloto da SSPR na sua organização e teste utilizando uma conta não administradorada.
+
+### <a name="plan-support"></a>Apoio ao plano
+
+Embora a SSPR não crie normalmente problemas de utilizador, é importante preparar pessoal de apoio para lidar com questões que possam surgir. Embora um administrador possa redefinir a palavra-passe para utilizadores finais através do portal Azure AD, é melhor ajudar a resolver o problema através de um processo de suporte de self-service.
+
+Para permitir o sucesso da sua equipa de suporte, pode criar uma FAQ com base nas questões que recebe dos seus utilizadores. Eis alguns exemplos:
+
+| Cenários| Descrição |
+| - | - |
+| O utilizador não tem quaisquer métodos de autenticação registados disponíveis| Um utilizador está a tentar redefinir a sua palavra-passe, mas não tem nenhum dos métodos de autenticação que registou disponíveis (Exemplo: deixaram o telemóvel em casa e não conseguem aceder a e-mails) |
+| O utilizador não está a receber uma mensagem ou uma chamada no seu escritório ou telemóvel| Um utilizador está a tentar verificar a sua identidade por sms ou chamada, mas não está a receber um texto/chamada. |
+| O utilizador não pode aceder ao portal de reset de palavra-passe| Um utilizador quer redefinir a sua palavra-passe, mas não está habilitado para redefinir palavra-passe e não consegue aceder à página para atualizar palavras-passe. |
+| O utilizador não pode definir uma nova senha| Um utilizador completa a verificação durante o fluxo de redefinição da palavra-passe, mas não pode definir uma nova palavra-passe. |
+| O utilizador não vê uma ligação de palavra-passe redefinida num dispositivo Windows 10| Um utilizador está a tentar redefinir a palavra-passe do ecrã de bloqueio do Windows 10, mas o dispositivo não está associado ao Azure AD, ou a política do dispositivo Intune não está ativada |
+
+### <a name="plan-roll-back"></a>Plano reverter
+
+Para reverter a implantação:
+
+* para um único utilizador, remova o utilizador do grupo de segurança 
+
+* para um grupo, remova o grupo da configuração SSPR
+
+* Para todos, desabilite o SSPR para o inquilino da AD Azure
+
+## <a name="deploy-sspr"></a>Implementar SSPR
+
+Antes de ser implementado, certifique-se de que fez o seguinte:
+
+1. Criou e começou a executar o seu plano de [comunicação.](#plan-communications)
+
+1. Determinou as definições de [configuração](#plan-configuration)adequadas .
+
+1. Identificou os utilizadores e grupos para os ambientes [piloto](#plan-a-pilot) e de produção.
+
+1. [Definições de configuração determinadas](#plan-configuration) para registo e self-service.
+
+1. [Redação da palavra-passe configurada](#password-writeback) se tiver um ambiente híbrido.
+
+
+**Está pronto para implantar sSPR!**
+
+Consulte o reset da [palavra-passe de autosserviço Enable](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot#enable-self-service-password-reset) para obter instruções passo a passo completas na configuração das seguintes áreas.
+
+1. [Métodos de autenticação](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
+
+1. [Configurações de registo](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)
+
+1. [Definições de notificações](#notifications-settings)
+
+1. [Definições de personalização](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
+
+1. [Integração no local](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback)
+
+### <a name="enable-sspr-in-windows"></a>Ativar sSPR no Windows
+Para máquinas que executam o Windows 7, 8, 8.1 e 10, pode [permitir que os utilizadores reiniciem a sua palavra-passe no ecrã](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-windows) de login do Windows
+
+## <a name="manage-sspr"></a>Gerir o SSPR
+
+A Azure AD pode fornecer informações adicionais sobre o seu desempenho sspr através de auditorias e relatórios.
+
+### <a name="password-management-activity-reports"></a>Relatórios de atividade de gestão de passwords 
+
+Pode utilizar relatórios pré-construídos no portal Azure para medir o desempenho do SSPR. Se você estiver licenciado adequadamente, também poderá criar consultas personalizadas. Para mais informações, consulte [opções de Reporte para gestão de passwords Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting)
+
+> [!NOTE]
+>  Você deve ser [um administrador global](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles), e você deve optar por que estes dados sejam recolhidos para a sua organização. Para optar, deve visitar o separador Relatório ou os registos de auditoria no Portal Azure pelo menos uma vez. Até lá, os dados não recolhem para a sua organização.
+
+Os registos de auditoria para registo e reset de palavra-passe estão disponíveis por 30 dias. Se a auditoria de segurança dentro da sua corporação necessitar de uma retenção mais longa, os registos devem ser exportados e consumidos numa ferramenta SIEM, como [o Azure Sentinel,](https://docs.microsoft.com/azure/sentinel/connect-azure-active-directory)Splunk ou ArcSight.
+
+![Screenshot de relatório sspr](./media/howto-sspr-deployment/sspr-reporting.png)
+
+### <a name="authentication-methods--usage-and-insights"></a>Métodos de autenticação- Utilização e Insights
+
+[O uso e insights](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights) permitem-lhe entender como os métodos de autenticação para funcionalidades como o Azure MFA e o SSPR estão a trabalhar na sua organização. Esta capacidade de reporte fornece à sua organização os meios para entender quais os métodos que se registam e como usá-los.
+
+### <a name="troubleshoot"></a>Resolução de problemas
+
+* Consulte o reset da [palavra-passe self-service Troubleshoot](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-troubleshoot) 
+
+* Siga a [gestão de passwords frequentemente colocadas perguntas](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) 
+
+### <a name="helpful-documentation"></a>Documentação útil
+
+* [What are authentication methods?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods) (O que são os métodos de autenticação?)
+
+* [Como funciona: Reset de senha de autosserviço da Azure AD?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks)
+
+* [Personalize a funcionalidade Azure AD para reset de senha de autosserviço](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
+
+* [Password policies and restrictions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) (Políticas de palavras-passe e restrições no Azure Active Directory)
+
+* [O que é a redação da palavra-passe?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Considere implementar a proteção de senha do Azure AD](concept-password-ban-bad.md)
+* Para começar a implementar sSPR, consulte [Complete uma senha de autosserviço Azure AD reset fora](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot)
 
-- [Considere implementar o bloqueio inteligente do Azure AD](howto-password-smart-lockout.md)
+* [Considere implementar a proteção de senhas azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
+
+* [Considere implementar o Bloqueio Inteligente Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)

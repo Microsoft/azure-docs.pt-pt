@@ -1,5 +1,5 @@
 ---
-title: Atribuir um papel personalizado da AD Azure na Gestão de Identidade Privilegiada (PIM)  Microsoft Docs
+title: Designação de ad ida ao Papel personalizado da AD - Gestão privilegiada de identidade (PIM)
 description: Como atribuir uma função personalizada da AD Azure para a atribuição de Gestão de Identidade Privilegiada (PIM)
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a1ec6ddf4f10aa2e03656eb6a3d92ead0d74922
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 410ee39a3984c4e6adde7dd2763808f776c71bd5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896579"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046944"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Atribuir um papel personalizado da AD Azure na Gestão de Identidade Privilegiada
 
@@ -29,7 +29,7 @@ Este artigo diz-lhe como usar a Gestão de Identidade Privilegiada (PIM) para cr
 
 - Para obter mais informações sobre a criação de papéis personalizados para delegar a gestão de aplicações em Azure AD, consulte as funções de [administrador personalizado no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-custom-overview.md).
 - Se ainda não utilizou a Gestão de Identidade Privilegiada, obtenha mais informações no [Start use A Gestão](pim-getting-started.md)de Identidade Privilegiada.
-- Para obter informações sobre como conceder a outro administrador acesso para gerenciar Privileged Identity Management, consulte [conceder acesso a outros administradores para gerenciar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+- Para obter informações sobre como conceder a outro administrador acesso para gerir a Gestão de Identidade Privilegiada, consulte o [acesso de Grant a outros administradores para gerir a Gestão de Identidade Privilegiada.](pim-how-to-give-access-to-pim.md)
 
 > [!NOTE]
 > As funções personalizadas da Azure AD não estão integradas com as funções de diretório incorporada durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de papéis terá lugar na experiência de papéis incorporados.
@@ -56,7 +56,7 @@ A Gestão de Identidade Privilegiada pode gerir funções personalizadas que pod
 
     ![selecionar a função elegível para atribuir a um utilizador](./media/azure-ad-custom-roles-assign/select-role.png)
 
-1. Selecione uma função que você deseja atribuir e clique em **selecionar**. Abre-se a lista **de membros Select.**
+1. Selecione uma função que pretende atribuir e, em seguida, clique em **Selecionar**. Abre-se a lista **de membros Select.**
 
     ![selecione o utilizador a quem está atribuindo o papel](./media/azure-ad-custom-roles-assign/select-member.png)
 
@@ -79,6 +79,6 @@ Para verificar a atribuição de funções, em funções abertas, selecione **At
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar uma função personalizada da AD Azure](azure-ad-custom-roles-assign.md)
-- [Remover ou atualizar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-update-remove.md)
-- [Configurar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-configure.md)
-- [Definições de função no Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Remova ou atualize uma atribuição de funções personalizadas da AD Azure](azure-ad-custom-roles-update-remove.md)
+- [Configure uma atribuição de funções personalizadas da Azure AD](azure-ad-custom-roles-configure.md)
+- [Definições de papéis em Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

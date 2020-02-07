@@ -1,7 +1,7 @@
 ---
-title: Monitorar o uso de recursos e as métricas de consulta
+title: Monitorizar a utilização de recursos e métricas de consulta
 titleSuffix: Azure Cognitive Search
-description: Habilite o registro em log, obtenha métricas de atividade de consulta, uso de recursos e outros dados do sistema de um serviço de Pesquisa Cognitiva do Azure.
+description: Ativar a exploração madeireira, obter métricas de atividade de consulta, uso de recursos e outros dados do sistema a partir de um serviço de Pesquisa Cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,95 +9,97 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7ef868f156ac537cb066f293872f69135c4df25f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793489"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059658"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Monitorar o consumo de recursos e a atividade de consulta no Azure Pesquisa Cognitiva
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Monitorizar o consumo de recursos e a atividade de consulta na Pesquisa Cognitiva do Azure
 
-Na página Visão geral do serviço de Pesquisa Cognitiva do Azure, você pode exibir dados do sistema sobre o uso de recursos, métricas de consulta e a quantidade de cota disponível para criar mais índices, indexadores e fontes de dados. Você também pode usar o portal para configurar o log Analytics ou outro recurso usado para a coleta de dados persistentes. 
+Na página de visão geral do seu serviço de Pesquisa Cognitiva Azure, pode visualizar dados do sistema sobre o uso de recursos, métricas de consulta e quanto quota está disponível para criar mais índices, indexadores e fontes de dados. Também pode utilizar o portal para configurar a análise de registoou outro recurso utilizado para a recolha persistente de dados. 
 
-A configuração de logs é útil para autodiagnóstico e preservação do histórico operacional. Internamente, os logs existem no back-end por um curto período de tempo, suficiente para investigação e análise se você arquivar um tíquete de suporte. Se você quiser controlar e acessar as informações de log, deverá configurar uma das soluções descritas neste artigo.
+A configuração de registos é útil para autodiagnósticos e preservação do histórico operacional. Internamente, existem registos no backend por um curto período de tempo, suficientes para investigação e análise se você arquivar um bilhete de apoio. Se quiser controlar e aceder a informações de log, deverá configurar uma das soluções descritas neste artigo.
 
-Neste artigo, saiba mais sobre suas opções de monitoramento, como habilitar o log e o armazenamento de log e como exibir o conteúdo do log.
+Neste artigo, conheça as suas opções de monitorização, como ativar o armazenamento de registos e registos e como visualizar o conteúdo do registo.
 
-## <a name="metrics-at-a-glance"></a>Métricas em um relance
+## <a name="metrics-at-a-glance"></a>Métricas num ápice
 
-As seções de **uso** e **monitoramento** criadas na página Visão geral relatam sobre o consumo de recursos e as métricas de execução de consulta. Essas informações ficam disponíveis assim que você começa a usar o serviço, sem nenhuma configuração necessária. Esta página é atualizada a cada poucos minutos. Se você estiver finalizando decisões sobre [qual camada usar para cargas de trabalho de produção](search-sku-tier.md)ou se deseja [ajustar o número de réplicas e partições ativas](search-capacity-planning.md), essas métricas podem ajudá-lo com essas decisões mostrando como os recursos são consumidos rapidamente e quão bem a configuração atual manipula a carga existente.
+As secções de **utilização** e **monitorização** incorporadas na página overview reportam sobre o consumo de recursos e métricas de execução de consultas. Esta informação fica disponível assim que começar a utilizar o serviço, sem necessidade de configuração. Esta página é refrescada a cada poucos minutos. Se estiver a finalizar decisões sobre [qual o nível a utilizar para cargas](search-sku-tier.md)de trabalho de produção , ou se ajustar [o número de réplicas e divisórias ativas,](search-capacity-planning.md)estas métricas podem ajudá-lo com essas decisões mostrando-lhe a rapidez com que os recursos são consumidos e quão bem a configuração atual lida com a carga existente.
 
-A guia **uso** mostra a disponibilidade de recursos em relação aos [limites](search-limits-quotas-capacity.md)atuais. A ilustração a seguir é para o serviço gratuito, que está limitado a três objetos de cada tipo e 50 MB de armazenamento. Um serviço básico ou Standard tem limites mais altos e, se você aumentar as contagens de partição, o armazenamento máximo será proporcionalmente.
+O separador **De Utilização** mostra a disponibilidade de recursos em relação aos [limites](search-limits-quotas-capacity.md)atuais . A seguinte ilustração é para o serviço gratuito, que está limitado a 3 objetos de cada tipo e 50 MB de armazenamento. Um serviço Básico ou Standard tem limites mais elevados, e se aumentar as contagens de partição, o armazenamento máximo sobe proporcionalmente.
 
-![Status de uso relativo aos limites efetivos](./media/search-monitor-usage/usage-tab.png
- "Status de uso relativo aos limites efetivos")
+![Estado de utilização relativo a limites eficazes](./media/search-monitor-usage/usage-tab.png
+ "Estado de utilização relativo a limites eficazes")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Consultas por segundo (QPS) e outras métricas
 
-A guia **monitoramento** mostra as médias de movimentação para métricas como consultas de pesquisa *por segundo* (QPS), agregadas por minuto. 
-A *latência de pesquisa* é a quantidade de tempo que o serviço de pesquisa precisou para processar consultas de pesquisa, agregadas por minuto. A *porcentagem de consultas de pesquisa limitadas* (não mostradas) é a porcentagem de consultas de pesquisa que foram limitadas, também agregadas por minuto.
+O separador **monitora** mostra médias móveis para métricas como consultas de pesquisa *por segundo* (QPS), agregadas por minuto. 
+*A latência* de pesquisa é a quantidade de tempo que o serviço de pesquisa necessário para processar consultas de pesquisa, agregadas por minuto. *A percentagem* de consultas de pesquisa acelerada (não mostrada) é a percentagem de consultas de pesquisa que foram estranguladas, também agregadas por minuto.
 
-Esses números são aproximados e visam fornecer uma ideia geral de como o sistema está atendendo às solicitações. O QPS real pode ser maior ou menor do que o número relatado no Portal.
+Estes números são aproximados e destinam-se a dar-lhe uma ideia geral de quão bem o seu sistema está a servir pedidos. O QPS real pode ser superior ou inferior ao número reportado no portal.
 
-![Atividade de consultas por segundo](./media/search-monitor-usage/monitoring-tab.png "Atividade de consultas por segundo")
+![Consultas por segunda atividade](./media/search-monitor-usage/monitoring-tab.png "Consultas por segunda atividade")
 
 ## <a name="activity-logs"></a>Registos de atividade
 
-O **log de atividades** coleta informações de Azure Resource Manager. Exemplos de informações encontradas no log de atividades incluem criar ou excluir um serviço, atualizar um grupo de recursos, verificar a disponibilidade do nome ou obter uma chave de acesso de serviço para lidar com uma solicitação. 
+O **registo de atividade** recolhe informações do Gestor de Recursos Azure. Exemplos de informações encontradas no registo de Atividades incluem a criação ou a locação de um serviço, a atualização de um grupo de recursos, a verificação da disponibilidade de nomes ou a obtenção de uma chave de acesso ao serviço para lidar com um pedido. 
 
-Você pode acessar o **log de atividades** no painel de navegação esquerdo ou em notificações na barra de comandos da janela superior ou na página **diagnosticar e solucionar problemas** .
+Pode aceder ao **registo de atividade** a partir do painel de navegação à esquerda, ou a partir de Notificações na barra de comando da janela superior, ou da página diagnosticar e resolver **problemas.**
 
-Para tarefas em serviço como criar um índice ou excluir uma fonte de dados, você verá notificações genéricas como "obter chave de administração" para cada solicitação, mas não a ação específica em si. Para esse nível de informação, você deve habilitar uma solução de monitoramento de complemento.
+Para tarefas em serviço como criar um índice ou apagar uma fonte de dados, você verá notificações genéricas como "Obter Chave de Administrador" para cada pedido, mas não a ação específica em si. Para este nível de informação, deve ativar uma solução de monitorização adicionais.
 
-## <a name="add-on-monitoring-solutions"></a>Soluções de monitoramento de complemento
+## <a name="add-on-monitoring-solutions"></a>Soluções de monitorização adicionais
 
-O Azure Pesquisa Cognitiva não armazena nenhum dado além dos objetos que ele gerencia, o que significa que os dados de log têm que ser armazenados externamente. Você pode configurar qualquer um dos recursos abaixo se desejar manter os dados de log. 
+A Pesquisa Cognitiva Azure não armazena dados para além dos objetos que gere, o que significa que os dados de registo têm de ser armazenados externamente. Pode configurar qualquer um dos recursos abaixo se quiser persistir os dados de registo. 
 
-A tabela a seguir compara as opções de armazenamento de logs e a adição de monitoramento detalhado de operações de serviço e de cargas de trabalho de consulta por meio de Application Insights.
+O quadro seguinte compara as opções de armazenamento de registos e a monitorização aprofundada das operações de serviço e as cargas de trabalho de consulta através do Application Insights.
 
 | Recurso | Utilizado para |
 |----------|----------|
-| [Registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registrados em um espaço de trabalho Log Analytics. Você pode executar consultas em um espaço de trabalho para retornar informações detalhadas do log. Para obter mais informações, consulte Introdução [aos logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registrados em um contêiner de BLOB e armazenados em arquivos JSON. Use um editor de JSON para exibir o conteúdo do arquivo.|
-| [Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados em log e métricas de consulta, com base nos esquemas documentados neste artigo. Escolha esta opção como um serviço de coleta de dados alternativo para logs muito grandes. |
+| [Registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registados e métricas de consulta, com base nos esquemas abaixo. Os eventos estão registados num espaço de trabalho do Log Analytics. Pode fazer consultas contra um espaço de trabalho para devolver informações detalhadas do registo. Para mais informações, consulte [Começar com registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registados num contentor Blob e armazenados em ficheiros JSON. Utilize um editor da JSON para ver o conteúdo dos ficheiros.|
+| [Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/) | Eventos registados e métricas de consulta, com base nos esquemas documentados neste artigo. Escolha isto como um serviço alternativo de recolha de dados para registos muito grandes. |
 
-Os logs de Azure Monitor e o armazenamento de BLOBs estão disponíveis como um serviço gratuito para que você possa experimentá-lo gratuitamente pelo tempo de vida da sua assinatura do Azure. Application Insights é livre para se inscrever e usar desde que o tamanho dos dados do aplicativo esteja sob determinados limites (consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes).
+Tanto os registos do Monitor Azure como o armazenamento blob estão disponíveis como um serviço gratuito para que possa experimentá-lo gratuitamente durante a vida útil da sua subscrição Azure. Os Insights de Aplicação são livres de se inscreverem e utilizarem desde que o tamanho dos dados da aplicação esteja abaixo de determinados limites (consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para mais detalhes).
 
-A próxima seção orienta você pelas etapas de habilitar e usar o armazenamento de BLOBs do Azure para coletar e acessar os dados de log criados pelas operações de Pesquisa Cognitiva do Azure.
+A secção seguinte percorre-o através dos passos de habilitação e utilização do armazenamento Azure Blob para recolher e aceder aos dados de registo criados pelas operações de Pesquisa Cognitiva Azure.
 
-## <a name="enable-logging"></a>Ativar registo
+## <a name="enable-logging"></a>Ativar o registo
 
-O registro em log para cargas de trabalho de indexação e consulta é desativado por padrão e depende de soluções complementares para a infraestrutura de log e o armazenamento externo de longo prazo. Por si só, os únicos dados persistentes no Azure Pesquisa Cognitiva são os objetos que ele cria e gerencia, de modo que os logs devem ser armazenados em outro lugar.
+O registo de cargas horárias de indexação e consulta está desligado por defeito e depende de soluções adicionais tanto para infraestruturas de exploração como para armazenamento externo a longo prazo. Por si só, os únicos dados persistidos na Pesquisa Cognitiva Azure são os objetos que cria e gere, pelo que os registos devem ser armazenados em outro lugar.
 
-Nesta seção, você aprenderá a usar o armazenamento de BLOBs para armazenar eventos registrados e dados de métricas.
+Nesta secção, você aprenderá a usar o armazenamento Blob para armazenar eventos registados e dados de métricas.
 
-1. [Crie uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) se você ainda não tiver uma. Você pode colocá-lo no mesmo grupo de recursos que o Azure Pesquisa Cognitiva para simplificar a limpeza mais tarde se quiser excluir todos os recursos usados neste exercício.
+1. [Crie uma conta](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) de armazenamento se ainda não tiver uma. Pode colocá-lo no mesmo grupo de recursos que a Azure Cognitive Search para simplificar a limpeza mais tarde se pretender eliminar todos os recursos utilizados neste exercício.
 
-   Sua conta de armazenamento deve existir na mesma região que o Azure Pesquisa Cognitiva.
+   A sua conta de armazenamento deve existir na mesma região que a Pesquisa Cognitiva Azure.
 
-2. Abra a página Visão geral do serviço de pesquisa. No painel de navegação esquerdo, role para baixo até **monitoramento** e clique em **habilitar monitoramento**.
+2. Abra a sua página de visão geral do serviço de pesquisa. No painel de navegação à esquerda, desloque-se para **baixo** até monitorizar e clique em **definições de diagnóstico**.
 
-   ![Habilitar monitoramento](./media/search-monitor-usage/enable-monitoring.png "Ativar monitorização")
+   ![Definições de diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Definições de diagnóstico")
 
-3. Escolha os dados que você deseja exportar: logs, métricas ou ambos. Você pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-lo para Azure Monitor logs.
+3. **Selecione Adicionar definição de diagnóstico**
 
-   Para o armazenamento de arquivamento no BLOB, somente a conta de armazenamento deve existir. Contêineres e blobs serão criados conforme necessário quando os dados do log forem exportados.
+4. Escolher os dados que pretende exportar: registos, métricas ou ambos. Pode copiá-lo para uma conta de armazenamento, enviá-la para um centro de eventos ou exportá-la para registos do Monitor Azure.
 
-   ![Configurar arquivo morto de armazenamento de BLOBs](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurar arquivo morto de armazenamento de BLOBs")
+   Para o armazenamento de arquivo para blob, apenas a conta de armazenamento deve existir. Os recipientes e as bolhas serão criados quando os dados de registo forem exportados.
 
-4. Salve o perfil.
+   ![Configure arquivo de armazenamento de blob](./media/search-monitor-usage/configure-blob-storage-archive.png "Configure arquivo de armazenamento de blob")
 
-5. Teste o log criando ou excluindo objetos (cria eventos de log) e enviando consultas (gera métricas). 
+5. Salvar o perfil
 
-O registro em log é habilitado quando você salva o perfil. Os contêineres são criados somente quando há uma atividade para log ou medida. Quando os dados são copiados para uma conta de armazenamento, os dados são formatados como JSON e colocados em dois contêineres:
+6. Teste a exploração de madeira criando ou apagando objetos (cria eventos de registo) e submetendo consultas (gera métricas). 
 
-* insights-logs-operationlogs: para logs de tráfego de pesquisa
-* insights – métricas-PT1M: para métricas
+O registo é ativado assim que guardar o perfil. Os recipientes só são criados quando existe uma atividade para registar ou medir. Quando os dados são copiados para uma conta de armazenamento, os dados são formatados como JSON e colocados em dois recipientes:
 
-**Leva uma hora antes que os contêineres apareçam no armazenamento de BLOBs. Há um blob, por hora, por contêiner.**
+* insights-logs-operationlogs: para os registos de tráfego de pesquisa
+* as métricas-insights-pt1m: para métricas
 
-Você pode usar [Visual Studio Code](#download-and-open-in-visual-studio-code) ou outro editor de JSON para exibir os arquivos. 
+**Demora uma hora até que os contentores apareçam no armazém da Blob. Há uma bolha, por hora, por recipiente.**
+
+Pode utilizar o [Visual Studio Code](#download-and-open-in-visual-studio-code) ou outro editor da JSON para visualizar os ficheiros. 
 
 ### <a name="example-path"></a>Caminho de exemplo
 
@@ -105,75 +107,75 @@ Você pode usar [Visual Studio Code](#download-and-open-in-visual-studio-code) o
 resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
 ```
 
-## <a name="log-schema"></a>Esquema de log
-Os blobs que contêm os logs de tráfego do serviço de pesquisa são estruturados conforme descrito nesta seção. Cada blob tem um objeto raiz chamado **registros** contendo uma matriz de objetos de log. Cada blob contém registros para todas as operações que ocorreram durante a mesma hora.
+## <a name="log-schema"></a>Esquema de registo
+As bolhas que contêm os registos de tráfego do serviço de pesquisa estão estruturadas como descrito nesta secção. Cada bolha tem um objeto de raiz chamado **registos** contendo uma série de objetos de madeira. Cada bolha contém registos de todas as operações que ocorreram durante a mesma hora.
 
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| hora |datetime |"2018-12-07T00:00:43.6872559 Z" |Carimbo de data/hora da operação |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> O. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Seu ResourceId |
-| operationName |string |"Query. Search" |O nome da operação |
-| operationVersion |string |"2019-05-06" |A versão de API usada |
-| categoria |string |OperationLogs |amortiza |
-| resultType |string |Êxito |Valores possíveis: êxito ou falha |
+| hora |datetime |"2018-12-07T00:00:43.6872559Z" |TimeStamp da operação |
+| resourceId |string |"/ SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>PADRÃO/RESOURCEGROUPS/FORNECEDORES /<br/> MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |O ResourceId |
+| operationName |string |"Query.Search" |O nome da operação |
+| operationVersion |string |"2019-05-06" |A api-version utilizada |
+| categoria |string |"OperationLogs" |constante |
+| resultType |string |"Êxito" |Valores possíveis: êxito ou falha |
 | resultSignature |int |200 |Código de resultado HTTP |
 | durationMS |int |50 |Duração da operação em milissegundos |
-| propriedades |objeto |consulte a tabela a seguir |Objeto que contém dados específicos da operação |
+| propriedades |objeto |consulte a tabela seguinte |Objeto que contém dados específicos da operação |
 
 **Esquema de propriedades**
 
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| Descrição |string |"GET/Indexes (' content ')/docs" |O ponto de extremidade da operação |
-| Consulta |string |"? Search = AzureSearch & $count = true & API-Version = 2019-05-06" |Os parâmetros de consulta |
+| Descrição |string |"Obter /indexes('content')/docs" |Ponto final da operação |
+| Consulta |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Os parâmetros de consulta |
 | Documentos |int |42 |Número de documentos processados |
 | indexName |string |"testindex" |Nome do índice associado à operação |
 
 ## <a name="metrics-schema"></a>Esquema de métricas
 
-As métricas são capturadas para solicitações de consulta.
+As métricas são capturadas para pedidos de consulta.
 
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>O. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |sua ID de recurso |
-| metricName |string |MOLAP |o nome da métrica |
-| hora |datetime |"2018-12-07T00:00:43.6872559 Z" |o carimbo de data/hora da operação |
-| cerca |int |64 |O valor médio das amostras brutas no intervalo de tempo da métrica |
-| Máximo |int |37 |O valor mínimo das amostras brutas no intervalo de tempo da métrica |
-| Maior |int |78 |O valor máximo das amostras brutas no intervalo de tempo da métrica |
-| completa |int |258 |O valor total das amostras brutas no intervalo de tempo da métrica |
-| count |int |4 |O número de amostras brutas usadas para gerar a métrica |
-| timegrain |string |PT1M |O intervalo de tempo da métrica no ISO 8601 |
+| resourceId |string |"/ SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>PADRÃO/RESOURCEGROUPS/FORNECEDORES /<br/>MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |o seu ID de recurso |
+| metricName |string |"Latência" |o nome da métrica |
+| hora |datetime |"2018-12-07T00:00:43.6872559Z" |timestamp da operação |
+| média |int |64 |O valor médio dos exemplos não processados no intervalo de tempo de métrica |
+| mínimo |int |37 |O valor mínimo dos exemplos não processados no intervalo de tempo de métrica |
+| máximo |int |78 |O valor máximo das amostras não processados no intervalo de tempo de métrica |
+| total |int |258 |O valor total dos exemplos não processados no intervalo de tempo de métrica |
+| count |int |4 |O número de amostras não processados, utilizado para gerar a métrica |
+| intervalo de agregação |string |"PT1M" |O intervalo de agregação da métrica no ISO 8601 |
 
-Todas as métricas são relatadas em intervalos de um minuto. Cada métrica expõe os valores mínimo, máximo e médio por minuto.
+Todas as métricas são comunicadas em intervalos de um minuto. Cada medição expõe valores mínimos, máximo e médios por minuto.
 
-Para a métrica SearchQueriesPerSecond, mínimo é o valor mais baixo para consultas de pesquisa por segundo que foi registrado durante esse minuto. O mesmo se aplica ao valor máximo. Média, é a agregação em todo o minuto.
-Pense nesse cenário durante um minuto: um segundo de alta carga que é o máximo para SearchQueriesPerSecond, seguido de 58 segundos de carga média e, por fim, um segundo com apenas uma consulta, que é o mínimo.
+Para a métrica de SearchQueriesPerSecond, o valor mais baixo para consultas de pesquisa por segundo que foram registadas durante esse minuto é mínimo. O mesmo se aplica ao valor máximo. Média, é a agregação em minuto completo.
+Pense neste cenário, durante um minuto: um segundo alta isto é carregar o máximo para SearchQueriesPerSecond, seguido de 58 segundos da carga média, e, finalmente, um segundo, com apenas uma consulta, que é o mínimo.
 
-Para ThrottledSearchQueriesPercentage, mínimo, máximo, média e total, todos têm o mesmo valor: a porcentagem de consultas de pesquisa que foram limitadas, do número total de consultas de pesquisa durante um minuto.
+Para ThrottledSearchQueriesPercentage, mínimo, máximo, média e total, todos têm o mesmo valor: a percentagem de consultas de pesquisa que eram limitados, do número total de consultas de pesquisa durante um minuto.
 
-## <a name="download-and-open-in-visual-studio-code"></a>Baixar e abrir no Visual Studio Code
+## <a name="download-and-open-in-visual-studio-code"></a>Descarregue e abra no Código do Estúdio Visual
 
-Você pode usar qualquer editor de JSON para exibir o arquivo de log. Se você não tiver uma, recomendamos [Visual Studio Code](https://code.visualstudio.com/download).
+Pode utilizar qualquer editor da JSON para visualizar o ficheiro de registo. Se não tiver um, recomendamos o [Código do Estúdio Visual.](https://code.visualstudio.com/download)
 
-1. Em portal do Azure, abra sua conta de armazenamento. 
+1. No portal Azure, abra a sua conta de Armazenamento. 
 
-2. No painel de navegação esquerdo, clique em **BLOBs**. Você deve ver **insights-logs-operationlogs** e **insights-métricas-PT1M**. Esses contêineres são criados pelo Azure Pesquisa Cognitiva quando os dados de log são exportados para o armazenamento de BLOBs.
+2. No painel de navegação à esquerda, clique em **Blobs**. Deve ver **insights-logs-operationlogs** e **insights-metrics-pt1m**. Estes recipientes são criados pela Azure Cognitive Search quando os dados de registo são exportados para o armazenamento blob.
 
-3. Clique na hierarquia de pastas até chegar ao arquivo. JSON.  Use o menu de contexto para baixar o arquivo.
+3. Clique na hierarquia da pasta até chegar ao ficheiro .json.  Utilize o menu de contexto para descarregar o ficheiro.
 
-Depois que o arquivo for baixado, abra-o em um editor de JSON para exibir o conteúdo.
+Assim que o ficheiro for descarregado, abra-o num editor da JSON para ver os conteúdos.
 
-## <a name="use-system-apis"></a>Usar APIs do sistema
-A API REST do Azure Pesquisa Cognitiva e o SDK do .NET fornecem acesso programático às métricas de serviço, informações de índice e indexador e contagens de documentos.
+## <a name="use-system-apis"></a>Utilização de APIs do sistema
+Tanto a API de Pesquisa Cognitiva Azure como o .NET SDK fornecem acesso programático às métricas de serviço, informações indexadas e indexantes, e contagens de documentos.
 
-* [Obter estatísticas de serviços](/rest/api/searchservice/get-service-statistics)
-* [Obter estatísticas de índice](/rest/api/searchservice/get-index-statistics)
-* [Contar documentos](/rest/api/searchservice/count-documents)
-* [Obter o status do indexador](/rest/api/searchservice/get-indexer-status)
+* [Obter Estatísticas de Serviços](/rest/api/searchservice/get-service-statistics)
+* [Obter Estatísticas de Índices](/rest/api/searchservice/get-index-statistics)
+* [Documentos de Contagem](/rest/api/searchservice/count-documents)
+* [Obter estatuto de indexante](/rest/api/searchservice/get-indexer-status)
 
-Para habilitar o uso do PowerShell ou do CLI do Azure, consulte a documentação [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+Para permitir a utilização do PowerShell ou do Azure CLI, consulte a documentação [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Gerencie seu serviço de pesquisa no Microsoft Azure](search-manage.md) para obter mais informações sobre a administração e o [desempenho e a otimização](search-performance-optimization.md) do serviço para diretrizes de ajuste.
+[Gerencie o seu serviço de Pesquisa no Microsoft Azure](search-manage.md) para obter mais informações sobre a administração de serviços e [desempenho e otimização](search-performance-optimization.md) para orientação de afinação.

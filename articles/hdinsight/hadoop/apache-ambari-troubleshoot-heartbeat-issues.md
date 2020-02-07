@@ -1,18 +1,18 @@
 ---
 title: Problemas de pulsação do Apache Ambari no Azure HDInsight
 description: Revisão de vários motivos para problemas de pulsação do Apache Ambari no Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 09/11/2019
-ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 02/06/2020
+ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964622"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057078"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemas de pulsação do Apache Ambari no Azure HDInsight
 
@@ -22,7 +22,7 @@ Este artigo descreve as etapas de solução de problemas e as possíveis resolu�
 
 ### <a name="issue"></a>Problema
 
-O agente Ambari tem alta utilização da CPU, o que resulta em alertas da interface do usuário do Ambari que, para alguns nós, a pulsação do agente do Ambari é perdida. O alerta de pulsação perdida geralmente é transitório. 
+O agente Ambari tem alta utilização da CPU, o que resulta em alertas da interface do usuário do Ambari que, para alguns nós, a pulsação do agente do Ambari é perdida. O alerta de pulsação perdida geralmente é transitório.
 
 ### <a name="cause"></a>Causa
 
@@ -61,7 +61,7 @@ Devido a vários bugs do ambari Agent, em casos raros, o ambari-Agent pode ter a
 
 ### <a name="issue"></a>Problema
 
-O agente Ambari não foi iniciado, o que resulta em alertas da interface do usuário do Ambari que, para alguns nós, a pulsação do agente do Ambari é perdida.
+O agente Ambari ainda não começou o que resulta em alertas da Ambari UI que, para alguns nós, o batimento cardíaco do agente Ambari está perdido.
 
 ### <a name="cause"></a>Causa
 
@@ -81,7 +81,7 @@ Os alertas são causados pelo agente do Ambari não estar em execução.
     ps -ef | grep failover
     ```
 
-    Se os serviços do controlador de failover não estiverem em execução, provavelmente devido a um problema, impeça que o hdinsight-Agent inicie o controlador de failover. Verifique o log do hdinsight-Agent de `/var/log/hdinsight-agent/hdinsight-agent.out` arquivo.
+    Se os serviços de controlador failover não estiverem em funcionamento, é provável que seja devido a um problema impedir que o agente hdinsight-agent inicie o controlador de failover. Verifique o registo do agente hdinsight a partir `/var/log/hdinsight-agent/hdinsight-agent.out` ficheiro.
 
 ## <a name="scenario-heartbeat-lost-for-ambari"></a>Cenário: Batimento cardíaco perdido para Ambari
 
@@ -95,7 +95,7 @@ Os registos oMS estão a causar uma alta utilização do CPU.
 
 ### <a name="resolution"></a>Resolução
 
-* Desative a exploração de oms utilizando o módulo PowerShell PowerShell [desactivado-AzHDInsightOperationsManagementSuite.](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0) 
+* Desativar a exploração do Monitor Azure utilizando o cmdlet PowerShell [demonitorização de desativação AzHDInsightMonitoring.](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring)
 * Eliminar o ficheiro de registo `mdsd.warn`
 
 ---
@@ -104,8 +104,8 @@ Os registos oMS estão a causar uma alta utilização do CPU.
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, por favor reveja [como criar um pedido de apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

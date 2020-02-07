@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o IDEO para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o IDEO.
+title: 'Tutorial: Configure IDEO para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo azure para fornecer automaticamente e desfornecer contas de utilizador ao IDEO.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,147 +15,147 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: Zhchia
-ms.openlocfilehash: d6bc3170162710e86359b374d1ef707bba0ce268
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f5f163109d648a4fc021b41325c6d585a5a7a3e7
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152544"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057588"
 ---
-# <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutorial: configurar o IDEO para o provisionamento automático de usuário
+# <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutorial: Configure IDEO para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no IDEO e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no IDEO.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no IDEO e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecer automaticamente e desfornecer utilizadores e/ou grupos para o IDEO.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em visualização pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um locatário do IDEO](https://www.shape.space/product/pricing)
-* Uma conta de usuário em IDEO | Forma com permissões de administrador.
+* [Um inquilino iDEO](https://www.shape.space/product/pricing)
+* Uma conta de utilizador no IDEO  Forma com permissões de administrador.
 
-## <a name="assign-users-to-ideo"></a>Atribuir usuários ao IDEO
+## <a name="assign-users-to-ideo"></a>Atribuir utilizadores ao IDEO
 
 Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao IDEO. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao IDEO seguindo as instruções aqui:
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao IDEO. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao IDEO seguindo as instruções aqui:
 
-* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-ideo"></a>Dicas importantes para atribuir usuários ao IDEO
+### <a name="important-tips-for-assigning-users-to-ideo"></a>Dicas importantes para atribuir utilizadores ao IDEO
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao IDEO para testar a configuração automática de provisionamento de usuário. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído ao IDEO para testar a configuração automática de fornecimento do utilizador. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao IDEO, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um utilizador ao IDEO, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="set-up-ideo-for-provisioning"></a>Configurar o IDEO para provisionamento
+## <a name="set-up-ideo-for-provisioning"></a>Configurar o IDEO para o fornecimento
 
-Antes de configurar o IDEO para o provisionamento automático de usuário com o Azure AD, será necessário recuperar algumas informações de provisionamento do IDEO.
+Antes de configurar o IDEO para o fornecimento automático de utilizadores com a AD Azure, terá de obter algumas informações de provisionamento do IDEO.
 
-1. Para o **token secreto** , contate a equipe de suporte do IDEO em productsupport@ideo.com. Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo IDEO no portal do Azure. 
+1. Para a equipa de suporte do IDEO contacte a Secret **Token** na productsupport@ideo.com. Este valor será inserido no campo **Secret Token** no separador de provisionamento da sua aplicação IDEO no portal Azure. 
 
-## <a name="add-ideo-from-the-gallery"></a>Adicionar o IDEO da Galeria
+## <a name="add-ideo-from-the-gallery"></a>Adicione IDEO da galeria
 
-Para configurar o IDEO para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o IDEO da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Para configurar o IDEO para o fornecimento automático de utilizadores com a AD Azure, é necessário adicionar iDEO da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **ideo**, selecione **ideo** no painel de resultados. 
+4. Na caixa de pesquisa, introduza **o IDEO,** selecione **IDEO** no painel de resultados. 
 
     ![IDEO na lista de resultados](common/search-new-app.png)
 
-5. Selecione o botão **inscrever-se no ideo** , que o redirecionará para a página de logon do ideo. 
+5. Selecione o **botão Deo** para o botão IDEO que o redireciona para a página de login do IDEO. 
 
-    ![IDEO OIDC Add](media/ideo-provisioning-tutorial/signup.png)
+    ![IDEO OIDC Adicionar](media/ideo-provisioning-tutorial/signup.png)
 
-6. Como IDEO é um aplicativo OpenIDConnect, opte por fazer logon no IDEO usando sua conta corporativa da Microsoft.
+6. Como o IDEO é uma aplicação OpenIDConnect, opte por iniciar sessão no IDEO utilizando a sua conta de trabalho da Microsoft.
 
-    ![IDEO OIDC logon](media/ideo-provisioning-tutorial/login.png)
+    ![Login IDEO OIDC](media/ideo-provisioning-tutorial/login.png)
 
-7. Após uma autenticação bem-sucedida, aceite a solicitação de consentimento para a página de consentimento. O aplicativo será automaticamente adicionado ao seu locatário e você será redirecionado para sua conta do IDEO.
+7. Após uma autenticação bem sucedida, aceite o pedido de consentimento para a página de consentimento. O pedido será adicionado automaticamente ao seu inquilino e será redirecionado para a sua conta IDEO.
 
-    ![Consentimento IDEO OIDc](media/ideo-provisioning-tutorial/consent.png)
+    ![Consentimento iDEO Oidc](media/ideo-provisioning-tutorial/consent.png)
 
-## <a name="configure-automatic-user-provisioning-to-ideo"></a>Configurar o provisionamento automático de usuário para o IDEO 
+## <a name="configure-automatic-user-provisioning-to-ideo"></a>Configure o fornecimento automático de utilizadores ao IDEO 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no IDEO com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta secção orienta-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no IDEO com base em atribuições de utilizador e/ou grupo em Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-ideo-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para IDEO no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-ideo-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para iDEO em Azure AD:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **ideo**.
+2. Na lista de aplicações, selecione **IDEO**.
 
-    ![O link do IDEO na lista de aplicativos](common/all-applications.png)
+    ![O link IDEO na lista de Aplicações](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** .
+3. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://profile.ideo.com/api/scim/v2` na **URL do locatário**. Insira o valor que você recuperou da equipe de suporte do IDEO no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao ideo. Se a conexão falhar, verifique se sua conta do IDEO tem permissões de administrador e tente novamente.
+5. No âmbito da secção **de Credenciais de Administrador,** a entrada `https://profile.ideo.com/api/scim/v2` no **URL do Arrendatário**. Insera o valor que recuperaste da equipa de apoio iDEO em **Secret Token.** Clique na **ligação de teste** para garantir que o Azure AD pode ligar-se ao IDEO. Se a ligação falhar, certifique-se de que a sua conta IDEO tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para IDEO**.
+8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to IDEO**.
 
-    ![Mapeamentos de usuário IDEO](media/ideo-provisioning-tutorial/usermappings.png)
+    ![Mapeamento de utilizadores IDEO](media/ideo-provisioning-tutorial/usermappings.png)
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o IDEO na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no ideo para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD para IDEO na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no IDEO para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Atributos de usuário do IDEO](media/ideo-provisioning-tutorial/userattributes.png)
+    ![Atributos de utilizador IDEO](media/ideo-provisioning-tutorial/userattributes.png)
 
-10. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para o IDEO, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Para ativar o serviço de provisionamento de AD Azure para o IDEO, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
     ![Status de provisionamento alternado em](media/ideo-provisioning-tutorial/groupmappings.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para o IDEO escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os utilizadores e/ou grupos que gostaria de fornecer ao IDEO, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Escopo de provisionamento](media/ideo-provisioning-tutorial/groupattributes.png)
 
-13. Quando estiver pronto para provisionar, clique em **salvar**.
+13. Quando estiver pronto para fornecer, clique em **Guardar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no ideo.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure no IDEO.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 
 

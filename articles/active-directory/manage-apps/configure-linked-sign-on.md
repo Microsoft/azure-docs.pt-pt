@@ -1,6 +1,6 @@
 ---
-title: Logon vinculado para aplicativos do Azure AD-plataforma Microsoft Identity
-description: Configurar o logon único vinculado (SSO) para seus aplicativos empresariais do Azure AD na plataforma Microsoft Identity (Azure AD)
+title: Inscrição ligada para aplicações DaD Azure - plataforma de identidade microsoft
+description: Configure o único sign-on ligado (SSO) às suas aplicações empresariais Azure AD na plataforma de identidade da Microsoft (Azure AD)
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -12,42 +12,42 @@ ms.date: 05/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c4547bddeea8b67bd3377124b1c299662fea3e6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dfe4aeb17f482cc9d4126efc6d65d3f7d173536b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274173"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063548"
 ---
 # <a name="configure-linked-sign-on"></a>Configurar o início de sessão ligado
 
-Quando você adiciona um aplicativo Web galeria ou não Galeria, uma das opções de logon único disponíveis para você é o [logon vinculado](what-is-single-sign-on.md). Selecione esta opção para adicionar um link para o aplicativo no painel de acesso do Azure AD ou no portal do Office 365 da sua organização. Você pode usar esse método para adicionar links a aplicativos Web personalizados que atualmente usam Serviços de Federação do Active Directory (AD FS) (ou outro serviço de Federação) em vez do Azure AD para autenticação. Ou, você pode adicionar links profundos a páginas específicas do SharePoint ou a outras páginas da Web que você só deseja que apareçam nos painéis de acesso do usuário.
+Quando adiciona uma galeria ou aplicação web não-galeria, uma das opções únicas de inscrição disponível para si está ligada ao [sign-on](what-is-single-sign-on.md). Selecione esta opção para adicionar um link à aplicação no Painel de Acesso Azure AD da sua organização ou no portal Office 365. Pode utilizar este método para adicionar links a aplicações web personalizadas que atualmente utilizam serviços da Federação de Diretórios Ativos (ou outro serviço da federação) em vez de Azure AD para autenticação. Ou pode adicionar links profundos a páginas específicas do SharePoint ou a outras páginas web que apenas deseja aparecer nos Painéis de Acesso do utilizador.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, consulte [Adicionar um aplicativo da Galeria](add-gallery-app.md) ou [Adicionar um aplicativo inexistente na Galeria](add-non-gallery-app.md).
+Se a aplicação não tiver sido adicionada ao seu inquilino DaD Azure, consulte [Adicionar uma aplicação](add-gallery-app.md) de galeria ou [adicionar uma aplicação não-galeria](add-non-gallery-app.md).
 
-### <a name="open-the-app-and-select-linked-sign-on"></a>Abra o aplicativo e selecione logon vinculado
+### <a name="open-the-app-and-select-linked-sign-on"></a>Abra a aplicação e selecione sign-on linked
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de aplicativo de nuvem ou um administrador de aplicativo para seu locatário do Azure AD.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de aplicação em nuvem ou administrador de candidatura para o seu inquilino Azure AD.
 
-1. Navegue até **Azure Active Directory** > **aplicativos empresariais**. Uma amostra aleatória dos aplicativos no seu locatário do Azure AD é exibida. 
+1. Navegue para **as aplicações**de Diretório Ativo > **Azure.** Aparece uma amostra aleatória das aplicações no seu inquilino DaD Azure. 
 
-1. No menu **tipo de aplicativo** , selecione **todos os aplicativos**e, em seguida, selecione **aplicar**.
+1. No menu **Tipo de Aplicação,** selecione **Todas as aplicações,** e, em seguida, selecione **Aplicar**.
 
-1. Insira o nome do aplicativo na caixa de pesquisa e, em seguida, selecione o aplicativo nos resultados.
+1. Introduza o nome da aplicação na caixa de pesquisa e, em seguida, selecione a aplicação a partir dos resultados.
 
-1. Na seção **gerenciar** , selecione **logon único**. 
+1. Na secção **Gerir,** selecione **single sign-on**. 
 
-1. Selecione **vinculado**.
+1. Selecione **Linked**.
 
-1. Insira a URL do aplicativo a ser vinculado. Digite a URL e selecione **salvar**. 
+1. Introduza o URL da aplicação para ligar. Digite o URL e selecione **Guardar**. 
  
-1. Você pode atribuir usuários e grupos ao aplicativo, o que faz com que o aplicativo seja exibido no [iniciador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do Azure ad](end-user-experiences.md) para esses usuários.
+1. Pode atribuir utilizadores e grupos à aplicação, o que faz com que a aplicação apareça no lançador de [aplicações do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no painel de [acesso Azure AD](end-user-experiences.md) para esses utilizadores.
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
-- [Configurar o provisionamento automático de conta de usuário](configure-automatic-user-provisioning-portal.md)
+- [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)
+- [Configurar o fornecimento automático de conta de utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)

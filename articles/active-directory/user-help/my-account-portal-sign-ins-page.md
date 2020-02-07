@@ -2,7 +2,7 @@
 title: Veja e pesquise a sua recente atividade de entrada na página My Sign-in (pré-visualização) - Diretório Ativo Azure / Microsoft Docs
 description: Detalhes sobre como visualizar e pesquisar a sua recente atividade de inscrição na página My Sign-ins do portal My Account.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: rhicock
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: 2d31519c1c7e09c4eb8db64e2c37b8412fee9ab5
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: b68e7b517ddaa9b2aaef00cf87d5b6e63871654b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705110"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064024"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Veja e procure a sua recente atividade de inscrição na página My Sign-ins (pré-visualização)
 
@@ -30,7 +30,7 @@ Pode ver todo o seu trabalho recente ou atividade de inscrição na conta escola
 
 ## <a name="view-your-recent-sign-in-activity"></a>Ver a sua atividade de início de sessão recente
 
-1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página https://myprofile.microsoft.com/.
+1. Inscreva-se na sua conta de trabalho ou escola e depois vá à sua página de https://myprofile.microsoft.com/.
 
 2. Selecione **My Sign-ins (pré-visualização)** do painel de navegação esquerdo ou selecione o link de **atividade recente da Revisão** a partir do bloco My **sign-ins (pré-visualização).**
 
@@ -66,10 +66,10 @@ Pode pesquisar a sua recente atividade de inscrição por qualquer uma das infor
 
 Depois de ver a sua recente atividade de inscrição, pode:
 
-- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
+- Veja ou gere a sua informação de [segurança.](user-help-security-info-overview.md)
 
-- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
+- Veja ou gerencie os seus [dispositivos conectados](my-account-portal-devices-page.md).
 
-- Exiba ou gerencie suas [organizações](my-account-portal-organizations-page.md).
+- Ver ou gerir as suas [organizações.](my-account-portal-organizations-page.md)
 
-- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).
+- Veja como a sua organização [utiliza os seus dados relacionados com](my-account-portal-privacy-page.md)a privacidade.

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o 4me para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o 4me.
+title: 'Tutorial: Configure 4me para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Aprenda a configurar o Diretório Ativo azure para fornecer automaticamente e desfornecer contas de utilizador para 4me.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,160 +15,160 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 55aab6546efa323d1ddcd242cf75281c15e8e0e1
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 423ba8c7aea9659a4c91f68a01392954c2ba6db2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849644"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059172"
 ---
-# <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configurar o 4me para provisionamento automático de usuário
+# <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configure 4me para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no 4me e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no 4me.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no 4me e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos a 4me.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em visualização pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um locatário do 4me](https://www.4me.com/trial/)
-* Uma conta de usuário no 4me com permissões de administrador.
+* [Um inquilino 4me](https://www.4me.com/trial/)
+* Uma conta de utilizador em 4me com permissões admin.
 
-## <a name="add-4me-from-the-gallery"></a>Adicionar o 4me da Galeria
+## <a name="add-4me-from-the-gallery"></a>Adicione 4me da galeria
 
-Antes de configurar o 4me para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o 4me da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar o 4me para o fornecimento automático de utilizadores com a AD Azure, precisa adicionar 4me da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
 
-**Para adicionar o 4me da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar 4me da galeria de aplicações azure AD, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **4me**, selecione **4me** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, introduza **4me**, selecione **4me** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![4me na lista de resultados](common/search-new-app.png)
 
-## <a name="assigning-users-to-4me"></a>Atribuindo usuários ao 4me
+## <a name="assigning-users-to-4me"></a>Atribuir utilizadores a 4me
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao 4me. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao 4me seguindo as instruções aqui:
+Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso a 4me. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos a 4me seguindo as instruções aqui:
 
-* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-4me"></a>Dicas importantes para atribuir usuários ao 4me
+### <a name="important-tips-for-assigning-users-to-4me"></a>Dicas importantes para atribuir utilizadores a 4me
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao 4me para testar a configuração automática de provisionamento de usuário. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído a 4me para testar a configuração automática de fornecimento do utilizador. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao 4me, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um utilizador a 4me, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
-## <a name="configuring-automatic-user-provisioning-to-4me"></a>Configurando o provisionamento automático de usuário para o 4me 
+## <a name="configuring-automatic-user-provisioning-to-4me"></a>Configurar o fornecimento automático de utilizadores para 4me 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no 4me com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em 4me com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o 4me, seguindo as instruções fornecidas no [tutorial de logon único do 4me](4me-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+> Também pode optar por ativar um único sinal baseado em SAML para 4me, seguindo as instruções fornecidas no tutorial de [inscrição individual 4me](4me-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
-### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para 4me no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para 4me em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **4me**.
+2. Na lista de candidaturas, selecione **4me**.
 
-    ![O link do 4me na lista de aplicativos](common/all-applications.png)
+    ![O link 4me na lista de Aplicações](common/all-applications.png)
 
-3. Selecione a guia **provisionamento** .
+3. Selecione o separador **Provisioning.**
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Para recuperar a **URL do locatário** e o **token secreto** da sua conta do 4me, siga o passo a passos, conforme descrito na etapa 6.
+5. Para recuperar o URL do **Inquilino** e o **Símbolo Secreto** da sua conta 4me, siga a passagem como descrito no Passo 6.
 
-6. Entre no console do administrador do 4me. Navegue até **configurações**.
+6. Inscreva-se na sua Consola 4me Admin. Navegar para **Definições**.
 
-    ![Configurações de 4me](media/4me-provisioning-tutorial/4me01.png)
+    ![4me Definições](media/4me-provisioning-tutorial/4me01.png)
 
-    Digite os **aplicativos** na barra de pesquisa.
+    Digite **aplicativos** na barra de pesquisa.
 
-    ![aplicativos 4me](media/4me-provisioning-tutorial/4me02.png)
+    ![4me apps](media/4me-provisioning-tutorial/4me02.png)
 
-    Abra a lista suspensa **scim** para recuperar o token secreto e o ponto de extremidade SCIM.
+    Abra a entrega do **SCIM** para recuperar o Token Secreto e o ponto final do SCIM.
 
     ![4me SCIM](media/4me-provisioning-tutorial/4me03.png)
 
-7. Ao preencher os campos mostrados na etapa 5, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao 4me. Se a conexão falhar, verifique se sua conta do 4me tem permissões de administrador e tente novamente.
+7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se a 4me. Se a ligação falhar, certifique-se de que a sua conta 4me tem permissões de administrador e tente novamente.
 
     ![Certificado de](common/provisioning-testconnection-tenanturltoken.png)
 
-8. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
+8. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
 9. Clique em **Guardar**.
 
-10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para 4me**.
+10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to 4me**.
 
-    ![Mapeamentos de usuário 4me](media/4me-provisioning-tutorial/4me-user-mapping.png)
+    ![Mapeamento de 4me user](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Examine os atributos de usuário que são sincronizados do Azure AD para o 4me na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no 4me para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+11. Reveja os atributos do utilizador que são sincronizados de Azure AD a 4me na secção De Mapeamento do **Atributo.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas do utilizador em 4me para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Mapeamentos de usuário 4me](media/4me-provisioning-tutorial/4me-user-attributes.png)
+    ![Mapeamento de 4me user](media/4me-provisioning-tutorial/4me-user-attributes.png)
     
-12. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para 4me**.
+12. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to 4me**.
 
-    ![Mapeamentos de usuário 4me](media/4me-provisioning-tutorial/4me-group-mapping.png)
+    ![Mapeamento de 4me user](media/4me-provisioning-tutorial/4me-group-mapping.png)
     
-13. Examine os atributos de grupo que são sincronizados do Azure AD para o 4me na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no 4me para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+13. Reveja os atributos do grupo que são sincronizados de Azure AD a 4me na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar os grupos em 4me para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
     ![Mapeamentos de grupo 4me](media/4me-provisioning-tutorial/4me-group-attribute.png)
 
-14. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Para habilitar o serviço de provisionamento do Azure AD para o 4me, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+15. Para ativar o serviço de provisionamento de AD Azure por 4me, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
     ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
 
-16. Defina os usuários e/ou grupos que você deseja provisionar para o 4me escolhendo os valores desejados no **escopo** na seção **configurações** .
+16. Defina os utilizadores e/ou grupos que deseja fornecer a 4me, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-17. Quando estiver pronto para provisionar, clique em **salvar**.
+17. Quando estiver pronto para fornecer, clique em **Guardar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no 4me.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento da AD Azure no 4me.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* 4me tem diferentes URLs de ponto de extremidade de SCIM para ambientes de teste e produção. O primeiro termina com **. QA** enquanto o último termina com **. com**
-* os tokens secretos gerados pelo 4me têm uma data de expiração de um mês a partir da geração.
-* 4me não dá suporte a operações de **exclusão**
+* 4me tem diferentes URLs de ponto final SCIM para ambientes de ensaio e produção. O primeiro termina com **.qa** enquanto este último termina com **.com**
+* 4me gerado Sinos Secretos têm uma data de validade de um mês a partir da geração.
+* 4me não suporta operações **DELETE**
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

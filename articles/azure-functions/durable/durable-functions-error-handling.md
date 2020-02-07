@@ -4,12 +4,12 @@ description: Saiba como tratar erros na extensão de Durable Functions para Azur
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 905b71ab1e9a054eaeb6087489d14565933c8a46
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 447b3dcf5040835f5a853beff68bde794ece51f5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261641"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047248"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Tratamento de erros em Durable Functions (Azure Functions)
 
@@ -17,7 +17,7 @@ Orquestrações de função duráveis são implementadas no código e podem usar
 
 ## <a name="errors-in-activity-functions"></a>Erros em funções de atividade
 
-Qualquer exceção gerada em uma função de atividade é empacotada de volta para a função de orquestrador e gerada como um `FunctionFailedException`. Você pode escrever código de compensação e tratamento de erros que atenda às suas necessidades na função de orquestrador.
+Qualquer exceção que seja lançada numa função de atividade é remeterida para a função de orquestrador e lançada como uma `FunctionFailedException`. Você pode escrever código de compensação e tratamento de erros que atenda às suas necessidades na função de orquestrador.
 
 Por exemplo, considere a seguinte função de orquestrador que transfere fundos de uma conta para outra:
 
@@ -27,7 +27,7 @@ Por exemplo, considere a seguinte função de orquestrador que transfere fundos 
 [FunctionName("TransferFunds")]
 public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
-    var transferDetails = ctx.GetInput<TransferOperation>();
+    var transferDetails = context.GetInput<TransferOperation>();
 
     await context.CallActivityAsync("DebitAccount",
         new
@@ -60,7 +60,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Os exemplos C# anteriores são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> Os exemplos C# anteriores são para Durable Functions 2. x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
@@ -100,7 +100,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Se a primeira chamada de função **CreditAccount** falhar, a função de orquestrador compensa creditando os fundos de volta para a conta de origem.
+Se a primeira chamada de função **CreditAccount** falhar, a função orquestradora compensa creditando os fundos de volta à conta fonte.
 
 ## <a name="automatic-retry-on-failure"></a>Nova tentativa automática em caso de falha
 
@@ -116,14 +116,14 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
+    await context.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
 
     // ...
 }
 ```
 
 > [!NOTE]
-> Os exemplos C# anteriores são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> Os exemplos C# anteriores são para Durable Functions 2. x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
@@ -147,16 +147,16 @@ module.exports = df.orchestrator(function*(context) {
 
 A chamada de função de atividade no exemplo anterior usa um parâmetro para configurar uma política de repetição automática. Há várias opções para personalizar a política de repetição automática:
 
-* **Número máximo de tentativas**: o número máximo de tentativas de repetição.
-* **Primeiro intervalo de repetição**: a quantidade de tempo de espera antes da primeira tentativa de repetição.
-* **Coeficiente de retirada**: o coeficiente usado para determinar a taxa de aumento de retrocesso. O padrão é 1.
-* **Intervalo máximo de repetição**: a quantidade máxima de tempo de espera entre as tentativas de repetição.
-* **Tempo limite de repetição**: a quantidade máxima de tempo gasto para fazer novas tentativas. O comportamento padrão é repetir indefinidamente.
-* **Identificador**: um retorno de chamada definido pelo usuário pode ser especificado para determinar se uma função deve ser repetida.
+* **Número máximo de tentativas**: O número máximo de tentativas de retenção.
+* Primeiro intervalo de **repetição:** O tempo de espera antes da primeira tentativa de repetição.
+* **Coeficiente de backoff:** O coeficiente utilizado para determinar a taxa de aumento do recuo. Incumprimentos para 1.
+* Intervalo de **repetição máximo**: O tempo máximo para esperar entre tentativas de repetição.
+* **Retry timeout**: O máximo de tempo para passar a fazer repetições. O comportamento padrão é repetir indefinidamente.
+* **Manipule**: Pode ser especificada uma chamada definida pelo utilizador para determinar se uma função deve ser novamente tentada.
 
 ## <a name="function-timeouts"></a>Tempos limite da função
 
-Talvez você queira abandonar uma chamada de função dentro de uma função de orquestrador se estiver demorando muito tempo para ser concluída. A maneira correta de fazer isso hoje é criando um [temporizador durável](durable-functions-timers.md) usando `context.CreateTimer` (.net) ou `context.df.createTimer` (JavaScript) em conjunto com `Task.WhenAny` (.net) ou `context.df.Task.any` (JavaScript), como no exemplo a seguir:
+Talvez você queira abandonar uma chamada de função dentro de uma função de orquestrador se estiver demorando muito tempo para ser concluída. A maneira correta de o fazer hoje é criando um [temporizador durável](durable-functions-timers.md) utilizando `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript) em conjunto com `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript), como no seguinte exemplo:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -189,7 +189,7 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> Os exemplos C# anteriores são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> Os exemplos C# anteriores são para Durable Functions 2. x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
@@ -218,16 +218,16 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!NOTE]
-> Esse mecanismo não encerra realmente a execução da função de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e passe. Para obter mais informações, consulte a documentação de [temporizadores](durable-functions-timers.md#usage-for-timeout) .
+> Esse mecanismo não encerra realmente a execução da função de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e passe. Para mais informações, consulte a documentação dos [Timers.](durable-functions-timers.md#usage-for-timeout)
 
 ## <a name="unhandled-exceptions"></a>Exceções não processadas
 
-Se uma função de orquestrador falhar com uma exceção sem tratamento, os detalhes da exceção serão registrados e a instância será concluída com um status de `Failed`.
+Se uma função de orquestrador falhar com uma exceção não tratada, os detalhes da exceção são registados e a instância completa com um estatuto de `Failed`.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre orquestrações do eternas](durable-functions-eternal-orchestrations.md)
+> [Saiba mais sobre orquestrações eternas](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [Saiba como diagnosticar problemas](durable-functions-diagnostics.md)

@@ -7,16 +7,16 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: a46bca5c5c55338f8bea7e1ff370f92ce6a2d577
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841051"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048605"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs do Hyper-V para um site secundário usando o PowerShell (Gerenciador de recursos)
 
-Este artigo mostra como automatizar as etapas para a replicação de VMs do Hyper-V em System Center Virtual Machine Manager nuvens para uma nuvem Virtual Machine Manager em um site local secundário usando [Azure site Recovery](site-recovery-overview.md).
+Este artigo mostra como automatizar os passos para a replicação de VMs Hiper-V em System Center Virtual Machine Manager nuvens para uma nuvem de Gestor de Máquinavirtual num local secundário no local, utilizando a Recuperação do [Site Azure.](site-recovery-overview.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -24,12 +24,12 @@ Este artigo mostra como automatizar as etapas para a replicação de VMs do Hype
 
 - Reveja a [arquitetura e os componentes do cenário](hyper-v-vmm-architecture.md).
 - Reveja os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
-- Certifique-se de que Virtual Machine Manager servidores e hosts Hyper-V estejam em conformidade com [os requisitos de suporte](site-recovery-support-matrix-to-sec-site.md).
-- Verifique se as VMs que você deseja replicar estão em conformidade com o [suporte ao computador replicado](site-recovery-support-matrix-to-sec-site.md).
+- Certifique-se de que os servidores do Gestor de Máquinas Virtuais e os anfitriões Hyper-V cumprem os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md).
+- Verifique se os VMs que pretende replicar cumprem o [suporte à máquina replicado](site-recovery-support-matrix-to-sec-site.md).
 
 ## <a name="prepare-for-network-mapping"></a>Preparar o mapeamento da rede
 
-O [mapeamento de rede](hyper-v-vmm-network-mapping.md) mapeia entre Virtual Machine Manager redes VM locais nas nuvens de origem e de destino. O mapeamento faz o seguinte:
+Mapas de [mapeamento](hyper-v-vmm-network-mapping.md) de rede entre as redes VM virtual de machine manager no local em nuvens de origem e alvo. O mapeamento faz o seguinte:
 
 - Liga as VMs às redes de VMs de destino adequadas após a ativação pós-falha.
 - Coloca as VMs de réplica nos servidores dos anfitriões de Hyper-V de destino, de forma otimizada.
@@ -37,19 +37,19 @@ O [mapeamento de rede](hyper-v-vmm-network-mapping.md) mapeia entre Virtual Mach
 
 Prepare Virtual Machine Manager da seguinte maneira:
 
-- Verifique se você tem [Virtual Machine Manager redes lógicas](https://docs.microsoft.com/system-center/vmm/network-logical) nos servidores de Virtual Machine Manager de origem e de destino:
+- Certifique-se de que dispõe de [redes lógicas de Gestor](https://docs.microsoft.com/system-center/vmm/network-logical) de Máquinas Virtuais na fonte e visa servidores de Gestor de Máquinas Virtuais:
   - A rede lógica no servidor de origem deve ser associada à cloud de origem na qual os anfitriões de Hyper-V estão localizados.
   - A rede lógica no servidor de destino deve ser associada à cloud de destino.
-- Verifique se você tem [redes VM](https://docs.microsoft.com/system-center/vmm/network-virtual) nos servidores de Virtual Machine Manager de origem e de destino. As redes de VMs devem ser ligadas à rede lógica em cada localização.
+- Certifique-se de que tem [redes VM](https://docs.microsoft.com/system-center/vmm/network-virtual) na fonte e direciona os servidores do Gestor de Máquinas Virtuais. As redes de VMs devem ser ligadas à rede lógica em cada localização.
 - Ligue as VMs nos anfitriões de Hyper-V de origem à rede de VMs de origem.
 
 ## <a name="prepare-for-powershell"></a>Preparar para o PowerShell
 
 Verifique se você tem Azure PowerShell pronto para começar:
 
-- Se você já usa o PowerShell, atualize para a versão 0.8.10 ou posterior. [Saiba mais](/powershell/azureps-cmdlets-docs) sobre como configurar o PowerShell.
-- Depois de configurar e configurar o PowerShell, examine os [cmdlets de serviço](/powershell/azure/overview).
-- Para saber mais sobre como usar valores de parâmetro, entradas e saídas no PowerShell, leia o guia de [introdução](/powershell/azure/get-started-azureps) .
+- Se você já usa o PowerShell, atualize para a versão 0.8.10 ou posterior. [Saiba mais](/powershell/azureps-cmdlets-docs) sobre como configurar a PowerShell.
+- Depois de configurar e configurar o PowerShell, reveja os [cmdlets](/powershell/azure/overview)de serviço .
+- Para saber mais sobre como utilizar valores de parâmetros, inputs e saídas no PowerShell, leia o guia [Get started.](/powershell/azure/get-started-azureps)
 
 ## <a name="set-up-a-subscription"></a>Configurar uma assinatura
 
@@ -206,7 +206,7 @@ Verifique se você tem Azure PowerShell pronto para começar:
    While($isJobLeftForProcessing)
    ```
 
-Para verificar a conclusão da operação, siga as etapas em [monitorar atividade](#monitor-activity).
+Para verificar a conclusão da operação, siga os passos da [atividade do Monitor](#monitor-activity).
 
 ##  <a name="configure-network-mapping"></a>Configurar o mapeamento da rede
 
@@ -219,9 +219,9 @@ Para verificar a conclusão da operação, siga as etapas em [monitorar atividad
 1. Execute este comando para recuperar as redes para o servidor de Virtual Machine Manager de origem e o servidor de Virtual Machine Manager de destino.
 
    ```azurepowershell
-   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[0]
+   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[0]
 
-   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[1]
+   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[1]
    ```
 
    > [!NOTE]
@@ -294,7 +294,7 @@ Para testar sua implantação, execute um failover de teste para uma única máq
    $jobIDResult = Start-AzRecoveryServicesAsrTestFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan -VMNetwork $RecoveryNetworks[1]
    ```
 
-Para verificar a conclusão da operação, siga as etapas em [monitorar atividade](#monitor-activity).
+Para verificar a conclusão da operação, siga os passos da [atividade do Monitor](#monitor-activity).
 
 ## <a name="run-planned-and-unplanned-failovers"></a>Executar failovers planejados e não planejados
 
@@ -361,4 +361,4 @@ if($isJobLeftForProcessing)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais](/powershell/module/az.recoveryservices) sobre site Recovery com os cmdlets do PowerShell do Gerenciador de recursos.
+[Saiba mais](/powershell/module/az.recoveryservices) sobre a Recuperação do Site com os cmdlets powerShell do Gestor de Recursos.

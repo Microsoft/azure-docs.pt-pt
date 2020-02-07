@@ -6,14 +6,14 @@ author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 12/28/2019
+ms.date: 02/07/2020
 ms.author: evansma
-ms.openlocfilehash: 191362f0e19cec71cd1c9114000e8a4e7c4e07e8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f4c82a780a4cbe5de5c421c6a8b8dda09bfc74df
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980413"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048879"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Termos e políticas do Marketplace comercial
 
@@ -22,7 +22,7 @@ ms.locfileid: "75980413"
 
 Agradecemos seu interesse em publicar ofertas no Marketplace comercial. Estamos comprometidos em fazer uma parceria com você para criar uma fonte avançada de soluções de nuvem e uma linha de ofertas de negócios, que fascinam os clientes em todo o mundo e o ajudarão a criar seus negócios.
 
-As ofertas do Marketplace devem estar em conformidade com nossas políticas e termos. Atualizamos essas políticas e termos de tempos em tempos para ajudar a garantir uma boa experiência do cliente e fornecer aos parceiros uma oportunidade de sucesso. Se você tiver comentários sobre nossas políticas ou termos, informe-nos comentando no [Azure Marketplace e no fórum do AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+As ofertas do Marketplace devem estar em conformidade com nossas políticas e termos. Atualizamos essas políticas e termos de tempos em tempos para ajudar a garantir uma boa experiência do cliente e fornecer aos parceiros uma oportunidade de sucesso. Se tiver feedback sobre as nossas políticas ou termos, informe-nos com entando no [Azure Marketplace e](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)no AppSource .
 
 ## <a name="policies-and-terms"></a>Políticas e termos
 
@@ -36,6 +36,6 @@ As ofertas do Marketplace devem estar em conformidade com nossas políticas e te
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Visite a página do [Guia de publicação do Azure Marketplace e do AppSource](./marketplace-publishers-guide.md) .
+Visite a página de guia de [publicação Azure Marketplace e AppSource.](./marketplace-publishers-guide.md)
 
 ---

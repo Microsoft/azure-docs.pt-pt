@@ -10,17 +10,17 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/03/2020
-ms.openlocfilehash: 108c9c1112327a3fcadeff4c4074f31f976a4e3d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.date: 02/05/2020
+ms.openlocfilehash: b701449e8cfb7a379522ee6ccb93f5569bd703d8
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026760"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045958"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
 
-Utilize o Monitor Azure para encaminhar o Azure Ative Directory B2C (Azure AD B2C) para diferentes soluções de monitorização. Pode reter os registos para uso a longo prazo ou integrar-se com ferramentas de informação de segurança de terceiros e gestão de eventos (SIEM) para obter informações sobre o seu ambiente.
+Utilize o Monitor Azure para encaminhar o Diretório Ativo Azure B2C (Azure AD B2C) e os registos de [auditoria](view-audit-logs.md) a diferentes soluções de monitorização. Pode reter os registos para uso a longo prazo ou integrar-se com ferramentas de informação de segurança de terceiros e gestão de eventos (SIEM) para obter informações sobre o seu ambiente.
 
 Pode encaminhar eventos de registo para:
 
@@ -28,7 +28,7 @@ Pode encaminhar eventos de registo para:
 * Um hub de eventos Azure (e integrar-se com as suas instâncias Splunk e Sumo Logic).
 * Um espaço de trabalho Azure Log Analytics (para analisar dados, criar dashboards e alertar sobre eventos específicos).
 
-![Monitor do Azure](./media/azure-monitor/azure-monitor-flow.png)
+![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,13 +44,13 @@ Azure AD B2C alavanca [a monitorização do Diretório Ativo Azure](../active-di
 
 Autoriza um utilizador no seu diretório Azure AD B2C (o Prestador de **Serviços)** a configurar a instância Do Monitor Azure dentro do inquilino que contém a sua assinatura Azure (o **Cliente).** Para criar a autorização, você implementa um modelo de Gestor de [Recursos Azure](../azure-resource-manager/index.yml) para o seu inquilino Azure AD contendo a subscrição. As seguintes secções percorrem-no durante o processo.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 No inquilino Azure Ative Directory (Azure AD) que contém a sua assinatura Azure (*não* o diretório que contém o seu inquilino Azure AD B2C), [criar um grupo de recursos.](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) Utilize os seguintes valores:
 
 * **Subscrição**: selecione a sua subscrição do Azure.
 * **Grupo de recursos**: Introduza o nome para o grupo de recursos. Por exemplo, *monitor azure-ad-b2c*.
-* **Região**: Selecione uma localização Azure. Por exemplo, *E.U.A. Central*.
+* **Região**: Selecione uma localização Azure. Por exemplo, *Centro dos EUA.*
 
 ## <a name="delegate-resource-management"></a>Gestão de recursos delegados
 
@@ -59,7 +59,7 @@ Em seguida, recolher as seguintes informações:
 ID do **diretório** do seu diretório Azure AD B2C (também conhecido como ID do inquilino).
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) como utilizador com a função de administrador do *Utilizador* (ou superior).
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. Selecione **Diretório Ativo Azure,** selecione **Propriedades**.
 1. Grave o ID do **Diretório.**
 
@@ -199,7 +199,7 @@ Uma vez implementado o modelo e tenha esperado alguns minutos para que a projeç
 
 1. **Assine pelo** portal Azure se estiver inscrito. Este e o passo seguinte são feitos para refrescar as suas credenciais na sessão do portal.
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com a sua conta administrativa Azure AD AD B2C.
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do Portal.
+1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal.
 1. Selecione o diretório que contém sua assinatura.
 
     ![Diretório de comutação](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
@@ -213,11 +213,11 @@ Depois de ter delegado a gestão de recursos e ter selecionado a sua subscriçã
 
 Para configurar as definições de monitorização dos registos de atividade do Azure AD B2C:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. Selecione **Diretório Ativo Azure**
-1. Sob **monitorização**, selecione **das definições de diagnóstico**.
-1. Selecione **+ Adicionar configuração de diagnóstico**.
+1. Sob **monitorização,** selecione **definições de diagnóstico**.
+1. Selecione **+ Adicione a definição de diagnóstico**.
 
     ![Painel de definições de diagnóstico no portal Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 

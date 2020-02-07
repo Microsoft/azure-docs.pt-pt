@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar a caixa para aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e a caixa.
+title: 'Tutorial: Configure Box para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Box .
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,123 +15,123 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1397b4189a9c2c15e3878687ea8c67c1da7567f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60431761"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058574"
 ---
-# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar a caixa para aprovisionamento automático de utilizadores
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configure Box para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é mostrar as etapas que tiver de realizar na caixa e o Azure AD para automaticamente as contas de utilizador aprovisionar e desaprovisionar do Azure AD à caixa.
+O objetivo deste tutorial é mostrar os passos necessários para executar em Box e Azure AD para fornecer e desfornecer automaticamente contas de utilizador de Azure AD para Box.
 
 > [!NOTE]
-> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com caixa, terá dos seguintes itens:
+Para configurar a integração da AD Azure com a Box, precisa dos seguintes itens:
 
-- Um inquilino do Azure AD
-- Um plano de negócios de caixa ou superior
+- Um locatário do Azure AD
+- Um plano de negócios box ou melhor
 
 > [!NOTE]
-> Quando testa os passos neste tutorial, é recomendável que faça *não* utilizar um ambiente de produção.
+> Quando testar os passos deste tutorial, recomendamos que *não* utilize um ambiente de produção.
 
-Para testar os passos neste tutorial, siga as seguintes recomendações:
+Para testar os passos neste tutorial, siga estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de julgamento da AD Azure, pode [ter um julgamento de um mês.](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="assigning-users-to-box"></a>Atribuir utilizadores a caixa 
+## <a name="assigning-users-to-box"></a>Atribuir utilizadores à Caixa 
 
-O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento de contas de utilizadores automático, apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação no Azure AD é sincronizado.
+O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de conta de utilizador, apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e ativar o serviço de aprovisionamento, precisa decidir quais os utilizadores e/ou grupos no Azure AD representam os utilizadores que necessitam de aceder à sua aplicação de caixa. Depois de decidir, pode atribuir estes utilizadores à sua aplicação de caixa ao seguir as instruções aqui:
+Antes de configurar e ativar o serviço de provisionamento, tem de decidir quais os utilizadores e/ou grupos em AD Azure que representam os utilizadores que precisam de acesso à sua aplicação Box. Uma vez decidido, pode atribuir estes utilizadores à sua aplicação Box seguindo as instruções aqui:
 
 [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ## <a name="assign-users-and-groups"></a>Atribuir utilizadores e grupos
-O **caixa > utilizadores e grupos** separador no portal do Azure permite-lhe especificar os utilizadores e grupos devem ter acesso à caixa. A atribuição de um utilizador ou grupo faz com que os seguintes procedimentos ocorrer:
+O separador **Box > Utilizadores e Grupos** no portal Azure permite especificar quais os utilizadores e grupos que devem ter acesso à Caixa. A atribuição de um utilizador ou grupo faz com que ocorram as seguintes coisas:
 
-* Do Azure AD permite que o utilizador atribuído (seja por atribuição direta ou associação de grupo) para autenticar a caixa. Se não for atribuído um utilizador, o Azure AD não permite que iniciem sessão a caixa e devolve um erro na página de início de sessão do Azure AD.
-* Um mosaico da aplicação para a Box é adicionado para o usuário [iniciador de aplicações](../manage-apps/end-user-experiences.md).
-* Se o aprovisionamento automático está ativado, em seguida, os utilizadores atribuídos e/ou grupos são adicionados à fila de aprovisionamento a ser aprovisionado automaticamente.
+* A Azure AD permite que o utilizador designado (seja por atribuição direta ou por associação de grupo) autentique à Caixa. Se um utilizador não for atribuído, o Azure AD não permite que eles instem no Box e devolve um erro na página de entrada de anúncios da AD Azure.
+* Um azulejo de aplicação para Box é adicionado ao lançador de [aplicações](../manage-apps/end-user-experiences.md)do utilizador .
+* Se o fornecimento automático estiver ativado, os utilizadores e/ou grupos designados são adicionados à fila de provisionamento para serem automaticamente provisionados.
   
-  * Se apenas os objetos de utilizador foram configurados para ser aprovisionado, em seguida, todos os utilizadores atribuídos diretamente são colocados na fila de aprovisionamento e todos os utilizadores que são membros de nenhum grupo atribuído são colocados na fila de aprovisionamento. 
-  * Se os objetos de grupo foram configurados para ser aprovisionado, são aprovisionados todos os objetos de grupo atribuído à caixa e todos os utilizadores que são membros desses grupos. As associações de grupo e utilizador são mantidas após a ser escritos à caixa.
+  * Se apenas os objetos de utilizador foram configurados para serem provisionados, então todos os utilizadores diretamente atribuídos são colocados na fila de provisionamento, e todos os utilizadores que são membros de quaisquer grupos designados são colocados na fila de provisionamento. 
+  * Se os objetos de grupo foram configurados para serem provisionados, então todos os objetos de grupo atribuídos são aprovisionados para box, e todos os utilizadores que são membros desses grupos. Os membros do grupo e dos utilizadores são preservados ao serem escritos à Box.
 
-Pode utilizar o **atributos > início de sessão único** separador para configurar quais atributos de utilizador (ou afirmações) são apresentadas à caixa durante a autenticação baseada no SAML e o **atributos > aprovisionamento** separador para Configure a forma como os atributos de utilizador e grupo fluir do Azure AD à caixa durante o aprovisionamento de operações.
+Pode utilizar o separador **Atributos > Single Sign-On** para configurar quais os atributos (ou reclamações) apresentados ao Box durante a autenticação baseada em SAML, e o separador **Atributos > Provisioning** para configurar como os atributos do utilizador e do grupo fluem do Azure AD para o Box durante as operações de provisionamento.
 
-### <a name="important-tips-for-assigning-users-to-box"></a>Dicas importantes para atribuir utilizadores a caixa 
+### <a name="important-tips-for-assigning-users-to-box"></a>Dicas importantes para atribuir utilizadores à Box 
 
-*   Recomenda-se que um único atribuído a caixa para testar a configuração de aprovisionamento de utilizador do Azure AD. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+*   Recomenda-se que um único utilizador da AD Azure atribuído à Box teste da configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-*   Ao atribuir um utilizador à caixa, tem de selecionar uma função de utilizador válido. A função de "Acesso predefinido" não funciona para o aprovisionamento.
+*   Ao atribuir um utilizador à caixa, deve selecionar uma função de utilizador válida. A função "Acesso Predefinido" não funciona para o provisionamento.
 
-## <a name="enable-automated-user-provisioning"></a>Ativar o aprovisionamento automatizado do utilizador
+## <a name="enable-automated-user-provisioning"></a>Ativar o fornecimento automatizado de utilizadores
 
-Esta secção orienta no processo de ligar o Azure AD à API de aprovisionamento da conta de utilizador da caixa e configurar o serviço de aprovisionamento para criar, atualizar e desativar as contas de utilizador atribuído na caixa de com base na atribuição de utilizadores e grupos no Azure AD.
+Esta secção guia através da ligação do seu AD Azure à conta de utilizador da Box que aprovisiona a API, e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas na Caixa com base na atribuição de utilizador e grupo em Azure AD.
 
-Se o aprovisionamento automático está ativado, em seguida, os utilizadores atribuídos e/ou grupos são adicionados à fila de aprovisionamento a ser aprovisionado automaticamente.
+Se o fornecimento automático estiver ativado, os utilizadores e/ou grupos designados são adicionados à fila de provisionamento para serem automaticamente provisionados.
     
- * Se apenas os objetos de utilizador estão configurados para ser aprovisionado, em seguida, os utilizadores atribuídos diretamente são colocados na fila de aprovisionamento e todos os utilizadores que são membros de nenhum grupo atribuído são colocados na fila de aprovisionamento. 
+ * Se apenas os objetos de utilizador estiverem configurados para serem aprovisionados, os utilizadores diretamente atribuídos são colocados na fila de fornecimento, e todos os utilizadores que são membros de quaisquer grupos designados são colocados na fila de provisionamento. 
     
- * Se os objetos de grupo foram configurados para ser aprovisionado, são aprovisionados todos os objetos de grupo atribuído à caixa e todos os utilizadores que são membros desses grupos. As associações de grupo e utilizador são mantidas após a ser escritos à caixa.
+ * Se os objetos de grupo foram configurados para serem provisionados, então todos os objetos de grupo atribuídos são aprovisionados para box, e todos os utilizadores que são membros desses grupos. Os membros do grupo e dos utilizadores são preservados ao serem escritos à Box.
 
 > [!TIP] 
-> Também pode optar por ativada baseado em SAML início de sessão único para a caixa, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementar entre si.
+> Também pode optar por ativar o Single Sign-On para Caixa baseado em SAML, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se elogiem mutuamente.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Para configurar o aprovisionamento de contas de utilizador automáticas:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Para configurar o fornecimento automático de conta de utilizador:
 
-É o objetivo desta secção descrevem como ativar o aprovisionamento de contas de utilizador do Active Directory à caixa.
+O objetivo desta secção é delinear como permitir o fornecimento de contas de utilizadores do Diretório Ativo à Caixa.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue para o **Azure Active Directory > aplicações empresariais > todos os aplicativos** secção.
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
 
-2. Se já tiver configurado a caixa para início de sessão único, procure a sua instância do Box através do campo de pesquisa. Caso contrário, selecione **Add** e procure **caixa** na Galeria de aplicações. Selecione a caixa de resultados da pesquisa e adicioná-lo à sua lista de aplicações.
+2. Se já configurou a Caixa para um único sinal, procure a sua instância de Box utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **Box** na galeria de aplicações. Selecione Box a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
-3. Selecione a sua instância da caixa, em seguida, selecione o **aprovisionamento** separador.
+3. Selecione a sua instância de Caixa e, em seguida, selecione o separador **Provisioning.**
 
-4. Definir o **modo de aprovisionamento** ao **automática**. 
+4. Detete o **modo de provisionamento** para **automático**. 
 
-    ![Aprovisionamento](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![provisionamento](./media/box-userprovisioning-tutorial/provisioning.png)
 
-5. Sob o **credenciais de administrador** secção, clique em **autorizar** para abrir uma caixa de diálogo de início de sessão de caixa numa nova janela do browser.
+5. Na secção **'Credenciais de Administrador',** clique **em autorizar** a abertura de um diálogo de login caixa numa nova janela do navegador.
 
-6. Sobre o **início de sessão para conceder acesso à caixa** página, forneça as credenciais necessárias e, em seguida, clique em **autorizar**. 
+6. No **Login para conceder acesso à** página Caixa, forneça as credenciais necessárias e, em seguida, clique em **Autorizar**. 
    
-    ![Ativar aprovisionamento automático de utilizadores](./media/box-userprovisioning-tutorial/IC769546.png "ativar aprovisionamento automático de utilizadores")
+    ![Ativar o fornecimento automático de utilizadores](./media/box-userprovisioning-tutorial/IC769546.png "Ativar o fornecimento automático de utilizadores")
 
-7. Clique em **conceder acesso à caixa** para autorizar esta operação e voltar ao portal do Azure. 
+7. Clique em **Conceder acesso à Caixa** para autorizar esta operação e para regressar ao portal Azure. 
    
-    ![Ativar aprovisionamento automático de utilizadores](./media/box-userprovisioning-tutorial/IC769549.png "ativar aprovisionamento automático de utilizadores")
+    ![Ativar o fornecimento automático de utilizadores](./media/box-userprovisioning-tutorial/IC769549.png "Ativar o fornecimento automático de utilizadores")
 
-8. No portal do Azure, clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação de caixa. Se a ligação falhar, certifique-se a conta do Box tem permissões de administrador de equipe e tente a **"Autorizar"** passo novamente.
+8. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação Box. Se a ligação falhar, certifique-se de que a sua conta Box tem permissões de Team Admin e tente novamente o passo **"Autorizar".**
 
-9. Introduza o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de aprovisionamento no **notificação por E-Mail** campo e marque a caixa de verificação.
+9. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo de email de **notificação** e verifique a caixa de verificação.
 
-10. Clique em **guardar.**
+10. Clique em **Guardar.**
 
-11. Na secção de mapeamentos, selecione **sincronizar utilizadores do Azure Active Directory à caixa.**
+11. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to Box.**
 
-12. Na **mapeamentos de atributos** secção, reveja os atributos de utilizador que são sincronizados a partir do Azure AD à caixa. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador na caixa para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+12. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Box. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Box para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 
-13. Para ativar o Azure AD para a caixa do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** na secção de definições
+13. Para ativar o serviço de provisionamento de AD Azure para caixa, altere o Estado de **Provisionamento** para **Ligado** na secção Definições
 
-14. Clique em **guardar.**
+14. Clique em **Guardar.**
 
-Que inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos à caixa na secção utilizadores e grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades, que descrevem a todas as ações executadas pelo serviço de aprovisionamento em seu aplicativo de caixa de aprovisionamento.
+Isto inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Caixa na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Box.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 
-No seu inquilino de caixa, os utilizadores sincronizados estão listados na **utilizadores geridos** no **consola de administração**.
+No seu inquilino box, os utilizadores sincronizados estão listados em **Utilizadores Geridos** na **Consola De Administração**.
 
-![Estado de integração](./media/box-userprovisioning-tutorial/IC769556.png "estado de integração")
+![Estado de integração](./media/box-userprovisioning-tutorial/IC769556.png "Estado de integração")
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](tutorial-list.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configurar o início de sessão único](box-tutorial.md)
+* [Configurar um único signo](box-tutorial.md)
