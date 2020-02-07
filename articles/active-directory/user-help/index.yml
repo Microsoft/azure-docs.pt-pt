@@ -9,15 +9,15 @@ metadata:
   ms.subservice: user-help
   ms.topic: landing-page
   ms.collection: M365-identity-device-management
-  author: eross-msft
-  ms.author: lizross
+  author: curtand
+  ms.author: curtand
   ms.date: 08/26/2019
-  ms.openlocfilehash: d1754f1c058181590c4a878f218be69a8462c42b
-  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+  ms.openlocfilehash: 891c76692ecd13e7201ca5b0b0096040dbb2a958
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/05/2020
-  ms.locfileid: "77022380"
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77062613"
 landingContent:
 - title: Configurar e utilizar a aplicação Microsoft Authenticator
   linkLists:

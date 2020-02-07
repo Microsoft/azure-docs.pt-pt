@@ -5,10 +5,10 @@
   items:
     - name: O que é a gestão de aplicações da cloud e o início de sessão único?
       href: what-is-application-management.md
-    - name: O que é o aprovisionamento de aplicações?
-      href: user-provisioning.md
     - name: O que é o Proxy de Aplicações para aplicações no local?
       href: what-is-application-proxy.md
+    - name: O que é o aprovisionamento de aplicações?
+      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Guias de Início Rápido
   items:
     - name: Adicionar uma aplicação da cloud a partir da galeria
@@ -72,16 +72,6 @@
               href: howto-saml-token-encryption.md
             - name: Portais de utilizador final
               href: end-user-experiences.md
-    - name: Aprovisionamento de aplicações (SCIM)
-      items:
-        - name: Como funciona o aprovisionamento
-          href: how-provisioning-works.md
-        - name: Planear uma implementação de aprovisionamento automático de utilizadores
-          href: plan-auto-user-provisioning.md
-    - name: Aprovisionamento de HR de Cloud
-      items:
-        - name: Planear uma implementação de aprovisionamento de utilizadores de HR de cloud
-          href: plan-cloud-hr-provision.md
     - name: Proxy de Aplicações para aplicações no local
       items:
         - name: Proxy da aplicação
@@ -237,60 +227,6 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Erro ao utilizar o acesso personalizado à aplicação
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Aprovisionamento de aplicações (SCIM)
-      items:
-        - name: Configurar o aprovisionamento para uma aplicação da galeria
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Criar um ponto final SCIM e configurar o aprovisionamento
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Editar os mapeamentos de atributos
-          items:
-            - name: Personalizar os mapeamentos de atributos
-              href: Customize-application-attributes.md
-            - name: Escrever expressões para mapeamentos de atributos
-              href: functions-for-customizing-application-data.md
-        - name: Incluir ou excluir utilizadores e grupos do âmbito
-          items:
-            - name: Definir o âmbito dos utilizadores ou grupos a aprovisionar
-              href: define-conditional-rules-for-provisioning-user-accounts.md
-            - name: Ignorar eliminação de utilizadores fora do âmbito
-              href: skip-out-of-scope-deletions.md
-        - name: Monitorizar e reportar aprovisionamentos
-          items:
-            - name: Monitorizar o estado e o desempenho do aprovisionamento
-              href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Relatório sobre o aprovisionamento de aplicações
-              href: check-status-user-account-provisioning.md
-            - name: Exportar e importar a configuração
-              href: export-import-provisioning-configuration.md
-        - name: Automatizar a configuração com o MS Graph
-          href: application-provisioning-configure-api.md
-        - name: Resolver problemas de aprovisionamento de utilizadores
-          items:
-            - name: Resolver problemas de aprovisionamento de aplicações
-              href: application-provisioning-config-problem.md
-            - name: Estado de quarentena
-              href: application-provisioning-quarantine-status.md
-            - name: Registos de aprovisionamento
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Sincronizar um atributo para mapeamento – aplicação da galeria
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Tempo – aplicação da galeria
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problema de autorização (não é possível guardar as credenciais de administrador)
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Os utilizadores não estão aprovisionados
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Foram aprovisionados os utilizadores errados
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
-            - name: Tarefa de aprovisionamento em quarentena
-              href: application-provisioning-quarantine-status.md
-            - name: Atributo de origem em falta
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: A tarefa de aprovisionamento está lenta
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Registos de aprovisionamento
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Proxy de Aplicações para aplicações no local
       items:
         - name: Configurar conectores
@@ -391,28 +327,10 @@
           href: secure-hybrid-access.md
 - name: Referência
   items:
-    - name: Aprovisionamento de aplicações (SCIM)
-      items:
-        - name: Escrever expressões para mapeamentos de atributos
-          href: functions-for-customizing-application-data.md
-        - name: Escolher um método de aprovisionamento
-          href: isv-automatic-provisioning-multi-tenant-apps.md
-    - name: Aprovisionamento de HR de Cloud
-      items:
-        - name: Referência de atributo da SuccessFactors
-          href: sap-successfactors-attribute-reference.md
-        - name: Referência de atributo da Workday
-          href: workday-attribute-reference.md
-    - name: Agente de Aprovisionamento do Azure AD Connect
-      items:
-        - name: Histórico de versões do Agente de Aprovisionamento
-          href: provisioning-agent-release-version-history.md
-    - name: Proxy de Aplicações para aplicações no local
-      items:
-        - name: FAQ do Proxy de Aplicações
-          href: application-proxy-faq.md
-        - name: Histórico de versões do Proxy de Aplicação
-          href: application-proxy-release-version-history.md
+    - name: FAQ do Proxy de Aplicações
+      href: application-proxy-faq.md
+    - name: Histórico de versões do Proxy de Aplicação
+      href: application-proxy-release-version-history.md
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda para programadores

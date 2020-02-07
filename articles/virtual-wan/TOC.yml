@@ -4,6 +4,12 @@
   items:
     - name: Acerca da WAN Virtual
       href: virtual-wan-about.md
+    - name: Arquitetura
+      items:
+        - name: Migrar para WAN Virtual
+          href: migrate-from-hub-spoke-topology.md
+        - name: Arquitetura de rede de trânsito global
+          href: virtual-wan-global-transit-network-architecture.md
 - name: Tutoriais
   items:
     - name: Criar uma ligação site a site
@@ -18,12 +24,6 @@
       href: virtual-wan-locations-partners.md
     - name: Políticas de IPsec
       href: virtual-wan-ipsec.md
-    - name: Arquitetura
-      items:
-        - name: Migrar para WAN Virtual
-          href: migrate-from-hub-spoke-topology.md
-        - name: Arquitetura de rede de trânsito global
-          href: virtual-wan-global-transit-network-architecture.md
 - name: Guias de procedimentos
   items:
     - name: Ligar um gateway de rede virtual a uma WAN Virtual
