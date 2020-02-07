@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 8b1728332ae050899f88f5c00e98a2a08e036cba
-  ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+  ms.openlocfilehash: 37f3581866a687cce3f65d17175a334f5bba11d7
+  ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/04/2020
-  ms.locfileid: "76981009"
+  ms.lasthandoff: 02/06/2020
+  ms.locfileid: "77047309"
 landingContent:
 - title: Sobre a Configuração da Aplicação Azure
   linkLists:
@@ -58,7 +58,7 @@ landingContent:
       url: quickstart-aspnet-core-app.md
     - text: Programar uma aplicação das Funções do Azure em C#
       url: quickstart-azure-functions-csharp.md
-    - text: Programar uma aplicação Java Spring
+    - text: Codificar uma aplicação Spring Boot
       url: quickstart-java-spring-app.md
   - linkListType: tutorial
     links:
@@ -78,7 +78,7 @@ landingContent:
     links:
     - text: Utilizar as referências do Key Vault numa aplicação ASP.NET Core
       url: use-key-vault-references-dotnet-core.md
-    - text: Utilizar as referências do Key Vault numa aplicação Java Spring
+    - text: Utilizar referências do Key Vault numa aplicação Spring Boot
       url: use-key-vault-references-spring-boot.md
   - linkListType: sample
     links:
@@ -98,7 +98,7 @@ landingContent:
       url: quickstart-feature-flag-aspnet-core.md
     - text: Aplicação .NET Framework
       url: quickstart-feature-flag-dotnet.md
-    - text: Aplicação Java Spring
+    - text: Aplicação Spring Boot
       url: quickstart-feature-flag-spring-boot.md
   - linkListType: tutorial
     links:
@@ -126,7 +126,7 @@ landingContent:
       url: https://go.microsoft.com/fwlink/?linkid=2074663
     - text: SDK do Azure para .Net
       url: https://go.microsoft.com/fwlink/?linkid=2092056
-    - text: Fornecedor de Java Spring
+    - text: Fornecedor do Spring Boot
       url: https://go.microsoft.com/fwlink/?linkid=2074659
     - text: SDK do Azure para Java
       url: https://go.microsoft.com/fwlink/?linkid=2098196

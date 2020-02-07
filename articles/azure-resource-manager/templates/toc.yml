@@ -161,6 +161,8 @@
         - name: Implementar - API REST
           displayName: deployment
           href: deploy-rest.md
+        - name: Implementar a partir do GitHub
+          href: deploy-to-azure-button.md
         - name: Implementação de Hipóteses
           href: template-deploy-what-if.md
         - name: Implementar novamente depois do erro
