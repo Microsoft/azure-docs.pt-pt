@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Saiba como solicitar reclamações personalizadas.
 services: active-directory
 documentationcenter: ''
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 0aa4648d3d5e76c2d0ebd7524ad8dfa52da3fb30
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 44158296faaf238fd72f2360149d3d93f68c5ba0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702492"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085600"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: Solicitar reclamações personalizadas utilizando MSAL para iOS e macOS
 
@@ -56,14 +56,14 @@ Há vários cenários em que isto é necessário. Por exemplo:
 ```
 `MSALClaimsRequest` pode ser construída a partir de uma representação NSString do pedido de reclamações da JSON. 
 
-Objective-C:
+Objetivo C:
 
 ```objc
 NSError *claimsError = nil;
 MSALClaimsRequest *request = [[MSALClaimsRequest alloc] initWithJsonString:@"{\"id_token\":{\"auth_time\":{\"essential\":true},\"acr\":{\"values\":[\"urn:mace:incommon:iap:silver\"]}}}" error:&claimsError];
 ```
 
-Swift
+Swift:
 
 ```swift
 var requestError: NSError? = nil
@@ -75,7 +75,7 @@ let request = MSALClaimsRequest(jsonString: "{\"id_token\":{\"auth_time\":{\"ess
 
 Também pode ser modificado solicitando reclamações específicas adicionais:
 
-Objective-C:
+Objetivo C:
 
 ```objc
 MSALIndividualClaimRequest *individualClaimRequest = [[MSALIndividualClaimRequest alloc] initWithName:@"custom_claim"];
@@ -85,7 +85,7 @@ individualClaimRequest.additionalInfo.value = @"myvalue";
 [request requestClaim:individualClaimRequest forTarget:MSALClaimsRequestTargetIdToken error:&claimsError];
 ```
 
-Swift
+Swift:
 
 ```swift
 let individualClaimRequest = MSALIndividualClaimRequest(name: "custom-claim")
@@ -105,7 +105,7 @@ do {
 
 `MSALClaimsRequest` devem ser definidos nos parâmetros simbólicos e fornecidos a uma das aquisições de token sancionadas da MSAL:
 
-Objective-C:
+Objetivo C:
 
 ```objc
 MSALPublicClientApplication *application = ...;
@@ -118,7 +118,7 @@ parameters.claimsRequest = request;
 [application acquireTokenWithParameters:parameters completionBlock:completionBlock];
 ```
 
-Swift
+Swift:
 
 ```swift
 let application: MSALPublicClientApplication!
@@ -135,4 +135,4 @@ application.acquireToken(with: parameters) { (result: MSALResult?, error: Error?
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md)
+Saiba mais sobre [fluxos de autenticação e cenários](authentication-flows-app-scenarios.md) de aplicação

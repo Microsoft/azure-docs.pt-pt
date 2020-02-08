@@ -3,22 +3,22 @@ title: Configurar keychain
 titleSuffix: Microsoft identity platform
 description: Aprenda a configurar o chaveiro para que a sua aplicação possa cache tokens no porta-chaves.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 52eb4eb5958357a90c1db773f45c9928e4652755
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696882"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085858"
 ---
 # <a name="configure-keychain"></a>Configurar keychain
 
@@ -104,7 +104,7 @@ if let bundleIdentifier = Bundle.main.bundleIdentifier {
 
 Erro -34018 normalmente significa que o porta-chaves não foi configurado corretamente. Certifique-se de que o grupo de acesso ao porta-chaves que foi configurado em MSAL corresponde ao configurado nos direitos.
 
-## <a name="ensure-your-application-is-properly-signed"></a>Verifique se seu aplicativo está assinado corretamente
+## <a name="ensure-your-application-is-properly-signed"></a>Certifique-se de que a sua candidatura está devidamente assinada
 
 No macOS, as aplicações podem ser executadas sem serem assinadas pelo desenvolvedor. Embora a maior parte da funcionalidade da MSAL continue a funcionar, o SSO através do acesso à porta-chaves requer a assinatura da aplicação. Se estiver a experimentar várias solicitações de porta-chaves, certifique-se de que a assinatura da sua aplicação é válida.
 

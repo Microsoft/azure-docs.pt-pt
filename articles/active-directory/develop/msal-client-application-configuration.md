@@ -3,22 +3,22 @@ title: Configuração de aplicação do cliente (MSAL) / Azure
 titleSuffix: Microsoft identity platform
 description: Conheça as opções de configuração para aplicações de clientes públicos e clientes confidenciais utilizando a Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/27/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5388dc101dbc4e06ce26f12bfd40645455e8dae8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696487"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085001"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicação
 
@@ -89,7 +89,7 @@ Se não especificar um público, a sua aplicação terá como alvo contas Azure 
 
 ### <a name="effective-audience"></a>Público eficaz
 
-O público eficaz para a sua aplicação será o mínimo (se houver uma intersecção) do público que você definir na sua app e o público especificado no registo da aplicação. De facto, a experiência de [registos](https://aka.ms/appregistrations) da App permite especificar o público (os tipos de conta suportados) para a aplicação. Para obter mais informações, consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](quickstart-register-app.md).
+O público eficaz para a sua aplicação será o mínimo (se houver uma intersecção) do público que você definir na sua app e o público especificado no registo da aplicação. De facto, a experiência de [registos](https://aka.ms/appregistrations) da App permite especificar o público (os tipos de conta suportados) para a aplicação. Para mais informações, consulte [Quickstart: Registe uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md).
 
 Atualmente, a única maneira de obter uma app para iniciar sessão em utilizadores com apenas contas pessoais da Microsoft é configurar ambas as definições:
 - Deteto o público de registo da aplicação para `Work and school accounts and personal accounts`.

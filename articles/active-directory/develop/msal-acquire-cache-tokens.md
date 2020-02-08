@@ -3,22 +3,22 @@ title: Adquirir e cache tokens com mSAL / Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a aquisição e o cache tokens usando a Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/07/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9a9dda1bba4d587881d32d937fa0e20b68a5b383
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696576"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085163"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e cache tokens utilizando a biblioteca de autenticação da Microsoft (MSAL)
 
@@ -26,13 +26,13 @@ ms.locfileid: "76696576"
 
 A MSAL caches um símbolo depois de ter sido adquirido.  O código de aplicação deve tentar obter um símbolo silenciosamente (a partir da cache), primeiro, antes de adquirir um símbolo por outros meios.
 
-Também pode limpar a cache simbólica, que é conseguida removendo as contas da cache. No entanto, isso não remove o cookie de sessão que está no navegador.
+Também pode limpar a cache simbólica, que é conseguida removendo as contas da cache. Isto não remove o cookie de sessão que está no navegador, no entanto.
 
 ## <a name="scopes-when-acquiring-tokens"></a>Âmbitos ao adquirir fichas
 
 [Os âmbitos](v2-permissions-and-consent.md) são as permissões que uma API web expõe para aplicações de clientes para solicitar acesso. As aplicações do cliente solicitam o consentimento do utilizador para estes âmbitos ao efecêu-los pedidos de autenticação para obter fichas para aceder às APIs web. O MSAL permite-lhe obter fichas para aceder a AD Azure para programadores (v1.0) e plataforma de identidade Microsoft (v2.0) APIs. v2.0 protocolo utiliza âmbitos em vez de recursos nos pedidos. Para mais informações, leia [a comparação v1.0 e v2.0.](active-directory-v2-compare.md) Com base na configuração da API web da versão simbólica que aceita, o ponto final v2.0 devolve o sinal de acesso ao MSAL.
 
-Alguns métodos de aquisição de mSAL requerem um parâmetro de *âmbito.* Esse parâmetro é uma lista simples de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Os âmbitos bem conhecidos são as [permissões](/graph/permissions-reference)do Microsoft Graph.
+Alguns métodos de aquisição de mSAL requerem um parâmetro de *âmbito.* Este parâmetro é uma simples lista de cordas que declaram as permissões e recursos desejados que são solicitados. Os âmbitos bem conhecidos são as [permissões](/graph/permissions-reference)do Microsoft Graph.
 
 Também é possível na MSAL aceder aos recursos v1.0. Para mais informações, leia [Os Âmbitos para uma aplicação v1.0.](msal-v1-app-scopes.md)
 
@@ -81,7 +81,7 @@ Para aplicações Web que utilizem o fluxo de código de [autorização OpenID C
 
 Geralmente, o método de aquisição de um símbolo depende se é um cliente público ou uma aplicação confidencial do cliente.
 
-### <a name="public-client-applications"></a>Aplicativos cliente públicos
+### <a name="public-client-applications"></a>Aplicações de clientes públicos
 
 Para aplicações de clientes públicos (desktop ou aplicativo móvel), você:
 - Muitas vezes adquire fichas interativamente, tendo o utilizador iniciar sessão através de uma ui ou janela pop-up.
@@ -89,7 +89,7 @@ Para aplicações de clientes públicos (desktop ou aplicativo móvel), você:
 - Pode [obter um símbolo com um nome](msal-authentication-flows.md#usernamepassword) de utilizador e senha em aplicações de cliente de ambiente de trabalho .NET, mas isso não é recomendado. Não utilize o nome de utilizador/palavra-passe em aplicações confidenciais do cliente.
 - Pode adquirir um símbolo através do fluxo de código do [dispositivo](msal-authentication-flows.md#device-code) em aplicações em execução em dispositivos que não têm um navegador web. O utilizador é fornecido com um URL e um código, que depois vai para um navegador web em outro dispositivo e introduz o código e entra no sinal.  A Azure AD envia então um sinal de volta para o dispositivo sem navegador.
 
-### <a name="confidential-client-applications"></a>Aplicativos cliente confidenciais
+### <a name="confidential-client-applications"></a>Aplicações confidenciais de clientes
 
 Para aplicações confidenciais de clientes (Web App, Web API ou aplicação daemon como um serviço Windows), você:
 - Adquirir fichas **para a própria aplicação** e não para um utilizador, utilizando o fluxo de [credenciais](msal-authentication-flows.md#client-credentials)do cliente . Isto pode ser usado para sincronizar ferramentas, ou ferramentas que processam os utilizadores em geral e não um utilizador específico. 
@@ -100,7 +100,7 @@ Para aplicações confidenciais de clientes (Web App, Web API ou aplicação dae
 
 Quando o seu cliente solicita um sinal de acesso, a Azure AD também devolve um resultado de autenticação que inclui alguns metadados sobre o token de acesso. Estas informações incluem o tempo de validade do token de acesso e os âmbitos para os quais é válido. Estes dados permitem que a sua aplicação faça um cache inteligente de fichas de acesso sem ter que analisar o próprio token de acesso.  O resultado da autenticação expõe:
 
-- O [sinal de acesso](access-tokens.md) para a Web API para aceder a recursos. Esta é uma corda, geralmente um JWT codificado base64, mas o cliente nunca deve olhar para dentro do sinal de acesso. Não há garantia de que o formato permaneça estável e possa ser criptografado para o recurso. As pessoas que escrevem código dependendo do conteúdo do token de acesso no cliente são uma das maiores fontes de erros e quebras lógicas do cliente.
+- O [sinal de acesso](access-tokens.md) para a Web API para aceder a recursos. Esta é uma corda, geralmente um JWT codificado base64, mas o cliente nunca deve olhar para dentro do sinal de acesso. O formato não é garantido para permanecer estável e pode ser encriptado para o recurso. As pessoas que escrevem código dependendo do conteúdo simbólico de acesso ao cliente é uma das maiores fontes de erros e quebras de lógica do cliente.
 - O [símbolo de identificação](id-tokens.md) para o utilizador (este é um JWT).
 - A expiração do símbolo, que indica a data/hora em que o símbolo expira.
 - A identificação do inquilino contém o inquilino no qual o utilizador foi encontrado. Para os utilizadores convidados (cenários Azure AD B2B), o ID do inquilino é o inquilino convidado, não o inquilino único. Quando o token é entregue em nome de um utilizador, o resultado da autenticação também contém informações sobre este utilizador. Para fluxos confidenciais de clientes onde são solicitados tokens sem utilizador (para a aplicação), esta informação do utilizador é nula.
@@ -109,6 +109,6 @@ Quando o seu cliente solicita um sinal de acesso, a Azure AD também devolve um 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você estiver usando o MSAL para Java, saiba mais sobre a [serialização de cache de token personalizada em MSAL para Java](msal-java-token-cache-serialization.md).
+Se estiver a usar o MSAL para Java, aprenda sobre a serialização de [cache personalizada em MSAL para Java](msal-java-token-cache-serialization.md).
 
 Aprenda sobre o manuseamento de [erros e exceções.](msal-handling-exceptions.md)

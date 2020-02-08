@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844620"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086622"
 ---
 # <a name="persist-state-in-windows"></a>Persistir estado nas Janelas
 
@@ -212,13 +212,13 @@ Em vez de acumular um volume, pode criar um diretório no sistema de anfitriões
     ```
 ## <a name="persist-events"></a>Persistir eventos
 
-Para permitir a persistência do evento, primeiro deve ativar a persistência de metadados através do suporte de volume ou do suporte de diretório de hospedeiro utilizando as secções acima referidas.
+Para permitir a persistência do evento, deve primeiro ativar a persistência dos eventos através do suporte de volume ou do suporte de diretório hospedeiro utilizando as secções acima referidas.
 
 Coisas importantes a notar sobre eventos persistentes:
 
 * Os eventos persistentes são ativados por subscrição de eventos e é opt-in uma vez que um volume ou diretório foi montado.
 * A persistência do evento é configurada numa Subscrição de Eventos no momento da criação e não pode ser modificada uma vez que a Subscrição do Evento é criada. Para alternar a persistência do evento, deve eliminar e recriar a Subscrição do Evento.
-* Os eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto a diferença de velocidade depende muito das características da unidade. A troca entre a velocidade e a fiabilidade é inerente a todos os sistemas de mensagens, mas torna-se apenas um noticível em larga escala.
+* Os eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto a diferença de velocidade depende muito das características da unidade. A troca entre a velocidade e a fiabilidade é inerente a todos os sistemas de mensagens, mas torna-se apenas percetível em larga escala.
 
 Para permitir a persistência do evento numa Subscrição de Eventos, detete `persistencePolicy` para `true`:
 

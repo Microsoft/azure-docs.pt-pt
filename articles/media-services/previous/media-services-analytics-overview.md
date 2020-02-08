@@ -15,25 +15,21 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 4b0d360c11313e086f6ec26e5ee46b8d6f49869a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844348"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069630"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics na plataforma Media Services 
 
 ## <a name="retirement-plans"></a>Planos de reforma
 
 > [!IMPORTANT]
-> O seguinte processador de mídia legado vai ser retirado em 2020, ver detalhes na tabela seguinte. 
+> Alguns processadores de mídia estão a ser reformados. Para as datas de reforma e mais informações, consulte o tema dos [componentes do legado.](legacy-components.md) 
 
-|Nome do processador de mulitmédia|Data de aposentadoria|Notas adicionais|
-|---|---|
-|[Azure Media Indexer](media-services-index-content.md)|1º de outubro de 2020|Esse processador de mídia será substituído pelos [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Para obter mais informações, consulte [migrar do Azure Media indexer para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md)
- 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Mais organizações estão a usar o vídeo como meio preferido para formar os seus colaboradores, envolver os seus clientes e documentar funções empresariais. A computação em nuvem fornece uma forma de armazenar, transmitir e aceder a estes grandes ficheiros de mídia. Mas à medida que a biblioteca de conteúdos de vídeo de uma empresa cresce, precisa de um meio igualmente eficaz de extrair insights do conteúdo. 
 
@@ -49,7 +45,7 @@ Os processadores de multimédia de Análise de Multimédia produzem ficheiros MP
 
 ## <a name="media-analytics-services"></a>Serviços Media Analytics
 
-### <a name="indexer"></a>Indexador
+### <a name="indexer"></a>Indexante
 Com o Azure Media Indexer, pode tornar o conteúdo pesquisável e gerar faixas de legendagem fechada. Para obter informações detalhadas e exemplos, consulte [Indexing Media Files com O Indexante](media-services-index-content.md)dos Media Azure .
 
 ### <a name="motion-detector"></a>Detetor de Movimento
@@ -65,7 +61,7 @@ Com o Azure Media OCR (reconhecimento ótico de caracteres), pode converter cont
 ### <a name="scalable-face-redaction"></a>Redação facial escalável
 Azure Media Redator é um processador de media Media Analytics que oferece redação facial escalável na nuvem. Ao utilizar a redação facial, pode modificar o seu vídeo para desfocar rostos de indivíduos selecionados. É melhor utilizar o serviço de redação facial nos meios de comunicação social ou quando a segurança pública estiver envolvida. Alguns minutos de filmagens que contêm várias faces podem levar horas a redigir manualmente, mas com este serviço, a redação facial dá apenas alguns passos simples. Para mais informações, consulte o Redact face com o artigo [da Azure Media Analytics.](media-services-face-redaction.md)
 
-### <a name="content-moderation"></a>Moderação de Conteúdos
+### <a name="content-moderation"></a>Moderação de Conteúdo
 O Azure Content Moderator permite-lhe utilizar moderação assistida por máquinas para os seus vídeos. Por exemplo, poderá querer detetar possível conteúdo para adultos nos vídeos e rever o conteúdo sinalizado pelas suas equipas de moderação humana. Moderar manualmente vídeos para conteúdos indesejáveis é uma tarefa morosa e dispendiosa. Com este serviço e ferramentas de revisão associadas, combina a moderação assistida por máquinas com capacidades humanas no loop para obter os melhores resultados de forma eficiente e económica. Para saber mais, consulte o Processo dos seus vídeos com o artigo do Moderador de [Conteúdo Do Azure.](media-services-content-moderation.md)
 
 ## <a name="common-scenarios"></a>Cenários comuns
@@ -79,7 +75,7 @@ Esta secção lista os processadores de mídia Media Analytics e mostra como uti
 
 ### <a name="mp-names"></a>Nomes de MP
 
-* Indexador de Multimédia do Azure
+* Azure Media Indexer
 * Azure Media Face Detector
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails

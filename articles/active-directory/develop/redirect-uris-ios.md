@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as diferenças entre a biblioteca de autenticação da Microsoft para ObjectiveC (MSAL para iOS e macOS) e a biblioteca de autenticação do Azure AD para ObjectiveC (ADAL. ObjC) e como migrar entre eles.
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: b7fe65938b6f96a649a5a2a9ec1d1b921a95dd49
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c36c6b1b1b08de6d2db9a7f7f9ebd3b162c02383
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703087"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085637"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Usando URIs de redirecionamento com a biblioteca de autenticação da Microsoft para iOS e macOS
 
@@ -47,7 +47,7 @@ Dado o seguinte registro de aplicativo no portal do Azure:
     Client ID: ABCDE-12345 (this is a single client ID)
     RedirectUris: msauth.com.contoso.app1://auth, msauth.com.contoso.app2://auth, msauth.com.contoso.app3://auth
 
-App1 usa redirecionamento `msauth.com.contoso.app1://auth` App2 usa `msauth.com.contoso.app2://auth` uso de App3 `msauth.com.contoso.app1://auth`
+App1 usa redirecionamento `msauth.com.contoso.app1://auth` App2 usa `msauth.com.contoso.app2://auth` App3 usa `msauth.com.contoso.app1://auth`
 
 ### <a name="migrating-from-adal-to-msal"></a>Migrando do ADAL para o MSAL
 
@@ -55,13 +55,13 @@ Ao migrar o código que usou a ADAL (biblioteca de autenticação do Azure AD) p
 
 ## <a name="msal-redirect-uri-format-requirements"></a>Requisitos de formato de URI de redirecionamento MSAL
 
-* O URI de redirecionamento MSAL deve estar no formato `<scheme>://host`
+* O redirecionamento mSAL URI deve estar na forma `<scheme>://host`
 
-    Onde `<scheme>` é uma cadeia de caracteres exclusiva que identifica seu aplicativo. Ele se baseia principalmente no identificador de pacote do seu aplicativo para garantir a exclusividade. Por exemplo, se a ID do pacote do seu aplicativo for `com.contoso.myapp`, o URI de redirecionamento estaria no formato: `msauth.com.contoso.myapp://auth`.
+    Onde `<scheme>` é uma cadeia única que identifica a sua aplicação. Ele se baseia principalmente no identificador de pacote do seu aplicativo para garantir a exclusividade. Por exemplo, se o Bundle ID da sua aplicação for `com.contoso.myapp`, o seu URI redirecionado estaria na forma: `msauth.com.contoso.myapp://auth`.
 
-    Se você estiver migrando do ADAL, seu URI de redirecionamento provavelmente terá esse formato: `<scheme>://[Your_Bundle_Id]`, em que `scheme` é uma cadeia de caracteres exclusiva. Esse formato continuará a funcionar quando você usar o MSAL.
+    Se estiver a migrar da ADAL, o seu URI redirecionado terá provavelmente este formato: `<scheme>://[Your_Bundle_Id]`, onde `scheme` é uma cadeia única. Esse formato continuará a funcionar quando você usar o MSAL.
 
-* `<scheme>` deve ser registrado no info. plist do seu aplicativo em `CFBundleURLTypes > CFBundleURLSchemes`.  Neste exemplo, o info. plist foi aberto como código-fonte:
+* `<scheme>` devem ser registados na lista info.plist da sua aplicação em `CFBundleURLTypes > CFBundleURLSchemes`.  Neste exemplo, o info. plist foi aberto como código-fonte:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -78,13 +78,13 @@ Ao migrar o código que usou a ADAL (biblioteca de autenticação do Azure AD) p
 
 MSAL verificará se o URI de redirecionamento se registra corretamente e retorna um erro se não for.
     
-* Se você quiser usar links universais como um URI de redirecionamento, a `<scheme>` deverá ser `https` e não precisará ser declarada em `CFBundleURLSchemes`. Em vez disso, configure o aplicativo e o domínio por instruções da Apple em [links universais para desenvolvedores](https://developer.apple.com/ios/universal-links/) e chame o método de `handleMSALResponse:sourceApplication:` de `MSALPublicClientApplication` quando seu aplicativo for aberto por meio de um link universal.
+* Se quiser utilizar links universais como um URI redirecionado, o `<scheme>` deve ser `https` e não precisa de ser declarado em `CFBundleURLSchemes`. Em vez disso, configure a aplicação e o domínio de acordo com as instruções da Apple na [Universal Links for Developers](https://developer.apple.com/ios/universal-links/) e ligue para o método `handleMSALResponse:sourceApplication:` de `MSALPublicClientApplication` quando a sua aplicação for aberta através de um link universal.
 
 ## <a name="use-a-custom-redirect-uri"></a>Usar um URI de redirecionamento personalizado
 
-Para usar um URI de redirecionamento personalizado, passe o parâmetro `redirectUri` para `MSALPublicClientApplicationConfig` e passe esse objeto para `MSALPublicClientApplication` ao inicializar o objeto. Se o URI de redirecionamento for inválido, o inicializador retornará `nil` e definirá o `redirectURIError`com informações adicionais.  Por exemplo:
+Para utilizar um URI de redirecionamento personalizado, passe o parâmetro `redirectUri` para `MSALPublicClientApplicationConfig` e passe esse objeto para `MSALPublicClientApplication` quando rubricar o objeto. Se o URI redireccionador for inválido, o inicializador devolverá `nil` e definirá o `redirectURIError`com informações adicionais.  Por exemplo:
 
-Objective-C:
+Objetivo C:
 
 ```objc
 MSALPublicClientApplicationConfig *config =
@@ -96,7 +96,7 @@ MSALPublicClientApplication *application =
         [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&redirectURIError];
 ```
 
-Swift
+Swift:
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -114,9 +114,9 @@ do {
 
 ## <a name="handle-the-url-opened-event"></a>Manipular o evento de URL aberta
 
-Seu aplicativo deve chamar MSAL quando receber qualquer resposta por meio de esquemas de URL ou links universais. Chame o método de `handleMSALResponse:sourceApplication:` de `MSALPublicClientApplication` quando seu aplicativo for aberto. Aqui está um exemplo de esquemas personalizados:
+Seu aplicativo deve chamar MSAL quando receber qualquer resposta por meio de esquemas de URL ou links universais. Ligue para o método `handleMSALResponse:sourceApplication:` de `MSALPublicClientApplication` quando a sua aplicação for aberta. Aqui está um exemplo de esquemas personalizados:
 
-Objective-C:
+Objetivo C:
 
 ```objc
 - (BOOL)application:(UIApplication *)app
@@ -128,7 +128,7 @@ Objective-C:
 }
 ```
 
-Swift
+Swift:
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -140,4 +140,4 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md)
+Saiba mais sobre [fluxos de autenticação e cenários](authentication-flows-app-scenarios.md) de aplicação

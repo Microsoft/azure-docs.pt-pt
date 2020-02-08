@@ -3,7 +3,7 @@ title: Usando o modo de dispositivo compartilhado com o MSAL Android | Azure
 description: Saiba como preparar um dispositivo Android para ser executado no modo compartilhado e executar um aplicativo de trabalho de início.
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -15,12 +15,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 98882ad115ff977cfd8222c6055a436855f50c04
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bf7e6bb22ce89d6be3f79efad1f1a3679e8780e7
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701251"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086058"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: usar o modo de dispositivo compartilhado em seu aplicativo Android
 
@@ -31,11 +31,11 @@ ms.locfileid: "76701251"
 
 ## <a name="developer-guide"></a>Guia para programadores
 
-Este guia fornece orientação para desenvolvedores para implementar o modo de dispositivo compartilhado em um aplicativo Android usando a MSAL (biblioteca de autenticação da Microsoft). Consulte o [tutorial do Android para MSAL](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android) para ver como integrar o MSAL ao seu aplicativo Android, conectar um usuário, chamar o Microsoft Graph e sair de um usuário.
+Este guia fornece orientação para desenvolvedores para implementar o modo de dispositivo compartilhado em um aplicativo Android usando a MSAL (biblioteca de autenticação da Microsoft). Consulte o [tutorial Android MSAL](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android) para ver como integrar o MSAL com a sua aplicação Android, iniciar sessão num utilizador, ligar para o gráfico da Microsoft e assinar um utilizador.
 
 ### <a name="download-the-sample"></a>Transferir o exemplo
 
-Clone o [aplicativo de exemplo](https://github.com/Azure-Samples/ms-identity-android-java/) do github. O exemplo tem a capacidade de trabalhar no [modo de conta única ou de várias contas](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
+Clone a [aplicação](https://github.com/Azure-Samples/ms-identity-android-java/) da amostra do GitHub. A amostra tem a capacidade de trabalhar no [modo de conta única ou múltipla](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
 
 ### <a name="add-the-msal-sdk-to-your-local-maven-repository"></a>Adicionar o SDK do MSAL ao seu repositório Maven local
 
@@ -49,11 +49,11 @@ dependencies{
 
 ### <a name="configure-your-app-to-use-shared-device-mode"></a>Configurar seu aplicativo para usar o modo de dispositivo compartilhado
 
-Consulte a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration) para obter mais informações sobre como configurar o arquivo de configuração.
+Consulte a documentação de [configuração](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration) para obter mais informações sobre a configuração do seu ficheiro config.
 
 Detete `"shared_device_mode_supported"` para `true` no seu ficheiro de configuração MSAL.
 
-Talvez você não esteja planejando dar suporte ao modo de várias contas. Isso pode ser se você não estiver usando um dispositivo compartilhado e o usuário puder entrar no aplicativo com mais de uma conta ao mesmo tempo. Em caso afirmativo, `"account_mode"` `"SINGLE"`. Isso garante que seu aplicativo sempre obterá `ISingleAccountPublicClientApplication`e simplifica significativamente a integração do MSAL. O valor padrão do `"account_mode"` é `"MULTIPLE"`, pelo que é importante alterar este valor no ficheiro config se estiver a utilizar `"single account"` modo.
+Talvez você não esteja planejando dar suporte ao modo de várias contas. Isso pode ser se você não estiver usando um dispositivo compartilhado e o usuário puder entrar no aplicativo com mais de uma conta ao mesmo tempo. Em caso afirmativo, `"account_mode"` `"SINGLE"`. Isto garante que a sua aplicação terá sempre `ISingleAccountPublicClientApplication`, e simplifica significativamente a sua integração MSAL. O valor padrão do `"account_mode"` é `"MULTIPLE"`, pelo que é importante alterar este valor no ficheiro config se estiver a utilizar `"single account"` modo.
 
 Aqui está um exemplo do ficheiro auth_config.json incluído na **app**>**principal**>**res**>diretório **bruto** da aplicação da amostra:
 
@@ -81,9 +81,9 @@ Aqui está um exemplo do ficheiro auth_config.json incluído na **app**>**princi
 
 O modo de dispositivo compartilhado permite configurar dispositivos Android para serem compartilhados por vários funcionários, fornecendo ao mesmo tempo o gerenciamento de identidades da Microsoft do dispositivo. Os funcionários podem entrar em seus dispositivos e acessar as informações do cliente rapidamente. Quando eles forem concluídos com sua mudança ou tarefa, eles poderão sair de todos os aplicativos no dispositivo compartilhado com um único clique e o dispositivo estará imediatamente pronto para uso do próximo funcionário.
 
-Use `isSharedDevice()` para determinar se um aplicativo está em execução em um dispositivo que está no modo de dispositivo compartilhado. Seu aplicativo pode usar esse sinalizador para determinar se ele deve modificar o UX adequadamente.
+Utilize `isSharedDevice()` para determinar se uma aplicação está a funcionar num dispositivo que se encontra no modo de dispositivo partilhado. Seu aplicativo pode usar esse sinalizador para determinar se ele deve modificar o UX adequadamente.
 
-Aqui está um trecho de código que mostra como você pode usar `isSharedDevice()`.  É da classe `SingleAccountModeFragment` no aplicativo de exemplo:
+Aqui está um corte de código que mostra como pode usar `isSharedDevice()`.  É da turma `SingleAccountModeFragment` na aplicação de amostras:
 
 ```Java
 deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Shared");
@@ -132,7 +132,7 @@ private IPublicClientApplication mApplication;
 
 ### <a name="get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device"></a>Obter o usuário conectado e determinar se um usuário foi alterado no dispositivo
 
-O método `loadAccount` recupera a conta do usuário conectado. O método `onAccountChanged` determina se o usuário conectado foi alterado e, nesse caso, limpa:
+O método `loadAccount` recupera a conta do utilizador assinado. O método `onAccountChanged` determina se o utilizador inscrito mudou e, em caso afirmativo, limpe:
 
 ```java 
 private void loadAccount()
@@ -207,10 +207,10 @@ As etapas a seguir descrevem como configurar seu aplicativo no portal do Azure e
 
 Primeiro, Registre seu aplicativo em seu locatário organizacional. Em seguida, forneça estes valores abaixo em auth_config.json para que a sua aplicação seja executada corretamente.
 
-Para obter informações sobre como fazer isso, consulte [registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
+Para obter informações sobre como fazê-lo, consulte o [Registo da sua candidatura.](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application)
 
 > [!NOTE]
-> Ao registrar seu aplicativo, use o guia de início rápido no lado esquerdo e, em seguida, selecione **Android**. Isso levará você a uma página em que será solicitado que você forneça o **nome do pacote** e o **hash de assinatura** para seu aplicativo. Eles são muito importantes para garantir que a configuração do aplicativo funcione. Em seguida, receberá um objeto de configuração que pode usar para a sua aplicação que cortará e colará no seu ficheiro auth_config.json.
+> Quando registar a sua aplicação, utilize o guia quickstart no lado esquerdo e, em seguida, selecione **Android**. Isto irá levá-lo a uma página onde lhe será pedido que forneça o Nome do **Pacote** e **Signature Hash** para a sua aplicação. Eles são muito importantes para garantir que a configuração do aplicativo funcione. Em seguida, receberá um objeto de configuração que pode usar para a sua aplicação que cortará e colará no seu ficheiro auth_config.json.
 
 ![ecrã de registo da App](media/tutorial-v2-shared-device-mode/register-app.png) Você deve selecionar **Faça esta alteração para mim** e, em seguida, fornecer os valores que o quickstart pede no portal Azure. Quando isso for feito, geraremos todos os arquivos de configuração necessários.
 
@@ -218,7 +218,7 @@ Para obter informações sobre como fazer isso, consulte [registrar seu aplicati
 
 ## <a name="set-up-a-tenant"></a>Configurar um inquilino
 
-Para fins de teste, configure o seguinte em seu locatário: pelo menos dois funcionários, um administrador de dispositivo de nuvem e um administrador global. No portal do Azure, defina o administrador do dispositivo de nuvem modificando funções organizacionais. No portal do Azure, acesse suas funções organizacionais selecionando Azure Active Directory **funções de > e administradores** > **administrador de dispositivo de nuvem**. Adicione os usuários que podem colocar um dispositivo no modo compartilhado.
+Para fins de teste, configure o seguinte em seu locatário: pelo menos dois funcionários, um administrador de dispositivo de nuvem e um administrador global. No portal do Azure, defina o administrador do dispositivo de nuvem modificando funções organizacionais. No portal Azure, aceda às suas Funções Organizacionais selecionando **funções e funções** de > **de diretório ativo azure** e administradores > Administrador de **Dispositivos cloud**. Adicione os usuários que podem colocar um dispositivo no modo compartilhado.
 
 ## <a name="set-up-an-android-device-in-shared-mode"></a>Configurar um dispositivo Android no modo compartilhado
 
@@ -228,11 +228,11 @@ Baixe o aplicativo Microsoft Authenticator da Google Play Store. Se você já ti
 
 ### <a name="authenticator-app-settings--registering-the-device-in-the-cloud"></a>Configurações do aplicativo autenticador & registrar o dispositivo na nuvem
 
-Inicie o aplicativo autenticador e navegue até a página da conta principal. Depois de ver a página **adicionar conta** , você estará pronto para tornar o dispositivo compartilhado.
+Inicie o aplicativo autenticador e navegue até a página da conta principal. Assim que vir a página **Add Account,** está pronto para fazer o dispositivo partilhado.
 
 ![Tela de adição de conta do autenticador](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
 
- Vá para o painel **configurações** usando a barra de menus à direita. Selecione **registro de dispositivo** em **contas de trabalho & escola**.
+ Vá ao painel **Definições** utilizando a barra de menus à direita. Selecione **Registo do Dispositivo** sob contas de trabalho e **escola**.
  
  ![Tela de adição de conta do autenticador](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
@@ -240,11 +240,11 @@ Inicie o aplicativo autenticador e navegue até a página da conta principal. De
 
  ![Tela de adição de conta do autenticador](media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png)
 
-O administrador do dispositivo de nuvem deve inserir seu email organizacional em **ou registrar-se como um dispositivo compartilhado**. Em seguida, clique no botão **registrar como dispositivo compartilhado** e insira suas credenciais.
+O Administrador de Dispositivos Cloud deve introduzir o seu e-mail organizacional em **Ou registar-se como um dispositivo partilhado**. Em seguida, clique no registo como botão **de dispositivo partilhado** e introduza as suas credenciais.
 
 ![tela de registro – dispositivo](media/tutorial-v2-shared-device-mode/register-device.png)
 
-![iniciar sessão](media/tutorial-v2-shared-device-mode/sign-in.png)
+![inscrição](media/tutorial-v2-shared-device-mode/sign-in.png)
 
 O dispositivo agora está no modo compartilhado.
 
@@ -254,7 +254,7 @@ O dispositivo agora está no modo compartilhado.
 
 ## <a name="view-the-shared-device-in-the-azure-portal"></a>Exibir o dispositivo compartilhado no portal do Azure
 
-Depois de colocar um dispositivo no modo compartilhado, ele se torna conhecido em sua organização e é acompanhado em seu locatário organizacional. Você pode exibir seus dispositivos compartilhados examinando o **tipo de junção** na folha Azure Active Directory de seu portal do Azure.
+Depois de colocar um dispositivo no modo compartilhado, ele se torna conhecido em sua organização e é acompanhado em seu locatário organizacional. Pode ver os seus dispositivos partilhados olhando para o **Tipo De Adque** na lâmina de diretório Ativo Azure do seu portal Azure.
 
 ![Folha todos os dispositivos na portal do Azure](media/tutorial-v2-shared-device-mode/registered-device-screen.png)
 
@@ -266,4 +266,4 @@ O aplicativo de exemplo é um aplicativo simples que chamará o API do Graph de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o modo compartilhado no [modo de dispositivo compartilhado para dispositivos Android](shared-device-mode.md)
+Saiba mais sobre o modo partilhado no [modo de dispositivo partilhado para dispositivos Android](shared-device-mode.md)

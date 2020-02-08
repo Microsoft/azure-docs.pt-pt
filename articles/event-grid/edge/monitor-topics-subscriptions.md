@@ -8,12 +8,12 @@ ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 79b223de7a0a0cfdaf799b1f80e585a2a55f7e82
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849737"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086669"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Monitorize tópicos e assinaturas de eventos
 
@@ -40,7 +40,7 @@ Configure o módulo para emitir métricas definindo a variável ambiente `metric
         }
  ```    
 
-As métricas estarão disponíveis em `5888/metrics` do módulo para http e `4438/metrics` para https. Por exemplo, `http://<modulename>:4438/metrics?api-version=2019-01-01-preview` para http. Neste ponto, um módulo de métricas pode sondar o ponto final para recolher métricas como neste [exemplo arquitetura](https://github.com/veyalla/ehm).
+As métricas estarão disponíveis em `5888/metrics` do módulo para http e `4438/metrics` para https. Por exemplo, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` para http. Neste ponto, um módulo de métricas pode sondar o ponto final para recolher métricas como neste [exemplo arquitetura](https://github.com/veyalla/ehm).
 
 ## <a name="available-metrics"></a>Métricas disponíveis
 
@@ -63,9 +63,9 @@ Tanto os tópicos como as subscrições de eventos emitem métricas para lhe dar
 | Métrica | Descrição |
 | ------ | ----------- |
 | entregaSuccessCounts | Número de eventos entregues com sucesso no ponto final configurado
-| entregaPrazosDefalhas | Número de tentativas de entrega de eventos não conseguiu o ponto final configurado
+| entregaPrazosDefalhas | Número de eventos que não foram entregues ao ponto final configurado
 | entregaSuccessLatencyMs | Latência de eventos entregues com sucesso em milissegundos
 | entregaFalhaLncyMs | Latência de falhas na entrega de eventos em milissegundos
 | systemDelayForFirstAttemptMs | Atraso do sistema de eventos antes da primeira tentativa de entrega em milissegundos
 | entregasTentativasCount | Número de tentativas de entrega de eventos - sucesso e fracasso
-| contagem expirada | Número de eventos incapazes de ser entregues 
+| contagem expirada | Número de eventos que expiraram e não foram entregues no ponto final configurado

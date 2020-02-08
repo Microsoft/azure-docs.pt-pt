@@ -2,7 +2,7 @@
 title: Guia de migração DaAL para Android  ADAL) Azure
 description: Saiba como migrar a sua aplicação Android (ADAL) Da Biblioteca de Autenticação ativa do Azure para a Microsoft Authentication Library (MSAL).
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,31 +10,31 @@ ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
 ms.date: 09/6/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 0c7b059fd8d9b34ad6d1e565431d39ffc706cb45
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696712"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084052"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração DaAL para Android
 
-Este artigo realça as alterações que você precisa fazer para migrar um aplicativo que usa a ADAL (biblioteca de autenticação Azure Active Directory) para usar a MSAL (biblioteca de autenticação da Microsoft).
+Este artigo destaca as alterações que precisa de fazer para migrar uma aplicação que utiliza a Biblioteca de Autenticação de Diretórios Ativos Azure (ADAL) para utilizar a Biblioteca de Autenticação da Microsoft (MSAL).
 
 ## <a name="difference-highlights"></a>Destaques da diferença
 
-A ADAL trabalha com o Diretório Ativo Azure v1.0 endpoint. A MSAL (biblioteca de autenticação da Microsoft) funciona com a plataforma de identidade da Microsoft, conhecida anteriormente como ponto de extremidade do Azure Active Directory v 2.0. A plataforma de identidade da Microsoft difere do Azure Ative Directory v1.0 na medida em que:
+A ADAL trabalha com o Diretório Ativo Azure v1.0 endpoint. A Microsoft Authentication Library (MSAL) trabalha com a plataforma de identidade Microsoft, anteriormente conhecida como O Ponto Final do Diretório Ativo Azure v2.0. A plataforma de identidade da Microsoft difere do Azure Ative Directory v1.0 na medida em que:
 
-Suportar
+Suportes:
   - Identidade Organizacional (Diretório Ativo Azure)
   - Identidades não-organizacionais como Outlook.com, Xbox Live, e assim por diante
   - (apenas B2C) Login federado com Google, Facebook, Twitter e Amazon
 
-- Os padrões são compatíveis com:
-  - OAuth v 2.0
+- As normas são compatíveis com:
+  - OAuth v2.0
   - OpenID Connect (OIDC)
 
 A API pública mSAL introduz mudanças importantes, incluindo:
@@ -56,7 +56,7 @@ A API pública mSAL introduz mudanças importantes, incluindo:
 - A MSAL suporta a configuração declarativa para:
   - ID do cliente, Redirecionamento URI.
   - Incorporado vs Navegador Padrão
-  - pelas
+  - Autoridades
   - Definições http tais como tempo de leitura e ligação
 
 ## <a name="your-app-registration-and-migration-to-msal"></a>Registo da sua aplicação e migração para mSAL

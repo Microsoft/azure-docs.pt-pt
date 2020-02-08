@@ -1,29 +1,29 @@
 ---
-title: Tipos com suporte para reconhecimento de entidade nomeada
+title: Tipos suportados para reconhecimento de entidades nomeadas
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre os tipos de entidade com suporte no API de Análise de Texto.
+description: Conheça os tipos de entidades suportadas na API text analytics.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: cc684e99c0ed28aedd9b88aa21840ff60fb1b44b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 164e803a6af8a7d1ccdc9c70cc3e42b787857b3a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508058"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086916"
 ---
-# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipos com suporte para reconhecimento de entidade nomeada versão 3 (visualização)
+# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipos suportados para versão 3 de reconhecimento de entidades nomeadas (pré-visualização)
 
-O API de Análise de Texto fornece a capacidade de identificar e desambiguar as entidades encontradas no texto. O Ner ( [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md) ) é a capacidade de identificar diferentes entidades no texto e categorizá-las em classes predefinidas.
+A API text analytics fornece a capacidade de identificar e desambiguar entidades encontradas em texto. [Denominada Reconhecimento](how-tos/text-analytics-how-to-entity-linking.md) de Entidades (NER) é a capacidade de identificar diferentes entidades em texto e categorizá-las em classes pré-definidas.
 
 ## <a name="entity-types"></a>Tipos de entidade
 
-Os tipos de entidade e subtipos com suporte (onde aplicável) estão listados abaixo:
+Os tipos e subtipos de entidades suportadas (se aplicável) estão listados abaixo:
 
 #### <a name="generaltabgeneral"></a>[Geral](#tab/general)
 
@@ -37,4 +37,4 @@ Os tipos de entidade e subtipos com suporte (onde aplicável) estão listados ab
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Como usar o reconhecimento de entidade nomeada no Análise de Texto](how-tos/text-analytics-how-to-entity-linking.md)
+* [Como utilizar o Reconhecimento de EntidadeS Nomeadas em Análise de Texto](how-tos/text-analytics-how-to-entity-linking.md)

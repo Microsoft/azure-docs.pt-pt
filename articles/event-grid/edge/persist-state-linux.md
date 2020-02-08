@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 39b16c6cfd5b94d412827ed88197edbef2da1453
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844637"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086653"
 ---
 # <a name="persist-state-in-linux"></a>Persistir estado em Linux
 
@@ -49,17 +49,17 @@ Por exemplo, a seguinte configuração resultará na criação do volume **egmet
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge",
-    "inbound:clientAuth:sasKeys:enabled=false",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=true",
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge",
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge",
+    "inbound__clientAuth__sasKeys__enabled=false",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=true",
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge",
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ],
   "HostConfig": {
     "Binds": [
@@ -116,7 +116,8 @@ Em vez de um volume de estivador, também tem a opção de montar uma pasta hosp
     {
          "HostConfig": {
             "Binds": [
-                "<your-directory-name-here>:/app/metadataDb"
+                "<your-directory-name-here>:/app/metadataDb",
+                "<your-directory-name-here>:/app/eventsDb",
              ]
          }
     }
@@ -127,17 +128,17 @@ Em vez de um volume de estivador, também tem a opção de montar uma pasta hosp
     ```json
     {
           "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
           ],
           "HostConfig": {
                 "Binds": [
@@ -156,7 +157,7 @@ Em vez de um volume de estivador, também tem a opção de montar uma pasta hosp
     ```
 
     >[!IMPORTANT]
-    >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica dentro do módulo. Para o módulo De Rede de Eventos no linux, tem de ser **/app/metadados**.
+    >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica dentro do módulo. Para o módulo De Rede de Eventos no linux, tem de ser **/app/metadadosDb** e **/app/eventsDb**
 
 
 ## <a name="persist-events"></a>Persistir eventos
@@ -167,7 +168,7 @@ Coisas importantes a notar sobre eventos persistentes:
 
 * Os eventos persistentes são ativados por subscrição de eventos e é opt-in uma vez que um volume ou diretório foi montado.
 * A persistência do evento é configurada numa Subscrição de Eventos no momento da criação e não pode ser modificada uma vez que a Subscrição do Evento é criada. Para alternar a persistência do evento, deve eliminar e recriar a Subscrição do Evento.
-* Os eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto a diferença de velocidade depende muito das características da unidade. A troca entre a velocidade e a fiabilidade é inerente a todos os sistemas de mensagens, mas geralmente só se torna um noticível em larga escala.
+* Os eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto a diferença de velocidade depende muito das características da unidade. A troca entre a velocidade e a fiabilidade é inerente a todos os sistemas de mensagens, mas geralmente só se torna percetível em larga escala.
 
 Para permitir a persistência do evento numa Subscrição de Eventos, detete `persistencePolicy` para `true`:
 

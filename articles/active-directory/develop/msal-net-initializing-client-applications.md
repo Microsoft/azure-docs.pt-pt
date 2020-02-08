@@ -3,25 +3,25 @@ title: Inicializar MSAL.NET aplicações de clientes / Azure
 titleSuffix: Microsoft identity platform
 description: Saiba sobre a inicialização de aplicações de clientes públicos e confidenciais utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 31af3691e9f55eb4263b5976c2dc82c029cbc3a0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695556"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083980"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicializar aplicações de clientes usando MSAL.NET
-Este artigo descreve a inicialização de aplicações de clientes públicos e confidenciais utilizando a Microsoft Authentication Library para .NET (MSAL.NET).  Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).
+Este artigo descreve a inicialização de aplicações de clientes públicos e confidenciais utilizando a Microsoft Authentication Library para .NET (MSAL.NET).  Para saber mais sobre os tipos de aplicação do cliente e as opções de configuração de aplicações, leia a [visão geral](msal-client-applications.md).
 
 Com MSAL.NET 3.x, a forma recomendada de instantaneamente uma aplicação é utilizando os construtores de aplicações: `PublicClientApplicationBuilder` e `ConfidentialClientApplicationBuilder`. Oferecem um mecanismo poderoso para configurar a aplicação a partir do código, ou a partir de um ficheiro de configuração, ou até misturando ambas as abordagens.
 

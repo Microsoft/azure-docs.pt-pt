@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 09b25dbdc8fc13c40ccd89b2cfd78611cedaac9d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a4a9760b5c7a70c58a1afe1b14b781a35f2b9b18
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024471"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082966"
 ---
 # <a name="accessing-your-avs-private-cloud-environment-and-applications-from-on-premises"></a>Acesso ao seu ambiente e aplicações AVS Private Cloud a partir de instalações
 
@@ -24,11 +24,11 @@ Uma ligação pode ser configurada desde a rede no local até AVS utilizando o A
 
 Para aceder ao seu VCenter De Nuvem Privada AVS e ao gestor NSX-T, as portas definidas na tabela abaixo devem ser abertas na firewall no local. 
 
-| Porta       | Origem                           | Destino                      | Finalidade                                                                                                                |
+| Porta       | Origem                           | Destino                      | Objetivo                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)   | Servidores DNS locais          | Servidores DNS dNS privados da Nuvem AVS        | Necessário para encaminhar a procura de AZ para o *DNS. AVS.io* aos servidores DNS DNS privados da AVS AVS a partir da rede no local.     |
+| 53 (UDP)   | Servidores DNS locais          | Servidores DNS dNS privados da Nuvem AVS        | Necessário para encaminhar a procura de *DNS* de az.cloudsimple.io para servidores DNS DNS privados da AVS a partir da rede no local.     |
 | 53 (UDP)   | Servidores DNS dNS privados da Nuvem AVS        | Servidores DNS locais          | Necessário para encaminhar o DNS para cima de nomes de domínio no local do AVS Private Cloud vCenter para servidores DNS no local. |
-| 80 (TCP)   | Rede no local              | Rede de gestão de nuvem privada AVS | Necessário para redirecionar a URL do vCenter de *http* para *https*.                                                         |
+| 80 (TCP)   | Rede no local              | Rede de gestão de nuvem privada AVS | Necessário para redirecionar o URL vCenter de *http* para *https*.                                                         |
 | 443 (TCP)  | Rede no local              | Rede de gestão de nuvem privada AVS | Necessário para acessar o vCenter e o NSX-T Manager da rede local.                                           |
 | 8000 (TCP) | Rede no local              | Rede de gestão de nuvem privada AVS | Necessário para vMotion de máquinas virtuais desde as instalações até à Nuvem Privada AVS.                                          |
 | 8000 (TCP) | Rede de gestão de nuvem privada AVS | Rede no local              | Necessário para vMotion de máquinas virtuais da AVS Private Cloud para o local.                                          |
@@ -37,7 +37,7 @@ Para aceder ao seu VCenter De Nuvem Privada AVS e ao gestor NSX-T, as portas def
 
 Para configurar o diretório ativo no local como fonte de identidade no AVS Private Cloud vCenter, as portas definidas na tabela devem ser abertas. Consulte [o Use Azure AD como fornecedor de identidade para vCenter em AVS AVS Private Cloud](https://docs.azure.cloudsimple.com/azure-ad/) para passos de configuração.
 
-| Porta         | Origem                           | Destino                                         | Finalidade                                                                                                                                          |
+| Porta         | Origem                           | Destino                                         | Objetivo                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)      | Servidores DNS dNS privados da Nuvem AVS        | Servidores DNS locais                             | Necessário para encaminhar o DNS para cima de nomes de domínio de diretório ativo no local de AVS Private Cloud vCenter para servidores DNS no local.        |
 | 389 (TCP/UDP) | Rede de gestão de nuvem privada AVS | Controladores de domínio do Active Directory local     | Necessário para a comunicação LDAP do servidor AVS Private Cloud vCenter para controladores de domínio de diretório ativo para autenticação do utilizador.              |
@@ -49,7 +49,7 @@ Para configurar o diretório ativo no local como fonte de identidade no AVS Priv
 
 O acesso às máquinas virtuais de carga de trabalho em funcionamento na AVS Private Cloud exige que as portas sejam abertas na sua firewall no local. A tabela abaixo mostra algumas das portas comuns necessárias e sua finalidade. Para qualquer requisito de porta específica do aplicativo, consulte a documentação do aplicativo.
 
-| Porta         | Origem                         | Destino                          | Finalidade                                                                              |
+| Porta         | Origem                         | Destino                          | Objetivo                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | 22 (TCP)      | Rede no local            | Rede de carga de trabalho da Nuvem Privada AVS       | Acesso seguro à concha das máquinas virtuais Linux em execução na Nuvem Privada AVS.            |
 | 3389 (TCP)    | Rede no local            | Rede de carga de trabalho da Nuvem Privada AVS       | Ambiente de trabalho remoto para janelas máquinas virtuais em execução em AVS Private Cloud.               |
@@ -60,6 +60,6 @@ O acesso às máquinas virtuais de carga de trabalho em funcionamento na AVS Pri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar e gerenciar VLANs e sub-redes](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
-* [Conectar-se à rede local usando o Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
-* [Configurar VPN site a site do local](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [Criar e gerir VLANs e Subnets](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
+* [Ligue-se à rede no local utilizando o Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
+* [Configuração Site-to-Site VPN a partir de instalações](https://docs.azure.cloudsimple.com/vpn-gateway/)

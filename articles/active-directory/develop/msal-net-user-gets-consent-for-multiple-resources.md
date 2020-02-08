@@ -3,28 +3,28 @@ title: Obtenha o consentimento de vários recursos (MSAL.NET) / Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como um utilizador pode obter o pré-consentimento de vários recursos usando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3bd23a1f14d5e3cbf9fc41ade47571c6689f3468
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 94c9a2b6a46262ad293da9ca3ba493d6f898c870
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695029"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085838"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Utilizador obtém consentimento para vários recursos usando MSAL.NET
 O ponto final da plataforma de identidade da Microsoft não lhe permite obter um símbolo para vários recursos ao mesmo tempo. Ao utilizar a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET), o parâmetro de âmbito no método do token adquirente só deve conter âmbitos para um único recurso. No entanto, pode pré-consentir antecipadamente vários recursos, especificando âmbitos adicionais utilizando o método `.WithExtraScopeToConsent` construtor.
 
 > [!NOTE]
-> Obter o consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para o Azure AD B2C. O Azure AD B2C dá suporte apenas ao consentimento do administrador, não ao consentimento do usuário.
+> Obter o consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para o Azure AD B2C. O Azure AD B2C suporta apenas o consentimento do administrador, não o consentimento do utilizador.
 
 Por exemplo, se tiver dois recursos que têm 2 âmbitos cada:
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43787bfffcb04e816f58cdcc0d9e61a61f1f16fd
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 684b8c31524c55ad3335c02ec1268f1afea78a93
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050250"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086582"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-syxsense"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com syxsense
 
@@ -30,7 +30,7 @@ Neste tutorial, você vai aprender a integrar o Syxsense com o Azure Ative Direc
 * Permita que os seus utilizadores sejam automaticamente inscritos no Syxsense com as suas contas Azure AD.
 * Gerencie suas contas em um local central-o portal do Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -85,22 +85,22 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **identificador,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2`
 
-    b. Na caixa de texto **URL de resposta,** escreva um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.cloudmanagementsuite.com/samlautologin`
+    b. Na caixa de texto **URL de resposta,** escreva um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2/Acs`
 
 1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
     Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.cloudmanagementsuite.com/samlautologin`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contacte a equipa de suporte ao [Cliente Syxsense](mailto:DevTeam@syxsense.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Esses valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte ao [Cliente Syxsense](mailto:DevTeam@syxsense.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. A aplicação Syxsense espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+1. A aplicação Syxsense espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
     ![image](common/default-attributes.png)
 
-1. Além de acima, a aplicação Syxsense espera que poucos atributos sejam passados na resposta SAML que são mostradas abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
+1. Além de acima, a aplicação Syxsense espera que poucos atributos sejam passados na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem|
+    | Nome | Atributo fonte|
     | ------------ | --------- |
     | Email | Usuário. email |
 
@@ -144,11 +144,11 @@ Nesta secção, permitirá que b.Simon use o único sign-on Azure, concedendo ac
 
 1. Clique no **ícone definições**.
 
-    ![Configuração Syssense](./media/syxsense-tutorial/configure1.png)
+    ![Configuração Syxsense](./media/syxsense-tutorial/configure1.png)
 
 1. Clique na **Autenticação Externa** e forneça o valor url de **url de metadados da Federação** de Aplicações na caixa de texto **sAML2.0 Metadados** e clique em **Guardar**.
 
-    ![Configuração Syssense](./media/syxsense-tutorial/configure2.png)
+    ![Configuração Syxsense](./media/syxsense-tutorial/configure2.png)
 
 ### <a name="create-syxsense-test-user"></a>Criar o utilizador de teste Syxsense
 
@@ -156,18 +156,17 @@ Nesta secção, permitirá que b.Simon use o único sign-on Azure, concedendo ac
 
 1. Clique nas **Contas do Utilizador** a partir do painel de navegação esquerdo.
 
-    ![Configuração Syssense](./media/syxsense-tutorial/user1.png)
+    ![Configuração Syxsense](./media/syxsense-tutorial/user1.png)
 
 1. Clique em **Adicionar**.
 
-    ![Configuração Syssense](./media/syxsense-tutorial/user2.png)
+    ![Configuração Syxsense](./media/syxsense-tutorial/user2.png)
 
 1. Forneça os dados do utilizador de acordo com os requisitos da sua organização e clique em **Guardar**.
 
-    ![Configuração Syssense](./media/syxsense-tutorial/user3.png)
+    ![Configuração Syxsense](./media/syxsense-tutorial/user3.png)
 
-
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Testar SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -177,7 +176,7 @@ Quando clicar no azulejo Syxsense no Painel de Acesso, deve ser automaticamente 
 
 - [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

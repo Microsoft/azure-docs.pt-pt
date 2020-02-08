@@ -3,22 +3,22 @@ title: Saiba mais sobre o MSAL Azure
 titleSuffix: Microsoft identity platform
 description: A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações adquiram fichas para ligar para APIs web seguros. Estas APIs web podem ser o Microsoft Graph, outros APIS microsoft, APIs web de terceiros ou a sua própria Web API. A MSAL suporta múltiplas arquiteturas e plataformas de aplicações.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5e0ad98b24b0e917d079d72ecc7e1930d30cc04a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c20d93c70484dc7ea800898da4309af2699c718e
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699568"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085730"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Visão geral da Biblioteca de Autenticação da Microsoft (MSAL)
 A Microsoft Authentication Library (MSAL) permite que os desenvolvedores adquiram [fichas](developer-glossary.md#security-token) do ponto final da plataforma de identidade da Microsoft para aceder a APIs web seguras. Estas APIs web podem ser o Microsoft Graph, outros APIS microsoft, APIs web de terceiros ou a sua própria Web API. O MSAL está disponível para .NET, JavaScript, Android e iOS, que suportam muitas arquiteturas e plataformas de aplicações diferentes.
@@ -59,6 +59,6 @@ O MSAL pode ser utilizado em muitos cenários de aplicação, incluindo o seguin
 
 ## <a name="differences-between-adal-and-msal"></a>Diferenças entre a ADAL e a MSAL
 
-O Biblioteca de Autenticação do Active Directory (ADAL) integra-se com o ponto de extremidade do Azure AD para desenvolvedores (v 1.0), em que MSAL se integra com o ponto de extremidade da plataforma Microsoft Identity (v 2.0). O ponto final v1.0 suporta contas de trabalho, mas não contas pessoais. O ponto final v2.0 é a unificação de contas pessoais da Microsoft e contas de trabalho num único sistema de autenticação. Além disso, com mSAL também pode obter autenticações para Azure AD B2C.
+A Ative Directory Authentication Library (ADAL) integra-se com o Ponto final do Azure AD para programadores (v1.0), onde a MSAL se integra com a plataforma de identidade da Microsoft (v2.0) endpoint. O ponto final v1.0 suporta contas de trabalho, mas não contas pessoais. O ponto final v2.0 é a unificação de contas pessoais da Microsoft e contas de trabalho num único sistema de autenticação. Além disso, com mSAL também pode obter autenticações para Azure AD B2C.
 
 Para obter informações mais específicas, leia sobre [a migração para MSAL.NET de ADAL.NET](msal-net-migration.md) e migrar para [MSAL.js da ADAL.js](msal-compare-msal-js-and-adal-js.md).

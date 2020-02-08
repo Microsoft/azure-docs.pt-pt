@@ -3,7 +3,7 @@ title: Modo de dispositivo compartilhado para dispositivos Android | Azure
 description: Saiba mais sobre o modo de dispositivo compartilhado, que permite que os trabalhadores de primeira a compartilhem um dispositivo Android
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 1/15/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 53fa82cf6eaaba09353ba21a12ae9677b9264b1a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9928b64d286cc5072f28f7cc17e4af3e95662cd0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701472"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085613"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo partilhado para dispositivos Android
 
@@ -38,26 +38,26 @@ O modo de dispositivo compartilhado também fornece o gerenciamento de Microsoft
 Para criar um aplicativo de modo de dispositivo compartilhado, os desenvolvedores e os administradores de dispositivo de nuvem funcionam juntos:
 
 - Os desenvolvedores escrevem uma aplicação de uma única conta (as aplicações de várias contas não são suportadas no modo de dispositivo partilhado), adicionam `"shared_device_mode_supported": true` à configuração da aplicação e escrevem código para lidar com coisas como o sign-out de dispositivos partilhados.
-- Os administradores de dispositivo preparam o dispositivo a ser compartilhado instalando o aplicativo autenticador e definindo o dispositivo para o modo compartilhado usando o aplicativo autenticador. Somente os usuários que estão na função de [administrador de dispositivo de nuvem](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) podem colocar um dispositivo no modo compartilhado usando o [aplicativo autenticador](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). Você pode configurar a associação de suas funções organizacionais no portal do Azure por meio do: **Azure Active Directory** > **funções e administradores** > **administrador de dispositivo de nuvem**.
+- Os administradores de dispositivo preparam o dispositivo a ser compartilhado instalando o aplicativo autenticador e definindo o dispositivo para o modo compartilhado usando o aplicativo autenticador. Apenas os utilizadores que se encontram na função [cloud device administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) podem colocar um dispositivo no modo partilhado utilizando a [aplicação Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). Pode configurar a adesão das suas funções organizacionais no portal Azure através de: **Azure Ative Directory** > **Roles and Administrators** > **Cloud Device Administrator**.
 
  Este artigo se concentra principalmente no que os desenvolvedores devem pensar.
 
 ## <a name="single-vs-multiple-account-applications"></a>Aplicativos simples versus de várias contas
 
-Os aplicativos escritos usando o SDK da biblioteca de autenticação da Microsoft (MSAL) podem gerenciar uma única conta ou várias contas. Para obter detalhes, consulte modo [de conta única ou modo de conta múltipla](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account). Os recursos da plataforma de identidade da Microsoft disponíveis para seu aplicativo variam dependendo se o aplicativo está sendo executado no modo de conta única ou em modo de várias contas.
+Os aplicativos escritos usando o SDK da biblioteca de autenticação da Microsoft (MSAL) podem gerenciar uma única conta ou várias contas. Para mais detalhes, consulte o [modo de uma única conta ou o modo de conta múltipla](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account). Os recursos da plataforma de identidade da Microsoft disponíveis para seu aplicativo variam dependendo se o aplicativo está sendo executado no modo de conta única ou em modo de várias contas.
 
-Os **aplicativos de modo de dispositivo compartilhado funcionam apenas no modo de conta única**.
+**As aplicações de modo de dispositivo partilhado funcionam apenas no modo de uma única conta.**
 
 > [!IMPORTANT]
 > Aplicativos que dão suporte apenas ao modo de várias contas não podem ser executados em um dispositivo compartilhado. Se um funcionário carregar um aplicativo que não dá suporte ao modo de conta única, ele não será executado no dispositivo compartilhado.
 >
 > Os aplicativos gravados antes do MSAL SDK foi lançado em execução no modo de várias contas e devem ser atualizados para dar suporte ao modo de conta única antes que possam ser executados em um dispositivo de modo compartilhado.
 
-**Suporte a contas única e várias**
+**Apoio tanto de conta única como de múltiplas contas**
 
 Seu aplicativo pode ser criado para dar suporte à execução em dispositivos pessoais e compartilhados. Se seu aplicativo atualmente dá suporte a várias contas e você deseja dar suporte ao modo de dispositivo compartilhado, adicione suporte para o modo de conta única.
 
-Você também pode querer que seu aplicativo altere seu comportamento dependendo do tipo de dispositivo em que ele está sendo executado. Use `ISingleAccountPublicClientApplication.isSharedDevice()` para determinar quando executar no modo de conta única.
+Você também pode querer que seu aplicativo altere seu comportamento dependendo do tipo de dispositivo em que ele está sendo executado. Utilize `ISingleAccountPublicClientApplication.isSharedDevice()` para determinar quando correr no modo de uma única conta.
 
 Há duas interfaces diferentes que representam o tipo de dispositivo no qual seu aplicativo está. Quando você solicita uma instância de aplicativo do Application Factory da MSAL, o objeto de aplicativo correto é fornecido automaticamente.
 
@@ -65,7 +65,7 @@ O modelo de objeto a seguir ilustra o tipo de objeto que você pode receber e o 
 
 ![modelo de herança de aplicativo cliente público](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-Você precisará fazer uma verificação de tipo e convertê-la na interface apropriada ao obter o objeto de `PublicClientApplication`. O código a seguir verifica o modo de várias contas ou o modo de conta única e converte o objeto de aplicativo adequadamente:
+Terá de fazer uma verificação de tipo e lançar para a interface apropriada quando tiver o seu objeto `PublicClientApplication`. O código a seguir verifica o modo de várias contas ou o modo de conta única e converte o objeto de aplicativo adequadamente:
 
 ```java
 private IPublicClientApplication mApplication;
@@ -87,8 +87,8 @@ As seguintes diferenças se aplicam dependendo se seu aplicativo está em execu�
 |---------|---------|---------|
 | **Contas**     | Conta única | Várias contas |
 | **Iniciar sessão** | Global | Global |
-| **Sair** | Global | Cada aplicativo pode controlar se a saída é local para o aplicativo ou para a família de aplicativos. |
-| **Tipos de conta com suporte** | Somente contas corporativas | Contas pessoais e corporativas com suporte  |
+| **Inscrição** | Global | Cada aplicativo pode controlar se a saída é local para o aplicativo ou para a família de aplicativos. |
+| **Tipos de conta suportados** | Somente contas corporativas | Contas pessoais e corporativas com suporte  |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Por que você talvez queira dar suporte apenas ao modo de conta única
 
@@ -110,4 +110,4 @@ O diagrama a seguir mostra o ciclo de vida geral do aplicativo e eventos comuns 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Experimente [usar o modo de dispositivo compartilhado no seu aplicativo Android,](tutorial-v2-shared-device-mode.md) que mostra como executar um aplicativo de trabalho de início em um dispositivo Android de modo compartilhado.
+Experimente o [modo use de dispositivo partilhado no tutorial de aplicações Android](tutorial-v2-shared-device-mode.md) que mostra como executar uma aplicação de trabalho de primeira linha num dispositivo Android de modo partilhado.

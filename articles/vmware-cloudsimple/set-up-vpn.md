@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fbd2b227c9292593a7652044ef4c013bf0cfaf8e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8188fac270eadb6e09cc3561ddefb05aa59ba661
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017008"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087139"
 ---
 # <a name="configure-a-vpn-connection-to-your-avs-private-cloud"></a>Configure uma ligação VPN à sua Nuvem Privada AVS
 
@@ -32,10 +32,10 @@ Para criar um gateway VPN Ponto-a-Local, consulte [Create Point-to-Site VPN gate
 
 ### <a name="connect-to-avs-using-point-to-site-vpn"></a>Ligue-se a AVS utilizando VPN ponto-a-local
 
-O cliente VPN é necessário para ligar a AVS a partir do seu computador. Baixe o [openvpn client](https://openvpn.net/community-downloads/) para Windows ou [viscosity](https://www.sparklabs.com/viscosity/download/) para MacOS e os X.
+O cliente VPN é necessário para ligar a AVS a partir do seu computador. Baixe [o cliente OpenVPN](https://openvpn.net/community-downloads/) para Windows ou [Viscosity](https://www.sparklabs.com/viscosity/download/) para macOS e OS X.
 
 1. Lançar portal AVS e selecionar **Rede**.
-2. Selecione **Gateway de VPN**.
+2. Selecione **VPN Gateway**.
 3. A partir da lista de gateways VPN, clique no gateway VPN Ponto-a-Local.
 4. Selecione **Utilizadores**.
 5. Clique em **Baixar a minha configuração VPN**
@@ -44,8 +44,8 @@ O cliente VPN é necessário para ligar a AVS a partir do seu computador. Baixe 
 
 6. Importe a configuração do seu cliente VPN
 
-    * Instruções para [importar a configuração no cliente Windows](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-windows/#openvpn-open-source-openvpn-gui-program)
-    * Instruções para [importar a configuração no MacOS ou no os X](https://www.sparklabs.com/support/kb/article/getting-started-with-viscosity-mac/#creating-your-first-connection)
+    * Instruções para [importar configuração no cliente do Windows](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-windows/#openvpn-open-source-openvpn-gui-program)
+    * Instruções para [importar configuração no macOS ou no OS X](https://www.sparklabs.com/support/kb/article/getting-started-with-viscosity-mac/#creating-your-first-connection)
 
 7. Ligue-se ao gateway AVS VPN.
 
@@ -97,7 +97,7 @@ Uma ligação VPN Ponto-a-Local resolve os nomes DNS da primeira Nuvem Privada A
 
     ![Editar Ligação VPN](media/viscosity-edit-connection.png)
 
-7. Clique no **separadoR Networking** e introduza os endereços IP do servidor DNS do servidor DNS privados da Nuvem AVS separados por uma vírem ou espaço e o domínio como ```AVS.io```. **Selecione as definições de DNS de ignorar enviadas pelo servidor VPN**.
+7. Clique no **separadoR Networking** e introduza os endereços IP do servidor DNS do servidor DNS privados da Nuvem AVS separados por uma vírem ou espaço e o domínio como ```az.cloudsimple.io```. **Selecione as definições de DNS de ignorar enviadas pelo servidor VPN**.
 
     ![Rede VPN](media/viscosity-edit-connection-networking.png)
 
@@ -117,4 +117,4 @@ Para configurar o seu gateway VPN no local em modo de alta disponibilidade, cons
 
 > [!IMPORTANT]
 >    1. Coloque o Pinça MSS TCP a 1200 no seu dispositivo VPN. Ou se os seus dispositivos VPN não suportarem a fixação de MSS, pode, em alternativa, definir o MTU na interface do túnel para 1240 bytes.
-> 2. Depois de configurar a VPN do Site-para-Site, reencaminha os pedidos de DNS para *. AVS.io aos servidores DNS DNS privados da Nuvem AVS. Siga as instruções na [configuração dNS](on-premises-dns-setup.md)no local .
+> 2. Depois de configurar a VPN do Site-para-Site, reencaminha os pedidos de DNS para *.cloudsimple.io para os servidores DNS DNS privados da Nuvem AVS. Siga as instruções na [configuração dNS](on-premises-dns-setup.md)no local .

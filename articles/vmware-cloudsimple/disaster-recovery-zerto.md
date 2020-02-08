@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f34c4fb89d28a001a4af4d21879403a9ac5e860
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e5ee43af97e79f1e835787d61bd79cfb256ef445
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024709"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083145"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurar a AVS Private Cloud como local de recuperação de desastres para cargas de trabalho vMware no local
 
@@ -51,7 +51,7 @@ As seguintes secções descrevem como implementar uma solução DR utilizando a 
 Para ativar a Replicação Virtual Zerto do seu ambiente no local até à sua Nuvem Privada AVS, complete os seguintes pré-requisitos.
 
 1. [Instale uma ligação VPN site-to-site entre a sua rede no local e a sua Nuvem Privada AVS](set-up-vpn.md).
-2. Configurar a procura dNS para que os seus componentes de [gestão de Cloud Privada Saqueados sejam encaminhados para servidores DNS DNS privados](on-premises-dns-setup.md)da Nuvem AVS . Para permitir o reencaminhamento da procura de DNS, crie uma entrada de zona de encaminhamento no seu servidor DNS no local para `*.AVS.io` aos servidores DNS AVS.
+2. Configurar a procura dNS para que os seus componentes de [gestão de Cloud Privada Saqueados sejam encaminhados para servidores DNS DNS privados](on-premises-dns-setup.md)da Nuvem AVS . Para permitir o reencaminhamento da procura de DNS, crie uma entrada de zona de encaminhamento no seu servidor DNS no local para `*.cloudsimple.io` aos servidores DNS AVS.
 3. Configurar a procura dNS de modo a que os componentes vCenter no local sejam encaminhados para servidores DNS no local. Os servidores DNS devem ser acessíveis a partir da sua Nuvem Privada AVS através do Site-to-Site VPN. Para assistência, apresente um pedido de [apoio,](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)fornecendo as seguintes informações. 
 
     * No local, nome de domínio DNS

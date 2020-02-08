@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: executar um trabalho do lote do Azure – API do Python'
-description: Execute rapidamente um trabalho de exemplo do lote do Azure e tarefas usando a biblioteca de cliente Python do lote. Conheça os principais conceitos do serviço de lote.
+title: Use python API para executar um trabalho de Lote Azure
+description: Execute rapidamente um trabalho de amostra de Lote Azure e tarefas usando a biblioteca de clientes Batch Python. Conheça os conceitos-chave do serviço Batch.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -12,30 +12,26 @@ ms.author: labrenne
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 87c08c403a1e5eefd7645572f593b20037a8212b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017110"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086038"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a API Python
+# <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Quickstart: Use Python API para executar um trabalho de Lote Azure
 
-Este início rápido executa uma tarefa do Azure Batch a partir de uma aplicação criada a partir da API Python do Azure Batch.  Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
+Neste arranque rápido, você usa a API Python para executar um trabalho de Azure Batch a partir de uma app. A aplicação envia ficheiros de dados de entrada para o Armazenamento Azure e cria um *conjunto* de nódos de computação Batch (máquinas virtuais). Cria então um *trabalho* que executa *tarefas* para processar cada ficheiro de entrada na piscina usando um comando básico.
 
-A aplicação carrega vários ficheiros de dados de entrada para o armazenamento do Azure e, em seguida, cria um *conjunto* de nós de computação do Batch (máquinas virtuais). Em seguida, cria uma *tarefa* de amostra que executa *tarefas* para processar cada ficheiro de entrada no conjunto com um comando básico.
- 
-![Visão geral do fluxo de trabalho do lote do Azure](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
+Aqui você vai aprender conceitos-chave do serviço Batch e estar pronto para experimentar Batch com cargas de trabalho mais realistas em maior escala.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+![Visão geral do fluxo de trabalho do Lote Azure](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
-
-* Gestor de pacotes [pip](https://pip.pypa.io/en/stable/installing/)
-
-* Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md). 
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Uma conta **Azure Batch** e uma conta de **Armazenamento Azure** ligada. Utilize o [portal Azure](quick-create-portal.md) ou [o CLI](quick-create-cli.md) para criar estas contas.
+- [Python](https://python.org/downloads), versão 2.7 ou 3.3 ou mais tarde, incluindo o gestor de pacotes [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -45,7 +41,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-[Transfira ou clonar a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-quickstart) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
+[Transfira ou clone a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-quickstart) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
 
 ```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
@@ -112,7 +108,7 @@ O tempo de execução normal é aproximadamente 3 minutos quando executa a aplic
 A aplicação do Python neste início rápido faz o seguinte:
 
 * Carrega três pequenos ficheiros de texto para um contentor de blobs na sua conta de armazenamento do Azure. Estes ficheiros são entradas para processar por tarefas do Batch.
-* Cria um pool de dois nós de computação que executam o Ubuntu 18, 4 LTS.
+* Cria uma piscina de dois nódeos computacionais executando Ubuntu 18.04 LTS.
 * Cria um trabalho e três tarefas para serem executados nos nós. Cada tarefa processa um dos ficheiros de entrada através de uma linha de comandos da shell do Bash.
 * Apresenta ficheiros devolvidos pelas tarefas.
 
@@ -153,7 +149,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um conjunto de nós de computação
 
-Para criar um conjunto do Batch, a aplicação utiliza a classe [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) especifica um [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) para uma imagem do Ubuntu Server 18, 4 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens do Linux e Windows Server no Azure Marketplace, bem como imagens da VM personalizadas.
+Para criar um conjunto do Batch, a aplicação utiliza a classe [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) especifica uma [ImagemReference](/python/api/azure-batch/azure.batch.models.imagereference) a uma imagem Ubuntu Server 18.04 LTS publicado no Azure Marketplace. O Batch suporta inúmeras imagens do Linux e Windows Server no Azure Marketplace, bem como imagens da VM personalizadas.
 
 O número de nós (`_POOL_NODE_COUNT`) e o tamanho da VM (`_POOL_VM_SIZE`) são constantes definidas. O exemplo predefinido cria um conjunto de dois nós de tamanho *Standard_A1_v2*. O tamanho sugerido oferece um bom equilíbrio de desempenho em comparação com o custo deste exemplo rápido.
 
@@ -178,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Criar um trabalho do Batch
 
-Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Esta aplicação utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) adiciona um trabalho à conta do lote especificada. Inicialmente, o trabalho não tem tarefas.
+Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Esta aplicação utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [de trabalho.adicionar](/python/api/azure-batch/azure.batch.operations.joboperations) adiciona um trabalho à conta batch especificada. Inicialmente, o trabalho não tem tarefas.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -207,7 +203,7 @@ for idx, input_file in enumerate(input_files):
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-### <a name="view-task-output"></a>Ver o resultado das tarefas
+### <a name="view-task-output"></a>Ver resultado das tarefas
 
 A aplicação monitoriza o estado da tarefa para se certificar de que as tarefas são concluídas. Em seguida, a aplicação apresenta o ficheiro `stdout.txt` gerado por cada tarefa concluída. Quando a tarefa é executada com êxito, o resultado do comando da tarefa é escrito em `stdout.txt`:
 
@@ -234,7 +230,7 @@ for task in tasks:
 
 A aplicação elimina automaticamente o contentor de armazenamento criado e oferece-lhe a opção de eliminar o conjunto e o trabalho do Batch. É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar do conjunto, elimine-o. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. 
 
-Quando já não forem necessários, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para fazer isso no portal do Azure, selecione o grupo de recursos para a conta do lote e selecione **excluir grupo de recursos**.
+Quando já não forem precisos, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para o fazer no portal Azure, selecione o grupo de recursos para a conta Batch e selecione **Eliminar o grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

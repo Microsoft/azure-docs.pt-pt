@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines
-author: singhkays
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: a7a3c6edbbeca96a90f8003fda1b92fc8bf99fec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c923dfed24253ce2e3551c13a457f19d155a1e40
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021205"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77068454"
 ---
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta algum dos meus serviços ou aplicações existentes que são executados em máquinas virtuais do Azure? 
 
@@ -37,7 +37,7 @@ Pode abortar a migração desde que os recursos estejam no estado preparado. A r
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>Posso reverter a migração se a operação de consolidação falhar? 
 
-Não pode abortar a migração se a operação de consolidação falhar. Todas as operações de migração, incluindo a operação de consolidação, são idempotent. Por isso, recomendamos que repita a operação após um curto período de tempo. Se continuar a deparar-se com um erro, crie um pedido de suporte ou escreva uma mensagem no fórum com a etiqueta ClassicIaaSMigration no nosso [fórum de VMs](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+Não pode abortar a migração se a operação de consolidação falhar. Todas as operações de migração, incluindo a operação de consolidação, são idempotent. Por isso, recomendamos que repita a operação após um curto período de tempo. Se ainda enfrentar um erro, crie um bilhete de suporte ou crie um post no Fórum na [Microsoft Q&A](https://docs.microsoft.com/answers/index.html).
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Se tiver de utilizar IaaS no Resource Manager, tenho de comprar outro circuito do ExpressRoute? 
 
@@ -49,9 +49,9 @@ Durante a migração, os recursos passam da implementação clássica para Resou
 
 ## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Fiz backup de minhas VMs clássicas em um cofre. Posso migrar as VMs do modo clássico para o modo Resource Manager e protegê-las num cofre dos Serviços de Recuperação?
 
-<a name="vault">Quando</a> você move uma VM do modo clássico para o Gerenciador de recursos, os backups feitos antes da migração não serão migrados para a VM do Gerenciador de recursos recém migrado. No entanto, se você quiser manter seus backups de VMs clássicas, siga estas etapas antes da migração. 
+Quando se desloca um VM do modo classic para o Modo Gestor de Recursos, as cópias de segurança efetuadas antes da migração não migrarão para o VM do gestor de recursos recém-migrado. No entanto, se você quiser manter seus backups de VMs clássicas, siga estas etapas antes da migração. 
 
-1. No cofre dos serviços de recuperação, vá para a guia **itens protegidos** e selecione a VM. 
+1. No cofre dos Serviços de Recuperação, vá ao separador **Itens Protegidos** e selecione o VM. 
 2. Clique em Parar Proteção. Deixe a opção *Eliminar dados de cópia de segurança associados***desmarcada**.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Para migrar a máquina virtual para o modo do Gerenciador de recursos,
 1. Elimine a extensão de cópia de segurança/instantâneo da VM.
 2. Migre a máquina virtual do modo clássico para o modo do Resource Manager. Certifique-se de que as informações de armazenamento e rede correspondentes à máquina virtual também são migradas para o modo do Resource Manager.
 
-Além disso, se você quiser fazer backup da VM migrada, vá para a folha gerenciamento de máquinas virtuais para [habilitar o backup](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+Além disso, se quiser fazer backup do VM migrado, vá à lâmina de gestão da Máquina Virtual para [ativar](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm)a cópia de segurança .
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso verificar se a minha subscrição ou os meus recursos podem ser migrados? 
 
@@ -86,6 +86,6 @@ Todos os recursos para os quais indique explicitamente nomes no modelo de implem
 
 Os circuitos do ExpressRoute que utilizem ligações de autorização em várias subscrições não podem ser migrados automaticamente sem tempo de inatividade. Temos orientações que mostram como utilizar passos manuais para migrá-los. Veja [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-migration-classic-resource-manager.md) (Migrar circuitos do ExpressRoute e as máquinas virtuais associadas do modelo de implementação clássica para Resource Manager) para obter os passos e mais informações.
 
-## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Recebi a mensagem *"a VM está relatando o status geral do agente como não pronto. Portanto, a VM não pode ser migrada. Verifique se o agente de VM está relatando o status geral do agente como pronto "* ou *" VM contém a extensão cujo status não está sendo relatado da VM. Portanto, essa VM não pode ser migrada ".*
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Recebi a mensagem *"A VM está a reportar o estatuto de agente geral como "Não Está Pronto". Por conseguinte, o VM não pode ser migrado. Certifique-se de que o Agente VM está a reportar o estado global* do agente como Ready" ou *"VM contém extensão cujo Estado não está a ser reportado do VM. Portanto, este VM não pode ser migrado.*
 
 Esta mensagem é recebida quando a VM não tem conectividade de saída à Internet. O agente da VM utiliza a conectividade de saída para comunicar com a conta de Armazenamento do Azure para atualizar o estado do agente a cada cinco minutos.

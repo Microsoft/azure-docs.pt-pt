@@ -3,22 +3,22 @@ title: Apoio da AD FS em MSAL.NET Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre o suporte da Ative Directory Federation Services (AD FS) na Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 6e40a03e70fa04855037165462761c56f13acc58
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a0dd9b339ca6372a34ff46222cad347eb1a673f9
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695624"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084991"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Apoio dos Serviços da Federação de Diretório Ativo em MSAL.NET
 Os Serviços da Federação de Diretórios Ativos (AD FS) no Windows Server permitem-lhe adicionar autenticação e autorização baseadas em OpenID Connect e OAuth 2.0 para aplicações que está a desenvolver. Essas aplicações podem, então, autenticar os utilizadores diretamente contra a AD FS. Para mais informações, leia [cenários AD FS para Desenvolvedores](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
@@ -32,14 +32,14 @@ A Microsoft Authentication Library for .NET (MSAL.NET) suporta dois cenários pa
 ## <a name="msal-connects-to-azure-ad-which-is-federated-with-ad-fs"></a>MSAL liga-se ao Azure AD, que é federado com AD FS
 MSAL.NET suporta a ligação ao Azure AD, que assina em utilizadores geridos (utilizadores geridos em AD Azure) ou utilizadores federados (utilizadores geridos por outro fornecedor de identidade, como a AD FS). MSAL.NET não sabe o facto de os utilizadores serem federados. No que diz respeito, fala com a AD Azure.
 
-A [autoridade](msal-client-application-configuration.md#authority) que você usa nesse caso é a autoridade usual (nome do host da autoridade + locatário, comum ou organizações).
+A [autoridade](msal-client-application-configuration.md#authority) que usa neste caso é a autoridade habitual (nome anfitrião da autoridade + inquilino, comum ou organizações).
 
-### <a name="acquiring-a-token-interactively"></a>Adquirindo um token interativamente
+### <a name="acquiring-a-token-interactively"></a>Adquirir um símbolo interativamente
 Quando se chama o método `AcquireTokenInteractive`, a experiência do utilizador é tipicamente:
 
-1. O usuário insere a ID da conta.
+1. O utilizador introduz o ID da conta.
 2. A Azure AD exibe brevemente a mensagem "Levando-o para a página da sua organização".
-3. O utilizador é redirecionado para a página de inscrição do fornecedor de identidade. A página de entrada geralmente é personalizada com o logotipo da organização.
+3. O utilizador é redirecionado para a página de inscrição do fornecedor de identidade. A página de login é geralmente personalizada com o logótipo da organização.
 
 As versões AD FS suportadas neste cenário federado são AD FS v2, AD FS v3 (Windows Server 2012 R2) e AD FS v4 (AD FS 2016).
 
@@ -58,4 +58,4 @@ Atualmente, não existem planos para apoiar uma ligação direta a:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para o caso federado, consulte [Configurar o comportamento de entrada Azure Active Directory para um aplicativo usando uma política de descoberta de realm inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)
+Para o caso federado, consulte [configure Azure Ative Directory sign in behavior for a application using a Home Realm Discovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

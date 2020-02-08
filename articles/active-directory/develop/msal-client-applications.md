@@ -3,22 +3,22 @@ title: Aplicativos de clientes públicos e confidenciais (MSAL) / Azure
 titleSuffix: Microsoft identity platform
 description: Conheça as aplicações confidenciais de clientes públicos e clientes confidenciais na Biblioteca de Autenticação da Microsoft (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/25/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 75ea183a9968c65957bcf2a4d39966d2553db84f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d59819c0ab614b0f6cc102c7ebe8c760fb851599
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696594"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084129"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Pedidos de cliente público e confidenciais
 A Microsoft Authentication Library (MSAL) define dois tipos de clientes: clientes públicos e clientes confidenciais. Os dois tipos de clientes distinguem-se pela sua capacidade de autenticar de forma segura com o servidor de autorização e manter a confidencialidade das suas credenciais de cliente. Em contraste, a Biblioteca de Autenticação AD Azure (ADAL) utiliza o chamado contexto de *autenticação* (que é uma ligação ao Azure AD).

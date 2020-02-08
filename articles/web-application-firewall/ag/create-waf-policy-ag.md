@@ -1,107 +1,104 @@
 ---
-title: Criar políticas de WAF (firewall do aplicativo Web) para o gateway de aplicativo
-description: Saiba como criar políticas de firewall do aplicativo Web para o gateway de aplicativo.
+title: Criar políticas de firewall de aplicação web (WAF) para gateway de aplicação
+description: Saiba como criar políticas de firewall de aplicação web para gateway de aplicação.
 services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3f7d213aed82d1cb94bb96b9e212d3b255851afd
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171227"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086976"
 ---
-# <a name="create-web-application-firewall-policies-for-application-gateway"></a>Criar políticas de firewall do aplicativo Web para o gateway de aplicativo
+# <a name="create-web-application-firewall-policies-for-application-gateway"></a>Criar políticas de firewall de aplicação web para gateway de aplicação
 
-A associação de uma política WAF com ouvintes permite que vários sites por trás de um único WAF sejam protegidos por políticas diferentes. Por exemplo, se houver cinco sites por trás de seu WAF, você poderá ter cinco políticas de WAF separadas (uma para cada ouvinte) para personalizar as exclusões, regras personalizadas e conjuntos de regras gerenciados para um site sem afetar os outros quatro. Se você quiser que uma única política se aplique a todos os sites, basta associar a política ao gateway de aplicativo, em vez de aos ouvintes individuais, para que ele se aplique globalmente. As políticas também podem ser aplicadas a uma regra de roteamento com base em caminho. 
+Associar uma política de WAF aos ouvintes permite que vários sites por trás de uma única WAF sejam protegidos por diferentes políticas. Por exemplo, se houver cinco sites por trás do seu WAF, pode ter cinco políticas waf separadas (uma para cada ouvinte) para personalizar as exclusões, regras personalizadas e conjuntos de regras geridos para um site sem efetuar os outros quatro. Se quiser que uma única política se aplique a todos os sites, pode associar a política ao Gateway de Aplicação, em vez dos ouvintes individuais, para que se aplique globalmente. As políticas também podem ser aplicadas a uma regra de encaminhamento baseada em caminhos. 
 
-   > [!NOTE]
-   > A política de WAF por site está disponível no EUA Central do Sul e Europa Setentrional. Para acessá-los no portal, use [este link](https://aka.ms/AppgwwafWithAllFeatureFlags) até que ele fique ativo para todos.  
+Pode fazer as políticas que quiser. Uma vez que você cria uma política, deve ser associado a um Gateway de aplicação para entrar em vigor, mas pode ser associado a qualquer combinação de Gateways de Aplicação e ouvintes. 
 
-Você pode fazer quantas políticas desejar. Depois de criar uma política, ela deve estar associada a um gateway de aplicativo para entrar em vigor, mas pode ser associada a qualquer combinação de gateways de aplicativo e ouvintes. 
-
-Se o gateway de aplicativo tiver uma política aplicada e você aplicar uma política diferente a um ouvinte nesse gateway de aplicativo, a política do ouvinte entrará em vigor, mas apenas para os ouvintes aos quais eles estão atribuídos. A política de gateway de aplicativo ainda se aplica a todos os outros ouvintes que não têm uma política específica atribuída a eles. 
+Se o seu Gateway de Aplicação tiver uma política aplicada, e depois aplicar uma política diferente a um ouvinte nesse Gateway de Aplicação, a política do ouvinte entrará em vigor, mas apenas para o ou ouvinte a que estão atribuídos. A política de Gateway de Aplicação ainda se aplica a todos os outros ouvintes que não têm uma política específica atribuída a eles. 
 
    > [!NOTE]
-   > As políticas de WAF por site e por URI estão em visualização pública. Isso significa que esse recurso está sujeito aos termos de uso suplementares da Microsoft. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > Por site e por URI AS políticas waf estão em pré-visualização pública. Isto significa que esta funcionalidade está sujeita aos Termos de Utilização Suplementares da Microsoft. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Todas as novas configurações de WAF do firewall do aplicativo Web (regras personalizadas, configurações de rulset gerenciadas, exclusões, etc.) residem dentro de uma política de WAF. Se você tiver um WAF existente, essas configurações ainda poderão existir em sua configuração do WAF. Para obter as etapas sobre como mover para a nova política WAF, consulte [migrar sua configuração do WAF para uma política do WAF](#migrate) mais adiante neste artigo. 
+Todas as novas definições waf da Firewall de aplicação web (regras personalizadas, configurações de rulset geridas, exclusões, etc.) vivem dentro de uma Política WAF. Se tiver um WAF existente, estas configurações podem ainda existir no seu config WAF. Para obter passos sobre como avançar para a nova Política waf, consulte [Migrate o seu WAF Config para uma Política WAF](#migrate) mais tarde neste artigo. 
 
 ## <a name="create-a-policy"></a>Criar uma política
 
-Primeiro, crie uma política de WAF básica com um conjunto de regras padrão gerenciado (DRS) usando o portal do Azure.
+Em primeiro lugar, crie uma política básica de WAF com um conjunto de regras de padrão gerido (DRS) utilizando o portal Azure.
 
-1. No lado superior esquerdo do portal, selecione **criar um recurso**. Procure **WAF**, selecione **Firewall do aplicativo Web**e, em seguida, selecione **criar**.
-2. Na página **criar uma política de WAF** , na guia **noções básicas** , insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **revisar + criar**:
-
-   |Definição  |Valor  |
-   |---------|---------|
-   |Política para     |WAF regionais (gateway de aplicativo)|
-   |Subscrição     |Selecione o nome da sua assinatura|
-   |Grupo de recursos     |Selecione seu grupo de recursos|
-   |Nome da política     |Digite um nome exclusivo para sua política de WAF.|
-3. Na guia **Associação** , insira uma das seguintes configurações e, em seguida, selecione **Adicionar**:
+1. No lado superior esquerdo do portal, selecione **Criar um recurso**. Procure **WAF,** selecione Firewall de **aplicação web**e, em seguida, selecione **Criar**.
+2. Em Criar uma página de **política WAF,** separador **Basics,** introduzir ou selecionar as seguintes informações, aceitar as predefinições para as definições restantes e, em seguida, selecionar **Rever + criar**:
 
    |Definição  |Valor  |
    |---------|---------|
-   |Associar o gateway de aplicativo     |Selecione o nome do perfil do gateway de aplicativo.|
-   |Associar ouvintes     |Selecione o nome do ouvinte do gateway de aplicativo e, em seguida, selecione **Adicionar**.|
+   |Política para     |WAF Regional (Gateway de Aplicação)|
+   |Subscrição     |Selecione o seu nome de subscrição|
+   |Grupo de recursos     |Selecione o seu grupo de recursos|
+   |Nome da política     |Digite um nome único para a sua política waf.|
+3. No separador **Associação,** introduza uma das seguintes definições e, em seguida, **selecione Adicionar:**
+
+   |Definição  |Valor  |
+   |---------|---------|
+   |Gateway de aplicação associada     |Selecione o nome do perfil do Gateway da aplicação.|
+   |Ouvintes Associados     |Selecione o nome do seu Ouvinte gateway de aplicação e, em seguida, selecione **Adicionar**.|
 
    > [!NOTE]
-   > Se você atribuir uma política ao seu gateway de aplicativo (ou ouvinte) que já tenha uma política em vigor, a política original será substituída e substituído pela nova política.
-4. Selecione **revisar + criar**e, em seguida, selecionar **criar**.
+   > Se atribuir uma apólice ao seu Gateway de Aplicação (ou ouvinte) que já tem uma política em vigor, a política original é substituída e substituída pela nova política.
+4. Selecione **Rever + criar**e, em seguida, selecione **Criar**.
 
-   ![Noções básicas da política de WAF](../media/create-waf-policy-ag/waf-policy-basics.png)
+   ![Fundamentos da política da WAF](../media/create-waf-policy-ag/waf-policy-basics.png)
 
-## <a name="configure-waf-rules-optional"></a>Configurar regras do WAF (opcional)
+## <a name="configure-waf-rules-optional"></a>Configure as regras waf (opcional)
 
-Quando você cria uma política de WAF, por padrão ele está no modo de *detecção* . No modo de detecção, WAF não bloqueia nenhuma solicitação. Em vez disso, as regras de WAF correspondentes são registradas nos logs do WAF. Para ver WAF em ação, você pode alterar as configurações de modo para *prevenção*. No modo de prevenção, as regras de correspondência definidas no conjunto de regras do CRS que você selecionou são bloqueadas e/ou registradas nos logs do WAF.
+Quando cria uma política WAF, por defeito está no modo *deteção.* No modo deteção, a WAF não bloqueia quaisquer pedidos. Em vez disso, as regras waf correspondentes são registadas nos registos waf. Para ver o WAF em ação, pode alterar as definições de modo para *Prevenção*. No modo de Prevenção, as regras de correspondência definidas no conjunto de regras de CRS selecionada seleção estão bloqueadas e/ou registadas nos registos WAF.
 
-## <a name="managed-rules"></a>Regras gerenciadas
+## <a name="managed-rules"></a>Regras geridas
 
-As regras de OWASP gerenciadas pelo Azure são habilitadas por padrão. Para desabilitar uma regra individual dentro de um grupo de regras, expanda as regras dentro desse grupo de regras, marque a caixa de seleção na frente do número da regra e selecione **desabilitar** na guia acima.
+As regras OWASP geridas pelo Azure são ativadas por defeito. Para desativar uma regra individual dentro de um grupo de regras, expanda as regras dentro desse grupo de regras, selecione a caixa de verificação em frente ao número da regra e selecione **Desativar** no separador acima.
 
-[![regras gerenciadas](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
+[![regras geridas](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
 
 ## <a name="custom-rules"></a>Regras personalizadas
 
-Para criar uma regra personalizada, selecione **Adicionar regra personalizada** na guia **regras personalizadas** . Isso abre a página configuração de regra personalizada. A captura de tela a seguir mostra um exemplo de regra personalizada configurada para bloquear uma solicitação se a cadeia de caracteres de consulta contiver o texto *blockme*.
+Para criar uma regra personalizada, selecione **Adicionar regra personalizada** sob o separador de regras **Personalizadas.** Isto abre a página de configuração de regras personalizadas. A imagem seguinte mostra uma regra personalizada de exemplo configurada para bloquear um pedido se a cadeia de consulta contiver o *bloqueio*de texto .
 
-[![editar regra personalizada](../media/create-waf-policy-ag/edit-custom-rule.png)](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
+[![Editar](../media/create-waf-policy-ag/edit-custom-rule.png) de regras personalizadas](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
-## <a name="migrate"></a>Migrar sua configuração do WAF para uma política do WAF
+## <a name="migrate"></a>Migrar o seu WAF Config para uma política waf
 
-Se você tiver um WAF existente, talvez tenha notado algumas alterações no Portal. Primeiro, você precisa identificar o tipo de política que você habilitou em seu WAF. Há três Estados potenciais:
+Se tiver um WAF existente, pode ter notado algumas alterações no portal. Primeiro, tens de identificar que tipo de Política permitiste na tua WAF. Há três estados potenciais:
 
-- Nenhuma política de WAF
-- Política somente regras personalizadas
-- Política de WAF
+- Sem política waf
+- Regras personalizadas apenas Política
+- Política waf
 
-Você pode saber em qual estado seu WAF está examinando-o no Portal. Se as configurações de WAF estiverem visíveis e puderem ser alteradas de dentro da exibição do gateway de aplicativo, seu WAF estará no estado 1.
+Pode dizer em que estado está o seu WAF olhando para ele no portal. Se as definições waf estiverem visíveis e puderem ser alteradas a partir da vista Gateway da aplicação, o seu WAF encontra-se no estado 1.
 
-[![](../media/create-waf-policy-ag/waf-configure.png) de configuração do WAF](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
+[](../media/create-waf-policy-ag/waf-configure.png) de configuração ![WAF](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
-Se você selecionar **Firewall do aplicativo Web** e ele mostrar uma política associada, o WAF estará no estado 2 ou no estado 3. Depois de navegar até a política, se ela mostrar **apenas** regras personalizadas e gateways de aplicativo associados, será uma política personalizada apenas para regras.
+Se selecionar firewall de **aplicação web** e mostrar-lhe uma política associada, o WAF está no estado 2 ou no estado 3. Depois de navegar para a apólice, se mostrar **apenas** regras personalizadas, e Gateways de aplicação associados, então é uma política apenas de Regras Personalizadas.
 
 ![Regras personalizadas de WAF](../media/create-waf-policy-ag/waf-custom-rules.png)
 
-Se ele também mostra configurações de política e regras gerenciadas, é uma política de firewall de aplicativo Web completa. 
+Se também mostrar Definições de Política e Regras Geridas, então é uma política completa de Firewall de aplicações web. 
 
-![Configurações de política de WAF](../media/create-waf-policy-ag/waf-policy-settings.png)
+![Definições de política waf](../media/create-waf-policy-ag/waf-policy-settings.png)
 
-## <a name="migrate-to-waf-policy"></a>Migrar para a política WAF
+## <a name="migrate-to-waf-policy"></a>Migrar para a política da WAF
 
-Se você tiver apenas uma política personalizada WAF, convém mover para a nova política WAF. No futuro, a política de firewall dará suporte a configurações de política de WAF, conjuntos de regras gerenciados, exclusões e grupos de regras desabilitados. Essencialmente, todas as configurações de WAF que foram feitas anteriormente dentro do gateway de aplicativo agora são feitas por meio da política de WAF. 
+Se tiver uma política de regras personalizadas apenas WAF, então talvez queira mudar-se para a nova Política WAF. Em frente, a política de firewall apoiará as definições de política do WAF, conjuntos de regras geridos, exclusões e grupos de regras desativados. Essencialmente, todas as configurações waf que foram feitas anteriormente dentro do Gateway de Aplicação são agora feitas através da Política WAF. 
 
-As edições para a regra personalizada somente WAF política estão desabilitadas. Para editar as configurações de WAF, como desabilitar regras, adicionar exclusões, etc., você precisa migrar para um novo recurso de política de firewall de nível superior.
+Edita a regra personalizada, apenas a política waf é desativada. Para editar quaisquer definições de WAF, tais como regras incapacitantes, adicionando exclusões, etc. você tem que migrar para um novo recurso de política de firewall de alto nível.
 
-Para fazer isso, crie uma *política de firewall do aplicativo Web* e associe-a aos gateways de aplicativo e aos ouvintes de sua escolha. Essa nova política **deve** ser exatamente a mesma que a configuração atual do WAF, o que significa que cada regra personalizada, exclusão, regra desabilitada etc. deve ser copiada para a nova política que você está criando. Depois de ter uma política associada ao seu gateway de aplicativo, você poderá continuar a fazer alterações nas regras e configurações do WAF. Você também pode fazer isso com Azure PowerShell. Para obter mais informações, consulte [associar uma política de WAF a um gateway de aplicativo existente](associate-waf-policy-existing-gateway.md).
+Para tal, crie uma Política de Firewall de *Aplicação Web* e associe-a ao seu Gateway de aplicação e ao(s) ouvinte(s) de eleição. Esta nova Política **deve** ser exatamente a mesma que a atual config waf, o que significa que todas as regras personalizadas, exclusão, regra dos deficientes, etc. devem ser copiadas para a nova Política que está a criar. Uma vez que tenha uma Política associada ao seu Gateway de Aplicação, então pode continuar a fazer alterações às suas regras e definições waf. Também pode fazê-lo com a Azure PowerShell. Para mais informações, consulte [Associate uma política waf com um Gateway](associate-waf-policy-existing-gateway.md)de Aplicação existente .
 
-Opcionalmente, você pode usar um script de migração para migrar para uma política do WAF. Para obter mais informações, consulte [migrar políticas de firewall do aplicativo Web usando Azure PowerShell](migrate-policy.md).
+Opcionalmente, você pode usar um roteiro de migração para migrar para uma política waf. Para mais informações, consulte as políticas de firewall de [aplicação web migrate utilizando o Azure PowerShell](migrate-policy.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [regras e grupos de regras CRS do firewall do aplicativo Web](application-gateway-crs-rulegroups-rules.md).
+Saiba mais sobre grupos e regras de [regras CRS firewall de aplicação web](application-gateway-crs-rulegroups-rules.md).

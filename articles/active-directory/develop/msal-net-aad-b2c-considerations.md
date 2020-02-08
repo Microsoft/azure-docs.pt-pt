@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL.NET) / Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao utilizar o Azure AD B2C com a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834200"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083994"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para assinar em utilizadores com identidades sociais
 
@@ -39,7 +39,7 @@ A autoridade a utilizar é `https://{azureADB2CHostname}/tfp/{tenant}/{policyNam
 
 Para obter mais informações sobre as autoridades do Azure AD B2C, consulte esta [documentação](/azure/active-directory-b2c/b2clogin).
 
-## <a name="instantiating-the-application"></a>Instanciando o aplicativo
+## <a name="instantiating-the-application"></a>Instantaneamente a aplicação
 
 Ao construir o pedido, precisa fornecer a autoridade.
 
@@ -124,7 +124,7 @@ Para mais detalhes sobre o fluxo ropc, consulte esta [documentação](v2-oauth-r
 Este fluxo não é **recomendado** porque a sua aplicação que pede a um utilizador a sua palavra-passe não é segura. Para mais informações sobre este problema, consulte [este artigo.](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) 
 
 Ao utilizar o nome de utilizador/palavra-passe, está a abdicar de uma série de coisas:
-- principais princípios da identidade moderna: a senha é inpeixe e reproduzida. Porque temos esse conceito de um segredo de compartilhamento que pode ser interceptado. Isso é incompatível com sem senha.
+- Princípios fundamentais da identidade moderna: a palavra-passe é pescada, reproduzida. Porque temos este conceito de segredo de partilha que pode ser intercetado. Isto é incompatível com sem palavras-passe.
 - Os utilizadores que necessitem de fazer MFA não poderão entrar (uma vez que não há interação).
 - Os usuários não poderão fazer logon único.
 
@@ -139,7 +139,7 @@ AcquireTokenByUsernamePassword(
             SecureString password)
 ```
 
-Esse método usa como parâmetros:
+Este método toma como parâmetros:
 - Os *âmbitos* para solicitar um sinal de acesso para.
 - Um *nome de utilizador*.
 - Uma *senha* SecureString para o utilizador.
@@ -178,10 +178,10 @@ Em alternativa, pode utilizar a `tid` reivindicação, se estiver a utilizar as 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigação para "Desaparecido da resposta simbólica"
 Uma opção é utilizar a alegação de "nome" como nome de utilizador preferido. O processo é mencionado neste [B2C doc](../../active-directory-b2c/user-flow-overview.md) &> "Na coluna de reclamação de Retorno, escolha as reclamações que deseja devolvidas nos tokens de autorização enviados de volta para a sua aplicação após uma experiência de edição de perfil bem-sucedida. Por exemplo, selecione 'Nome de exibição, Código Postal'."
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
 Mais detalhes sobre a aquisição de fichas interactivamente com MSAL.NET para aplicações Azure AD B2C são fornecidos na amostra seguinte.
 
 | Sample | Plataforma | Descrição|
 |------ | -------- | -----------|
-|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Uma simples aplicação Xamarin Forms que mostra como usar MSAL.NET para autenticar os utilizadores através do Azure AD B2C, e aceder a uma API Web com as fichas resultantes.|
+|[active-directy-b2c-xamarin-nativo](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Uma simples aplicação Xamarin Forms que mostra como usar MSAL.NET para autenticar os utilizadores através do Azure AD B2C, e aceder a uma API Web com as fichas resultantes.|

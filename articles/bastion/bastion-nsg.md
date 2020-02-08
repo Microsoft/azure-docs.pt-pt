@@ -2,21 +2,21 @@
 title: Trabalhar com VMs e NSGs em Azure Bastion
 description: Este artigo descreve como incorporar o acesso NSG com a bastiões do Azure
 services: bastion
-author: ashjain
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: ashishj
-ms.openlocfilehash: 622333f58fb7ddf66fdf5be51e961a3005294afe
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.author: charwen
+ms.openlocfilehash: 15abee4688a2f6aefa2b08ad2b8eee6622d56be2
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989472"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087264"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhando com acesso NSG e bastiões do Azure
 
-Ao trabalhar com a bastiões do Azure, você pode usar NSGs (grupos de segurança de rede). Para obter mais informações, consulte [grupos de segurança](../virtual-network/security-overview.md). 
+Ao trabalhar com a bastiões do Azure, você pode usar NSGs (grupos de segurança de rede). Para mais informações, consulte [Grupos de Segurança](../virtual-network/security-overview.md). 
 
 ![Arquitetura](./media/bastion-nsg/nsg-architecture.png)
 
@@ -28,7 +28,7 @@ Neste diagrama:
 * Conectar integração-sessão RDP/SSH de clique único dentro do navegador
 * Nenhum IP público é necessário na VM do Azure.
 
-## <a name="nsg"></a>Grupos de segurança de rede
+## <a name="nsg"></a>Grupos de segurança da rede
 
 Esta seção mostra o tráfego de rede entre o usuário e a bastiões do Azure e para as VMs de destino em sua rede virtual:
 
@@ -36,30 +36,30 @@ Esta seção mostra o tráfego de rede entre o usuário e a bastiões do Azure e
 
 A bastiões do Azure é implantada especificamente para o AzureBastionSubnet.
 
-* **Tráfego de entrada:**
+* **Tráfego ingress:**
 
-   * **Tráfego de entrada da Internet pública:** A bastiões do Azure criará um IP público que precisa da porta 443 habilitada no IP público para o tráfego de entrada. A porta 3389/22 não precisa ser aberta no AzureBastionSubnet.
-   * **Tráfego de entrada do plano de controle de bastiões do Azure:** Para conectividade do plano de controle, habilite a porta 443 de entrada da marca de serviço do **gatewaymanager** . Isso permite que o plano de controle, ou seja, o Gerenciador de gateway seja capaz de se comunicar com a bastiões do Azure.
+   * **Tráfego ingresso da internet pública:** O Bastião Azure vai criar um IP público que precisa do porto 443 habilitado no IP público para o tráfego de ingressos. A porta 3389/22 não precisa ser aberta no AzureBastionSubnet.
+   * **Tráfego ingresso do avião de controlo do Bastião Azure:** Para a conectividade do plano de controlo, ative a entrada da porta 443 a partir da etiqueta de serviço **GatewayManager.** Isso permite que o plano de controle, ou seja, o Gerenciador de gateway seja capaz de se comunicar com a bastiões do Azure.
 
-* **Tráfego de saída:**
+* **Tráfego de Egress:**
 
-   * **Tráfego de saída para VMs de destino:** A bastiões do Azure alcançará as VMs de destino sobre o IP privado. O NSGs precisa permitir o tráfego de saída para outras sub-redes de VM de destino para a porta 3389 e 22.
-   * **Tráfego de saída para outros pontos de extremidade públicos no Azure:** A bastiões do Azure precisa ser capaz de se conectar a vários pontos de extremidade públicos no Azure (por exemplo, para armazenar logs de diagnóstico e logs de medição). Por esse motivo, a bastiões do Azure precisa de saída para 443 para a marca de serviço **AzureCloud** .
+   * **Tráfego de Egress para os VMs-alvo:** O Azure Bastion vai atingir os VMs-alvo em IP privado. O NSGs precisa permitir o tráfego de saída para outras sub-redes de VM de destino para a porta 3389 e 22.
+   * **Tráfego de Egress para outros pontos finais públicos em Azure:** O Azure Bastion precisa de ser capaz de se ligar a vários pontos finais públicos dentro do Azure (por exemplo, para armazenar registos de diagnóstico e registos de medição). Por esta razão, o Azure Bastion precisa de saída para 443 para a etiqueta de serviço **AzureCloud.**
 
-* **Sub-rede VM de destino:** Essa é a sub-rede que contém a máquina virtual de destino para a qual você deseja RDP/SSH.
+* **Subnet-alvo VM:** Esta é a sub-rede que contém a máquina virtual alvo a que pretende rdp/SSH.
 
-   * **Tráfego de entrada da bastiões do Azure:** A bastiões do Azure alcançará a VM de destino sobre o IP privado. As portas RDP/SSH (portas 3389/22, respectivamente) precisam ser abertas no lado da VM de destino sobre o IP privado. Como prática recomendada, você pode adicionar o intervalo de endereços IP da sub-rede de bastiões do Azure nesta regra para permitir que somente a bastiões possa abrir essas portas nas VMs de destino em sua sub-rede de VM de destino.
+   * **Tráfego ingresso do Bastião Azure:** O Azure Bastion chegará ao vm alvo em vez de IP privado. As portas RDP/SSH (portas 3389/22, respectivamente) precisam ser abertas no lado da VM de destino sobre o IP privado. Como prática recomendada, você pode adicionar o intervalo de endereços IP da sub-rede de bastiões do Azure nesta regra para permitir que somente a bastiões possa abrir essas portas nas VMs de destino em sua sub-rede de VM de destino.
 
-## <a name="apply"></a>Aplicar NSGs a AzureBastionSubnet
+## <a name="apply"></a>Aplicar NSGs à AzureBastionSubnet
 
-Se você criar e aplicar um NSG ao ***AzureBastionSubnet***, certifique-se de ter adicionado as regras a seguir em seu NSG. Se você não adicionar essas regras, a criação/atualização do NSG falhará:
+Se criar e aplicar um NSG à ***AzureBastionSubnet,*** certifique-se de ter adicionado as seguintes regras no seu NSG. Se você não adicionar essas regras, a criação/atualização do NSG falhará:
 
-* **Conectividade do plano de controle:** Entrada em 443 do Gatewaymanager
-* **Log de diagnóstico e outros:** Saída em 443 para AzureCloud. Ainda não há suporte para marcas regionais nessa marcação de serviço.
-* **VM de destino:** Saída de 3389 e 22 para VirtualNetwork
+* Controlar a **conectividade do avião:** Entrada na 443 do GatewayManager
+* **Registo de diagnósticos e outros:** Saída na 443 para AzureCloud. Ainda não há suporte para marcas regionais nessa marcação de serviço.
+* **VM alvo:** Saída para 3389 e 22 para VirtualNetwork
 
-Um exemplo de regra NSG está disponível para referência neste [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
+Um exemplo de regra NSG está disponível para referência neste [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a bastiões do Azure, consulte as [perguntas frequentes](bastion-faq.md).
+Para mais informações sobre o Bastião Azure, consulte as [FAQ.](bastion-faq.md)

@@ -2,22 +2,22 @@
 title: Agentes de autorização e como os habilitar Azure
 description: Conheça os diferentes agentes de autorização que a Microsoft Authentication Library (MSAL) permite que a sua aplicação Android utilize e como as habilitar.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.openlocfilehash: c2d0c8a877ba856aa7a93bfc960c44b63cbe8f9c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4f1b3fc5b60069cfa47d437e4341ded141204418
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698004"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085326"
 ---
 # <a name="authorization-agents-android"></a>Agentes de autorização (Android)
 
@@ -78,15 +78,15 @@ Os seguintes navegadores foram testados para ver se redirecionam corretamente pa
 
 | | Navegador incorporado | Chrome | Opera  | Microsoft Edge | UC Browser | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
-| Nexus 4 (API 17) | Passá | Passá |não se aplica |não se aplica |não se aplica |não se aplica |
-| Samsung S7 (API 25) | passe* | Passá | Passá | Passá | falha |Passá |
-| Huawei (API 26) |passe** | Passá | falha | Passá | Passá |Passá |
-| Vivo (API 26) |Passá|Passá|Passá|Passá|Passá|falha|
-| Pixel 2 (API 26) |Passá | Passá | Passá | Passá | falha |Passá |
-| Oppo | Passá | não aplicável*** |não se aplica  |não se aplica |não se aplica | não se aplica|
-| OnePlus (API 25) |Passá | Passá | Passá | Passá | falha |Passá |
-| Nexus (API 28) |Passá | Passá | Passá | Passá | falha |Passá |
-|EM | Passá | Passá | Passá | Passá | falha |Passá |
+| Nexus 4 (API 17) | Passá | Passá |não aplicável |não aplicável |não aplicável |não aplicável |
+| Samsung S7 (API 25) | passe* | Passá | Passá | Passá | falhar |Passá |
+| Huawei (API 26) |passe** | Passá | falhar | Passá | Passá |Passá |
+| Vivo (API 26) |Passá|Passá|Passá|Passá|Passá|falhar|
+| Pixel 2 (API 26) |Passá | Passá | Passá | Passá | falhar |Passá |
+| Oppo | Passá | não aplicável*** |não aplicável  |não aplicável |não aplicável | não aplicável|
+| OnePlus (API 25) |Passá | Passá | Passá | Passá | falhar |Passá |
+| Nexus (API 28) |Passá | Passá | Passá | Passá | falhar |Passá |
+|MI | Passá | Passá | Passá | Passá | falhar |Passá |
 
 *O navegador incorporado da Samsung é a Samsung Internet.  
 O navegador integrado da Huawei é o Huawei Browser.  

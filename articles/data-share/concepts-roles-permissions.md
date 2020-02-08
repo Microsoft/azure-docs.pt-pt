@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 0f836553c3c3bb324d76d022af189f154b5b1972
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964469"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087170"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
 
@@ -32,10 +32,10 @@ Abaixo está um resumo das funções atribuídas à identidade gerida do recurso
 | |  |  |
 |---|---|---|
 |**Tipo de loja de dados**|**Loja de Dados de Fonte do Fornecedor de Dados**|**Data Consumer Target Data Store**|
-|Armazenamento de Blobs do Azure| Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
-|Lago de Dados Azure Gen1 | Proprietário | Não suportado
-|Azure Data Lake Gen2 | Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
-|Azure SQL Server | Colaborador do BD SQL | Colaborador do BD SQL
+|Armazenamento de Blobs do Azure| Leitor de dados de blob de armazenamento | Contribuinte de dados blob de armazenamento
+|Lago de Dados Azure Gen1 | Proprietário | Não Suportado
+|Lago de Dados Azure Gen2 | Leitor de dados de blob de armazenamento | Contribuinte de dados blob de armazenamento
+|Servidor Azure SQL | Colaborador do BD SQL | Colaborador do BD SQL
 |Azure Data Explorer Cluster | Contribuinte | Contribuinte
 |
 
@@ -59,7 +59,7 @@ Em alternativa, o utilizador pode ter o proprietário da loja de dados Azure adi
 Para criar uma atribuição de funções para a identidade gerida do recurso de partilha de dados, siga os passos seguintes:
 
 1. Navegue para a loja de dados Azure.
-1. Selecione **controlo de acesso (IAM)** .
+1. Selecione **Controlo de Acesso (IAM)** .
 1. Selecione **Adicionar uma atribuição de funções**.
 1. Em *Funções*, selecione a função na tabela de atribuição de funções acima (por exemplo, para conta de armazenamento, *selecione Storage Blob Data Reader).*
 1. Em *Select*, escreva em nome do seu recurso Azure Data Share.
@@ -77,7 +77,7 @@ Em alternativa, o utilizador pode ter o proprietário da loja de dados Azure adi
 Para criar manualmente uma atribuição de funções para a identidade gerida pelo recurso de partilha de dados, siga os passos seguintes:
 
 1. Navegue para a loja de dados Azure.
-1. Selecione **controlo de acesso (IAM)** .
+1. Selecione **Controlo de Acesso (IAM)** .
 1. Selecione **Adicionar uma atribuição de funções**.
 1. Em *Funções*, selecione a função na tabela de atribuição de funções acima (por exemplo, para conta de armazenamento, *selecione Storage Blob Data Reader).*
 1. Em *Select*, escreva em nome do seu recurso Azure Data Share.
@@ -91,15 +91,15 @@ Para saber mais sobre como adicionar uma atribuição de funções, consulte [es
 
 ## <a name="resource-provider-registration"></a>Registo do fornecedor de recursos 
 
-Para ver o convite da Azure Data Share pela primeira vez no seu inquilino Azure, poderá ter de registar manualmente o fornecedor de recursos Microsoft.DataShare na sua subscrição Azure. Siga estes passos para registar o fornecedor de recursos Microsoft.DataShare na sua Subscrição Azure. 
+Para ver o convite da Azure Data Share pela primeira vez no seu inquilino Azure, poderá ter de registar manualmente o fornecedor de recursos Microsoft.DataShare na sua subscrição Azure. Siga estes passos para registar o fornecedor de recursos Microsoft.DataShare na sua Subscrição Azure. Precisa de acesso *do Colaborador* à subscrição do Azure para registar o fornecedor de recursos.
 
 1. No portal Azure, navegue para **assinaturas.**
 1. Selecione a subscrição que está a utilizar para a Partilha de Dados do Azure.
 1. Clique em **Fornecedores de Recursos**.
 1. Pesquisa por Microsoft.DataShare.
-1. Clique em **registrar**.
+1. Clique no **Registo**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre as funções no Azure – [entender as definições de função](../role-based-access-control/role-definitions.md)
+- Saiba mais sobre papéis no Azure - [Compreender definições de papéis](../role-based-access-control/role-definitions.md)
 

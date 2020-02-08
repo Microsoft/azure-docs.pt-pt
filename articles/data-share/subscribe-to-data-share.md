@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f2acb89597ef877543a2c4cc46f395aede41034b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964503"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083101"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando a Partilha de Dados do Azure  
 
@@ -28,9 +28,9 @@ Antes de poder aceitar um convite para partilha de dados, deve fornecer uma sér
 
 Certifique-se de que todos os pré-requisitos estão completos antes de aceitar um convite para partilha de dados. 
 
-* Assinatura do Azure: se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Assinatura Azure: Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Um convite da Data Share: Um convite do Microsoft Azure com um tema intitulado "Convite azure Data Share de **<yourdataprovider@domain.com>** ".
-* Registe o fornecedor de recursos Microsoft.DataShare. Siga as instruções documentadas na [Troubleshoot Azure Data Share](data-share-troubleshoot.md) para registar o fornecedor de recursos de partilha de dados.
+* Registe o fornecedor de [recursos Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) na subscrição do Azure, onde irá criar um recurso Data Share e a subscrição Azure onde estão localizadas as lojas de dados Azure alvo.
 
 ### <a name="receive-data-into-a-storage-account"></a>Receba os dados numa conta de armazenamento: 
 
@@ -56,8 +56,8 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 
 * Acesso ao servidor IP SQL do cliente. Isso pode ser feito por meio das seguintes etapas: 
     1. No servidor SQL no portal Azure, navegue para *Firewalls e redes virtuais*
-    1. Clique no **botão de alternância para** permitir o acesso aos serviços do Azure.
-    1. Clique em **+Adicionar IP do cliente** e clique em **Guardar**. O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a partilhar dados SQL do portal Azure. Também pode adicionar uma gama IP. 
+    1. Clique no alternância **para** permitir o acesso aos Serviços Azure.
+    1. Clique em **+Adicionar IP do cliente** e clique em **Guardar**. O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a receber dados num alvo SQL do portal Azure. Também pode adicionar uma gama IP. 
 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Receba dados num cluster do Azure Data Explorer: 

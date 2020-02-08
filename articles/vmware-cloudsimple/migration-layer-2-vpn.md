@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 975ffcd7142aac24363c2235db3742c155c1007b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d4e25074203ddcc016f54842f25f52017c6137f0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019830"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083221"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho com redes ampliadas de Camada 2
 
@@ -48,7 +48,7 @@ Verifique se estão no lugar antes de implementar e configurar a solução:
 * A versão do aparelho ONX-T Edge autónomo é compatível com a versão NSX-T Manager (NSX-T 2.3.0) utilizada no seu ambiente AVS Private Cloud.
 * Foi criado um grupo de porta-tronco no vCenter no local com transmissões forjadas ativadas.
 * Um endereço IP público foi reservado para o endereço IP de uplink do cliente autónomo NSX-T, e 1:1 NAT está em vigor para tradução entre os dois endereços.
-* O encaminhamento dNS está definido nos servidores DNS no local para o az. AVS.io domínio para apontar para os servidores DNS DNS privados da Nuvem AVS.
+* O encaminhamento dNS está definido nos servidores DNS no local para o domínio az.cloudsimple.io apontar para os servidores DNS DNS privados da Nuvem AVS.
 * A latência RTT é inferior ou igual a 150 ms, conforme necessário para que a vMotion funcione em todos os dois locais.
 
 ## <a name="limitations-and-considerations"></a>Limitações e considerações
@@ -57,10 +57,10 @@ As listas de tabelas seguintes suportam versões vSphere e tipos de adaptadores 
 
 | versão vSphere | Tipo vSwitch de origem | Condutor virtual nic | Modelo de vSwitch de destino | Suportada? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| Tudo | DVS | Tudo | DVS | Sim |
+| Todos | DVS | Todos | DVS | Sim |
 | vSphere 6.7UI ou superior, 6.5P03 ou superior | DVS | VMXNET3 | N-VDs | Sim |
 | vSphere 6.7UI ou superior, 6.5P03 ou superior | DVS | E1000 | N-VDs | [Não suportado por VWware](https://kb.vmware.com/s/article/56991) |
-| vSphere 6.7UI ou 6.5P03, NSX-V ou versões abaixo nsX-T2.2, 6.5P03 ou superior | Tudo | Tudo | N-VDs | [Não suportado por VWware](https://kb.vmware.com/s/article/56991) |
+| vSphere 6.7UI ou 6.5P03, NSX-V ou versões abaixo nsX-T2.2, 6.5P03 ou superior | Todos | Todos | N-VDs | [Não suportado por VWware](https://kb.vmware.com/s/article/56991) |
 
 A partir do lançamento VMware NSX-T 2.3:
 
@@ -463,7 +463,7 @@ Antes de ser implementado, verifique se as suas regras de firewall no local perm
       ![Personalizar modelo de](media/l2vpn-deploy-client08.png)
       ![Personalizar modelo - mais](media/l2vpn-deploy-client09.png)
 
-7. Examine as configurações e clique em **concluir**.
+7. Reveja as definições e clique em **Terminar**.
 
     ![Configuração completa](media/l2vpn-deploy-client10.png)
 

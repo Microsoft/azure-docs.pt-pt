@@ -3,22 +3,22 @@ title: Considerações do navegador do sistema Xamarin Android (MSAL.NET) / Azur
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao utilizar navegadores de sistema no Xamarin Android com a Microsoft Authentication Library para .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9346a4d5eaabb2af490afc13d5785a8f8233e53f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c144c6dd090669ca16c03050cbb8b59ff0cc224f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695059"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084584"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considerações de navegador do sistema Xamarin Android com MSAL.NET
 
@@ -28,7 +28,7 @@ A partir de MSAL.NET pré-visualização de 2.4.0, MSAL.NET suporta navegadores 
 
 Recomendamos que utilize navegadores que suportem separadores personalizados, como estes:
 
-| Navegadores com suporte personalizado para abas | Nome do Pacote |
+| Navegadores com suporte personalizado para abas | Nome do pacote |
 |------| ------- |
 |Chrome | com.android.chrome|
 |Microsoft Edge | com.microsoft.emmx|
@@ -55,10 +55,10 @@ A tabela seguinte lista os dispositivos e navegadores que foram testados.
 | ------------- |:-------------:|:-----:|
 | Huawei/One+ | &ast; cromado | Passá|
 | Huawei/One+ | &ast; de borda | Passá|
-| Huawei/One+ | Firefox&ast; | Passá|
+| Huawei/One+ | &ast; firefox | Passá|
 | Huawei/One+ | &ast; corajosa | Passá|
 | Um+ | Ecosia&ast; | Passá|
-| Um+ | Kiwi&ast; | Passá|
+| Um+ | &ast; de Kiwi | Passá|
 | Huawei/One+ | Opera | Passá|
 | Huawei | OperaMini | Passá|
 | Huawei/One+ | InBrowser | Passá|

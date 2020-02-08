@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 9d47986df9b9cbc6b8519aa0466b3434d6216e72
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f2f2e02cdb5698d7569e5be177d54ca4dcb0ae02
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986007"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086529"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicação
 
@@ -22,7 +22,7 @@ Seguem-se questões comuns sobre o Portal de Aplicação Azure.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-application-gateway"></a>O que é o Gateway da Aplicação?
+### <a name="what-is-application-gateway"></a>O que é o Gateway de Aplicação?
 
 O Portal de Aplicações Azure fornece um controlador de entrega de aplicações (ADC) como um serviço. Oferece várias capacidades de equilíbrio de carga de camada 7 para as suas aplicações. Este serviço é altamente disponível, escalável e totalmente gerido pelo Azure.
 
@@ -134,7 +134,7 @@ Sim. Pode configurar a drenagem da ligação para alterar os membros dentro de u
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Posso mudar o tamanho da instância de médio para grande sem perturbações?
 
-Sim. O Azure distribui instâncias através de domínios de atualização e falhas para garantir que as instâncias não falham todas ao mesmo tempo. O Application Gateway suporta a escala, adicionando múltiplas instâncias da mesma porta de entrada para partilhar a carga.
+Sim.
 
 ## <a name="configuration"></a>Configuração
 
@@ -278,7 +278,7 @@ O Gateway de aplicação suporta até 100 certificados de autenticação.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>O Application Gateway integra-se de forma nativa com o Cofre chave Azure?
 
-Sim, o Gateway de aplicação v2 SKU suporta o Cofre chave. Para obter mais informações, consulte [terminação SSL com certificados Key Vault](key-vault-certs.md).
+Sim, o Gateway de aplicação v2 SKU suporta o Cofre chave. Para mais informações, consulte a [rescisão do SSL com certificados key vault](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Como configurar os ouvintes HTTPS para sites .com e .net? 
 
@@ -322,7 +322,7 @@ Para mais informações, consulte [as vulnerabilidades do Top-10 da OWASP.](http
 
 ### <a name="does-waf-support-ddos-protection"></a>A WAF suporta a proteção dDoS?
 
-Sim. Pode ativar a proteção contra DDoS na rede virtual na qual o gateway de aplicação está implementado. Esta definição assegura que o serviço Azure DDoS Protection também protege o IP virtual (VIP) do gateway de aplicação.
+Sim. Pode ativar a proteção DDoS na rede virtual onde o gateway da aplicação está implantado. Esta definição garante que o serviço de proteção Azure DDoS também protege o ip virtual de gateway de aplicação (VIP).
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe orientação disponível para migrar do V1 SKU para o V2 SKU?
 
@@ -395,17 +395,17 @@ O gateway de aplicativo v2 atualmente não dá suporte apenas ao modo de IP priv
 Mas se você quiser usar o gateway de aplicativo v2 somente com o IP privado, você pode seguir o processo abaixo:
 1. Criar um gateway de aplicativo com o endereço IP de front-end público e privado
 2. Não crie nenhum ouvinte para o endereço IP de front-end público. O gateway de aplicativo não escutará nenhum tráfego no endereço IP público se nenhum ouvinte for criado para ele.
-3. Crie e anexe um [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para a sub-rede do gateway de aplicativo com a seguinte configuração na ordem de prioridade:
+3. Criar e anexar um Grupo de Segurança de [Rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para a sub-rede gateway de aplicação com a seguinte configuração na ordem de prioridade:
     
-    a. Permita o tráfego da origem como a marca de serviço do **gatewaymanager** e o destino como **qualquer** porta de destino e como **65200-65535**. Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de usuário do gateway, não podem iniciar alterações nesses pontos de extremidade sem os certificados apropriados em vigor
+    a. Permita o tráfego da Source como etiqueta de serviço **GatewayManager** e Destino como porta **De qualquer** e Destino como **65200-65535**. Esta gama portuária é necessária para a comunicação da infraestrutura Azure. Essas portas são protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de usuário do gateway, não podem iniciar alterações nesses pontos de extremidade sem os certificados apropriados em vigor
     
-    b. Permitir o tráfego da origem como a marca de serviço **AzureLoadBalancer** e a porta de destino e destino como **qualquer**
+    b. Permitir o tráfego da Source como etiqueta de serviço **AzureLoadBalancer** e destino e porta de destino como **qualquer**
     
-    c. Negue todo o tráfego de entrada da origem como marca de serviço de **Internet** e porta de destino e destino como **qualquer**. Dê a essa regra a *prioridade mínima* nas regras de entrada
+    c. Negue todo o tráfego de entrada da Fonte como etiqueta de serviço de **Internet** e destino e porta de destino como **Qualquer**. Dar a esta regra a *menor prioridade* nas regras de entrada
     
     d. Mantenha as regras padrão como permitir a entrada de VirtualNetwork para que o acesso no endereço IP privado não seja bloqueado
     
-    e. A conectividade de Internet de saída não pode ser bloqueada. Caso contrário, você enfrentará problemas de registro em log, métricas, etc.
+    e. A conectividade da Internet não pode ser bloqueada. Caso contrário, você enfrentará problemas de registro em log, métricas, etc.
 
 A configuração NSG da amostra para acesso ip privado apenas: ![Aplicação Gateway V2 NSG Configuração para acesso IP privado apenas](./media/application-gateway-faq/appgw-privip-nsg.png)
 

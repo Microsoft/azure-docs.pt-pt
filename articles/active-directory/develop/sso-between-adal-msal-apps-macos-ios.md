@@ -1,9 +1,9 @@
 ---
-title: SSO entre o ADAL & aplicativos MSAL (iOS/macOS) – plataforma de identidade da Microsoft | Azure
+title: SSO entre aplicações ADAL e MSAL (iOS/macOS) - Plataforma de identidade da Microsoft Azure
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: be608019aa6a393891d9586005e5ef9c970a8bd1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2fbb6e837ae898daf4bc78d5cccc75660463e8a7
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712370"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085416"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Como: SSO entre aplicações ADAL e MSAL no macOS e iOS
 
@@ -52,8 +52,8 @@ O quadro seguinte resume as diferenças entre a ADAL e a MSAL:
 | Identificador de conta                | MSAL                                                         | ADAL 2.7.x      | ADAL mais antigo (antes de ADAL 2.7.x) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | identificador exibivel            | `username`                                                   | `userId`        | `userId`                       |
-| identificador único não apresentável | `identifier`                                                 | `homeAccountId` | N/A                            |
-| Nenhuma identidade de conta conhecida               | Consulta de todas as contas através `allAccounts:` API em `MSALPublicClientApplication` | N/A             | N/A                            |
+| identificador único não apresentável | `identifier`                                                 | `homeAccountId` | N/D                            |
+| Nenhuma identidade de conta conhecida               | Consulta de todas as contas através `allAccounts:` API em `MSALPublicClientApplication` | N/D             | N/D                            |
 
 Esta é a interface `MSALAccount` que fornece os identificadores:
 
@@ -111,7 +111,7 @@ Se `homeAccountId` não estiver disponível, ou se tiver apenas o identificador 
 
 Na MSAL, primeiro procure uma conta em `username` ou `identifier`. Use sempre `identifier` para consulta se o tiver, e use apenas `username` como recuo. Se a conta for encontrada, utilize a conta no `acquireTokenSilent` chamadas.
 
-Objective-C:
+Objetivo C:
 
 ```objc
 NSString *msalIdentifier = @"previously.saved.msal.account.id";
@@ -138,7 +138,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
-Swift
+Swift:
 
 ```swift
         
@@ -209,7 +209,7 @@ Como `homeAccountId` não está disponível em versões ADAL mais antigas, você
 
 Por exemplo:
 
-Objective-C:
+Objetivo C:
 
 
 ```objc
@@ -218,7 +218,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
-Swift
+Swift:
 
 ```swift
 do {
@@ -237,7 +237,7 @@ do {
 
 Em alternativa, pode ler todas as contas, que também lerão informações de conta da ADAL:
 
-Objective-C:
+Objetivo C:
 
 ```objc
 NSArray *accounts = [application allAccounts:nil];
@@ -258,7 +258,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
-Swift
+Swift:
 
 ```swift
       
@@ -286,6 +286,6 @@ do {
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [fluxos de autenticação e cenários](authentication-flows-app-scenarios.md) de aplicação

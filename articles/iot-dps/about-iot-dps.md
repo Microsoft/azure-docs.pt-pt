@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 15eaba5b1102ddb282d72497093b8554a6b4cf56
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061629"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082860"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprovisionar dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de cloud pública integrada para todas as suas necessidades de solução IoT. O IoT Hub Device Provisioning Service (DPS) é um serviço de ajuda para o IoT Hub que permite o fornecimento de zero toques, just-in-time para o centro ioT direito sem necessitar de intervenção humana. O DPS permite o fornecimento de milhões de dispositivos de forma segura e escalável.
@@ -80,9 +80,9 @@ O DPS tem muitas funcionalidades, tornando-o ideal para o fornecimento de dispos
 * **Lista de inscrição** que contém o registo completo de dispositivos/grupos de dispositivos que podem ser registados em qualquer momento. A lista de inscrição contém informações sobre a configuração pretendida do dispositivo, depois de ser registado, e pode ser atualizada em qualquer altura.
 * **Múltiplas políticas** de alocação para controlar como o DPS atribui dispositivos aos centros IoT em suporte aos seus cenários: Latência mais baixa, distribuição uniformemente ponderada (padrão) e configuração estática através da lista de inscrições. A latência é determinada usando o mesmo método que [o Gestor de Tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Monitorização e registo de diagnóstico** para garantir que tudo está a funcionar corretamente.
-* O **suporte de vários hubs** permite que o Serviço de Aprovisionamento de Dispositivos atribua dispositivos a mais do que um hub IoT. O Serviço de Aprovisionamento de Dispositivos pode comunicar com hubs em várias subscrições do Azure.
-* O **suporte de várias regiões** permite que o Serviço de Aprovisionamento de Dispositivos atribua dispositivos a hubs IoT noutras regiões.
-* **A encriptação para dados em repouso** permite que os dados do Serviço de Provisionamento de Dispositivos sejam encriptados e desencriptados de forma transparente utilizando encriptação AES de 256 bits, uma das cifras de blocomais fortes disponíveis, e é compatível com o FIPS 140-2.
+* **O suporte multi-hub** permite que o DPS atribua dispositivos a mais de um hub IoT. O DPS pode falar com centros em várias subscrições do Azure.
+* **O suporte transversal** permite que o DPS atribua dispositivos a centros IoT noutras regiões.
+* **A encriptação para dados em repouso** permite que os dados em DPS sejam encriptados e desencriptados de forma transparente utilizando encriptação AES de 256 bits, uma das cifras de bloco mais fortes disponíveis, e é compatível com O FIPS 140-2.
 
 
 Pode saber mais sobre os conceitos e as funcionalidades envolvidas no aprovisionamento de dispositivos em [conceitos de dispositivo](concepts-device.md), [conceitos de serviço](concepts-service.md) e [conceitos de segurança](concepts-security.md).

@@ -5,13 +5,14 @@ author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
+ms.custom: fasttrack-edit
 ms.author: mlearned
-ms.openlocfilehash: 86fa59a3d1c07aae842404c465b908e550708071
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 06825f184365cfc439167be15580eb19bf5ecb38
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047459"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084277"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -106,6 +107,8 @@ Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
 | Acesso a recursos protegidos por pontos de extremidade de serviço                                             | Suportado | Suportado |
 | Expor serviços Kubernetess usando um serviço de balanceador de carga, um gateway de aplicativo ou um controlador de entrada | Suportado | Suportado |
 | Zonas privadas e DNS do Azure padrão                                                          | Suportado | Suportado |
+
+No que diz respeito ao DNS, com os plugins DNS kubenet e Azure CNI é oferecido pela CoreDNS, um conjunto de daemon em execução no AKS. Para obter mais informações sobre o CoreDNS em Kubernetes consulte [Personalização do Serviço DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). O CoreDNS está configurado por padrão para enviar domínios desconhecidos para os servidores DNS do nó, por outras palavras, para a funcionalidade DNS da Rede Virtual Azure onde o cluster AKS é implantado. Assim, o Azure DNS e as Zonas Privadas trabalharão para cápsulas em AKS.
 
 ### <a name="support-scope-between-network-models"></a>Escopo de suporte entre modelos de rede
 

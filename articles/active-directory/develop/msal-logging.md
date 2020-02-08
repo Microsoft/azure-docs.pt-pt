@@ -3,22 +3,22 @@ title: Sessão de registo em aplicativos MSAL  Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre o registo nas aplicações da Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/11/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: cba213824cba86b4ea54e852b7e2f1ede83abfea
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 58697cc535357710c6889f05060b5e04e129ae7d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695812"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084889"
 ---
 # <a name="logging-in-msal-applications"></a>Registo em aplicações MSAL
 
@@ -361,7 +361,7 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .build();
 ```
 
-## <a name="pythontabpython"></a>[Python](#tab/python)
+## <a name="pythontabpython"></a>[python](#tab/python)
 
 ## <a name="msal-for-python-logging"></a>MSAL para exploração madeireira Python
 

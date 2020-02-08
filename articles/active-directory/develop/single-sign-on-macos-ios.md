@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Saiba como configurar um único sinal no macOS e iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/03/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: bfc656911abf3349e03543e6bb668db977422738
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022635"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085519"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: Configure SSO no macOS e iOS
 
@@ -112,7 +112,7 @@ Para mais informações, consulte [os grupos de porta-chaves](howto-v2-keychain-
 
 Assim que tiver o direito do porta-chaves ativado em cada uma das suas aplicações, e estiver pronto para utilizar o SSO, configure `MSALPublicClientApplication` com o seu grupo de acesso à porta-chaves como no seguinte exemplo:
 
-Objective-C:
+Objetivo C:
 
 ```objc
 NSError *error = nil;
@@ -122,7 +122,7 @@ configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
 
-Swift
+Swift:
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
@@ -149,7 +149,7 @@ A MSAL fornece suporte para autenticação intermediada com o Microsoft Authenti
 
 Os seguintes passos são como ativa o SSO utilizando um corretor de autenticação para a sua aplicação:
 
-1. Registe um formato Redirect URI compatível com um corretor para a aplicação na lista info.plist da sua aplicação. O formato Redirect URI compatível com o corretor é `msauth.<app.bundle.id>://auth`. Substitua '<app.bundle.id>'' com o id do pacote da sua aplicação. Por exemplo:
+1. Registe um formato Redirect URI compatível com um corretor para a aplicação na lista info.plist da sua aplicação. O formato Redirect URI compatível com o corretor é `msauth.<app.bundle.id>://auth`. Substitua '<app.bundle.id&gt'' com o id do pacote da sua aplicação. Por exemplo:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -170,7 +170,7 @@ Os seguintes passos são como ativa o SSO utilizando um corretor de autenticaç�
 
 1. Adicione o seguinte ao seu ficheiro `AppDelegate.m` para lidar com as chamadas:
 
-    Objective-C:
+    Objetivo C:
     
     ```objc
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
@@ -179,7 +179,7 @@ Os seguintes passos são como ativa o SSO utilizando um corretor de autenticaç�
     }
     ```
     
-    Swift
+    Swift:
     
     ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -187,10 +187,10 @@ Os seguintes passos são como ativa o SSO utilizando um corretor de autenticaç�
     }
     ```
     
-**Se você estiver usando o Xcode 11**, deverá posicionar o retorno de chamada MSAL no arquivo de `SceneDelegate` em vez disso.
-Se você oferecer suporte a UISceneDelegate e UIApplicationDelegate para compatibilidade com o iOS mais antigo, o retorno de chamada do MSAL precisaria ser colocado em ambos os arquivos.
+Se estiver a utilizar o **Xcode 11,** deverá colocar a chamada MSAL no ficheiro `SceneDelegate`.
+Se apoiar tanto o UISceneDelegate como o UIApplicationDelegate para a compatibilidade com iOS mais antigo, o backback do MSAL terá de ser colocado em ambos os ficheiros.
 
-Objective-C:
+Objetivo C:
 
 ```objc
  - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
@@ -203,7 +203,7 @@ Objective-C:
  }
 ```
 
-Swift
+Swift:
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -221,4 +221,4 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md)
+Saiba mais sobre [fluxos de autenticação e cenários](authentication-flows-app-scenarios.md) de aplicação

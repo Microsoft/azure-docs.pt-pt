@@ -1,66 +1,116 @@
 ---
-title: Entidades nomeadas gerais
+title: Entidades nomeadas em geral
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: a4c911fa077c2ec332974fb2f0c5abcdef21307c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f95d7613926cf332a498cca84563dbc0ebcbbe9b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284150"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086881"
 ---
-## <a name="general-entity-types"></a>Tipos de entidade geral:
+## <a name="general-entity-types"></a>Tipos de entidades gerais:
 
 ### <a name="person"></a>Pessoa
-Nomes reconhecidos e outras pessoas em texto.
-Idiomas:
-* Visualização pública: `English`
 
-| Nome do subtipo | Descrição             |
-|--------------|-------------------------|
-| N/A          | Nomes reconhecidos, por exemplo `Bill Gates`, `Marie Curie` |
+Reconhecer nomes de pessoas em texto.
+
+Idiomas:
+* Antevisão do público: `English`
+
+| Nome do subtipo | Descrição                                                      | Disponível a partir da versão modelo |
+|--------------|------------------------------------------------------------------|---------------------------------------|
+| N/D          | Nomes de pessoas reconhecidas, por exemplo `Bill Gates`, `Marie Curie` | `2019-10-01`                          | 
+
+### <a name="persontype"></a>PersonType
+Tipo de trabalho ou papel detido por uma pessoa.
+
+Idiomas:
+* Antevisão do público: `English`
+
+| Nome do subtipo | Descrição                                                                                | Disponível a partir da versão modelo |
+|--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
+| N/D          | Tipos de trabalho, por exemplo, `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` | `2020-02-01`                           |
 
 ### <a name="location"></a>Localização
 
-Pontos de referência naturais e humanos, estruturas e recursos geográficos.
+Marcos naturais e humanos, estruturas, características geográficas e entidades geopolíticas.
 
 Idiomas:
 
+* Antevisão do público: `English`
 
-* Visualização pública: `English`
-
-| Nome do subtipo | Descrição                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | locais, por exemplo `Atlantic Ocean`, `library`, `Eiffel Tower``Statue of Liberty` |
+| Nome do subtipo              | Descrição                                                                              | Disponível a partir da versão modelo |
+|---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
+| N/D                       | locais, por exemplo, `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
+| Entidade Geopolítica (GPE) | Cidades, países, estados, por exemplo, `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organização  
 
-Organizações reconhecidas, corporações, agências e outros grupos de pessoas. Por exemplo: empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas. As nacionalidades e Religions não são incluídas nesse tipo de entidade. Idiomas: 
+Organizações reconhecidas, corporações, agências e outros grupos de pessoas. Por exemplo: empresas, grupos políticos, bandas musicais, clubes desportivos, órgãos governamentais e organizações públicas. Nacionalidades e religiões não estão incluídas neste tipo de entidade. 
 
-* Visualização pública: `English`
+Idiomas: 
 
-| Nome do subtipo | Descrição                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | organizações, por exemplo `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
+* Antevisão do público: `English`
+
+| Nome do subtipo | Descrição                                                                                             | Disponível a partir da versão modelo |
+|--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
+| N/D          | organizações, por exemplo, `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration`,`VOA` | `2019-10-01`                           |
+
+### <a name="event"></a>Evento  
+
+Eventos históricos, sociais e naturais.  
+
+Idiomas: 
+
+* Antevisão do público: `English`
+
+| Nome do subtipo | Descrição                                                            | Disponível a partir da versão modelo |
+|--------------|------------------------------------------------------------------------|----------------------------------------|
+| N/D          | Eventos como `wedding`, `hurricane`, `car accident`, `solar eclipse`, `American Revolution` | `2020-02-01`                           |
+
+### <a name="product"></a>Produto  
+
+Objetos físicos de várias categorias.  
+
+Idiomas: 
+
+* Antevisão do público: `English`
+
+| Nome do subtipo | Descrição                                                                        | Disponível a partir da versão modelo |
+|--------------|------------------------------------------------------------------------------------|----------------------------------------|
+| N/D          | Por exemplo, `Microsoft Surface laptop`, `sunglasses`, `motorcycle`, `bag`, `Xbox` | `2020-02-01`                           |
+| Computação    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
+
+### <a name="skill"></a>Habilidade  
+
+Uma entidade que descreve uma capacidade ou experiência.  
+
+Idiomas: 
+
+* Antevisão do público: `English`
+
+| Nome do subtipo | Descrição                                                                 | Disponível a partir da versão modelo |
+|--------------|-----------------------------------------------------------------------------|----------------------------------------|
+| N/D          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
 
 ### <a name="phone-number"></a>Número de telefone
 
-Números de telefone (somente números de telefone dos EUA). 
+Números de telefone (apenas números de telefone dos EUA). 
 
 Idiomas:
 
+* Antevisão do público: `English`
 
-* Visualização pública: `English`
-
-| Nome do subtipo | Descrição                                  |
-|----------|----------------------------------------------|
-| N/A         | Números de telefone dos EUA, por exemplo `(312) 555-0176`. |
+| Nome do subtipo | Descrição                                    | Disponível a partir da versão modelo |
+|--------------|------------------------------------------------|----------------------------------------|
+| N/D          | Números de telefone dos EUA, por exemplo `(312) 555-0176` | `2019-10-01`                           |
 
 ### <a name="email"></a>Email
 
@@ -68,40 +118,72 @@ Endereço de e-mail.
 
 Idiomas:
 
+* Antevisão do público: `English`
 
-* Visualização pública: `English`
-
-| Nome do subtipo | Descrição                                  |
-|----------|----------------------------------------------|
-| N/A         | Endereço de email, por exemplo `support@contoso.com` |
+| Nome do subtipo | Descrição                                      | Disponível a partir da versão modelo |
+|--------------|--------------------------------------------------|----------------------------------------|
+| N/D          | Endereço de e-mail, por exemplo `support@contoso.com` | `2019-10-01`                           |
 
 ### <a name="url"></a>do IdP
 
-URLs da Internet.
+URLs de Internet.
 
 Idiomas:
 
+* Antevisão do público: `English`
 
-* Visualização pública: `English`
+| Nome do subtipo | Descrição                                          | Disponível a partir da versão modelo |
+|--------------|------------------------------------------------------|----------------------------------------|
+| N/D          | URLs para websites, por exemplo `https://www.bing.com` | `2019-10-01`                           |
 
-| Nome do subtipo | Descrição                                           |
-|----------|-------------------------------------------------------|
-| N/A         | URLs para sites, por exemplo `https://www.bing.com`. |
+### <a name="ip-address"></a>Endereço IP
 
-###  <a name="number"></a>Número
-
-Números e quantidades numéricas. 
+Endereço de protocolo de Internet
 
 Idiomas:
 
+* Antevisão do público: `English`
 
-* Visualização pública: `English`
+| Nome do subtipo | Descrição                              | Disponível a partir da versão modelo |
+|--------------|------------------------------------------|----------------------------------------|
+| N/D          | Endereço de rede, por exemplo, `10.0.0.101` | `2019-10-01`                           |
+
+###  <a name="datetime"></a>DateTime
+
+Entidades de data e hora. 
+
+* Disponível a partir da versão modelo `2019-10-01`
+
+Idiomas:
+
+* Antevisão do público: `English`
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|
-| N/A         | `6`, `six`                   |
+| N/D         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
+| Data  | `May 2nd, 2017`, `05/02/2017`       |
+| Hora     | `8:15`, `6AM`              |
+| DataRange    | `August 2nd to August 5th`         |
+| Intervalo de tempo   | `4-6PM`, `10:00AM to Noon`          |
+| Duração | `2.5 minutes`, `one and a half hours`         |
+| Definir | `every Saturday`         |
+
+###  <a name="quantity"></a>Quantidade
+
+Números e quantidades numéricas. 
+
+* Disponível a partir da versão modelo `2019-10-01`
+
+Idiomas:
+
+* Antevisão do público: `English`
+
+| Nome do subtipo    | Exemplos                     |
+|-------------|------------------------------|
+| Número         | `6`, `six`                   |
 | Percentagem  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
-| Currency    | `$10.99`, `€30.00`           |
+| Idade         | `90 day old`, `30 years old` |
+| Moeda    | `$10.99`, `€30.00`           |
 | Dimensão   | `10 miles`, `40 cm`          |
 | Temperatura | `32 degrees`, `10°C`         |

@@ -1,6 +1,6 @@
 ---
-title: Como adicionar conjuntos de dados de referência ao seu ambiente-Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve como adicionar um conjunto de dados de referência para aumentar os dados em seu ambiente de Azure Time Series Insights.
+title: Como adicionar conjuntos de dados de referência ao seu ambiente - Azure Time Series Insights  Microsoft Docs
+description: Este artigo descreve como adicionar um conjunto de dados de referência para aumentar dados no seu ambiente DeInsights da Série De Tempo Azure.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,113 +9,113 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.custom: seodec18
-ms.openlocfilehash: 71041012bc77da6d7613deb178c3cec1413e57e2
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/07/2020
+ms.custom: seodec18~~~~
+ms.openlocfilehash: 79628ed44753577023464ef6208027e1b7996d30
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314895"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087257"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para seu ambiente de Time Series Insights usando o portal do Azure
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Crie um conjunto de dados de referência para o seu ambiente Time Series Insights usando o portal Azure
 
-Este artigo descreve como adicionar um conjunto de dados de referência ao seu ambiente de Azure Time Series Insights. Os dados de referência são úteis para unir seus dados de origem para aumentar os valores.
+Este artigo descreve como adicionar um conjunto de dados de referência ao seu ambiente DeInsights da Série De Tempo Azure. Os dados de referência são úteis para se juntar aos seus dados de origem para aumentar os valores.
 
-Um conjunto de dados de referência é uma coleção de itens que aumentam os eventos da origem do evento. Time Series Insights mecanismo de entrada une cada evento da origem do evento com a linha de dados correspondente no seu conjunto de dados de referência. Esse evento aumentado fica então disponível para consulta. Essa junção se baseia nas colunas de chave primária definidas no seu conjunto de dados de referência.
+Um Conjunto de Dados de Referência é uma coleção de itens que aumentam os eventos a partir da sua fonte de evento. O motor de entrada Time Series Insights junta-se a cada evento a partir da fonte do seu evento com a linha de dados correspondente no seu conjunto de dados de referência. Esse evento aumentado fica então disponível para consulta. Esta adesão baseia-se nas colunas chave primárias definidas no seu conjunto de dados de referência.
 
-Os dados de referência não estão ingressados retroativamente. Assim, somente os dados de entrada atuais e futuros são correspondidos e associados à data de referência definida, depois que ele tiver sido configurado e carregado.
+Os dados de referência não são acompanhados retroativamente. Assim, apenas os dados de ingresso atuais e futuros são combinados e unidos à data de referência definida, uma vez configurado e carregado.
 
 ## <a name="video"></a>Vídeo
 
-### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Saiba mais sobre o modelo de dados de referência do time Series Insight.</br>
+### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Conheça o modelo de dados de referência da Time Series Insight.</br>
 
 > [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
-## <a name="add-a-reference-data-set"></a>Adicionar um conjunto de dados de referência
+## <a name="add-a-reference-data-set"></a>Adicione um conjunto de dados de referência
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Localize seu ambiente de Azure Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
+1. Localize o ambiente atual da Série De Tempo Azure Insights. Selecione **Todos os recursos** no menu do lado esquerdo do portal Azure. Selecione o seu ambiente do Time Series Insights.
 
-1. Selecione a página **visão geral** . Expanda a seção **Essentials** próxima à parte superior da página para localizar a **URL do time Series insights Explorer** e abrir o link.  
+1. Selecione a página **'Visão Geral'.** Expanda a secção **Essentials** perto do topo da página para localizar o URL do **explorador time series insights** e abrir o link.  
 
-   [![seção expandir noções básicas](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
+   [![expandir a secção Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   Exiba o Gerenciador de seu ambiente de Time Series Insights.
+   Veja o explorador para o seu ambiente Time Series Insights.
 
-1. Expanda o seletor de ambiente no Time Series Insights Explorer. Escolha o ambiente ativo. Selecione o ícone dados de referência no canto superior direito na página do Gerenciador.
+1. Expanda o seletor de ambiente no explorador time series Insights. Escolha o ambiente ativo. Selecione o ícone de dados de referência na parte superior direita na página do explorador.
 
-   [![adicionar dados de referência](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
+   [![Adicionar dados de referência](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 
-1. Selecione o botão **+ Adicionar um conjunto de dados** para começar a adicionar um novo conjunto de dados.
+1. Selecione o **+ Adicione um** botão de conjunto de dados para começar a adicionar um novo conjunto de dados.
 
    [![Adicionar conjunto de dados](media/add-reference-data-set/tsi-add-a-reference-data-set.png)](media/add-reference-data-set/tsi-add-a-reference-data-set.png#lightbox)
 
-1. Na página **novo conjunto de dados de referência** , escolha o formato dos dados:
+1. Na nova página de conjunto de dados de **referência,** escolha o formato dos dados:
 
-   - Escolha **CSV** para dados delimitados por vírgula. A primeira linha é tratada como uma linha de cabeçalho.
-   - Escolha a **matriz JSON** para dados formatados do JSON (JavaScript Object Notation).
+   - Escolha **CSV** para dados delimitados de vírem. A primeira fila é tratada como uma linha de cabeçalho.
+   - Escolha o **Array JSON** para obter dados formatados de observação de objetos JavaScript (JSON).
 
-   [![escolher o formato de dados.](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
+   [![Escolher o formato de dados.](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
 
-1. Forneça os dados usando um dos dois métodos:
+1. Fornecer os dados, utilizando um dos dois métodos:
 
-   - Cole os dados no editor de texto. Em seguida, selecione o botão **analisar dados de referência** .
-   - Selecione o botão **escolher arquivo** para adicionar dados de um arquivo de texto local.
+   - Cola os dados ao editor de texto. Em seguida, selecione o botão de dados de **referência Parse.**
+   - Selecione Escolher o botão **'Ficheiro'** para adicionar dados a partir de um ficheiro de texto local.
 
-   Por exemplo, colar dados CSV: [![dados CSV colados](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
+   Por exemplo, dados CSV de pasta: [![dados CSV colados](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   Por exemplo, Cole dados da matriz JSON: [![colar dados JSON](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
+   Por exemplo, colar dados de matriz JSON: [![dados Paste JSON](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
-   Se houver um erro ao analisar os valores de dados, o erro aparecerá em vermelho na parte inferior da página, como `CSV parsing error, no rows extracted`.
+   Se houver um erro a analisar os valores dos dados, o erro aparece a vermelho na parte inferior da página, como `CSV parsing error, no rows extracted`.
 
-1. Depois que os dados são analisados com êxito, uma grade de dados é mostrada exibindo as colunas e as linhas que representam os dados. Examine a grade de dados para garantir a exatidão.
+1. Uma vez analisados com sucesso os dados, é mostrada uma grelha de dados que exibe as colunas e linhas que representam os dados. Reveja a grelha de dados para garantir a correção.
 
-   [![examinar dados de referência](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
+   [dados de referência de revisão ![](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. Examine cada coluna para entender o tipo de dados assumido e altere o tipo de dados, se necessário.  Selecione o símbolo de tipo de dados no título da coluna: **#** para duplo (dados numéricos), **t | F** para booliano ou **ABC** para cadeia de caracteres.
+1. Examine cada coluna para entender o tipo de dados assumido e altere o tipo de dados, se necessário.  Selecione o símbolo do tipo de dados na rubrica da coluna: **#** para duplo (dados numéricos), **T/ F** para boolean, ou **Abc** para corda.
 
-   [![escolher os tipos de dados nos títulos das colunas.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
+   [![Escolha os tipos de dados nas rubricas da coluna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. Renomeie os cabeçalhos de coluna, se necessário. O nome da coluna de chave é necessário para ingressar na propriedade correspondente na origem do evento. 
+1. Mude o nome dos cabeçalhos da coluna, se necessário. O nome da coluna chave é necessário para se juntar à propriedade correspondente na sua fonte de evento. 
 
    > [!IMPORTANT]
-   > Verifique se os nomes da coluna da chave de dados de referência correspondem exatamente ao nome do evento para os dados de entrada, incluindo a diferenciação de maiúsculas e minúsculas. Os nomes de coluna não chave são usados para aumentar os dados de entrada com os valores de dados de referência correspondentes.
+   > Certifique-se de que os nomes das colunas de dados de referência correspondem exatamente ao nome do evento aos seus dados de entrada, incluindo a sensibilidade a casos. Os nomes de colunas não-chave são utilizados para aumentar os dados de entrada com os valores de dados de referência correspondentes.
 
-1. Digite um valor no campo **filtrar as linhas...** para revisar linhas específicas conforme necessário. O filtro é útil para revisar dados, mas não é aplicado ao carregar os dados.
+1. Digite um valor no **campo Filter as linhas...** para rever linhas específicas conforme necessário. O filtro é útil para rever os dados, mas não é aplicado no momento do upload dos dados.
 
-1. Nomeie o conjunto de dados, preenchendo o campo **nome do conjunto de dados** acima da grade de dados.
+1. Nomeie o conjunto de dados, preenchendo o campo de **nomedo** conjunto de dados acima da grelha de dados.
 
-    [![nomear o conjunto de dados.](media/add-reference-data-set/enter-reference-data-set-name.png)](media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
+    [![Nomeie o conjunto de dados.](media/add-reference-data-set/enter-reference-data-set-name.png)](media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
 
-1. Forneça a coluna de **chave primária** no conjunto de dados, selecionando a lista suspensa acima da grade de dados.
+1. Forneça a coluna **Chave Primária** no conjunto de dados, selecionando a queda acima da grelha de dados.
 
-    [![Selecionar coluna (s) de chave.](media/add-reference-data-set/select-primary-key-column.png)](media/add-reference-data-set/select-primary-key-column.png#lightbox)
+    [![Selecione as colunas de teclas.](media/add-reference-data-set/select-primary-key-column.png)](media/add-reference-data-set/select-primary-key-column.png#lightbox)
 
-    **(Opcional)** Selecione o botão **+** para adicionar uma coluna de chave secundária, como uma chave primária composta. Se você precisar desfazer a seleção, escolha o valor vazio na lista suspensa para remover a chave secundária.
+    **(Opcional)** Selecione o botão **+** para adicionar uma coluna de teclas secundária, como uma chave primária composta. Se precisar de desfazer a seleção, escolha o valor vazio a partir da queda para baixo para remover a chave secundária.
 
-1. Para carregar os dados, selecione o botão **carregar linhas** .
+1. Para fazer o upload dos dados, selecione o botão **'Upload'** de linhas.
 
-    [![carregar linhas e confirmar dados.](media/add-reference-data-set/confirm-upload-reference-data.png)](media/add-reference-data-set/confirm-upload-reference-data.png#lightbox)
+    [![Carregar linhas e confirmar dados.](media/add-reference-data-set/confirm-upload-reference-data.png)](media/add-reference-data-set/confirm-upload-reference-data.png#lightbox)
 
-    A página confirma o carregamento concluído e exibe o conjunto de mensagens **carregado com êxito**.
+    A página confirma o upload completo e mostra a mensagem **com sucesso no conjunto de dados .**
 
     > [!WARNING]
-    > Colunas ou Propriedades compartilhadas entre conjuntos de dados de referência exibirão um erro de carregamento de **nome de propriedade duplicado** . O erro não impedirá o upload bem-sucedido dos conjuntos de dados de referência. Ele pode ser removido por meio da combinação de linhas que compartilham o nome da propriedade duplicada.
+    > Colunas ou propriedades partilhadas entre conjuntos de dados de referência apresentarão um erro de upload de nome de **propriedade Duplicate.** O erro não impedirá o carregamento bem sucedido dos conjuntos de dados de referência. Pode ser removido combinando linhas que partilham o nome de propriedade duplicado.
 
-1. Selecione **Adicionar uma linha**, **importar linhas em massa**ou **Adicionar uma coluna** para adicionar mais valores de dados de referência, conforme necessário.
+1. Selecione **Adicionar uma linha,** linhas de importação a **granel,** ou **adicionar uma coluna** para adicionar mais valores de dados de referência, conforme necessário.
 
-    [![adicionar uma linha, importar linhas em massa ou adicionar uma coluna.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
+    [![Adicione uma linha, linhas de importação a granel ou adicione uma coluna.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
 
    > [!IMPORTANT]
-   > Qualquer linha que compartilha uma chave exclusiva com outra linha terá suas colunas substituídas pela última linha adicionada que compartilha essa chave exclusiva.
+   > Qualquer linha que partilhe uma chave única com outra linha terá as suas colunas ultrapassadas pela última linha adicionadas que partilham essa chave única.
 
    > [!NOTE]
-   > As linhas adicionadas **não** precisam ser *retangulares* . elas podem ter menos colunas, maiores ou variáveis diferentes das outras entradas no conjunto de dados de referência.
+   > As linhas adicionadas **não** precisam de ser *retangulares* - podem ter menos, maiores ou diferentes colunas das outras entradas no conjunto de dados de referência.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir dados de referência](time-series-insights-manage-reference-data-csharp.md) através de programação.
 
-* Para obter a referência completa da API, leia documento [API de dados de referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) .
+* Para obter a referência completa da API, leia o documento [da API de Dados de Referência.](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)

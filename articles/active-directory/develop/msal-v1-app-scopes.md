@@ -1,33 +1,33 @@
 ---
-title: Escopos para aplicativos v 1.0 (MSAL) | Azure
-description: Saiba mais sobre os escopos para um aplicativo v 1.0 usando a MSAL (biblioteca de autenticação da Microsoft).
+title: Âmbitos para aplicações v1.0 (MSAL) / Azure
+description: Conheça os âmbitos para uma aplicação v1.0 utilizando a Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c532eb658e882f11bb380dce4f7a604097693c0f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e0ef46d23ba267bbfc1ff539eb659fafe2b44f8e
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704362"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085694"
 ---
-# <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Escopos para uma API Web aceitando tokens v 1.0
+# <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Âmbitos para uma Web API aceitando fichas v1.0
 
-As permissões OAuth2 são escopos de permissão que um Azure Active Directory (Azure AD) para desenvolvedores (v 1.0) aplicativo de API Web (Resource) expõe para aplicativos cliente. Esses escopos de permissão podem ser concedidos a aplicativos cliente durante o consentimento. Consulte a seção sobre `oauth2Permissions` na [referência do manifesto do aplicativo Azure Active Directory](reference-app-manifest.md#manifest-reference).
+As permissões OAuth2 são âmbitos de permissão que uma aplicação Azure Ative Directory (Azure AD) para programadores (v1.0) web API (recurso) expõe às aplicações do cliente. Estes âmbitos de autorização podem ser concedidos aos pedidos do cliente durante o consentimento. Consulte a secção sobre `oauth2Permissions` na referência manifesto de pedido de [diretório ativo Azure](reference-app-manifest.md#manifest-reference).
 
-## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a permissões específicas de OAuth2 de um aplicativo v 1.0
+## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Âmbitos para solicitar acesso a permissões específicas da OAuth2 de um pedido v1.0
 
 Para adquirir tokens para âmbitos específicos de uma aplicação v1.0 (por exemplo, o gráfico Azure AD, que é https://graph.windows.net), criar âmbitos concatenando um identificador de recursos desejado com uma permissão OAuth2 desejada para esse recurso.
 
-Por exemplo, para acessar em nome do usuário uma API Web v 1.0 em que o URI da ID do aplicativo é `ResourceId`:
+Por exemplo, aceder em nome do utilizador a uma API web v1.0 onde a aplicação ID URI é `ResourceId`:
 
 ```csharp
 var scopes = new [] {  ResourceId+"/user_impersonation"};
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Para ler e gravar com o MSAL.NET Azure AD usando o API do Graph do Azure AD (https:\//graph.windows.net/), você precisa criar uma lista de escopos, conforme mostrado nos exemplos a seguir:
+Para ler e escrever com MSAL.NET Azure AD utilizando a API do Gráfico AD Azure (https:\//graph.windows.net/), é necessário criar uma lista de âmbitos, como mostram os seguintes exemplos:
 
 ```csharp
 string ResourceId = "https://graph.windows.net/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.windows.net/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Para gravar o escopo correspondente à API de Azure Resource Manager (https:\//management.core.windows.net/), você precisa solicitar o seguinte escopo (Observe as duas barras):
+Para escrever o âmbito correspondente à API (https:\//management.core.windows.net/), tem de solicitar o seguinte âmbito (note as duas barras):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -59,17 +59,17 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> Você precisa usar duas barras porque a API Azure Resource Manager espera uma barra em sua identidade de público (AUD) e, em seguida, há uma barra para separar o nome da API do escopo.
+> É preciso usar duas barras porque a API, gestora de recursos do Azure, espera um corte na sua reivindicação de audiência (aud), e depois há um corte para separar o nome API do âmbito.
 
-A lógica usada pelo Azure AD é a seguinte:
+A lógica utilizada pela Azure AD é a seguinte:
 
-- Para o ponto de extremidade ADAL (Azure AD v 1.0) com um token de acesso v 1.0 (o único possível), AUD = recurso
-- Para o ponto de extremidade do MSAL (plataforma Microsoft Identity (v 2.0)), solicite um token de acesso para um recurso que aceita tokens v 2.0, `aud=resource.AppId`
-- Para MSAL (ponto de extremidade v 2.0) que solicita um token de acesso para um recurso que aceita um token de acesso v 1.0 (que é o caso acima), o Azure AD analisa o público-alvo desejado do escopo solicitado, levando tudo antes da última barra e usando-o como o identificador de recurso. Portanto, se https:\//database.windows.net esperar um público de "https:\//database.windows.net/", você precisará solicitar um escopo de "https:\//database.windows.net//.default". Veja também o problema [do GitHub #747: a barra à direita da URL do recurso é omitida, o que causou uma falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+- Para o ponto final ADAL (Azure AD v1.0) com um sinal de acesso v1.0 (o único possível), aud=recurso
+- Para mSAL (plataforma de identidade microsoft (v2.0)) ponto final pedindo um sinal de acesso para um recurso que aceite fichas v2.0, `aud=resource.AppId`
+- Para a MSAL (v2.0 endpoint) pedir um sinal de acesso a um recurso que aceite um sinal de acesso v1.0 (o que é o caso acima), a Azure AD analisa o público desejado do âmbito solicitado, tomando tudo antes do último corte e usando-o como identificador de recursos. Portanto, se https:\//database.windows.net espera uma audiência de "https:\//database.windows.net/", terá de solicitar um âmbito de "https:\//database.windows.net//.default". Consulte também a emissão do GitHub #747: O [corte de rasto do url de recursos é omitido, o que causou falha no sql auth](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
-## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a todas as permissões de um aplicativo v 1.0
+## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Âmbitos para solicitar acesso a todas as permissões de um pedido v1.0
 
-Se você quiser adquirir um token para todos os escopos estáticos de um aplicativo v 1.0, acrescente ". default" ao URI da ID do aplicativo da API:
+Se pretender adquirir um símbolo para todos os âmbitos estáticos de uma aplicação v1.0, apreenda ".default" à aplicação ID URI da API:
 
 ```csharp
 ResourceId = "someAppIDURI";
@@ -81,6 +81,6 @@ var ResourceId = "someAppIDURI";
 var scopes = [ ResourceId + "/.default"];
 ```
 
-## <a name="scopes-to-request-for-a-client-credential-flowdaemon-app"></a>Escopos a serem solicitados para um aplicativo de fluxo de credencial do cliente/daemon
+## <a name="scopes-to-request-for-a-client-credential-flowdaemon-app"></a>Âmbitos para solicitar uma aplicação de fluxo/daemon de crédito de clientes
 
-No caso do fluxo de credenciais do cliente, o escopo a ser aprovado também seria `/.default`. Isso diz ao Azure AD: "todas as permissões de nível de aplicativo que o administrador consentiu no registro do aplicativo.
+No caso do fluxo de credenciais do cliente, o âmbito a passar seria também `/.default`. Isto diz à Azure AD: "todas as permissões ao nível da aplicação que o administrador consentiu no registo da candidatura.

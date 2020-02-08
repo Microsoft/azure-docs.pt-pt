@@ -1,30 +1,30 @@
 ---
-title: Limpar o cache de token (MSAL.NET) | Azure
+title: Limpe a cache simbólica (MSAL.NET)  Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como limpar o cache de token usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
+description: Aprenda a limpar a cache simbólica utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 51407c4c157fa171bc5fd18e8db1f97f677ed973
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a10efb5ff0a2c6a3ced3631dfe82c86e3e8a72fc
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695590"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084763"
 ---
-# <a name="clear-the-token-cache-using-msalnet"></a>Limpar o cache de token usando MSAL.NET
+# <a name="clear-the-token-cache-using-msalnet"></a>Limpe a cache simbólica usando MSAL.NET
 
-Quando você [adquire um token de acesso](msal-acquire-cache-tokens.md) usando a MSAL.net (biblioteca de autenticação da Microsoft para .net), o token é armazenado em cache. Quando o aplicativo precisa de um token, ele deve primeiro chamar o método `AcquireTokenSilent` para verificar se um token aceitável está no cache. 
+Quando [adquire um sinal de acesso](msal-acquire-cache-tokens.md) utilizando a Microsoft Authentication Library para .NET (MSAL.NET), o token está em cache. Quando o pedido precisa de um símbolo, deve primeiro chamar o método `AcquireTokenSilent` para verificar se um token aceitável está na cache. 
 
-Limpar o cache é obtido removendo as contas do cache. No entanto, isso não remove o cookie de sessão que está no navegador.  O exemplo a seguir instancia um aplicativo cliente público, obtém as contas do aplicativo e remove as contas.
+A limpeza da cache é conseguida removendo as contas da cache. Isto não remove o cookie de sessão que está no navegador, no entanto.  O exemplo seguinte instantaneamente uma aplicação de cliente público, obtém as contas da aplicação e remove as contas.
 
 ```csharp
 private readonly IPublicClientApplication _app;
@@ -46,4 +46,4 @@ while (accounts.Any())
 
 ```
 
-Para saber mais sobre como adquirir e armazenar em cache tokens, leia [adquirir um token de acesso](msal-acquire-cache-tokens.md).
+Para saber mais sobre adquirir e cacher tokens, leia [adquirir um sinal de acesso.](msal-acquire-cache-tokens.md)

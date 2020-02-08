@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6fd8d6187c86306840c33b3aaf334e71086b20a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a62c2460698408f6a2bfa51c6638bdeaf88bb31f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452748"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083522"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Melhores práticas para a escolha de um ID de série de tempo
 
@@ -27,19 +27,19 @@ A seleção de uma ID de série temporal apropriada é crítica. Escolher um ID 
 
 > [!IMPORTANT]
 > As IDs de série temporal são:
-> * Uma propriedade que *diferencia maiúsculas de minúsculas* : letras e maiúsculas de caracteres são usadas em pesquisas, comparações, atualizações e ao particionar.
-> * Uma propriedade *imutável* : uma vez criada, ela não pode ser alterada.
+> * Uma propriedade *sensível a casos:* os invólucros de letras e caracteres são usados em pesquisas, comparações, atualizações e quando se partificam.
+> * Uma propriedade *imutável:* uma vez criada, não pode ser alterada.
 
 > [!TIP]
-> Se a origem do evento for um hub IoT, a ID da série temporal provavelmente será ***iothub-Connection-Device-ID***.
+> Se a sua fonte de evento for um hub IoT, o id da Série Time será provavelmente ***iothub-connection-device-id***.
 
 As principais práticas recomendadas a serem seguidas incluem:
 
 * Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, essa pode ser a ID do dispositivo, ID do sensor ou ID de marca em seu JSON.
-* O ID de série de tempo deve ser exclusivo no nível de nó folha da sua [modelo de série de tempo](./time-series-insights-update-tsm.md).
+* O ID da Série De Tempo deve ser único ao nível do nó da folha do seu [Modelo de Série de Tempo](./time-series-insights-update-tsm.md).
 * O limite de caracteres para a cadeia de caracteres do nome da propriedade da ID da série temporal é 128. Para o valor da propriedade da ID da série temporal, o limite de caracteres é 1.024.
 * Se um valor de propriedade exclusivo para a ID da série temporal estiver ausente, ele será tratado como um valor nulo e seguirá a mesma regra da restrição de exclusividade.
-* Você também pode selecionar até *três* Propriedades de chave como sua ID de série temporal. Sua combinação será uma chave composta que representa a ID da série temporal.  
+* Também pode selecionar até *três* propriedades chave como id da Série Time. Sua combinação será uma chave composta que representa a ID da série temporal.  
   > [!NOTE]
   > Suas propriedades de três chaves devem ser cadeias de caracteres.
   > Você precisaria consultar essa chave composta em vez de uma propriedade de cada vez.
@@ -51,15 +51,15 @@ Os cenários a seguir descrevem a seleção de mais de uma propriedade de chave 
 ### <a name="example-1-time-series-id-with-a-unique-key"></a>Exemplo 1: ID de série temporal com uma chave exclusiva
 
 * Você tem frotas de ativos herdados. Cada um tem uma chave exclusiva.
-* Uma frota é identificada exclusivamente pela propriedade **DeviceID**. Para outra frota, a propriedade Unique é **ObjectID**. Nenhuma frota contém a propriedade exclusiva da outra frota. Neste exemplo, você selecionaria duas chaves, **DeviceID** e **ObjectID**, como chaves exclusivas.
+* Uma frota é identificada exclusivamente pelo dispositivo de **propriedadeId**. Para outra frota, a propriedade única é **objectId**. Nenhuma frota contém a propriedade exclusiva da outra frota. Neste exemplo, selecionaria duas teclas, **dispositivoId** e **objectId,** como teclas únicas.
 * Aceitamos valores nulos e a falta de uma presença de propriedade no conteúdo do evento conta como um valor nulo. Essa também é a maneira apropriada de lidar com o envio de dados para duas origens de evento, em que os dados em cada origem de evento têm uma ID de série temporal exclusiva.
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Exemplo 2: ID de série temporal com uma chave composta
 
 * Precisa de várias propriedades de ser exclusivo dentro do mesmo frota de ativos. 
-* Você é um fabricante de prédios inteligentes e implanta sensores em todas as salas. Em cada sala, você normalmente tem os mesmos valores para **sensorid**. Os exemplos são **sensor1**, **sensor2**e **sensor3**.
-* Seu edifício tem sobreposição de piso e números de sala entre sites na propriedade **flrRm**. Esses números têm valores como **1a**, **2B**e **3a**.
-* Você tem uma propriedade, **local**, que contém valores como **Redmond**, **Barcelona**e **Tokyo**. Para criar a exclusividade, você designa as três propriedades a seguir como suas chaves de ID de série temporal: **sensorid**, **flrRm**e **local**.
+* Você é um fabricante de prédios inteligentes e implanta sensores em todas as salas. Em cada quarto, você normalmente tem os mesmos valores para **sensorId**. Exemplos são **sensor1,** **sensor2**, e **sensor3**.
+* O seu edifício tem números sobrepostos de piso e quartos em locais da **propriedade flrRm**. Estes números têm valores como **1a,** **2b**e **3a**.
+* Você tem uma propriedade, **localização,** que contém valores como **Redmond,** **Barcelona,** e **Tóquio.** Para criar uma singularidade, designa as seguintes três propriedades como chaves ID da Série Time: **sensorId,** **flrRm,** e **localização**.
 
 Exemplo de evento bruto:
 
@@ -80,6 +80,6 @@ Na portal do Azure, você pode inserir a chave composta da seguinte maneira:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Leia mais sobre [modelagem de dados](./time-series-insights-update-tsm.md).
+* Leia mais sobre [modelação](./time-series-insights-update-tsm.md)de dados .
 
-* Planeje seu [ambiente de visualização de Azure Time Series insights](./time-series-insights-update-plan.md).
+* Planeie o ambiente de [pré-visualização](./time-series-insights-update-plan.md)da série de tempo Azure Insights .

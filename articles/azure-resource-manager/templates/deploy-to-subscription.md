@@ -3,16 +3,16 @@ title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo de Azure Resource Manager. Ele também mostra como implantar recursos no escopo de assinatura do Azure.
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: aed22cab9281f272421a574efebcf346139348d5
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: b11668466fe3954dc5bc90435d5dfd016ca9791c
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121884"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086732"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos no nível da assinatura
 
-Normalmente, você implanta recursos do Azure em um grupo de recursos em sua assinatura do Azure. No entanto, você também pode criar recursos no nível da assinatura. Você usa implantações de nível de assinatura para executar ações que fazem sentido nesse nível, como a criação de grupos de recursos ou a atribuição [de controle de acesso baseado em função](../../role-based-access-control/overview.md).
+Normalmente, você implementa recursos Azure para um grupo de recursos na sua subscrição Azure. No entanto, você também pode criar recursos no nível da assinatura. Utiliza-se implementações de nível de subscrição para tomar medidas que façam sentido a esse nível, tais como a criação de grupos de recursos ou a atribuição [de controlo de acesso baseado em papéis.](../../role-based-access-control/overview.md)
 
 Para implantar modelos no nível de assinatura, use CLI do Azure, PowerShell ou API REST. O portal do Azure não dá suporte à implantação no nível de assinatura.
 
@@ -20,26 +20,26 @@ Para implantar modelos no nível de assinatura, use CLI do Azure, PowerShell ou 
 
 Você pode implantar os seguintes tipos de recursos no nível da assinatura:
 
-* [implantações](/azure/templates/microsoft.resources/deployments)
+* [implementações](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
-* [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+* [políticasAtribuis](/azure/templates/microsoft.authorization/policyassignments)
+* [definições políticas](/azure/templates/microsoft.authorization/policydefinitions)
+* [definições políticasSetDefinições](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [recursosGrupos](/azure/templates/microsoft.resources/resourcegroups)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [definições de papel](/azure/templates/microsoft.authorization/roledefinitions)
 
 ### <a name="schema"></a>Esquema
 
 O esquema usado para implantações em nível de assinatura é diferente do esquema para implantações de grupo de recursos.
 
-Para modelos, use:
+Para os modelos, utilize:
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-Para arquivos de parâmetro, use:
+Para ficheiros de parâmetros, utilize:
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
@@ -49,7 +49,7 @@ https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentPar
 
 Os comandos para implantações em nível de assinatura são diferentes dos comandos para implantações de grupo de recursos.
 
-Para o CLI do Azure, use [AZ Deployment Create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). O exemplo a seguir implanta um modelo para criar um grupo de recursos:
+Para o Azure CLI, utilize a criação de [implementação az](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). O exemplo a seguir implanta um modelo para criar um grupo de recursos:
 
 ```azurecli-interactive
 az deployment create \
@@ -60,7 +60,7 @@ az deployment create \
 ```
 
 
-Para o comando de implantação do PowerShell, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment). O exemplo a seguir implanta um modelo para criar um grupo de recursos:
+Para o comando de implementação PowerShell, utilize [new-AzDeployment](/powershell/module/az.resources/new-azdeployment). O exemplo a seguir implanta um modelo para criar um grupo de recursos:
 
 ```azurepowershell-interactive
 New-AzDeployment `
@@ -71,27 +71,27 @@ New-AzDeployment `
   -rgLocation centralus
 ```
 
-Para a API REST, use [implantações-criar no escopo da assinatura](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+Para rest API, utilize [implementações - Criar no âmbito de subscrição](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
 
-## <a name="deployment-location-and-name"></a>Local e nome da implantação
+## <a name="deployment-location-and-name"></a>Localização e nome de implantação
 
-Para implantações em nível de assinatura, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
+Para implantações em nível de assinatura, você deve fornecer um local para a implantação. A localização da implantação é separada da localização dos recursos que implementa. O local de implementação especifica onde armazenar dados de implementação.
 
-Você pode fornecer um nome para a implantação ou usar o nome de implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy. JSON** cria um nome de implantação padrão de **azuredeploy**.
+Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome padrão é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
 
-Para cada nome de implantação, o local é imutável. Não é possível criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local da implantação anterior para esse nome.
+Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo com o código de erro `InvalidDeploymentLocation`, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
 
-## <a name="use-template-functions"></a>Usar funções de modelo
+## <a name="use-template-functions"></a>Funções de modelo de utilização
 
 Para implantações em nível de assinatura, há algumas considerações importantes ao usar funções de modelo:
 
-* **Não** há suporte para a função [resourcegroup ()](template-functions-resource.md#resourcegroup) .
-* Há suporte para a função [ResourceId ()](template-functions-resource.md#resourceid) . Use-o para obter a ID de recurso para recursos que são usados em implantações de nível de assinatura. Por exemplo, obtenha a ID de recurso para uma definição de política com `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Ou use a função [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) para obter a ID de recurso para um recurso de nível de assinatura.
-* Há suporte para as funções [Reference ()](template-functions-resource.md#reference) e [list ()](template-functions-resource.md#list) .
+* A função de [recurso Group()](template-functions-resource.md#resourcegroup) **não** é suportada.
+* A função [resourceId()](template-functions-resource.md#resourceid) é suportada. Use-o para obter a ID de recurso para recursos que são usados em implantações de nível de assinatura. Por exemplo, obtenha o ID de recurso para uma definição de política com `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Ou, utilize a função [de subscriçãoResourceId()](template-functions-resource.md#subscriptionresourceid) para obter o ID de recurso para um recurso de nível de subscrição.
+* As funções de [referência](template-functions-resource.md#reference) e [lista](template-functions-resource.md#list) são suportadas.
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 
-Para criar um grupo de recursos em um modelo de Azure Resource Manager, defina um recurso [Microsoft. Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) com um nome e um local para o grupo de recursos. Você pode criar um grupo de recursos e implantar recursos nesse grupo de recursos no mesmo modelo.
+Para criar um grupo de recursos num modelo de Gestor de Recursos Azure, defina um recurso [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) com um nome e localização para o grupo de recursos. Você pode criar um grupo de recursos e implantar recursos nesse grupo de recursos no mesmo modelo.
 
 O modelo a seguir cria um grupo de recursos vazio.
 
@@ -121,7 +121,7 @@ O modelo a seguir cria um grupo de recursos vazio.
 }
 ```
 
-Use o [elemento copiar](create-multiple-instances.md) com grupos de recursos para criar mais de um grupo de recursos.
+Utilize o [elemento de cópia](create-multiple-instances.md) com grupos de recursos para criar mais do que um grupo de recursos.
 
 ```json
 {
@@ -156,7 +156,7 @@ Use o [elemento copiar](create-multiple-instances.md) com grupos de recursos par
 }
 ```
 
-Para obter informações sobre a iteração de recurso, consulte [implantar mais de uma instância de um recurso ou propriedade em modelos de Azure Resource Manager](./create-multiple-instances.md)e [tutorial: criar várias instâncias de recurso com modelos do Resource Manager](./template-tutorial-create-multiple-instances.md).
+Para obter informações sobre a iteração de recursos, consulte [Implementar mais do que uma instância de um recurso ou propriedade em Modelos](./create-multiple-instances.md)de Gestor de Recursos Azure , e [Tutorial: Criar múltiplas instâncias](./template-tutorial-create-multiple-instances.md)de recursos com modelos de Gestor de Recursos .
 
 ## <a name="resource-group-and-resources"></a>Grupo de recursos e recursos
 
@@ -229,9 +229,9 @@ O exemplo a seguir cria um grupo de recursos e implanta uma conta de armazenamen
 
 ## <a name="create-policies"></a>Criar políticas
 
-### <a name="assign-policy"></a>Atribuir política
+### <a name="assign-policy"></a>Política de atribuição
 
-O exemplo a seguir atribui uma definição de política existente à assinatura. Se a política usar parâmetros, forneça-os como um objeto. Se a política não usar parâmetros, use o objeto vazio padrão.
+O exemplo a seguir atribui uma definição de política existente à assinatura. Se a política tiver parâmetros, forneça-os como um objeto. Se a apólice não tomar parâmetros, use o objeto vazio por defeito.
 
 ```json
 {
@@ -297,7 +297,7 @@ New-AzDeployment `
 
 ### <a name="define-and-assign-policy"></a>Definir e atribuir política
 
-Você pode [definir](../../governance/policy/concepts/definition-structure.md) e atribuir uma política no mesmo modelo.
+Pode [definir](../../governance/policy/concepts/definition-structure.md) e atribuir uma apólice no mesmo modelo.
 
 ```json
 {
@@ -358,10 +358,15 @@ New-AzDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
+## <a name="template-samples"></a>Exemplos de modelo
+
+* Crie um grupo de recursos, bloqueie-o e dê-lhe permissões. Veja [aqui.](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)
+* Criar um grupo de recursos, uma política e uma atribuição de políticas.  Veja [aqui.](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json)
+
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre como atribuir funções, consulte [gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* Para obter um exemplo de implantação de configurações de espaço de trabalho para a central de segurança do Azure, consulte [deployASCwithWorkspaceSettings. JSON](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-* Para saber mais sobre como criar modelos de Azure Resource Manager, consulte Criando [modelos](template-syntax.md).
-* Para obter uma lista das funções disponíveis em um modelo, consulte [funções de modelo](template-functions.md).
+* Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Para um exemplo de implementação de definições de espaço de trabalho para o Centro de Segurança Azure, consulte [o deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* Os modelos de amostra podem ser encontrados no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
+* Para aprender sobre a criação de modelos de Gestor de Recursos Azure, consulte [os modelos de autor.](template-syntax.md)
+* Para obter uma lista das funções disponíveis num modelo, consulte [funções de modelo](template-functions.md).

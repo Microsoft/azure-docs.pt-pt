@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0bbd8a12820432ce2f131dda29af6740a2f04e18
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ccdf385d2581923e1fad4fa5c42f351c4f0947ca
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024726"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083147"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurar a Nuvem Privada AVS como alvo de recuperação de desastres com o Gestor de Recuperação do Site VMware
 
@@ -42,7 +42,7 @@ Pode utilizar quaisquer versões de vRA e SRM compatíveis com a sua Nuvem Priva
 
 As seguintes secções descrevem como implementar uma solução DR utilizando o SRM na sua Nuvem Privada AVS.
 
-1. [Verificar se as versões do produto VMware são compatíveis](#verify-that-vmware-product-versions-are-compatible)
+1. [Verifique se as versões de produtos VMware são compatíveis](#verify-that-vmware-product-versions-are-compatible)
 2. [Calcule o tamanho do seu ambiente DER](#estimate-the-size-of-your-dr-environment)
 3. [Crie uma Nuvem Privada AVS para o seu ambiente](#create-an-avs-private-cloud-for-your-environment)
 4. [Configurar a rede DeVs Private Cloud para a solução SRM](#set-up-avs-private-cloud-networking-for-the-srm-solution)
@@ -83,7 +83,7 @@ Crie uma Nuvem Privada AVS a partir do portal AVS seguindo as instruções e rec
 
 Aceda ao portal AVS para criar rede DeVs Private Cloud para a solução SRM.
 
-Crie um VLAN para a rede de soluções SRM e atribua-lhe um CIDR de sub-rede. Para obter instruções, consulte [criar e gerenciar VLANs/sub-redes](create-vlan-subnet.md).
+Crie um VLAN para a rede de soluções SRM e atribua-lhe um CIDR de sub-rede. Para obter instruções, consulte [Criar e gerir VLANs/Subnets](create-vlan-subnet.md).
 
 ### <a name="set-up-a-site-to-site-vpn-connection-between-your-on-premises-network-and-the-avs-private-cloud-and-open-required-ports"></a>Instale uma ligação VPN site-to-site entre a sua rede no local e a Nuvem Privada AVS e portas abertas necessárias
 
@@ -101,7 +101,7 @@ Pode adicionar um fornecedor de identidade externo, tal como descrito no [Use Az
 
 Para fornecer serviços de procura de endereçoip, gestão de endereços IP e serviços de resolução de nomes para as suas cargas de trabalho na Nuvem Privada AVS, configurar um servidor DHCP e DNS conforme descrito nas [aplicações dNS e DHCP e cargas](dns-dhcp-setup.md)de trabalho na sua Nuvem Privada AVS .
 
-O domínio *.avs.io é utilizado por VMs de gestão e anfitriões na sua Nuvem Privada AVS. Para resolver os pedidos a este domínio, configure o reinício do DNS no servidor DNS conforme descrito em [Criar um Forwarder Condicional](on-premises-dns-setup.md#create-a-conditional-forwarder).
+O domínio *.cloudsimple.io é utilizado por VMs de gestão e anfitriões na sua Nuvem Privada AVS. Para resolver os pedidos a este domínio, configure o reinício do DNS no servidor DNS conforme descrito em [Criar um Forwarder Condicional](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
 ### <a name="install-vsphere-replication-appliance-in-your-on-premises-environment"></a>Instale o aparelho de replicação vSphere no seu ambiente no local
 

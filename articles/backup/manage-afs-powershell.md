@@ -3,22 +3,25 @@ title: Gerir cópias de partilha de ficheiros Azure com a PowerShell
 description: Aprenda a usar o PowerShell para gerir e monitorizar as ações de ficheiros Azure apoiadas pelo serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 9004e16c4b7c6ee704460d744612bafcd32831b9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a9dc421db740963fc5cd11e868eb383694376ce1
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776420"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083176"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Gerir cópias de partilha de ficheiros Azure com a PowerShell
 
 Este artigo descreve como usar o Azure PowerShell para gerir e monitorizar as ações de ficheiro supérbio do Azure que são apoiadas pelo serviço de backup Azure.
 
+> [!WARNING]
+> Certifique-se de que a versão PS é atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para backups AFS. Para mais detalhes, consulte [a secção que](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) delineia o requisito para esta alteração.
+
 ## <a name="modify-the-protection-policy"></a>Modificar a política de proteção
 
-Para alterar a política usada para fazer backup do compartilhamento de arquivos do Azure, use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Especifique o item de backup relevante e a nova política de backup.
+Para alterar a política utilizada para fazer backup da parte do ficheiro Azure, utilize a [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Especifique o item de backup relevante e a nova política de backup.
 
-O exemplo a seguir altera a política de proteção **testAzureFS** de **dailyafs** para **monthlyafs**.
+O exemplo seguinte altera a política de proteção **testAzureFS** de **dailyafs** para **mensals**.
 
 ```powershell
 $monthlyafsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "monthlyafs"
@@ -29,7 +32,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsP
 
 ## <a name="track-backup-and-restore-jobs"></a>Acompanhar trabalhos de backup e restauração
 
-Backup a pedido e restaurar operações devolvem um trabalho juntamente com uma identificação, como mostra quando [executa um backup](backup-azure-afs-automation.md#trigger-an-on-demand-backup)a pedido . Use o cmdlet [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) para acompanhar o progresso e os detalhes do trabalho.
+Backup a pedido e restaurar operações devolvem um trabalho juntamente com uma identificação, como mostra quando [executa um backup](backup-azure-afs-automation.md#trigger-an-on-demand-backup)a pedido . Utilize o [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) cmdlet para acompanhar o progresso do trabalho e detalhes.
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -61,10 +64,10 @@ $job.ErrorDetails
 
 Existem duas formas de parar a proteção de partilhas de ficheiros do Azure:
 
-* Parar todos os trabalhos de backup futuros e *excluir* todos os pontos de recuperação
-* Parar todos os trabalhos de backup futuros, mas *deixar* os pontos de recuperação
+* Pare todos os futuros trabalhos de backup e *elimine* todos os pontos de recuperação
+* Pare todos os futuros trabalhos de backup, mas *deixe* os pontos de recuperação
 
-Pode haver um custo associado à saída dos pontos de recuperação no armazenamento, pois os instantâneos subjacentes criados pelo backup do Azure serão mantidos. No entanto, o benefício de deixar os pontos de recuperação é que pode restaurar a parte do ficheiro mais tarde, se desejar. Para obter informações sobre o custo de deixar os pontos de recuperação, consulte os [detalhes de preços](https://azure.microsoft.com/pricing/details/storage/files/). Se optar por eliminar todos os pontos de recuperação, não pode restaurar a parte do ficheiro.
+Pode haver um custo associado à saída dos pontos de recuperação no armazenamento, pois os instantâneos subjacentes criados pelo backup do Azure serão mantidos. No entanto, o benefício de deixar os pontos de recuperação é que pode restaurar a parte do ficheiro mais tarde, se desejar. Para obter informações sobre o custo de saída dos pontos de recuperação, consulte os detalhes dos [preços.](https://azure.microsoft.com/pricing/details/storage/files/) Se optar por eliminar todos os pontos de recuperação, não pode restaurar a parte do ficheiro.
 
 ## <a name="stop-protection-and-retain-recovery-points"></a>Parar a proteção e reter pontos de recuperação
 
