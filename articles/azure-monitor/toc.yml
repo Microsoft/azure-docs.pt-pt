@@ -4,8 +4,6 @@
   items:
     - name: O que é o Azure Monitor?
       href: overview.md
-    - name: Alterações de terminologia
-      href: terminology.md
     - name: FAQ
       href: faq.md
     - name: Novidades
@@ -1141,6 +1139,8 @@
       items:
         - name: Esquema
           href: platform/diagnostics-extension-schema-1dot3.md
+    - name: Alterações de terminologia
+      href: terminology.md
     - name: Application Insights
       items:
         - name: Coleção automática da dependência
