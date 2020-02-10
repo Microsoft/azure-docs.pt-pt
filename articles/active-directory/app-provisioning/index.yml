@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Documentação de aprovisionamento de aplicações e RH
+summary: O aprovisionamento da aplicação Azure Active Directory permite-lhe criar e gerir automaticamente as identidades dos utilizadores nas suas aplicações na cloud (SaaS). O Azure AD também fornece aprovisionamento com aplicações de recursos humanos (RH) com base na cloud. Saiba como gerir e implementar aplicações na cloud e aprovisionamento de RH com os nossos inícios rápidos, tutoriais e diretrizes.
+metadata:
+  title: Documentação de aprovisionamento de aplicações
+  description: O aprovisionamento da aplicação Azure Active Directory permite-lhe criar e gerir automaticamente as identidades dos utilizadores nas suas aplicações na cloud (SaaS). O Azure AD também fornece aprovisionamento com aplicações de recursos humanos (RH) com base na cloud. Saiba como gerir e implementar aplicações na cloud e aprovisionamento de RH com os nossos inícios rápidos, tutoriais e diretrizes.
+  ms.service: active-directory
+  ms.subservice: app-mgmt
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 02/06/2020
+  author: msmimart
+  ms.author: mimart
+  manager: celested
+  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77065506"
+landingContent:
+- title: Aprovisionar utilizadores e grupos numa aplicação na cloud
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o aprovisionamento de aplicações?
+      url: user-provisioning.md
+    - text: Como funciona o aprovisionamento
+      url: how-provisioning-works.md
+  - linkListType: tutorial
+    links:
+    - text: Aprovisionamento do SAP Cloud Platform Identity Authentication
+      url: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Aprovisionamento do Oracle Fusion ERP
+      url: /azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Aprovisionamento do Atlassian Cloud
+      url: /azure/active-directory/saas-apps/atlassian-cloud-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+  - linkListType: how-to-guide
+    links:
+    - text: Adicionar uma aplicação de galeria? Configurar o aprovisionamento para a aplicação
+      url: configure-automatic-user-provisioning-portal.md
+    - text: Personalizar os mapeamentos de atributos
+      url: customize-application-attributes.md
+    - text: Utilizar os filtros de âmbito
+      url: define-conditional-rules-for-provisioning-user-accounts.md
+- title: Desenvolver uma aplicação com o SCIM para aprovisionamento
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Aprovisionamento com o SCIM (Identity Standards Blog)
+      url: https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010
+  - linkListType: how-to-guide
+    links:
+    - text: Está a desenvolver uma aplicação? Utilizar o SCIM para aprovisionamento automático
+      url: use-scim-to-provision-users-and-groups.md
+- title: Gerir o aprovisionamento associado a RH na cloud
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Planear uma implementação de aprovisionamento de utilizadores de HR na cloud
+      url: plan-cloud-hr-provision.md
+  - linkListType: tutorial
+    links:
+    - text: Aprovisionamento dos dias de trabalho
+      url: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Aprovisionamento do SAP SuccessFactors
+      url: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context

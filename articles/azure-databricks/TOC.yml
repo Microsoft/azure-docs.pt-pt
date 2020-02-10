@@ -1087,9 +1087,20 @@
             - name: Ativar o pass-through de credenciais do Azure Data Lake Storage
               href: /azure/databricks/administration-guide/access-control/credential-passthrough
               maintainContext: true
-        - name: Gerir o armazenamento das áreas de trabalho
-          href: /azure/databricks/administration-guide/workspace-storage/storage
-          maintainContext: true
+        - name: Gerir objetos e comportamento da área de trabalho
+          items:
+            - name: Descrição geral da gestão de áreas de trabalho
+              href: /azure/databricks/administration-guide/workspace/index
+              maintainContext: true
+            - name: Gerir o armazenamento das áreas de trabalho
+              href: /azure/databricks/administration-guide/workspace/storage
+              maintainContext: true
+            - name: Gerir cabeçalhos de segurança da área de trabalho
+              href: /azure/databricks/administration-guide/workspace/security
+              maintainContext: true
+            - name: Gerir o acesso às funcionalidades do bloco de notas
+              href: /azure/databricks/administration-guide/workspace/notebooks
+              maintainContext: true
         - name: Ativar as configurações de cluster
           items:
             - name: Descrição geral da configuração de cluster
@@ -1609,6 +1620,9 @@
             - name: Notas de versão da plataforma
               href: /azure/databricks/release-notes/product/index
               maintainContext: true
+            - name: Fevereiro de 2020
+              href: /azure/databricks/release-notes/product/2020/february
+              maintainContext: true
             - name: Janeiro de 2020
               href: /azure/databricks/release-notes/product/2020/january
               maintainContext: true
@@ -1757,9 +1771,6 @@
                 - name: "Databricks Runtime\_5.2\_ML"
                   href: /azure/databricks/release-notes/runtime/5.2ml
                   maintainContext: true
-                - name: "Databricks Runtime\_3.5"
-                  href: /azure/databricks/release-notes/runtime/3.5
-                  maintainContext: true
             - name: Não suportado
               items:
                 - name: Versões de runtime não suportadas
@@ -1792,6 +1803,9 @@
                 - name: "Databricks Runtime\_4.0"
                   href: /azure/databricks/release-notes/runtime/4.0
                   maintainContext: true
+                - name: Databricks Runtime 3.5 LTS
+                  href: /azure/databricks/release-notes/runtime/3.5
+                  maintainContext: true
                 - name: "Databricks Runtime\_3.4"
                   href: /azure/databricks/release-notes/runtime/3.4
                   maintainContext: true
@@ -1803,6 +1817,9 @@
               maintainContext: true
         - name: Tipos de versão
           href: /azure/databricks/release-notes/release-types
+          maintainContext: true
+        - name: Página de estado do Azure Databricks
+          href: /azure/databricks/status
           maintainContext: true
     - name: Guia do programador em R
       href: /azure/machine-learning/r-developers-guide

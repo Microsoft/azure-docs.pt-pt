@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f7bf9fea1b1e15d1ca24686a84e272dd60ceaf5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061595"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111542"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sign-in para o diretório ativo azure multi-inquilino utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -32,7 +32,7 @@ Complete os passos em [Get started com políticas personalizadas no Azure Ative 
 
 Para permitir o início de sessão para utilizadores de uma organização específica da AD Azure, é necessário registar uma aplicação dentro do inquilino da AD Azure organizacional.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino ad organizacional Azure (por exemplo, contoso.com). Selecione o filtro de **subscrição Do Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 1. Selecione **Novo registo**.
@@ -50,6 +50,19 @@ Para permitir o início de sessão para utilizadores de uma organização espec�
 1. Selecione **Certificados e segredos**e, em seguida, selecione **novo segredo do cliente**.
 1. Introduza uma **Descrição** para o segredo, selecione uma expiração e, em seguida, **selecione Adicionar**. Grave o **valor** do segredo para uso num passo posterior.
 
+## <a name="configuring-optional-claims"></a>Configurar reclamações opcionais
+
+Se pretender obter as `family_name` e `given_name` reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Ative Directory**.
+1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
+1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
+1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)** .
+1. **Selecione Adicionar reclamação opcional**.
+1. Selecione o tipo de ficha que pretende configurar.
+1. Selecione as reclamações opcionais a adicionar.
+1. Clique em **Adicionar**.
+
 ## <a name="create-a-policy-key"></a>Criar uma chave política
 
 Você precisa armazenar a chave de aplicação que criou no seu inquilino Azure AD B2C.
@@ -63,19 +76,6 @@ Você precisa armazenar a chave de aplicação que criou no seu inquilino Azure 
 1. Em **Segredo,** insira o seu segredo de cliente que gravou anteriormente.
 1. Para **a utilização da chave,** selecione `Signature`.
 1. Selecione **Criar**.
-
-## <a name="configuring-optional-claims"></a>Configurando declarações opcionais
-
-Se pretender obter as `family_name` e `given_name` reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Ative Directory**.
-1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
-1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
-1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)** .
-1. **Selecione Adicionar reclamação opcional**.
-1. Selecione o tipo de ficha que pretende configurar.
-1. Selecione as reclamações opcionais a adicionar.
-1. Clique em **Adicionar**.
 
 ## <a name="add-a-claims-provider"></a>Adicione um fornecedor de sinistros
 

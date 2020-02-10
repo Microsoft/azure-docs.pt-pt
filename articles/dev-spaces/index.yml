@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Azure Dev Spaces
-summary: O Azure Dev Spaces permite-lhe testar e programar de forma iterativa toda a sua aplicação de microsserviços no Azure Kubernetes Service (AKS) sem que tenha de replicar ou simular dependências. O Azure Dev Spaces reduz a carga e a complexidade da colaboração com a sua equipa num cluster do AKS partilhado. Também lhe permite executar e depurar contentores diretamente no AKS.
+summary: O Azure Dev Spaces é uma extensão do AKS que lhe permite executar e depurar facilmente o seu código no contexto de uma aplicação maior. Pode testar o código ponto a ponto, acertar nos pontos de interrupção no código em execução no cluster e partilhar um cluster de desenvolvimento entre os membros da equipa sem interferência.
 metadata:
   title: Documentação do Azure Dev Spaces
-  description: O Azure Dev Spaces permite-lhe testar e programar de forma iterativa toda a sua aplicação de microsserviços no Azure Kubernetes Service (AKS) sem que tenha de replicar ou simular dependências. O Azure Dev Spaces reduz a carga e a complexidade da colaboração com a sua equipa num cluster do AKS partilhado. Também lhe permite executar e depurar contentores diretamente no AKS.
+  description: O Azure Dev Spaces é uma extensão do AKS que lhe permite executar e depurar facilmente o seu código no contexto de uma aplicação maior. Pode testar o código ponto a ponto, acertar nos pontos de interrupção no código em execução no cluster e partilhar um cluster de desenvolvimento entre os membros da equipa sem interferência.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: 96fe99c5eb2ef8600ee9cca1e63f9fc3451919c2
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 8871b713806b7c80520d4b52112f84056d20bc26
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75438349"
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77057367"
 landingContent:
 - title: Acerca do Azure Dev Spaces
   linkLists:

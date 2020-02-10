@@ -1,165 +1,168 @@
 ---
-title: MABS & matriz de suporte do System Center DPM
-description: Este artigo resume o suporte ao backup do Azure quando você usa o Backup do Microsoft Azure Server (MABS) ou o System Center DPM para fazer backup de recursos locais e da VM do Azure.
+title: MABS e System Center DPM matriz de suporte
+description: Este artigo resume o suporte de backup Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup no local e nos recursos Do VM Do Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f9ee31525f2ee5a19aebe0a9258dff3ecfdcbb92
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 211a7e39dc9cda9e4bd96e3a66924b2195524be7
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841172"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111459"
 ---
-# <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Backup do Microsoft Azure Server ou o System Center DPM
+# <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com O Servidor de Backup Microsoft Azure ou DPM do System Center
 
-Você pode usar o [serviço de backup do Azure](backup-overview.md) para fazer backup de máquinas locais e cargas de trabalho e VMs (máquinas virtuais) do Azure. Este artigo resume as configurações de suporte e as limitações para fazer backup de computadores usando o Backup do Microsoft Azure Server (MABS) ou o System Center Data Protection Manager (DPM) e o backup do Azure.
+Pode utilizar o [serviço de backup Azure](backup-overview.md) para fazer backup nas instalações de máquinas e cargas de trabalho, e máquinas virtuais Azure (VMs). Este artigo resume as definições de suporte e limitações para o backup de máquinas utilizando o Microsoft Azure Backup Server (MABS) ou system center Data Protection Manager (DPM) e o Azure Backup.
 
-## <a name="about-dpmmabs"></a>Sobre o DPM/MABS
+## <a name="about-dpmmabs"></a>Sobre DPM/MABS
 
-[O System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) é uma solução empresarial que configura, facilita e gerencia o backup e a recuperação de computadores e dados corporativos. Faz parte do pacote de produtos do [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing) .
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) é uma solução empresarial que configura, facilita e gere a backup e recuperação de máquinas e dados empresariais. Faz parte do conjunto de produtos do [System Center.](https://www.microsoft.com/cloud-platform/system-center-pricing)
 
-MABS é um produto de servidor que pode ser usado para fazer backup de servidores físicos locais, VMs e aplicativos em execução neles.
+O MABS é um produto de servidor que pode ser usado para fazer back-up sem servidores físicos, VMs e aplicações em execução neles.
 
-O MABS é baseado no System Center DPM e fornece funcionalidade semelhante com algumas diferenças:
+O MABS baseia-se no System Center DPM e fornece funcionalidades semelhantes com algumas diferenças:
 
-- Nenhuma licença do System Center é necessária para executar o MABS.
-- Para o MABS e o DPM, o Azure fornece armazenamento de backup de longo prazo. Além disso, o DPM permite que você faça backup de dados para armazenamento de longo prazo em fita. O MABS não fornece essa funcionalidade.
-- Você pode fazer backup de um servidor DPM primário com um servidor DPM secundário. O servidor secundário irá proteger a base de dados do servidor principal e as réplicas das origens de dados armazenadas no servidor principal. Se o servidor principal falhar, o servidor secundário pode continuar a proteger as cargas de trabalho que estão protegidas pelo servidor principal até que este esteja novamente disponível.  O MABS não fornece essa funcionalidade.
+- Nenhuma licença do System Center é necessária para executar MABS.
+- Tanto para MABS como DPM, o Azure fornece armazenamento de reserva a longo prazo. Além disso, o DPM permite-lhe fazer o armazenamento a longo prazo em fita. O MABS não fornece esta funcionalidade.
+- Pode fazer o backup a um servidor DPM primário com um servidor DPM secundário. O servidor secundário protegerá a base de dados primária do servidor e as réplicas de fonte de dados armazenadas no servidor primário. Se o servidor primário falhar, o servidor secundário pode continuar a proteger as cargas de trabalho protegidas pelo servidor primário, até que o servidor primário esteja novamente disponível.  O MABS não fornece esta funcionalidade.
 
-Você baixa o MABS do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Ele pode ser executado localmente ou em uma VM do Azure.
+Você descarrega MABS do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57520). Pode ser executado no local ou num VM Azure.
 
-O DPM e o MABS dão suporte ao backup de uma ampla variedade de aplicativos e sistemas operacionais de servidor e cliente. Eles fornecem vários cenários de backup:
+O suporte dPM e MABS suporta uma grande variedade de aplicações, e sistemas operativos de servidores e clientes. Fornecem múltiplos cenários de backup:
 
-- Você pode fazer backup no nível do computador com backup de estado do sistema ou bare-metal.
-- Você pode fazer backup de volumes, compartilhamentos, pastas e arquivos específicos.
-- Você pode fazer backup de aplicativos específicos usando configurações otimizadas de reconhecimento de aplicativo.
+- Pode recuar ao nível da máquina com suporte de sistema ou de metal nu.
+- Pode fazer o back up volumes, partilhas, pastas e ficheiros específicos.
+- Pode fazer o backup de aplicações específicas utilizando configurações otimizadas para aplicações.
 
-## <a name="dpmmabs-backup"></a>Backup do DPM/MABS
+## <a name="dpmmabs-backup"></a>Backup DPM/MABS
 
-O backup usando o DPM/MABS e o backup do Azure funciona da seguinte maneira:
+Backup utilizando DPM/MABS e Azure Backup funciona da seguinte forma:
 
-1. O agente de proteção do DPM/MABS é instalado em cada computador cujo backup será feito.
-1. O backup de computadores e aplicativos é feito no armazenamento local no DPM/MABS.
-1. O agente de Serviços de Recuperação do Microsoft Azure (MARS) é instalado no servidor DPM/MABS.
-1. O agente MARS faz backup dos discos do DPM/MABS em um cofre de serviços de recuperação de backup no Azure usando o backup do Azure.
+1. O agente de proteção DPM/MABS está instalado em cada máquina que será apoiada.
+1. Máquinas e aplicativos são apoiados até ao armazenamento local em DPM/MABS.
+1. O agente Microsoft Azure Recovery Services (MARS) está instalado no servidor/MABS DPM.
+1. O agente MARS apoia os discos DPM/MABS para um cofre de serviços de recuperação de reserva em Azure utilizando o Azure Backup.
 
-Para mais informações:
+Para obter mais informações:
 
-- [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura do mAbs.
-- [Examine o que tem suporte](backup-support-matrix-mars-agent.md) para o agente Mars.
+- [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura MABS.
+- [Reveja o que é apoiado](backup-support-matrix-mars-agent.md) pelo agente mars.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
 **Cenário** | **Agente** | **Localização**
 --- | --- | ---
-**Fazer backup de máquinas/cargas de trabalho locais** | O agente de proteção do DPM/MABS é executado nos computadores que você deseja fazer backup.<br/><br/> O agente MARS no servidor DPM/MABS.<br/> A versão mínima do agente de Serviços de Recuperação do Microsoft Azure ou do agente de backup do Azure, necessária para habilitar esse recurso, é 2.0.8719.0.  | O DPM/MABS deve estar em execução no local.
+**Máquinas/cargas de trabalho de back-up no local** | O agente de proteção DPM/MABS funciona nas máquinas que pretende fazer recuar.<br/><br/> O agente MARS no servidor DPM/MABS.<br/> A versão mínima do agente dos Serviços de Recuperação do Microsoft Azure, ou agente de backup Azure, necessária para ativar esta funcionalidade é de 2.0.8719.0.  | O DPM/MABS deve estar a funcionar no local.
 
-## <a name="supported-deployments"></a>Implantações com suporte
+## <a name="supported-deployments"></a>Implementações apoiadas
 
-O DPM/MABS pode ser implantado como resumido na tabela a seguir.
+O DPM/MABS pode ser implantado conforme resumido na tabela seguinte.
 
 **Implementação** | **Suporte** | **Detalhes**
 --- | --- | ---
-**Implantado localmente** | Servidor físico<br/><br/>VM do Hyper-V<br/><br/> VM VMware | Se o DPM/MABS for instalado como uma VM VMware, ele fará o backup apenas das VMs e das cargas de trabalho do VMware em execução nessas VMs.
-**Implantado como uma VM Azure Stack** | Somente MABS | O DPM não pode ser usado para fazer backup de Azure Stack VMs.
-**Implantado como uma VM do Azure** | Protege as VMs e cargas de trabalho do Azure em execução nessas VMs | O DPM/MABS em execução no Azure não pode fazer backup de computadores locais.
+**Implantado no local** | Servidor físico<br/><br/>VM hiper-V<br/><br/> VMware VM | Se o DPM/MABS for instalado como vMware VM, apenas faz backup VMs VMware e cargas de trabalho que estão em execução nesses VMs.
+**Implantado como um VM de pilha de azure** | Apenas MABS | O DPM não pode ser usado para apoiar os VMs do Azure Stack.
+**Implantado como um VM Azure** | Protege os VMs Azure e as cargas de trabalho que estão a decorrer nesses VMs | DPM/MABS em funcionamento em Azure não pode apoiar as máquinas no local.
 
-## <a name="supported-mabs-and-dpm-operating-systems"></a>Sistemas operacionais MABS e DPM com suporte
+## <a name="supported-mabs-and-dpm-operating-systems"></a>Sistemas operativos MABS e DPM suportados
 
-O backup do Azure pode fazer backup de instâncias do DPM/MABS que estão executando qualquer um dos sistemas operacionais a seguir. Os sistemas operacionais devem estar executando os service packs e as atualizações mais recentes.
+A Backup Azure pode fazer backup nas instâncias DPM/MABS que estão a executar qualquer um dos seguintes sistemas operativos. Os sistemas operativos devem estar a executar os mais recentes pacotes e atualizações de serviços.
 
 **Cenário** | **DPM/MABS**
 --- | ---
-**MABS em uma VM do Azure** | Windows Server 2012 R2.<br/><br/> Datacenter do Windows 2016.<br/><br/> Datacenter do Windows 2019.<br/><br/> Recomendamos que você inicie com uma imagem do Marketplace.<br/><br/> Padrão a2 mínimo com dois núcleos e 3,5 GB de RAM.
-**DPM em uma VM do Azure** | System Center 2012 R2 com atualização 3 ou posterior.<br/><br/> Sistema operacional Windows, conforme [exigido pelo System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Recomendamos que você inicie com uma imagem do Marketplace.<br/><br/> Padrão a2 mínimo com dois núcleos e 3,5 GB de RAM.
-**MABS local** | Sistemas operacionais de 64 bits com suporte:<br/><br/> MABS v3 e posterior: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS V2 e posterior: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Todas as versões do MABS: Windows Server 2012 R2.<br/><br/>Todas as versões do MABS: Windows Storage Server 2012 R2.
-**DPM local** | VM do Hyper-V/servidor físico: System Center 2012 SP1 ou posterior.<br/><br/> VM VMware: System Center 2012 R2 com atualização 5 ou posterior.
+**MABS em um VM Azure** | Windows Server 2012 R2.<br/><br/> Centro de Dados windows 2016.<br/><br/> Centro de Dados Windows 2019.<br/><br/> Recomendamos que comece com uma imagem do mercado.<br/><br/> Padrão Mínimo A2 com dois núcleos e 3,5 GB de RAM.
+**DPM em um VM Azure** | System Center 2012 R2 com Atualização 3 ou posterior.<br/><br/> Sistema operativo Windows [conforme exigido pelo System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Recomendamos que comece com uma imagem do mercado.<br/><br/> Padrão Mínimo A2 com dois núcleos e 3,5 GB de RAM.
+**MABS no local** | Sistemas operativos suportados de 64 bits:<br/><br/> MABS v3 e mais tarde: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 e mais tarde: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Todas as versões MABS: Windows Server 2012 R2.<br/><br/>Todas as versões MABS: Windows Storage Server 2012 R2.
+**DPM no local** | Servidor físico/Hyper-V VM: System Center 2012 SP1 ou mais tarde.<br/><br/> VMware VM: System Center 2012 R2 com Update 5 ou mais tarde.
 
-## <a name="management-support"></a>Suporte de gerenciamento
+>[!NOTE]
+>A instalação do Servidor de Backup Azure não é suportada no Windows Server Core ou no Microsoft Hyper-V Server.
 
-**Problema** | **Detalhes**
+## <a name="management-support"></a>Apoio à gestão
+
+**Edição** | **Detalhes**
 --- | ---
-**Instalação** | Instale o DPM/MABS em um computador de finalidade única.<br/><br/> Não instale o DPM/MABS em um controlador de domínio, em um computador com a instalação da função de servidor de aplicativos, em um computador que esteja executando o Microsoft Exchange Server ou System Center Operations Manager, ou em um nó de cluster.<br/><br/> [Examine todos os requisitos de sistema do DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
-**Domínio** | O DPM/MABS deve ser Unido a um domínio. Instale o primeiro e, em seguida, ingresse o DPM/MABS em um domínio. Não há suporte para a movimentação do DPM/MABS para um novo domínio após a implantação.
-**Armazenamento** | O MBS (armazenamento de backup moderno) tem suporte do DPM 2016/MABS V2 e posterior. Ele não está disponível para MABS v1.
-**Atualização do MABS** | Você pode instalar o MABS v3 diretamente ou atualizar para o MABS V3 do MABS v2. [Saiba mais](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
-**Movendo MABS** | Mover MABS para um novo servidor enquanto mantém o armazenamento é suportado se você estiver usando MBS.<br/><br/> O servidor deve ter o mesmo nome que o original. Você não pode alterar o nome se quiser manter o mesmo pool de armazenamento e usar o mesmo banco de dados MABS para armazenar os pontos de recuperação.<br/><br/> Você precisará de um backup do banco de dados MABS, pois você precisará restaurá-lo.
+**Instalação** | Instale DPM/MABS numa máquina unipropósito.<br/><br/> Não instale DPM/MABS num controlador de domínio, numa máquina com a instalação de função do Servidor de Aplicações, numa máquina que esteja a executar o Microsoft Exchange Server ou o System Center Operations Manager, ou num nó de cluster.<br/><br/> [Reveja todos os requisitos do sistema DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
+**Domínio** | O DPM/MABS deve ser unido a um domínio. Instale primeiro e, em seguida, junte o DPM/MABS a um domínio. A deslocação do DPM/MABS para um novo domínio após a implantação não é suportada.
+**Armazenamento** | O armazenamento de backup moderno (MBS) é suportado a partir de DPM 2016/MABS v2 e posteriormente. Não está disponível para MABS v1.
+**Atualização do MABS** | Pode instalar diretamente mABS v3 ou atualizar para MABS v3 a partir de MABS v2. [Saiba mais](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+**MABS em movimento** | Mover o MABS para um novo servidor enquanto mantém o armazenamento é suportado se estiver a utilizar MBS.<br/><br/> O servidor deve ter o mesmo nome que o original. Não pode alterar o nome se quiser manter o mesmo depósito e utilizar a mesma base de dados MABS para armazenar pontos de recuperação de dados.<br/><br/> Vai precisar de uma cópia de segurança da base de dados MABS porque terá de restaurá-la.
 
-## <a name="mabs-support-on-azure-stack"></a>Suporte do MABS no Azure Stack
+## <a name="mabs-support-on-azure-stack"></a>Suporte mABS em Azure Stack
 
-Você pode implantar o MABS em uma VM Azure Stack para que você possa gerenciar o backup de VMs Azure Stack e cargas de trabalho de um único local.
+Você pode colocar MABS em um VM De Pilha Azure para que você possa gerir backup de VMs De Pilha Azure e cargas de trabalho a partir de um único local.
 
 **Componente** | **Detalhes**
 --- | ---
-**MABS na VM Azure Stack** | Pelo menos o tamanho a2. Recomendamos que você comece com uma imagem do Windows Server 2012 R2 ou do Windows Server 2016 do Azure Marketplace.<br/><br/> Não instale mais nada na VM MABS.
-**Armazenamento MABS** | Use uma conta de armazenamento separada para a VM MABS. O agente MARS em execução no MABS precisa de armazenamento temporário para um local de cache e para manter os dados restaurados da nuvem.
-**Pool de armazenamento MABS** | O tamanho do pool de armazenamento MABS é determinado pelo número e pelo tamanho dos discos que são anexados à VM MABS. Cada tamanho de VM Azure Stack tem um número máximo de discos. Por exemplo, a2 é de quatro discos.
-**MABS retenção** | Não retenha os dados de backup nos discos MABS locais por mais de cinco dias.
-**Escalar verticalmente MABS** | Para escalar verticalmente sua implantação, você pode aumentar o tamanho da VM MABS. Por exemplo, você pode alterar de uma série para D.<br/><br/> Você também pode garantir que esteja descarregando dados com backup no Azure regularmente. Se necessário, você pode implantar servidores MABS adicionais.
-**.NET Framework em MABS** | A VM MABS precisa .NET Framework 3,3 SP1 ou posterior instalado.
-**Domínio MABS** | A VM MABS deve ser unida a um domínio. Um usuário de domínio com privilégios de administrador deve instalar o MABS na VM.
-**Backup de dados da VM Azure Stack** | Você pode fazer backup de arquivos, pastas e aplicativos.
-**Backup com suporte** | Esses sistemas operacionais têm suporte para VMs das quais você deseja fazer backup:<br/><br/> Canal semestral do Windows Server (datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
-**Suporte SQL Server para VMs Azure Stack** | Faça backup SQL Server 2016, SQL Server 2014, SQL Server 2012 SP1.<br/><br/> Fazer backup e recuperar um banco de dados.
-**Suporte do SharePoint para VMs Azure Stack** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Faça backup e recupere um farm, banco de dados, front-end e servidor Web.
-**Requisitos de rede para VMs de backup** | Todas as VMs na carga de trabalho Azure Stack devem pertencer à mesma rede virtual e pertencer à mesma assinatura.
+**MABS em Azure Stack VM** | Pelo menos tamanho A2. Recomendamos que comece com uma imagem Do Windows Server 2012 R2 ou Windows Server 2016 do Azure Marketplace.<br/><br/> Não instale mais nada no MABS VM.
+**Armazenamento MABS** | Utilize uma conta de armazenamento separada para o MABS VM. O agente MARS que funciona no MABS precisa de armazenamento temporário para uma localização de cache e para manter os dados restaurados da nuvem.
+**Piscina de armazenamento MABS** | O tamanho do depósito MABS é determinado pelo número e tamanho dos discos que estão ligados ao MABS VM. Cada tamanho de VM Azure Stack tem um número máximo de discos. Por exemplo, A2 é quatro discos.
+**Retenção de MABS** | Não guarde dados de reserva nos discos MABS locais por mais de cinco dias.
+**Escala de MABS** | Para aumentar a sua implantação, pode aumentar o tamanho do MABS VM. Por exemplo, pode mudar de série A para D.<br/><br/> Também pode garantir que está a descarregar dados com cópia de segurança para o Azure regularmente. Se necessário, pode implementar servidores MABS adicionais.
+**.QUADRO NET em MABS** | O MABS VM necessita de .NET Framework 3.3 SP1 ou posteriormente instalado nele.
+**Domínio MABS** | O MABS VM deve ser unido a um domínio. Um utilizador de domínio com privilégios de administração deve instalar MABS no VM.
+**Backup de dados do Azure Stack VM** | Pode fazer o backup de ficheiros, pastas e aplicações.
+**Backup suportado** | Estes sistemas operativos são suportados para VMs que pretende fazer apoio:<br/><br/> Canal Semi-Anual do Servidor do Windows (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+**Suporte ao Servidor SQL para VMs de Stack Azure** | Back up SQL Server 2016, SQL Server 2014, SQL Server 2012 SP1.<br/><br/> Volte e recupere uma base de dados.
+**Suporte sharePoint para VMs Azure Stack** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Volte e recupere uma fazenda, base de dados, frente e servidor web.
+**Requisitos de rede para VMs apoiados** | Todos os VMs em Azure Stack devem pertencer à mesma rede virtual e pertencer à mesma subscrição.
 
-## <a name="dpmmabs-networking-support"></a>Suporte de rede do DPM/MABS
+## <a name="dpmmabs-networking-support"></a>Suporte de rede DPM/MABS
 
-### <a name="url-access"></a>Acesso à URL
+### <a name="url-access"></a>Acesso url
 
-O servidor DPM/MABS precisa de acesso a essas URLs:
+O servidor DPM/MABS precisa de acesso a estes URLs:
 
 - http://www.msftncsi.com/ncsi.txt
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
-- \*.windows.net
+- *.windows.net
 
-### <a name="dpmmabs-connectivity-to-azure-backup"></a>Conectividade do DPM/MABS com o backup do Azure
+### <a name="dpmmabs-connectivity-to-azure-backup"></a>Conectividade DPM/MABS com backup azure
 
-A conectividade com o serviço de backup do Azure é necessária para que os backups funcionem corretamente e a assinatura do Azure deve estar ativa. A tabela a seguir mostra o comportamento se essas duas coisas não ocorrerem.
+A conectividade com o serviço de backup Azure é necessária para que as cópias de segurança funcionem corretamente, e a subscrição Azure deve estar ativa. A tabela que se segue mostra o comportamento se estas duas coisas não ocorrerem.
 
-**MABS para o Azure** | **Subscrição** | **Backup/restauração**
+**MABS para Azure** | **Subscrição** | **Backup/Restauro**
 --- | --- | ---
-Ligada | Ativa | Faça backup no disco do DPM/MABS.<br/><br/> Faça backup no Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar do Azure.
-Ligada | Expirado/desprovisionado | Nenhum backup em disco ou Azure.<br/><br/> Se a assinatura tiver expirado, você poderá restaurar do disco ou do Azure.<br/><br/> Se a assinatura for encerrada, você não poderá restaurar do disco ou do Azure. Os pontos de recuperação do Azure são excluídos.
-Sem conectividade por mais de 15 dias | Ativa | Nenhum backup em disco ou Azure.<br/><br/> Você pode restaurar do disco ou do Azure.
-Sem conectividade por mais de 15 dias | Expirado/desprovisionado | Nenhum backup em disco ou Azure.<br/><br/> Se a assinatura tiver expirado, você poderá restaurar do disco ou do Azure.<br/><br/> Se a assinatura for encerrada, você não poderá restaurar do disco ou do Azure. Os pontos de recuperação do Azure são excluídos.
+Ligada | Ativa | Volte para o disco DPM/MABS.<br/><br/> De volta a Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar de Azure.
+Ligada | Expirado/deprovisionado | Sem reforços para o disco ou para o Azure.<br/><br/> Se a subscrição estiver caducada, pode restaurar a partir do disco ou do Azure.<br/><br/> Se a subscrição for desativada, não pode restaurar a partir do disco ou do Azure. Os pontos de recuperação do Azure são eliminados.
+Sem conectividade por mais de 15 dias | Ativa | Sem reforços para o disco ou para o Azure.<br/><br/> Pode restaurar a partir do disco ou do Azure.
+Sem conectividade por mais de 15 dias | Expirado/deprovisionado | Sem reforços para o disco ou para o Azure.<br/><br/> Se a subscrição estiver caducada, pode restaurar a partir do disco ou do Azure.<br/><br/> Se a subscrição for desativada, não pode restaurar a partir do disco ou do Azure. Os pontos de recuperação do Azure são eliminados.
 
-## <a name="dpmmabs-storage-support"></a>Suporte ao armazenamento do DPM/MABS
+## <a name="dpmmabs-storage-support"></a>Suporte de armazenamento DPM/MABS
 
-Os dados submetidos a backup no DPM/MABS são armazenados no armazenamento em disco local.
+Os dados que são apoiados até DPM/MABS são armazenados no armazenamento de discos locais.
 
 **Armazenamento** | **Detalhes**
 --- | ---
-**MBS** | O MBS (armazenamento de backup moderno) tem suporte do DPM 2016/MABS V2 e posterior. Ele não está disponível para MABS v1.
-**Armazenamento MABS na VM do Azure** | Os dados são armazenados em discos do Azure que são anexados à VM do DPM/MABS e que são gerenciados no DPM/MABS. O número de discos que podem ser usados para o pool de armazenamento do DPM/MABS é limitado pelo tamanho da VM.<br/><br/> VM a2:4 discos; VM a3:8 discos; VM A4:16 discos, com um tamanho máximo de 1 TB para cada disco. Isso determina o pool de armazenamento de backup total que está disponível.<br/><br/> A quantidade de dados que você pode fazer backup depende do número e do tamanho dos discos anexados.
-**Retenção de dados do MABS na VM do Azure** | Recomendamos que você retenha dados de um dia no disco do Azure/MABS do DPM e faça backup do DPM/MABS no cofre para maior retenção. Portanto, você pode proteger uma quantidade maior de dados descarregando-os no backup do Azure.
+**MBS** | O armazenamento de backup moderno (MBS) é suportado a partir de DPM 2016/MABS v2 e posteriormente. Não está disponível para MABS v1.
+**Armazenamento De MABS em Azure VM** | Os dados são armazenados em discos Azure que estão ligados ao DPM/MABS VM, e que são geridos em DPM/MABS. O número de discos que podem ser utilizados para o depósito DPM/MABS é limitado pelo tamanho do VM.<br/><br/> A2 VM: 4 discos; A3 VM: 8 discos; A4 VM: 16 discos, com um tamanho máximo de 1 TB para cada disco. Isto determina o total de armazenamento de reserva disponível.<br/><br/> A quantidade de dados que pode fazer o backback depende do número e tamanho dos discos anexados.
+**Retenção de dados do MABS no Azure VM** | Recomendamos que guarde dados para um dia no disco DPM/MABS Azure e volte do DPM/MABS para o cofre para uma retenção mais longa. Assim, pode proteger uma maior quantidade de dados descarregando-os para o Azure Backup.
 
 ### <a name="modern-backup-storage-mbs"></a>Armazenamento de backup moderno (MBS)
 
-Do DPM 2016/MABS v2 (em execução no Windows Server 2016) e posterior, você pode aproveitar o armazenamento de backup moderno (MBS).
+A partir de DPM 2016/MABS v2 (em execução no Windows Server 2016) e mais tarde, pode aproveitar o armazenamento de backup moderno (MBS).
 
-- Os backups MBS são armazenados em um disco ReFS (sistema de arquivos resiliente).
-- O MBS usa a clonagem de bloco ReFS para um backup mais rápido e um uso mais eficiente do espaço de armazenamento.
-- Quando você adiciona volumes ao pool de armazenamento local do DPM/MABS, você os configura com letras de unidade. Em seguida, você pode configurar o armazenamento de carga de trabalho em volumes diferentes.
-- Ao criar grupos de proteção para fazer backup de dados no DPM/MABS, selecione a unidade que deseja usar. Por exemplo, você pode armazenar backups para SQL ou outras cargas de trabalho de IOPS alta em uma unidade de alto desempenho e armazenar cargas de trabalho que são submetidas a backup com menos frequência em uma unidade de desempenho inferior.
+- As cópias de segurança MBS são armazenadas num disco do Sistema de Ficheiros Resiliente (ReFS).
+- O MBS utiliza a clonagem do bloco ReFS para uma cópia de segurança mais rápida e uma utilização mais eficiente do espaço de armazenamento.
+- Quando adicionar volumes à piscina de armazenamento DPM/MABS local, configure-os com letras de unidade. Em seguida, pode configurar o armazenamento de carga de trabalho em diferentes volumes.
+- Quando cria grupos de proteção para fazer o backup de dados para DPM/MABS, selecione a unidade que pretende utilizar. Por exemplo, pode armazenar backups para SQL ou outras cargas de trabalho de IOPS de alta performance numa unidade de alto desempenho, e armazenar cargas de trabalho que são apoiadas com menos frequência numa unidade de desempenho mais baixa.
 
-## <a name="supported-backups-to-mabs"></a>Backups com suporte para MABS
+## <a name="supported-backups-to-mabs"></a>Backups suportados para MABS
 
-Para obter informações sobre os vários servidores e cargas de trabalho que você pode proteger com Servidor de Backup do Azure, consulte a [matriz de proteção de servidor de backup do Azure](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix#protection-support-matrix).
+Para obter informações sobre os vários servidores e cargas de trabalho que pode proteger com o Servidor de Backup Azure, consulte a Matriz de Proteção do Servidor de [Backup Azure](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix#protection-support-matrix).
 
-## <a name="supported-backups-to-dpm"></a>Backups com suporte para o DPM
+## <a name="supported-backups-to-dpm"></a>Backups suportados ao DPM
 
-Para obter informações sobre os vários servidores e cargas de trabalho que você pode proteger com Data Protection Manager, consulte o artigo [o que o DPM pode fazer backup?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Para obter informações sobre os vários servidores e cargas de trabalho que pode proteger com o Gestor de Proteção de Dados, consulte o artigo [O que pode o DPM fazer o backup?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019)
 
-- As cargas de trabalho clusterizadas com backup pelo DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou em um domínio filho/confiável.
-- Você pode usar a autenticação NTLM/de certificado para fazer backup de dados em domínios ou grupos de domínio não confiáveis.
+- As cargas de trabalho agrupadas apoiadas por DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou num domínio infantil/fidedigno.
+- Pode utilizar a autenticação NTLM/certificado para fazer cópias de segurança em domínios ou grupos de trabalho não fidedignos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura do mAbs.
-- [Examine](backup-support-matrix-mars-agent.md) o que tem suporte para o agente Mars.
-- [Configure](backup-azure-microsoft-azure-backup.md) um servidor mAbs.
-- [Configurar o DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180).
+- [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura MABS.
+- [Reveja](backup-support-matrix-mars-agent.md) o que é apoiado pelo agente mars.
+- [Instale](backup-azure-microsoft-azure-backup.md) um servidor MABS.
+- [Configurar DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180).

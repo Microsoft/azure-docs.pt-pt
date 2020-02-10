@@ -1,49 +1,49 @@
 ---
-title: Usar o recurso de banco de dados de acompanhamento para anexar bancos de dados no Azure Data Explorer
-description: Saiba mais sobre como anexar bancos de dados no Azure Data Explorer usando o recurso de banco de dados de acompanhamento.
+title: Utilize a função de base de dados do seguidor para anexar bases de dados no Azure Data Explorer
+description: Saiba como anexar bases de dados no Azure Data Explorer utilizando a funcionalidade de base de dados do seguidor.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: eb0b5ea960aa7bc9158791d1fc9fa0986e7d99e6
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 20b667ae345e468bcd3db25d85b7c9de561af4bc
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281347"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111474"
 ---
-# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usar o banco de dados de acompanhamento para anexar bancos de dados no Azure Data Explorer
+# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Utilize base de dados de seguidores para anexar bases de dados no Azure Data Explorer
 
-O recurso de **banco de dados de acompanhamento** permite anexar um banco de dados localizado em um cluster diferente ao cluster de data Explorer do Azure. O **banco de dados de acompanhamento** é anexado no modo *somente leitura* , possibilitando a exibição dos dados e a execução de consultas nos dados que foram ingeridos no banco de dado de **líder**. O banco de dados de acompanhamento sincroniza as mudanças nos bancos de dados de líder. Devido à sincronização, há um atraso de dados de alguns segundos a alguns minutos na disponibilidade de dados. O comprimento do intervalo de tempo depende do tamanho geral dos metadados do banco de dados de líder. Os bancos de dados de líder e de acompanhamento usam a mesma conta de armazenamento para buscar o dado. O armazenamento pertence ao banco de dados líder. O banco de dados de acompanhamento exibe os dados sem a necessidade de ingerir. Uma vez que o banco de dados anexado é um banco de dado somente leitura, não é possível modificar as tabelas, os mesmos e as políticas do banco de dados, exceto a [política de cache](#configure-caching-policy), as [entidades](#manage-principals)e [as permissões](#manage-permissions). Os bancos de dados anexados não podem ser excluídos. Eles devem ser desanexados pelo líder ou do seguidor e, em seguida, podem ser excluídos. 
+A função de base de **dados do seguidor** permite-lhe anexar uma base de dados localizada num cluster diferente do seu cluster Azure Data Explorer. A base de dados dos **seguidores** está anexada no modo de *leitura apenas,* possibilitando visualizar os dados e executar consultas nos dados que foram ingeridos na base de dados do **líder**. A base de dados do seguidor sincroniza as alterações nas bases de dados dos líderes. Devido à sincronização, há um desfasamento de alguns segundos a alguns minutos na disponibilidade de dados. A duração do tempo de atraso depende do tamanho total dos metadados da base de dados do líder. As bases de dados do líder e dos seguidores usam a mesma conta de armazenamento para recolher os dados. O armazenamento é propriedade da base de dados dos líderes. A base de dados do seguidor vê os dados sem necessidade de ingerir. Uma vez que a base de dados anexa é uma base de dados apenas para leitura, os dados, tabelas e políticas na base de dados não podem ser modificados, exceto para a política de [cache](#configure-caching-policy), [principais](#manage-principals), e [permissões](#manage-permissions). As bases de dados anexas não podem ser eliminadas. Devem ser separadas pelo líder ou pelo seguidor e só assim podem ser eliminadas. 
 
-A anexação de um banco de dados a um cluster diferente usando a funcionalidade de acompanhamento é usada como a infraestrutura de compartilhamento de dados entre organizações e equipes. O recurso é útil para separar os recursos de computação para proteger um ambiente de produção de casos de uso que não sejam de produção. O acompanhamento também pode ser usado para associar o custo do cluster de Data Explorer do Azure à entidade que executa consultas nos dados.
+Anexar uma base de dados a um cluster diferente utilizando a capacidade de seguidoré usado como infraestrutura para partilhar dados entre organizações e equipas. A funcionalidade é útil para segregar recursos computacionais para proteger um ambiente de produção de casos de uso não produtivo. O seguidor também pode ser usado para associar o custo do cluster Do Azure Data Explorer à parte que executa consultas nos dados.
 
-## <a name="which-databases-are-followed"></a>Quais bancos de dados são seguidos?
+## <a name="which-databases-are-followed"></a>Que bases de dados são seguidas?
 
-* Um cluster pode seguir um banco de dados, vários bancos de dados ou todos os bancos de dados de um cluster de líder. 
-* Um único cluster pode seguir os bancos de dados de vários clusters de líder. 
-* Um cluster pode conter bancos de dados de acompanhamento e bancos de dados de preenchimento
+* Um cluster pode seguir uma base de dados, várias bases de dados, ou todas as bases de dados de um cluster líder. 
+* Um único cluster pode seguir bases de dados de vários grupos de líderes. 
+* Um cluster pode conter bases de dados de seguidores e bases de dados de líderes
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-1. [Crie cluster e BD](/azure/data-explorer/create-cluster-database-portal) para o líder e o acompanhamento.
-1. [Ingerir dados](/azure/data-explorer/ingest-sample-data) para o banco de dado principal usando um dos vários métodos discutidos em [visão geral de ingestão](/azure/data-explorer/ingest-data-overview).
+1. [Crie cluster e DB](/azure/data-explorer/create-cluster-database-portal) para o líder e seguidor.
+1. [Ingerir dados](/azure/data-explorer/ingest-sample-data) para a base de dados líder utilizando um dos vários métodos discutidos na visão geral da [ingestão](/azure/data-explorer/ingest-data-overview).
 
 ## <a name="attach-a-database"></a>Anexar uma base de dados
 
-Há vários métodos que você pode usar para anexar um banco de dados. Neste artigo, abordamos a anexação de um C# banco de dados usando o ou um modelo Azure Resource Manager. Para anexar um banco de dados, você deve ter permissões no cluster de líderes e no cluster de acompanhamento. Para obter mais informações sobre permissões, consulte [Manage Permissions](#manage-permissions).
+Existem vários métodos que pode utilizar para anexar uma base de dados. Neste artigo, discutimos a anexação de uma base de dados utilizando C# ou um modelo de Gestor de Recursos Azure. Para anexar uma base de dados, deve ter permissões no cluster de líderes e no agrupamento de seguidores. Para obter mais informações sobre permissões, consulte [permissões de gestão](#manage-permissions).
 
-### <a name="attach-a-database-using-c"></a>Anexar um banco de dados usandoC#
+### <a name="attach-a-database-using-c"></a>Anexar uma base de dados utilizandoC#
 
-#### <a name="needed-nugets"></a>NuGets necessário
+#### <a name="needed-nugets"></a>Nugets necessários
 
-* Instale [Microsoft. Azure. Management. Kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Instale [Microsoft. REST. ClientRuntime. Azure. Authentication para autenticação](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
+* Instale [microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Instale [microsoft.rest.clientRuntime.Azure.Autenticação para autenticação](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
 
-#### <a name="code-example"></a>Exemplo de código
+#### <a name="code-example"></a>Exemplo de Código
 
 ```Csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -61,7 +61,7 @@ var followerResourceGroupName = "followerResouceGroup";
 var leaderResourceGroup = "leaderResouceGroup";
 var leaderClusterName = "leader";
 var followerClusterName = "follower";
-var attachedDatabaseConfigurationName = "adc";
+var attachedDatabaseConfigurationName = "uniqueNameForAttachedDatabaseConfiguration";
 var databaseName = "db"; // Can be specific database name or * for all databases
 var defaultPrincipalsModificationKind = "Union"; 
 var location = "North Central US";
@@ -77,16 +77,16 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
 ```
 
-### <a name="attach-a-database-using-python"></a>Anexar um banco de dados usando o Python
+### <a name="attach-a-database-using-python"></a>Anexar uma base de dados usando Python
 
-#### <a name="needed-modules"></a>Módulos necessários
+#### <a name="needed-modules"></a>Módulos Necessários
 
 ```
 pip install azure-common
 pip install azure-mgmt-kusto
 ```
 
-#### <a name="code-example"></a>Exemplo de código
+#### <a name="code-example"></a>Exemplo de Código
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -113,7 +113,7 @@ follower_resource_group_name = "followerResouceGroup"
 leader_resouce_group_name = "leaderResouceGroup"
 follower_cluster_name = "follower"
 leader_cluster_name = "leader"
-attached_database_Configuration_name = "adc"
+attached_database_Configuration_name = "uniqueNameForAttachedDatabaseConfiguration"
 database_name  = "db" # Can be specific database name or * for all databases
 default_principals_modification_kind  = "Union"
 location = "North Central US"
@@ -125,9 +125,9 @@ attached_database_configuration_properties = AttachedDatabaseConfiguration(clust
 poller = kusto_management_client.attached_database_configurations.create_or_update(follower_resource_group_name, follower_cluster_name, attached_database_Configuration_name, attached_database_configuration_properties)
 ```
 
-### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Anexar um banco de dados usando um modelo de Azure Resource Manager
+### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Fixe uma base de dados utilizando um modelo de Gestor de Recursos Azure
 
-Nesta seção, você aprenderá a anexar um banco de dados a um cluster existente usando um [modelo de Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+Nesta secção, aprende-se a anexar uma base de dados a um cluser existente utilizando um modelo de Gestor de [Recursos Azure](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -180,7 +180,7 @@ Nesta seção, você aprenderá a anexar um banco de dados a um cluster existent
     "variables": {},
     "resources": [
         {
-            "name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
+            "name": "[parameters('attachedDatabaseConfigurationsName')]",
             "type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
             "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
@@ -199,41 +199,41 @@ Nesta seção, você aprenderá a anexar um banco de dados a um cluster existent
 
 ### <a name="deploy-the-template"></a>Implementar o modelo 
 
-Você pode implantar o modelo de Azure Resource Manager [usando o portal do Azure](https://portal.azure.com) ou usando o PowerShell.
+Pode implantar o modelo do Gestor de Recursos Azure [utilizando o portal Azure](https://portal.azure.com) ou utilizando a powershell.
 
-   ![implantação de modelo](media/follower/template-deployment.png)
+   ![implantação do modelo](media/follower/template-deployment.png)
 
 
 |**Definição**  |**Descrição**  |
 |---------|---------|
-|Nome do cluster de acompanhamento     |  O nome do cluster de acompanhamento.  |
-|Nome das configurações do banco de dados anexado    |    O nome do objeto de configurações de banco de dados anexado. O nome deve ser exclusivo no nível do cluster.     |
-|Nome da Base de Dados     |      O nome do banco de dados a ser seguido. Se você quiser seguir todos os bancos de dados do líder, use ' * '.   |
-|ID de recurso de cluster de líder    |   A ID de recurso do cluster de líder.      |
-|Tipo de modificação de entidades de segurança padrão    |   O tipo de modificação principal padrão. Pode ser `Union`, `Replace` ou `None`. Para obter mais informações sobre o tipo de modificação principal padrão, consulte o [comando de controle do tipo de modificação principal](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|Localização   |   O local de todos os recursos. O líder e o seguidor devem estar no mesmo local.       |
+|Nome do cluster do seguidor     |  O nome do cluster de acompanhamento. Este é o cluster em que este modelo será implantado.  |
+|Nome de configurações de bases de dados anexadas    |    O nome do objeto de configurações de bases de dados anexado. O nome pode ser qualquer corda desde que seja única no nível do cluster.     |
+|Nome da Base de Dados     |      O nome da base de dados a seguir. Se quiser seguir todas as bases de dados do líder, use '*'.   |
+|ID de recurso de cluster líder    |   A identificação de recursos do cluster líder.      |
+|Tipo de modificação de principais predefinidos    |   O tipo de modificação do principal padrão. Pode ser `Union`, `Replace` ou `None`. Para obter mais informações sobre o tipo de modificação principal predefinido, consulte o comando de controlo do tipo de [modificação principal](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
+|Localização   |   A localização de todos os recursos. O líder e o seguidor devem estar no mesmo local.       |
  
-### <a name="verify-that-the-database-was-successfully-attached"></a>Verifique se o banco de dados foi anexado com êxito
+### <a name="verify-that-the-database-was-successfully-attached"></a>Verifique se a base de dados foi ligada com sucesso
 
-Para verificar se o banco de dados foi anexado com êxito, localize seus bancos de dados anexados no [portal do Azure](https://portal.azure.com). 
+Para verificar se a base de dados foi ligada com sucesso, encontre as bases de dados anexadas no [portal Azure](https://portal.azure.com). 
 
-1. Navegue até o cluster de acompanhamento e selecione **bancos de dados**
-1. Pesquise novos bancos de dados somente leitura na lista de banco de dados.
+1. Navegue para o cluster de seguidores e selecione **Bases de Dados**
+1. Procure novas bases de dados só para ler na lista de dados.
 
-    ![Banco de dados de acompanhamento somente leitura](media/follower/read-only-follower-database.png)
+    ![Base de dados de seguidores de leitura](media/follower/read-only-follower-database.png)
 
-Como alternativa
+Alternativamente:
 
-1. Navegue até o cluster de líderes e selecione **bancos de dados**
-2. Verifique se os bancos de dados relevantes estão marcados como **compartilhados com outras pessoas** > **Sim**
+1. Navegue para o cluster líder e selecione **Bases de Dados**
+2. Verifique se as bases de dados relevantes estão marcadas como **partilhadas com outros** > **Sim**
 
-    ![Ler e gravar bancos de dados anexados](media/follower/read-write-databases-shared.png)
+    ![Ler e escrever bases de dados anexas](media/follower/read-write-databases-shared.png)
 
-## <a name="detach-the-follower-database-using-c"></a>Desanexar o banco de dados de acompanhamento usandoC# 
+## <a name="detach-the-follower-database-using-c"></a>Desmontar a base de dados do seguidor utilizandoC# 
 
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Desanexar o banco de dados de acompanhamento anexado do cluster de acompanhamento
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Desmontar a base de dados de seguidores anexado do cluster de seguidores
 
-O cluster de acompanhamento pode desanexar qualquer banco de dados anexado da seguinte maneira:
+O cluster de seguidores pode desprender qualquer base de dados anexada da seguinte forma:
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -250,14 +250,14 @@ var resourceManagementClient = new KustoManagementClient(serviceCreds){
 var followerResourceGroupName = "testrg";
 //The cluster and database that are created as part of the prerequisites
 var followerClusterName = "follower";
-var attachedDatabaseConfigurationsName = "adc";
+var attachedDatabaseConfigurationsName = "uniqueName";
 
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
 
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Desanexar o banco de dados de acompanhamento anexado do cluster de líderes
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Desmontar a base de dados de seguidores anexado do cluster líder
 
-O cluster líder pode desanexar qualquer banco de dados anexado da seguinte maneira:
+O cluster líder pode separar qualquer base de dados anexada da seguinte forma:
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -278,18 +278,18 @@ var followerClusterName = "follower";
 //The cluster and database that are created as part of the Prerequisites
 var followerDatabaseDefinition = new FollowerDatabaseDefinition()
     {
-        AttachedDatabaseConfigurationName = "adc",
+        AttachedDatabaseConfigurationName = "uniqueName",
         ClusterResourceId = $"/subscriptions/{followerSubscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
     };
 
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
-## <a name="detach-the-follower-database-using-python"></a>Desanexar o banco de dados de acompanhamento usando Python
+## <a name="detach-the-follower-database-using-python"></a>Desmontar a base de dados de seguidores usando python
 
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Desanexar o banco de dados de acompanhamento anexado do cluster de acompanhamento
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Desmontar a base de dados de seguidores anexado do cluster de seguidores
 
-O cluster de acompanhamento pode desanexar qualquer banco de dados anexado da seguinte maneira:
+O cluster de seguidores pode desprender qualquer base de dados anexada da seguinte forma:
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -312,15 +312,15 @@ kusto_management_client = KustoManagementClient(credentials, follower_subscripti
 
 follower_resource_group_name = "followerResouceGroup"
 follower_cluster_name = "follower"
-attached_database_configurationName = "adc"
+attached_database_configurationName = "uniqueName"
 
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.delete(follower_resource_group_name, follower_cluster_name, attached_database_configurationName)
 ```
 
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Desanexar o banco de dados de acompanhamento anexado do cluster de líderes
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Desmontar a base de dados de seguidores anexado do cluster líder
 
-O cluster líder pode desanexar qualquer banco de dados anexado da seguinte maneira:
+O cluster líder pode separar qualquer base de dados anexada da seguinte forma:
 
 ```python
 
@@ -348,7 +348,7 @@ follower_resource_group_name = "followerResourceGroup"
 leader_resource_group_name = "leaderResourceGroup"
 follower_cluster_name = "follower"
 leader_cluster_name = "leader"
-attached_database_configuration_name = "adc"
+attached_database_configuration_name = "uniqueName"
 location = "North Central US"
 cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceGroups/" + follower_resource_group_name + "/providers/Microsoft.Kusto/Clusters/" + follower_cluster_name
 
@@ -357,37 +357,37 @@ cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceG
 poller = kusto_management_client.clusters.detach_follower_databases(resource_group_name = leader_resource_group_name, cluster_name = leader_cluster_name, cluster_resource_id = cluster_resource_id, attached_database_configuration_name = attached_database_configuration_name)
 ```
 
-## <a name="manage-principals-permissions-and-caching-policy"></a>Gerenciar entidades, permissões e política de cache
+## <a name="manage-principals-permissions-and-caching-policy"></a>Gerir princípios, permissões e política de cache
 
-### <a name="manage-principals"></a>Gerenciar entidades de segurança
+### <a name="manage-principals"></a>Gerir os principais
 
-Ao anexar um banco de dados, especifique o **"tipo de modificação de entidades de segurança padrão"** . O padrão é manter a coleção de banco de dados de líder de [entidades autorizadas](/azure/kusto/management/access-control/index#authorization)
+Ao anexar uma base de dados, especifique o tipo de modificação dos **"principais predefinidos".** O padrão é manter a coleção de bases de dados líder de [diretores autorizados](/azure/kusto/management/access-control/index#authorization)
 
-|**Quase** |**Descrição**  |
+|**Tipo** |**Descrição**  |
 |---------|---------|
-|**Unida**     |   As entidades de segurança de banco de dados anexadas sempre incluirão as entidades de banco de dados originais, além de novas entidades de segurança adicionais adicionadas ao banco de dados de acompanhamento.      |
-|**Substitua**   |    Nenhuma herança de entidades de segurança do banco de dados original. Novas entidades de segurança devem ser criadas para o banco de dados anexado.     |
-|**Nenhum**   |   As entidades de banco de dados anexadas incluem apenas as entidades do banco de dados original sem entidades adicionais.      |
+|**União**     |   Os diretores de base de dados anexados incluirão sempre os diretores originais da base de dados, além de novos diretores adicionais adicionados à base de dados dos seguidores.      |
+|**Substituir**   |    Nenhuma herança de diretores da base de dados original. Devem ser criados novos diretores para a base de dados anexada.     |
+|**Nenhuma.**   |   Os diretores de base de dados anexados incluem apenas os diretores da base de dados original sem diretores adicionais.      |
 
-Para obter mais informações sobre como usar comandos de controle para configurar as entidades de segurança autorizadas, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower).
+Para obter mais informações sobre a utilização de comandos de controlo para configurar os diretores autorizados, consulte [comandos de controlo para gerir um cluster](/azure/kusto/management/cluster-follower)de seguidores .
 
 ### <a name="manage-permissions"></a>Gerir permissões
 
-O gerenciamento da permissão de banco de dados somente leitura é o mesmo que para todos os tipos de banco de dados. Consulte [gerenciar permissões no portal do Azure](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
+Gerir a permissão de base de dados apenas para leitura é o mesmo que para todos os tipos de bases de dados. Consulte [permissões de gestão no portal Azure.](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal)
 
-### <a name="configure-caching-policy"></a>Configurar política de cache
+### <a name="configure-caching-policy"></a>Política de cache configurar
 
-O administrador de banco de dados de acompanhamento pode modificar a [política de cache](/azure/kusto/management/cache-policy) do banco de dados anexado ou qualquer uma de suas tabelas no cluster de hospedagem. O padrão é manter a coleção de banco de dados líder de políticas de cache de banco de dados e nível de tabela. Você pode, por exemplo, ter uma política de cache de 30 dias no banco de dados de líder para executar relatórios mensais e uma política de cache de três dias no banco de dados de acompanhamento para consultar somente os dados recentes para solução de problemas. Para obter mais informações sobre como usar comandos de controle para configurar a política de cache no banco de dados ou tabela de acompanhamento, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower).
+O administrador de base de dados do seguidor pode modificar a política de [cache](/azure/kusto/management/cache-policy) da base de dados anexada ou de qualquer uma das suas tabelas no cluster de hospedagem. O padrão é manter a base de dados dos líderes na recolha de bases de dados e políticas de cache ao nível da mesa. Pode, por exemplo, ter uma política de 30 dias na base de dados dos líderes para executar relatórios mensais e uma política de três dias na base de dados dos seguidores para consultar apenas os dados recentes para resolução de problemas. Para obter mais informações sobre a utilização de comandos de controlo para configurar a política de cache na base de dados ou tabela do seguidor, consulte comandos de [controlo para gerir um cluster de seguidores](/azure/kusto/management/cluster-follower).
 
 ## <a name="limitations"></a>Limitações
 
-* O acompanhamento e os clusters de líderes devem estar na mesma região.
-* A [ingestão de streaming](/azure/data-explorer/ingest-data-streaming) não pode ser usada em um banco de dados que está sendo seguido.
-* Não há suporte para a criptografia de dados usando [chaves gerenciadas pelo cliente](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) em clusters de líderes e de acompanhamento. 
-* Você não pode excluir um banco de dados que está anexado a um cluster diferente antes de desanexá-lo.
-* Não é possível excluir um cluster que tenha um banco de dados anexado a um cluster diferente antes de desanexá-lo.
-* Não é possível parar um cluster que tenha bancos de dados de acompanhamento ou de líder anexados. 
+* O seguidor e os agrupamentos de líderes devem estar na mesma região.
+* [A ingestão](/azure/data-explorer/ingest-data-streaming) de streaming não pode ser usada numa base de dados que está a ser seguida.
+* A encriptação de dados utilizando [chaves geridas](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) pelo cliente não é suportada tanto em clusters líderes como em seguidores. 
+* Não é possível eliminar uma base de dados que esteja ligada a um cluster diferente antes de a desmontar.
+* Não é possível eliminar um cluster que tenha uma base de dados anexada a um cluster diferente antes de o desmontar.
+* Não é possível parar um cluster que tenha anexado o acompanhamento ou a base de dados de líderes. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações sobre a configuração do cluster de acompanhamento, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower).
+* Para obter informações sobre a configuração do cluster do seguidor, consulte [comandos de controlo para gerir um cluster de seguidores](/azure/kusto/management/cluster-follower).

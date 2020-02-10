@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 7ebb44ec1f3483b9bf3f29ddb6dc7a73266b8cea
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 3bea7dda1cf44548ea924ffa84fb922410242f27
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75443365"
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77063477"
 landingContent:
 - title: Sobre a gestão de aplicações
   linkLists:
@@ -51,24 +51,18 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é o aprovisionamento automático de utilizadores?
-      url: user-provisioning.md
-    - text: Como funciona o aprovisionamento
-      url: how-provisioning-works.md
+    - text: O que é o aprovisionamento de aplicações?
+      url: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
   - linkListType: tutorial
     links:
     - text: Tutoriais de aprovisionamento de aplicações SaaS
       url: /azure/active-directory/saas-apps/
   - linkListType: how-to-guide
     links:
-    - text: Criar uma aplicação? Utilizar o SCIM para aprovisionamento automático
-      url: use-scim-to-provision-users-and-groups.md
-    - text: Adicionar uma aplicação de galeria? Configurar o aprovisionamento para a aplicação
-      url: configure-automatic-user-provisioning-portal.md
-    - text: Personalizar os mapeamentos de atributos
-      url: customize-application-attributes.md
-    - text: Utilizar os filtros de âmbito
-      url: define-conditional-rules-for-provisioning-user-accounts.md
+    - text: Criar uma aplicação? Utilizar o SCIM no aprovisionamento (documentação de aprovisionamento de aplicações)
+      url: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+    - text: Adicionar uma aplicação de galeria? Configurar o aprovisionamento (documentação de aprovisionamento de aplicações)
+      url: /azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal
 - title: Publicar aplicações no local com o Proxy de Aplicações
   linkLists:
   - linkListType: overview

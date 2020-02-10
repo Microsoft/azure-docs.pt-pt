@@ -1,0 +1,107 @@
+- name: Documentação de aprovisionamento de aplicações e RH
+  href: index.yml
+- name: Descrição geral
+  expanded: true
+  items:
+    - name: O que é o aprovisionamento de aplicações?
+      href: user-provisioning.md
+- name: Tutoriais
+  items:
+    - name: G Suite
+      href: /azure/active-directory/saas-apps/google-apps-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: ServiceNow
+      href: /azure/active-directory/saas-apps/servicenow-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Amazon Web Services (AWS) - Aprovisionamento de Funções
+      href: '/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context'
+    - name: Workday
+      href: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: SAP SuccessFactors
+      href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Todas as aplicações de galeria integradas
+      href: /azure/active-directory/saas-apps
+- name: Conceitos
+  expanded: true
+  items:
+    - name: Como funciona o aprovisionamento de aplicações
+      href: how-provisioning-works.md
+    - name: Planear uma implementação de aprovisionamento de aplicações
+      href: plan-auto-user-provisioning.md
+    - name: Planear uma implementação de aprovisionamento de HR na cloud
+      href: plan-cloud-hr-provision.md
+- name: Guias de procedimentos
+  expanded: true
+  items:
+    - name: Configurar o aprovisionamento para uma aplicação da galeria
+      href: configure-automatic-user-provisioning-portal.md
+    - name: Editar os mapeamentos de atributos
+      items:
+        - name: Personalizar os mapeamentos de atributos
+          href: customize-application-attributes.md
+        - name: Escrever expressões para mapeamentos de atributos
+          href: functions-for-customizing-application-data.md
+    - name: Incluir ou excluir utilizadores e grupos do âmbito
+      items:
+        - name: Definir o âmbito dos utilizadores ou grupos a aprovisionar
+          href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: Ignorar eliminação de utilizadores fora do âmbito
+          href: skip-out-of-scope-deletions.md
+    - name: Monitorizar e reportar aprovisionamentos
+      items:
+        - name: Monitorizar o estado e o desempenho do aprovisionamento
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Relatório sobre o aprovisionamento de aplicações
+          href: check-status-user-account-provisioning.md
+        - name: Exportar e importar a configuração
+          href: export-import-provisioning-configuration.md
+    - name: Resolver problemas de aprovisionamento de aplicações
+      items:
+        - name: Resolver problemas de aprovisionamento de aplicações
+          href: application-provisioning-config-problem.md
+        - name: Estado de quarentena
+          href: application-provisioning-quarantine-status.md
+        - name: Problema de autorização (não é possível guardar as credenciais de administrador)
+          href: application-provisioning-config-problem-storage-limit.md
+        - name: Os utilizadores não estão aprovisionados
+          href: application-provisioning-config-problem-no-users-provisioned.md
+        - name: Foram aprovisionados os utilizadores errados
+          href: application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: Atributo de origem em falta
+          href: user-provisioning-sync-attributes-for-mapping.md
+        - name: A tarefa de aprovisionamento está lenta
+          href: application-provisioning-when-will-provisioning-finish.md
+        - name: Registos de aprovisionamento
+          href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Criar um ponto final SCIM e configurar o aprovisionamento
+      href: use-scim-to-provision-users-and-groups.md
+    - name: Automatizar a configuração com o MS Graph
+      href: application-provisioning-configure-api.md
+- name: Referência
+  items:
+    - name: Escolher um método de aprovisionamento
+      href: isv-automatic-provisioning-multi-tenant-apps.md
+    - name: Aprovisionamento de HR de Cloud
+      items:
+        - name: Referência de atributo da SuccessFactors
+          href: sap-successfactors-attribute-reference.md
+        - name: Referência de atributo da Workday
+          href: workday-attribute-reference.md
+    - name: Agente de Aprovisionamento do Azure AD Connect
+      items:
+        - name: Histórico de versões do Agente de Aprovisionamento
+          href: provisioning-agent-release-version-history.md
+- name: Recursos
+  items:
+    - name: Opções de suporte e ajuda para programadores
+      href: /azure/active-directory/develop/developer-support-help-options
+    - name: Fórum de comentários do Azure
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=active-directory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
