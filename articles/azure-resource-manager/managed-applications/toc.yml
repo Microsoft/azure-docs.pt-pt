@@ -110,6 +110,10 @@
               href: microsoft-compute-sizeselector.md
             - name: UserNameTextBox
               href: microsoft-compute-usernametextbox.md
+        - name: Identidade Gerida
+          items:
+            - name: IdentitySelector
+              href: microsoft-managedidentity-identityselector.md
         - name: Rede
           items:
             - name: PublicIPAddressCombo
