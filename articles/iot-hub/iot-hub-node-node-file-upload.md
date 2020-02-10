@@ -1,6 +1,6 @@
 ---
-title: Carregar arquivos de dispositivos para o Hub IoT do Azure com o nó | Microsoft Docs
-description: Como carregar arquivos de um dispositivo para a nuvem usando o SDK do dispositivo IoT do Azure para node. js. Os arquivos carregados são armazenados em um contêiner de blob do armazenamento do Azure.
+title: Upload de ficheiros de dispositivos para Azure IoT Hub com Nó  Microsoft Docs
+description: Como fazer o upload de ficheiros de um dispositivo para a nuvem utilizando o dispositivo Azure IoT SDK para Node.js. Os ficheiros carregados são armazenados num recipiente de armazenamento Azure.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,52 +9,54 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 8747111921df494b8d5618dc8d6ece99fa821e47
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: db3da5ff2d7e8b6fa493f5338fac93df0d1a7fe2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147633"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110908"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT (Node. js)
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial se baseia no código do tutorial [enviar mensagens da nuvem para o dispositivo com o Hub IOT](iot-hub-node-node-c2d.md) para mostrar como usar os [recursos de carregamento de arquivo do Hub IOT](iot-hub-devguide-file-upload.md) para carregar um arquivo no [armazenamento de BLOBs do Azure](../storage/index.yml). Este tutorial mostra-lhe como:
+Este tutorial baseia-se no código no envio de [mensagens cloud-to-device com tutorial IoT Hub](iot-hub-node-node-c2d.md) para lhe mostrar como usar as [capacidades de upload de ficheiros do IoT Hub](iot-hub-devguide-file-upload.md) para fazer o upload de um ficheiro para o armazenamento de [blob Azure](../storage/index.yml). Este tutorial mostra-lhe como:
 
-* Forneça com segurança um dispositivo com um URI de blob do Azure para carregar um arquivo.
+* Forneça de forma segura um dispositivo com um blob URI Azure para o upload de um ficheiro.
 
-* Use as notificações de upload de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
+* Utilize as notificações de upload de ficheiros IoT Hub para desencadear o processamento do ficheiro na parte de trás da sua aplicação.
 
-O guia de início rápido [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md) demonstra a funcionalidade básica de mensagens do dispositivo para a nuvem do Hub IOT. No entanto, em alguns cenários, não é possível mapear facilmente os dados que seus dispositivos enviam para as mensagens relativamente pequenas que o Hub IoT aceita. Por exemplo:
+A [telemetria Send de um dispositivo para um quickstart hub IoT](quickstart-send-telemetry-node.md) demonstra a funcionalidade básica de mensagens dispositivo-nuvem do IoT Hub. No entanto, em alguns cenários não é possível mapear facilmente os dados que os seus dispositivos enviam para as mensagens relativamente pequenas de dispositivo-nuvem que o IoT Hub aceita. Por exemplo:
 
-* Arquivos grandes que contêm imagens
-* Os meus vídeos
-* Dados de vibração amostrados em alta frequência
-* Alguma forma de dados previamente processados.
+* Ficheiros grandes que contêm imagens
+* Vídeos
+* Dados de vibração recolhidos em alta frequência
+* Alguma forma de dados pré-processados.
 
-Esses arquivos normalmente são processados em lote na nuvem usando ferramentas como [Azure data Factory](../data-factory/introduction.md) ou a pilha do [Hadoop](../hdinsight/index.yml) . Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
+Estes ficheiros são normalmente processados na nuvem utilizando ferramentas como a [Azure Data Factory](../data-factory/introduction.md) ou a stack [Hadoop.](../hdinsight/index.yml) Quando precisa de ficheiros de um dispositivo, ainda pode utilizar a segurança e a fiabilidade do IoT Hub.
 
-No final deste tutorial, você executará dois aplicativos de console do node. js:
+No final deste tutorial executa duas aplicações de consola Node.js:
 
-* **SimulatedDevice. js**, que carrega um arquivo no armazenamento usando um URI de SAS fornecido pelo Hub IOT.
+* **SimuladoDevice.js**, que envia um ficheiro para armazenamento utilizando um SAS URI fornecido pelo seu hub IoT.
 
-* **ReadFileUploadNotification. js**, que recebe notificações de upload de arquivo do Hub IOT.
+* **ReadFileUploadNotification.js**, que recebe notificações de upload de ficheiros do seu hub IoT.
 
 > [!NOTE]
-> O Hub IoT dá suporte a várias plataformas de dispositivo e linguagens (incluindo C, .NET, JavaScript, Python e Java) por meio de SDKs do dispositivo IoT do Azure. Consulte o [Centro de desenvolvedores do Azure IoT] para obter instruções passo a passo sobre como conectar seu dispositivo ao Hub IoT do Azure.
+> O IoT Hub suporta muitas plataformas e idiomas de dispositivos (incluindo C, .NET, Javascript, Python e Java) através de SDKs do dispositivo Azure IoT. Consulte o Centro de Desenvolvimento [Azure IoT] para obter instruções passo a passo sobre como ligar o seu dispositivo ao Hub Azure IoT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Node. js versão 10.0. x ou posterior. [Preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node. js para este tutorial no Windows ou no Linux.
+* Node.js versão 10.0.x ou mais tarde. [Prepare o seu ambiente](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) de desenvolvimento descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 
-* Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+
+* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>Carregar um arquivo de um aplicativo de dispositivo
+## <a name="upload-a-file-from-a-device-app"></a>Faça upload de um ficheiro a partir de uma aplicação de dispositivo
 
-Nesta seção, você cria o aplicativo do dispositivo para carregar um arquivo no Hub IoT.
+Nesta secção, cria a aplicação do dispositivo para fazer o upload de um ficheiro para o hub IoT.
 
 1. Crie uma pasta vazia com o nome ```simulateddevice```.  Na pasta ```simulateddevice```, crie um ficheiro package.json com o comando seguinte na sua linha de comandos.  Aceite todas as predefinições:
 
@@ -80,7 +82,7 @@ Nesta seção, você cria o aplicativo do dispositivo para carregar um arquivo n
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-5. Adicione uma variável `deviceconnectionstring` e utilize-a para criar uma instância **Cliente**.  Substitua `{deviceconnectionstring}` pelo nome do dispositivo que você criou na seção *criar um hub IOT* :
+5. Adicione uma variável `deviceconnectionstring` e utilize-a para criar uma instância **Cliente**.  Substitua `{deviceconnectionstring}` pelo nome do dispositivo que criou na secção *Criar um Hub IoT:*
 
     ```javascript
     var connectionString = '{deviceconnectionstring}';
@@ -88,16 +90,16 @@ Nesta seção, você cria o aplicativo do dispositivo para carregar um arquivo n
     ```
 
     > [!NOTE]
-    > Para simplificar, a cadeia de conexão é incluída no código: essa não é uma prática recomendada e, dependendo do seu caso de uso e da arquitetura, talvez você queira considerar maneiras mais seguras de armazenar esse segredo.
+    > Por uma questão de simplicidade, a cadeia de ligação está incluída no código: esta não é uma prática recomendada e dependendo do seu caso de uso e arquitetura, você pode considerar formas mais seguras de armazenar este segredo.
 
-6. Adicione o seguinte código para conectar o cliente:
+6. Adicione o seguinte código para ligar o cliente:
 
     ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
-7. Crie um retorno de chamada e use a função **uploadToBlob** para carregar o arquivo.
+7. Crie uma chamada e utilize a função **uploadToBlob** para fazer o upload do ficheiro.
 
     ```javascript
     fs.stat(filename, function (err, stats) {
@@ -115,19 +117,19 @@ Nesta seção, você cria o aplicativo do dispositivo para carregar um arquivo n
 
 8. Guarde e feche o ficheiro **SimulatedDevice.js**.
 
-9. Copie um arquivo de imagem para `simulateddevice` a pasta e renomeie- `myimage.png`o.
+9. Copie um ficheiro de imagem para a pasta `simulateddevice` e mude o nome `myimage.png`.
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
 
-Neste artigo, você cria um serviço de back-end para receber mensagens de notificação de upload de arquivo do Hub IoT criado em [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md). Para receber mensagens de notificação de upload de arquivo, seu serviço precisa da permissão de **conexão de serviço** . Por padrão, todo Hub IoT é criado com uma política de acesso compartilhado chamada **serviço** que concede essa permissão.
+Neste artigo cria um serviço de backend para receber mensagens de notificação de envio de ficheiros do hub IoT que criou no [Envio de telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md). Para receber mensagens de notificação de upload de ficheiros, o seu serviço necessita da permissão de ligação do **serviço.** Por padrão, cada Hub IoT é criado com uma política de acesso partilhado chamada **serviço** que concede esta permissão.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="receive-a-file-upload-notification"></a>Receber uma notificação de upload de arquivo
+## <a name="receive-a-file-upload-notification"></a>Receba uma notificação de upload de ficheiro
 
-Nesta seção, você cria um aplicativo de console do node. js que recebe mensagens de notificação de upload de arquivo do Hub IoT.
+Nesta secção, cria uma aplicação de consola Node.js que recebe mensagens de notificação de upload de ficheiros do IoT Hub.
 
-Você pode usar a cadeia de conexão **iothubowner** do Hub IOT para concluir esta seção. Você encontrará a cadeia de conexão no [portal do Azure](https://portal.azure.com/) na folha **política de acesso compartilhado** .
+Pode utilizar a cadeia de ligação **iothubowner** do seu Hub IoT para completar esta secção. Encontrará a cadeia de ligação no [portal Azure](https://portal.azure.com/) na lâmina da política de **acesso partilhado.**
 
 1. Crie uma pasta vazia com o nome ```fileuploadnotification```.  Na pasta ```fileuploadnotification```, crie um ficheiro package.json com o comando seguinte na sua linha de comandos.  Aceite todas as predefinições:
 
@@ -135,15 +137,15 @@ Você pode usar a cadeia de conexão **iothubowner** do Hub IOT para concluir es
     npm init
     ```
 
-2. No prompt de comando na ```fileuploadnotification``` pasta, execute o seguinte comando para instalar o pacote **do SDK do Azure-iothub** :
+2. Ao seu pedido de comando na pasta ```fileuploadnotification```, execute o seguinte comando para instalar o pacote SDK **azure-iothub:**
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
 
-3. Usando um editor de texto, crie um arquivo **arquivo fileuploadnotification. js** na `fileuploadnotification` pasta.
+3. Utilizando um editor de texto, crie um ficheiro **FileUploadNotification.js** na pasta `fileuploadnotification`.
 
-4. Adicione as seguintes `require` instruções no início do arquivo **arquivo fileuploadnotification. js** :
+4. Adicione as seguintes `require` declarações no início do ficheiro **FileUploadNotification.js:**
 
     ```javascript
     'use strict';
@@ -151,22 +153,22 @@ Você pode usar a cadeia de conexão **iothubowner** do Hub IOT para concluir es
     var Client = require('azure-iothub').Client;
     ```
 
-5. Adicione uma variável `iothubconnectionstring` e utilize-a para criar uma instância **Cliente**.  Substitua o `{iothubconnectionstring}` valor do espaço reservado pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string):
+5. Adicione uma variável `iothubconnectionstring` e utilize-a para criar uma instância **Cliente**.  Substitua o valor do espaço reservado `{iothubconnectionstring}` pela cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
     ```
 
     > [!NOTE]
-    > Para simplificar, a cadeia de conexão é incluída no código: essa não é uma prática recomendada e, dependendo do seu caso de uso e da arquitetura, talvez você queira considerar maneiras mais seguras de armazenar esse segredo.
+    > Por uma questão de simplicidade, a cadeia de ligação está incluída no código: esta não é uma prática recomendada e dependendo do seu caso de uso e arquitetura, você pode considerar formas mais seguras de armazenar este segredo.
 
-6. Adicione o seguinte código para conectar o cliente:
+6. Adicione o seguinte código para ligar o cliente:
 
     ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
-7. Abra o cliente e use a função **getFileNotificationReceiver** para receber atualizações de status.
+7. Abra o cliente e utilize a função **getFileNotificationReceiver** para receber atualizações de estado.
 
     ```javascript
     serviceClient.open(function (err) {
@@ -188,42 +190,42 @@ Você pode usar a cadeia de conexão **iothubowner** do Hub IOT para concluir es
     });
     ```
 
-8. Salve e feche o arquivo **arquivo fileuploadnotification. js** .
+8. Guarde e feche o ficheiro **FileUploadNotification.js.**
 
 ## <a name="run-the-applications"></a>Executar as aplicações
 
 Agora pode executar as aplicações.
 
-Em um prompt de comando na `fileuploadnotification` pasta, execute o seguinte comando:
+Num pedido de comando na pasta `fileuploadnotification`, execute o seguinte comando:
 
 ```cmd/sh
 node FileUploadNotification.js
 ```
 
-Em um prompt de comando na `simulateddevice` pasta, execute o seguinte comando:
+Num pedido de comando na pasta `simulateddevice`, execute o seguinte comando:
 
 ```cmd/sh
 node SimulatedDevice.js
 ```
 
-A captura de tela a seguir mostra a saída do aplicativo **SimulatedDevice** :
+A seguinte imagem mostra a saída da aplicação **SimuladDevice:**
 
-![Saída do aplicativo Simulated-Device](./media/iot-hub-node-node-file-upload/simulated-device.png)
+![Saída da aplicação de dispositivo simulado](./media/iot-hub-node-node-file-upload/simulated-device.png)
 
-A captura de tela a seguir mostra a saída do aplicativo **arquivo fileuploadnotification** :
+A seguinte imagem mostra a saída da aplicação **FileUploadNotification:**
 
-![Saída do aplicativo Read-file-upload-Notification](./media/iot-hub-node-node-file-upload/read-file-upload-notification.png)
+![Saída da aplicação de notificação de leitura-upload de ficheiros](./media/iot-hub-node-node-file-upload/read-file-upload-notification.png)
 
-Você pode usar o portal para exibir o arquivo carregado no contêiner de armazenamento que você configurou:
+Pode utilizar o portal para visualizar o ficheiro carregado no recipiente de armazenamento configurado:
 
-![Arquivo carregado](./media/iot-hub-node-node-file-upload/uploaded-file.png)
+![Ficheiro carregado](./media/iot-hub-node-node-file-upload/uploaded-file.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a usar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar a explorar os recursos e cenários do Hub IoT com os seguintes artigos:
+Neste tutorial, aprendeu a utilizar as capacidades de upload de ficheiros do IoT Hub para simplificar os uploads de ficheiros a partir de dispositivos. Pode continuar a explorar funcionalidades e cenários do hub IoT com os seguintes artigos:
 
-* [Criar um hub IoT programaticamente](iot-hub-rm-template-powershell.md)
+* [Criar um hub IoT programática](iot-hub-rm-template-powershell.md)
 
-* [Introdução ao SDK do C](iot-hub-device-sdk-c-intro.md)
+* [Introdução ao C SDK](iot-hub-device-sdk-c-intro.md)
 
 * [SDKs do Azure IoT](iot-hub-devguide-sdks.md)

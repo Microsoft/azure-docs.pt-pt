@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5d84b1b951cd1a48a385083f5ce2e2aaf1cba8d7
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595749"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110640"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Utilizar um dispositivo simulado para testar a conectividade com o seu hub IoT
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: utilizar um dispositivo simulado para testar a conectividade com o seu hub do IoT
 
 Neste tutorial, irá utilizar ferramentas do portal do Hub IoT do Azure e comandos da CLI do Azure para testar a conectividade do dispositivo. Este tutorial também utiliza um simulador de dispositivos simples que executa no seu computador.
 
@@ -39,7 +39,7 @@ Os scripts da CLI que executa neste tutorial utilizam a [Extensão do Microsoft 
 az extension add --name azure-cli-iot-ext
 ```
 
-A aplicação de simulador de dispositivos que irá executar neste tutorial é escrita com Node.js. Terá de node. js v10.x.x ou posterior no seu computador de desenvolvimento.
+A aplicação de simulador de dispositivos que irá executar neste tutorial é escrita com Node.js. Você precisa do Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -50,6 +50,8 @@ node --version
 ```
 
 Transfira o projeto Node.js de simulador de dispositivos de exemplo em https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
+
+Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -75,9 +77,9 @@ Para obter a cadeia de ligação de **MyTestDevice**, clique na mesma na lista d
 
 Para simular o **MyTestDevice** a enviar dados telemétricos para o hub do IoT, execute a aplicação de dispositivo simulado Node.js que transferiu anteriormente.
 
-Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para o **iot hub\Tutorials\ConnectivityTests** pasta.
+Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para a pasta **iot-hub\Tutorials\ConectividadeTests.**
 
-Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e execute a aplicação de dispositivo simulado. Utilize a cadeia de ligação do dispositivo tomou nota do quando adicionou o dispositivo no portal.
+Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e execute a aplicação de dispositivo simulado. Utilize a cadeia de ligação do dispositivo de que tomou nota quando adicionou o dispositivo no portal.
 
 ```cmd/sh
 npm install
@@ -122,7 +124,7 @@ Desta vez, verá um erro de autenticação quando a aplicação tenta estabelece
 
 Se o seu dispositivo utilizar um dos SDKs de dispositivo do Hub IoT, o código da biblioteca do SDK irá gerar o token SAS utilizado para autenticar com o hub. É gerado um token SAS a partir do nome do hub, do nome do dispositivo e da chave do dispositivo.
 
-Em alguns cenários, tal como num gateway de protocolo de cloud ou como parte de um esquema de autenticação personalizado, poderá ter de gerar o token SAS manualmente. Para resolver problemas com o seu código de geração de SAS, é útil gerar um token SAS de boa conhecida para utilizar durante o teste.
+Em alguns cenários, tal como num gateway de protocolo de cloud ou como parte de um esquema de autenticação personalizado, poderá ter de gerar o token SAS manualmente. Para resolver problemas com o seu código de geração SAS, é útil gerar um token SAS conhecido para usar durante os testes.
 
 > [!NOTE]
 > A amostra SimulatedDevice-2.js inclui exemplos de geração de um token SAS com e sem o SDK.
@@ -135,7 +137,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Tome nota do texto completo do token SAS gerado. Um token SAS tem o seguinte aspeto: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para o **iot hub\Tutorials\ConnectivityTests** pasta.
+Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para a pasta **iot-hub\Tutorials\ConectividadeTests.**
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar a aplicação de dispositivo simulado:
 
@@ -154,7 +156,7 @@ Efetuou a autenticação com êxito a partir de um dispositivo através de um to
 
 Um dispositivo pode utilizar qualquer um dos seguintes protocolos para estabelecer ligação ao hub do IoT:
 
-| Protocol | Porta de saída |
+| Protocolo | Porta de saída |
 | --- | --- |
 | MQTT |8883 |
 | MQTT através de WebSockets |443 |
@@ -176,7 +178,7 @@ Em primeiro lugar, obtenha a cadeia de ligação atual do dispositivo simulado a
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-Para executar um dispositivo simulado que envia mensagens, navegue para o **iot hub\Tutorials\ConnectivityTests** pasta no código que transferiu.
+Para executar um dispositivo simulado que envia mensagens, navegue para a pasta **iot-hub\Tutorials\ConnectivityTests** no código que descarregou.
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar a aplicação de dispositivo simulado:
 
@@ -189,7 +191,7 @@ A janela de terminal mostra informações à medida que envia dados telemétrico
 
 ![Dispositivo simulado a enviar mensagens](media/tutorial-connectivity/sim-3-sending.png)
 
-Pode usar **métricas** no portal para verificar que as mensagens de telemetria são atingir o seu hub IoT. Selecione o seu hub do IoT no menu pendente **Recurso**, selecione **Mensagens de telemetria enviadas** como a métrica e defina o intervalo de tempo para **Última hora**. O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
+Pode utilizar **Métricas** no portal para verificar se as mensagens de telemetria estão a chegar ao seu centro IoT. Selecione o seu hub do IoT no menu pendente **Recurso**, selecione **Mensagens de telemetria enviadas** como a métrica e defina o intervalo de tempo para **Última hora**. O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
 
 ![Mostrar métricas do Hub IoT](media/tutorial-connectivity/metrics-portal.png)
 
@@ -257,7 +259,7 @@ Além de receber as alterações de propriedades pretendidas à medida que são 
 
 Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a verificar as chaves do dispositivo, a verificar a conectividade do dispositivo para a cloud, a verificar a conectividade da cloud para o dispositivo e a verificar a sincronização de dispositivos duplos. Para saber mais sobre como monitorizar o seu hub do IoT, aceda ao artigo de procedimentos de monitorização do Hub IoT.
 

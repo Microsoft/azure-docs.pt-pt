@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 79e65671613364f5cc05153d90cfdcd5959a279f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 3b37d7e049e7daabbbb4fe1a7b49feb654e8accc
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939313"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110251"
 ---
 # <a name="get-started-with-device-management-net"></a>Começar com a gestão do dispositivo (.NET)
 
@@ -38,13 +38,15 @@ No final deste tutorial, terá duas aplicações de consola .NET:
 
 * Visual Studio.
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+
+* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no Hub IoT
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registe um novo dispositivo no hub IoT
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
@@ -58,7 +60,7 @@ No final deste tutorial, terá duas aplicações de consola .NET:
 
 Nesta secção, cria-se uma aplicação C#de consola .NET, utilizando, que inicia uma reinicialização remota num dispositivo utilizando um método direto. O aplicativo usa consultas de dispositivo de dispositivos para descobrir a hora da última reinicialização para esse dispositivo.
 
-1. No Visual Studio, selecione **criar um novo projeto**.
+1. No Estúdio Visual, selecione **Criar um novo projeto.**
 
 1. Em **Criar um novo projeto,** encontre e selecione o modelo de projeto da App consola **(.NET Framework)** e, em seguida, selecione **Next**.
 
@@ -234,7 +236,7 @@ Para criar a aplicação simulada do dispositivo, siga estes passos:
 
 1. No Solution Explorer, clique à direita na sua solução e, em seguida, selecione **Definir Projetos StartUp**.
 
-1. Para **propriedades comuns** > **Projeto de Arranque,** selecione um projeto de **arranque único**e, em seguida, selecione o projeto **SimulaManagedDevice.** Selecione **OK** para guardar as alterações.
+1. Para **propriedades comuns** > **Projeto de Arranque,** selecione um projeto de **arranque único**e, em seguida, selecione o projeto **SimulaManagedDevice.** Selecione **OK** para guardar as suas alterações.
 
 1. Selecione **construir** > **construir solução.**
 

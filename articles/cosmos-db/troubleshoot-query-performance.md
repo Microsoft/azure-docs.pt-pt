@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de consulta ao usar o Azure Cosmos DB
-description: Saiba como identificar, diagnosticar e solucionar problemas Azure Cosmos DB problemas de consulta SQL.
+title: Problemas de consulta ao usar O Azure Cosmos DB
+description: Aprenda a identificar, diagnosticar e resolver problemas com problemas de consulta do Azure Cosmos DB SQL.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: troubleshooting
@@ -8,26 +8,26 @@ ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 5f4728c4b604c606d12edcc7a00879b31e54bc85
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: f016902f6cf7e0238dadb97d816f4590caec112e
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264276"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109339"
 ---
-# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
+# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Problemas de consulta ao usar O Azure Cosmos DB
 
-Este artigo percorre uma abordagem geral recomendada para a solução de problemas de consultas no Azure Cosmos DB. Embora as etapas descritas neste documento não devam ser consideradas "capturar tudo" para possíveis problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Você deve usar este documento como um local de início para solucionar problemas de consultas lentas ou caras na API principal (SQL) do Azure Cosmos DB. Você também pode usar [os logs de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar consultas que são lentas ou consumir quantidades significativas de taxa de transferência.
+Este artigo percorre uma abordagem geral recomendada para a solução de problemas de consultas no Azure Cosmos DB. Embora as etapas descritas neste documento não devam ser consideradas "capturar tudo" para possíveis problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Você deve usar este documento como um local de início para solucionar problemas de consultas lentas ou caras na API principal (SQL) do Azure Cosmos DB. Também pode utilizar [registos](cosmosdb-monitor-resource-logs.md) de diagnóstico para identificar consultas que sejam lentas ou que consumam quantidades significativas de entrada.
 
 Você pode categorizar amplamente as otimizações de consulta no Azure Cosmos DB: otimizações que reduzem o encargo da RU (unidade de solicitação) da consulta e otimizações que apenas reduzem a latência. Ao reduzir a carga de RU de uma consulta, você quase certamente diminuirá a latência também.
 
-Este documento usará exemplos que podem ser recriados usando o conjunto de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) .
+Este documento usará exemplos que podem ser recriados usando o conjunto de dados [nutricionais.](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)
 
 ### <a name="obtaining-query-metrics"></a>Obtendo métricas de consulta:
 
-Ao otimizar uma consulta no Azure Cosmos DB, a primeira etapa é sempre [obter as métricas de consulta](profile-sql-api-query.md) para sua consulta. Eles também estão disponíveis por meio do portal do Azure, conforme mostrado abaixo:
+Ao otimizar uma consulta em Azure Cosmos DB, o primeiro passo é sempre [obter as métricas](profile-sql-api-query.md) de consulta para a sua consulta. Eles também estão disponíveis por meio do portal do Azure, conforme mostrado abaixo:
 
-[![obter métricas de consulta](./media/troubleshoot-query-performance/obtain-query-metrics.png)](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+[![Obtenção de métricas de consulta](./media/troubleshoot-query-performance/obtain-query-metrics.png)](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
 Depois de obter as métricas de consulta, compare a contagem de documentos recuperados com a contagem de documentos de saída para sua consulta. Use essa comparação para identificar as seções relevantes a serem referenciadas abaixo.
 
@@ -39,19 +39,19 @@ Você pode fazer referência à seção abaixo para entender as otimizações de
 
 #### <a name="retrieved-document-count-is-significantly-greater-than-output-document-count"></a>A contagem de documentos recuperados é significativamente maior que a contagem de documentos de saída
 
-- [Incluir caminhos necessários na política de indexação](#include-necessary-paths-in-the-indexing-policy)
+- [Incluir os caminhos necessários na política de indexação](#include-necessary-paths-in-the-indexing-policy)
 
-- [Entender quais funções do sistema utilizam o índice](#understand-which-system-functions-utilize-the-index)
+- [Entenda quais as funções do sistema que utilizam o índice](#understand-which-system-functions-utilize-the-index)
 
 - [Consultas com um filtro e uma cláusula ORDER BY](#queries-with-both-a-filter-and-an-order-by-clause)
 
-- [Otimizar expressões de junção usando uma subconsulta](#optimize-join-expressions-by-using-a-subquery)
+- [Otimizar as expressões JOIN utilizando uma subqueria](#optimize-join-expressions-by-using-a-subquery)
 
 <br>
 
 #### <a name="retrieved-document-count-is-approximately-equal-to-output-document-count"></a>A contagem de documentos recuperados é aproximadamente igual à contagem de documentos de saída
 
-- [Evitar consultas entre partições](#avoid-cross-partition-queries)
+- [Evite consultas de partição cruzada](#avoid-cross-partition-queries)
 
 - [Filtros em várias propriedades](#filters-on-multiple-properties)
 
@@ -63,9 +63,9 @@ Você pode fazer referência à seção abaixo para entender as otimizações de
 
 - [Melhorar a proximidade](#improve-proximity)
 
-- [Aumentar a taxa de transferência provisionada](#increase-provisioned-throughput)
+- [Aumentar o acréscimo previsto](#increase-provisioned-throughput)
 
-- [Aumentar MaxConcurrency](#increase-maxconcurrency)
+- [Aumentar a moeda MaxCon](#increase-maxconcurrency)
 
 - [Aumentar MaxBufferedItemCount](#increase-maxbuffereditemcount)
 
@@ -109,13 +109,13 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-A contagem de documentos recuperados (60.951) é significativamente maior que a contagem de documentos de saída (7) para que essa consulta seja necessária para fazer uma verificação. Nesse caso, a função de sistema [Upper ()](sql-query-upper.md) não utiliza o índice.
+A contagem de documentos recuperados (60.951) é significativamente maior que a contagem de documentos de saída (7) para que essa consulta seja necessária para fazer uma verificação. Neste caso, a função do sistema [UPPER()](sql-query-upper.md) não utiliza o índice.
 
 ## <a name="include-necessary-paths-in-the-indexing-policy"></a>Incluir caminhos necessários na política de indexação
 
-Sua política de indexação deve abranger todas as propriedades incluídas em cláusulas `WHERE`, cláusulas `ORDER BY`, `JOIN`e a maioria das funções do sistema. O caminho especificado na política de índice deve corresponder (diferencia maiúsculas de minúsculas) à propriedade nos documentos JSON.
+A sua política de indexação deve abranger quaisquer propriedades incluídas em cláusulas `WHERE`, cláusulas `ORDER BY`, `JOIN`e a maioria das Funções do Sistema. O caminho especificado na política de índice deve corresponder (diferencia maiúsculas de minúsculas) à propriedade nos documentos JSON.
 
-Se executarmos uma consulta simples no conjunto de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) , observaremos uma cobrança de ru muito menor quando a propriedade na cláusula `WHERE` for indexada.
+Se fizermos uma simples consulta no conjunto de dados [nutricionais,](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) observamos uma carga de RU muito mais baixa quando a propriedade na cláusula `WHERE` é indexada.
 
 ### <a name="original"></a>Original
 
@@ -144,7 +144,7 @@ Política de indexação:
 }
 ```
 
-**Encargo de ru:** 409,51 ru
+**RU Charge:** 409.51 RU's
 
 ### <a name="optimized"></a>Otimizado
 
@@ -163,9 +163,9 @@ Política de indexação atualizada:
 }
 ```
 
-**Encargo de ru:** 2,98 ru
+**RU Charge:** 2.98 RU's
 
-Você pode adicionar propriedades adicionais à política de indexação a qualquer momento, sem afetar a disponibilidade ou o desempenho da gravação. Se você adicionar uma nova propriedade ao índice, as consultas que usam essa propriedade usarão imediatamente o novo índice disponível. A consulta usará o novo índice enquanto ele estiver sendo compilado. Como resultado, os resultados da consulta podem ser inconsistentes à medida que a recompilação do índice está em andamento. Se uma nova propriedade for indexada, as consultas que utilizam apenas índices existentes não serão afetadas durante a recompilação do índice. Você pode [acompanhar o progresso da transformação índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Você pode adicionar propriedades adicionais à política de indexação a qualquer momento, sem afetar a disponibilidade ou o desempenho da gravação. Se você adicionar uma nova propriedade ao índice, as consultas que usam essa propriedade usarão imediatamente o novo índice disponível. A consulta usará o novo índice enquanto ele estiver sendo compilado. Como resultado, os resultados da consulta podem ser inconsistentes à medida que a recompilação do índice está em andamento. Se uma nova propriedade for indexada, as consultas que utilizam apenas índices existentes não serão afetadas durante a recompilação do índice. Pode acompanhar o progresso da [transformação do índice.](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)
 
 ## <a name="understand-which-system-functions-utilize-the-index"></a>Entender quais funções do sistema utilizam o índice
 
@@ -179,10 +179,10 @@ Aqui está a lista de funções de cadeia que podem utilizar o índice:
 
 Algumas funções comuns do sistema que não usam o índice e que devem carregar cada documento estão abaixo:
 
-| **Função do sistema**                     | **Ideias para otimização**             |
+| **Função do Sistema**                     | **Ideias para otimização**             |
 | --------------------------------------- |------------------------------------------------------------ |
 | CONTAINS                                | Usar Azure Search para pesquisa de texto completo                        |
-| SUPERIOR/INFERIOR                             | Em vez de usar a função do sistema para normalizar os dados a cada vez para comparações, em vez disso, Normalize a capitalização após a inserção. Em seguida, uma consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` simplesmente se torna ```SELECT * FROM c WHERE c.name = 'BOB'``` |
+| SUPERIOR/INFERIOR                             | Em vez de usar a função do sistema para normalizar os dados a cada vez para comparações, em vez disso, Normalize a capitalização após a inserção. Então uma consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` simplesmente torna-se ```SELECT * FROM c WHERE c.name = 'BOB'``` |
 | Funções matemáticas (não agregadas) | Se você precisar calcular com frequência um valor em sua consulta, considere armazenar esse valor como uma propriedade em seu documento JSON. |
 
 ------
@@ -191,7 +191,7 @@ Outras partes da consulta ainda podem utilizar o índice, apesar das funções d
 
 ## <a name="queries-with-both-a-filter-and-an-order-by-clause"></a>Consultas com um filtro e uma cláusula ORDER BY
 
-Embora as consultas com um filtro e uma cláusula `ORDER BY` normalmente utilizem um índice de intervalo, elas serão mais eficientes se puderem ser servidas de um índice composto. Além de modificar a política de indexação, você deve adicionar todas as propriedades no índice composto à cláusula `ORDER BY`. Essa modificação de consulta garantirá que ela utilize o índice composto.  Você pode observar o impacto executando uma consulta no conjunto de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) .
+Embora as consultas com um filtro e uma cláusula `ORDER BY` normalmente utilizem um índice de gama, serão mais eficientes se puderem ser servidas a partir de um índice composto. Além de modificar a política de indexação, deve adicionar todas as propriedades do índice composto à cláusula `ORDER BY`. Essa modificação de consulta garantirá que ela utilize o índice composto.  Pode observar o impacto executando uma consulta no conjunto de [dados](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) nutricional.
 
 ### <a name="original"></a>Original
 
@@ -217,15 +217,15 @@ Política de indexação:
 }
 ```
 
-**Encargo de ru:** 44,28 ru
+**RU Charge:** 44.28 RU's
 
 ### <a name="optimized"></a>Otimizado
 
 Consulta atualizada (inclui ambas as propriedades na cláusula `ORDER BY`):
 
 ```sql
-SELECT * FROM c 
-WHERE c.foodGroup = “Soups, Sauces, and Gravies” 
+SELECT * FROM c
+WHERE c.foodGroup = “Soups, Sauces, and Gravies”
 ORDER BY c.foodGroup, c._ts ASC
 ```
 
@@ -257,12 +257,12 @@ Política de indexação atualizada:
 
 ```
 
-**Encargo de ru:** 8,86 ru
+**RU Charge:** 8.86 RU's
 
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>Otimizar expressões de junção usando uma subconsulta
-Subconsultas de vários valores podem otimizar `JOIN` expressões enviando predicados após cada expressão Select-many em vez de todas as junções cruzadas na cláusula `WHERE`.
+Subqueries de vários valores podem otimizar expressões `JOIN` empurrando predicados após cada expressão selecionada em vez de afinal se juntarem à cláusula `WHERE`.
 
-Considere a consulta seguinte:
+Considere a seguinte consulta:
 
 ```sql
 SELECT Count(1) AS Count
@@ -274,9 +274,9 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**Encargo de ru:** 167,62 ru
+**RU Charge:** 167.62 RU's
 
-Para essa consulta, o índice corresponderá a qualquer documento que tenha uma marca com o nome "Infant Formula", nutritionValue maior que 0 e atendendo a quantidade maior que 1. A expressão de `JOIN` aqui executará o produto cruzado de todos os itens de marcas, nutrients e servirá matrizes para cada documento correspondente antes de qualquer filtro ser aplicado. A cláusula `WHERE` aplicará o predicado de filtro em cada tupla de `<c, t, n, s>`.
+Para essa consulta, o índice corresponderá a qualquer documento que tenha uma marca com o nome "Infant Formula", nutritionValue maior que 0 e atendendo a quantidade maior que 1. A expressão `JOIN` aqui irá realizar o cross-product de todos os itens de tags, nutrientes e porções arrays para cada documento correspondente antes de qualquer filtro ser aplicado. A cláusula `WHERE` aplicará então o predicado do filtro em cada `<c, t, n, s>` tuple.
 
 Por exemplo, se um documento correspondente tiver 10 itens em cada uma das três matrizes, ele se expandirá para uma tupla de 1 x 10 x 10 x 10 (ou seja, 1.000). O uso de subconsultas aqui pode ajudar na filtragem de itens de matriz Unidos antes da junção com a próxima expressão.
 
@@ -290,9 +290,9 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**Encargo de ru:** 22,17 ru
+**RU Charge:** 22.17 RU's
 
-Suponha que apenas um item na matriz de marcas corresponda ao filtro e que haja cinco itens para nutrients e atende a matrizes. As expressões de `JOIN` serão expandidas para 1 x 1 x 5 x 5 = 25 itens, em vez de 1.000 itens na primeira consulta.
+Suponha que apenas um item na matriz de marcas corresponda ao filtro e que haja cinco itens para nutrients e atende a matrizes. As expressões `JOIN` expandir-se-ão então para 1 x 1 x 5 x 5 = 25 itens, em oposição a 1.000 itens na primeira consulta.
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Consultas em que a contagem de documentos recuperados é igual à contagem de documentos de saída
 
@@ -300,7 +300,7 @@ Se a contagem de documentos recuperados for aproximadamente igual à contagem de
 
 ## <a name="avoid-cross-partition-queries"></a>Evitar consultas entre partições
 
-Azure Cosmos DB usa o [particionamento](partitioning-overview.md) para dimensionar contêineres individuais à medida que as necessidades de unidade de solicitação e armazenamento de dados aumentam. Cada partição física tem um índice separado e independente. Se sua consulta tiver um filtro de igualdade que corresponda à chave de partição do contêiner, você só precisará verificar o índice da partição relevante. Essa otimização reduz o número total de RU que a consulta requer.
+A Azure Cosmos DB utiliza [a partilha](partitioning-overview.md) para escalar os contentores individuais à medida que a Unidade de Pedido e as necessidades de armazenamento de dados aumentam. Cada partição física tem um índice separado e independente. Se sua consulta tiver um filtro de igualdade que corresponda à chave de partição do contêiner, você só precisará verificar o índice da partição relevante. Essa otimização reduz o número total de RU que a consulta requer.
 
 Se você tiver um grande número de RU provisionadas (mais de 30.000) ou uma grande quantidade de dados armazenados (mais de ~ 100 GB), provavelmente terá um contêiner grande o suficiente para ver uma redução significativa nos encargos de consulta RU.
 
@@ -315,7 +315,7 @@ Essas consultas também seriam otimizadas com a inclusão da chave de partição
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup IN(“Soups, Sauces, and Gravies”, “"Vegetables and Vegetable Products”) and  c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
 As consultas que têm filtros de intervalo na chave de partição ou não têm filtros na chave de partição precisarão de "Fan-out" e verificar o índice de cada partição física para obter resultados.
@@ -379,11 +379,11 @@ Em muitos casos, a carga de RU pode ser aceitável, mas a latência de consulta 
 
 ## <a name="improve-proximity"></a>Melhorar a proximidade
 
-As consultas executadas a partir de uma região diferente da conta de Azure Cosmos DB terão uma latência maior do que se fossem executadas dentro da mesma região. Por exemplo, se você estiver executando código em seu computador desktop, deverá esperar que a latência seja de dezenas ou centenas (ou mais) milissegundos maiores do que se a consulta vier de uma máquina virtual na mesma região do Azure que Azure Cosmos DB. É simples [distribuir dados em Azure Cosmos DB globalmente](distribute-data-globally.md) para garantir que você possa trazer seus dados mais perto do seu aplicativo.
+As consultas executadas a partir de uma região diferente da conta de Azure Cosmos DB terão uma latência maior do que se fossem executadas dentro da mesma região. Por exemplo, se você estiver executando código em seu computador desktop, deverá esperar que a latência seja de dezenas ou centenas (ou mais) milissegundos maiores do que se a consulta vier de uma máquina virtual na mesma região do Azure que Azure Cosmos DB. É simples [distribuir globalmente dados no Azure Cosmos DB](distribute-data-globally.md) para garantir que pode aproximar os seus dados da sua aplicação.
 
 ## <a name="increase-provisioned-throughput"></a>Aumentar a taxa de transferência provisionada
 
-Em Azure Cosmos DB, sua taxa de transferência provisionada é medida em unidades de solicitação (RU). Vamos imaginar que você tenha uma consulta que consuma 5 RU de taxa de transferência. Por exemplo, se você provisionar 1.000 RU, poderá executar essa consulta 200 vezes por segundo. Se você tentou executar a consulta quando não havia taxa de transferência suficiente disponível, Azure Cosmos DB retornaria um erro HTTP 429. Qualquer um dos principais SDK da API do núcleo (SQL) tentará automaticamente essa consulta depois de aguardar um breve período. As solicitações limitadas demoram mais tempo, portanto, aumentar a taxa de transferência provisionada pode melhorar a latência da consulta. Você pode observar o [número total de solicitações limitadas de solicitações](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) na folha métricas do portal do Azure.
+Em Azure Cosmos DB, sua taxa de transferência provisionada é medida em unidades de solicitação (RU). Vamos imaginar que você tenha uma consulta que consuma 5 RU de taxa de transferência. Por exemplo, se você provisionar 1.000 RU, poderá executar essa consulta 200 vezes por segundo. Se você tentou executar a consulta quando não havia taxa de transferência suficiente disponível, Azure Cosmos DB retornaria um erro HTTP 429. Qualquer um dos principais SDK da API do núcleo (SQL) tentará automaticamente essa consulta depois de aguardar um breve período. As solicitações limitadas demoram mais tempo, portanto, aumentar a taxa de transferência provisionada pode melhorar a latência da consulta. Pode observar o [número total de pedidos solicitados](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) na lâmina métrica do portal Azure.
 
 ## <a name="increase-maxconcurrency"></a>Aumentar MaxConcurrency
 
@@ -394,8 +394,8 @@ As consultas paralelas funcionam consultando várias partições em paralelo. No
 As consultas são projetadas para buscar antecipadamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda na melhoria da latência geral de uma consulta. Definir o MaxBufferedItemCount limita o número de resultados previamente buscados. Ao definir esse valor como o número esperado de resultados retornados (ou um número mais alto), a consulta pode receber o máximo benefício da busca prévia. Definir esse valor como-1 permite que o sistema decida automaticamente o número de itens para armazenar em buffer.
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os documentos abaixo sobre como medir o RUs por consulta, obter estatísticas de execução para ajustar suas consultas e muito mais:
+Consulte os documentos abaixo sobre como medir as RUs por consulta, obtenha estatísticas de execução para afinar as suas consultas, e muito mais:
 
-* [Obter métricas de execução de consultas SQL através do SDK .NET](profile-sql-api-query.md)
+* [Get SQL query execution metrics using .NET SDK](profile-sql-api-query.md) (Obter métricas de execução de consultas SQL através do SDK do .NET)
 * [Otimização do desempenho de consulta com o Azure Cosmos DB](sql-api-sql-query-metrics.md)
 * [Sugestões de desempenho para o SDK .NET](performance-tips.md)

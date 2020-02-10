@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: ed1abe3565805810a6a3fe383e1ddfa209950469
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bed6736fda0c1815964f9017adb1e6fffa9335d9
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935377"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110682"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitor, diagnóstico e desconexões de problemas com hub Azure IoT
 
@@ -31,9 +31,9 @@ Para registar eventos e erros de ligação do dispositivo, ligue os diagnóstico
 
 2. Navegue pelo seu hub ioT.
 
-3. Selecione **configurações de diagnóstico**.
+3. Selecione **definições de Diagnóstico**.
 
-4. Selecione **ativar os diagnósticos**.
+4. Selecione **Ligar os diagnósticos**.
 
 5. Ativar os registos de **Ligações** para recolher.
 
@@ -51,7 +51,7 @@ Para obter alertas quando os dispositivos se desligarem, configure os alertas na
 
 2. Navegue pelo seu hub ioT.
 
-3. Selecione **alertas**.
+3. Selecione **Alertas**.
 
 4. Selecione **Nova regra de alerta**.
 
@@ -73,7 +73,7 @@ Quando liga os registos de diagnóstico e alertas para dispositivos conectados, 
 
 1. Navegue pelo seu hub ioT.
 
-1. Selecionar **Registos**.
+1. Selecione **Registos**.
 
 1. Para isolar os registos de erro de conectividade para o IoT Hub, introduza a seguinte consulta e, em seguida, selecione **Executar:**
 
@@ -101,6 +101,8 @@ Se os passos anteriores não ajudaram, tente:
 * Se tiver acesso aos dispositivos problemáticos, física ou remotamente (como o SSH), siga o [guia de resolução de problemas](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) do lado do dispositivo para continuar a resolução de problemas.
 
 * Verifique se os seus dispositivos estão **ativados** no portal Azure > os seus dispositivos IoT hub > IoT.
+
+* Se o seu dispositivo utilizar o protocolo MQTT, verifique se a porta 8883 está aberta. Para mais informações, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 * Obtenha ajuda do [fórum Azure IoT Hub,](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub) [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub)ou [suporte Azure](https://azure.microsoft.com/support/options/).
 

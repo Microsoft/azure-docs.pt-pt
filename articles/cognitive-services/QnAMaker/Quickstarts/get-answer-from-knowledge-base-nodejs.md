@@ -1,57 +1,57 @@
 ---
-title: 'Início rápido: obter resposta da base de dados de conhecimento-REST, Node. js-QnA Maker'
-description: Este guia de início rápido baseado em REST do node. js orienta você pela obtenção de uma resposta de uma base de dados de conhecimento, programaticamente.
+title: 'Quickstart: Obtenha resposta da base de conhecimento - REST, Node.js - QnA Maker'
+description: Este quickstart baseado no Nó leva-o através de obter uma resposta de uma base de conhecimento, programáticamente.
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCHANGE-20200128
-ms.openlocfilehash: 89c7c71860accb322be522e1a655e4db6288634d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e8077235852e8776c4e52403cbac3e4bccc6c4f1
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844250"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109775"
 ---
-# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Início rápido: Obtenha respostas para uma pergunta de uma base de dados de conhecimento com node. js
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Quickstart: Obtenha respostas para uma pergunta de uma base de conhecimento com Node.js
 
-Este guia de início rápido orienta você na obtenção de uma resposta de uma base de dados de conhecimento QnA Maker publicada. A base de conhecimento contém perguntas e respostas de [fontes de dados](../Concepts/knowledge-base.md) , como perguntas frequentes. A [pergunta](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) é enviada para o serviço de QnA Maker. A [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclui a resposta mais prevista.
+Este quickstart leva-o programáticamente a obter uma resposta de uma base de conhecimento publicada da QnA Maker. A base de conhecimento contém perguntas e respostas de [fontes](../Concepts/knowledge-base.md) de dados como FAQs. A [questão](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) é enviada ao serviço QnA Maker. A [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclui a resposta mais bem prevista.
 
-[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [exemplo](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/get-answer/get-answer.js)
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [Amostra](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/get-answer/get-answer.js)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para obter a sua chave, selecione **chaves** sob **gestão de recursos** no dashboard do Azure para o seu recurso do QnA Maker.
-* **Publicar** configurações da página. Se você não tiver uma base de dados de conhecimento publicada, crie uma base de dados de conhecimento vazia, importe uma base de dados de conhecimento na página **configurações** e, em seguida, publique. Você pode baixar e usar [essa base de dados de conhecimento básica](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv).
+* Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a sua chave, selecione **Keys** sob **Gestão** de Recursos no seu painel Azure para o seu recurso QnA Maker.
+* **Publique** as definições da página. Se não tiver uma base de conhecimento publicada, crie uma base de conhecimento vazia e, em seguida, importe uma base de conhecimento na página **Definições** e, em seguida, publique. Pode descarregar e utilizar [esta base de conhecimentos básicos.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv)
 
-    As configurações da página de publicação incluem o valor da rota de POST, o valor do host e o valor de EndpointKey.
+    As definições da página de publicação incluem o valor da rota POST, o valor do anfitrião e o valor EndpointKey.
 
     ![Definições de publicação](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
-## <a name="create-a-nodejs-file"></a>Criar um arquivo node. js
+## <a name="create-a-nodejs-file"></a>Crie um ficheiro Node.js
 
-Abra o VSCode e crie um novo ficheiro designado `get-answer.js`.
+Abra o VSCode e crie um novo ficheiro chamado `get-answer.js`.
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-Na parte superior do arquivo de `get-answer.js`, adicione as dependências necessárias ao projeto:
+No topo do ficheiro `get-answer.js`, adicione as dependências necessárias ao projeto:
 
 [!code-nodejs[Add the required dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=1-4 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
 
-Em seguida, adicione as constantes necessárias para acessar QnA Maker. Esses valores estão na página **publicar** depois que você publicar a base de dados de conhecimento.
+Em seguida, adicione as constantes necessárias para aceder ao QnA Maker. Estes valores estão na página **Publicar** depois de publicar a base de conhecimento.
 
 [!code-nodejs[Add the required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=6-22 "Add the required constants")]
 
-## <a name="add-a-post-request-to-send-question-and-get-an-answer"></a>Adicionar uma solicitação POST para enviar a pergunta e obter uma resposta
+## <a name="add-a-post-request-to-send-question-and-get-an-answer"></a>Adicione um pedido post para enviar a pergunta e obter uma resposta
 
-O código a seguir faz uma solicitação HTTPS para o API de QnA Maker para enviar a pergunta para a base de dados de conhecimento e recebe a resposta:
+O seguinte código faz um pedido HTTPS à API do Fabricante de QnA para enviar a questão para a base de conhecimento e recebe a resposta:
 
 [!code-nodejs[Add a POST request to send question to knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=24-49 "Add a POST request to send question to knowledge base")]
 
-O valor do cabeçalho de `Authorization` inclui a cadeia de caracteres `EndpointKey`.
+O valor do cabeçalho `Authorization` inclui a cadeia `EndpointKey`.
 
 ## <a name="install-the-dependencies"></a>Instalar as dependências
 
@@ -63,7 +63,7 @@ npm install request request-promise
 
 ## <a name="run-the-program"></a>Execute o programa
 
-Execute o programa na linha de comando. Ele enviará automaticamente o pedido para a API QnA Maker, em seguida, será impresso para a janela da consola.
+Executar o programa a partir da linha de comando. Ele enviará automaticamente o pedido para a API QnA Maker, em seguida, será impresso para a janela da consola.
 
 Execute o ficheiro:
 
@@ -73,7 +73,7 @@ node get-answer.js
 
 [!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)]
 
-Saiba mais sobre a [solicitação](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e a [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
+Saiba mais sobre o [pedido](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e [resposta.](../how-to/metadata-generateanswer-usage.md#generateanswer-response)
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 

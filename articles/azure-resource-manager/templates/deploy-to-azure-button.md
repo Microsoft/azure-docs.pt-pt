@@ -1,14 +1,14 @@
 ---
-title: Botão implantar no Azure
+title: Desdobrar para o botão Azure
 description: Utilize o botão para implantar modelos do Gestor de Recursos Azure a partir de um repositório GitHub.
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.openlocfilehash: cf22203b843f4483f495b6eba9a522267c010a79
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/07/2020
+ms.openlocfilehash: 88436eac970b252d7b0bc7bccee4131e06e9e0cf
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050593"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109043"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
 
@@ -24,7 +24,7 @@ Para adicionar o botão à sua página web ou repositório, utilize a seguinte i
 
 A imagem aparece como:
 
-![Botão implantar no Azure](https://aka.ms/deploytoazurebutton)
+![Desdobrar para o botão Azure](https://aka.ms/deploytoazurebutton)
 
 ## <a name="create-url-for-deploying-template"></a>Criar URL para implementar modelo
 
@@ -62,7 +62,15 @@ Tem a url completa para o link.
 
 ## <a name="create-deploy-to-azure-button"></a>Criar o botão Deploy para Azure
 
-Finalmente, junte o link e a imagem. Pode adicionar este HTML ao ficheiro README.md no seu repositório GitHub ou a uma página web.
+Finalmente, junte o link e a imagem.
+
+Para adicionar o botão com o Markdown no ficheiro README.md no seu repositório GitHub ou numa página web, utilize:
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
+```
+
+Para HTML, utilize:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
@@ -73,10 +81,8 @@ Finalmente, junte o link e a imagem. Pode adicionar este HTML ao ficheiro README
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
 Para testar a solução completa, selecione o seguinte botão:
-<br><br>
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
-  <img src="https://aka.ms/deploytoazurebutton"/>
-</a>
+
+[![Implementar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
 
 O portal exibe um painel que lhe permite fornecer facilmente valores de parâmetros. Os parâmetros são pré-preenchidos com os valores predefinidos do modelo.
 

@@ -1,6 +1,6 @@
 ---
-title: Atividade de webhook no Azure Data Factory
-description: A atividade de webhook não continua a execução do pipeline até que ele valide o conjunto de dado anexado com determinados critérios que o usuário especifica.
+title: Atividade webhook na Fábrica de Dados Azure
+description: A atividade webhook não continua a executar o gasoduto até validar o conjunto de dados anexo com determinados critérios que o utilizador especifica.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: b2f7c35e6ddb3c6ed0a3032d7ea6d4c53043c17b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122907"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109997"
 ---
-# <a name="webhook-activity-in-azure-data-factory"></a>Atividade de webhook no Azure Data Factory
-Você pode usar uma atividade de webhook para controlar a execução de pipelines por meio de seu código personalizado. Usando a atividade de webhook, os clientes podem chamar um ponto de extremidade e passar uma URL de retorno de chamada. A execução do pipeline aguarda a chamada do retorno de chamada antes de prosseguir para a próxima atividade.
+# <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Fábrica de Dados Azure
+Pode utilizar uma atividade de webhook para controlar a execução de gasodutos através do seu código personalizado. Utilizando a atividade do webhook, os clientes podem ligar para um ponto final e passar um URL de callback. A execução do gasoduto aguarda que a chamada seja invocada antes de prosseguir para a próxima atividade.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -49,31 +49,77 @@ Você pode usar uma atividade de webhook para controlar a execução de pipeline
 ```
 
 
-## <a name="type-properties"></a>Propriedades do tipo
+## <a name="type-properties"></a>Propriedades de tipo
 
 
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade de Web Hook | Cadeia | Sim |
-tipo | Deve ser definido como **webhook**. | Cadeia | Sim |
-método | Método de API REST para o ponto de extremidade de destino. | Strings. Tipos com suporte: ' POST ' | Sim |
-url | Caminho e ponto de extremidade de destino | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres). | Sim |
-conector | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: "headers": {"Accept-Language": "en-US", "Content-Type": "Application/JSON"}. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. "headers":{ "Content-Type":"application/json"} |
-conteúdo | Representa a carga que é enviada para o ponto de extremidade. | JSON válido (ou expressão com ResultType de JSON). Consulte o esquema da carga de solicitação na seção [esquema de carga de solicitação](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) . | Sim |
-autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "básico" ou "ClientCertificate". Para obter mais informações, consulte a seção [autenticação](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) . Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não |
-tempo limite | Quanto tempo a atividade aguardará até que &#39;o&#39; callBackUri seja invocado. Por quanto tempo a atividade aguardará o ' callBackUri ' ser invocado. O valor padrão é 10mins ("00:10:00"). O formato é TimeSpan, ou seja, d. hh: mm: SS | Cadeia | Não |
-Relatar status no retorno de chamada | Permite que o usuário relate o status de falha da atividade de webhook que marcará a atividade como com falha | Booleano | Não |
+nome | Nome da atividade do gancho web | Cadeia | Sim |
+tipo | Deve ser definido para **WebHook**. | Cadeia | Sim |
+método | Método API de repouso para o ponto final alvo. | Cadeia. Tipos suportados: 'POST' | Sim |
+url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). | Sim |
+conector | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: "cabeçalhos" : {"Aceitar-Linguagem": "en-us", "Content-Type": "application/json" }. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Sim, é necessário um cabeçalho do tipo conteúdo. "headers":{ "Content-Type":"application/json"} |
+corpo | Representa a carga útil que é enviada para o ponto final. | JSON válido (ou expressão com resultadoType of JSON). Consulte o esquema da carga útil do pedido na secção esquema de [carga útil solicitação.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) | Sim |
+autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Básicos" ou "Certificado de Cliente". Para mais informações, consulte a secção [autenticação.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) Se não for necessária a autenticação, exclua este imóvel. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não |
+tempo limite | Quanto tempo a atividade &#39;vai esperar&#39; que a chamadaBackUri seja invocada. Quanto tempo a atividade vai esperar que o 'callBackUri' seja invocado. O valor predefinido é de 10mins ("00:10:00"). Formato é Timespan i.e. d.hh:mm:ss | Cadeia | Não |
+Estado do relatório no callback | Permite ao utilizador o relatório o estado falhado da atividade do webhook que marcará a atividade como falhada | Booleano | Não |
+
+## <a name="authentication"></a>Autenticação
+
+Abaixo estão os tipos de autenticação suportados na atividade do webhook.
+
+### <a name="none"></a>Nenhuma
+
+Se não for necessária a autenticação, não inclua o imóvel de "autenticação".
+
+### <a name="basic"></a>Básica
+
+Especifique o nome do utilizador e a palavra-passe para usar com a autenticação básica.
+
+```json
+"authentication":{
+   "type":"Basic",
+   "username":"****",
+   "password":"****"
+}
+```
+
+### <a name="client-certificate"></a>Certificado de cliente
+
+Especifique o conteúdo codificado base64 de um ficheiro PFX e a palavra-passe.
+
+```json
+"authentication":{
+   "type":"ClientCertificate",
+   "pfx":"****",
+   "password":"****"
+}
+```
+
+### <a name="managed-identity"></a>Identidade Gerida
+
+Especifique o uri de recurso para o qual o token de acesso será solicitado utilizando a identidade gerida para a fábrica de dados. Para ligar para a API de Gestão de Recursos Azure, use `https://management.azure.com/`. Para obter mais informações sobre como funcionam as identidades geridas, consulte as identidades geridas para a página geral dos [recursos do Azure.](/azure/active-directory/managed-identities-azure-resources/overview)
+
+```json
+"authentication": {
+    "type": "MSI",
+    "resource": "https://management.azure.com/"
+}
+```
+
+> [!NOTE]
+> Se a sua fábrica de dados estiver configurada com um repositório git, deve armazenar as suas credenciais no Cofre de Chaves Azure para utilizar a autenticação básica ou de certificado de cliente. A Azure Data Factory não armazena senhas em git.
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-Azure Data Factory passará uma propriedade adicional "callBackUri" no corpo para o ponto de extremidade da URL e esperará que esse URI seja invocado antes do valor de tempo limite especificado. Se o URI não for invocado, a atividade falhará com o status ' TimedOut '.
+A Azure Data Factory passará uma propriedade adicional "callBackUri" no corpo até ao ponto final do url, e espera que este uri seja invocado antes do valor limite especificado. Se o uri não for invocado, a atividade falhará com o estado 'TimedOut'.
 
-A própria atividade de webhook falha quando a chamada para o ponto de extremidade personalizado falha. Qualquer mensagem de erro pode ser adicionada ao corpo do retorno de chamada e usada em uma atividade subsequente.
+A própria atividade do webhook falha quando a chamada para o ponto final personalizado falha. Qualquer mensagem de erro pode ser adicionada no corpo da chamada e usada numa atividade subsequente.
 
-O corpo passado de volta para o URI de retorno de chamada deve ser um JSON válido. Você deve definir o cabeçalho Content-Type como `application/json`.
+O corpo passado de volta para o callback URI deve ser válido JSON. Tem de definir o cabeçalho do Tipo conteúdo para `application/json`.
 
-Ao usar a opção "status do relatório no retorno de chamada", você deve adicionar o seguinte trecho ao corpo ao fazer o retorno de chamada:
+Quando utilizar a opção "Reportar no backback", deve adicionar o seguinte corte ao corpo ao efazer a chamada:
 
 ```
 {
@@ -94,12 +140,12 @@ Ao usar a opção "status do relatório no retorno de chamada", você deve adici
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
+Consulte outras atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
-- [Para cada atividade](control-flow-for-each-activity.md)
+- [Para cada Atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade da Web](control-flow-web-activity.md)
+- [Atividade Web](control-flow-web-activity.md)
 - [Atividade Until](control-flow-until-activity.md)

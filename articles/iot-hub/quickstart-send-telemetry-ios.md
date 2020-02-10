@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/03/2019
-ms.openlocfilehash: a23518cd016a1711e47734df0f7179770aa92a87
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 73f42384af8b9f0147f3855ad5003598a0cd3c53
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166973"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110505"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT (iOS)
 
@@ -31,13 +31,15 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Transferir o código de exemplo a partir dos [exemplos do Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)
-- A versão mais recente do [XCode](https://developer.apple.com/xcode/), com a última versão do SDK do iOS. Este guia de início rápido foi testado com o XCode 10,2 e o iOS 12,2.
+- A versão mais recente do [XCode](https://developer.apple.com/xcode/), com a última versão do SDK do iOS. Este quickstart foi testado com XCode 10.2 e iOS 12.2.
 - A versão mais recente do [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
-- Execute o comando a seguir para adicionar a extensão de IoT Microsoft Azure para CLI do Azure à sua instância de Cloud Shell. A extensão de IOT adiciona comandos específicos do serviço de provisionamento de dispositivos IOT, IoT Edge e do Hub IoT a CLI do Azure.
+- Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
+
+- Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -47,19 +49,19 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
-1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
+1. Executar o seguinte comando em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
+   **YourIoTHubName**: Substitua este espaço reservado abaixo com o nome que escolheu para o seu hub IoT.
 
-   **myiOSdevice**: esse é o nome do dispositivo que você está registrando. É recomendável usar **myiOSdevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, também precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   **myiOSdevice**: Este é o nome do dispositivo que está a registar. É recomendado usar **o myiOSdevice** como mostrado. Se escolher um nome diferente para o seu dispositivo, também terá de usar esse nome ao longo deste artigo e atualizar o nome do dispositivo nas aplicações da amostra antes de os executar.
 
    ```azurecli-interactive
    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
    ```
 
-1. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de conexão do dispositivo_ para o dispositivo que você acabou de registrar:
+1. Execute o seguinte comando em Azure Cloud Shell para obter a _cadeia de ligação_ do dispositivo para o dispositivo que acabou de registar:
 
-   **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
+   **YourIoTHubName**: Substitua este espaço reservado abaixo com o nome que escolheu para o seu hub IoT.
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
@@ -69,7 +71,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=myiOSdevice;SharedAccessKey={YourSharedAccessKey}`
 
-    Você usará esse valor posteriormente no início rápido.
+    Usará este valor mais tarde no início.
 
 ## <a name="send-simulated-telemetry"></a>Enviar telemetria simulada
 
@@ -103,7 +105,7 @@ Para além de instalar os pods necessários para o projeto, o comando de instala
 
 2. Expanda o projeto **MQTT Client Sample** e, em seguida, expanda a pasta com o mesmo nome.  
 3. Abra **ViewController.swift** para edição no XCode. 
-4. Pesquise a variável **ConnectionString** e atualize o valor com a cadeia de conexão do dispositivo anotada anteriormente.
+4. Procure a variável **de ligaçãoString** e atualize o valor com a cadeia de ligação do dispositivo de que fez uma nota anterior.
 5. Guarde as alterações. 
 6. Execute o projeto no emulador do dispositivo com o botão **Build and run** (Compilar e executar) ou a combinação de teclas **comando + r**. 
 
@@ -137,7 +139,7 @@ A captura de ecrã abaixo mostra o tipo de telemetria que vai ver na janela de t
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, enviou telemetria simulada para o Hub de um dispositivo iOS e leu a telemetria do Hub. 
+Neste arranque rápido, instalou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub a partir de um dispositivo iOS, e leu a telemetria a partir do centro. 
 
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 

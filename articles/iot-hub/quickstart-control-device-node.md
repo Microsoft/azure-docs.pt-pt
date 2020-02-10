@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: controlar um dispositivo do Azure IoT (Node. js)'
+title: 'Quickstart: Controle um dispositivo a partir de Azure IoT (Node.js)'
 description: Neste guia de início rápido, irá executar duas aplicações Node.js de exemplo. Existe uma aplicação back-end que pode controlar remotamente dispositivos ligados ao seu hub. A outra aplicação simula um dispositivo ligado ao seu hub que pode ser controlado remotamente.
 author: wesmc7777
 manager: philmea
@@ -10,18 +10,18 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
-ms.openlocfilehash: ed3946c40d8e3eff665e4454b81f408c2033c09a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: cc0ff372b4680f02410f1f58304d0be95228c965
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529605"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108908"
 ---
-# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Início rápido: usar o Node. js para controlar um dispositivo conectado a um hub IoT do Azure
+# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Quickstart: Use Node.js para controlar um dispositivo ligado a um hub Azure IoT
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-O Hub IoT é um serviço do Azure que permite gerenciar seus dispositivos IoT na nuvem e ingerir grandes volumes de telemetria de dispositivo para a nuvem para armazenamento ou processamento. Neste guia de início rápido, irá utilizar um *método direto* para controlar um dispositivo simulado ligado ao seu hub IoT. Pode utilizar métodos diretos para alterar remotamente o comportamento de um dispositivo ligado ao seu hub IoT.
+O IoT Hub é um serviço Azure que lhe permite gerir os seus dispositivos IoT a partir da nuvem, e ingerir grandes volumes de telemetria do dispositivo para a nuvem para armazenamento ou processamento. Neste guia de início rápido, irá utilizar um *método direto* para controlar um dispositivo simulado ligado ao seu hub IoT. Pode utilizar métodos diretos para alterar remotamente o comportamento de um dispositivo ligado ao seu hub IoT.
 
 O guia de início rápido utiliza duas aplicações Node.js pré-escritas:
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do node. js v10. x. x ou posterior em seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -45,13 +45,15 @@ Pode verificar qual a versão atual do Node.js no seu computador de desenvolvime
 node --version
 ```
 
-Execute o comando a seguir para adicionar a extensão de IoT Microsoft Azure para CLI do Azure à sua instância de Cloud Shell. A extensão de IOT adiciona comandos específicos do serviço de provisionamento de dispositivos IOT, IoT Edge e do Hub IoT a CLI do Azure.
+Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
 Se ainda não o fez, transfira o projeto Node.js de exemplo do https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
+
+Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -65,11 +67,11 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
-1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
+1. Executar o seguinte comando em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
+   **YourIoTHubName**: Substitua este espaço reservado abaixo com o nome que escolheu para o seu hub IoT.
 
-   **MyNodeDevice**: esse é o nome do dispositivo que você está registrando. É recomendável usar **MyNodeDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, também precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyNodeDevice**: Este é o nome do dispositivo que está a registar. É aconselhável utilizar o **MyNodeDevice** como mostrado. Se escolher um nome diferente para o seu dispositivo, também precisa de usar esse nome ao longo deste artigo e atualizar o nome do dispositivo nas aplicações da amostra antes de os executar.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -78,7 +80,7 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-    **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
+    **YourIoTHubName**: Substitua este espaço reservado abaixo com o nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -95,7 +97,7 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
 
 3. Também precisa de uma _cadeia de ligação do serviço_ para permitir que a aplicação back-end se ligue ao seu hub IoT e obtenha as mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
 
-    **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
+    **YourIoTHubName**: Substitua este espaço reservado abaixo com o nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string \
@@ -107,17 +109,17 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    Irá utilizar este valor mais adiante no guia de início rápido. Essa cadeia de conexão de serviço é diferente da cadeia de conexão do dispositivo que você anotou na etapa anterior.
+    Irá utilizar este valor mais adiante no guia de início rápido. Esta cadeia de ligação de serviço é diferente da cadeia de ligação do dispositivo que observou no passo anterior.
 
 ## <a name="listen-for-direct-method-calls"></a>Aguardar chamadas de método direto
 
-A aplicação de dispositivo simulado liga-se a um ponto final específico do dispositivo no seu hub IoT, envia telemetria simulada e aguarda chamadas de método direto do seu hub. Neste guia de início rápido, a chamada de método direto do hub indica ao dispositivo para alterar o intervalo em que envia telemetria. O dispositivo simulado envia uma confirmação de volta ao seu hub depois de executar o método direto.
+A aplicação de dispositivo simulado liga-se a um ponto final específico do dispositivo no seu hub IoT, envia telemetria simulada e aguarda chamadas de método direto do seu hub. Neste guia de início rápido, a chamada de método direto do hub indica ao dispositivo para alterar o intervalo em que envia telemetria. O dispositivo simulado envia um reconhecimento de volta para o seu hub depois de executar o método direto.
 
 1. Na janela do terminal local, navegue para a pasta raiz do projeto Node.js de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\simulated-device-2**.
 
 2. Abra o ficheiro **SimulatedDevice.js** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `connectionString` pela cadeia de conexão do dispositivo anotada anteriormente. Em seguida, salve as alterações em **SimulatedDevice. js**.
+    Substitua o valor da variável `connectionString` com a cadeia de ligação do dispositivo de que fez uma nota anterior. Em seguida, guarde as alterações para **SimulatedDevice.js**.
 
 3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e execute a aplicação de dispositivo simulado:
 
@@ -132,13 +134,13 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 ## <a name="call-the-direct-method"></a>Chamar o método direto
 
-A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub IoT. O aplicativo faz chamadas de método diretas para um dispositivo por meio do Hub IoT e ouve as confirmações. Normalmente, as aplicações back-end do Hub IoT são executadas na cloud.
+A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub IoT. A aplicação faz chamadas de método sinuoso para um dispositivo através do seu hub IoT e ouve reconhecimentos. Normalmente, as aplicações back-end do Hub IoT são executadas na cloud.
 
 1. Noutra janela do terminal local, navegue para a pasta raiz do projeto Node.js de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\back-end-application**.
 
 2. Abra o ficheiro **BackEndApplication.js** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `connectionString` pela cadeia de conexão de serviço anotada anteriormente. Em seguida, salve as alterações em **BackEndApplication. js**.
+    Substitua o valor da variável `connectionString` com a cadeia de ligação de serviço de que fez uma nota anterior. Em seguida, guarde as suas alterações para **BackEndApplication.js**.
 
 3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e executar a aplicação back-end:
 
@@ -147,13 +149,13 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
     node BackEndApplication.js
     ```
 
-    A captura de tela a seguir mostra a saída, pois o aplicativo faz uma chamada de método direto para o dispositivo e recebe uma confirmação:
+    A imagem seguinte mostra a saída à medida que a aplicação faz uma chamada de método direto para o dispositivo e recebe um reconhecimento:
 
-    ![Saída quando o aplicativo faz chamada de método direto para o dispositivo](./media/quickstart-control-device-node/direct-method-device-call.png)
+    ![Saída quando a aplicação faz chamada de método direto para o dispositivo](./media/quickstart-control-device-node/direct-method-device-call.png)
 
     Depois de executar a aplicação back-end, verá uma mensagem na janela da consola a executar o dispositivo simulado e a velocidade à qual a aplicação envia mensagens muda:
 
-    ![Saída quando há uma alteração no cliente simulado](./media/quickstart-control-device-node/simulated-device-message-change.png)
+    ![Saída quando há uma mudança no cliente simulado](./media/quickstart-control-device-node/simulated-device-message-change.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -161,7 +163,7 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você chamou um método direto em um dispositivo de um aplicativo de back-end e respondeu à chamada de método direto em um aplicativo de dispositivo simulado.
+Neste arranque rápido, chamou um método direto num dispositivo a partir de uma aplicação de back-end, e respondeu à chamada do método direto numa aplicação simulada do dispositivo.
 
 Para saber como encaminhar mensagens do dispositivo para a cloud para diferentes destinos na cloud, avance para o tutorial seguinte.
 

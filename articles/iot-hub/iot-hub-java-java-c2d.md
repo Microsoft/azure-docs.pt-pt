@@ -1,6 +1,6 @@
 ---
-title: Mensagens da nuvem para o dispositivo com o Hub IoT do Azure (Java) | Microsoft Docs
-description: Como enviar mensagens da nuvem para o dispositivo para um dispositivo de um hub IoT do Azure usando os SDKs do IoT do Azure para Java. Você modifica um aplicativo de dispositivo simulado para receber mensagens da nuvem para o dispositivo e modificar um aplicativo de back-end para enviar as mensagens da nuvem para o dispositivo.
+title: Mensagens cloud-to-device com Azure IoT Hub (Java)  Microsoft Docs
+description: Como enviar mensagens cloud-to-device para um dispositivo a partir de um hub Azure IoT usando os SDKs Azure IoT para Java. Modifica uma aplicação simulada de dispositivopara receber mensagens cloud-to-device e modificar uma aplicação de back-end para enviar as mensagens cloud-to-device.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,57 +9,59 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 4754d7c2182de79d583dce4982b33395bf037479
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 518f8057f222a628f8c3cd077cad4a7362e2cac8
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161899"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110821"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Enviar mensagens da nuvem para o dispositivo com o Hub IoT (Java)
+# <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envie mensagens cloud-to-device com IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-O Hub IoT do Azure é um serviço totalmente gerenciado que ajuda a habilitar comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de solução. O guia de início rápido [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-java.md) mostra como criar um hub IOT, provisionar uma identidade do dispositivo nele e codificar um aplicativo de dispositivo simulado que envia mensagens do dispositivo para a nuvem.
+O Azure IoT Hub é um serviço totalmente gerido que ajuda a permitir comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos e uma solução traseira. A [telemetria Enviar de um dispositivo para um quickstart de hub IoT](quickstart-send-telemetry-java.md) mostra como criar um hub IoT, fornecer uma identidade de dispositivo no mesmo, e codificar uma aplicação simulada de dispositivo que envia mensagens dispositivo-para-nuvem.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Este tutorial se baseia no [envio de telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-java.md). Ele mostra como fazer o seguinte:
+Este tutorial baseia-se em [Enviar a telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md). Mostra-lhe como fazer o seguinte:
 
-* De seu back-end da solução, envie mensagens da nuvem para o dispositivo para um único dispositivo por meio do Hub IoT.
+* A partir da sua solução traseira, envie mensagens cloud-to-device para um único dispositivo através do IoT Hub.
 
-* Receber mensagens da nuvem para o dispositivo em um dispositivo.
+* Receba mensagens cloud-to-device num dispositivo.
 
-* Do seu back-end da solução, solicite a confirmação de entrega (*comentários*) para mensagens enviadas a um dispositivo do Hub IOT.
+* A partir da sua solução na parte de trás, solicite reconhecimento de entrega *(feedback)* para mensagens enviadas para um dispositivo do IoT Hub.
 
-Você pode encontrar mais informações sobre [as mensagens da nuvem para o dispositivo no guia do desenvolvedor do Hub IOT](iot-hub-devguide-messaging.md).
+Pode encontrar mais informações sobre [mensagens cloud-to-device no guia de desenvolvimento do IoT Hub](iot-hub-devguide-messaging.md).
 
-No final deste tutorial, você executará dois aplicativos de console do Java:
+No final deste tutorial, executa duas aplicações de consola Java:
 
-* **Simulated-Device**, uma versão modificada do aplicativo criado em [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-java.md), que se conecta ao Hub IOT e recebe mensagens da nuvem para o dispositivo.
+* **dispositivo simulado**, uma versão modificada da aplicação criada em [Enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md), que se conecta ao seu hub IoT e recebe mensagens cloud-to-device.
 
-* **Send-C2D-messages**, que envia uma mensagem da nuvem para o dispositivo para o aplicativo de dispositivo simulado por meio do Hub IOT e recebe sua confirmação de entrega.
+* **mensagens de envio c2d,** que enviam uma mensagem cloud-to-device para a aplicação simulada do dispositivo através do IoT Hub, e depois recebem o seu reconhecimento de entrega.
 
 > [!NOTE]
-> O Hub IoT tem suporte do SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java, Python e JavaScript) por meio de SDKs do dispositivo IoT do Azure. Para obter instruções detalhadas sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, consulte o centro de [desenvolvedores do Azure IOT](https://azure.microsoft.com/develop/iot).
+> O IoT Hub tem suporte SDK para muitas plataformas e idiomas de dispositivos (incluindo C, Java, Python e Javascript) através de SDKs do dispositivo Azure IoT. Para obter instruções passo a passo sobre como ligar o seu dispositivo ao código deste tutorial e, em geral, ao Azure IoT Hub, consulte o Centro de [Desenvolvimento Azure IoT](https://azure.microsoft.com/develop/iot).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma versão de trabalho completa do tutorial [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-java.md) ou [Configurar o roteamento de mensagens com o Hub IOT](tutorial-routing.md) .
+* Uma versão completa de trabalho da [telemetria Enviar de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md) quickstart ou o [encaminhamento de mensagens Configure com tutorial IoT Hub.](tutorial-routing.md)
 
-* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **suporte a longo prazo** para obter downloads para o JDK 8.
+* [Kit](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)de Desenvolvimento Java SE 8 . Certifique-se de que seleciona **Java 8** sob suporte a **longo prazo** para obter downloads para JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>Receber mensagens no aplicativo do dispositivo simulado
+* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-Nesta seção, você modificará o aplicativo de dispositivo simulado criado em [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-java.md) para receber mensagens da nuvem para o dispositivo do Hub IOT.
+## <a name="receive-messages-in-the-simulated-device-app"></a>Receber mensagens na aplicação de dispositivo simulado
+
+Nesta secção, modifica a aplicação simulada de dispositivo que criou no [Enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md) para receber mensagens cloud-to-device do hub IoT.
 
 1. Com um editor de texto, abra o ficheiro simulated-device\src\main\java\com\mycompany\app\App.java.
 
-2. Adicione a seguinte classe **MessageCallback** como uma classe aninhada dentro da classe **app** . O método **Execute** é invocado quando o dispositivo recebe uma mensagem do Hub IOT. Neste exemplo, o dispositivo sempre notifica o Hub IoT de que concluiu a mensagem:
+2. Adicione a seguinte aula **de MessageCallback** como uma classe aninhada dentro da classe **App.** O método **de execução** é invocado quando o dispositivo recebe uma mensagem do IoT Hub. Neste exemplo, o dispositivo notifica sempre o hub IoT que completou a mensagem:
 
     ```java
     private static class AppMessageCallback implements MessageCallback {
@@ -72,7 +74,7 @@ Nesta seção, você modificará o aplicativo de dispositivo simulado criado em 
     }
     ```
 
-3. Modifique o método **Main** para criar uma instância **AppMessageCallback** e chame o método **setMessageCallback** antes de abrir o cliente da seguinte maneira:
+3. Modifique o método **principal** para criar uma instância **AppMessageCallback** e ligue para o método **setMessageCallback** antes de abrir o cliente da seguinte forma:
 
     ```java
     client = new DeviceClient(connString, protocol);
@@ -83,7 +85,7 @@ Nesta seção, você modificará o aplicativo de dispositivo simulado criado em 
     ```
 
     > [!NOTE]
-    > Se você usar HTTPS em vez de MQTT ou AMQP como o transporte, a instância **DeviceClient** verificará mensagens do Hub IOT com pouca frequência (menos do que a cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte a MQTT, AMQP e HTTPS e a limitação do Hub IoT, consulte a [seção mensagens do guia do desenvolvedor do Hub IOT](iot-hub-devguide-messaging.md).
+    > Se utilizar https em vez de MQTT ou AMQP como transporte, a instância **Do Cliente do Dispositivo** verifica frequentemente mensagens do IoT Hub (menos do que a cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte MQTT, AMQP e HTTPS, e a aceleração do IoT Hub, consulte a [secção de mensagens do guia de desenvolvimento do IoT Hub.](iot-hub-devguide-messaging.md)
 
 4. Para criar a aplicação **simulated-device** com o Maven, execute o seguinte comando na linha de comandos da pasta simulated-device:
 
@@ -93,23 +95,23 @@ Nesta seção, você modificará o aplicativo de dispositivo simulado criado em 
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
 
-Neste artigo, você cria um serviço de back-end para enviar mensagens da nuvem para o dispositivo por meio do Hub IoT criado em [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-java.md). Para enviar mensagens da nuvem para o dispositivo, seu serviço precisa da permissão de **conexão de serviço** . Por padrão, todo Hub IoT é criado com uma política de acesso compartilhado chamada **serviço** que concede essa permissão.
+Neste artigo cria um serviço de backend para enviar mensagens cloud-to-device através do hub IoT que criou em [Enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md). Para enviar mensagens cloud-to-device, o seu serviço necessita da permissão de ligação do **serviço.** Por padrão, cada Hub IoT é criado com uma política de acesso partilhado chamada **serviço** que concede esta permissão.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="send-a-cloud-to-device-message"></a>Enviar uma mensagem da nuvem para o dispositivo
+## <a name="send-a-cloud-to-device-message"></a>Envie uma mensagem cloud-to-device
 
-Nesta seção, você cria um aplicativo de console Java que envia mensagens da nuvem para o dispositivo para o aplicativo do dispositivo simulado. Você precisa da ID do dispositivo que adicionou no guia de início rápido [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-java.md) . Você também precisa da cadeia de conexão do Hub IoT que copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
+Nesta secção, cria-se uma aplicação de consola Java que envia mensagens cloud-to-device para a aplicação simulada do dispositivo. Precisa da identificação do dispositivo que adicionou na [telemetria Enviar de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md) arranque rápido. Você também precisa da cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string).
 
-1. Crie um projeto Maven chamado **Send-C2D-messages** usando o comando a seguir no prompt de comando. Observe que esse comando é um comando único e longo:
+1. Crie um projeto Maven chamado **enviar mensagens de envio c2d** utilizando o seguinte comando no seu pedido de comando. Note que este comando é um comando único e longo:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. No prompt de comando, navegue até a nova pasta Send-C2D-messages.
+2. A seu pedido de comando, navegue para a nova pasta de mensagens de envio c2d.
 
-3. Usando um editor de texto, abra o arquivo pom. xml na pasta Send-C2D-messages e adicione a dependência a seguir ao nó **Dependencies** . Adicionar a dependência permite que você use o pacote **iothub-Java-Service-Client** em seu aplicativo para se comunicar com o serviço de Hub IOT:
+3. Utilizando um editor de texto, abra o ficheiro pom.xml na pasta de mensagens enviadas c2d e adicione a seguinte dependência ao nó de **dependências.** A adição da dependência permite-lhe utilizar o pacote **iothub-java-service-client** na sua aplicação para comunicar com o seu serviço de hub IoT:
 
     ```xml
     <dependency>
@@ -120,11 +122,11 @@ Nesta seção, você cria um aplicativo de console Java que envia mensagens da n
     ```
 
     > [!NOTE]
-    > Você pode verificar a versão mais recente do **IOT-Service-Client** usando a [pesquisa do Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode consultar a versão mais recente do **iot-service-client** usando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Guarde e feche o ficheiro pom.xml.
 
-5. Usando um editor de texto, abra o arquivo send-c2d-messages\src\main\java\com\mycompany\app\App.java.
+5. Utilizando um editor de texto, abra o ficheiro de mensagens de envio c2d\src\main\java\com\mycompany\app\app.java.
 
 6. Adicione as seguintes declarações de **importação** ao ficheiro:
 
@@ -134,7 +136,7 @@ Nesta seção, você cria um aplicativo de console Java que envia mensagens da n
     import java.net.URISyntaxException;
     ```
 
-7. Adicione as seguintes variáveis de nível de classe à classe **app** , substituindo **{cadeiadeconexãodoseuhub}** e **{iddoseudispositivo}** pelos valores que você anotou anteriormente:
+7. Adicione as seguintes variáveis de nível de classe à classe **App,** substituindo **{yourhubconnectionstring}** e **{yourdeviceid}** com os valores que observou anteriormente:
 
     ```java
     private static final String connectionString = "{yourhubconnectionstring}";
@@ -143,7 +145,7 @@ Nesta seção, você cria um aplicativo de console Java que envia mensagens da n
         IotHubServiceClientProtocol.AMQPS;
     ```
 
-8. Substitua o método **Main** pelo código a seguir. Esse código se conecta ao seu hub IoT, envia uma mensagem para o dispositivo e aguarda uma confirmação de que o dispositivo recebeu e processou a mensagem:
+8. Substitua o método **principal** pelo seguinte código. Este código liga-se ao seu hub IoT, envia uma mensagem para o seu dispositivo e, em seguida, aguarda um reconhecimento que o dispositivo recebeu e processou a mensagem:
 
     ```java
     public static void main(String[] args) throws IOException,
@@ -176,7 +178,7 @@ Nesta seção, você cria um aplicativo de console Java que envia mensagens da n
     ```
 
     > [!NOTE]
-    > Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (como retirada exponencial), conforme sugerido no artigo [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
+    > Para a simplicidade, este tutorial não implementa qualquer política de retenção. No código de produção, deve implementar políticas de retry (como backoff exponencial), como sugerido no artigo, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 9. Para criar a aplicação **simulated-device** com o Maven, execute o seguinte comando na linha de comandos da pasta simulated-device:
 
@@ -188,26 +190,26 @@ Nesta seção, você cria um aplicativo de console Java que envia mensagens da n
 
 Pode agora executar as aplicações.
 
-1. Em um prompt de comando na pasta Simulated-Device, execute o seguinte comando para começar a enviar telemetria para o Hub IoT e para escutar mensagens da nuvem para o dispositivo enviadas do seu Hub:
+1. Num pedido de comando na pasta do dispositivo simulado, execute o seguinte comando para começar a enviar telemetria para o seu hub IoT e para ouvir as mensagens cloud-to-device enviadas do seu hub:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Executar o aplicativo de dispositivo simulado](./media/iot-hub-java-java-c2d/receivec2d.png)
+    ![Executar a aplicação de dispositivo simulado](./media/iot-hub-java-java-c2d/receivec2d.png)
 
-2. Em um prompt de comando na pasta Send-C2D-messages, execute o seguinte comando para enviar uma mensagem da nuvem para o dispositivo e aguardar uma confirmação de comentário:
+2. Num pedido de comando na pasta de mensagens de envio c2d, execute o seguinte comando para enviar uma mensagem cloud-to-device e aguarde um reconhecimento de feedback:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Execute o comando para enviar a mensagem da nuvem para o dispositivo](media/iot-hub-java-java-c2d/sendc2d.png)
+    ![Executar o comando para enviar a mensagem cloud-to-device](media/iot-hub-java-java-c2d/sendc2d.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a enviar e receber mensagens da nuvem para o dispositivo.
+Neste tutorial, aprendeu a enviar e a receber mensagens cloud-to-device.
 
-Para ver exemplos de soluções completas de ponta a ponta que usam o Hub IoT, consulte [aceleradores de solução do Azure IOT](https://azure.microsoft.com/documentation/suites/iot-suite/).
+Para ver exemplos de soluções completas de ponta a ponta que utilizam o Hub [IoT, consulte aceleradores de soluções Azure IoT](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
-Para saber mais sobre como desenvolver soluções com o Hub IoT, confira o [Guia do desenvolvedor do Hub IOT](iot-hub-devguide.md).
+Para saber mais sobre o desenvolvimento de soluções com o IoT Hub, consulte o guia de [desenvolvimento do IoT Hub.](iot-hub-devguide.md)

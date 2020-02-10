@@ -1,6 +1,6 @@
 ---
 title: Sincronizar estados de dispositivos a partir do Hub IoT do Azure | Microsoft Docs
-description: Saiba como usar dispositivos gêmeos para configurar seus dispositivos na nuvem e receber dados de status e conformidade de seus dispositivos.
+description: Aprenda a usar gémeos dispositivos para configurar os seus dispositivos a partir da nuvem e receba dados de estado e conformidade dos seus dispositivos.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 647182389ec0ad4cb2b80a0676812961cb9be770
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1337870fc871282f84af17b34ba26b3b0271316b
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890437"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110708"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do node. js v10. x. x ou posterior em seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -51,11 +51,13 @@ node --version
 
 Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
 
+Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## <a name="set-up-azure-resources"></a>Configurar recursos do Azure
 
 Para concluir este tutorial, a sua subscrição do Azure tem de conter um hub do IoT com um dispositivo adicionado ao registo de identidades de dispositivos. A entrada no registo de identidades de dispositivos permite que o dispositivo simulado que executará neste tutorial se ligue ao seu hub.
 
-Se você ainda não tiver um hub IoT configurado em sua assinatura, poderá configurar um com o script da CLI a seguir. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central**, que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub do IoT, que irá utilizar no exemplo de back-end para ligar ao seu hub do IoT:
+Se ainda não tiver um hub IoT configurado na sua subscrição, pode configurar um com o seguinte script CLI. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central**, que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub do IoT, que irá utilizar no exemplo de back-end para ligar ao seu hub do IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -236,7 +238,7 @@ A seguinte captura de ecrã mostra os dados de saída da aplicação de disposit
 
 ![Dispositivo simulado](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-A captura de tela a seguir mostra a saída do aplicativo de back-end e realça como ele recebe e processa uma atualização de propriedade relatada de um dispositivo:
+A imagem seguinte mostra a saída da aplicação back-end e destaca como recebe e processa uma atualização de propriedade reportada a partir de um dispositivo:
 
 ![Aplicação de back-end](./media/tutorial-device-twins/BackEnd2.png)
 

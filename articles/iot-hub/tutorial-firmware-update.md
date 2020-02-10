@@ -1,6 +1,6 @@
 ---
 title: Atualizar o firmware do dispositivo através do Hub IoT do Azure | Microsoft Docs
-description: Saiba como implementar um processo de atualização de firmware de dispositivo que pode ser disparado de um aplicativo de back-end conectado ao Hub IoT.
+description: Saiba como implementar um processo de atualização de firmware de dispositivo que pode ser desencadeado a partir de uma aplicação de back-end ligada ao seu hub IoT.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: 0665a20bfd8253b28936044abe515862b32f1b43
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ba94c9f2af737af3ae1ebcccf6685643a54da237
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888746"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110698"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do node. js v10. x. x ou posterior em seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -49,6 +49,8 @@ node --version
 ```
 
 Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
+
+Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Configurar recursos do Azure
 
@@ -183,7 +185,7 @@ A captura de ecrã seguinte mostra o resultado da aplicação de back-end e real
 
 ![Aplicação de back-end](./media/tutorial-firmware-update/BackEnd2.png)
 
-Como as configurações automáticas do dispositivo são executadas no momento da criação e a cada cinco minutos, você pode não ver todas as atualizações de status enviadas ao aplicativo de back-end. Também pode ver as métricas no portal na secção **Gestão de dispositivos automática -> Configuração do dispositivo IoT** do seu hub IoT:
+Uma vez que as configurações automáticas do dispositivo funcionam no momento da criação e, em seguida, a cada cinco minutos, pode não ver todas as atualizações de estado enviadas para a aplicação back-end. Também pode ver as métricas no portal na secção **Gestão de dispositivos automática -> Configuração do dispositivo IoT** do seu hub IoT:
 
 ![Ver a configuração no portal](./media/tutorial-firmware-update/portalview.png)
 
@@ -202,7 +204,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a implementar um processo de atualização de firmware para os seus dispositivos ligados. Avance para o próximo tutorial para aprender a usar as ferramentas do portal do Hub IoT do Azure e os comandos CLI do Azure para testar a conectividade do dispositivo.
+Neste tutorial, aprendeu a implementar um processo de atualização de firmware para os seus dispositivos ligados. Avance para o próximo tutorial para aprender a usar ferramentas do portal Azure IoT Hub e comandos Azure CLI para testar a conectividade do dispositivo.
 
 > [!div class="nextstepaction"]
 > [Utilize um dispositivo simulado para testar a conectividade com o seu hub IoT](tutorial-connectivity.md)

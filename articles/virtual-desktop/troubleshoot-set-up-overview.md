@@ -1,59 +1,60 @@
 ---
-title: Visão geral da solução de problemas de área de trabalho virtual do Windows – Azure
-description: Uma visão geral para solucionar problemas durante a configuração de um ambiente de locatário de área de trabalho virtual do Windows.
+title: Visão geral de resolução de problemas do Windows Virtual Desktop - Azure
+description: Uma visão geral para problemas de resolução de problemas ao mesmo tempo que cria um ambiente de inquilino sinuoso virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/06/2019
+ms.date: 02/07/2020
 ms.author: helohr
-ms.openlocfilehash: ce1af278d67f96873ed611db8dc05938205638dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: dc4e4e271ac7108f4c29c82646e9849b9a5cd929
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980246"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110782"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Descrição geral da resolução de problemas, comentários e suporte
 
-Este artigo fornece uma visão geral dos problemas que você pode encontrar ao configurar um ambiente de locatário de área de trabalho virtual do Windows e fornece maneiras de resolver os problemas.
+Este artigo fornece uma visão geral dos problemas que pode encontrar ao configurar um ambiente de inquilino seletiva virtual do Windows e fornece formas de resolver os problemas.
 
 ## <a name="provide-feedback"></a>Enviar comentários
 
-Visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de área de trabalho virtual do Windows com a equipe de produto e os membros ativos da Comunidade.
+Visite o [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de desktop virtual windows com a equipa de produtos e membros ativos da comunidade.
 
-## <a name="escalation-tracks"></a>Faixas de escalonamento
+## <a name="escalation-tracks"></a>Faixas de escalada
 
-Use a tabela a seguir para identificar e resolver os problemas que você pode encontrar ao configurar um ambiente de locatário usando o Área de Trabalho Remota Client. Depois de configurar o locatário, você pode usar nosso novo [serviço de diagnóstico](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) para identificar problemas em cenários comuns.
+Utilize a tabela seguinte para identificar e resolver problemas que possa encontrar ao configurar um ambiente de inquilino utilizando o cliente Remote Desktop. Assim que o seu inquilino estiver configurado, pode usar o nosso novo serviço de [Diagnóstico](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) para identificar questões para cenários comuns.
 
 >[!NOTE]
-> Temos um fórum da comunidade técnica que você pode visitar para discutir seus problemas com a equipe de produto e os membros ativos da Comunidade. Visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para
+> Temos um fórum tech community que pode visitar para discutir os seus problemas com a equipa de produtos e membros ativos da comunidade. Visite o [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para iniciar uma discussão.
 
-| **Problema**                                                            | **Solução sugerida**  |
+| **Edição**                                                            | **Solução Sugerida**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Criando um locatário                                                    | Se houver uma interrupção do Azure, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/options/); caso contrário, **abra uma solicitação de suporte para a área de trabalho virtual do Windows (computação)** .|
-| Acessando modelos do Marketplace no portal do Azure       | Se houver uma interrupção do Azure, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/options/). <br> <br> Os modelos de área de trabalho virtual do Windows do Azure Marketplace estão disponíveis gratuitamente.|
-| Acessando modelos de Azure Resource Manager do GitHub                                  | Consulte a seção "criando VMs do host de sessão de área de trabalho virtual do Windows" do [locatário e da criação do pool de hosts](troubleshoot-set-up-issues.md). Se o problema ainda não for resolvido, entre em contato com a [equipe de suporte do GitHub](https://github.com/contact). <br> <br> Se o erro ocorrer depois de acessar o modelo no GitHub, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/options/).|
-| Configurações de rede virtual (VNET) do pool de hosts da sessão e de rota expressa               | Contate o **suporte do Azure (rede)** . |
-| Criação de VM (máquina virtual) do pool de hosts da sessão quando Azure Resource Manager modelos fornecidos com a área de trabalho virtual do Windows não estão sendo usados | Contate o **suporte do Azure (computação)** . <br> <br> Para problemas com os modelos de Azure Resource Manager que são fornecidos com a área de trabalho virtual do Windows, consulte a seção criando locatário da área de trabalho virtual do Windows do [locatário e criação do pool de hosts](troubleshoot-set-up-issues.md). |
-| Gerenciando o ambiente de host de sessão de área de trabalho virtual do Windows no portal do Azure    | Contate o **suporte do Azure**. <br> <br> Para problemas de gerenciamento ao usar o Serviços de Área de Trabalho Remota/Windows Virtual Desktop PowerShell, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md) ou **abra uma solicitação de suporte para a área de trabalho virtual do Windows (computação)** . |
-| Gerenciando a configuração da área de trabalho virtual do Windows vinculada a pools de hosts e grupos de aplicativos      | Consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md)ou **abra uma solicitação de suporte para área de trabalho virtual do Windows (computação)** . <br> <br> Se os problemas estiverem vinculados à GUI (interface gráfica do usuário) de exemplo, entre em contato com a Comunidade do Yammer.|
-| Problemas de clientes de área de trabalho remota em iniciar                                                 | Consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md) e, se isso não resolver o problema, **abra uma solicitação de suporte para a área de trabalho virtual do Windows (computação)** .  <br> <br> Se for um problema de rede, os usuários precisarão entrar em contato com o administrador da rede. |
-| Conectado, mas sem feed                                                                 | Solucionar problemas usando a seção "o usuário se conecta, mas nada é exibido (sem feed)" de [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md). <br> <br> Se os usuários tiverem sido atribuídos a um grupo de aplicativos, **abra uma solicitação de suporte para a área de trabalho virtual do Windows (computação)** . |
-| Problemas de descoberta de feed devido à rede                                            | Os usuários precisam entrar em contato com o administrador da rede. |
-| Conectando clientes                                                                    | Consulte [conexões do serviço de área de trabalho virtual do Windows](troubleshoot-service-connection.md) e, se isso não resolver o problema, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md). |
-| Capacidade de resposta de aplicativos remotos ou área de trabalho                                      | Se os problemas estiverem vinculados a um aplicativo ou produto específico, entre em contato com a equipe responsável pelo produto. |
-| Mensagens de licenciamento ou erros                                                          | Se os problemas estiverem vinculados a um aplicativo ou produto específico, entre em contato com a equipe responsável pelo produto. |
-| Problemas ao usar as ferramentas de área de trabalho virtual do Windows no GitHub (modelos de Azure Resource Manager, ferramenta de diagnóstico, ferramenta de gerenciamento) | Consulte [modelos de Azure Resource Manager para serviços de área de trabalho remota](https://github.com/Azure/RDS-Templates/blob/master/README.md) para relatar problemas. |
+| Criar um inquilino de ambiente de trabalho virtual Windows                                                    | Se houver uma paragem do Azure, abra um pedido de [apoio azure;](https://azure.microsoft.com/support/create-ticket/) De outra forma, abra um pedido de [suporte Azure,](https://azure.microsoft.com/support/create-ticket/)selecione **O Ambiente de Trabalho Virtual do Windows** para o serviço, selecione **Implementação** para o tipo de problema, em seguida, selecione **Problemas criando um inquilino de ambiente** de trabalho virtual Windows para o subtipo de problemas.|
+| Aceder aos modelos do Marketplace no portal Azure       | Se houver uma paragem no Azure, abra um pedido de [apoio azure.](https://azure.microsoft.com/support/create-ticket/) <br> <br> Os modelos de ambiente de trabalho virtual Do Azure Marketplace Windows Estão disponíveis gratuitamente.|
+| Aceder aos modelos do Gestor de Recursos Azure do GitHub                                  | Consulte a secção de [VMs de anfitriões de VMs](troubleshoot-set-up-issues.md#creating-windows-virtual-desktop-session-host-vms) do [Anfitrião e da criação](troubleshoot-set-up-issues.md)de piscinas do Windows Virtual . Se o problema ainda não estiver resolvido, contacte a equipa de apoio do [GitHub.](https://github.com/contact) <br> <br> Se o erro ocorrer depois de aceder ao modelo no GitHub, contacte o [Suporte Azure](https://azure.microsoft.com/support/create-ticket/).|
+| Piscina de anfitriões de sessão Azure Rede Virtual (VNET) e definições de Rota Expresso               | Abra um pedido de [apoio Azure](https://azure.microsoft.com/support/create-ticket/)e, em seguida, selecione o serviço adequado (na categoria Networking). |
+| Sessão de hospedante virtual machine (VM) criação quando modelos de Gestor de Recursos Azure fornecidos com Windows Virtual Desktop não estão sendo usados | [Abra um pedido](https://azure.microsoft.com/support/create-ticket/)de suporte Azure e, em seguida, selecione **Máquina Virtual executando o Windows** para o serviço. <br> <br> Para problemas com os modelos do Gestor de Recursos Azure que são fornecidos com o Windows Virtual Desktop, consulte a criação da secção de inquilinos virtual do Windows Desktop do Tenant e a criação de [pool anfitrião.](troubleshoot-set-up-issues.md) |
+| Gerir o ambiente de anfitriões da sessão de desktop virtual do Windows do portal Azure    | Abra um pedido de [apoio Azure.](https://azure.microsoft.com/support/create-ticket/) <br> <br> Para problemas de gestão ao utilizar serviços de ambiente de trabalho remotos/Windows Virtual Desktop PowerShell, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) ou abra um pedido de suporte [Azure, selecione](https://azure.microsoft.com/support/create-ticket/)o Windows Virtual **Desktop** para o serviço, selecione **Configuração e gestão** para o tipo de problema, e selecione **Problemas configurando o inquilino usando powerShell** para o subtipo de problemas. |
+| Gerir a configuração do Windows Virtual Desktop ligada a piscinas de anfitriões e grupos de aplicações (grupos de aplicações)      | Consulte o [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md), ou abra um pedido de [suporte Azure,](https://azure.microsoft.com/support/create-ticket/)selecione **O Ambiente de Trabalho Virtual do Windows** para o serviço e, em seguida, selecione o tipo de problema apropriado.|
+| Implantação e gestão de recipientes de perfil FSLogix | Consulte o guia de [resolução de problemas para produtos FSLogix](https://docs.microsoft.com/fslogix/fslogix-trouble-shooting-ht) e se isso não resolver o problema, abra um pedido de [suporte Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço, selecione **FSLogix** para o tipo de problema e, em seguida, selecione o subtipo de problema apropriado. |
+| Avaria dos clientes de ambiente supor remoto no início                                                 | Consulte [o Troubleshoot do cliente Remote Desktop](troubleshoot-client.md) e se isso não resolver o problema, abra um pedido de suporte [Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço e, em seguida, selecione clientes **remote Desktop** para o tipo de problema.  <br> <br> Se for um problema de rede, os seus utilizadores precisam de contactar o administrador da rede. |
+| Conectado, mas sem alimentação                                                                 | Problemas utilizando o [Utilizador, mas nada é exibido (sem feed)](troubleshoot-service-connection.md#user-connects-but-nothing-is-displayed-no-feed) das [ligações](troubleshoot-service-connection.md)de serviço de ambiente de trabalho virtual do Windows . <br> <br> Se os seus utilizadores tiverem sido atribuídos a um grupo de aplicações, abra um pedido de [suporte Azure](https://azure.microsoft.com/support/create-ticket/), selecione **O Ambiente de Trabalho Virtual do Windows** para o serviço e, em seguida, selecione Remote Desktop **Clients** para o tipo de problema. |
+| Problemas de descoberta de alimentos devido à rede                                            | Os seus utilizadores precisam de contactar o administrador da rede. |
+| Conectar clientes                                                                    | Consulte [as ligações](troubleshoot-service-connection.md) de serviço do Windows Virtual Desktop e se isso não resolver o seu problema, consulte a [configuração da máquina virtual do anfitrião](troubleshoot-vm-configuration.md)da sessão . |
+| Capacidade de resposta de aplicações remotas ou ambiente de trabalho                                      | Se os problemas estiverem ligados a uma aplicação ou produto específico, contacte a equipa responsável por esse produto. |
+| Licenciamento de mensagens ou erros                                                          | Se os problemas estiverem ligados a uma aplicação ou produto específico, contacte a equipa responsável por esse produto. |
+| Problemas ao utilizar ferramentas de ambiente de trabalho virtual do Windows no GitHub (modelos do Gestor de Recursos Azure, ferramenta de diagnóstico, ferramenta de gestão) | Consulte os modelos do Gestor de [Recursos Azure para serviços de ambiente](https://github.com/Azure/RDS-Templates/blob/master/README.md) de trabalho remotos para reportar problemas. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues.md).
-- Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
-- Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
-- Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
-- Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
-- Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](environment-setup.md).
-- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](../azure-resource-manager/management/view-activity-logs.md).
-- Para saber mais sobre as ações para determinar erros durante a implantação, consulte [Exibir operações de implantação](../azure-resource-manager/templates/deployment-history.md).
+- Para resolver problemas ao criar um inquilino e uma piscina de hospedas num ambiente de ambiente de trabalho virtual windows, consulte [tenant e host pool creation](troubleshoot-set-up-issues.md).
+- Para resolver problemas ao configurar uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração virtual](troubleshoot-vm-configuration.md)do anfitrião da sessão .
+- Para resolver problemas com as ligações do cliente do Windows Virtual Desktop, consulte [as ligações](troubleshoot-service-connection.md)de serviço do Windows Virtual Desktop .
+- Para resolver problemas com clientes do Desktop Remoto, consulte [Troubleshoot o cliente Remote Desktop](troubleshoot-client.md)
+- Para resolver problemas ao utilizar o PowerShell com o Windows Virtual Desktop, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- Para saber mais sobre o serviço, consulte o ambiente de ambiente de [trabalho virtual do Windows](environment-setup.md).
+- Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)do modelo de gestor de recursos de resolução de problemas .
+- Para conhecer as ações de auditoria, consulte operações de [auditoria com o Gestor de Recursos.](../azure-resource-manager/management/view-activity-logs.md)
+- Para aprender sobre ações para determinar erros durante a implementação, consulte as operações de [implantação do View](../azure-resource-manager/templates/deployment-history.md).

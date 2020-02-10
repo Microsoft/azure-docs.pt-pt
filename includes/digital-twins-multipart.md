@@ -7,33 +7,33 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/12/2019
+ms.date: 02/07/2020
 ms.custom: include file
-ms.openlocfilehash: 6fa21d78d766ee8e541d6d60f64628b55a84fe41
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e7cb7e4aaa9862a2b4af51593c29793ea54dd14
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469776"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77111224"
 ---
 > [!NOTE]
-> Solicitações com várias partes geralmente exigem três partes:
-> * Um cabeçalho **Content-Type** :
+> Os pedidos multipart normalmente requerem três peças:
+> * Um cabeçalho **tipo conteúdo:**
 >   * `application/json; charset=utf-8`
 >   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * Uma **disposição de conteúdo**:
+> * Uma **disposição de conteúdo:**
 >   * `form-data; name="metadata"`
-> * O conteúdo do arquivo a ser carregado
+> * O conteúdo do ficheiro para carregar
 >
-> **Tipo de conteúdo** e **disposição de conteúdo** variam dependendo do cenário de uso.
+> **O Tipo de Conteúdo** e **a Disposição** do Conteúdo variarão dependendo do cenário de utilização.
 
-Solicitações com várias partes podem ser feitas programaticamente (por meio C#de), por meio de um cliente REST ou ferramenta como o [postmaster](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#make-a-multipart-post-request). As ferramentas de cliente REST podem ter níveis variados de suporte a solicitações complexas de várias partes. As definições de configuração também podem variar um pouco da ferramenta para a ferramenta. Verifique qual ferramenta é mais adequada para suas necessidades.
+Os pedidos multipart podem ser feitos C#programáticamente (através de um cliente REST, ou ferramenta como [o Carteiro.](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#make-a-multipart-post-request) As ferramentas de cliente REST podem ter diferentes níveis de suporte para pedidos multipartes complexos. As definições de configuração também podem variar ligeiramente de ferramenta para ferramenta. Verifique qual a ferramenta mais adequada para as suas necessidades.
 
 > [!IMPORTANT]
-> As solicitações com várias partes feitas às APIs de gerenciamento de gêmeos digital do Azure normalmente têm duas partes:
-> * Metadados de BLOB (como um tipo MIME associado) que é declarado por **tipo de conteúdo** e/ou **disposição de conteúdo**
-> * Conteúdo do blob que inclui o conteúdo não estruturado de um arquivo a ser carregado
+> Os pedidos multipart feitos às APIs de Gestão de Gémeos Digitais Azure normalmente têm duas partes:
+> * Metadados blob (como um tipo MIME associado) que é declarado por **Content-Type** e/ou **Content-Disposition**
+> * Conteúdo blob que inclua o conteúdo não estruturado de um ficheiro a ser carregado
 >
-> Nenhuma das duas partes é necessária para solicitações de **patch** . Ambos são necessários para operações **post** ou Create.
+> Nenhuma das duas partes é necessária **para** pedidos patch. Ambos são necessários para **post** ou criar operações.
 
-O [código-fonte de início rápido de ocupação](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/api/update.cs) contém exemplos completos C# demonstrando como fazer solicitações de várias partes em relação às APIs de gerenciamento de gêmeos digital do Azure.
+O código fonte De Ocupação C# [Quickstart](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/api/update.cs) contém exemplos completos que demonstram como fazer pedidos multipart contra as APIs de Gestão de Gémeos Digitais Azure.

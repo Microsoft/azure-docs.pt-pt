@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 150927ac05cba058d1d152ce568d7a462043d076
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e1559dbab2503ded957b17c0cc6a61a06c53fffc
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937751"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110724"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -34,27 +34,44 @@ Um dispositivo pode utilizar o protocolo MQTT para se ligar a um hub IoT utiliza
 * Bibliotecas nos [DSDs Azure IoT](https://github.com/Azure/azure-iot-sdks).
 * O protocolo MQTT diretamente.
 
+A porta MQTT (8883) está bloqueada em muitos ambientes de networking corporativos e educativos. Se não conseguir abrir a porta 8883 na sua firewall, recomendamos a utilização de MQTT através de Tomadas Web. MQTT sobre Web Sockets comunica sobre a porta 443, que está quase sempre aberta em ambientes de rede. Para saber especificar os protocolos MQTT e MQTT sobre as tomadas Web ao utilizar os SDKs Azure IoT, consulte [A utilização dos SDKs do dispositivo](#using-the-device-sdks).
+
 ## <a name="using-the-device-sdks"></a>Utilização dos SDKs do dispositivo
 
-[Os SDKs](https://github.com/Azure/azure-iot-sdks) de dispositivo que suportam o protocolo MQTT estão disponíveis para Java, Node.js, C e C#Python. Os SDKs do dispositivo utilizam a cadeia de ligação IoT Hub padrão para estabelecer uma ligação a um hub IoT. Para utilizar o protocolo MQTT, o parâmetro do protocolo do cliente deve ser definido para **MQTT**. Por predefinição, os SDKs do dispositivo ligam-se a um Hub IoT com a bandeira **CleanSession** definida para **0** e utilizam **o QoS 1** para troca de mensagens com o hub IoT.
+[Os SDKs](https://github.com/Azure/azure-iot-sdks) de dispositivo que suportam o protocolo MQTT estão disponíveis para Java, Node.js, C e C#Python. Os SDKs do dispositivo utilizam a cadeia de ligação IoT Hub padrão para estabelecer uma ligação a um hub IoT. Para utilizar o protocolo MQTT, o parâmetro do protocolo do cliente deve ser definido para **MQTT**. Também pode especificar MQTT sobre Web Sockets no parâmetro do protocolo do cliente. Por predefinição, os SDKs do dispositivo ligam-se a um Hub IoT com a bandeira **CleanSession** definida para **0** e utilizam **o QoS 1** para troca de mensagens com o hub IoT.
 
 Quando um dispositivo está ligado a um hub IoT, os SDKs do dispositivo fornecem métodos que permitem ao dispositivo trocar mensagens com um hub IoT.
 
-A tabela seguinte contém links para amostras de código para cada idioma suportado e especifica o parâmetro a utilizar para estabelecer uma ligação ao IoT Hub utilizando o protocolo MQTT.
+A tabela seguinte contém links para amostras de código para cada idioma suportado e especifica o parâmetro a utilizar para estabelecer uma ligação ao IoT Hub utilizando o MQTT ou o MQTT sobre o protocolo Web Sockets.
 
-| Linguagem | Parâmetro de protocolo |
-| --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
-| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Suporta sempre mQTT por padrão |
+| Idioma | Parâmetro de protocolo MQTT | Parâmetro de protocolo MQTT sobre Web Sockets
+| --- | --- | --- |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-dispositivo-mqtt. Mqtt | azure-iot-dispositivo-mqtt. MqttWs |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol.MQTT_WS |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [Tipo de transporte](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt | TransportType.Mqtt volta a MQTT sobre as tomadas web se o MQTT falhar. Para especificar mQTT apenas sobre tomadas web, use TransportType.Mqtt_WebSocket_Only |
+| [python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Suporta MQTT por defeito | Adicione `websockets=True` na chamada para criar o cliente |
 
-### <a name="default-keep-alive-timeout"></a>Tempo de tempo de manutenção padrão 
+O seguinte fragmento mostra como especificar o protocolo MQTT sobre tomadas Web ao utilizar o Nó Azure IoT Node.js SDK:
+
+```javascript
+var Client = require('azure-iot-device').Client;
+var Protocol = require('azure-iot-device-mqtt').MqttWs;
+var client = Client.fromConnectionString(deviceConnectionString, Protocol);
+```
+
+O seguinte fragmento mostra como especificar o protocolo MQTT sobre tomadas web ao utilizar o Azure IoT Python SDK:
+
+```python
+from azure.iot.device.aio import IoTHubDeviceClient
+device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectionString, websockets=True)
+```
+
+### <a name="default-keep-alive-timeout"></a>Tempo de tempo de manutenção padrão
 
 De forma a garantir que a ligação cliente/IoT Hub permaneça viva, tanto o serviço como o cliente enviam regularmente um ping *vivo* um ao outro. O cliente que utiliza o IoT SDK envia um keep-alive no intervalo definido nesta tabela abaixo:
 
-|Linguagem  |Intervalo de manutenção-viva padrão  |Configurável  |
+|Idioma  |Intervalo de manutenção-viva padrão  |Configurável  |
 |---------|---------|---------|
 |Node.js     |   180 segundos      |     Não    |
 |Java     |    230 segundos     |     Não    |
@@ -357,7 +374,7 @@ Os códigos de estado possíveis são:
 |Estado | Descrição |
 | ----- | ----------- |
 | 200 | Êxito |
-| 400 | Solicitação inadequada. JSON mal formado |
+| 400 | Mau pedido. JSON mal formado |
 | 429 | Demasiados pedidos (estrangulados), de acordo com o [iot hub estrangulando](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erros do servidor |
 
@@ -421,7 +438,7 @@ Para saber mais sobre o planeamento da sua implantação do IoT Hub, consulte:
 * [Compare com hubs de eventos](iot-hub-compare-event-hubs.md)
 * [Escala, HA e DR](iot-hub-scaling.md)
 
-Para explorar ainda mais os recursos do Hub IoT, consulte:
+Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
-* [guia para programadores do IoT Hub](iot-hub-devguide.md)
-* [Implantando ia em dispositivos de borda com Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
+* [Implementação de IA para dispositivos de borda com Borda Azure IoT](../iot-edge/tutorial-simulate-device-linux.md)

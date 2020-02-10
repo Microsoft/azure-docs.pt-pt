@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 10dae81bf0ca8958f7c10aebef501fc604c4839c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bb3a8c94b377fb9c9150945ec4cf5980e006dd34
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706053"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110607"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
 
@@ -40,42 +40,7 @@ Apenas um administrador Azure AD pode ser criado por servidor MySQL e a seleçã
 
 Numa versão futura, apoiaremos a especificação de um grupo Azure AD em vez de um utilizador individual ter vários administradores, no entanto, atualmente ainda não é suportado.
 
-## <a name="creating-azure-ad-users-in-azure-database-for-mysql"></a>Criação de utilizadores de Anúncios Azure na Base de Dados Azure para mySQL
-
-Para adicionar um utilizador Azure AD à sua base de dados Azure para base de dados MySQL, execute os seguintes passos após a ligação (ver secção posterior sobre como ligar):
-
-1. Em primeiro lugar, certifique-se de que o utilizador da AD Azure `<user>@yourtenant.onmicrosoft.com` é um utilizador válido no inquilino Da Azure AD.
-2. Inscreva-se na sua Base de Dados Azure para a instância MySQL como utilizador do Anúncio AD Azure.
-3. Crie `<user>@yourtenant.onmicrosoft.com` de utilizadores na Base de Dados Azure para o MySQL.
-
-**Exemplo:**
-
-```sql
-CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
-```
-
-Para nomes de utilizador que excedam 32 caracteres, recomenda-se que utilize um pseudónimo para ser utilizado ao ligar: 
-
-Exemplo:
-
-```sql
-CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
-```
-
-> [!NOTE]
-> A autenticação de um utilizador através do Azure AD não dá ao utilizador quaisquer permissões para aceder a objetos dentro da base de dados Azure para base de dados MySQL. Deve conceder manualmente ao utilizador as permissões necessárias.
-
-## <a name="creating-azure-ad-groups-in-azure-database-for-mysql"></a>Criação de grupos de AD Azure em Base de Dados Azure para MySQL
-
-Para permitir um grupo DeA Azure para acesso à sua base de dados, utilize o mesmo mecanismo que para os utilizadores, mas em vez disso especifique o nome de grupo:
-
-**Exemplo:**
-
-```sql
-CREATE AADUSER 'Prod_DB_Readonly';
-```
-
-Ao iniciar sessão, os membros do grupo usarão as suas fichas de acesso pessoal, mas assinarão com o nome de grupo especificado como nome de utilizador.
+Depois de configurar o administrador, pode agora iniciar o seu insessão:
 
 ## <a name="connecting-to-azure-database-for-mysql-using-azure-ad"></a>Ligação à Base de Dados Azure para MySQL utilizando AD Azure
 
@@ -156,12 +121,53 @@ Ao ligar, tem de utilizar o token de acesso como senha de utilizador MySQL. Ao u
 Ao utilizar o CLI, pode utilizar esta mão curta para ligar: 
 
 **Exemplo (Linux/macOS):**
-
-mysql -h mydb.mysql.database.azure.com \ --utilizador user@tenant.onmicrosoft.com@mydb \ --enable-cleartext-plugin \ --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`  
+```
+mysql -h mydb.mysql.database.azure.com \ 
+  --user user@tenant.onmicrosoft.com@mydb \ 
+  --enable-cleartext-plugin \ 
+  --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
+```
 
 Note a definição de "enable-cleartext-plugin" – é necessário utilizar uma configuração semelhante com outros clientes para se certificar de que o token é enviado para o servidor sem ser hashed.
 
 Agora está autenticado no seu servidor MySQL utilizando a autenticação Azure AD.
+
+## <a name="creating-azure-ad-users-in-azure-database-for-mysql"></a>Criação de utilizadores de Anúncios Azure na Base de Dados Azure para mySQL
+
+Para adicionar um utilizador Azure AD à sua base de dados Azure para base de dados MySQL, execute os seguintes passos após a ligação (ver secção posterior sobre como ligar):
+
+1. Em primeiro lugar, certifique-se de que o utilizador da AD Azure `<user>@yourtenant.onmicrosoft.com` é um utilizador válido no inquilino Da Azure AD.
+2. Inscreva-se na sua Base de Dados Azure para a instância MySQL como utilizador do Anúncio AD Azure.
+3. Crie `<user>@yourtenant.onmicrosoft.com` de utilizadores na Base de Dados Azure para o MySQL.
+
+**Exemplo:**
+
+```sql
+CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
+```
+
+Para nomes de utilizador que excedam 32 caracteres, recomenda-se que utilize um pseudónimo para ser utilizado ao ligar: 
+
+Exemplo:
+
+```sql
+CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
+```
+
+> [!NOTE]
+> A autenticação de um utilizador através do Azure AD não dá ao utilizador quaisquer permissões para aceder a objetos dentro da base de dados Azure para base de dados MySQL. Deve conceder manualmente ao utilizador as permissões necessárias.
+
+## <a name="creating-azure-ad-groups-in-azure-database-for-mysql"></a>Criação de grupos de AD Azure em Base de Dados Azure para MySQL
+
+Para permitir um grupo DeA Azure para acesso à sua base de dados, utilize o mesmo mecanismo que para os utilizadores, mas em vez disso especifique o nome de grupo:
+
+**Exemplo:**
+
+```sql
+CREATE AADUSER 'Prod_DB_Readonly';
+```
+
+Ao iniciar sessão, os membros do grupo usarão as suas fichas de acesso pessoal, mas assinarão com o nome de grupo especificado como nome de utilizador.
 
 ## <a name="token-validation"></a>Validação de Fichas
 
@@ -194,7 +200,7 @@ A maioria dos condutores são suportados, no entanto certifique-se de usar as de
 * Perl
   * DBD::mysql: Suportado
   * Net::MySQL: Não suportado
-* Go
+* Ir
   * go-sql-driver: Suportado, adicione `?tls=true&allowCleartextPasswords=true` à cadeia de ligação
 
 ## <a name="next-steps"></a>Passos seguintes
