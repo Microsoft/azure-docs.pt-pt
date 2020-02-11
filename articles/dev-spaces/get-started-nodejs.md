@@ -1,18 +1,18 @@
 ---
-title: 'Criar um kubernetes dev Space: Visual Studio Code & node. js'
+title: 'Crie um espaço de v Kubernetes: Visual Studio Code & Node.js'
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Este tutorial mostra como usar Azure Dev Spaces e Visual Studio Code para depurar e iterar rapidamente um aplicativo node. js no serviço kubernetes do Azure
+description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente uma aplicação Node.js no Serviço Azure Kubernetes
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: 902489524206ac1d4f403f254ecda820c29545c2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: de60a45126539cdd39b951eeb503fc349004797a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867322"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121343"
 ---
-# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Criar um kubernetes dev Space: Visual Studio Code e node. js com Azure Dev Spaces
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Crie um espaço Dev Kubernetes: Visual Studio Code e Node.js com Espaços Azure Dev
 
 Neste guia, vai aprender a:
 
@@ -21,7 +21,7 @@ Neste guia, vai aprender a:
 - Desenvolver e testar de forma produtiva o seu código num ambiente de equipa.
 
 > [!Note]
-> **Se você ficar preso** a qualquer momento, consulte a seção [solução de problemas](troubleshooting.md) .
+> **Se ficar preso** a qualquer momento, consulte a secção de [resolução de problemas.](troubleshooting.md)
 
 ## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 O Azure Dev Spaces só precisa de configuração mínima do computador local. A maior parte da configuração do espaço de desenvolvimento é armazenada na cloud e é partilhável com outros utilizadores. Comece por transferir e executar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -43,7 +43,7 @@ Pode ver as suas subscrições ao executar:
 az account list --output table
 ```
 
-Localize a assinatura que tem *true* para *IsDefault*.
+Localize a subscrição que tem *True* for *IsDefault*.
 Se esta não for a subscrição que pretende utilizar, pode alterar a subscrição predefinida:
 
 ```cmd
@@ -52,7 +52,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster do Kubernetes ativado para os Espaços de Programador do Azure
 
-No prompt de comando, crie o grupo de recursos em uma [região que ofereça suporte a Azure dev Spaces][supported-regions].
+No pedido de comando, crie o grupo de recursos numa região que apoie o [Azure Dev Spaces.][supported-regions]
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -75,7 +75,7 @@ Introduza o seguinte comando da CLI do Azure com o grupo de recursos que contém
    ```
 
 > [!IMPORTANT]
-> O processo de configuração de Azure Dev Spaces removerá o namespace `azds` no cluster, se existir.
+> O processo de configuração dos Espaços Azure Dev removerá o espaço de nome `azds` no cluster, se existir.
 
 ## <a name="get-kubernetes-debugging-for-vs-code"></a>Depurar o Kubernetes para o VS Code
 Estão disponíveis funcionalidades avançadas, como a depuração do Kubernetes, para programadores de .NET Core e o Node.js com o VS Code.
@@ -87,10 +87,10 @@ Estão disponíveis funcionalidades avançadas, como a depuração do Kubernetes
 
 Nesta secção, vai criar uma aplicação Web em Node.js e executá-la num contentor no Kubernetes.
 
-### <a name="create-a-nodejs-web-app"></a>Criar uma Aplicação Web em Node.js
-Transfira o código do GitHub ao navegar para https://github.com/Azure/dev-spaces e selecione **Clone or Download** (Clonar ou Transferir) para transferir o repositório do GitHub para o seu ambiente local. O código para este guia está em `samples/nodejs/getting-started/webfrontend`.
+### <a name="create-a-nodejs-web-app"></a>Criar uma aplicação Web em Node.js
+Descarregue o código do GitHub navegando para [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) e selecione **Clone ou Download** para baixar o repositório GitHub para o seu ambiente local. O código para este guia está em `samples/nodejs/getting-started/webfrontend`.
 
-## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Preparar o código para o desenvolvimento do Docker e do kubernetes
+## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Prepare o código para o desenvolvimento de Docker e Kubernetes
 Neste momento, tem uma aplicação Web básica que pode ser executada localmente. Agora, irá colocá-la em contentor ao criar recursos que definem o contentor da aplicação e como esta será implementada no Kubernetes. É fácil executar esta tarefa com o Azure Dev Spaces: 
 
 1. Inicie o VS Code e abra a pasta `webfrontend`. (Pode ignorar os pedidos predefinidos para adicionar recursos de erro ou restaurar o projeto.)
@@ -106,7 +106,7 @@ O comando `azds prep` da CLI do Azure gera recursos do Docker e Kubernetes com a
 * Um [gráfico Helm](https://docs.helm.sh) em `./charts/webfrontend` descreve como implementar o contentor no Kubernetes.
 
 > [!TIP]
-> O [gráfico Dockerfile e Helm](how-dev-spaces-works.md#prepare-your-code) para seu projeto é usado pelo Azure dev Spaces para compilar e executar seu código, mas você pode modificar esses arquivos se quiser alterar a forma como o projeto é compilado e executado.
+> O [gráfico Dockerfile e Helm](how-dev-spaces-works.md#prepare-your-code) para o seu projeto é usado pela Azure Dev Spaces para construir e executar o seu código, mas pode modificar estes ficheiros se quiser alterar a forma como o projeto é construído e executado.
 
 Por enquanto, não é necessário entender o conteúdo completo desses ficheiros. No entanto, importa realçar que **os mesmos recursos de configuração como código do Kubernetes e do Docker podem ser utilizados do desenvolvimento à produção, dando maior consistência em diferentes ambientes.**
  
@@ -138,17 +138,17 @@ Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890a
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Identifique a URL pública para o serviço na saída do comando `up`. Termina em `.azds.io`. No exemplo acima, a URL pública é `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+Identifique o URL público para o serviço na saída a partir do comando `up`. Termina em `.azds.io`. No exemplo acima, o URL público é `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
 
-Para ver seu aplicativo Web, abra a URL pública em um navegador. Além disso, observe `stdout` e `stderr` saída é transmitida para a janela do terminal de *rastreamento de azds* enquanto você interage com seu aplicativo Web. Você também verá informações de rastreamento para solicitações HTTP à medida que eles passam pelo sistema. Isso facilita o acompanhamento de chamadas complexas de vários serviços durante o desenvolvimento. A instrumentação adicionada por espaços de desenvolvimento fornece esse acompanhamento de solicitação.
+Para ver a sua aplicação web, abra o URL público num browser. Além disso, note `stdout` e `stderr` saída é transmitida para a janela de rastreio de *azds* enquanto interage com a sua aplicação web. Também verá informações de rastreio para pedidos HTTP à medida que passam pelo sistema. Isto facilita-lhe o rastreio de chamadas complexas de vários serviços durante o desenvolvimento. A instrumentação adicionada pela Dev Spaces fornece este rastreio de pedido.
 
 > [!Note]
-> Além da URL pública, você pode usar a URL de `http://localhost:<portnumber>` alternativa que é exibida na saída do console. Se você usar a URL de localhost, pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução no Azure. Azure Dev Spaces usa a funcionalidade *de encaminhamento de porta* kubernetes para mapear a porta localhost para o contêiner em execução no AKs. Isso facilita a interação com o serviço do computador local.
+> Além do URL público, pode utilizar o URL alternativo `http://localhost:<portnumber>` que é apresentado na saída da consola. Se utilizar o URL local, pode parecer que o contentor está a funcionar localmente, mas na verdade está a funcionar em Azure. A Azure Dev Spaces utiliza a funcionalidade kubernetes *para* mapear o porto de acolhimento local para o contentor que funciona em AKS. Isto facilita a interação com o serviço da sua máquina local.
 
 ### <a name="update-a-content-file"></a>Atualizar um ficheiro de conteúdo
 O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kubernetes. Tem que ver com permitir-lhe ver, de forma rápida e iterativa, as alterações ao código serem aplicadas num ambiente do Kubernetes na cloud.
 
-1. Localize o ficheiro `./public/index.html` e faça uma edição ao HTML. Por exemplo, altere a cor do plano de fundo da página para uma tonalidade azul [na linha 15](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15):
+1. Localize o ficheiro `./public/index.html` e faça uma edição ao HTML. Por exemplo, mude a cor de fundo da página para um tom de azul [na linha 15:](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15)
 
     ```html
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
@@ -164,7 +164,7 @@ Abra a aplicação Web num dispositivo móvel através do URL público para webf
 
 Para corrigir este problema, vai adicionar uma etiqueta meta `viewport`:
 1. Abra o ficheiro `./public/index.html`
-1. Adicione uma marca meta `viewport` no elemento `head` existente que começa [na linha 6](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6):
+1. Adicione uma meta de `viewport` no elemento `head` existente que começa [na linha 6:](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6)
 
     ```html
     <head>
@@ -228,11 +228,11 @@ Prima **F5** para depurar o código no Kubernetes.
 Semelhante ao comando `up`, o código é sincronizado com o ambiente de desenvolvimento quando iniciar a depuração e é criado e implementado um contentor no Kubernetes. Desta vez, o depurador é ligado ao contentor remoto.
 
 > [!Tip]
-> A barra de status VS Code ficará laranja, indicando que o depurador está anexado. Ele também exibirá uma URL clicável, que você pode usar para abrir rapidamente seu site.
+> A barra de estado do Código VS ficará laranja, indicando que o desordeiro está ligado. Também apresentará um URL clicável, que pode utilizar para abrir rapidamente o seu site.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Defina um ponto de interrupção em um arquivo de código do lado do servidor, por exemplo, dentro do `app.get('/api'...` na [linha 13 de `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
+Delineie um ponto de rutura num ficheiro de código do lado do servidor, por exemplo, dentro do `app.get('/api'...` na [linha 13 de `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
 
     ```javascript
     app.get('/api', function (req, res) {
@@ -240,12 +240,12 @@ Defina um ponto de interrupção em um arquivo de código do lado do servidor, p
     });
     ```
 
-Atualize a página do navegador ou pressione o botão *diga-o novamente* , e você deve atingir o ponto de interrupção e ser capaz de percorrer o código.
+Refresque a página do navegador ou prima o botão *Say It Again,* e deve premir o ponto de rutura e ser capaz de passar pelo código.
 
 Tem acesso total às informações da depuração, tal como aconteceria se o código estivesse a ser executado localmente, como, por exemplo, a pilha de chamadas, as variáveis locais, as informações de exceção, etc.
 
 ### <a name="edit-code-and-refresh-the-debug-session"></a>Editar o código e atualizar a sessão de depuração
-Com o depurador ativo, faça uma edição de código; por exemplo, modifique a mensagem de saudação na [linha 13 de `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) novamente:
+Com o debugger ativo, faça uma edição de código; por exemplo, modificar a mensagem olá na [linha 13 de `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) novamente:
 
 ```javascript
 app.get('/api', function (req, res) {
@@ -253,7 +253,7 @@ app.get('/api', function (req, res) {
 });
 ```
 
-Salve o arquivo e, no **painel Ações de depuração**, clique no botão **reiniciar** . 
+Guarde o ficheiro e, no painel de ações do **Debug,** clique no botão **Reiniciar.** 
 
 ![](media/common/debug-action-refresh.png)
 
@@ -281,7 +281,7 @@ Nesta configuração, o contentor é configurado para iniciar o *nodemon*. Quand
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o desenvolvimento de vários serviços](multi-service-nodejs.md)
+> [Conheça o desenvolvimento de vários serviços](multi-service-nodejs.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: treinar um modelo e extrair dados de formulário usando o reconhecedor de forma de ondulação'
+title: 'Quickstart: Treine um modelo e extrai a partir de cURL - Reconhecimento de Formulário'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará a API REST do reconhecedor de formulário com ondulação para treinar um modelo e extrair dados de formulários.
+description: Neste arranque rápido, utilizará o Formulário Recogniser REST API com cURL para treinar um modelo e extrair dados de formulários.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,64 +9,63 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0cd7625a8e89365ccb966c0aa847e5b337f33acc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 32756187852de0834afc1dc034d3f7419f0c8087
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900192"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118403"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com ondulação
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Quickstart: Treine um modelo de reconhecimento de formulário e extrai dados de formulário utilizando a API REST com cURL
 
-Neste guia de início rápido, você usará a API REST do reconhecedor do Azure Form com a rotação para treinar e pontuar formulários para extrair pares de chave-valor e tabelas.
+Neste arranque rápido, utilizará a API REST API do Reconhecimento de Formulários Azure com cURL para treinar e marcar formulários para extrair pares e tabelas de valor-chave.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, você deve ter:
-- Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) .
-- [rotação](https://curl.haxx.se/windows/) instalada.
-- Um conjunto de pelo menos seis formas do mesmo tipo. Você usará cinco deles para treinar o modelo e, em seguida, irá testá-lo com o sexto formato. Seus formulários podem ser de diferentes tipos de arquivo, mas devem ser do mesmo tipo de documento. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este guia de início rápido. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de BLOBs em uma conta de armazenamento do Azure. Você pode colocar os arquivos de teste em uma pasta separada.
+Para completar este arranque rápido, deve ter:
+- [cURL](https://curl.haxx.se/windows/) instalado.
+- Um conjunto de pelo menos seis formas do mesmo tipo. Vais usar cinco destes para treinar o modelo, e depois vais testá-lo com a sexta forma. Os seus formulários podem ser de diferentes tipos de ficheiros, mas devem ser o mesmo tipo de documento. Pode utilizar um conjunto de dados de [amostra](https://go.microsoft.com/fwlink/?linkid=2090451) para este arranque rápido. Faça upload dos ficheiros de treino para a raiz de um recipiente de armazenamento blob numa conta de Armazenamento Azure. Pode colocar os ficheiros de teste numa pasta separada.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulário
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="train-a-form-recognizer-model"></a>Treinar um modelo de reconhecimento de formulário
+## <a name="train-a-form-recognizer-model"></a>Treine um modelo de reconhecimento de formulário
 
-Primeiro, você precisará de um conjunto de dados de treinamento em um blob de armazenamento do Azure. Você deve ter um mínimo de cinco formulários preenchidos (documentos PDF e/ou imagens) do mesmo tipo/estrutura que os dados de entrada principais. Ou, você pode usar um único Formulário vazio com dois formulários preenchidos. O nome do arquivo do formulário vazio precisa incluir a palavra "Empty". Consulte construir um conjunto de dados de [treino para um modelo personalizado](../build-training-data-set.md) para dicas e opções para reunir os seus dados de treino.
+Primeiro, vai precisar de um conjunto de dados de treino numa bolha de armazenamento Azure. Deve ter um mínimo de cinco formulários preenchidos (documentos PDF e/ou imagens) do mesmo tipo/estrutura que os seus principais dados de entrada. Ou, pode usar um único formulário vazio com dois formulários preenchidos. O nome do ficheiro vazio precisa incluir a palavra "vazio". Consulte construir um conjunto de dados de [treino para um modelo personalizado](../build-training-data-set.md) para dicas e opções para reunir os seus dados de treino.
 
 > [!NOTE]
-> Você pode usar o recurso de dados rotulados para rotular manualmente alguns ou todos os seus dados de treinamento com antecedência. Esse é um processo mais complexo, mas resulta em um modelo melhor treinado. Consulte a seção [treinar com rótulos](../overview.md#train-with-labels) da visão geral para saber mais sobre esse recurso.
+> Pode utilizar previamente a função de dados etiquetada para rotular manualmente alguns ou todos os seus dados de treino. Este é um processo mais complexo, mas resulta num modelo mais bem treinado. Consulte o Comboio com a secção de [etiquetas](../overview.md#train-with-labels) da visão geral para saber mais sobre esta funcionalidade.
 
-Para treinar um modelo de reconhecimento de formulário com os documentos em seu contêiner de BLOBs do Azure, chame a API de **[modelo personalizado Training](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** executando o comando de rotação a seguir. Antes de executar o comando, faça estas alterações:
+Para treinar um modelo 'Reconhecimento de Formulários' com os documentos no seu recipiente de blob Azure, ligue para o **[Modelo Personalizado do Comboio](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** API executando o seguinte comando cURL. Antes de executar o comando, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto de extremidade obtido com a assinatura do reconhecedor de formulário.
-1. Substitua `<subscription key>` pela chave de assinatura que você copiou da etapa anterior.
-1. Substitua `<SAS URL>` pela URL da assinatura de acesso compartilhado (SAS) do contêiner de armazenamento de BLOBs do Azure. Para recuperar a URL SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Substitua `<Endpoint>` pelo ponto final que obteve com a subscrição do Reconhecimento de Formulários.
+1. Substitua `<subscription key>` com a chave de subscrição que copiou do passo anterior.
+1. Substitua `<SAS URL>` com o URL de assinatura de acesso partilhado (SAS) do recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ```bash
 curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
-Você receberá uma resposta de `201 (Success)` com um cabeçalho de **local** . O valor desse cabeçalho é a ID do novo modelo que está sendo treinado. 
+Receberá uma resposta `201 (Success)` com um cabeçalho de **localização.** O valor deste cabeçalho é a identificação do novo modelo que está a ser treinado. 
 
-## <a name="get-training-results"></a>Obter resultados de treinamento
+## <a name="get-training-results"></a>Obtenha resultados de formação
 
-Depois de iniciar a operação de treinamento, você usará uma nova operação, **[obterá o modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** para verificar o status de treinamento. Passe a ID do modelo para esta chamada à API para verificar o status de treinamento:
+Depois de iniciar a operação do comboio, usa uma nova operação, **[Get Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** para verificar o estado de treino. Passe o ID do modelo para esta chamada da API para verificar o estado de formação:
 
-1. Substitua `<Endpoint>` pelo ponto de extremidade obtido com a chave de assinatura do reconhecedor de formulário.
-1. Substitua `<subscription key>` pela sua chave de assinatura
-1. Substitua `<model ID>` pela ID do modelo que você recebeu na etapa anterior
+1. Substitua `<Endpoint>` pelo ponto final que obteve com a chave de subscrição do Reconhecimento de Formulários.
+1. Substitua `<subscription key>` com a sua chave de subscrição
+1. Substitua `<model ID>` pelo modelo de IDENTIFICAÇÃO que recebeu no passo anterior
 
 ```bash
 curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-Você receberá uma resposta `200 (Success)` com um corpo JSON no formato a seguir. Observe o campo `"status"`. Isso terá o valor `"ready"` quando o treinamento for concluído. Se o modelo não tiver terminado o treinamento, você precisará consultar o serviço novamente executando o comando novamente. É recomendável um intervalo de um segundo ou mais entre as chamadas.
+Receberá uma resposta `200 (Success)` com um corpo JSON no seguinte formato. Reparem no campo `"status"`. Isto terá o valor `"ready"` assim que o treino estiver concluído. Se o modelo não terminar o treino, terá de consultar o serviço novamente reexecutando o comando. Recomendamos um intervalo de um segundo ou mais entre chamadas.
 
-O campo `"modelId"` contém a ID do modelo que você está treinando. Você precisará disso para a próxima etapa.
+O campo `"modelId"` contém a identificação do modelo que estás a treinar. Vai precisar disto para o próximo passo.
 
 ```json
 { 
@@ -134,36 +133,36 @@ O campo `"modelId"` contém a ID do modelo que você está treinando. Você prec
 }
 ```
 
-## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analisar formulários para pares de chave-valor e tabelas
+## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analisar formulários para pares e tabelas de valor-chave
 
-Em seguida, você usará seu modelo treinado recentemente para analisar um documento e extrair pares de chave-valor e tabelas dele. Chame a API de **[análise de formulário](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** executando o comando de rotação a seguir. Antes de executar o comando, faça estas alterações:
+Em seguida, você usará o seu modelo recém-treinado para analisar um documento e extrair pares e tabelas de valor-chave do mesmo. Ligue para a **[API do Formulário de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** executando o seguinte comando cURL. Antes de executar o comando, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto de extremidade obtido da chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
-1. Substitua `<model ID>` pela ID do modelo que você recebeu na seção anterior.
-1. Substitua `<SAS URL>` por uma URL SAS em seu arquivo no armazenamento do Azure. Siga as etapas na seção de treinamento, mas, em vez de obter uma URL SAS para todo o contêiner de BLOB, obtenha um para o arquivo específico que você deseja analisar.
+1. Substitua `<Endpoint>` pelo ponto final que obteve da sua chave de subscrição 'Reconhecimento de Formulários'. Pode encontrá-lo no separador de **visão geral** do recurso 'Reconhecimento de Formulários'.
+1. Substitua `<model ID>` pelo ID modelo que recebeu na secção anterior.
+1. Substitua `<SAS URL>` por um URL SAS no seu ficheiro no armazenamento Azure. Siga os passos na secção de Formação, mas em vez de obter um URL SAS para todo o recipiente de bolhas, obtenha um para o ficheiro específico que pretende analisar.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 
 ```bash
 curl -v "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
 
-Você receberá uma resposta de `202 (Success)` com um cabeçalho **de local de operação** . O valor desse cabeçalho inclui uma ID de resultados que você usa para acompanhar os resultados da operação de análise. Salve essa ID de resultados para a próxima etapa.
+Receberá uma resposta `202 (Success)` com um cabeçalho de **Localização de Operação.** O valor deste cabeçalho inclui um ID de resultados que utiliza para acompanhar os resultados da operação Analisar. Guarde esta identificação dos resultados para o próximo passo.
 
-## <a name="get-the-analyze-results"></a>Obter os resultados da análise
+## <a name="get-the-analyze-results"></a>Obtenha os resultados da Análise
 
-Use a API a seguir para consultar os resultados da operação de análise.
+Utilize a Seguinte API para consultar os resultados da operação Analisar.
 
-1. Substitua `<Endpoint>` pelo ponto de extremidade obtido da chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
-1. Substitua `<result ID>` pela ID que você recebeu na seção anterior.
+1. Substitua `<Endpoint>` pelo ponto final que obteve da sua chave de subscrição 'Reconhecimento de Formulários'. Pode encontrá-lo no separador de **visão geral** do recurso 'Reconhecimento de Formulários'.
+1. Substitua `<result ID>` com o ID que recebeu na secção anterior.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 
 ```bash
 curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-Você receberá uma resposta `200 (Success)` com um corpo JSON no formato a seguir. A saída foi reduzida para simplificar a simplicidade. Observe o campo `"status"` próximo à parte inferior. Isso terá o valor `"succeeded"` quando a operação de análise for concluída. Se a operação de análise não for concluída, você precisará consultar o serviço novamente executando o comando novamente. É recomendável um intervalo de um segundo ou mais entre as chamadas.
+Receberá uma resposta `200 (Success)` com um corpo JSON no seguinte formato. A saída foi encurtada para a simplicidade. Repare maquete `"status"` campo perto do fundo. Isto terá o valor `"succeeded"` quando a operação Analisar estiver concluída. Se a operação Analyze não tiver terminado, terá de consultar novamente o serviço reexecutando o comando. Recomendamos um intervalo de um segundo ou mais entre chamadas.
 
-As associações e as tabelas principais do par chave/valor estão no nó `"pageResults"`. Se você também especificou a extração de texto sem formatação por meio do parâmetro URL *includeTextDetails* , o nó `"readResults"` mostrará o conteúdo e as posições de todo o texto no documento.
+As principais associações e tabelas de pares chave/valor estão no nó `"pageResults"`. Se também especificou a extração de texto simples através do parâmetro *URL do TextDetails,* então o nó `"readResults"` mostrará o conteúdo e as posições de todo o texto no documento.
 
 ```json
 {
@@ -420,7 +419,7 @@ As associações e as tabelas principais do par chave/valor estão no nó `"page
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você usou a API REST do reconhecedor de formulário com ondulação para treinar um modelo e executá-lo em um cenário de exemplo. Em seguida, consulte a documentação de referência para explorar a API do reconhecedor de formulário mais detalhadamente.
+Neste arranque rápido, utilizou o Formulário Recogniser REST API com cURL para treinar um modelo e executá-lo num cenário de amostragem. Em seguida, consulte a documentação de referência para explorar a API do Reconhecimento de Formulários com mais profundidade.
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [Documento de referência rest API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: alzam
-ms.openlocfilehash: cad502dc759a4d481f3071a8a27ddeca79fbc18c
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: b3508c4c8da5b4987fb5f38cf3bf701f2dda1097
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108299"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122030"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-by-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação VPN do utilizador utilizando o Azure Virtual WAN
 
@@ -123,7 +123,7 @@ Utilize o perfil VPN para configurar os seus clientes.
 
 ## <a name="configure-user-vpn-clients"></a>Configure os clientes VPN do utilizador
 
-Para se conectar, precisa de descarregar o Cliente VpN Azure (Pré-visualização) e importar o perfil de cliente VPN que foi descarregado nos passos anteriores em todos os computadores que queiram ligar-se ao VNet.
+Para se conectar, precisa de descarregar o Cliente VpN Azure e importar o perfil de cliente VPN que foi descarregado nos passos anteriores em todos os computadores que queiram ligar-se ao VNet.
 
 > [!NOTE]
 > A autenticação Azure AD é suportada apenas para ligações de protocolo openVPN®.
@@ -131,7 +131,7 @@ Para se conectar, precisa de descarregar o Cliente VpN Azure (Pré-visualizaçã
 
 #### <a name="to-download-the-azure-vpn-client"></a>Para baixar o cliente Azure VPN
 
-Utilize este [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) para descarregar o Cliente VpN Azure (Pré-visualização).
+Utilize este [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) para descarregar o Cliente VpN Azure.
 
 #### <a name="import"></a>Para importar um perfil de cliente
 

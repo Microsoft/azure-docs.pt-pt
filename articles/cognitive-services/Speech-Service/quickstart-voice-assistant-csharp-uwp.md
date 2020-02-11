@@ -1,27 +1,27 @@
 ---
-title: 'Início rápido: Assistente de voz C# personalizado, (UWP)-serviço de fala'
+title: 'Quickstart: Assistente de C# voz personalizado, (UWP) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, você cria um C# aplicativo plataforma universal do Windows (UWP) usando o SDK (Software Development Kit) de fala dos serviços cognitivas. Você conecta o aplicativo cliente a um bot da estrutura de bot criado anteriormente configurado para usar o canal de fala de linha direta. O aplicativo é criado com o pacote NuGet do SDK de fala e Microsoft Visual Studio 2019.
+description: Neste artigo, cria-se uma C# aplicação Universal Windows Platform (UWP) utilizando o Kit de Desenvolvimento de Software de Fala de Serviços Cognitivos (SDK). Liga a sua aplicação ao cliente a um bot Bot Framework previamente criado configurado para utilizar o canal Direct Line Speech. A aplicação é construída com o Pacote NuGet Speech SDK e o Microsoft Visual Studio 2019.
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: travisw
-ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: af9395b8f75a9097d4449571fd54be6259a7b9f3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816224"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119759"
 ---
-# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Início rápido: criar um assistente de voz com o SDK de fala, UWP
+# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Quickstart: Criar um assistente de voz com o Speech SDK, UWP
 
-Os guias de início rápido também estão disponíveis para [reconhecimento de fala](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp), [síntese de fala](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp)e tradução de [fala](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp).
+Os quickstarts também estão disponíveis para [reconhecimento da fala,](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp) [síntese de fala,](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp)e [tradução da fala.](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
-Neste artigo, você desenvolverá um C# aplicativo plataforma universal do Windows (UWP) usando o SDK de [fala](speech-sdk.md). O programa se conectará a um bot previamente criado e configurado para habilitar uma experiência de assistente de voz do aplicativo cliente. O aplicativo é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2019 (qualquer edição).
+Neste artigo, irá desenvolver C# uma aplicação Universal Windows Platform (UWP) utilizando o [Speech SDK](speech-sdk.md). O programa irá ligar-se a um bot previamente autor e configurado para permitir uma experiência de assistente de voz a partir da aplicação do cliente. A aplicação é construída com o [Pacote NuGet Speech SDK](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2019 (qualquer edição).
 
 > [!NOTE]
 > A Plataforma Universal do Windows permite-lhe desenvolver aplicações que são executadas em qualquer dispositivo que suporte o Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos.
@@ -30,16 +30,16 @@ Neste artigo, você desenvolverá um C# aplicativo plataforma universal do Windo
 
 Este início rápido requer:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
-* Um bot criado anteriormente configurado com o [canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+* [Estúdio Visual 2019.](https://visualstudio.microsoft.com/downloads/)
+* Uma chave de subscrição Azure para o serviço De Fala. [Obtenha um de graça](get-started.md) ou crie-o no [portal Azure.](https://portal.azure.com)
+* Um bot previamente criado configurado com o [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
   > [!NOTE]
-  > Consulte [a lista de regiões com suporte para assistentes de voz](regions.md#voice-assistants) e garanta que seus recursos sejam implantados em uma dessas regiões.
+  > Consulte [a lista de regiões apoiadas para assistentes](regions.md#voice-assistants) de voz e certifique-se de que os seus recursos são implantados numa dessas regiões.
 
-## <a name="optional-get-started-fast"></a>Opcional: introdução rápida
+## <a name="optional-get-started-fast"></a>Opcional: Começar rápido
 
-Este guia de início rápido descreverá, passo a passo, como fazer um aplicativo cliente se conectar ao bot habilitado para fala. Se você preferir se aprofundar diretamente no, o código-fonte completo e pronto para compilar usado neste guia de início rápido está disponível nos [exemplos do SDK de fala](https://aka.ms/csspeech/samples) na pasta `quickstart`.
+Este quickstart descreverá, passo a passo, como fazer uma aplicação de cliente para se conectar ao seu bot ativado pela fala. Se preferir mergulhar, o código fonte completo e pronto a compilar utilizado neste quickstart está disponível nas [amostras SDK](https://aka.ms/csspeech/samples) do Discurso sob a pasta `quickstart`.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -51,11 +51,11 @@ Agora, adicione o código XAML que define a interface do usuário do aplicativo 
 
 ### <a name="xaml-code"></a>Código XAML
 
-Primeiro, você criará a interface do usuário do aplicativo adicionando o código XAML:
+Em primeiro lugar, irá criar a interface de utilizador da aplicação adicionando o código XAML:
 
-1. Em **Gerenciador de soluções**, abra `MainPage.xaml`.
+1. No **Solution Explorer,** abra `MainPage.xaml`.
 
-1. Na exibição XAML do designer, substitua todo o conteúdo pelo seguinte trecho de código:
+1. Na vista XAML do designer, substitua todo o conteúdo pelo seguinte código:
 
     ```xml
     <Page
@@ -102,24 +102,24 @@ Primeiro, você criará a interface do usuário do aplicativo adicionando o cód
     </Page>
     ```
 
-O modo de exibição de Design é atualizado para mostrar a interface do usuário do aplicativo.
+A vista Design é atualizada para mostrar a interface de utilizador da aplicação.
 
-### <a name="c-code-behind-source"></a>C#origem code-behind
+### <a name="c-code-behind-source"></a>C#código por trás fonte
 
-Em seguida, você adiciona a fonte code-behind para que o aplicativo funcione conforme o esperado. A fonte code-behind inclui:
+Em seguida, adicione a fonte de código por trás para que a aplicação funcione como esperado. A fonte por trás do código inclui:
 
-- instruções de `using` para os namespaces de `Speech` e `Speech.Dialog`
-- Uma implementação simples para garantir o acesso ao microfone, com fio a um manipulador de botão
-- Auxiliares básicos da interface do usuário para apresentar mensagens e erros no aplicativo
-- Um ponto de chegada para o caminho do código de inicialização que será preenchido posteriormente
-- Um auxiliar para reproduzir conversão de texto em fala (sem suporte de streaming)
-- Um manipulador de botão vazio para iniciar a escuta que será populado posteriormente
+- `using` declarações para os espaços de nome `Speech` e `Speech.Dialog`
+- Uma implementação simples para garantir o acesso ao microfone, ligado a um manipulador de botões
+- Ajudantes básicos da UI para apresentar mensagens e erros na aplicação
+- Um ponto de aterragem para o caminho do código de inicialização que será povoado mais tarde
+- Um ajudante para reproduzir texto-a-fala (sem suporte de streaming)
+- Um manipulador de botões vazio para começar a ouvir que será povoado mais tarde
 
-Para adicionar a origem code-behind, siga estas etapas:
+Para adicionar a fonte de código por trás, siga estes passos:
 
-1. No **Gerenciador de soluções**, abra o arquivo de origem code-behind `MainPage.xaml.cs`. (Está agrupado em `MainPage.xaml`.)
+1. No **Solution Explorer,** abra o ficheiro fonte por trás do código `MainPage.xaml.cs`. (Está agrupado sob `MainPage.xaml`.)
 
-1. Substitua o conteúdo do arquivo pelo seguinte trecho de código:
+1. Substitua o conteúdo do ficheiro pelo seguinte código:
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -289,7 +289,7 @@ Para adicionar a origem code-behind, siga estas etapas:
     }
     ```
 
-1. Adicione o seguinte trecho de código ao corpo do método de `InitializeDialogServiceConnector`. Esse código cria o `DialogServiceConnector` com suas informações de assinatura.
+1. Adicione o seguinte corte de código ao corpo metodológico de `InitializeDialogServiceConnector`. Este código cria o `DialogServiceConnector` com as suas informações de subscrição.
 
     ```csharp
     // Create a BotFrameworkConfig by providing a Speech service subscription key
@@ -303,14 +303,14 @@ Para adicionar a origem code-behind, siga estas etapas:
     ```
 
    > [!NOTE]
-   > Consulte [a lista de regiões com suporte para assistentes de voz](regions.md#voice-assistants) e garanta que seus recursos sejam implantados em uma dessas regiões.
+   > Consulte [a lista de regiões apoiadas para assistentes](regions.md#voice-assistants) de voz e certifique-se de que os seus recursos são implantados numa dessas regiões.
 
    > [!NOTE]
-   > Para obter informações sobre como configurar o bot e recuperar um segredo de canal, consulte a documentação do bot Framework para [o canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Para obter informações sobre a configuração do seu bot e a recuperação de um segredo de canal, consulte a documentação bot Framework para [o canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
-1. Substitua as cadeias de caracteres `YourChannelSecret`, `YourSpeechSubscriptionKey`e `YourServiceRegion` pelos seus próprios valores para o bot, a assinatura de fala e a [região](regions.md).
+1. Substitua as cordas `YourChannelSecret`, `YourSpeechSubscriptionKey`e `YourServiceRegion` pelos seus próprios valores para o seu bot, subscrição de discursoe [região.](regions.md)
 
-1. Acrescente o trecho de código a seguir ao final do corpo do método de `InitializeDialogServiceConnector`. Esse código configura manipuladores para eventos com os quais se conta com `DialogServiceConnector` para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações.
+1. Anexar o seguinte corte de código até ao fim do corpo metodológico de `InitializeDialogServiceConnector`. Este código configura manipuladores para eventos baseados em `DialogServiceConnector` para comunicar as suas atividades bot, resultados de reconhecimento de fala e outras informações.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -365,7 +365,7 @@ Para adicionar a origem code-behind, siga estas etapas:
     };
     ```
 
-1. Adicione o trecho de código a seguir ao corpo do método `ListenButton_ButtonClicked` na classe `MainPage`. Esse código configura `DialogServiceConnector` para escutar, pois você já estabeleceu a configuração e registrou os manipuladores de eventos.
+1. Adicione o seguinte fragmento de código ao corpo do método `ListenButton_ButtonClicked` na classe `MainPage`. Este código configura `DialogServiceConnector` para ouvir, uma vez que já estabeleceu a configuração e registou os manipuladores de eventos.
 
     ```csharp
     if (connector == null)
@@ -394,23 +394,23 @@ Para adicionar a origem code-behind, siga estas etapas:
     }
     ```
 
-1. Na barra de menus, escolha **arquivo** > **salvar tudo** para salvar suas alterações.
+1. A partir da barra de menus, escolha **File** > **Save All** para guardar as suas alterações.
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-Agora você está pronto para criar e testar seu aplicativo.
+Agora está pronto para construir e testar a sua aplicação.
 
-1. Na barra de menus, escolha **compilar** > **Compilar solução** para compilar o aplicativo. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menus, escolha **construir** > **Construir Solução** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo. A janela **HelloWorld** é exibida.
+1. Escolha **depurar** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação. A janela do **Helloworld** aparece.
 
-   ![Aplicativo de assistente de voz UWP C# de exemplo no início rápido](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Amostra UWP aplicação C# de assistente de voz em - quickstart](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. Selecione **habilitar microfone**e, quando a solicitação de permissão de acesso for exibida, selecione **Sim**.
+1. Selecione **Ativar o microfone**e quando o pedido de autorização de acesso aparecer, selecione **Sim**.
 
-   ![Solicitação de permissão de acesso ao microfone](media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Pedido de permissão de acesso ao microfone](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Selecione **conversar com o bot**e fale uma frase ou sentença em inglês no microfone do seu dispositivo. Sua fala é transmitida para o canal de fala de linha direta e transcrita para texto, que aparece na janela.
+1. Selecione **Falar com o seu bot**e dizer uma frase ou frase em inglês no microfone do seu dispositivo. O seu discurso é transmitido para o canal Direct Line Speech e transcrito para texto, que aparece na janela.
 <!--
     ![Successful bot response](media/voice-assistants/quickstart-cs-uwp-bot-successful-turn.png)
 -->
@@ -419,10 +419,10 @@ Agora você está pronto para criar e testar seu aplicativo.
 > [!div class="nextstepaction"]
 > [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Sobre assistentes de voz](voice-assistants.md)
-- [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)
+- [Obtenha uma chave de subscrição do serviço Speech gratuitamente](get-started.md)
 - [Palavras-chave personalizadas](speech-devices-sdk-create-kws.md)
-- [Conecte a fala de linha direta ao bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-- [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)
+- [Conecte o discurso da linha direta ao seu bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explore C# amostras no GitHub](https://aka.ms/csspeech/samples)

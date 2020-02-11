@@ -1,163 +1,181 @@
 ---
 title: Criar um projeto de rotulagem de dados
 titleSuffix: Azure Machine Learning
-description: Aprenda a criar e executar rótulos de projetos para marcar dados para o aprendizado de máquina.
+description: Aprenda a criar e executar projetos de rotulagem para marcar dados para machine learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8c6b7b4d64b3a4f504cc9aef275b3d48cd62a3d8
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75765074"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116862"
 ---
-# <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
-Rotular dados de volumosos em projetos de aprendizado de máquina costuma ser uma dor de cabeça. Os projetos que têm um componente de visão computacional, como classificação de imagem ou detecção de objetos, geralmente exigem rótulos para milhares de imagens.
+Rotular dados volumosos em projetos de aprendizagem automática é muitas vezes uma dor de cabeça. Os projetos que possuem um componente de visão computacional, como a classificação de imagem ou a deteção de objetos, geralmente requerem etiquetas para milhares de imagens.
  
-[Azure Machine Learning](https://ml.azure.com/) oferece um local central para criar, gerenciar e monitorar projetos de rotulagem. Use-o para coordenar dados, rótulos e membros da equipe para gerenciar com eficiência as tarefas de rotulagem. O Machine Learning dá suporte à classificação de imagem, com vários rótulos ou várias classes, e identificação de objeto junto com caixas delimitadas.
+[O Azure Machine Learning](https://ml.azure.com/) dá-lhe um lugar central para criar, gerir e monitorizar projetos de rotulagem. Use-o para coordenar dados, etiquetas e membros da equipa para gerir eficientemente as tarefas de rotulagem. O Machine Learning suporta a classificação de imagem, multi-etiqueta ou multi-classe, e identificação de objetos juntamente com caixas limitadas.
 
-Machine Learning rastreia o progresso e mantém a fila de tarefas de rotulagem incompletas. Os rotuladores não precisam de uma conta do Azure para participar. Depois que eles são autenticados com seu conta Microsoft ou [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), eles podem fazer o máximo de rotulagem que o tempo permitir.
+O Machine Learning acompanha o progresso e mantém a fila de tarefas de rotulagem incompletas. Os rotuladores não precisam de uma conta Azure para participar. Depois de autenticados com a sua conta Microsoft ou Com o [Diretório Ativo Azure,](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)podem fazer o máximo de rotulagem que o seu tempo permitir.
 
-No Machine Learning, você inicia e interrompe o projeto, adiciona e remove pessoas e equipes e monitora o progresso. Você pode exportar dados rotulados no formato COCO ou como um conjunto de dado Azure Machine Learning.
+No Machine Learning, inicia-se e pára-se o projeto, adiciona-se e remove pessoas e equipas e monitoriza-se o progresso. Pode exportar dados rotulados em formato COCO ou como um conjunto de dados de Aprendizagem automática Azure.
 
 > [!Important]
-> Somente a classificação de imagem e a identificação de objeto rotulando projetos têm suporte no momento. Além disso, as imagens de dados devem estar disponíveis em um armazenamento de BLOBs do Azure. (Se você não tiver um repositório de armazenamento existente, poderá carregar imagens durante a criação do projeto.) 
+> Apenas os projetos de classificação de imagem e identificação de objetos são atualmente suportados. Além disso, as imagens de dados devem estar disponíveis numa loja de dados azure blob. (Se não tiver uma datastore existente, poderá fazer upload de imagens durante a criação do projeto.) 
 
 Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
 > * Criar um projeto
-> * Especificar os dados e a estrutura do projeto
-> * Gerenciar equipes e pessoas que trabalham no projeto
-> * Executar e monitorar o projeto
+> * Especificar os dados e estrutura do projeto
+> * Gerir as equipas e as pessoas que trabalham no projeto
+> * Executar e monitorizar o projeto
 > * Exportar os rótulos
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Os dados que você deseja rotular, seja em arquivos locais ou no armazenamento do Azure.
-* O conjunto de rótulos que você deseja aplicar.
-* As instruções para rotulagem.
+* Os dados que pretende rotular, quer em ficheiros locais, quer no armazenamento do Azure.
+* O conjunto de etiquetas que pretende aplicar.
+* As instruções para a rotulagem.
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
-* Um espaço de trabalho Machine Learning. Consulte [criar um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
+* Um espaço de trabalho de Aprendizagem automática. Consulte Criar um espaço de [trabalho de aprendizagem automática Azure](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
 
-Os projetos de rotulagem são administrados a partir de Azure Machine Learning. Use a página **rotulando projetos** para gerenciar seus projetos e pessoas. Um projeto tem uma ou mais equipes atribuídas a ele, e uma equipe tem uma ou mais pessoas atribuídas a ela.
+Os projetos de rotulagem são geridos a partir de Azure Machine Learning. Usa a página de projetos de **rotulagem** para gerir os seus projetos e pessoas. Um projeto tem uma ou mais equipas atribuídas a ele, e uma equipa tem uma ou mais pessoas atribuídas a ele.
 
-Se seus dados já estiverem no armazenamento de BLOBs do Azure, você deverá disponibilizá-los como um armazenamento de dados antes de criar o projeto de rotulagem. Para obter detalhes, consulte [criar e registrar repositórios de armazenamento](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores).
+Se os seus dados já se encontra no armazenamento da Azure Blob, deverá disponibilizá-lo como uma datastore antes de criar o projeto de rotulagem. Para mais detalhes, consulte Criar e registar lojas de [dados.](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)
 
-Para criar um projeto, selecione **Adicionar projeto**. Dê ao projeto um nome apropriado e selecione **rotulagem tipo de tarefa**.
+Para criar um projeto, selecione **Adicionar projeto**. Dê ao projeto um nome adequado e selecione o tipo de **tarefa de rotulagem**.
 
-![Rotulando assistente de criação de projeto](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
+![Assistente de criação de projeto de rotulagem](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
-* Escolha **classificação de imagem com vários rótulos** para projetos quando desejar aplicar *um ou mais* rótulos de um conjunto de classes a uma imagem. Por exemplo, uma foto de um cachorro pode ser rotulada com *cachorro* e *dia*.
-* Escolha **classificação de imagem multiclasse** para projetos quando você quiser aplicar apenas uma *única classe* de um conjunto de classes a uma imagem.
-* Escolha **identificação de objeto (caixa delimitadora)** para projetos quando desejar atribuir uma classe e uma caixa delimitadora a cada objeto dentro de uma imagem.
+* Escolha a **classificação de imagem Multi-etiqueta** para projetos quando pretender aplicar *uma ou mais* etiquetas de um conjunto de classes a uma imagem. Por exemplo, uma foto de um cão pode ser rotulada com *cão* e *durante o dia.*
+* Escolha **classificação de imagem Multi-classe** para projetos quando quiser aplicar apenas uma *única classe* de um conjunto de classes a uma imagem.
+* Escolha **identificação de objetos (Caixa de delimitação)** para projetos quando pretender atribuir uma classe e uma caixa de delimitação a cada objeto dentro de uma imagem.
 
-Selecione **Avançar** quando estiver pronto para continuar.
+Selecione **Next** quando estiver pronto para continuar.
 
-## <a name="specify-the-data-to-label"></a>Especificar os dados a serem rotulados
+## <a name="specify-the-data-to-label"></a>Especificar os dados a rotular
 
-Se você já tiver criado um conjunto de dados que contenha seu dado, selecione-o na lista suspensa **selecionar um conjunto** de dados existente. Ou então, selecione **criar um conjunto de uma** para usar um repositório de armazenamento do Azure existente ou carregar arquivos locais.
+Se já criou um conjunto de dados que contenha os seus dados, selecione-os a partir da lista de lançamento **seletiva** de dados existente. Ou, selecione **Criar um conjunto** de dados para utilizar uma loja de dados Azure existente ou para carregar ficheiros locais.
 
-### <a name="create-a-dataset-from-an-azure-datastore"></a>Criar um conjunto de um DataSet de um repositório de armazenamento do Azure
+### <a name="create-a-dataset-from-an-azure-datastore"></a>Criar um conjunto de dados a partir de uma loja de dados Azure
 
-Em muitos casos, é bom carregar apenas arquivos locais. Mas [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) fornece uma maneira mais rápida e robusta de transferir uma grande quantidade de dados. É recomendável Gerenciador de Armazenamento como a maneira padrão de mover arquivos.
+Em muitos casos, não faz mal enviar ficheiros locais. Mas o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) fornece uma forma mais rápida e robusta de transferir uma grande quantidade de dados. Recomendamos o Storage Explorer como a forma padrão de mover ficheiros.
 
-Para criar um conjunto de dados a partir de um dado que você já armazenou no armazenamento de BLOBs do Azure:
+Para criar um conjunto de dados a partir de dados que já armazenou no armazenamento da Blob Azure:
 
-1. Selecione **criar um conjunto** **de > do repositório de armazenamento**.
-1. Atribua um **nome** ao seu conjunto de seus conjuntos de seus.
-1. Escolha **arquivo** como o **tipo de conjunto de texto**.  
-1. Selecione o repositório de armazenamento.
-1. Se os dados estiverem em uma subpasta no armazenamento de BLOBs, escolha **procurar** para selecionar o caminho.
-    * Acrescente "/* *" ao caminho para incluir todos os arquivos em subpastas do caminho selecionado.
-    * Acrescente "* */* . *" para incluir todos os dados no contêiner atual e suas subpastas.
-1. Forneça uma descrição para o conjunto de seus conjuntos de seus.
+1. Selecione **Criar um conjunto de dados** > A partir da **datastore**.
+1. Atribuir um **Nome** ao seu conjunto de dados.
+1. Escolha o **Ficheiro** como o **tipo dataset**.  
+1. Selecione a loja de dados.
+1. Se os seus dados estiverem numa subpasta dentro do seu armazenamento de blob, escolha **Navegar** para selecionar o caminho.
+    * Apêndice "/**" ao caminho para incluir todos os ficheiros em subpastas do caminho selecionado.
+    * Apêndice "* */* .*" para incluir todos os dados do recipiente atual e das suas subpastas.
+1. Forneça uma descrição para o seu conjunto de dados.
 1. Selecione **Seguinte**.
-1. Confirme os detalhes. Selecione **voltar** para modificar as configurações ou **criar** para criar o conjunto de um.
+1. Confirme os detalhes. Selecione **Voltar** a modificar as definições ou **criar** para criar o conjunto de dados.
 
-### <a name="create-a-dataset-from-uploaded-data"></a>Criar um conjunto de dados com base em data de carregamento
+### <a name="create-a-dataset-from-uploaded-data"></a>Criar um conjunto de dados a partir de dados carregados
 
-Para carregar seus dados diretamente:
+Para fazer o upload direto dos seus dados:
 
-1. Selecione **criar um conjunto** de > **de arquivos locais**.
-1. Atribua um **nome** ao seu conjunto de seus conjuntos de seus.
-1. Escolha "arquivo" como o **tipo de conjunto de texto**.
-1. *Opcional:* Selecione **Configurações avançadas** para personalizar o armazenamento de dados, o contêiner e o caminho para os Data.
-1. Selecione **procurar** para selecionar os arquivos locais a serem carregados.
-1. Forneça uma descrição do seu conjunto de seus conjuntos de seus.
+1. Selecione **Criar um conjunto de dados** > a partir de **ficheiros locais**.
+1. Atribuir um **Nome** ao seu conjunto de dados.
+1. Escolha "File" como **o tipo dataset**.
+1. *Opcional:* Selecione **configurações avançadas** para personalizar a loja de dados, o recipiente e o caminho para os seus dados.
+1. **Selecione Navegar** para selecionar os ficheiros locais para carregar.
+1. Forneça uma descrição do seu conjunto de dados.
 1. Selecione **Seguinte**.
-1. Confirme os detalhes. Selecione **voltar** para modificar as configurações ou **criar** para criar o conjunto de um.
+1. Confirme os detalhes. Selecione **Voltar** a modificar as definições ou **criar** para criar o conjunto de dados.
 
-Os dados são carregados no repositório de blob padrão ("workspaceblobstore") de seu espaço de trabalho do Machine Learning.
+Os dados são enviados para a loja de blob padrão ("workspaceblobstore") do seu espaço de trabalho machine learning.
 
-## <a name="specify-label-classes"></a>Especificar classes de rótulo
+## <a name="specify-label-classes"></a>Especificar aulas de etiquetas
 
-Na página **classes de rótulo** , especifique o conjunto de classes para categorizar os dados. Faça isso com cuidado, pois a precisão e a velocidade dos rotuladores serão afetadas por sua capacidade de escolher entre as classes. Por exemplo, em vez de soletrar o genus completo e as espécies de plantas ou animais, use um código de campo ou abreviar o genus.
+Na página de aulas do **Label,** especifique o conjunto de aulas para categorizar os seus dados. Faça-o com cuidado, porque a precisão e a velocidade dos seus rotuladores serão afetadas pela sua capacidade de escolher entre as classes. Por exemplo, em vez de soletrar todo o género e espécies para plantas ou animais, use um código de campo ou abreobre o género.
 
-Insira um rótulo por linha. Use o botão **+** para adicionar uma nova linha. Se você tiver mais de 3 ou 4 rótulos, mas menos de 10, talvez queira prefixar os nomes com números ("1:", "2:") para que os rotuladores possam usar as teclas numéricas para acelerar o trabalho.
+Introduza uma etiqueta por linha. Utilize o botão **+** para adicionar uma nova linha. Se tiver mais de 3 ou 4 etiquetas mas menos de 10, pode querer prefixar os nomes com números ("1: ", "2: ") para que os rotuladores possam usar as teclas de número para acelerar o seu trabalho.
 
-## <a name="describe-the-labeling-task"></a>Descrever a tarefa de rotulagem
+## <a name="describe-the-labeling-task"></a>Descreva a tarefa de rotulagem
 
-É importante explicar claramente a tarefa de rotulagem. Na página **instruções de rotulagem** , você pode adicionar um link a um site externo para instruções de rotulagem. Mantenha as instruções orientadas a tarefas e apropriadas para o público. Considere estas perguntas:
+É importante explicar claramente a tarefa de rotulagem. Na página de instruções de **rotulagem,** pode adicionar um link a um site externo para instruções de rotulagem. Mantenha as instruções orientadas para a tarefa e adequadas ao público. Considere estas questões:
 
-* Quais são os rótulos que eles verão e como eles vão escolher entre eles? Há um texto de referência ao qual se refere?
-* O que eles devem fazer se nenhum rótulo parecer apropriado?
-* O que eles devem fazer se vários rótulos parecerem apropriados?
-* Qual limite de confiança deve ser aplicado a um rótulo? Deseja sua "melhor adivinhação" se não tiver certeza?
-* O que devemos fazer com objetos parcialmente obstruídos ou sobrepostos de interesse?
-* O que devemos fazer se um objeto de interesse for recortado pela borda da imagem?
-* O que eles devem fazer depois que enviarem um rótulo se acreditarem que fizeram um erro?
+* Quais são os rótulos que vão ver, e como vão escolher entre eles? Há algum texto de referência a que se referir?
+* O que devem fazer se nenhum rótulo parecer apropriado?
+* O que devem fazer se várias etiquetas parecerem apropriadas?
+* Que limiar de confiança devem aplicar-se a um rótulo? Queres o "melhor palpite" se não tiverem a certeza?
+* O que devem fazer com objetos de interesse parcialmente obstruídos ou sobrepostos?
+* O que devem fazer se um objeto de interesse é cortado pela borda da imagem?
+* O que devem fazer depois de apresentarem uma etiqueta se acharem que cometeram um erro?
 
-Para caixas delimitadoras, perguntas importantes incluem:
+Para as caixas de delimitação, questões importantes incluem:
 
-* Como a caixa delimitadora é definida para essa tarefa? Ele deve ser totalmente no interior do objeto ou deve estar no exterior? Eles devem ser cortados de maneira mais próxima possível, ou algum espaço é aceitável?
-* Que nível de cuidado e consistência você espera que os rotuladores apliquem na definição de caixas delimitadoras?
+* Como é definida a caixa de delimitação para esta tarefa? Deve estar inteiramente no interior do objeto, ou deve estar no exterior? Deve ser cortado o mais próximo possível, ou é aceitável algum apuramento?
+* Que nível de cuidado e consistência espera que os rotuladores se apliquem na definição de caixas de delimitação?
 
 >[!NOTE]
-> Lembre-se de observar que os rotuladores poderão selecionar os primeiros 9 rótulos usando as chaves de número 1-9.
+> Certifique-se de que os rótulos serão capazes de selecionar as primeiras 9 etiquetas utilizando as teclas 1-9.
 
 ## <a name="initialize-the-labeling-project"></a>Inicializar o projeto de rotulagem
 
-Depois que o projeto de rotulação é inicializado, alguns aspectos do projeto são imutáveis. Você não pode alterar o tipo de tarefa ou o conjunto de texto. Você *pode* modificar os rótulos e a URL para a descrição da tarefa. Examine cuidadosamente as configurações antes de criar o projeto. Depois de enviar o projeto, você será retornado para a home page do **rótulo** , que mostrará o projeto como **inicializando**. Esta página não é atualizada automaticamente. Portanto, após uma pausa, atualize manualmente a página para ver o status do projeto como **criado**.
+Após a rubrica do projeto de rotulagem, alguns aspetos do projeto são imutáveis. Não é possível alterar o tipo de tarefa ou o conjunto de dados. *Pode* modificar as etiquetas e o URL para a descrição da tarefa. Reveja cuidadosamente as definições antes de criar o projeto. Depois de submeter o projeto, é devolvido à página inicial da **Data Labeling,** que mostrará o projeto como **Inicialização**. Esta página não atualiza automaticamente. Assim, após uma pausa, refresque manualmente a página para ver o estado do projeto como **Criado**.
 
-## <a name="manage-teams-and-people"></a>Gerenciar equipes e pessoas
+## <a name="manage-teams-and-people"></a>Gerir equipas e pessoas
 
-Por padrão, cada projeto de rotulagem que você cria Obtém uma nova equipe com você como um membro. Mas as equipes também podem ser compartilhadas entre projetos. E os projetos podem ter mais de uma equipe. Para criar uma equipe, selecione **Adicionar equipe** na página **equipes** .
+Por padrão, cada projeto de rotulagem que crias recebe uma nova equipa consigo como membro. Mas as equipas também podem ser partilhadas entre projetos. E os projetos podem ter mais do que uma equipa. Para criar uma equipa, selecione **Adicionar equipa** na página das **Equipas.**
 
-Você gerencia pessoas na página **pessoas** . Adicionar e remover pessoas por endereço de email. Cada Labeler precisa se autenticar por meio de seu conta Microsoft ou Azure Active Directory, se você usá-lo.  
+Geres as pessoas na página do **People.** Adicione e remova as pessoas por endereço de e-mail. Cada rotulador tem de autenticar através da sua conta Microsoft ou do Diretório Ativo Azure, se a utilizar.  
 
-Depois de adicionar uma pessoa, você pode atribuir essa pessoa a uma ou mais equipes: Vá para a página **equipes** , selecione a equipe e, em seguida, selecione **atribuir pessoas** ou **remover pessoas**.
+Depois de adicionar uma pessoa, pode atribuir essa pessoa a uma ou mais equipas: Vá à página das **Equipas,** selecione a equipa e, em seguida, selecione **Atribuir pessoas** ou **remover pessoas**.
 
-Para enviar um email para a equipe, selecione a equipe para exibir a página de **detalhes da equipe** . Nessa página, selecione **equipe de email** para abrir um rascunho de email com os endereços de todos na equipe.
+Para enviar um e-mail para a equipa, selecione a equipa para ver a página **de detalhes da Equipa.** Nesta página, selecione **a equipa de e-mail** para abrir um rascunho de e-mail com os endereços de todos na equipa.
 
-## <a name="run-and-monitor-the-project"></a>Executar e monitorar o projeto
+## <a name="run-and-monitor-the-project"></a>Executar e monitorizar o projeto
 
-Depois de inicializar o projeto, o Azure começará a executá-lo. Selecione o projeto na página de **rotulagem** principal para ir para os **detalhes do projeto**. A guia **painel** mostra o progresso da tarefa de rotulagem.
+Depois de rubricar o projeto, o Azure vai começar a executá-lo. Selecione o projeto na página principal de **Rotulagem** de Dados para ir aos **detalhes do Projeto**. O **separador Dashboard** mostra o progresso da tarefa de rotulagem.
 
-Na guia **dados** , você pode ver seu conjunto de dados e examinar os dado rotulados. Se você vir dados rotulados incorretamente, selecione-o e escolha **rejeitar**, que removerá os rótulos e colocará os dados de volta na fila sem rótulo.
+No separador **Dados,** pode ver o seu conjunto de dados e rever os dados rotulados. Se vir dados incorretamente rotulados, selecione-os e escolha **Rejeitar**, que removerá as etiquetas e colocará os dados novamente na fila não marcada.
 
-Use a guia **equipe** para atribuir ou cancelar a atribuição de equipes ao projeto.
+Utilize o separador **Team** para atribuir ou desatribuir equipas ao projeto.
 
-Para pausar ou reiniciar o projeto, selecione o botão **Pausar**/**Iniciar** . Você só pode rotular dados quando o projeto está em execução.
+Para interromper ou reiniciar o projeto, selecione o botão **Pausa**/**Iniciar.** Só é possível rotular dados quando o projeto está em execução.
 
-Você pode rotular dados diretamente da página de **detalhes do projeto** selecionando **dados do rótulo**.
+Pode rotular os dados diretamente da página de detalhes do **Projeto** selecionando **os dados**do Rótulo .
+
+## <a name="add-labels-to-a-project"></a>Adicione rótulos a um projeto
+
+Durante o processo de rotulagem, pode descobrir que são necessárias etiquetas adicionais para classificar as suas imagens.  Por exemplo, pode querer adicionar uma etiqueta "Desconhecida" ou "Outra" para indicar imagens confusas.
+
+Utilize estes passos para adicionar um ou mais rótulos a um projeto:
+
+1. Selecione o projeto na página principal de Rotulagem de **Dados.**
+1. No topo da página, selecione **Pause** para parar os rótulos da sua atividade.
+1. Selecione o separador **Detalhes.**
+1. Na lista à esquerda, selecione Aulas de **Etiqueta**.
+1. No topo da lista, selecione **+ Adicionar Rótulos** ![Adicione uma etiqueta](media/how-to-create-labeling-projects/add-label.png)
+1. Na forma, adicione a sua nova etiqueta e escolha como proceder.  Uma vez que mudou as etiquetas disponíveis para uma imagem, escolhe como tratar os dados já rotulados:
+    * Comece de novo, removendo todos os rótulos existentes.  Escolha esta opção se quiser eliminar todas as etiquetas existentes para que o conjunto completo possa ser usado para marcar todas as imagens.
+    * Comece de novo, mantendo todos os rótulos existentes.  Escolha esta opção para marcar todos os dados como não rotulados, mas mantenha as etiquetas existentes como uma etiqueta padrão para imagens que tinham sido rotuladas.
+    * Continue, mantendo todos os rótulos existentes. Escolha esta opção para manter todos os dados já rotulados como estão, e comece a usar a nova etiqueta para dados ainda não classificados.
+1. Modifique a sua página de instruções conforme necessário para a nova etiqueta.
+1. Depois de ter adicionado todas as etiquetas novas, no topo da página selecione **Iniciar** a reiniciar o projeto.  
 
 ## <a name="export-the-labels"></a>Exportar os rótulos
 
-Você pode exportar os dados do rótulo para Machine Learning experimentação a qualquer momento. Os rótulos de imagem podem ser exportados no [formato coco](http://cocodataset.org/#format-data) ou como um conjunto de Azure Machine Learning. Use o botão **Exportar** na página **detalhes do projeto** de seu projeto de rotulagem.
+Pode exportar os dados do rótulo para experimentação de Machine Learning a qualquer momento. As etiquetas de imagem podem ser exportadas em [formato COCO](http://cocodataset.org/#format-data) ou como um conjunto de dados de Aprendizagem automática Azure. Utilize o botão **Export** na página de detalhes do **Projeto** do seu projeto de rotulagem.
 
-O arquivo COCO é criado no repositório de blob padrão do espaço de trabalho Azure Machine Learning em uma pasta dentro de *Export/coco*. Você pode **acessar o conjunto** de Azure Machine Learning exportado na seção DataSets de Machine Learning. A página de detalhes do conjunto de informações também fornece um código de exemplo para acessar seus rótulos do Python.
+O ficheiro COCO é criado na loja de blob padrão do espaço de trabalho Azure Machine Learning numa pasta dentro *da exportação/coco*. Pode aceder ao conjunto de dados de Aprendizagem automática Azure exportado na secção **Datasets** de Machine Learning. A página de detalhes do conjunto de dados também fornece código de amostra para aceder aos seus rótulos a partir de Python.
 
 ![DataSet exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Imagens de rótulo para [classificação de imagem ou detecção de objeto](how-to-label-images.md)
-* Saiba mais sobre [Azure Machine Learning e Machine Learning Studio (clássico)](compare-azure-ml-to-studio-classic.md)
+* Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)
+* Saiba mais sobre [o Azure Machine Learning e o Machine Learning Studio (clássico)](compare-azure-ml-to-studio-classic.md)

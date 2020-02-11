@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: rotular formulários, treinar um modelo e analisar um formulário usando a ferramenta de rótulo de exemplo – reconhecedor de formulário'
+title: 'Quickstart: Rotular formas, treinar um modelo e analisar um formulário usando a ferramenta de rotulagem de amostra - Reconhecimento de Formulário'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará a ferramenta de rotulagem de exemplo do reconhecedor de formulário para rotular manualmente os documentos de formulário. Em seguida, você treinará um modelo personalizado com os documentos rotulados e usará o modelo para extrair pares de chave/valor.
+description: Neste arranque rápido, utilizará a ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' para rotular manualmente documentos de formulário. Em seguida, você vai treinar um modelo personalizado com os documentos etiquetados e usar o modelo para extrair pares chave/valor.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,55 +9,55 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 158faaba1525e162c40c44179f30f7c3cea83b38
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8ab673c1a268f5ab663e8f423dd9b60cdfde14ab
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025916"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118368"
 ---
-# <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de reconhecimento de formulário com rótulos usando a ferramenta de rotulagem de exemplo
+# <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra
 
-Neste guia de início rápido, você usará a API REST do reconhecedor de formulário com a ferramenta de rotulagem de exemplo para treinar um modelo personalizado com dados rotulados manualmente. Consulte a seção [treinar com rótulos](../overview.md#train-with-labels) da visão geral para saber mais sobre esse recurso.
+Neste arranque rápido, utilizará a API do Reconhecimento de Formulários REST com a ferramenta de rotulagem de amostras para treinar um modelo personalizado com dados manualmente rotulados. Consulte o Comboio com a secção de [etiquetas](../overview.md#train-with-labels) da visão geral para saber mais sobre esta funcionalidade.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, você deve ter:
-- Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o [formulário solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess). Você receberá um email com um link para criar um recurso de reconhecimento de formulário.
-- Um conjunto de pelo menos seis formas do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este guia de início rápido. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de BLOBs em uma conta de armazenamento do Azure.
+Para completar este arranque rápido, deve ter:
 
-## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rótulo de exemplo
+- Um conjunto de pelo menos seis formas do mesmo tipo. Usará estes dados para treinar o modelo e testar um formulário. Pode utilizar um conjunto de dados de [amostra](https://go.microsoft.com/fwlink/?linkid=2090451) para este arranque rápido. Faça upload dos ficheiros de treino para a raiz de um recipiente de armazenamento blob numa conta de Armazenamento Azure.
 
-Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de exemplo. Siga estas etapas para configurar o contêiner do Docker. Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
-1. Primeiro, instale o Docker em um computador host. O computador host pode ser seu computador local ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/)ou [Linux](https://docs.docker.com/install/)). Ou, você pode usar um serviço de hospedagem do Docker no Azure, como o [serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/index), as [instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/index)ou um cluster kubernetes [implantado em um Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). O computador host deve atender aos seguintes requisitos de hardware:
+## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem da amostra
+
+Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Siga estes passos para montar o recipiente Docker. Para um primer sobre o Docker e o básico do contentor, consulte a visão geral do [Docker.](https://docs.docker.com/engine/docker-overview/)
+1. Primeiro, instale o Docker num computador de acolhimento. O computador anfitrião pode ser o seu computador local[(Windows,](https://docs.docker.com/docker-for-windows/) [MacOS](https://docs.docker.com/docker-for-mac/)ou [Linux).](https://docs.docker.com/install/) Ou, você pode usar um serviço de hospedagem Docker em Azure, como o [Serviço Azure Kubernetes,](https://docs.microsoft.com/azure/aks/index) [Instâncias de Contentores Azure,](https://docs.microsoft.com/azure/container-instances/index)ou um cluster Kubernetes [implantado para uma Stack Azure.](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910) O computador anfitrião deve satisfazer os seguintes requisitos de hardware:
 
     | Contentor | Mínimo | Recomendado|
     |:--|:--|:--|
-    |Ferramenta de rótulo de exemplo|2 núcleos, 4 GB de memória|4 núcleos, 8 GB de memória|
+    |Ferramenta de rotulagem de amostras|2 núcleo, 4-GB de memória|4 núcleos, 8-GB de memória|
     
-1. Obtenha o contêiner de ferramentas de rótulo de exemplo com o comando `docker pull`.
+1. Obtenha o recipiente de ferramentas de rotulagem da amostra com o comando `docker pull`.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
-1. Agora você está pronto para executar o contêiner com `docker run`.
+1. Agora está pronto para correr o contentor com `docker run`.
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   Esse comando disponibilizará a ferramenta de rotulagem de exemplo por meio de um navegador da Web. Vá para [http://localhost:3000](http://localhost:3000).
+   Este comando disponibilizará a ferramenta de rotulagem da amostra através de um navegador web. Vá para [http://localhost:3000](http://localhost:3000).
 
 > [!NOTE]
-> Você também pode rotular documentos e treinar modelos usando a API REST do reconhecedor de formulário. Para treinar e analisar com a API REST, consulte [treinar com rótulos usando a API REST e o Python](./python-labeled-data.md).
+> Também pode rotular documentos e modelos de comboio utilizando a API REST Do Reconhecimento de Formulários. Para treinar e analisar com a REST API, consulte [O Comboio com etiquetas utilizando a REST API e python](./python-labeled-data.md).
 
 ## <a name="set-up-input-data"></a>Configurar dados de entrada
 
-Primeiro, verifique se todos os documentos de treinamento têm o mesmo formato. Se você tiver formulários em vários formatos, organize-os em subpastas com base no formato comum. Ao treinar, você precisará direcionar a API para uma subpasta.
+Primeiro, certifique-se de que todos os documentos de treino são do mesmo formato. Se tiver formulários em vários formatos, organize-os em subpastas com base no formato comum. Quando treinar, terá de direcionar a API para uma subpasta.
 
-### <a name="configure-cross-domain-resource-sharing-cors"></a>Configurar o CORS (compartilhamento de recursos entre domínios)
+### <a name="configure-cross-domain-resource-sharing-cors"></a>Configurar a partilha de recursos de domínio transversal (CORS)
 
-Habilite o CORS em sua conta de armazenamento. Selecione sua conta de armazenamento no portal do Azure e clique na guia **CORS** no painel esquerdo. Na linha inferior, preencha os valores a seguir. Em seguida, clique em **salvar** na parte superior.
+Ative o CORS na sua conta de armazenamento. Selecione a sua conta de armazenamento no portal Azure e clique no separador **CORS** no painel esquerdo. Na linha de fundo, preencha os seguintes valores. Em seguida, clique em **Guardar** na parte superior.
 
 * Origens permitidas = * 
 * Métodos permitidos = \[selecionar todos os\]
@@ -68,111 +68,111 @@ Habilite o CORS em sua conta de armazenamento. Selecione sua conta de armazename
 > [!div class="mx-imgBorder"]
 > ![a instalação cors no portal Azure](../media/label-tool/cors-setup.png)
 
-## <a name="connect-to-the-sample-labeling-tool"></a>Conectar-se à ferramenta de rótulo de exemplo
+## <a name="connect-to-the-sample-labeling-tool"></a>Ligue-se à ferramenta de rotulagem da amostra
 
-A ferramenta de rotulagem de exemplo conecta-se a uma fonte (onde os formulários originais são) e um destino (o local onde ele exporta os rótulos criados e os dados de saída).
+A ferramenta de rotulagem da amostra liga-se a uma fonte (onde estão os seus formulários originais) e a um alvo (o local onde exporta os rótulos criados e os dados de saída).
 
-As conexões podem ser configuradas e compartilhadas entre projetos. Eles usam um modelo de provedor extensível para que você possa adicionar facilmente novos provedores de origem/destino.
+As ligações podem ser configuradas e partilhadas entre projetos. Utilizam um modelo extensível de fornecedor, para que possa facilmente adicionar novos fornecedores de origem/alvo.
 
-Para criar uma nova conexão, clique no ícone **novas conexões** (plug), na barra de navegação à esquerda.
+Para criar uma nova ligação, clique no ícone **New Connections** (plug) na barra de navegação esquerda.
 
 Preencha os campos com os seguintes valores:
 
-* **Nome de exibição** -o nome de exibição da conexão.
-* **Descrição** -a descrição do seu projeto.
-* **URL SAS** -a URL de SAS (assinatura de acesso compartilhado) do seu contêiner de armazenamento de BLOBs do Azure. Para recuperar a URL SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Defina o tempo de expiração para algum tempo depois de ter usado o serviço. Verifique se as permissões de **leitura**, **gravação**, **exclusão**e **lista** estão marcadas e clique em **criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Nome do **mostrador** - O nome do display de ligação.
+* **Descrição** - Descrição do seu projeto.
+* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Detete o tempo de validade para algum tempo depois de ter usado o serviço. Certifique-se de que as permissões **de Leitura,** **Escrita,** **Apagar**e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-![Configurações de conexão da ferramenta de rótulo de exemplo](../media/label-tool/connections.png)
+![Definições de ligação da ferramenta de rotulagem da amostra](../media/label-tool/connections.png)
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
-Na ferramenta de rótulo de exemplo, os projetos armazenam suas configurações e configurações. Crie um novo projeto e preencha os campos com os seguintes valores:
+Na ferramenta de rotulagem de amostras, os projetos armazenam as suas configurações e configurações. Criar um novo projeto e preencher os campos com os seguintes valores:
 
-* **Nome de exibição** -o nome de exibição do projeto
-* **Token de segurança** -algumas configurações de projeto podem incluir valores confidenciais, como chaves de API ou outros segredos compartilhados. Cada projeto irá gerar um token de segurança que pode ser usado para criptografar/descriptografar configurações de projeto confidenciais. Os tokens de segurança podem ser encontrados nas configurações do aplicativo clicando no ícone de engrenagem no canto inferior da barra de navegação à esquerda.
-* **Conexão de origem** -a conexão de armazenamento de BLOBs do Azure que você criou na etapa anterior que você deseja usar para este projeto.
-* **Caminho da pasta** -opcional – se os formulários de origem estiverem localizados em uma pasta no contêiner de BLOB, especifique o nome da pasta aqui
-* **URI do serviço reconhecedor de formulário** -URL do ponto de extremidade do reconhecedor de formulário.
-* **Chave de API** -sua chave de assinatura do reconhecedor de formulário.
-* **Descrição** -opcional-descrição do projeto
+* **Nome** do ecrã - o nome do display do projeto
+* **Security Token** - Algumas configurações do projeto podem incluir valores sensíveis, tais como chaves API ou outros segredos partilhados. Cada projeto gerará um token de segurança que pode ser usado para encriptar/desencriptar configurações sensíveis do projeto. As fichas de segurança podem ser encontradas nas Definições de Aplicação clicando no ícone da engrenagem no canto inferior da barra de navegação esquerda.
+* **Source Connection** - A ligação de armazenamento De Blob Azure que criou no passo anterior que gostaria de utilizar para este projeto.
+* **Caminho da Pasta** - Opcional - Se os formulários de origem estiverem localizados numa pasta no recipiente blob, especifique o nome da pasta aqui
+* Serviço de Reconhecimento de **FormulárioS Uri** - Url final do ponto final do reconhecimento de formulários.
+* **Chave API** - Chave de subscrição do Reconhecimento de Formulários.
+* **Descrição** - Opcional - Descrição do projeto
 
-![Página novo projeto na ferramenta de rótulo de exemplo](../media/label-tool/new-project.png)
+![Nova página do projeto na ferramenta de rotulagem de amostras](../media/label-tool/new-project.png)
 
-## <a name="label-your-forms"></a>Rotular seus formulários
+## <a name="label-your-forms"></a>Rotule os seus formulários
 
-Quando você cria ou abre um projeto, a janela principal do editor de marca é aberta. O editor de marca consiste em três partes:
+Quando cria ou abre um projeto, abre-se a janela do editor principal. O editor de etiquetas é composto por três partes:
 
-* Um painel de visualização redimensionável que contém uma lista rolável de formulários da conexão de origem.
-* O painel principal do editor que permite aplicar marcas.
-* O painel do editor de marcas que permite aos usuários modificar, bloquear, reordenar e excluir marcas. 
+* Um painel de pré-visualização resizável que contém uma lista de formulários permutáveis da ligação de origem.
+* O painel principal do editor que lhe permite aplicar etiquetas.
+* O painel do editor de tags que permite aos utilizadores modificar, bloquear, reencomendar e apagar etiquetas. 
 
 ### <a name="identify-text-elements"></a>Identificar elementos de texto
 
-Clique em **executar OCR em todos os arquivos** no painel esquerdo para obter as informações de layout de texto de cada documento. A ferramenta de rotulagem desenhará caixas delimitadoras em volta de cada elemento de texto.
+Clique **em Executar OCR em todos os ficheiros** do painel esquerdo para obter as informações de layout de texto para cada documento. A ferramenta de rotulagem desenhará caixas de delimitação em torno de cada elemento de texto.
 
-### <a name="apply-labels-to-text"></a>Aplicar rótulos ao texto
+### <a name="apply-labels-to-text"></a>Aplicar etiquetas ao texto
 
-Em seguida, você criará rótulos e os aplicará aos elementos de texto que deseja que o modelo reconheça.
+Em seguida, irá criar rótulos e aplicá-los aos elementos de texto que pretende que o modelo reconheça.
 
-1. Primeiro, use o painel editor de marcas para criar as marcas (rótulos) que você deseja identificar.
-1. No editor principal, clique e arraste para selecionar uma ou várias palavras dos elementos de texto realçados.
+1. Em primeiro lugar, use o painel de editor de etiquetas para criar as etiquetas (etiquetas) que gostaria de identificar.
+1. No editor principal, clique e arraste para selecionar uma ou várias palavras dos elementos de texto destacados.
 
     > [!NOTE]
-    > No momento, não é possível selecionar texto que se estenda por várias páginas.
-1. Clique na marca que você deseja aplicar ou pressione a tecla de teclado correspondente. Você só pode aplicar uma marca a cada elemento de texto selecionado e cada marca só pode ser aplicada uma vez por página.
+    > Não é possível selecionar texto que se estende por várias páginas.
+1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. Só é possível aplicar uma etiqueta a cada elemento de texto selecionado e cada etiqueta só pode ser aplicada uma vez por página.
 
     > [!TIP]
-    > As chaves de número são atribuídas como teclas de pressionamento para as dez primeiras marcas. Você pode reordenar suas marcas usando os ícones de seta para cima e para baixo no painel do editor de marca.
+    > As teclas de número são atribuídas como chaves de acesso para as primeiras dez etiquetas. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel do editor de etiquetas.
 
-Siga as etapas acima para rotular cinco de seus formulários e, em seguida, passe para a próxima etapa.
+Siga os passos acima para rotular cinco dos seus formulários e, em seguida, passe para o passo seguinte.
 
-![Janela principal do editor da ferramenta de rótulo de exemplo](../media/label-tool/main-editor.png)
+![Janela principal do editor da ferramenta de rotulagem de amostra](../media/label-tool/main-editor.png)
 
 
 ## <a name="train-a-custom-model"></a>Preparar um modelo personalizado
 
-Clique no ícone de treinamento (o carro de treinamento) no painel esquerdo para abrir a página de treinamento. Em seguida, clique no botão **treinar** para começar a treinar o modelo. Quando o processo de treinamento for concluído, você verá as seguintes informações:
+Clique no ícone do comboio (o vagão de comboio) no painel esquerdo para abrir a página de Treino. Em seguida, clique no botão **Train** para começar a treinar o modelo. Assim que o processo de treino estiver concluído, verá as seguintes informações:
 
-* **ID do modelo** -a ID do modelo que foi criado e treinado. Cada chamada de treinamento cria um novo modelo com sua própria ID. Copiar esta cadeia de caracteres para um local seguro; Você precisará dela se quiser fazer chamadas de previsão por meio da API REST.
-* **Precisão média** -a precisão média do modelo. Você pode melhorar a precisão do modelo ao rotular formulários adicionais e treinar novamente para criar um novo modelo. É recomendável começar rotulando cinco formulários e adicionando mais formulários, conforme necessário.
-* A lista de marcas e a precisão estimada por marca.
+* **Id** modelo - A identificação do modelo que foi criado e treinado. Cada chamada de treino cria um novo modelo com a sua própria identificação. Copiar esta cadeia para um local seguro; Vai precisar se quiser fazer chamadas de previsão através da API REST.
+* **Precisão média** - A precisão média do modelo. Pode melhorar a precisão do modelo rotulando novamente formas adicionais e treino para criar um novo modelo. Recomendamos começar por rotular cinco formulários e adicionar mais formulários, se necessário.
+* A lista de etiquetas e a precisão estimada por etiqueta.
 
-![exibição de treinamento](../media/label-tool/train-screen.png)
+![visão de formação](../media/label-tool/train-screen.png)
 
-Após a conclusão do treinamento, examine o valor de **precisão médio** . Se ele estiver baixo, você deverá adicionar mais documentos de entrada e repetir as etapas acima. Os documentos que você já rotulado permanecerão no índice do projeto.
+Após o treino terminar, examine o valor de **precisão média.** Se for baixo, deve adicionar mais documentos de entrada e repetir os passos acima. Os documentos que já rotulou permanecerão no índice do projeto.
 
 > [!TIP]
-> Você também pode executar o processo de treinamento com uma chamada à API REST. Para saber como fazer isso, consulte [treinar com rótulos usando o Python](./python-labeled-data.md).
+> Você também pode executar o processo de treino com uma chamada REST API. Para aprender a fazer isto, consulte [O Comboio com rótulos usando Python](./python-labeled-data.md).
 
 ## <a name="analyze-a-form"></a>Analisar um formulário
 
-Clique no ícone prever (retângulos) à esquerda para testar seu modelo. Carregue um documento de formulário que você não usou no processo de treinamento. Em seguida, clique no botão **prever** à direita para obter previsões de chave/valor para o formulário. A ferramenta aplicará marcas nas caixas delimitadoras e relatará a confiança de cada marca.
+Clique no ícone Previsão (retângulos) à esquerda para testar o seu modelo. Faça upload de um documento de formulário que não usou no processo de treino. Em seguida, clique no botão **Previsão** à direita para obter previsões de chave/valor para o formulário. A ferramenta aplicará etiquetas em caixas de delimitação e reportará a confiança de cada etiqueta.
 
 > [!TIP]
-> Você também pode executar a API de análise com uma chamada REST. Para saber como fazer isso, consulte [treinar com rótulos usando o Python](./python-labeled-data.md).
+> Também pode executar a API de análise com uma chamada REST. Para aprender a fazer isto, consulte [O Comboio com rótulos usando Python](./python-labeled-data.md).
 
 ## <a name="improve-results"></a>Melhorar os resultados
 
-Dependendo da precisão relatada, talvez você queira mais treinamento para melhorar o modelo. Depois de fazer uma previsão, examine os valores de confiança para cada uma das marcas aplicadas. Se o valor de treinamento de precisão média era alto, mas as pontuações de confiança são baixas (ou os resultados são imprecisos), você deve adicionar o arquivo usado para previsão no conjunto de treinamento, rotulá-lo e treinar novamente.
+Dependendo da precisão reportada, poderá querer fazer mais treino para melhorar o modelo. Depois de fazer uma previsão, examine os valores de confiança de cada uma das etiquetas aplicadas. Se o valor médio de treino de precisão foi elevado, mas as pontuações de confiança são baixas (ou os resultados são imprecisos), deve adicionar o ficheiro utilizado para a previsão no conjunto de treino, rotulá-lo e treinar novamente.
 
-A precisão média relatada, as pontuações de confiança e a precisão real podem ser inconsistentes quando os documentos que estão sendo analisados são diferentes daqueles usados no treinamento. Tenha em mente que alguns documentos parecem semelhantes quando exibidos por pessoas, mas podem parecer distintos para o modelo de ia. Por exemplo, você pode treinar com um tipo de formulário que tem duas variações, onde o conjunto de formação consiste em variação A de 20% e 80% de variação B. Durante a previsão, as pontuações de confiança para documentos de variação A são suscetíveis de ser mais baixas.
+A precisão média reportada, as pontuações de confiança e a precisão real podem ser inconsistentes quando os documentos que estão a ser analisados são diferentes dos utilizados no treino. Tenha em mente que alguns documentos são semelhantes quando vistos por pessoas, mas podem parecer distintos do modelo de IA. Por exemplo, você pode treinar com um tipo de formulário que tem duas variações, onde o conjunto de formação consiste em variação A de 20% e 80% de variação B. Durante a previsão, as pontuações de confiança para documentos de variação A são suscetíveis de ser mais baixas.
 
-## <a name="save-a-project-and-resume-later"></a>Salvar um projeto e retomá-lo mais tarde
+## <a name="save-a-project-and-resume-later"></a>Salve um projeto e retome mais tarde
 
-Para retomar seu projeto em outro momento ou em outro navegador, você precisa salvar o token de segurança do projeto e reinseri-lo mais tarde. 
+Para retomar o seu projeto noutra altura ou noutro navegador, precisa de guardar o sinal de segurança do seu projeto e reentrar no mesmo mais tarde. 
 
-### <a name="get-project-credentials"></a>Obter credenciais do projeto
-Vá para a página de configurações do projeto (ícone do controle deslizante) e anote o nome do token de segurança. Em seguida, vá para as configurações do aplicativo (ícone de engrenagem), que mostra todos os tokens de segurança em sua instância atual do navegador. Localize o token de segurança do seu projeto e copie seu nome e valor de chave para um local seguro.
+### <a name="get-project-credentials"></a>Obtenha credenciais de projeto
+Vá à página de definições do seu projeto (ícone deslizante) e tome nota do nome do token de segurança. Em seguida, vá para as definições da sua aplicação (ícone de engrenagem), que mostra todas as fichas de segurança na sua instância atual do navegador. Encontre o símbolo de segurança do seu projeto e copie o seu nome e valor chave para uma localização segura.
 
-### <a name="restore-project-credentials"></a>Restaurar credenciais do projeto
-Quando desejar retomar seu projeto, primeiro você precisará criar uma conexão com o mesmo contêiner de armazenamento de BLOBs. Siga as etapas acima para fazer isso. Em seguida, vá para a página Configurações do aplicativo (ícone de engrenagem) e veja se o token de segurança do seu projeto está lá. Se não estiver, adicione um novo token de segurança e copie sobre o nome do token e a chave da etapa anterior. Em seguida, clique em salvar configurações. 
+### <a name="restore-project-credentials"></a>Restaurar as credenciais do projeto
+Quando pretende retomar o seu projeto, primeiro é necessário criar uma ligação ao mesmo recipiente de armazenamento de bolhas. Siga os passos acima para fazer isto. Em seguida, vá à página de definições de aplicação (ícone de engrenagem) e veja se o sinal de segurança do seu projeto está lá. Se não for, adicione um novo símbolo de segurança e copie o seu nome simbólico e a chave do passo anterior. Em seguida, clique em Guardar Definições. 
 
 ### <a name="resume-a-project"></a>Retomar um projeto
-Por fim, vá para a página principal (ícone da casa) e clique em Abrir projeto de nuvem. Em seguida, selecione a conexão de armazenamento de BLOBs e selecione o arquivo *. vott* do projeto. O aplicativo carregará todas as configurações do projeto, pois ele tem o token de segurança.
+Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento blob e selecione o ficheiro *.vott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o símbolo de segurança.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você aprendeu a usar a ferramenta de rotulação de amostra do reconhecedor de formulário para treinar um modelo com dados rotulados manualmente. Se você quiser integrar a ferramenta de rotulagem em seu próprio aplicativo, use as APIs REST que lidam com o treinamento de dados rotulado.
+Neste arranque rápido, aprendeu a utilizar a ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' para treinar um modelo com dados rotulados manualmente. Se quiser integrar a ferramenta de rotulagem na sua própria aplicação, utilize as APIs REST que lidam com a formação de dados etiquetada.
 
 > [!div class="nextstepaction"]
-> [Treine com rótulos usando o Python](./python-labeled-data.md)
+> [Treine com rótulos usando Python](./python-labeled-data.md)

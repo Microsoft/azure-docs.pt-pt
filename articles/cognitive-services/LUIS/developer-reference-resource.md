@@ -1,25 +1,18 @@
 ---
 title: Recursos para desenvolvedores-Reconhecimento vocal
-titleSuffix: Azure Cognitive Services
-description: Os desenvolvedores têm APIs REST e SDKs para Reconhecimento vocal.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/22/2020
-ms.author: diberry
-ms.openlocfilehash: 2f351ac570080c83e78697bbca94340bb96cbcf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+description: SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compreensão de Línguas (LUIS) na sua linguagem de programação. Gerencie os seus recursos Azure e as previsões do LUIS.
+ms.topic: reference
+ms.date: 02/09/2020
+ms.openlocfilehash: ed869b7022e43b8ecf8c1f05bb3c6f0919076818
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716127"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119972"
 ---
-# <a name="developer-resources-for-language-understanding"></a>Recursos para desenvolvedores para Reconhecimento vocal
+# <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvimento sdK, REST e CLI para a compreensão da linguagem (LUIS)
 
-Os desenvolvedores podem usar APIs REST e SDKs para Reconhecimento vocal.
+SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compreensão de Línguas (LUIS) na sua linguagem de programação. Gerencie os seus recursos Azure e as previsões do LUIS. 
 
 ## <a name="azure-resource-management"></a>Gerenciamento de recursos do Azure
 
@@ -31,11 +24,17 @@ Encontre a documentação de referência com base na ferramenta:
 
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
+
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Solicitações de criação e previsão de Reconhecimento vocal
 
-O serviço de Reconhecimento vocal é acessado de um recurso do Azure que você precisa criar. Há dois recursos: recursos de ponto de extremidade de criação e previsão. Esses dois recursos permitem que você controle seus recursos do LUIS.
+O serviço de Reconhecimento vocal é acessado de um recurso do Azure que você precisa criar. Há dois recursos:
+
+* Utilize o recurso **de autoria** para a formação para criar, editar, treinar e publicar.
+* Utilize a **previsão** para o tempo de execução para enviar o texto do utilizador e receber uma previsão.
 
 Conheça o ponto final da [previsão V3.](luis-migration-api-v3.md)
+
+Utilize o código de [amostra dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-quickstart-code) para aprender e utilizar as tarefas mais comuns.
 
 ### <a name="rest-apis"></a>APIs REST
 
@@ -43,12 +42,12 @@ As APIS de ponto de extremidade de criação e de previsão estão disponíveis 
 
 |Tipo|Versão|
 |--|--|
-|Criação de conteúdos|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[pré-visualização V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
+|Criação|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[pré-visualização V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |predição|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
 
 ### <a name="language-based-sdks"></a>SDKs baseados em linguagem
 
-|Idioma |Documentação de referência|Pacote|Amostras|Inícios rápidos|
+|Idioma |Documentação de referência|Pacote|Amostras|Guias de Início Rápido|
 |--|--|--|--|--|
 |C#|[Criação de conteúdos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Previsão](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Autor nuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Previsão NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net Amostras de SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Criar e gerir app](sdk-authoring.md?pivots=programming-language-csharp)<br>[Ponto final da previsão de consulta](sdk-query-prediction-endpoint.md)|
 |Ir|[Autoria e previsão](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Criação de conteúdos](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Previsão](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Autoria e Previsão usando REST](luis-get-started-get-intent-from-rest.md)|
@@ -77,10 +76,10 @@ A estrutura bot fornece [várias ferramentas](https://github.com/microsoft/botbu
 * [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - Crie e gerencie as suas aplicações LUIS.ai
 * [Despacho](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- gerencie aplicativos para pais e filhos
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto C#gera suporte /Aulas de scripts para as suas intenções e entidades LUIS.
-* [Emulador bot](https://github.com/Microsoft/BotFramework-Emulator/releases) - uma aplicação de desktop que permite aos desenvolvedores de bots testar e depurar bots construídos usando o Bot Framework SDK
+* [Bot Framework emulador](https://github.com/Microsoft/BotFramework-Emulator/releases) - uma aplicação de ambiente de trabalho que permite aos desenvolvedores de bots testar e depurar bots construídos usando o Bot Framework SDK
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os [códigos](luis-reference-response-codes.md) de erro http comuns
 * [Documentação de referência](https://docs.microsoft.com/azure/index#pivot=sdkstools) para todas as APIs e SDKs

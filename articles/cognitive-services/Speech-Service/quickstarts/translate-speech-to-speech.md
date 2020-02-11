@@ -1,24 +1,24 @@
 ---
-title: 'Início rápido: traduzir o serviço de fala para fala-fala'
+title: 'Quickstart: Traduzir discurso-a-discurso - Serviço de discurso'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará o SDK de fala para traduzir interativamente a fala de um idioma para o texto em outro idioma.
+description: Neste arranque rápido, você usará o SDK do discurso para traduzir interativamente o discurso de uma língua para texto em outra língua.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.author: erhopf
+ms.date: 02/10/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 393f1aa6a8fe74d6fef7d5d544dec490078089d0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8babb8b096f815bfd8d9da4c3e8040e650952544
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817710"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119294"
 ---
-# <a name="quickstart-translate-speech-to-speech"></a>Início rápido: converter a fala em fala
+# <a name="quickstart-translate-speech-to-speech"></a>Quickstart: Traduzir o discurso-para-falar
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/translate-sts/header.md)]

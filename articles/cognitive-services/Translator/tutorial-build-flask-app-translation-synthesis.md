@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 0075862e198ce67cc7367efe94d624ad18e6eb3b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b41b68725b6747cbada13a9acc321724b3f89d67
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984172"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118570"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Construir uma app de frasco com serviços cognitivos Azure
 
 Neste tutorial, você vai construir uma aplicação web Do Flask que usa serviços cognitivos Azure para traduzir texto, analisar o sentimento e sintetizar texto traduzido em fala. O nosso foco está nas rotas do código Python e do Flask que permitem a nossa aplicação, no entanto, vamos ajudá-lo com o HTML e javascript que reúne a app. Se tiver algum problema, avise-nos através do botão de feedback abaixo.
 
-Eis o que este tutorial aborda:
+Aqui está o que este tutorial cobre:
 
 > [!div class="checklist"]
 > * Obtenha chaves de subscrição Azure
@@ -103,7 +103,7 @@ Vamos criar um ambiente virtual para a nossa aplicação Flask usando `virtualen
 
 2. Os comandos para ativar o seu ambiente virtual variarão dependendo da sua plataforma/concha:   
 
-   | Plataforma | Shell | Comando |
+   | Plataforma | Concha | Comando |
    |----------|-------|---------|
    | macOS/Linux | bash/zsh | `source venv/bin/activate` |
    | Windows | bash | `source venv/Scripts/activate` |
@@ -146,7 +146,7 @@ Em seguida, precisamos instalar o Flask. O Flask trata do encaminhamento para a 
 
 2. Para executar a aplicação Flask, pode utilizar o comando do balão ou o interruptor Python-m com o Flask. Antes de poder fazê-lo, tem de dizer ao seu terminal com que aplicação trabalhar exportando a variável ambiente `FLASK_APP`:
 
-   **macOS/Linux**:
+   **macOS/Linux:**
    ```
    export FLASK_APP=app.py
    ```
@@ -182,7 +182,7 @@ Este código garante que quando um utilizador navega para `http://your-web-app.c
 
 Enquanto estas amostras ilustram como renderizar páginas html para um utilizador, as rotas também podem ser usadas para ligar para APIs quando um botão é premido, ou tomar qualquer número de ações sem ter que navegar para longe da página inicial. Verá isto em ação quando criar rotas para a tradução, sentimento e síntese da fala.
 
-### <a name="get-started"></a>Começar
+### <a name="get-started"></a>Introdução
 
 1. Abra o projeto no seu IDE e, em seguida, crie um ficheiro chamado `app.py` na raiz do seu diretório de trabalho. Em seguida, copie este código para `app.py` e guarde:
 
@@ -474,7 +474,7 @@ Prima **CTRL + c** para matar a aplicação e, em seguida, dirija-se à secção
 
 ## <a name="analyze-sentiment"></a>Analisar sentimento
 
-A [API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) text analytics pode ser usada para realizar análises de sentimentos, extrair frases-chave do texto ou detetar a linguagem de origem. Nesta aplicação, vamos usar a análise de sentimento para determinar se o texto fornecido é positivo, neutro ou negativo. A API devolve uma pontuação numérica entre 0 e 1. As pontuações próximas de 1 indicam um sentimento positivo, enquanto as pontuações próximas de 0 indicam um sentimento negativo.
+A [API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) text analytics pode ser usada para realizar análises de sentimentos, extrair frases-chave do texto ou detetar a linguagem de origem. Nesta aplicação, vamos usar a análise de sentimento para determinar se o texto fornecido é positivo, neutro ou negativo. A API devolve uma pontuação numérica entre 0 e 1. Pontuações próximas de 1 indicam sentimento positivo, e pontuações próximas de 0 indicam sentimento negativo.
 
 Nesta secção, vais fazer algumas coisas:
 

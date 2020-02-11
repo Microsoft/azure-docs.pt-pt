@@ -1,6 +1,6 @@
 ---
-title: Usar identidades gerenciadas no serviço kubernetes do Azure
-description: Saiba como usar identidades gerenciadas no serviço kubernetes do Azure (AKS)
+title: Use identidades geridas no Serviço Azure Kubernetes
+description: Saiba como usar identidades geridas no Serviço Azure Kubernetes (AKS)
 services: container-service
 author: saudas
 manager: saudas
@@ -8,91 +8,91 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
-ms.openlocfilehash: 16a1f3b8f9ef036bcdc9af122243d313186f99f1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 10ec07cab94184810e083c643e862cebe8e2431c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885326"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121425"
 ---
-# <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>Visualização – usar identidades gerenciadas no serviço kubernetes do Azure
+# <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>Pré-visualização - Utilize identidades geridas no Serviço Azure Kubernetes
 
-Atualmente, um cluster AKS (serviço de kubernetes do Azure) (especificamente, o provedor de nuvem kubernetes) requer uma *entidade de serviço* para criar recursos adicionais, como balanceadores de carga e discos gerenciados no Azure. Você deve fornecer uma entidade de serviço ou AKS cria uma em seu nome. As entidades de serviço normalmente têm uma data de expiração. Os clusters eventualmente atingem um estado no qual a entidade de serviço deve ser renovada para manter o cluster funcionando. O gerenciamento de entidades de serviço adiciona complexidade.
+Atualmente, um cluster azure Kubernetes Service (AKS) (especificamente, o fornecedor de nuvem Kubernetes) requer um *principal de serviço* para criar recursos adicionais como equilibradores de carga e discos geridos em Azure. Ou deve fornecer um diretor de serviço ou aks cria um em seu nome. Os diretores de serviço normalmente têm uma data de validade. Os agrupamentos acabam por chegar a um estado em que o diretor de serviço deve ser renovado para manter o cluster a funcionar. Gerir os diretores de serviços adiciona complexidade.
 
-*Identidades gerenciadas* são essencialmente um wrapper em relação às entidades de serviço e tornam seu gerenciamento mais simples. Para saber mais, leia sobre [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+*As identidades geridas* são essencialmente um invólucro em torno dos diretores de serviço, e tornam a sua gestão mais simples. Para saber mais, leia sobre [identidades geridas para os recursos do Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-O AKS cria duas identidades gerenciadas:
+AKS cria duas identidades geridas:
 
-- **Identidade gerenciada atribuída pelo sistema**: a identidade que o provedor de nuvem kubernetes usa para criar recursos do Azure em nome do usuário. O ciclo de vida da identidade atribuída pelo sistema está vinculado ao do cluster. A identidade é excluída quando o cluster é excluído.
-- **Identidade gerenciada atribuída pelo usuário**: a identidade que é usada para autorização no cluster. Por exemplo, a identidade atribuída pelo usuário é usada para autorizar o AKS a usar os ACRs (registros de controle de acesso) ou autorizar o kubelet a obter metadados do Azure.
+- **Identidade gerida atribuída pelo sistema**: A identidade que o fornecedor de nuvem Kubernetes utiliza para criar recursos Azure em nome do utilizador. O ciclo de vida da identidade atribuída ao sistema está ligado ao do cluster. A identidade é eliminada quando o cluster é eliminado.
+- **Identidade gerida atribuída ao utilizador**: A identidade que é usada para autorização no cluster. Por exemplo, a identidade atribuída ao utilizador é usada para autorizar o AKS a utilizar registos de controlo de acesso (ACRs), ou para autorizar o kubelet a obter metadados do Azure.
 
-Nesse período de visualização, uma entidade de serviço ainda é necessária. Ele é usado para autorização de Complementos, como monitoramento, nós virtuais, Azure Policy e roteamento de aplicativos HTTP. O trabalho está em andamento para remover a dependência de Complementos no SPN (nome da entidade de serviço). Eventualmente, o requisito de um SPN no AKS será removido completamente.
+Neste período de pré-visualização, ainda é necessário um diretor de serviço. É usado para autorização de complementos como monitorização, nós virtuais, Política Azure e encaminhamento de aplicações HTTP. Estão em curso trabalhos para eliminar a dependência de complementos no nome principal do serviço (SPN). Eventualmente, a exigência de um SPN em AKS será completamente removida.
 
 > [!IMPORTANT]
-> Os recursos de visualização do AKS estão disponíveis em uma base de autoatendimento e aceitação. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente na base do melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter mais informações, consulte os seguintes artigos de suporte:
+> As funcionalidades de pré-visualização AKS estão disponíveis numa base de autosserviço, opt-in. As pré-visualizações são fornecidas "as-is" e "conforme disponível", e estão excluídas dos Acordos de Nível de Serviço e da garantia limitada. As pré-visualizações do AKS são parcialmente cobertas pelo apoio ao cliente na base do melhor esforço. Como tal, estas características não se destinam à utilização da produção. Para mais informações, consulte os seguintes artigos de apoio:
 >
-> - [Políticas de suporte do AKS](support-policies.md)
-> - [Perguntas frequentes do suporte do Azure](faq.md)
+> - [Políticas de apoio aks](support-policies.md)
+> - [FaQ de suporte azure](faq.md)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você deve ter os seguintes recursos instalados:
+Deve ter os seguintes recursos instalados:
 
-- O CLI do Azure, versão 2.0.70 ou posterior
-- A extensão 0.4.14 AKs-Preview
+- O Azure CLI, versão 2.0.70 ou mais tarde
+- A extensão de 0.4.14 das aks
 
-Para instalar a extensão AKs-preview 0.4.14 ou posterior, use os seguintes comandos de CLI do Azure:
+Para instalar a extensão de pré-visualização de aks 0.4.14 ou posteriormente, utilize os seguintes comandos Azure CLI:
 
 ```azurecli
-az extension update --name aks-preview
+az extension add --name aks-preview
 az extension list
 ```
 
 > [!CAUTION]
-> Depois de registrar um recurso em uma assinatura, não é possível cancelar o registro desse recurso no momento. Quando você habilita alguns recursos de visualização, os padrões podem ser usados para todos os clusters AKS criados posteriormente na assinatura. Não habilite os recursos de visualização em assinaturas de produção. Em vez disso, use uma assinatura separada para testar recursos de visualização e coletar comentários.
+> Depois de registar uma funcionalidade numa subscrição, não pode atualmente desregistar essa funcionalidade. Quando ativa algumas funcionalidades de pré-visualização, podem ser utilizadas predefinições para todos os clusters AKS criados posteriormente na subscrição. Não ative funcionalidades de pré-visualização nas subscrições de produção. Em vez disso, utilize uma subscrição separada para testar funcionalidades de pré-visualização e recolher feedback.
 
 ```azurecli-interactive
 az feature register --name MSIPreview --namespace Microsoft.ContainerService
 ```
 
-Pode levar vários minutos para que o status seja exibido como **registrado**. Você pode verificar o status do registro usando o comando [AZ Feature List](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Pode levar vários minutos para o estado mostrar como **Registado**. Pode verificar o estado de registo utilizando o comando da [lista de características az:](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list)
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MSIPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando o status for exibido como registrado, atualize o registro do provedor de recursos de `Microsoft.ContainerService` usando o comando [AZ Provider Register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+Quando o estado mostrar como registado, atualização do registo do fornecedor de recursos `Microsoft.ContainerService` utilizando o comando de registo do [fornecedor az:](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register)
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades gerenciadas
+## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades geridas
 
-Agora você pode criar um cluster AKS com identidades gerenciadas usando os comandos da CLI a seguir.
+Agora pode criar um cluster AKS com identidades geridas utilizando os seguintes comandos CLI.
 
-Primeiro, crie um grupo de recursos do Azure:
+Primeiro, criar um grupo de recursos Azure:
 
 ```azurecli-interactive
 # Create an Azure resource group
 az group create --name myResourceGroup --location westus2
 ```
 
-Em seguida, crie um cluster AKS:
+Em seguida, criar um cluster AKS:
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
 ```
 
-Por fim, obtenha as credenciais para acessar o cluster:
+Finalmente, obtenha credenciais para aceder ao cluster:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
 
-O cluster será criado em alguns minutos. Em seguida, você pode implantar suas cargas de trabalho de aplicativo no novo cluster e interagir com ela da mesma forma como você fez com clusters AKS com base na entidade de serviço.
+O aglomerado será criado em poucos minutos. Em seguida, pode implementar as suas cargas de trabalho de aplicação para o novo cluster e interagir com ele tal como fez com clusters AKS baseados em serviços.
 
 > [!IMPORTANT]
 >
-> - Os clusters AKS com identidades gerenciadas podem ser habilitados somente durante a criação do cluster.
-> - Os clusters AKS existentes não podem ser atualizados ou atualizados para habilitar identidades gerenciadas.
+> - Os aglomerados AKS com identidades geridas só podem ser ativados durante a criação do cluster.
+> - Os clusters AKS existentes não podem ser atualizados ou atualizados para permitir identidades geridas.

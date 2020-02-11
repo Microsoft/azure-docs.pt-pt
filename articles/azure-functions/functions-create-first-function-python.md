@@ -1,21 +1,21 @@
 ---
-title: Criar uma função Python disparada por HTTP no Azure
+title: Criar uma função de Python desencadeada em HTTP em Azure
 description: Crie e implemente o código Python sem servidor estoirar para a nuvem utilizando funções Azure.
 ms.date: 01/15/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 529a992178fae5566c8e315956388c4cd4b80257
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898574"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116212"
 ---
-# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Início rápido: criar uma função Python disparada por HTTP no Azure
+# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Quickstart: Criar uma função de Python desencadeada em HTTP em Azure
 
 Neste artigo, utiliza ferramentas de linha de comando para criar uma função Python que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
 
-Também há uma [versão baseada em Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) deste artigo.
+Há também uma [versão baseada em Código](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) de Estúdio Visual deste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +107,7 @@ Nas Funções Azure, um projeto de função é um recipiente para uma ou mais fu
 
 Se desejar, pode saltar para [executar a função localmente](#run-the-function-locally) e examinar o conteúdo do ficheiro mais tarde.
 
-### <a name="__init__py"></a>\_\_init e\_\_.py
+#### <a name="__init__py"></a>\_\_init e\_\_.py
 
 *\_\_init e\_\_ .py* contém uma função `main()` Python que é desencadeada de acordo com a configuração em *função.json*.
 
@@ -138,9 +138,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-Para o gatilho HTTP, a função recebe dados de pedido na variável `req` conforme definido em *função.json*. `req` é um exemplo da [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *Function. JSON*, é uma instância da [classe Azure. Functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [Azure Functions gatilhos e associações http](functions-bindings-http-webhook.md).
+Para o gatilho HTTP, a função recebe dados de pedido na variável `req` conforme definido em *função.json*. `req` é um exemplo da [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *função.json,* é um exemplo de [azure.functions.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [funções Azure HTTP gatilhos e encadernações](functions-bindings-http-webhook.md).
 
-### <a name="functionjson"></a>function.json
+#### <a name="functionjson"></a>function.json
 
 *function.json* é um ficheiro de configuração que define a entrada e a saída `bindings` para a função, incluindo o tipo de gatilho. Pode alterar `scriptFile` invocar um ficheiro Python diferente, se desejar.
 
@@ -167,7 +167,7 @@ Para o gatilho HTTP, a função recebe dados de pedido na variável `req` confor
 }
 ```
 
-Cada encadernação requer uma direção, um tipo e um nome único. O gatilho HTTP tem uma associação de entrada do tipo [`httpTrigger`](functions-bindings-http-webhook.md#trigger) e a associação de saída do tipo [`http`](functions-bindings-http-webhook.md#output).
+Cada encadernação requer uma direção, um tipo e um nome único. O gatilho HTTP tem uma ligação de entrada de tipo [`httpTrigger`](functions-bindings-http-webhook.md#trigger) e ligação de saída do tipo [`http`](functions-bindings-http-webhook.md#output).
 
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
@@ -199,7 +199,7 @@ Quando estiver pronto, **ctrl**+**C** para parar o hospedeiro das funções.
 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Crie recursos Azure de apoio para a sua função
 
-Para implementar o seu código de função para o Azure, precisa de criar três recursos:
+Antes de poder implementar o seu código de função para o Azure, precisa de criar três recursos:
 
 - Um grupo de recursos, que é um recipiente lógico para recursos relacionados.
 - Uma conta de Armazenamento Azure, que mantém informações estatais e outras sobre os seus projetos.
@@ -220,7 +220,7 @@ Usa comandos Azure CLI para criar estes itens. Cada comando fornece saída JSON 
     ```
     
     > [!NOTE]
-    > Você não pode hospedar aplicativos Linux e Windows no mesmo grupo de recursos. Se tiver um grupo de recursos existente chamado `AzureFunctionsQuickstart-rg` com uma aplicação de função Windows ou aplicação web, deve utilizar um grupo de recursos diferente.
+    > Não é possível hospedar aplicações linux e Windows no mesmo grupo de recursos. Se tiver um grupo de recursos existente chamado `AzureFunctionsQuickstart-rg` com uma aplicação de função Windows ou aplicação web, deve utilizar um grupo de recursos diferente.
     
 1. Crie uma conta de armazenamento geral no seu grupo de recursos e região utilizando a conta de [armazenamento az criar](/cli/azure/storage/account#az-storage-account-create) comando. No exemplo seguinte, substitua `<storage_name>` por um nome globalmente único adequado a si. Os nomes devem conter três a 24 caracteres e apenas letras minúsculas. `Standard_LRS` especifica uma conta típica de uso geral.
 
@@ -236,7 +236,7 @@ Usa comandos Azure CLI para criar estes itens. Cada comando fornece saída JSON 
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --name <app_name> --storage-account <storage_name>
     ```
     
-    Este comando cria uma aplicação de função que executa o tempo de funcionamento do idioma especificado no âmbito do Plano de Consumo de [Funções Azure,](functions-scale.md#consumption-plan)que é gratuito para a quantidade de utilização que incorra aqui. O comando também prevê uma instância de Insights de Aplicação Azure associada no mesmo grupo de recursos, com o qual pode monitorizar a sua aplicação de função e visualizar registos. Para obter mais informações, consulte [monitorar Azure Functions](functions-monitoring.md). A instância não incorre em custos até que o ative.
+    Este comando cria uma aplicação de função que executa o tempo de funcionamento do idioma especificado no âmbito do Plano de Consumo de [Funções Azure,](functions-scale.md#consumption-plan)que é gratuito para a quantidade de utilização que incorra aqui. O comando também prevê uma instância de Insights de Aplicação Azure associada no mesmo grupo de recursos, com o qual pode monitorizar a sua aplicação de função e visualizar registos. Para mais informações, consulte as [Funções Monitor Azure](functions-monitoring.md). A instância não incorre em custos até que o ative.
     
 ## <a name="deploy-the-function-project-to-azure"></a>Implementar o projeto de função para o Azure
 
@@ -269,14 +269,14 @@ Functions in msdocs-azurefunctions-qs:
 
 Como a sua função utiliza um gatilho HTTP, invoca-o fazendo um pedido http para o seu URL no navegador ou com uma ferramenta como o curl. Em ambos os casos, o `code` parâmetro URL é a sua chave de função única que autoriza a invocação com o ponto final da sua função.
 
-# <a name="browsertabbrowser"></a>[Browser](#tab/browser)
+# <a name="browsertabbrowser"></a>[Navegador](#tab/browser)
 
 Copie o **url invocado** completo mostrado na saída do comando de publicação numa barra de endereços de navegador, adiando o parâmetro de consulta `&name=Azure`. O navegador deve apresentar uma saída semelhante à que executou a função localmente.
 
 ![A saída da função é executada no Azure num browser](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[caracol](#tab/curl)
 
 Corra [o caracol](https://curl.haxx.se/) com a **url Invoca,** aparando o parâmetro `&name=Azure`. A saída do comando deve ser o texto, "Olá Azure".
 
@@ -285,7 +285,7 @@ Corra [o caracol](https://curl.haxx.se/) com a **url Invoca,** aparando o parâm
 ---
 
 > [!TIP]
-> Para exibir logs quase em tempo real para um aplicativo Python publicado, use o [Live Metrics Stream Application insights](functions-monitoring.md#streaming-logs).
+> Para ver registos em tempo real para uma aplicação Python publicada, utilize o [Fluxo de Métricas Ao Vivo](functions-monitoring.md#streaming-logs)insights da aplicação Insights .
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

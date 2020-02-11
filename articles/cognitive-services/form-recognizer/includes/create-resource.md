@@ -5,24 +5,24 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 14740e780f6143f19f843891c16b25df761d0b4f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0a4faad8bfe92a5389e0ee440aa3ccc404535955
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931266"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118087"
 ---
-Quando você tiver acesso para usar o reconhecedor de formulário, receberá um email de boas-vindas com vários links e recursos. Use o link "portal do Azure" nessa mensagem para abrir o portal do Azure e criar um recurso de reconhecimento de formulário. No painel **criar** , forneça as seguintes informações:
+Vá ao Portal Azure e [crie um novo recurso de Reconhecimento](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)de Formulários. No painel **Criar,** forneça as seguintes informações:
 
 |    |    |
 |--|--|
-| **Nome** | Um nome descritivo para seu recurso. É recomendável usar um nome descritivo, por exemplo, *MyNameFormRecognizer*. |
-| **Subscrição** | Selecione a assinatura do Azure que recebeu acesso. |
-| **Localização** | O local de sua instância de serviço cognitiva. Locais diferentes podem introduzir latência, mas não têm impacto sobre a disponibilidade de tempo de execução do recurso. |
-| **Escalão de preço** | O custo do recurso depende do tipo de preço que você escolher e do uso. Para obter mais informações, consulte os [detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/)da API.
-| **Grupo de recursos** | O [grupo de recursos do Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) que conterá o recurso. Você pode criar um novo grupo ou adicioná-lo a um grupo já existente. |
+| **Nome** | Um nome descritivo para o seu recurso. Recomendamos a utilização de um nome descritivo, por exemplo *MyNameFormRecogniser*. |
+| **Subscrição** | Selecione a subscrição Azure que foi concedida acesso. |
+| **Localização** | A localização da sua instância de serviço cognitivo. Diferentes localizações podem introduzir latência, mas não têm impacto na disponibilidade de tempo de execução do seu recurso. |
+| **Escalão de preço** | O custo do seu recurso depende do nível de preços que escolher e da sua utilização. Para mais informações, consulte os detalhes dos [preços](https://azure.microsoft.com/pricing/details/cognitive-services/)da API .
+| **Grupo de recursos** | O [grupo de recursos Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) que irá conter o seu recurso. Pode criar um novo grupo ou adicioná-lo a um grupo pré-existente. |
 
 > [!IMPORTANT]
-> Normalmente, quando você cria um recurso de serviço cognitiva no portal do Azure, você tem a opção de criar uma chave de assinatura de vários serviços (usada em vários serviços cognitivas) ou uma chave de assinatura de serviço único (usada somente com um serviço de cognitiva específico). No entanto, como o reconhecedor de formulário é uma versão de visualização, ele não está incluído na assinatura de vários serviços e você não pode criar a assinatura de serviço único, a menos que use o link fornecido no email de boas-vindas.
+> Normalmente, quando se cria um recurso do Serviço Cognitivo no portal Azure, tem a opção de criar uma chave de subscrição multi-serviço (usada em vários serviços cognitivos) ou uma chave de subscrição de um serviço único (usada apenas com um serviço cognitivo específico). No entanto, como o Form Recogniser é um lançamento de pré-visualização, não está incluído na subscrição de vários serviços, e não pode criar a subscrição de serviço único a menos que utilize o link fornecido no e-mail Welcome.
 
-Quando o recurso do reconhecedor de formulário concluir a implantação, localize-o e selecione-o na lista **todos os recursos** no Portal. Em seguida, selecione a guia **início rápido** para exibir os dados da sua assinatura. Salve os valores de **key1** e **ponto de extremidade** em um local temporário. Você os usará nas etapas a seguir.
+Quando o seu recurso 'Reconhecimento de Formulários' terminar a implantação, encontre-o e selecione-o a partir da lista **de todos os recursos** no portal. Em seguida, selecione o separador **de arranque Rápido** para visualizar os seus dados de subscrição. Guarde os valores de **Key1** e **Endpoint** para uma localização temporária. Vaiusá-los nos seguintes passos.

@@ -1,187 +1,187 @@
 ---
-title: Opções de rede Azure Functions
-description: Uma visão geral de todas as opções de rede disponíveis no Azure Functions.
+title: Opções de networking de funções Azure
+description: Uma visão geral de todas as opções de networking disponíveis nas Funções Azure.
 author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7b47e7b0672716141f62e3f7df4b0d3ed95c663d
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846447"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114292"
 ---
-# <a name="azure-functions-networking-options"></a>Opções de rede Azure Functions
+# <a name="azure-functions-networking-options"></a>Opções de networking de funções Azure
 
-Este artigo descreve os recursos de rede disponíveis nas opções de hospedagem para Azure Functions. Todas as seguintes opções de rede oferecem a você uma capacidade de acessar recursos sem usar endereços roteáveis pela Internet ou para restringir o acesso à Internet a um aplicativo de funções.
+Este artigo descreve as funcionalidades de networking disponíveis nas opções de hospedagem para funções Azure. Todas as seguintes opções de networking dão-lhe alguma capacidade de aceder a recursos sem usar endereços de saída da Internet ou para restringir o acesso à Internet a uma aplicação de função.
 
-Os modelos de hospedagem têm níveis diferentes de isolamento de rede disponíveis. Escolher a correta ajudará você a atender aos seus requisitos de isolamento de rede.
+Os modelos de hospedagem têm diferentes níveis de isolamento de rede disponíveis. Escolher o correto irá ajudá-lo a cumprir os requisitos de isolamento da sua rede.
 
-Você pode hospedar aplicativos de funções de duas maneiras:
+Você pode hospedar aplicativos de função de várias maneiras:
 
-* Há um conjunto de opções de plano que são executadas em uma infraestrutura multilocatário, com vários níveis de conectividade de rede virtual e opções de dimensionamento:
-    * O [plano de consumo](functions-scale.md#consumption-plan), que é dimensionado dinamicamente em resposta à carga e oferece opções de isolamento de rede mínimas.
-    * O [plano Premium](functions-scale.md#premium-plan), que também é dimensionado dinamicamente, ao mesmo tempo que oferece isolamento de rede mais abrangente.
-    * O [plano do serviço de aplicativo](functions-scale.md#app-service-plan)do Azure, que opera em uma escala fixa e oferece isolamento de rede semelhante ao plano Premium.
-* Você pode executar funções em um [ambiente do serviço de aplicativo](../app-service/environment/intro.md). Esse método implanta sua função em sua rede virtual e oferece controle e isolamento de rede total.
+* Há um conjunto de opções de plano que funcionam em uma infraestrutura multi-inquilino, com vários níveis de conectividade de rede virtual e opções de escala:
+    * O [plano de Consumo](functions-scale.md#consumption-plan), que escala dinamicamente em resposta à carga e oferece opções mínimas de isolamento da rede.
+    * O [plano Premium](functions-scale.md#premium-plan), que também escala dinamicamente, ao mesmo tempo que oferece um isolamento mais abrangente da rede.
+    * O plano Azure [App Service,](functions-scale.md#app-service-plan)que funciona a uma escala fixa e oferece um isolamento de rede semelhante ao plano Premium.
+* Pode executar funções num Ambiente de Serviço de [Aplicações.](../app-service/environment/intro.md) Este método implementa a sua função na sua rede virtual e oferece controlo e isolamento completos da rede.
 
-## <a name="matrix-of-networking-features"></a>Matriz de recursos de rede
+## <a name="matrix-of-networking-features"></a>Matriz de funcionalidades de networking
 
-|                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano Premium](functions-scale.md#premium-plan)|[Plano do Serviço de Aplicações](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicações](../app-service/environment/intro.md)|
+|                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano premium](functions-scale.md#premium-plan)|[Plano do Serviço de Aplicações](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicações](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Restrições de IP de entrada & acesso ao site privado](#inbound-ip-restrictions)|✅Sim|✅Sim|✅Sim|✅Sim|
-|[Integração da rede virtual](#virtual-network-integration)|❌Não|✅Sim (regional)|✅Sim (regional e gateway)|✅Sim|
-|[Gatilhos de rede virtual (não HTTP)](#virtual-network-triggers-non-http)|❌Não| ✅Sim |✅Sim|✅Sim|
-|[Conexões híbridas](#hybrid-connections) (somente Windows)|❌Não|✅Sim|✅Sim|✅Sim|
-|[Restrições de IP de saída](#outbound-ip-restrictions)|❌Não| ❌Não|❌Não|✅Sim|
+|[Restrições ip de entrada e acesso ao site privado](#inbound-ip-restrictions)|✅Sim|✅Sim|✅Sim|✅Sim|
+|[Integração da rede virtual](#virtual-network-integration)|❌Não|✅Sim (Regional)|✅Sim (Regional e Gateway)|✅Sim|
+|[Gatilhos de rede virtuais (não HTTP)](#virtual-network-triggers-non-http)|❌Não| ✅Sim |✅Sim|✅Sim|
+|[Ligações híbridas](#hybrid-connections) (apenas janelas)|❌Não|✅Sim|✅Sim|✅Sim|
+|[Restrições ip de saída](#outbound-ip-restrictions)|❌Não| ❌Não|❌Não|✅Sim|
 
-## <a name="inbound-ip-restrictions"></a>Restrições de IP de entrada
+## <a name="inbound-ip-restrictions"></a>Restrições ip de entrada
 
-Você pode usar restrições de IP para definir uma lista ordenada de prioridade de endereços IP que têm acesso permitido ou negado ao seu aplicativo. A lista pode incluir endereços IPv4 e IPv6. Quando há uma ou mais entradas, um "negar tudo" implícito existe no final da lista. As restrições de IP funcionam com todas as opções de Hospedagem de função.
+Pode utilizar restrições IP para definir uma lista ordenada por prioridade saqueada de endereços IP que são permitidos ou negados acesso à sua aplicação. A lista pode incluir endereços IPv4 e IPv6. Quando há uma ou mais entradas, existe um "negar tudo" implícito no final da lista. As restrições IP funcionam com todas as opções de hospedagem de funções.
 
 > [!NOTE]
-> Com as restrições de rede em vigor, você pode usar o editor do portal somente de dentro de sua rede virtual ou quando você colocou o endereço IP do computador que está usando para acessar o portal do Azure na lista de destinatários seguros. No entanto, você ainda pode acessar quaisquer recursos na guia **recursos da plataforma** de qualquer computador.
+> Com restrições de rede em vigor, só pode utilizar o editor do portal a partir da sua rede virtual, ou quando tiver colocado o endereço IP da máquina que está a usar para aceder ao portal Azure na lista de Destinatários Seguros. No entanto, ainda pode aceder a quaisquer funcionalidades no separador **de funcionalidades** da Plataforma a partir de qualquer máquina.
 
-Para saber mais, consulte [Azure app restrições de acesso estático do serviço](../app-service/app-service-ip-restrictions.md).
+Para saber mais, consulte [as restrições estáticas](../app-service/app-service-ip-restrictions.md)de acesso ao Azure App Service.
 
 ## <a name="private-site-access"></a>O acesso a sites privados
 
-Acesso ao site privado refere-se a tornar seu aplicativo acessível somente de uma rede privada, como uma rede virtual do Azure.
+O acesso ao site privado refere-se a tornar a sua aplicação acessível apenas a partir de uma rede privada, como uma rede virtual Azure.
 
-* O acesso ao site privado está disponível nos planos [Premium](./functions-premium-plan.md), [consumo](functions-scale.md#consumption-plan)e [serviço de aplicativo](functions-scale.md#app-service-plan) quando os pontos de extremidade de serviço são configurados.
-    * Os pontos de extremidade de serviço podem ser configurados por aplicativo em **recursos da plataforma** > **rede** > **Configurar restrições de acesso** > **Adicionar regra**. As redes virtuais agora podem ser selecionadas como um tipo de regra.
-    * Para obter mais informações, consulte [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
-    * Tenha em mente que, com os pontos de extremidade de serviço, sua função ainda tem acesso total de saída à Internet, mesmo com a integração de rede virtual configurada.
-* O acesso ao site privado também está disponível em um Ambiente do Serviço de Aplicativo configurado com um balanceador de carga interno (ILB). Para obter mais informações, consulte [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
+* O acesso ao site privado está disponível nos planos [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan)e [App Service](functions-scale.md#app-service-plan) quando os pontos finais do serviço estão configurados.
+    * Os pontos finais do serviço podem ser configurados numa base por app em **função das funcionalidades** da Plataforma > **Networking** > **Configurar restrições** de acesso > **Regra de adicionar**. As redes virtuais podem agora ser selecionadas como um tipo de regra.
+    * Para mais informações, consulte [os pontos finais do serviço](../virtual-network/virtual-network-service-endpoints-overview.md)de rede virtual .
+    * Tenha em mente que, com pontos finais de serviço, a sua função ainda tem acesso total à internet, mesmo com a integração virtual da rede configurada.
+* O acesso ao site privado também está disponível dentro de um App Service Environment que está configurado com um equilibrista de carga interna (ILB). Para mais informações, consulte [Criar e utilizar um equilibrador de carga interno com um Ambiente de Serviço de Aplicações](../app-service/environment/create-ilb-ase.md).
 
 ## <a name="virtual-network-integration"></a>Integração da rede virtual
 
-A integração de rede virtual permite que seu aplicativo de funções acesse recursos dentro de uma rede virtual. Esse recurso está disponível no plano Premium e no plano do serviço de aplicativo. Se seu aplicativo estiver em um Ambiente do Serviço de Aplicativo, ele já estará em uma rede virtual e não exigirá integração de rede virtual para alcançar recursos na mesma rede virtual.
+A integração virtual da rede permite que a sua aplicação de funções aceda a recursos dentro de uma rede virtual. Esta funcionalidade está disponível tanto no plano Premium como no plano de Serviço de Aplicações. Se a sua aplicação estiver num Ambiente de Serviço de Aplicações, já se encontra numa rede virtual e não necessita de integração virtual de rede para chegar a recursos na mesma rede virtual.
 
-Você pode usar a integração de rede virtual para habilitar o acesso de aplicativos a bancos de dados e serviços Web em execução em sua rede virtual. Com a integração de rede virtual, você não precisa expor um ponto de extremidade público para aplicativos em sua VM. Em vez disso, você pode usar endereços não roteáveis privados da Internet.
+Pode utilizar a integração de redes virtuais para permitir o acesso de apps a bases de dados e serviços web que estão a funcionar na sua rede virtual. Com a integração virtual da rede, não precisa de expor um ponto final público para aplicações no seu VM. Em vez disso, pode utilizar endereços privados e não-internet.
 
-Há duas formas de integração de rede virtual:
+Existem duas formas de integração virtual da rede:
 
-+ **Integração de rede virtual regional (versão prévia)** : habilita a integração com redes virtuais na mesma região. Esse tipo de integração requer uma sub-rede em uma rede virtual na mesma região. Este recurso ainda está em visualização, mas tem suporte para aplicativos de funções em execução no Windows, com as advertências descritas após a seguinte tabela de problema/solução.
-+ **Integração de rede virtual necessária do gateway**: habilita a integração com redes virtuais em regiões remotas ou com redes virtuais clássicas. Esse tipo de integração requer a implantação de um gateway de rede virtual em sua VNet. Esse é um recurso baseado em VPN ponto a site, que tem suporte apenas para aplicativos de funções em execução no Windows.
++ **Integração regional da rede virtual (pré-visualização)** : Permite a integração com redes virtuais na mesma região. Este tipo de integração requer uma subrede numa rede virtual na mesma região. Esta funcionalidade ainda se encontra em pré-visualização, mas é suportada para aplicações de funções que funcionam no Windows, com as ressalvas descritas após a seguinte tabela Problem/Solution.
++ **Gateway exigiu integração virtual da rede**: Permite a integração com redes virtuais em regiões remotas, ou com redes virtuais clássicas. Este tipo de integração requer a implementação de uma porta de entrada de rede virtual no seu VNet. Esta é uma funcionalidade baseada em VPN, que é suportada apenas para aplicações de funções que funcionam no Windows.
 
-Um aplicativo pode usar apenas um tipo de recurso de integração de rede virtual de cada vez. Embora ambos sejam úteis para muitos cenários, a tabela a seguir indica onde cada um deve ser usado:
+Uma aplicação pode usar apenas um tipo da funcionalidade de integração de rede virtual de cada vez. Embora ambos sejam úteis para muitos cenários, a tabela seguinte indica onde cada um deve ser usado:
 
 | Problema  | Solução |
 |----------|----------|
-| Deseja alcançar um endereço RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) na mesma região | Integração de rede virtual regional |
-| Deseja acessar recursos em uma rede virtual clássica ou em uma rede virtual em outra região | Integração de rede virtual do gateway necessária |
-| Deseja alcançar os pontos de extremidade RFC 1918 no Azure ExpressRoute | Integração de rede virtual regional |
-| Deseja acessar recursos entre pontos de extremidade de serviço | Integração de rede virtual regional |
+| Quer chegar a um endereço RFC 1918 (10.0.0.0.0/8, 172.16.0.0/12, 192.168.0.0.0/16) na mesma região | Integração regional da rede virtual |
+| Quer chegar a recursos numa rede virtual clássica ou numa rede virtual noutra região | Gateway exigiu integração virtual da rede |
+| Quer chegar aos pontos finais do RFC 1918 através do Azure ExpressRoute | Integração regional da rede virtual |
+| Quer chegar a recursos através de pontos finais de serviço | Integração regional da rede virtual |
 
-Nenhum recurso permite que você alcance endereços não RFC 1918 no ExpressRoute. Para fazer isso, no momento, você precisa usar um Ambiente do Serviço de Aplicativo.
+Nenhuma das funcionalidades permite chegar a endereços não RFC 1918 através do ExpressRoute. Para isso, tem de utilizar um Ambiente de Serviço de Aplicações.
 
-O uso da integração de rede virtual regional não conecta sua rede virtual a pontos de extremidade locais ou configura pontos de extremidade de serviço. Essa é uma configuração de rede separada. A integração de rede virtual regional apenas permite que seu aplicativo faça chamadas entre esses tipos de conexão.
+A utilização da integração da rede virtual regional não liga a sua rede virtual a pontos finais no local ou a configurar pontos finais de serviço. É uma configuração separada de rede. A integração regional da rede virtual apenas permite que a sua app faça chamadas através desses tipos de conexão.
 
-Independentemente da versão usada, a integração de rede virtual dá ao seu aplicativo de funções acesso aos recursos em sua rede virtual, mas não concede acesso de site privado ao seu aplicativo de funções da rede virtual. Acesso ao site privado significa tornar seu aplicativo acessível somente de uma rede privada como uma rede virtual do Azure. A integração de rede virtual é apenas para fazer chamadas de saída de seu aplicativo para sua rede virtual.
+Independentemente da versão utilizada, a integração de redes virtuais dá à sua app de funções acesso aos recursos da sua rede virtual, mas não concede acesso ao site privado à sua aplicação de funções a partir da rede virtual. Acesso ao site privado significa tornar a sua aplicação acessível apenas a partir de uma rede privada como uma rede virtual Azure. A integração virtual da rede é apenas para fazer chamadas de saída da sua app para a sua rede virtual.
 
-O recurso de integração de rede virtual:
+A funcionalidade de integração de rede virtual:
 
-* Requer um plano do serviço de aplicativo Standard, Premium ou PremiumV2
-* Dá suporte a TCP e UDP
-* Funciona com aplicativos do serviço de aplicativo e aplicativos de funções
+* Requer um plano de serviço de aplicações Standard, Premium ou PremiumV2
+* Suporta TCP e UDP
+* Funciona com apps de Serviço de Aplicações e aplicações de função
 
-Há algumas coisas para as quais a integração de rede virtual não dá suporte, incluindo:
+Há algumas coisas que a integração virtual da rede não suporta, incluindo:
 
 * A montagem de drives
 * Integração com o Active Directory
 * NetBIOS
 
-A integração de rede virtual no Azure Functions usa a infraestrutura compartilhada com aplicativos Web do serviço de aplicativo. Para saber mais sobre os dois tipos de integração de rede virtual, consulte:
+A integração virtual da rede em Funções Azure utiliza infraestruturapartilhada com aplicações web do App Service. Para saber mais sobre os dois tipos de integração virtual da rede, consulte:
 
-* [Integração de rede virtual regional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
-* [Integração de rede virtual do gateway necessária](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+* [Integração da rede virtual regional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
+* [Gateway exigiu integração virtual da rede](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-Para saber mais sobre como usar a integração de rede virtual, consulte [integrar um aplicativo de funções a uma rede virtual do Azure](functions-create-vnet.md).
+Para saber mais sobre a utilização da integração de redes virtuais, consulte [Integrar uma aplicação de função com uma rede virtual Azure.](functions-create-vnet.md)
 
-## <a name="connecting-to-service-endpoint-secured-resources"></a>Conectando a recursos protegidos do ponto de extremidade de serviço
+## <a name="connecting-to-service-endpoint-secured-resources"></a>Ligação a recursos garantidos de ponto final de serviço
 
 > [!NOTE]
-> Por enquanto, pode levar até 12 horas para que novos pontos de extremidade de serviço fiquem disponíveis para seu aplicativo de funções depois de configurar as restrições de acesso no recurso de downstream. Durante esse tempo, o recurso ficará completamente indisponível para seu aplicativo.
+> Por enquanto, pode levar até 12 horas para que novos pontos finais do serviço fiquem disponíveis para a sua aplicação de funções depois de configurar as restrições de acesso no recurso a jusante. Durante este período, o recurso ficará completamente indisponível na sua aplicação.
 
-Para fornecer um nível mais alto de segurança, você pode restringir vários serviços do Azure a uma rede virtual usando pontos de extremidade de serviço. Em seguida, você deve integrar seu aplicativo de funções com essa rede virtual para acessar o recurso. Essa configuração tem suporte em todos os planos que dão suporte à integração de rede virtual.
+Para fornecer um nível de segurança mais elevado, pode restringir uma série de serviços Azure a uma rede virtual utilizando pontos finais de serviço. Em seguida, deve integrar a sua aplicação de funções com essa rede virtual para aceder ao recurso. Esta configuração é suportada em todos os planos que suportam a integração de redes virtuais.
 
-[Saiba mais sobre pontos de extremidade de serviço de rede virtual.](../virtual-network/virtual-network-service-endpoints-overview.md)
+[Saiba mais sobre os pontos finais do serviço de rede virtual.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restringindo sua conta de armazenamento a uma rede virtual
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual
 
-Ao criar um aplicativo de funções, você deve criar ou vincular a uma conta de armazenamento do Azure de uso geral que dá suporte ao armazenamento de BLOBs, filas e tabelas. No momento, não é possível usar nenhuma restrição de rede virtual nesta conta. Se você configurar um ponto de extremidade de serviço de rede virtual na conta de armazenamento que você está usando para seu aplicativo de funções, isso interromperá seu aplicativo.
+Quando criar uma aplicação de função, deve criar ou ligar-se a uma conta de Armazenamento Azure de uso geral que suporta o armazenamento de Blob, Queue e Mesa. Não pode utilizar atualmente quaisquer restrições de rede virtuais nesta conta. Se configurar um ponto final do serviço de rede virtual na conta de armazenamento que está a usar para a sua aplicação de função, isso irá quebrar a sua aplicação. Esta funcionalidade encontra-se atualmente disponível utilizando o Plano Premium e uma integração de rede virtual.
 
 [Saiba mais sobre os requisitos da conta de armazenamento.](./functions-create-function-app-portal.md#storage-account-requirements)
 
-### <a name="using-key-vault-references"></a>Usando referências de Key Vault 
+### <a name="using-key-vault-references"></a>Usando referências chave vault 
 
-Key Vault referências permitem que você use segredos de Azure Key Vault em seu aplicativo Azure Functions sem a necessidade de nenhuma alteração de código. Azure Key Vault é um serviço que fornece gerenciamento de segredos centralizado, com controle total sobre políticas de acesso e histórico de auditoria.
+As referências do Cofre chave permitem-lhe utilizar segredos do Cofre de Chaves Azure na aplicação Funções Azure sem exigir alterações de código. Azure Key Vault é um serviço que fornece gestão centralizada de segredos, com total controlo sobre políticas de acesso e histórico de auditoria.
 
-No momento, [Key Vault referências](../app-service/app-service-key-vault-references.md) não funcionarão se o Key Vault estiver protegido com pontos de extremidade de serviço. Para se conectar a um Key Vault usando a integração de rede virtual, você precisará chamar o Key Vault no código do aplicativo.
+Atualmente, as [referências do Cofre chave](../app-service/app-service-key-vault-references.md) não funcionarão se o seu Cofre chave estiver seguro com pontos finais de serviço. Para ligar a um Cofre chave utilizando a integração virtual da rede, terá de ligar para o cofre chave no seu código de aplicação.
 
-## <a name="virtual-network-triggers-non-http"></a>Gatilhos de rede virtual (não HTTP)
+## <a name="virtual-network-triggers-non-http"></a>Gatilhos de rede virtuais (não HTTP)
 
-No momento, você pode usar funções de gatilho não HTTP de dentro de uma rede virtual de uma das duas maneiras: 
-+ Execute seu aplicativo de funções em um plano Premium e habilite o suporte ao gatilho de rede virtual.
-+ Execute seu aplicativo de funções em um plano do serviço de aplicativo ou Ambiente do Serviço de Aplicativo.
+Atualmente, pode utilizar funções de gatilho não HTTP a partir de uma rede virtual de uma de duas formas: 
++ Execute a sua aplicação de função num plano Premium e ative o suporte ao gatilho da rede Virtual.
++ Execute a sua aplicação de função num plano de serviço de aplicações ou no Ambiente de Serviço de Aplicações.
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plano Premium com gatilhos de rede virtual
 
-Ao executar em um plano Premium, você pode conectar funções de gatilho não HTTP a serviços em execução dentro de uma rede virtual. Para fazer isso, você deve habilitar o suporte ao gatilho de rede virtual para seu aplicativo de funções. A configuração de **suporte do gatilho de rede virtual** é encontrada no [portal do Azure](https://portal.azure.com) em configurações do **aplicativo de funções**.
+Ao executar um plano Premium, pode ligar funções de gatilho não HTTP a serviços que funcionam dentro de uma rede virtual. Para isso, tem de ativar o suporte de disparo de rede virtual para a sua aplicação de função. A definição de suporte ao gatilho da **rede virtual** encontra-se no portal [Azure](https://portal.azure.com) sob as definições da **aplicação Function**.
 
 ![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
 
-Você também pode habilitar gatilhos de rede virtual usando o seguinte comando de CLI do Azure:
+Também pode ativar os gatilhos de rede virtuais utilizando o seguinte comando Azure CLI:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
-Os gatilhos de rede virtual têm suporte na versão 2. x e superior do tempo de execução do functions. Há suporte para os seguintes tipos de gatilho não HTTP.
+Os gatilhos de rede virtuais são suportados na versão 2.x e acima do tempo de funcionamento das Funções. São suportados os seguintes tipos de gatilhos não HTTP.
 
 | Extensão | Versão Mínima |
 |-----------|---------| 
-|[Microsoft. Azure. webjobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 ou superior |
-|[Microsoft. Azure. webjobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 ou superior|
-|[Microsoft. Azure. webjobs. Extensions. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 ou superior|
-|[Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 ou superior|
-|[Microsoft. Azure. webjobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 ou superior|
+|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 ou superior |
+|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 ou superior|
+|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 ou acima|
+|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 ou superior|
+|[Microsoft.Azure.webJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 ou acima|
 
 > [!IMPORTANT]
-> Ao habilitar o suporte de gatilho de rede virtual, somente os tipos de gatilho acima são dimensionados dinamicamente com seu aplicativo. Você ainda pode usar gatilhos não listados acima, no entanto, eles não são dimensionados além de sua contagem de instâncias previamente passiva. Consulte [gatilhos e associações](./functions-triggers-bindings.md#supported-bindings) para obter a lista completa de gatilhos.
+> Ao ativar o suporte ao gatilho da rede virtual, apenas os tipos de gatilho acima da escala são dinamicamente com a sua aplicação. Ainda pode utilizar gatilhos não listados acima, no entanto não são dimensionados para além da sua contagem de instâncias pré-aquecida. Consulte [os gatilhos e encadernações](./functions-triggers-bindings.md#supported-bindings) para obter a lista completa de gatilhos.
 
-### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>Plano e Ambiente do Serviço de Aplicativo do serviço de aplicativo com gatilhos de rede virtual
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>Plano de Serviço de Aplicações e Ambiente de Serviço de Aplicações com gatilhos de rede virtual
 
-Quando seu aplicativo de funções é executado em um plano do serviço de aplicativo ou em um Ambiente do Serviço de Aplicativo, você pode usar funções de gatilho não HTTP. Para que suas funções sejam disparadas corretamente, você deve estar conectado a uma rede virtual com acesso ao recurso definido na conexão do gatilho. 
+Quando a sua aplicação de funções funciona num Plano de Serviço de Aplicações ou num Ambiente de Serviço de Aplicações, pode utilizar funções de gatilho não HTTP. Para que as suas funções sejam ativadas corretamente, deve estar ligada a uma rede virtual com acesso ao recurso definido na ligação do gatilho. 
 
-Por exemplo, suponha que você deseja configurar Azure Cosmos DB para aceitar o tráfego somente de uma rede virtual. Nesse caso, você deve implantar seu aplicativo de funções em um plano do serviço de aplicativo que fornece integração de rede virtual com essa rede virtual. Isso permite que uma função seja disparada por esse Azure Cosmos DB recurso. 
+Por exemplo, assuma que quer configurar o Azure Cosmos DB para aceitar o tráfego apenas a partir de uma rede virtual. Neste caso, deve implementar a sua aplicação de funções num plano de Serviço de Aplicações que forneça integração virtual de rede com essa rede virtual. Isto permite que uma função seja desencadeada por aquele recurso Azure Cosmos DB. 
 
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 
-[Conexões híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) é um recurso da retransmissão do Azure que você pode usar para acessar recursos do aplicativo em outras redes. Ele fornece acesso de seu aplicativo para um ponto de extremidade do aplicativo. Você não pode usá-lo para acessar seu aplicativo. Conexões Híbridas está disponível para funções em execução no Windows em todos, exceto no plano de consumo.
+[Ligações Híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) é uma característica do Azure Relay que pode utilizar para aceder aos recursos de aplicação noutras redes. Fornece acesso da sua app a um ponto final de aplicação. Não pode usá-lo para aceder à sua aplicação. As Ligações Híbridas estão disponíveis para funções em execução no Windows em todos, menos no plano de consumo.
 
-Conforme usado em Azure Functions, cada conexão híbrida se correlaciona com uma única combinação de host e porta de TCP. Isso significa que o ponto de extremidade da conexão híbrida pode estar em qualquer sistema operacional e qualquer aplicativo, desde que você esteja acessando uma porta de escuta TCP. O recurso Conexões Híbridas não conhece ou se preocupa com o que é o protocolo de aplicativo ou o que você está acessando. Ele apenas fornece acesso à rede.
+Conforme utilizado nas Funções Azure, cada ligação híbrida correlaciona-se com um único hospedeiro tCP e uma combinação de porta. Isto significa que o ponto final da ligação híbrida pode estar em qualquer sistema operativo e qualquer aplicação desde que aceda a uma porta de escuta TCP. A funcionalidade Conexões Híbridas não sabe nem se importa com o protocolo de aplicação ou a que acede. Só fornece acesso à rede.
 
-Para saber mais, confira a [documentação do serviço de aplicativo para conexões híbridas](../app-service/app-service-hybrid-connections.md). Essas mesmas etapas de configuração oferecem suporte a Azure Functions.
+Para saber mais, consulte a documentação do Serviço de [Aplicações para Ligações Híbridas.](../app-service/app-service-hybrid-connections.md) Estes mesmos passos de configuração suportam funções Azure.
 
 >[!IMPORTANT]
-> Só há suporte para Conexões Híbridas em planos do Windows. Não há suporte para Linux
+> As Ligações Híbridas só são suportadas nos planos do Windows. Linux não é apoiado
 
-## <a name="outbound-ip-restrictions"></a>Restrições de IP de saída
+## <a name="outbound-ip-restrictions"></a>Restrições ip de saída
 
-As restrições de IP de saída estão disponíveis somente para funções implantadas em um Ambiente do Serviço de Aplicativo. Você pode configurar as restrições de saída para a rede virtual em que sua Ambiente do Serviço de Aplicativo está implantada.
+As restrições IP de saída estão disponíveis apenas para funções implementadas num Ambiente de Serviço de Aplicações. Pode configurar restrições de saída para a rede virtual onde o seu Ambiente de Serviço de Aplicações está implantado.
 
-Quando você integra um aplicativo de funções em um plano Premium ou um plano do serviço de aplicativo com uma rede virtual, o aplicativo ainda pode fazer chamadas de saída para a Internet.
+Quando integra uma aplicação de função num plano Premium ou num plano de Serviço de Aplicações com uma rede virtual, a aplicação ainda pode fazer chamadas de saída para a internet.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre rede e Azure Functions:
+Para saber mais sobre o networking e as funções azure:
 
-* [Siga o tutorial sobre como começar com a integração de rede virtual](./functions-create-vnet.md)
-* [Leia as perguntas frequentes sobre rede de funções](./functions-networking-faq.md)
-* [Saiba mais sobre a integração de rede virtual com o serviço de aplicativo/funções](../app-service/web-sites-integrate-with-vnet.md)
-* [Saiba mais sobre as redes virtuais no Azure](../virtual-network/virtual-networks-overview.md)
-* [Habilitar mais recursos de rede e controle com ambientes de serviço de aplicativo](../app-service/environment/intro.md)
-* [Conectar-se a recursos locais individuais sem alterações de firewall usando Conexões Híbridas](../app-service/app-service-hybrid-connections.md)
+* [Siga o tutorial sobre começar com a integração de rede virtual](./functions-create-vnet.md)
+* [Leia as Funções em rede FAQ](./functions-networking-faq.md)
+* [Saiba mais sobre integração de rede virtual com Serviço/Funções app](../app-service/web-sites-integrate-with-vnet.md)
+* [Saiba mais sobre redes virtuais em Azure](../virtual-network/virtual-networks-overview.md)
+* [Ativar mais funcionalidades de networking e controlo com ambientes de serviço de aplicação](../app-service/environment/intro.md)
+* [Ligue-se aos recursos individuais no local sem alterações de firewall utilizando ligações híbridas](../app-service/app-service-hybrid-connections.md)

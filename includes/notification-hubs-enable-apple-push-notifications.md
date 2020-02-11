@@ -5,15 +5,15 @@ services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/21/2019
+ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: b9f434f2d3c06d3db0bfda7c5853cc835ff64035
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: bf2596f5a8e287799285f97f3d1be9f3fe10f644
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047754"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123138"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gerar o ficheiro de pedido de assinatura de certificado
 
@@ -26,10 +26,9 @@ Gere o ficheiro Certificate Signing Request (CSR), que a Apple utiliza para gera
 1. Selecione Acesso à corrente de **fechadura,** aumente **o Assistente de Certificado,** e, em seguida, selecione **Solicite um Certificado de uma Autoridade de Certificados**.
 
     ![Utilizar o Acesso Keychain para pedir um novo certificado](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-    
-> [!NOTE]
-> Os X por padrão seleciona o primeiro item da categoria que selecionou na ferramenta Keychain Access. Isto pode ser problemático se estiver na secção de **Certificados** e a **Apple Worldwide Developer Relations Certification Authority** *não* for o primeiro item da lista. Antes de solicitar um certificado, certifique-se de que está na secção **certificados** e, em seguida, selecione **Apple Worldwide Developer Relations Certification Authority**.
 
+   > [!NOTE]
+   > Por predefinição, o Keychain Access seleciona o primeiro item da lista. Isto pode ser um problema se estiver na categoria **certificados** e a **Apple Worldwide Developer Relations Certification Authority** não for o primeiro item da lista. Certifique-se de que tem um item não chave, ou a chave apple **worldwide developer relations certification Authority** é selecionada, antes de gerar o CSR (Pedido de Assinatura de Certificado).
 
 1. Selecione o seu Endereço de **E-mail do Utilizador,** introduza o valor do **Nome Comum,** certifique-se de que especifica **o Saved para o disco**, e depois selecione **Continuar**. Deixe o endereço de **e-mail ca** em branco, uma vez que não é necessário.
 

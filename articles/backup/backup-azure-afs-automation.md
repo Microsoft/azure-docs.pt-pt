@@ -3,12 +3,12 @@ title: Back up Ficheiros Azure com PowerShell
 description: Neste artigo, aprenda a fazer backup de Ficheiros Azure utilizando o serviço de backup Azure e powerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: a80589fb45937949b3612e12139ab1615bc1620d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086937"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120515"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Back up Ficheiros Azure com PowerShell
 
@@ -195,7 +195,7 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2019 1:30:00 AM
 ```
 
-## <a name="enable-backup"></a>Habilitar backup
+## <a name="enable-backup"></a>Ativar a cópia de segurança
 
 Depois de definir a política de backup, você pode habilitar a proteção para o compartilhamento de arquivos do Azure usando a política.
 
@@ -250,12 +250,12 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 ## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Aviso importante - Identificação de artigode cópia de segurança para backups AFS
 
-Esta secção descreve as alterações na recuperação de itens de backup para backups AFS desde a pré-visualização para ga.
+Esta secção descreve uma alteração importante na cópia de segurança da AFS em preparação para a GA.
 
-Ao mesmo tempo que permite a cópia de segurança para AFS, o utilizador fornece o nome de partilha de ficheiros amigável para o cliente como nome da entidade e é criado um item de backup. O 'nome' do item de reserva é um identificador único criado pelo serviço Azure Backup. Normalmente, o identificador envolve o nome amigável do utilizador. Mas houve uma mudança na forma como os serviços do Azure identificam internamente uma partilha de ficheiros azure de forma única. Isto significa que o nome único do item de reserva para backup AFS será um GUID e não terá qualquer relação com o nome amigável do cliente. Para conhecer o nome único de cada item, basta executar o comando ```Get-AzRecoveryServicesBackupItem``` com os filtros relevantes para backupManagementType e WorkloadType para obter todos os itens relevantes e, em seguida, observar o campo de nome no objeto/resposta PS devolvido. Recomenda-se sempre a listar itens e, em seguida, recuperar o seu nome único a partir do campo 'nome' em resposta. Utilize este valor para filtrar os itens com o parâmetro 'Nome'. Caso contrário, utilize o parâmetro FriendlyName para recuperar o item com o seu nome/identificador amigo do cliente.
+Ao mesmo tempo que permite a cópia de segurança para AFS, o utilizador fornece o nome de partilha de ficheiros amigável para o cliente como nome da entidade e é criado um item de backup. O 'nome' do item de reserva é um identificador único criado pelo serviço Azure Backup. Normalmente, o identificador envolve o nome amigável do utilizador. Mas para lidar com o cenário importante de soft-delete, onde uma partilha de ficheiros pode ser eliminada e outra partilha de ficheiros pode ser criada com o mesmo nome, a identidade única da partilha de ficheiros Azure será agora um ID em vez de um nome amigável para o cliente. Para conhecer a identidade/nome único de cada item, basta executar o comando ```Get-AzRecoveryServicesBackupItem``` com os filtros relevantes para backupManagementType e WorkloadType para obter todos os itens relevantes e, em seguida, observar o campo de nome no objeto/resposta PS devolvido. Recomenda-se sempre a listar itens e, em seguida, recuperar o seu nome único a partir do campo 'nome' em resposta. Utilize este valor para filtrar os itens com o parâmetro 'Nome'. Caso contrário, utilize o parâmetro FriendlyName para recuperar o item com o seu nome/identificador amigo do cliente.
 
 > [!WARNING]
-> Certifique-se de que a versão PS é atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para backups AFS. Com esta versão, o filtro 'friendlyName' está disponível para ```Get-AzRecoveryServicesBackupItem``` comando. Passe o nome da partilha de ficheiros azul para o parâmetro friendlyName. Se passar o nome da partilha de ficheiros azul para o parâmetro 'Nome', esta versão lança um aviso para passar este nome amigável ao parâmetro de nome amigável. A não instalação desta versão mínima pode resultar na falha dos scripts existentes. Instale a versão mínima do PS com o seguinte comando.
+> Certifique-se de que a versão PS é atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para backups AFS. Com esta versão, o filtro 'friendlyName' está disponível para ```Get-AzRecoveryServicesBackupItem``` comando. Passe o nome da partilha de ficheiros Azure para o parâmetro friendlyName. Se passar o nome Da Partilha de Ficheiros Azure para o parâmetro 'Nome', esta versão lança um aviso para passar este nome amigável ao parâmetro de nome amigável. A não instalação desta versão mínima pode resultar na falha dos scripts existentes. Instale a versão mínima do PS com o seguinte comando.
 
 ```powershell
 Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0

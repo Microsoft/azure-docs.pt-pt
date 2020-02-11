@@ -1,6 +1,6 @@
 ---
-title: Gerenciar a disponibilidade de VMs do Linux no Azure
-description: Saiba como usar várias máquinas virtuais para garantir a alta disponibilidade para seu aplicativo Linux no Azure
+title: Gerencie a disponibilidade de VMs Linux em Azure
+description: Saiba como usar várias máquinas virtuais para garantir uma elevada disponibilidade para a sua aplicação Linux em Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,21 +15,19 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5742ed346c6761dd443d6252e5c9e457fa952b87
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 55c9075f28a9ff7e28fcb01352494cd6cff73f14
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035891"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121901"
 ---
-# <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerenciar a disponibilidade de máquinas virtuais do Linux
+# <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerir a disponibilidade de máquinas virtuais Linux
 
-Aprenda maneiras de configurar e gerenciar várias máquinas virtuais para garantir a alta disponibilidade para seu aplicativo Linux no Azure. Você também pode [gerenciar a disponibilidade de máquinas virtuais do Windows](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Para obter instruções sobre como criar um conjunto de disponibilidade usando a CLI no modelo de implantação do Resource Manager, consulte [Azure dispset: comandos para gerenciar seus conjuntos de disponibilidade](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets).
+Aprenda formas de configurar e gerir várias máquinas virtuais para garantir uma alta disponibilidade para a sua aplicação Linux em Azure. Também pode [gerir a disponibilidade de máquinas virtuais windows](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre balanceamento de carga de suas máquinas virtuais, consulte [balanceamento de carga de máquinas virtuais](../virtual-machines-linux-load-balance.md).
+Para saber mais sobre o equilíbrio de carga das suas máquinas virtuais, consulte [as máquinas virtuais de Equilíbrio de Carga](../virtual-machines-linux-load-balance.md).
 

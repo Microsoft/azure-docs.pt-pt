@@ -1,26 +1,26 @@
 ---
-title: 'Início rápido: traduzir texto-Tradução de Texto'
+title: 'Quickstart: Texto de tradução - Texto tradutor'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você aprenderá a traduzir texto usando o API de Tradução de Texto.
+description: Neste arranque rápido, aprenderá a traduzir texto utilizando a API de Texto tradutor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 8f25271bcf3d7bfb342ea2838bac237b158f3477
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 14407102f77c6cae7b8680485610293796807034
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975708"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118803"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>Início rápido: Use a API de Tradução de Texto para traduzir o texto
+# <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>Quickstart: Use a API de texto tradutor para traduzir texto
 
-Neste guia de início rápido, você aprenderá a converter uma cadeia de caracteres de texto de Inglês para alemão, italiano, japonês e tailandês usando a API REST do Tradução de Texto.
+Neste arranque rápido, você aprenderá a traduzir uma cadeia de texto do inglês para alemão, italiano, japonês e tailandês usando o Tradutor Text REST API.
 
 Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
@@ -54,7 +54,7 @@ Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https:
 
 ::: zone-end
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Transliterar texto](quickstart-transliterate.md)
 * [Identificar o idioma por entrada](quickstart-detect.md)

@@ -1,40 +1,40 @@
 ---
-title: Habilitar a verificação de OTP (senha de uso único)
+title: Ativar a verificação de senha única (OTP)
 titleSuffix: Azure AD B2C
-description: Saiba como configurar um cenário de OTP (senha de uso único) usando Azure AD B2C políticas personalizadas.
+description: Aprenda a configurar um cenário de senha única (OTP) utilizando políticas personalizadas Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dab35fbcd221af9f4eb587b8c98a8ff85aeef59f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9becb91cfffd4553b2b8aa1a2d616963eae92ab0
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982794"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114049"
 ---
-# <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico de senha de uso único em uma política personalizada de Azure AD B2C
+# <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de senha única numa política personalizada Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory B2C (Azure AD B2C) fornece suporte para gerenciar a geração e a verificação de uma senha de uso único. Use um perfil técnico para gerar um código e, em seguida, verifique esse código posteriormente.
+O Azure Ative Directory B2C (Azure AD B2C) fornece suporte para gerir a geração e verificação de uma senha única. Utilize um perfil técnico para gerar um código e, em seguida, verifique esse código mais tarde.
 
-O perfil técnico de senha de uso único também pode retornar uma mensagem de erro durante a verificação de código. Projete a integração com a senha de uso único usando um **perfil técnico de validação**. Um perfil técnico de validação chama o perfil técnico de senha de uso único para verificar um código. O perfil técnico de validação valida os dados fornecidos pelo usuário antes de o percurso do usuário continuar. Com o perfil técnico de validação, uma mensagem de erro é exibida em uma página autodeclarada.
+O perfil técnico de senha única também pode devolver uma mensagem de erro durante a verificação do código. Desenhe a integração com a senha única utilizando um perfil técnico de **Validação**. Um perfil técnico de validação chama o perfil técnico de senha única para verificar um código. O perfil técnico de validação valida os dados fornecidos pelo utilizador antes da viagem do utilizador continuar. Com o perfil técnico de validação, uma mensagem de erro é exibida numa página autoafirmada.
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **Handler** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo que é usado pelo Azure ad B2C:
+O **nome** atributo do elemento **protocolo** tem de ser definido para `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolos que é utilizado pelo Azure AD B2C:
 
 ```XML
 Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-O exemplo a seguir mostra um perfil técnico de senha de uso único:
+O exemplo que se segue mostra um perfil técnico de senha única:
 
 ```XML
 <TechnicalProfile Id="VerifyCode">
@@ -45,48 +45,48 @@ O exemplo a seguir mostra um perfil técnico de senha de uso único:
 
 ## <a name="generate-code"></a>Gerar código
 
-O primeiro modo deste perfil técnico é gerar um código. Abaixo estão as opções que podem ser configuradas para esse modo.
+O primeiro modo deste perfil técnico é gerar um código. Abaixo estão as opções que podem ser configuradas para este modo.
 
-### <a name="input-claims"></a>Declarações de entrada
+### <a name="input-claims"></a>Reclamações de entrada
 
-O elemento **InputClaims** contém uma lista de declarações necessárias para enviar para o provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
+O elemento **InputClaims** contém uma lista de reclamações necessárias para enviar ao fornecedor de protocolos de senha única. Também pode mapear o nome da sua reclamação para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | Descrição |
+| ReivindicaçãoReferenceid | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Identificador | Sim | O identificador para identificar o usuário que precisa verificar o código posteriormente. Normalmente, ele é usado como o identificador do destino para o qual o código é entregue, por exemplo, endereço de email ou número de telefone. |
+| Identificador | Sim | O identificador para identificar o utilizador que precisa de verificar o código mais tarde. É comumente usado como o identificador do destino para onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
 
-O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **InputClaimsTransformation** que são usados para modificar as declarações de entrada ou gerar novas antes de enviar para o provedor de protocolo de senha de uso único.
+O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **inputClaimsTransformation** que são usados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha única.
 
-### <a name="output-claims"></a>Declarações de saída
+### <a name="output-claims"></a>Reclamações de produção
 
-O elemento **OutputClaims** contém uma lista de declarações geradas pelo provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
+O elemento **OutputClaims** contém uma lista de reclamações geradas pelo fornecedor de protocolos de senha única. Também pode mapear o nome da sua reclamação para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | Descrição |
+| ReivindicaçãoReferenceid | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| otpGenerated | Sim | O código gerado cuja sessão é gerenciada pelo Azure AD B2C. |
+| otpGenerated | Sim | O código gerado cuja sessão é gerida pelo Azure AD B2C. |
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
 
 ### <a name="metadata"></a>Metadados
 
-As configurações a seguir podem ser usadas para configurar a geração e a manutenção de código:
+As seguintes definições podem ser utilizadas para configurar a geração e manutenção de códigos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Não | Tempo em segundos até a expiração do código. Mínimo: `60`; Máximo: `1200`; Padrão: `600`. |
-| CodeLength | Não | Comprimento do código. O valor predefinido é `6`. |
-| CharacterSet | Não | O conjunto de caracteres para o código formatado para uso em uma expressão regular. Por exemplo, `a-z0-9A-Z`. O valor predefinido é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
-| NumRetryAttempts | Não | O número de tentativas de verificação antes de o código ser considerado inválido. O valor predefinido é `5`. |
+| CodeExpirationInSeconds | Não | Tempo em segundos até a expiração do código. Mínimo: `60`; Máximo: `1200`; Predefinição: `600`. |
+| Comprimento de código | Não | Comprimento do código. O valor predefinido é `6`. |
+| Conjunto de caracteres | Não | O conjunto de caracteres para o código, formatado para uso numa expressão regular. Por exemplo, `a-z0-9A-Z`. O valor predefinido é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
+| Tentativas de Numretry | Não | O número de tentativas de verificação antes do código é considerado inválido. O valor predefinido é `5`. |
 | Operação | Sim | A operação a ser realizada. Valores possíveis: `GenerateCode`, ou `VerifyCode`. |
-| ReuseSameCode | Não | Se um código duplicado deve ser fornecido em vez de gerar um novo código quando determinado código não tiver expirado e ainda for válido. O valor predefinido é `false`. |
+| Reutilização Do SameCode | Não | Se um código duplicado deve ser dado em vez de gerar um novo código quando o código não expirou e ainda é válido. O valor predefinido é `false`. |
 
-### <a name="returning-error-message"></a>Retornando mensagem de erro
+### <a name="returning-error-message"></a>Mensagem de erro de retorno
 
-Não há nenhuma mensagem de erro retornada para o modo de geração de código.
+Não há nenhuma mensagem de erro devolvida para o modo de geração de códigos.
 
 ### <a name="example"></a>Exemplo
 
-O `TechnicalProfile` de exemplo a seguir é usado para gerar um código:
+O exemplo seguinte `TechnicalProfile` é utilizado para gerar um código:
 
 ```XML
 <TechnicalProfile Id="GenerateCode">
@@ -111,38 +111,38 @@ O `TechnicalProfile` de exemplo a seguir é usado para gerar um código:
 
 ## <a name="verify-code"></a>Verificar código
 
-O segundo modo desse perfil técnico é verificar um código. Abaixo estão as opções que podem ser configuradas para esse modo.
+O segundo modo deste perfil técnico é verificar um código. Abaixo estão as opções que podem ser configuradas para este modo.
 
-### <a name="input-claims"></a>Declarações de entrada
+### <a name="input-claims"></a>Reclamações de entrada
 
-O elemento **InputClaims** contém uma lista de declarações necessárias para enviar para o provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
+O elemento **InputClaims** contém uma lista de reclamações necessárias para enviar ao fornecedor de protocolos de senha única. Também pode mapear o nome da sua reclamação para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | Descrição |
+| ReivindicaçãoReferenceid | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Identificador | Sim | O identificador para identificar o usuário que gerou um código anteriormente. Normalmente, ele é usado como o identificador do destino para o qual o código é entregue, por exemplo, endereço de email ou número de telefone. |
-| otpToVerify | Sim | O código de verificação fornecido pelo usuário. |
+| Identificador | Sim | O identificador para identificar o utilizador que já gerou um código. É comumente usado como o identificador do destino para onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
+| otpToVerificar | Sim | O código de verificação fornecido pelo utilizador. |
 
-O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **InputClaimsTransformation** que são usados para modificar as declarações de entrada ou gerar novas antes de enviar para o provedor de protocolo de senha de uso único.
+O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **inputClaimsTransformation** que são usados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha única.
 
-### <a name="output-claims"></a>Declarações de saída
+### <a name="output-claims"></a>Reclamações de produção
 
-Não há declarações de saída fornecidas durante a verificação de código desse provedor de protocolo.
+Não existem pedidos de saída fornecidos durante a verificação do código deste prestador de protocolos.
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
 
 ### <a name="metadata"></a>Metadados
 
-As configurações a seguir podem ser usadas para configurar a mensagem de erro exibida após a falha de verificação de código:
+As seguintes definições podem ser utilizadas para configurar a mensagem de erro apresentada após falha de verificação de código:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| UserMessageIfSessionDoesNotExist | Não | A mensagem a ser exibida para o usuário se a sessão de verificação de código tiver expirado. O código expirou ou o código nunca foi gerado para um determinado identificador. |
-| UserMessageIfMaxRetryAttempted | Não | A mensagem a ser exibida para o usuário se ele tiver excedido o máximo de tentativas de verificação permitidas. |
-| UserMessageIfInvalidCode | Não | A mensagem a ser exibida para o usuário se ele tiver fornecido um código inválido. |
+| UserMessageifSessionNão existe | Não | A mensagem a mostrar ao utilizador se a sessão de verificação de código tiver expirado. Ou o código expirou ou o código nunca foi gerado para um determinado identificador. |
+| UserMessageIfMaxRetryTryTry | Não | A mensagem para mostrar ao utilizador se tiver excedido as tentativas máximas de verificação permitidas. |
+| UserMessageIfInvalidcode | Não | A mensagem para mostrar ao utilizador se tiver fornecido um código inválido. |
 
-### <a name="returning-error-message"></a>Retornando mensagem de erro
+### <a name="returning-error-message"></a>Mensagem de erro de retorno
 
-Conforme descrito em [metadados](#metadata), você pode personalizar a mensagem de erro mostrada para o usuário para casos de erro diferentes. Você pode localizar mais essas mensagens prefixando a localidade, por exemplo:
+Tal como descrito nos [Metadados,](#metadata)pode personalizar a mensagem de erro mostrada ao utilizador para diferentes casos de erro. Pode localizar ainda mais essas mensagens prefixando o local, por exemplo:
 
 ```XML
 <Item Key="en.UserMessageIfInvalidCode">Wrong code has been entered.</Item>
@@ -150,7 +150,7 @@ Conforme descrito em [metadados](#metadata), você pode personalizar a mensagem 
 
 ### <a name="example"></a>Exemplo
 
-O `TechnicalProfile` de exemplo a seguir é usado para verificar um código:
+É utilizado o seguinte exemplo `TechnicalProfile` para verificar um código:
 
 ```XML
 <TechnicalProfile Id="VerifyCode">
@@ -168,3 +168,10 @@ O `TechnicalProfile` de exemplo a seguir é usado para verificar um código:
     </InputClaims>
 </TechnicalProfile>
 ```
+
+## <a name="next-steps"></a>Passos seguintes
+
+Consulte o seguinte artigo, por exemplo, de utilização de um perfil técnico de senha única com verificação personalizada de e-mail:
+
+- [Verificação personalizada de e-mail no Diretório Ativo Azure B2C](custom-email.md)
+

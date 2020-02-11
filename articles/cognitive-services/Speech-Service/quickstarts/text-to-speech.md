@@ -1,24 +1,24 @@
 ---
-title: 'Início rápido: sintetizar a fala em um serviço de fala do palestrante'
+title: 'Quickstart: Discurso sintetizador a um orador - Serviço de discurso'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará o SDK de fala para converter texto em fala sintetizada e reproduzir a saída em um palestrante.
+description: Neste arranque rápido, utilizará o SDK do Discurso para converter texto em discurso sintetizado e reproduzir a saída num altifalante.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.author: erhopf
+ms.date: 02/10/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9f91d4b0c390b2014dfd88c94b89374d3ea67324
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 95cf6ea645e4a9a769e95692e1116ec2f1ac8c61
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818259"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119404"
 ---
-# <a name="quickstart-synthesize-speech-to-a-speaker"></a>Início rápido: sintetizar a fala para um palestrante
+# <a name="quickstart-synthesize-speech-to-a-speaker"></a>Quickstart: Discurso sintetizador para um orador
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts/header.md)]

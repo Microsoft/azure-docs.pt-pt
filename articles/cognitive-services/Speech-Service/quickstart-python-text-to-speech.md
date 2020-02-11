@@ -1,35 +1,33 @@
 ---
-title: 'Início rápido: converter conversão de texto em fala, serviço de fala em Python'
+title: Converter texto-a-fala, Python - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá aprender como converter texto para voz com Python e a API de REST de voz. O texto de exemplo incluído neste guia está estruturado como Speech Synthesis Markup Language (SSML). Isto permite-lhe escolher a voz e o idioma da resposta de voz.
+description: Neste artigo, você aprenderá a converter texto-a-fala usando Python e a API de DESCANSO Texto-a-Fala. O texto de exemplo incluído neste guia está estruturado como Speech Synthesis Markup Language (SSML). Isto permite-lhe escolher a voz e o idioma da resposta de voz.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: erhopf
-ms.openlocfilehash: 639120b283775bcdb5fe4316d78c538c9db9cf4a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.topic: how-to
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 63e6a2a47265eae08a653f3eadaf6bad86dd0635
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975912"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119724"
 ---
-# <a name="quickstart-convert-text-to-speech-using-python"></a>Início rápido: Converta texto para voz com Python
+# <a name="convert-text-to-speech-using-python"></a>Converter texto-a-fala usando Python
 
-Neste início rápido, irá aprender como converter texto para voz com Python e a API REST do texto para voz. O corpo do pedido neste guia está estruturado como [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), que permite-lhe escolher a voz e o idioma da resposta.
+Neste artigo, você aprenderá a converter texto-a-fala usando Python e a API REST text-to-speech. O corpo de pedido neste guia é estruturado como Linguagem de Marcação de Síntese de [Fala (SSML),](speech-synthesis-markup.md)que lhe permite escolher a voz e a linguagem da resposta.
 
-Este início rápido requer uma [conta de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de serviço de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](get-started.md) para obter uma chave de subscrição.
+Este artigo requer uma [conta de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de serviço da Fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](get-started.md) para obter uma chave de subscrição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido requer:
-
 * Python 2.7.x ou 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), ou no seu editor de texto favorito
-* Uma chave de assinatura do Azure para o serviço de fala
+* [Estúdio Visual](https://visualstudio.microsoft.com/downloads/), [Código de Estúdio Visual,](https://code.visualstudio.com/download)ou o seu editor de texto favorito
+* Uma chave de subscrição Azure para o serviço De Fala
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
@@ -69,15 +67,15 @@ class TextToSpeech(object):
         self.access_token = None
 ```
 
-O `subscription_key` é a chave exclusiva do portal do Azure. `tts` pede ao utilizador para introduzir o texto que será convertido para voz. Esta entrada é uma cadeia literal, para que os caracteres não precisam de caracteres de escape. Por fim, `timestr` obtém a hora atual, o que usaremos para nomear o arquivo.
+O `subscription_key` é a sua chave única do portal Azure. `tts` leva o utilizador a introduzir texto que será convertido para a fala. Esta entrada é uma cadeia literal, para que os caracteres não precisam de caracteres de escape. Finalmente, `timestr` tem o tempo atual, que usaremos para nomear o seu ficheiro.
 
 ## <a name="get-an-access-token"></a>Obter um token de acesso
 
-A API REST do texto para discurso exige um token de acesso para a autenticação. Para obter um token de acesso, um exchange é necessário. Este exemplo troca sua chave de assinatura do serviço de fala para um token de acesso usando o ponto de extremidade `issueToken`.
+A API REST do texto para discurso exige um token de acesso para a autenticação. Para obter um token de acesso, um exchange é necessário. Esta amostra troca a sua chave de subscrição do serviço Speech por um token de acesso utilizando o ponto final `issueToken`.
 
-Este exemplo pressupõe que sua assinatura do serviço de fala está na região oeste dos EUA. Se estiver a utilizar uma região diferente, atualize o valor para `fetch_token_url`. Para obter uma lista completa, consulte [regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Esta amostra pressupõe que a sua subscrição de serviço speech está na região dos EUA Ocidentais. Se estiver a utilizar uma região diferente, atualize o valor para `fetch_token_url`. Para obter uma lista completa, consulte [Regiões.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)
 
-Copie este código para o `TextToSpeech` classe:
+Copie este código para a classe `TextToSpeech`:
 
 ```python
 def get_token(self):
@@ -90,23 +88,23 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> Para obter mais informações sobre autenticação, consulte [autenticar com um token de acesso](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Para obter mais informações sobre a autenticação, consulte [Authenticate com um sinal de acesso](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="make-a-request-and-save-the-response"></a>Fazer um pedido e guardar a resposta
 
-Aqui pretende criar o pedido e guardar a resposta de voz. Em primeiro lugar, tem de definir o `base_url` e `path`. Este exemplo parte do princípio de que está a utilizar o ponto de extremidade do E.U.A. oeste. Se o recurso está registado para uma região diferente, certifique-se de que atualiza o `base_url`. Para obter mais informações, consulte [regiões do serviço de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Aqui pretende criar o pedido e guardar a resposta de voz. Primeiro, tens de definir o `base_url` e `path`. Este exemplo parte do princípio de que está a utilizar o ponto de extremidade do E.U.A. oeste. Se o seu recurso estiver registado numa região diferente, certifique-se de atualizar o `base_url`. Para mais informações, consulte [as regiões de serviço da Fala.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)
 
-Em seguida, terá de adicionar cabeçalhos necessários para o pedido. Certifique-se de que Atualize `User-Agent` com o nome do recurso (localizado no portal do Azure) e conjunto `X-Microsoft-OutputFormat` para a saída de áudio preferencial. Para obter uma lista completa dos formatos de saída, consulte [saídas de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Em seguida, terá de adicionar cabeçalhos necessários para o pedido. Certifique-se de que atualiza `User-Agent` com o nome do seu recurso (localizado no portal Azure), e `X-Microsoft-OutputFormat` para a sua saída de áudio preferida. Para obter uma lista completa dos formatos de saída, consulte [as saídas de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
-Em seguida, construa o corpo do pedido com o Speech Synthesis Markup Language (SSML). Este exemplo define a estrutura e utiliza o `tts` de entrada que criou anteriormente.
+Em seguida, construa o corpo do pedido com o Speech Synthesis Markup Language (SSML). Esta amostra define a estrutura e utiliza a entrada `tts` que criou anteriormente.
 
 >[!NOTE]
-> Este exemplo utiliza o `Guy24KRUS` tipo de voz. Para uma lista completa de Microsoft fornecidas vozes/idiomas, consulte [suporte de idiomas](language-support.md).
-> Se estiver interessado em criar uma voz exclusiva, reconhecível para sua marca, veja [criar tipos de voz personalizada](how-to-customize-voice-font.md).
+> Esta amostra utiliza a fonte de voz `Guy24KRUS`. Para obter uma lista completa da Microsoft forneceu vozes/idiomas, consulte [o suporte do Idioma](language-support.md).
+> Se está interessado em criar uma voz única e reconhecível para a sua marca, consulte Criar fontes de [voz personalizadas.](how-to-customize-voice-font.md)
 
 Por fim, vou fazer um pedido para o serviço. Se a solicitação for bem-sucedida, e é devolvido um código de 200 Estado, a resposta de voz é escrita num ficheiro timestamped.
 
-Copie este código para o `TextToSpeech` classe:
+Copie este código para a classe `TextToSpeech`:
 
 ```python
 def save_audio(self):
@@ -168,11 +166,11 @@ Não se esqueça de remover quaisquer informações confidenciais do código-fon
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Explore os exemplos do Python no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
+> [Explore as amostras python no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Referência da API de conversão de texto em voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Usando o Python e o SDK de fala para converter conversão de texto em fala](quickstarts/speech-to-text-from-microphone.md)
-* [Criar tipos de voz personalizada](how-to-customize-voice-font.md)
-* [Exemplos de voz de registo para criar uma voz personalizada](record-custom-voice-samples.md)
+* [Usando Python e Speech SDK para converter texto-a-fala](quickstarts/speech-to-text-from-microphone.md)
+* [Criação de fontes de voz personalizadas](how-to-customize-voice-font.md)
+* [Gravar amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)

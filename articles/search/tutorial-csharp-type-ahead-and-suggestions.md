@@ -1,50 +1,50 @@
 ---
-title: C#tutorial sobre preenchimento automático e sugestões
+title: C#tutorial sobre auto-conclusão e sugestões
 titleSuffix: Azure Cognitive Search
-description: Este tutorial demonstra a conclusão automática e sugestões como uma maneira de coletar entrada de termo de pesquisa de usuários usando a lista suspensa. Ele se baseia em um projeto de hotéis existente.
+description: Este tutorial demonstra a auto-conclusão e sugestões como uma forma de recolher a entrada de prazos de pesquisa dos utilizadores usando a lista de dropdown. Baseia-se num projeto de hotéis existente.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114555"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121527"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C#Tutorial: Adicionar AutoCompletar e sugestões-Azure Pesquisa Cognitiva
+# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C#Tutorial: Adicionar auto-conclusão e sugestões - Pesquisa Cognitiva Azure
 
-Saiba como implementar o preenchimento automático (tipo-antecipado e sugestões) quando um usuário começa a digitar na caixa de pesquisa. Neste tutorial, mostraremos resultados de tipo antecipado e resultados de sugestão separadamente e, em seguida, mostraremos um método de combiná-los para criar uma experiência de usuário mais rica. Um usuário pode precisar apenas digitar duas ou três chaves para localizar todos os resultados disponíveis. Este tutorial se baseia no projeto de paginação criado no [ C# tutorial: paginação dos resultados da pesquisa-tutorial de pesquisa cognitiva do Azure](tutorial-csharp-paging.md) .
+Saiba como implementar a auto-conclusão (tipo à frente e sugestões) quando um utilizador começa a digitar na sua caixa de pesquisa. Neste tutorial, mostraremos resultados de tipo de antecedência e sugestões separadamente, em seguida, mostrar um método de combiná-los para criar uma experiência de utilizador mais rica. Um utilizador só pode ter de digitar duas ou três teclas para localizar todos os resultados disponíveis. Este tutorial baseia-se no projeto de paging criado no [ C# Tutorial: Pesquisa resultados paginação - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Adicionar sugestões
-> * Adicionar realce às sugestões
-> * Adicionar preenchimento automático
-> * Combinar preenchimento automático e sugestões
+> * Adicione destaque às sugestões
+> * Adicionar auto-conclusão
+> * Combine auto-conclusão e sugestões
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
-Faça o [ C# tutorial: paginação dos resultados da pesquisa-o projeto pesquisa cognitiva do Azure](tutorial-csharp-paging.md) em funcionamento. Este projeto pode ser sua própria versão, que você concluiu no tutorial anterior ou o instalou no GitHub: [criar primeiro aplicativo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Tenha [ C# o Tutorial: Resultados de pesquisa paginação - Projeto](tutorial-csharp-paging.md) de Pesquisa Cognitiva Azure em funcionamento. Este projeto pode ser a sua própria versão, que completou no tutorial anterior, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="add-suggestions"></a>Adicionar sugestões
 
-Vamos começar com o caso mais simples de oferecer alternativas para o usuário: uma lista suspensa de sugestões.
+Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lista de sugestões.
 
-1. No arquivo index. cshtml, altere a instrução **TextBoxFor** para o seguinte.
+1. No ficheiro index.cshtml, altere a declaração **TextBoxFor** para a seguinte.
 
     ```cs
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-    A chave aqui é que definimos a ID da caixa de pesquisa como **azureautosuggest**.
+    A chave aqui é que definimos a identificação da caixa de pesquisa para **sugerir em azureautosuggest**.
 
-2. Seguindo essa instrução, após o fechamento **&lt;/div&gt;** , insira esse script.
+2. Seguindo esta declaração, após o fecho **&lt;/div&gt;,** insira este script.
 
     ```javascript
     <script>
@@ -59,13 +59,13 @@ Vamos começar com o caso mais simples de oferecer alternativas para o usuário:
     </script>
     ```
 
-    Conectamos esse script à caixa de pesquisa por meio da mesma ID. Além disso, um mínimo de dois caracteres é necessário para disparar a pesquisa e chamamos a ação de **sugestão** no controlador Home com dois parâmetros de consulta: **destaques** e **difuso**, ambos definidos como false nessa instância.
+    Ligámos este guião à caixa de pesquisa através da mesma identificação. Além disso, um mínimo de dois caracteres é necessário para desencadear a pesquisa, e chamamos a ação **Sugerir** no controlador doméstico com dois **parâmetros** de consulta: destaques e **difusores**, ambos definidos como falsos neste caso.
 
-### <a name="add-references-to-jquery-scripts-to-the-view"></a>Adicionar referências a scripts jQuery à exibição
+### <a name="add-references-to-jquery-scripts-to-the-view"></a>Adicione referências a scripts jquery à vista
 
-A função de preenchimento automático chamada no script acima não é algo que precisamos nos escrever, pois está disponível na biblioteca jQuery. 
+A função autocompleta chamada no script acima não é algo que temos que escrever a nós mesmos como está disponível na biblioteca jquery. 
 
-1. Para acessar a biblioteca jQuery, altere a seção &lt;Head&gt; do arquivo de exibição para o código a seguir.
+1. Para aceder à biblioteca jquery, mude a cabeça &lt;&gt; secção do ficheiro de visualização para o seguinte código.
 
     ```cs
     <head>
@@ -80,7 +80,7 @@ A função de preenchimento automático chamada no script acima não é algo que
     </head>
     ```
 
-2. Também precisamos remover, ou comentar, uma linha referenciando jQuery no arquivo _Layout. cshtml (na pasta **views/Shared** ). Localize as linhas a seguir e comente a primeira linha do script, conforme mostrado. Essa alteração evita referências conflitantes ao jQuery.
+2. Também precisamos remover, ou comentar, uma linha que referencia o jquery no ficheiro _Layout.cshtml (na pasta **Views/Shared).** Localize as seguintes linhas e comente a primeira linha de script, como mostrado. Esta alteração evita o embate de referências ao jquery.
 
     ```html
     <environment include="Development">
@@ -90,11 +90,11 @@ A função de preenchimento automático chamada no script acima não é algo que
     </environment>
     ```
 
-    Agora, podemos usar as funções predefinidas de AutoCompletar jQuery.
+    Agora podemos usar as funções de jquery auto-completo pré-definida.
 
-### <a name="add-the-suggest-action-to-the-controller"></a>Adicionar a ação sugerir ao controlador
+### <a name="add-the-suggest-action-to-the-controller"></a>Adicione a ação Sugerir ao controlador
 
-1. No controlador inicial, adicione a ação **sugerir** (digamos, após a ação da **página** ).
+1. No controlador doméstico, adicione a ação **Sugerir** (por exemplo, após a ação **da Página).**
 
     ```cs
         public async Task<ActionResult> Suggest(bool highlights, bool fuzzy, string term)
@@ -126,34 +126,34 @@ A função de preenchimento automático chamada no script acima não é algo que
         }
     ```
 
-    O parâmetro **Top** especifica quantos resultados serão retornados (se não for especificado, o padrão será 5). Um _Sugestor_ é especificado no índice do Azure, que é feito quando os dados são configurados, e não por um aplicativo cliente, como este tutorial. Nesse caso, o Sugestor é chamado de "SG" e pesquisa o campo **hotelname** – nada mais. 
+    O parâmetro **Superior** especifica quantos resultados deve devolver (se não especificado, o padrão é 5). É especificado um _sugestor_ no índice Azure, que é feito quando os dados são configurados, e não por uma aplicação de cliente como este tutorial. Neste caso, o sugestor chama-se "sg", e procura no campo **HotelName** - nada mais. 
 
-    A correspondência difusa permite que "próximos erros" sejam incluídos na saída. Se o parâmetro **realces** for definido como true, as marcas HTML em negrito serão adicionadas à saída. Definiremos esses dois parâmetros como true na próxima seção.
+    A correspondência fuzzy permite que "quase falhas" sejam incluídas na saída. Se o parâmetro de **destaque** estiver definido como verdadeiro, as etiquetas HTML arrojadas são adicionadas à saída. Vamos definir estes dois parâmetros verdadeiros na próxima secção.
 
-2. Você pode obter alguns erros de sintaxe. Nesse caso, adicione as duas instruções **using** a seguir à parte superior do arquivo.
+2. Pode ter alguns erros de sintaxe. Em caso afirmativo, adicione as duas seguintes **utilizando** declarações no topo do ficheiro.
 
     ```cs
     using System.Collections.Generic;
     using System.Linq;
     ```
 
-3. Execute o aplicativo. Você Obtém uma variedade de opções ao inserir "po", por exemplo? Agora experimente o "PA".
+3. Executar a aplicação. Obtém um leque de opções quando entra em "po", por exemplo? Agora tente "pa".
 
-    ![Digitar "po" revela duas sugestões](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
+    ![Escrever "po" revela duas sugestões](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
 
-    Observe que as letras inseridas _devem_ iniciar uma palavra e não simplesmente ser incluídas na palavra.
+    Note que as letras que insere _devem_ começar uma palavra, e não ser incluídas simplesmente dentro da palavra.
 
-4. No script de exibição, defina **& difusa** como true e execute o aplicativo novamente. Agora, insira "po". Observe que a pesquisa pressupõe que você recebeu uma letra errada!
+4. No script view, set **& fuzzy** to true, and run the app again. Agora entra "po". Reparem que a busca pressupõe que se enganou numa carta!
  
-    ![Digitando "PA" com difusa definida como true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
+    ![Digitando "pa" com conjunto felpudo para verdade](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Se você estiver interessado, a [sintaxe de consulta Lucene no Azure pesquisa cognitiva](https://docs.microsoft.com/azure/search/query-lucene-syntax) descreve a lógica usada em pesquisas difusas em detalhes.
+    Se estiver interessado, a [sintaxe lucene de consulta em Pesquisa Cognitiva Azure](https://docs.microsoft.com/azure/search/query-lucene-syntax) descreve a lógica usada em pesquisas difusas em detalhe.
 
-## <a name="add-highlighting-to-the-suggestions"></a>Adicionar realce às sugestões
+## <a name="add-highlighting-to-the-suggestions"></a>Adicione destaque às sugestões
 
-Podemos melhorar a aparência das sugestões para o usuário um pouco, definindo o parâmetro **realces** como true. No entanto, primeiro precisamos adicionar um código à exibição para exibir o texto em negrito.
+Podemos melhorar um pouco a aparência das sugestões ao utilizador, definindo o parâmetro de **destaques** como verdadeiro. No entanto, primeiro, precisamos de adicionar algum código à vista para exibir o texto arrojado.
 
-1. No modo de exibição (index. cshtml), adicione o script a seguir após o script **azureautosuggest** que você inseriu acima.
+1. Na vista (index.cshtml), adicione o seguinte script após o script **azureautosuggest** que inseriu acima.
 
     ```javascript
     <script>
@@ -182,25 +182,25 @@ Podemos melhorar a aparência das sugestões para o usuário um pouco, definindo
     </script>
     ```
 
-2. Agora, altere a ID da caixa de texto para que ela seja lida da seguinte maneira.
+2. Agora mude a identificação da caixa de texto para que leia o seguinte.
 
     ```cs
     @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azuresuggesthighlights" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-3. Execute o aplicativo novamente e você deverá ver o texto digitado em negrito nas sugestões. Digamos, tente digitar "PA".
+3. Volte a executar a aplicação e deverá ver o texto introduzido asermado nas sugestões. Tente escrever "pa".
  
-    ![Digitando "PA" com realce](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
+    ![Digitando "pa" com destaque](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
 
-4. A lógica usada no script de realce acima não é provante. Se você inserir um termo que aparece duas vezes no mesmo nome, os resultados em negrito não serão exatamente o que você desejaria. Tente digitar "mo".
+4. A lógica usada no guião de destaque acima não é à prova de falhas. Se entrar num termo que aparece duas vezes com o mesmo nome, os resultados arrojados não são bem o que desejaria. Tente escrever "mo".
 
-    Uma das perguntas que um desenvolvedor precisa responder é, quando um script funciona "bem suficiente" e quando suas sutilezas devem ser resolvidas. Não usaremos mais detalhes neste tutorial, mas encontrar um algoritmo preciso é algo a ser levado em consideração se estiver demorando mais.
+    Uma das perguntas que um desenvolvedor precisa de responder é, quando é que um guião funciona "bem o suficiente", e quando devem ser abordados os seus caprichos. Não vamos levar mais destaque neste tutorial, mas encontrar um algoritmo preciso é algo a considerar se levar mais longe o destaque.
 
-## <a name="add-autocompletion"></a>Adicionar preenchimento automático
+## <a name="add-autocompletion"></a>Adicionar auto-conclusão
 
-Outra variação, que é um pouco diferente das sugestões, é o preenchimento automático (às vezes chamado de "tipo antecipado"). Novamente, começaremos com a implementação mais simples, antes de continuar a melhorar a experiência do usuário.
+Outra variação, que é ligeiramente diferente das sugestões, é a auto-conclusão (por vezes chamada de "tipo à frente"). Mais uma vez, começaremos com a implementação mais simples, antes de passarmos a melhorar a experiência do utilizador.
 
-1. Insira o script a seguir na exibição, seguindo os scripts anteriores.
+1. Introduza o seguinte script na vista, seguindo os scripts anteriores.
 
     ```javascript
     <script>
@@ -215,13 +215,13 @@ Outra variação, que é um pouco diferente das sugestões, é o preenchimento a
     </script>
     ```
 
-2. Agora, altere a ID da caixa de texto para que ela seja lida da seguinte maneira.
+2. Agora mude a identificação da caixa de texto, para que leia o seguinte.
 
     ```cs
     @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautocompletebasic" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-3. No controlador doméstico, precisamos inserir a ação de **preenchimento automático** , digamos, abaixo da ação **sugerir** .
+3. No controlador doméstico precisamos entrar na ação **Autocomplete,** por exemplo, abaixo da ação **Sugerir.**
 
     ```cs
         public async Task<ActionResult> AutoComplete(string term)
@@ -244,23 +244,23 @@ Outra variação, que é um pouco diferente das sugestões, é o preenchimento a
         }
     ```
 
-    Observe que estamos usando a mesma função de *sugestão* , chamada "SG", na pesquisa de preenchimento automático, como fizemos para sugestões (portanto, estamos apenas tentando preencher os nomes de Hotel.
+    Note-se que estamos a usar a mesma função *de sugestionista,* chamada "sg", na pesquisa autocompleta como fizemos para sugestões (por isso estamos apenas a tentar completar automaticamente os nomes do hotel).
 
-    Há uma variedade de configurações de **AutocompleteMode** e estamos usando **OneTermWithContext**. Consulte [preenchimento automático do Azure](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para obter uma descrição do intervalo de opções aqui.
+    Existem uma gama de definições **de Modo Autocomplete,** e estamos a usar o **OneTermWithContext**. Consulte a [Azure Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para obter uma descrição do leque de opções aqui.
 
-4. Execute o aplicativo. Observe como o intervalo de opções exibido na lista suspensa são palavras únicas. Tente digitar palavras começando com "re". Observe como o número de opções reduz à medida que mais letras são digitadas.
+4. Executar a aplicação. Note como o leque de opções apresentadas na lista de lançamentos são palavras individuais. Tente escrever palavras começando com "re". Note como o número de opções reduz à medida que mais letras são dactilografadas.
 
-    ![Digitando com preenchimento automático básico](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
+    ![Dactilografia com auto-conclusão básica](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
 
-    Como se encontra, o script de sugestões executado anteriormente é provavelmente mais útil do que esse script de autocompletação. Para tornar o preenchimento automático mais fácil de usar, ele é melhor adicionado à pesquisa de sugestões.
+    Tal como está, o guião de sugestões que executou anteriormente é provavelmente mais útil do que este roteiro de auto-conclusão. Para tornar a auto-conclusão mais fácil de utilizar, é melhor adicionar à pesquisa de sugestões.
 
-## <a name="combine-autocompletion-and-suggestions"></a>Combinar preenchimento automático e sugestões
+## <a name="combine-autocompletion-and-suggestions"></a>Combine auto-conclusão e sugestões
 
-A combinação de preenchimento automático e sugestões é a mais complexa de nossas opções e, provavelmente, fornece a melhor experiência do usuário. O que queremos é exibir, embutido com o texto que está sendo digitado, a primeira opção do Azure Pesquisa Cognitiva para concluir o texto automaticamente. Além disso, queremos um intervalo de sugestões como uma lista suspensa.
+Combinar auto-conclusão e sugestões é a mais complexa das nossas opções, e provavelmente proporciona a melhor experiência do utilizador. O que queremos é mostrar, em linha com o texto que está a ser dactilografado, a primeira escolha da Azure Cognitive Search para completar automaticamente o texto. Além disso, queremos uma série de sugestões como uma lista de abandono.
 
-Há bibliotecas que oferecem essa funcionalidade – geralmente chamadas de "preenchimento automático embutido" ou um nome semelhante. No entanto, vamos implementar nativamente esse recurso, para que você possa ver o que está acontecendo. Vamos começar a trabalhar no controlador primeiro neste exemplo.
+Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "auto-conclusão inline" ou um nome semelhante. No entanto, vamos implementar de forma nativa esta funcionalidade, para que possa ver o que se passa. Vamos começar a trabalhar no controlador primeiro neste exemplo.
 
-1. Precisamos adicionar uma ação ao controlador que retorna apenas um resultado de preenchimento automático, juntamente com um número especificado de sugestões. Chamaremos essa ação de **AutocompleteAndSuggest**. No controlador inicial, adicione a seguinte ação, seguindo as outras novas ações.
+1. Precisamos adicionar uma ação ao controlador que devolve apenas um resultado de auto-conclusão, juntamente com um número especificado de sugestões. Chamaremos a esta ação **AutocompleteAndSuggest**. No controlador doméstico, adicione as seguintes ações, seguindo as suas outras novas ações.
 
     ```cs
         public async Task<ActionResult> AutocompleteAndSuggest(string term)
@@ -309,9 +309,9 @@ Há bibliotecas que oferecem essa funcionalidade – geralmente chamadas de "pre
         }
     ```
 
-    Uma opção de autocompletação é retornada na parte superior da lista de **resultados** , seguida por todas as sugestões.
+    Uma opção de auto-conclusão é devolvida no topo da lista de **resultados,** seguida de todas as sugestões.
 
-2. Na exibição, primeiro implementamos um truque para que uma palavra de preenchimento automático cinza claro seja renderizada diretamente sob o texto com negrito sendo inserido pelo usuário. O HTML inclui o posicionamento relativo para essa finalidade. Altere a instrução **TextBoxFor** (e suas instruções &lt;div&gt;) para o seguinte, observando que uma segunda caixa de pesquisa identificada como **abaixo** está diretamente em nossa caixa de pesquisa normal, puxando esta caixa de pesquisa 39 pixels para fora de seu local padrão!
+2. Na opinião, primeiro implementamos um truque para que uma palavra de auto-conclusão cinza clara seja entregue corretamente sob texto mais ousado sendo introduzido pelo utilizador. HTML inclui posicionamento relativo para este fim. Altere a declaração **TextBoxFor** (e as suas declarações de&gt; &lt;circundantes) para as seguintes declarações, observando que uma segunda caixa de pesquisa identificada como **por baixo** está mesmo debaixo da nossa caixa de pesquisa normal, retirando esta caixa de pesquisa a 39 pixels da sua localização padrão!
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
@@ -322,9 +322,9 @@ Há bibliotecas que oferecem essa funcionalidade – geralmente chamadas de "pre
     </div>
     ```
 
-    Observe que estamos alterando a ID novamente, para **azureautocomplete** nesse caso.
+    Note que estamos mudando o ID novamente, para **azureautocomplete** neste caso.
 
-3. Além disso, na exibição, insira o script a seguir, após todos os scripts que você inseriu até agora. Há muito a respeito.
+3. Também na vista, insira o seguinte script, depois de todos os scripts que inseriu até agora. Há muito a fazer.
 
     ```javascript
     <script>
@@ -433,38 +433,38 @@ Há bibliotecas que oferecem essa funcionalidade – geralmente chamadas de "pre
     </script>
     ```
 
-    Observe o uso inteligente da função **Interval** para limpar o texto subjacente quando ele não corresponde mais ao que o usuário está digitando e também para definir o mesmo caso (superior ou inferior) quando o usuário está digitando (como "PA" corresponde a "PA", "PA", "PA" ao Pesquisar), para que o texto sobreposto seja limpo.
+    Note a utilização inteligente da função de **intervalo** para limpar o texto subjacente quando já não corresponde ao que o utilizador está a escrever, e também para definir o mesmo estojo (superior ou inferior) como o utilizador está a escrever (como "pa" corresponde a "PA", "pA", "Pa" quando procura), de modo a que o texto sobreposto seja puro.
 
-    Leia os comentários no script para obter uma compreensão mais completa.
+    Leia os comentários no guião para obter um entendimento mais completo.
 
-4. Por fim, precisamos fazer um pequeno ajuste em duas classes HTML para torná-las transparentes. Adicione a seguinte linha às classes **searchBoxForm** e **searchBox** , no arquivo Hotéis. css.
+4. Por último, precisamos de fazer um pequeno ajuste a duas classes HTML para torná-los transparentes. Adicione a seguinte linha às classes **searchBoxForm** e **searchBox,** no ficheiro hotels.css.
 
     ```html
         background: rgba(0,0,0,0);
     ```
 
-5. Agora, execute o aplicativo. Digite "PA" na caixa de pesquisa. Você obtém "Palace" como sugestão de preenchimento automático, juntamente com dois hotéis que contêm "PA"?
+5. Agora executa a aplicação. Introduza "pa" na caixa de pesquisa. Você recebe "palácio" como a sugestão autocompleta, juntamente com dois hotéis que contêm "pa"?
 
-    ![Digitação com preenchimento automático embutido e sugestões](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
+    ![Dactilografia com auto-completação inline e sugestões](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
 
-6. Tente tabulação para aceitar a sugestão de preenchimento automático e tente selecionar sugestões usando as teclas de direção e a tecla Tab e tente novamente usando o mouse e um único clique. Verifique se o script manipula todas essas situações de uma boa.
+6. Tente fazer tabbing para aceitar a sugestão autocompleta e tente selecionar sugestões utilizando as teclas de seta e a tecla de separador, e tente novamente usar o rato e um único clique. Verifique se o guião lida com todas estas situações com cuidado.
 
-    Você pode decidir que é mais simples carregar em uma biblioteca que oferece esse recurso para você, mas agora você conhece pelo menos uma maneira de colocar o preenchimento automático embutido em funcionamento!
+    Você pode decidir que é mais simples carregar numa biblioteca que oferece esta funcionalidade para você, mas agora você sabe pelo menos uma maneira de obter a conclusão automática inline para trabalhar!
 
 ## <a name="takeaways"></a>Conclusões
 
-Considere as seguintes alternativas deste projeto:
+Considere os seguintes takeaways deste projeto:
 
-* O preenchimento automático (também conhecido como "tipo antecipado") e as sugestões podem permitir que o usuário digite apenas algumas teclas para localizar exatamente o que desejam.
-* O preenchimento automático e as sugestões que trabalham juntas podem fornecer uma experiência de usuário avançada.
-* Sempre testar funções de conclusão automática com todas as formas de entrada.
-* O uso da função **setInterval** pode ser útil na verificação e correção de elementos da interface do usuário.
+* A auto-conclusão (também conhecida como "type-ahead") e sugestões podem permitir ao utilizador escrever apenas algumas teclas para localizar exatamente o que eles querem.
+* A auto-conclusão e as sugestões de trabalho em conjunto podem proporcionar uma rica experiência do utilizador.
+* Teste sempre as funções de auto-conclusão com todas as formas de entrada.
+* A utilização da função **setInterval** pode ser útil para verificar e corrigir elementos ui.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-No próximo tutorial, temos uma olhada em outra maneira de melhorar a experiência do usuário, usando facetas para restringir as pesquisas com um único clique.
+No próximo tutorial, temos uma outra forma de melhorar a experiência do utilizador, usando facetas para estreitar pesquisas com um único clique.
 
 > [!div class="nextstepaction"]
-> [C#Tutorial: usar facetas para auxiliar na navegação – Azure Pesquisa Cognitiva](tutorial-csharp-facets.md)
+> [C#Tutorial: Use facetas para ajudar na navegação - Pesquisa Cognitiva Azure](tutorial-csharp-facets.md)
 
 

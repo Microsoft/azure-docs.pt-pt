@@ -10,28 +10,48 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: cadf31dede8ee81323076013d00b9431f597bda6
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: ff8772f7c3c3213c010b0bdbd0d0aa8897404bac
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156493"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119996"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurar o OpenSSL para Linux
 
-Ao usar qualquer versão do SDK de fala anterior ao 1.9.0, o [OpenSSL](https://www.openssl.org) é configurado dinamicamente para a versão do sistema host. Em versões posteriores do SDK do Speech, o OpenSSL (versão [1.1.1 b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)) é vinculado estaticamente à biblioteca principal do SDK de fala.
+Ao utilizar qualquer versão SDK do Speech antes de 1.9.0, o [OpenSSL](https://www.openssl.org) está configurado dinamicamente para a versão do sistema de anfitriões. Em versões posteriores do Speech SDK, o OpenSSL (versão [1.1.1b)](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)está está estático ligado à biblioteca central do Speech SDK.
 
-## <a name="troubleshoot-connectivity"></a>Resolver problemas de conectividade
-
-Se houver falhas de conexão ao usar a versão 1.9.0 do SDK de fala, verifique se o diretório `ssl/certs` existe no diretório `/usr/lib`-que é encontrado no sistema de arquivos do Linux. Se o diretório `ssl/certs` *não existir*, verifique onde OpenSSL está instalado em seu sistema, usando o seguinte comando:
-
+Para garantir a conectividade, verifique se os certificados OpenSSL foram instalados no seu sistema. Executar um comando:
 ```bash
-which openssl
+openssl version -d
 ```
 
-Em seguida, localize o diretório OpenSSL `certs` e copie o conteúdo desse diretório para `/usr/lib/ssl/certs` diretório. Em seguida, tente novamente para ver se problemas de conectividade foram resolvidos.
+A saída dos sistemas baseados em Ubuntu/Debian deve ser:
+```
+OPENSSLDIR: "/usr/lib/ssl"
+```
+
+Verifique se existe `certs` subdiretório no âmbito do OPENSSLDIR. No exemplo acima, seria `/usr/lib/ssl/certs`.
+
+* Se houver `/usr/lib/ssl/certs` e contiver muitos ficheiros de certificados individuais (com `.crt` ou extensão `.pem`), não há necessidade de mais ações.
+
+* Se o OPENSSLDIR for outra coisa que não `/usr/lib/ssl` e/ou exista um único ficheiro de pacote de certificado em vez de vários ficheiros individuais, é necessário definir uma variável ambiental SSL adequada para indicar onde os certificados podem ser encontrados.
+
+## <a name="examples"></a>Exemplos
+
+- O OPENSSLDIR é `/opt/ssl`. Existe `certs` subdiretório com muitos ficheiros `.crt` ou `.pem`.
+Definir variável ambiental `SSL_CERT_DIR` apontar para `/opt/ssl/certs` antes de executar um programa que usa o SDK do Discurso. Por exemplo:
+```bash
+SSL_CERT_DIR=/opt/ssl/certs ./helloworld
+```
+
+- O OPENSSLDIR é `/etc/pki/tls`. Existe um ficheiro de pacote de certificado, por exemplo, `ca-bundle.pem` ou `ca-bundle.crt`.
+Definir variável ambiental `SSL_CERT_FILE` apontar para `/etc/pki/tls/ca-bundle.pem` antes de executar um programa que usa o SDK do Discurso. Por exemplo:
+```bash
+SSL_CERT_FILE=/etc/pki/tls/ca-bundle.pem ./helloworld
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Sobre o SDK de fala](speech-sdk.md)
+> [Sobre o Discurso SDK](speech-sdk.md)

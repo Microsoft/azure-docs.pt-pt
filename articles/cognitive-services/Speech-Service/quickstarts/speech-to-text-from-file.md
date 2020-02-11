@@ -1,24 +1,24 @@
 ---
-title: 'Início rápido: reconhecer a fala de um arquivo de áudio-serviço de fala'
+title: 'Quickstart: Reconhecer o discurso de um ficheiro áudio - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará o SDK de fala para reconhecer a fala de um arquivo de áudio.
+description: Neste arranque rápido, usará o SDK do Discurso para reconhecer o discurso a partir de um ficheiro áudio.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.author: erhopf
+ms.date: 02/10/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 310d0cd94dcdb57254de3764c57b9b2438aa5442
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: da6094cd654652625a2ebab303c72fb16fb49b6b
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819495"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119471"
 ---
-# <a name="quickstart-recognize-speech-from-an-audio-file"></a>Início rápido: reconhecer a fala de um arquivo de áudio
+# <a name="quickstart-recognize-speech-from-an-audio-file"></a>Quickstart: Reconhecer o discurso a partir de um ficheiro áudio
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]

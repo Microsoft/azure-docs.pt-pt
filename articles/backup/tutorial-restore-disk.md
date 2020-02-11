@@ -1,15 +1,15 @@
 ---
-title: Tutorial – restaurar um disco de VM com o backup do Azure
+title: Tutorial - Restaurar um disco VM com backup Azure
 description: Saiba como restaurar um disco e criar e recuperar uma VM no Azure com Serviços de Cópia de Segurança e de Recuperação.
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: f0300930d4dbfb7745f0837eb5fa9605a2e766d7
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 8a66cee7e844f0049f2d2ca2f6841943aa267f3e
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680580"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114199"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurar um disco e criar uma VM recuperada no Azure
 
@@ -31,7 +31,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 Este tutorial requer uma VM Linux que tenha sido protegida com o Azure Backup. Para simular um processo de recuperação e eliminação acidental da VM, crie uma VM a partir de um disco num ponto de recuperação. Se precisar de uma VM Linux que tenha sido protegida com o Azure Backup, veja [Realizar uma cópia de segurança de uma máquina virtual no Azure com a CLI](quick-backup-vm-cli.md).
 
-## <a name="backup-overview"></a>Descrição geral da cópia de segurança
+## <a name="backup-overview"></a>Descrição geral da Cópia de Segurança
 
 Quando o Azure inicia uma cópia de segurança, a extensão da cópia de segurança na VM tira um instantâneo de ponto no tempo. A extensão da cópia de segurança é instalada na VM quando a primeira cópia de segurança é pedida. O Azure Backup também pode tirar um instantâneo de armazenamento subjacente se a VM não estiver em execução quando a cópia de segurança iniciar.
 
@@ -49,6 +49,7 @@ Para ver uma lista dos pontos de recuperação disponíveis, utilize [az backup 
 az backup recoverypoint list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
+    --backup-management-type AzureIaasVM
     --container-name myVM \
     --item-name myVM \
     --query [0].name \
@@ -58,11 +59,11 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Restaurar um disco da VM
 
 > [!IMPORTANT]
-> É altamente recomendável usar AZ CLI versão 2.0.74 ou posterior para obter todos os benefícios de uma restauração rápida, incluindo restauração de disco gerenciado. É melhor se o usuário sempre usar a versão mais recente.
+> É fortemente recomendado usar a versão Az CLI 2.0.74 ou mais tarde para obter todos os benefícios de uma restauração rápida, incluindo a restauração do disco gerido. É melhor que o utilizador utilize sempre a versão mais recente.
 
-### <a name="managed-disk-restore"></a>Restauração de disco gerenciado
+### <a name="managed-disk-restore"></a>Restauro de disco gerido
 
-Se a VM de backup tiver discos gerenciados e se a intenção for restaurar discos gerenciados do ponto de recuperação, você primeiro fornecerá uma conta de armazenamento do Azure. Essa conta de armazenamento é usada para armazenar a configuração da VM e o modelo de implantação que pode ser usado posteriormente para implantar a VM dos discos restaurados. Em seguida, você também fornece um grupo de recursos de destino para os discos gerenciados a serem restaurados.
+Se o VM apoiado tiver gerido discos e se a intenção é restaurar os discos geridos a partir do ponto de recuperação, fornece primeiro uma conta de armazenamento Azure. Esta conta de armazenamento é usada para armazenar a configuração VM e o modelo de implementação que pode ser usado mais tarde para implantar o VM a partir dos discos restaurados. Em seguida, também fornece um grupo de recursos-alvo para que os discos geridos sejam restaurados.
 
 1. Para criar uma conta de armazenamento, utilize [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). O nome da conta de armazenamento tem de estar todo em minúsculas e ser globalmente exclusivo. Substitua *mystorageaccount* pelo seu próprio nome exclusivo:
 
@@ -73,7 +74,7 @@ Se a VM de backup tiver discos gerenciados e se a intenção for restaurar disco
         --sku Standard_LRS
     ```
 
-2. Restaure o disco do ponto de recuperação com [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que criou no comando anterior. Substitua *myrecoverypointname pelo* pelo nome do ponto de recuperação obtido na saída do comando [AZ backup RecoveryPoint List](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) anterior. ***Forneça também o grupo de recursos de destino para o qual os discos gerenciados são restaurados***.
+2. Restaure o disco do ponto de recuperação com [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que criou no comando anterior. Substitua o *myRecoveryPointName* pelo nome do ponto de recuperação obtido na saída do comando da lista de pontos de recuperação de cópias de [segurança az](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) anteriores. Forneça também o grupo de ***recursos-alvo para o qual os discos geridos são restaurados em***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -87,11 +88,11 @@ Se a VM de backup tiver discos gerenciados e se a intenção for restaurar disco
     ```
 
 > [!WARNING]
-> Se target-Resource-Group não for fornecido, os discos gerenciados serão restaurados como discos não gerenciados para a conta de armazenamento determinada. Isso terá consequências significativas no tempo de restauração, pois o tempo necessário para restaurar os discos depende totalmente da conta de armazenamento determinada.
+> Se o grupo de recursos-alvo não for fornecido, os discos geridos serão restaurados como discos não geridos na conta de armazenamento dada. Isto terá consequências significativas para o tempo de reinstalação, uma vez que o tempo de reinstalação dos discos depende inteiramente da conta de armazenamento dada.
 
-### <a name="unmanaged-disks-restore"></a>Restauração de discos não gerenciados
+### <a name="unmanaged-disks-restore"></a>Ris não geridos restabelecem
 
-Se a VM de backup tiver discos não gerenciados e se a intenção for restaurar discos do ponto de recuperação, você primeiro fornecerá uma conta de armazenamento do Azure. Essa conta de armazenamento é usada para armazenar a configuração da VM e o modelo de implantação que pode ser usado posteriormente para implantar a VM dos discos restaurados. Por padrão, os discos não gerenciados serão restaurados para suas contas de armazenamento originais. Se o usuário quiser restaurar todos os discos não gerenciados para um único local, a conta de armazenamento fornecida também poderá ser usada como um local de preparo para esses discos.
+Se o VM de reserva tiver discos não geridos e se a intenção é restaurar os discos do ponto de recuperação, fornece primeiro uma conta de armazenamento Azure. Esta conta de armazenamento é usada para armazenar a configuração VM e o modelo de implementação que pode ser usado mais tarde para implantar o VM a partir dos discos restaurados. Por padrão, os discos não geridos serão restaurados nas suas contas de armazenamento originais. Se o utilizador quiser restaurar todos os discos não geridos num único local, então a conta de armazenamento dada também pode ser usada como local de paragem para esses discos.
 
 Nos passos adicionais, o disco restaurado é utilizado para criar uma VM.
 
@@ -116,7 +117,7 @@ Nos passos adicionais, o disco restaurado é utilizado para criar uma VM.
         --rp-name myRecoveryPointName
     ```
 
-Conforme mencionado acima, os discos não gerenciados serão restaurados para sua conta de armazenamento original. Isso fornece o melhor desempenho de restauração. Mas se todos os discos não gerenciados precisarem ser restaurados para determinada conta de armazenamento, use o sinalizador relevante, conforme mostrado abaixo.
+Como mencionado acima, os discos não geridos serão restaurados na sua conta de armazenamento original. Isto proporciona o melhor desempenho de restauro. Mas se todos os discos não geridos precisarem de ser restaurados na conta de armazenamento, então use a bandeira relevante como mostrado abaixo.
 
 ```azurecli-interactive
     az backup restore restore-disks \
@@ -150,15 +151,15 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Quando o *status* dos relatórios do trabalho de restauração for *concluído*, as informações necessárias (configuração da VM e o modelo de implantação) foram restauradas para a conta de armazenamento.
+Quando o *Estado* dos relatórios de trabalho *restaurados concluídos,* as informações necessárias (configuração VM e o modelo de implementação) foram restauradas na conta de armazenamento.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Criar uma VM a partir do disco restaurado
 
-A etapa final é criar uma VM com base nos discos restaurados. Você pode usar o modelo de implantação baixado para a conta de armazenamento determinada para criar a VM.
+O passo final é criar um VM a partir dos discos restaurados. Pode utilizar o modelo de implementação descarregado para a conta de armazenamento dada para criar o VM.
 
-### <a name="fetch-the-job-details"></a>Buscar os detalhes do trabalho
+### <a name="fetch-the-job-details"></a>Buscar os detalhes do Trabalho
 
-Os detalhes do trabalho resultante fornecem o URI do modelo que pode ser consultado e implantado. Use o comando trabalho show para obter mais detalhes sobre o trabalho restaurado disparado.
+Os detalhes de trabalho resultantes dão o modelo URI que pode ser consultado e implantado. Use o comando do show de trabalho para obter mais detalhes para o trabalho restaurado desencadeado.
 
 ```azurecli-interactive
 az backup job show \
@@ -167,7 +168,7 @@ az backup job show \
     -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
 ```
 
-A saída dessa consulta fornecerá todos os detalhes, mas estamos interessados apenas no conteúdo da conta de armazenamento. Podemos usar o [recurso de consulta](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest) de CLI do Azure para buscar os detalhes relevantes
+A saída desta consulta dará todos os detalhes, mas estamos interessados apenas no conteúdo da conta de armazenamento. Podemos usar a capacidade de [consulta](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest) do Azure CLI para obter os detalhes relevantes
 
 ```azurecli-interactive
 az backup job show \
@@ -188,11 +189,11 @@ az backup job show \
 }
 ```
 
-### <a name="fetch-the-deployment-template"></a>Buscar o modelo de implantação
+### <a name="fetch-the-deployment-template"></a>Buscar o modelo de implementação
 
-O modelo não é acessível diretamente, pois está sob a conta de armazenamento de um cliente e o contêiner fornecido. Precisamos da URL completa (junto com um token SAS temporário) para acessar esse modelo.
+O modelo não é diretamente acessível, uma vez que se encontra sob a conta de armazenamento de um cliente e o recipiente dado. Precisamos do URL completo (juntamente com um token SAS temporário) para aceder a este modelo.
 
-Primeiro, extraia o URI do blob de modelo dos detalhes do trabalho
+Primeiro, extrair o modelo blob Uri de detalhes de trabalho
 
 ```azurecli-interactive
 az backup job show \
@@ -204,15 +205,15 @@ az backup job show \
 "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
 ```
 
-O URI do blob de modelo será desse formato e extrairá o nome do modelo
+O modelo blob Uri será deste formato e extrairá o nome do modelo
 
 ```https
 https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
 ```
 
-Portanto, o nome do modelo do exemplo acima será ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` e o nome do contêiner será ```myVM-daa1931199fd4a22ae601f46d8812276```
+Assim, o nome do modelo do exemplo acima será ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` e o nome do recipiente é ```myVM-daa1931199fd4a22ae601f46d8812276```
 
-Agora obtenha o token SAS para este contêiner e modelo, conforme detalhado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
+Agora obtenha o símbolo SAS para este recipiente e modelo como detalhado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -234,9 +235,9 @@ url=$(az storage blob url \
     --connection-string $connection)
 ```
 
-### <a name="deploy-the-template-to-create-the-vm"></a>Implantar o modelo para criar a VM
+### <a name="deploy-the-template-to-create-the-vm"></a>Implementar o modelo para criar o VM
 
-Agora, implante o modelo para criar a VM, conforme explicado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli).
+Agora implemente o modelo para criar o VM, como explicado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli).
 
 ```azurecli-interactive
 az group deployment create \

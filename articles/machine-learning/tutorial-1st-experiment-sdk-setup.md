@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: criar seu primeiro experimento do ML'
+title: 'Tutorial: Crie a sua primeira experiência ML'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, você começará a usar o SDK Azure Machine Learning Python em execução em notebooks Jupyter.  Na parte 1, você cria um espaço de trabalho no qual você gerenciará experimentos e modelos de ML.
+description: Neste tutorial, você vai começar com o Azure Machine Learning Python SDK em cadernos Jupyter.  Na Parte 1, cria-se um espaço de trabalho no qual irá gerir experiências e modelos ML.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,114 +9,114 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/25/2019
-ms.openlocfilehash: 125cde85d3caa6fd1a33045e85c5383f83a669bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/10/2020
+ms.openlocfilehash: 1dacc59ee0bf79128efd8920a91f3c3d54e5584a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982539"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116604"
 ---
-# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: introdução à criação de seu primeiro experimento do ML com o SDK do Python
+# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Começar a criar a sua primeira experiência ML com o Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste tutorial, você concluirá as etapas de ponta a ponta para começar a usar o SDK Azure Machine Learning Python em execução em notebooks Jupyter. Este tutorial é a **parte um de uma série de tutoriais de duas partes**e aborda a configuração e instalação do ambiente Python, bem como a criação de um espaço de trabalho para gerenciar seus experimentos e modelos de aprendizado de máquina. A [**parte dois**](tutorial-1st-experiment-sdk-train.md) baseia isso para treinar vários modelos de aprendizado de máquina e apresentar o processo de gerenciamento de modelos usando o Azure Machine Learning Studio e o SDK.
+Neste tutorial, você completa os passos de ponta a ponta para começar com o Azure Machine Learning Python SDK correndo em cadernos Jupyter. Este tutorial é **parte uma de uma série tutorial em duas partes,** e abrange a configuração e configuração do ambiente Python, bem como a criação de um espaço de trabalho para gerir as suas experiências e modelos de machine learning. [**A segunda parte**](tutorial-1st-experiment-sdk-train.md) baseia-se nisto para formar vários modelos de machine learning e introduzir o processo de gestão de modelos utilizando tanto o estúdio Azure Machine Learning como o SDK.
 
 Neste tutorial:
 
 > [!div class="checklist"]
-> * Crie um [Workspace do Azure Machine Learning](concept-workspace.md) a ser usado no próximo tutorial.
+> * Crie um espaço de trabalho de [aprendizagem automática Azure](concept-workspace.md) para usar no próximo tutorial.
 > * Clone o notebook tutoriais em sua pasta no espaço de trabalho.
-> * Crie uma instância de computação baseada em nuvem com Azure Machine Learning SDK do Python instalado e pré-configurado.
+> * Crie uma instância computacional baseada em nuvem com O SDK de Aprendizagem automática Azure instalado e pré-configurado.
 
 
-Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
+Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
-## <a name="create-a-workspace"></a>Criar áreas de trabalho
+## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de aprendizado de máquina. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço. 
+Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de aprendizado de máquina. Liga o seu grupo de subscrição e recursos Azure a um objeto facilmente consumido no serviço. 
 
-Você cria um espaço de trabalho por meio do portal do Azure, um console baseado na Web para gerenciar seus recursos do Azure. 
+Cria um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> Anote seu espaço de **trabalho** e sua **assinatura**. Você precisará delas para garantir que crie seu experimento no lugar certo. 
+> Tome nota do seu espaço de **trabalho** e **subscrição.** Vai precisar disto para garantir que cria a sua experiência no lugar certo. 
 
-## <a name="azure"></a>Executar o bloco de anotações em seu espaço de trabalho
+## <a name="azure"></a>Executar caderno no seu espaço de trabalho
 
-Este tutorial usa o servidor de bloco de anotações de nuvem em seu espaço de trabalho para uma experiência de instalação desconfigurada e gratuita. Use [seu próprio ambiente](how-to-configure-environment.md#local) se preferir ter controle sobre seu ambiente, pacotes e dependências.
+Este tutorial utiliza o servidor de portátil em nuvem no seu espaço de trabalho para uma experiência sem instalação e pré-configurada. Use [o seu próprio ambiente](how-to-configure-environment.md#local) se preferir ter controlo sobre o seu ambiente, pacotes e dependências.
 
-Acompanhe este vídeo ou use as etapas detalhadas abaixo para clonar e executar o tutorial do seu espaço de trabalho. 
+Acompanhe este vídeo ou use os passos detalhados abaixo para clonar e executar o tutorial a partir do seu espaço de trabalho. 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
 
 
-### <a name="clone-a-notebook-folder"></a>Clonar uma pasta do bloco de anotações
+### <a name="clone-a-notebook-folder"></a>Clone uma pasta de caderno
 
-Você conclui as seguintes etapas de configuração e execução do experimento no Azure Machine Learning Studio, uma interface consolidada que inclui ferramentas de Machine Learning para executar cenários de ciência de dados para profissionais de ciência de dados de todos os níveis de habilidade.
+Completa as seguintes etapas de experimentação no estúdio Azure Machine Learning, uma interface consolidada que inclui ferramentas de machine learning para realizar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade.
 
-1. Entre no [Azure Machine Learning Studio](https://ml.azure.com/).
+1. Inscreva-se no [estúdio Azure Machine Learning.](https://ml.azure.com/)
 
-1. Selecione sua assinatura e o espaço de trabalho que você criou.
+1. Selecione a sua subscrição e o espaço de trabalho que criou.
 
-1. Selecione **blocos de anotações** à esquerda.
+1. Selecione **Cadernos** à esquerda.
 
-1. Abra a pasta de **exemplos** .
+1. Abra a pasta **Amostras.**
 
-1. Abra a pasta **Python** .
+1. Abra a pasta **Python.**
 
-1. Abra a pasta com um número de versão.  Esse número representa a versão atual do SDK do Python.
+1. Abra a pasta com um número de versão.  Este número representa a versão atual para o Python SDK.
 
-1. Selecione o **"..."** à direita da pasta **tutoriais** e, em seguida, selecione **clonar**.
+1. Selecione o **"..."** à direita da pasta dos **tutoriais** e, em seguida, selecione **Clone**.
 
-    ![Clonar pasta](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    ![Pasta clone](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. Uma lista de pastas exibe a exibição de cada usuário que acessa o espaço de trabalho.  Selecione sua pasta para clonar a pasta **tutoriais** .
+1. Uma lista de exibições de pastas mostrando cada utilizador que acede ao espaço de trabalho.  Selecione a pasta para clonar a pasta dos **tutoriais.**
 
-### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">abrir o bloco de anotações clonado
+### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Abrir o caderno clonado
 
-1. Em **arquivos de usuário** , abra a pasta e abra a pasta **tutoriais** clonados.
+1. Em **Ficheiros de Utilizador** abra a pasta e abra a pasta dos **tutoriais** clonados.
 
-    ![Abrir pasta de tutoriais](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+    ![Pasta de tutoriais abertos](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
 
     > [!IMPORTANT]
-    > Você pode exibir blocos de anotações na pasta de **exemplos** , mas não pode executar um bloco de anotações a partir daí.  Para executar um notebook, abra a versão clonada do bloco de anotações na seção **arquivos do usuário** .
+    > Pode ver cadernos na pasta **de amostras,** mas não pode executar um caderno a partir daí.  Para executar um caderno, certifique-se de que abre a versão clonada do caderno na secção Ficheiros do **Utilizador.**
     
-1. Selecione o arquivo **tutorial-1º-experimento-SDK-Train. ipynb** na sua pasta **tutoriais** .
+1. Selecione o ficheiro **tutorial-1st-experiment-sdk-train.ipynb** nos seus **tutoriais/pasta create-first-ml-experiment.**
 
-1. Na barra superior, selecione uma instância de computação a ser usada para executar o bloco de anotações. Essas VMs são pré-configuradas com tudo o [que você precisa para executar Azure Machine Learning](concept-compute-instance.md#contents). Você pode selecionar uma VM criada por qualquer usuário do seu espaço de trabalho. 
+1. Na barra superior, selecione uma instância de cálculo para utilizar para executar o caderno. Estes VMs estão pré-configurados com tudo o [que precisa para executar o Azure Machine Learning.](concept-compute-instance.md#contents) Pode selecionar um VM criado por qualquer utilizador do seu espaço de trabalho. 
 
-1. Se nenhuma máquina virtual for encontrada, selecione **+ Adicionar** para criar a VM da instância de computação. 
+1. Se não forem encontrados VMs, selecione **+ Adicione** para criar a instância computacional VM. 
 
-    1. Ao criar uma VM, forneça um nome.  O nome deve ter entre 2 e 16 caracteres. Os caracteres válidos são letras, dígitos e caractere e também devem ser exclusivos em sua assinatura do Azure.
+    1. Quando criar um VM, forneça um nome.  O nome deve estar entre 2 a 16 caracteres. Os caracteres válidos são letras, dígitos e o - personagem, e também devem ser únicos em toda a sua subscrição Azure.
 
-    1.  Selecione o tamanho da máquina virtual nas opções disponíveis.
+    1.  Selecione o tamanho da Máquina Virtual a partir das escolhas disponíveis.
 
-    1. Em seguida, selecione **Criar**. Pode levar aproximadamente 5 minutos para configurar sua VM.
+    1. Em seguida, selecione **Criar**. Pode levar aproximadamente 5 minutos para configurar o seu VM.
 
-1. Depois que a VM estiver disponível, ela será exibida na barra de ferramentas superior.  Agora você pode executar o bloco de anotações usando **executar tudo** na barra de ferramentas ou usando **Shift + Enter** nas células de código do bloco de anotações.
+1. Uma vez disponível o VM, será apresentado na barra de ferramentas superior.  Agora pode executar o caderno utilizando **executar tudo** na barra de ferramentas, ou utilizando o **Shift+Enter** nas células de código do caderno.
 
-Se você tiver widgets personalizados ou preferir usar Jupyter/JupyterLab, selecione o menu suspenso **Jupyter** na extrema direita e, em seguida, selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador será aberta.
+Se tiver widgets personalizados ou preferir usar o Jupyter/JupyterLab, selecione o **Jupyter** descer na extrema direita, então selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador será aberta.
 
 > [!NOTE]
 > Os casos computacionais (pré-visualização) estão atualmente disponíveis apenas para espaços de trabalho com uma região do **Norte Dos EUA**, Leste dos **EUA 2**, Norte da **Europa** ou Reino **Unido Sul,** com apoio para outras regiões em breve.
->Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do bloco de anotações](concept-compute-instance.md#notebookvm) .  Você pode usar uma VM de bloco de anotações ou uma instância de computação para executar o bloco de anotações. Uma VM continuará em execução e incorrerá em custo, a menos que você a interrompa. Você pode interrompê-lo manualmente na guia **computação** no estúdio ou conferir a [postagem no blog](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) sobre como habilitar o desligamento automático agendado para VMs do Azure.
+>Se o seu espaço de trabalho estiver em qualquer outra região, pode continuar a criar e utilizar um [VM de caderno.](concept-compute-instance.md#notebookvm)  Pode utilizar um VM de caderno ou uma instância de cálculo para executar o seu caderno. Um VM continuará a correr e a incorrer em custos a menos que o pare. Pode detê-lo manualmente a partir do separador **Compute** no Studio, ou ver a publicação do [blog](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) sobre a paragem automática programada para VMs Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você concluiu estas tarefas:
+Neste tutorial, completou estas tarefas:
 
-* Criou um espaço de trabalho Azure Machine Learning.
-* Criou e configurou um servidor de bloco de anotações de nuvem em seu espaço de trabalho.
+* Criou um espaço de trabalho azure machine learning.
+* Criou e configurou um servidor de portátil em nuvem no seu espaço de trabalho.
 
-Na **parte dois** do tutorial, você executa o código em `tutorial-1st-experiment-sdk-train.ipynb` para treinar um modelo de aprendizado de máquina. 
+Na **segunda parte** do tutorial, executa o código em `tutorial-1st-experiment-sdk-train.ipynb` para treinar um modelo de aprendizagem automática. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: treinar seu primeiro modelo](tutorial-1st-experiment-sdk-train.md)
+> [Tutorial: Treine o seu primeiro modelo](tutorial-1st-experiment-sdk-train.md)
 
 > [!IMPORTANT]
-> Se você não planejar a seguinte parte 2 deste tutorial ou quaisquer outros tutoriais, deverá [interromper a VM do servidor do bloco de anotações de nuvem](tutorial-1st-experiment-sdk-train.md#clean-up-resources) quando não estiver usando-a para reduzir o custo.
+> Se não planeia seguir a parte 2 deste tutorial ou qualquer outro tutoriais, deverá [parar o VM do servidor](tutorial-1st-experiment-sdk-train.md#clean-up-resources) de blocos de notas em nuvem quando não o estiver a utilizar para reduzir o custo.
 
 

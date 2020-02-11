@@ -1,14 +1,14 @@
 ---
-title: Funções de modelo – recursos
+title: Funções do modelo - recursos
 description: Descreve as funções para utilizar num modelo do Azure Resource Manager para recuperar valores sobre os recursos.
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: cfcc9ff3af33fe9de813d8a31b7d102f00725ce4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/10/2020
+ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048790"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120536"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -154,10 +154,10 @@ Os usos possíveis da lista * são mostrados na tabela a seguir.
 | Microsoft.DataFactory/datafactories/gateways | listauthkeys |
 | Microsoft.DataFactory/factories/integrationruntimes | [listaulistas](/rest/api/datafactory/integrationruntimes/listauthkeys) |
 | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
-| Microsoft. DataShare/accounts/compartilhamentos | [listSincronizações](/rest/api/datashare/shares/listsynchronizations) |
-| Microsoft. DataShare/accounts/shareSubscriptions | [listaSourceShareSynchronizationSettings](/rest/api/datashare/sharesubscriptions/listsourcesharesynchronizationsettings) |
-| Microsoft. DataShare/accounts/shareSubscriptions | [listaSincronizaçãoDetalhes](/rest/api/datashare/sharesubscriptions/listsynchronizationdetails) |
-| Microsoft. DataShare/accounts/shareSubscriptions | [listSincronizações](/rest/api/datashare/sharesubscriptions/listsynchronizations) |
+| Microsoft.DataShare/contas/ações | [listSincronizações](/rest/api/datashare/shares/listsynchronizations) |
+| Microsoft.DataShare/contas/subscrições de ações | [listaSourceShareSynchronizationSettings](/rest/api/datashare/sharesubscriptions/listsourcesharesynchronizationsettings) |
+| Microsoft.DataShare/contas/subscrições de ações | [listaSincronizaçãoDetalhes](/rest/api/datashare/sharesubscriptions/listsynchronizationdetails) |
+| Microsoft.DataShare/contas/subscrições de ações | [listSincronizações](/rest/api/datashare/sharesubscriptions/listsynchronizations) |
 | Microsoft.Devices/iotHubs | [listkeys](/rest/api/iothub/iothubresource/listkeys) |
 | Microsoft.Devices/iotHubs/iotHubKeys | [listkeys](/rest/api/iothub/iothubresource/getkeysforkeyname) |
 | Microsoft.Devices/provisioningServices/keys | [listkeys](/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
@@ -176,7 +176,7 @@ Os usos possíveis da lista * são mostrados na tabela a seguir.
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
 | Microsoft.ImportExport/jobs | [listaBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
-| Microsoft. Kusto/clusters/bancos de dados | [Diretores de Listas](/rest/api/azurerekusto/databases/listprincipals) |
+| Microsoft.Kusto/Clusters/Bases de Dados | [Diretores de Listas](/rest/api/azurerekusto/databases/listprincipals) |
 | Microsoft.LabServices/users | [ListAmbientes](/rest/api/labservices/globalusers/listenvironments) |
 | Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
 | Microsoft. Logic/integrationAccounts/Agreements | [listaContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
@@ -697,7 +697,7 @@ A propriedade **gerida By** é devolvida apenas para grupos de recursos que cont
 
 ### <a name="remarks"></a>Observações
 
-A função `resourceGroup()` não pode ser usada num modelo que é [implantado ao nível de subscrição](deploy-to-subscription.md). Ele só pode ser usado em modelos implantados em um grupo de recursos. Pode utilizar a função `resourceGroup()` num [modelo ligado ou aninhado (com âmbito interno)](linked-templates.md) que visa um grupo de recursos, mesmo quando o modelo de progenitor é implantado na subscrição. Nesse cenário, o modelo vinculado ou aninhado é implantado no nível do grupo de recursos. Para obter mais informações sobre o alvo de um grupo de recursos numa implementação de nível de subscrição, consulte [os recursos do Deploy Azure para mais do que um grupo de subscrição ou recursos.](cross-resource-group-deployment.md)
+A função `resourceGroup()` não pode ser usada num modelo que é [implantado ao nível de subscrição](deploy-to-subscription.md). Ele só pode ser usado em modelos implantados em um grupo de recursos. Pode utilizar a função `resourceGroup()` num [modelo ligado ou aninhado (com âmbito interno)](linked-templates.md) que visa um grupo de recursos, mesmo quando o modelo de progenitor é implantado na subscrição. Nesse cenário, o modelo ligado ou aninhado é implantado ao nível do grupo de recursos. Para obter mais informações sobre o alvo de um grupo de recursos numa implementação de nível de subscrição, consulte [os recursos do Deploy Azure para mais do que um grupo de subscrição ou recursos.](cross-resource-group-deployment.md)
 
 Uma utilização comum da função resourceGroup é criar recursos na mesma localização que o grupo de recursos. O exemplo a seguir usa o local do grupo de recursos para um valor de parâmetro padrão.
 
@@ -752,14 +752,14 @@ O exemplo anterior retorna um objeto no seguinte formato:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Devolve o identificador exclusivo de um recurso. Utilize esta função quando o nome do recurso é ambíguo ou não aprovisionada dentro do mesmo modelo.
+Devolve o identificador exclusivo de um recurso. Utilize esta função quando o nome do recurso é ambíguo ou não aprovisionada dentro do mesmo modelo. O formato do identificador devolvido varia em função de se a implantação ocorre no âmbito de um grupo de recursos, subscrição, grupo de gestão ou inquilino.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |a cadeia de caracteres (formato de GUID) |Valor predefinido é a subscrição atual. Especifica este valor quando precisar de recuperar um recurso noutra subscrição. |
-| resourceGroupName |Não |string |Valor predefinido é o grupo de recursos atual. Especifica este valor quando precisar de recuperar um recurso noutro grupo de recursos. |
+| resourceGroupName |Não |string |Valor predefinido é o grupo de recursos atual. Especifica este valor quando precisar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao ser implantado no âmbito de um grupo de recursos. |
 | resourceType |Sim |string |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
 | resourceName1 |Sim |string |Nome do recurso. |
 | resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
@@ -768,7 +768,7 @@ Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso
 
 ### <a name="return-value"></a>Valor de retorno
 
-A ID do recurso é retornada no seguinte formato:
+Quando o modelo é implantado no âmbito de um grupo de recursos, o ID de recurso é devolvido no seguinte formato:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -778,6 +778,12 @@ Quando utilizado numa implementação de [nível de subscrição,](deploy-to-sub
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+Quando utilizado numa implantação de [nível de grupo de gestão](deploy-to-management-group.md) ou implantação ao nível do inquilino, o ID de recurso é devolvido no seguinte formato:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
 Para obter a ID em outros formatos, consulte:
@@ -892,10 +898,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | Cadeia | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>subscrição
 

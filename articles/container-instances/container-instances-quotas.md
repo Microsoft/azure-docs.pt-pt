@@ -1,20 +1,20 @@
 ---
-title: Cotas de serviço e disponibilidade de região
-description: Cotas, limites e disponibilidade de região do serviço de instâncias de contêiner do Azure.
+title: Quotas de serviço e disponibilidade da região
+description: Quotas, limites e disponibilidade da região do serviço Deocorrências de Contentores Azure.
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 91681130e32cf8a76829b8bfc3e2a1e97a59ff6b
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: b3e7f2f67d806bd2fca74f58d446b0de9a4b8f44
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533517"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117896"
 ---
-# <a name="quotas-and-limits-for-azure-container-instances"></a>Cotas e limites para instâncias de contêiner do Azure
+# <a name="quotas-and-limits-for-azure-container-instances"></a>Quotas e limites para instâncias de contentores azure
 
-Todos os serviços do Azure incluem determinados limites e quotas predefinidos para os recursos e funcionalidades. Este artigo detalha as cotas e limites padrão para instâncias de contêiner do Azure.
+Todos os serviços do Azure incluem determinados limites e quotas predefinidos para os recursos e funcionalidades. Este artigo detalha as quotas e limites por defeito para as instâncias de contentores do Azure.
 
-Para obter a disponibilidade dos recursos e recursos das instâncias de contêiner do Azure nas regiões do Azure, consulte [disponibilidade de recursos para instâncias de contêiner do Azure](container-instances-region-availability.md).
+Disponibilidade de recursos de computação, memória e armazenamento para instâncias de contentores Azure varia por região e sistema operativo. Para mais detalhes, consulte a disponibilidade de Recursos para instâncias de [contentores Azure](container-instances-region-availability.md).
 
 ## <a name="service-quotas-and-limits"></a>Quotas e limites do serviço
 
@@ -22,7 +22,7 @@ Para obter a disponibilidade dos recursos e recursos das instâncias de contêin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Podem ser aumentados determinados limites e quotas predefinidos. Para solicitar um aumento de um ou mais recursos que dão suporte a esse aumento, envie uma [solicitação de suporte do Azure][azure-support] (selecione "cota" para o **tipo de problema**).
+Podem ser aumentados determinados limites e quotas predefinidos. Para solicitar um aumento de um ou mais recursos que apoiem tal aumento, por favor, apresente um pedido de [apoio Azure][azure-support] (selecione "Quota" para **tipo de emissão).**
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

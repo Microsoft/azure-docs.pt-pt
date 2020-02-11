@@ -1,5 +1,5 @@
 ---
-title: Adicionar o certificado do aplicativo a um cluster no PowerShell
+title: Adicione a aplicação cert a um cluster em Powershell
 description: Exemplo do Script do Azure PowerShell - Adicionar o certificado de aplicação a um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 069ad55136101c0b57c9faee95578f816b5efef4
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 61c22a3949008d61bbe3472f601d2d0dd597a0ac
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614881"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114336"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicação a um cluster do Service Fabric
 
-Este script de exemplo percorre como criar um certificado no Key Vault e, em seguida, implantá-lo em um dos conjuntos de dimensionamento de máquinas virtuais em que o cluster é executado. Esse cenário não usa Service Fabric diretamente, mas depende de Key Vault e em conjuntos de dimensionamento de máquinas virtuais.
+Este script de amostra salta através de como criar um certificado no Cofre chave e, em seguida, implantá-lo para uma das escalas de máquina virtual que o seu cluster funciona. Este cenário não utiliza o Tecido de Serviço diretamente, mas depende do Cofre chave e dos conjuntos de escala de máquinas virtuais.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure. 
 
-## <a name="create-a-certificate-in-key-vault"></a>Criar um certificado no Key Vault
+## <a name="create-a-certificate-in-key-vault"></a>Criar um certificado no Cofre chave
 
 ```powershell
 $VaultName = ""
@@ -40,7 +40,7 @@ $policy = New-AzKeyVaultCertificatePolicy -SubjectName $SubjectName -IssuerName 
 Add-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName -CertificatePolicy $policy
 ```
 
-## <a name="or-upload-an-existing-certificate-into-key-vault"></a>Ou carregar um certificado existente no Key Vault
+## <a name="or-upload-an-existing-certificate-into-key-vault"></a>Ou enviar um certificado existente para o Cofre chave
 
 ```powershell
 $VaultName= ""
@@ -63,11 +63,11 @@ $content = [System.Convert]::ToBase64String($contentbytes)
 $SecretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
 
 # Upload the certificate to the key vault as a secret
-$Secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $CertName -SecretValue $SecretValue
+$Secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $CertName -SecretValue $SecretValue
 
 ```
 
-## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>Atualizar perfil dos conjuntos de dimensionamento de máquinas virtuais com certificado
+## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>Atualizar a escala de máquina virtual define o perfil com certificado
 
 ```powershell
 $ResourceGroupName = ""
@@ -84,12 +84,12 @@ $VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConf
 $VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKeyVault -VaultName $VaultName).ResourceId  -VaultCertificate $CertConfig
 ```
 
-## <a name="update-the-virtual-machine-scale-set"></a>Atualizar o conjunto de dimensionamento de máquinas virtuais
+## <a name="update-the-virtual-machine-scale-set"></a>Atualizar o conjunto de escala de máquina virtual
 ```powershell
 Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMSS -VMScaleSetName $VMSSName
 ```
 
-> Se você quiser que o certificado seja colocado em vários tipos de nó no cluster, a segunda e terceira partes desse script devem ser repetidas para cada tipo de nó que deve ter o certificado.
+> Se quiser que o certificado colocado em vários tipos de nós no seu cluster, a segunda e terceira partes deste script devem ser repetidas para cada tipo de nó que deve ter o certificado.
 
 ## <a name="script-explanation"></a>Explicação do script
 
@@ -97,12 +97,12 @@ Este script utiliza os seguintes comandos: cada comando na tabela está ligado a
 
 | Comando | Notas |
 |---|---|
-| [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | Cria uma política na memória que representa o certificado |
-| [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| Implanta a política para Key Vault |
-| [New-AzVmssVaultCertificateConfig](/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | Cria uma configuração na memória que representa o certificado em uma VM |
+| [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | Cria uma política de memória que representa o certificado |
+| [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| Implementa a política para o Cofre chave |
+| [New-AzVmssVaultCertificateConfig](/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | Cria um config em memória que representa o certificado num VM |
 | [Get-AzVmss](/powershell/module/az.compute/Get-AzVmss) |  |
-| [Add-AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Adiciona o certificado à definição na memória do conjunto de dimensionamento de máquinas virtuais |
-| [Update-AzVmss](/powershell/module/az.compute/Update-AzVmss) | Implanta a nova definição do conjunto de dimensionamento de máquinas virtuais |
+| [Add-AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Adiciona o certificado à definição de memória do conjunto de escala de máquina virtual |
+| [Atualização-AzVmss](/powershell/module/az.compute/Update-AzVmss) | Implementa a nova definição do conjunto de escala de máquina virtual |
 
 ## <a name="next-steps"></a>Passos seguintes
 

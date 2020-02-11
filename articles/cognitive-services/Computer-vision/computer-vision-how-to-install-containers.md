@@ -1,5 +1,5 @@
 ---
-title: Como instalar e executar contêineres-Pesquisa Visual Computacional
+title: Como instalar e executar contentores - Visão Computacional
 titleSuffix: Azure Cognitive Services
 description: Como transferir, instalar e executar contentores para imagem digitalizada neste tutorial passo a passo.
 services: cognitive-services
@@ -9,32 +9,32 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: dapine
+ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 51c60c8cd13c8ad7cef123f2001fcd0ec61f38ba
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 383abc674674fc024052b2c04d3c538838b83856
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770803"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120203"
 ---
-# <a name="install-and-run-read-containers-preview"></a>Instalar e executar ler contêineres (visualização)
+# <a name="install-and-run-read-containers-preview"></a>Instalar e executar Ler recipientes (Pré-visualização)
 
-Os contêineres permitem que você execute as APIs de Pesquisa Visual Computacional em seu próprio ambiente. Os contêineres são ótimos para requisitos específicos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um Pesquisa Visual Computacional contêiner.
+Os recipientes permitem-lhe executar as APIs de Visão Computacional no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de segurança e governação de dados. Neste artigo você vai aprender a descarregar, instalar e executar um recipiente computer vision.
 
-Um único contêiner do Docker, *leitura*, está disponível para pesquisa Visual computacional. O contêiner *ler* permite detectar e extrair *texto impresso* de imagens de vários objetos com diferentes superfícies e planos de fundo, como recibos, pôsteres e cartões de visita. Além disso, o contêiner de *leitura* detecta *texto manuscrito* em imagens e fornece suporte a arquivos PDF, TIFF e de várias páginas. Para obter mais informações, consulte a documentação da API de [leitura](concept-recognizing-text.md#read-api) .
+Um único recipiente Docker, *Read,* está disponível para visão computacional. O recipiente *Ler* permite detetar e extrair *texto impresso* a partir de imagens de vários objetos com diferentes superfícies e fundos, tais como recibos, cartazes e cartões de visita. Além disso, o recipiente *De leitura* deteta *texto manuscrito* em imagens e fornece suporte de ficheiros PDF, TIFF e várias páginas. Para mais informações, consulte a documentação da [API.](concept-recognizing-text.md#read-api)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você deve atender aos seguintes pré-requisitos antes de usar os contêineres:
+Deve cumprir os seguintes pré-requisitos antes de utilizar os recipientes:
 
-|Obrigatório|Finalidade|
+|Necessário|Objetivo|
 |--|--|
-|Motor do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
-|Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos básicos de `docker`.| 
-|Pesquisa Visual Computacional recurso |Para usar o contêiner, você deve ter:<br><br>Um recurso de **Pesquisa Visual computacional** do Azure e a chave de API associada do URI do ponto de extremidade. Ambos os valores estão disponíveis nas páginas visão geral e chaves para o recurso e são necessários para iniciar o contêiner.<br><br>**{Api_key}** : uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página **visão geral**|
+|Motor Docker| Precisa do Motor Docker instalado num [computador de acolhimento.](#the-host-computer) O Docker fornece pacotes que configuram o ambiente Docker no [macOS,](https://docs.docker.com/docker-for-mac/) [Windows](https://docs.docker.com/docker-for-windows/)e [Linux.](https://docs.docker.com/engine/installation/#supported-platforms) Para um primer sobre o Docker e o básico do contentor, consulte a visão geral do [Docker.](https://docs.docker.com/engine/docker-overview/)<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar os recipientes Linux.<br><br>|
+|Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de comandos básicos de `docker`.| 
+|Recurso de Visão Computacional |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Computer Vision** e a chave API associada ao ponto final URI. Ambos os valores estão disponíveis nas páginas Overview e Keys para o recurso e são necessários para iniciar o recipiente.<br><br>**{API_KEY}** : Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}** : O ponto final fornecido na página **'Visão Geral'**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Pedir acesso para o registo de contentor privado
 
@@ -42,25 +42,35 @@ Você deve atender aos seguintes pré-requisitos antes de usar os contêineres:
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-### <a name="the-host-computer"></a>O computador host
+### <a name="the-host-computer"></a>O computador anfitrião
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
+
+### <a name="advanced-vector-extension-support"></a>Suporte de extensão de vetor avançado
+
+O computador **hospedeiro** é o computador que executa o contentor de estivadores. O hospedeiro *deve suportar* [extensões vetoriais avançadas](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Pode verificar se há suporte AVX2 nos anfitriões do Linux com o seguinte comando:
+
+```console
+grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
+```
+> [!WARNING]
+> O computador hospedeiro é *necessário* para suportar o AVX2. O recipiente *não funcionará* corretamente sem suporte AVX2.
 
 ### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 
 [!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com `docker pull`
 
-As imagens de contêiner para leitura estão disponíveis.
+Estão disponíveis imagens de contentores para Read.
 
-| Contentor | Registro de contêiner/repositório/nome da imagem |
+| Contentor | Registo de Contentores / Repositório / Nome de imagem |
 |-----------|------------|
 | Leitura | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
-Use o comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner.
+Utilize o comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem de contentor.
 
-### <a name="docker-pull-for-the-read-container"></a>Pull do Docker para o contêiner de leitura
+### <a name="docker-pull-for-the-read-container"></a>Docker puxar para o recipiente Ler
 
 ```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
@@ -68,16 +78,16 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-## <a name="how-to-use-the-container"></a>Como usar o contêiner
+## <a name="how-to-use-the-container"></a>Como utilizar o recipiente
 
-Depois que o contêiner estiver no [computador host](#the-host-computer), use o processo a seguir para trabalhar com o contêiner.
+Uma vez que o recipiente esteja no [computador de acolhimento,](#the-host-computer)utilize o seguinte processo para trabalhar com o recipiente.
 
-1. [Execute o contêiner](#run-the-container-with-docker-run)com as configurações de cobrança necessárias. Mais [exemplos](computer-vision-resource-container-config.md) do comando `docker run` estão disponíveis. 
-1. [Consulte o ponto de extremidade de previsão do contêiner](#query-the-containers-prediction-endpoint). 
+1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de faturação necessárias. Mais [exemplos](computer-vision-resource-container-config.md) do comando `docker run` estão disponíveis. 
+1. [Consulta do ponto final da previsão do recipiente](#query-the-containers-prediction-endpoint). 
 
-## <a name="run-the-container-with-docker-run"></a>Execute o contêiner com `docker run`
+## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com `docker run`
 
-Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. Consulte [coletando parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os valores de `{ENDPOINT_URI}` e de `{API_KEY}`.
+Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) para obter os valores `{ENDPOINT_URI}` e `{API_KEY}`.
 
 [Exemplos](computer-vision-resource-container-config.md#example-docker-run-commands) do comando `docker run` estão disponíveis.
 
@@ -91,15 +101,15 @@ ApiKey={API_KEY}
 
 Este comando:
 
-* Executa o contêiner de leitura da imagem de contêiner.
-* Aloca 8 núcleos de CPU e 16 gigabytes (GB) de memória.
-* Expõe a porta TCP 5000 e aloca um pseudo-TTY para o contêiner.
-* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
+* Executa o recipiente de leitura a partir da imagem do recipiente.
+* Atribui 8 núcleos cpu e 16 gigabytes (GB) de memória.
+* Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
+* Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.
 
 Mais [exemplos](./computer-vision-resource-container-config.md#example-docker-run-commands) do comando `docker run` estão disponíveis. 
 
 > [!IMPORTANT]
-> O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
+> As opções de `Eula`, `Billing`e `ApiKey` devem ser especificadas para funcionar o contentor; caso contrário, o contentor não vai começar.  Para mais informações, consulte [billing.](#billing)
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -107,21 +117,21 @@ Mais [exemplos](./computer-vision-resource-container-config.md#example-docker-ru
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
+## <a name="query-the-containers-prediction-endpoint"></a>Consulta do ponto final da previsão do recipiente
 
-O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST. 
+O recipiente fornece APIs finais de previsão de consulta baseadas em REST. 
 
-Use o host, `http://localhost:5000`, para APIs de contêiner.
+Utilize o hospedeiro, `http://localhost:5000`, para apis de contentor.
 
 ### <a name="asynchronous-read"></a>Leitura assíncrona
 
-Você pode usar as operações `POST /vision/v2.0/read/core/asyncBatchAnalyze` e `GET /vision/v2.0/read/operations/{operationId}` em conjunto para ler de forma assíncrona uma imagem, semelhante a como o serviço de Pesquisa Visual Computacional usa as operações REST correspondentes. O método POST assíncrono retornará um `operationId` que é usado como o identificador para a solicitação HTTP GET.
+Pode utilizar as operações `POST /vision/v2.0/read/core/asyncBatchAnalyze` e `GET /vision/v2.0/read/operations/{operationId}` em conjunto para ler assincronicamente uma imagem, semelhante à forma como o serviço Computer Vision utiliza as operações correspondentes de REST. O método post assíncrono devolverá um `operationId` que é usado como identificador ao pedido HTTP GET.
 
-Na interface do usuário do Swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, selecione **experimentar** > **escolher arquivo**. Neste exemplo, usaremos a imagem a seguir:
+A partir do Swagger UI, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, selecione **Tente > ** Escolha o **ficheiro**. Neste exemplo, usaremos a seguinte imagem:
 
-![guias vs espaços](media/tabs-vs-spaces.png)
+![separadores vs espaços](media/tabs-vs-spaces.png)
 
-Quando a POSTAgem assíncrona for executada com êxito, ela retornará um código de status **HTTP 202** . Como parte da resposta, há um cabeçalho de `operation-location` que contém o ponto de extremidade de resultado para a solicitação.
+Quando o POST assíncrono tiver sido executado com sucesso, devolve um código de estado **HTTP 202.** Como parte da resposta, há um cabeçalho `operation-location` que detém o ponto final do resultado para o pedido.
 
 ```http
  content-length: 0
@@ -130,7 +140,7 @@ Quando a POSTAgem assíncrona for executada com êxito, ela retornará um códig
  server: Kestrel
 ```
 
-O `operation-location` é a URL totalmente qualificada e é acessado por meio de um HTTP GET. Aqui está a resposta JSON da execução da URL de `operation-location` da imagem anterior:
+O `operation-location` é o URL totalmente qualificado e é acedido através de um HTTP GET. Aqui está a resposta jSON de executar o URL de `operation-location` a partir da imagem anterior:
 
 ```json
 {
@@ -219,9 +229,9 @@ O `operation-location` é a URL totalmente qualificada e é acessado por meio de
 }
 ```
 
-### <a name="synchronous-read"></a>Leitura síncrona
+### <a name="synchronous-read"></a>Leitura sincronizada
 
-Você pode usar a operação `POST /vision/v2.0/read/core/Analyze` para ler de forma síncrona uma imagem. Quando a imagem é lida em sua totalidade, e somente em seguida, a API retorna uma resposta JSON. A única exceção a isso é se ocorrer um erro. Quando ocorre um erro, o JSON a seguir é retornado:
+Pode usar a operação `POST /vision/v2.0/read/core/Analyze` para ler sincronizadamente uma imagem. Quando a imagem é lida na sua totalidade, então e só então a API devolve uma resposta JSON. A única exceção a isto é se ocorrer um erro. Quando ocorre um erro, devolve-se o seguinte JSON:
 
 ```json
 {
@@ -229,7 +239,7 @@ Você pode usar a operação `POST /vision/v2.0/read/core/Analyze` para ler de f
 }
 ```
 
-O objeto de resposta JSON tem o mesmo grafo de objeto que a versão assíncrona. Se você for um usuário de JavaScript e quiser a segurança de tipo, os tipos a seguir podem ser usados para converter a resposta JSON como um objeto `AnalyzeResult`.
+O objeto de resposta JSON tem o mesmo gráfico de objeto sincronia da versão assíncrona. Se for um utilizador JavaScript e pretender segurança tipo, os seguintes tipos podem ser utilizados para lançar a resposta JSON como um objeto `AnalyzeResult`.
 
 ```typescript
 export interface AnalyzeResult {
@@ -276,25 +286,25 @@ export interface Word {
 }
 ```
 
-Para obter um exemplo de caso de uso, consulte a <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">área <span class="docon docon-navigate-external x-hidden-focus"></span> restrita do TypeScript aqui</a> e selecione **executar** para visualizar sua facilidade de uso.
+Para um exemplo de utilização, consulte aqui <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> a caixa de areia TypeScript e selecione Executar para visualizar a sua facilidade de utilização.
 
-## <a name="stop-the-container"></a>Parar o contentor
+## <a name="stop-the-container"></a>Pare o recipiente
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se você executar o contêiner com uma [montagem](./computer-vision-resource-container-config.md#mount-settings) de saída e o registro em log habilitado, o contêiner gerará arquivos de log que são úteis para solucionar problemas que ocorrem ao iniciar ou executar o contêiner.
+Se executar o recipiente com um [suporte](./computer-vision-resource-container-config.md#mount-settings) de saída e uma exploração de madeira ativada, o recipiente gera ficheiros de registo que são úteis para resolver problemas que ocorrem durante o arranque ou funcionamento do recipiente.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Faturação
 
-Os contêineres de serviços cognitivas enviam informações de cobrança para o Azure, usando o recurso correspondente em sua conta do Azure.
+Os recipientes dos Serviços Cognitivos enviam informações de faturação para o Azure, utilizando o recurso correspondente na sua conta Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre estas opções, consulte [configurar contentores](./computer-vision-resource-container-config.md).
+Para mais informações sobre estas opções, consulte [os recipientes Configur.](./computer-vision-resource-container-config.md)
 
 <!--blogs/samples/video course -->
 
@@ -304,19 +314,19 @@ Para obter mais informações sobre estas opções, consulte [configurar content
 
 Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e de imagem digitalizada contentores em execução. Em resumo:
 
-* Pesquisa Visual Computacional fornece um contêiner do Linux para o Docker, encapsulando leitura.
-* As imagens de contêiner são baixadas do registro de contêiner "visualização do contêiner" no Azure.
+* Computer Vision fornece um recipiente Linux para Docker, encapsulando read.
+* As imagens do contentor são descarregadas a partir do registo de contentores "Container Preview" em Azure.
 * Executam imagens de contentor no Docker.
-* Você pode usar a API REST ou o SDK para chamar operações em contêineres de leitura especificando o URI do host do contêiner.
+* Pode utilizar a API REST ou SDK para ligar para as operações em recipientes de leitura, especificando o uri hospedeiro do recipiente.
 * Tem de especificar informações de faturação ao instanciar um contentor.
 
 > [!IMPORTANT]
-> Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Os contêineres de serviços cognitivas não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
+> Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Os recipientes dos Serviços Cognitivos não enviam dados dos clientes (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Revisão [configurar contentores](computer-vision-resource-container-config.md) para definições de configuração
-* Revisão [descrição geral de imagem digitalizada](Home.md) para saber mais sobre o reconhecimento de texto manuscrito e impresso
-* Consulte a [API de imagem digitalizada](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter detalhes sobre os métodos suportados pelo contentor.
-* Consulte a [perguntas mais frequentes (FAQ) do sobre](FAQ.md) para resolver problemas relacionados com a funcionalidade de imagem digitalizada.
-* Usar mais [contêineres de serviços cognitivas](../cognitive-services-container-support.md)
+* Rever [Configure recipientes](computer-vision-resource-container-config.md) para configurações de configuração
+* Reveja a [visão geral da Visão computacional](Home.md) para saber mais sobre o reconhecimento do texto impresso e manuscrito
+* Consulte a API da [Visão Computacional](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter mais detalhes sobre os métodos suportados pelo recipiente.
+* Consulte [as perguntas frequentes (FAQ)](FAQ.md) para resolver problemas relacionados com a funcionalidade Computer Vision.
+* Use mais [recipientes de serviços cognitivos](../cognitive-services-container-support.md)

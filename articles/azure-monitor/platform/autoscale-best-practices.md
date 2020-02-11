@@ -1,154 +1,154 @@
 ---
-title: Práticas recomendadas para dimensionamento automático
-description: Padrões de dimensionamento automático no Azure para aplicativos Web, conjuntos de dimensionamento de máquinas virtuais e serviços de nuvem
+title: Boas práticas para escala automática
+description: Padrões de escala automática em Azure para Aplicações Web, conjuntos de escala de máquinas virtuais e serviços de nuvem
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d9f04e0af4349f6b149619f13dac8ca2f59b560e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396987"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117108"
 ---
-# <a name="best-practices-for-autoscale"></a>Melhores práticas da Escala automática
-Azure Monitor dimensionamento automático se aplica somente aos [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços de nuvem](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicativo-aplicativos Web](https://azure.microsoft.com/services/app-service/web/)e [serviços de gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+# <a name="best-practices-for-autoscale"></a>Melhores práticas do Dimensionamento Automático
+A escala automática Do Monitor Azure aplica-se apenas a conjuntos de escala de [máquinas virtuais, serviços](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [de cloud,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicações - Aplicações Web](https://azure.microsoft.com/services/app-service/web/)e serviços de [Gestão API.](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)
 
-## <a name="autoscale-concepts"></a>Conceitos de dimensionamento automático
+## <a name="autoscale-concepts"></a>Conceitos de escala automática
 
-* Um recurso pode ter apenas *uma* configuração de dimensionamento automático
-* Uma configuração de dimensionamento automático pode ter um ou mais perfis e cada perfil pode ter uma ou mais regras de dimensionamento automático.
-* Uma configuração de dimensionamento automático dimensiona as instâncias horizontalmente, que estão *fora* aumentando as instâncias e *no* diminuindo o número de instâncias.
-  Uma configuração de dimensionamento automático tem um valor máximo, mínimo e padrão de instâncias.
-* Um trabalho de dimensionamento automático sempre lê a métrica associada para ser dimensionada, verificando se ela ultrapassou o limite configurado para expansão ou redução horizontal. Você pode exibir uma lista de métricas que o dimensionamento automático pode dimensionar em [Azure monitor métricas comuns de autoescala](autoscale-common-metrics.md).
-* Todos os limites são calculados em um nível de instância. Por exemplo, "escalar horizontalmente por uma instância quando a CPU média > 80% quando a contagem de instâncias for 2", significa escalar horizontalmente quando a média da CPU em todas as instâncias for maior que 80%.
-* Todas as falhas de dimensionamento automático são registradas no log de atividades. Em seguida, você pode configurar um [alerta do log de atividades](./../../azure-monitor/platform/activity-log-alerts.md) para que possa ser notificado por email, SMS ou webhook sempre que houver uma falha de dimensionamento automático.
-* Da mesma forma, todas as ações de dimensionamento bem-sucedidas são postadas no log de atividades. Você pode configurar um alerta do log de atividades para que você possa ser notificado por email, SMS ou webhook sempre que houver uma ação de dimensionamento automático bem-sucedida. Você também pode configurar notificações por email ou webhook para ser notificado para ações de dimensionamento bem-sucedidas por meio da guia notificações na configuração de dimensionamento automático.
+* Um recurso pode ter apenas *uma* definição de escala automática
+* Uma definição de escala automática pode ter um ou mais perfis e cada perfil pode ter uma ou mais regras de escala automática.
+* Uma definição de escala automática escala as instâncias horizontalmente, o que é *fora* aumentando as ocorrências e *diminuindo* o número de casos.
+  Uma definição de escala automática tem um valor máximo, mínimo e padrão de instâncias.
+* Um trabalho de escala automática lê sempre a métrica associada à escala, verificando se ultrapassou o limiar configurado para escala ou escala. Pode ver uma lista de métricas que a escala automática pode escalar através do [Azure Monitor autoscalcificar métricas comuns](autoscale-common-metrics.md).
+* Todos os limiares são calculados a um nível de instância. Por exemplo, "escamas por um caso em que a média de CPU > 80% quando a contagem de exemplos é 2", significa escala-out quando a média de CPU em todos os casos é superior a 80%.
+* Todas as falhas de escala automática estão registadas no Registo de Atividades. Em seguida, pode configurar um alerta de registo de [atividade](./../../azure-monitor/platform/activity-log-alerts.md) para que possa ser notificado via e-mail, SMS ou webhooks sempre que houver uma falha de escala automática.
+* Da mesma forma, todas as ações de escala bem sucedida são publicadas no Registo de Atividades. Em seguida, pode configurar um alerta de registo de atividade para que possa ser notificado via e-mail, SMS ou webhooks sempre que houver uma ação de escala automática bem sucedida. Também pode configurar notificações de e-mail ou webhook para ser notificado para ações de escala bem sucedidas através do separador de notificações na definição de escala automática.
 
-## <a name="autoscale-best-practices"></a>Práticas recomendadas de dimensionamento automático
+## <a name="autoscale-best-practices"></a>Boas práticas de escala automática
 
-Use as práticas recomendadas a seguir ao usar o dimensionamento automático.
+Utilize as seguintes boas práticas à medida que utiliza a escala automática.
 
-### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Verifique se os valores mínimo e máximo são diferentes e têm uma margem adequada entre eles
+### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Certifique-se de que os valores máximos e mínimos são diferentes e têm uma margem adequada entre eles
 
-Se você tiver uma configuração que tenha mínimo = 2, máximo = 2 e a contagem de instâncias atual for 2, nenhuma ação de escala poderá ocorrer. Mantenha uma margem adequada entre as contagens de instância máxima e mínima, que são inclusivas. O dimensionamento automático sempre é dimensionado entre esses limites.
+Se tiver uma definição que tenha um mínimo=2, máxima=2 e a contagem de instâncias atual for de 2, não pode ocorrer qualquer ação de escala. Mantenha uma margem adequada entre as contagens máximas e mínimas, que são inclusivas. A escala automática escala sempre entre estes limites.
 
-### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>O dimensionamento manual é redefinido por autoescala mín e máx.
+### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>A escala manual é redefinida por min de escala automática e máx
 
-Se você atualizar manualmente a contagem de instâncias para um valor acima ou abaixo do máximo, o mecanismo de dimensionamento automático será dimensionado automaticamente de volta para o mínimo (se abaixo) ou o máximo (se acima). Por exemplo, você define o intervalo entre 3 e 6. Se você tiver uma instância em execução, o mecanismo de dimensionamento automático dimensionará para três instâncias na próxima execução. Da mesma forma, se você definir manualmente a escala para oito instâncias, na próxima execução, o dimensionamento automático o dimensionará de volta para seis instâncias na próxima execução.  O dimensionamento manual é temporário, a menos que você redefina as regras de dimensionamento automático também.
+Se atualizar manualmente a contagem de ocorrências para um valor acima ou inferior ao máximo, o motor de escala automática volta automaticamente ao mínimo (se abaixo) ou ao máximo (se acima). Por exemplo, estabelece-se o intervalo entre 3 e 6. Se tiver uma instância de corrida, o motor de escala automática escala três instâncias na sua próxima execução. Da mesma forma, se ajustar manualmente a balança para oito instâncias, na próxima escala de execução a escala automática irá escaloná-la para seis instâncias na sua próxima execução.  A escala manual é temporária, a menos que repor as regras de escala automática também.
 
-### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Sempre use uma combinação de regras de redução e redução que executa um aumento e uma diminuição
-Se você usar apenas uma parte da combinação, o dimensionamento automático só executará uma ação em uma única direção (scale out ou in) até atingir o máximo ou as contagens de instâncias mínimas de definidas no perfil. Isso não é o ideal, idealmente você deseja que seu recurso seja dimensionado às vezes de alto uso para garantir a disponibilidade. Da mesma forma, às vezes de baixo uso, você deseja que o recurso seja reduzido para baixo, para que possa perceber a economia de custos.
+### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Utilize sempre uma combinação de regras de escala e escala que realize um aumento e diminuição
+Se utilizar apenas uma parte da combinação, a escala automática só tomará medidas numa única direção (escala para fora ou dentro) até atingir as contagens máximas ou mínimas de instância definidas no perfil. Isto não é ideal, idealmente, você quer que o seu recurso se esforce em momentos de alta utilização para garantir a disponibilidade. Da mesma forma, em momentos de baixo uso você quer que o seu recurso reduza a escala, para que você possa realizar economias de custos.
 
-### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Escolha a estatística apropriada para sua métrica de diagnóstico
-Para métricas de diagnóstico, você pode escolher entre *média*, *mínimo*, *máximo* e *total* como uma métrica para reduzir. A estatística mais comum é a *média*.
+### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Escolha a estatística adequada para a sua métrica de diagnóstico
+Para métricas de diagnóstico, pode escolher entre *média,* *mínima,* *máxima* e *total* como métrica a escala. A estatística mais comum é *a Média.*
 
-### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Escolha os limites cuidadosamente para todos os tipos de métrica
-Recomendamos escolher cuidadosamente limites diferentes para escalar horizontalmente e reduzir horizontalmente com base em situações práticas.
+### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Escolha cuidadosamente os limiares para todos os tipos de métricas
+Recomendamos que escolha minuciosamente diferentes limiares para escala e escala com base em situações práticas.
 
-*Não recomendamos* configurações de dimensionamento automático, como os exemplos abaixo, com valores de limite iguais ou semelhantes para condições de out e in:
+*Não recomendamos* configurações de escala automática como os exemplos abaixo com os mesmos valores limiares ou similares para fora e em condições:
 
-* Aumentar as instâncias por contagem de 1 quando a contagem de threads > = 600
-* Diminuir as instâncias por contagem de 1 quando a contagem de threads < = 600
+* Aumentar as instâncias por 1 contagem quando thread count >= 600
+* Diminuir as instâncias por 1 contagem quando thread count <= 600
 
-Vejamos um exemplo do que pode levar a um comportamento que pode parecer confuso. Considere a sequência a seguir.
+Vejamos um exemplo do que pode levar a um comportamento que pode parecer confuso. Considere a seguinte sequência.
 
-1. Suponha que haja duas instâncias para começar e, em seguida, o número médio de threads por instância aumenta para 625.
-2. Dimensionamento automático escala horizontalmente adicionando uma terceira instância.
-3. Em seguida, suponha que a contagem média de threads na instância cai para 575.
-4. Antes de reduzir verticalmente, o dimensionamento automático tenta estimar qual será o estado final se ele for dimensionado. Por exemplo, 575 x 3 (contagem de instância atual) = 1.725/2 (número final de instâncias quando reduzido verticalmente) = 862,5 threads. Isso significa que o dimensionamento automático precisaria ser redimensionado novamente até mesmo depois de ser dimensionado em, se a contagem média de threads permanecer igual ou até mesmo cair apenas uma pequena quantidade. No entanto, se ele for aumentado novamente, todo o processo se repetiria, levando a um loop infinito.
-5. Para evitar essa situação (com o termo "oscilação"), o dimensionamento automático não reduz horizontalmente. Em vez disso, ele ignora e reavalia a condição novamente na próxima vez que o trabalho do serviço for executado. O estado de oscilação pode confundir muitas pessoas porque o dimensionamento automático pareceria não funcionar quando a contagem média de threads era 575.
+1. Assuma que há dois casos para começar e, em seguida, o número médio de fios por instância cresce para 625.
+2. A escala automática esescala a adição de uma terceira instância.
+3. Em seguida, suponha que a contagem média de fios em instância cai para 575.
+4. Antes de reduzir, a escala automática tenta estimar qual será o estado final se escalonar. Por exemplo, 575 x 3 (contagem de exemplos atuais) = 1.725 / 2 (número final de casos quando reduzido) = 862,5 fios. Isto significa que a escala automática teria de voltar a escalar imediatamente mesmo depois de ter escalado, se a contagem média de fios se mantiver a mesma ou mesmo cair apenas uma pequena quantidade. No entanto, se voltasse a escalar, todo o processo se repetiria, levando a um ciclo infinito.
+5. Para evitar esta situação (denominada "bater palmas"), a escala automática não diminui de todo. Em vez disso, salta e reavalia a condição novamente da próxima vez que o trabalho do serviço executar. O estado de bater pode confundir muitas pessoas porque a escala automática não parece funcionar quando a contagem média de fios era de 575.
 
-A estimativa durante uma redução é destinada a evitar situações de "oscilação", nas quais as ações de reduzir e reduzir continuamente voltam e saem. Tenha esse comportamento em mente ao escolher os mesmos limites de expansão e em.
+A estimativa durante uma escala destina-se a evitar situações de "bater palmas", em que as ações de escala e escala vão continuamente para trás e para a frente. Tenha em mente este comportamento quando escolher os mesmos limiares para a escala para fora e para dentro.
 
-É recomendável escolher uma margem adequada entre a expansão e os limites. Como exemplo, considere a seguinte combinação de regra melhor.
+Recomendamos a escolha de uma margem adequada entre a escala e os limiares. Como exemplo, considere a seguinte melhor combinação de regras.
 
-* Aumentar as instâncias em 1 contagem quando a CPU% > = 80
-* Diminuir as instâncias em 1 contagem quando a CPU% < = 60
+* Aumentar as ocorrências em 1 contagem quando CPU% >= 80
+* Diminuir os casos em 1 contagem quando CPU% <= 60
 
-Nesse caso  
+Neste caso  
 
-1. Suponha que haja duas instâncias para começar.
-2. Se a média de% de CPU entre instâncias for para 80, o dimensionamento automático escalará a adição de uma terceira instância.
-3. Agora suponha que, ao longo do tempo, o percentual de CPU cai para 60.
-4. A regra de redução horizontal do dimensionamento automático estima o estado final se ele for para reduzir horizontalmente. Por exemplo, 60 x 3 (contagem de instância atual) = 180/2 (número final de instâncias quando reduzido verticalmente) = 90. Portanto, o dimensionamento automático não reduz horizontalmente porque teria que escalar horizontalmente novamente de imediato. Em vez disso, ele ignora a redução vertical.
-5. Na próxima vez em que o dimensionamento automático for verificado, a CPU continuará a cair para o 50. Ele estima novamente-50 x 3 instância = 150/2 instâncias = 75, que está abaixo do limite de expansão de 80, para que ele seja dimensionado com êxito para 2 instâncias.
+1. Assuma que há 2 instâncias para começar.
+2. Se o CPU% médio entre os casos for para 80, a escala automática aumenta adicionando uma terceira instância.
+3. Agora assuma que com o tempo o CPU% cai para 60.
+4. A regra da escala automática estima o estado final se for para escalar. Por exemplo, 60 x 3 (contagem de exemplos atuais) = 180 /2 (número final de casos quando reduzidos) = 90. Assim, a escala automática não faz escala, porque teria de voltar a escalar imediatamente. Em vez disso, salta para baixo.
+5. Da próxima vez que a escala automática verificar, o CPU continua a cair para 50. Estima-se novamente - 50 x 3 instâncias = 150 / 2 instâncias = 75, que está abaixo do limiar de escala de 80, de modo que escala com sucesso para 2 instâncias.
 
-### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considerações para dimensionar valores de limite para métricas especiais
- Para métricas especiais como a métrica de comprimento de fila do barramento de serviço ou armazenamento, o limite é o número médio de mensagens disponíveis por número atual de instâncias. Escolha cuidadosamente o valor de limite para essa métrica.
+### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considerações relativas à escala dos valores-limiar para métricas especiais
+ Para métricas especiais como a métrica de comprimento da fila de armazenamento ou de ônibus de serviço, o limiar é o número médio de mensagens disponíveis por número atual de instâncias. Escolha cuidadosamente o valor limiar para esta métrica.
 
-Vamos ilustrar isso com um exemplo para garantir que você compreenda melhor o comportamento.
+Vamos ilustrar com um exemplo para garantir que você entenda melhor o comportamento.
 
-* Aumentar as instâncias em 1 contagem quando a contagem de mensagens da fila de armazenamento > = 50
-* Diminuir as instâncias em 1 contagem quando a contagem de mensagens da fila de armazenamento < = 10
+* Aumentar as instâncias por 1 contagem quando a contagem de mensagens de fila de armazenamento >= 50
+* Diminuir as instâncias por 1 contagem quando a contagem de mensagens de fila de armazenamento <= 10
 
 Considere a seguinte sequência:
 
-1. Há duas instâncias de fila de armazenamento.
-2. As mensagens continuam chegando e quando você revisa a fila de armazenamento, a contagem total lê 50. Você pode assumir que o dimensionamento automático deve iniciar uma ação de expansão. No entanto, observe que ainda é 50/2 = 25 mensagens por instância. Portanto, a expansão não ocorre. Para que a primeira escala horizontal ocorra, a contagem total de mensagens na fila de armazenamento deve ser 100.
-3. Em seguida, suponha que a contagem total de mensagens chegue a 100.
-4. Uma terceira instância de fila de armazenamento é adicionada devido a uma ação de expansão.  A próxima ação de escala horizontal não ocorrerá até que a contagem total de mensagens na fila atinja 150 porque 150/3 = 50.
-5. Agora, o número de mensagens na fila é menor. Com três instâncias, a primeira ação de scale-in ocorre quando o total de mensagens em todas as filas é somado a 30 porque 30/3 = 10 mensagens por instância, que é o limite de redução.
+1. Há duas caixas de fila de armazenamento.
+2. As mensagens continuam a chegar e quando analisa a fila de armazenamento, a contagem total diz 50. Pode supor que a escala automática deve iniciar uma ação de escala. No entanto, note que ainda é 50/2 = 25 mensagens por exemplo. Portanto, a escala-out não ocorre. Para que a primeira escala aconteça, a contagem total de mensagens na fila de armazenamento deve ser de 100.
+3. Em seguida, assuma que a contagem total de mensagens chega aos 100.
+4. Uma terceira instância de fila de armazenamento é adicionada devido a uma ação de escala.  A próxima ação de escala não acontecerá até que a contagem total de mensagens na fila atinja 150 porque 150/3 = 50.
+5. Agora o número de mensagens na fila diminui. Com três casos, a primeira ação de escala-in acontece quando o total de mensagens em todas as filas soma 30 porque 30/3 = 10 mensagens por instância, que é o limiar de escala dentro.
 
-### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Considerações sobre o dimensionamento quando vários perfis são configurados em uma configuração de dimensionamento automático
-Em uma configuração de dimensionamento automático, você pode escolher um perfil padrão, que sempre é aplicado sem nenhuma dependência de agenda ou hora, ou você pode escolher um perfil recorrente ou um perfil para um período fixo com um intervalo de data e hora.
+### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Considerações para escalaquando vários perfis são configurados em uma definição de escala automática
+Numa definição de escala automática, pode escolher um perfil predefinido, que é sempre aplicado sem qualquer dependência do horário ou da hora, ou pode escolher um perfil recorrente ou um perfil por um período fixo com uma data e hora.
 
-Quando o serviço de dimensionamento automático os processa, ele sempre verifica na seguinte ordem:
+Quando o serviço de escala automática os processa, verifica sempre a seguinte ordem:
 
 1. Perfil de data fixa
 2. Perfil recorrente
-3. Perfil padrão ("Always")
+3. Perfil padrão ("Sempre")
 
-Se uma condição de perfil for atendida, o dimensionamento automático não verificará a próxima condição de perfil abaixo dela. O dimensionamento automático processa apenas um perfil de cada vez. Isso significa que, se você quiser incluir também uma condição de processamento de um perfil de camada inferior, deverá incluir essas regras também no perfil atual.
+Se for satisfeita uma condição de perfil, a escala automática não verifica a condição de perfil seguinte abaixo. A escala automática processa apenas um perfil de cada vez. Isto significa que, se pretender incluir também uma condição de processamento a partir de um perfil de nível inferior, deve incluir essas regras também no perfil atual.
 
-Vamos examinar usando um exemplo:
+Vamos rever usando um exemplo:
 
-A imagem abaixo mostra uma configuração de dimensionamento automático com um perfil padrão de instâncias mínimas = 2 e máximo de instâncias = 10. Neste exemplo, as regras são configuradas para escalar horizontalmente quando a contagem de mensagens na fila for maior que 10 e reduzir quando a contagem de mensagens na fila for menor que três. Agora, o recurso pode ser dimensionado entre duas e dez instâncias.
+A imagem abaixo mostra uma definição de escala automática com um perfil predefinido de instâncias mínimas = 2 e instâncias máximas = 10. Neste exemplo, as regras são configuradas para escalar quando a contagem de mensagens na fila é superior a 10 e escala-in quando a contagem de mensagens na fila é inferior a três. Agora o recurso pode escalar entre dois a dez casos.
 
-Além disso, há um perfil recorrente definido para segunda-feira. Ele é definido para instâncias mínimas = 3 e máximo de instâncias = 10. Isso significa que na segunda-feira, a primeira verificação de dimensionamento automático para essa condição, se a contagem de instâncias for duas, ela será dimensionada para o novo mínimo de três. Desde que o dimensionamento automático continue a localizar essa condição de perfil correspondente (segunda-feira), ele só processa as regras de redução/saída baseadas em CPU configuradas para esse perfil. Neste momento, ele não verifica o comprimento da fila. No entanto, se você também quiser que a condição de comprimento da fila seja marcada, você deverá incluir essas regras do perfil padrão também em seu perfil de segunda-feira.
+Além disso, há um perfil recorrente definido para segunda-feira. É definido para instâncias mínimas = 3 e instâncias máximas = 10. Isto significa que, na segunda-feira, os primeiros controlos à escala automática desta condição, se a contagem de ocorrências for em dois, estão reduzidos ao novo mínimo de três. Enquanto a escala automática continuar a encontrar esta condição de perfil correspondida (segunda-feira), apenas processa as regras de escala/in baseadas em CPU configuradas para este perfil. Neste momento, não verifica o comprimento da fila. No entanto, se também quiser que a condição de duração da fila seja verificada, deve incluir essas regras do perfil padrão também no seu perfil de segunda-feira.
 
-Da mesma forma, quando o dimensionamento automático volta para o perfil padrão, ele verifica primeiro se as condições mínimas e máximas foram atendidas. Se o número de instâncias no momento for 12, ele será dimensionado para 10, o máximo permitido para o perfil padrão.
+Da mesma forma, quando a escala automática volta ao perfil predefinido, verifica primeiro se as condições mínimas e máximas são satisfeitas. Se o número de instâncias na altura for de 12, ele escala para 10, o máximo permitido para o perfil padrão.
 
-![configurações de autoescala](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
+![definições de escala automática](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
-### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerações sobre o dimensionamento quando várias regras são configuradas em um perfil
+### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerações para escalaquando várias regras são configuradas num perfil
 
-Há casos em que você pode precisar definir várias regras em um perfil. As seguintes regras de dimensionamento automático são usadas pelos serviços quando várias regras são definidas.
+Há casos em que pode ter de definir várias regras num perfil. As seguintes regras de escala automática são utilizadas pelo motor de escala automática quando são definidas várias regras.
 
-Em *expansão*, o dimensionamento automático é executado se alguma regra for atendida.
-Na *redução horizontal*, o dimensionamento automático exige que todas as regras sejam atendidas.
+Na *escala para fora,* a escala automática corre se alguma regra for cumprida.
+Na *escala,* a escala automática exige que todas as regras sejam cumpridas.
 
-Para ilustrar, suponha que você tenha as quatro seguintes regras de dimensionamento automático:
+Para ilustrar, assuma que tem as seguintes quatro regras de escala automática:
 
-* Se a CPU < 30%, reduza horizontalmente em 1
-* Se a memória < 50%, reduza a escala em 1
-* Se a CPU > 75%, escale horizontalmente em 1
-* Se a memória > 75%, escale horizontalmente em 1
+* Se CPU < 30%, escala por 1
+* Se Memory < 50%, scale-in por 1
+* Se CPU > 75%, escala-out por 1
+* Se Memória > 75%, escala por 1
 
 Em seguida, ocorre o seguinte:
 
-* Se a CPU for 76% e a memória for 50%, escalaremos horizontalmente.
-* Se a CPU for 50% e a memória for 76%, escalaremos horizontalmente.
+* Se o CPU for de 76% e a Memória for de 50%, nós escalamos.
+* Se o CPU for de 50% e a Memória for de 76%, nós escalamos.
 
-Por outro lado, se a CPU for de 25% e a memória for de 51%, o dimensionamento automático **não** reduzirá horizontalmente. Para reduzir, a CPU deve ser 29% e a memória de 49%.
+Por outro lado, se o CPU for de 25% e a memória for de 51% de escala automática **não** faz escala. Para entrar em escala, a CPU deve ser de 29% e a Memória 49%.
 
-### <a name="always-select-a-safe-default-instance-count"></a>Sempre selecionar uma contagem de instâncias padrão segura
-A contagem de instâncias padrão é importante escala automática de seu serviço para essa contagem quando as métricas não estão disponíveis. Portanto, selecione uma contagem de instâncias padrão que seja segura para suas cargas de trabalho.
+### <a name="always-select-a-safe-default-instance-count"></a>Selecione sempre uma contagem de exemplos por defeito seguro
+A contagem de instâncias padrão é importante porque a escala automática escala o seu serviço para essa contagem quando as métricas não estão disponíveis. Portanto, selecione uma contagem de instâncias padrão que seja segura para as suas cargas de trabalho.
 
-### <a name="configure-autoscale-notifications"></a>Configurar notificações de dimensionamento automático
-O dimensionamento automático enviará ao log de atividades se qualquer uma das seguintes condições ocorrer:
+### <a name="configure-autoscale-notifications"></a>Configurar notificações de escala automática
+A escala automática será postada no Registo de Atividade se ocorrerem alguma das seguintes condições:
 
-* O dimensionamento automático emite uma operação de dimensionamento
-* O serviço de dimensionamento automático conclui com êxito uma ação de escala
-* O serviço de dimensionamento automático não realiza uma ação de dimensionamento.
-* As métricas não estão disponíveis para o serviço de dimensionamento automático fazer uma decisão de escala.
+* A escala automática emite uma operação à escala.
+* O serviço de escala automática completa com sucesso uma ação de escala.
+* O serviço de escala automática não toma uma ação de escala.
+* As métricas não estão disponíveis para o serviço de escala automática tomar uma decisão de escala.
 * As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala.
 
-Você também pode usar um alerta do log de atividades para monitorar a integridade do mecanismo de dimensionamento automático. Aqui estão exemplos para [criar um alerta do log de atividades para monitorar todas as operações do mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) ou para [criar um alerta do log de atividades para monitorar todas as operações de escalabilidade horizontal com falha em/escalar horizontalmente em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+Também pode utilizar um alerta de Registo de Atividades para monitorizar a saúde do motor de escala automática. Aqui estão exemplos para criar um Alerta de Registo de [Atividades para monitorizar todas as operações](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) do motor de escala automática na sua subscrição ou para criar um Alerta de Registo de Atividade para monitorizar todas as operações de [escala automática falhadas na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 
-Além de usar alertas do log de atividades, você também pode configurar notificações por email ou webhook para ser notificado para ações de dimensionamento bem-sucedidas por meio da guia notificações na configuração de dimensionamento automático.
+Além de utilizar alertas de registo de atividade, também pode configurar notificações de e-mail ou webhook para ser notificado para ações de escala bem sucedidas através do separador de notificações na definição de escala automática.
 
-## <a name="next-steps"></a>Próximos Passos
-- [Crie um alerta do log de atividades para monitorar todas as operações do mecanismo de dimensionamento automático em sua assinatura.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Criar um alerta do log de atividades para monitorar todas as operações com falha na escala de dimensionamento/expansão em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+## <a name="next-steps"></a>Passos Seguintes
+- [Crie um Alerta de Registo de Atividades para monitorizar todas as operações do motor de escala automática na sua subscrição.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Crie um Alerta de Registo de Atividades para monitorizar todas as operações de escala automática falhadas na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

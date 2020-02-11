@@ -1,6 +1,6 @@
 ---
-title: Conceitos de laboratórios de sala de aula - Azure Lab Services | Documentos da Microsoft
-description: Conheça os conceitos básicos de serviços de laboratório e como ele pode facilitar criar e gerir laboratórios.
+title: Conceitos de Laboratórios de Sala de Aula - Serviços de Laboratório Azure / Microsoft Docs
+description: Aprenda os conceitos básicos dos Serviços laboratoriais, e como pode facilitar a criação e gestão de laboratórios.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,52 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 8bbb486b0dbf1a5e25f5ee4d1f8e5e01b999a8ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 348340516f9332f5492c7ce60c3d164da44a008c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067380"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120897"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos Laboratórios de Sala de Aula
-A lista seguinte contém os principais conceitos do Lab Services e definições:
+
+A lista seguinte contém conceitos e definições chave lab Services:
 
 ## <a name="quota"></a>Quota
-Quota é o limite de tempo (em horas), que pode definir um professor de estudante utilizar um laboratório de VM. Ele pode ser definido como 0 ou um número específico de horas. Se a quota é definida como 0, um estudante só pode utilizar a máquina virtual quando uma agenda está em execução ou quando um professor ativa manualmente a máquina virtual para o aluno.
- 
+
+A quota é o limite de tempo (em horas) que um professor pode definir para um aluno usar um VM de laboratório. Pode ser definido para 0, ou um número específico de horas. Se a quota estiver definida para 0, um aluno só pode utilizar a máquina virtual quando um horário está em execução ou quando um professor liga manualmente a máquina virtual para o aluno.  
+
+As horas de quota são contadas quando o aluno começa o laboratório vM em si.  Se um professor iniciar manualmente o VM do laboratório para um aluno, as horas de quota não são usadas para esse aluno.
+
 ## <a name="schedules"></a>Agendas
-Agendas são os blocos de tempo (uma vez ou periodicamente) que um professor pode criar para a classe. Todas as máquinas virtuais no laboratório são iniciadas automaticamente no início para a agenda e são parados no final da agenda. Horas de quota não são utilizadas quando uma agenda está em execução.
+
+Os horários são as faixas horárias (uma vez ou recorrentes) que um professor pode criar para a aula. Todas as máquinas virtuais do laboratório são automaticamente iniciadas no início do horário e paradas no final do horário. O horário de funcionamento não é utilizado quando está em funcionamento um horário.
 
 ## <a name="template-virtual-machine"></a>Máquina virtual de modelo
-Uma máquina virtual do modelo num laboratório é uma imagem de máquina virtual base a partir da qual são criadas máquinas de virtuais de todos os utilizadores. Os criadores de Trainers/laboratório configurar a máquina virtual do modelo e configurá-lo com o software que pretende fornecer aos participantes de treinamento para fazer laboratórios. Quando publica um modelo de VM, o Azure Lab Services cria ou atualiza a VMs de laboratório com base no modelo de VM. 
 
+Uma máquina virtual modelo em um laboratório é uma imagem de máquina virtual base a partir da qual todas as máquinas virtuais dos utilizadores são criadas. Os formadores/criadores de laboratório configuram o modelo de máquina virtual e configuram-na com o software que querem fornecer aos participantes para treinar os participantes para fazer em laboratórios. Quando publica um modelo VM, o Azure Lab Services cria ou atualiza vMs de laboratório com base no modelo VM.
 
 ## <a name="user-profiles"></a>Perfis de utilizador
-Este artigo descreve perfis de utilizador diferentes no Azure Lab Services. 
+
+Este artigo descreve perfis de utilizador diferentes no Azure Lab Services.
 
 ### <a name="lab-account-owner"></a>Proprietário da conta de laboratório
-Normalmente, o administrador de TI dos recursos de cloud da organização que é o proprietário da subscrição do Azure age como o proprietário da conta de laboratório e realiza as seguintes tarefas:   
+
+Normalmente, o administrador de TI dos recursos de cloud da organização que é o proprietário da subscrição do Azure age como o proprietário da conta de laboratório e realiza as seguintes tarefas:
 
 - Configura uma conta de laboratório para a organização.
 - Gere e configura políticas em todos os laboratórios.
 - Dá permissões a pessoas na organização para criarem um laboratório na conta de laboratório.
 
 ### <a name="professor"></a>Professor
-Normalmente, os utilizadores como um professor ou um formador online criam laboratórios de sala de aula numa conta de laboratório. Um educador realiza as seguintes tarefas: 
+
+Normalmente, os utilizadores como um professor ou um formador online criam laboratórios de sala de aula numa conta de laboratório. Um educador realiza as seguintes tarefas:
 
 - Cria um laboratório de sala de aula.
-- Cria máquinas virtuais no laboratório. 
+- Cria máquinas virtuais no laboratório.
 - Instala o software adequado em máquinas virtuais.
 - Especifica quem pode aceder ao laboratório.
 - Fornece a ligação de registo para o laboratório aos estudantes.
 
 ### <a name="student"></a>Estudante
+
 O aluno realiza as seguintes tarefas:
 
-- Utiliza a ligação de registo que o utilizador do laboratório recebe do criador do laboratório para se registar no laboratório. 
-- Liga-se a uma máquina virtual no laboratório e utiliza-a para tarefas, projetos ou para fazer trabalho da aula. 
+- Utiliza a ligação de registo que o utilizador do laboratório recebe do criador do laboratório para se registar no laboratório.
+- Liga-se a uma máquina virtual no laboratório e utiliza-a para tarefas, projetos ou para fazer trabalho da aula.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+
 Introdução à configuração de uma conta de laboratório necessária para criar um laboratório de sala de aula com o Azure Lab Services:
 
 - [Configurar uma conta de laboratório](tutorial-setup-lab-account.md)

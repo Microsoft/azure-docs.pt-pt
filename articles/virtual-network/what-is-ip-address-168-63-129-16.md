@@ -1,6 +1,6 @@
 ---
-title: O que é o endereço IP 168.63.129.16? | Microsoft Docs
-description: Saiba mais sobre o endereço IP 168.63.129.16 e como ele funciona com seus recursos.
+title: O que é endereço IP 168.63.129.16? | Microsoft Docs
+description: Saiba mais sobre o endereço IP 168.63.129.16 e como funciona com os seus recursos.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,31 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: e061d503254ba7aa7735a97a060fc63f96b3fb61
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 287f881fb17dd84357f540ee562e21c66c11ab95
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196660"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114355"
 ---
-# <a name="what-is-ip-address-1686312916"></a>O que é o endereço IP 168.63.129.16?
+# <a name="what-is-ip-address-1686312916"></a>O que é endereço IP 168.63.129.16?
 
-O endereço IP 168.63.129.16 é um endereço IP público virtual que é usado para facilitar um canal de comunicação para os recursos da plataforma Azure. Os clientes podem definir qualquer espaço de endereço para sua rede virtual privada no Azure. Portanto, os recursos da plataforma Azure devem ser apresentados como um endereço IP público exclusivo. Esse endereço IP público virtual facilita as seguintes coisas:
+Endereço IP 168.63.129.16 é um endereço IP público virtual que é usado para facilitar um canal de comunicação aos recursos da plataforma Azure. Os clientes podem definir qualquer espaço de endereço para a sua rede virtual privada em Azure. Por conseguinte, os recursos da plataforma Azure devem ser apresentados como um endereço IP público único. Este endereço IP público virtual facilita as seguintes coisas:
 
-- Permite que o agente de VM se comunique com a plataforma do Azure para sinalizar que está em um estado "pronto".
-- Permite a comunicação com o servidor virtual DNS para fornecer resolução de nomes filtrados para os recursos (como VM) que não têm um servidor DNS personalizado. Essa filtragem garante que os clientes possam resolver somente os nomes de host de seus recursos.
-- Habilita [investigações de integridade do Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) para determinar o estado de integridade das VMs.
-- Permite que a VM obtenha um endereço IP dinâmico do serviço DHCP no Azure.
-- Habilita mensagens de pulsação do agente convidado para a função PaaS.
+- Permite ao Agente VM comunicar com a plataforma Azure para sinalizar que se encontra num estado "Pronto".
+- Permite que a comunicação com o servidor virtual DNS forneça uma resolução de nome filtrada aos recursos (como VM) que não possuam um servidor DNS personalizado. Esta filtragem garante que os clientes podem resolver apenas os nomes de anfitriões dos seus recursos.
+- Permite que [as sondas de saúde do equilíbrio de carga Azure](../load-balancer/load-balancer-custom-probe-overview.md) determinem o estado de saúde dos VMs.
+- Permite ao VM obter um endereço IP dinâmico do serviço DHCP em Azure.
+- Permite mensagens de batimentocardíaco do Agente Convidado para o papel paaS.
 
-## <a name="scope-of-ip-address-1686312916"></a>Escopo do endereço IP 168.63.129.16
+## <a name="scope-of-ip-address-1686312916"></a>Âmbito do endereço IP 168.63.129.16
 
-O endereço IP público 168.63.129.16 é usado em todas as regiões e em todas as nuvens nacionais. Esse endereço IP público especial pertence à Microsoft e não será alterado. Ele é permitido pela regra de grupo de segurança de rede padrão. Recomendamos que você permita esse endereço IP em qualquer política de firewall local nas direções de entrada e saída. A comunicação entre esse endereço IP especial e os recursos é segura porque apenas a plataforma interna do Azure pode originar uma mensagem desse endereço IP. Se esse endereço for bloqueado, o comportamento inesperado poderá ocorrer em uma variedade de cenários.
-As seguintes portas pelo menos devem ser abertas para permitir a comunicação com WireServer: 80, 443 e 32526.
+O endereço IP público 168.63.129.16 é utilizado em todas as regiões e em todas as nuvens nacionais. Este endereço IP público especial é propriedade da Microsoft e não vai mudar. Recomendamos que permita este endereço IP em quaisquer políticas locais (no VM) de firewall (direção de saída). A comunicação entre este endereço IP especial e os recursos é segura porque apenas a plataforma interna Azure pode obter uma mensagem deste endereço IP. Se este endereço estiver bloqueado, um comportamento inesperado pode ocorrer em vários cenários. 168.63.129.16 é um [IP virtual do nó hospedeiro](../virtual-network/security-overview.md#azure-platform-considerations) e, como tal, não está sujeito a rotas definidas pelo utilizador.
 
-[Azure Load Balancer investigações de integridade](../load-balancer/load-balancer-custom-probe-overview.md) se originam desse endereço IP. Se você bloquear esse endereço IP, suas investigações falharão.
+- O Agente VM requer comunicação de saída sobre as portas 80, 443, 32526 com o WireServer (168.63.129.16). Estes devem estar abertos na firewall local na VM. A comunicação sobre estes portos com 168.63.129.16 não está sujeita aos grupos de segurança da rede configurados.
+- 168.63.129.16 pode prestar serviços de DNS ao VM. Se isso não for desejado, este tráfego pode ser bloqueado na firewall local no VM. Por padrão, a comunicação DNS não está sujeita aos grupos de segurança de rede configurados, a menos que seja especificamente direcionado para alavancar a etiqueta de serviço [AzurePlatformDNS.](../virtual-network/service-tags-overview.md#available-service-tags)
+- Quando o VM faz parte de um conjunto de backend de um equilibrista de carga, a comunicação da sonda de [saúde](../load-balancer/load-balancer-custom-probe-overview.md) deve ser autorizada a ter origem em 168.63.129.16. A configuração padrão do grupo de segurança da rede tem uma regra que permite esta comunicação. Esta regra alavanca a etiqueta de serviço [AzureLoadBalancer.](../virtual-network/service-tags-overview.md#available-service-tags) Se desejar, este tráfego pode ser bloqueado configurando o grupo de segurança da rede, no entanto, isso resultará em sondas que falham.
 
-Em um cenário de rede não virtual (clássico), a investigação de integridade é originada de um IP privado e 168.63.129.16 não é usado.
+Num cenário de rede não virtual (Clássico), a sonda de saúde é proveniente de um IP privado e não é utilizada 168.63.129.16.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,26 +1,26 @@
 ---
-title: 'Início rápido: obter a lista de idiomas com suporte-API de Tradução de Texto'
+title: 'Quickstart: Obtenha a lista de idiomas suportados - Tradutor Text API'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você obtém uma lista de idiomas com suporte para tradução, transliteração e pesquisa de dicionário usando o API de Tradução de Texto.
+description: Neste arranque rápido, obtém-se uma lista de idiomas suportados para tradução, transliteração e procura de dicionário utilizando a API de Texto tradutor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 169f1b78cf8e67fb1d5934532077dfa99bd210a1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 475f0deb3b9da863a8e7b84abb7ebef54c9cb201
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975742"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118826"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages"></a>Início rápido: Use a API de Tradução de Texto para obter uma lista de idiomas com suporte
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages"></a>Quickstart: Use a API de texto tradutor para obter uma lista de idiomas suportados
 
-Neste guia de início rápido, você obtém uma lista de idiomas com suporte para tradução, transliteração e pesquisa de dicionário usando o API de Tradução de Texto.
+Neste arranque rápido, obtém-se uma lista de idiomas suportados para tradução, transliteração e procura de dicionário utilizando a API de Texto tradutor.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -52,7 +52,7 @@ Neste guia de início rápido, você obtém uma lista de idiomas com suporte par
 
 ::: zone-end
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Traduzir texto](quickstart-translate.md)
 * [Transliterar texto](quickstart-transliterate.md)

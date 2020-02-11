@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Cassandra API com node. js - Azure Cosmos DB'
+title: 'Início Rápido: API para Cassandra com Node.js – Azure Cosmos DB'
 description: Este guia de introdução mostra como utilizar a Cassandra API do Azure Cosmos DB para criar uma aplicação de perfil com o Node.js
 author: SnehaGunda
 ms.author: sngun
@@ -8,20 +8,20 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: a8698bf74d8be4a57d5928b8be74bcf35cee008f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cea504393ba1735298bf04b3e9a2d55a9fa42c66
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892191"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117926"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação do Cassandra com o SDK node. js e o Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Node.js SDK e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
 > * [Node.js](create-cassandra-nodejs.md)
-> * [Python](create-cassandra-python.md)
+> * [python](create-cassandra-python.md)
 >  
 
 Este guia de introdução mostra como utilizar o Node.js e a [Cassandra API](cassandra-introduction.md) do Azure Cosmos DB para criar um perfil de aplicação através da clonagem de um exemplo do GitHub. Este início rápido também mostra como pode utilizar o portal do Azure baseado na Web para criar uma conta do Azure Cosmos DB.
@@ -44,7 +44,7 @@ Antes de poder criar uma base de dados de documentos, tem de criar uma conta do 
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos clonar uma Cassandra aplicação API a partir do GitHub, definir a cadeia de ligação e executá-lo. Vai ver como é fácil trabalhar com dados programaticamente. 
+Agora vamos clonar uma aplicação Cassandra API do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
 
 1. Abra uma linha de comandos. Crie uma nova pasta com o nome `git-samples`. Em seguida, feche a linha de comandos.
 
@@ -117,7 +117,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
     ...
        {
           query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'IvanaV', 'Belgaum', '2017-10-3136']
+          params: [5, 'IvanaV', 'Belgaum']
         }
     ];
     client.batch(queries, { prepare: true}, next);
@@ -186,7 +186,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="use-the-x509-certificate"></a>Utilizar o certificado X509
 
-1. Transfira o certificado de raiz da CyberTrust Baltimore localmente a partir de [ https://cacert.omniroot.com/bc2025.crt ](https://cacert.omniroot.com/bc2025.crt). Mude o nome do ficheiro através da extensão de ficheiro `.cer`.
+1. Transfira o certificado de raiz da CyberTrust Baltimore localmente a partir de [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Mude o nome do ficheiro através da extensão de ficheiro `.cer`.
 
    O certificado tem o número de série `02:00:00:b9` e a identificação digital SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
@@ -202,7 +202,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 3. Verifique os resultados como esperado na linha de comandos.
 
-    ![Ver e verificar a saída](./media/create-cassandra-nodejs/output.png)
+    ![Verificar a saída](./media/create-cassandra-nodejs/output.png)
 
     Prima CTRL + C para interromper a execução do programa e feche a janela da consola. 
 
@@ -218,7 +218,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar um contentor com o Data Explorer e a executar uma aplicação. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 

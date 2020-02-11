@@ -3,12 +3,12 @@ title: Suporte de avaliação do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte de avaliação do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 1b3e81653ba934b209755391f08e60ef603e645a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086773"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121335"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -24,16 +24,16 @@ Para avaliar as máquinas locais para migração para o Azure com este artigo, v
 **Suporte** | **Detalhes**
 --- | ---
 **Limites de avaliação**| Descubra e avalie até 35.000 VMs VMware num único [projeto.](migrate-support-matrix.md#azure-migrate-projects)
-**Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure. Um projeto pode incluir VMs do VMware, VMs do Hyper-V e servidores físicos, até os limites de avaliação.
+**Limites do projeto** | Pode criar vários projetos numa subscrição do Azure. Um projeto pode incluir VMs do VMware, VMs do Hyper-V e servidores físicos, até os limites de avaliação.
 **Descoberta** | O dispositivo de migrações para Azure pode descobrir até 10.000 VMs VMware em um vCenter Server.
-**Avaliação** | Você pode adicionar até 35.000 computadores em um único grupo.<br/><br/> Você pode avaliar até 35.000 VMs em uma única avaliação.
+**Avaliação** | Pode adicionar até 35.000 máquinas num único grupo.<br/><br/> Você pode avaliar até 35.000 VMs numa única avaliação.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
 
 
 ## <a name="application-discovery"></a>Deteção de aplicações
 
-Além de descobrir computadores, migrações para Azure: a avaliação do servidor pode descobrir aplicativos, funções e recursos em execução em computadores. Descobrir seu inventário de aplicativos permite que você identifique e planeje um caminho de migração adaptado para suas cargas de trabalho locais. 
+Além de descobrir computadores, migrações para Azure: a avaliação do servidor pode descobrir aplicativos, funções e recursos em execução em computadores. Descobrir o inventário da sua aplicação permite identificar e planear um caminho de migração adaptado para as suas cargas de trabalho no local. 
 
 **Suporte** | **Detalhes**
 --- | ---
@@ -41,8 +41,8 @@ Além de descobrir computadores, migrações para Azure: a avaliação do servid
 **Máquinas suportadas** | VMs VMware locais.
 **Sistema operativo de máquinas** | Todas as versões do Windows e Linux.
 **credenciais vCenter** | Uma conta vCenter Server com acesso somente leitura e privilégios habilitados para máquinas virtuais > operações de convidado.
-**Credenciais VM** | Atualmente, o dá suporte ao uso de uma credencial para todos os servidores Windows e uma credencial para todos os servidores Linux.<br/><br/> Você cria uma conta de usuário convidado para VMs do Windows e uma conta de usuário regular/normal (acesso não sudo) para todas as VMs do Linux.
-**Ferramentas VMware** | As ferramentas do VMware devem ser instaladas e executadas em VMs que você deseja descobrir.
+**Credenciais VM** | Atualmente suporta a utilização de uma credencial para todos os servidores Windows, e uma credencial para todos os servidores Linux.<br/><br/> Cria uma conta de utilizador convidado para VMs do Windows e uma conta de utilizador regular/normal (acesso não sudo) para todos os VMs Linux.
+**Ferramentas VMware** | As ferramentas do VMware devem ser instaladas e executadas em VMs que você deseja descobrir. <br/> Se a sua versão de ferramentas VMware estiver entre 9.10 e 10.2.0, certifique-se de que atualiza para além de 10.2.0.
 **Acesso portuário** | Em hosts ESXi que executam VMs que você deseja descobrir, o dispositivo de migrações para Azure deve ser capaz de se conectar à porta TCP 443.
 **Limites** | Para descoberta de aplicativos, você pode descobrir até 10000 por dispositivo. 
 
@@ -51,7 +51,7 @@ Além de descobrir computadores, migrações para Azure: a avaliação do servid
 **VMware** | **Detalhes**
 --- | ---
 **vCenter Server** | Os computadores que você deseja descobrir e avaliar devem ser gerenciados por vCenter Server versão 5,5, 6,0, 6,5 ou 6,7.
-**Permissões (avaliação)** | vCenter Server conta somente leitura.
+**Permissões (avaliação)** | conta de leitura vCenter Server.
 **Permissões (descoberta de apps)** | conta vCenter Server com acesso apenas para leitura, e privilégios habilitados para **máquinas virtuais > Operações de Hóspedes**.
 **Permissões (visualização da dependência)** | Conta Do Servidor Central com acesso apenas para leitura, e privilégios habilitados para **máquinas virtuais** > **Operações de Hóspedes.**
 
@@ -67,8 +67,8 @@ A Azure Migrate utiliza o [aparelho Migratório Azure](migrate-appliance.md) par
 
 **Dispositivo** | **Conexão**
 --- | ---
-Baseado | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Ligações de entrada na porta 44368 para aceder remotamente à aplicação de gestão de aparelhos utilizando o URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Ligações de saída na porta 443 (HTTPS), 5671 e 5672 (AMQP) para enviar metadados de descoberta e desempenho para o Azure Migrate.
-vCenter Server | Conexões de entrada na porta TCP 443 para permitir que o dispositivo colete metadados de configuração e desempenho para avaliações. <br/><br/> O dispositivo se conecta ao vCenter na porta 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá modificar a porta ao configurar a descoberta.
+Aparelho | Ligações de entrada na porta TCP 3389 para permitir ligações remotas ao aparelho.<br/><br/> Ligações de entrada na porta 44368 para aceder remotamente à aplicação de gestão de aparelhos utilizando o URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Ligações de saída na porta 443 (HTTPS), 5671 e 5672 (AMQP) para enviar metadados de descoberta e desempenho para o Azure Migrate.
+vCenter Server | Ligações de entrada na porta TCP 443 para permitir que o aparelho recolha metadados de configuração e desempenho para avaliações. <br/><br/> O aparelho liga-se ao vCenter na porta 443 por defeito. Se o servidor vCenter ouvir uma porta diferente, pode modificar a porta quando configurar a descoberta.
 Anfitriões ESXi | **Necessário apenas para a descoberta de [aplicações](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#application-discovery) e visualização de [dependência sem agente](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-dependency-visualization)** <br/><br/> O aparelho liga-se aos anfitriões ESXi na porta 443 da TCP para descobrir aplicações e executar visualização de dependência sem agentes nos VMs que funcionam nos anfitriões.
 
 ## <a name="agent-based-dependency-visualization"></a>Visualização de dependência baseada em agente
@@ -95,7 +95,7 @@ Esta opção está atualmente em pré-visualização. [Saiba mais](how-to-create
 **Implementação** | Antes de implementar a visualização da dependência, deverá ter um projeto Azure Migrate no local, com a ferramenta Azure Migrate: Server Assessment adicionada ao projeto. Implementa a visualização da dependência depois de instalar um aparelho Azure Migrate para descobrir as suas máquinas no local.
 **Suporte vm** | Atualmente com suporte somente para VMs VMware.
 **VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit)
-**VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14, 4, 16, 4<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
+**VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Conta windows** |  A visualização precisa de uma conta local ou de administrador de domínio.
 **Conta Linux** | A visualização precisa de uma conta de usuário com privilégio de raiz.<br/><br/> Alternadamente, a conta de utilizador necessita destas permissões em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 **Agentes VM** | Nenhum agente é necessário nas VMs.

@@ -1,65 +1,65 @@
 ---
 title: Disponibilidade de recursos por região
-description: Disponibilidade de recursos de computação e memória para o serviço de instâncias de contêiner do Azure em diferentes regiões do Azure.
+description: Disponibilidade de recursos de computação e memória para o serviço De casos de contentores Azure em diferentes regiões de Azure.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/31/2020
 ms.author: danlep
-ms.openlocfilehash: 9de5b08eed3aa10015813cbb4724ef4e947005fb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888010"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117805"
 ---
-# <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contêiner do Azure em regiões do Azure
+# <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores azure nas regiões de Azure
 
-Este artigo detalha a disponibilidade de recursos de computação e memória de instâncias de contêiner do Azure em regiões do Azure. 
+Este artigo detalha a disponibilidade de dados de instâncias de contentores azure, memória e armazenamento nas regiões de Azure e através do sistema operativo-alvo. 
 
-Os valores apresentados são o máximo de recursos disponíveis por implantação de um [grupo de contêineres](container-instances-container-groups.md). Os valores são atuais no momento da publicação. 
+Os valores apresentados são os recursos máximos disponíveis por implantação de um grupo de [contentores.](container-instances-container-groups.md) Os valores são atuais no momento da publicação. 
 
 > [!NOTE]
-> Os grupos de contêineres criados dentro desses limites de recursos estão sujeitos à disponibilidade na região de implantação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para atenuar essa falha de implantação, tente implantar instâncias com configurações de recursos menores ou tente a implantação mais tarde.
+> Os grupos de contentores criados dentro destes limites de recursos estão sujeitos à disponibilidade dentro da região de implantação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para mitigar tal falha de implementação, tente implementar instâncias com configurações de recursos mais baixas ou tente a sua implementação mais tarde.
 
-Para obter informações sobre cotas e outros limites em suas implantações, consulte [cotas e limites para instâncias de contêiner do Azure](container-instances-quotas.md).
+Para obter informações sobre quotas e outros limites nas suas implantações, consulte [Quotas e limites para instâncias de contentores Azure](container-instances-quotas.md).
 
-## <a name="availability---general"></a>Disponibilidade-geral
+## <a name="availability---general"></a>Disponibilidade - Geral
 
-As seguintes regiões e recursos estão disponíveis para grupos de contêineres com Linux e contêineres com [suporte](container-instances-faq.md#what-windows-base-os-images-are-supported) do Windows Server 2016.
+As seguintes regiões e recursos estão disponíveis para grupos de contentores com o Linux e contentores [baseados](container-instances-faq.md#what-windows-base-os-images-are-supported) no Windows Server 2016.
 
-| Regiões | SO | Máx. da CPU | Memória máxima (GB) |
-| -------- | -- | :---: | :-----------: |
-| Sul do Brasil, Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Europa Ocidental, oeste dos EUA, oeste dos EUA 2 | Linux | 4 | 16 |
-| Leste da Austrália, leste do Japão | Linux | 2 | 8 |
-| E.U.A. Centro-Norte | Linux | 2 | 3.5 |
-| Sul do Brasil, leste do Japão, Europa Ocidental | Windows | 4 | 16 |
-| E.U.A. Leste, E.U.A. Oeste | Windows | 4 | 14 |
-| Leste da Austrália, Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA 2, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, oeste dos EUA 2 | Windows | 2 | 3.5 |
+| Regiões | SO | Máx. da CPU | Memória Max (GB) | Armazenamento (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Brasil Sul, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Reino Unido Sul, Europa Ocidental, Oeste DOS EUA, OESTE DOS EUA 2 | Linux | 4 | 16 | 50 |
+| Austrália Leste, Japão Leste | Linux | 2 | 8 | 50 |
+| E.U.A. Centro-Norte | Linux | 2 | 3.5 | 50 |
+| Brasil Sul, Japão Leste, Europa Ocidental | Windows | 4 | 16 | 20 |
+| Leste dos EUA, Oeste dos EUA | Windows | 4 | 14 | 20 |
+| Austrália Leste, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste DOS 2, Norte Dos EUA, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Índia Do Sul, Reino Unido Sul, Oeste DOS EUA 2 | Windows | 2 | 3.5 | 20 |
 
-## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidade-Windows Server 2019 LTSC, 1809 implantações (versão prévia)
+## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidade - Windows Server 2019 LTSC, 1809 implementações (pré-visualização)
 
-As seguintes regiões e recursos estão disponíveis para grupos de contêineres com contêineres baseados no Windows Server 2019 (versão prévia).
+As seguintes regiões e recursos estão disponíveis para grupos de contentores com contentores baseados no Windows Server 2019 (pré-visualização).
 
-| Regiões | SO | Máx. da CPU | Memória máxima (GB) |
-| -------- | -- | :---: | :-----------: |
-| Leste da Austrália, sul do Brasil, centro-Canadá, Índia central, EUA Central, Ásia Oriental, leste dos EUA, leste do Japão, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Europa Ocidental | Windows | 4 | 16 |
-| Leste dos EUA 2, oeste dos EUA 2 | Windows | 2 | 3.5 |
+| Regiões | SO | Máx. da CPU | Memória Max (GB) | Armazenamento (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Austrália Leste, Brasil Sul, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste dos EUA, Japão Leste, Norte Central EUA, Norte Da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Reino Unido Sul, Europa Ocidental | Windows | 4 | 16 | 20 |
+| Leste dos EUA 2, Oeste DOS EUA 2 | Windows | 2 | 3.5 | 20 |
 
 
-## <a name="availability---virtual-network-deployment"></a>Disponibilidade-implantação de rede virtual
+## <a name="availability---virtual-network-deployment"></a>Disponibilidade - Implantação de rede virtual
 
-As seguintes regiões e recursos estão disponíveis para um grupo de contêineres implantados em uma [rede virtual do Azure](container-instances-vnet.md).
+As seguintes regiões e recursos estão disponíveis para um grupo de contentores implantado numa [rede virtual Azure.](container-instances-vnet.md)
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
-## <a name="availability---gpu-resources-preview"></a>Disponibilidade-recursos de GPU (visualização)
+## <a name="availability---gpu-resources-preview"></a>Disponibilidade - Recursos GPU (pré-visualização)
 
-As seguintes regiões e recursos estão disponíveis para um grupo de contêineres implantados com [recursos de GPU](container-instances-gpu.md) (versão prévia).
+As seguintes regiões e recursos estão disponíveis para um grupo de contentores implantado com [recursos de GPU](container-instances-gpu.md) (pré-visualização).
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Deixe a equipe saber se você gostaria de ver regiões adicionais ou maior disponibilidade de recursos em [aka.ms/ACI/feedback](https://aka.ms/aci/feedback).
+Informe a equipa se gostaria de ver regiões adicionais ou aumento da disponibilidade de recursos em [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
-Para obter informações sobre como solucionar problemas de implantação de instância de contêiner, consulte [solucionar problemas de implantação com instâncias de contêiner do Azure](container-instances-troubleshooting.md).
+Para obter informações sobre a implantação de casos de contentores de resolução de problemas, consulte problemas de implantação de [Problemas com instâncias de contentores Azure](container-instances-troubleshooting.md).

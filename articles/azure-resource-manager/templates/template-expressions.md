@@ -1,24 +1,26 @@
 ---
-title: Sintaxe e expressões de modelo
-description: Descreve a sintaxe JSON declarativa para modelos de Azure Resource Manager.
+title: Sintaxe de modelo e expressões
+description: Descreve a sintaxe declarativa da JSON para os modelos do Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.openlocfilehash: b7682ba10c30290e5935bc2dd17e2a83852d92f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: 42649d4b04b03de32b82335fce68401192de75a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484197"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120594"
 ---
-# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos de Azure Resource Manager
+# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos de Gestor de Recursos Azure
 
-A sintaxe básica do modelo é JSON. No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com parênteses retos: `[` e `]`, respetivamente. O valor da expressão é avaliado quando o modelo é implementado. Uma expressão pode devolver: uma cadeia de carateres, um número inteiro, um valor booleano, uma matriz ou um objeto.
+A sintaxe básica do modelo é JSON. No entanto, pode utilizar expressões para estender os valores JSON disponíveis dentro do modelo.  As expressões começam e terminam com parênteses: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode devolver uma corda, inteiro, booleano, matriz ou objeto.
 
 Uma expressão de modelo não pode exceder 24.576 caracteres.
 
+As expressões suportam json ('nulo') e as propriedades suportam um valor literal de nulo. Em ambos os casos, os modelos do Gestor de Recursos tratam-no como se a propriedade não estivesse presente.
+
 ## <a name="use-functions"></a>Utilizar funções
 
-O exemplo a seguir mostra uma expressão no valor padrão de um parâmetro:
+O exemplo seguinte mostra uma expressão no valor padrão de um parâmetro:
 
 ```json
 "parameters": {
@@ -29,35 +31,35 @@ O exemplo a seguir mostra uma expressão no valor padrão de um parâmetro:
 },
 ```
 
-Dentro da expressão, a sintaxe `resourceGroup()` chama uma das funções que o Gerenciador de recursos fornece para uso em um modelo. Nesse caso, é a função [resourcegroup](template-functions-resource.md#resourcegroup) . Assim como no JavaScript, as chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. A sintaxe `.location` recupera uma propriedade do objeto retornado por essa função.
+Dentro da expressão, a sintaxe `resourceGroup()` chama uma das funções que o Gestor de Recursos fornece para uso dentro de um modelo. Neste caso, é a função do [Grupo de Recursos.](template-functions-resource.md#resourcegroup) Tal como no JavaScript, as chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. A sintaxe `.location` recupera uma propriedade do objeto devolvido por essa função.
 
-As funções de modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Resource Manager resolve **variáveis (' var1 ')** e **variáveis (' var1 ')** como a mesma. Quando avaliado, a menos que a função modifique expressamente maiúsculas de minúsculas (como toUpper ou toLower), a função preserva o caso. Determinados tipos de recursos podem ter requisitos de caso separados de como as funções são avaliadas.
+As funções do modelo e os seus parâmetros são insensíveis aos casos. Por exemplo, o Gestor de Recursos resolve **variáveis ('var1')** e **VARIÁVEIs ('VAR1')** como as mesmas. Quando avaliada, a menos que a função modifica expressamente o caso (como o toUpper ou o toLower), a função preserva a caixa. Certos tipos de recursos podem ter requisitos de caso sem serem separados da forma como as funções são avaliadas.
 
-Para passar um valor de cadeia de caracteres como um parâmetro para uma função, use aspas simples.
+Para passar um valor de cadeia como parâmetro para uma função, utilize aspas únicas.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-## <a name="escape-characters"></a>Caracteres de escape
+## <a name="escape-characters"></a>Personagens de fuga
 
-Para que uma cadeia de caracteres literal comece com um colchete esquerdo `[` e termine com um colchete direito `]`, mas não o tenha interpretado como uma expressão, adicione um colchete extra para iniciar a cadeia de caracteres com `[[`. Por exemplo, a variável:
+Para ter um início de corda literal com um suporte esquerdo `[` e terminar com um suporte direito `]`, mas não tê-lo interpretado como uma expressão, adicione um suporte extra para iniciar a corda com `[[`. Por exemplo, a variável:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Resolve para `[test value]`.
+Resolve `[test value]`.
 
-No entanto, se a cadeia de caracteres literal não terminar com um colchete, não Percorra o primeiro colchete. Por exemplo, a variável:
+No entanto, se a corda literal não terminar com um suporte, não escape do primeiro suporte. Por exemplo, a variável:
 
 ```json
 "demoVar2": "[test] value"
 ```
 
-Resolve para `[test] value`.
+Resolve `[test] value`.
 
-Para escapar aspas duplas em uma expressão, como adicionar um objeto JSON no modelo, use a barra invertida.
+Para escapar a citações duplas numa expressão, como adicionar um objeto JSON no modelo, use o backslash.
 
 ```json
 "tags": {
@@ -67,5 +69,5 @@ Para escapar aspas duplas em uma expressão, como adicionar um objeto JSON no mo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter a lista completa de funções de modelo, consulte [Azure Resource Manager funções de modelo](template-functions.md).
-* Para obter mais informações sobre arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+* Para obter a lista completa das funções do modelo, consulte as funções do modelo do Gestor de [Recursos do Azure](template-functions.md).
+* Para obter mais informações sobre ficheiros de modelos, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](template-syntax.md).

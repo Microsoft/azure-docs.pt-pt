@@ -1,6 +1,6 @@
 ---
-title: Delegar governança de acesso para criadores de catálogo no gerenciamento de direitos do Azure AD-Azure Active Directory
-description: Saiba como delegar a governança de acesso dos administradores de ti aos criadores de catálogo e aos gerentes de projeto para que eles possam gerenciar o acesso.
+title: Delegar governação de acesso a criadores de catálogos na gestão de direitos da AD Azure - Diretório Ativo Azure
+description: Aprenda a delegar a governação de acesso dos administradores de TI para catalogar criadores e gestores de projetos para que eles possam gerir o acesso a si mesmos.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,53 +16,55 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f71007b886d3cc25a7cf9dc23d784144ed4e1fbd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 51e37ad006da5042291614c773f242b5a1f3be97
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174371"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120191"
 ---
-# <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegar governança de acesso para criadores de catálogo no gerenciamento de direitos do Azure AD
+# <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegar governação de acesso a criadores de catálogos na gestão de direitos da AD Azure
 
-Para delegar a usuários que não são administradores, para que eles possam criar seus próprios catálogos, você pode adicionar esses usuários à função de criador de catálogo definida pelo gerenciamento de direitos do Azure AD. Você pode adicionar usuários individuais ou pode adicionar um grupo, cujos membros são então capazes de criar catálogos.
+Um catálogo é um recipiente de recursos e pacotes de acesso. Cria um catálogo quando pretende agrupar recursos relacionados e pacotes de acesso. Por padrão, um administrador global ou um administrador de utilizador podem [criar um catálogo,](entitlement-management-catalog-create.md)e podem adicionar utilizadores adicionais como proprietários de catálogos.
 
-## <a name="as-an-it-administrator-delegate-to-a-catalog-creator"></a>Como um administrador de ti, delegado a um criador de catálogo
+Para delegar utilizadores que não são administradores, para que possam criar os seus próprios catálogos, pode adicionar esses utilizadores à função de criador de catálogo definida pela Azure AD. Pode adicionar utilizadores individuais, ou pode adicionar um grupo, cujos membros são então capazes de criar catálogos.  Depois de criarem um catálogo, podem posteriormente adicionar recursos que possuem ao seu catálogo.
 
-Siga estas etapas para atribuir um usuário à função de criador de catálogo.
+## <a name="as-an-it-administrator-delegate-to-a-catalog-creator"></a>Como administrador de TI, delegado a um criador de catálogo
 
-**Função de pré-requisito:** Administrador global ou administrador de usuários
+Siga estes passos para atribuir um utilizador ao papel de criador do catálogo.
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+**Papel pré-requisito:** Administrador global ou administrador de utilizador
 
-1. No menu à esquerda, na seção **Gerenciamento de direitos** , clique em **configurações**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
+
+1. No menu esquerdo, na secção **de gestão** do Direito, clique em **Definições**.
 
 1. Clique em **Editar**.
 
-    ![Configurações para adicionar criadores de catálogo](./media/entitlement-management-delegate-catalog/settings-delegate.png)
+    ![Definições para adicionar criadores de catálogo](./media/entitlement-management-delegate-catalog/settings-delegate.png)
 
-1. Na seção **Gerenciamento de direitos de representante** , clique em **Adicionar criadores de catálogo** para selecionar os usuários ou grupos aos quais você deseja delegar essa função de gerenciamento de direitos.
+1. Na secção de gestão de **direitos do Delegado,** clique em **Adicionar criadores** de catálogo para selecionar os utilizadores ou grupos aos quais pretende delegar esta função de gestão de direitos.
 
 1. Clique em **Selecionar**.
 
 1. Clique em **Guardar**.
 
-## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Permitir que funções delegadas acessem o portal do Azure
+## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Permitir funções delegadas para aceder ao portal Azure
 
-Para permitir que funções delegadas, como criadores de catálogo e gerenciadores de pacotes de acesso, acessem o portal do Azure para gerenciar pacotes de acesso, você deve verificar a configuração do portal de administração.
+Para permitir que papéis delegados, como criadores de catálogos e gestores de pacotes de acesso, acedam ao portal Azure para gerir pacotes de acesso, deverá verificar a definição do portal da administração.
 
-**Função de pré-requisito:** Administrador global ou administrador de usuários
+**Papel pré-requisito:** Administrador global ou administrador de utilizador
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **usuários**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Utilizadores**.
 
-1. No menu à esquerda, clique em **configurações do usuário**.
+1. No menu esquerdo, clique nas **definições do Utilizador**.
 
-1. Certifique-se de que **restringir o acesso ao portal de administração do Azure ad** esteja definido como **não**.
+1. Certifique-se de restringir o acesso ao portal de **administração da AD Azure** definido para **O**.
 
-    ![Configurações de usuário do Azure AD-portal de administração](./media/entitlement-management-delegate-catalog/user-settings.png)
+    ![Definições de utilizadores da AD Azure - Portal de administração](./media/entitlement-management-delegate-catalog/user-settings.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar e gerenciar um catálogo de recursos](entitlement-management-catalog-create.md)
-- [Delegar governança de acesso para acessar gerenciadores de pacotes](entitlement-management-delegate-managers.md)
+- [Criar e gerir um catálogo de recursos](entitlement-management-catalog-create.md)
+- [Delegar governação de acesso aos gestores de pacotes de acesso](entitlement-management-delegate-managers.md)
 

@@ -1,74 +1,72 @@
 ---
-title: Usar o portal para notificações de manutenção para VMs do Azure
-description: Exibir notificações de manutenção para máquinas virtuais em execução no Azure e iniciar a manutenção de autoatendimento, usando o Portal.
-services: virtual-machines
+title: Utilize o portal para notificações de manutenção
+description: Veja as notificações de manutenção para máquinas virtuais em funcionamento em Azure e inicie a manutenção do self-service, utilizando o portal.
 author: shants123
-tags: azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 759fbc5ba3c5eaa78fec1045bcf41969108d39b1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 46fcc825ac49f0181ac74e9c3e2deaea577f3329
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535824"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115735"
 ---
-# <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Lidando com notificações de manutenção planejada usando o portal
+# <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Manuseamento de notificações de manutenção planeadas utilizando o portal
 
-**Este artigo se aplica a máquinas virtuais que executam o Linux e o Windows.**
+**Este artigo aplica-se a máquinas virtuais que executam tanto o Linux como o Windows.**
 
-Depois que uma onda de [manutenção planejada](maintenance-notifications.md) for agendada, você poderá verificar se há uma lista de máquinas virtuais afetadas. 
+Uma vez programada uma onda de [manutenção planeada,](maintenance-notifications.md) pode verificar se há uma lista de máquinas virtuais que são impactadas. 
 
-Você pode usar o portal do Azure e procurar VMs agendadas para manutenção.
+Pode utilizar o portal Azure e procurar VMs programados para manutenção.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. No painel de navegação esquerdo, clique em **máquinas virtuais**.
+2. Na navegação à esquerda, clique em **Máquinas Virtuais**.
 
-3. No painel máquinas virtuais, selecione o botão **Editar colunas** para abrir a lista de colunas disponíveis.
+3. No painel máquinas virtuais, selecione o botão **de colunas Editar** para abrir a lista das colunas disponíveis.
 
 4. Selecione e adicione as seguintes colunas:
 
-   **Status de manutenção**: mostra o status de manutenção para a VM. Estes são os valores possíveis:
+   **Estado de manutenção**: Mostra o estado de manutenção do VM. Seguem-se os valores potenciais:
       
       | Valor | Descrição |
       |-------|-------------|
-      | Começar agora | A VM está na janela de manutenção de autoatendimento que permite que você inicie a manutenção por conta própria. Veja abaixo como iniciar a manutenção em sua VM. | 
-      | Agendado | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. Você pode aprender sobre a janela de manutenção selecionando a janela de manutenção agendada neste modo de exibição ou clicando na VM. | 
-      | Já atualizado | Sua VM já está atualizada e nenhuma ação adicional é necessária no momento. | 
-      | Tentar novamente mais tarde | Você iniciou a manutenção sem êxito. Você poderá usar a opção de manutenção de autoatendimento em um momento posterior. | 
-      | Tentar novamente agora | Você pode tentar novamente uma manutenção autoiniciada anteriormente malsucedida. | 
-      | - | Sua VM não faz parte de uma onda de manutenção planejada. |
+      | Comece agora. | O VM está na janela de manutenção de self-service que permite iniciar a manutenção por si mesmo. Veja abaixo como iniciar a manutenção no seu VM. | 
+      | Agendado | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. Pode aprender a janela de manutenção selecionando a janela de manutenção - Programada nesta vista ou clicando no VM. | 
+      | Já atualizado | O seu VM já está atualizado e não são necessárias mais medidas neste momento. | 
+      | Voltar a tentar mais tarde | Iniciou a manutenção sem sucesso. Poderá utilizar a opção de manutenção de self-service mais tarde. | 
+      | Voltar a tentar agora | Pode voltar a tentar uma manutenção auto-iniciada anteriormente fracassada. | 
+      | - | O seu VM não faz parte de uma onda de manutenção planeada. |
       
 
-   **Manutenção – janela de autoatendimento**: mostra a janela de tempo quando você pode iniciar automaticamente a manutenção em suas VMs.
+   **Manutenção - Janela de self-service**: Mostra a janela de tempo quando pode iniciar a manutenção dos seus VMs.
    
-   **Manutenção-janela agendada**: mostra a janela de tempo quando o Azure manterá sua VM para concluir a manutenção. 
+   **Manutenção - Janela programada**: Mostra a janela de tempo quando o Azure manterá o seu VM para completar a manutenção. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
 
-O Azure comunica uma agenda para manutenção planejada enviando um email para o grupo de proprietários e coproprietários da assinatura. Você pode adicionar mais destinatários e canais a essa comunicação criando alertas do log de atividades do Azure. Para obter mais informações, consulte [criar alertas do log de atividades em notificações de serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+O Azure comunica um calendário para a manutenção planeada enviando um e-mail ao proprietário da subscrição e ao grupo de coproprietários. Pode adicionar destinatários e canais adicionais a esta comunicação criando alertas de registo de atividade do Azure. Para mais informações, consulte Criar alertas de registo de [atividade sonantes em notificações](../azure-monitor/platform/alerts-activity-log-service-notifications.md)de serviço .
 
-Certifique-se de definir o **tipo de evento** como **manutenção planejada**e **Serviços** como conjuntos de **dimensionamento** de máquinas virtuais e/ou **máquinas virtuais**.
+Certifique-se de que define o **tipo de Evento** como manutenção **planeada,** e **serviços** como **conjuntos** de escala de máquina virtual e/ou **máquinas virtuais**.
 
-## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Iniciar a manutenção em sua VM no portal
+## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Inicie a Manutenção no seu VM a partir do portal
 
-Ao examinar os detalhes da VM, você poderá ver mais detalhes relacionados à manutenção.  
-Na parte superior da exibição detalhes da VM, uma nova faixa de uma notificação será adicionada se a VM estiver incluída em uma onda de manutenção planejada. Além disso, uma nova opção é adicionada para iniciar a manutenção quando possível. 
+Ao ver os detalhes do VM, poderá ver mais detalhes relacionados com a manutenção.  
+No topo da vista de detalhes vm, uma nova fita de notificação será adicionada se o seu VM estiver incluído numa onda de manutenção planeada. Além disso, é adicionada uma nova opção para iniciar a manutenção quando possível. 
 
 
-Clique na notificação de manutenção para ver a página manutenção com mais detalhes sobre a manutenção planejada. A partir daí, você poderá iniciar a **manutenção** em sua VM.
+Clique na notificação de manutenção para ver a página de manutenção com mais detalhes sobre a manutenção planeada. A partir daí, poderá iniciar a **manutenção** do seu VM.
 
-Depois de iniciar a manutenção, sua máquina virtual será mantida e o status de manutenção será atualizado para refletir o resultado em alguns minutos.
+Assim que iniciar a manutenção, a sua máquina virtual será mantida e o estado de manutenção será atualizado para refletir o resultado dentro de poucos minutos.
 
-Se você perdeu a janela de autoatendimento, ainda poderá ver a janela quando sua VM será mantida pelo Azure. 
+Se perdeu a janela de self-service, ainda poderá ver a janela quando o seu VM será mantido pelo Azure. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você também pode manipular a manutenção planejada usando o [CLI do Azure](maintenance-notifications-cli.md) ou o [PowerShell](maintenance-notifications-powershell.md).
+Também pode manusear a manutenção planeada utilizando o [Azure CLI](maintenance-notifications-cli.md) ou [powerShell](maintenance-notifications-powershell.md).

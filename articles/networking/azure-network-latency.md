@@ -1,33 +1,33 @@
 ---
-title: Estatísticas de latência de ida e volta da rede do Azure | Microsoft Docs
-description: Saiba mais sobre estatísticas de latência de ida e volta entre regiões do Azure.
+title: Estatísticas de latência de ida e volta da rede Azure Microsoft Docs
+description: Conheça as estatísticas de latência de ida e volta entre as regiões de Azure.
 services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 01/08/2020
-ms.author: mnayak
-ms.openlocfilehash: 91b528cc6900a3ec91ff7189f58f941226b8acd5
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.date: 02/10/2020
+ms.author: kumud
+ms.openlocfilehash: dc2cb6545093e8ab70d18014a5fd9d0e7d36f8b7
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779727"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122391"
 ---
-# <a name="azure-network-round-trip-latency-statistics"></a>Estatísticas de latência de ida e volta da rede do Azure
+# <a name="azure-network-round-trip-latency-statistics"></a>Estatísticas de latência de ida e volta da rede Azure
 
-O Azure monitora continuamente a latência (velocidade) das áreas principais de sua rede usando ferramentas de monitoramento internas, bem como as medidas coletadas pelo [ThousandEyes](https://thousandeyes.com), um serviço de monitoramento sintético de terceiros.
+O Azure monitoriza continuamente a latência (velocidade) das áreas centrais da sua rede utilizando ferramentas de monitorização internas, bem como medições recolhidas pela [ThousandEyes](https://thousandeyes.com), um serviço de monitorização sintética de terceiros.
 
-## <a name="how-are-the-measurements-collected"></a>Como as medições são coletadas?
+## <a name="how-are-the-measurements-collected"></a>Como são recolhidas as medições?
 
-As medições de latência são coletadas de agentes ThousandEyes, hospedados em regiões de nuvem do Azure em todo o mundo, que enviam continuamente investigações de rede entre si em intervalos de 1 minuto. As estatísticas mensais de latência são derivadas da média dos exemplos coletados para o mês.
+As medições de latência são recolhidas junto de agentes da ThousandEyes, alojados em regiões de nuvem azure em todo o mundo, que enviam continuamente sondas de rede entre si em intervalos de 1 minuto. As estatísticas mensais de latência são derivadas da média das amostras recolhidas para o mês.
 
-## <a name="december-2019-latency-figures"></a>Números de latência de 2019 de dezembro
+## <a name="january-2020-round-trip-latency-figures"></a>Janeiro de 2020 números de latência de ida e volta
 
-Os tempos médios de ida e volta mensais entre as regiões do Azure para os últimos 30 dias (terminando em 31 de dezembro de 2019) são mostrados abaixo. As medidas a seguir são alimentadas por [ThousandEyes](https://thousandeyes.com).
+Os tempos médios mensais de ida e volta entre as regiões de Azure nos últimos 31 dias (que terminam em 31 de janeiro de 2020) são apresentados abaixo. As seguintes medições são alimentadas pela [ThousandEyes](https://thousandeyes.com).
 
-[![estatísticas de latência entre regiões do Azure](media/azure-network-latency/december.jpg)](media/azure-network-latency/december.jpg#lightbox)
+[![estatísticas de latência inter-região azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+Conheça [as regiões de Azure.](https://azure.microsoft.com/global-infrastructure/regions/)

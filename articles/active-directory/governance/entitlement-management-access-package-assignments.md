@@ -1,6 +1,6 @@
 ---
-title: Exibir, adicionar e remover atribuições para um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
-description: Saiba como exibir, adicionar e remover atribuições de um pacote de acesso no gerenciamento de direitos Azure Active Directory.
+title: Ver, adicionar e remover atribuições para um pacote de acesso na gestão de direitos da Azure AD - Diretório Ativo Azure
+description: Saiba como visualizar, adicionar e remover atribuições para um pacote de acesso na gestão de direitos do Diretório Ativo Azure.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,86 +16,94 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: d5a2107974cd63c0d02aaeb555430453c39990bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554001"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120424"
 ---
-# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Exibir, adicionar e remover atribuições para um pacote de acesso no gerenciamento de direitos do Azure AD
+# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Ver, adicionar e remover atribuições para um pacote de acesso na gestão de direitos da AD Azure
 
-No gerenciamento de direitos do Azure AD, você pode ver quem foi atribuído a pacotes de acesso, sua política e status. Se um pacote do Access tiver uma política apropriada, você também poderá atribuir diretamente o usuário a um pacote do Access. Este artigo descreve como exibir, adicionar e remover atribuições de pacotes do Access.
+Na gestão de direitos da Azure AD, pode ver quem foi designado para aceder a pacotes, a sua política e estatuto. Se um pacote de acesso tiver uma política adequada, também pode atribuir diretamente ao utilizador um pacote de acesso. Este artigo descreve como visualizar, adicionar e remover atribuições para pacotes de acesso.
 
-## <a name="view-who-has-an-assignment"></a>Exibir quem tem uma atribuição
+## <a name="view-who-has-an-assignment"></a>Ver quem tem uma missão
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. Clique em **atribuições** para ver uma lista de atribuições ativas.
+1. Clique em **Atribuições** para ver uma lista de atribuições ativas.
 
-    ![Lista de atribuições para um pacote de acesso](./media/entitlement-management-access-package-assignments/assignments-list.png)
+    ![Lista de atribuições a um pacote de acesso](./media/entitlement-management-access-package-assignments/assignments-list.png)
 
-1. Clique em uma atribuição específica para ver detalhes adicionais.
+1. Clique numa atribuição específica para ver detalhes adicionais.
 
-1. Para ver uma lista de atribuições que não tenham todas as funções de recurso provisionadas corretamente, clique no status do filtro e selecione **entrega**.
+1. Para ver uma lista de atribuições que não tivessem todas as funções de recurso devidamente aprovisionadas, clique no estado do filtro e **selecione Delivering**.
 
-    Você pode ver detalhes adicionais sobre erros de entrega, localizando a solicitação correspondente do usuário na página **solicitações** .
+    Pode ver detalhes adicionais sobre os erros de entrega, localizando o pedido correspondente do utilizador na página **de Pedidos.**
 
-1. Para ver as atribuições expiradas, clique no status do filtro e selecione **expirado**.
+1. Para ver as atribuições vencidas, clique no estado do filtro e **selecione Expirado**.
 
-1. Para baixar um arquivo CSV da lista filtrada, clique em **baixar**.
+1. Para descarregar um ficheiro CSV da lista filtrada, clique em **Baixar**.
 
-## <a name="directly-assign-a-user"></a>Atribuir um usuário diretamente
+### <a name="viewing-assignments-programmatically"></a>Tarefas de visualização programática
 
-Em alguns casos, talvez você queira atribuir diretamente usuários específicos a um pacote do Access para que os usuários não precisem passar pelo processo de solicitar o pacote de acesso. Para atribuir usuários diretamente, o pacote de acesso deve ter uma política que permita atribuições diretas de administrador.
+Também pode recuperar atribuições num pacote de acesso utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma aplicação que tenha a permissão de `EntitlementManagement.ReadWrite.All` delegada pode ligar para a API para [listar acessoS PacoteS](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+## <a name="directly-assign-a-user"></a>Atribuir diretamente um utilizador
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+Em alguns casos, é possível atribuir diretamente utilizadores específicos a um pacote de acesso para que os utilizadores não tenham de passar pelo processo de solicitação do pacote de acesso. Para atribuir diretamente aos utilizadores, o pacote de acesso deve ter uma política que permita atribuições diretas ao administrador.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. No menu à esquerda, clique em **atribuições**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. Clique em **nova atribuição** para abrir Adicionar usuário ao pacote do Access.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-    ![Atribuições-Adicionar usuário ao pacote de acesso](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
+1. No menu esquerdo, clique em **Tarefas**.
 
-1. Clique em **Adicionar usuários** para selecionar os usuários aos quais você deseja atribuir este pacote de acesso.
+1. Clique em **Nova atribuição** para abrir Adicionar o utilizador ao pacote de acesso.
 
-1. Na lista **selecionar política** , selecione uma política que o ciclo de vida e as solicitações futuras dos usuários serão governadas e controladas pelo. Se desejar que os usuários selecionados tenham configurações de política diferentes, você poderá clicar em **criar nova política** para adicionar uma nova política.
+    ![Atribuições - Adicionar o utilizador ao pacote de acesso](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Defina a data e a hora em que você deseja que a atribuição de usuários selecionados inicie e termine. Se uma data de término não for fornecida, as configurações do ciclo de vida da política serão usadas.
+1. Clique em **Adicionar utilizadores** para selecionar os utilizadores a quem pretende atribuir este pacote de acesso.
 
-1. Opcionalmente, forneça uma justificativa para sua atribuição direta para manutenção de registros.
+1. Na lista **de políticas Select,** selecione uma política que os futuros pedidos dos utilizadores e o ciclo de vida serão regidos e rastreados. Se pretender que os utilizadores selecionados tenham diferentes definições de política, pode clicar **em Criar uma nova política** para adicionar uma nova política.
 
-1. Clique em **Adicionar** para atribuir diretamente os usuários selecionados ao pacote de acesso.
+1. Detete a data e a hora em que pretende que a atribuição dos utilizadores selecionados comece e termine. Se não for fornecida uma data de fim, as definições do ciclo de vida da apólice serão utilizadas.
 
-    Depois de alguns instantes, clique em **Atualizar** para ver os usuários na lista atribuições.
+1. Opcionalmente, forneça uma justificação para a sua atribuição direta para a manutenção de registos.
+
+1. Clique **em Adicionar** para atribuir diretamente os utilizadores selecionados ao pacote de acesso.
+
+    Após alguns momentos, clique em **Refresh** para ver os utilizadores na lista de Tarefas.
+
+### <a name="directly-assigning-users-programmatically"></a>Atribuição direta dos utilizadores programáticamente
+
+Também pode atribuir diretamente um utilizador a um pacote de acesso utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma aplicação que tenha a autorização de `EntitlementManagement.ReadWrite.All` delegada pode ligar para a API para [criar um AccessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
 
 ## <a name="remove-an-assignment"></a>Remover uma atribuição
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. No menu à esquerda, clique em **atribuições**.
+1. No menu esquerdo, clique em **Tarefas**.
  
-1. Clique na caixa de seleção ao lado do usuário cuja atribuição você deseja remover do pacote do Access. 
+1. Clique na caixa de verificação ao lado do utilizador cuja atribuição pretende remover do pacote de acesso. 
 
-1. Clique no botão **remover** próximo à parte superior do painel esquerdo. 
+1. Clique no botão **Remover** perto da parte superior do painel esquerdo. 
  
-    ![Atribuições – remover usuário do pacote de acesso](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
+    ![Atribuições - Remova o utilizador do pacote de acesso](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
 
-    Uma notificação será exibida informando que a atribuição foi removida. 
+    Aparecerá uma notificação informando-o de que a atribuição foi removida. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Solicitações de alteração e configurações de um pacote de acesso](entitlement-management-access-package-request-policy.md)
-- [Exibir relatórios e logs](entitlement-management-reports.md)
+- [Alterar pedido e configurações para um pacote de acesso](entitlement-management-access-package-request-policy.md)
+- [Ver relatórios e registos](entitlement-management-reports.md)

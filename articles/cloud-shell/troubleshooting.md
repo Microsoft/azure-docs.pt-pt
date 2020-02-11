@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: db1e2d09c1a75401a8ca24859e9b2d5da9f54b72
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1d244d7b62fcfefeec6f628f473274ae982bf4d8
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024284"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120222"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Resolução de problemas e limitações da casca de nuvem azure
 
@@ -27,7 +27,12 @@ Resoluções conhecidas para problemas de resolução de problemas em Azure Clou
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="general-troubleshooting"></a>Solução de problemas gerais
+## <a name="general-troubleshooting"></a>Resolução geral de problemas
+
+### <a name="error-running-azuread-cmdlets-in-powershell"></a>Erro com cmdlets AzureAD na PowerShell
+
+- **Detalhes**: Quando executa cmdlets AzureAD como `Get-AzureADUser` em Cloud Shell, poderá ver um erro: `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`. 
+- **Resolução**: Executar o `Connect-AzureAD` cmdlet. Anteriormente, a Cloud Shell executou este cmdlet automaticamente durante o arranque da PowerShell. Para acelerar a hora de início, o cmdlet já não funciona automaticamente. Pode optar por restaurar o comportamento anterior adicionando `Connect-AzureAD` ao ficheiro $PROFILE no PowerShell.
 
 ### <a name="early-timeouts-in-firefox"></a>Intervalos iniciais no FireFox
 
@@ -169,7 +174,7 @@ Para **exportar** as definições de utilizador, a Cloud Shell guarda para si, c
 1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Executar os seguintes comandos em Bash ou PowerShell:
 
-Raso
+Bash:
 
   ```
   token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
@@ -192,7 +197,7 @@ Para **eliminar** as definições do utilizador, a Cloud Shell guarda para si, c
 1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Executar os seguintes comandos em Bash ou PowerShell:
 
-Raso
+Bash:
 
   ```
   token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"

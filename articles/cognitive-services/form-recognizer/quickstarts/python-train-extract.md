@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: treinar um modelo e extrair dados de formulário usando a API REST com o reconhecedor de formulário Python'
+title: 'Quickstart: Treine um modelo e extrate dados de forma usando a API REST com Python - Reconhecimento de Formulário'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará a API REST do reconhecedor de formulário com Python para treinar um modelo e extrair dados de formulários.
+description: Neste arranque rápido, utilizará o Formulário Recogniser REST API com python para treinar um modelo e extrair dados de formulários.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,43 +9,42 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d5dd1c1271c2b7100b40f6cd0f6410b3c151adc0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900212"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118078"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com Python
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Treine um modelo de reconhecimento de formulário e extrai dados de formulário utilizando a API REST com Python
 
-Neste guia de início rápido, você usará a API REST do reconhecedor do Azure Form com Python para treinar e pontuar formulários para extrair pares de chave-valor e tabelas.
+Neste arranque rápido, você usará a API REST Rest Com Python para treinar e marcar formas para extrair pares e tabelas de valor-chave.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, você deve ter:
-- Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) .
-- [Python](https://www.python.org/downloads/) instalado (se você quiser executar o exemplo localmente).
-- Um conjunto de pelo menos cinco formulários do mesmo tipo. Você usará esses dados para treinar o modelo. Seus formulários podem ser de diferentes tipos de arquivo, mas devem ser do mesmo tipo de documento. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este guia de início rápido. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de BLOBs em uma conta de armazenamento do Azure.
+Para completar este arranque rápido, deve ter:
+- [Python](https://www.python.org/downloads/) instalado (se quiser executar a amostra localmente).
+- Um conjunto de pelo menos cinco formas do mesmo tipo. Utilizará estes dados para treinar o modelo. Os seus formulários podem ser de diferentes tipos de ficheiros, mas devem ser o mesmo tipo de documento. Pode utilizar um conjunto de dados de [amostra](https://go.microsoft.com/fwlink/?linkid=2090451) para este arranque rápido. Faça upload dos ficheiros de treino para a raiz de um recipiente de armazenamento blob numa conta de Armazenamento Azure.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulário
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="train-a-form-recognizer-model"></a>Treinar um modelo de reconhecimento de formulário
+## <a name="train-a-form-recognizer-model"></a>Treine um modelo de reconhecimento de formulário
 
-Primeiro, você precisará de um conjunto de dados de treinamento em um contêiner de blob do armazenamento do Azure. Você deve ter um mínimo de cinco formulários preenchidos (documentos PDF e/ou imagens) do mesmo tipo/estrutura que os dados de entrada principais. Ou, você pode usar um único Formulário vazio com dois formulários preenchidos. O nome do arquivo do formulário vazio precisa incluir a palavra "Empty". Consulte construir um conjunto de dados de [treino para um modelo personalizado](../build-training-data-set.md) para dicas e opções para reunir os seus dados de treino.
+Primeiro, vai precisar de um conjunto de dados de treino num recipiente de blob Azure Storage. Deve ter um mínimo de cinco formulários preenchidos (documentos PDF e/ou imagens) do mesmo tipo/estrutura que os seus principais dados de entrada. Ou, pode usar um único formulário vazio com dois formulários preenchidos. O nome do ficheiro vazio precisa incluir a palavra "vazio". Consulte construir um conjunto de dados de [treino para um modelo personalizado](../build-training-data-set.md) para dicas e opções para reunir os seus dados de treino.
 
 > [!NOTE]
-> Você pode usar o recurso de dados rotulados para rotular manualmente alguns ou todos os seus dados de treinamento com antecedência. Esse é um processo mais complexo, mas resulta em um modelo melhor treinado. Consulte a seção [treinar com rótulos](../overview.md#train-with-labels) da visão geral para saber mais.
+> Pode utilizar previamente a função de dados etiquetada para rotular manualmente alguns ou todos os seus dados de treino. Este é um processo mais complexo, mas resulta num modelo mais bem treinado. Consulte o Comboio com a secção de [etiquetas](../overview.md#train-with-labels) da visão geral para saber mais.
 
-Para treinar um modelo de reconhecimento de formulário com os documentos em seu contêiner de BLOBs do Azure, chame a API de **[modelo personalizado Training](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** executando o seguinte código Python. Antes de executar o código, faça estas alterações:
+Para treinar um modelo 'Reconhecimento de Formulários' com os documentos no seu recipiente de blob Azure, ligue para o **[Modelo Personalizado do Comboio](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** API executando o seguinte código python. Antes de executar o código, faça estas alterações:
 
-1. Substitua `<SAS URL>` pela URL da assinatura de acesso compartilhado (SAS) do contêiner de armazenamento de BLOBs do Azure. Para recuperar a URL SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Substitua `<subscription key>` pela chave de assinatura que você copiou da etapa anterior.
-1. Substitua `<endpoint>` pela URL do ponto de extremidade do recurso de reconhecimento de formulário.
-1. Substitua `<Blob folder name>` pelo caminho para a pasta no armazenamento de BLOBs onde os formulários estão localizados. Se os formulários estiverem na raiz do contêiner, deixe essa cadeia de caracteres vazia.
+1. Substitua `<SAS URL>` com o URL de assinatura de acesso partilhado (SAS) do recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Substitua `<subscription key>` com a chave de subscrição que copiou do passo anterior.
+1. Substitua `<endpoint>` com o URL final para o seu recurso Reconhecimento de Formulários.
+1. Substitua `<Blob folder name>` pelo caminho para a pasta no armazenamento de bolhas onde os seus formulários estão localizados. Se os seus formulários estiverem na raiz do seu recipiente, deixe esta corda vazia.
 
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
@@ -87,13 +86,13 @@ Para treinar um modelo de reconhecimento de formulário com os documentos em seu
         print("POST model failed:\n%s" % str(e))
         quit() 
     ```
-1. Salve o código em um arquivo com uma extensão. py. Por exemplo, *Form-Recognizer-Train.py*.
+1. Guarde o código num ficheiro com uma extensão .py. Por exemplo, *form-recognizer-train.py.*
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python form-recognizer-train.py`.
 
-## <a name="get-training-results"></a>Obter resultados de treinamento
+## <a name="get-training-results"></a>Obtenha resultados de formação
 
-Depois de iniciar a operação de treinamento, use a ID retornada para obter o status da operação. Adicione o código a seguir à parte inferior do seu script Python. Isso usa o valor de ID da chamada de treinamento em uma nova chamada à API. A operação de treinamento é assíncrona, portanto, esse script chama a API em intervalos regulares até que o status de treinamento seja concluído. É recomendável um intervalo de um segundo ou mais.
+Depois de iniciar a operação do comboio, usa a identificação devolvida para obter o estado da operação. Adicione o seguinte código na parte inferior do seu script Python. Isto usa o valor de identificação da chamada de treino numa nova chamada da API. A operação de treino é assíncrona, por isso este guião chama a API em intervalos regulares até que o estado de treino esteja concluído. Recomendamos um intervalo de um segundo ou mais.
 
 ```python 
 n_tries = 15
@@ -125,7 +124,7 @@ while n_try < n_tries:
 print("Train operation did not complete within the allocated time.")
 ```
 
-Quando o processo de treinamento for concluído, você receberá uma resposta `201 (Success)` com conteúdo JSON, como o seguinte:
+Quando o processo de treino estiver concluído, receberá uma resposta `201 (Success)` com conteúdo jSON como o seguinte:
 
 ```json
 { 
@@ -193,11 +192,11 @@ Quando o processo de treinamento for concluído, você receberá uma resposta `2
 }
 ```
 
-Copie o valor de `"modelId"` para uso nas etapas a seguir.
+Copie o valor `"modelId"` para utilização nos seguintes passos.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-Quando o processo for concluído, você receberá uma resposta `200 (Success)` com conteúdo JSON no formato a seguir. A resposta foi reduzida para simplificar a simplicidade. As associações e as tabelas principais do par chave/valor estão no nó `"pageResults"`. Se você também especificou a extração de texto sem formatação por meio do parâmetro URL *includeTextDetails* , o nó `"readResults"` mostrará o conteúdo e as posições de todo o texto no documento.
+Quando o processo estiver concluído, receberá uma resposta `200 (Success)` com conteúdo JSON no seguinte formato. A resposta foi encurtada para a simplicidade. As principais associações e tabelas de pares chave/valor estão no nó `"pageResults"`. Se também especificou a extração de texto simples através do parâmetro *URL do TextDetails,* então o nó `"readResults"` mostrará o conteúdo e as posições de todo o texto no documento.
 
 ```bash
 {
@@ -454,7 +453,7 @@ Quando o processo for concluído, você receberá uma resposta `200 (Success)` c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você usou a API REST do reconhecedor de formulário com Python para treinar um modelo e executá-lo em um cenário de exemplo. Em seguida, consulte a documentação de referência para explorar a API do reconhecedor de formulário mais detalhadamente.
+Neste arranque rápido, usou o Formulário Recogniser REST API com Python para treinar um modelo e executá-lo num cenário de amostragem. Em seguida, consulte a documentação de referência para explorar a API do Reconhecimento de Formulários com mais profundidade.
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [Documento de referência rest API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)

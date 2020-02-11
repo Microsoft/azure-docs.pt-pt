@@ -1,26 +1,26 @@
 ---
-title: 'Início rápido: Pesquisar palavras com o dicionário bilíngüe-API de Tradução de Texto'
+title: 'Quickstart: Procure palavras com dicionário bilingue - Tradutor Text API'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você aprenderá a obter traduções alternativas para um termo e também obterá exemplos de uso dessas traduções alternativas, usando o API de Tradução de Texto.
+description: Neste arranque rápido, você aprenderá a obter traduções alternativas para um termo, e também usando exemplos dessas traduções alternativas, usando a API de Texto tradutor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 42e883a7563072fca771482998bdcdbebec50ae9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0ba1e1cc4f470e24922fc3cf3be2bf6833696982
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975776"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118848"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Início rápido: Pesquisar palavras com o dicionário bilíngüe
+# <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Quickstart: Procure palavras com dicionário bilingue
 
-Neste guia de início rápido, você aprenderá a obter traduções alternativas para um termo e também obterá exemplos de uso dessas traduções alternativas, usando o API de Tradução de Texto.
+Neste arranque rápido, você aprenderá a obter traduções alternativas para um termo, e também usando exemplos dessas traduções alternativas, usando a API de Texto tradutor.
 
 Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
@@ -54,7 +54,7 @@ Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https:
 
 ::: zone-end
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Traduzir texto](quickstart-translate.md)
 * [Transliterar texto](quickstart-transliterate.md)

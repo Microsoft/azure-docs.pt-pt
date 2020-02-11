@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 12/02/2019
+ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 2ec8d389c99ad96e59bf49d4345855fa44d6c7aa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901994"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118812"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Apoio à língua e à região para a API de Texto tradutor
 
@@ -40,7 +40,7 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 > [!NOTE]
 > Atualmente, um subconjunto das línguas neurais está disponível no Tradutor Personalizado e estamos gradualmente adicionando outros. [Ver idiomas atualmente disponíveis em Tradutor Personalizado.](#customization)
 
-|Linguagem|  Código do idioma|  API V3|
+|Idioma|  Código do idioma|  V3 API|
 |:-----|:-----:|:-----|
 |Afrikaans| `af`|   Neural|
 |Árabe|    `ar`    |   Neural|
@@ -118,9 +118,9 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 
 ## <a name="transliteration"></a>Transliteração
 
-O método transliterado suporta as seguintes línguas. No "To/From", "<->" indica que a língua pode ser transliterada de ou para qualquer um dos scripts listados. O "-->" indica que a língua só pode ser transliterada de um guião para outro.
+O método transliterado suporta as seguintes línguas. No "To/From", "<->" indica que a língua pode ser transliterada de ou para qualquer um dos scripts listados. O "-&gt"," indica que a língua só pode ser transliterada de um guião para outro.
 
-| Linguagem    | Código do idioma | Script | Para/de | Script|
+| Idioma    | Código do idioma | Script | Para/de | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | `Arab` árabe | <--> | `Latn` latino |
 |Bangla  | `bn` | `Beng` de Bengali | <--> | `Latn` latino |
@@ -136,7 +136,7 @@ O método transliterado suporta as seguintes línguas. No "To/From", "<->" indic
 | Malayalam | `ml` | `Mlym` malaia | --> | `Latn` latino |
 | Marata | `mr` | Devanagari `Deva` | --> | `Latn` latino |
 | Oriya | `or` | Oriya `Orya` | <--> | `Latn` latino |
-| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | `Latn` latino  |
+| Punjabi | `pa` | `Guru` de Gurmukhi  | <--> | `Latn` latino  |
 | Sérvio (Cirílico) | `sr-Cyrl` | `Cyrl` cirílico  | --> | `Latn` latino |
 | Sérvio (Latim) | `sr-Latn` | `Latn` latino | --> | `Cyrl` cirílico|
 | Tamil | `ta` | `Taml` Tamil | --> | `Latn` latino |
@@ -147,7 +147,7 @@ O método transliterado suporta as seguintes línguas. No "To/From", "<->" indic
 
 O dicionário suporta as seguintes línguas de ou para inglês utilizando os métodos De supérão e Exemplos.
 
-| Linguagem    | Código do idioma |
+| Idioma    | Código do idioma |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Árabe       | `ar`          |
@@ -215,7 +215,7 @@ Pode obter uma lista de idiomas suportados para o Texto tradutor API v3.0 utiliz
 
 Os seguintes idiomas estão disponíveis para personalização de ou para inglês usando [tradutor personalizado](https://aka.ms/CustomTranslator).
 
-| Linguagem    | Código do idioma |
+| Idioma    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
 | Bangla      | `bn`          |

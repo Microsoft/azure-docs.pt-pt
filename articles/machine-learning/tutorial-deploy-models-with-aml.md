@@ -8,21 +8,21 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 08/26/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3c0ff63a360d96d0e9db18d430e755e567197de1
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 071a8dd40d87e5df6fc5c65b789bb63b515dc60a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122088"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116499"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: implantar um modelo de classificação de imagem em instâncias de contêiner do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), preparou os modelos de machine learning e registou um modelo na sua área de trabalho na cloud.  
 
-Agora você está pronto para implantar o modelo como um serviço Web em [instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/). Um serviço Web é uma imagem, neste caso, uma imagem do Docker. Ele encapsula a lógica de Pontuação e o próprio modelo. 
+Agora está pronto para implementar o modelo como um serviço web em Casos de [Contentores Azure](https://docs.microsoft.com/azure/container-instances/). Um serviço Web é uma imagem, neste caso, uma imagem do Docker. Ele encapsula a lógica de Pontuação e o próprio modelo. 
 
 Nesta parte do tutorial, você usa Azure Machine Learning para as seguintes tarefas:
 
@@ -33,24 +33,24 @@ Nesta parte do tutorial, você usa Azure Machine Learning para as seguintes tare
 > * Implante o modelo em instâncias de contêiner.
 > * Teste o modelo implantado.
 
-As instâncias de contêiner são uma ótima solução para testar e compreender o fluxo de trabalho. Dimensionável para implementações de produção, considere utilizar o Azure Kubernetes Service. Para obter mais informações, consulte [como implantar e onde](how-to-deploy-and-where.md).
+As instâncias de contêiner são uma ótima solução para testar e compreender o fluxo de trabalho. Dimensionável para implementações de produção, considere utilizar o Azure Kubernetes Service. Para mais informações, veja [como implementar e onde.](how-to-deploy-and-where.md)
 
 >[!NOTE]
 > O código deste artigo foi testado com Azure Machine Learning SDK versão 1.0.41.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar o bloco de anotações, primeiro conclua o treinamento do modelo no [tutorial (parte 1): treinar um modelo de classificação de imagem](tutorial-train-models-with-aml.md).   Em seguida, abra o notebook **img-Classification-parte 2-Deploy. ipynb** na pasta **tutoriais** clonados.
+Para executar o caderno, complete primeiro o model training em [Tutorial (parte 1): Treine um modelo](tutorial-train-models-with-aml.md)de classificação de imagem .   Em seguida, abra o notebook *img-classification-part2-deploy.ipynb* nos seus *tutoriais clonados/pasta de dados mnist-de classificação de imagem.*
 
-Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local).  Verifique se você instalou `matplotlib` e `scikit-learn` em seu ambiente. 
+Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se desejar usá-lo no seu próprio [ambiente local.](how-to-configure-environment.md#local)  Certifique-se de que instalou `matplotlib` e `scikit-learn` no seu ambiente. 
 
 > [!Important]
 > O restante deste artigo contém o mesmo conteúdo que você vê no bloco de anotações.  
 >
 > Alterne para o notebook Jupyter agora se você quiser ler ao executar o código.
-> Para executar uma única célula de código em um bloco de anotações, clique na célula de código e pressione **Shift + Enter**. Ou então, execute o bloco de anotações inteiro escolhendo **executar tudo** na barra de ferramentas superior.
+> Para executar uma única célula de código num caderno, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
 
-## <a name="start"></a>Configurar o ambiente
+## <a name="start"></a>Criar o ambiente
 
 Comece por configurar um ambiente de teste.
 
@@ -100,7 +100,7 @@ Antes de implantar, verifique se seu modelo está funcionando localmente:
 
 ### <a name="load-test-data"></a>Carregar os dados de teste
 
-Carregue os dados de teste do diretório **./Data/** criado durante o tutorial de treinamento:
+Carregue os dados de teste a partir do **./data/diretório** criado durante o tutorial de formação:
 
 ```python
 from utils import load_data
@@ -191,7 +191,7 @@ Para criar o ambiente correto para as instâncias de contêiner, forneça os seg
 
 ### <a name="create-scoring-script"></a>Criar o script de classificação
 
-Crie o script de pontuação, chamado **score.py**. A chamada de serviço Web usa esse script para mostrar como usar o modelo.
+Crie o roteiro de pontuação, chamado **score.py.** A chamada de serviço Web usa esse script para mostrar como usar o modelo.
 
 Inclua essas duas funções necessárias no script de Pontuação:
 * A função `init()`, que, geralmente, carrega o modelo para um objeto global. Esta função só é executada uma vez, quando o contentor do Docker é iniciado. 
@@ -227,7 +227,7 @@ def run(raw_data):
 
 ### <a name="create-environment-file"></a>Criar o ficheiro de ambiente
 
-Em seguida, crie um arquivo de ambiente, chamado **MyENV. yml**, que especifica todas as dependências de pacote do script. Esse arquivo é usado para garantir que todas essas dependências sejam instaladas na imagem do Docker. Este modelo precisa de `scikit-learn` e `azureml-sdk`. Todos os arquivos de ambiente personalizados precisam listar os padrões do azureml com a versão > = 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web.
+Em seguida, crie um arquivo ambiental, chamado **myenv.yml,** que especifica todas as dependências do pacote do script. Esse arquivo é usado para garantir que todas essas dependências sejam instaladas na imagem do Docker. Este modelo precisa de `scikit-learn` e `azureml-sdk`. Todos os ficheiros ambientais personalizados precisam de listar os incumprimentos em azul com verion >= 1.0,45 como dependência do pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -239,7 +239,7 @@ myenv.add_pip_package("azureml-defaults")
 with open("myenv.yml", "w") as f:
     f.write(myenv.serialize_to_string())
 ```
-Examine o conteúdo do arquivo de `myenv.yml`:
+Reveja o conteúdo do ficheiro `myenv.yml`:
 
 ```python
 with open("myenv.yml", "r") as f:
@@ -261,20 +261,20 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
 ```
 
 ### <a name="deploy-in-container-instances"></a>Implantar em instâncias de contêiner
-O tempo estimado para concluir a implantação é de **cerca de sete a oito minutos**.
+O tempo estimado para terminar a implantação é de **cerca de 7 a 8 minutos.**
 
 Configure a imagem e implemente. O código abaixo realiza estes passos:
 
 1. Crie uma imagem usando estes arquivos:
-   * O arquivo de pontuação, `score.py`.
-   * O arquivo de ambiente, `myenv.yml`.
+   * O ficheiro de pontuação, `score.py`.
+   * O arquivo do ambiente, `myenv.yml`.
    * O arquivo de modelo.
 1. Registre a imagem no espaço de trabalho. 
 1. Envie a imagem para o contêiner de instâncias de contêiner.
 1. Inicie um contêiner em instâncias de contêiner usando a imagem.
 1. Obtenha o ponto final HTTP do serviço Web.
 
-Observe que, se você estiver definindo seu próprio arquivo de ambiente, deverá listar o azureml-padrões com a versão > = 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web.
+Por favor, note que se estiver a definir o seu próprio ficheiro ambiental, deve listar os incumprimentos em azureml com a versão >= 1.0.45 como dependência do pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web.
 
 ```python
 %%time
@@ -308,7 +308,7 @@ Anteriormente, você pontuau todos os dados de teste com a versão local do mode
 O código abaixo realiza estes passos:
 1. Envie os dados como uma matriz JSON para o serviço Web hospedado em instâncias de contêiner. 
 
-1. Utilize a API `run` do SDK para invocar o serviço. Você também pode fazer chamadas brutas usando qualquer ferramenta HTTP, como **ondulação**.
+1. Utilize a API `run` do SDK para invocar o serviço. Também pode fazer chamadas cruas utilizando qualquer ferramenta HTTP, como **o caracol**.
 
 1. Imprima as predições devolvidas e represente-as juntamente com as imagens de entrada. A fonte vermelha e a imagem inversa, branca em preto, são usadas para realçar os exemplos de classificação incorretamente. 
 
@@ -387,8 +387,8 @@ service.delete()
 
 ## <a name="next-steps"></a>Passos seguintes
 
-+ Saiba mais sobre todas as [Opções de implantação para Azure Machine Learning](how-to-deploy-and-where.md).
-+ Saiba como [criar clientes para o serviço Web](how-to-consume-web-service.md).
-+  [Faça previsões em grandes quantidades de dados de](how-to-use-parallel-run-step.md) forma assíncrona.
-+ Monitore seus modelos de Azure Machine Learning com [Application insights](how-to-enable-app-insights.md).
-+ Experimente o tutorial de [seleção de algoritmo automático](tutorial-auto-train-models.md) . 
++ Conheça todas as opções de [implementação para O Machine Learning Azure.](how-to-deploy-and-where.md)
++ Saiba como [criar clientes para o serviço web.](how-to-consume-web-service.md)
++  [Faça previsões sobre grandes quantidades de dados](how-to-use-parallel-run-step.md) assincronicamente.
++ Monitorize os seus modelos de Aprendizagem automática Azure com Insights de [Aplicação](how-to-enable-app-insights.md).
++ Experimente o tutorial de seleção automática de [algoritmos.](tutorial-auto-train-models.md) 

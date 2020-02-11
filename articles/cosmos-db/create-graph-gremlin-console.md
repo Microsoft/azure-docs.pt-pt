@@ -1,5 +1,5 @@
 ---
-title: 'Consultar com Azure Cosmos DB API do Gremlin usando o console do TinkerPop Gremlin: tutorial'
+title: 'Consulta com Azure Cosmos DB Gremlin API usando consola TinkerPop Gremlin: Tutorial'
 description: Um início rápido do Azure Cosmos DB para criar vértices, margens e consultas com a Gremlin API do Azure Cosmos DB.
 author: luisbosquez
 ms.service: cosmos-db
@@ -7,27 +7,27 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: b873cdc65ed483836dc4c3cf9904a8fab1d2f09f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 78dfbabdcddaafefe77711e8f7b0ea1028f15c58
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665185"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117922"
 ---
-# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início rápido: criar, consultar e percorrer um Azure Cosmos DB banco de dados de grafo usando o console do Gremlin
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Quickstart: Criar, consultar e atravessar uma base de dados de gráficos Azure Cosmos DB utilizando a consola Gremlin
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
-> * [Python](create-graph-python.md)
+> * [python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este guia de início rápido demonstra como criar um Azure Cosmos DB a conta, o banco de dados e o grafo (contêiner) do [GREMLIN API](graph-introduction.md) usando o portal do Azure e, em seguida, usar o [console do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) do [Apache TinkerPop](https://tinkerpop.apache.org) para trabalhar com os dados da API do Gremlin. Neste tutorial, vai criar e consultar vértices e margens, atualizar uma propriedade de vértice, consultar vértices, percorrer o gráfico e eliminar um vértice.
+Este quickstart demonstra como criar uma conta API, base de dados e gráfico Azure Cosmos DB [Gremlin](graph-introduction.md) utilizando o portal Azure e, em seguida, usar a [Consola Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) da Apache [TinkerPop](https://tinkerpop.apache.org) para trabalhar com dados da API Gremlin. Neste tutorial, vai criar e consultar vértices e margens, atualizar uma propriedade de vértice, consultar vértices, percorrer o gráfico e eliminar um vértice.
 
 ![Azure Cosmos DB a partir da consola Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -39,7 +39,7 @@ Precisa de uma subscrição do Azure para criar uma conta do Azure Cosmos DB nes
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloads.html). A **versão recomendada é v 3.4.3** ou anterior. (Para usar o console do Gremlin no Windows, você precisa instalar o [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html)).
+Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloads.html). A **versão recomendada é v3.4.3** ou anterior. (Para utilizar a Consola Gremlin no Windows, é necessário instalar [o Java Runtime).](https://www.oracle.com/technetwork/java/javase/overview/index.html)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -49,18 +49,18 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloa
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a id="ConnectAppService"></a>Ligar ao seu serviço de aplicações
+## <a id="ConnectAppService"></a>Ligue-se ao seu serviço de aplicações/Gráfico
 1. Antes de iniciar a Consola Gremlin, crie ou modifique o ficheiro de configuração remote-secure.yaml no diretório `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Preencha as configurações de *anfitrião*, *porta*, *nome de utilizador*, *palavra-passe*, *connectionPool* e *serializador*, conforme definido na seguinte tabela:
 
     Definição|Valor sugerido|Descrição
     ---|---|---
-    anfitriões|[*nome da conta*. **Gremlin**. Cosmos.Azure.com]|Veja a captura de ecrã abaixo. Esse é o valor do **URI Gremlin** na página Visão geral da portal do Azure, entre colchetes, com a seguinte: 443/removida. Observação: Certifique-se de usar o valor Gremlin, e **não** o URI que termina com [*Account-Name*. Documents.Azure.com] que provavelmente resultaria em uma exceção "host não respondeu em tempo hábil" ao tentar executar consultas Gremlin mais tarde. 
+    anfitriões|[*nome de conta*. **gremlin**.cosmos.azure.com]|Veja a captura de ecrã abaixo. Este é o valor **Gremlin URI** na página geral do portal Azure, em suportes quadrados, com o trailing :443/ removido. Nota:*Certifique-se*de utilizar o valor Gremlin, e **não** o URI que termina com [ nome de conta .documents.azure.com] o que provavelmente resultaria numa exceção "Host não respondeu em tempo útil" ao tentar executar consultas de Gremlin mais tarde. 
     porta|443|Defina como 443.
     o nome de utilizador|*O seu nome de utilizador*|O recurso do formulário `/dbs/<db>/colls/<coll>`, em que `<db>` é o nome da base de dados e `<coll>` é o nome da coleção.
     palavra-passe|*A chave primária*| Veja a segunda captura de ecrã abaixo. Esta é a chave primária, que pode ser obtida na página Chaves do portal do Azure, na caixa Chave Primária. Utilize o botão de copiar, no lado esquerdo da caixa, para copiar o valor.
     connectionPool|{enableSsl: true}|A definição do conjunto de ligações para SSL.
-    serializador|{ className: org.apache.tinkerpop.gremlin.<br>Driver. ser. GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Defina como este valor e elimine eventuais quebras de linha `\n` quando colar o valor.
+    serializador|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Defina como este valor e elimine eventuais quebras de linha `\n` quando colar o valor.
 
     No valor Anfitriões, copie o valor **Gremlin URI** a partir da página **Descrição Geral**: ![Ver e copiar o valor do URI de Gremlin na página Descrição Geral no portal do Azure](./media/create-graph-gremlin-console/gremlin-uri.png)
 
@@ -79,13 +79,13 @@ connectionPool: {
 serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
 ```
 
-Certifique-se de encapsular o valor do parâmetro hosts entre colchetes []. 
+certifique-se de embrulhar o valor do parâmetro hospedeiro dentro dos parênteses []. 
 
 1. No seu terminal, execute `bin/gremlin.bat` ou `bin/gremlin.sh` para iniciar a [consola Gremlin](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 1. No seu terminal, execute `:remote connect tinkerpop.server conf/remote-secure.yaml` para ligar ao seu serviço de aplicações.
 
     > [!TIP]
-    > Se receber o erro `No appenders could be found for logger`, certifique-se de que atualizou o valor do serializador no ficheiro remote-secure.yaml, conforme descrito no passo 2. Se a configuração estiver correta, esse aviso poderá ser ignorado com segurança, pois não deve afetar o uso do console. 
+    > Se receber o erro `No appenders could be found for logger`, certifique-se de que atualizou o valor do serializador no ficheiro remote-secure.yaml, conforme descrito no passo 2. Se a sua configuração estiver correta, este aviso pode ser ignorado com segurança, uma vez que não deve afetar a utilização da consola. 
 
 1. Em seguida, execute `:remote console` para redirecionar todos os comandos da consola para o servidor remoto.
 

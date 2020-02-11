@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/28/2020
 ms.author: mlearned
-ms.openlocfilehash: d1fdd17b0f6b8ed91d4496f7e9e5a578e53556fe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8b9b1bf2a24002d606659c81e6fc426614fd5fd6
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845223"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114211"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utilize controlos de acesso baseados em funções azure para definir o acesso ao ficheiro de configuração Kubernetes no Serviço Azure Kubernetes (AKS)
 
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como atribuir funções RBAC que limitam quem pode obter 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que você tenha um cluster AKS existente. Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
+Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
 Este artigo também requer que esteja a executar a versão Azure CLI 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
@@ -34,10 +34,10 @@ O comando [az aks get-credentials][az-aks-get-credentials] permite-lhe obter as 
 
 Os dois papéis incorporados são:
 
-* **Função de administrador de cluster do serviço kubernetes do Azure**  
+* **Papel de administrador de cluster de serviço Azure Kubernetes**  
   * Permite o acesso à *chamada Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API. Esta chamada da API [lista as credenciais de administração do cluster][api-cluster-admin].
   * *Downloadkubeconfig* para o papel *clusterAdmin.*
-* **Função de usuário de cluster do serviço kubernetes do Azure**
+* **Função de utilizador do cluster de serviço Azure Kubernetes**
   * Permite o acesso à *chamada Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API. Esta chamada DaPi [lista as credenciais de utilizador do cluster][api-cluster-user].
   * *Downloadkubeconfig* para *o papel de clusterUser.*
 
@@ -63,7 +63,7 @@ AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster -
 
 # Get the account credentials for the logged in user
 ACCOUNT_UPN=$(az account show --query user.name -o tsv)
-ACCOUNT_ID=$(az ad user show --upn-or-object-id $ACCOUNT_UPN --query objectId -o tsv)
+ACCOUNT_ID=$(az ad user show --id $ACCOUNT_UPN --query objectId -o tsv)
 
 # Assign the 'Cluster Admin' role to the user
 az role assignment create \

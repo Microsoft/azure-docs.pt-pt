@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840592"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114404"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -67,7 +67,7 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
 * E.U.A. Centro-Sul
 * E.U.A. Central
 * E.U.A. Oeste
-* E.U.A. Oeste 2
+* E.U.A.Oeste 2
 * França Central
 * Europa Ocidental
 * Europa do Norte
@@ -84,7 +84,7 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
 * Leste do Japão 
 * Oeste do Japão
 * US Gov - Virginia
-* Leste da China 2
+* China Leste 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regiões apoiadas: Log Analytics Workspaces
 
@@ -97,7 +97,7 @@ O espaço de trabalho log Analytics deve existir nas seguintes regiões:
 * E.U.A. Centro-Sul
 * E.U.A. Central
 * E.U.A. Oeste
-* E.U.A. Oeste 2
+* E.U.A.Oeste 2
 * E.U.A. Central
 * França Central
 * Europa Ocidental
@@ -113,7 +113,7 @@ O espaço de trabalho log Analytics deve existir nas seguintes regiões:
 * Índia Central
 * Leste do Japão
 * US Gov - Virginia
-* Leste da China 2
+* China Leste 2
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -151,7 +151,7 @@ Para analisar o tráfego, é necessário ter um observador de rede existente, ou
 
 Antes de permitir o registo de fluxo sanções nsg, deve ter um grupo de segurança de rede para registar fluxos. Se não tiver um grupo de segurança de rede, consulte [Criar um grupo](../virtual-network/manage-network-security-group.md#create-a-network-security-group) de segurança de rede para criar um.
 
-No lado esquerdo do portal Azure, selecione **Monitor**, em **seguida, observador**de rede, e, em seguida, selecione registos de **fluxo NSG**. Selecione o grupo de segurança da rede para o que pretende ativar um registo de fluxo NSG, como mostra a seguinte imagem:
+No portal Azure, vá ao **observador de rede**, e, em seguida, selecione registos de fluxo **NSG**. Selecione o grupo de segurança da rede para o que pretende ativar um registo de fluxo NSG, como mostra a seguinte imagem:
 
 ![Seleção de NSGs que requerem a ativação do registo de fluxo sNG](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
@@ -181,7 +181,7 @@ New-AzStorageAccount `
 Selecione as seguintes opções, como mostrado na imagem:
 
 1. Selecione *on* for **Status**
-2. Selecione *versão 2* para **versão Flow Logs**. A versão 2 contém estatísticas de sessão de fluxo (bytes e pacotes)
+2. Selecione *versão 2* para **versão Flow Logs**. A versão 2 contém estatísticas de sessões de fluxo (Bytes e Pacotes)
 3. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo. Se quiser armazenar os dados para sempre, detete o valor para *0*. Incorre nas taxas de armazenamento azure para a conta de armazenamento. Certifique-se de que o seu armazenamento não tem "Data Lake Storage Gen2 Hierarchical Namespace Enabled" definido como verdadeiro. Além disso, os registos de fluxo NSG não podem ser armazenados numa Conta de Armazenamento com uma Firewall. 
 4. Detete **a Retenção** no número de dias para os dias que pretende armazenar.
 > [!IMPORTANT]
@@ -386,5 +386,5 @@ Para obter respostas a perguntas frequentes, consulte [o Traffic analytics FAQ](
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber como habilitar os logs de fluxo, consulte [habilitando o log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
+- Para aprender a ativar os registos de fluxo, consulte o registo de [fluxo snSG de habilitação](network-watcher-nsg-flow-logging-portal.md).
 - Para compreender o esquema e processar detalhes da Análise de Tráfego, consulte o esquema de [análise de tráfego.](traffic-analytics-schema.md)

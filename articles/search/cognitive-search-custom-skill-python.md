@@ -8,56 +8,56 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 06a247c9e65ce386034a50650e46994bbbe9074a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152175"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122419"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exemplo: criar uma habilidade personalizada usando Python
 
-Neste exemplo do Azure pesquisa cognitiva Qualifications, você aprenderá a criar uma habilidade personalizada da API Web usando Python e Visual Studio Code. O exemplo usa uma [função do Azure](https://azure.microsoft.com/services/functions/) que implementa a [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md).
+Neste exemplo do Azure pesquisa cognitiva Qualifications, você aprenderá a criar uma habilidade personalizada da API Web usando Python e Visual Studio Code. O exemplo utiliza uma [Função Azure](https://azure.microsoft.com/services/functions/) que implementa a [interface de habilidades personalizadas.](cognitive-search-custom-skill-interface.md)
 
 A habilidade personalizada é simples por design (ela concatena duas cadeias de caracteres) para que você possa se concentrar nas ferramentas e tecnologias usadas para o desenvolvimento de habilidades personalizadas no Python. Depois de ter uma habilidade simples, você pode ramificar com cenários mais complexos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Examine a [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md) para obter uma introdução à interface de entrada/saída que deve ser implementada por uma habilidade personalizada.
++ Reveja a [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md) para uma introdução na interface de entrada/saída que uma habilidade personalizada deve implementar.
 
-+ Configure seu ambiente. Seguimos [este tutorial de ponta a ponta](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) para configurar a função do Azure sem servidor usando as extensões Visual Studio Code e Python. O tutorial o conduz pela instalação das seguintes ferramentas e componentes: 
++ Configure seu ambiente. Seguimos [este tutorial](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) de ponta a ponta para configurar a função Azure sem servidor usando o Código de Estúdio Visual e as extensões Python. O tutorial o conduz pela instalação das seguintes ferramentas e componentes: 
 
-  + [Python 3,75](https://www.python.org/downloads/release/python-375/)
+  + [Python 3.75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
-  + [Extensão do Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Extensão python para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  + [Ferramentas centrais de funções azure](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
   + [Extensão das Funções do Azure para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Criar uma Função do Azure
 
-Este exemplo usa uma função do Azure para demonstrar o conceito de Hospedagem de uma API da Web, mas outras abordagens são possíveis. Desde que você atenda aos [requisitos de interface de uma habilidade cognitiva](cognitive-search-custom-skill-interface.md), a abordagem que você tomar é imprima. O Azure Functions, no entanto, facilita a criação de uma habilidade personalizada.
+Este exemplo usa uma função do Azure para demonstrar o conceito de Hospedagem de uma API da Web, mas outras abordagens são possíveis. Desde que cumpra os requisitos de [interface para uma habilidade cognitiva,](cognitive-search-custom-skill-interface.md)a abordagem que toma é imaterial. O Azure Functions, no entanto, facilita a criação de uma habilidade personalizada.
 
 ### <a name="create-a-function-app"></a>Criar uma aplicação de função
 
 O modelo do projeto das Funções do Azure no Visual Studio Code cria um projeto que pode ser publicado numa aplicação de funções no Azure. As aplicações de funções permitem-lhe agrupar funções como unidades lógicas para a gestão, implementação e partilha de recursos.
 
-1. Em Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comandos, procure e selecione `Azure Functions: Create new project...`.
+1. Em Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comando, procure e selecione `Azure Functions: Create new project...`.
 
-1. Escolha um local de diretório para o espaço de trabalho do projeto e escolha **selecionar**.
+1. Escolha um local de diretório para o seu espaço de trabalho do projeto e escolha **Select**.
 
     > [!NOTE]
     > Essas etapas foram projetadas para serem concluídas fora de um espaço de trabalho. Por esse motivo, não selecione uma pasta de projeto que faça parte de um espaço de trabalho.
 
 1. Selecione um idioma para seu projeto de aplicativo de funções. Para este tutorial, selecione **Python**.
 1. Selecione a versão do Python, (a versão 3.7.5 é suportada por Azure Functions)
-1. Selecione um modelo para a primeira função do projeto. Selecione **gatilho http** para criar uma função disparada por http no novo aplicativo de funções.
-1. Forneça um nome de função. Nesse caso, vamos usar o **concatenador** 
-1. Selecione **função** como o nível de autorização. Isso significa que forneceremos uma [chave de função](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) para chamar o ponto de extremidade http da função. 
-1. Selecione como você gostaria de abrir seu projeto. Para esta etapa, selecione **Adicionar ao espaço de trabalho** para criar o aplicativo de funções no espaço de trabalho atual.
+1. Selecione um modelo para a primeira função do projeto. Selecione **o gatilho HTTP** para criar uma função ativada em HTTP na nova aplicação de função.
+1. Forneça um nome de função. Neste caso, vamos usar a **Concatenator** 
+1. Selecione **Função** como nível de Autorização. Isto significa que forneceremos uma [chave de função](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) para chamar o ponto final http da função. 
+1. Selecione como você gostaria de abrir seu projeto. Para este passo, selecione **Adicionar ao espaço** de trabalho para criar a aplicação de funções no espaço de trabalho atual.
 
 O Visual Studio Code cria o projeto da aplicação de funções numa nova área de trabalho. Este projeto contém os ficheiros de configuração [host.json](../azure-functions/functions-host-json.md) e [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), bem como os ficheiros de projetos específico de idiomas. 
 
-Uma nova função disparada por HTTP também é criada na pasta **concatenador** do projeto de aplicativo de funções. Dentro dele, haverá um arquivo chamado "\__init__. py", com este conteúdo:
+Uma nova função desencadeada pelo HTTP também é criada na pasta **Concatenator** do projeto da aplicação de funções. No seu interior haverá um ficheiro chamado "\_\_init__.py", com este conteúdo:
 
 ```py
 import logging
@@ -87,7 +87,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ```
 
-Agora, vamos modificar esse código para seguir a [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md). Modifique o código com o seguinte conteúdo:
+Agora vamos modificar este código para seguir a [interface de habilidade personalizada).](cognitive-search-custom-skill-interface.md) Modifique o código com o seguinte conteúdo:
 
 ```py
 import logging
@@ -167,11 +167,11 @@ def transform_value(value):
             })
 ```
 
-O método **transform_value** executa uma operação em um único registro. Você pode modificar o método para atender às suas necessidades específicas. Lembre-se de fazer qualquer validação de entrada necessária e retornar erros e avisos produzidos se a operação não pôde ser concluída para o registro.
+O método **transform_value** executa uma operação num único disco. Você pode modificar o método para atender às suas necessidades específicas. Lembre-se de fazer qualquer validação de entrada necessária e retornar erros e avisos produzidos se a operação não pôde ser concluída para o registro.
 
 ### <a name="debug-your-code-locally"></a>Depurar seu código localmente
 
-Visual Studio Code facilita a depuração do código. Pressione ' F5 ' ou vá para o menu **depurar** e selecione **Iniciar Depuração**.
+Visual Studio Code facilita a depuração do código. Prima 'F5' ou vá ao menu **Debug** e selecione **Iniciar depuração**.
 
 Você pode definir qualquer ponto de interrupção no código pressionando ' F9 ' na linha de interesse.
 
@@ -181,11 +181,11 @@ Depois de iniciar a depuração, sua função será executada localmente. Você 
 
 Quando estiver satisfeito com o comportamento da função, você poderá publicá-lo.
 
-1. Em Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comandos, procure e selecione **implantar em aplicativo de funções...** . 
+1. Em Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comando, procure e selecione **Implementar para app de função...** . 
 
 1. Selecione a assinatura do Azure em que você deseja implantar seu aplicativo.
 
-1. Selecione **+ criar novo aplicativo de funções no Azure**
+1. Selecione **+ Criar nova app de funções em Azure**
 
 1. Insira um nome globalmente exclusivo para seu aplicativo de funções.
 
@@ -195,9 +195,9 @@ Quando estiver satisfeito com o comportamento da função, você poderá public�
 
 Neste ponto, os recursos necessários serão criados em sua assinatura do Azure para hospedar a nova função do Azure no Azure. Aguarde pela conclusão da implementação. A janela saída mostrará o status do processo de implantação.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até **todos os recursos** e procure a função que você publicou por seu nome. Se você tiver nomeado **concatenador**de ti, selecione o recurso.
+1. No [portal Azure,](https://portal.azure.com)navegue para **Todos os Recursos** e procure a função que publicou pelo seu nome. Se lhe deu o nome **de Concatenator,** selecione o recurso.
 
-1. Clique no botão **</> URL da função Get** . Isso permitirá que você copie a URL para chamar a função.
+1. Clique no botão **URL da função .lt;/> Get Function** URL. Isso permitirá que você copie a URL para chamar a função.
 
 ## <a name="test-the-function-in-azure"></a>Testar a função no Azure
 
@@ -231,7 +231,7 @@ Este exemplo deve produzir o mesmo resultado que você viu anteriormente ao exec
 
 ## <a name="connect-to-your-pipeline"></a>Conectar-se ao seu pipeline
 
-Agora que você tem uma nova habilidade personalizada, você pode adicioná-la ao seu Skill. O exemplo a seguir mostra como chamar a habilidade para concatenar o título e o autor do documento em um único campo que chamamos de merged_title_author. Substitua `[your-function-url-here]` pela URL do seu novo Azure function.
+Agora que você tem uma nova habilidade personalizada, você pode adicioná-la ao seu Skill. O exemplo abaixo mostra como chamar a habilidade de concatenar o Título e o Autor do documento num único campo a que chamamos merged_title_author. Substitua `[your-function-url-here]` com o URL da sua nova Função Azure.
 
 ```json
 {
@@ -266,8 +266,8 @@ Agora que você tem uma nova habilidade personalizada, você pode adicioná-la a
 ## <a name="next-steps"></a>Passos seguintes
 Parabéns! Você criou sua primeira habilidade personalizada. Agora você pode seguir o mesmo padrão para adicionar sua própria funcionalidade personalizada. Clique nos links a seguir para saber mais.
 
-+ [Habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
-+ [Criar conconhecimento (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Como mapear campos aprimorados](cognitive-search-output-field-mapping.md)
++ [Power Skills: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Adicione uma habilidade personalizada a um oleoduto de enriquecimento de IA](cognitive-search-custom-skill-interface.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Criar Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)
