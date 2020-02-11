@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning vs. Machine Learning Studio (clássico)
-description: Como Azure Machine Learning é diferente do Machine Learning Studio (clássico)
+description: Como o Azure Machine Learning é diferente do Machine Learning Studio (clássico)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,60 +8,61 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 064786de1f25c3d185984534b9a8fc61602826ee
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 02/10/2020
 ms.locfileid: "76311466"
 ---
-# <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Como Azure Machine Learning difere de Machine Learning Studio (clássico)
+# <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Como o Azure Machine Learning difere do Machine Learning Studio (clássico)
 
-Este artigo compara os recursos, as funcionalidades e a interface de Azure Machine Learning para Machine Learning Studio (clássico). 
+Este artigo compara as funcionalidades, capacidades e interface do Azure Machine Learning ao Machine Learning Studio (clássico). 
 
-## <a name="about-machine-learning-studio-classic"></a>Sobre Machine Learning Studio (clássico)
-[Machine Learning Studio (clássico)](studio/what-is-ml-studio.md) é um espaço de trabalho do Visual colaborativo, arrastar e soltar, no qual você pode criar, testar e implantar soluções de aprendizado de máquina sem precisar escrever código. Ele usa algoritmos predefinidos e pré-configurados de aprendizado de máquina e módulos de manipulação de dados, bem como uma plataforma de computação proprietária.
+## <a name="about-machine-learning-studio-classic"></a>Sobre o Machine Learning Studio (clássico)
+[O Machine Learning Studio (clássico)](studio/what-is-ml-studio.md) é um espaço de trabalho visual colaborativo, drag-and-drop onde você pode construir, testar e implementar soluções de aprendizagem automática sem precisar de escrever código. Utiliza algoritmos de aprendizagem automática pré-construídos e pré-configurados e módulos de tratamento de dados, bem como uma plataforma de computação proprietária.
 
 ## <a name="about-azure-machine-learning"></a>Sobre o Azure Machine Learning
 
-Enquanto isso, [Azure Machine Learning](overview-what-is-azure-ml.md) fornece uma interface da Web chamada designer **e** vários SDKs e a CLI para preparar dados rapidamente, treinar e implantar modelos de aprendizado de máquina. Com Azure Machine Learning você obtém escala, suporte a vários frameworks, recursos avançados de ML, como o aprendizado de máquina automatizado e o suporte a pipeline.
+Entretanto, o [Azure Machine Learning](overview-what-is-azure-ml.md) fornece uma interface web chamada designer (pré-visualização) **e** vários SDKs e CLI para preparar rapidamente dados, treinar e implementar modelos de machine learning. Com o Azure Machine Learning obtém escala, suporte de múltiplas estruturas, capacidades avançadas de ML como machine learning automatizado e suporte a pipeline.
 
-O designer de Azure Machine Learning fornece uma experiência de arrastar e soltar semelhante ao Studio (clássico). No entanto, diferentemente da plataforma de computação proprietária do estúdio (clássico), o designer usa seus próprios recursos de computação, é escalonável e é totalmente integrado ao Azure Machine Learning.  
+O designer azure machine learning fornece uma experiência de drag-and-drop semelhante ao Studio (clássico). No entanto, ao contrário da plataforma computacional proprietária do Studio (clássico), o designer usa os seus próprios recursos computacionais, é escalável e está totalmente integrado no Azure Machine Learning.  
 
 > [!TIP]
-> Os clientes que atualmente usam ou avaliam Machine Learning Studio (clássico) são incentivados a experimentar o [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer), que fornece módulos ml de arrastar e soltar, __além__ de escalabilidade, controle de versão e segurança corporativa.
+> Os clientes que atualmente utilizam ou avaliam o Machine Learning Studio (clássico) são encorajados a experimentar o designer de Machine [Learning Azure](https://docs.microsoft.com/azure/machine-learning/concept-designer) (pré-visualização), que fornece módulos ML de arrasto e queda, __além__ de escalabilidade, controlo de versão e segurança empresarial.
 
 ## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>Comparação: Azure Machine Learning vs. Machine Learning Studio (clássico)
 
 Aqui está uma comparação rápida.
 
-||  Designer de Azure Machine Learning|Studio (clássico) |
-|---| --- | --- | 
-|Interface de arrastar e largar| Sim | Sim|
-|Experimentação| Dimensionar com destino de computação|Escala (limite de dados de treinamento de 10 GB) | 
-|Módulos para interface| [Muitos módulos populares](algorithm-module-reference/module-reference.md) | Muitas |
-|Treinamento de destinos de computação| Computação AML (GPU/CPU)|Destino de computação proprietário, somente CPU|
-|Destinos de computação do inferência| Serviço kubernetes do Azure para inferência em tempo real <br/>Computação AML para inferência de lote|Formato de serviço da Web proprietário, não personalizável | 
-|Pipeline ML| Criação de pipeline <br/> Pipeline publicado <br/> Ponto de extremidade do pipeline <br/> [Saiba mais sobre o pipeline do ML](concept-ml-pipelines.md)|Não suportado | 
-|Operações de ML| Implantação configurável, modelo e controle de versão de pipeline|Gerenciamento e implantação de modelos básicos | 
-|Modelo| O formato padrão, vários depende do trabalho de treinamento|Formato proprietário e não portátil.| 
-|Treinamento de modelo automatizado|Ainda não no designer, mas possível por meio da interface e dos SDKs.| Não | 
+||  Designer de aprendizagem automática Azure|Studio (clássico) |
+|---| --- | --- |
+||O designer está em pré-visualização, Azure Machine Learning é GA|Geralmente disponível (GA) | 
+|Interface de arrasto e queda| Sim | Sim|
+|Experimentação| Escala com meta de cálculo|Escala (limite de dados de formação de 10GB) | 
+|Módulos para interface| [Muitos módulos populares](algorithm-module-reference/module-reference.md) | Muitos |
+|Metas de computação de formação| AmL Compute (GPU/CPU)|Alvo de computação proprietário, CPU apenas|
+|Metas de inferência da computação| Serviço Azure Kubernetes para inferência em tempo real <br/>AmL Compute para inferência do lote|Formato de serviço web proprietário, não personalizável | 
+|Gasoduto ML| Autoria de gasoduto <br/> Oleoduto publicado <br/> Ponto final do gasoduto <br/> [Saiba mais sobre o oleoduto ML](concept-ml-pipelines.md)|Não suportado | 
+|Operações ML| Implantação configurável, versão de modelo e gasoduto|Gestão e implantação de modelos básicos | 
+|Modelo| Formato padrão, vários dependem do trabalho de formação|Formato proprietário, não portátil.| 
+|Formação automatizada de modelos|Ainda não está no designer, mas possível através da interface e dos SDKs.| Não | 
 
-## <a name="get-started-with-azure-machine-learning"></a>Introdução ao Azure Machine Learning
+## <a name="get-started-with-azure-machine-learning"></a>Começar com Azure Machine Learning
 
-Os recursos a seguir podem ajudá-lo a começar a usar o Azure Machine Learning
+Os seguintes recursos podem ajudá-lo a começar com o Azure Machine Learning
 
-- Leia o [Azure Machine Learning visão geral](tutorial-first-experiment-automated-ml.md) 
+- Leia a visão geral da [Aprendizagem automática azure](tutorial-first-experiment-automated-ml.md) 
 
-- [Crie seu primeiro pipeline de designer](tutorial-designer-automobile-price-train-score.md) para prever preços automáticos.
+- [Crie o seu primeiro pipeline de design](tutorial-designer-automobile-price-train-score.md) para prever os preços dos automóveis.
 
 ![Exemplo de designer de Azure Machine Learning](media/concept-designer/designer-drag-and-drop.gif)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Além dos recursos do tipo "arrastar e soltar" no designer, Azure Machine Learning tem outras ferramentas disponíveis:  
-  + [Usar blocos de anotações do Python para treinar & implantar modelos de ML](tutorial-1st-experiment-sdk-setup.md)
-  + [Usar R Markdown para treinar & implantar modelos de ML](tutorial-1st-r-experiment.md) 
-  + [Usar o Machine Learning automatizado para treinar & implantar modelos de ML](tutorial-designer-automobile-price-train-score.md) 
-  + [Usar a CLI do Machine Learning para treinar e implantar um modelo](tutorial-train-deploy-model-cli.md)
+Além das capacidades de arrastar e largar no designer, o Azure Machine Learning tem outras ferramentas disponíveis:  
+  + [Utilize os cadernos Python para treinar e implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)
+  + [Use R Markdown para treinar e implementar modelos ML](tutorial-1st-r-experiment.md) 
+  + [Utilize machine learning automatizado para treinar e implementar modelos ML](tutorial-designer-automobile-price-train-score.md) 
+  + [Use o CLI de aprendizagem automática para treinar e implementar um modelo](tutorial-train-deploy-model-cli.md)
 

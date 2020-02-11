@@ -6,6 +6,8 @@
       href: allocation-failure.md
     - name: Falhas de atribuição para implementações clássicas
       href: allocation-failure-classic.md
+    - name: Conjuntos de disponibilidade
+      href: virtual-machines-availability-set-supportability.md
 - name: RDP
   href: rdp.md
   items:

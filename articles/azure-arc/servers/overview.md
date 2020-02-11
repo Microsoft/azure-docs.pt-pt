@@ -6,16 +6,16 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-keywords: automação do Azure, DSC, PowerShell, configuração de estado desejado, gerenciamento de atualizações, controle de alterações, inventário, runbooks, Python, gráfico, híbrido
-ms.date: 01/29/2020
+keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualizações, rastreio de alterações, inventário, livros de execução, pitão, gráfico, híbrido
+ms.date: 02/03/2020
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b0f1d235391c4c4e3804a6dccc8174e946035b6a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c38bc2d5d9a7e23c0bb3041a5cb3b5cd1da9adb1
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899197"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114234"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é O Arco Azure para servidores (pré-visualização)
 
@@ -49,11 +49,17 @@ Com o Azure Arc para servidores (pré-visualização), apenas algumas regiões s
 As seguintes versões do sistema operativo Windows e Linux são oficialmente suportadas para o agente Azure Connected Machine: 
 
 - Windows Server 2012 R2 e superior
-- Ubuntu 16, 4 e 18, 4
+- Ubuntu 16.04 e 18.04
 
 >[!NOTE]
 >Esta versão de pré-visualização do agente Connected Machine para windows apenas suporta o Windows Server configurado para utilizar o idioma inglês.
 >
+
+### <a name="required-permissions"></a>Permissões obrigatórias
+
+- Para máquinas a bordo, você é um membro da função **de onboarding azure connected machine.**
+
+- Para ler, modificar, reembarcar e apagar uma máquina, é membro da função de Administrador de **Recursos de Máquinas Conectadas Azure.** 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de subscrição e serviço do Azure
 
@@ -65,7 +71,7 @@ O agente Connected Machine para Linux e Windows comunica de forma segura a Azure
 
 Se a conectividade de saída for restringida pela sua firewall ou servidor proxy, certifique-se de que os URLs listados abaixo não estão bloqueados. Se permitir apenas os intervalos IP ou nomes de domínio necessários para que o agente se comunique com o serviço, também deve permitir o acesso às seguintes Etiquetas de Serviço e URLs.
 
-Marcas de serviço:
+Etiquetas de serviço:
 
 - AzureActiveDirectory
 - AzureTrafficManager
@@ -74,14 +80,14 @@ URLs:
 
 | Recursos do agente | Descrição |
 |---------|---------|
-|management.azure.com|Gestor de Recursos do Azure|
+|management.azure.com|Azure Resource Manager|
 |login.windows.net|Azure Active Directory|
-|dc.services.visualstudio.com|Estatísticas das Aplicações|
+|dc.services.visualstudio.com|Application Insights|
 |agentserviceapi.azure-automation.net|Configuração de Convidado|
 |*-agentservice-prod-1.azure-automation.net|Configuração de Convidado|
-|*. his.hybridcompute.azure-automation.net|Serviço de identidade híbrida|
+|*.his.hybridcompute.azure-automation.net|Serviço de Identidade Híbrida|
 
-Para obter uma lista de endereços IP para cada marca de serviço/região, consulte o arquivo JSON – [intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). A Microsoft publica atualizações semanais que contêm cada serviço do Azure e os intervalos de IP que ele usa. Para mais informações, reveja [as etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Para obter uma lista de endereços IP para cada etiqueta/região de serviço, consulte o ficheiro JSON - [Gamas Ip Azure e etiquetas](https://www.microsoft.com/download/details.aspx?id=56519)de serviço – Nuvem Pública . A Microsoft publica atualizações semanais contendo cada Serviço Azure e as gamas IP que utiliza. Para mais informações, reveja [as etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Os URLs na tabela anterior são necessários para além da informação de endereço IP do etiqueta de serviço, uma vez que a maioria dos serviços não tem atualmente um registo de etiqueta de serviço. Como tal, os endereços IP estão sujeitos a alterações. Se forem necessárias gamas de endereços IP para a configuração da sua firewall, a etiqueta de serviço **AzureCloud** deve ser utilizada para permitir o acesso a todos os serviços Azure. Não desative a monitorização ou inspeção de segurança destes URLs, permita-os como faria com outros tráfegos de Internet.
 
@@ -90,7 +96,7 @@ Os URLs na tabela anterior são necessários para além da informação de ender
 O Azure Arc para servidores (pré-visualização) depende dos seguintes fornecedores de recursos Azure na sua subscrição, a fim de utilizar este serviço:
 
 - **Microsoft.HybridCompute**
-- **Microsoft. GuestConfiguration**
+- **Microsoft.GuestConfiguration**
 
 Se não estiverem registados, pode registá-los utilizando os seguintes comandos:
 
@@ -130,7 +136,7 @@ As máquinas de ligação no seu ambiente híbrido diretamente com o Azure podem
 | Método | Descrição |
 |--------|-------------|
 | Interativamente | Instale manualmente o agente num único ou pequeno número de máquinas seguindo os passos em [Connect machines a partir do portal Azure](quickstart-onboard-portal.md).<br> A partir do portal Azure, pode gerar um script e executá-lo na máquina para automatizar os passos de instalação e configuração do agente.|
-| Em escala | Instale e configure o agente para várias máquinas que seguem as [máquinas Connect utilizando um diretor de serviço](quickstart-onboard-powershell.md).<br> Este método cria um diretor de serviço para ligar as máquinas de forma não interativa.|
+| À escala | Instale e configure o agente para várias máquinas que seguem as [máquinas Connect utilizando um diretor de serviço](quickstart-onboard-powershell.md).<br> Este método cria um diretor de serviço para ligar as máquinas de forma não interativa.|
 
 
 ## <a name="next-steps"></a>Passos seguintes

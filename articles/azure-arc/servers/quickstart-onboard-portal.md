@@ -6,15 +6,15 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/29/2020
+ms.date: 02/09/2020
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 81083a9d94f782201a8eb765ac1f88093c0337c4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c6dd2e9ce01205b34b95fa224e8bd16d21588b70
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024097"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114254"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue as máquinas híbridas ao Azure a partir do portal Azure
 
@@ -22,7 +22,7 @@ Pode ativar o Azure Arc para servidores (pré-visualização) para um ou um pequ
 
 Este método requer que tenha permissões de administrador na máquina para instalar e configurar o agente. No Linux, utilizando a conta raiz e no Windows, é membro do grupo de Administradores Locais.
 
-Antes de começar, certifique-se de revisar os [pré-requisitos](overview.md#prerequisites) e verificar se sua assinatura e seus recursos atendem aos requisitos.
+Antes de começar, certifique-se de rever os [pré-requisitos](overview.md#prerequisites) e verificar se a sua subscrição e recursos cumprem os requisitos.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -110,7 +110,7 @@ Depois de instalar o agente, é necessário configurar o agente para comunicar c
 O agente Máquina Conectada para Linux é fornecido no formato de pacote preferido para a distribuição (. RPM ou . DEB) que está hospedado no [repositório](https://packages.microsoft.com/)de pacotes da Microsoft . O pacote de script shell [`Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) executa as seguintes ações:
 
 - Configura a máquina hospedeira para descarregar o pacote de agente a partir de packages.microsoft.com.
-- Instala o pacote do provedor de recursos híbrido.
+- Instala o pacote Hybrid Resource Provider.
 
 Opcionalmente, pode configurar o agente com as suas informações de procuração, incluindo o parâmetro `--proxy "{proxy-url}:{proxy-port}"`.
 
@@ -188,5 +188,6 @@ Para desligar uma máquina do Azure Arc para servidores (pré-visualização), f
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Atribuir uma política a máquinas conectadas](../../governance/policy/assign-policy-portal.md)
+- Saiba como gerir a sua máquina utilizando a [Política Azure](../../governance/policy/overview.md), para coisas como a configuração de [hóspedes](../../governance/policy/concepts/guest-configuration.md)VM , verificando que a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Monitor Azure com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), e muito mais.
+
+- Saiba mais sobre o [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando pretende monitorizar proativamente o SISTEMA e as cargas de trabalho em funcionamento na máquina, geri-la utilizando livros de execução automation ou soluções como a Update Management, ou utilizar outros serviços Azure como o [Azure Security Center.](../../security-center/security-center-intro.md)
