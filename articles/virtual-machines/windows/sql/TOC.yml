@@ -6,7 +6,7 @@
       href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json&bc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2fbreadcrumb%2ftoc.json
     - name: Alterações à documentação
       href: virtual-machines-windows-sql-server-iaas-release-notes.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar VM de SQL - Portal
       href: quickstart-sql-vm-create-portal.md
@@ -97,6 +97,8 @@
               href: virtual-machines-windows-sql-availability-group-quickstart-template.md
             - name: Várias regiões
               href: virtual-machines-windows-portal-sql-availability-group-dr.md
+            - name: Independente do domínio (grupo de trabalho)
+              href: virtual-machines-windows-sql-workgroup-availability-group.md
             - name: Configurar manualmente
               items:
                 - name: Pré-requisitos

@@ -10,23 +10,23 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 09/09/2019
-  ms.openlocfilehash: cf20801a8c1bf6c7ee9b2a7f62069c15388ffb74
-  ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+  ms.openlocfilehash: 8ff93dc3071a442f28878baa958d3583bc046b44
+  ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71173751"
+  ms.lasthandoff: 02/11/2020
+  ms.locfileid: "77115574"
 landingContent:
 - title: Funcionalidades mais recentes
   linkLists:
   - linkListType: whats-new
     links:
-    - text: Pré-visualização dos anfitriões dedicados
+    - text: Spot VMs
+      url: spot-vms.md
+    - text: Anfitriões dedicados
       url: dedicated-hosts.md
-    - text: Pré-visualização dos grupos de colocação em proximidade
+    - text: Grupos de colocação de proximidade
       url: proximity-placement-groups.md
-    - text: Discos efémeros
-      url: ephemeral-os-disks.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart

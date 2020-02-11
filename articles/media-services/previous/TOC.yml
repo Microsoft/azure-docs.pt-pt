@@ -255,8 +255,6 @@
         - name: Configurar codificadores no local para utilização com codificadores em cloud
           href: media-services-live-encoders-overview.md
           items:
-            - name: Codificador de FMLE
-              href: media-services-configure-fmle-live-encoder.md
             - name: Codificador Haivision KB
               href: media-services-configure-kb-live-encoder.md
             - name: Codificador de NewTek TriCaster
