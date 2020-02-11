@@ -418,5 +418,7 @@
       href: 'https://blog.botframework.com/category/luis/'
     - name: Base de Dados de Conhecimento
       href: 'https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service'
+- name: Vídeos
+  href: 'whats-new.md#videos'
 - name: Portal do LUIS
   href: 'https://www.luis.ai'
