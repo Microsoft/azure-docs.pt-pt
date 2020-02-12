@@ -212,7 +212,7 @@ O fluxo de dados de luta é atualmente suportado nas fábricas de dados criadas 
 * E.U.A. Leste 2
 * Leste do Japão
 * Europa do Norte
-* Sudeste Asiático
+* Ásia Sudeste
 * E.U.A. Centro-Sul
 * Sul do Reino Unido
 * E.U.A. Centro-Oeste

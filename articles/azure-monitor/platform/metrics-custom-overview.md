@@ -189,8 +189,8 @@ Durante a visualização pública, a capacidade de publicar métricas personaliz
 |Índia Central | https:\//centralindia.monitoring.azure.com
 |Leste da Austrália | https:\//australiaeast.monitoring.azure.com
 |Leste do Japão | https:\//japaneast.monitoring.azure.com
-|Sudeste Asiático  | https:\//southeastasia.monitoring.azure.com |
-|Ásia Oriental | https:\//eastasia.monitoring.azure.com
+|Ásia Sudeste  | https:\//southeastasia.monitoring.azure.com |
+|Ásia Leste | https:\//eastasia.monitoring.azure.com
 |Coreia do Sul Central   | https:\//koreacentral.monitoring.azure.com
 
 

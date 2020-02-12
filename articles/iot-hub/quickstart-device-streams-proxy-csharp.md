@@ -53,7 +53,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
   * Centro dos E.U.A.
   * EUA Central EUAP
-  * Sudeste Asiático
+  * Ásia Sudeste
   * Europa do Norte
 
 * Os dois aplicativos de exemplo que você executa neste guia de início rápido C#são escritos em. Você precisa do SDK do .NET Core 2.1.0 ou posterior em seu computador de desenvolvimento.

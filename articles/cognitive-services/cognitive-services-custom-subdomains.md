@@ -75,7 +75,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | | Sul do Brasil | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Canadá Central | `https://canadacentral.api.cognitive.microsoft.com` |
 | | E.U.A. Central | `https://centralus.api.cognitive.microsoft.com` |
-| | Ásia Oriental | `https://eastasia.api.cognitive.microsoft.com` |
+| | Ásia Leste | `https://eastasia.api.cognitive.microsoft.com` |
 | | E.U.A. Leste | `https://eastus.api.cognitive.microsoft.com` |
 | | E.U.A. Leste 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | França Central | `https://francecentral.api.cognitive.microsoft.com` |
@@ -86,7 +86,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | | Europa do Norte | `https://northeurope.api.cognitive.microsoft.com` |
 | | Norte da África do Sul | `https://southafricanorth.api.cognitive.microsoft.com` |
 | | E.U.A. Centro-Sul | `https://southcentralus.api.cognitive.microsoft.com` |
-| | Sudeste Asiático | `https://southeastasia.api.cognitive.microsoft.com` |
+| | Ásia Sudeste | `https://southeastasia.api.cognitive.microsoft.com` |
 | | Sul do Reino Unido | `https://uksouth.api.cognitive.microsoft.com` |
 | | E.U.A. Centro-Oeste | `https://westcentralus.api.cognitive.microsoft.com` |
 | | Europa Ocidental | `https://westeurope.api.cognitive.microsoft.com` |

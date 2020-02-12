@@ -14,10 +14,10 @@ ms.date: 01/17/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d2bbfd7f4ddc5fc34c0bec3612783dfef5074d83
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "76270863"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
@@ -34,7 +34,7 @@ Se for um cliente do Contrato Enterprise (EA), os administradores de empresa pod
 
 1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
+   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
 
 1. Selecione **Subscrições** no painel à esquerda. Consoante o seu acesso, pode ter de selecionar um âmbito da faturação e, em seguida, selecionar **Subscrições** ou **Subscrições do Azure**.
 
@@ -86,7 +86,7 @@ As subscrições do Visual Studio e do Microsoft Partner Network têm associadou
 
 ## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>Transferir a propriedade da faturação das subscrições do Contrato Enterprise (EA)
 
-O Administrador da Empresa pode transferir a propriedade das subscrições entre contas que pertençam a uma inscrição. Para obter mais informações, consulte [alterar o proprietário da conta](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) no portal de ea.
+O Administrador da Empresa pode transferir a propriedade das subscrições entre contas que pertençam a uma inscrição. Para obter mais informações, veja [Alterar o proprietário de conta](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) no portal do Azure.
 
 ## <a name="next-steps-after-accepting-billing-ownership"></a>Próximos passos após aceitar a propriedade da faturação
 
@@ -96,7 +96,7 @@ Se aceitou a propriedade de faturação de uma subscrição do Azure, recomendam
 1. Atualize as credenciais associadas aos serviços desta subscrição, incluindo:
    1. Os certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão para o Azure](../../cloud-services/cloud-services-certs-create.md)
    1. As chaves de acesso para serviços, como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md)
-   1. Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
+   1. As credenciais de Acesso Remoto para serviços, como as Máquinas Virtuais do Azure.
 1. Se estiver a trabalhar com um parceiro, considere atualizar a ID do parceiro nesta subscrição. Pode atualizar a ID do parceiro no [portal do Azure](https://portal.azure.com). Para obter mais informações, veja [Ligar uma ID de parceiro às suas contas do Azure](link-partner-id.md)
 
 <a id="supported"></a>
@@ -115,7 +115,7 @@ A transferência de subscrição no portal do Azure está disponível para os ti
 - [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
-- [Plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
+- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
 \*[Através do EA Portal](#EA).
 
@@ -184,13 +184,13 @@ Sim. Contudo, se a sua conta estiver num inquilino do Azure AD diferente do inqu
 
 Mesmo que as atribuições de [Controlo de Acesso Baseado em Funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) sejam removidas durante a transferência, os utilizadores na conta do proprietário original ainda poderão ter acesso à subscrição por meio de alguns mecanismos de segurança, incluindo:
 
-* Os certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão do Azure](../../cloud-services/cloud-services-certs-create.md).
-* As chaves de acesso para serviços, como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
+* Certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão do Azure](../../cloud-services/cloud-services-certs-create.md).
+* Chaves de acesso dos serviços como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 * Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
 
 Se o destinatário precisar de restringir o acesso aos seus recursos, deverá considerar a atualização de todos os segredos associados ao serviço. A maioria dos recursos pode ser atualizada com os seguintes passos:
 
-  1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+  1. Inicie sessão no [portal do Azure](https://portal.azure.com).
   2. No menu Hub, selecione **Todos os recursos**.
   3. Selecione o recurso.
   4. Na página de recursos, clique em **Configurações**. Aqui pode ver e atualizar os segredos existentes.

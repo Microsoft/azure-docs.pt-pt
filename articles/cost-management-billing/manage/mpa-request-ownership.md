@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
 ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988204"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade da faturação das subscrições do Azure da conta MPA
@@ -67,7 +67,7 @@ Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Mic
 
 ## <a name="check-the-transfer-request-status"></a>Verificar o estado do pedido de transferência
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 
@@ -83,7 +83,7 @@ Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Mic
 
     ![Captura de ecrã que mostra a lista de pedidos de transferência](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)
 
-   |Column|Definição|
+   |Coluna|Definição|
    |---------|---------|
    |Data do pedido|A data em que o pedido de transferência foi enviado|
    |Destinatário|O endereço de e-mail do utilizador para o qual enviou o pedido para transferir a propriedade de faturação|
@@ -102,11 +102,11 @@ Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Mic
    |Cancelado|Alguém com acesso ao pedido de transferência cancelou o pedido|
    |Recusado|O utilizador recusou o pedido de transferência|
 
-6. Selecione um pedido de transferência para ver os detalhes. A página detalhes da transferência exibe as seguintes informações: ![captura de tela que mostra a lista de assinaturas transferidas](./media/mpa-request-ownership/mpa-transfer-completed.png)
+6. Selecione um pedido de transferência para ver os detalhes. A página detalhes da transferência apresenta as seguintes informações: ![Captura de ecrã a mostrar a lista das subscrições transferidas](./media/mpa-request-ownership/mpa-transfer-completed.png)
 
-   |Column  |Definição|
+   |Coluna  |Definição|
    |---------|---------|
-   |ID do pedido de transferência|O ID exclusivo do pedido de transferência. Se submeter um pedido de suporte, partilhe o ID com o suporte do Azure para acelerar o pedido|
+   |ID do pedido de transferência|O ID exclusivo do pedido de transferência. Se submeter um pedido de suporte, partilhe o ID com a equipa do suporte do Azure para acelerar o pedido|
    |Transferência pedida a|A data em que o pedido de transferência foi enviado|
    |Transferência pedida por|O endereço de e-mail do utilizador que enviou o pedido de transferência|
    |Pedido de transferência expirou a| A data em que o pedido de transferência expirou|
@@ -122,7 +122,7 @@ Pode pedir a propriedade da faturação dos tipos de subscrição listados abaix
 
 \* A subscrição Enterprise DevTest será faturada à tarifa pay as you go após a transferência. Qualquer desconto oferecido como parte da oferta do Enterprise DevTest através do EA do cliente não estará disponível para o parceiro do programa CSP.
 
-## <a name="additional-information"></a>Informação adicional
+## <a name="additional-information"></a>Informações adicionais
 
 A secção seguinte fornece informações adicionais sobre como transferir subscrições.
 
@@ -148,7 +148,7 @@ As Reservas do Azure não são movidas automaticamente com as subscrições. [Co
 
 ### <a name="access-to-azure-services"></a>Acesso aos serviços do Azure
 
-O acesso para usuários existentes, grupos ou entidades de serviço que foi atribuído usando o [RBAC do Azure (controle de acesso baseado em função)](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obterá nenhum novo acesso RBAC às assinaturas.  
+O acesso a utilizadores, grupos ou principais de serviço existentes atribuído com o [RBAC (controlo de acesso baseado em funções) do Azure](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obtém novos acessos RBAC para as subscrições.  
 
 Os parceiros devem colaborar com o cliente para obterem acesso às subscrições.  Os parceiros precisam de ter acesso de [Administração em Nome de – AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) ou de [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) para abrir pedidos de suporte.
 

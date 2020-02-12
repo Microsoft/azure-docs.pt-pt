@@ -38,7 +38,7 @@ Os serviços do catálogo de dados estão disponíveis no momento nos seguintes 
 * Europa Ocidental
 * Europa do Norte
 * Leste da Austrália
-* Sudeste Asiático
+* Ásia Sudeste
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Quais são seus limites no número de ativos de dados?
 A edição gratuita do catálogo de dados é limitada a 5.000 ativos de dados registrados.

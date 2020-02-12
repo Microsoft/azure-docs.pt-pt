@@ -1,156 +1,156 @@
 ---
 title: Gerir os serviços Web
 titleSuffix: ML Studio (classic) - Azure
-description: Gerencie seus Machine Learning serviços Web novos e clássicos usando o portal de serviços Web do Microsoft Azure Machine Learning. Como os serviços Web clássicos e os novos serviços Web são baseados em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
+description: Gerencie os seus serviços Web De Aprendizagem Automática Novos e Clássicos utilizando o portal Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web Clássicos e os novos serviços Web são baseados em diferentes tecnologias subjacentes, você tem capacidades de gestão ligeiramente diferentes para cada um deles.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2e72c8a363ee7f58630b1c0d8d0f00434c2e2b7e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f6c686151cbf22d375151268afb04a47bd1b8924
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838796"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153405"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerenciar um serviço Web usando o portal de serviços Web Azure Machine Learning Studio (clássico)
-Você pode gerenciar seus Machine Learning serviços Web novos e clássicos usando o portal de serviços Web do Microsoft Azure Machine Learning. Como os serviços Web clássicos e os novos serviços Web são baseados em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerencie um serviço web utilizando o portal Azure Machine Learning Studio (clássico) Web Services
+Pode gerir os seus serviços Web Machine Learning New and Classic utilizando o portal Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web Clássicos e os novos serviços Web são baseados em diferentes tecnologias subjacentes, você tem capacidades de gestão ligeiramente diferentes para cada um deles.
 
-No portal de serviços Web do Machine Learning, você pode:
+No portal de Serviços Web de Aprendizagem automática pode:
 
-* Monitore como o serviço Web está sendo usado.
-* Configure a descrição, atualize as chaves do serviço Web (somente nova), atualize sua chave de conta de armazenamento (somente nova), habilite o registro em log e habilite ou desabilite os dados de exemplo.
-* Exclua o serviço Web.
-* Criar, excluir ou atualizar planos de cobrança (somente novo).
-* Adicionar e excluir pontos de extremidade (somente clássico)
+* Monitorize a forma como o serviço web está a ser utilizado.
+* Configure a descrição, atualize as teclas para o serviço web (apenas nova), atualize a chave da sua conta de armazenamento (apenas nova), ative o registo e ative ou desative os dados da amostra.
+* Elimine o serviço web.
+* Criar, eliminar ou atualizar planos de faturação (apenas novos).
+* Adicionar e eliminar pontos finais (apenas clássicos)
 
 >[!NOTE]
->Você também pode gerenciar serviços Web clássicos no [Machine Learning Studio (clássico)](https://studio.azureml.net) na guia **Serviços Web** .
+>Também pode gerir os serviços web Clássicos no [Machine Learning Studio (clássico)](https://studio.azureml.net) no separador de **serviços Web.**
 
-## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permissões para gerenciar novos serviços Web baseados no Gerenciador de recursos
+## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permissões para gerir serviços web baseados em New Resources Manager
 
-Novos serviços Web são implantados como recursos do Azure. Dessa forma, você deve ter as permissões corretas para implantar e gerenciar novos serviços Web.  Para implantar ou gerenciar novos serviços Web, você deve receber uma função de colaborador ou administrador na assinatura na qual o serviço Web está implantado. Se você convidar outro usuário para um espaço de trabalho do Machine Learning, deverá atribuí-los a uma função de colaborador ou de administrador na assinatura para poder implantar ou gerenciar serviços Web. 
+Novos serviços web são implantados como recursos Azure. Como tal, deve ter as permissões corretas para implementar e gerir novos serviços web.  Para implementar ou gerir Novos serviços web deve ser-lhe atribuído um papel de contribuinte ou administrador na subscrição à qual o serviço web é implementado. Se convidar outro utilizador para um espaço de trabalho de aprendizagem automática, deve atribuí-lo a um papel de contribuinte ou administrador na subscrição antes de poder implementar ou gerir serviços web. 
 
-Se o usuário não tiver as permissões corretas para acessar recursos no portal de serviços Web Azure Machine Learning, ele receberá o seguinte erro ao tentar implantar um serviço Web:
+Se o utilizador não tiver as permissões corretas para aceder aos recursos no portal azure Machine Learning Web Services, receberá o seguinte erro ao tentar implementar um serviço web:
 
-*Falha na implantação do serviço Web. Essa conta não tem acesso suficiente à assinatura do Azure que contém o espaço de trabalho. Para implantar um serviço Web no Azure, a mesma conta deve ser convidada para o espaço de trabalho e receber acesso à assinatura do Azure que contém o espaço de trabalho.*
+*A implementação do Serviço Web falhou. Esta conta não tem acesso suficiente à subscrição do Azure que contém o Workspace. Para implementar um Serviço Web para o Azure, a mesma conta deve ser convidada para o Espaço de Trabalho e ter acesso à subscrição Azure que contém o Espaço de Trabalho.*
 
-Para obter mais informações sobre como criar um espaço de trabalho, consulte [criar e compartilhar um Azure Machine Learning Studio (clássico) espaço de trabalho](create-workspace.md).
+Para obter mais informações sobre a criação de um espaço de trabalho, consulte Create e partilhe um espaço de [trabalho azure Machine Learning Studio (clássico).](create-workspace.md)
 
-Para obter mais informações sobre como definir permissões de acesso, consulte [gerenciar o acesso usando RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações sobre a definição de permissões de acesso, consulte [Gerir o acesso utilizando o RBAC e o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
-## <a name="manage-new-web-services"></a>Gerenciar novos serviços Web
-Para gerenciar seus novos serviços Web:
+## <a name="manage-new-web-services"></a>Gerir novos serviços Web
+Para gerir os seus novos serviços Web:
 
-1. Entre no portal de [Serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) usando sua conta do Microsoft Azure-use a conta que está associada à assinatura do Azure.
+1. Inscreva-se no portal [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) utilizando a sua conta Microsoft Azure - utilize a conta associada à subscrição do Azure.
 2. No menu, clique em **Serviços Web**.
 
-Isso exibe uma lista de serviços Web implantados para sua assinatura. 
+Isto apresenta uma lista de serviços Web implantados para a sua subscrição. 
 
-Para gerenciar um serviço Web, clique em serviços Web. Na página serviços Web, você pode:
+Para gerir um serviço Web, clique em Web Services. A partir da página de Serviços Web pode:
 
-* Clique no serviço Web para gerenciá-lo.
-* Clique no plano de cobrança para o serviço Web para atualizá-lo.
-* Excluir um serviço Web.
-* Copie um serviço Web e implante-o em outra região.
+* Clique no serviço web para geri-lo.
+* Clique no Plano de Faturação para o serviço web para atualizá-lo.
+* Apague um serviço web.
+* Copie um serviço web e desemque-o para outra região.
 
-Quando você clica em um serviço Web, a página início rápido do serviço Web é aberta. A página de início rápido do serviço Web tem duas opções de menu que permitem que você gerencie seu serviço Web:
+Quando clica num serviço web, a página quickstart do serviço web abre. A página quickstart do serviço web tem duas opções de menu que lhe permitem gerir o seu serviço web:
 
-* **Painel** – permite exibir o uso do serviço Web.
-* **Configurar** – permite que você adicione texto descritivo, atualize a chave da conta de armazenamento associada ao serviço Web e habilite ou desabilite dados de exemplo.
+* **DASHBOARD** - Permite-lhe visualizar o uso do serviço Web.
+* **CONFIGURE** - Permite-lhe adicionar texto descritivo, atualizar a chave para a conta de armazenamento associada ao serviço Web e ativar ou desativar os dados da amostra.
 
-### <a name="monitoring-how-the-web-service-is-being-used"></a>Monitorando como o serviço Web está sendo usado
-Clique na guia **painel** .
+### <a name="monitoring-how-the-web-service-is-being-used"></a>Monitorização da forma como o serviço web está a ser utilizado
+Clique no **separador DASHBOARD.**
 
-No painel, você pode exibir o uso geral do serviço Web em um período de tempo. Você pode selecionar o período a ser exibido no menu suspenso período no canto superior direito dos gráficos de uso. O painel mostra as seguintes informações:
+A partir do painel de instrumentos, pode visualizar o uso geral do seu serviço Web durante um período de tempo. Pode selecionar o período a visualizar a partir do menu de dropdown period no canto superior direito dos gráficos de utilização. O painel de instrumentos mostra as seguintes informações:
 
-* **Solicitações ao longo do tempo** exibe um gráfico de etapas do número de solicitações no período de tempo selecionado. Ele pode ajudar a identificar se você está enfrentando picos de uso.
-* **Solicitações de solicitação-resposta** exibe o número total de chamadas de solicitação-resposta que o serviço recebeu durante o período de tempo selecionado e quantos deles falharam.
-* **Tempo médio de computação de solicitação-resposta** exibe uma média do tempo necessário para executar as solicitações recebidas.
-* **Solicitações em lote** exibe o número total de solicitações de lote que o serviço recebeu durante o período de tempo selecionado e quantos deles falharam.
-* **Latência média do trabalho** exibe uma média do tempo necessário para executar as solicitações recebidas.
-* **Erros** exibe o número agregado de erros que ocorreram em chamadas para o serviço Web.
-* **Os custos de serviços** exibe os encargos do plano de cobrança associado ao serviço.
+* **Pedidos Ao Longo** do Tempo apresenta um gráfico de passo do número de pedidos durante o período de tempo selecionado. Pode ajudar a identificar se está a sentir picos de utilização.
+* **Pedidos de Resposta a Pedidos** exibe o número total de chamadas de Resposta a Pedido que o serviço recebeu durante o período de tempo selecionado e quantas delas falharam.
+* O tempo médio da **computação de resposta ao pedido** apresenta uma média do tempo necessário para executar os pedidos recebidos.
+* Os Pedidos de Lote mostram o número total de Pedidos de Lote que o serviço recebeu durante o período de tempo selecionado e **quantos** deles falharam.
+* **A Latência Média** de Trabalho apresenta uma média do tempo necessário para executar os pedidos recebidos.
+* **Erros** mostram o número agregado de erros que ocorreram nas chamadas para o serviço web.
+* **Serviços Custos** exibem os encargos para o plano de faturação associado ao serviço.
 
-### <a name="configuring-the-web-service"></a>Configurando o serviço Web
-Clique na opção de menu **Configurar** .
+### <a name="configuring-the-web-service"></a>Configurar o serviço web
+Clique na opção de menu **CONFIGURE.**
 
-Você pode atualizar as seguintes propriedades:
+Pode atualizar as seguintes propriedades:
 
-* **Descrição** permite que você insira uma descrição para o serviço Web.
-* O **título** permite que você insira um título para o serviço Web
-* **As chaves** permitem que você gire suas chaves de API primárias e secundárias.
-* A **chave da conta de armazenamento** permite que você atualize a chave da conta de armazenamento associada às alterações do serviço Web. 
-* **Habilitar dados de exemplo** permite que você forneça dados de exemplo que você pode usar para testar o serviço de solicitação-resposta. Se você criou o serviço Web no Machine Learning Studio (clássico), os dados de exemplo serão obtidos dos dados que você usou para treinar seu modelo. Se você criou o serviço programaticamente, os dados são extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
+* **A descrição** permite-lhe introduzir uma descrição para o serviço Web.
+* **O título** permite-lhe introduzir um título para o serviço Web
+* **As teclas** permitem rodar as suas teclas API primárias e secundárias.
+* **A chave da conta** de armazenamento permite-lhe atualizar a chave para a conta de armazenamento associada às alterações do serviço Web. 
+* **Ativar os dados da amostra** permite-lhe fornecer dados da amostra que pode utilizar para testar o serviço de Resposta a Pedido. Se criou o serviço web no Machine Learning Studio (clássico), os dados da amostra são retirados dos dados utilizados para treinar o seu modelo. Se criou o serviço programáticamente, os dados são retirados dos dados de exemplo que forneceu como parte do pacote JSON.
 
-### <a name="managing-billing-plans"></a>Gerenciando planos de cobrança
-Clique na opção de menu **planos** na página início rápido dos serviços Web. Você também pode clicar no plano associado a um serviço Web específico para gerenciar esse plano.
+### <a name="managing-billing-plans"></a>Gestão de planos de faturação
+Clique na opção de menu **Planos** a partir da página quickstart dos serviços web. Também pode clicar no plano associado a um serviço Web específico para gerir esse plano.
 
-* **Novo** permite que você crie um novo plano.
-* **Adicionar/remover instância de plano** permite que você "Escale horizontalmente" um plano existente para adicionar capacidade.
-* O **upgrade/DownGrade** permite que você "Escale verticalmente" um plano existente para adicionar capacidade.
-* **Excluir** permite que você exclua um plano.
+* **Novo** permite-lhe criar um novo plano.
+* **Adicionar/Remover A instância do Plano** permite-lhe "escalar" um plano existente para adicionar capacidade.
+* **Upgrade/DownGrade** permite-lhe "escalar" um plano existente para adicionar capacidade.
+* **O eliminar** permite-lhe apagar um plano.
 
-Clique em um plano para exibir seu painel. O painel fornece instantâneo ou uso do plano durante um período de tempo selecionado. Para selecionar o período de tempo a ser exibido, clique na lista suspensa **período** no canto superior direito do painel. 
+Clique num plano para ver o seu painel de instrumentos. O painel de instrumentos dá-lhe uma utilização instantânea ou plana durante um período de tempo selecionado. Para selecionar o período de tempo para visualizar, clique no **período** de paragem no canto superior direito do painel de instrumentos. 
 
-O painel de plano fornece as seguintes informações:
+O painel de instrumentos do plano fornece as seguintes informações:
 
-* **Descrição do plano** exibe informações sobre os custos e a capacidade associados ao plano.
-* O **uso do plano** exibe o número de transações e horas de computação que foram cobradas no plano.
-* **Serviços Web** exibe o número de serviços Web que estão usando este plano.
-* O **principal serviço Web por chamadas** exibe os quatro principais serviços Web que estão fazendo chamadas que são cobradas em relação ao plano.
-* **Principais serviços Web por h de computação** exibe os quatro principais serviços Web que estão usando recursos de computação que são cobrados em relação ao plano.
+* **Descrição do plano** mostra informações sobre os custos e capacidade associados ao plano.
+* **O Plan Usage** apresenta o número de transações e horas de computação que foram cobradas contra o plano.
+* **Os Serviços Web** exibem o número de serviços Web que estão a utilizar este plano.
+* **O Top Web Service By Calls** exibe os quatro principais serviços Web que estão a fazer chamadas que são cobradas contra o plano.
+* **Os principais serviços web da Compute Hrs** exibem os quatro principais serviços Web que estão a usar recursos computacionais que são cobrados contra o plano.
 
-## <a name="manage-classic-web-services"></a>Gerenciar serviços Web clássicos
+## <a name="manage-classic-web-services"></a>Gerir serviços web clássicos
 > [!NOTE]
-> Os procedimentos nesta seção são relevantes para o gerenciamento de serviços Web clássicos por meio do portal de serviços Web Azure Machine Learning. Para obter informações sobre como gerenciar serviços Web clássicos por meio do Machine Learning Studio (clássico) e do portal do Azure, consulte [gerenciar um espaço de trabalho Azure Machine Learning Studio (clássico)](manage-workspace.md).
+> Os procedimentos nesta secção são relevantes para a gestão de serviços web clássicos através do portal Azure Machine Learning Web Services. Para obter informações sobre a gestão dos serviços Web Clássicos através do Machine Learning Studio (clássico) e do portal Azure, consulte [Manage a Azure Machine Learning Studio (clássico) espaço](manage-workspace.md)de trabalho.
 > 
 > 
 
-Para gerenciar seus serviços Web clássicos:
+Para gerir os seus serviços Web Clássicos:
 
-1. Entre no portal de [Serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) usando sua conta do Microsoft Azure-use a conta que está associada à assinatura do Azure.
-2. No menu, clique em **Serviços Web clássicos**.
+1. Inscreva-se no portal [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) utilizando a sua conta Microsoft Azure - utilize a conta associada à subscrição do Azure.
+2. No menu, clique em **Serviços Web Clássicos**.
 
-Para gerenciar um serviço Web clássico, clique em **Serviços Web clássicos**. Na página de serviços Web clássicos, você pode:
+Para gerir um Serviço Web Clássico, clique em **Serviços Web Clássicos**. A partir da página de Serviços Web Clássicos pode:
 
-* Clique no serviço Web para exibir os pontos de extremidade associados.
-* Excluir um serviço Web.
+* Clique no serviço web para ver os pontos finais associados.
+* Apague um serviço web.
 
-Ao gerenciar um serviço Web clássico, você gerencia cada um dos pontos de extremidade separadamente. Quando você clica em um serviço Web na página serviços Web, a lista de pontos de extremidade associados ao serviço é aberta. 
+Quando gere um serviço Web Clássico, gere cada um dos pontos finais separadamente. Quando clica num serviço web na página dos Serviços Web, abre a lista de pontos finais associados ao serviço. 
 
-Na página ponto de extremidade do serviço da Web clássico, você pode adicionar e excluir pontos de extremidade no serviço. Para obter mais informações sobre como adicionar pontos de extremidade, consulte [criando pontos de extremidade](create-endpoint.md).
+Na página final do Classic Web Service, pode adicionar e eliminar pontos finais no serviço. Para obter mais informações sobre a adição de pontos [finais, consulte Criar Pontos Finais](create-endpoint.md).
 
-Clique em um dos pontos de extremidade para abrir a página início rápido do serviço Web. Na página de início rápido, há duas opções de menu que permitem que você gerencie seu serviço Web:
+Clique num dos pontos finais para abrir a página quickstart do serviço web. Na página Quickstart, existem duas opções de menu que lhe permitem gerir o seu serviço web:
 
-* **Painel** – permite exibir o uso do serviço Web.
-* **Configurar** – permite adicionar texto descritivo, ativar e desativar o log de erros, atualizar a chave da conta de armazenamento associada ao serviço Web e habilitar e desabilitar dados de exemplo.
+* **DASHBOARD** - Permite-lhe visualizar o uso do serviço Web.
+* **CONFIGURE** - Permite-lhe adicionar texto descritivo, ligar e desligar o registo de erros, atualizar a chave para a conta de armazenamento associada ao serviço Web e ativar e desativar os dados da amostra.
 
-### <a name="monitoring-how-the-web-service-is-being-used"></a>Monitorando como o serviço Web está sendo usado
-Clique na guia **painel** .
+### <a name="monitoring-how-the-web-service-is-being-used"></a>Monitorização da forma como o serviço web está a ser utilizado
+Clique no **separador DASHBOARD.**
 
-No painel, você pode exibir o uso geral do serviço Web em um período de tempo. Você pode selecionar o período a ser exibido no menu suspenso período no canto superior direito dos gráficos de uso. O painel mostra as seguintes informações:
+A partir do painel de instrumentos, pode visualizar o uso geral do seu serviço Web durante um período de tempo. Pode selecionar o período a visualizar a partir do menu de dropdown period no canto superior direito dos gráficos de utilização. O painel de instrumentos mostra as seguintes informações:
 
-* **Solicitações ao longo do tempo** exibe um gráfico de etapas do número de solicitações no período de tempo selecionado. Ele pode ajudar a identificar se você está enfrentando picos de uso.
-* **Solicitações de solicitação-resposta** exibe o número total de chamadas de solicitação-resposta que o serviço recebeu durante o período de tempo selecionado e quantos deles falharam.
-* **Tempo médio de computação de solicitação-resposta** exibe uma média do tempo necessário para executar as solicitações recebidas.
-* **Solicitações em lote** exibe o número total de solicitações de lote que o serviço recebeu durante o período de tempo selecionado e quantos deles falharam.
-* **Latência média do trabalho** exibe uma média do tempo necessário para executar as solicitações recebidas.
-* **Erros** exibe o número agregado de erros que ocorreram em chamadas para o serviço Web.
-* **Os custos de serviços** exibe os encargos do plano de cobrança associado ao serviço.
+* **Pedidos Ao Longo** do Tempo apresenta um gráfico de passo do número de pedidos durante o período de tempo selecionado. Pode ajudar a identificar se está a sentir picos de utilização.
+* **Pedidos de Resposta a Pedidos** exibe o número total de chamadas de Resposta a Pedido que o serviço recebeu durante o período de tempo selecionado e quantas delas falharam.
+* O tempo médio da **computação de resposta ao pedido** apresenta uma média do tempo necessário para executar os pedidos recebidos.
+* Os Pedidos de Lote mostram o número total de Pedidos de Lote que o serviço recebeu durante o período de tempo selecionado e **quantos** deles falharam.
+* **A Latência Média** de Trabalho apresenta uma média do tempo necessário para executar os pedidos recebidos.
+* **Erros** mostram o número agregado de erros que ocorreram nas chamadas para o serviço web.
+* **Serviços Custos** exibem os encargos para o plano de faturação associado ao serviço.
 
-### <a name="configuring-the-web-service"></a>Configurando o serviço Web
-Clique na opção de menu **Configurar** .
+### <a name="configuring-the-web-service"></a>Configurar o serviço web
+Clique na opção de menu **CONFIGURE.**
 
-Você pode atualizar as seguintes propriedades:
+Pode atualizar as seguintes propriedades:
 
-* **Descrição** permite que você insira uma descrição para o serviço Web. Descrição é um campo obrigatório.
-* O **registro em log** permite habilitar ou desabilitar o log de erros no ponto de extremidade. Para obter mais informações sobre registro em log, consulte Habilitar o [log para serviços web Machine Learning](web-services-logging.md).
-* **Habilitar dados de exemplo** permite que você forneça dados de exemplo que você pode usar para testar o serviço de solicitação-resposta. Se você criou o serviço Web no Machine Learning Studio (clássico), os dados de exemplo serão obtidos dos dados que você usou para treinar seu modelo. Se você criou o serviço programaticamente, os dados são extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
+* **A descrição** permite-lhe introduzir uma descrição para o serviço Web. A descrição é um campo obrigatório.
+* **O registo** permite-lhe ativar ou desativar o registo de erros no ponto final. Para obter mais informações sobre a exploração madeireira, consulte A [exploração de login para serviços web de aprendizagem automática](web-services-logging.md).
+* **Ativar os dados da amostra** permite-lhe fornecer dados da amostra que pode utilizar para testar o serviço de Resposta a Pedido. Se criou o serviço web no Machine Learning Studio (clássico), os dados da amostra são retirados dos dados utilizados para treinar o seu modelo. Se criou o serviço programáticamente, os dados são retirados dos dados de exemplo que forneceu como parte do pacote JSON.
 
 

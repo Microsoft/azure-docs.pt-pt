@@ -31,8 +31,8 @@ ms.locfileid: "72783595"
 | Sul do Reino Unido            | 2                       |
 | Oeste do Reino Unido             | 2                       |
 |                     |                         |
-| Ásia Oriental           | 2                       |
-| Sudeste Asiático     | 2                       |
+| Ásia Leste           | 2                       |
+| Ásia Sudeste     | 2                       |
 | Leste do Japão          | 2                       |
 | Oeste do Japão          | 2                       |
 | Sul da Índia         | 2                       |
@@ -48,7 +48,7 @@ ms.locfileid: "72783595"
 | Norte da China 2       | 2                       |
 |                     |                         |
 | Leste da Austrália      | 2                       |
-| Sudeste da Austrália | 2                       |
+| Austrália Sudeste | 2                       |
 | Austrália Central   | 2                       |
 | Austrália Central 2 | 2                       |
 |                     |                         |

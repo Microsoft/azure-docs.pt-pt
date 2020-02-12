@@ -57,7 +57,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
   * E.U.A. Central
   * EUA Central EUAP
   * Europa do Norte
-  * Sudeste Asiático
+  * Ásia Sudeste
 
 * Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com o [desenvolvimento de C++ desktop com](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) a carga de trabalho habilitada.
 * Instale a versão mais recente do [Git](https://git-scm.com/download/).

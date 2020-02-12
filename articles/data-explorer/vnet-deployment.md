@@ -105,14 +105,14 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Austrália Central | 20.37.26.134 |
 | Central2 da Austrália | 20.39.99.177 |
 | Leste da Austrália | 40.82.217.84 |
-| Sudeste da Austrália | 20.40.161.39 |
+| Austrália Sudeste | 20.40.161.39 |
 | BrazilSouth | 191.233.25.183 |
 | Canadá Central | 40.82.188.208 |
 | Leste do Canadá | 40.80.255.12 |
 | Índia Central | 40.81.249.251 |
 | E.U.A. Central | 40.67.188.68 |
 | EUA Central EUAP | 40.89.56.69 |
-| Ásia Oriental | 20.189.74.103 |
+| Ásia Leste | 20.189.74.103 |
 | E.U.A. Leste | 52.224.146.56 |
 | E.U.A. Leste 2 | 52.232.230.201 |
 | EUAP dos EUA 2 leste | 52.253.226.110 |
@@ -127,7 +127,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Norte da África do Sul | 102.133.129.138 |
 | Oeste da África do Sul | 102.133.0.97 |
 | E.U.A. Centro-Sul | 20.45.3.60 |
-| Sudeste Asiático | 40.119.203.252 |
+| Ásia Sudeste | 40.119.203.252 |
 | Sul da Índia | 40.81.72.110 |
 | Sul do Reino Unido | 40.81.154.254 |
 | Oeste do Reino Unido | 40.81.122.39 |
@@ -144,14 +144,14 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Austrália Central | 191.239.64.128 |
 | Austrália Central 2 | 191.239.64.128 |
 | Leste da Austrália | 191.239.64.128 |
-| Sudeste da Austrália | 191.239.160.47 |
+| Austrália Sudeste | 191.239.160.47 |
 | Sul do Brasil | 23.98.145.105 |
 | Canadá Central | 168.61.212.201 |
 | Leste do Canadá | 168.61.212.201 |
 | Índia Central | 23.99.5.162 |
 | E.U.A. Central | 168.61.212.201 |
 | EUA Central EUAP | 168.61.212.201 |
-| Ásia Oriental | 168.63.212.33 |
+| Ásia Leste | 168.63.212.33 |
 | E.U.A. Leste | 137.116.81.189 |
 | E.U.A. Leste 2 | 137.116.81.189 |
 | Leste dos EUA 2 EUAP | 137.116.81.189 |
@@ -167,7 +167,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Oeste da África do Sul | 104.211.224.189 |
 | E.U.A. Centro-Sul | 23.98.145.105 |
 | Sul da Índia | 23.99.5.162 |
-| Sudeste Asiático | 168.63.173.234 |
+| Ásia Sudeste | 168.63.173.234 |
 | Sul do Reino Unido | 23.97.212.5 |
 | Oeste do Reino Unido | 23.97.212.5 |
 | E.U.A. Centro-Oeste | 168.61.212.201 |

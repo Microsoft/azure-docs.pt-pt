@@ -1,101 +1,101 @@
 ---
-title: Execute scripts do Python
+title: Executar scripts Python
 titleSuffix: ML Studio (classic) - Azure
-description: Saiba como usar o módulo executar script Python para usar o código Python em experimentos Machine Learning Studio (clássico) e serviços Web.
+description: Aprenda a usar o módulo Execute Python Script para utilizar o código Python em machine learning studio (clássico) experiências e serviços web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: c43f3021009c0c8a5a414b18bb9f0ff7d7a4a4bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a5512069ec609783d166b8417a7006ec4ab17fe1
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427658"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153439"
 ---
-# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Executar scripts do Python Machine Learning no Azure Machine Learning Studio (clássico)
+# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Execute scripts de aprendizagem automática Python no Estúdio de Aprendizagem automática Azure (clássico)
 
-O Python é uma ferramenta valiosa na conjunto de ferramentas de muitos cientistas de dados. Ele é usado em todos os estágios de fluxos de trabalho de aprendizado de máquina típicos, incluindo exploração de dados, extração de recursos, treinamento e validação de modelo e implantação.
+Python é uma ferramenta valiosa no peito de ferramentas de muitos cientistas de dados. É usado em todas as fases dos fluxos típicos de trabalho de aprendizagem automática, incluindo exploração de dados, extração de recursos, treino e validação de modelos, e implantação.
 
-Este artigo descreve como você pode usar o módulo executar script Python para usar o código Python em seus experimentos Azure Machine Learning Studio (clássico) e serviços Web.
+Este artigo descreve como pode utilizar o módulo Execute Python Script para utilizar o código Python nas suas experiências e serviços web do Azure Machine Learning Studio (clássico).
 
-## <a name="using-the-execute-python-script-module"></a>Usando o módulo executar script Python
+## <a name="using-the-execute-python-script-module"></a>Utilizando o módulo de script de execução python
 
-A interface principal para Python no Studio (clássico) é por meio do módulo [Executar script Python][execute-python-script] . Ele aceita até três entradas e produz até duas saídas, semelhante ao módulo [Executar script R][execute-r-script] . O código Python é inserido na caixa de parâmetros por meio de uma função de ponto de entrada especialmente nomeada chamada `azureml_main`.
+A interface primária para Python em Estúdio (clássico) é através do módulo [Execute Python Script.][execute-python-script] Aceita até três inputs e produz até duas saídas, semelhantes ao módulo [Execute R Script.][execute-r-script] O código Python é introduzido na caixa de parâmetros através de uma função de ponto de entrada especialmente denominada chamada `azureml_main`.
 
-![Executar módulo de script Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
+![Execute módulo de script python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
-![Código Python de exemplo na caixa de parâmetro de módulo](./media/execute-python-scripts/embedded-machine-learning-python-script.png)
+![Código python de amostra na caixa de parâmetros do módulo](./media/execute-python-scripts/embedded-machine-learning-python-script.png)
 
 ### <a name="input-parameters"></a>Parâmetros de entrada
 
-As entradas para o módulo python são expostas como os dataframes do pandas. A função `azureml_main` aceita até dois quadros de molduras opcionais do pandas como parâmetros.
+As inputs do módulo Python são expostas como Pandas DataFrames. A função `azureml_main` aceita até dois Dados De Dados pandas opcionais como parâmetros.
 
 O mapeamento entre as portas de entrada e os parâmetros de função é posicional:
 
-- A primeira porta de entrada conectada é mapeada para o primeiro parâmetro da função.
-- A segunda entrada (se conectada) é mapeada para o segundo parâmetro da função.
-- A terceira entrada é usada para [Importar módulos Python adicionais](#import-modules).
+- A primeira porta de entrada ligada é mapeada para o primeiro parâmetro da função.
+- A segunda entrada (se ligada) é mapeada para o segundo parâmetro da função.
+- A terceira entrada é utilizada para [importar módulos Python adicionais.](#import-modules)
 
-Uma semântica mais detalhada de como as portas de entrada são mapeadas para parâmetros da função `azureml_main` são mostrados abaixo.
+Semântica mais detalhada de como as portas de entrada são mapeadas para parâmetros da função `azureml_main` são mostradas abaixo.
 
-![Tabela de configurações de porta de entrada e assinatura do Python resultante](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
+![Tabela de configurações da porta de entrada e assinatura Python resultante](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 ### <a name="output-return-values"></a>Valores de retorno de saída
 
-A função `azureml_main` deve retornar um único quadro de tabela pandas em uma [sequência](https://docs.python.org/2/c-api/sequence.html) do Python, como uma tupla, uma lista ou uma matriz numpy. O primeiro elemento dessa sequência é retornado para a primeira porta de saída do módulo. A segunda porta de saída do módulo é usada para [visualizações](#visualizations) e não requer um valor de retorno. Esse esquema é mostrado abaixo.
+A função `azureml_main` deve devolver um único DataFrame pandas embalado numa [sequência](https://docs.python.org/2/c-api/sequence.html) Python, como uma matriz de tuple, lista ou numpy. O primeiro elemento desta sequência é devolvido à primeira porta de saída do módulo. A segunda porta de saída do módulo é utilizada para [visualizações](#visualizations) e não requer um valor de retorno. Este esquema é mostrado abaixo.
 
-![Mapeando portas de entrada para parâmetros e retornando o valor para a porta de saída](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
+![Mapear portas de entrada para parâmetros e devolver valor à porta de saída](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
-## <a name="translation-of-input-and-output-data-types"></a>Tradução de tipos de dados de entrada e saída
+## <a name="translation-of-input-and-output-data-types"></a>Tradução dos tipos de dados de entrada e de saída
 
-Os conjuntos de valores do estúdio não são os mesmos que o Panda dataframes. Como resultado, os conjuntos de dados de entrada no estúdio (clássico) são convertidos em pandas dataframe, e os dataframes de saída são convertidos de volta nos conjuntos de dados do estúdio (clássico). Durante esse processo de conversão, as seguintes traduções também são executadas:
+Os conjuntos de dados do estúdio não são os mesmos que os Dados panda. Como resultado, os conjuntos de dados de entrada em Studio (clássico) são convertidos para Pandas DataFrame, e os DataFrames de saída são convertidos de volta para conjuntos de dados Studio (clássicos). Durante este processo de conversão, são também realizadas as seguintes traduções:
 
- **Tipo de dados do Python** | **Procedimento de tradução do estúdio** |
+ **Tipo de dados python** | **Procedimento de tradução de estúdio** |
 | --- | --- |
-| Cadeias de caracteres e numéricos| Traduzido como está |
-| Pandas ' NA ' | Traduzido como ' valor ausente ' |
-| Vetores de índice | Sem suporte |
-| Nomes de coluna que não são de cadeia de caracteres | Chamar `str` em nomes de coluna |
-| Nomes de coluna duplicados | Adicionar sufixo numérico: (1), (2), (3) e assim por diante.
+| Cordas e numéricos| Traduzido como é |
+| Pandas 'NA' | Traduzido como 'Valor em falta' |
+| Vetores de índice | Sem apoio* |
+| Nomes de colunas sem cordas | Ligue `str` sobre nomes de colunas |
+| Nomes de colunas duplicadas | Adicione sufixo numérico: (1), (2), (3) e assim por diante.
 
-**todos os quadros de dados de entrada na função Python sempre têm um índice numérico de 64 bits de 0 até o número de linhas menos 1*
+*Todos os quadros de dados de *entrada na função Python têm sempre um índice numérico de 64 bits de 0 ao número de linhas menos 1*
 
-## <a id="import-modules"></a>Importando módulos de script Python existentes
+## <a id="import-modules"></a>Importar módulos de script python existentes
 
-O back-end usado para executar o Python é baseado em [Anaconda](https://www.anaconda.com/distribution/), uma distribuição de Python científica amplamente usada. Ele vem com quase 200 dos pacotes python mais comuns usados em cargas de trabalho centradas em dados. O estúdio (clássico) atualmente não dá suporte ao uso de sistemas de gerenciamento de pacotes como PIP ou Conda para instalar e gerenciar bibliotecas externas.  Se você achar a necessidade de incorporar bibliotecas adicionais, use o cenário a seguir como guia.
+O backend usado para executar Python é baseado em [Anaconda,](https://www.anaconda.com/distribution/)uma distribuição científica de Python amplamente utilizada. Vem com cerca de 200 dos pacotes python mais comuns usados em cargas de trabalho centradas em dados. O Studio (clássico) não suporta atualmente a utilização de sistemas de gestão de pacotes como o Pip ou a Conda para instalar e gerir bibliotecas externas.  Se encontrar a necessidade de incorporar bibliotecas adicionais, utilize o seguinte cenário como guia.
 
-Um caso de uso comum é incorporar scripts Python existentes em experimentos de estúdio (clássicos). O módulo [Executar script Python][execute-python-script] aceita um arquivo ZIP contendo módulos Python na terceira porta de entrada. O arquivo é descompactado pela estrutura de execução no tempo de execução e o conteúdo é adicionado ao caminho da biblioteca do intérprete do Python. A função de ponto de entrada `azureml_main` pode então importar esses módulos diretamente. 
+Um caso comum de uso é incorporar scripts Python existentes em experiências studio (clássicas). O módulo [Execute Python Script][execute-python-script] aceita um ficheiro zip contendo módulos Python na terceira porta de entrada. O ficheiro é desapertado pelo quadro de execução em tempo de execução e os conteúdos são adicionados ao caminho da biblioteca do intérprete Python. A função `azureml_main` ponto de entrada pode então importar estes módulos diretamente. 
 
-Como exemplo, considere o arquivo Hello.py que contém uma função "Hello, World" simples.
+Como exemplo, considere o ficheiro Hello.py contendo uma função simples "Olá, Mundo".
 
-![Função definida pelo usuário no arquivo Hello.py](./media/execute-python-scripts/figure4.png)
+![Função definida pelo utilizador no ficheiro Hello.py](./media/execute-python-scripts/figure4.png)
 
-Em seguida, criamos um arquivo Hello. zip que contém Hello.py:
+Em seguida, criamos um ficheiro Hello.zip que contém Hello.py:
 
-![Arquivo zip que contém o código Python definido pelo usuário](./media/execute-python-scripts/figure5.png)
+![Ficheiro postal contendo código Python definido pelo utilizador](./media/execute-python-scripts/figure5.png)
 
-Carregue o arquivo zip como um conjunto de um DataSet no Studio (clássico). Em seguida, crie e execute um experimento que use o código Python no arquivo Hello. zip anexando-o à terceira porta de entrada do módulo **Executar script Python** , conforme mostrado na imagem a seguir.
+Faça upload do ficheiro zip como um conjunto de dados para studio (clássico). Em seguida, crie e execute uma experiência que usa o código Python no ficheiro Hello.zip, fixando-o à terceira porta de entrada do módulo **Execute Python Script,** como mostrado na imagem seguinte.
 
-![Teste de exemplo com Hello. zip como uma entrada para um módulo executar script Python](./media/execute-python-scripts/figure6a.png)
+![Experimente a amostra com Hello.zip como entrada para um módulo execute Python Script](./media/execute-python-scripts/figure6a.png)
 
-![Código Python definido pelo usuário carregado como um arquivo zip](./media/execute-python-scripts/figure6b.png)
+![Código Python definido pelo utilizador carregado como um ficheiro zip](./media/execute-python-scripts/figure6b.png)
 
-A saída do módulo mostra que o arquivo zip foi desempacotado e que a função `print_hello` foi executada.
+A saída do módulo mostra que o ficheiro zip foi desembalado e que a função `print_hello` foi executada.
 
-![Saída do módulo mostrando a função definida pelo usuário](./media/execute-python-scripts/figure7.png)
+![Saída do módulo mostrando função definida pelo utilizador](./media/execute-python-scripts/figure7.png)
 
-## <a name="accessing-azure-storage-blobs"></a>Acessando blobs de armazenamento do Azure
+## <a name="accessing-azure-storage-blobs"></a>Acesso a Blobs de Armazenamento Azure
 
-Você pode acessar os dados armazenados em uma conta de armazenamento de BLOBs do Azure usando estas etapas:
+Pode aceder aos dados armazenados numa conta de Armazenamento Azure Blob utilizando estas etapas:
 
-1. Baixe o [pacote de armazenamento de BLOBs do Azure para Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) localmente.
-1. Carregue o arquivo zip no seu espaço de trabalho do estúdio (clássico) como um conjunto de um.
-1. Crie seu objeto BlobService com `protocol='http'`
+1. Descarregue o [pacote de armazenamento Azure Blob para Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) localmente.
+1. Faça upload do ficheiro zip para o seu Studio (clássico) espaço de trabalho como conjunto de dados.
+1. Crie o seu objeto BlobService com `protocol='http'`
 
 ```
 from azure.storage.blob import BlockBlobService
@@ -104,80 +104,80 @@ from azure.storage.blob import BlockBlobService
 block_blob_service = BlockBlobService(account_name='account_name', account_key='account_key', protocol='http')
 ```
 
-1. Desabilitar **transferência segura necessária** na guia de **configuração de armazenamento**
+1. Desativar **a transferência segura necessária** no separador de definição de **configuração** de armazenamento
 
-![Desabilite a transferência segura necessária no portal do Azure](./media/execute-python-scripts/disable-secure-transfer-required.png)
+![Desativar transferência segura necessária no portal Azure](./media/execute-python-scripts/disable-secure-transfer-required.png)
 
-## <a name="operationalizing-python-scripts"></a>Operacionalização de scripts Python
+## <a name="operationalizing-python-scripts"></a>Roteiros piton operacionalizadores
 
-Qualquer módulo [Executar script Python][execute-python-script] usado em um experimento de pontuação é chamado quando publicado como um serviço Web. Por exemplo, a imagem abaixo mostra um experimento de pontuação que contém o código para avaliar uma única expressão Python.
+Quaisquer módulos [execute Python Script][execute-python-script] usados numa experiência de pontuação são chamados quando publicados como um serviço web. Por exemplo, a imagem abaixo mostra uma experiência de pontuação que contém o código para avaliar uma única expressão Python.
 
-![Espaço de trabalho do estúdio para um serviço Web](./media/execute-python-scripts/figure3a.png)
+![Espaço de trabalho estúdio para um serviço web](./media/execute-python-scripts/figure3a.png)
 
-![Expressão do Python pandas](./media/execute-python-scripts/python-script-with-python-pandas.png)
+![Expressão de Pandas Python](./media/execute-python-scripts/python-script-with-python-pandas.png)
 
-Um serviço Web criado com base nesse experimento executaria as seguintes ações:
+Um serviço web criado a partir desta experiência todaria as seguintes ações:
 
-1. Usar uma expressão Python como entrada (como uma cadeia de caracteres)
-1. Enviar a expressão Python para o intérprete do Python
-1. Retorna uma tabela que contém a expressão e o resultado avaliado.
+1. Tome uma expressão Python como entrada (como uma corda)
+1. Envie a expressão Python ao intérprete Python
+1. Devolve uma tabela contendo tanto a expressão como o resultado avaliado.
 
-## <a id="visualizations"></a>Trabalhando com visualizações
+## <a id="visualizations"></a>Trabalhar com visualizações
 
-As plotagens criadas usando MatplotLib podem ser retornadas pelo [script de execução do Python][execute-python-script]. No entanto, as plotagens não são redirecionadas automaticamente para imagens como são ao usar o R. Portanto, o usuário deve salvar explicitamente quaisquer plotagens em arquivos PNG.
+Os enredos criados usando o MatplotLib podem ser devolvidos pelo [Script Execute Python][execute-python-script]. No entanto, os enredos não são automaticamente redirecionados para imagens como são quando se utiliza R. Por isso, o utilizador deve guardar explicitamente quaisquer parcelas para ficheiros PNG.
 
-Para gerar imagens do MatplotLib, você deve executar as seguintes etapas:
+Para gerar imagens do MatplotLib, deve tomar os seguintes passos:
 
-1. Alterne o back-end para "AGG" do processador padrão baseado em Qt.
+1. Mude o backend para "AGG" do renderizador baseado em Qt predefinido.
 1. Crie um novo objeto de figura.
-1. Obter o eixo e gerar todas as plotagens nele.
-1. Salve a figura em um arquivo PNG.
+1. Pegue o eixo e gere todos os enredos nele.
+1. Guarde a figura para um ficheiro PNG.
 
-Esse processo é ilustrado nas imagens a seguir que criam uma matriz de gráfico de dispersão usando a função scatter_matrix em pandas.
+Este processo é ilustrado nas seguintes imagens que criam uma matriz de enredo de dispersão usando a função scatter_matrix em Pandas.
 
-![Código para salvar figuras MatplotLib em imagens](./media/execute-python-scripts/figure-v1-8.png)
+![Código para salvar figuras do MatplotLib para as imagens](./media/execute-python-scripts/figure-v1-8.png)
 
-![Clique em Visualizar em um módulo executar script Python para exibir as figuras](./media/execute-python-scripts/figure-v2-9a.png)
+![Clique em visualizar um módulo execute Python Script para ver os números](./media/execute-python-scripts/figure-v2-9a.png)
 
-![Visualizando plotagens para um experimento de exemplo usando código Python](./media/execute-python-scripts/figure-v2-9b.png)
+![Visualizar parcelas para uma experiência de amostra usando código Python](./media/execute-python-scripts/figure-v2-9b.png)
 
-É possível retornar várias figuras salvando-as em imagens diferentes. O tempo de execução do estúdio (clássico) pega todas as imagens e as concatena para visualização.
+É possível devolver várias figuras, guardando-as em diferentes imagens. O tempo de execução do estúdio (clássico) capta todas as imagens e concatena-as para visualização.
 
 ## <a name="advanced-examples"></a>Exemplos avançados
 
-O ambiente Anaconda instalado no estúdio (clássico) contém pacotes comuns, como NumPy, SciPy e scikits-learn. Esses pacotes podem ser usados efetivamente para processamento de dados em um pipeline de Machine Learning.
+O ambiente Anaconda instalado no Studio (clássico) contém pacotes comuns como NumPy, SciPy e Scikits-Learn. Estes pacotes podem ser eficazmente utilizados para o processamento de dados num pipeline de aprendizagem automática.
 
-Por exemplo, o experimento e o script a seguir ilustram o uso de aprendizes do Ensemble no scikits-Learn para calcular pontuações de importância de recursos para um conjunto de informações. As pontuações podem ser usadas para executar a seleção de recursos supervisionados antes de serem alimentadas em outro modelo.
+Por exemplo, a experiência e o script que se aseguir ilustram o uso de alunos de conjunto em Scikits-Learn para calcular pontuações de importância para um conjunto de dados. As pontuações podem ser usadas para realizar a seleção de funcionalidades supervisionada antes de serem alimentadas noutro modelo.
 
-Aqui está a função Python usada para calcular as pontuações de importância e ordenar os recursos com base nas pontuações:
+Aqui está a função Python usada para calcular as pontuações de importância e encomendar as características com base nas pontuações:
 
-![Função para classificar recursos por pontuações](./media/execute-python-scripts/figure8.png)
+![Função para classificar funcionalidades por pontuações](./media/execute-python-scripts/figure8.png)
 
-Em seguida, o experimento a seguir computa e retorna as pontuações de importância dos recursos no conjunto de Pima "diabetes Índico" no Azure Machine Learning Studio (clássico):
+A experiência seguinte computa e devolve a importância de dezenas de funcionalidades no conjunto de dados "Pima Indian Diabetes" no Azure Machine Learning Studio (clássico):
 
-![Teste para classificar recursos no conjunto de Pima Índico diabetes usando Python](./media/execute-python-scripts/figure9a.png)
+![Experimente classificar as características no conjunto de dados pima indian diabetes usando Python](./media/execute-python-scripts/figure9a.png)
 
-![Visualização da saída do módulo executar script Python](./media/execute-python-scripts/figure9b.png)
+![Visualização da saída do módulo execute Python Script](./media/execute-python-scripts/figure9b.png)
 
 ## <a name="limitations"></a>Limitações
 
-O módulo [Executar script Python][execute-python-script] atualmente tem as seguintes limitações:
+O módulo [execute Python Script][execute-python-script] tem atualmente as seguintes limitações:
 
-### <a name="sandboxed-execution"></a>Execução em área restrita
+### <a name="sandboxed-execution"></a>Execução de sandboxed
 
-O tempo de execução do Python está em área restrita no momento e não permite o acesso à rede ou ao sistema de arquivos local de maneira persistente. Todos os arquivos salvos localmente são isolados e excluídos após a conclusão do módulo. O código Python não pode acessar a maioria dos diretórios no computador em que ele é executado, a exceção é o diretório atual e seus subdiretórios.
+O tempo de funcionação python é atualmente sandboxed e não permite o acesso à rede ou ao sistema de ficheiros local de forma persistente. Todos os ficheiros guardados localmente são isolados e eliminados assim que o módulo terminar. O código Python não pode aceder à maioria dos diretórios da máquina em que funciona, sendo a exceção o atual diretório e os seus subdiretórios.
 
-### <a name="lack-of-sophisticated-development-and-debugging-support"></a>Falta de suporte sofisticado de desenvolvimento e depuração
+### <a name="lack-of-sophisticated-development-and-debugging-support"></a>Falta de desenvolvimento sofisticado e apoio à depuração
 
-O módulo python atualmente não dá suporte a recursos de IDE, como IntelliSense e depuração. Além disso, se o módulo falhar em tempo de execução, o rastreamento de pilha do Python completo estará disponível. Mas ele deve ser exibido no log de saída do módulo. No momento, recomendamos que você desenvolva e depure scripts Python em um ambiente como IPython e, em seguida, importe o código para o módulo.
+O módulo Python atualmente não suporta funcionalidades ide tais como intellisense e depuração. Além disso, se o módulo falhar no tempo de funcionar, o conjunto de vestígios de pilha Python está disponível. Mas deve ser visto no registo de saída do módulo. Atualmente recomendamos que desenvolva e depura scripts Python num ambiente como o IPython e, em seguida, importe o código para o módulo.
 
-### <a name="single-data-frame-output"></a>Saída de quadro de dados único
+### <a name="single-data-frame-output"></a>Saída de quadro único de dados
 
-O ponto de entrada do Python só é permitido para retornar um único quadro de dados como saída. No momento, não é possível retornar objetos Python arbitrários, como modelos treinados diretamente para o tempo de execução do estúdio (clássico). Como [executar o script R][execute-r-script], que tem a mesma limitação, é possível, em muitos casos, pickle objetos em uma matriz de bytes e, em seguida, retorná-los dentro de um quadro de dados.
+O ponto de entrada python só é permitido devolver um único quadro de dados como saída. Atualmente não é possível devolver objetos python arbitrários, como modelos treinados diretamente de volta ao Estúdio (clássico) tempo de execução. Tal como o [Execute R Script][execute-r-script], que tem a mesma limitação, é possível, em muitos casos, colocar objetos picles numa matriz byte e depois devolvê-lo dentro de um quadro de dados.
 
-### <a name="inability-to-customize-python-installation"></a>Incapacidade de personalizar a instalação do Python
+### <a name="inability-to-customize-python-installation"></a>Incapacidade de personalizar instalação Python
 
-Atualmente, a única maneira de adicionar módulos do Python personalizados é por meio do mecanismo de arquivo zip descrito anteriormente. Embora isso seja viável para módulos pequenos, ele é trabalhoso para módulos grandes (especialmente módulos com DLLs nativas) ou um grande número de módulos.
+Atualmente, a única maneira de adicionar módulos Python personalizados é através do mecanismo de ficheiro zip descrito anteriormente. Embora isso seja viável para pequenos módulos, é complicado para módulos grandes (especialmente módulos com DLLs nativos) ou um grande número de módulos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

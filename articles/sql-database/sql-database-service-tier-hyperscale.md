@@ -167,13 +167,13 @@ Se você precisar restaurar um BD de hiperescala do banco de dados SQL do Azure 
 No momento, a camada de hiperescala do banco de dados SQL do Azure está disponível nas seguintes regiões:
 
 - Leste da Austrália
-- Sudeste da Austrália
+- Austrália Sudeste
 - Sul do Brasil
 - Canadá Central
 - E.U.A. Central
 - Leste da China 2
 - Norte da China 2
-- Ásia Oriental
+- Ásia Leste
 - E.U.A. Leste
 - Leste dos EUA 2
 - França Central
@@ -185,7 +185,7 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Europa do Norte
 - Norte da África do Sul
 - E.U.A. Centro-Sul
-- Sudeste Asiático
+- Ásia Sudeste
 - Sul do Reino Unido
 - Oeste do Reino Unido
 - Europa Ocidental

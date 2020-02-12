@@ -1,30 +1,30 @@
 ---
-title: Implantar o espaço de trabalho Studio (clássico) com Azure Resource Manager
+title: Deploy Studio (clássico) espaço de trabalho com O Gestor de Recursos Azure
 titleSuffix: ML Studio (classic) - Azure
-description: Como implantar um espaço de trabalho para Azure Machine Learning Studio (clássico) usando o modelo Azure Resource Manager
+description: Como implementar um espaço de trabalho para o Azure Machine Learning Studio (clássico) utilizando o modelo de Gestor de Recursos Azure
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: ff9c123c0fecd26aba6ecbbda4a915d928b99f2f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d7311dce938ea575a27cf006e7469670813b7f10
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454726"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153507"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implantar Azure Machine Learning Studio espaço de trabalho (clássico) usando Azure Resource Manager
+# <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implementar o Estúdio de Aprendizagem automática Azure (clássico) Workspace utilizando o Gestor de Recursos Azure
 
-Utilizar um modelo de implementação poupa tempo ao fornecer-lhe uma forma dimensionável para o Azure Resource Manager implantar componentes interconectados com uma validação e mecanismo de repetição. Para configurar os espaços de trabalho do Azure Machine Learning Studio (clássico), por exemplo, você precisa primeiro configurar uma conta de armazenamento do Azure e, em seguida, implantar seu espaço de trabalho. Imagine a fazê-lo manualmente para centenas de áreas de trabalho. Uma alternativa mais fácil é usar um modelo de Azure Resource Manager para implantar um espaço de trabalho do Studio (clássico) e todas as suas dependências. Este artigo leva-o ao longo deste processo passo a passo. Para uma excelente descrição geral do Azure Resource Manager, consulte [descrição geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+Utilizar um modelo de implementação poupa tempo ao fornecer-lhe uma forma dimensionável para o Azure Resource Manager implantar componentes interconectados com uma validação e mecanismo de repetição. Para configurar o Azure Machine Learning Studio (clássico) Workspaces, por exemplo, é necessário configurar primeiro uma conta de armazenamento Azure e depois implementar o seu espaço de trabalho. Imagine a fazê-lo manualmente para centenas de áreas de trabalho. Uma alternativa mais fácil é usar um modelo de Gestor de Recursos Azure para implantar um Espaço de Trabalho studio (clássico) e todas as suas dependências. Este artigo leva-o ao longo deste processo passo a passo. Para uma excelente visão geral do Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](../../azure-resource-manager/management/overview.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar uma área de trabalho do Machine Learning
-Criaremos um grupo de recursos do Azure e implantaremos uma nova conta de armazenamento do Azure e um novo espaço de trabalho Azure Machine Learning Studio (clássico) usando um modelo do Resource Manager. Assim que a implementação estiver concluída, iremos irá imprimir informações importantes sobre as áreas de trabalho que foram criados (a chave primária, o workspaceID e o URL para a área de trabalho).
+Criaremos um grupo de recursos Azure, em seguida, implementaremos uma nova conta de armazenamento Azure e um novo Azure Machine Learning Studio (clássico) Workspace usando um modelo de Gestor de Recursos. Assim que a implementação estiver concluída, iremos irá imprimir informações importantes sobre as áreas de trabalho que foram criados (a chave primária, o workspaceID e o URL para a área de trabalho).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Criar um modelo Azure Resource Manager
 
@@ -105,14 +105,14 @@ Este passo tem de ser repetido para cada sessão. Uma vez autenticado, deverá s
 
 Agora que temos acesso ao Azure, podemos criar o grupo de recursos.
 
-* Criar um grupo de recursos
+* Criar um grupo de recursos:
 
 ```powershell
 $rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
 
-Certifique-se de que o grupo de recursos está aprovisionado corretamente. **ProvisioningState** deve ser "com êxito."
+Certifique-se de que o grupo de recursos está aprovisionado corretamente. **O Estado deve** ser "Bem sucedido".
 O nome do grupo de recursos é utilizado pelo modelo para gerar o nome de conta de armazenamento. O nome da conta de armazenamento tem de ter entre 3 e 24 carateres de comprimento e utilizar números e letras minúsculas apenas.
 
 ![Grupo de Recursos](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
@@ -131,19 +131,19 @@ Depois de concluída a implementação, é simples para propriedades de acesso d
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Outra maneira de recuperar Tokens do espaço de trabalho existente é usar o comando Invoke-AzResourceAction. Por exemplo, pode listar os tokens primários e secundários de todas as áreas de trabalho.
+Outra forma de recuperar fichas do espaço de trabalho existente é usar o comando Invoke-AzResourceAction. Por exemplo, pode listar os tokens primários e secundários de todas as áreas de trabalho.
 
 ```powershell
 # List the primary and secondary tokens of all workspaces
 Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-Depois que o espaço de trabalho for provisionado, você também poderá automatizar muitas tarefas Azure Machine Learning Studio (clássicas) usando o [módulo do PowerShell para Azure Machine Learning Studio (clássico)](https://aka.ms/amlps).
+Depois do espaço de trabalho ser aprovisionado, também pode automatizar muitas tarefas do Azure Machine Learning Studio (clássico) utilizando o [Módulo PowerShell para o Azure Machine Learning Studio (clássico)](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [criar modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
-* Veja a [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
-* Assista a este vídeo sobre [do Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
-* Consulte a [ajuda de referência do modelo do Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
+* Saiba mais sobre a autoria de Modelos de [Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md).
+* Veja o [Repositório de Modelos De Arranque Rápido Azure](https://github.com/Azure/azure-quickstart-templates).
+* Veja este vídeo sobre [o Gestor de Recursos Azure.](https://channel9.msdn.com/Events/Ignite/2015/C9-39)
+* Consulte a ajuda de referência do [modelo do Gestor](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions) de Recursos
 
 <!--Link references-->

@@ -109,10 +109,10 @@ Quando os armazenamentos de dados de origem e de coletor estiverem na nuvem, Dat
 | &nbsp; | Europa Ocidental | Europa Ocidental |
 | Reino Unido | Oeste do Reino Unido | Sul do Reino Unido |
 | &nbsp; | Sul do Reino Unido | Sul do Reino Unido |
-| Ásia-Pacífico | Sudeste Asiático | Sudeste Asiático |
-| &nbsp; | Ásia Oriental | Sudeste Asiático |
+| Ásia-Pacífico | Ásia Sudeste | Ásia Sudeste |
+| &nbsp; | Ásia Leste | Ásia Sudeste |
 | Austrália | Leste da Austrália | Leste da Austrália |
-| &nbsp; | Sudeste da Austrália | Sudeste da Austrália |
+| &nbsp; | Austrália Sudeste | Austrália Sudeste |
 | Índia | Índia Central | Índia Central |
 | &nbsp; | Oeste da Índia | Índia Central |
 | &nbsp; | Sul da Índia | Índia Central |

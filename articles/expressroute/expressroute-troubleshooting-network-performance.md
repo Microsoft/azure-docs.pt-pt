@@ -191,7 +191,7 @@ Configuração de teste:
 | Seattle | Sul do Reino Unido         |  7\.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
 | Seattle | Europa Ocidental      |  7\.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
 | Seattle | Leste da Austrália   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |
-| Seattle | Sudeste Asiático   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
+| Seattle | Ásia Sudeste   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
 | Seattle | Sul do Brasil *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
 | Seattle | Sul da Índia      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
 

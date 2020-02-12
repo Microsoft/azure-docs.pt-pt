@@ -203,7 +203,7 @@ Se você não seguir o tutorial para avaliar as VMs do VMware, configure um proj
 
     **Geografia** | **Região**
     --- | ---
-    Ásia | Sudeste asiático
+    Ásia | Ásia Sudeste
     Europa | Europa Setentrional ou Europa Ocidental
     Estados Unidos | Leste dos EUA ou Oeste EUA Central
 

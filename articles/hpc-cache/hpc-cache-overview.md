@@ -53,7 +53,7 @@ O cache do HPC do Azure está disponível nessas regiões do Azure:
 * E.U.A. Leste 2
 * Europa do Norte
 * Europa Ocidental
-* Sudeste Asiático
+* Ásia Sudeste
 * Sydney
 * E.U.A. Oeste 2
 * Coreia do Sul Central

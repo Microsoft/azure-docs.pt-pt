@@ -1,25 +1,25 @@
 ---
-title: Avaliar o desempenho dos modelos
+title: Avaliar o desempenho do modelo
 titleSuffix: ML Studio (classic) - Azure
-description: Saiba como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico) e sobre as métricas disponíveis para essa tarefa.
+description: Saiba avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico) e sobre as métricas disponíveis para esta tarefa.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 2b9293e3c1ce280117ea40c43715f4dcd98de66d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: baf2352c8842a07691288c9296438624d53d3990
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427631"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153490"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)
 
-Este artigo demonstra como avaliar o desempenho de um modelo no Azure Machine Learning Studio (clássico) e fornece uma breve explicação sobre as métricas disponíveis para essa tarefa. Três cenários comuns de aprendizado supervisionado são apresentados: 
+Este artigo demonstra como avaliar o desempenho de um modelo no Azure Machine Learning Studio (clássico) e fornece uma breve explicação das métricas disponíveis para esta tarefa. São apresentados três cenários comuns de aprendizagem supervisionada: 
 
 * regressão
 * classificação binária 
@@ -27,102 +27,102 @@ Este artigo demonstra como avaliar o desempenho de um modelo no Azure Machine Le
 
 
 
-Avaliar o desempenho de um modelo é um dos principais estágios do processo de ciência de dados. Indica a êxito da Pontuação (previsões) de um conjunto de uma série de um modelo treinado. 
+Avaliar o desempenho de um modelo é uma das fases centrais do processo de ciência de dados. Indica o sucesso da pontuação (previsões) de um conjunto de dados por um modelo treinado. 
 
-Azure Machine Learning Studio (clássico) dá suporte à avaliação de modelo por meio de dois dos seus principais módulos de aprendizado de máquina: [avaliar modelo][evaluate-model] e [modelo de validação cruzada][cross-validate-model]. Esses módulos permitem que você veja como seu modelo é executado em termos de várias métricas que são comumente usadas no aprendizado de máquina e estatísticas.
+O Azure Machine Learning Studio (clássico) suporta a avaliação do modelo através de dois dos seus principais módulos de machine learning: [Avaliar modelo][evaluate-model] e modelo [de validação cruzada][cross-validate-model]. Estes módulos permitem-lhe ver como o seu modelo funciona em termos de uma série de métricas que são comumente usadas em machine learning e estatísticas.
 
-## <a name="evaluation-vs-cross-validation"></a>Avaliação versus validação cruzada
-Avaliação e validação cruzada são maneiras padrão de medir o desempenho do seu modelo. Ambos geram métricas de avaliação que você pode inspecionar ou comparar com os de outros modelos.
+## <a name="evaluation-vs-cross-validation"></a>Avaliação vs. Validação Cruzada
+Avaliação e validação cruzada são formas padrão de medir o desempenho do seu modelo. Ambos geram métricas de avaliação que pode inspecionar ou comparar com as de outros modelos.
 
-O [modelo de avaliação][evaluate-model] espera um conjunto de dados pontuado como entrada (ou dois caso você queira comparar o desempenho de dois modelos diferentes). Portanto, você precisa treinar seu modelo usando o módulo [modelo de treinamento][train-model] e fazer previsões em algum conjunto de mesmos usando o módulo [modelo de Pontuação][score-model] antes de poder avaliar os resultados. A avaliação é baseada em rótulos/probabilidades pontuados junto com os rótulos verdadeiros, todos os quais são gerados pelo módulo [modelo de Pontuação][score-model] .
+[Avaliar][evaluate-model] o Model espera um conjunto de dados pontuado como entrada (ou dois caso queira comparar o desempenho de dois modelos diferentes). Por isso, é necessário treinar o seu modelo utilizando o módulo [Train Model][train-model] e fazer previsões em algum conjunto de dados utilizando o módulo ['Modelo de Pontuação'][score-model] antes de poder avaliar os resultados. A avaliação baseia-se nos rótulos/probabilidades pontuados juntamente com as verdadeiras etiquetas, todas elas saídas pelo módulo ['Modelo de Pontuação'.][score-model]
 
-Como alternativa, você pode usar a validação cruzada para executar várias operações Train-Score-Evaluate (10 dobras) automaticamente em diferentes subconjuntos dos dados de entrada. Os dados de entrada são divididos em 10 partes, em que um é reservado para teste e o outro 9 para treinamento. Esse processo é repetido 10 vezes e as métricas de avaliação são calculadas por média. Isso ajuda a determinar como um modelo seria generalizado para novos conjuntos de os. O módulo [modelo de validação cruzada][cross-validate-model] usa um modelo não treinado e algum conjunto de um DataSet rotulado e gera os resultados da avaliação de cada uma das 10 dobras, além dos resultados médios.
+Em alternativa, pode utilizar a validação cruzada para realizar uma série de operações de avaliação de pontuação de comboio (10 dobras) automaticamente em diferentes subconjuntos dos dados de entrada. Os dados de entrada são divididos em 10 partes, onde uma é reservada para testes, e as outras 9 para treino. Este processo é repetido 10 vezes e as métricas de avaliação são médias. Isto ajuda a determinar até que ponto um modelo se generalizaria para novos conjuntos de dados. O módulo [Cross-Validate Model][cross-validate-model] acolhe um modelo não treinado e alguns conjuntos de dados rotulados e produz os resultados de avaliação de cada uma das 10 dobras, além dos resultados médios.
 
-Nas seções a seguir, criaremos modelos simples de regressão e classificação e avaliaremos seu desempenho, usando os módulos [avaliar modelo][evaluate-model] e [modelo de validação cruzada][cross-validate-model] .
+Nas seguintes secções, construiremos modelos simples de regressão e classificação e avaliaremos o seu desempenho, utilizando tanto o Modelo de [Avaliação][evaluate-model] como os módulos [Cross-Validate Model.][cross-validate-model]
 
-## <a name="evaluating-a-regression-model"></a>Avaliando um modelo de regressão
-Suponha que desejamos prever o preço de um carro usando recursos como dimensões, potência, especificações de mecanismo e assim por diante. Esse é um problema de regressão típico, em que a variável de destino (*Price*) é um valor numérico contínuo. Podemos ajustar um modelo de regressão linear que, considerando os valores de recursos de um determinado carro, pode prever o preço desse carro. Esse modelo de regressão pode ser usado para pontuar o mesmo conjunto de um que treinamos. Assim que tivermos os preços de carro previstos, podemos avaliar o desempenho do modelo examinando o quanto as previsões se desviam dos preços reais em média. Para ilustrar isso, usamos o *conjunto de dados de preços de automóvel (brutos)* disponível na seção DataSets **salvos** em Machine Learning Studio (clássico).
+## <a name="evaluating-a-regression-model"></a>Avaliação de um modelo de regressão
+Assuma que queremos prever o preço de um carro usando características como dimensões, potência, especificações do motor, e assim por diante. Este é um problema típico de regressão, onde a variável-alvo *(preço)* é um valor numérico contínuo. Podemos encaixar um modelo linear de regressão que, dado os valores de características de um determinado carro, pode prever o preço desse carro. Este modelo de regressão pode ser usado para marcar o mesmo conjunto de dados em que treinamos. Uma vez que tenhamos os preços dos carros previstos, podemos avaliar o desempenho do modelo olhando para o quanto as previsões se desviam dos preços reais, em média. Para ilustrar isto, utilizamos o conjunto de dados de *preços do Automóvel (Raw)* disponível na secção **De dados guardados** no Estúdio de Aprendizagem Automática (clássico).
 
-### <a name="creating-the-experiment"></a>Criando o experimento
+### <a name="creating-the-experiment"></a>Criação da Experiência
 Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
-* Dados de preço de automóvel (bruto)
-* [Regressão linear][linear-regression]
-* [Modelo de treinamento][train-model]
-* [Modelo de Pontuação][score-model]
-* [Avaliar modelo][evaluate-model]
+* Dados sobre o preço do automóvel (Cru)
+* [Regressão Linear][linear-regression]
+* [Modelo de comboio][train-model]
+* [Modelo de pontuação][score-model]
+* [Modelo de avaliação][evaluate-model]
 
-Conecte as portas conforme mostrado abaixo na Figura 1 e defina a coluna rótulo do módulo [modelo de treinamento][train-model] como *preço*.
+Ligue as portas como mostrado abaixo na Figura 1 e coloque a coluna de etiquetado do módulo [Modelo de Comboio][train-model] ao *preço*.
 
-![Avaliando um modelo de regressão](./media/evaluate-model-performance/1.png)
+![Avaliação de um modelo de regressão](./media/evaluate-model-performance/1.png)
 
-Figura 1. Avaliando um modelo de regressão.
+Figura 1. Avaliando um Modelo de Regressão.
 
-### <a name="inspecting-the-evaluation-results"></a>Inspecionando os resultados da avaliação
-Depois de executar o experimento, você pode clicar na porta de saída do módulo [avaliar modelo][evaluate-model] e selecionar *Visualizar* para ver os resultados da avaliação. As métricas de avaliação disponíveis para os modelos de regressão são: *erro absoluto médio*, *erro absoluto de média de raiz*, *erro absoluto relativo*, *erro de quadrado relativo*e o *coeficiente de determinação*.
+### <a name="inspecting-the-evaluation-results"></a>Inspeção dos Resultados da Avaliação
+Depois de executar a experiência, pode clicar na porta de saída do módulo ['Avaliar Modelo'][evaluate-model] e selecionar *Visualize* para ver os resultados da avaliação. As métricas de avaliação disponíveis para os modelos de regressão são: *Erro Absoluto Médio,* *Erro Absoluto Médio Raiz,* *Erro Absoluto Relativo,* *Erro Quadrado Relativo*e O *Coeficiente de Determinação*.
 
-O termo "erro" aqui representa a diferença entre o valor previsto e o valor verdadeiro. O valor absoluto ou o quadrado dessa diferença geralmente é calculado para capturar a magnitude total do erro em todas as instâncias, pois a diferença entre o valor previsto e o verdadeiro pode ser negativa em alguns casos. As métricas de erro medem o desempenho de previsão de um modelo de regressão em termos do desvio médio de suas previsões dos valores verdadeiros. Valores de erro inferiores significam que o modelo é mais preciso para fazer previsões. Uma métrica de erro geral de zero significa que o modelo se ajusta perfeitamente aos dados.
+O termo "erro" aqui representa a diferença entre o valor previsto e o valor real. O valor absoluto ou o quadrado desta diferença é geralmente calculado para capturar a magnitude total de erro em todos os casos, uma vez que a diferença entre o valor previsto e o verdadeiro valor pode ser negativa em alguns casos. As métricas de erro medem o desempenho preditivo de um modelo de regressão em termos do desvio médio das suas previsões dos verdadeiros valores. Valores de erro mais baixos significam que o modelo é mais preciso na elaboração de previsões. Uma métrica de erro geral de zero significa que o modelo se adequa perfeitamente aos dados.
 
-O coeficiente de determinação, que também é conhecido como R quadrado, também é uma maneira padrão de medir o quão bem o modelo se ajusta aos dados. Ele pode ser interpretado como a proporção de variação explicada pelo modelo. Uma proporção mais alta é melhor nesse caso, em que 1 indica um ajuste perfeito.
+O coeficiente de determinação, que também é conhecido como R ao quadrado, é também uma forma padrão de medir o quão bem o modelo se encaixa nos dados. Pode ser interpretado como a proporção de variação explicada pelo modelo. Uma proporção maior é melhor neste caso, onde 1 indica um ajuste perfeito.
 
-![Métricas de avaliação de regressão linear](./media/evaluate-model-performance/2.png)
+![Métricas lineares de avaliação de regressão](./media/evaluate-model-performance/2.png)
 
-Figura 2. Métricas de avaliação de regressão linear.
+Figura 2. Métricas lineares de avaliação de regressão.
 
-### <a name="using-cross-validation"></a>Usando a validação cruzada
-Conforme mencionado anteriormente, você pode executar o treinamento, a pontuação e as avaliações repetidas automaticamente usando o módulo [modelo de validação cruzada][cross-validate-model] . Tudo o que você precisa nesse caso é um conjunto de um DataSet, um modelo não treinado e um módulo [modelo de validação cruzada][cross-validate-model] (veja a figura abaixo). Você precisa definir a coluna de rótulo como *Price* nas propriedades do módulo [modelo de validação cruzada][cross-validate-model] .
+### <a name="using-cross-validation"></a>Utilização da Validação Cruzada
+Como mencionado anteriormente, pode realizar treinos, pontuações e avaliações repetidas utilizando automaticamente o módulo [Cross-Validate Model.][cross-validate-model] Tudo o que precisa neste caso é de um conjunto de dados, um modelo destreinado e um módulo [Cross-Validate Model][cross-validate-model] (ver figura abaixo). Tem de definir a coluna de etiquetas ao *preço* nas propriedades do módulo [Cross-Validate Model.][cross-validate-model]
 
 ![Validação cruzada de um modelo de regressão](./media/evaluate-model-performance/3.png)
 
-Figura 3. Validação cruzada de um modelo de regressão.
+Figura 3. Cross-Validando um Modelo de Regressão.
 
-Depois de executar o experimento, você pode inspecionar os resultados da avaliação clicando na porta de saída à direita do módulo [modelo de validação cruzada][cross-validate-model] . Isso fornecerá uma exibição detalhada das métricas para cada iteração (dobra) e os resultados médios de cada uma das métricas (Figura 4).
+Depois de executar a experiência, pode inspecionar os resultados da avaliação clicando na porta de saída direita do módulo [Cross-Validate Model.][cross-validate-model] Isto proporcionará uma visão detalhada das métricas para cada iteração (dobragem), e os resultados médios de cada uma das métricas (Figura 4).
 
 ![Resultados de validação cruzada de um modelo de regressão](./media/evaluate-model-performance/4.png)
 
 Figura 4. Resultados de validação cruzada de um modelo de regressão.
 
-## <a name="evaluating-a-binary-classification-model"></a>Avaliando um modelo de classificação binária
-Em um cenário de classificação binária, a variável de destino tem apenas dois resultados possíveis, por exemplo: {0, 1} ou {false, true}, {negativo, positivo}. Suponha que você receba um conjunto de dados de funcionários adultos com algumas variáveis demográficas e de emprego, e que seja solicitado a prever o nível de renda, uma variável binária com os valores {"< = 50 K", "> 50 K"}. Em outras palavras, a classe negativa representa os funcionários que fazem menor ou igual a 50 K por ano, e a classe positiva representa todos os outros funcionários. Como no cenário de regressão, treinamos um modelo, pontuamos alguns dados e avaliamos os resultados. A principal diferença aqui é a escolha das métricas Azure Machine Learning Studio as computações e saídas (clássicas). Para ilustrar o cenário de previsão de nível de renda, usaremos o conjunto de [conteúdo adulto](https://archive.ics.uci.edu/ml/datasets/Adult) para criar um experimento de estúdio (clássico) e avaliar o desempenho de um modelo de regressão logística de duas classes, um classificador binário comumente usado.
+## <a name="evaluating-a-binary-classification-model"></a>Avaliação de um modelo de classificação binária
+Num cenário de classificação binária, a variável-alvo tem apenas dois resultados possíveis, por exemplo: {0, 1} ou {falso, verdadeiro}, {negativo, positivo}. Assuma que lhe é dado um conjunto de dados de empregados adultos com algumas variáveis demográficas e de emprego, e que lhe é pedido que preveja o nível de rendimento, uma variável binária com os valores {"<=50 K", ">50 K"}. Ou seja, a classe negativa representa os empregados que ganham menos ou igual a 50 K por ano, e a classe positiva representa todos os outros colaboradores. Tal como no cenário de regressão, treinávamos um modelo, marcaríamos alguns dados e avaliaríamos os resultados. A principal diferença aqui é a escolha de métricas Azure Machine Learning Studio (clássico) computs e saídas. Para ilustrar o cenário de previsão do nível de rendimento, usaremos o conjunto de dados [adulto](https://archive.ics.uci.edu/ml/datasets/Adult) para criar uma experiência Studio (clássica) e avaliar o desempenho de um modelo de regressão logística de duas classes, um classificador binário comumente usado.
 
-### <a name="creating-the-experiment"></a>Criando o experimento
+### <a name="creating-the-experiment"></a>Criação da Experiência
 Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
-* Conjunto de censo de classificação binária de renda de adulto
-* [Regressão logística de duas classes][two-class-logistic-regression]
-* [Modelo de treinamento][train-model]
-* [Modelo de Pontuação][score-model]
-* [Avaliar modelo][evaluate-model]
+* Conjunto de dados de classificação binária de rendimento do recenseamento adulto
+* [Regressão Logística de duas classes][two-class-logistic-regression]
+* [Modelo de comboio][train-model]
+* [Modelo de pontuação][score-model]
+* [Modelo de avaliação][evaluate-model]
 
-Conecte as portas conforme mostrado abaixo na Figura 5 e defina a coluna rótulo do módulo [modelo de treinamento][train-model] como *renda*.
+Ligue as portas como mostrado abaixo na Figura 5 e coloque a coluna de etiquetas do módulo [Modelo de Comboio][train-model] para o *rendimento*.
 
-![Avaliando um modelo de classificação binária](./media/evaluate-model-performance/5.png)
+![Avaliação de um modelo de classificação binária](./media/evaluate-model-performance/5.png)
 
 Figura 5. Avaliando um modelo de classificação binária.
 
-### <a name="inspecting-the-evaluation-results"></a>Inspecionando os resultados da avaliação
-Depois de executar o experimento, você pode clicar na porta de saída do módulo [avaliar modelo][evaluate-model] e selecionar *Visualizar* para ver os resultados da avaliação (Figura 7). As métricas de avaliação disponíveis para modelos de classificação binária são: *precisão*, *precisão*, *recall*, *Pontuação F1*e *auc*. Além disso, o módulo gera uma matriz de confusão que mostra o número de verdadeiros positivos, falsos negativos, falsos positivos e verdadeiros negativos, bem como as curvas *Roc*, *Precision/recall*e de comparação *de* precisão.
+### <a name="inspecting-the-evaluation-results"></a>Inspeção dos Resultados da Avaliação
+Depois de executar a experiência, pode clicar na porta de saída do módulo ['Avaliar Modelo'][evaluate-model] e selecionar *Visualize* para ver os resultados da avaliação (Figura 7). As métricas de avaliação disponíveis para os modelos de classificação binária são: *Precisão,* *Precisão,* *Recall,* *Pontuação f1*e *AUC*. Além disso, o módulo produz uma matriz de confusão mostrando o número de verdadeiros positivos, falsos negativos, falsos positivos e verdadeiros negativos, bem como *curvas ROC,* *Precisão/Recall*e *Lift.*
 
-A precisão é simplesmente a proporção de instâncias classificadas corretamente. Normalmente, é a primeira métrica que você vê ao avaliar um classificador. No entanto, quando os dados de teste estão desequilibrados (onde a maioria das instâncias pertencem a uma das classes), ou você está mais interessado no desempenho em qualquer uma das classes, a precisão não captura realmente a eficácia de um classificador. No cenário de classificação de nível de renda, suponha que você esteja testando em alguns dados em que 99% das instâncias representam pessoas que ganham menos ou igual a 50 mil por ano. É possível obter uma precisão de 0,99 prevendo a classe "< = 50 mil" para todas as instâncias. O classificador, nesse caso, parece estar fazendo um bom trabalho geral, mas, na realidade, ele falha ao classificar qualquer um dos indivíduos de alto rendimento (o 1%) devidamente.
+A precisão é simplesmente a proporção de casos corretamente classificados. É normalmente a primeira métrica que se olha quando se avalia um classificador. No entanto, quando os dados do teste são desequilibrados (onde a maioria dos casos pertencem a uma das classes), ou se está mais interessado no desempenho em qualquer uma das classes, a precisão não captura realmente a eficácia de um classificador. No cenário de classificação do nível de rendimento, assuma que está a testar alguns dados onde 99% dos casos representam pessoas que ganham menos ou igual a 50K por ano. É possível obter uma precisão de 0,99, prevendo a classe "<=50K" para todos os casos. O classificador neste caso parece estar a fazer um bom trabalho em geral, mas na realidade, não classifica nenhum dos indivíduos de alto rendimento (o 1%) corretamente.
 
-Por esse motivo, é útil computar métricas adicionais que capturam aspectos mais específicos da avaliação. Antes de entrar nos detalhes dessas métricas, é importante entender a matriz de confusão de uma avaliação de classificação binária. Os rótulos de classe no conjunto de treinamento podem assumir apenas dois valores possíveis, que geralmente nos referimos como positivos ou negativos. As instâncias positivas e negativas que um classificador prevê corretamente são chamadas true positivos (TP) e verdadeiros negativos (TN), respectivamente. Da mesma forma, as instâncias classificadas incorretamente são chamadas de FP (falsos positivos) e falsos negativos (FN). A matriz de confusão é simplesmente uma tabela que mostra o número de instâncias que se enquadram em cada uma dessas quatro categorias. Azure Machine Learning Studio (clássico) decide automaticamente qual das duas classes no DataSet é a classe positiva. Se os rótulos de classe forem boolianos ou inteiros, as instâncias ' true ' ou ' 1 ' rotuladas serão atribuídas à classe positiva. Se os rótulos forem cadeias de caracteres, como com o conjunto de tempo de renda, os rótulos serão classificados em ordem alfabética e o primeiro nível será escolhido como a classe negativa, enquanto o segundo nível é a classe positiva.
+Por essa razão, é útil calcular métricas adicionais que captem aspetos mais específicos da avaliação. Antes de entrar nos detalhes de tais métricas, é importante entender a matriz de confusão de uma avaliação de classificação binária. As etiquetas de classe no conjunto de formação podem assumir apenas dois valores possíveis, que normalmente chamamos de positivo ou negativo. Os casos positivos e negativos que um classificador prevê corretamente são chamados verdadeiros positivos (TP) e verdadeiros negativos (TN), respectivamente. Da mesma forma, as instâncias classificadas incorretamente são chamadas falsos positivos (FP) e falsos negativos (FN). A matriz de confusão é simplesmente uma tabela que mostra o número de casos que se enquadram em cada uma destas quatro categorias. O Azure Machine Learning Studio (clássico) decide automaticamente qual das duas classes do conjunto de dados é a classe positiva. Se as etiquetas de classe forem booleanas ou inteiros, então as instâncias rotuladas "verdadeiras" ou "1" são atribuídas à classe positiva. Se as etiquetas forem cordas, como com o conjunto de dados de rendimento, as etiquetas são ordenadas alfabeticamente e o primeiro nível é escolhido para ser a classe negativa enquanto o segundo nível é a classe positiva.
 
 ![Matriz de confusão de classificação binária](./media/evaluate-model-performance/6a.png)
 
 Figura 6. Matriz de confusão de classificação binária.
 
-Voltando ao problema de classificação de renda, queremos fazer várias perguntas de avaliação que nos ajudam a entender o desempenho do classificador usado. Uma pergunta natural é: "fora dos indivíduos que o modelo preencheu para estar ganhando > 50 K (TP + FP), quantas foram classificadas corretamente (TP)?" Essa pergunta pode ser respondida examinando a **precisão** do modelo, que é a proporção de positivos que são classificados corretamente: TP/(TP + FP). Outra pergunta comum é "fora de todos os funcionários de alta disponibilidade com renda > 50 mil (TP + FN), quantas o classificador classificou corretamente (TP)". Isso é, na verdade, a **recall**ou a verdadeira taxa positiva: TP/(TP + FN) do classificador. Você pode observar que há uma compensação óbvia entre precisão e RECALL. Por exemplo, dado um conjunto de dados relativamente equilibrado, um classificador que prevê principalmente instâncias positivas, teria uma recall alta, mas uma precisão muito baixa, pois muitas das instâncias negativas seriam erroneamente classificadas, resultando em um grande número de falsos positivos. Para ver uma plotagem de como essas duas métricas variam, você pode clicar na curva de **precisão/recall** na página saída do resultado da avaliação (parte superior esquerda da Figura 7).
+Voltando ao problema da classificação dos rendimentos, gostaríamos de fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador utilizado. Uma questão natural é: "Dos indivíduos a quem o modelo previu estar a ganhar >50 K (TP+FP), quantos foram classificados corretamente (TP)?". Esta pergunta pode ser respondida olhando para a **precisão** do modelo, que é a proporção de positivos que são classificados corretamente: TP/(TP+FP). Outra questão comum é "De todos os trabalhadores com rendimentos >50k (TP+FN), quantos classificaram corretamente o classificador (TP)". Esta é, na verdade, a **Recolha**, ou a verdadeira taxa positiva: TP/(TP+FN) do classificador. Pode notar que há uma troca óbvia entre precisão e recordação. Por exemplo, dado um conjunto de dados relativamente equilibrado, um classificador que prevê casos maioritariamente positivos, teria uma elevada recuperação, mas uma precisão bastante baixa, uma vez que muitos dos casos negativos seriam mal classificados, resultando num grande número de falsos positivos. Para ver um enredo de como estas duas métricas variam, pode clicar na curva **PRECISION/RECALL** na página de saída do resultado de avaliação (parte superior esquerda da Figura 7).
 
-![Resultados da avaliação de classificação binária](./media/evaluate-model-performance/7.png)
+![Resultados da avaliação da classificação binária](./media/evaluate-model-performance/7.png)
 
-Figura 7. Resultados da avaliação de classificação binária.
+Figura 7. Resultados de avaliação de classificação binária.
 
-Outra métrica relacionada que geralmente é usada é a **Pontuação F1**, que usa precisão e recall em consideração. É a média harmônica dessas duas métricas e é computada da seguinte maneira: F1 = 2 (precisão x recuperação)/(precisão + recall). A pontuação F1 é uma boa maneira de resumir a avaliação em um único número, mas é sempre uma boa prática examinar a precisão e a recuperação em conjunto para entender melhor como um classificador se comporta.
+Outra métrica relacionada que é frequentemente usada é a **Pontuação de F1,** que leva tanto a precisão como a recordação em consideração. É a média harmónica destas duas métricas e é calculada como tal: F1 = 2 (precisão x recordação) / (precisão + recordação). A pontuação de F1 é uma boa maneira de resumir a avaliação num único número, mas é sempre uma boa prática olhar para a precisão e recordar juntos para entender melhor como um classificador se comporta.
 
-Além disso, é possível inspecionar a taxa de verdadeiro positivo versus a taxa de falsos positivos na curva de **características operacionais do receptor (ROC)** e a **área correspondente sob o valor da curva (AUC)** . Quanto mais próxima essa curva for para o canto superior esquerdo, melhor será o desempenho do classificador (que está maximizando a taxa de verdadeiro positivo, minimizando a taxa de falsos positivos). As curvas que estão próximas à diagonal do gráfico, resultam de classificadores que tendem a fazer previsões próximas à adivinhação aleatória.
+Além disso, pode-se inspecionar a verdadeira taxa positiva vs. a taxa falsa positiva na curva **recetora Da Característica Operacional (ROC)** e na área correspondente Sob o valor **da Curva (AUC).** Quanto mais perto esta curva for do canto superior esquerdo, melhor é o desempenho do classificador (que está a maximizar a verdadeira taxa positiva, minimizando a taxa falsamente positiva). Curvas que estão perto da diagonal do enredo, resultam de classificadores que tendem a fazer previsões que estão perto de adivinhar aleatoriamente.
 
-### <a name="using-cross-validation"></a>Usando a validação cruzada
-Como no exemplo de regressão, podemos executar a validação cruzada para treinar repetidamente, pontuar e avaliar diferentes subconjuntos de dados automaticamente. Da mesma forma, podemos usar o módulo [modelo de validação cruzada][cross-validate-model] , um modelo de regressão logística não treinado e um conjunto de um. A coluna de rótulo deve ser definida como *renda* nas propriedades do módulo [modelo de validação cruzada][cross-validate-model] . Depois de executar o experimento e clicar na porta de saída à direita do módulo [modelo de validação cruzada][cross-validate-model] , podemos ver os valores de métrica de classificação binária para cada dobra, além da média e do desvio padrão de cada um. 
+### <a name="using-cross-validation"></a>Utilização da Validação Cruzada
+Tal como no exemplo de regressão, podemos realizar validação cruzada para treinar, pontuar e avaliar automaticamente diferentes subconjuntos dos dados. Da mesma forma, podemos usar o módulo [Cross-Validate Model,][cross-validate-model] um modelo de regressão logística destreinado e um conjunto de dados. A coluna de etiquetas deve ser definida para *o rendimento* nas propriedades do módulo [Cross-Validate Model.][cross-validate-model] Depois de executar a experiência e clicar na porta de saída direita do módulo [Cross-Validate Model,][cross-validate-model] podemos ver os valores métricos de classificação binário para cada dobra, além do desvio médio e padrão de cada um. 
 
 ![Validação cruzada de um modelo de classificação binária](./media/evaluate-model-performance/8.png)
 
@@ -132,40 +132,40 @@ Figura 8. Validação cruzada de um modelo de classificação binária.
 
 Figura 9. Resultados de validação cruzada de um classificador binário.
 
-## <a name="evaluating-a-multiclass-classification-model"></a>Avaliando um modelo de classificação multiclasse
-Neste experimento, usaremos o conjunto de testes de [íris](https://archive.ics.uci.edu/ml/datasets/Iris "Íris") popular, que contém instâncias de três tipos diferentes (classes) da planta íris. Há quatro valores de recursos (comprimento/largura e comprimento/largura de pétala) para cada instância. Nos experimentos anteriores, treinamos e testamos os modelos usando os mesmos conjuntos de valores. Aqui, usaremos o módulo [dividir dados][split] para criar dois subconjuntos dos dados, treinar no primeiro e pontuar e avaliar no segundo. O conjunto de dados íris está publicamente disponível no [repositório do Machine Learning UCI](https://archive.ics.uci.edu/ml/index.html)e pode ser baixado usando um módulo [importar dados][import-data] .
+## <a name="evaluating-a-multiclass-classification-model"></a>Avaliação de um modelo de classificação multiclasse
+Nesta experiência, usaremos o popular conjunto de dados [da Íris,](https://archive.ics.uci.edu/ml/datasets/Iris "Íris") que contém instâncias de três tipos diferentes (classes) da fábrica da íris. Existem quatro valores de característica (comprimento/largura sepal e comprimento/largura da pétala) para cada instância. Nas experiências anteriores, treinamos e testámos os modelos utilizando os mesmos conjuntos de dados. Aqui, usaremos o módulo [Split Data][split] para criar dois subconjuntos dos dados, treinar no primeiro, e marcar e avaliar no segundo. O conjunto de dados iris está disponível publicamente no [Repositório de Aprendizagem Automática uci,](https://archive.ics.uci.edu/ml/index.html)e pode ser descarregado usando um módulo de [dados de importação.][import-data]
 
-### <a name="creating-the-experiment"></a>Criando o experimento
+### <a name="creating-the-experiment"></a>Criação da Experiência
 Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
-* [Importar dados][import-data]
-* [Floresta de decisão multiclasse][multiclass-decision-forest]
-* [Dividir dados][split]
-* [Modelo de treinamento][train-model]
-* [Modelo de Pontuação][score-model]
-* [Avaliar modelo][evaluate-model]
+* [Dados de Importação][import-data]
+* [Floresta de Decisão Multiclasse][multiclass-decision-forest]
+* [Dados divididos][split]
+* [Modelo de comboio][train-model]
+* [Modelo de pontuação][score-model]
+* [Modelo de avaliação][evaluate-model]
 
-Conecte as portas, conforme mostrado abaixo na Figura 10.
+Ligue as portas como mostrado abaixo na Figura 10.
 
-Defina o índice de coluna de rótulo do módulo [modelo de treinamento][train-model] como 5. O conjunto de linhas não tem nenhuma linha de cabeçalho, mas sabemos que os rótulos de classe estão na quinta coluna.
+Desloque o índice da coluna de etiquetas do módulo [Modelo de Comboio][train-model] para 5. O conjunto de dados não tem linha de cabeçalho, mas sabemos que as etiquetas da classe estão na quinta coluna.
 
-Clique no módulo [importar dados][import-data] e defina a propriedade *fonte de dados* como *URL da Web via HTTP*e a *URL* para http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Clique no módulo [dados de importação][import-data] e coloque a propriedade de origem de *dados* para URL web *via HTTP,* e o *URL* para http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
-Defina a fração de instâncias a serem usadas para treinamento no módulo [dividir dados][split] (0,7, por exemplo).
+Defino a fração de instâncias a utilizar para o treino no módulo [De dados split][split] (0.7 por exemplo).
 
-![Avaliando um classificador multiclasse](./media/evaluate-model-performance/10.png)
+![Avaliação de um Classifier Multiclasse](./media/evaluate-model-performance/10.png)
 
-Figura 10. Avaliando um classificador multiclasse
+Figura 10. Avaliação de um Classifier Multiclasse
 
-### <a name="inspecting-the-evaluation-results"></a>Inspecionando os resultados da avaliação
-Execute o experimento e clique na porta de saída do [modelo de avaliação][evaluate-model]. Os resultados da avaliação são apresentados na forma de uma matriz de confusão, nesse caso. A matriz mostra as instâncias real versus previstas para todas as três classes.
+### <a name="inspecting-the-evaluation-results"></a>Inspeção dos Resultados da Avaliação
+Executar a experiência e clicar na porta de saída do Modelo de [Avaliação][evaluate-model]. Os resultados da avaliação são apresentados sob a forma de uma matriz de confusão, neste caso. A matriz mostra os casos reais vs. previstos para as três classes.
 
 ![Resultados da avaliação de classificação multiclasse](./media/evaluate-model-performance/11.png)
 
 Figura 11. Resultados da avaliação de classificação multiclasse.
 
-### <a name="using-cross-validation"></a>Usando a validação cruzada
-Conforme mencionado anteriormente, você pode executar o treinamento, a pontuação e as avaliações repetidas automaticamente usando o módulo [modelo de validação cruzada][cross-validate-model] . Você precisaria de um conjunto de um, um modelo não treinado e um módulo de [modelo de validação cruzada][cross-validate-model] (veja a figura abaixo). Novamente, você precisa definir a coluna de rótulo do módulo [modelo de validação cruzada][cross-validate-model] (índice de coluna 5, neste caso). Depois de executar o experimento e clicar na porta de saída à direita do [modelo de validação cruzada][cross-validate-model], você pode inspecionar os valores de métrica para cada dobra, bem como a média e o desvio padrão. As métricas exibidas aqui são semelhantes àquelas discutidas no caso de classificação binária. No entanto, na classificação multiclasse, a computação dos verdadeiros positivos/negativos e falsos positivos/negativos é feita contando-se com base em cada classe, pois não há nenhuma classe positiva ou negativa geral. Por exemplo, ao computar a precisão ou recall da classe ' íris-setosa ', supõe-se que essa é a classe positiva e todas as outras como negativas.
+### <a name="using-cross-validation"></a>Utilização da Validação Cruzada
+Como mencionado anteriormente, pode realizar treinos, pontuações e avaliações repetidas utilizando automaticamente o módulo [Cross-Validate Model.][cross-validate-model] Precisaria de um conjunto de dados, de um modelo destreinado e de um módulo [modelo de validação cruzada][cross-validate-model] (ver figura abaixo). Mais uma vez, é necessário definir a coluna de etiquetas do módulo [Modelo Cross-Validate][cross-validate-model] (índice de coluna 5 neste caso). Depois de executar a experiência e clicar na porta de saída direita do [Modelo Cross-Validate,][cross-validate-model]pode inspecionar os valores métricos para cada dobra, bem como o desvio médio e padrão. As métricas aqui apresentadas são semelhantes às discutidas no caso de classificação binária. No entanto, na classificação multiclasse, a computação dos verdadeiros positivos/negativos e falsos positivos/negativos é feita contando com base numa base por classe, uma vez que não existe uma classe global positiva ou negativa. Por exemplo, ao calcular a precisão ou a recordação da classe 'Iris-setosa', presume-se que esta é a classe positiva e todas as outras como negativas.
 
 ![Validação cruzada de um modelo de classificação multiclasse](./media/evaluate-model-performance/12.png)
 

@@ -42,13 +42,13 @@ ms.locfileid: "76938320"
 **Ásia-Pacífico**
 * Austrália Central 2
 * Leste da Austrália
-* Sudeste da Austrália
-* Ásia Oriental
+* Austrália Sudeste
+* Ásia Leste
 * Leste do Japão
 * Oeste do Japão
 * Coreia do Sul Central
 * Sul da Coreia do Sul
-* Sudeste Asiático
+* Ásia Sudeste
 * Oeste da Índia
 
 **Médio Oriente e África**

@@ -28,8 +28,8 @@ Figura 1 – pares regionais do Azure
 
 | Gráfico | Regiões emparelhadas |  |
 |:--- |:--- |:--- |
-| Ásia |Ásia Oriental |Sudeste Asiático |
-| Austrália |Leste da Austrália |Sudeste da Austrália |
+| Ásia |Ásia Leste |Ásia Sudeste |
+| Austrália |Leste da Austrália |Austrália Sudeste |
 | Austrália |Austrália Central |Austrália Central 2 |
 | Brasil |Sul do Brasil |E.U.A. Centro-Sul |
 | Canadá |Canadá Central |Leste do Canadá |

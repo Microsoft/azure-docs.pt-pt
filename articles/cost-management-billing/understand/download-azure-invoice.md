@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987827"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Ver e transferir a fatura do Microsoft Azure
 
-Para a maioria das subscrições, pode transferir a fatura a partir do [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou recebê-la por e-mail. Se for um cliente do Azure com um Contrato Enterprise (cliente EA), não poderá transferir as faturas da sua organização. As faturas são enviadas para quem está configurado para receber faturas para a inscrição.
+Para a maioria das subscrições, pode transferir a fatura a partir do [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou recebê-la por e-mail. Se for um cliente do Azure com um Contrato Enterprise (cliente EA), não poderá transferir as faturas da sua organização. As faturas são enviadas para a pessoa que está configurada para receber faturas para a inscrição.
 
 Apenas determinadas funções não têm permissão para ver faturas. Por exemplo, o Administrador de Conta ou o Administrador do Enterprise. Para obter mais informações sobre como obter acesso às informações de faturação, veja [Gerir acesso às funções de utilização de faturação do Azure](../manage/manage-billing-access.md).
 
@@ -50,7 +50,7 @@ Podem existir vários motivos para não ver uma fatura:
 
 ## <a name="download-invoices-in-the-azure-portal"></a>Transferir as faturas no portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure *Cost Management + Faturação*.
 1. Dependendo do seu acesso, poderá ser preciso selecionar uma conta de faturação ou um perfil de faturação.
 1. No menu esquerdo, selecione **Faturas** em **Faturação**.
@@ -87,51 +87,51 @@ Para optar por não receber as faturas por e-mail, siga os passos anteriores e c
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obter as faturas do Contrato de Cliente da Microsoft por e-mail
 
-Se você tiver uma conta de cobrança para o contrato do cliente da Microsoft, poderá optar por obter sua fatura em um email. Todos os usuários com uma função de proprietário, colaborador, leitor ou gerente de fatura em um perfil de cobrança receberão sua fatura por email. 
+Se tiver uma conta de faturação do Contrato de Cliente Microsoft, poderá optar por receber a fatura por e-mail. Todos os utilizadores com uma função de proprietário, contribuidor, leitor ou gestor de faturas num perfil de faturação recebem a fatura por e-mail. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Procure **Cost Management + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de uma subscrição no portal](./media/download-azure-invoice/search-cmb.png)
 
-1. Selecione **perfis de cobrança** no lado esquerdo. Na lista perfis de cobrança, selecione um perfil de cobrança para obter suas faturas no email.
+1. Selecione **Perfis de faturação** no lado esquerdo. Na lista de perfis de faturação, selecione um perfil de faturação para receber as faturas por e-mail.
 
-   [![captura de tela que mostra a lista de perfis de cobrança](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Captura de ecrã que mostra a lista dos perfis de faturação](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
-1. Selecione **Propriedades** no lado esquerdo e, em seguida, selecione **Atualizar preferência de fatura de email**.
+1. Selecione **Propriedades** no lado esquerdo e, em seguida, selecione **Atualizar preferência de fatura por e-mail**.
 
-   [![captura de tela que mostra a lista de perfis de cobrança](./media/download-azure-invoice/mca-select-update-email-preferences.png)](./media/download-azure-invoice/mca-select-update-email-preferences.png#lightbox)
+   [![Captura de ecrã que mostra a lista dos perfis de faturação](./media/download-azure-invoice/mca-select-update-email-preferences.png)](./media/download-azure-invoice/mca-select-update-email-preferences.png#lightbox)
 
-1. Selecione **aceitar** e clique em **Atualizar**.
+1. Selecione **Optar por receber** e, em seguida, clique em **Atualizar**.
 
-   [![captura de tela que mostra a lista de perfis de cobrança](./media/download-azure-invoice/mca-select-email-opt-in.png)](./media/download-azure-invoice/mca-select-email-opt-in.png#lightbox)
+   [![Captura de ecrã que mostra a lista dos perfis de faturação](./media/download-azure-invoice/mca-select-email-opt-in.png)](./media/download-azure-invoice/mca-select-email-opt-in.png#lightbox)
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Optar por não receber as faturas por e-mail do Contrato de Cliente Microsoft
 
-Para cancelar a obtenção de sua fatura por email, siga as etapas anteriores e clique em **recusar**. Todos os usuários com uma função de proprietário, colaborador, leitor ou Gerenciador de faturas são recusados de obter a fatura por email. 
+Para optar por não receber as faturas por e-mail, siga os passos anteriores e clique em **Optar por não receber**. Todos os utilizadores com uma função de proprietário, contribuidor, leitor ou gestor de faturas num perfil de faturação deixam de receber a fatura por e-mail. 
 
-## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Fornecer a outros acesso às notas fiscais do contrato do cliente da Microsoft
+## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Conceder acesso a outras pessoas às faturas do Contrato de Cliente Microsoft
 
-Você pode conceder a outros acesso para exibir, baixar e pagar faturas atribuindo-lhes a função de gerente de faturas para um perfil de cobrança. Se você tiver optado por obter sua fatura por email, esses usuários também receberão as notas fiscais por email. 
+Pode conceder acesso a outras pessoas para ver, transferir e pagar faturas ao atribuir-lhes a função de gestor de faturas para um perfil de faturação. Se tiver optado por receber a fatura por e-mail, os utilizadores também receberão as faturas por e-mail. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Procure **Cost Management + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de uma subscrição no portal](./media/download-azure-invoice/search-cmb.png)
 
-1. Selecione **perfis de cobrança** no lado esquerdo. Na lista perfis de cobrança, selecione um perfil de cobrança para o qual você deseja atribuir uma função de Gerenciador de faturas.
+1. Selecione **Perfis de faturação** no lado esquerdo. Na lista de perfis de faturação, selecione um perfil de faturação para o qual pretende atribuir uma função de gestor de faturas.
 
-   [![captura de tela que mostra a lista de perfis de cobrança](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Captura de ecrã que mostra a lista dos perfis de faturação](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
-1. Selecione **controle de acesso (iam)** no lado esquerdo e, em seguida, selecione **Adicionar** na parte superior da página.
+1. Selecione **Controlo de Acesso (IAM)** no lado esquerdo e, em seguida, selecione **Adicionar** na parte superior da página.
 
-   [![captura de tela que mostra a página de controle de acesso](./media/download-azure-invoice/mca-select-access-control.png)](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png#lightbox)
+   [![Captura de ecrã que mostra a página do controlo de acesso](./media/download-azure-invoice/mca-select-access-control.png)](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png#lightbox)
 
-1. Na lista suspensa função, selecione **Gerenciador de faturas**. Introduza o endereço de e-mail do utilizador ao qual pretende conceder acesso. Selecione **Guardar** para atribuir a função.
+1. Na lista pendente Função, selecione **Gestor de Faturas**. Introduza o endereço de e-mail do utilizador ao qual pretende conceder acesso. Selecione **Guardar** para atribuir a função.
 
-   [![captura de tela que mostra a adição de um usuário como um Gerenciador de faturas](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
+   [![Captura de ecrã que mostra a adição de um utilizador como um gestor de faturas](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
 
 ## <a name="check-your-billing-account-type"></a>Verificar o tipo da conta de faturação
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]

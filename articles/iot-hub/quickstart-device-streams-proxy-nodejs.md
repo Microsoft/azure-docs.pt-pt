@@ -43,7 +43,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
   * E.U.A. Central
   * EUA Central EUAP
-  * Sudeste Asiático
+  * Ásia Sudeste
   * Europa do Norte
   
 

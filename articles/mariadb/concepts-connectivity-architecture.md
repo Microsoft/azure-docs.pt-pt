@@ -40,7 +40,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | E.U.A. Central | 23.99.160.139, 13.67.215.62   |
 | Leste da China 2 | 40.73.82.1  |
 | Norte da China 2 | 40.73.50.0     |
-| Ásia Oriental | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
+| Ásia Leste | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
 | E.U.A. Leste | 40.121.158.30, 191.238.6.43  |
 | E.U.A. Leste 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | França Central | 40.79.137.0, 40.79.129.1  |
@@ -58,7 +58,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Norte da África do Sul  | 102.133.152.0    |
 | Oeste da África do Sul | 102.133.24.0   |
 | E.U.A. Centro-Sul |13.66.62.124, 23.98.162.75, 20.45.120.0, 104.214.16.39   |
-| Sudeste Asiático | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
+| Ásia Sudeste | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | E.A.U. Central | 20.37.72.64  |
 | Norte dos E.A.U. | 65.52.248.0    |
 | Sul do Reino Unido | 51.140.184.11   |

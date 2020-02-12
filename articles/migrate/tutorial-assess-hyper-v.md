@@ -61,7 +61,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
     **Geografia** | **Região**
     --- | ---
-    Ásia  | Sudeste Asiático
+    Ásia  | Ásia Sudeste
     Europa | Europa Setentrional ou Europa Ocidental
     Reino Unido |  Sul do Reino Unido ou Oeste do Reino Unido
     Estados Unidos | Leste dos EUA, oeste dos EUA 2 ou Oeste EUA Central

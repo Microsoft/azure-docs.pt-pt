@@ -212,13 +212,13 @@ Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos 
 | Azure Public| Leste do Canadá| 52.139.80.117|
 | Azure Public| Emirados Unidos norte| 20.46.144.85|
 | Azure Public| Sul do Brasil| 191.233.24.179|
-| Azure Public| Sudeste asiático| 40.90.185.46|
+| Azure Public| Ásia Sudeste| 40.90.185.46|
 | Azure Public| África do Sul Norte| 102.133.130.197|
 | Azure Public| Canadá Central| 52.139.20.34|
 | Azure Public| Sul da Coreia do Sul| 40.80.232.185|
 | Azure Public| Índia Central| 13.71.49.1|
 | Azure Public| E.U.A. Oeste| 13.64.39.16|
-| Azure Public| Sudeste da Austrália| 20.40.160.107|
+| Azure Public| Austrália Sudeste| 20.40.160.107|
 | Azure Public| Austrália Central| 20.37.52.67|
 | Azure Public| Sul da Índia| 20.44.33.246|
 | Azure Public| E.U.A. Central| 13.86.102.66|
@@ -229,7 +229,7 @@ Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos 
 | Azure Public| E.U.A. Centro-Sul| 20.188.77.119|
 | Azure Public| E.U.A. Leste 2| 20.44.72.3|
 | Azure Public| Europa do Norte| 52.142.95.35|
-| Azure Public| Ásia Oriental| 52.139.152.27|
+| Azure Public| Ásia Leste| 52.139.152.27|
 | Azure Public| Sul de França| 20.39.80.2|
 | Azure Public| Suíça Oeste| 51.107.96.8|
 | Azure Public| Austrália Central 2| 20.39.99.81|

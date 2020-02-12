@@ -94,10 +94,10 @@ As regiões de origem são listadas na tabela a seguir. Todas as regiões públi
 | Regiões de origem        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
 | Austrália Central     | Leste da China        | Sul da Índia        | Europa Ocidental        |
-| Austrália Central 2   | Leste da China 2      | Sudeste Asiático     | Sul do Reino Unido           |
+| Austrália Central 2   | Leste da China 2      | Ásia Sudeste     | Sul do Reino Unido           |
 | Leste da Austrália        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
-| Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | US DoD - Centro     |
-| Sul do Brasil          | Ásia Oriental         | Coreia do Sul Central      | US DoD - Leste        |
+| Austrália Sudeste   | Norte da China 2     | Oeste do Japão         | US DoD - Centro     |
+| Sul do Brasil          | Ásia Leste         | Coreia do Sul Central      | US DoD - Leste        |
 | Canadá Central        | E.U.A. Leste           | Sul da Coreia do Sul        | US Gov - Arizona     |
 | Leste do Canadá           | E.U.A. Leste 2         | E.U.A. Centro-Norte   | US Gov - Texas       |
 | Índia Central         | Leste dos EUA 2 EUAP    | Europa do Norte       | US Gov - Virginia    |

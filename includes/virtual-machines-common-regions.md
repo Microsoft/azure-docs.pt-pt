@@ -46,7 +46,7 @@ Os exemplos de pares de região incluem:
 |:--- |:--- |
 | E.U.A. Oeste |E.U.A. Leste |
 | Europa do Norte |Europa Ocidental |
-| Sudeste Asiático |Ásia Oriental |
+| Ásia Sudeste |Ásia Leste |
 
 Pode ver a [lista completa de pares regionais aqui](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 

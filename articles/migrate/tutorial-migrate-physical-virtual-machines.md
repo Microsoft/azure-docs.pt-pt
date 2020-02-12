@@ -114,7 +114,7 @@ Configure um projeto de migrações para Azure e adicione a ferramenta de migra�
 
     **Geografia** | **Região**
     --- | ---
-    Ásia | Sudeste Asiático
+    Ásia | Ásia Sudeste
     Europa | Norte da Europa ou Europa Ocidental
     Estados Unidos | Leste dos EUA ou Oeste EUA Central
 

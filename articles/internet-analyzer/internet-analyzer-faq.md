@@ -68,12 +68,12 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
     * Sul do Brasil
     * Índia Central
     * E.U.A. Central
-    * Ásia Oriental
+    * Ásia Leste
     * East US
     * Oeste do Japão
     * Europa do Norte
     * Norte da África do Sul
-    * Sudeste Asiático
+    * Ásia Sudeste
     * Norte dos E.A.U.
     * Oeste do Reino Unido  
     * Europa Ocidental

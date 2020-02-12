@@ -24,9 +24,9 @@ A conectividade de VPN baseada em site a site e a arquitetura WAN virtual estão
 | América do Norte | E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Leste do Canadá |
 |América do Sul |Sul do Brasil |
 | Europa | França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |
-| Ásia | Ásia Oriental, Sudeste Asiático |
+| Ásia | Ásia Leste, Ásia Sudeste |
 | Japão  | Oeste do Japão, Leste do Japão |
-| Austrália | Sudeste da Austrália, Leste da Austrália |
+| Austrália | Austrália Sudeste, Leste da Austrália |
 | Governo da Austrália | Austrália Central, Austrália Central 2 |
 | Índia | Oeste da Índia, Índia Central, Sul da Índia |
 | Coreia do Sul | Coreia do Sul Central, Sul da Coreia do Sul |

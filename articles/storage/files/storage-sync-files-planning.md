@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
 ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2020
 ms.locfileid: "76046094"
@@ -252,13 +252,13 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | Região | Localização do datacenter |
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
-| Sudeste da Austrália | Victoria |
+| Austrália Sudeste | Victoria |
 | Sul do Brasil | Estado de São Paulo |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade do Quebeque |
 | Índia Central | Pune |
 | E.U.A. Central | Iowa |
-| Ásia Oriental | RAE de Hong Kong |
+| Ásia Leste | RAE de Hong Kong |
 | E.U.A. Leste | Virgínia |
 | E.U.A. Leste 2 | Virgínia |
 | França Central | Paris |
@@ -273,7 +273,7 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | Oeste da África do Sul * | Cidade do Cabo |
 | E.U.A. Centro-Sul | Texas |
 | Sul da Índia | Chennai |
-| Sudeste Asiático | Singapura |
+| Ásia Sudeste | Singapura |
 | Sul do Reino Unido | Londres |
 | Oeste do Reino Unido | Cardiff |
 | US Gov - Arizona | Arizona |
@@ -300,14 +300,14 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 
 | Região primária      | Região emparelhada      |
 |---------------------|--------------------|
-| Leste da Austrália      | Sudeste da Austrália|
-| Sudeste da Austrália | Leste da Austrália     |
+| Leste da Austrália      | Austrália Sudeste|
+| Austrália Sudeste | Leste da Austrália     |
 | Sul do Brasil        | E.U.A. Centro-Sul   |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
 | Índia Central       | Sul da Índia        |
 | E.U.A. Central          | E.U.A. Leste 2          |
-| Ásia Oriental           | Sudeste Asiático     |
+| Ásia Leste           | Ásia Sudeste     |
 | E.U.A. Leste             | E.U.A. Oeste            |
 | E.U.A. Leste 2           | E.U.A. Central         |
 | França Central      | Sul de França       |
@@ -322,7 +322,7 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Oeste da África do Sul   | Norte da África do Sul |
 | E.U.A. Centro-Sul    | E.U.A. Centro-Norte   |
 | Sul da Índia         | Índia Central      |
-| Sudeste Asiático      | Ásia Oriental          |
+| Ásia Sudeste      | Ásia Leste          |
 | Sul do Reino Unido            | Oeste do Reino Unido            |
 | Oeste do Reino Unido             | Sul do Reino Unido           |
 | US Gov - Arizona      | US Gov - Texas       |

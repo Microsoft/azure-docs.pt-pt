@@ -47,7 +47,7 @@ O ponto de extremidade `voices/list` permite obter uma lista completa de vozes p
 | Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Central | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Ásia Oriental | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Ásia Leste | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Leste | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Leste 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -57,7 +57,7 @@ O ponto de extremidade `voices/list` permite obter uma lista completa de vozes p
 | E.U.A. Centro-Norte | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa do Norte | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Centro-Sul | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Ásia Sudeste | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Oeste | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |

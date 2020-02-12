@@ -48,12 +48,12 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 - Sul do Reino Unido
 - Europa do Norte
 - Europa Ocidental
-- Ásia Oriental
-- Sudeste Asiático
+- Ásia Leste
+- Ásia Sudeste
 - Índia Central
 - Leste do Japão
 - Leste da Austrália
-- Sudeste da Austrália
+- Austrália Sudeste
 
 >[!NOTE]
 >Você pode implantar VMs do Azure de qualquer região. Essas VMs não são limitadas às regiões com suporte no espaço de trabalho Log Analytics.

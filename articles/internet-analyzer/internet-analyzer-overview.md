@@ -39,12 +39,12 @@ Durante a visualização, os seguintes pontos de extremidade pré-configurados e
     * Sul do Brasil
     * Índia Central
     * E.U.A. Central
-    * Ásia Oriental
+    * Ásia Leste
     * E.U.A. Leste
     * Oeste do Japão
     * Europa do Norte
     * Norte da África do Sul
-    * Sudeste Asiático 
+    * Ásia Sudeste 
     * Norte dos E.A.U.
     * Oeste do Reino Unido  
     * Europa Ocidental

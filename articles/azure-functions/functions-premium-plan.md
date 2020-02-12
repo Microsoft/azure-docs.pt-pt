@@ -103,11 +103,11 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Austrália Central| ✔<sup>1</sup> | |
 |Austrália Central 2| ✔<sup>1</sup> | |
 |Leste da Austrália| ✔ | |
-|Sudeste da Austrália | ✔ | ✔<sup>1</sup> |
+|Austrália Sudeste | ✔ | ✔<sup>1</sup> |
 |Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |
 |E.U.A. Central| ✔ |  |
-|Ásia Oriental| ✔ |  |
+|Ásia Leste| ✔ |  |
 |E.U.A. Leste | ✔ | ✔<sup>1</sup> |
 |E.U.A. Leste 2| ✔ |  |
 |França Central| ✔ |  |
@@ -119,7 +119,7 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Europa do Norte| ✔ | ✔<sup>1</sup> |
 |E.U.A. Centro-Sul| ✔ | ✔<sup>1</sup> |
 |Sul da Índia | ✔ | |
-|Sudeste Asiático| ✔ | ✔<sup>1</sup> |
+|Ásia Sudeste| ✔ | ✔<sup>1</sup> |
 |Sul do Reino Unido| ✔ | |
 |Oeste do Reino Unido| ✔ |  |
 |Europa Ocidental| ✔ | ✔<sup>1</sup> |

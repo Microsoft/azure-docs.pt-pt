@@ -47,7 +47,7 @@ Atualmente, a visualização dos fluxos de dispositivo só tem suporte para hubs
   * E.U.A. Central
   * EUA Central EUAP
   * Europa do Norte
-  * Sudeste Asiático
+  * Ásia Sudeste
 
 Para executar o aplicativo do lado do serviço neste guia de início rápido, você precisa do node. js v10. x. x ou posterior em seu computador de desenvolvimento.
 

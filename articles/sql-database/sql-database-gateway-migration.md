@@ -31,14 +31,14 @@ A primeira rodada de migração de tráfego para gateways mais recentes está ag
 - Europa Ocidental
 - E.U.A. Leste
 - E.U.A. Central
-- Sudeste Asiático
+- Ásia Sudeste
 - E.U.A. Centro-Sul
 - Europa do Norte
 - E.U.A. Centro-Norte
 - Oeste do Japão
 - Leste do Japão
 - E.U.A. Leste 2
-- Ásia Oriental
+- Ásia Leste
 
 A migração de tráfego alterará o endereço IP público que o DNS resolve para o banco de dados SQL.
 Você será afetado se tiver:

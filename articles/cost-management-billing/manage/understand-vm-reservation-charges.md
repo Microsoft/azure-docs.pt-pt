@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 9ebc418327d8c73198d43d3c40e14d48c73ad209
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "76290245"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Como o desconto de reserva do Azure é aplicado a máquinas virtuais
@@ -47,7 +47,7 @@ Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a out
 
 ![Captura de ecrã de uma reserva aplicada e duas instâncias de máquina virtual correspondentes](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
-1. Qualquer utilização acima da linha de reserva é cobrada à tarifa normal pay as you go. Você não será cobrado por nenhum uso abaixo da linha de reservas, pois já foi pago como parte da compra de reserva.
+1. Qualquer utilização acima da linha de reserva é cobrada à tarifa normal pay as you go. Não será faturado pela utilização abaixo da linha de reservas, pois já foi pago como parte da compra de reserva.
 2. Na hora 1, a instância 1 é executada por 0,75 horas e a instância 2 é executada por 0,5 horas. A utilização total para a hora 1 é de 1,25 horas. É cobrado tarifas pay as you go relativamente às 0,25 horas restantes.
 3. Para a hora 2 e a hora 3, ambas as instâncias foram executadas por 1 hora. Uma instância é coberta pela reserva e a outra é cobrada de acordo à tarifa pay as you go.
 4. Para a hora 4, a instância 1 é executada por 0,5 horas e a instância 2 é executada por 1 hora. A instância 1 é totalmente coberta pela reserva e 0,5 horas da instância 2 é coberta. É-lhe cobrada a tarifa pay as you go pela 0,5 hora restante.
@@ -60,7 +60,7 @@ Quando estiver a executar instâncias de máquina virtual do Windows, a reserva 
 
 ## <a name="discount-can-apply-to-different-sizes"></a>O desconto aplica-se a diferentes tamanhos
 
-Ao comprar uma Reserved VM Instance, se selecionar a opção **Otimizado para**: **flexibilidade de tamanho de instância**, a cobertura do desconto depende do tamanho da máquina virtual que selecionar. A reserva pode ser aplicada aos tamanhos das máquinas virtuais (VMs) no mesmo grupo de série de tamanhos. Para obter mais informações, veja [Flexibilidade de tamanho da máquina virtual com Instâncias Reservadas da VM](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Ao comprar uma Reserved VM Instance, se selecionar a opção **Otimizado para**: **flexibilidade de tamanho de instância**, a cobertura do desconto depende do tamanho da máquina virtual que selecionar. A reserva pode ser aplicada aos tamanhos das máquinas virtuais (VMs) no mesmo grupo de série de tamanhos. Para obter mais informações, veja [Flexibilidade de tamanho da máquina virtual com Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="discount-applies-to-matching-servicetype-only"></a>O desconto aplica-se somente ao ServiceType correspondente
 
@@ -76,11 +76,11 @@ A definição de flexibilidade de tamanho de instância determina quais serviço
 
 Quer a definição esteja ativada ou desativada, os descontos de reserva serão aplicados automaticamente a qualquer utilização de máquina virtual quando o *ConsumedService* for `Microsoft.Compute`. Portanto, verifique os dados de utilização para o valor *ConsumedService*. Alguns exemplos incluem:
 
-- Virtual Machines
+- Máquinas virtuais
 - Conjuntos de dimensionamento de máquinas virtuais
 - Serviço de contentores
 - Implementações do Azure Batch (no modo de subscrições do utilizador)
-- Serviço Kubernetes do Azure (AKS)
+- Serviço de Kubernetes do Azure (AKS)
 - Service Fabric
 
 Quando a definição está ativada, os descontos de reserva aplicam-se automaticamente à utilização correspondente da máquina virtual quando o *ConsumedService* é qualquer um dos seguintes itens:

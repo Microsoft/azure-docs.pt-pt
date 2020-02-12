@@ -49,7 +49,7 @@ Antes de iniciar, examine os requisitos a seguir.
     - Sudeste da Austrália
     - Europa Ocidental
     - E.U.A. Leste
-    - Sudeste Asiático
+    - Ásia Sudeste
     - Leste do Japão
     - Sul do Reino Unido
     - Índia Central

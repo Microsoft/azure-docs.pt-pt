@@ -70,8 +70,8 @@ A partir do final de março de 2019, o HSM dedicado está disponível nas 14 reg
 * E.U.A. Leste 2
 * E.U.A. Oeste
 * E.U.A. Centro-Sul
-* Sudeste asiático
-* Ásia Oriental
+* Ásia Sudeste
+* Ásia Leste
 * Índia Central
 * Índia do Sul
 * Leste do Japão
@@ -83,7 +83,7 @@ A partir do final de março de 2019, o HSM dedicado está disponível nas 14 reg
 * Canadá Central
 * Leste do Canadá
 * Leste da Austrália
-* Sudeste da Austrália
+* Austrália Sudeste
 
 ## <a name="interoperability"></a>Interoperabilidade
 

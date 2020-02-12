@@ -64,7 +64,7 @@ Atualmente, o Azure FarmBeats é suportado em ambientes públicos de nuvem nas s
 - E.U.A.Oeste 2
 - Europa do Norte
 - Europa Ocidental
-- Ásia Oriental
+- Ásia Leste
 - Sudeste Asiático
 
 ### <a name="time-taken"></a>Tempo tomado

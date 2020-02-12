@@ -77,7 +77,7 @@ Para determinar se o serviço tem limites de documento, use a [API REST obter es
 Se o portal indicar um limite de documento, o serviço foi criado antes de 2017 ou foi criado em um data center usando clusters de menor capacidade para hospedar os serviços de Pesquisa Cognitiva do Azure:
 
 + Leste da Austrália
-+ Ásia Oriental
++ Ásia Leste
 + Índia Central
 + Oeste do Japão
 + E.U.A. Centro-Oeste

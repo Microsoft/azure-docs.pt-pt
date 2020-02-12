@@ -81,7 +81,7 @@ O nome da região populado no campo local do recurso nos detalhes de uso varia d
 |    centralus             |    E.U.A. Central                            |
 |    chinaeast             |    Leste da China                            |
 |    chinanorth            |    Norte da China                           |
-|    eastasia              |    Ásia Oriental                             |
+|    eastasia              |    Ásia Leste                             |
 |    eastus                |    E.U.A. Leste                               |
 |    eastus2               |    E.U.A. Leste 2                             |
 |    GermanyCentral        |    Alemanha Central                            |
@@ -93,7 +93,7 @@ O nome da região populado no campo local do recurso nos detalhes de uso varia d
 |    northcentralus        |    E.U.A. Centro-Norte                      |
 |    northeurope           |    Europa do Norte                          |
 |    southcentralus        |    E.U.A. Centro-Sul                      |
-|    southeastasia         |    Sudeste asiático                        |
+|    southeastasia         |    Ásia Sudeste                        |
 |    SouthIndia            |    IN Sul                              |
 |    UKNorth               |    Norte dos EUA                              |
 |    uksouth               |    Sul do Reino Unido                              |

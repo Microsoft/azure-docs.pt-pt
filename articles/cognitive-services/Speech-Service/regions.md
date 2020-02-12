@@ -42,8 +42,8 @@ O SDK de fala está disponível nessas regiões para **reconhecimento de fala**,
 | E.U.A. Centro-Norte | `northcentralus`     | https://northcentralus.cris.ai |
 | E.U.A. Centro-Sul | `southcentralus`     | https://southcentralus.cris.ai |
 | Índia Central    | `centralindia`       | https://centralindia.cris.ai   |
-| Ásia Oriental        | `eastasia`           | https://eastasia.cris.ai       |
-| Sudeste Asiático   | `southeastasia`      | https://southeastasia.cris.ai  |
+| Ásia Leste        | `eastasia`           | https://eastasia.cris.ai       |
+| Ásia Sudeste   | `southeastasia`      | https://southeastasia.cris.ai  |
 | Leste do Japão       | `japaneast`          | https://japaneast.cris.ai      |
 | Coreia do Sul Central    | `koreacentral`       | https://koreacentral.cris.ai   |
 | Leste da Austrália   | `australiaeast`      | https://australiaeast.cris.ai  |
@@ -59,8 +59,8 @@ As regiões disponíveis para o **reconhecimento de intenções** por meio do SD
 
 | Região global | Região           | Parâmetro do SDK de voz |
 | ------------- | ---------------- | -------------------- |
-| Ásia          | Ásia Oriental        | `eastasia`           |
-| Ásia          | Sudeste Asiático   | `southeastasia`      |
+| Ásia          | Ásia Leste        | `eastasia`           |
+| Ásia          | Ásia Sudeste   | `southeastasia`      |
 | Austrália     | Leste da Austrália   | `australiaeast`      |
 | Europa        | Europa do Norte     | `northeurope`        |
 | Europa        | Europa Ocidental      | `westeurope`         |
@@ -86,7 +86,7 @@ O [SDK de fala](speech-sdk.md) dá suporte a recursos do **Assistente de voz** n
 | E.U.A. Leste 2      | `eastus2`            |
 | Europa Ocidental    | `westeurope`         |
 | Europa do Norte   | `northeurope`        |
-| Sudeste Asiático | `southeastasia`      |
+| Ásia Sudeste | `southeastasia`      |
 
 ## <a name="rest-apis"></a>APIs REST
 

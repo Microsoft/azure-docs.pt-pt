@@ -16,6 +16,6 @@ ms.locfileid: "75445816"
 | Regiões | SO | SKUs de GPU disponíveis |
 | -------- | ---- | :-----------: |
 | Leste dos EUA, Europa Ocidental, oeste dos EUA 2 | Linux | K80, P100, V100 |
-| Sudeste Asiático | Linux | P100, V100|
+| Ásia Sudeste | Linux | P100, V100|
 | Índia Central | Linux | V100 |
 | Europa do Norte | Linux | K80 |

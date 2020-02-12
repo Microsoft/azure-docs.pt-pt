@@ -107,14 +107,14 @@ Para fins de BCDR (continuidade dos negócios e recuperação de desastre), voc�
 
 | Nuvem  | Região | URL do ponto de extremidade primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
-| Público |Leste da Austrália | https:\//kailani-aue.one.microsoft.com | Sudeste da Austrália | https:\//tm-kailani-aue.one.microsoft.com |
-| Público |Sudeste da Austrália | https:\//kailani-aus.one.microsoft.com | Leste da Austrália | https:\//tm-kailani-aus.one.microsoft.com |
+| Público |Leste da Austrália | https:\//kailani-aue.one.microsoft.com | Austrália Sudeste | https:\//tm-kailani-aue.one.microsoft.com |
+| Público |Austrália Sudeste | https:\//kailani-aus.one.microsoft.com | Leste da Austrália | https:\//tm-kailani-aus.one.microsoft.com |
 | Público | Sul do Brasil | https:\//brazilsouth01.afs.azure.net | E.U.A. Centro-Sul | https:\//tm-brazilsouth01.afs.azure.net |
 | Público | Canadá Central | https:\//kailani-cac.one.microsoft.com | Leste do Canadá | https:\//tm-kailani-cac.one.microsoft.com |
 | Público | Leste do Canadá | https:\//kailani-cae.one.microsoft.com | Canadá Central | https:\//tm-kailani.cae.one.microsoft.com |
 | Público | Índia Central | https:\//kailani-cin.one.microsoft.com | Sul da Índia | https:\//tm-kailani-cin.one.microsoft.com |
 | Público | E.U.A. Central | https:\//kailani-cus.one.microsoft.com | E.U.A. Leste 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| Público | Ásia Oriental | https:\//kailani11.one.microsoft.com | Sudeste Asiático | https:\//tm-kailani11.one.microsoft.com |
+| Público | Ásia Leste | https:\//kailani11.one.microsoft.com | Ásia Sudeste | https:\//tm-kailani11.one.microsoft.com |
 | Público | E.U.A. Leste | https:\//kailani1.one.microsoft.com | E.U.A. Oeste | https:\//tm-kailani1.one.microsoft.com |
 | Público | E.U.A. Leste 2 | https:\//kailani-ess.one.microsoft.com | E.U.A. Central | https:\//tm-kailani-ess.one.microsoft.com |
 | Público | Leste do Japão | https:\//japaneast01.afs.azure.net | Oeste do Japão | https:\//tm-japaneast01.afs.azure.net |
@@ -125,7 +125,7 @@ Para fins de BCDR (continuidade dos negócios e recuperação de desastre), voc�
 | Público | Europa do Norte | https:\//kailani7.one.microsoft.com | Europa Ocidental | https:\//tm-kailani7.one.microsoft.com |
 | Público | E.U.A. Centro-Sul | https:\//southcentralus01.afs.azure.net | E.U.A. Centro-Norte | https:\//tm-southcentralus01.afs.azure.net |
 | Público | Sul da Índia | https:\//kailani-sin.one.microsoft.com | Índia Central | https:\//tm-kailani-sin.one.microsoft.com |
-| Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Ásia Oriental | https:\//tm-kailani10.one.microsoft.com |
+| Público | Ásia Sudeste | https:\//kailani10.one.microsoft.com | Ásia Leste | https:\//tm-kailani10.one.microsoft.com |
 | Público | Sul do Reino Unido | https:\//kailani-uks.one.microsoft.com | Oeste do Reino Unido | https:\//tm-kailani-uks.one.microsoft.com |
 | Público | Oeste do Reino Unido | https:\//kailani-ukw.one.microsoft.com | Sul do Reino Unido | https:\//tm-kailani-ukw.one.microsoft.com |
 | Público | E.U.A. Centro-Oeste | https:\//westcentralus01.afs.azure.net | E.U.A. Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |

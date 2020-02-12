@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: aff5e1e707980c9a63988c22653fa5fba0fc236b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75996043"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Banco Aberto (PSD2) e Autenticação de Clientes Segura (SCA) para os clientes do Azure
@@ -48,7 +48,7 @@ Se o seu banco rejeitar as cobranças, o estado da sua conta do Azure é alterad
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como Administrador de Conta.
 2. Procure em **Gestão de Custos + Faturação**.
-3. Na página **visão geral** de **Gerenciamento de custos + cobrança** , examine a coluna status na grade **minhas assinaturas** .
+3. Em **Cost Management + Faturação**, na página **Descrição geral**, analise a coluna de estado na grelha **As minhas subscrições**.
 4. Se a sua subscrição estiver marcada como **Vencido**, clique em **Liquidar dívida**. É-lhe pedido que complete a autenticação multifator durante o processo.
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Liquidar cobranças em atraso de compras no Marketplace e de reservas

@@ -59,7 +59,7 @@ Atualmente, há suporte para a visualização de fluxos de dispositivo apenas pa
   * E.U.A. Central
   * EUA Central EUAP
   * Europa do Norte
-  * Sudeste Asiático
+  * Ásia Sudeste
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
