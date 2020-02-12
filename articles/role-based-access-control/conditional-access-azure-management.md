@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o acesso ao gerenciamento do Azure com acesso condicional no Azure Active Directory
-description: Saiba mais sobre como usar o acesso condicional no Azure AD para gerenciar o acesso ao gerenciamento do Azure.
+title: Gerir acesso à gestão azure com acesso condicional em Azure AD
+description: Saiba utilizar o Acesso Condicional em Azure AD para gerir o acesso à gestão azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,37 +15,37 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: e4b7ce0701349cae3ef501213d0f822ee8d150d0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f3341f1c30a1581b8507652c322c00581e3972aa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142836"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137417"
 ---
-# <a name="manage-access-to-azure-management-with-conditional-access"></a>Gerenciar o acesso ao gerenciamento do Azure com acesso condicional
+# <a name="manage-access-to-azure-management-with-conditional-access"></a>Gerir acesso à gestão azure com acesso condicional
 
 > [!CAUTION]
-> Certifique-se de que você entendeu como o acesso condicional funciona antes de configurar uma política para gerenciar o acesso ao gerenciamento do Azure. Certifique-se de não criar condições que possam bloquear seu próprio acesso ao Portal.
+> Certifique-se de que compreende como funciona o Acesso Condicionado antes de criar uma política de gestão de acesso à gestão do Azure. Certifique-se de que não cria condições que possam bloquear o seu próprio acesso ao portal.
 
-O acesso condicional no Azure Active Directory (AD do Azure) controla o acesso a aplicativos de nuvem com base em condições específicas que você especificar. Para permitir o acesso, você cria políticas de acesso condicional que permitem ou bloqueiam o acesso com base em se os requisitos na política são atendidos ou não. 
+O Acesso Condicional no Diretório Ativo azure (Azure AD) controla o acesso a aplicações em nuvem com base em condições específicas que especifica. Para permitir o acesso, cria políticas de Acesso Condicional que permitem ou bloqueiam o acesso com base no facto de os requisitos da apólice serem ou não cumpridos. 
 
-Normalmente, você usa o acesso condicional para controlar o acesso aos seus aplicativos de nuvem. Você também pode configurar políticas para controlar o acesso ao gerenciamento do Azure com base em determinadas condições (como risco de entrada, local ou dispositivo) e para impor requisitos como a autenticação multifator.
+Normalmente, utiliza o Acesso Condicional para controlar o acesso às suas aplicações em nuvem. Também pode configurar políticas para controlar o acesso à gestão do Azure com base em determinadas condições (tais como risco de entrada, localização ou dispositivo) e para fazer cumprir requisitos como a autenticação de vários fatores.
 
-Para criar uma política para o gerenciamento do Azure, selecione **Microsoft Azure gerenciamento** em **aplicativos de nuvem** ao escolher o aplicativo ao qual aplicar a política.
+Para criar uma política para a gestão do Azure, selecione a **Microsoft Azure Management** sob **aplicações Cloud** ao escolher a app para aplicar a política.
 
 ![Acesso Condicional para a gestão do Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-A política que você cria aplica-se a todos os pontos de extremidade de gerenciamento do Azure, incluindo o seguinte:
+A política que cria aplica-se a todos os pontos finais de gestão do Azure, incluindo os seguintes:
 
 - Portal do Azure
 - Provedor de Azure Resource Manager
-- APIs de gerenciamento de serviço clássico
+- APIs de Gestão de Serviços Clássicos
 - Azure PowerShell
 - Portal do administrador de assinaturas do Visual Studio
 - DevOps do Azure
 - Portal de Azure Data Factory
 
-Observe que a política se aplica a Azure PowerShell, que chama a API Azure Resource Manager. Ele não se aplica ao [Azure ad PowerShell](/powershell/azure/active-directory/install-adv2), que chama Microsoft Graph.
+Note que a política se aplica ao Azure PowerShell, que chama a API do Gestor de Recursos Azure. Não se aplica ao [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), que chama microsoft graph.
 
 
-Para obter mais informações sobre como configurar e usar o acesso condicional, consulte [acesso condicional no Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+Para obter mais informações sobre como configurar e utilizar o Acesso Condicional, consulte [acesso condicional no Diretório Ativo Azure](../active-directory/active-directory-conditional-access-azure-portal.md).

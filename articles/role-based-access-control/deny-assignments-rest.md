@@ -1,6 +1,6 @@
 ---
-title: Lista negar atribuições para recursos do Azure com a API REST - Azure | Documentos da Microsoft
-description: Saiba como listar atribuições de utilizadores, grupos e aplicações com o controlo de acesso baseado em funções (RBAC) para recursos do Azure e a API REST de negação.
+title: Lista nega atribuições para recursos Azure com a API REST
+description: Saiba como listar as atribuições de utilizadores, grupos e aplicações utilizando o controlo de acesso baseado em papéis (RBAC) para recursos Azure e a API REST.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,77 +15,77 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0bc49456f5965846a2de542b4a063bab2d1838bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e6214b3cb2cdca2d80ebae43771b206e3396d8b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118294"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137329"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lista de atribuições para recursos do Azure com a API REST de negação
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lista nega atribuições para recursos Azure utilizando a API REST
 
-[Negar atribuições](deny-assignments.md) impedir que os utilizadores a efetuar ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso. Este artigo descreve como listar atribuições com a API REST de negação.
+[As atribuições de negação](deny-assignments.md) bloqueiam os utilizadores de realizarem ações específicas de recursos Do Azure, mesmo que uma atribuição de funções lhes conceda acesso. Este artigo descreve como listar missões de negação usando a API REST.
 
 > [!NOTE]
-> Não é possível diretamente criar seu próprio negar atribuições. Para obter informações sobre como negar atribuições são criadas, consulte [negar atribuições](deny-assignments.md).
+> Não podes criar diretamente as tuas próprias missões de negação. Para obter informações sobre como as missões de negação são criadas, consulte [missões Denegação](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para obter informações sobre uma atribuição de negar, tem de ter:
+Para obter informações sobre uma atribuição de negação, deve ter:
 
-- `Microsoft.Authorization/denyAssignments/read` permissão, o que está incluído na maioria [funções incorporadas para recursos do Azure](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` permissão, que está incluída na maioria das [funções incorporadas para os recursos Azure.](built-in-roles.md)
 
-## <a name="list-a-single-deny-assignment"></a>Lista de um único negar atribuição
+## <a name="list-a-single-deny-assignment"></a>Enumerar uma única atribuição de negação
 
-1. Começar com o pedido seguinte:
+1. Comece com o seguinte pedido:
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments/{deny-assignment-id}?api-version=2018-07-01-preview
     ```
 
-1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de negação.
+1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar as atribuições de negação.
 
-    | Scope | Tipo |
+    | Âmbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-1. Substitua *{id de atribuição de negar}* com o identificador de atribuição de negar que pretende recuperar.
+1. Substitua *{deny-assignment-id}* com o identificador de atribuição de negação que pretende recuperar.
 
-## <a name="list-multiple-deny-assignments"></a>Listar várias atribuições de negação
+## <a name="list-multiple-deny-assignments"></a>Lista múltiplo de missões de negação
 
-1. Começar com um dos pedidos seguintes:
+1. Comece com um dos seguintes pedidos:
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview
     ```
 
-    Com os parâmetros opcionais:
+    Com parâmetros opcionais:
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter={filter}
     ```
 
-1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de negação.
+1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar as atribuições de negação.
 
-    | Scope | Tipo |
+    | Âmbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-1. Substitua *{filtro}* com a condição que pretende aplicar para filtrar a lista de atribuição de negação.
+1. Substitua *{filter}* com a condição que pretende aplicar para filtrar a lista de atribuição de negação.
 
     | Filtro | Descrição |
     | --- | --- |
-    | (sem filtro) | Lista todos os negar atribuições em acima e abaixo âmbito especificado. |
-    | `$filter=atScope()` | Lista de negação atribuições para apenas o âmbito especificado e superior. Não inclui as atribuições de negação em subscopes. |
-    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Lista de negação atribuições com o nome especificado. |
+    | (sem filtro) | Enumerar todas as atribuições de negação em, acima e abaixo do âmbito especificado. |
+    | `$filter=atScope()` | A lista nega atribuições apenas para o âmbito especificado e acima. Não inclui as missões de negação nos subscópios. |
+    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Lista nega atribuições com o nome especificado. |
 
-## <a name="list-deny-assignments-at-the-root-scope-"></a>Lista negar atribuições no âmbito de raiz (/)
+## <a name="list-deny-assignments-at-the-root-scope-"></a>Lista nega atribuições no âmbito raiz (/)
 
-1. Elevar o acesso, conforme descrito em [elevar o acesso de Administrador Global no Azure Active Directory](elevate-access-global-admin.md).
+1. Eleve o seu acesso como descrito no [acesso elevado a um Administrador Global em Diretório Ativo Azure](elevate-access-global-admin.md).
 
 1. Utilize o seguinte pedido:
 
@@ -93,17 +93,17 @@ Para obter informações sobre uma atribuição de negar, tem de ter:
     GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter={filter}
     ```
 
-1. Substitua *{filtro}* com a condição que pretende aplicar para filtrar a lista de atribuição de negação. Um filtro é necessário.
+1. Substitua *{filter}* com a condição que pretende aplicar para filtrar a lista de atribuição de negação. É necessário um filtro.
 
     | Filtro | Descrição |
     | --- | --- |
-    | `$filter=atScope()` | Lista de negação atribuições para apenas o âmbito de raiz. Não inclui as atribuições de negação em subscopes. |
-    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Lista de negação atribuições com o nome especificado. |
+    | `$filter=atScope()` | Lista nega atribuições apenas para o âmbito de raiz. Não inclui as missões de negação nos subscópios. |
+    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Lista nega atribuições com o nome especificado. |
 
-1. Remova acesso elevado.
+1. Remova o acesso elevado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Compreender negar atribuições para recursos do Azure](deny-assignments.md)
+- [Entenda negar atribuições para recursos Azure](deny-assignments.md)
 - [Elevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md) (Elevar o acesso para um Administrador Global no Azure Active Directory)
 - [Referência à API REST do Azure](/rest/api/azure/)

@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 8c6b7b4d64b3a4f504cc9aef275b3d48cd62a3d8
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: e469837c8e374e62824bd8f7a7feb110ed1be9c9
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116862"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153116"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -161,9 +161,9 @@ Utilize estes passos para adicionar um ou mais rótulos a um projeto:
 1. Na lista à esquerda, selecione Aulas de **Etiqueta**.
 1. No topo da lista, selecione **+ Adicionar Rótulos** ![Adicione uma etiqueta](media/how-to-create-labeling-projects/add-label.png)
 1. Na forma, adicione a sua nova etiqueta e escolha como proceder.  Uma vez que mudou as etiquetas disponíveis para uma imagem, escolhe como tratar os dados já rotulados:
-    * Comece de novo, removendo todos os rótulos existentes.  Escolha esta opção se quiser eliminar todas as etiquetas existentes para que o conjunto completo possa ser usado para marcar todas as imagens.
-    * Comece de novo, mantendo todos os rótulos existentes.  Escolha esta opção para marcar todos os dados como não rotulados, mas mantenha as etiquetas existentes como uma etiqueta padrão para imagens que tinham sido rotuladas.
-    * Continue, mantendo todos os rótulos existentes. Escolha esta opção para manter todos os dados já rotulados como estão, e comece a usar a nova etiqueta para dados ainda não classificados.
+    * Comece de novo, removendo todos os rótulos existentes.  Escolha esta opção se quiser começar a rotular desde o início com o novo conjunto completo de etiquetas. 
+    * Comece de novo, mantendo todos os rótulos existentes.  Escolha esta opção para marcar todos os dados como não rotulados, mas mantenha as etiquetas existentes como uma etiqueta padrão para imagens que foram previamente rotuladas.
+    * Continue, mantendo todos os rótulos existentes. Escolha esta opção para manter todos os dados já rotulados como estão, e comece a usar a nova etiqueta para dados ainda não rotulados.
 1. Modifique a sua página de instruções conforme necessário para a nova etiqueta.
 1. Depois de ter adicionado todas as etiquetas novas, no topo da página selecione **Iniciar** a reiniciar o projeto.  
 

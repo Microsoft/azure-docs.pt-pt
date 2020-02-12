@@ -6,37 +6,37 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b5748824590f40e30af8f462d4c8ff25521cfd94
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769225"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136079"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Java
 
-Começa com a biblioteca de clientes azure Key Vault para Java. Siga as etapas abaixo para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
+Começa com a biblioteca de clientes azure Key Vault para Java. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
 O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Utilize a biblioteca de clientes Key Vault para Java para:
 
-- Aumente a segurança e o controle sobre chaves e senhas.
-- Crie e importe chaves de criptografia em minutos.
-- Reduza a latência com escala de nuvem e redundância global.
+- Aumentar a segurança e o controlo sobre chaves e senhas.
+- Crie e importe chaves de encriptação em minutos.
+- Reduza a latência com a escala de nuvens e o despedimento global.
 - Simplificar e automatizar tarefas para certificados TLS/SSL.
-- Use os HSMs validados pelo FIPS 140-2 nível 2.
+- Utilize HSMs validados de nível 2 fips 140-2.
 
 [Código fonte](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | documentação de [referência da API](https://azure.github.io/azure-sdk-for-java) | [documentação](index.yml) do produto | [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Uma subscrição Azure - [crie uma gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versão 8 ou superior
 - [Apache Maven](https://maven.apache.org)
-- [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
 
 Este quickstart assume que você está executando [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) e [Apache Maven](https://maven.apache.org) em uma janela terminal Linux.
 
-## <a name="setting-up"></a>Configurando
+## <a name="setting-up"></a>Configuração
 
 ### <a name="create-new-java-console-app"></a>Criar nova aplicação de consola Java
 
@@ -80,9 +80,9 @@ Mude o seu diretório para a pasta akv-java recém-criada.
 cd akv-java
 ```
 
-### <a name="install-the-package"></a>Instalar o pacote
+### <a name="install-the-package"></a>Instale o pacote
 
-Abra o arquivo *pom. xml* em seu editor de texto. Adicione os seguintes elementos de dependência ao grupo de dependências.
+Abra o ficheiro *pom.xml* no seu editor de texto. Adicione os seguintes elementos de dependência ao grupo de dependências.
 
 ```xml
     <dependency>
@@ -98,12 +98,12 @@ Abra o arquivo *pom. xml* em seu editor de texto. Adicione os seguintes elemento
     </dependency>
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
+### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre chave
 
-Este guia de início rápido usa um cofre de chaves do Azure criado previamente. Você pode criar um cofre de chaves seguindo as etapas na guia de início rápido [CLI do Azure](quick-create-cli.md), guia de início rápido [Azure PowerShell](quick-create-powershell.md)ou [portal do Azure início rápido](quick-create-portal.md). Como alternativa, você pode executar os comandos de CLI do Azure abaixo.
+Este quickstart usa um cofre chave Azure pré-criado. Pode criar um cofre chave seguindo os passos no [quickstart Azure CLI,](quick-create-cli.md) [Azure PowerShell quickstart](quick-create-powershell.md)ou [portal Azure quickstart](quick-create-portal.md). Em alternativa, pode executar os comandos Azure CLI abaixo.
 
 > [!Important]
-> Cada cofre de chaves deve ter um nome exclusivo. Substitua < seu-Unique-keyvault-Name > pelo nome do seu cofre de chaves nos exemplos a seguir.
+> Cada cofre deve ter um nome único. Substitua <your-unique-keyvault-name> com o nome do seu cofre chave nos seguintes exemplos.
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
@@ -115,13 +115,13 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 A forma mais simples de autenticar uma aplicação baseada na nuvem é com uma identidade gerida; ver Utilize um Serviço de [Aplicações gerido identidade para aceder ao Cofre de Chaves Azure](managed-identity.md) para obter mais detalhes. No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação de ambiente de trabalho, que requer a utilização de um diretor de serviço e de uma política de controlo de acesso.
 
-Crie uma entidade de serviço usando o comando CLI do Azure [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
+Crie um princípio de serviço utilizando o comando Azure CLI [az ad sp create-for-rbac:](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 
 ```azurecli
 az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 ```
 
-Essa operação retornará uma série de pares de chave/valor. 
+Esta operação devolverá uma série de pares chave/valor. 
 
 ```console
 {
@@ -140,9 +140,9 @@ Essa operação retornará uma série de pares de chave/valor.
 
 Tome nota do clienteId, clienteSecret e tenantId, pois vamos usá-los nos próximos dois passos.
 
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Fornecer acesso à entidade de serviço ao cofre de chaves
+#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Dê ao principal serviço acesso ao seu cofre chave
 
-Crie uma política de acesso para o cofre de chaves que concede permissão para sua entidade de serviço passando o clientId para o comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) . Conceda à entidade de serviço obter, listar e definir permissões para chaves e segredos.
+Crie uma política de acesso para o seu cofre chave que concede permissão ao seu diretor de serviço, passando o clienteId para o comando [de definição de teclado az keyvault.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) Dê ao diretor de serviço obter, listar e definir permissões para chaves e segredos.
 
 ```azurecli
 az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
@@ -150,7 +150,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Definir variáveis ambientais
 
-O método DefaultAzureCredential na nossa aplicação baseia-se em três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. utilizar definir estas variáveis para os valores clienteId, clientSecret e tenantId que você observou no passo [principal do serviço Criar um](#create-a-service-principal) serviço, acima. Utilize o formato `export VARNAME=VALUE` para definir as suas variáveis ambientais. (Esse método define apenas as variáveis para o shell atual e os processos criados a partir do Shell; para adicionar permanentemente essas variáveis ao seu ambiente, edite seu arquivo de `/etc/environment `.) 
+O método DefaultAzureCredential na nossa aplicação baseia-se em três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. utilizar definir estas variáveis para os valores clienteId, clientSecret e tenantId que você observou no passo [principal do serviço Criar um](#create-a-service-principal) serviço, acima. Utilize o formato `export VARNAME=VALUE` para definir as suas variáveis ambientais. (Este método apenas define as variáveis para a sua concha atual e os processos criados a partir da concha; para adicionar permanentemente estas variáveis ao seu ambiente, editar o seu ficheiro `/etc/environment `.) 
 
 Você também terá que guardar o seu nome de cofre chave como uma variável ambiental chamada `KEY_VAULT_NAME`.
 
@@ -168,13 +168,13 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 A biblioteca de clientes Azure Key Vault para Java permite-lhe gerir chaves e bens relacionados, tais como certificados e segredos. As amostras de código abaixo mostrar-lhe-ão como criar um cliente, definir um segredo, recuperar um segredo e apagar um segredo.
 
-Todo o aplicativo de console está disponível em https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+Toda a aplicação de consola está [abaixo](#sample-code).
 
 ## <a name="code-examples"></a>Exemplos de código
 
 ### <a name="add-directives"></a>Adicionar diretivas
 
-Adicione as seguintes diretivas à parte superior do seu código:
+Adicione as seguintes diretivas ao topo do seu código:
 
 ```java
 import com.azure.identity.DefaultAzureCredentialBuilder;
@@ -186,7 +186,7 @@ import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
 
-A autenticação no cofre de chaves e a criação de um cliente de cofre de chaves dependem das variáveis ambientais na etapa [definir variáveis de ambiente](#set-environmental-variables) acima. O nome do seu cofre chave é expandido para o cofre de chaves URI, no formato `https://<your-key-vault-name>.vault.azure.net`.
+Autenticar o seu cofre chave e criar um cliente chave vault depende das variáveis ambientais nas [variáveis ambientais definidas](#set-environmental-variables) acima. O nome do seu cofre chave é expandido para o cofre de chaves URI, no formato `https://<your-key-vault-name>.vault.azure.net`.
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -206,7 +206,7 @@ Agora que a sua aplicação foi autenticada, pode colocar um segredo no seu cofr
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-Você pode verificar se o segredo foi definido com o comando [AZ keyvault segredo show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) :
+Pode verificar se o segredo foi definido com o comando secreto do [az keyvault:](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show)
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -230,7 +230,7 @@ Finalmente, vamos apagar o segredo do seu cofre com o método `secretClient.begi
 secretClient.beginDeleteSecret(secretName);
 ```
 
-Você pode verificar se o segredo desapareceu com o comando [AZ keyvault segredo show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) :
+Pode verificar se o segredo se foi com o comando secreto do [az keyvault:](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show)
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -238,7 +238,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você poderá usar o CLI do Azure ou Azure PowerShell para remover o cofre de chaves e o grupo de recursos correspondente.
+Quando já não for necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover o cofre da chave e o grupo de recursos correspondente.
 
 ```azurecli
 az group delete -g "myResourceGroup"
@@ -311,9 +311,9 @@ public class App {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, você criou um cofre de chaves, armazenou um segredo e recuperou esse segredo. Para saber mais sobre Key Vault e como integrá-lo a seus aplicativos, continue nos artigos abaixo.
+Neste arranque, criaste um cofre chave, guardaste um segredo e recuperaste esse segredo. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
-- Leia uma [visão geral do Azure Key Vault](key-vault-overview.md)
-- Consulte o [Guia do desenvolvedor do Azure Key Vault](key-vault-developers-guide.md)
+- Leia uma [visão geral do Cofre chave Azure](key-vault-overview.md)
+- Consulte o guia do desenvolvedor do Cofre de [Chaves Azure](key-vault-developers-guide.md)
 - Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
-- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)
+- Rever [as melhores práticas do Cofre de Chaves Azure](key-vault-best-practices.md)

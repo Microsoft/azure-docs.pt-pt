@@ -1,31 +1,31 @@
 ---
-title: Implantar do repositório git local
-description: Saiba como habilitar a implantação do git local no serviço Azure App. Uma das maneiras mais simples de implantar o código de seu computador local.
+title: Desdobre-se a partir de Git repo local
+description: Saiba como permitir a implantação local de Git para o Serviço de Aplicações Azure. Uma das formas mais simples de implementar código da sua máquina local.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 2ae8b71a7d48949cd82765112752192aba54521f
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680958"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152997"
 ---
-# <a name="local-git-deployment-to-azure-app-service"></a>Implantação do git local no serviço Azure App
+# <a name="local-git-deployment-to-azure-app-service"></a>Implantação local de Git para o Serviço de Aplicações Azure
 
-Este guia de instruções mostra como implantar seu aplicativo no [serviço Azure app](overview.md) de um repositório git em seu computador local.
+Este guia de como fazer mostra como implementar a sua aplicação para o [Azure App Service](overview.md) a partir de um repositório Git no seu computador local.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir as etapas neste guia de instruções:
+Para seguir os passos neste guia:
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- [Instale o Git](https://www.git-scm.com/downloads).
+- [Instalar o Git](https://www.git-scm.com/downloads).
   
-- Ter um repositório git local com código que você deseja implantar. Para baixar um repositório de exemplo, execute o seguinte comando na janela do seu terminal local:
+- Tenha um repositório git local com código que queira implementar. Para descarregar um repositório de amostras, faça o seguinte comando na janela do terminal local:
   
   ```bash
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
@@ -35,125 +35,128 @@ Para seguir as etapas neste guia de instruções:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-with-kudu-build-server"></a>Implantar com o servidor de Build do kudu
+## <a name="deploy-with-kudu-build-server"></a>Implementar com o servidor de construção Kudu
 
-A maneira mais fácil de habilitar a implantação do git local para seu aplicativo com o servidor de Build do serviço de aplicativo do kudu é usar Azure Cloud Shell. 
+A forma mais fácil de permitir a implementação local de Git para a sua aplicação com o servidor de construção kudu App Service é utilizar o Azure Cloud Shell. 
 
 ### <a name="configure-a-deployment-user"></a>Configurar um utilizador de implementação
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="get-the-deployment-url"></a>Obter a URL de implantação
+### <a name="get-the-deployment-url"></a>Obtenha o URL de implementação
 
-Para obter a URL para habilitar a implantação do git local para um aplicativo existente, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) no Cloud Shell. Substitua \<> de nome de aplicativo e \<> de nome de grupo pelos nomes de seu aplicativo e seu grupo de recursos do Azure.
+Para obter o URL para permitir a implementação local de Git para uma aplicação existente, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) na Cloud Shell. Substitua \<nome de aplicativo> e \<nome de grupo> com os nomes da sua app e do seu grupo de recursos Azure.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
+> [!NOTE]
+> Se estiver a utilizar um plano de serviço de aplicações linux, tem de adicionar este parâmetro: --pitão de execução;3.7
 
-Ou, para criar um novo aplicativo habilitado para git, execute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) no Cloud shell com o parâmetro `--deployment-local-git`. Substitua \<> de nome de aplicativo, \<> de nome de grupo e \<nome do plano > com os nomes de seu novo aplicativo git, seu grupo de recursos do Azure e seu plano de serviço do Azure App.
+
+Ou, para criar uma nova app ativada por Git, execute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) na Cloud Shell com o parâmetro `--deployment-local-git`. Substitua \<nome de aplicativo>, \<nome de grupo>e \<nome de plano> com os nomes da sua nova app Git, do seu grupo de recursos Azure e do seu plano azure App Service.
 
 ```azurecli-interactive
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
-Um dos comandos retorna uma URL como: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Use essa URL para implantar seu aplicativo na próxima etapa.
+Qualquer um dos comandos devolve um URL como: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Utilize este URL para implementar a sua aplicação no próximo passo.
 
-Em vez de usar essa URL de nível de conta, você também pode habilitar o Git local usando credenciais de nível de aplicativo. Azure App serviço gera automaticamente essas credenciais para cada aplicativo. 
+Em vez de utilizar este URL de nível de conta, também pode ativar o Git local utilizando credenciais de nível de aplicações. O Azure App Service gera automaticamente estas credenciais para cada aplicação. 
 
-Obtenha as credenciais do aplicativo executando o comando a seguir no Cloud Shell. Substitua \<nome do aplicativo > e \<> do nome do grupo com o nome do seu aplicativo e o nome do grupo de recursos do Azure.
+Obtenha as credenciais da aplicação executando o seguinte comando na Cloud Shell. Substitua \<nome de aplicativo> e \<nome de grupo> com o nome da sua app e nome de grupo de recursos Azure.
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
 ```
 
-Use a URL que retorna para implantar seu aplicativo na próxima etapa.
+Utilize o URL que regressa para implementar a sua aplicação no próximo passo.
 
-### <a name="deploy-the-web-app"></a>Implantar o aplicativo Web
+### <a name="deploy-the-web-app"></a>Implementar a aplicação web
 
-1. Abra uma janela de terminal local para seu repositório git local e adicione um Azure remoto. No comando a seguir, substitua \<URL > com a URL específica do usuário de implantação ou URL específica do aplicativo obtida da etapa anterior.
+1. Abra uma janela terminal local para o seu repositório git local e adicione um telecomando Azure. No comando seguinte, substitua \<url> com o URL específico do utilizador de implementação ou URL específico da aplicação que obteve do passo anterior.
    
    ```bash
    git remote add azure <url>
    ```
    
-1. Envie por push para o remoto do Azure com o `git push azure master`. 
+1. Empurre para o telecomando Azure com `git push azure master`. 
    
-1. Na janela **Gerenciador de credenciais do git** , insira sua [senha de usuário de implantação](#configure-a-deployment-user), não sua senha de logon do Azure.
+1. Na janela **Git Credential Manager,** introduza a [sua palavra-passe](#configure-a-deployment-user)de utilizador de implementação , e não a sua senha de entrada do Azure.
    
-1. Reveja a saída. Você pode ver a automação específica do tempo de execução, como o MSBuild para ASP.NET, `npm install` para node. js e `pip install` para Python. 
+1. Reveja a saída. Você pode ver automatização específica de tempo de execução, como MSBuild para ASP.NET, `npm install` para Node.js e `pip install` para Python. 
    
-1. Navegue até seu aplicativo no portal do Azure para verificar se o conteúdo está implantado.
+1. Navegue na sua aplicação no portal Azure para verificar se o conteúdo está implementado.
 
-## <a name="deploy-with-azure-pipelines-builds"></a>Implantar com Builds Azure Pipelines
+## <a name="deploy-with-azure-pipelines-builds"></a>Implantação com pipelines Azure constrói
 
-Se sua conta tiver as permissões necessárias, você poderá configurar Azure Pipelines (versão prévia) para habilitar a implantação do git local para seu aplicativo. 
+Se a sua conta tiver as permissões necessárias, pode configurar o Azure Pipelines (Preview) para permitir a implementação local da Git para a sua aplicação. 
 
-- Sua conta do Azure deve ter permissões para gravar em Azure Active Directory e criar um serviço. 
+- A sua conta Azure deve ter permissões para escrever ao Azure Ative Directory e criar um serviço. 
   
-- Sua conta do Azure deve ter a função de **proprietário** em sua assinatura do Azure.
+- A sua conta Azure deve ter o papel **de Proprietário** na sua subscrição Azure.
 
-- Você deve ser um administrador no projeto DevOps do Azure que deseja usar.
+- Deve ser administrador no projeto Azure DevOps que pretende utilizar.
 
-Para habilitar a implantação do git local para seu aplicativo com Azure Pipelines (versão prévia):
+Para permitir a implementação local da Git para a sua aplicação com Pipelines Azure (Pré-visualização):
 
-1. Na [portal do Azure](https://portal.azure.com), procure e selecione serviços de **aplicativos**. 
+1. No [portal Azure,](https://portal.azure.com)procure e selecione Serviços de **Aplicações.** 
 
-1. Selecione seu aplicativo de serviço Azure App e selecione **central de implantação** no menu à esquerda.
+1. Selecione a sua aplicação Azure App Service e selecione **Deployment Center** no menu esquerdo.
    
-1. Na página **centro de implantação** , selecione **git local**e, em seguida, selecione **continuar**. 
+1. Na página do **Centro de Implantação,** selecione **Git Local**, e, em seguida, selecione **Continuar**. 
    
-   ![Selecione git local e, em seguida, selecione continuar](media/app-service-deploy-local-git/portal-enable.png)
+   ![Selecione Git Local e, em seguida, selecione Continuar](media/app-service-deploy-local-git/portal-enable.png)
    
-1. Na página **provedor de compilação** , selecione **Azure pipelines (versão prévia)** e, em seguida, selecione **continuar**. 
+1. Na página do **fornecedor Build,** selecione **Pipelines Azure (Pré-visualização)** , e, em seguida, selecione **Continuar**. 
    
-   ![Selecione Azure Pipelines (versão prévia) e, em seguida, selecione continuar.](media/app-service-deploy-local-git/pipeline-builds.png)
+   ![Selecione Pipelines Azure (Pré-visualização) e, em seguida, selecione Continue.](media/app-service-deploy-local-git/pipeline-builds.png)
 
-1. Na página **Configurar** , configure uma nova organização de DevOps do Azure ou especifique uma organização existente e, em seguida, selecione **continuar**.
+1. Na página **Configure,** configure uma nova organização Azure DevOps, ou especifique uma organização existente, e, em seguida, selecione **Continuar**.
    
    > [!NOTE]
-   > Se sua organização do Azure DevOps existente não estiver listada, talvez seja necessário vinculá-la à sua assinatura do Azure. Para obter mais informações, consulte [definir o pipeline de liberação de CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
+   > Se a sua organização Azure DevOps existente não estiver listada, poderá ter de ligá-la à sua subscrição Azure. Para mais informações, consulte [Defina o seu pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd)de lançamento de CD .
    
-1. Dependendo do [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/plans/)do plano do serviço de aplicativo, você poderá ver uma página **implantar na preparação** . Escolha se deseja [habilitar os slots de implantação](deploy-staging-slots.md)e, em seguida, selecione **continuar**.
+1. Dependendo do seu [nível](https://azure.microsoft.com/pricing/details/app-service/plans/)de preços do plano de app service, pode ver uma página **de implementação.** Escolha se [ativa as ranhuras](deploy-staging-slots.md)de implementação e, em seguida, selecione **Continue**.
    
-1. Na página **Resumo** , examine as configurações e selecione **concluir**.
+1. Na página **Resumo,** reveja as definições e, em seguida, selecione **Terminar**.
    
-1. Quando o pipeline do Azure estiver pronto, copie a URL do repositório git da página **centro de implantação** para usar na próxima etapa. 
+1. Quando o Gasoduto Azure estiver pronto, copie o URL de repositório Git da página do Centro de **Implantação** para utilizar no próximo passo. 
    
-   ![Copiar a URL do repositório git](media/app-service-deploy-local-git/vsts-repo-ready.png)
+   ![Copiar o URL de repositório Git](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-1. Na janela do terminal local, adicione um remoto do Azure ao repositório git local. No comando, substitua \<URL > pela URL do repositório git que você obteve da etapa anterior.
+1. Na janela do terminal local, adicione um telecomando Azure ao seu repositório git local. No comando, substitua \<url> com o URL do repositório Git que obteve do passo anterior.
    
    ```bash
    git remote add azure <url>
    ```
    
-1. Envie por push para o remoto do Azure com o `git push azure master`. 
+1. Empurre para o telecomando Azure com `git push azure master`. 
    
-1. Na página **Gerenciador de credenciais do git** , entre com seu nome de usuário do VisualStudio.com. Para obter outros métodos de autenticação, consulte [visão geral da autenticação de Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
+1. Na página **git Credential Manager,** inscreva-se com o seu nome de utilizador visualstudio.com. Para outros métodos de autenticação, consulte a visão geral da autenticação dos [Serviços Azure DevOps](/vsts/git/auth-overview?view=vsts).
    
-1. Depois que a implantação for concluída, exiba o progresso da compilação em `https://<azure_devops_account>.visualstudio.com/<project_name>/_build`e o progresso da implantação em `https://<azure_devops_account>.visualstudio.com/<project_name>/_release`.
+1. Uma vez terminada a implantação, veja o progresso da construção em `https://<azure_devops_account>.visualstudio.com/<project_name>/_build`e o progresso da implantação em `https://<azure_devops_account>.visualstudio.com/<project_name>/_release`.
    
-1. Navegue até seu aplicativo no portal do Azure para verificar se o conteúdo está implantado.
+1. Navegue na sua aplicação no portal Azure para verificar se o conteúdo está implementado.
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="troubleshoot-deployment"></a>Solucionar problemas de implantação
+## <a name="troubleshoot-deployment"></a>Implantação de problemas
 
-Você poderá ver as seguintes mensagens de erro comuns ao usar o Git para publicar em um aplicativo do serviço de aplicativo no Azure:
+Pode ver as seguintes mensagens de erro comuns quando utilizar o Git para publicar numa aplicação do App Service em Azure:
 
 |Mensagem|Causa|Resolução
 ---|---|---|
-|`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|O aplicativo não está em funcionamento.|Inicie o aplicativo no portal do Azure. A implantação do git não está disponível quando o aplicativo Web é interrompido.|
-|`Couldn't resolve host 'hostname'`|As informações de endereço para o remoto ' Azure ' estão incorretas.|Use o comando `git remote -v` para listar todas as remotas, juntamente com a URL associada. Verifique se a URL para o remoto ' Azure ' está correta. Se necessário, remova e recrie esse controle remoto usando a URL correta.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Você não especificou uma ramificação durante `git push`ou não definiu o valor de `push.default` no `.gitconfig`.|Execute `git push` novamente, especificando o Branch mestre: `git push azure master`.|
-|`src refspec [branchname] does not match any.`|Você tentou enviar por push para um Branch que não seja o mestre no remoto ' Azure '.|Execute `git push` novamente, especificando o Branch mestre: `git push azure master`.|
-|`RPC failed; result=22, HTTP code = 5xx.`|Esse erro pode ocorrer se você tentar enviar por push um repositório git grande por HTTPS.|Altere a configuração do git no computador local para tornar o `postBuffer` maior. Por exemplo: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Você implantou um aplicativo node. js com um arquivo _Package. JSON_ que especifica módulos adicionais necessários.|Examine as `npm ERR!` mensagens de erro antes desse erro para obter mais contexto sobre a falha. Veja a seguir as causas conhecidas desse erro e as mensagens de `npm ERR!` correspondentes:<br /><br />**Arquivo Package. JSON malformado**: `npm ERR! Couldn't read dependencies.`<br /><br />**O módulo nativo não tem uma distribuição binária para o Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />ou <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|A aplicação não está a funcionar.|Inicie a aplicação no portal Azure. A implementação da Git não está disponível quando a aplicação web é interrompida.|
+|`Couldn't resolve host 'hostname'`|A informação de endereço para o telecomando 'azul' está incorreta.|Utilize o comando `git remote -v` para listar todos os telecomandos, juntamente com o URL associado. Verifique se o URL para o telecomando 'azul' está correto. Se necessário, remova e recrie este controlo remoto utilizando o URL correto.|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Não especificou uma sucursal durante `git push`, ou não definiu o valor `push.default` em `.gitconfig`.|Volte a executar `git push`, especificando o ramo principal: `git push azure master`.|
+|`src refspec [branchname] does not match any.`|Tentaste empurrar para um ramo que não seja o mestre no controlo remoto azul.|Volte a executar `git push`, especificando o ramo principal: `git push azure master`.|
+|`RPC failed; result=22, HTTP code = 5xx.`|Este erro pode acontecer se tentar empurrar um repositório de git grande sobre HTTPS.|Mude a configuração git na máquina local para tornar o `postBuffer` maior. Por exemplo: `git config --global http.postBuffer 524288000`.|
+|`Error - Changes committed to remote repository but your web app not updated.`|Implementou uma aplicação Node.js com um ficheiro _package.json_ que especifica módulos adicionais necessários.|Reveja as mensagens de erro `npm ERR!` antes deste erro para obter mais contexto sobre a falha. Seguem-se as causas conhecidas deste erro e as mensagens `npm ERR!` correspondentes:<br /><br />**Ficheiro pacote.json mal formado:** `npm ERR! Couldn't read dependencies.`<br /><br />**O módulo nativo não tem uma distribuição binária para o Windows:**<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />ou <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Documentação do Project kudu](https://github.com/projectkudu/kudu/wiki)
-- [Implantação contínua no serviço Azure App](deploy-continuous-deployment.md)
-- [Exemplo: criar um aplicativo Web e implantar o código de um repositório git local (CLI do Azure)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
-- [Exemplo: criar um aplicativo Web e implantar o código de um repositório git local (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+- [Documentação do Projeto Kudu](https://github.com/projectkudu/kudu/wiki)
+- [Implantação contínua para o Serviço de Aplicações Azure](deploy-continuous-deployment.md)
+- [Amostra: Criar uma aplicação web e implementar código a partir de um repositório git local (Azure CLI)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+- [Amostra: Criar uma aplicação web e implementar código a partir de um repositório git local (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

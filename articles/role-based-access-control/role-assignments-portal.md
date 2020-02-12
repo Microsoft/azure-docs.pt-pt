@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o portal Azure
+title: Adicionar ou remover atribuições de funções com o RBAC e o portal Azure
 description: Saiba como conceder acesso aos recursos do Azure para utilizadores, grupos, diretores de serviços ou identidades geridas utilizando o controlo de acesso baseado em funções azure (RBAC) e o portal Azure.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4003e11120c13624379cf7dad9334e896cd3a7a8
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774768"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138352"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o portal Azure
 
@@ -31,13 +31,13 @@ Se precisar de atribuir funções de administrador no Diretório Ativo do Azure,
 
 Para adicionar ou remover atribuições de função, você deve ter:
 
-- permissões de `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) ou [proprietário](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 
 ## <a name="access-control-iam"></a>Controlo de acesso (IAM)
 
 **O controlo de acesso (IAM)** é a lâmina que utiliza para atribuir funções para conceder acesso aos recursos do Azure. É também conhecida como gestão de identidade e acesso e aparece em vários locais do portal Azure. O seguinte mostra um exemplo da lâmina de controlo de acesso (IAM) para uma subscrição.
 
-![Folha de controle de acesso (IAM) para uma assinatura](./media/role-assignments-portal/access-control-subscription.png)
+![Lâmina de controlo de acesso (IAM) para uma subscrição](./media/role-assignments-portal/access-control-subscription.png)
 
 Para ser o mais eficaz com a lâmina de controlo de acesso (IAM), ajuda se conseguir responder às seguintes três perguntas quando está a tentar atribuir um papel:
 
@@ -57,7 +57,7 @@ Para ser o mais eficaz com a lâmina de controlo de acesso (IAM), ajuda se conse
 
 No Azure RBAC, para dar acesso a um recurso Azure, você adiciona uma atribuição de papel. Siga estes passos para atribuir um papel.
 
-1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito a que pretende conceder acesso. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**ou um recurso.
+1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito a que pretende conceder acesso. Por exemplo, pode selecionar grupos de **Gestão**, **Subscrições, Grupos** **de Recursos**ou um recurso.
 
 1. Clique no recurso específico para esse âmbito.
 
@@ -83,15 +83,15 @@ No Azure RBAC, para dar acesso a um recurso Azure, você adiciona uma atribuiç�
 
 1. Clique em **Guardar** para atribuir a função.
 
-   Depois de alguns instantes, a entidade de segurança recebe a função no escopo selecionado.
+   Após alguns momentos, o diretor de segurança é designado o papel no âmbito selecionado.
 
     ![Adicionar atribuição de papéis guardado](./media/role-assignments-portal/add-role-assignment-save.png)
 
 ## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Atribuir um utilizador como administrador de uma subscrição
 
-Para tornar um usuário um administrador de uma assinatura do Azure, atribua a ele a função de [proprietário](built-in-roles.md#owner) no escopo da assinatura. A função Proprietário dá ao utilizador acesso total a todos os recursos da subscrição, incluindo a permissão para conceder acesso a outros. Estes passos são iguais a qualquer outra atribuição de função.
+Para fazer de um utilizador um administrador de uma subscrição Azure, atribua-lhes a função [Proprietário](built-in-roles.md#owner) no âmbito de subscrição. A função Proprietário dá ao utilizador acesso total a todos os recursos da subscrição, incluindo a permissão para conceder acesso a outros. Estes passos são iguais a qualquer outra atribuição de função.
 
-1. No portal do Azure, clique em **todos os serviços** e em **assinaturas**.
+1. No portal Azure, clique em **Todos os serviços** e, em seguida, **subscrições.**
 
 1. Clique na subscrição na qual pretende conceder acesso.
 
@@ -145,5 +145,5 @@ No Azure RBAC, para remover o acesso a partir de um recurso Azure, remove-se uma
 
 - [Lista de atribuições de funções utilizando o Azure RBAC e o portal Azure](role-assignments-list-portal.md)
 - [Tutorial: Conceder ao utilizador acesso aos recursos Azure utilizando o RBAC e o portal Azure](quickstart-assign-role-user-portal.md)
-- [Solucionar problemas de RBAC para recursos do Azure](troubleshooting.md)
+- [RBAC de resolução de problemas para recursos Azure](troubleshooting.md)
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md) (Organizar os recursos com os grupos de gestão do Azure)

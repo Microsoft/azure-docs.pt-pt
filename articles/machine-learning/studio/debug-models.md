@@ -1,71 +1,71 @@
 ---
-title: Depurar seu modelo
+title: Depurar o seu modelo
 titleSuffix: ML Studio (classic) - Azure
-description: Como depurar erros produzidos pelos módulos modelo de treinamento e modelo de pontuação no Azure Machine Learning Studio (clássico).
+description: Como depurar erros produzidos por módulos Train Model e Score Model no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 03/14/2017
-ms.openlocfilehash: 494141cc580d80ff1d025228406d53f9788b5d97
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 320eba16511036df77dcdbb7ddb628eaa34b2450
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837760"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153558"
 ---
-# <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Depurar seu modelo no Azure Machine Learning Studio (clássico)
+# <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Desmarque o seu modelo no Azure Machine Learning Studio (clássico)
 
-Ao executar um modelo, você pode encontrar os seguintes erros:
+Ao executar um modelo, pode encontrar os seguintes erros:
 
-* o módulo [modelo de treinamento][train-model] produz um erro 
-* o módulo [modelo de Pontuação][score-model] produz resultados incorretos 
+* o módulo [Modelo de Comboio][train-model] produz um erro 
+* o módulo [Score Model][score-model] produz resultados incorretos 
 
-Este artigo explica as possíveis causas desses erros.
+Este artigo explica potenciais causas para estes erros.
 
 
-## <a name="train-model-module-produces-an-error"></a>O módulo modelo de treinamento produz um erro
+## <a name="train-model-module-produces-an-error"></a>Módulo do modelo de formação produz um erro
 
 ![image1](./media/debug-models/train_model-1.png)
 
-O módulo [modelo de treinamento][train-model] espera duas entradas:
+O Módulo [modelo do comboio][train-model] espera duas inputs:
 
-1. O tipo de modelo de aprendizado de máquina da coleção de modelos fornecida pelo Azure Machine Learning Studio (clássico).
-2. Os dados de treinamento com uma coluna de rótulo especificada que especifica a variável a prever (as outras colunas são consideradas recursos).
+1. O tipo de modelo de machine learning da coleção de modelos fornecidos pelo Azure Machine Learning Studio (clássico).
+2. Os dados de formação com uma coluna de etiqueta especificada que especifica a variável a prever (as outras colunas são assumidas como Características).
 
-Esse módulo pode produzir um erro nos seguintes casos:
+Este módulo pode produzir um erro nos seguintes casos:
 
-1. A coluna de rótulo está especificada incorretamente. Isso pode acontecer se mais de uma coluna for selecionada como o rótulo ou se um índice de coluna incorreto estiver selecionado. Por exemplo, o segundo caso se aplicaria se um índice de coluna 30 fosse usado com um conjunto de dados de entrada que tenha apenas 25 colunas.
+1. A coluna de etiqueta foi incorretamente especificada. Isto pode acontecer se a mais de uma coluna está selecionada como a etiqueta ou um índice de coluna incorretos é selecionado. Por exemplo, o segundo caso aplicar-se-ia se um índice de coluna sacar 30 é utilizado com um conjunto de dados de entrada que tem apenas 25 colunas.
 
-2. O conjunto de recursos não contém nenhuma coluna de recurso. Por exemplo, se o conjunto de dados de entrada tiver apenas uma coluna, que é marcada como a coluna de rótulo, não haveria nenhum recurso com o qual criar o modelo. Nesse caso, o módulo [modelo de treinamento][train-model] produz um erro.
+2. O conjunto de dados não contém quaisquer colunas de funcionalidades. Por exemplo, se o conjunto de dados de entrada tem apenas uma coluna, o que é marcada como a coluna de etiqueta, não haveria nenhum recurso para a criação do modelo. Neste caso, o módulo [Modelo de Comboio][train-model] produz um erro.
 
-3. O conjunto de dados de entrada (recursos ou rótulo) contém infinito como um valor.
+3. Do dataset de entrada (funcionalidades ou etiqueta) contém infinito como um valor.
 
-## <a name="score-model-module-produces-incorrect-results"></a>O módulo modelo de Pontuação produz resultados incorretos
+## <a name="score-model-module-produces-incorrect-results"></a>Módulo do modelo de pontuação produz resultados incorretos
 
 ![image2](./media/debug-models/train_test-2.png)
 
-Em um experimento de treinamento/teste típico para aprendizado supervisionado, o módulo [dividir dados][split] divide o conjunto de dado original em duas partes: uma parte é usada para treinar o modelo e uma parte é usada para pontuar o desempenho do modelo treinado. O modelo treinado é usado para pontuar os dados de teste, após os quais os resultados são avaliados para determinar a precisão do modelo.
+Numa experiência típica de treino/teste para aprendizagem supervisionada, o módulo [Split Data][split] divide o conjunto de dados original em duas partes: uma parte é usada para treinar o modelo e uma parte é usada para obter o desempenho do modelo treinado. O modelo preparado, em seguida, é utilizado para classificar os dados de teste, após o qual os resultados são avaliados para determinar a precisão do modelo.
 
-O módulo [modelo de Pontuação][score-model] requer duas entradas:
+O módulo ['Modelo de Pontuação'][score-model] requer duas entradas:
 
-1. Uma saída de modelo treinado do módulo [treinar modelo][train-model] .
-2. Um conjunto de uma pontuação que é diferente do conjunto de um usado para treinar o modelo.
+1. Uma saída de modelo treinada a partir do módulo [Modelo de Comboio.][train-model]
+2. Um conjunto de dados classificação diferente do conjunto de dados usado para treinar o modelo.
 
-É possível que, embora o experimento tenha sucesso, o módulo [modelo de Pontuação][score-model] produza resultados incorretos. Vários cenários podem causar a ocorrência desse problema:
+É possível que, mesmo que a experiência tenha sucesso, o módulo [Score Model][score-model] produz resultados incorretos. Vários cenários podem fazer com que esta questão aconteça:
 
-1. Se o rótulo especificado for categórico e um modelo de regressão for treinado nos dados, uma saída incorreta será produzida pelo módulo [modelo de Pontuação][score-model] . Isso ocorre porque a regressão requer uma variável de resposta contínua. Nesse caso, seria mais adequado usar um modelo de classificação. 
+1. Se o rótulo especificado for categórico e for treinado um modelo de regressão nos dados, uma saída incorreta seria produzida pelo módulo ['Modelo de Pontuação'.][score-model] Isso é porque regressão requer uma variável de resposta contínuas. Neste caso, seria mais adequado utilizar um modelo de classificação. 
 
-2. Da mesma forma, se um modelo de classificação for treinado em um conjunto de um DataSet com números de ponto flutuantes na coluna de rótulo, ele poderá produzir resultados indesejáveis. Isso ocorre porque a classificação requer uma variável de resposta discreta que permite apenas valores que variam em um conjunto finito e pequeno de classes.
+2. Da mesma forma, se é preparado um modelo de classificação num conjunto de dados ter números de pontos de vírgula flutuante na coluna de etiqueta, poderá produzir resultados indesejáveis. Isto porque a classificação requer uma variável de resposta discreta que só permite valores que variam sobre um conjunto finito, e pequeno, conjunto de classes.
 
-3. Se o conjunto de pontos de pontuação não contiver todos os recursos usados para treinar o modelo, o [modelo de Pontuação][score-model] produzirá um erro.
+3. Se o conjunto de dados de pontuação não contiver todas as funcionalidades utilizadas para treinar o modelo, o [Modelo de Pontuação][score-model] produz um erro.
 
-4. Se uma linha no conjunto de resultados de Pontuação contiver um valor ausente ou um valor infinito para qualquer um de seus recursos, o [modelo de Pontuação][score-model] não produzirá nenhuma saída correspondente a essa linha.
+4. Se uma linha no conjunto de dados de pontuação contiver um valor em falta ou um valor infinito para qualquer uma das suas funcionalidades, o [Modelo de Pontuação][score-model] não produz qualquer saída correspondente a essa linha.
 
-5. O [modelo de Pontuação][score-model] pode produzir saídas idênticas para todas as linhas no conjunto de registros de pontuação. Isso pode ocorrer, por exemplo, ao tentar a classificação usando florestas de decisão se o número mínimo de amostras por nó folha for escolhido como sendo mais do que o número de exemplos de treinamento disponíveis.
+5. O [Modelo de Pontuação][score-model] pode produzir saídas idênticas para todas as linhas no conjunto de dados de pontuação. Isto pode ocorrer, por exemplo, quando tentar classificação com florestas de decisão, se o número mínimo de exemplos por nó de folha é escolhido para ser mais do que o número de exemplos de treinamento disponíveis.
 
 <!-- Module References -->
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/

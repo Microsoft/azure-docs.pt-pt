@@ -1,6 +1,7 @@
 ---
-title: Configurar aplicativos móveis que chamam APIs da Web-plataforma Microsoft Identity | Azure
-description: Saiba como criar um aplicativo móvel que chama APIs da Web (configuração de código do aplicativo)
+title: Configure aplicações móveis que chamam APIs web / Azure
+titleSuffix: Microsoft identity platform
+description: Saiba como construir uma aplicação móvel que chama APIs web (configuração de código da aplicação)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,32 +15,32 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 61d3a7b7f06ffdb7f39f80f7f3bf19e9007945d2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: fc25f13d0b0b8a264dcd47a5fdebb0533e93fb55
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702118"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132495"
 ---
-# <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Aplicativo móvel que chama as APIs da Web-configuração de código
+# <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configure uma aplicação móvel que chama APIs web
 
-Depois de criar seu aplicativo, você aprenderá a configurar o código usando os parâmetros de registro do aplicativo. Os aplicativos móveis também têm algumas especificidades complexas, que precisam se ajustar à estrutura usada para criar esses aplicativos
+Depois de criar a sua aplicação, aprenderá a configurar o código utilizando os parâmetros de registo da aplicação. As aplicações móveis apresentam algumas complexidades relacionadas com a adaptação ao seu quadro de criação.
 
-## <a name="msal-libraries-supporting-mobile-apps"></a>Bibliotecas de MSAL que dão suporte a aplicativos móveis
+## <a name="find-msal-support-for-mobile-apps"></a>Encontre suporte mSAL para aplicações móveis
 
-As bibliotecas da Microsoft que dão suporte a aplicativos móveis são:
+Os seguintes tipos da Microsoft Authentication Library (MSAL) suportam aplicações móveis.
 
-  Biblioteca MSAL | Descrição
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Para desenvolver aplicativos portáteis. As plataformas com suporte do MSAL.NET para criar um aplicativo móvel são UWP, Xamarin. iOS e Xamarin. Android.
-  ![MSAL. iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL. iOS | Para desenvolver aplicativos iOS nativos com Objective-C ou Swift
-  ![MSAL. Android](media/sample-v2-code/logo_android.png) <br/> MSAL. Android | Para desenvolver aplicativos Android nativos em Java para Android
+MSAL | Descrição
+------------ | ----------
+![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Usado para desenvolver aplicações portáteis. MSAL.NET suporta as seguintes plataformas para a construção de uma aplicação móvel: Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android.
+![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Usado para desenvolver aplicações nativas iOS utilizando Objective-C ou Swift.
+![MSAL. Android](media/sample-v2-code/logo_android.png) <br/> MSAL. Android | Usado para desenvolver aplicações android nativas em Java para Android.
 
-## <a name="instantiating-the-application"></a>Instanciando o aplicativo
+## <a name="instantiate-the-application"></a>Instantânea a aplicação
 
 ### <a name="android"></a>Android
 
-Os aplicativos móveis usam a classe `PublicClientApplication`. Veja como instanciá-lo:
+As aplicações móveis usam a classe `PublicClientApplication`. Eis como instantaneamente:
 
 ```Java
 PublicClientApplication sampleApp = new PublicClientApplication(
@@ -49,9 +50,7 @@ PublicClientApplication sampleApp = new PublicClientApplication(
 
 ### <a name="ios"></a>iOS
 
-Os aplicativos móveis no iOS precisam criar uma instância da classe `MSALPublicClientApplication`.
-
-Objective-C:
+As aplicações móveis no iOS precisam de instantaneamente a classe `MSALPublicClientApplication`. Para instantaneamente a aula, utilize o seguinte código. 
 
 ```objc
 NSError *msalError = nil;
@@ -60,32 +59,33 @@ MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig 
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
 
-Swift
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
 if let application = try? MSALPublicClientApplication(configuration: config){ /* Use application */}
 ```
 
-Há [Propriedades MSALPublicClientApplicationConfig adicionais](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplicationConfig.html#/Configuration%20options) que podem substituir a autoridade padrão, especificar um URI de redirecionamento ou alterar o comportamento de cache de token MSAL. 
+[Propriedades adicionais mSALPublicClientApplicationConfig](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplicationConfig.html#/Configuration%20options) podem sobrepor-se à autoridade padrão, especificar um URI redirecionado ou alterar o comportamento do caching de token MSAL. 
 
 ### <a name="xamarin-or-uwp"></a>Xamarin ou UWP
 
-O parágrafo a seguir explica como instanciar o aplicativo para aplicativos Xamarin. iOS, Xamarin. Android e UWP.
+Esta secção explica como instantaneamente a aplicação para aplicações Xamarin.iOS, Xamarin.Android e UWP.
 
-#### <a name="instantiating-the-application"></a>Instanciando o aplicativo
+#### <a name="instantiate-the-application"></a>Instantânea a aplicação
 
-No Xamarin, ou UWP, a maneira mais simples de instanciar o aplicativo é a seguinte, em que o `ClientId` é o GUID do seu aplicativo registrado.
+Em Xamarin ou UWP, a forma mais simples de instantaneamente a aplicação é utilizando o seguinte código. Neste código, `ClientId` é o GUID da sua aplicação registada.
 
 ```csharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
 
-Há outros métodos de*parâmetro* que definem o pai da interface do usuário, substituem a autoridade padrão, especificam um nome de cliente e uma versão (para telemetria), especificam um URI de redirecionamento, especificam o alocador http a ser usado (por exemplo, para manipular proxies, especificar telemetria e registro em log). Este é o tópico dos parágrafos a seguir.
+Métodos adicionais `With<Parameter>` definir o progenitor uI, sobrepor-se à autoridade padrão, especificar um nome e versão do cliente para telemetria, especificar um URI redirecionado, e especificar a fábrica HTTP a utilizar. A fábrica HTTP pode ser utilizada, por exemplo, para manusear proxies e especificar telemetria e exploração madeireira. 
 
-##### <a name="specifying-the-parent-uiwindowactivity"></a>Especificando a interface do usuário/janela/atividade pai
+As seguintes secções fornecem mais informações sobre a instantânea da aplicação.
 
-No Android, você precisa passar a atividade pai antes de fazer a autenticação interativa. No iOS, ao usar um agente, você precisa passar o ViewController. Da mesma forma no UWP, talvez você queira passar a janela pai. Isso é possível quando você adquire o token, mas também é possível especificar um retorno de chamada no momento da criação do aplicativo um delegado que retorna o UIParent.
+##### <a name="specify-the-parent-ui-window-or-activity"></a>Especificar a UI, janela ou atividade dos pais
+
+No Android, é necessário passar a atividade dos pais antes de fazer a autenticação interativa. No iOS, quando se usa um corretor, é preciso passar `ViewController`. Da mesma forma na UWP, talvez queiras passar pela janela dos pais. Passe-o quando adquire o símbolo. Mas quando está a criar a app, também pode especificar um callback como um delegado que devolve `UIParent`.
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
@@ -93,7 +93,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
   .Build();
 ```
 
-No Android, recomendamos que você use o `CurrentActivityPlugin` [aqui](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Em seguida, o código do construtor de `PublicClientApplication` ficaria assim:
+No Android, recomendamos que utilize [`CurrentActivityPlugin`](https://github.com/jamesmontemagno/CurrentActivityPlugin). O código construtor de `PublicClientApplication` resultante parece este exemplo:
 
 ```csharp
 // Requires MSAL.NET 4.2 or above
@@ -103,76 +103,81 @@ var pca = PublicClientApplicationBuilder
   .Build();
 ```
 
-##### <a name="more-app-building-parameters"></a>Mais parâmetros de compilação de aplicativo
+##### <a name="find-more-app-building-parameters"></a>Encontre mais parâmetros de construção de aplicativos
 
-- Para obter a lista de todos os modificadores disponíveis em `PublicClientApplicationBuilder`, consulte a documentação de referência [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
-- Para obter a descrição de todas as opções expostas em `PublicClientApplicationOptions` consulte [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), na documentação de referência
+Para obter uma lista de todos os métodos disponíveis em `PublicClientApplicationBuilder`, consulte a [lista de Métodos.](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
 
-## <a name="xamarin-ios-specific-considerations"></a>Considerações específicas do Xamarin iOS
+Para uma descrição de todas as opções expostas em `PublicClientApplicationOptions`, consulte a documentação de [referência.](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)
 
-No Xamarin iOS, há várias considerações que você deve levar em conta ao usar o MSAL.NET:
+## <a name="tasks-for-xamarin-ios"></a>Tarefas para Xamarin iOS
 
-1. [Substituir e implementar a função `OpenUrl` no `AppDelegate`](msal-net-xamarin-ios-considerations.md#implement-openurl)
-1. [Habilitar grupos de conjunto de chaves](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
-1. [Habilitar compartilhamento de cache de token](msal-net-xamarin-ios-considerations.md#enable-token-cache-sharing-across-ios-applications)
-1. [Habilitar o acesso ao conjunto de chaves](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
+Se utilizar MSAL.NET no xamarin iOS, faça as seguintes tarefas.
 
-Os detalhes são fornecidos em [Considerações sobre o Xamarin Ios](msal-net-xamarin-ios-considerations.md)
+* [Anular e implementar a função `OpenUrl` em `AppDelegate`](msal-net-xamarin-ios-considerations.md#implement-openurl)
+* [Ativar grupos de porta-chaves](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
+* [Permitir a partilha de cache token](msal-net-xamarin-ios-considerations.md#enable-token-cache-sharing-across-ios-applications)
+* [Ativar o acesso ao porta-chaves](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
 
-## <a name="msal-for-ios-and-macos-specific-considerations"></a>Considerações específicas sobre o MSAL para iOS e macOS
+Para mais informações, consulte [as considerações do Xamarin iOS.](msal-net-xamarin-ios-considerations.md)
 
-Considerações semelhantes se aplicam ao usar o MSAL para iOS e macOS:
+## <a name="tasks-for-msal-for-ios-and-macos"></a>Tarefas para MSAL para iOS e macOS
 
-1. [Implementar o retorno de chamada `openURL`](#brokered-authentication-for-msal-for-ios-and-macos)
-2. [Habilitar grupos de acesso do conjunto de chaves](howto-v2-keychain-objc.md)
-3. [Personalizar navegadores e webviews](customize-webviews.md)
+Estas tarefas são necessárias quando utiliza MSAL para iOS e macOS:
 
-## <a name="xamarin-android-specific-considerations"></a>Considerações específicas do Xamarin Android
+* [Implementar o `openURL` chamada](#brokered-authentication-for-msal-for-ios-and-macos)
+* [Ativar grupos de acesso a porta-chaves](howto-v2-keychain-objc.md)
+* [Personalize os navegadores e webViews](customize-webviews.md)
 
-Aqui estão as especificações do Xamarin Android:
+## <a name="tasks-for-xamarinandroid"></a>Tarefas para Xamarin.Android
 
-- [Garantindo que o controle volte para MSAL depois que a parte interativa do fluxo de autenticação for encerrada](msal-net-xamarin-android-considerations.md#ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends)
-- [Atualizar o manifesto do Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
-- [Usar a exibição da Web inserida (opcional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
-- [Resolução de Problemas](msal-net-xamarin-android-considerations.md#troubleshooting)
+Se utilizar Xamarin.Android, faça as seguintes tarefas:
 
-Os detalhes são fornecidos em [Considerações sobre o Xamarin Android](msal-net-xamarin-android-considerations.md)
+- [Assegurar que o controlo remonta à MSAL após o fim da parte interativa do fluxo de autenticação](msal-net-xamarin-android-considerations.md#ensure-that-control-returns-to-msal)
+- [Atualizar o manifesto Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
+- [Utilize a visão web incorporada (opcional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
+- [Resolução de problemas, se necessário](msal-net-xamarin-android-considerations.md#troubleshoot)
 
-Por fim, há algumas especificidades a saber sobre os navegadores no Android. Eles são explicados em [Considerações específicas do Xamarin Android com MSAL.net](msal-net-system-browser-android-considerations.md)
+Para mais informações, consulte [as considerações xamarin.Android](msal-net-xamarin-android-considerations.md).
 
-#### <a name="uwp-specific-considerations"></a>Considerações específicas de UWP
+Para obter considerações sobre os navegadores no Android, consulte [considerações específicas de Xamarin.Android com MSAL.NET](msal-net-system-browser-android-considerations.md).
 
-No UWP, você pode usar redes corporativas. Para obter informações adicionais sobre como usar a biblioteca MSAL com UWP, consulte [Considerações específicas de plataforma universal do Windows com MSAL.net](msal-net-uwp-considerations.md).
+#### <a name="tasks-for-uwp"></a>Tarefas para a UWP
 
-## <a name="configuring-the-application-to-use-the-broker"></a>Configurando o aplicativo para usar o agente
+Na UWP, pode suster redes corporativas. As seguintes secções explicam as tarefas que deve completar no cenário corporativo.
 
-### <a name="why-use-brokers-in-ios-and-android-applications"></a>Por que usar agentes em aplicativos iOS e Android?
+Para mais informações, consulte [considerações específicas da UWP com MSAL.NET](msal-net-uwp-considerations.md).
 
-No Android e no iOS, os agentes habilitam:
+## <a name="configure-the-application-to-use-the-broker"></a>Configure a aplicação para usar o corretor
 
-- SSO (logon único) quando o dispositivo é registrado com o AAD. Os usuários não precisarão entrar em cada aplicativo.
-- Identificação do dispositivo. Habilita as políticas de acesso condicional relacionadas ao dispositivo do Azure AD, acessando o certificado do dispositivo que foi criado no dispositivo quando ele foi ingressado no local de trabalho.
-- Verificação da identificação do aplicativo. Quando um aplicativo chama o agente, ele passa sua URL de redirecionamento e o agente o verifica.
+No Android e iOS, os corretores permitem:
 
-### <a name="enable-the-broker-on-xamarin"></a>Habilitar o agente no Xamarin
+- **Entrada única (SSO)** : Pode utilizar o SSO para dispositivos registados no Azure Ative Directory (Azure AD). Quando utiliza o SSO, os seus utilizadores não precisam de iniciar sessão em cada aplicação.
+- **Identificação do dispositivo**: Esta definição permite políticas de acesso condicional que estão relacionadas com dispositivos AD Azure. O processo de autenticação utiliza o certificado do dispositivo que foi criado quando o dispositivo foi aderido ao local de trabalho.
+- **Verificação de identificação de aplicações**: Quando uma aplicação chama o corretor, passa o url de redirecionamento. Então o corretor verifica.
 
-Para habilitar um desses recursos, use o parâmetro `WithBroker()` ao chamar o método `PublicClientApplicationBuilder.CreateApplication`. `.WithBroker()` é definido como true por padrão. Siga as etapas abaixo para o [Xamarin. Ios](#brokered-authentication-for-xamarinios).
+### <a name="enable-the-broker-on-xamarin"></a>Ativar o corretor em Xamarin
 
-### <a name="enable-the-broker-for-msal-for-android"></a>Habilitar o agente para MSAL para Android
+Para ativar o corretor em Xamarin, utilize o parâmetro `WithBroker()` quando ligar para o método `PublicClientApplicationBuilder.CreateApplication`. Por defeito, `.WithBroker()` está definido para verdade. 
 
-Consulte [autenticação orientada no Android](brokered-auth.md) para obter informações sobre como habilitar um agente no Android. 
+Para permitir a autenticação intermediada para Xamarin.iOS, siga os passos na [secção Xamarin.iOS](#enable-brokered-authentication-for-xamarin-ios) neste artigo.
 
-### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Habilitar o agente para MSAL para iOS e macOS
+### <a name="enable-the-broker-for-msal-for-android"></a>Ativar o corretor de MSAL para Android
 
-A autenticação orientada é habilitada por padrão para cenários do AAD no MSAL para iOS e macOS. Siga as etapas abaixo para configurar seu aplicativo para suporte de autenticação orientada para [MSAL para IOS e MacOS](#brokered-authentication-for-msal-for-ios-and-macos). Observe que algumas etapas são diferentes entre [MSAL para Xamarin. Ios](#brokered-authentication-for-xamarinios) e [MSAL para IOS e MacOS](#brokered-authentication-for-msal-for-ios-and-macos).
+Para obter informações sobre a ativação de um corretor no Android, consulte a [autenticação intermediada no Android](brokered-auth.md). 
 
-### <a name="brokered-authentication-for-xamarinios"></a>Autenticação orientada para Xamarin. iOS
+### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Ativar o corretor para MSAL para iOS e macOS
 
-Siga as etapas abaixo para habilitar seu aplicativo Xamarin. iOS para conversar com o aplicativo [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) .
+A autenticação intermediada é ativada por predefinição para cenários de AD Azure em MSAL para iOS e macOS. 
 
-#### <a name="step-1-enable-broker-support"></a>Etapa 1: habilitar o suporte do Broker
+As seguintes secções fornecem instruções para configurar a sua aplicação de suporte de autenticação intermediado para MSAL para Xamarin.iOS ou MSAL para iOS e macOS. Nos dois conjuntos de instruções, alguns dos passos diferem.
 
-O suporte do Broker é habilitado por`PublicClientApplication`. Ele é desabilitado por padrão. Você deve usar o parâmetro `WithBroker()` (definido como true por padrão) ao criar o `PublicClientApplication` por meio do `PublicClientApplicationBuilder`.
+### <a name="enable-brokered-authentication-for-xamarin-ios"></a>Ativar a autenticação intermediada para xamarin iOS
+
+Siga os passos nesta secção para permitir que a sua aplicação Xamarin.iOS fale com a aplicação [Microsoft Authenticator.](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458)
+
+#### <a name="step-1-enable-broker-support"></a>Passo 1: Ativar suporte ao corretor
+
+O suporte do corretor é desativado por defeito. Permite-se uma aula de `PublicClientApplication` individual. Utilize o parâmetro `WithBroker()` quando criar a classe `PublicClientApplication` através `PublicClientApplicationBuilder`. O parâmetro `WithBroker()` é definido para verdade por defeito.
 
 ```csharp
 var app = PublicClientApplicationBuilder
@@ -182,9 +187,9 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 
-#### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Etapa 2: atualizar AppDelegate para manipular o retorno de chamada
+#### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Passo 2: Atualizar appDelegate para lidar com o backback
 
-Quando o MSAL.NET chama o agente, o agente, por sua vez, retorna a chamada para seu aplicativo por meio do método `AppDelegate.OpenUrl`. Como o MSAL aguardará a resposta do agente, seu aplicativo precisará cooperar para chamar MSAL.NET de volta. Faça isso atualizando o arquivo de `AppDelegate.cs` para substituir o método abaixo.
+Quando MSAL.NET chama o corretor, o corretor liga de volta para a sua aplicação. Volta a chamar de volta usando o método `AppDelegate.OpenUrl`. Como a MSAL aguarda a resposta do corretor, o seu pedido precisa de cooperar para chamar MSAL.NET de volta. Configura este comportamento atualizando o ficheiro `AppDelegate.cs` para anular o método, como mostra o seguinte código.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
@@ -204,70 +209,73 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 }
 ```
 
-Esse método é invocado toda vez que o aplicativo é iniciado e é usado como uma oportunidade para processar a resposta do agente e concluir o processo de autenticação iniciado pelo MSAL.NET.
+Este método é invocado sempre que a aplicação é lançada. É uma oportunidade para processar a resposta do corretor e completar o processo de autenticação que MSAL.NET iniciado.
 
-#### <a name="step-3-set-a-uiviewcontroller"></a>Etapa 3: definir um UIViewController ()
+#### <a name="step-3-set-a-uiviewcontroller"></a>Passo 3: Definir um UIViewController()
 
-Com o Xamarin iOS, normalmente você não precisa definir uma janela de objeto, mas, nesse caso, você deve fazer para enviar e receber respostas de um agente. Ainda em `AppDelegate.cs`, defina um ViewController.
+Para o xamarin iOS, normalmente não é necessário definir uma janela de objetos. Mas neste caso deve defini-lo para que possa enviar e receber respostas de um corretor. Para definir uma janela de objeto, em `AppDelegate.cs`, configura-se um `ViewController`.
 
-Faça o seguinte para definir a janela de objeto:
+Para definir a janela do objeto, siga estes passos:
 
-1) Em `AppDelegate.cs`, defina o `App.RootViewController` como um novo `UIViewController()`. Isso verificará se há um `UIViewController` com a chamada para o agente. Se não estiver corretamente definido, poderá obter este erro: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
-2) Na chamada AcquireTokenInteractive, use o `.WithParentActivityOrWindow(App.RootViewController)` e passe a referência para a janela de objeto que você usará.
+1. Em `AppDelegate.cs`, coloque o `App.RootViewController` para um novo `UIViewController()`. Esta definição garante que a chamada para o corretor inclui `UIViewController`. Se não estiver corretamente definido, poderá ter este erro:
 
-**Por exemplo:**
+    `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker."`
 
-Em `App.cs`:
-```csharp
-   public static object RootViewController { get; set; }
-```
-Em `AppDelegate.cs`:
-```csharp
-   LoadApplication(new App());
-   App.RootViewController = new UIViewController();
-```
-Na chamada de aquisição de token:
-```csharp
-result = await app.AcquireTokenInteractive(scopes)
-             .WithParentActivityOrWindow(App.RootViewController)
-             .ExecuteAsync();
-```
+1. Na chamada `AcquireTokenInteractive`, use `.WithParentActivityOrWindow(App.RootViewController)`. Passe a referência à janela do objeto que vai usar. Segue-se um exemplo:
 
-#### <a name="step-4-register-a-url-scheme"></a>Etapa 4: registrar um esquema de URL
+    Em `App.cs`:
+    ```csharp
+       public static object RootViewController { get; set; }
+    ```
+    Em `AppDelegate.cs`:
+    ```csharp
+       LoadApplication(new App());
+       App.RootViewController = new UIViewController();
+    ```
+    Na chamada `AcquireToken`:
+    ```csharp
+    result = await app.AcquireTokenInteractive(scopes)
+                 .WithParentActivityOrWindow(App.RootViewController)
+                 .ExecuteAsync();
+    ```
+    
+#### <a name="step-4-register-a-url-scheme"></a>Passo 4: Registar um esquema de URL
 
-O MSAL.NET usa URLs para invocar o agente e, em seguida, retornar a resposta do agente de volta para seu aplicativo. Para concluir a viagem de ida e volta, você precisa registrar um esquema de URL para seu aplicativo no arquivo de `Info.plist`.
+MSAL.NET usa URLs para invocar o corretor e depois devolver a resposta do corretor à sua aplicação. Para terminar a viagem de ida e volta, registe o sistema de URL da sua aplicação no ficheiro `Info.plist`. 
 
-Prefixe a `CFBundleURLSchemes` com `msauth`. Em seguida, adicione `CFBundleURLName` ao final.
+Para registar o sistema de URL da sua aplicação, siga estes passos:
 
-`$"msauth.(BundleId)"`
+1. Prefixo `CFBundleURLSchemes` com `msauth`. 
+1. Adicione `CFBundleURLName` ao final. Siga este padrão: 
 
-**Por exemplo:** 
-`msauth.com.yourcompany.xforms`
+   `$"msauth.(BundleId)"`
 
-> [!NOTE]
-> Esse esquema de URL se tornará parte do RedirectUri usado para identificar exclusivamente seu aplicativo ao receber a resposta do agente.
+   Aqui, `BundleId` identifica exclusivamente o seu dispositivo. Por exemplo, se `BundleId` for `yourcompany.xforms`, o seu sistema de URL é `msauth.com.yourcompany.xforms`.
+    
+   > [!NOTE]
+   > Este esquema de URL passará a fazer parte do URI redirecionado que identifica exclusivamente a sua aplicação quando recebe a resposta do corretor.
+    
+   ```XML
+    <key>CFBundleURLTypes</key>
+       <array>
+         <dict>
+           <key>CFBundleTypeRole</key>
+           <string>Editor</string>
+           <key>CFBundleURLName</key>
+           <string>com.yourcompany.xforms</string>
+           <key>CFBundleURLSchemes</key>
+           <array>
+             <string>msauth.com.yourcompany.xforms</string>
+           </array>
+         </dict>
+       </array>
+   ```
+    
+#### <a name="step-5-add-to-the-lsapplicationqueriesschemes-section"></a>Passo 5: Adicionar à secção LSApplicationQueriesSchemes
 
-```XML
- <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleTypeRole</key>
-        <string>Editor</string>
-        <key>CFBundleURLName</key>
-        <string>com.yourcompany.xforms</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>msauth.com.yourcompany.xforms</string>
-        </array>
-      </dict>
-    </array>
-```
+A MSAL utiliza `–canOpenURL:` para verificar se o corretor está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que uma aplicação pode consultar.
 
-#### <a name="step-5-lsapplicationqueriesschemes"></a>Etapa 5: LSApplicationQueriesSchemes
-
-O MSAL usa `–canOpenURL:` para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou o que os esquemas que um aplicativo pode consultar.
-
-**Adicione** **`msauthv2`** à seção `LSApplicationQueriesSchemes` do arquivo de `Info.plist`.
+Adicione `msauthv2` à secção `LSApplicationQueriesSchemes` do ficheiro `Info.plist`, como no seguinte exemplo de código:
 
 ```XML 
 <key>LSApplicationQueriesSchemes</key>
@@ -276,15 +284,13 @@ O MSAL usa `–canOpenURL:` para verificar se o agente está instalado no dispos
     </array>
 ```
 
-### <a name="brokered-authentication-for-msal-for-ios-and-macos"></a>Autenticação orientada para MSAL para iOS e macOS
+### <a name="brokered-authentication-for-msal-for-ios-and-macos"></a>Autenticação intermediada para MSAL para iOS e macOS
 
-A autenticação orientada é habilitada por padrão para cenários do AAD.
+A autenticação intermediada é ativada por predefinição para cenários da AD Azure.
 
-#### <a name="step-1-update-appdelegate-to-handle-the-callback"></a>Etapa 1: atualizar AppDelegate para manipular o retorno de chamada
+#### <a name="step-1-update-appdelegate-to-handle-the-callback"></a>Passo 1: Atualizar appDelegate para lidar com o backback
 
-Quando o MSAL para iOS e macOS chamar o agente, o agente, por sua vez, chamará de volta para seu aplicativo por meio do método `openURL`. Como o MSAL aguardará a resposta do agente, seu aplicativo precisará cooperar para chamar MSAL de volta. Faça isso atualizando o arquivo de `AppDelegate.m` para substituir o método abaixo.
-
-Objective-C:
+Quando o MSAL para iOS e macOS chama o corretor, o corretor volta a ligar para a sua aplicação utilizando o método `openURL`. Como a MSAL aguarda a resposta do corretor, o seu pedido precisa de cooperar para rechamar a MSAL. Configurar esta capacidade atualizando o ficheiro `AppDelegate.m` para anular o método, como mostram os seguintes exemplos de código.
 
 ```objc
 - (BOOL)application:(UIApplication *)app
@@ -295,8 +301,6 @@ Objective-C:
                                          sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
 }
 ```
-
-Swift
 
 ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -309,38 +313,48 @@ Swift
     }
 ```
 
-Observe que, se você adotou UISceneDelegate no iOS 13 +, o retorno de chamada MSAL precisará ser colocado na `scene:openURLContexts:` de UISceneDelegate (consulte a [documentação da Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)). MSAL `handleMSALResponse:sourceApplication:` deve ser chamado apenas uma vez para cada URL.
+> [!NOTE]
+> Se adotou `UISceneDelegate` no iOS 13 ou mais tarde, então coloque a chamada MSAL no `scene:openURLContexts:` de `UISceneDelegate` em vez disso. A `handleMSALResponse:sourceApplication:` MSAL deve ser chamada apenas uma vez para cada URL.
+>
+> Para mais informações, consulte a [documentação](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)da Apple .
 
-#### <a name="step-2-register-a-url-scheme"></a>Etapa 2: registrar um esquema de URL
+#### <a name="step-2-register-a-url-scheme"></a>Passo 2: Registar um esquema de URL
 
-O MSAL para iOS e macOS usa URLs para invocar o agente e, em seguida, retornar a resposta do agente de volta para seu aplicativo. Para concluir a viagem de ida e volta, você precisa registrar um esquema de URL para seu aplicativo no arquivo de `Info.plist`.
+MSAL para iOS e macOS usa URLs para invocar o corretor e, em seguida, devolver a resposta do corretor à sua app. Para terminar a viagem de ida e volta, registe um esquema de URL para a sua aplicação no ficheiro `Info.plist`.
 
-Prefixe seu esquema de URL personalizado com `msauth`. Em seguida, adicione **seu identificador de pacote** ao final.
+Para registar um esquema para a sua aplicação: 
 
-`msauth.(BundleId)`
+1. Prefixe o seu esquema de URL personalizado com `msauth`. 
 
-**Por exemplo:** 
-`msauth.com.yourcompany.xforms`
+1. Adicione o seu identificador de pacote ao fim do seu esquema. Siga este padrão: 
+
+   `$"msauth.(BundleId)"`
+
+   Aqui, `BundleId` identifica exclusivamente o seu dispositivo. Por exemplo, se `BundleId` for `yourcompany.xforms`, o seu sistema de URL é `msauth.com.yourcompany.xforms`.
+  
+   > [!NOTE]
+   > Este esquema de URL passará a fazer parte do URI redirecionado que identifica exclusivamente a sua aplicação quando recebe a resposta do corretor. Certifique-se de que o redirecionamento de URI no formato `msauth.(BundleId)://auth` está registado para a sua aplicação no [portal Azure](https://portal.azure.com).
+  
+   ```XML
+   <key>CFBundleURLTypes</key>
+   <array>
+       <dict>
+           <key>CFBundleURLSchemes</key>
+           <array>
+               <string>msauth.[BUNDLE_ID]</string>
+           </array>
+       </dict>
+   </array>
+   ```
+
+#### <a name="step-3-add-lsapplicationqueriesschemes"></a>Passo 3: Adicionar Esquemas de LSApplicationQueries
+
+Adicione `LSApplicationQueriesSchemes` para permitir chamadas para a aplicação Microsoft Authenticator, caso esteja instalada.
 
 > [!NOTE]
-> Esse esquema de URL se tornará parte do RedirectUri usado para identificar exclusivamente seu aplicativo ao receber a resposta do agente. Verifique se o RedirectUri no formato de `msauth.(BundleId)://auth` está registrado para seu aplicativo no [portal do Azure](https://portal.azure.com).
+> O esquema `msauthv3` é necessário quando a sua aplicação é compilada utilizando o Xcode 11 e mais tarde. 
 
-```XML
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>msauth.[BUNDLE_ID]</string>
-        </array>
-    </dict>
-</array>
-```
-
-#### <a name="step-3-lsapplicationqueriesschemes"></a>Etapa 3: LSApplicationQueriesSchemes
-
-**Adicione `LSApplicationQueriesSchemes`** para permitir a chamada para Microsoft Authenticator se estiver instalado.
-Observe que o esquema "msauthv3" é necessário ao compilar seu aplicativo com o Xcode 11 e posterior. 
+Aqui está um exemplo de como adicionar `LSApplicationQueriesSchemes`:
 
 ```XML 
 <key>LSApplicationQueriesSchemes</key>
@@ -350,11 +364,11 @@ Observe que o esquema "msauthv3" é necessário ao compilar seu aplicativo com o
 </array>
 ```
 
-### <a name="brokered-authentication-for-xamarinandroid"></a>Autenticação orientada para Xamarin. Android
+### <a name="brokered-authentication-for-xamarinandroid"></a>Autenticação intermediada para Xamarin.Android
 
-MSAL.NET ainda não dá suporte a agentes para Android.
+MSAL.NET não suporta corretores para Android.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adquirindo um token](scenario-mobile-acquire-token.md)
+> [Adquirir um símbolo](scenario-mobile-acquire-token.md)

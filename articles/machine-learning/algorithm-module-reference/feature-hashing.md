@@ -6,23 +6,23 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 60a9c6b237423337abb520b335c98d3c8c7549be
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4340ee4ed1edda8590726151e07eec45c0751ed6
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312209"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152266"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência de módulo de hash de recurso
 
-Este artigo descreve um módulo incluído no Azure Machine Learning designer.
+Este artigo descreve um módulo incluído no designer de Machine Learning Azure (pré-visualização).
 
 Use o módulo hash de recurso para transformar um fluxo de texto em inglês em um conjunto de recursos inteiros. Em seguida, você pode passar esse conjunto de recursos com hash para um algoritmo de aprendizado de máquina para treinar um modelo de análise de texto.
 
-A funcionalidade de hash de recurso fornecida neste módulo é baseada na estrutura nimbusml. Para obter mais informações, consulte [classe NgramHash](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+A funcionalidade de hash de recurso fornecida neste módulo é baseada na estrutura nimbusml. Para mais informações, consulte a [aula de NgramHash.](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)
 
 ## <a name="what-is-feature-hashing"></a>O que é o hash de recurso?
 
@@ -46,7 +46,7 @@ Internamente, o módulo hash de recurso cria um dicionário de n-grams. Por exem
 |Eu odiei|1|
 |Eu adoro|1|
 
-Você pode controlar o tamanho dos n-grams usando a propriedade **n-grams** . Se você escolher bigrams, unigrams também serão computados. O dicionário também incluiria termos únicos como estes:
+Pode controlar o tamanho dos n-gramas utilizando a propriedade **N-grams.** Se você escolher bigrams, unigrams também serão computados. O dicionário também incluiria termos únicos como estes:
 
 |Termo (unigrams)|Frequência|
 |------------|---------------|
@@ -80,17 +80,17 @@ As saídas numéricas também possibilitam o uso de métodos comuns de aprendiza
     > [!TIP]
     > Como o hash de recurso não executa operações léxicas como lematização ou truncamento, às vezes você pode obter resultados melhores por meio de pré-processamento de texto antes de aplicar o hash de recurso. 
 
-1. Defina as **colunas de destino** para as colunas de texto que você deseja converter em recursos com hash. Tenha em mente que:
+1. Defina **as colunas Target** para as colunas de texto que pretende converter para funcionalidades de hashed. Tenha em mente que:
 
     * As colunas devem ser do tipo de dados de cadeia de caracteres.
     
     * Escolher várias colunas de texto pode ter um impacto significativo na dimensionalidade do recurso. Por exemplo, o número de colunas para um hash de 10 bits vai de 1.024 para uma única coluna a 2.048 para duas colunas.
 
-1. Use **bits de hash** para especificar o número de bits a serem usados ao criar a tabela de hash.
+1. Use **o bitsize hashing** para especificar o número de bits a utilizar quando estiver a criar a tabela de haxixe.
     
     O tamanho de bit padrão é 10. Para muitos problemas, esse valor é adequado. Talvez seja necessário mais espaço para evitar colisões, dependendo do tamanho do vocabulário de n-grams no texto de treinamento.
     
-1. Para **N-grams**, insira um número que defina o comprimento máximo dos N-grams a serem adicionados ao dicionário de treinamento. Um n-Gram é uma sequência de *n* palavras, tratada como uma unidade exclusiva.
+1. Para **N-grams**, introduza um número que defina o comprimento máximo dos n-gramas para adicionar ao dicionário de formação. Um n-grama é uma sequência *de* n palavras, tratada como uma unidade única.
 
     Por exemplo, se você inserir 3, unigrams, bigrams e trigrams serão criados.
 
@@ -121,7 +121,7 @@ As práticas recomendadas a seguir podem ajudá-lo a obter o máximo do módulo 
     
 * Considere usar essas opções de pré-processamento de texto para simplificar os resultados e melhorar a precisão:
 
-    * Separação de palavras
+    * Quebra de palavras
     * Parando a remoção do Word
     * Normalização de caso
     * Remoção de Pontuação e caracteres especiais
@@ -131,4 +131,4 @@ O conjunto ideal de métodos de pré-processamento a serem aplicados em qualquer
 
 ## <a name="next-steps"></a>Passos seguintes
             
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning 
+Veja o [conjunto de módulos disponíveis](module-reference.md) para O Machine Learning Azure 

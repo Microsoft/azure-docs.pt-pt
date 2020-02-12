@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: ce232fc9216166e94520203bb4afbf4c152aaf6f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314934"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152130"
 ---
 # <a name="partition-and-sample-module"></a>Módulo de partição e exemplo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
 Use este módulo para executar a amostragem em um conjunto de um ou para criar partições do conjunto de seus.
 
@@ -38,7 +38,7 @@ A amostragem é uma ferramenta importante no aprendizado de máquina, pois permi
 
 - Criando um conjunto de um DataSet menor para teste. 
 
-    Se você tiver muitos dados, talvez queira usar apenas as primeiras *n* linhas ao configurar o pipeline e, em seguida, alternar para usando o conjunto de dados completo ao criar seu modelo. Você também pode usar a amostragem para criar um conjunto de um DataSet menor para uso no desenvolvimento.
+    Se tiver muitos dados, poderá querer utilizar apenas as primeiras linhas *n* durante a configuração do pipeline e, em seguida, mudar para utilizar o conjunto de dados completo quando construir o seu modelo. Você também pode usar a amostragem para criar um conjunto de um DataSet menor para uso no desenvolvimento.
 
 ## <a name="configure-partition-and-sample"></a>Configurar partição e exemplo
 
@@ -51,13 +51,13 @@ Esse módulo dá suporte a vários métodos para dividir seus dados em partiçõ
 
 ### <a name="get-top-n-rows-from-a-dataset"></a>Obter as N primeiras linhas de um conjunto de registros
 
-Use este modo para obter apenas as primeiras *n* linhas. Essa opção será útil se você quiser testar um pipeline em um pequeno número de linhas e não precisar que os dados sejam balanceados ou amostrados de qualquer forma.
+Utilize este modo para obter apenas as primeiras linhas *n.* Essa opção será útil se você quiser testar um pipeline em um pequeno número de linhas e não precisar que os dados sejam balanceados ou amostrados de qualquer forma.
 
-1. Adicione a **partição e** o módulo de exemplo ao seu pipeline na interface e conecte o conjunto de espaço.  
+1. Adicione o módulo **de partilha e amostra** ao seu pipeline na interface e ligue o conjunto de dados.  
 
-2. **Modo de partição ou de exemplo**: defina essa opção como **Head**.
+2. **Modo de partilha ou amostra**: Desloque esta opção para **cabeça**.
 
-3. **Número de linhas a serem selecionadas**: digite o número de linhas a serem retornadas.
+3. **Número de linhas para selecionar:** Digite o número de linhas para devolver.
 
     O número de linhas especificado deve ser um inteiro não negativo. Se o número de linhas selecionadas for maior do que o número de linhas no conjunto de registros, o conjunto de um inteiro será retornado.
 
@@ -69,23 +69,23 @@ O módulo gera um único conjunto de registros contendo apenas o número especif
 
 Essa opção dá suporte à amostragem aleatória simples ou à amostragem aleatória de sobreratificação. Isso será útil se você quiser criar um conjunto de um DataSet de exemplo menor para teste.
 
-1. Adicione a **partição e** o módulo de exemplo ao seu pipeline e conecte o conjunto de espaço.
+1. Adicione o módulo **de partilha e amostra** ao seu pipeline e ligue o conjunto de dados.
 
-2. **Modo de partição ou de exemplo**: Defina isso para **amostragem**.
+2. **Modo de partilha ou amostra:** Desloque isto para **A Amostragem**.
 
-3. **Taxa de amostragem**: digite um valor entre 0 e 1. Esse valor especifica a porcentagem de linhas do conjunto de registros de origem que devem ser incluídas no conjunto de resultados de saída.
+3. **Taxa de amostragem**: Digite um valor entre 0 e 1. Esse valor especifica a porcentagem de linhas do conjunto de registros de origem que devem ser incluídas no conjunto de resultados de saída.
 
-    Por exemplo, se você quiser apenas metade do conjunto de texto original, digite `0.5` para indicar que a taxa de amostragem deve ser 50%.
+    Por exemplo, se quiser apenas metade do conjunto de dados original, escreva `0.5` indique que a taxa de amostragem deve ser de 50%.
 
     As linhas do conjunto de dados de entrada são embaralhadas e colocadas seletivamente no conjunto de dados de saída, de acordo com a razão especificada.
 
-4. **Semente aleatória para amostragem**: opcionalmente, digite um inteiro para usar como um valor de semente.
+4. **Sementes aleatórias para amostragem**: Opcionalmente, digite uma nota para usar como um valor de semente.
 
     Essa opção será importante se você quiser que as linhas sejam divididas da mesma maneira toda vez. O valor padrão é 0, o que significa que uma semente inicial é gerada com base no relógio do sistema. Isso pode levar a resultados ligeiramente diferentes cada vez que você executar o pipeline.
 
-5. **Divisão de sobreratificação para amostragem**: Selecione esta opção se for importante que as linhas no conjunto de registros devam ser divididas uniformemente por alguma coluna de chave antes da amostragem.
+5. **Divisão estratificada para amostragem**: Selecione esta opção se for importante que as linhas do conjunto de dados sejam divididas uniformemente por alguma coluna chave antes de provar.
 
-    Para a **coluna de chave estratificação para amostragem**, selecione uma única *coluna Strata* para usar ao dividir o conjunto de os. As linhas no conjunto de registros são então divididas da seguinte maneira:
+    Para a **coluna de teclas estratificação para amostragem,** selecione uma única coluna de *estratos* para utilizar ao dividir o conjunto de dados. As linhas no conjunto de registros são então divididas da seguinte maneira:
 
     1. Todas as linhas de entrada são agrupadas (desratificadas) pelos valores na coluna Strata especificada.
 
@@ -102,35 +102,35 @@ Essa opção dá suporte à amostragem aleatória simples ou à amostragem aleat
 
 Use esta opção quando você quiser dividir o conjunto de dados em subconjuntos deles. Essa opção também é útil quando você deseja criar um número personalizado de dobras para validação cruzada ou para dividir linhas em vários grupos.
 
-1. Adicione a **partição e** o módulo de exemplo ao seu pipeline e conecte o conjunto de espaço.
+1. Adicione o módulo **de partilha e amostra** ao seu pipeline e ligue o conjunto de dados.
 
-2. Para o **modo de partição ou de exemplo**, selecione **atribuir a dobras**.
+2. Para **o modo de partilha ou amostra,** selecione Atribuir a **dobras**.
 
-3. **Usar substituição no particionamento**: Selecione esta opção se desejar que a linha de amostra seja colocada de volta no pool de linhas para reutilização em potencial. Como resultado, a mesma linha pode ser atribuída a várias dobras.
+3. **Utilize a substituição na divisória**: Selecione esta opção se pretender que a linha amostrada seja reposta na piscina de linhas para potencial reutilização. Como resultado, a mesma linha pode ser atribuída a várias dobras.
 
     Se você não usar a substituição (a opção padrão), a linha de amostra não será colocada de volta no pool de linhas para reutilização potencial. Como resultado, cada linha pode ser atribuída a apenas uma dobra.
 
-4. **Divisão aleatória**: Selecione esta opção se desejar que as linhas sejam atribuídas aleatoriamente a dobras.
+4. **Divisão aleatória**: Selecione esta opção se pretender que as linhas sejam atribuídas aleatoriamente a dobras.
 
     Se você não selecionar essa opção, as linhas serão atribuídas a dobras usando o método Round Robin.
 
-5. **Semente aleatória**: opcionalmente, digite um inteiro para usar como o valor de semente. Essa opção será importante se você quiser que as linhas sejam divididas da mesma maneira toda vez. Caso contrário, o valor padrão de 0 significa que uma semente de início aleatório será usada.
+5. **Semente aleatória**: Opcionalmente, digite uma prótese para usar como valor de semente. Essa opção será importante se você quiser que as linhas sejam divididas da mesma maneira toda vez. Caso contrário, o valor padrão de 0 significa que uma semente de início aleatório será usada.
 
-6. **Especifique o método do particionador**: indique como você deseja que os dados sejam distribuídos para cada partição, usando estas opções:
+6. **Especifique o método de partição**: Indique como pretende que os dados sejam distribuídos por cada partição, utilizando estas opções:
 
-    - **Particionar uniformemente**: Use essa opção para inserir um número igual de linhas em cada partição. Para especificar o número de partições de saída, digite um número inteiro na caixa de texto **especificar número de dobras a serem divididas uniformemente** .
+    - **Partição uniformemente**: Utilize esta opção para colocar um número igual de linhas em cada partição. Para especificar o número de divisórias de saída, digite um número inteiro no **número de dobras especificada para dividir uniformemente em** caixa de texto.
 
-    - **Partição com proporções personalizadas**: Use essa opção para especificar o tamanho de cada partição como uma lista separada por vírgulas.
+    - **Partição com proporções personalizadas**: Utilize esta opção para especificar o tamanho de cada divisória como uma lista separada da víramida.
 
-        Por exemplo, se você quiser criar três partições, com a primeira partição contendo 50% dos dados e as duas partições restantes, cada uma contendo 25% dos dados, clique na caixa **de texto lista de proporções separadas por vírgula** e digite estes números: `.5, .25, .25`
+        Por exemplo, se pretender criar três divisórias, com a primeira partição contendo 50% dos dados, e as restantes duas divisórias que contêm 25% dos dados, clique na Lista de proporções separadas por caixa de texto **vírina** e digite estes números: `.5, .25, .25`
 
         A soma de todos os tamanhos de partição deve somar exatamente 1.
 
-        - Se você inserir números que se somam a **menos de 1**, uma partição extra será criada para manter as linhas restantes. Por exemplo, se você digitar os valores 0,2 e 3, será criada uma terceira partição que contém a porcentagem restante de 50% de todas as linhas.
+        - Se introduzir números que somam **menos de 1**, é criada uma partição extra para manter as restantes linhas. Por exemplo, se você digitar os valores 0,2 e 3, será criada uma terceira partição que contém a porcentagem restante de 50% de todas as linhas.
 
-        - Se você inserir números que somam **mais de 1**, um erro será gerado quando você executar o pipeline.
+        - Se introduzir números que somam mais de **1**, um erro é levantado quando executa o gasoduto.
 
-7. **Divisão de desratificação**: Selecione esta opção se desejar que as linhas sejam desratificadas quando divididas e, em seguida, escolha a _coluna Strata_.
+7. **Divisão estratificada**: Selecione esta opção se quiser que as linhas sejam estratificadas quando divididas e, em seguida, escolha a coluna de _estratos_.
 
 8. Executar o pipeline.
 
@@ -140,23 +140,23 @@ Use esta opção quando você quiser dividir o conjunto de dados em subconjuntos
 
 Essa opção é usada quando você divide um conjunto de um DataSet em várias partições e agora deseja carregar cada partição por vez para análise ou processamento posterior.
 
-1. Adicione a **partição e** o módulo de exemplo ao pipeline.
+1. Adicione o módulo **de partição e amostra** ao gasoduto.
 
-2. Conecte-o à saída de uma instância anterior de **partição e exemplo**. Essa instância deve ter usado a opção **atribuir a dobras** para gerar um número de partições.
+2. Conecte-o à saída de um caso anterior de **Partição e Amostra**. Esta instância deve ter usado a opção **Atribuir a Folds** para gerar um número de divisórias.
 
-3. **Modo de partição ou de exemplo**: selecione Selecionar **dobra**.
+3. **Modo de partição ou amostra**: Selecione **Pick Fold**.
 
-4. **Especifique a qual dobra deve ser amostrada**: selecione uma partição a ser usada digitando seu índice. Índices de partição são baseados em 1. Por exemplo, se você dividiu o conjunto de um em três partes, as partições teriam os índices 1, 2 e 3.
+4. **Especifique qual a dobra a amostrar**a partir de : Selecione uma divisória para utilizar digitando o seu índice. Índices de partição são baseados em 1. Por exemplo, se você dividiu o conjunto de um em três partes, as partições teriam os índices 1, 2 e 3.
 
     Se você digitar um valor de índice inválido, um erro de tempo de design será gerado: "Error 0018: DataSet contém dados inválidos".
 
-    Além de agrupar o conjunto de um por dobras, você pode separar o conjunto de um em dois grupos: uma dobra de destino e todo o resto. Para fazer isso, digite o índice de uma única dobra e, em seguida, selecione a opção **escolher complemento da dobra selecionada**para obter tudo, exceto os dados na dobra especificada.
+    Além de agrupar o conjunto de um por dobras, você pode separar o conjunto de um em dois grupos: uma dobra de destino e todo o resto. Para isso, digite o índice de uma única dobra e, em seguida, selecione a opção, **Escolha o complemento da dobra selecionada,** para obter tudo menos os dados na dobra especificada.
 
-5. Se você estiver trabalhando com várias partições, deverá adicionar mais instâncias do módulo **partição e exemplo** para lidar com cada partição.
+5. Se estiver a trabalhar com várias divisórias, deve adicionar instâncias adicionais do módulo **de partilha e amostra** para manusear cada partição.
 
-    Por exemplo, digamos que os pacientes particionados anteriormente em quatro dobras usando a idade. Para trabalhar com cada dobra individual, você precisa de quatro cópias da **partição e** do módulo de exemplo e, em cada uma delas, selecione uma dobra diferente, conforme mostrado abaixo. Não está correto usar a saída **atribuir para partições** diretamente.  
+    Por exemplo, digamos que os pacientes particionados anteriormente em quatro dobras usando a idade. Para trabalhar com cada dobra individual, precisa de quatro cópias do módulo **Partition and Sample** e, em cada uma, selecione uma dobra diferente, como mostrado abaixo. Não é correto utilizar a saída de **Atribuir a dobrar** diretamente.  
 
-    [![partição e exemplo](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    [![Partição e amostra](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
 5. Executar o pipeline.
 
@@ -167,4 +167,4 @@ Essa opção é usada quando você divide um conjunto de um DataSet em várias p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

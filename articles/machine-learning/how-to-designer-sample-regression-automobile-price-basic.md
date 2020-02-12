@@ -1,7 +1,7 @@
 ---
-title: 'Designer: prever o exemplo de preços do carro (básico)'
+title: 'Designer: Prever preços dos automóveis (básico) exemplo'
 titleSuffix: Azure Machine Learning
-description: Crie um modelo de regressão ML para prever o preço de um automóvel sem escrever uma única linha de código com Azure Machine Learning designer.
+description: Construa um modelo de regressão ML para prever o preço de um automóvel sem escrever uma única linha de código com o designer de Machine Learning Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,73 +9,73 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 6f4fe941cc44211f9f5d5e77b11043257b43a8ea
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: 58adbc7607b0b32e79123b701c37f55ce7cc1d2e
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963302"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138117"
 ---
-# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Use a regressão para prever os preços de carro com o designer de Azure Machine Learning
+# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Use a regressão para prever os preços dos carros com o designer de machine learning Azure
 
-**Amostra do designer (visualização) 1**
+**Amostra de designer (pré-visualização) 1**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Saiba como criar um modelo de regressão do Machine Learning sem escrever uma única linha de código usando o designer (versão prévia).
+Aprenda a construir um modelo de regressão de aprendizagem automática sem escrever uma única linha de código usando o designer (pré-visualização).
 
-Esse pipeline treina um **regressor linear** para prever o preço de um carro com base em recursos técnicos, como marca, modelo, potência e tamanho. Porque você está tentando responder à pergunta "o quanto?" Isso é chamado de problema de regressão. No entanto, você pode aplicar as mesmas etapas fundamentais neste exemplo para lidar com qualquer tipo de problema de aprendizado de máquina, seja regressão, classificação, clustering e assim por diante.
+Este gasoduto treina um **regresso linear** para prever o preço de um carro com base em características técnicas como make, model, horsepower e size. Porque estás a tentar responder à pergunta "Quanto?" isto é chamado de um problema de regressão. No entanto, pode aplicar os mesmos passos fundamentais neste exemplo para resolver qualquer tipo de problema de aprendizagem automática, quer se trate de regressão, classificação, agrupamento, e assim por diante.
 
-As etapas fundamentais de um modelo de aprendizado de máquina de treinamento são:
+Os passos fundamentais de um modelo de aprendizagem automática de formação são:
 
 1. Obter os dados
 1. Pré-processar os dados
-1. Formar o modelo
+1. Dar formação sobre o modelo
 1. Avaliar o modelo
 
-Aqui está o grafo final e concluído do pipeline. Este artigo fornece a lógica para todos os módulos para que você possa tomar decisões semelhantes por conta própria.
+Aqui está o gráfico final e completo do oleoduto. Este artigo fornece a razão para todos os módulos para que possa tomar decisões semelhantes por conta própria.
 
-![Grafo do pipeline](./media/how-to-designer-sample-regression-automobile-price-basic/overall-graph.png)
+![Gráfico do oleoduto](./media/how-to-designer-sample-regression-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
-4. Clique no exemplo 1 para abri-lo Marketplace.
+4. Clique na amostra 1 para abri-la.
 
 
 ## <a name="get-the-data"></a>Obter os dados
 
-Este exemplo usa o conjunto de **dados de preço do automóvel (bruto)** , que é do repositório do Machine Learning UCI. O conjunto de dados contém 26 colunas que contêm informações sobre autocelular, incluindo marca, modelo, preço, recursos de veículo (como o número de cilindros), MPG e uma pontuação de risco de seguro. O objetivo deste exemplo é prever o preço do carro.
+Esta amostra utiliza o conjunto de dados sobre os preços do **Automóvel (Raw),** que é do Repositório de Aprendizagem Automática uci. O conjunto de dados contém 26 colunas que contêm informações sobre automóveis, incluindo fabricação, modelo, preço, características do veículo (como o número de cilindros), MPG e uma pontuação de risco de seguro. O objetivo desta amostra é prever o preço do carro.
 
 ## <a name="pre-process-the-data"></a>Pré-processar os dados
 
-As principais tarefas de preparação de dados incluem limpeza, integração, transformação, redução e discretização ou Quantificação de dados. No designer, você pode encontrar módulos para executar essas operações e outras tarefas de pré-processamento de dados no grupo de **transformação de dados** no painel esquerdo.
+As principais tarefas de preparação de dados incluem limpeza de dados, integração, transformação, redução e discretização ou quantificação. No designer, pode encontrar módulos para realizar estas operações e outras tarefas de pré-processamento de dados no grupo **de Transformação** de Dados no painel esquerdo.
 
-Use o módulo **selecionar colunas no conjunto de DataSet** para excluir as perdas normalizadas que têm muitos valores ausentes. Em seguida, use **limpar dados ausentes** para remover as linhas que têm valores ausentes. Isso ajuda a criar um conjunto limpo de dados de treinamento.
+Utilize as **Colunas Select no** módulo Dataset para excluir perdas normalizadas que tenham muitos valores em falta. Em seguida, utilize **dados de falta limpos** para remover as linhas que têm valores em falta. Isto ajuda a criar um conjunto limpo de dados de treino.
 
 ![Pré-processamento de dados](./media/how-to-designer-sample-regression-automobile-price-basic/data-processing.png)
 
-## <a name="train-the-model"></a>Formar o modelo
+## <a name="train-the-model"></a>Dar formação sobre o modelo
 
-Os problemas de Machine Learning variam. As tarefas comuns de aprendizado de máquina incluem classificação, clustering, regressão e sistemas de recomendação, e cada uma delas pode exigir um algoritmo diferente. A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Depois de escolher um algoritmo, você precisa ajustar seus parâmetros para treinar um modelo mais preciso. Em seguida, você precisa avaliar todos os modelos com base em métricas, como precisão, inteligibilidade e eficiência.
+Os problemas de aprendizagem automática variam. As tarefas comuns de aprendizagem automática incluem sistemas de classificação, agrupamento, regressão e recomendadores, cada um dos quais pode exigir um algoritmo diferente. A sua escolha de algoritmo depende frequentemente dos requisitos do caso de utilização. Depois de escolher um algoritmo, precisa de afinar os seus parâmetros para treinar um modelo mais preciso. Em seguida, é necessário avaliar todos os modelos com base em métricas como precisão, inteligibilidade e eficiência.
 
-Como o objetivo deste exemplo é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear. Portanto, usamos a **regressão da floresta de decisão** para esse pipeline.
+Uma vez que o objetivo desta amostra é prever os preços dos automóveis, e porque a coluna de etiquetas (preço) é dados contínuos, um modelo de regressão pode ser uma boa escolha. Usamos **regressão linear** para este oleoduto.
 
 Utilize o módulo **De dados divididos** para dividir aleatoriamente os dados de entrada de modo a que o conjunto de dados de formação contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% dos dados originais.
 
 ## <a name="test-evaluate-and-compare"></a>Testar, avaliar e comparar
 
-Divida o conjunto de informações e use conjuntos de valores diferentes para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
+Divida o conjunto de dados e use diferentes conjuntos de dados para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
 
-Depois que o modelo for treinado, você poderá usar o **modelo de Pontuação** e avaliar os módulos de **modelo** para gerar resultados previstos e avaliar os modelos.
+Depois de o modelo ser treinado, pode utilizar os módulos **'Modelo de Pontuação'** e Avaliar os módulos de Modelo de **Pontuação** para gerar resultados previstos e avaliar os modelos.
 
-O **modelo de Pontuação** gera previsões para o conjunto de teste usando o modelo treinado. Para verificar o resultado, selecione a porta de saída do **modelo de Pontuação** e, em seguida, selecione **Visualizar**.
+**O Modelo de Pontuação** gera previsões para o conjunto de dados de teste utilizando o modelo treinado. Para verificar o resultado, selecione a porta de saída do **Modelo de Pontuação** e, em seguida, selecione **Visualize**.
 
-![Resultado da Pontuação](./media/how-to-designer-sample-regression-automobile-price-basic/sample1-score-1225.png)
+![Resultado da pontuação](./media/how-to-designer-sample-regression-automobile-price-basic/sample1-score-1225.png)
 
-Passe as pontuações para o módulo **modelo** de avaliação para gerar métricas de avaliação. Para verificar o resultado, selecione a porta de saída do **modelo de avaliação** e, em seguida, selecione **Visualizar**.
+Passe as pontuações para o módulo **'Avaliar Modelo'** para gerar métricas de avaliação. Para verificar o resultado, selecione a porta de saída do **Modelo de Avaliação** e, em seguida, selecione **Visualize**.
 
 ![Avaliar resultado](./media/how-to-designer-sample-regression-automobile-price-basic/sample1-evaluate-1225.png)
 
@@ -85,11 +85,11 @@ Passe as pontuações para o módulo **modelo** de avaliação para gerar métri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore os outros exemplos disponíveis para o designer:
+Explore as outras amostras disponíveis para o designer:
 
-- [Exemplo 2-regressão: comparar algoritmos para previsão de preço de automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exemplo 3-classificação com seleção de recursos: Previsão de renda](how-to-designer-sample-classification-predict-income.md)
-- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
-- [Exemplo 6-classificação: prever atrasos de voo](how-to-designer-sample-classification-flight-delay.md)
-- [Exemplo de classificação de texto 7: conjunto de teste da Wikipédia SP 500](how-to-designer-sample-text-classification.md)
+- [Amostra 2 - Regressão: Comparar algoritmos para previsão de preços do automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Amostra 3 - Classificação com seleção de características: Previsão do Rendimento](how-to-designer-sample-classification-predict-income.md)
+- [Amostra 4 - Classificação: Prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Amostra 5 - Classificação: Prever churn](how-to-designer-sample-classification-churn.md)
+- [Amostra 6 - Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7 - Classificação de Texto: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

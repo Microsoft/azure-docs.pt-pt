@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou remover atribuições de função usando o Azure RBAC e Azure PowerShell
+title: Adicionar ou remover atribuições de funções com RBAC e Azure PowerShell
 description: Saiba como conceder acesso aos recursos do Azure para usuários, grupos, entidades de serviço ou identidades gerenciadas usando o RBAC (controle de acesso baseado em função) do Azure e o Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0ee996e39950d38b10f8df78fe47f7087c4a2ed1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 68a73f622dc69b70870ddc1db16edcf406b63800
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981050"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138327"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Adicionar ou remover atribuições de função usando o Azure RBAC e Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] este artigo descreve como atribuir funções usando Azure PowerShell.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando o Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -31,16 +31,16 @@ ms.locfileid: "75981050"
 
 Para adicionar ou remover atribuições de função, você deve ter:
 
-- permissões de `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) ou [proprietário](built-in-roles.md#owner)
-- [PowerShell em Azure cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- [PowerShell em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="get-object-ids"></a>Obter IDs de objeto
+## <a name="get-object-ids"></a>Obter iDs de objeto
 
-Para adicionar ou remover atribuições de função, talvez seja necessário especificar a ID exclusiva de um objeto. A ID tem o formato: `11111111-1111-1111-1111-111111111111`. Você pode obter a ID usando o portal do Azure ou Azure PowerShell.
+Para adicionar ou remover atribuições de função, talvez seja necessário especificar a ID exclusiva de um objeto. O ID tem o formato: `11111111-1111-1111-1111-111111111111`. Você pode obter a ID usando o portal do Azure ou Azure PowerShell.
 
 ### <a name="user"></a>Utilizador
 
-Para obter a ID de objeto para um usuário do Azure AD, você pode usar [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+Para obter o ID do objeto para um utilizador de Anúncio saqueado, pode utilizar [O Utilizador Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
 ```azurepowershell
 Get-AzADUser -StartsWith <string_in_quotes>
@@ -49,29 +49,29 @@ Get-AzADUser -StartsWith <string_in_quotes>
 
 ### <a name="group"></a>Grupo
 
-Para obter a ID de objeto para um grupo do Azure AD, você pode usar [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+Para obter o ID do objeto para um grupo Azure AD, você pode usar [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 
 ```azurepowershell
 Get-AzADGroup -SearchString <group_name_in_quotes>
 (Get-AzADGroup -DisplayName <group_name_in_quotes>).id
 ```
 
-### <a name="application"></a>Candidatura
+### <a name="application"></a>Aplicação
 
-Para obter a ID de objeto para uma entidade de serviço do Azure AD (identidade usada por um aplicativo), você pode usar [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). Para uma entidade de serviço, use a ID de objeto e **não** a ID do aplicativo.
+Para obter o ID do objeto para um diretor de serviço Azure AD (identidade utilizada por uma aplicação), pode utilizar [o Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). Para um diretor de serviço, utilize o ID do objeto e **não** o ID da aplicação.
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 (Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
 ```
 
-## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
+## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de funções
 
-No RBAC, para conceder acesso, você adiciona uma atribuição de função.
+No RBAC, para conceder acesso, adiciona-se uma atribuição de funções.
 
 ### <a name="user-at-a-resource-group-scope"></a>Usuário em um escopo de grupo de recursos
 
-Para adicionar uma atribuição de função para um usuário em um escopo de grupo de recursos, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Para adicionar uma atribuição de funções para um utilizador num âmbito de grupo de recursos, utilize [a New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -ResourceGroupName <resource_group_name>
@@ -98,7 +98,7 @@ CanDelegate        : False
 Há algumas ocasiões em que um nome de função pode ser alterado, por exemplo:
 
 - Você está usando sua própria função personalizada e decide alterar o nome.
-- Você está usando uma função de visualização que tem **(visualização)** no nome. Quando a função é liberada, a função é renomeada.
+- Está a utilizar uma função de pré-visualização que tem **(Pré-visualização)** no nome. Quando a função é liberada, a função é renomeada.
 
 > [!IMPORTANT]
 > Uma versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
@@ -106,13 +106,13 @@ Há algumas ocasiões em que um nome de função pode ser alterado, por exemplo:
 
 Mesmo que uma função seja renomeada, a ID da função não será alterada. Se você estiver usando scripts ou automação para criar atribuições de função, é uma prática recomendada usar a ID de função exclusiva em vez do nome da função. Portanto, se uma função for renomeada, os scripts provavelmente funcionarão.
 
-Para adicionar uma atribuição de função usando a ID de função exclusiva em vez do nome da função, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Para adicionar uma atribuição de funções utilizando o ID de função único em vez do nome de papel, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-O exemplo a seguir atribui a função [colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) a *alain\@usuário example.com* no escopo do grupo de recursos *Pharma-Sales* . Para obter a ID de função exclusiva, você pode usar [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou ver [funções internas para recursos do Azure](built-in-roles.md).
+O exemplo seguinte atribui o papel de [Colaborador da Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao *alain\@example.com* utilizador no âmbito do grupo de recursos de venda de *pharma.* Para obter o ID de função único, pode utilizar [o Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou ver [funções incorporadas para recursos Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -130,7 +130,7 @@ CanDelegate        : False
 
 ### <a name="group-at-a-resource-scope"></a>Agrupar em um escopo de recurso
 
-Para adicionar uma atribuição de função para um grupo em um escopo de recurso, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Para obter informações sobre como obter a ID de objeto do grupo, consulte [obter IDs de objeto](#get-object-ids).
+Para adicionar uma atribuição de funções para um grupo num âmbito de recurso, utilize [a New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Para obter informações sobre como obter a identificação do objeto do grupo, consulte [Obter iDs](#get-object-ids)de objeto .
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
@@ -161,7 +161,7 @@ CanDelegate        : False
 
 ### <a name="application-at-a-subscription-scope"></a>Aplicativo em um escopo de assinatura
 
-Para adicionar uma atribuição de função para um aplicativo em um escopo de assinatura, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Para obter informações sobre como obter a ID de objeto do aplicativo, consulte [obter IDs de objeto](#get-object-ids).
+Para adicionar uma atribuição de funções para uma aplicação num âmbito de subscrição, utilize [a New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Para obter informações sobre como obter a identificação do objeto da aplicação, consulte [Obter iDs](#get-object-ids)de objeto .
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
@@ -183,7 +183,7 @@ CanDelegate        : False
 
 ### <a name="user-at-a-management-group-scope"></a>Usuário em um escopo do grupo de gerenciamento
 
-Para adicionar uma atribuição de função para um usuário em um escopo de grupo de gerenciamento, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Para obter a ID do grupo de gerenciamento, você pode encontrá-la na folha **grupos de gerenciamento** no portal do Azure ou pode usar [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+Para adicionar uma atribuição de funções para um utilizador num âmbito de grupo de gestão, utilize [a New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Para obter o ID do grupo de gestão, pode encontrá-lo na lâmina dos **grupos de gestão** no portal Azure ou pode utilizar o [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -205,31 +205,31 @@ CanDelegate        : False
 
 ## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
 
-No RBAC, para remover o acesso, você remove uma atribuição de função usando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
+No RBAC, para remover o acesso, remove-se uma atribuição de funções utilizando [a Remoção-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
-O exemplo a seguir remove a atribuição de função *colaborador de máquina virtual* do *Alain\@example.com* usuário no grupo de recursos *Pharma-Sales* :
+O exemplo seguinte remove a atribuição da função de colaborador de *máquina virtual* do *alain\@example.com* utilizador no grupo de recursos de venda de *pharma:*
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
 
-O exemplo a seguir remove o < role_name > função do < object_id > em um escopo de assinatura.
+O exemplo seguinte remove o papel de <role_name> de <object_id> num âmbito de subscrição.
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
-O exemplo a seguir remove o < role_name > função do < object_id > no escopo do grupo de gerenciamento.
+O exemplo seguinte remove o papel de <role_name> de <object_id> no âmbito do grupo de gestão.
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Se você receber a mensagem de erro: "as informações fornecidas não são mapeadas para uma atribuição de função", certifique-se de especificar também os parâmetros `-Scope` ou `-ResourceGroupName`. Para obter mais informações, consulte [solucionar problemas de RBAC para recursos do Azure](troubleshooting.md#role-assignments-with-unknown-security-principal).
+Se receber a mensagem de erro: "A informação fornecida não mapeia para uma atribuição de funções", certifique-se de que também especifica os parâmetros `-Scope` ou `-ResourceGroupName`. Para mais informações, consulte [Troubleshoot RBAC para obter recursos Azure](troubleshooting.md#role-assignments-with-unknown-security-principal).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Listar atribuições de função usando o RBAC e Azure PowerShell do Azure](role-assignments-list-powershell.md)
-- [Tutorial: conceder a um grupo acesso aos recursos do Azure usando RBAC e Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutorial: criar uma função personalizada para recursos do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Gerenciar recursos com Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)
+- [Atribuição de papéis de lista utilizando Azure RBAC e Azure PowerShell](role-assignments-list-powershell.md)
+- [Tutorial: Conceder um acesso em grupo aos recursos Azure utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutorial: Criar uma função personalizada para os recursos Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Gerir recursos com a Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

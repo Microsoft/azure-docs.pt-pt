@@ -9,8 +9,8 @@
   items:
     - name: Ativar a reposição de palavras-passe self-service
       href: tutorial-enable-sspr.md
-    - name: Ativar a MFA para Aplicações
-      href: tutorial-mfa-applications.md
+    - name: Ativar a Multi-Factor Authentication do Azure
+      href: tutorial-enable-azure-mfa.md
     - name: Ativar a integração local de SSPR
       href: tutorial-enable-writeback.md
     - name: Integrar o Azure Identity Protection

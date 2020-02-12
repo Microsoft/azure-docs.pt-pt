@@ -1,25 +1,25 @@
 ---
-title: Caso de uso da análise de sentimentos
+title: Caso de utilização de análise de sentimento
 titleSuffix: ML Studio (classic) - Azure
-description: Como criar modelos de análise de texto no Azure Machine Learning Studio (clássico) usando módulos para o pré-processamento de texto, N-gramas ou hash de recurso
+description: Como criar modelos de análise de texto no Azure Machine Learning Studio (clássico) utilizando módulos para pré-processamento de texto, N-grams ou hashing de recursos
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 313b9c92b10d3170eb71bb8290a9388bb8dcc67c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1041954f5cd3456fe24e17c8ffc0a586bca2d954
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427525"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152827"
 ---
-# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Criar um modelo de análise de sentimentos no Azure Machine Learning Studio (clássico)
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Crie um modelo de análise de sentimentos no Azure Machine Learning Studio (clássico)
 
-Você pode usar Azure Machine Learning Studio (clássico) para criar e colocar em operação modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de análise de classificação ou sentimentos do documento.
+Pode utilizar o Azure Machine Learning Studio (clássico) para construir e operacionalizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de análise de classificação ou sentimentos do documento.
 
 Numa experiência de análise de texto, normalmente seria:
 
@@ -29,20 +29,20 @@ Numa experiência de análise de texto, normalmente seria:
 4. Pontuar e validar o modelo
 5. Implementar o modelo para produção
 
-Neste tutorial, você aprende essas etapas à medida que percorremos um modelo de análise de sentimentos usando o conjunto de registros do Amazon Book Reviews (consulte este documento de pesquisa "biografias, Bollywood, caixas de entrada e misturadores: adaptação de domínio para classificação de sentimentos" por John Blitzer, Mark Dredze e Fernando Pereira; Associação de linguísticos computacionais (ACL), 2007.) Esse conjunto de informações consiste em pontuações de revisão (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a classificação de revisão: baixa (1 - 2) ou alto (4-5).
+Neste tutorial, você aprende estes passos à medida que passamos por um modelo de análise de sentimentousando o conjunto de dados da Amazon Book Reviews (ver este trabalho de pesquisa "Biografias, Bollywood, Boom-boxes e Blenders: Adaptação de domínio para classificação de sentimentos" de John Blitzer, Mark Dredze, e Fernando Pereira; Associação de Linguística Computacional (ACL), 2007.) Este conjunto de dados consiste em pontuações de revisão (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a classificação de revisão: baixa (1 - 2) ou alto (4-5).
 
 Pode encontrar experimentações abrangidas neste tutorial na Galeria de IA do Azure:
 
-[Prever resenha de livro](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
+[Prever avaliações de livros](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[Prever resenha de livro - experimentação preditiva](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Previram comentários sobre livros - Experiência Preditiva](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## <a name="step-1-clean-and-preprocess-text-dataset"></a>Passo 1: Limpar e pré-processar o conjunto de dados de texto
-Começamos a experimentação, dividindo as pontuações de revisão em categóricos buckets de baixas e elevados para formular o problema como classificação de duas classes. Usamos [Editar metadados](https://msdn.microsoft.com/library/azure/dn905986.aspx) e [valores Categóricos do grupo](https://msdn.microsoft.com/library/azure/dn906014.aspx) módulos.
+Começamos a experimentação, dividindo as pontuações de revisão em categóricos buckets de baixas e elevados para formular o problema como classificação de duas classes. Utilizamos módulos [de Edição](https://msdn.microsoft.com/library/azure/dn905986.aspx) de Metadados e [Valores Categóricos do Grupo.](https://msdn.microsoft.com/library/azure/dn906014.aspx)
 
 ![Criar etiqueta](./media/text-analytics-module-tutorial/create-label.png)
 
-Em seguida, vamos limpar o texto usando [pré-processar texto](https://msdn.microsoft.com/library/azure/mt762915.aspx) módulo. A limpeza reduz o ruído no conjunto de dados, ajudam a encontrar os recursos mais importantes e melhorar a precisão do modelo final. Podemos remover palavras de paragem - palavras comuns, como "a" ou "a" - e números, carateres especiais, caracteres duplicados, endereços de e-mail e URLs. Podemos também converter o texto em minúsculas, lemmatize as palavras e detetar os limites de sentença que, em seguida, são indicados pelo "|||" símbolo no texto processado previamente.
+Em seguida, limpamos o texto utilizando o módulo [de texto pré-processo.](https://msdn.microsoft.com/library/azure/mt762915.aspx) A limpeza reduz o ruído no conjunto de dados, ajudam a encontrar os recursos mais importantes e melhorar a precisão do modelo final. Podemos remover palavras de paragem - palavras comuns, como "a" ou "a" - e números, carateres especiais, caracteres duplicados, endereços de e-mail e URLs. Podemos também converter o texto em minúsculas, lemmatize as palavras e detetar os limites de sentença que, em seguida, são indicados pelo "|||" símbolo no texto processado previamente.
 
 ![Pré-processar Texto](./media/text-analytics-module-tutorial/preprocess-text.png)
 
@@ -51,7 +51,7 @@ E se pretende utilizar uma lista personalizada de palavras de paragem? Pode pass
 Depois do processamento prévio de estiver concluída, vamos dividir os dados em train e conjuntos de teste.
 
 ## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Passo 2: Extrair vetores de funcionalidade numérico de texto de pré-processado
-Para criar um modelo para os dados de texto, normalmente, tem de converter o texto de forma livre em vetores de funcionalidade numérico. Neste exemplo, utilizamos [funcionalidades de grama-N extrair texto de](https://msdn.microsoft.com/library/azure/mt762916.aspx) módulo para transformar os dados de texto para tal formato. Este módulo usa uma coluna de palavras separados por espaços em branco e computa um dicionário de palavras ou N-grams de palavras, o que são apresentados no seu conjunto de dados. Em seguida, ele conta quantas vezes cada palavra ou N-gram, é apresentado em cada registo e cria os vetores de funcionalidade das contagem. Neste tutorial, vamos definir o tamanho de grama-N como 2, pelo nosso vetores de funcionalidade incluem palavras individuais e combinações de duas palavras subsequentes.
+Para criar um modelo para os dados de texto, normalmente, tem de converter o texto de forma livre em vetores de funcionalidade numérico. Neste exemplo, utilizamos [as funcionalidades de extrato N-Gram do](https://msdn.microsoft.com/library/azure/mt762916.aspx) módulo Texto para transformar os dados de texto em tal formato. Este módulo usa uma coluna de palavras separados por espaços em branco e computa um dicionário de palavras ou N-grams de palavras, o que são apresentados no seu conjunto de dados. Em seguida, ele conta quantas vezes cada palavra ou N-gram, é apresentado em cada registo e cria os vetores de funcionalidade das contagem. Neste tutorial, vamos definir o tamanho de grama-N como 2, pelo nosso vetores de funcionalidade incluem palavras individuais e combinações de duas palavras subsequentes.
 
 ![Extrair N-grams](./media/text-analytics-module-tutorial/extract-ngrams.png)
 
@@ -61,12 +61,12 @@ Tais recursos de texto, muitas vezes, têm dimensionalidade elevada. Por exemplo
 
 Além disso, pode utilizar a seleção de funcionalidades para selecionar apenas as funcionalidades que são mais correlacionado com o destino de predição. Seleção de funcionalidades de qui-quadrado são utilizadas para selecionar 1000 funcionalidades. Pode ver o vocabulário de palavras selecionadas ou N-grams ao clicar no resultado correto do módulo de extração. o N-grams.
 
-Como uma abordagem alternativa para usar recursos de grama-N extrair, pode utilizar o módulo de Hashing de funcionalidade. No entanto, observe que [Hashing de funcionalidade](https://msdn.microsoft.com/library/azure/dn906018.aspx) não tem recursos de seleção de funcionalidade de compilação ou TF * IDF pesar.
+Como uma abordagem alternativa para usar recursos de grama-N extrair, pode utilizar o módulo de Hashing de funcionalidade. Note que o [Hashing de Recurso](https://msdn.microsoft.com/library/azure/dn906018.aspx) não tem capacidades de seleção de funcionalidades de construção, ou pesagem TF*IDF.
 
 ## <a name="step-3-train-classification-or-regression-model"></a>Passo 3: Preparar o modelo de classificação ou regressão
 Agora, o texto ter sido transformado para colunas de funcionalidades numéricas. O conjunto de dados contiver colunas de cadeia de caracteres de fases anteriores, pelo que vamos utilizar selecionar colunas no conjunto de dados para os excluir.
 
-Em seguida, usamos [regressão logística de duas classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) para prever o nosso destino: pontuação de revisão de alta ou baixa. Neste momento, o problema de análise de texto tem sido transformado num problema de classificação regular. Você pode usar as ferramentas disponíveis no Azure Machine Learning Studio (clássico) para melhorar o modelo. Por exemplo, pode experimentar diferentes classificadores para descobrir o grau de precisão resultados que eles apresentam ou utilizar para melhorar a precisão de otimização de hiper-parâmetros.
+Em seguida, usamos [regressão logística de duas classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) para prever o nosso alvo: pontuação alta ou baixa de revisão. Neste momento, o problema de análise de texto tem sido transformado num problema de classificação regular. Pode utilizar as ferramentas disponíveis no Azure Machine Learning Studio (clássico) para melhorar o modelo. Por exemplo, pode experimentar diferentes classificadores para descobrir o grau de precisão resultados que eles apresentam ou utilizar para melhorar a precisão de otimização de hiper-parâmetros.
 
 ![Formação e classificação](./media/text-analytics-module-tutorial/scoring-text.png)
 
@@ -86,6 +86,6 @@ Vamos selecionar colunas de inserção no módulo de conjunto de dados antes de 
 
 Agora temos uma experimentação que pode ser publicada como um serviço da web e chamada com a execução de solicitação-resposta ou lote APIs.
 
-## <a name="next-steps"></a>Próximos Passos
-Saiba mais sobre os módulos de análise de texto de [documentação do MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
+## <a name="next-steps"></a>Passos Seguintes
+Conheça os módulos de análise de texto a partir da documentação da [MSDN.](https://msdn.microsoft.com/library/azure/dn905886.aspx)
 

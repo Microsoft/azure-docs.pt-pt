@@ -581,8 +581,6 @@
               href: disks-benchmarks.md
         - name: Encontrar discos desanexados
           href: find-unattached-disks.md
-        - name: Utilizar o Armazenamento de Ficheiros
-          href: ../../storage/files/storage-files-quick-create-use-windows.md
         - name: FAQ sobre discos
           href: faq-for-disks.md
     - name: Gerir redes

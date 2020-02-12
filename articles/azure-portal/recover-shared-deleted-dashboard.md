@@ -8,16 +8,16 @@ ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: ead9dab61e0cb60505aed9db43c61eb73a0e22a9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: af0c72f0bc5dd8f3a3cbae7b82b1ac56447cbb08
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760203"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133282"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Recuperar um dashboard apagado no portal Azure
 
-Se eliminar um dashboard _publicado_ no portal Azure, pode recuperar esse painel no prazo de 14 dias após a eliminação. Se o painel não for publicado, não pode recuperá-lo, e tem de o reconstruir. Para obter mais informações sobre a publicação de um dashboard, consulte [Publicar dashboard](azure-portal-dashboard-share-access.md#publish-dashboard). Siga estes passos para recuperar um dashboard publicado:
+Se estiver na nuvem pública do Azure e apagar um painel _publicado_ no portal Azure, poderá recuperar esse painel no prazo de 14 dias após a eliminação. Se estiver numa nuvem governamental azure ou o tablier não for publicado, não pode recuperá-lo, e deve reconstruí-lo. Para obter mais informações sobre a publicação de um dashboard, consulte [Publicar dashboard](azure-portal-dashboard-share-access.md#publish-dashboard). Siga estes passos para recuperar um dashboard publicado:
 
 1. A partir do menu do portal Azure, selecione **grupos de recursos,** em seguida, selecione o grupo de recursos onde publicou o dashboard (por padrão, chama-se **dashboards).**
 

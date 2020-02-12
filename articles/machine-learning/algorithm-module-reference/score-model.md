@@ -6,25 +6,25 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 27838aae1d829598bed44a6c16f7a1d38a95b727
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: c06d1268abe8afdeb03668131c3c61cfbafa44cd
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314101"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138181"
 ---
 # <a name="score-model-module"></a>Módulo do modelo de pontuação
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
 Use este módulo para gerar previsões usando um modelo de classificação ou regressão treinado.
 
 ## <a name="how-to-use"></a>Como utilizar
 
-1. Adicione o módulo **modelo de Pontuação** ao seu pipeline.
+1. Adicione o módulo **'Modelo de Pontuação'** ao seu pipeline.
 
 2. Anexe um modelo treinado e um conjunto de dados que contenha novos dado de entrada. 
 
@@ -34,17 +34,17 @@ Use este módulo para gerar previsões usando um modelo de classificação ou re
 
 ## <a name="results"></a>Resultados
 
-Depois de gerar um conjunto de pontuações usando o [modelo de Pontuação](./score-model.md):
+Depois de ter gerado um conjunto de pontuações usando [o Modelo de Pontuação:](./score-model.md)
 
-+ Para gerar um conjunto de métricas usado para avaliar a precisão do modelo (desempenho).  Você pode conectar o conjunto de pontos de Pontuação para [avaliar o modelo](./evaluate-model.md), 
-+ Clique com o botão direito do mouse no módulo e selecione **Visualizar** para ver um exemplo dos resultados.
++ Para gerar um conjunto de métricas usado para avaliar a precisão do modelo (desempenho).  pode ligar o conjunto de dados pontuado ao [Modelo de Avaliação,](./evaluate-model.md) 
++ Clique no módulo e **selecione Visualize** para ver uma amostra dos resultados.
 + Salvar os resultados em um DataSet.
 
 A pontuação, ou o valor previsto, pode estar em vários formatos diferentes, dependendo do modelo e dos dados de entrada:
 
-- Para modelos de classificação, o [modelo de Pontuação](./score-model.md) gera um valor previsto para a classe, bem como a probabilidade do valor previsto.
-- Para modelos de regressão, o [modelo de Pontuação](./score-model.md) gera apenas o valor numérico previsto.
-- Para modelos de classificação de imagem, a pontuação pode ser a classe de objeto na imagem ou um booliano que indica se um determinado recurso foi encontrado.
+- Para os modelos de classificação, [o Score Model](./score-model.md) produz um valor previsto para a classe, bem como a probabilidade do valor previsto.
+- Para os modelos de regressão, [o Score Model](./score-model.md) gera apenas o valor numérico previsto.
+
 
 ## <a name="publish-scores-as-a-web-service"></a>Publicar pontuações como um serviço Web
 
@@ -52,4 +52,4 @@ Um uso comum de pontuação é retornar a saída como parte de um serviço Web d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

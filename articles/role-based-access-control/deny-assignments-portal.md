@@ -1,6 +1,6 @@
 ---
-title: Lista negar atribuições para recursos do Azure no portal do Azure | Documentos da Microsoft
-description: Saiba como listar os utilizadores, grupos, os principais de serviço e identidades geridas que quais foi negadas o acesso a recursos do Azure específica de ações em escopos específicos com o portal do Azure.
+title: Lista nega atribuições para recursos Azure com o portal Azure
+description: Saiba como listar os utilizadores, grupos, diretores de serviçoe identidades geridas que foram negados acesso a ações específicas de recursos Azure em determinados âmbitos usando o portal Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,100 +14,100 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 21ffb1a2539a2e724a91dd3b2818270a5e573ef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67127493"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137428"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Lista negar atribuições para recursos do Azure no portal do Azure
+# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Lista nega atribuições para recursos Azure utilizando o portal Azure
 
-[Negar atribuições](deny-assignments.md) impedir que os utilizadores a efetuar ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso. Este artigo descreve como listar negar atribuições com o portal do Azure.
+[As atribuições de negação](deny-assignments.md) bloqueiam os utilizadores de realizarem ações específicas de recursos Do Azure, mesmo que uma atribuição de funções lhes conceda acesso. Este artigo descreve como listar missões de negação usando o portal Azure.
 
 > [!NOTE]
-> Não é possível diretamente criar seu próprio negar atribuições. Para obter informações sobre como negar atribuições são criadas, consulte [negar atribuições](deny-assignments.md).
+> Não podes criar diretamente as tuas próprias missões de negação. Para obter informações sobre como as missões de negação são criadas, consulte [missões Denegação](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para obter informações sobre uma atribuição de negar, tem de ter:
+Para obter informações sobre uma atribuição de negação, deve ter:
 
-- `Microsoft.Authorization/denyAssignments/read` permissão, o que está incluído na maioria [funções incorporadas para recursos do Azure](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` permissão, que está incluída na maioria das [funções incorporadas para os recursos Azure.](built-in-roles.md)
 
-## <a name="list-deny-assignments"></a>Lista de atribuições de negação
+## <a name="list-deny-assignments"></a>Listar atribuições de negação
 
-Siga estes passos para listar atribuições no âmbito de grupo de subscrição ou gestão de negação.
+Siga estes passos para listar a negação de atribuições no âmbito do grupo de subscrição ou de gestão.
 
-1. No portal do Azure, clique em **todos os serviços** e, em seguida **grupos de gestão** ou **subscrições**.
+1. No portal Azure, clique em **Todos os serviços** e, em seguida, **grupos** de gestão ou **subscrições.**
 
-1. Clique no grupo de gestão ou a subscrição que pretende listar.
+1. Clique no grupo de gestão ou subscrição que pretende listar.
 
-1. Clique em **controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)** .
 
-1. Clique nas **negar atribuições** separador (ou clique no **vista** botão na exibição negar atribuições de mosaico).
+1. Clique no separador **de atribuições Negar** (ou clique no botão **'Ver'** no 'Ver negar o azulejo de atribuição').
 
-    Se existirem quaisquer negar atribuições neste âmbito ou herdadas para este âmbito, estes serão apresentados.
+    Se houver alguma missão de negação neste âmbito ou herdada para este âmbito, serão listadas.
 
-    ![Controlo de acesso – separador atribuições de negação](./media/deny-assignments-portal/access-control-deny-assignments.png)
+    ![Controlo de acesso - Negar o separador de atribuições](./media/deny-assignments-portal/access-control-deny-assignments.png)
 
-1. Para apresentar as colunas adicionais, clique em **Edit Columns**.
+1. Para exibir colunas adicionais, clique em **Colunas de Edição**.
 
-    ![Negar atribuições - colunas](./media/deny-assignments-portal/deny-assignments-columns.png)
+    ![Negar atribuições - Colunas](./media/deny-assignments-portal/deny-assignments-columns.png)
 
     |  |  |
     | --- | --- |
-    | **Nome** | Nome da atribuição de negação. |
-    | **Tipo de principal** | Utilizador, grupo, grupo definido pelo sistema ou principal de serviço. |
-    | **Negado**  | Nome do principal de segurança que está incluído na atribuição de negação. |
-    | **Id** | Identificador exclusivo para a atribuição de negação. |
-    | **Principais excluídos** | Se existem entidades de segurança que são excluídas a atribuição de negação. |
-    | **Não é aplicável a elementos subordinados** | Se a atribuição de negação é herdada para subscopes. |
-    | **Sistema protegido** | Se a atribuição de negação é gerida pelo Azure. Atualmente, sempre Sim. |
+    | **Nome** | Nome da missão de negação. |
+    | **Tipo principal** | Utilizador, grupo, grupo definido pelo sistema ou diretor de serviço. |
+    | **Negado**  | Nome do diretor de segurança que está incluído na missão de negação. |
+    | **Id** | Identificador único para a atribuição de negação. |
+    | **Principais excluídos** | Se há diretores de segurança que estão excluídos da missão de negação. |
+    | **Não se aplica a crianças** | Se a atribuição de negação é herdada para subscópios. |
+    | **Sistema protegido** | Se a atribuição de negação é gerida por Azure. Atualmente, sempre sim. |
     | **Âmbito** | Grupo de gestão, subscrição, grupo de recursos ou recurso. |
 
-1. Adicionar uma marca de verificação para qualquer um dos itens ativados e, em seguida, clique em **OK** para apresentar as colunas selecionadas.
+1. Adicione uma marca de verificação a qualquer um dos itens ativados e, em seguida, clique em **OK** para exibir as colunas selecionadas.
 
-## <a name="list-details-about-a-deny-assignment"></a>Lista detalhes sobre uma atribuição de negação
+## <a name="list-details-about-a-deny-assignment"></a>Lista rés em detalhes sobre uma atribuição de negação
 
-Siga estes passos para obter mais detalhes lista sobre uma atribuição de negação.
+Siga estes passos para listar detalhes adicionais sobre uma atribuição de negação.
 
-1. Abra o **negar atribuições** painel, conforme descrito na secção anterior.
+1. Abra o painel de **atribuições Deny** como descrito na secção anterior.
 
-1. Clique no nome da atribuição de negação para abrir o **utilizadores** painel.
+1. Clique no nome de atribuição de negação para abrir a lâmina **utilizadores.**
 
-    ![Negar atribuição - utilizadores](./media/deny-assignments-portal/deny-assignment-users.png)
+    ![Negar a atribuição - Utilizadores](./media/deny-assignments-portal/deny-assignment-users.png)
 
-    O **utilizadores** painel inclui as duas secções seguintes.
+    A lâmina **utilizadores** inclui as duas secções seguintes.
 
     |  |  |
     | --- | --- |
-    | **Negar a atribuição aplica-se a**  | Entidades de segurança que se aplica a atribuição de negação. |
-    | **Negar a exclui da atribuição** | Entidades de segurança que são excluídas a atribuição de negação. |
+    | **Negar atribuição aplica-se a**  | Diretores de segurança a que a atribuição de negação se aplica. |
+    | **Negar atribuição exclui** | Diretores de segurança que estão excluídos da missão de negação. |
 
-    **Definido pelo sistema Principal** representa todos os utilizadores, grupos, os principais de serviço e identidades geridas num diretório do Azure AD.
+    **O Diretor Definido pelo Sistema** representa todos os utilizadores, grupos, diretores de serviçoe identidades geridas num diretório Azure AD.
 
-1. Para ver uma lista das permissões que são negado, clique em **negado permissões**.
+1. Para ver uma lista das permissões que são negadas, clique em **Permissões Negadas**.
 
-    ![Negar atribuição - permissões negado](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
+    ![Negar a atribuição - Permissões Negadas](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
     | Tipo de ação | Descrição |
     | --- | --- |
-    | **Ações**  | Negado operações de gestão. |
-    | **NotActions** | Operações de gestão excluídas da operação de gestão negado. |
-    | **DataActions**  | Negado operações de dados. |
-    | **NotDataActions** | Operações de dados excluídas negado a operação de dados. |
+    | **Ações**  | Operações de gestão negadas. |
+    | **NotAções** | Operações de gestão excluídas da operação de gestão negada. |
+    | **Ações de Dados**  | Operações de dados negadas. |
+    | **NotDataActions** | Operações de dados excluídas da operação de dados negados. |
 
-    No exemplo mostrado na captura de ecrã anterior, seguem-se as permissões efetivas:
+    Para o exemplo mostrado na imagem anterior, as seguintes são as permissões eficazes:
 
-    - Armazenamento de todas as operações no plano de dados serão negadas, exceto para operações de computação.
+    - Todas as operações de armazenamento no avião de dados são negadas, exceto para operações de computação.
 
-1. Para ver as propriedades de uma atribuição de negar, clique em **propriedades**.
+1. Para ver as propriedades para uma atribuição de negação, clique em **Propriedades**.
 
-    ![Negar atribuição - propriedades](./media/deny-assignments-portal/deny-assignment-properties.png)
+    ![Atribuição de negação - Propriedades](./media/deny-assignments-portal/deny-assignment-properties.png)
 
-    Sobre o **propriedades** painel, pode ver o nome da atribuição de negar, o ID, a descrição e o âmbito. O **não se aplica aos filhos** comutador indica se a atribuição de negação é herdada para subscopes. O **sistema protegido** comutador indica se negar atribuição é gerenciada pelo Azure. Atualmente, isto é **Sim** em todos os casos.
+    Na lâmina **Propriedades,** pode ver o nome de atribuição de negação, id, descrição e âmbito. O Não se aplica à troca de **crianças** indica se a atribuição de negação é herdada em subscópios. O interruptor **protegido pelo Sistema** indica se esta atribuição de negação é gerida pelo Azure. Atualmente, isto é **Sim** em todos os casos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Compreender negar atribuições para recursos do Azure](deny-assignments.md)
-* [Lista negar atribuições para recursos do Azure com o Azure PowerShell](deny-assignments-powershell.md)
+* [Entenda negar atribuições para recursos Azure](deny-assignments.md)
+* [Lista nega atribuições para recursos Azure usando A PowerShell Azure](deny-assignments-powershell.md)

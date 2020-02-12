@@ -10,16 +10,16 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 40f779fa5545e0e9c8fd1aa2cc2689b29dffdb82
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 68d39b4f363794d50fd05c2067502fc55d5d0170
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760764"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153252"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
 
-O Azure Synapse é um serviço de análise ilimitada que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados de acordo os seus critérios, através de recursos a pedido ou aprovisionados sem servidor, em escala. Azure Synapse reúne estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para as necessidades imediatas de BI e machine learning
+O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. Azure Synapse reúne estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para as necessidades imediatas de BI e machine learning
 
 Azure Synapse tem quatro componentes:
 - SQL Analytics: Análise completa baseada em T-SQL – Geralmente Disponível
@@ -34,7 +34,7 @@ Azure Synapse tem quatro componentes:
 
 ## <a name="sql-analytics-and-sql-pool-in-azure-synapse"></a>SQL Analytics e piscina SQL em Azure Synapse
 
-O SQL Analytics refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis com o Azure Synapse. 
+O SQL Analytics refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis no Azure Synapse. 
 
 A piscina SQL representa uma coleção de recursos analíticos que estão a ser provisionados ao utilizar o SQL Analytics. O tamanho da piscina SQL é determinado por Unidades de Armazenamento de Dados (DWU).
 

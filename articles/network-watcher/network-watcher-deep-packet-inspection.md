@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c937a07133dc38d2d9e1e1ef2cc324b4c8bb360e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845076"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152929"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com Vigilante da Rede Azure
 
@@ -39,7 +39,7 @@ Neste cenário, você:
 
 Neste cenário, mostramos como ver a conversa inicial do Tempo de IDa e Volta (RTT) de um Protocolo de Controlo de Transmissão (TCP) que ocorre entre dois pontos finais.
 
-Quando uma ligação TCP é estabelecida, os três primeiros pacotes enviados na ligação seguem um padrão vulgarmente referido como o aperto de mão de três vias. Ao examinar os dois primeiros pacotes enviados neste aperto de mão, um pedido inicial do cliente e uma resposta do servidor, podemos calcular a latência quando esta ligação foi estabelecida. Esta latência é referida como o Tempo de Ida e Volta (RTT). Para obter mais informações sobre o protocolo tCP e o aperto de mão a três, consulte o seguinte recurso. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
+Quando uma ligação TCP é estabelecida, os três primeiros pacotes enviados na ligação seguem um padrão vulgarmente referido como o aperto de mão de três vias. Ao examinar os dois primeiros pacotes enviados neste aperto de mão, um pedido inicial do cliente e uma resposta do servidor, podemos calcular a latência quando esta ligação foi estabelecida. Esta latência é referida como o Tempo de Ida e Volta (RTT). Para obter mais informações sobre o protocolo tCP e o aperto de mão a três, consulte o seguinte recurso. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip)
 
 ### <a name="step-1"></a>Passo 1
 
@@ -121,7 +121,7 @@ Introduzemos o texto do filtro de cima na caixa de texto do filtro e entramos.
 
 Dos resultados, podemos ver todo o tráfego vindo de uma máquina virtual local na mesma subnet. Se ainda não entendemos por que este tráfego está a ocorrer, podemos inspecionar ainda mais os pacotes para determinar por que está fazendo estas chamadas no porto 111. Com esta informação podemos tomar as medidas apropriadas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça as outras funcionalidades de diagnóstico do Network Watcher visitando a visão geral da monitorização da [rede Azure](network-watcher-monitoring-overview.md)
 

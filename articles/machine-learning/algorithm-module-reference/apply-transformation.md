@@ -6,35 +6,35 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: a48ce60dca9f4221e364d53567f5b53719deb18c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 443b021b266a202775e94e44acac3a91a2b70617
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314526"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137587"
 ---
 # <a name="apply-transformation-module"></a>Aplicar o módulo de transformação
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
 Use este módulo para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente.  
   
-Por exemplo, se você usou pontuações z para normalizar seus dados de treinamento usando o módulo **normalizar dados** , convém usar o valor de pontuação z que foi calculado para treinamento durante a fase de Pontuação também. No Azure Machine Learning, você pode salvar o método de normalização como uma transformação e, em seguida, usar **aplicar transformação** para aplicar a pontuação z aos dados de entrada antes da pontuação.
+Por exemplo, se usasse z-scores para normalizar os seus dados de treino utilizando o módulo **Normalize Data,** também quereria utilizar o valor de pontuação z que foi calculado para treinar durante a fase de pontuação. No Azure Machine Learning, pode sossecar o método de normalização como uma transformação e, em seguida, usar a **Apply Transformation** para aplicar a pontuação z nos dados de entrada antes de marcar.
   
 Azure Machine Learning fornece suporte para criar e, em seguida, aplicar vários tipos diferentes de transformações personalizadas. Por exemplo, talvez você queira salvar e reutilizar transformações em:  
   
-- Remover ou substituir valores ausentes, usando **limpar dados ausentes**
-- Normalizar dados, usando **dados normalizados**
+- Remova ou substitua os valores em falta, utilizando **dados em falta limpos**
+- Normalizar os dados, utilizando **dados normalizar**
   
 
 ## <a name="how-to-use-apply-transformation"></a>Como usar aplicar transformação  
   
-1. Adicione o módulo **aplicar transformação** ao seu pipeline. Você pode encontrar esse módulo em **Machine Learning**, na categoria **Pontuação** . 
+1. Adicione o módulo **de Transformação aplicar** ao seu pipeline. Pode encontrar este módulo na categoria **Model Scoring & Evaluation.** 
   
-2. Localize uma transformação existente para usar como uma entrada.  As transformações salvas anteriormente podem ser encontradas no grupo **transformações** no painel de navegação esquerdo.  
+2. Localize uma transformação existente para usar como uma entrada. Transformações previamente guardadas podem ser encontradas no grupo **My Datasets** na categoria **Datasets** na árvore do módulo esquerdo.  
   
    
   
@@ -46,4 +46,4 @@ Azure Machine Learning fornece suporte para criar e, em seguida, aplicar vários
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

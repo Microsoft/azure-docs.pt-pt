@@ -6,27 +6,27 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: a1b14a4f004e9b6fe64d9095eeb63ebf78750387
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: f94427ddfbdc19836cd177fd642987aaaeedf1ee
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546542"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152096"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo de rede neural multiclasse
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
 Use este módulo para criar um modelo de rede neural que possa ser usado para prever um destino que tenha vários valores. 
 
 Por exemplo, redes neurais desse tipo podem ser usadas em tarefas complexas da pesquisa Visual computacional, como reconhecimento de dígitos ou letras, classificação de documentos e reconhecimento de padrões.
 
-A classificação usando redes neurais é um método de aprendizado supervisionado e, portanto, requer um conjunto de informações *marcado* que inclui uma coluna de rótulo.
+A classificação utilizando redes neurais é um método de aprendizagem supervisionado e, portanto, requer um conjunto de *dados marcado* que inclua uma coluna de etiquetas.
 
-Você pode treinar o modelo fornecendo o modelo e o conjunto de dados marcado como uma entrada para [treinar o modelo](./train-model.md). O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada.  
+Pode treinar o modelo fornecendo o modelo e o conjunto de dados marcadocomo entrada para [o Modelo de Comboio](./train-model.md). O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada.  
 
 ## <a name="about-neural-networks"></a>Sobre redes neurais
 
@@ -40,54 +40,54 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
 
 ## <a name="configure-multiclass-neural-network"></a>Configurar rede neural multiclasse
 
-1. Adicione o módulo **rede neural multiclasse** ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **classificação** .
+1. Adicione o módulo **multiclasse da Rede Neural** ao seu pipeline no designer. Pode encontrar este módulo na categoria **Machine Learning**, **Initialize,** na categoria **Classificação.**
 
-2. **Criar modo de instrutor**: Use esta opção para especificar como deseja que o modelo seja treinado:
+2. **Criar o modo de treinador**: Utilize esta opção para especificar como pretende que o modelo seja treinado:
 
-    - **Parâmetro único**: escolha esta opção se você já souber como deseja configurar o modelo.
+    - **Parâmetro único**: Escolha esta opção se já sabe como pretende configurar o modelo.
 
     
 
-3. **Especificação de camada oculta**: selecione o tipo de arquitetura de rede a ser criado.
+3. **Especificação**da camada escondida : Selecione o tipo de arquitetura de rede para criar.
 
-    - **Caso totalmente conectado**: Selecione esta opção para criar um modelo usando a arquitetura de rede neural padrão. Para modelos de rede neural multiclasse, os padrões são os seguintes:
+    - **Caso totalmente ligado**: Selecione esta opção para criar um modelo utilizando a arquitetura de rede neural predefinida. Para modelos de rede neural multiclasse, os padrões são os seguintes:
 
         - Uma camada oculta
         - A camada de saída é totalmente conectada à camada oculta.
         - A camada oculta é totalmente conectada à camada de entrada.
         - O número de nós na camada de entrada é determinado pelo número de recursos nos dados de treinamento.
-        - O número de nós na camada oculta pode ser definido pelo usuário. A predefinição é 100.
+        - O número de nós na camada oculta pode ser definido pelo usuário. O padrão é 100.
         - O número de nós na camada de saída depende do número de classes.
   
    
 
-5. **Número de nós ocultos**: essa opção permite que você personalize o número de nós ocultos na arquitetura padrão. Digite o número de nós ocultos. O padrão é uma camada oculta com nós 100.
+5. **Número de nós escondidos**: Esta opção permite personalizar o número de nós escondidos na arquitetura padrão. Digite o número de nós ocultos. O padrão é uma camada oculta com nós 100.
 
-6. **A taxa de aprendizagem**: defina o tamanho da etapa realizada em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo seja convergido mais rapidamente, mas pode Sobreusar mínimo locais.
+6. **A taxa de aprendizagem**: Defina o tamanho do passo dado em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo converta mais rapidamente, mas pode ultrapassar o minima local.
 
-7. **Número de iterações de aprendizado**: especifique o número máximo de vezes que o algoritmo deve processar os casos de treinamento.
+7. **Número de iterações de aprendizagem**: Especifique o número máximo de vezes que o algoritmo deve processar os casos de treino.
 
-8. **O diâmetro inicial dos pesos de aprendizado**: Especifique os pesos do nó no início do processo de aprendizado.
+8. Diâmetro dos pesos de **aprendizagem inicial**: Especifique os pesos do nó no início do processo de aprendizagem.
 
-9. **O impulso**: especifique um peso a ser aplicado durante o aprendizado a nós de iterações anteriores.
+9. **O impulso**: Especifique um peso a aplicar durante a aprendizagem aos nódosos de iterações anteriores.
   
-11. **Exemplos de ordem aleatória**: Selecione esta opção para embaralhar casos entre iterações.
+11. **Exemplos**de shuffle : Selecione esta opção para baralhar casos entre iterações.
 
     Se você desmarcar essa opção, os casos serão processados exatamente na mesma ordem toda vez que você executar o pipeline.
 
-12. **Semente de número aleatório**: digite um valor a ser usado como a semente, se você quiser garantir a capacidade de repetição entre as execuções do mesmo pipeline.
+12. **Semente**de número aleatório: Digite um valor a utilizar como a semente, se pretender garantir a repetbilidade através de percursos do mesmo gasoduto.
 
-14. Conecte um conjunto de uma de treinamento e um dos [módulos de treinamento](module-reference.md): 
+14. Ligue um conjunto de dados de treino e um dos módulos de [treino:](module-reference.md) 
 
-    - Se você definir **criar modo de instrutor** como **parâmetro único**, use [treinar modelo](train-model.md).  
+    - Se definir **criar o modo de formação** para um parâmetro **único,** utilize o [Modelo de Comboio](train-model.md).  
   
 
 ## <a name="results"></a>Resultados
 
 Após a conclusão do treinamento:
 
-- Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
+- Para guardar uma imagem do modelo treinado, selecione o separador **Saídas** no painel direito do módulo **modelo Train.** Selecione o ícone do conjunto de **dados Register** para salvar o modelo como um módulo reutilizável.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

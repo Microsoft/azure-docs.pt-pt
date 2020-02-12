@@ -1,6 +1,6 @@
 ---
-title: Codificar ou decodificar arquivos simples
-description: Codificar ou decodificar arquivos simples para integração corporativa com os aplicativos lógicos do Azure e Enterprise Integration Pack
+title: Codificar ou descodificar ficheiros planos
+description: Codificar ou descodificar ficheiros planos para integração empresarial com aplicações da Lógica Azure e pacote de integração empresarial
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,75 +8,91 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 53d9935f68c21238cb4f90f78e543a7ab343ced2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2d6182ba01507c2fb361628e01bb52e1ea821f44
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792529"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152657"
 ---
-# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificar ou decodificar arquivos simples com aplicativos lógicos do Azure e Enterprise Integration Pack
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificar ou descodificar ficheiros planos com aplicações da Lógica Azure e pacote de integração empresarial
 
-Talvez você queira codificar o conteúdo XML antes de enviá-lo para um parceiro de negócios em um cenário B2B (entre empresas). Em um aplicativo lógico, você pode usar o conector de codificação de arquivo simples para fazer isso. O aplicativo lógico que você cria pode obter seu conteúdo XML de uma variedade de fontes, incluindo de um gatilho de solicitação HTTP, de outro aplicativo ou até mesmo de um dos muitos [conectores](../connectors/apis-list.md). Para obter mais informações sobre aplicativos lógicos, consulte a [documentação dos aplicativos lógicos](logic-apps-overview.md "Saiba mais sobre os aplicativos lógicos").  
+Pode querer codificar o conteúdo xml antes de enviá-lo a um parceiro de negócios num cenário de negócio-a-negócio (B2B). Numa aplicação lógica, pode utilizar o conector de codificação de ficheiros planos para o fazer. A aplicação lógica que cria pode obter o seu conteúdo XML a partir de uma variedade de fontes, incluindo a partir de um gatilho de pedido HTTP, de outra aplicação, ou mesmo de um dos muitos [conectores.](../connectors/apis-list.md) Para obter mais informações sobre aplicações lógicas, consulte a documentação das [aplicações lógicas.](logic-apps-overview.md "Saiba mais sobre aplicações lógicas")  
 
-## <a name="create-the-flat-file-encoding-connector"></a>Criar o conector de codificação de arquivo simples
-Siga estas etapas para adicionar um conector de codificação de arquivo simples ao seu aplicativo lógico.
+## <a name="create-the-flat-file-encoding-connector"></a>Criar o conector de codificação de ficheiros planos
+Siga estes passos para adicionar um conector de codificação de ficheiros planos à sua aplicação lógica.
 
-1. Crie um aplicativo lógico e [vincule-o à sua conta de integração](logic-apps-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um aplicativo lógico"). Essa conta contém o esquema que você usará para codificar os dados XML.  
-1. Adicione um gatilho **solicitação-quando uma solicitação HTTP é recebida** para seu aplicativo lógico.  
-   ![captura de tela do gatilho para selecionar](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
-1. Adicione a ação codificação de arquivo simples, da seguinte maneira:
-   
-    a. Selecione o sinal de **adição** .
-   
-    b. Selecione o link **Adicionar uma ação** (aparece depois de selecionar o sinal de adição).
-   
-    c. Na caixa de pesquisa, insira *plano* para filtrar todas as ações para aquela que você deseja usar.
-   
-    d. Selecione a opção **codificação de arquivo simples** na lista.   
-   ![captura de tela da opção de codificação de arquivo simples](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
-1. Na caixa de diálogo **codificação de arquivo simples** , selecione a caixa de texto **conteúdo** .  
-   ![captura de tela da caixa de texto de conteúdo](media/logic-apps-enterprise-integration-flatfile/flatfile-3.png)  
-1. Selecione a marca body como o conteúdo que você deseja codificar. A marca body preencherá o campo Content.     
-   ![Captura de tela da marca body](media/logic-apps-enterprise-integration-flatfile/flatfile-4.png)  
-1. Selecione a caixa de listagem **nome do esquema** e escolha o esquema que você deseja usar para codificar o conteúdo de entrada.    
-   ![captura de tela da caixa de listagem nome do esquema](media/logic-apps-enterprise-integration-flatfile/flatfile-5.png)  
-1. Guarde o seu trabalho.   
-   ![Captura de tela do ícone salvar](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)  
+1. Crie uma aplicação lógica e [ligue-a à sua conta de integração.](logic-apps-enterprise-integration-accounts.md "Aprenda a ligar uma conta de integração a uma aplicação Lógica") Esta conta contém o esquema que utilizará para codificar os dados XML.  
 
-Neste ponto, você concluiu a configuração do conector de codificação de arquivo simples. Em um aplicativo do mundo real, talvez você queira armazenar os dados codificados em um aplicativo de linha de negócios, como o Salesforce. Ou você pode enviar esses dados codificados para um parceiro comercial. Você pode adicionar facilmente uma ação para enviar a saída da ação de codificação para o Salesforce ou para seu parceiro comercial, usando qualquer um dos outros conectores fornecidos.
+1. No Logic App Designer, adicione o **pedido Quando um PEDIDO HTTP é recebido** gatilho para a sua aplicação lógica.
 
-Agora você pode testar seu conector fazendo uma solicitação para o ponto de extremidade HTTP e incluindo o conteúdo XML no corpo da solicitação.  
+1. Adicione a ação de codificação de ficheiros planos, da seguinte forma:
 
-## <a name="create-the-flat-file-decoding-connector"></a>Criar o conector de decodificação de arquivo simples
+   a. Selecione o sinal **de mais.**
+
+   b. Selecione o link **Adicionar um** link de ação (aparece depois de ter selecionado o sinal de mais).
+
+   c. Na caixa de pesquisa, introduza *o Flat* para filtrar todas as ações para aquela que pretende utilizar.
+
+   d. Selecione a opção de codificação de **ficheiroplano plano** da lista.   
+
+      ![Screenshot da opção de codificação de ficheiroplano plano](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
+
+1. Na caixa de diálogo de codificação de **ficheiroplano plano,** selecione a caixa de texto **Content.**  
+
+   ![Screenshot da caixa de texto de conteúdo](media/logic-apps-enterprise-integration-flatfile/flatfile-3.png)  
+
+1. Selecione a etiqueta corporal como o conteúdo que pretende codificar. A etiqueta corporal vai povoar o campo de conteúdo.     
+
+   ![Screenshot da etiqueta do corpo](media/logic-apps-enterprise-integration-flatfile/flatfile-4.png)  
+
+1. Selecione a caixa da lista **de nomes Schema** e escolha o esquema que pretende utilizar para codificar o conteúdo de entrada.    
+
+   ![Screenshot da caixa da lista de nomes de Schema](media/logic-apps-enterprise-integration-flatfile/flatfile-5.png)  
+
+1. Guarde o seu trabalho.
+
+   ![Screenshot do ícone save](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)  
+
+Neste ponto, está acabado de configurar o seu conector de codificação de ficheiros planos. Numa aplicação no mundo real, pode querer armazenar os dados codificados numa aplicação de linha de negócio, como a Salesforce. Ou pode enviar esses dados codificados a um parceiro comercial. Pode facilmente adicionar uma ação para enviar a saída da ação de codificação à Salesforce, ou ao seu parceiro de negociação, utilizando qualquer um dos outros conectores fornecidos.
+
+Agora pode testar o seu conector fazendo um pedido ao ponto final http, incluindo o conteúdo XML no corpo do pedido.  
+
+## <a name="create-the-flat-file-decoding-connector"></a>Criar o conector de descodificação de ficheiros planos
 
 > [!NOTE]
-> Para concluir essas etapas, você precisa ter um arquivo de esquema já carregado na conta de integração.
+> Para completar estes passos, precisa de ter um ficheiro de esquemajá enviado para a sua conta de integração.
 
-1. Adicione um gatilho **solicitação-quando uma solicitação HTTP é recebida** para seu aplicativo lógico.  
-   ![captura de tela do gatilho para selecionar](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
-1. Adicione a ação de decodificação de arquivo simples, da seguinte maneira:
-   
-    a. Selecione o sinal de **adição** .
-   
-    b. Selecione o link **Adicionar uma ação** (aparece depois de selecionar o sinal de adição).
-   
-    c. Na caixa de pesquisa, insira *plano* para filtrar todas as ações para aquela que você deseja usar.
-   
-    d. Selecione a opção **decodificação de arquivo simples** na lista.   
-   ![captura de tela da opção de decodificação de arquivo simples](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
-1. Selecione o controle de **conteúdo** . Isso produz uma lista do conteúdo de etapas anteriores que você pode usar como o conteúdo a ser decodificado. Observe que o *corpo* da solicitação HTTP de entrada está disponível para ser usado como o conteúdo a ser decodificado. Você também pode inserir o conteúdo para decodificar diretamente no controle de **conteúdo** .     
-1. Selecione a marca *Body* . Observe que a marca body agora está no controle **Content** .
-1. Selecione o nome do esquema que você deseja usar para decodificar o conteúdo. A captura de tela a seguir mostra que *orderfile* é o nome de esquema selecionado. Esse nome de esquema foi carregado anteriormente na conta de integração.
-   
-   ![Captura de tela da caixa de diálogo decodificação de arquivo simples](media/logic-apps-enterprise-integration-flatfile/flatfile-decode-1.png)    
+1. No Logic App Designer, adicione o **pedido Quando um PEDIDO HTTP é recebido** gatilho para a sua aplicação lógica.
+
+1. Adicione a ação de descodificação de ficheiros planos, da seguinte forma:
+
+   a. Selecione o sinal **de mais.**
+
+   b. Selecione o link **Adicionar um** link de ação (aparece depois de ter selecionado o sinal de mais).
+
+   c. Na caixa de pesquisa, introduza *o Flat* para filtrar todas as ações para aquela que pretende utilizar.
+
+   d. Selecione a opção **dedescodificação de ficheiros planos** da lista.   
+
+      ![Screenshot da opção de descodificação de ficheiros planos](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
+
+1. Selecione o controlo **de conteúdo.** Isto produz uma lista do conteúdo de passos anteriores que pode usar como conteúdo para descodificar. Note que o *Corpo* do pedido http que está disponível para ser usado como conteúdo para descodificar. Também pode introduzir o conteúdo para descodificar diretamente o controlo de **Conteúdo.**     
+
+1. Selecione a etiqueta *Body.* Note que a etiqueta corporal está agora no controlo de **conteúdo.**
+
+1. Selecione o nome do esquema que pretende utilizar para descodificar o conteúdo. A imagem que se segue mostra que o *OrderFile* é o nome de esquema selecionado. Este nome de esquema tinha sido enviado para a conta de integração anteriormente.
+
+   ![Screenshot da caixa de diálogo de descodificação de ficheiroplano plano](media/logic-apps-enterprise-integration-flatfile/flatfile-decode-1.png) 
+
 1. Guarde o seu trabalho.  
-   ![Captura de tela do ícone salvar](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)    
 
-Neste ponto, você concluiu a configuração do conector de decodificação de arquivo simples. Em um aplicativo real, talvez você queira armazenar os dados decodificados em um aplicativo de linha de negócios, como o Salesforce. Você pode adicionar facilmente uma ação para enviar a saída da ação de decodificação para o Salesforce.
+   ![Screenshot do ícone save](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)    
 
-Agora você pode testar seu conector fazendo uma solicitação para o ponto de extremidade HTTP e incluindo o conteúdo XML que você deseja decodificar no corpo da solicitação.  
+Neste ponto, está acabado de configurar o seu conector de descodificação de ficheiros planos. Numa aplicação no mundo real, pode querer armazenar os dados descodificados numa aplicação de linha de negócio, como a Salesforce. Pode facilmente adicionar uma ação para enviar a saída da ação de descodificação para a Salesforce.
+
+Agora pode testar o seu conector fazendo um pedido para o ponto final http e incluindo o conteúdo XML que pretende descodificar no corpo do pedido.  
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack").  
+* Saiba mais sobre o Pacote de [Integração Empresarial.](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Pacote de Integração Empresarial")  
 

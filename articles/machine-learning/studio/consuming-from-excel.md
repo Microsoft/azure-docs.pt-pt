@@ -1,68 +1,68 @@
 ---
-title: Consumir serviço Web no Excel
+title: Consumir serviço web em Excel
 titleSuffix: ML Studio (classic) - Azure
-description: Azure Machine Learning Studio (clássico) facilita a chamada de serviços da Web diretamente do Excel sem a necessidade de escrever nenhum código.
+description: O Azure Machine Learning Studio (clássico) facilita a chamada de serviços web diretamente do Excel sem a necessidade de escrever qualquer código.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: e32e3ddd99efe1d389b65f7a4134633a40b29a9a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2e95c4bfbe7342e251e6d845fd4acfed6ff6109a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839728"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150107"
 ---
-# <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Consumindo um serviço Web Azure Machine Learning Studio (clássico) do Excel
+# <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Consumir um Azure Machine Learning Studio (clássico) Web Service do Excel
 
- Azure Machine Learning Studio (clássico) facilita a chamada de serviços da Web diretamente do Excel sem a necessidade de escrever nenhum código.
+ O Azure Machine Learning Studio (clássico) facilita a chamada de serviços web diretamente do Excel sem a necessidade de escrever qualquer código.
 
-Se você estiver usando o Excel 2013 (ou posterior) ou o Excel online, recomendamos o uso do [suplemento Excel Excel](excel-add-in-for-web-services.md).
+Se estiver a utilizar o Excel 2013 (ou mais tarde) ou o Excel Online, recomendamos que utilize o [add-in](excel-add-in-for-web-services.md)Excel Excel .
 
 
 
 ## <a name="steps"></a>Passos
-Publicar um serviço Web. [Tutorial 3: implantar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md) explica como fazer isso. Atualmente, o recurso de pasta de trabalho do Excel só tem suporte para serviços de solicitação/resposta que têm uma única saída (ou seja, um único rótulo de pontuação). 
+Publica um serviço web. [Tutorial 3: Implementar modelo de risco](tutorial-part3-credit-risk-deploy.md) de crédito explica como fazê-lo. Atualmente, a funcionalidade de livro do Excel só é suportada para os serviços de solicitação/resposta com uma única saída (ou seja, uma etiqueta classificação única). 
 
-Quando você tiver um serviço Web, clique na seção **Serviços Web** à esquerda do estúdio e selecione o serviço Web a ser consumido do Excel.
+Assim que tiver um serviço web, clique na secção **WEB SERVICES** à esquerda do estúdio e, em seguida, selecione o serviço web para consumir do Excel.
 
-**Serviço Web clássico**
+**Serviço Web Clássico**
 
-1. Na guia **painel** do serviço Web está uma linha para o serviço de **solicitação/resposta** . Se esse serviço tiver uma única saída, você deverá ver o link **baixar pasta de trabalho do Excel** nessa linha.
+1. No **separador DASHBOARD** para o serviço web é uma linha para o serviço **REQUEST/RESPONSE.** Se este serviço tiver uma única saída, deve ver o link **Download Excel Bookbook** nessa linha.
 
-    ![Baixar a pasta de trabalho do Excel usando o portal do serviço Web Studio (clássico)](./media/consuming-from-excel/excellink.png)
-2. Clique em **baixar pasta de trabalho do Excel**.
+    ![Baixe o Livro excel usando o portal de serviço web studio (clássico)](./media/consuming-from-excel/excellink.png)
+2. Clique no **Livro de Transferência excel**.
 
-**Novo serviço Web**
+**Novo Serviço Web**
 
-1. No Azure Machine Learning Portal de serviço Web, selecione **consumir**.
-2. Na página consumir, na seção **Opções de consumo do serviço Web** , clique no ícone do Excel.
+1. No portal Azure Machine Learning Web Service, **selecione Consumir**.
+2. Na página Consumir, na secção opções de consumo do **serviço Web,** clique no ícone Excel.
 
-**Usando a pasta de trabalho**
+**Usando o livro**
 
-1. Abra a pasta de trabalho.
-2. Um aviso de segurança é exibido; Clique no botão **Habilitar edição** .
+1. Abra o livro.
+2. Aparece um aviso de segurança; clique no botão **'Editar activação'.**
 
-    ![Habilitar edição para remover o aviso de segurança de exibição protegida](./media/consuming-from-excel/enableeditting.png)
-3. Um aviso de segurança é exibido. Clique no botão **habilitar conteúdo** para executar macros em sua planilha.
+    ![Ativar a edição para remover o aviso de segurança de vista protegida](./media/consuming-from-excel/enableeditting.png)
+3. É apresentado um aviso de segurança. Clique no botão **'Ativar conteúdo'** para executar macros na sua folha de cálculo.
 
-    ![Habilitar conteúdo para ignorar o aviso de segurança desabilitando macros](./media/consuming-from-excel/enablecontent.png)
-4. Depois que as macros são habilitadas, uma tabela é gerada. As colunas em azul são necessárias como entrada no serviço Web RRS ou **parâmetros**. Observe a saída do serviço RRS, os **valores previstos** em verde. Quando todas as colunas de uma determinada linha são preenchidas, a pasta de trabalho chama automaticamente a API de Pontuação e exibe os resultados pontuados.
+    ![Ativar conteúdo para descartar o Aviso de Segurança que desativa macros](./media/consuming-from-excel/enablecontent.png)
+4. Assim que as macros estejam habilitadas, é gerada uma tabela. As colunas em azul são necessárias como entrada no serviço web RRS, ou **PARAMETERS**. Note a saída do serviço RRS, **VALORES PREVISTOS** em verde. Quando todas as colunas para uma determinada linha estiverem preenchidas, a pasta de trabalho automaticamente chama a API de classificação e exibe os resultados com a pontuação.
 
-    ![Tabela para entradas de parâmetro e os valores previstos resultantes](./media/consuming-from-excel/sampletable.png)
-5. Para pontuar mais de uma linha, preencha a segunda linha com os dados e os valores previstos serão produzidos. Você pode até mesmo colar várias linhas de uma só vez.
+    ![Tabela para as inputs dos parâmetros e dos valores previstos](./media/consuming-from-excel/sampletable.png)
+5. Para mais de uma linha de pontuação, a segunda linha com dados e os valores previstos de preenchimento são produzidos. Pode até mesmo colar várias linhas ao mesmo tempo.
 
-Você pode usar qualquer um dos recursos do Excel (grafos, Power MAP, formatação condicional, etc.) com os valores previstos para ajudar a visualizar os dados.
+Pode utilizar qualquer uma das funcionalidades do Excel (gráficos, mapa de energia, formatação condicional, etc.) com os valores previstos para o ajudar a visualizar os dados.
 
-## <a name="sharing-your-workbook"></a>Compartilhando sua pasta de trabalho
-Para que as macros funcionem, sua chave de API deve fazer parte da planilha. Isso significa que você deve compartilhar a pasta de trabalho somente com entidades/indivíduos confiáveis.
+## <a name="sharing-your-workbook"></a>O livro de partilha
+As macros trabalhar, a chave de API deve ser parte da folha de cálculo. Isso significa que deve compartilhá-la apenas com entidades/indivíduos que confia.
 
 ## <a name="automatic-updates"></a>Atualizações automáticas
-Uma chamada RRS é feita nessas duas situações:
+É feita uma chamada RRS nessas duas situações:
 
-1. Na primeira vez em que uma linha tem conteúdo em todos os seus **parâmetros**
-2. Sempre que qualquer um dos **parâmetros** for alterado em uma linha que tenha todos os seus **parâmetros** inseridos.
+1. A primeira vez que uma linha tem conteúdo em todos os seus **PARÂMETROS**
+2. Sempre que qualquer um dos **PARÂMETROS** muda de linha que tenha todos os seus **PARÂMETROS** introduzidos.

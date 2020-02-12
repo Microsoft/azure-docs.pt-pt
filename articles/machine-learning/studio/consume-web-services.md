@@ -1,112 +1,112 @@
 ---
-title: Consumir serviço Web
+title: Consumir serviço web
 titleSuffix: ML Studio (classic) - Azure
-description: Depois que um serviço de Machine Learning é implantado do Azure Machine Learning Studio (clássico), o serviço Web RESTFul pode ser consumido como serviço de solicitação-resposta em tempo real ou como um serviço de execução em lote.
+description: Uma vez que um serviço de machine learning é implantado a partir do Azure Machine Learning Studio (clássico), o serviço RESTFul Web pode ser consumido quer como serviço de resposta a pedidos em tempo real ou como um serviço de execução de lotes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 7626714812b44119099344b52fe7506989555a57
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c164a487ef94ea1eae4b369105cb785d1e8d0f66
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314305"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150306"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um serviço Web Azure Machine Learning Studio (clássico)
+# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um serviço web Azure Machine Learning Studio (clássico)
 
-Depois de implantar um modelo de previsão de Azure Machine Learning Studio (clássico) como um serviço Web, você pode usar uma API REST para enviar dados de ti e obter previsões. Pode enviar os dados em tempo real ou no modo de lote.
+Assim que implementar um modelo de aprendizagem automática Azure (clássico) como um serviço Web, pode utilizar uma API REST para enviar dados e obter previsões. Pode enviar os dados em tempo real ou no modo de lote.
 
-Você pode encontrar mais informações sobre como criar e implantar um serviço Web Machine Learning usando Machine Learning Studio (clássico) aqui:
+Pode encontrar mais informações sobre como criar e implementar um serviço Web de Aprendizagem Automática utilizando o Machine Learning Studio (clássico) aqui:
 
-* Para obter um tutorial sobre como criar um experimento no Machine Learning Studio (clássico), consulte [criar seu primeiro experimento](create-experiment.md).
-* Para obter detalhes sobre como implementar um serviço da Web, consulte [implementar um serviço Web do Machine Learning](deploy-a-machine-learning-web-service.md).
-* Para obter mais informações sobre o Machine Learning em geral, visite o [Centro de documentação do Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+* Para um tutorial sobre como criar uma experiência no Machine Learning Studio (clássico), consulte [Create your first experiment](create-experiment.md).
+* Para mais detalhes sobre como implementar um serviço Web, consulte Implementar um serviço Web de [aprendizagem automática](deploy-a-machine-learning-web-service.md).
+* Para mais informações sobre machine learning em geral, visite o Centro de Documentação de [Aprendizagem Automática.](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Com o serviço Web do Azure Machine Learning, uma aplicação externa comunica com um modelo de classificação de fluxo de trabalho de Machine Learning em tempo real. Uma chamada de serviço Web do Machine Learning devolve resultados de predição para uma aplicação externa. Para fazer uma chamada do serviço Web do Machine Learning, tem de transmitir uma chave de API que foi criada quando implementou uma predição. O serviço Web do Machine Learning é baseado em REST, uma opção de arquitetura popular para projetos de programação web.
 
-Azure Machine Learning Studio (clássico) tem dois tipos de serviços:
+O Azure Machine Learning Studio (clássico) tem dois tipos de serviços:
 
-* RRS (serviço de solicitação-resposta) – um serviço de baixa latência e altamente escalonável que fornece uma interface para os modelos sem estado criados e implantados a partir do Machine Learning Studio (clássico).
+* Serviço de Resposta a Pedidos (RRS) – Um serviço de baixa latência e altamente escalável que fornece uma interface para os modelos apátridas criados e implantados a partir do Machine Learning Studio (clássico).
 * Execução serviço batch (BES) – um assíncrono que pontua um lote de registos de dados do serviço.
 
-Para obter mais informações sobre os serviços Web do Machine Learning, consulte [implementar um serviço Web do Machine Learning](deploy-a-machine-learning-web-service.md).
+Para obter mais informações sobre os serviços Web de Aprendizagem automática, consulte Implementar um serviço Web de [aprendizagem automática](deploy-a-machine-learning-web-service.md).
 
-## <a name="get-an-authorization-key"></a>Obter uma chave de autorização
+## <a name="get-an-authorization-key"></a>Obtenha uma chave de autorização
 Ao implementar a sua experimentação, as chaves de API são geradas para o serviço Web. Pode obter as chaves de várias localizações.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Partir do portal do Microsoft Azure Machine Learning Web Services
-Inicie sessão para o [serviços de Web do Microsoft Azure Machine Learning](https://services.azureml.net) portal.
+Inscreva-se no portal [microsoft Azure Machine Learning Web Services.](https://services.azureml.net)
 
 Para obter a chave de API para um serviço novo Web do Machine Learning:
 
-1. No portal do Azure Machine Learning Web Services, clique em **serviços da Web** menu superior.
+1. No portal Azure Machine Learning Web Services, clique em **Web Services** no menu superior.
 2. Clique no serviço de Web para o qual pretende obter a chave.
-3. No menu superior, clique em **Consume**.
-4. Copie e guarde o **chave primária**.
+3. No menu superior, clique **em Consumir**.
+4. Copiar e guardar a **Chave Primária.**
 
 Para obter a chave de API para um serviço Web clássico de Aprendizado de máquina:
 
-1. No portal do Azure Machine Learning Web Services, clique em **serviços Web clássicos** menu superior.
+1. No portal Azure Machine Learning Web Services, clique em **Serviços Web Clássicos** no menu superior.
 2. Clique no serviço de Web com a qual estiver a trabalhar.
 3. Clique no ponto de final para o qual pretende obter a chave.
-4. No menu superior, clique em **Consume**.
-5. Copie e guarde o **chave primária**.
+4. No menu superior, clique **em Consumir**.
+5. Copiar e guardar a **Chave Primária.**
 
 ### <a name="classic-web-service"></a>Serviço Web clássico
- Você também pode recuperar uma chave para um serviço Web clássico do Machine Learning Studio (clássico).
+ Também pode recuperar uma chave para um serviço Web Clássico do Machine Learning Studio (clássico).
 
 #### <a name="machine-learning-studio-classic"></a>Machine Learning Studio (clássico)
-1. Em Machine Learning Studio (clássico), clique em **Serviços Web** à esquerda.
-2. Clique num serviço Web. O **chave de API** está ativada a **DASHBOARD** separador.
+1. No Machine Learning Studio (clássico), clique em **WEB SERVICES** à esquerda.
+2. Clique num serviço Web. A **tecla API** está no **separador DASHBOARD.**
 
-## <a id="connect"></a>Ligar a um serviço Web do Machine Learning
+## <a id="connect"></a>Ligue-se a um serviço Web de aprendizagem automática
 Pode ligar a um serviço de Machine Learning Web usando qualquer linguagem de programação que suporte a solicitação e resposta HTTP. Pode ver exemplos na C#, Python e R a partir de uma página de ajuda do serviço Web do Machine Learning.
 
-**Ajuda da API de aprendizagem da máquina** ajuda da API do Machine Learning é criada quando implementar um serviço Web. Consulte [tutorial 3: implantar modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
+**Ajuda da API de Aprendizagem automática** A ajuda da Machine Learning API é criada quando implementa um serviço Web. Ver [Tutorial 3: Implementar modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
 A ajuda da API do Machine Learning contém detalhes sobre uma predição do serviço Web.
 
 1. Clique no serviço de Web com a qual estiver a trabalhar.
 2. Clique no ponto de final para o qual pretende ver a página de ajuda da API.
-3. No menu superior, clique em **Consume**.
-4. Clique em **página de ajuda da API** em pontos finais de solicitação-resposta ou de execução de lote.
+3. No menu superior, clique **em Consumir**.
+4. Clique na página de **ajuda da API** nos pontos finais de Pedido-Resposta ou execução de lote.
 
-**Para a vista de API do Machine Learning ajuda para um serviço Web novo**
+**Para ver a ajuda da Machine Learning API para um novo serviço Web**
 
-Na [do Azure Machine Learning Web Services Portal](https://services.azureml.net/):
+No Portal de Serviços Web de [Aprendizagem automática Azure:](https://services.azureml.net/)
 
-1. Clique em **serviços da WEB** no menu superior.
+1. Clique em **WEB SERVICES** no menu superior.
 2. Clique no serviço de Web para o qual pretende obter a chave.
 
-Clique em **usar serviço Web** para obter os URIs para os serviços de solicitação-resposta e execução em lote e C#código de exemplo em, R e Python.
+Clique **em Utilizar o Serviço Web** para obter os URIs para C#os Serviços de Resposta de Pedido e Execução de Lotes e código de amostra em R e Python.
 
-Clique em **API do Swagger** obter o Swagger com base em documentação para as APIs chamado a partir dos URIs fornecido.
+Clique na **API swagger** para obter documentação baseada em Swagger para as APIs chamadas a partir dos URIs fornecidos.
 
 ### <a name="c-sample"></a>Exemplo de c#
-Para ligar a um serviço Web do Machine Learning, utilize um **HttpClient** passando ScoreData. ScoreData contém um FeatureVector, um vetor n-dimensional de funcionalidades numéricas que representa o ScoreData. Autenticação no serviço de Machine Learning com uma chave de API.
+Para se ligar a um serviço Web de Aprendizagem Automática, utilize um **HttpClient** passando o ScoreData. ScoreData contém um FeatureVector, um vetor n-dimensional de funcionalidades numéricas que representa o ScoreData. Autenticação no serviço de Machine Learning com uma chave de API.
 
-Para ligar a um serviço Web do Machine Learning, o **Microsoft.AspNet.WebApi.Client** deve ser instalado o pacote NuGet.
+Para se ligar a um serviço Web de aprendizagem automática, o pacote **NuGet Microsoft.AspNet.WebApi.Client** NuGet deve ser instalado.
 
-**Instalar Microsoft.AspNet.WebApi.Client NuGet no Visual Studio**
+**Instale Microsoft.AspNet.webApi.Client NuGet no Estúdio Visual**
 
 1. Publicar o conjunto de dados de transferência de UCI: conjunto de dados de classe 2 para adultos serviço Web.
 2. clique em **Ferramentas** > **Gestor de Pacotes NuGet** > **Consola de Gestor de Pacotes**.
-3. Escolher **Install-Package Microsoft.AspNet.WebApi.Client**.
+3. Escolha **instalar-pacote Microsoft.AspNet.webApi.Client**.
 
-**Para executar o exemplo de código**
+**Para executar a amostra de código**
 
 1. Publicar "exemplo 1: Transferir o conjunto de dados de UCI: o conjunto de dados do adulto 2 classe" experimentação, parte da coleção de exemplo de Machine Learning.
-2. Atribua apiKey com a chave de um serviço Web. Consulte **obter uma chave de autorização** acima.
+2. Atribua apiKey com a chave de um serviço Web. Consulte **a chave de autorização** acima.
 3. Atribua serviceUri com o URI do pedido.
 
-**Eis o que uma solicitação completa será semelhante.**
+**Aqui está o que um pedido completo será.**
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -194,15 +194,15 @@ namespace CallRequestResponseService
 ```
 
 ### <a name="python-sample"></a>Exemplo de Python
-Para ligar a um serviço Web do Machine Learning, utilize o **urllib2** biblioteca para o Python 2.X e **urllib.request** biblioteca para o Python 3.X. Passará ScoreData, que contém um FeatureVector, um vetor n-dimensional de funcionalidades numéricas que representa o ScoreData. Autenticação no serviço de Machine Learning com uma chave de API.
+Para se ligar a um serviço Web de Aprendizagem Automática, utilize a biblioteca **urllib2** para Python 2.X e **urllib.request** library for Python 3.X. Passará ScoreData, que contém um FeatureVector, um vetor n-dimensional de funcionalidades numéricas que representa o ScoreData. Autenticação no serviço de Machine Learning com uma chave de API.
 
-**Para executar o exemplo de código**
+**Para executar a amostra de código**
 
 1. Implementar "exemplo 1: Transferir o conjunto de dados de UCI: o conjunto de dados do adulto 2 classe" experimentação, parte da coleção de exemplo de Machine Learning.
-2. Atribua apiKey com a chave de um serviço Web. Consulte a seção **obter uma chave de autorização** próximo ao início deste artigo.
+2. Atribua apiKey com a chave de um serviço Web. Consulte a secção **chave de autorização Perto** do início deste artigo.
 3. Atribua serviceUri com o URI do pedido.
 
-**Eis o que uma solicitação completa será semelhante.**
+**Aqui está o que um pedido completo será.**
 ```python
 import urllib2 # urllib.request and urllib.error for Python 3.X
 import json
@@ -248,9 +248,9 @@ except urllib2.HTTPError, error:
 
 ### <a name="r-sample"></a>Exemplo de R
 
-Para ligar a um serviço Web do Machine Learning, utilize o **RCurl** e **rjson** bibliotecas para fazer a solicitação e processar a resposta JSON devolvida. Passará ScoreData, que contém um FeatureVector, um vetor n-dimensional de funcionalidades numéricas que representa o ScoreData. Autenticação no serviço de Machine Learning com uma chave de API.
+Para ligar a um Serviço Web de Aprendizagem Automática, utilize as bibliotecas **RCurl** e **Rjson** para fazer o pedido e processar a resposta jSON devolvida. Passará ScoreData, que contém um FeatureVector, um vetor n-dimensional de funcionalidades numéricas que representa o ScoreData. Autenticação no serviço de Machine Learning com uma chave de API.
 
-**Eis o que uma solicitação completa será semelhante.**
+**Aqui está o que um pedido completo será.**
 ```r
 library("RCurl")
 library("rjson")
@@ -304,9 +304,9 @@ print(fromJSON(result))
 
 ### <a name="javascript-sample"></a>Exemplo de JavaScript
 
-Para ligar a um serviço Web do Machine Learning, utilize o **pedido** pacote npm no seu projeto. Também irá utilizar o `JSON` objeto para formatar os dados introduzidos e analisar o resultado. Instalar utilizando `npm install request --save`, ou adicione `"request": "*"` para Package. JSON na `dependencies` e executar `npm install`.
+Para se ligar a um Serviço Web de Aprendizagem Automática, utilize o pacote **npm solicitado** no seu projeto. Também utilizará o `JSON` objeto para formatar a sua entrada e analisar o resultado. Instale utilizando `npm install request --save`, ou adicione `"request": "*"` ao seu pacote.json sob `dependencies` e executar `npm install`.
 
-**Eis o que uma solicitação completa será semelhante.**
+**Aqui está o que um pedido completo será.**
 ```js
 let req = require("request");
 

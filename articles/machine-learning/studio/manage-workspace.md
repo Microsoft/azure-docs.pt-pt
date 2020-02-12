@@ -1,52 +1,52 @@
 ---
 title: Gerir áreas de trabalho
 titleSuffix: ML Studio (classic) - Azure
-description: Gerenciar o acesso a espaços de trabalho Azure Machine Learning Studio (clássico) e implantar e gerenciar serviços Web de API Machine Learning
+description: Gerir o acesso ao Azure Machine Learning Studio (clássico) espaços de trabalho e implementar e gerir serviços web da Machine Learning API
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: f4a153a69f3475418873fbac04dea7d932c14373
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c3662515846965eb53e8cd19bcb1109407e0088f
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839448"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153201"
 ---
-# <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gerenciar um espaço de trabalho Azure Machine Learning Studio (clássico)
+# <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gerir um estúdio de aprendizagem automática Azure (clássico)
 
 > [!NOTE]
-> Para obter informações sobre como gerenciar serviços Web no portal de serviços da Web Machine Learning, consulte [gerenciar um serviço Web usando o portal de serviços Web do Azure Machine Learning](manage-new-webservice.md).
+> Para obter informações sobre a gestão de serviços Web no portal machine learning Web Services, consulte [Gerir um serviço Web utilizando o portal Azure Machine Learning Web Services](manage-new-webservice.md).
 > 
 > 
 
-Você pode gerenciar os espaços de trabalho do Machine Learning Studio (clássico) no portal do Azure.
+Você pode gerir espaços de trabalho machine learning studio (clássico) no portal Azure.
 
 
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-Para gerenciar um espaço de trabalho do Studio (clássico) no portal do Azure:
+Para gerir um espaço de trabalho studio (clássico) no portal Azure:
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador de assinatura do Azure.
-2. Na caixa de pesquisa na parte superior da página, insira "espaços de trabalho do Machine Learning Studio (clássico)" e, em seguida, selecione os **espaços de trabalho do Machine Learning Studio (clássico)** .
-3. Clique no espaço de trabalho que você deseja gerenciar.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando uma conta de administrador de subscrição Azure.
+2. Na caixa de pesquisa no topo da página, insira "machine learning Studio (clássico) espaços de trabalho" e, em seguida, selecione Espaços de **trabalho machine learning studio (clássicos).**
+3. Clique no espaço de trabalho que pretende gerir.
 
-Além das informações e opções de gerenciamento de recursos padrão disponíveis, você pode:
+Além das informações e opções padrão de gestão de recursos disponíveis, pode:
 
-- Exibir **Propriedades** – esta página exibe as informações de espaço de trabalho e recurso, e você pode alterar a assinatura e o grupo de recursos aos quais esse espaço de trabalho está conectado.
-- **Resincronizar as chaves de armazenamento** – o espaço de trabalho mantém as chaves para a conta de armazenamento. Se a conta de armazenamento alterar as chaves, você poderá clicar em **ressincronizar chaves** para sincronizar as chaves com o espaço de trabalho.
+- Ver **Propriedades** - Esta página exibe o espaço de trabalho e informações sobre recursos, e pode alterar o grupo de subscrição e recursos com o que este espaço de trabalho está ligado.
+- **Resincronizar as chaves** de armazenamento - O espaço de trabalho mantém as chaves da conta de armazenamento. Se a conta de armazenamento mudar de teclas, pode clicar em **teclas Resincronizadas** para sincronizar as teclas com o espaço de trabalho.
 
-Para gerenciar os serviços Web associados a este espaço de trabalho do estúdio (clássico), use o Machine Learning Portal de serviços Web. Consulte [gerenciar um serviço Web usando o portal de serviços da web Azure Machine Learning](manage-new-webservice.md) para obter informações completas.
+Para gerir os serviços web associados a este espaço de trabalho studio (clássico), utilize o portal machine learning Web Services. Consulte [gerir um serviço Web utilizando o portal Azure Machine Learning Web Services](manage-new-webservice.md) para obter informações completas.
 
 > [!NOTE]
-> Para implantar ou gerenciar novos serviços Web, você deve receber uma função de colaborador ou administrador na assinatura na qual o serviço Web está implantado. Se você convidar outro usuário para um espaço de trabalho do Machine Learning Studio (clássico), deverá atribuí-lo a uma função de colaborador ou de administrador na assinatura para poder implantar ou gerenciar serviços Web. 
+> Para implementar ou gerir Novos serviços web deve ser-lhe atribuído um papel de contribuinte ou administrador na subscrição à qual o serviço web é implementado. Se convidar outro utilizador para um espaço de trabalho do Estúdio de aprendizagem automática (clássico), deve atribuí-los a um papel de colaborador ou administrador na subscrição antes de poderem implementar ou gerir serviços web. 
 > 
->Para obter mais informações sobre como definir permissões de acesso, consulte [gerenciar o acesso usando RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+>Para obter mais informações sobre a definição de permissões de acesso, consulte [Gerir o acesso utilizando o RBAC e o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre como [implantar Machine Learning com modelos de Azure Resource Manager](deploy-with-resource-manager-template.md). 
+* Saiba mais sobre [a implementação de Machine Learning com modelos](deploy-with-resource-manager-template.md)de gestor de recursos Azure . 

@@ -2,27 +2,27 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 01/22/2020
 ms.author: sngun
 ms.custom: seo-java-september2019
-ms.openlocfilehash: d5a0e8412b928aea83670ad9f7c99a892a058c70
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: caefb11e3d691cea940bae5103bf918d3d31cc96
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71210306"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134444"
 ---
-Quando terminar seu aplicativo Web e Azure Cosmos DB conta, você poderá excluir os recursos do Azure que criou, de modo que você não incorrerá em mais encargos. Para eliminar os recursos:
+Quando terminar com a sua app e a conta Azure Cosmos DB, pode eliminar os recursos Azure que criou para não incorrer em mais encargos. Para eliminar os recursos:
 
-1. No portal do Azure, selecione **Grupos de recursos** na extremidade esquerda. Se o menu à esquerda estiver recolhido, ![selecione o](./media/cosmos-db-delete-resource-group/expand.png) botão expandir para expandi-lo.
+1. No portal Azure Procure e selecione **grupos de recursos.**
 
-2. Selecione o grupo de recursos que você criou para este guia de início rápido.  
+2. A partir da lista, selecione o grupo de recursos que criou para este arranque rápido.  
 
-   ![Selecione o grupo de recursos a ser excluído](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
+   ![Selecione o grupo de recursos para eliminar](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
-2. Na nova janela, selecione **excluir grupo de recursos**.
+2. Na página de **visão geral** do grupo de recursos, selecione Eliminar o grupo **de recursos**.
 
-   ![Excluir o grupo de recursos](./media/cosmos-db-delete-resource-group/delete-resources.png)   
+   ![Eliminar o grupo de recursos](./media/cosmos-db-delete-resource-group/delete-resources.png)   
 
-3. Na próxima janela, insira o nome do grupo de recursos a ser excluído e, em seguida, selecione **excluir**.
+3. Na janela seguinte, introduza o nome do grupo de recursos para apagar e, em seguida, **selecione Delete**.
 

@@ -1,52 +1,52 @@
 ---
-title: Configurações de dispositivo VPN do parceiro para se conectar a gateways de VPN do Azure
-description: Este artigo fornece uma visão geral das configurações de dispositivo VPN do parceiro para se conectar a gateways de VPN do Azure.
+title: Configurações de dispositivos VPN do parceiro para ligação aos gateways VpN Do Azure
+description: Este artigo fornece uma visão geral das configurações do dispositivo VPN do parceiro para a ligação aos gateways VPN Azure.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 733add5aa86ebd7faaaab78bb301ba9469433fdd
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: b914afaa6725920078da309981bcda5bb765e155
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778027"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148337"
 ---
-# <a name="overview-of-partner-vpn-device-configurations"></a>Visão geral das configurações de dispositivo VPN do parceiro
-Este artigo fornece uma visão geral da configuração de dispositivos VPN locais para conexão com gateways de VPN do Azure. Um exemplo de configuração de rede virtual do Azure e gateway de VPN é usado para mostrar como se conectar a diferentes configurações de dispositivo VPN local usando os mesmos parâmetros.
+# <a name="overview-of-partner-vpn-device-configurations"></a>Visão geral das configurações do dispositivo VPN do parceiro
+Este artigo fornece uma visão geral da configuração de dispositivos VPN no local para a ligação aos gateways VpN Azure. Uma rede virtual Azure e configuração de gateway VPN são usadas para lhe mostrar como se conectar a diferentes configurações de dispositivos VPN no local utilizando os mesmos parâmetros.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="device-requirements"></a>Requisitos de dispositivos
-Os gateways de VPN do Azure usam pacotes de protocolo IPsec/IKE padrão para túneis VPN site a site (S2S). Para obter uma lista de parâmetros de IPsec/IKE e algoritmos criptográficos para gateways de VPN do Azure, consulte [sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). Você também pode especificar os algoritmos exatos e as forças de chave para uma conexão específica, conforme descrito em [sobre os requisitos de criptografia](vpn-gateway-about-compliance-crypto.md).
 
-## <a name ="singletunnel"></a>Túnel de VPN único
-A primeira configuração no exemplo consiste em um único túnel VPN S2S entre um gateway de VPN do Azure e um dispositivo VPN local. Opcionalmente, você pode configurar o [Border Gateway Protocol (BGP) pelo túnel VPN](#bgp).
+## <a name="device-requirements"></a>Requisitos de dispositivo
+Os gateways Azure VPN utilizam suítes de protocolo IPsec/IKE padrão para túneis VPN local-a-local (S2S). Para obter uma lista de parâmetros IPsec/IKE e algoritmos criptográficos para gateways VpN Azure, consulte [sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). Também pode especificar os algoritmos exatos e os pontos fortes chave para uma ligação específica, como descrito em [sobre requisitos criptográficos](vpn-gateway-about-compliance-crypto.md).
 
-![Diagrama de um único túnel VPN S2S](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
+## <a name ="singletunnel"></a>Túnel VPN único
+A primeira configuração da amostra consiste num único túnel S2S VPN entre um gateway VPN Azure e um dispositivo VPN no local. Pode configurar opcionalmente o Protocolo de [Gateway de Fronteira (BGP) através do túnel VPN](#bgp).
 
-Para obter instruções detalhadas sobre como configurar um único túnel VPN, consulte [Configurar uma conexão site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). As seções a seguir especificam os parâmetros de conexão para a configuração de exemplo e fornecem um script do PowerShell para ajudá-lo a começar.
+![Diagrama de um único túnel S2S VPN](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-### <a name="connection-parameters"></a>Parâmetros da ligação
-Esta seção lista os parâmetros para os exemplos descritos nas seções anteriores.
+Para obter instruções passo a passo para configurar um único túnel VPN, consulte [Configurar uma ligação local-a-local](vpn-gateway-howto-site-to-site-resource-manager-portal.md). As seguintes secções especificam os parâmetros de ligação para a configuração da amostra e fornecem um script PowerShell para ajudá-lo a começar.
+
+### <a name="connection-parameters"></a>Parâmetros de ligação
+Esta secção enumera os parâmetros para os exemplos descritos nas secções anteriores.
 
 | **Parâmetro**                | **Valor**                    |
 | ---                          | ---                          |
 | Prefixos de endereço de rede virtual        | 10.11.0.0/16<br>10.12.0.0/16 |
-| IP do gateway de VPN do Azure         | IP do gateway de VPN do Azure         |
-| Prefixos de endereço local | 10.51.0.0/16<br>10.52.0.0/16 |
-| IP do dispositivo VPN local    | IP do dispositivo VPN local    |
-| * ASN de BGP de rede virtual                | 65010                        |
-| * IP do par do Azure BGP           | 10.12.255.30                 |
-| * ASN do BGP local         | 65050                        |
-| * IP do par de BGP local     | 10.52.255.254                |
+| Azure VPN gateway IP         | Azure VPN Gateway IP         |
+| Prefixos de endereço no local | 10.51.0.0/16<br>10.52.0.0/16 |
+| NO local, dispositivo VPN IP    | NO local, dispositivo VPN IP    |
+| * Rede virtual BGP ASN                | 65010                        |
+| * Ip peer Azure BGP           | 10.12.255.30                 |
+| * No local BGP ASN         | 65050                        |
+| * No local BGP peer IP     | 10.52.255.254                |
 
-\* parâmetro opcional somente para BGP.
+\* parâmetro opcional apenas para BGP.
 
-### <a name="sample-powershell-script"></a>Exemplo de script do PowerShell
-Esta seção fornece um script de exemplo para você começar. Para obter instruções detalhadas, consulte [criar uma conexão VPN S2S usando o PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+### <a name="sample-powershell-script"></a>Script PowerShell da amostra
+Esta secção fornece um guião de amostra para começar. Para obter instruções detalhadas, consulte [Criar uma ligação VPN S2S utilizando powerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 ```powershell
 # Declare your variables
@@ -111,18 +111,18 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
 ```
 
-### <a name ="policybased"></a>Adicional Usar política de IPsec/IKE personalizada com UsePolicyBasedTrafficSelectors
-Se os dispositivos VPN não oferecerem suporte a seletores de tráfego de qualquer para qualquer, como configurações baseadas em rota ou VTI, crie uma política personalizada de IPsec/IKE com a opção [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md) .
+### <a name ="policybased"></a>(Opcional) Utilize a política personalizada IPsec/IKE com os selecionadores de UtilizaçãoPolicyBasedTrafficS
+Se os seus dispositivos VPN não suportarem quaisquer selecionadores de tráfego, tais como configurações baseadas em rotas ou vTI, crie uma política personalizada de IPsec/IKE com a opção [UsePolicyBasedTrafficSelectors.](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 
 > [!IMPORTANT]
-> Você deve criar uma política de IPsec/IKE para habilitar a opção **UsePolicyBasedTrafficSelectors** na conexão.
+> Tem de criar uma política IPsec/IKE para ativar a opção **UsePolicyBasedTrafficSselect** na ligação.
 
 
-O script de exemplo cria uma política de IPsec/IKE com os seguintes algoritmos e parâmetros:
+O script da amostra cria uma política IPsec/IKE com os seguintes algoritmos e parâmetros:
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA1, PFS24, SA tempo de vida de 7.200 segundos e 20.480.000 KB (20 GB)
+* IPsec: AES256, SHA1, PFS24, SA Lifetime 7.200 segundos e 20.480.000 KB (20 GB)
 
-O script aplica a política de IPsec/IKE e habilita a opção **UsePolicyBasedTrafficSelectors** na conexão.
+O script aplica a política IPsec/IKE e permite a opção **UsePolicyBasedTrafficSelectors** na ligação.
 
 ```powershell
 $ipsecpolicy5 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA1 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 20480000
@@ -133,21 +133,21 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
 ```
 
-### <a name ="bgp"></a>Adicional Usar BGP na conexão VPN S2S
-Ao criar a conexão VPN S2S, você pode opcionalmente usar o [BGP para o gateway de VPN](vpn-gateway-bgp-resource-manager-ps.md). Essa abordagem tem duas diferenças:
+### <a name ="bgp"></a>(Opcional) Utilizar bGP na ligação VPN S2S
+Quando criar a ligação VPN S2S, pode utilizar opcionalmente [o BGP para o gateway VPN](vpn-gateway-bgp-resource-manager-ps.md). Esta abordagem tem duas diferenças:
 
-* Os prefixos de endereço local podem ser um único endereço de host. O endereço IP do par de BGP local é especificado da seguinte maneira:
+* Os prefixos de endereço no local podem ser um único endereço de anfitrião. O endereço IP de pares BGP no local é especificado da seguinte forma:
 
     ```powershell
     New-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
     ```
 
-* Ao criar a conexão, você deve definir a opção **-EnableBGP** como $true:
+* Quando criar a ligação, tem de definir a opção **-EnableBGP** para $True:
 
     ```powershell
     New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
     ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter as instruções passo a passo para configurar gateways de VPN ativos-ativos, consulte [Configurando gateways de VPN ativo-ativo para conexões entre locais e vnet para vnet](vpn-gateway-activeactive-rm-powershell.md).
+Para instruções passo a passo para configurar gateways VPN ativos, consulte a configuração de [gateways VPN ativos para instalações cruzadas e ligações VNet-to-VNet](vpn-gateway-activeactive-rm-powershell.md).
 

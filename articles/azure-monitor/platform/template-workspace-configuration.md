@@ -1,65 +1,65 @@
 ---
-title: Usar modelos de Azure Resource Manager para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
-description: Você pode usar modelos de Azure Resource Manager para criar e configurar espaços de trabalho do Log Analytics.
+title: Utilize modelos de Gestor de Recursos Azure para criar e configurar um espaço de trabalho de log analytics  Microsoft Docs
+description: Pode utilizar modelos do Gestor de Recursos Azure para criar e configurar espaços de trabalho de Log Analytics.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 936008a074944c79b8b0bab3beaf3a5aaa5ecc12
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834212"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151824"
 ---
-# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Você pode usar [modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho do Log Analytics no Azure monitor. Exemplos das tarefas que você pode executar com modelos incluem:
+Pode utilizar modelos do Gestor de [Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho de Log Analytics no Monitor Azure. Exemplos das tarefas que pode executar com modelos incluem:
 
-* Criar um espaço de trabalho, incluindo a definição de tipo de preço e reserva de capacidade
+* Criar um espaço de trabalho, incluindo a fixação do nível de preços e a reserva de capacidade
 * Adicionar uma solução
-* Criar pesquisas salvas
+* Criar pesquisas guardadas
 * Criar um grupo de computadores
 * Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
 * Recolher contadores de desempenho de computadores com Linux e Windows
 * Recolher eventos do syslog em computadores com Linux 
 * Recolher eventos de registos de eventos do Windows
-* Coletar logs personalizados do computador com Windows
+* Recolher registos personalizados do computador Windows
 * Adicionar o log analytics agent para uma máquina virtual do Azure
 * Configurar o log analytics para dados de índice recolhidos através dos diagnósticos do Azure
 
-Este artigo fornece exemplos de modelo que ilustram algumas das configurações que você pode executar com modelos.
+Este artigo fornece amostras de modelo que ilustram algumada da configuração que você pode executar com modelos.
 
 ## <a name="api-versions"></a>Versões da API
 
-A tabela a seguir lista a versão da API para os recursos usados neste exemplo.
+A tabela seguinte lista a versão API pelos recursos utilizados neste exemplo.
 
-| Recurso | Tipo de recurso | Versão da API |
+| Recurso | Tipo de recurso | Versão API |
 |:---|:---|:---|
-| Área de trabalho   | áreas de trabalho    | 2017-03-15-visualização |
-| Search      | savedSearches | 2015-03-20 |
-| Origem de dados | fontes   | 2015-11-01-visualização |
-| Solução    | soluções     | 2015-11-01-visualização |
+| Área de trabalho   | espaços de trabalho    | Antevisão 2017-03-15 |
+| Pesquisa      | savedSearches | 2015-03-20 |
+| Origem de dados | fontes de dados   | Antevisão 2015-11-01 |
+| Solução    | soluções     | Antevisão 2015-11-01 |
 
-## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
+## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho log Analytics
 
-O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computador local. O modelo JSON está configurado para exigir apenas o nome e o local do novo espaço de trabalho. Ele usa valores especificados para outros parâmetros de espaço de trabalho, como [modo de controle de acesso](design-logs-deployment.md#access-control-mode), tipo de preço, retenção e nível de reserva de capacidade.
+O exemplo seguinte cria um espaço de trabalho usando um modelo da sua máquina local. O modelo JSON está configurado apenas para exigir o nome e a localização do novo espaço de trabalho. Utiliza valores especificados para outros parâmetros do espaço de trabalho, tais como o modo de controlo de [acesso,](design-logs-deployment.md#access-control-mode)o nível de preços, a retenção e o nível de reserva de capacidade.
 
-Para a reserva de capacidade, você define uma reserva de capacidade selecionada para ingerir dados, especificando o `CapacityReservation` de SKU e um valor em GB para a propriedade `capacityReservationLevel`. A lista a seguir detalha os valores com suporte e o comportamento ao configurá-lo.
+Para reserva de capacidade, você define uma reserva de capacidade selecionada para ingerir dados, especificando o `CapacityReservation` SKU e um valor em GB para o `capacityReservationLevel`de propriedade . A lista seguinte detalha os valores e comportamentos suportados ao configurá-lo.
 
-- Depois de definir o limite de reserva, você não poderá alterar para um SKU diferente dentro de 31 dias.
+- Uma vez estabelecido o limite de reserva, não pode mudar para um SKU diferente no prazo de 31 dias.
 
-- Depois de definir o valor de reserva, você só poderá aumentá-lo dentro de 31 dias.
+- Uma vez definido o valor da reserva, só pode aumentá-lo no prazo de 31 dias.
 
-- Você só pode definir o valor de `capacityReservationLevel` em múltiplos de 100, com um valor máximo de 50000.
+- Só é possível definir o valor de `capacityReservationLevel` em múltiplos de 100, com um valor máximo de 50000.
 
-- Se você aumentar o nível de reserva, o temporizador será redefinido e você não poderá alterá-lo por mais 31 dias a partir dessa atualização.  
+- Se aumentar o nível de reserva, o temporizador é reposto e não poderá alterá-lo por mais 31 dias a partir desta atualização.  
 
-- Se você modificar qualquer outra propriedade para o espaço de trabalho, mas reter o limite de reserva para o mesmo nível, o temporizador não será redefinido. 
+- Se modificar qualquer outra propriedade para o espaço de trabalho, mas mantiver o limite de reserva para o mesmo nível, o temporizador não é reposto. 
 
 ### <a name="create-and-deploy-template"></a>Criar e implementar modelo
 
@@ -147,17 +147,17 @@ Para a reserva de capacidade, você define uma reserva de capacidade selecionada
     }
     ```
 
-2. Edite o modelo para satisfazer os seus requisitos. Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados. 
-3. Guarde este ficheiro como **deploylaworkspacetemplate.json** para uma pasta local.
-4. Está pronto para implementar este modelo. Você pode usar o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome do espaço de trabalho e o local como parte do comando. O nome do espaço de trabalho deve ser globalmente exclusivo em todas as assinaturas do Azure.
+2. Edite o modelo para satisfazer os seus requisitos. Reveja a referência do [modelo Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais as propriedades e valores suportados. 
+3. Guarde este ficheiro como **modelo espaço de implantação.json** para uma pasta local.
+4. Está pronto para implementar este modelo. Utilize o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome e localização do espaço de trabalho como parte do comando. O nome do espaço de trabalho deve ser globalmente único em todas as subscrições do Azure.
 
-   * Para o PowerShell, use os seguintes comandos da pasta que contém o modelo:
+   * Para a PowerShell utilize os seguintes comandos da pasta que contém o modelo:
    
         ```powershell
         New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
-   * Para a linha de comando, use os seguintes comandos da pasta que contém o modelo:
+   * Para a linha de comando, utilize os seguintes comandos da pasta que contém o modelo:
 
         ```cmd
         azure config mode arm
@@ -166,20 +166,20 @@ Para a reserva de capacidade, você define uma reserva de capacidade selecionada
 
 A implementação pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte, que inclui o resultado:<br><br> ![Exemplo de resultado quando a implementação estiver concluída](./media/template-workspace-configuration/template-output-01.png)
 
-## <a name="configure-a-log-analytics-workspace"></a>Configurar um espaço de trabalho Log Analytics
+## <a name="configure-a-log-analytics-workspace"></a>Configure um espaço de trabalho de Log Analytics
 
-O exemplo de modelo a seguir ilustra como:
+A amostra do modelo seguinte ilustra como:
 
 1. Adicionar soluções para a área de trabalho
-2. Criar pesquisas salvas
+2. Criar pesquisas guardadas
 3. Criar um grupo de computadores
 4. Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
 5. Recolher contadores de desempenho disco lógico de computadores Linux (% de Inodes utilizados; Megabytes livres; % De espaço; utilizado Transferências/seg do disco; Leituras de disco/seg; Escritas de disco/seg)
 6. Recolher eventos do syslog de computadores Linux
 7. Recolher eventos de erro e aviso de Log de eventos de computadores Windows
 8. Recolher contador de desempenho de memória utilizada em Mbytes disponíveis a partir de computadores Windows
-9. Coletar logs do IIS e logs de eventos do Windows gravados pelo diagnóstico do Azure em uma conta de armazenamento
-10. Coletar logs personalizados do computador com Windows
+9. Colete registos IIS e registos do Windows Event escritos por diagnósticos do Azure numa conta de armazenamento
+10. Recolher registos personalizados do computador Windows
 
 ```json
 {
@@ -301,9 +301,7 @@ O exemplo de modelo a seguir ilustra como:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]",
-          "name": "CapacityReservation",
-          "capacityReservationLevel": 100
+          "name": "[parameters('pricingTier')]"
         }
       },
       "resources": [
@@ -622,13 +620,13 @@ O exemplo de modelo a seguir ilustra como:
 }
 ```
 
-### <a name="deploying-the-sample-template"></a>Implantando o modelo de exemplo
+### <a name="deploying-the-sample-template"></a>Implantação do modelo de amostra
 
-Para implantar o modelo de exemplo:
+Para implantar o modelo de amostra:
 
-1. Salve a amostra anexada em um arquivo, por exemplo `azuredeploy.json` 
-2. Edite o modelo para ter a configuração desejada
-3. Usar o PowerShell ou a linha de comando para implantar o modelo
+1. Guarde a amostra anexa num ficheiro, por exemplo, `azuredeploy.json` 
+2. Editar o modelo para ter a configuração que deseja
+3. Use powerShell ou a linha de comando para implementar o modelo
 
 #### <a name="powershell"></a>PowerShell
 
@@ -643,18 +641,18 @@ azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
-## <a name="example-resource-manager-templates"></a>Modelos do Resource Manager de exemplo
+## <a name="example-resource-manager-templates"></a>Modelos de Gestor de Recursos de exemplo
 
-A Galeria de modelos de início rápido do Azure inclui vários modelos para Log Analytics, incluindo:
+A galeria de modelos Azure quickstart inclui vários modelos para Log Analytics, incluindo:
 
-* [Implantar uma máquina virtual executando o Windows com a extensão de VM Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [Implantar uma máquina virtual que executa o Linux com a extensão de VM Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-* [Monitorar Azure Site Recovery usando um espaço de trabalho Log Analytics existente](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-* [Monitorar aplicativos Web do Azure usando um espaço de trabalho Log Analytics existente](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Adicionar uma conta de armazenamento existente a Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
+* [Implemente uma máquina virtual que execute o Windows com a extensão VM log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Implemente uma máquina virtual executando Linux com a extensão VM Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Monitor Azure Site Recovery utilizando um espaço de trabalho existente log Analytics](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [MonitorWeb Apps Azure utilizando um espaço de trabalho existente no Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Adicione uma conta de armazenamento existente ao Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Implante o agente do Windows em VMs do Azure usando o modelo do Resource Manager](../../virtual-machines/extensions/oms-windows.md).
+* [Implemente o agente Windows para VMs Azure utilizando](../../virtual-machines/extensions/oms-windows.md)o modelo de Gestor de Recursos .
 
-* [Implante o agente do Linux nas VMs do Azure usando o modelo do Resource Manager](../../virtual-machines/extensions/oms-linux.md).
+* [Desloque o agente Linux para VMs Azure utilizando](../../virtual-machines/extensions/oms-linux.md)o modelo de Gestor de Recursos .

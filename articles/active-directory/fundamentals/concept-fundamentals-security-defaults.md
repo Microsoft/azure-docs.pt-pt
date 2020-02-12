@@ -1,112 +1,112 @@
 ---
-title: Azure Active Directory padrões de segurança
-description: Políticas padrão de segurança que ajudam a proteger as organizações contra ataques comuns
+title: Incumprimentos de segurança do Diretório Ativo Azure
+description: Políticas de incumprimento de segurança que ajudam a proteger as organizações de ataques comuns
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024590"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149835"
 ---
-# <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
+# <a name="what-are-security-defaults"></a>O que são incumprimentos de segurança?
 
-O gerenciamento de segurança pode ser difícil quando ataques comuns relacionados à identidade estão se tornando cada vez mais populares. Esses ataques incluem pulverização, reprodução e phishing de senha.
+Gerir a segurança pode ser difícil quando os ataques comuns relacionados com a identidade estão a tornar-se cada vez mais populares. Estes ataques incluem spray de senha, repetição e phishing.
 
-Os padrões de segurança no Azure Active Directory (AD do Azure) facilitam a segurança e ajudam a proteger sua organização. Os padrões de segurança contêm configurações de segurança pré-configuradas para ataques comuns. 
+Os incumprimentos de segurança no Azure Ative Directory (Azure AD) facilitam a segurança e ajudam a proteger a sua organização. Os incumprimentos de segurança contêm definições de segurança pré-configuradas para ataques comuns. 
 
-A Microsoft está disponibilizando os padrões de segurança para todos. O objetivo é garantir que todas as organizações tenham um nível básico de segurança habilitado sem nenhum custo adicional. Você ativa os padrões de segurança no portal do Azure.
+A Microsoft está a disponibilizar falhas de segurança a todos. O objetivo é garantir que todas as organizações tenham um nível básico de segurança habilitado sem custos adicionais. Ligas falhas de segurança no portal Azure.
 
-![Captura de tela da portal do Azure com a alternância para habilitar os padrões de segurança](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
+![Screenshot do portal Azure com o toggle para permitir falhas de segurança](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
 > [!TIP]
 > Se seu locatário foi criado em ou após 22 de outubro de 2019, é possível que você esteja experimentando o novo comportamento seguro por padrão e já tenha os padrões de segurança habilitados em seu locatário. Em um esforço para proteger todos os nossos usuários, os padrões de segurança estão sendo distribuídos para todos os novos locatários criados.
 
-Mais detalhes sobre por que os padrões de segurança estão sendo disponibilizados podem ser encontrados na postagem do blog de Alex Weinert, [apresentando os padrões de segurança](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
+Mais detalhes sobre o porquê de falhas de segurança estarem a ser disponibilizadas podem ser encontrados no post de blog de Alex Weinert, [introduzindo incumprimentos](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414)de segurança .
 
-## <a name="unified-multi-factor-authentication-registration"></a>Registro de autenticação multifator unificado
+## <a name="unified-multi-factor-authentication-registration"></a>Registo unificado de autenticação multi-factor
 
-Todos os usuários em seu locatário devem se registrar para a autenticação multifator (MFA) na forma do serviço de autenticação multifator do Azure. Os usuários têm 14 dias para se registrarem na autenticação multifator usando o aplicativo Microsoft Authenticator. Depois que os 14 dias tiverem passado, o usuário não poderá entrar até que o registro da autenticação multifator seja concluído.
+Todos os utilizadores do seu inquilino devem inscrever-se para autenticação multifactor (MFA) sob a forma do serviço de autenticação Multifactor Azure. Os utilizadores têm 14 dias para se registarem para autenticação multi-factor utilizando a aplicação Autenticadora Microsoft. Após os 14 dias passados, o utilizador não poderá iniciar o seu início até que o registo de autenticação multifactor esteja concluído.
 
-Entendemos que alguns usuários podem estar fora do escritório ou não entrarão durante os 14 dias imediatamente após habilitar os padrões de segurança. Para garantir que cada usuário tenha bastante tempo para se registrar na autenticação multifator, o período de 14 dias é exclusivo para cada usuário. O período de 14 dias de um usuário começa após sua primeira entrada interativa bem-sucedida depois de habilitar os padrões de segurança.
+Sabemos que alguns utilizadores podem estar fora do escritório ou não assinar durante os 14 dias imediatamente após permitir em preversões de segurança. Para garantir que cada utilizador tem tempo suficiente para se registar para autenticação multi-factor, o período de 14 dias é único para cada utilizador. O período de 14 dias de um utilizador começa após o seu primeiro início de sessão interativa bem sucedida depois de ativar as falhas de segurança.
 
-## <a name="multi-factor-authentication-enforcement"></a>Imposição da autenticação multifator
+## <a name="multi-factor-authentication-enforcement"></a>Aplicação da autenticação de vários fatores
 
-### <a name="protecting-administrators"></a>Protegendo administradores
+### <a name="protecting-administrators"></a>Proteger administradores
 
-Os usuários com acesso a contas com privilégios aumentaram o acesso ao seu ambiente. Devido à potência que essas contas têm, você deve tratá-las com cuidado especial. Um método comum para melhorar a proteção de contas com privilégios é exigir uma forma mais forte de verificação de conta para entrada. No Azure AD, você pode obter uma verificação de conta mais forte exigindo a autenticação multifator.
+Os utilizadores com acesso a contas privilegiadas têm um acesso acrescido ao seu ambiente. Devido ao poder que estas contas têm, deve tratá-las com especial cuidado. Um método comum para melhorar a proteção das contas privilegiadas consiste em exigir uma forma mais forte de verificação da conta para o início do processo de inscrição. Em Azure AD, pode obter uma verificação de conta mais forte, exigindo autenticação multi-factor.
 
-Após a conclusão do registro com a autenticação multifator, serão necessárias as nove funções de administrador do Azure AD a seguir para executar autenticação adicional sempre que entrarem:
+Após a inscrição com A autenticação multi-factor, serão necessárias as seguintes nove funções de administrador da AD Azure para realizar a autenticação adicional sempre que iniciarem o seu início:
 
 - Administrador global
 - Administrador do SharePoint
 - Administrador de intercâmbio
-- Administrador de acesso condicional
+- Administrador de Acesso Condicional
 - Administrador de segurança
-- Administrador de assistência técnica ou administrador de senha
+- Administrador de helpdesk ou administrador de palavra-passe
 - Administrador de faturação
-- Administrador do usuário
+- Administrador de utilizadores
 - Administrador de autenticação
 
-### <a name="protecting-all-users"></a>Protegendo todos os usuários
+### <a name="protecting-all-users"></a>Proteger todos os utilizadores
 
-Tendemos a imaginar que as contas de administrador são as únicas contas que precisam de camadas extras de autenticação. Os administradores têm acesso amplo a informações confidenciais e podem fazer alterações nas configurações de toda a assinatura. Mas os invasores tendem a direcionar os usuários finais. 
+Tendemos a pensar que as contas de administrador são as únicas contas que precisam de camadas extra de autenticação. Os administradores têm um amplo acesso a informações sensíveis e podem fazer alterações às definições em toda a subscrição. Mas os atacantes tendem a visar os utilizadores finais. 
 
-Depois que esses invasores obtiverem acesso, eles poderão solicitar acesso a informações privilegiadas em nome do titular da conta original. Eles podem até mesmo baixar o diretório inteiro para executar um ataque de phishing em toda a sua organização. 
+Após o acesso destes agressores, podem solicitar acesso a informações privilegiadas em nome do titular da conta original. Eles podem até baixar todo o diretório para realizar um ataque de phishing a toda a sua organização. 
 
-Um método comum para melhorar a proteção para todos os usuários é exigir uma forma mais forte de verificação de conta, como a autenticação multifator, para todos. Depois que os usuários concluírem o registro da autenticação multifator, eles serão solicitados a fornecer autenticação adicional sempre que necessário.
+Um método comum para melhorar a proteção de todos os utilizadores é exigir uma forma mais forte de verificação de conta, como a Autenticação Multi-Factor, para todos. Após os utilizadores completarem o registo de autenticação multi-factor, serão solicitados para autenticação adicional sempre que necessário.
 
-### <a name="blocking-legacy-authentication"></a>Bloqueando a autenticação herdada
+### <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
 
-Para dar aos usuários acesso fácil aos seus aplicativos de nuvem, o Azure AD dá suporte a uma variedade de protocolos de autenticação, incluindo a autenticação herdada. A *autenticação herdada* é um termo que se refere a uma solicitação de autenticação feita por:
+Para dar aos seus utilizadores um acesso fácil às suas aplicações na nuvem, o Azure AD suporta uma variedade de protocolos de autenticação, incluindo a autenticação do legado. *A autenticação do legado* é um termo que se refere a um pedido de autenticação feito por:
 
-- Clientes do Office mais antigos que não usam autenticação moderna (por exemplo, um cliente do Office 2010).
-- Qualquer cliente que usa protocolos de email mais antigos, como IMAP, SMTP ou POP3.
+- Clientes mais velhos do Office que não usam autenticação moderna (por exemplo, um cliente do Office 2010).
+- Qualquer cliente que utilize protocolos de correio mais antigos, como iMAP, SMTP ou POP3.
 
-Hoje, a maior parte do comprometimento de tentativas de entrada é proveniente da autenticação herdada. A autenticação herdada não dá suporte à autenticação multifator. Mesmo que você tenha uma política de autenticação multifator habilitada em seu diretório, um invasor pode se autenticar usando um protocolo mais antigo e ignorar a autenticação multifator. 
+Hoje, a maioria das tentativas comprometedoras de inscrição provém da autenticação do legado. A autenticação do legado não suporta a autenticação multi-factor. Mesmo que tenha uma política de autenticação multi-factor ativada no seu diretório, um intruso pode autenticar usando um protocolo mais antigo e contornar a autenticação multi-factor. 
 
-Depois que os padrões de segurança são habilitados em seu locatário, todas as solicitações de autenticação feitas por um protocolo mais antigo serão bloqueadas. Os padrões de segurança não bloqueiam o Exchange ActiveSync.
+Após os incumprimentos de segurança estarem ativados no seu inquilino, todos os pedidos de autenticação feitos por um protocolo mais antigo serão bloqueados. Falhas de segurança bloqueiam a autenticação básica do Exchange Ative Sync.
 
 > [!WARNING]
-> Antes de habilitar os padrões de segurança, verifique se os administradores não estão usando protocolos de autenticação mais antigos. Para obter mais informações, consulte [como sair da autenticação herdada](concept-fundamentals-block-legacy-authentication.md).
+> Antes de ativar os incumprimentos de segurança, certifique-se de que os seus administradores não estão a utilizar protocolos de autenticação mais antigos. Para mais informações, consulte [Como afastar-se da autenticação do legado.](concept-fundamentals-block-legacy-authentication.md)
 
-### <a name="protecting-privileged-actions"></a>Protegendo ações privilegiadas
+### <a name="protecting-privileged-actions"></a>Proteger ações privilegiadas
 
-As organizações usam uma variedade de serviços do Azure gerenciados por meio da API Azure Resource Manager, incluindo:
+As organizações utilizam uma variedade de serviços Azure geridos através da API do Gestor de Recursos Azure, incluindo:
 
 - Portal do Azure 
 - Azure PowerShell 
 - CLI do Azure
 
-O uso de Azure Resource Manager para gerenciar seus serviços é uma ação altamente privilegiada. Azure Resource Manager pode alterar configurações de todo o locatário, como configurações de serviço e cobrança de assinatura. A autenticação de fator único é vulnerável a uma variedade de ataques, como phishing e spray de senha. 
+Usar o Gestor de Recursos Azure para gerir os seus serviços é uma ação altamente privilegiada. O Azure Resource Manager pode alterar as configurações em todo o arrendamento, tais como configurações de serviço e faturação de subscrição. A autenticação de um único fator é vulnerável a uma variedade de ataques como phishing e spray de senha. 
 
-É importante verificar a identidade dos usuários que desejam acessar Azure Resource Manager e atualizar as configurações. Você verifica sua identidade exigindo autenticação adicional antes de permitir o acesso.
+É importante verificar a identidade dos utilizadores que pretendam aceder ao Azure Resource Manager e configurações de atualizações. Verifica a sua identidade exigindo autenticação adicional antes de permitir o acesso.
 
-Depois de habilitar os padrões de segurança em seu locatário, qualquer usuário que estiver acessando o portal do Azure, Azure PowerShell ou o CLI do Azure precisará concluir a autenticação adicional. Essa política se aplica a todos os usuários que estão acessando Azure Resource Manager, seja um administrador ou um usuário. 
+Depois de ativar falhas de segurança no seu inquilino, qualquer utilizador que aceda ao portal Azure, Azure PowerShell ou o Azure CLI terá de concluir a autenticação adicional. Esta política aplica-se a todos os utilizadores que acedem ao Gestor de Recursos Do Azure, seja um administrador ou um utilizador. 
 
-Se o usuário não estiver registrado para autenticação multifator, o usuário será solicitado a se registrar usando o aplicativo Microsoft Authenticator para continuar. Nenhum período de registro de autenticação multifator de 14 dias será fornecido.
+Se o utilizador não estiver registado para autenticação multi-factor, o utilizador será obrigado a registar-se utilizando a aplicação Autenticadora Microsoft para proceder. Será fornecido o período de registo de autenticação multifactor de 14 dias.
 
 Os inquilinos do Exchange Online pré-2017 têm a autenticação moderna desativada por defeito. Para evitar a possibilidade de um laço de login ao autenticar através destes inquilinos, deve permitir a [autenticação moderna.](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)
 
 > [!NOTE]
-> A conta de sincronização de Azure AD Connect é excluída dos padrões de segurança e não será solicitado a se registrar ou executar a autenticação multifator. As organizações não devem usar essa conta para outros fins.
+> A conta de sincronização Azure AD Connect está excluída de incumprimentos de segurança e não será solicitada a registar-se ou a realizar a autenticação de vários fatores. As organizações não devem utilizar esta conta para outros fins.
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-As considerações adicionais a seguir estão relacionadas à implantação de padrões de segurança para seu locatário.
+As seguintes considerações adicionais estão relacionadas com a implementação de incumprimentos de segurança para o seu inquilino.
 
 ### <a name="authentication-methods"></a>Métodos de autenticação
 
-Os padrões de segurança permitem o registro e o uso da autenticação multifator do Azure **usando apenas o aplicativo Microsoft Authenticator usando notificações**. O acesso condicional permite o uso de qualquer método de autenticação que o administrador escolha para habilitar.
+As falhas de segurança permitem o registo e utilização da Autenticação Multi-Factor Azure **utilizando apenas a aplicação Do Autenticador Microsoft utilizando notificações**. O Acesso Condicional permite a utilização de qualquer método de autenticação que o administrador opte por ativar.
 
 |   | Predefinições de segurança | Acesso Condicional |
 | --- | --- | --- |
@@ -114,48 +114,48 @@ Os padrões de segurança permitem o registro e o uso da autenticação multifat
 | Código de verificação de aplicativo móvel ou ficha de hardware |   | X |
 | Mensagem de texto para telefone |   | X |
 | Chamada para telefone |   | X |
-| Palavras-passe de aplicações |   | X * * |
+| Palavras-passe de aplicativos |   | X** |
 
-\* * As senhas de aplicativo só estarão disponíveis no MFA por usuário com cenários de autenticação herdados somente se habilitadas pelos administradores.
+** As palavras-passe da aplicação só estão disponíveis em MFA por utilizador com cenários de autenticação legado apenas se ativadas pelos administradores.
 
 ### <a name="conditional-access"></a>Acesso Condicional
 
-Você pode usar o acesso condicional para configurar políticas semelhantes a padrões de segurança, mas com mais granularidade, incluindo exclusões de usuário, que não estão disponíveis em padrões de segurança. Se você estiver usando o acesso condicional e tiver políticas de acesso condicional habilitadas em seu ambiente, os padrões de segurança não estarão disponíveis para você. Se você tiver uma licença que forneça acesso condicional, mas não tiver políticas de acesso condicional habilitadas em seu ambiente, você poderá usar os padrões de segurança até habilitar as políticas de acesso condicional. Mais informações sobre o licenciamento do Azure AD podem ser encontradas na [página de preços do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
+Pode utilizar o Acesso Condicional para configurar políticas semelhantes às falhas de segurança, mas com mais granularidade, incluindo exclusões de utilizadores, que não estão disponíveis em incumprimentos de segurança. Se estiver a utilizar o Acesso Condicional e tiver políticas de Acesso Condicional ativadas no seu ambiente, os incumprimentos de segurança não estarão disponíveis para si. Se tiver uma licença que forneça acesso condicional mas não tenha nenhuma política de Acesso Condicional ativada no seu ambiente, é bem-vindo a utilizar falhas de segurança até ativar as políticas de Acesso Condicional. Mais informações sobre o licenciamento da AD Azure podem ser encontradas na página de preços da [AD Azure](https://azure.microsoft.com/pricing/details/active-directory/).
 
-![Mensagem de aviso de que você pode ter padrões de segurança ou acesso condicional não ambos](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
+![Mensagem de aviso de que pode ter incumprimentos de segurança ou acesso condicional não ambos](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
-Aqui estão os guias passo a passo sobre como você pode usar o acesso condicional para configurar políticas equivalentes:
+Aqui estão guias passo a passo sobre como pode utilizar o Acesso Condicional para configurar políticas equivalentes:
 
 - [Exigir MFA para administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
-- [Exigir MFA para gerenciamento do Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- [Bloquear autenticação herdada](../conditional-access/howto-conditional-access-policy-block-legacy.md)
-- [Exigir MFA para todos os usuários](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Exigir registro do Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) -requer Azure ad Identity Protection
+- [Exigir MFA para a gestão do Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
+- [Autenticação do legado do bloco](../conditional-access/howto-conditional-access-policy-block-legacy.md)
+- [Exigir MFA para todos os utilizadores](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
+- [Exigir registo De MFA Azure](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requer proteção de identidade Azure AD
 
-## <a name="enabling-security-defaults"></a>Habilitando padrões de segurança
+## <a name="enabling-security-defaults"></a>Ativar incumprimentos de segurança
 
-Para habilitar os padrões de segurança em seu diretório:
+Para ativar os incumprimentos de segurança no seu diretório:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de segurança, administrador de acesso condicional ou administrador global.
-1. Navegue até **Azure Active Directory**  **Propriedades**de >de .
-1. Selecione **gerenciar padrões de segurança**.
-1. Defina a alternância **habilitar padrões de segurança** para **Sim**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de segurança, administrador de Acesso Condicional ou administrador global.
+1. Navegue pelo **Diretório Ativo da Azure**  **propriedades**>.
+1. Selecione **Gerir os predefinições de segurança**.
+1. Desative as falhas de **segurança ativar** para **Sim**.
 1. Selecione **Guardar**.
 
-## <a name="disabling-security-defaults"></a>Desabilitando padrões de segurança
+## <a name="disabling-security-defaults"></a>Desativar os incumprimentos de segurança
 
-As organizações que optam por implementar políticas de acesso condicional que substituem os padrões de segurança devem desabilitar os padrões de segurança. 
+As organizações que optem por implementar políticas de Acesso Condicional que substituam os incumprimentos de segurança devem desativar os incumprimentos de segurança. 
 
-![Mensagem de aviso desabilite os padrões de segurança para habilitar o acesso condicional](./media/concept-fundamentals-security-defaults/security-defaults-disable-before-conditional-access.png)
+![Mensagem de aviso desativa falhas de segurança para ativar o Acesso Condicional](./media/concept-fundamentals-security-defaults/security-defaults-disable-before-conditional-access.png)
 
-Para desabilitar os padrões de segurança em seu diretório:
+Para desativar os incumprimentos de segurança no seu diretório:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de segurança, administrador de acesso condicional ou administrador global.
-1. Navegue até **Azure Active Directory**  **Propriedades**de >de .
-1. Selecione **gerenciar padrões de segurança**.
-1. Defina a alternância **habilitar padrões de segurança** para **não**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de segurança, administrador de Acesso Condicional ou administrador global.
+1. Navegue pelo **Diretório Ativo da Azure**  **propriedades**>.
+1. Selecione **Gerir os predefinições de segurança**.
+1. Desative as **predefinições** de segurança Ativar para **O**.
 1. Selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Políticas de acesso condicional comum](../conditional-access/concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](../conditional-access/concept-conditional-access-policy-common.md)

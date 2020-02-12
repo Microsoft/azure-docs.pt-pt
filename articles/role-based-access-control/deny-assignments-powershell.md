@@ -1,6 +1,6 @@
 ---
-title: Lista negar atribuições para recursos do Azure com o Azure PowerShell | Documentos da Microsoft
-description: Saiba como listar os utilizadores, grupos, os principais de serviço e identidades geridas que quais foi negadas o acesso a recursos do Azure específica de ações em escopos específicos com o Azure PowerShell.
+title: Lista nega atribuições para recursos Azure com A Azure PowerShell
+description: Saiba como listar os utilizadores, grupos, diretores de serviçoe identidades geridas que foram negados acesso a ações específicas de recursos Azure em âmbitos específicos usando o Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,32 +13,32 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c1ea26fdb4d60262f89ea6ab0f87220a08c01e68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ba18b89bd37dbd55350321c503e37ab0590ab87
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110488"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137386"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-azure-powershell"></a>Lista negar atribuições para recursos do Azure com o Azure PowerShell
+# <a name="list-deny-assignments-for-azure-resources-using-azure-powershell"></a>Lista nega atribuições para recursos Azure usando A PowerShell Azure
 
-[Negar atribuições](deny-assignments.md) impedir que os utilizadores a efetuar ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso. Este artigo descreve como listar negar atribuições com o Azure PowerShell.
+[As atribuições de negação](deny-assignments.md) bloqueiam os utilizadores de realizarem ações específicas de recursos Do Azure, mesmo que uma atribuição de funções lhes conceda acesso. Este artigo descreve como listar missões de negação usando o Azure PowerShell.
 
 > [!NOTE]
-> Não é possível diretamente criar seu próprio negar atribuições. Para obter informações sobre como negar atribuições são criadas, consulte [negar atribuições](deny-assignments.md).
+> Não podes criar diretamente as tuas próprias missões de negação. Para obter informações sobre como as missões de negação são criadas, consulte [missões Denegação](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para obter informações sobre uma atribuição de negar, tem de ter:
+Para obter informações sobre uma atribuição de negação, deve ter:
 
-- `Microsoft.Authorization/denyAssignments/read` permissão, o que está incluído na maioria [funções incorporadas para recursos do Azure](built-in-roles.md)
-- [PowerShell no Azure Cloud Shell](/azure/cloud-shell/overview) ou [o Azure PowerShell](/powershell/azure/install-az-ps)
+- `Microsoft.Authorization/denyAssignments/read` permissão, que está incluída na maioria das [funções incorporadas para os recursos do Azure](built-in-roles.md)
+- [PowerShell em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="list-deny-assignments"></a>Lista de atribuições de negação
+## <a name="list-deny-assignments"></a>Listar atribuições de negação
 
-### <a name="list-all-deny-assignments"></a>Lista todas as atribuições de negação
+### <a name="list-all-deny-assignments"></a>Enumerar todas as missões de negação
 
-Para listar todos negar atribuições para a subscrição atual, utilize [Get-AzDenyAssignment](/powershell/module/az.resources/get-azdenyassignment).
+Para listar todas as atribuições de negar para a subscrição atual, utilize [a Atribuição Get-AzDeny](/powershell/module/az.resources/get-azdenyassignment).
 
 ```azurepowershell
 Get-AzDenyAssignment
@@ -90,9 +90,9 @@ ExcludePrincipals       : {
 IsSystemProtected       : True
 ```
 
-### <a name="list-deny-assignments-at-a-resource-group-scope"></a>Lista de atribuições com um âmbito de grupo de recursos de negação
+### <a name="list-deny-assignments-at-a-resource-group-scope"></a>Lista nega atribuições num âmbito de grupo de recursos
 
-Para listar todas as atribuições com um âmbito de grupo de recursos, utilize de negação [Get-AzDenyAssignment](/powershell/module/az.resources/get-azdenyassignment).
+Para listar todas as atribuições de negar num âmbito de grupo de recursos, utilize [a Atribuição Get-AzDeny](/powershell/module/az.resources/get-azdenyassignment).
 
 ```azurepowershell
 Get-AzDenyAssignment -ResourceGroupName <resource_group_name>
@@ -111,9 +111,9 @@ Principals         : {
                      }
 ```
 
-### <a name="list-deny-assignments-at-a-subscription-scope"></a>Lista negar atribuições no âmbito da subscrição
+### <a name="list-deny-assignments-at-a-subscription-scope"></a>Lista nega atribuições num âmbito de subscrição
 
-Para listar todos negar atribuições no âmbito da subscrição, utilize [Get-AzDenyAssignment](/powershell/module/az.resources/get-azdenyassignment). Para obter o ID de subscrição, pode encontrá-lo sobre a **subscrições** painel no portal do Azure, ou pode usar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
+Para listar todas as atribuições de negar num âmbito de subscrição, utilize [a Atribuição Get-AzDeny](/powershell/module/az.resources/get-azdenyassignment). Para obter o ID de subscrição, pode encontrá-lo na lâmina **de Subscrições** no portal Azure ou pode utilizar [o Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 ```azurepowershell
 Get-AzDenyAssignment -Scope /subscriptions/<subscription_id>
@@ -123,8 +123,8 @@ Get-AzDenyAssignment -Scope /subscriptions/<subscription_id>
 PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Compreender negar atribuições para recursos do Azure](deny-assignments.md)
-- [Lista negar atribuições para recursos do Azure no portal do Azure](deny-assignments-portal.md)
-- [Lista de atribuições para recursos do Azure com a API REST de negação](deny-assignments-rest.md)
+- [Entenda negar atribuições para recursos Azure](deny-assignments.md)
+- [Lista nega atribuições para recursos Azure utilizando o portal Azure](deny-assignments-portal.md)
+- [Lista nega atribuições para recursos Azure utilizando a API REST](deny-assignments-rest.md)

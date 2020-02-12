@@ -1,67 +1,67 @@
 ---
 title: Integração de parceiros de sensores
-description: Este artigo descreve a integração de parceiros de sensor.
+description: Este artigo descreve a integração de parceiros de sensores.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ef84c5f1d1c3f3b9e7cd76d7fab327426ea6e313
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e4b2e7c40295d134fe24def0f140bc8097c21250
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530651"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132838"
 ---
 # <a name="sensor-partner-integration"></a>Integração de parceiros de sensores
 
-Este artigo fornece informações sobre o componente Azure FarmBeats **Translator** , que habilita a integração de parceiros de sensor.
+Este artigo fornece informações sobre a **componente** Tradutor Azure FarmBeats, que permite a integração de parceiros de sensores.
 
-Usando esse componente, os parceiros podem se integrar com o FarmBeats usando APIs de Hub de dados do FarmBeats e enviar dados de dispositivo do cliente e telemetria para o Hub de dados do FarmBeats. Depois que os dados estiverem disponíveis no FarmBeats, eles serão visualizados usando o acelerador FarmBeats e poderão ser usados para a fusão de dados e para a criação de modelos de inteligência artificial/aprendizado de máquina.
+Utilizando este componente, os parceiros podem integrar-se com farmBeats usando a FarmBeats Data hub APIs e enviar dados do dispositivo do cliente e telemetria para o centro de dados FarmBeats. Uma vez que os dados estão disponíveis no FarmBeats, é visualizado usando o Acelerador FarmBeats e pode ser usado para a fusão de dados e para a construção de modelos de aprendizagem automática/inteligência artificial.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Para desenvolver o componente do tradutor, você precisará das seguintes credenciais que permitirão o acesso às APIs do FarmBeats.
+Para desenvolver a componente Tradutor, necessitará das seguintes credenciais que permitirão o acesso às APIs FarmBeats.
 
 - Ponto Final de API
 - ID do inquilino
 - ID de Cliente
 - Segredo do Cliente
-- Cadeia de conexão do EventHub
+- String de conexão EventHub
 
-Consulte esta seção para obter as credenciais acima: [habilitar a integração do dispositivo](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats)
+Consulte esta secção para obter as credenciais acima: Ativar a [integração do dispositivo](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats)
 
-## <a name="translator-development"></a>Desenvolvimento de Tradutor
+## <a name="translator-development"></a>Desenvolvimento de tradutores
 
-**Integração baseada na API REST**
+**Integração baseada em REST API**
 
-Os recursos de integração de dados de sensor do FarmBeats são expostos por meio da API REST. Os recursos incluem definição de metadados, provisionamento de dispositivo e sensor e gerenciamento de dispositivo e sensor.
+As capacidades de integração de dados de sensores da FarmBeats são expostas através da API REST. As capacidades incluem definição de metadados, fornecimento de dispositivos e sensores, e gestão de dispositivos e sensores.
 
 **Ingestão de telemetria**
 
-Os dados de telemetria são mapeados para uma mensagem canônica que é publicada nos hubs de eventos do Azure para processamento. Os hubs de eventos do Azure são um serviço que habilita a ingestão de dados em tempo real (telemetria) de dispositivos e aplicativos conectados.
+Os dados da telemetria estão mapeados para uma mensagem canónica publicada no Azure Event Hubs para processamento. O Azure Event Hubs é um serviço que permite a ingestão de dados em tempo real (telemetria) de dispositivos e aplicações conectados.
 
-**Desenvolvimento de API**
+**Desenvolvimento da API**
 
-As APIs contêm a documentação técnica do Swagger. Para obter mais informações sobre as APIs e suas solicitações ou respostas correspondentes, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+As APIs contêm documentação técnica da Swagger. Para obter mais informações sobre as APIs e os seus pedidos ou respostas correspondentes, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 **Autenticação**
 
-O FarmBeats usa a autenticação Microsoft Azure Active Directory. O serviço de Azure App fornece autenticação interna e suporte de autorização.
+FarmBeats usa autenticação do Microsoft Azure Ative Directory. O Azure App Service fornece autenticação incorporada e suporte de autorização.
 
-Para obter mais informações, consulte [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+Para mais informações, consulte [o Diretório Ativo azure.](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)
 
-O FarmBeats data Hub usa a autenticação de portador, que precisa das seguintes credenciais:
+O centro de dados FarmBeats utiliza a autenticação ao portador, que necessita das seguintes credenciais:
    - ID de Cliente
    - Segredo do cliente
    - ID do inquilino
 
-Usando essas credenciais, o chamador pode solicitar um token de acesso. O token precisa ser enviado nas solicitações de API subsequentes, na seção de cabeçalho, da seguinte maneira:
+Usando estas credenciais, o chamador pode solicitar um sinal de acesso. O símbolo deve ser enviado nos pedidos subsequentes da API, na secção cabeçalho, da seguinte forma:
 
 ```
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
-O código Python de exemplo a seguir fornece o token de acesso, que pode ser usado para chamadas de API subsequentes para FarmBeats.
+A amostra seguinte O código Python dá o sinal de acesso, que pode ser usado para chamadas subsequentes da API para FarmBeats.
 
 ```python
 import azure 
@@ -83,31 +83,31 @@ access_token = token_response.get('accessToken') 
 ```
 
 
-**Cabeçalhos de solicitação HTTP**
+**HTTP solicitar cabeçalhos**
 
-Aqui estão os cabeçalhos de solicitação mais comuns que precisam ser especificados quando você faz uma chamada à API para o Hub de dados FarmBeats.
+Aqui estão os cabeçalhos de pedido mais comuns que precisam de ser especificados quando você faz uma chamada API para farmBeats Data hub.
 
 
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
-Content-Type | O formato da solicitação (Content-Type: Application/<format>). Para APIs de Hub de dados FarmBeats, o formato é JSON. Tipo de conteúdo: aplicativo/JSON
-Autorização | Especifica o token de acesso necessário para fazer uma chamada à API. Autorização: portador de acesso < token >
-Aceitar | O formato de resposta. Para APIs de Hub de dados FarmBeats, o formato é JSON. Aceitar: aplicativo/JSON
+Tipo de conteúdo | O formato de pedido (Tipo de conteúdo: aplicação/<format>). Para a FarmBeats Data hub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
+Autorização | Especifica o sinal de acesso necessário para fazer uma chamada aPi. Autorização: Bearer <Access-Token>
+Aceitar | O formato de resposta. Para a FarmBeats Data hub APIs, o formato é JSON. Aceitar: aplicação/json
 
-**Solicitações de API**
+**Pedidos da API**
 
-Para fazer uma solicitação de API REST, você combina o método HTTP (GET, POST ou PUT), a URL para o serviço de API, a Uniform Resource Identifier (URI) a um recurso para consultar, enviar dados para, atualizar ou excluir e um ou mais cabeçalhos de solicitação HTTP. A URL para o serviço de API é o ponto de extremidade de API que você fornece. Aqui está um exemplo: https://\<yourdatahub-site-Name >. azurewebsites. net
+Para fazer um pedido de API REST, combina o método HTTP (GET, POST ou PUT), o URL ao serviço API, o Uniform Resource Identifier (URI) a um recurso para consultar, submeter dados para, atualizar ou eliminar, e um ou mais cabeçalhos de pedido http. O URL do serviço API é o ponto final da API que fornece. Aqui está uma amostra: https://\<o seu datahub-website-name>.azurewebsites.net
 
-Opcionalmente, você pode incluir parâmetros de consulta em GET calls para filtrar, limitar o tamanho e classificar os dados nas respostas.
+Opcionalmente, pode incluir parâmetros de consulta nas chamadas GET para filtrar, limitar o tamanho e classificar os dados nas respostas.
 
-A seguinte solicitação de exemplo é obter a lista de dispositivos.
+O seguinte pedido de amostra é obter a lista de dispositivos.
 
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>"
 ```
-A maioria das chamadas GET, POST e PUT exigem um corpo de solicitação JSON.
+A maioria das chamadas GET, POST e PUT requerem um corpo de pedido da JSON.
 
-A seguinte solicitação de exemplo é criar um dispositivo. (Este exemplo tem um JSON de entrada com o corpo da solicitação.)
+O seguinte pedido de amostra é criar um dispositivo. (Esta amostra tem uma entrada JSON com o organismo de pedido.)
 
 ```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
@@ -115,90 +115,90 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 
 ## <a name="data-format"></a>Formato de dados
 
-JSON é um formato de dados comum independente de linguagem que fornece uma representação de texto simples de estruturas de dados arbitrárias. Para obter mais informações, consulte [JSON.org](http://json.org).
+JSON é um formato de dados independente da linguagem comum que fornece uma representação simples de texto de estruturas de dados arbitrárias. Para mais informações, consulte [json.org](http://json.org).
 
 ## <a name="metadata-specifications"></a>Especificações de metadados
 
-O FarmBeats data Hub tem as seguintes APIs que permitem que os parceiros de dispositivo criem e gerenciem metadados de dispositivo ou sensor.
+O centro de dados FarmBeats tem as seguintes APIs que permitem aos parceiros do dispositivo criar e gerir metadados de dispositivos ou sensores.
 
-- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é o gateway ou o nó.
-- **dispositivo**/: o dispositivo corresponde a um dispositivo físico presente no farm.
+- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é gateway ou nó.
+- **dispositivo**/: O dispositivo corresponde a um dispositivo físico presente na exploração.
 - /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medida do sensor, como temperatura ambiente e pressão.
-- **sensor**de /: o sensor corresponde a um sensor físico que registra valores. Um sensor normalmente é conectado a um dispositivo com uma ID de dispositivo.
+- **sensor**/: Sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
 
-  **DeviceModel** |  |
+  **Modelo de Dispositivos** |  |
   --- | ---
-  Tipo (nó, gateway)  | Tipo do dispositivo-nó ou gateway |
+  Tipo (nó, porta de entrada)  | Tipo do dispositivo - Nó ou Gateway |
   Fabricante  | Nome do fabricante |
-  ProductCode  | Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor # 6800. |
-  Portas  | Nome da porta e tipo, que é digital ou analógica.  |
-  Nome  | Nome para identificar o recurso. Por exemplo, nome do modelo ou nome do produto. |
+  Código de Produto  | Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor#6800. |
+  Portas  | Nome e tipo de porta, que é digital ou analógico.  |
+  Nome  | Nome para identificar recurso. Por exemplo, nome do modelo ou nome do produto. |
   Descrição  | Forneça uma descrição significativa do modelo. |
   Propriedades  | Propriedades adicionais do fabricante. |
   **Dispositivo** |  |
-  DeviceModelId  |ID do modelo de dispositivo associado. |
-  HardwareID   |ID exclusiva para o dispositivo, como um endereço MAC.  |
-  ReportingInterval |Intervalo de relatórios em segundos. |
-  Localização    |Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros). |
-  ParentDeviceId | ID do dispositivo pai ao qual este dispositivo está conectado. Por exemplo, se um nó estiver conectado a um gateway, o nó terá parentDeviceID como o gateway. |
-  Nome  | Nome para identificar o recurso. Os parceiros de dispositivo precisam enviar um nome consistente com o nome do dispositivo no lado do parceiro do dispositivo. Se o nome do dispositivo for definido pelo usuário no lado do parceiro do dispositivo, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.  |
+  DeviceModelId  |IDENTIFICAÇÃO do modelo de dispositivo associado. |
+  HardwareId   |Identificação única para o dispositivo, como um endereço MAC.  |
+  Intervalo de Reporte |Intervalo de reporte em segundos. |
+  Localização    |Latitude do dispositivo (-90 a +90), longitude (-180 a 180) e elevação (em metros). |
+  ParentDeviceid | Identificação do dispositivo-mãe ao qual este dispositivo está ligado. Por exemplo, se um nó estiver ligado a um portal, o nó tem o paiDeviceID como porta de entrada. |
+  Nome  | Nome para identificar o recurso. Os parceiros do dispositivo precisam de enviar um nome consistente com o nome do dispositivo no lado do parceiro do dispositivo. Se o nome do dispositivo for definido pelo utilizador no lado do parceiro do dispositivo, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.  |
   Descrição  | Forneça uma descrição significativa.  |
   Propriedades  |Propriedades adicionais do fabricante.  |
-  **SensorModel** |  |
+  **Modelo de Sensores** |  |
   Tipo (analógico, digital)  |Mencione o sensor analógico ou digital.|
   Fabricante  | Nome do fabricante. |
-  ProductCode  | Código do produto ou nome do modelo ou número. Por exemplo, RS-CO2-N01.  |
-  Nome > SensorMeasures  | Nome da medida do sensor. Somente letras minúsculas têm suporte. Para medições de diferentes profundidades, especifique a profundidade. Por exemplo, soil_moisture_15cm. Esse nome deve ser consistente com os dados de telemetria. |
-  SensorMeasures > DataType  | Tipo de dados Telemétrico. Atualmente, há suporte para Double. |
-  Tipo de > SensorMeasures  | Tipo de medição dos dados de telemetria do sensor. A seguir estão os tipos definidos pelo sistema: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, comprimento, LiquidLevel, nitrate, O2, PH, phosphate, PointInTime, Potassium, pressão, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, estado, tempo de duração, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte a API do/ExtendedType.
-  Unidade de > SensorMeasures | Unidade de dados de telemetria do sensor. A seguir estão as unidades definidas pelo sistema: nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, mercúrio, PSI, milímetro, centímetro, medidor, polegada, pés, milhar, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, grau, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, porcentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, litro, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond e InchesPerHour. Para adicionar mais, consulte a API do/ExtendedType.
-  Agregatype de > SensorMeasures  | Nenhum, médio, máximo, mínimo ou i.
-  Profundidade de > de SensorMeasures  | A profundidade do sensor em centímetros. Por exemplo, a medida de umidade de 10 cm sob a base.
-  Descrição de > SensorMeasures  | Forneça uma descrição significativa da medida.
-  Nome  | Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
+  Código de Produto  | Código do produto ou nome ou número do modelo. Por exemplo, RS-CO2-N01.  |
+  SensorMeasures > Nome  | Nome da medida do sensor. Só a minúscula é suportada. Para medições de diferentes profundidades, especifique a profundidade. Por exemplo, soil_moisture_15cm. Este nome tem de ser consistente com os dados da telemetria. |
+  SensorMeasures > DataType  | Tipo de dados de telemetria. Atualmente, o dobro é suportado. |
+  SensorMeasures > Tipo  | Tipo de medição dos dados de telemetria do sensor. Seguem-se os tipos definidos pelo sistema: AmbienteTemperatura, CO2, Profundidade, Condutividade Elétrica, LeafWetness, Comprimento, Nível Líquido, Nitrato, O2, PH, Fosfato, PointInTime, Potássio, Pressão, RainGauge, Humidade Relativa, Salinidade, Humidade do Solo, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte a API /ExtendedType.
+  SensorMeasures > Unidade | Unidade de dados de telemetria de sensores. Seguem-se as unidades definidas pelo sistema: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercúrio, PSI, MilliMeter, Centímetro, Meter, Polegada, Pés, Milha, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliwattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond e InchesPerHour. Para adicionar mais, consulte a API /ExtendedType.
+  SensorMeasures > AgregaçãoType  | Ou nenhuma, média, máxima, mínima ou StandardDeviation.
+  SensorMeasures > Profundidade  | A profundidade do sensor em centímetros. Por exemplo, a medição da humidade 10 cm debaixo do solo.
+  SensorMeasures > Descrição  | Forneça uma descrição significativa da medição.
+  Nome  | Nome para identificar recurso. Por exemplo, o nome do modelo ou o nome do produto.
   Descrição  | Forneça uma descrição significativa do modelo.
   Propriedades  | Propriedades adicionais do fabricante.
-  **Sensores**  |  |
-  HardwareID  | ID exclusiva do sensor definido pelo fabricante.
-  SensorModelId  | ID do modelo de sensor associado.
-  Localização  | Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).
-  Nome da > de porta  |Nome e tipo da porta à qual o sensor está conectado no dispositivo. Deve ser o mesmo nome definido no modelo do dispositivo.
-  DeviceId  | ID do dispositivo ao qual o sensor está conectado.
-  Nome  | Nome para identificar o recurso. Por exemplo, o nome do sensor ou o nome do produto e o número do modelo ou o código do produto.
+  **Sensor**  |  |
+  HardwareId  | ID único para o sensor definido pelo fabricante.
+  SensorModelid  | Identificação do modelo de sensor associado.
+  Localização  | Latitude do sensor (-90 a +90), longitude (-180 a 180) e elevação (em metros).
+  Porto > Nome  |Nome e tipo da porta a que o sensor está ligado no dispositivo. Este deve ser o mesmo nome definido no modelo do dispositivo.
+  DeviceId  | Identificação do dispositivo a que o sensor está ligado.
+  Nome  | Nome para identificar o recurso. Por exemplo, o nome do sensor ou nome do produto e o número do modelo ou código do produto.
   Descrição  | Forneça uma descrição significativa.
   Propriedades  | Propriedades adicionais do fabricante.
 
  Para obter informações sobre cada um dos objetos e suas propriedades, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
- > As APIs retornam IDs exclusivas para cada instância criada. Essa ID precisa ser retida pelo Tradutor para o gerenciamento de dispositivos e a sincronização de metadados.
+ > As APIs devolvem iDs únicos para cada instância criada. Este ID precisa de ser conservado pelo Tradutor para a gestão de dispositivos e sincronização de metadados.
 
 
 **Sincronização de metadados**
 
-O tradutor deve enviar atualizações nos metadados. Por exemplo, cenários de atualização são alteração do nome do dispositivo ou do sensor e alteração do local do dispositivo ou do sensor.
+O Tradutor deve enviar atualizações sobre os metadados. Por exemplo, os cenários de atualização são alterações do nome do dispositivo ou do sensor e mudança de dispositivo ou localização do sensor.
 
-O tradutor deve ter a capacidade de adicionar novos dispositivos ou sensores que foram instalados pelo usuário postando a vinculação de FarmBeats. Da mesma forma, se um dispositivo ou sensor tiver sido atualizado pelo usuário, o mesmo deverá ser atualizado em FarmBeats para o dispositivo ou sensor correspondente. Cenários típicos que exigem a atualização de um dispositivo ou sensor são uma alteração em um local do dispositivo ou na adição de sensores em um nó.
+O Tradutor deve ter a capacidade de adicionar novos dispositivos ou sensores que foram instalados pela ligação do post do utilizador do FarmBeats. Da mesma forma, se um dispositivo ou sensor foi atualizado pelo utilizador, o mesmo deve ser atualizado no FarmBeats para o dispositivo ou sensor correspondente. Cenários típicos que requerem a atualização de um dispositivo ou sensor são uma alteração na localização de um dispositivo ou a adição de sensores num nó.
 
 
 > [!NOTE]
-> A exclusão não tem suporte para os metadados do dispositivo ou do sensor.
+> A eliminação não é suportada para metadados de dispositivos ou sensores.
 >
-> Para atualizar os metadados, é obrigatório chamar/Get/{ID} no dispositivo ou sensor, atualizar as propriedades alteradas e, em seguida, fazer uma/put/{ID} para que todas as propriedades definidas pelo usuário não sejam perdidas.
+> Para atualizar os metadados, é obrigatório ligar para /Get/{id} no dispositivo ou sensor, atualizar as propriedades alteradas e, em seguida, fazer um /Put/{id} para que quaisquer propriedades definidas pelo utilizador não se percam.
 
-### <a name="add-new-types-and-units"></a>Adicionar novos tipos e unidades
+### <a name="add-new-types-and-units"></a>Adicione novos tipos e unidades
 
-O FarmBeats dá suporte à adição de novas unidades e tipos de medidas de sensor. Para obter mais informações sobre a API do/ExtendedType, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+FarmBeats suporta a adição de novos tipos e unidades de medida de sensor. Para mais informações sobre a API /ExtendedType, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 ## <a name="telemetry-specifications"></a>Especificações de telemetria
 
-Os dados de telemetria são mapeados para uma mensagem canônica que é publicada nos hubs de eventos do Azure para processamento. Os hubs de eventos do Azure são um serviço que habilita a ingestão de dados em tempo real (telemetria) de dispositivos e aplicativos conectados.
+Os dados da telemetria estão mapeados para uma mensagem canónica publicada no Azure Event Hubs para processamento. O Azure Event Hubs é um serviço que permite a ingestão de dados em tempo real (telemetria) de dispositivos e aplicações conectados.
 
-## <a name="send-telemetry-data-to-farmbeats"></a>Enviar dados de telemetria para o FarmBeats
+## <a name="send-telemetry-data-to-farmbeats"></a>Envie dados de telemetria para FarmBeats
 
-Para enviar dados de telemetria para o FarmBeats, crie um cliente que envie mensagens para um hub de eventos no FarmBeats. Para obter mais informações sobre dados de telemetria, consulte [enviando telemetria para um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Para enviar dados de telemetria para farmBeats, crie um cliente que envie mensagens para um centro de eventos em FarmBeats. Para obter mais informações sobre dados de telemetria, consulte [Enviar telemetria para um centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
-Aqui está um código Python de exemplo que envia telemetria como um cliente para um hub de eventos especificado.
+Aqui está uma amostra do código Python que envia telemetria como cliente para um centro de eventos especificado.
 
 ```python
 import azure
@@ -217,7 +217,7 @@ write_client.stop()
 
 ```
 
-O formato de mensagem canônica é o seguinte:
+O formato de mensagem canónica é o seguinte:
 
 ```json
 {
@@ -241,7 +241,7 @@ O formato de mensagem canônica é o seguinte:
  ]
 }
 ```
-Todos os nomes de chave no JSON de telemetria devem estar em minúsculas. Os exemplos são DeviceID e SensorData.
+Todos os nomes-chave da telemetria JSON devem ser minúsculos. Exemplos são dados de dispositivos e sensores.
 
 Por exemplo, aqui está uma mensagem de telemetria:
 
@@ -284,65 +284,65 @@ Por exemplo, aqui está uma mensagem de telemetria:
 ```
 
 > [!NOTE]
-> As seções a seguir estão relacionadas a outras alterações (por exemplo, Interface do usuário, gerenciamento de erros etc.) o parceiro do sensor pode se referir ao desenvolvimento do componente tradutor.
+> As seguintes secções estão relacionadas com outras alterações (por exemplo. UI, gestão de erros, etc.) que o parceiro de sensor pode referir-se no desenvolvimento do componente Tradutor.
 
 
-## <a name="link-a-farmbeats-account"></a>Vincular uma conta do FarmBeats
+## <a name="link-a-farmbeats-account"></a>Link a FarmBeats conta
 
-Depois que os clientes compraram e implantaram dispositivos ou sensores, eles podem acessar os dados do dispositivo e a telemetria no portal de SaaS (software como serviço) dos parceiros do dispositivo. Os parceiros de dispositivo podem permitir que os clientes vinculem suas contas à instância do FarmBeats no Azure, fornecendo uma maneira de inserir as seguintes credenciais:
+Depois de os clientes terem adquirido e implementado dispositivos ou sensores, podem aceder aos dados do dispositivo e telemetria no software dos parceiros do dispositivo como portal de serviço (SaaS). Os parceiros de dispositivos podem permitir que os clientes liguem a sua conta à sua instância FarmBeats no Azure, fornecendo uma forma de inserir as seguintes credenciais:
 
-   - Nome de exibição (um campo opcional para os usuários definirem um nome para essa integração)
-   - Ponto de extremidade de API
+   - Nome de exibição (um campo opcional para os utilizadores definirem um nome para esta integração)
+   - Ponto final da API
    - ID do inquilino
    - ID de Cliente
    - Segredo do cliente
-   - Cadeia de conexão do EventHub
+   - Cadeia de ligação EventHub
    - Data de início
 
    > [!NOTE]
-   > A data de início habilita o feed de dados histórico, ou seja, os dados da data especificada pelo usuário.
+   > A data de início permite o feed de dados históricos, ou seja, os dados da data especificada pelo utilizador.
 
-## <a name="unlink-farmbeats"></a>Desvincular FarmBeats
+## <a name="unlink-farmbeats"></a>Unlink FarmBeats
 
-Os parceiros de dispositivo podem permitir que os clientes desvinculem uma integração existente do FarmBeats. A desvinculação de FarmBeats não deve excluir nenhum metadado de dispositivo ou sensor criado no Hub de dados FarmBeats. A desvinculação faz o seguinte:
+Os parceiros de dispositivos podem permitir que os clientes desliguem uma integração farmBeats existente. Desvincular farmBeats não deve eliminar qualquer dispositivo ou sensor de metadados que tenha sido criado no centro de dados FarmBeats. Desvinculação faz o seguinte:
 
-   - Interrompe o fluxo de telemetria.
-   - Exclui e apaga as credenciais de integração no parceiro do dispositivo.
+   - Para o fluxo de telemetria.
+   - Elimina e apaga as credenciais de integração no parceiro do dispositivo.
 
-## <a name="edit-farmbeats-integration"></a>Editar integração do FarmBeats
+## <a name="edit-farmbeats-integration"></a>Editar integração FarmBeats
 
-Os parceiros de dispositivo podem permitir que os clientes editem as configurações de integração do FarmBeats se a cadeia de conexão ou o segredo do cliente for alterado. Nesse caso, somente os campos a seguir são editáveis:
+Os parceiros do dispositivo podem permitir que os clientes editem as definições de integração FarmBeats se o segredo do cliente ou a cadeia de ligação mudar. Neste caso, apenas são editáveis os seguintes campos:
 
    - Nome de exibição (se aplicável)
-   - Segredo do cliente (deve ser exibido no formato "2x8 * * * * * * * * * * *" ou no recurso mostrar/ocultar em vez de texto não criptografado)
-   - Cadeia de conexão (deve ser exibida no formato "2x8 * * * * * * * * * * *" ou mostrar/ocultar recurso em vez de texto não criptografado)
+   - Segredo do cliente (deve ser exibido em formato "2x8***************
+   - Cadeia de ligação (deve ser exibida em formato "2x8*************** em vez de texto claro)
 
-## <a name="view-the-last-telemetry-sent"></a>Exibir a última telemetria enviada
+## <a name="view-the-last-telemetry-sent"></a>Veja a última telemetria enviada
 
-Os parceiros de dispositivo podem permitir que os clientes exibam o carimbo de data/hora da última telemetria enviada, que é encontrada sob **telemetria enviada**. Esta é a hora em que a telemetria mais recente foi enviada com êxito para FarmBeats.
+Os parceiros de dispositivos podem permitir que os clientes vejam o carimbo temporal da última telemetria que foi enviada, que é encontrada no âmbito da **Telemettry Sent**. Este é o momento em que a última telemetria foi enviada com sucesso para farmBeats.
 
-## <a name="troubleshooting-and-error-management"></a>Solução de problemas e gerenciamento de erros
+## <a name="troubleshooting-and-error-management"></a>Resolução de problemas e gestão de erros
 
-**Solução de problemas ou suporte**
+**Opção de resolução de problemas ou suporte**
 
-Se o cliente não puder receber dados de dispositivo ou telemetria na instância FarmBeats especificada, o parceiro de dispositivo deverá fornecer suporte e um mecanismo para solução de problemas.
+Se o cliente não conseguir receber dados do dispositivo ou telemetria na instância FarmBeats especificada, o parceiro do dispositivo deve fornecer suporte e um mecanismo de resolução de problemas.
 
 **Retenção de dados de telemetria**
 
-Os dados de telemetria também devem ser retidos por um período de tempo predefinido para que possam ser úteis na depuração ou reenvio da telemetria se ocorrer um erro ou perda de dados.
+Os dados da telemetria também devem ser conservados por um período de tempo predefinido, de modo a que possa ser útil para depurar ou reenviar a telemetria se ocorrer um erro ou perda de dados.
 
-**Gerenciamento de erros ou notificação de erro**
+**Gestão de erros ou notificação de erro**
 
-Se um erro afetar os metadados do dispositivo ou do sensor ou a integração de dados ou o fluxo de dados de telemetria no sistema de parceiro de dispositivo, o cliente deverá receber uma notificação. Um mecanismo para resolver quaisquer erros também deve ser projetado e implementado.
+Se um erro afetar os metadados do dispositivo ou do sensor ou a integração de dados ou o fluxo de dados de telemetria no sistema parceiro do dispositivo, o cliente deve receber uma notificação. Deve também ser concebido e implementado um mecanismo para resolver eventuais erros.
 
-**Lista de verificação de conexão**
+**Lista de verificação de ligação**
 
-Fabricantes de dispositivos ou parceiros podem usar a seguinte lista de verificação para garantir que as credenciais fornecidas pelo cliente sejam precisas:
+Os fabricantes ou parceiros de dispositivos podem utilizar a seguinte lista de verificação para garantir que as credenciais fornecidas pelo cliente são precisas:
 
-   - Verifique se um token de acesso é recebido com as credenciais que foram fornecidas.
-   - Verifique se uma chamada à API é realizada com êxito com o token de acesso recebido.
-   - Verifique se a conexão do cliente EventHub foi estabelecida.
+   - Verifique se é recebida uma ficha de acesso com as credenciais fornecidas.
+   - Verifique se uma chamada da API é bem sucedida com o sinal de acesso que foi recebido.
+   - Verifique se a ligação ao cliente EventHub está estabelecida.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a API REST, consulte [REST API](references-for-azure-farmbeats.md#rest-api).
+Para mais informações sobre a API REST, consulte [rest API](rest-api-in-azure-farmbeats.md).

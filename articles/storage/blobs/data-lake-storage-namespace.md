@@ -1,46 +1,50 @@
 ---
-title: Azure Data Lake Storage Gen2 namespace hierárquico
-description: Descreve o conceito do namespace hierárquico para Azure Data Lake Storage Gen2
+title: Espaço de nome hierárquico de armazenamento de lagos azure Data Gen2
+description: Descreve o conceito de um espaço hierárquico para Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/11/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 0b98892bd31b097e3dc217d54f52f12550599d32
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6ce94590a1d0de6941c27d972bdd1c4194080e95
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847140"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153082"
 ---
-# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 namespace hierárquico
+# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espaço hierárquico de armazenamento de lagos Azure Data Gen2
 
-Um mecanismo-chave que permite ao Azure Data Lake Storage Gen2 fornecer desempenho do sistema de arquivos em escala de armazenamento de objetos e preços é a adição de um **namespace hierárquico**. Isso permite que a coleção de objetos/arquivos em uma conta seja organizada em uma hierarquia de diretórios e subdiretórios aninhados da mesma maneira que o sistema de arquivos em seu computador é organizado. Com o namespace hierárquico habilitado, uma conta de armazenamento torna-se capaz de fornecer a escalabilidade e a economia de custo do armazenamento de objetos, com a semântica do sistema de arquivos familiar aos mecanismos e estruturas de análise.
+Um mecanismo-chave que permite ao Azure Data Lake Storage Gen2 fornecer o desempenho do sistema de ficheiros à escala de armazenamento de objetos e os preços é a adição de um espaço de **nome hierárquico.** Isto permite que a recolha de objetos/ficheiros dentro de uma conta seja organizada numa hierarquia de diretórios e subdiretórios aninhados da mesma forma que o sistema de ficheiros no seu computador está organizado. Com um espaço de nome hierárquico habilitado, uma conta de armazenamento torna-se capaz de fornecer a escalabilidade e a custo-eficácia do armazenamento de objetos, com semântica do sistema de ficheiros que são familiares aos motores e estruturas de análise.
 
-## <a name="the-benefits-of-the-hierarchical-namespace"></a>Os benefícios do namespace hierárquico
+## <a name="the-benefits-of-a-hierarchical-namespace"></a>Os benefícios de um espaço de nome hierárquico
 
-Os seguintes benefícios estão associados a sistemas de arquivos que implementam um namespace hierárquico em dados de blob:
+Os seguintes benefícios estão associados a sistemas de ficheiros que implementam um espaço hierárquico sobre dados blob:
 
-- **Manipulação de diretório atômico:** O objeto armazena uma hierarquia de diretório aproximada, adotando uma Convenção de barras inseridas (/) no nome do objeto para denotar segmentos de caminho. Embora essa Convenção funcione para organizar objetos, a Convenção não fornece assistência para ações como mover, renomear ou excluir diretórios. Sem os diretórios reais, os aplicativos devem processar potencialmente milhões de BLOBs individuais para obter tarefas em nível de diretório. Por outro lado, o namespace hierárquico processa essas tarefas atualizando uma única entrada (o diretório pai).
+- **Manipulação de diretório atómico:** As lojas de objetos aproximam-se de uma hierarquia de diretório, adotando uma convenção de incorporação de cortes (/) no nome do objeto para denotar segmentos de caminho. Enquanto esta convenção funciona para a organização de objetos, a convenção não presta assistência para ações como mover, renomear ou apagar diretórios. Sem diretórios reais, as aplicações devem processar potencialmente milhões de bolhas individuais para alcançar tarefas ao nível do diretório. Em contraste, um espaço de nome hierárquico processa estas tarefas atualizando uma única entrada (o directório-mãe).
 
-    Essa otimização drástica é especialmente significativa para muitas Big Data estruturas de análise. Ferramentas como Hive, Spark, etc. geralmente gravam a saída em locais temporários e, em seguida, renomeam o local na conclusão do trabalho. Sem o namespace hierárquico, essa renomeação geralmente pode levar mais tempo do que o próprio processo de análise. Menor latência de trabalho é igual ao TCO (custo total de propriedade) para cargas de trabalhos de análise.
+    Esta otimização dramática é especialmente significativa para muitos quadros de análise de big data. Ferramentas como Hive, Spark, etc. muitas vezes escrevem saída para locais temporários e, em seguida, renomeam o local no final do trabalho. Sem um espaço de nome hierárquico, este renome pode muitas vezes demorar mais do que o próprio processo de análise. A menor latência do trabalho equivale a um menor custo total de propriedade (TCO) para cargas de trabalho analíticas.
 
-- **Estilo de interface familiar:** Os sistemas de arquivos são bem compreendidos por desenvolvedores e usuários. Não há necessidade de aprender um novo paradigma de armazenamento quando você muda para a nuvem, já que a interface do sistema de arquivos exposta por Data Lake Storage Gen2 é o mesmo paradigma usado por computadores, grandes ou pequenos.
+- **Estilo interface familiar:** Os sistemas de ficheiros são bem compreendidos tanto pelos desenvolvedores como pelos utilizadores. Não há necessidade de aprender um novo paradigma de armazenamento quando se muda para a nuvem, uma vez que a interface do sistema de ficheiros exposta pelo Data Lake Storage Gen2 é o mesmo paradigma utilizado por computadores, grandes e pequenos.
 
-Um dos motivos pelos quais os repositórios de objetos não têm suporte historicamente em um namespace hierárquico é que um namespace hierárquico limita a escala. No entanto, o namespace hierárquico Data Lake Storage Gen2 é dimensionado linearmente e não degrada a capacidade ou o desempenho dos dados.
+Uma das razões pelas quais as lojas de objetos não têm historicamente suportado um espaço de nome hierárquico é que um espaço hierárquico limites de espaço. No entanto, o espaço hierárquico de armazenamento de data lake Gen2 escala linearmente e não degrada nem a capacidade de dados nem o desempenho.
 
-## <a name="when-to-enable-the-hierarchical-namespace"></a>Quando habilitar o namespace hierárquico
+## <a name="deciding-whether-to-enable-a-hierarchical-namespace"></a>Decidir se permite um espaço hierárquico
 
-Recomendamos que você ative o namespace hierárquico para cargas de trabalho de armazenamento projetadas para sistemas de arquivos que manipulam diretórios. Isso inclui todas as cargas de trabalho que são principalmente para processamento de análise. Os conjuntos de dado que exigem um alto grau de organização também se beneficiarão ao habilitar o namespace hierárquico.
+Depois de ter ativado um espaço hierárquico na sua conta, não pode revertê-lo de volta para um espaço de nome plano. Por isso, considere se faz sentido permitir um espaço de nome hierárquico baseado na natureza das cargas de trabalho da sua loja de objetos.
 
-Os motivos para habilitar o namespace hierárquico são determinados por uma análise de TCO. Em termos gerais, melhorias na latência da carga de trabalho devido à aceleração do armazenamento exigirão recursos de computação por menos tempo. A latência de várias cargas de trabalho pode ser aprimorada devido à manipulação de diretório atômica habilitada pelo namespace hierárquico. Em muitas cargas de trabalho, o recurso de computação representa > 85% do custo total e, portanto, até mesmo uma redução modesto na latência da carga de trabalho equivale a uma quantidade significativa de economia de TCO. Mesmo nos casos em que a habilitação do namespace hierárquico aumenta os custos de armazenamento, o TCO ainda é reduzido devido a custos de computação reduzidos.
+Algumas cargas de trabalho podem não obter qualquer benefício permitindo um espaço de nome hierárquico. Exemplos incluem cópias de segurança, armazenamento de imagem e outras aplicações onde a organização de objetos é armazenada separadamente dos próprios objetos (por exemplo: numa base de dados separada). 
 
-## <a name="when-to-disable-the-hierarchical-namespace"></a>Quando desabilitar o namespace hierárquico
+Além disso, embora o apoio às funcionalidades de armazenamento blob e ao ecossistema de serviços Azure continue a crescer, existem ainda algumas funcionalidades e serviços Azure que ainda não são suportados em contas que têm um espaço de nome hierárquico. Ver [Questões Conhecidas](data-lake-storage-known-issues.md). 
 
-Algumas cargas de trabalho do repositório de objetos podem não obter nenhum benefício ao habilitar o namespace hierárquico. Os exemplos incluem backups, armazenamento de imagem e outros aplicativos em que a organização de objetos é armazenada separadamente dos próprios objetos (por exemplo: em um banco de dados separado).
+Em geral, recomendamos que ligue um espaço hierárquico para cargas de trabalho de armazenamento que sejam projetados para sistemas de ficheiros que manipulam diretórios. Isto inclui todas as cargas de trabalho que são principalmente para processamento de análise. Os conjuntos de dados que requerem um elevado grau de organização também beneficiarão permitindo um espaço de nome hierárquico.
 
-## <a name="next-steps"></a>Passos Seguintes
+As razões para permitir um espaço hierárquico são determinadas por uma análise de TCO. De um modo geral, as melhorias na latência da carga de trabalho devido à aceleração do armazenamento exigirão recursos computacionais por menos tempo. A latência para muitas cargas de trabalho pode ser melhorada devido à manipulação do diretório atómico que é ativada por um espaço de nome hierárquico. Em muitas cargas de trabalho, o recurso computacional representa > 85% do custo total e, portanto, mesmo uma redução modesta da latência da carga de trabalho equivale a uma quantidade significativa de poupança de TCO. Mesmo nos casos em que permitir um espaço hierárquico aumenta os custos de armazenamento, o TCO continua a ser reduzido devido à redução dos custos do cálculo.
 
-- [Criar uma conta de armazenamento](./data-lake-storage-quickstart-create-account.md)
+Para analisar diferenças nos preços de armazenamento de dados, preços de transação e preços de reserva de capacidade de armazenamento entre contas que têm um espaço de nome hierárquico plano versus um espaço hierárquico, consulte o preço do Armazenamento [do Lago Dedados Do Azure.](https://azure.microsoft.com/pricing/details/storage/data-lake/)
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Criar uma conta de Armazenamento](./data-lake-storage-quickstart-create-account.md)

@@ -1,6 +1,6 @@
 ---
-title: Especificar grupo de recursos para VMs em Azure DevTest Labs | Microsoft Docs
-description: Saiba como especificar um grupo de recursos para VMs em um laboratório no Azure DevTest Labs.
+title: Especificar grupo de recursos para VMs em Azure DevTest Labs  Microsoft Docs
+description: Aprenda a especificar um grupo de recursos para VMs num laboratório em Laboratórios Azure DevTest.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,43 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: b6f51dee948d9e4d9e3f8594f9f7e60fb11b7057
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29816d158cf1428727b7ff17bcc2c347f402dedf
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647344"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134538"
 ---
-# <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especifique um grupo de recursos para máquinas virtuais do laboratório no Azure DevTest Labs
+# <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especifique um grupo de recursos para máquinas virtuais de laboratório em Laboratórios Azure DevTest
 
-Como proprietário de um laboratório, você pode configurar suas máquinas virtuais de laboratório para serem criadas em um grupo de recursos específico. Esse recurso ajuda você nos seguintes cenários:
+Como dono de laboratório, pode configurar as suas máquinas virtuais de laboratório para serem criadas num grupo de recursos específicos. Esta funcionalidade ajuda-o nos seguintes cenários:
 
-- Ter menos grupos de recursos criados por laboratórios em sua assinatura.
-- Faça com que seus laboratórios operem dentro de um conjunto fixo de grupos de recursos que você configurar.
-- Contornar as restrições e aprovações necessárias para criar grupos de recursos em sua assinatura do Azure.
-- Consolide todos os seus recursos de laboratório em um único grupo de recursos para simplificar o acompanhamento desses recursos e aplicar [políticas](../governance/policy/overview.md) para gerenciar recursos no nível do grupo de recursos.
+- Tenha menos grupos de recursos criados por laboratórios na sua subscrição.
+- Faça com que os seus laboratórios funcionem dentro de um conjunto fixo de grupos de recursos que configura.
+- Trabalhe em torno de restrições e aprovações necessárias para a criação de grupos de recursos dentro da sua subscrição Azure.
+- Consolide todos os seus recursos laboratoriais dentro de um único grupo de recursos para simplificar o acompanhamento desses recursos e aplicar [políticas](../governance/policy/overview.md) para gerir recursos ao nível do grupo de recursos.
 
-Com esse recurso, você pode usar um script para especificar um grupo de recursos novo ou existente dentro de sua assinatura do Azure para todas as suas VMs de laboratório. Atualmente, Azure DevTest Labs dá suporte a esse recurso por meio de uma API.
+Com esta funcionalidade, pode utilizar um script para especificar um novo ou existente grupo de recursos dentro da sua subscrição Azure para todos os seus VMs de laboratório. Atualmente, a Azure DevTest Labs suporta esta funcionalidade através de uma API.
 
 > [!NOTE]
-> Todos os limites de assinatura se aplicam ao criar laboratórios no DevTest Labs. Imagine um laboratório como qualquer outro recurso em sua assinatura. No caso de grupos de recursos, o limite é de [980 grupos de recursos por assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
+> Todos os limites de subscrição se aplicam quando se criam laboratórios em Laboratórios DevTest. Pense num laboratório como qualquer outro recurso na sua subscrição. No caso de grupos de recursos, o limite é [de 980 grupos de recursos por subscrição.](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) 
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
-Siga estas etapas para especificar um grupo de recursos para todas as VMs criadas no laboratório. 
+Siga estes passos para especificar um grupo de recursos para todos os VMs criados no laboratório. 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços** no menu de navegação à esquerda. 
+2. Selecione **Todos os Serviços** no menu de navegação à esquerda. 
 3. Selecione **DevTest Labs** da lista.
-4. Na lista de laboratórios, selecione seu **laboratório**.  
-5. Selecione **configuração e políticas** na seção **configurações** no menu à esquerda. 
-6. Selecione **configurações de laboratório** no menu à esquerda. 
-7. Selecione **todas as máquinas virtuais em um grupo de recursos**. 
-8. Selecione um grupo de recursos existente na lista suspensa (ou) selecione **criar novo**, insira um **nome** para o grupo de recursos e selecione **OK**. 
+4. Da lista de laboratórios, selecione o seu **laboratório.**  
+5. Selecione **Configuração e políticas** na secção **Definições** no menu esquerdo. 
+6. Selecione **as definições** do Laboratório no menu esquerdo. 
+7. Selecione **todas as máquinas virtuais num só grupo de recursos**. 
+8. Selecione um grupo de recursos existente na lista de drop-down (ou) selecione **Criar novo**, insira um **nome** para o grupo de recursos e selecione **OK**. 
 
-    ![Selecione o grupo de recursos para todas as VMs de laboratório](./media/resource-group-control/select-resource-group.png)
+    ![Selecione o grupo de recursos para todos os VMs de laboratório](./media/resource-group-control/select-resource-group.png)
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell 
-O exemplo a seguir mostra como usar um script do PowerShell para criar todas as máquinas virtuais do laboratório em um novo grupo de recursos.
+O exemplo que se segue mostra como usar um script PowerShell para criar todas as máquinas virtuais de laboratório num novo grupo de recursos.
 
 ```powershell
 [CmdletBinding()]
@@ -72,14 +72,14 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
 "Done. New virtual machines will now be created in the resource group '$vmRg'."
 ```
 
-Invoque o script usando o comando a seguir. Resourcegroup. ps1 é o arquivo que contém o script anterior:
+Invoque o script utilizando o seguinte comando. ResourceGroup.ps1 é o ficheiro que contém o script anterior:
 
 ```powershell
 .\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
 ```
 
-## <a name="use-an-azure-resource-manager-template"></a>Usar um modelo de Azure Resource Manager
-Se você estiver usando um modelo de Azure Resource Manager para criar um laboratório, use a propriedade **vmCreationResourceGroupId** na seção Propriedades do laboratório do modelo, conforme mostrado no exemplo a seguir:
+## <a name="use-an-azure-resource-manager-template"></a>Use um modelo de Gestor de Recursos Azure
+Se estiver a usar um modelo de Gestor de Recursos Azure para criar um laboratório, utilize a propriedade **vmCreationResourceGroupId** na secção de propriedades do laboratório do seu modelo, como mostra o seguinte exemplo:
 
 ```json
         {
@@ -102,19 +102,19 @@ Se você estiver usando um modelo de Azure Resource Manager para criar um labora
 
 
 ## <a name="api-to-configure-a-resource-group-for-lab-vms"></a>API para configurar um grupo de recursos para VMs de laboratório
-Você tem as seguintes opções como um proprietário de laboratório ao usar esta API:
+Tem as seguintes opções como dono de laboratório ao utilizar esta API:
 
 - Escolha o **grupo de recursos do laboratório** para todas as máquinas virtuais.
-- Escolha um **grupo de recursos existente** diferente do grupo de recursos do laboratório para todas as máquinas virtuais.
-- Insira um **novo** nome de grupo de recursos para todas as máquinas virtuais.
-- Continue usando o comportamento existente, no qual um grupo de recursos é criado para cada VM no laboratório.
+- Escolha um grupo de **recursos existente** que não o grupo de recursos do laboratório para todas as máquinas virtuais.
+- Introduza um novo nome de grupo de **recursos** para todas as máquinas virtuais.
+- Continue a usar o comportamento existente, no qual um grupo de recursos é criado para cada VM no laboratório.
  
-Essa configuração se aplica a novas máquinas virtuais criadas no laboratório. As VMs mais antigas em seu laboratório que foram criadas em seus próprios grupos de recursos permanecem inalteradas. Os ambientes criados em seu laboratório continuam a permanecer em seus próprios grupos de recursos.
+Esta definição aplica-se a novas máquinas virtuais criadas em laboratório. Os VMs mais antigos do seu laboratório que foram criados nos seus próprios grupos de recursos permanecem inalterados. Os ambientes criados no seu laboratório continuam a permanecer nos seus próprios grupos de recursos.
 
-Como usar esta API:
-- Use a versão de API **2018_10_15_preview**.
-- Se você especificar um novo grupo de recursos, verifique se tem **permissões de gravação em grupos de recursos** em sua assinatura. Se você não tem permissões de gravação, a criação de novas máquinas virtuais no grupo de recursos especificado falhará.
-- Ao usar a API, passe a **ID completa do grupo de recursos**. Por exemplo: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Verifique se o grupo de recursos está na mesma assinatura que o laboratório. 
+Como utilizar esta API:
+- Utilize a versão API **2018_10_15_preview**.
+- Se especificar um novo grupo de recursos, certifique-se de que tem **permissões de escrita em grupos** de recursos na sua subscrição. Se não tiver permissões de escrita, a criação de novas máquinas virtuais no grupo de recursos especificado falhará.
+- Ao utilizar a API, passe o ID do grupo de **recursos completo**. Por exemplo: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Certifique-se de que o grupo de recursos está na mesma subscrição que o laboratório. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

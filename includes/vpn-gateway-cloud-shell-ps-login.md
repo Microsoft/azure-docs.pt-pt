@@ -5,27 +5,25 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/01/2019
+ms.date: 02/10/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: deabef0c2c3540e515fe72a161710c95a20fa86f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 50ce8530aca40eed07741f35be1a57bbd7cc1868
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184122"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133609"
 ---
-Abra a consola do PowerShell com privilégios elevados.
+Abra a sua consola PowerShell com privilégios elevados.
 
-
-
-Se estiver a executar localmente do Azure PowerShell, ligue à sua conta do Azure. O *Connect-AzAccount* cmdlet pede-lhe as credenciais. Após a autenticação, são transferidas as definições de conta para que fiquem disponíveis para o Azure PowerShell. Se não estiver a executar PowerShell localmente e estiver em vez disso, a utilizar o Azure Cloud Shell "Experimente" no navegador, ignore este passo primeiro. Irá ligar à sua conta do Azure automaticamente.
+Se estiver a executar o Azure PowerShell localmente, ligue-se à sua conta Azure. O cmdlet *Connect-AzAccount* solicita-lhe credenciais. Depois de autenticar, descarrega as definições da sua conta para que estejam disponíveis para o Azure PowerShell. Se estiver a utilizar a Azure Cloud Shell, não precisa de executar *o Connect-AzAccount*. A Azure Cloud Shell liga-se automaticamente à sua conta Azure.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Se tiver mais de uma subscrição, obtenha uma lista das suas subscrições do Azure.
+Se tiver mais de uma subscrição, obtenha uma lista das suas subscrições Do Azure.
 
 ```azurepowershell-interactive
 Get-AzSubscription

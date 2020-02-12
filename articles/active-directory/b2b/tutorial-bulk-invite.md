@@ -1,89 +1,89 @@
 ---
-title: Tutorial para convidar em massa usuários de colaboração B2B – Azure AD
+title: Tutorial para utilizadores de colaboração B2B convidativos a granel - Azure AD
 description: Neste tutorial, saberá como utilizar o PowerShell e um ficheiro CSV para enviar convites em massa a utilizadores externos da colaboração B2B do Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 9/19/2019
+ms.date: 2/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9c43f1fe0d5850b53f0f72f05633e498a94d871c
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908841"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149309"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: convidar em massa usuários de colaboração B2B do Azure AD (versão prévia)
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: A granel convida utilizadores de colaboração Azure AD B2B (pré-visualização)
 
 |     |
 | --- |
-| Este artigo descreve um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| Este artigo descreve uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 > [!NOTE]
-> A partir de 12/22/2019, o recurso de convidar usuários em massa (versão prévia) foi temporariamente desabilitado.
-> Não existe atualmente uma data conhecida para quando esta funcionalidade será reativada. 
+> A partir de 12/22/2019, a funcionalidade de convite a granel (Pré-visualização) foi temporariamente desativada.
+> Atualmente não existe uma data conhecida para quando esta funcionalidade será reativada no portal Azure. Para convidar utilizadores convidados a granel utilizando o PowerShell, consulte [o código B2B e as amostras PowerShell](code-samples.md).
 
-Se utilizar a colaboração B2B do Azure Active Directory (Azure AD) para trabalhar com parceiros externos, pode convidar múltiplos utilizadores convidados para a sua organização ao mesmo tempo. Neste tutorial, você aprenderá a usar o portal do Azure para enviar convites em massa a usuários externos. Deve fazer o seguinte:
+Se utilizar a colaboração B2B do Azure Active Directory (Azure AD) para trabalhar com parceiros externos, pode convidar múltiplos utilizadores convidados para a sua organização ao mesmo tempo. Neste tutorial, aprende-se a utilizar o portal Azure para enviar convites a granel para utilizadores externos. Deve fazer o seguinte:
 
 > [!div class="checklist"]
-> * Usar **usuários de convite em massa (visualização)** para preparar um arquivo de valores separados por vírgulas (. csv) com as informações do usuário e as preferências de convite
-> * Carregar o arquivo. csv no Azure AD
+> * Utilize **a Granel convidar os utilizadores (Pré-visualização)** a preparar um ficheiro de valor separado de vírem (.csv) com as informações do utilizador e as preferências de convite
+> * Faça upload do ficheiro .csv para Azure AD
 > * Verificar se os utilizadores foram adicionados ao diretório
 
-Se você não tiver Azure Active Directory, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver o Azure Ative Directory, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Precisa de duas ou mais contas de e-mail de teste para as quais possa enviar os convites. As contas têm de ser externas à sua organização. Pode utilizar qualquer tipo de conta, incluindo contas sociais como os endereços do gmail.com ou outlook.com.
 
-## <a name="invite-guest-users-in-bulk"></a>Convidar usuários convidados em massa
+## <a name="invite-guest-users-in-bulk"></a>Convide os utilizadores a granel
 
-1. Entre no portal do Azure com uma conta que seja um administrador de usuário na organização.
-2. No painel de navegação, selecione **Azure Active Directory**.
-3. Em **gerenciar**, selecione **usuários** > **convite em massa**.
-4. Na página **usuários do convite em massa (versão prévia)** , selecione **baixar** para obter um arquivo. csv válido com propriedades do convite.
+1. Inscreva-se no portal Azure com uma conta que é administradora do Utilizador na organização.
+2. No painel de navegação, selecione **Azure Ative Directory**.
+3. Em **'Gerir',** selecione **Utilizadores** > **convite a granel.**
+4. Na página **de convidar os utilizadores (Pré-visualização)** a Granel, selecione **Download** para obter um ficheiro .csv válido com propriedades de convite.
 
-    ![Botão de download de convite em massa](media/tutorial-bulk-invite/bulk-invite-button.png)
+    ![Botão de descarregamento de convite a granel](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. Abra o arquivo. csv e adicione uma linha para cada usuário convidado. Os valores necessários são:
+5. Abra o ficheiro .csv e adicione uma linha para cada utilizador convidado. Os valores exigidos são:
 
-   * **Endereço de email para convidar** -o usuário que receberá um convite
+   * **Endereço de e-mail para convidar** - o utilizador que receberá um convite
 
-   * **URL de redirecionamento** -a URL para a qual o usuário convidado é encaminhado após aceitar o convite
+   * Url de **reorientação** - o URL para o qual o utilizador convidado é encaminhado após aceitar o convite
 
-    ![Exemplo de um arquivo CSV com usuários convidados inseridos](media/tutorial-bulk-invite/bulk-invite-csv.png)
+    ![Exemplo de um ficheiro CSV com utilizadores convidados inscritos](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
    > [!NOTE]
-   > Não use vírgulas na **mensagem de convite personalizada** porque elas impedirão que a mensagem seja analisada com êxito.
+   > Não utilize vírgulas na mensagem de **convite personalizada** porque evitarão que a mensagem seja analisada com sucesso.
 
 6. Guarde o ficheiro.
-7. Na página **usuários do convite em massa (versão prévia)** , em **carregar o arquivo CSV**, navegue até o arquivo. Quando você seleciona o arquivo, a validação do arquivo. csv é iniciada. 
-8. Quando o conteúdo do arquivo for validado, você verá o **arquivo carregado com êxito**. Se houver erros, você deverá corrigi-los antes de poder enviar o trabalho.
-9. Quando o arquivo passar na validação, selecione **Enviar** para iniciar a operação em massa do Azure que adiciona os convites. 
-10. Para exibir o status do trabalho, selecione **clique aqui para exibir o status de cada operação**. Ou, você pode selecionar **resultados de operação em massa (versão prévia)** na seção **atividade** . Para obter detalhes sobre cada item de linha na operação em massa, selecione os valores nas colunas **# êxito**, **# falha**ou **total de solicitações** . Se ocorrerem falhas, os motivos da falha serão listados.
+7. Na página **de convidar os utilizadores (Pré-visualização)** a granel, sob o upload do seu ficheiro **CSV,** navegue para o ficheiro. Quando selecionar o ficheiro, inicia-se a validação do ficheiro .csv. 
+8. Quando o conteúdo do ficheiro for validado, verá o **Ficheiro carregado com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
+9. Quando o seu ficheiro passar a validação, selecione **Submeter** para iniciar a operação a granel Azure que adiciona os convites. 
+10. Para ver o estado de trabalho, selecione **Clique aqui para ver o estado de cada operação**. Ou, pode selecionar os resultados da **operação Bulk (Pré-visualização)** na secção **Atividade.** Para mais detalhes sobre cada item de linha dentro da operação a granel, selecione os valores sob as colunas **# Sucesso**, **# Falha,** ou **Total Solicitações.** Se ocorrerem falhas, as razões da falha serão listadas.
 
-    ![Exemplo de resultados de operação em massa](media/tutorial-bulk-invite/bulk-operation-results.png)
+    ![Exemplo dos resultados da operação a granel](media/tutorial-bulk-invite/bulk-operation-results.png)
 
-11. Quando o trabalho for concluído, você verá uma notificação de que a operação em massa foi bem-sucedida.
+11. Quando o trabalho terminar, verá uma notificação de que a operação a granel foi bem sucedida.
 
-## <a name="verify-guest-users-in-the-directory"></a>Verificar usuários convidados no diretório
+## <a name="verify-guest-users-in-the-directory"></a>Verifique os utilizadores convidados no diretório
 
-Verifique se os usuários convidados que você adicionou existem no diretório no portal do Azure ou usando o PowerShell.
+Verifique se os utilizadores convidados que adicionou existem no diretório, quer no portal Azure, quer através da utilização do PowerShell.
 
-### <a name="view-guest-users-in-the-azure-portal"></a>Exibir usuários convidados no portal do Azure
+### <a name="view-guest-users-in-the-azure-portal"></a>Ver utilizadores convidados no portal Azure
 
-1. Entre no portal do Azure com uma conta que seja um administrador de usuário na organização.
-2. No painel de navegação, selecione **Azure Active Directory**.
+1. Inscreva-se no portal Azure com uma conta que é administradora do Utilizador na organização.
+2. No painel de navegação, selecione **Azure Ative Directory**.
 3. Em **Gerir**, selecione **Utilizadores**.
-4. Em **Mostrar**, selecione **somente usuários convidados** e verifique se os usuários adicionados estão listados.
+4. No Âmbito do **Show**, selecione **apenas utilizadores convidados** e verifique se os utilizadores adicionados estão listados.
 
-### <a name="view-guest-users-with-powershell"></a>Exibir usuários convidados com o PowerShell
+### <a name="view-guest-users-with-powershell"></a>Ver utilizadores convidados com PowerShell
 
 Execute o seguinte comando:
 
@@ -91,13 +91,13 @@ Execute o seguinte comando:
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Você deve ver os usuários que convidou listados, com um UPN (nome principal do usuário) no formato *emailaddress*#EXT #\@*domínio*. Por exemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com,* onde contoso.onmicrosoft.com é a organização de onde enviou os convites.
+Deve consultar os utilizadores que convidou listados, com o nome principal do utilizador (UPN) no endereço de *e-mail*do formato #EXT#\@*domínio*. Por exemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com,* onde contoso.onmicrosoft.com é a organização de onde enviou os convites.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você poderá excluir as contas de usuário de teste no diretório no portal do Azure na página usuários, marcando a caixa de seleção ao lado do usuário convidado e, em seguida, selecionando **excluir**. 
+Quando já não for necessário, pode eliminar as contas de utilizador de teste no diretório do portal Azure na página Utilizadores, selecionando a caixa de verificação ao lado do utilizador convidado e selecionando depois **eliminar**. 
 
-Ou você pode executar o seguinte comando do PowerShell para excluir uma conta de usuário:
+Ou pode executar o seguinte comando PowerShell para eliminar uma conta de utilizador:
 
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"

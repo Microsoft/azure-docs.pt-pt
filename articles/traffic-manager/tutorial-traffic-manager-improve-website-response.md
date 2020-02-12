@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: rohink
-ms.openlocfilehash: 9027b1574144e2addbc84fceb16deba9014826fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f7778b60a5e84f5d8900b8e37bfa655a7915d403
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938402"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136391"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta do site usando o Traffic Manager
 
@@ -43,7 +43,7 @@ Para ver o Gestor de Tráfego em ação, este tutorial requer que implemente o s
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em https://portal.azure.com.
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Criar sites
 
@@ -57,7 +57,7 @@ Nesta secção, vai criar duas instâncias do site que fornecem os dois pontos f
 Nesta secção, cria-se dois VMs *myIISVMEastUS* e *myIISVMWestEurope* nas regiões **leste dos EUA** e West **Europe.**
 
 1. No canto superior esquerdo do portal Azure, selecione **Criar um recurso** > **Compute** > **Windows Server 2019 Datacenter**.
-2. Na **criar uma máquina virtual**, escreva ou selecione os seguintes valores no **Noções básicas** separador:
+2. Em **Criar uma máquina virtual,** digite ou selecione os seguintes valores no separador **Basics:**
 
    - **Grupo de** **recursos** > de assinatura : Selecione **Criar novo** e, em seguida, digitar o **meu ResourceGroupTM1**.
    - **Detalhes** da > **nome virtual**da máquina : *Digite myIISVMEastUS*.
@@ -67,7 +67,7 @@ Nesta secção, cria-se dois VMs *myIISVMEastUS* e *myIISVMWestEurope* nas regi�
    - **Regras do porto de entrada** > portas de entrada **públicas**: Selecione permitir **portas selecionadas**.
    - **Regras** da porta de entrada > **Selecione portas de entrada :** Selecione **RDP** e **HTTP** na caixa de puxar para baixo.
 
-3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**, em seguida **Seguinte: Gestão**. Sob **monitorização**, defina **diagnósticos de arranque** para **desativar**.
+3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**, em seguida **Seguinte: Gestão**. Sob **monitorização,** descoloque os **diagnósticos da bota** para **desligar**.
 4. Selecione **Rever + criar**.
 5. Reveja as definições e, em seguida, clique em **Criar**.  
 6. Siga os passos para criar um segundo VM chamado *myIISVMWestEurope*, com um nome de grupo de **recursos** do *myResourceGroupTM2*, uma **localização** da *Europa Ocidental*, e todas as outras configurações as mesmas que o *myIISVMEastUS*.
@@ -116,7 +116,7 @@ O Gestor de Tráfego encaminha o tráfego do utilizador, baseando-se no nome DNS
 Nesta secção, cria-se um VM (*myVMEastUS* e *myVMWestEurope*) em cada região de Azure **(Leste dos EUA** e **Europa Ocidental).** Irá utilizar estas VMs para testar a forma como o Gestor de Tráfego encaminha o tráfego para o servidor do IIS mais próximo quando navega até ao site.
 
 1. No canto superior esquerdo do portal Azure, selecione **Criar um recurso** > **Compute** > **Windows Server 2019 Datacenter**.
-2. Na **criar uma máquina virtual**, escreva ou selecione os seguintes valores no **Noções básicas** separador:
+2. Em **Criar uma máquina virtual,** digite ou selecione os seguintes valores no separador **Basics:**
 
    - **Grupo de** **recursos** > de assinatura : Selecione **myResourceGroupTM1**.
    - **Detalhes da > ** **nome virtual**da máquina : *Digite myVMEastUS*.
@@ -126,7 +126,7 @@ Nesta secção, cria-se um VM (*myVMEastUS* e *myVMWestEurope*) em cada região 
    - **Regras do porto de entrada** > portas de entrada **públicas**: Selecione permitir **portas selecionadas**.
    - **Regras** da porta de entrada > **Selecione as portas de entrada**: Selecione **RDP** na caixa de puxar para baixo.
 
-3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**, em seguida **Seguinte: Gestão**. Sob **monitorização**, defina **diagnósticos de arranque** para **desativar**.
+3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**, em seguida **Seguinte: Gestão**. Sob **monitorização,** descoloque os **diagnósticos da bota** para **desligar**.
 4. Selecione **Rever + criar**.
 5. Reveja as definições e, em seguida, clique em **Criar**.  
 6. Siga os passos para criar um segundo VM chamado *myVMWestEurope*, com um nome de **grupo** de recursos do *myResourceGroupTM2*, uma **localização** da *Europa Ocidental*, e todas as outras configurações como *myVMEastUS*.

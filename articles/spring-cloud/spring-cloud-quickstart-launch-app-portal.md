@@ -1,95 +1,95 @@
 ---
-title: Início rápido – iniciar um aplicativo de nuvem Spring do Azure usando o portal do Azure
-description: Neste guia de início rápido, implante um aplicativo de exemplo para a nuvem Spring do Azure usando o portal do Azure.
+title: Quickstart - Lance uma aplicação azure cloud existente utilizando o portal Azure
+description: Neste arranque rápido, implemente uma aplicação Spring Cloud para a Nuvem de primavera Azure utilizando o portal Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/4/2019
+ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: f88319319b366ec8b726d5cf6cce540008497b57
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 67ad112021c2fadb5ea93ffefcf5e58e9404e92a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278910"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137744"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o portal do Azure
+# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Quickstart: Lançar uma aplicação azure cloud existente usando o portal Azure
 
-O Azure Spring Cloud permite que você execute facilmente aplicativos de microserviço baseados na Spring Cloud no Azure.
+Este quickstart mostra-lhe como implementar uma aplicação de Nuvem de primavera existente para o Azure. A Nuvem de primavera Azure permite-lhe executar facilmente aplicações de microserviço baseadas em Nuvem de primavera no Azure. 
 
-Este guia de início rápido mostra como implantar um aplicativo Spring Cloud existente no Azure.  Você pode encontrar o código do aplicativo de exemplo usado neste tutorial em nosso [repositório de exemplos do GitHub](https://github.com/Azure-Samples/PiggyMetrics). Quando tiver terminado, o aplicativo de exemplo fornecido estará acessível online e pronto para ser gerenciado por meio do portal do Azure.
+Pode encontrar o código de aplicação da amostra utilizado neste tutorial no nosso [repositório de amostras GitHub](https://github.com/Azure-Samples/PiggyMetrics). Quando terminar, a aplicação de amostra fornecida estará acessível online e pronta para ser gerida através do portal Azure.
 
-Seguindo este guia de início rápido, você aprenderá a:
+Após este arranque rápido, aprenderá a:
 
 > [!div class="checklist"]
-> * Provisionar uma instância de serviço
-> * Definir um servidor de configuração para uma instância
-> * Criar um aplicativo de microserviço localmente
-> * Implantar cada microserviço
-> * Atribuir um ponto de extremidade público para seu aplicativo
+> * Provisão de uma instância de serviço
+> * Definir um servidor de configuração, por exemplo
+> * Construir uma aplicação de microserviços localmente
+> * Implementar cada microserviço
+> * Atribuir ponto final público para a sua aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 >[!Note]
-> Atualmente, o Azure Spring Cloud é oferecido como uma visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Serviços e recursos de visualização pública não são destinados ao uso em produção.  Para obter mais informações sobre o suporte durante as visualizações, leia nossas [perguntas frequentes](https://azure.microsoft.com/support/faq/) ou registre um [solicitação de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para saber mais.
+> A Nuvem de primavera Azure é atualmente oferecida como uma pré-visualização pública. As ofertas de pré-visualização pública permitem aos clientes experimentar novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização pública não se destinam à utilização da produção.  Para mais informações sobre suporte durante as pré-visualizações, por favor reveja as nossas [FAQ](https://azure.microsoft.com/support/faq/) ou preencha um pedido de [Suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para saber mais.
 
 >[!TIP]
-> O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo.  Ele tem ferramentas comuns do Azure pré-instalados, incluindo as versões mais recentes do git, JDK, Maven e o CLI do Azure. Se você estiver conectado à sua assinatura do Azure, inicie o [Azure cloud Shell](https://shell.azure.com) do Shell.Azure.com.  Você pode saber mais sobre Azure Cloud Shell [lendo nossa documentação](../cloud-shell/overview.md)
+> O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo.  Tem ferramentas azure comuns pré-instaladas, incluindo as versões mais recentes de Git, JDK, Maven e o Azure CLI. Se estiver ligado à sua subscrição Azure, lance o seu [Azure Cloud Shell](https://shell.azure.com) a partir de shell.azure.com.  Você pode saber mais sobre Azure Cloud Shell lendo a [nossa documentação](../cloud-shell/overview.md)
 
 Para concluir este guia de início rápido:
 
 1. [Instale o Git](https://git-scm.com/)
-2. [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-3. [Instalar o Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
-4. [Instalar o CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-5. [Inscrever-se para uma assinatura do Azure](https://azure.microsoft.com/free/)
+2. [Instalar JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+3. [Instale Maven 3.0 ou acima](https://maven.apache.org/download.cgi)
+4. [Instale a versão Azure CLI 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+5. [Inscreva-se para uma subscrição do Azure](https://azure.microsoft.com/free/)
 
-## <a name="install-the-azure-cli-extension"></a>Instalar a extensão de CLI do Azure
+## <a name="install-the-azure-cli-extension"></a>Instalar a extensão Azure CLI
 
-Instale a extensão do Azure Spring Cloud para o CLI do Azure usando o comando a seguir
+Instale a extensão Azure Spring Cloud para o Azure CLI utilizando o seguinte comando
 
 ```Azure CLI
 az extension add --name spring-cloud
 ```
 
-## <a name="provision-a-service-instance-on-the-azure-portal"></a>Provisionar uma instância de serviço no portal do Azure
+## <a name="provision-a-service-instance-on-the-azure-portal"></a>Provisão de uma instância de serviço no portal Azure
 
-1. Em um navegador da Web, abra [este link para o Azure Spring Cloud no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
+1. Num navegador web, abra [este link para Azure Spring Cloud no portal Azure](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
 
-1. Preencha o formulário na página **criar** do Azure Spring Cloud.  Considere as seguintes diretrizes:
-    - Nome do serviço: especifique o nome da sua instância de serviço.  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hifens.  O primeiro caractere do nome do serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
-    - Assinatura: selecione a assinatura que você deseja que seja cobrada para este recurso.  Verifique se essa assinatura foi adicionada à nossa lista de permissões para o Azure Spring Cloud.
-    - Grupo de recursos: a criação de novos grupos de recursos para novos recursos é uma prática recomendada.
-    - Local: selecione o local para sua instância de serviço. Os locais com suporte no momento incluem leste dos EUA, oeste dos EUA 2, Europa Ocidental e sudeste asiático.
+1. Preencha o formulário na página Azure Spring **Criar.**  Considere as seguintes orientações:
+    - Nome do serviço: Especifique o nome da sua instância de serviço.  O nome deve ter entre 4 e 32 caracteres de comprimento e só pode conter letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último personagem deve ser uma letra ou um número.
+    - Subscrição: Selecione a subscrição que pretende ser faturada para este recurso.  Certifique-se de que esta subscrição foi adicionada à nossa lista de autorizações para a Azure Spring Cloud.
+    - Grupo de recursos: Criar novos grupos de recursos para novos recursos é uma boa prática.
+    - Localização: Selecione a localização para a sua instância de serviço. Atualmente, as localizações apoiadas incluem Os EUA Orientais, OESTE DOS 2, Europa Ocidental e Sudeste Asiático.
 
-1. Clique em **revisar e criar**.
+1. Clique em **Rever e crie**.
 
-1. Verifique suas especificações e clique em **criar**.
+1. Verifique as suas especificações e clique em **Criar**.
 
-Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantação, a página **visão geral** da instância do serviço será exibida.
-
-> [!div class="nextstepaction"]
-> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
-
-
-## <a name="set-up-your-configuration-server"></a>Configurar o servidor de configuração
-
-1. Vá para a página **visão geral** do serviço e selecione **servidor de configuração**.
-
-1. Na seção **repositório padrão** , defina **URI** como "https\://github.com/Azure-Samples/piggymetrics".
-
-1. Defina o **rótulo** como "config".
-
-1. Selecione **Aplicar** para guardar as alterações.
-
-    ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, aparecerá a página **'Overview'** para a instância de serviço.
 
 > [!div class="nextstepaction"]
-> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
+> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
 
-## <a name="build-and-deploy-microservice-applications"></a>Compilar e implantar aplicativos de microatendimento
 
-1. Abra um [Azure cloud Shell](https://shell.azure.com) e clone o repositório do aplicativo de exemplo em seu computador local.  Aqui, primeiro criamos um diretório temporário chamado `source-code` antes de clonar o aplicativo.
+## <a name="set-up-your-configuration-server"></a>Configurar o seu servidor de configuração
+
+1. Vá à página de **visão geral** do serviço e selecione **Config Server**.
+
+1. Na secção de **repositório Predefinido,** coloque **o URI** em "https\://github.com/Azure-Samples/piggymetrics".
+
+1. Desloque **o RÓTULO** para "config".
+
+1. Selecione **Aplicar** para guardar as suas alterações.
+
+    ![Screenshot do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+> [!div class="nextstepaction"]
+> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
+
+## <a name="build-and-deploy-microservice-applications"></a>Construir e implementar aplicações de microserviços
+
+1. Abra uma [Casca de Nuvem Azure](https://shell.azure.com) e clone o repositório da aplicação de amostra saquea da sua máquina local.  Aqui, criamos primeiro um diretório temporário chamado `source-code` antes de clonar a app.
 
     ```azurecli
     mkdir source-code
@@ -97,27 +97,27 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
     git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
-1. Crie o pacote clonado.
+1. Construa o pacote clonado.
 
     ```azurecli
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-1. Atribua nomes ao seu grupo de recursos e ao seu serviço. Certifique-se de substituir os espaços reservados abaixo pelo nome do grupo de recursos e pelo nome do serviço que você provisionou anteriormente neste tutorial.
+1. Atribua nomes ao seu grupo de recursos e ao seu serviço. Certifique-se de substituir os espaços reservados abaixo com o nome de grupo de recursos e nome de serviço que você disponibilizou anteriormente neste tutorial.
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Crie o aplicativo `gateway` e implante o arquivo JAR.
+1. Crie a aplicação `gateway` e implemente o ficheiro JAR.
 
     ```azurecli
     az spring-cloud app create -n gateway
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-1. Seguindo o mesmo padrão, crie o `account-service` e `auth-service` aplicativos e implante seus arquivos JAR.
+1. Seguindo o mesmo padrão, crie as aplicações `account-service` e `auth-service` e implemente os seus ficheiros JAR.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -126,40 +126,40 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-1. Leva alguns minutos para concluir a implantação dos aplicativos. Para confirmar que eles foram implantados, acesse a folha **aplicativos** no portal do Azure. Você deve ver uma linha de cada um dos três aplicativos.
+1. Leva alguns minutos para terminar de implementar as aplicações. Para confirmar que foram implantados, vá à **lâmina** apps no portal Azure. Devia ver uma linha cada uma das três aplicações.
 
 > [!div class="nextstepaction"]
-> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
+> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
 
-## <a name="assign-a-public-endpoint-to-gateway"></a>Atribuir um ponto de extremidade público ao gateway
+## <a name="assign-a-public-endpoint-to-gateway"></a>Atribuir um ponto final público ao gateway
 
-1. Abra a guia **aplicativos** no menu à esquerda.
+1. Abra o separador **Apps** no menu à esquerda.
 
-1. Selecione o aplicativo `gateway` para mostrar a página **visão geral** .
+1. Selecione a aplicação `gateway` para mostrar a página **'Overview'.**
 
-1. Selecione **atribuir domínio** para atribuir um ponto de extremidade público ao gateway. A implementação pode demorar alguns minutos.
+1. **Selecione Domínio de Atribuição** para atribuir um ponto final público ao gateway. Isto pode levar alguns minutos.
 
-    ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+    ![Screenshot do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
-1. Insira o ponto de extremidade público atribuído (chamada **URL**) em seu navegador para exibir o aplicativo em execução.
+1. Introduza o ponto final do público atribuído **(URL**rotulado) no seu navegador para ver a sua aplicação de execução.
 
-    ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
+    ![Screenshot do portal ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 > [!div class="nextstepaction"]
-> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)
+> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a:
 
 > [!div class="checklist"]
-> * Provisionar uma instância de serviço
-> * Definir um servidor de configuração para uma instância
-> * Criar um aplicativo de microserviço localmente
-> * Implantar cada microserviço
-> * Atribuir ponto de extremidade público para seu gateway de aplicativo
+> * Provisão de uma instância de serviço
+> * Definir um servidor de configuração, por exemplo
+> * Construir uma aplicação de microserviços localmente
+> * Implementar cada microserviço
+> * Atribuir ponto final público para o seu gateway de candidatura
 
 > [!div class="nextstepaction"]
-> [Preparar seu aplicativo do Azure Spring Cloud para implantação](spring-cloud-tutorial-prepare-app-deployment.md)
+> [Prepare a sua aplicação Azure Spring Cloud para implementação](spring-cloud-tutorial-prepare-app-deployment.md)
 
-Mais exemplos estão disponíveis no GitHub: [exemplos do Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
+Mais amostras estão disponíveis no GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

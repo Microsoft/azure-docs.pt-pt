@@ -3,12 +3,12 @@ title: Controlos de amostras de plantas altas fedRAMP
 description: Controle o mapeamento da amostra de plantas do FedRAMP High. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 93e2de3f19e0577645337df029789336a35b024d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: cceca23e4bdc749c553eaf41b5f9599be3c9bf7d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087342"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150617"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Mapeamento de controlo da amostra de plantas do FedRAMP High
 
@@ -259,9 +259,9 @@ O nível padrão de negação de serviço distribuído da Azure (DDoS) fornece f
 Este plano ajuda-o a gerir e controlar o limite do sistema atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza as recomendações de endurecimento do grupo de segurança de rede no Azure Security Center. O Azure Security Center analisa os padrões de tráfego da Internet que enfrentam máquinas virtuais e fornece recomendações de regras do grupo de segurança da rede para reduzir a superfície de ataque potencial.
 Além disso, este projeto também atribui definições de políticas que monitorizam pontos finais, aplicações e contas de armazenamento desprotegidas. Pontos de extremidade e aplicativos que não são protegidos por um firewall e contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações.
 
-- As regras do grupo de segurança de rede para máquinas virtuais voltadas para a Internet devem ser protegidas
+- As regras do Grupo de Segurança da Rede para as máquinas virtuais viradas para a Internet devem ser endurecidas
 - O acesso através da Internet virado para o ponto final deve ser restringido
-- As regras do NSGs para aplicações web em IaaS devem ser endurecidas
+- As portas web devem ser restritas em Grupos de Segurança da Rede associados ao seu VM
 - Auditoria sem restrições ao acesso da rede às contas de armazenamento
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Proteção de Fronteiras  Pontos de Acesso

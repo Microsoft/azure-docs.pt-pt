@@ -1,35 +1,35 @@
 ---
-title: 'Designer: exemplo de classificação de análises de livros'
+title: 'Designer: classificar exemplo de críticas de livros'
 titleSuffix: Azure Machine Learning
-description: Crie um classificador de regressão logística de multiclasse para prever a categoria da empresa com o Azure Machine Learning conjunto 500 de
+description: Construa um classificador de regressão logística multiclasse para prever a categoria da empresa com o conjunto de dados Wikipedia SP 500 usando o designer de Machine Learning Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
-ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: f15f50e372d0bfe58018b16ebfa5d5d85644ae1a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963246"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137792"
 ---
-# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Crie um classificador para prever a categoria da empresa usando o designer de Azure Machine Learning.
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Construa um classificador para prever a categoria da empresa usando o designer de Machine Learning Azure.
 
-**Designer (visualização) exemplo 7**
+**Amostra de designer (pré-visualização) 7**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Este exemplo demonstra como usar módulos de análise de texto para criar um pipeline de classificação de texto no designer de Azure Machine Learning (versão prévia).
+Esta amostra demonstra como usar módulos de análise de texto para construir um pipeline de classificação de texto em Azure Machine Learning designer (pré-visualização).
 
-A meta da classificação de texto é atribuir uma parte do texto a uma ou mais classes ou categorias predefinidas. A parte do texto pode ser um documento, artigo de notícias, consulta de pesquisa, email, tweet, tíquetes de suporte, comentários do cliente, revisão do produto do usuário, etc. Aplicativos de classificação de texto incluem a categorização de artigos de jornal e conteúdo de emails de notícias em tópicos, organização de páginas da Web em categorias hierárquicas, filtragem de e-mail de spam, análise de sentimentos, previsão de intenção de usuário de consultas de pesquisa, roteamento suporte a tíquetes e análise de comentários do cliente. 
+O objetivo da classificação de texto é atribuir um pedaço de texto a uma ou mais classes ou categorias predefinidas. O texto pode ser um documento, artigo de notícias, consulta de pesquisa, e-mail, tweet, bilhetes de apoio, feedback do cliente, revisão do produto do utilizador, etc. As aplicações de classificação de texto incluem categorizar artigos de jornais e conteúdos de fios de notícias em tópicos, organizar páginas web em categorias hierárquicas, filtrar e-mails de spam, análise de sentimentos, prever a intenção do utilizador de consultas de pesquisa, encaminhamento bilhetes de apoio e análise do feedback do cliente. 
 
-Esse pipeline treina um **classificador de regressão logística de multiclasse** para prever a categoria da empresa com o **conjunto de conjuntos da Wikipédia SP 500 derivado da Wikipédia**.  
+Este gasoduto treina um **classificador de regressão logística multiclasse** para prever a categoria da empresa com o conjunto de **dados Wikipedia SP 500 derivado da Wikipédia.**  
 
-As etapas fundamentais de um modelo de aprendizado de máquina de treinamento com dados de texto são:
+Os passos fundamentais de um modelo de aprendizagem automática de formação com dados de texto são:
 
 1. Obter os dados
 
@@ -37,71 +37,71 @@ As etapas fundamentais de um modelo de aprendizado de máquina de treinamento co
 
 1. Engenharia de Recursos
 
-   Converta o recurso de texto no recurso numérico com o módulo de extração de recursos, como o hash de recurso, extraia o recurso n-Gram dos dados de texto.
+   Converta a função de texto na funcionalidade numérica com módulo de extração de funcionalidades, como o hashing de características, extrair a função n-grama dos dados de texto.
 
-1. Formar o modelo
+1. Dar formação sobre o modelo
 
-1. Conjunto de pontos de Pontuação
+1. Marcar conjunto de dados
 
 1. Avaliar o modelo
 
-Aqui está o grafo final concluído do pipeline no qual vamos trabalhar. Forneceremos a lógica para todos os módulos para que você possa tomar decisões semelhantes por conta própria.
+Aqui está o gráfico final e completo do oleoduto em que vamos trabalhar. Vamos fornecer a razão para todos os módulos para que possa tomar decisões semelhantes por conta própria.
 
 [gráfico ![do oleoduto](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
 
 ## <a name="data"></a>Dados
 
-Nesse pipeline, usamos o conjunto de entrada da **Wikipédia SP 500** . O conjunto de notícias é derivado da Wikipédia (https://www.wikipedia.org/) com base em artigos de cada S & a empresa P 500. Antes de carregar no Azure Machine Learning designer, o conjunto de um foi processado da seguinte maneira:
+Neste pipeline, utilizamos o conjunto de dados **Wikipedia SP 500.** O conjunto de dados é derivado da Wikipédia (https://www.wikipedia.org/) com base em artigos de cada empresa S&P 500. Antes de enviar para o designer de Machine Learning Azure, o conjunto de dados foi processado da seguinte forma:
 
-- Extraia o conteúdo de texto para cada empresa específica
-- Remover formatação wiki
+- Extrair conteúdo de texto para cada empresa específica
+- Remover a formatação wiki
 - Remover caracteres não alfanuméricos
-- Converter todo o texto em minúsculas
-- Foram adicionadas categorias de empresa conhecidas
+- Converter todo o texto em minúscula
+- Foram adicionadas categorias de empresas conhecidas
 
-Não foi possível encontrar artigos para algumas empresas, portanto, o número de registros é menor que 500.
+Os artigos não puderam ser encontrados para algumas empresas, pelo que o número de registos é inferior a 500.
 
 ## <a name="pre-process-the-text-data"></a>Pré-processar os dados de texto
 
-Usamos o módulo de **texto pré-processar** para pré-processar os dados de texto, incluindo detectar as sentenças, Tokenize sentenças e assim por diante. Você encontraria todas as opções com suporte no artigo de [**texto de pré-processamento**](algorithm-module-reference/preprocess-text.md) . Após o pré-processamento dos dados tex, utilizamos o módulo **Split Data** para dividir aleatoriamente os dados de entrada de modo a que o conjunto de dados de formação contenha 50% dos dados originais e o conjunto de dados de teste contém 50% dos dados originais.
+Utilizamos o módulo **de texto pré-processado** para pré-processar os dados de texto, incluindo detetar as frases, tokenizar frases e assim por diante. Você encontraria todas as opções suportadas no artigo [**texto pré-processo.** ](algorithm-module-reference/preprocess-text.md) Após o pré-processamento dos dados de texto, utilizamos o módulo **Split Data** para dividir aleatoriamente os dados de entrada de modo a que o conjunto de dados de formação contenha 50% dos dados originais e o conjunto de dados de teste contém 50% dos dados originais.
 
 ## <a name="feature-engineering"></a>Engenharia de Recursos
-Neste exemplo, usaremos dois métodos executando a engenharia de recursos.
+Nesta amostra, utilizaremos dois métodos de realização de engenharia de recursos.
 
 ### <a name="feature-hashing"></a>Hashing de Funcionalidade
-Usamos o módulo [**hash de recurso**](algorithm-module-reference/feature-hashing.md) para converter o texto sem formatação dos artigos em inteiros e usei os valores inteiros como recursos de entrada para o modelo. 
+Usamos o módulo [**Feature Hashing**](algorithm-module-reference/feature-hashing.md) para converter o texto simples dos artigos em inteiros e usamos os valores inteiros como características de entrada para o modelo. 
 
-O módulo **hash de recurso** pode ser usado para converter documentos de texto de comprimento variável em vetores de recursos numéricos de comprimento igual, usando o método de hash de 32 bits murmurhash v3 fornecido pela biblioteca Vowpal Wabbit. O objetivo de usar o hash de recurso é a redução da dimensionalidade; o hash de recurso também torna a pesquisa de pesos de recursos mais rápida no tempo de classificação porque usa comparação de valor de hash em vez de comparação de cadeia de caracteres.
+O módulo **de hashing feature** pode ser usado para converter documentos de texto de comprimento variável em vetores de características numéricas de comprimento igual, utilizando o método de hashing murmurhash v3 de 32 bits fornecido pela biblioteca Vowpal Wabbit. O objetivo da utilização do hashing de recurso é a redução da dimensionalidade; também o hashing de características torna a procura de pesos de recurso mais rápido no tempo de classificação porque usa a comparação de valor hash em vez de comparação de cordas.
 
-No pipeline de exemplo, definimos o número de bits de hash como 14 e definimos o número de n-grams como 2. Com estas definições, a tabela de hash pode conter 2^14 entradas, nas quais cada característica de hashing representa uma ou mais funcionalidades n-grama e o seu valor representa a frequência de ocorrência desse n-grama na instância de texto. Para muitos problemas, uma tabela de hash desse tamanho é mais do que a adequada, mas em alguns casos, mais espaço pode ser necessário para evitar colisões. Avalie o desempenho da sua solução de aprendizado de máquina usando um número diferente de bits. 
+No gasoduto da amostra, definimos o número de pedaços de hashing para 14 e definimos o número de n-gramas para 2. Com estas definições, a tabela de hash pode conter 2^14 entradas, nas quais cada característica de hashing representa uma ou mais funcionalidades n-grama e o seu valor representa a frequência de ocorrência desse n-grama na instância de texto. Para muitos problemas, uma mesa de haxixe deste tamanho é mais do que adequada, mas em alguns casos, mais espaço pode ser necessário para evitar colisões. Avalie o desempenho da sua solução de aprendizagem automática utilizando um número diferente de bits. 
 
-### <a name="extract-n-gram-feature-from-text"></a>Extrair recurso de N-Gram de texto
+### <a name="extract-n-gram-feature-from-text"></a>Extrair recurso N-Gram do Texto
 
-Um n-Gram é uma sequência contígua de n termos de uma determinada sequência de texto. Um n-grama de tamanho 1 é chamado de unigram; um n-grama de tamanho 2 é um bigrama; um n-grama de tamanho 3 é um diagrama. N-gramas de tamanhos maiores às vezes são referenciados pelo valor de n, por exemplo, "quatro-Gram", "cinco-grama" e assim por diante.
+Um n-grama é uma sequência contígua de n termos a partir de uma determinada sequência de texto. Um n-grama de tamanho 1 é referido como um unigrama; um n-grama de tamanho 2 é um bigram; um n-grama de tamanho 3 é um trigrama. Os n-gramas de tamanhos maiores são por vezes referidos pelo valor de n, por exemplo, "quatro gramas", "cinco gramas", e assim por diante.
 
-Usamos a [**extração do recurso N-Gram do módulo de texto**](algorithm-module-reference/extract-n-gram-features-from-text.md)como outra solução para a engenharia de recursos. Esse módulo primeiro extrai o conjunto de n-grams, além de n-grams, o número de documentos em que cada n-Gram aparece no texto é contado (DF). Neste exemplo, a métrica TF-IDF é usada para calcular valores de recursos. Em seguida, ele converte dados de texto não estruturados em vetores de recursos numéricos de comprimento igual, em que cada recurso representa o TF-IDF de um n-Gram em uma instância de texto.
+Usamos a [**função Extract N-Gram do**](algorithm-module-reference/extract-n-gram-features-from-text.md) módulo Text como outra solução para a engenharia de recursos. Este módulo extrai primeiro o conjunto de n-gramas, para além dos n-gramas, o número de documentos onde cada n-grama aparece no texto é contado (DF). Nesta amostra, a métrica TF-IDF é utilizada para calcular os valores da característica. Em seguida, converte dados de texto não estruturados em vetores de características numéricas de comprimento igual onde cada característica representa o TF-IDF de um n-grama em uma instância de texto.
 
-Depois de converter os dados de texto em vetores de recursos numéricos, um módulo **Selecionar coluna** é usado para remover os dados de texto do DataSet. 
+Depois de converter dados de texto em vetores de características numéricas, um módulo De **Coluna Select** é usado para remover os dados de texto do conjunto de dados. 
 
-## <a name="train-the-model"></a>Formar o modelo
+## <a name="train-the-model"></a>Dar formação sobre o modelo
 
-A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Como o objetivo desse pipeline é prever a categoria da empresa, um modelo classificador multiclasse é uma boa opção. Considerando que o número de recursos é grande e que esses recursos são esparsos, usamos o modelo de **regressão logística multiclasse** para esse pipeline.
+A sua escolha de algoritmo depende frequentemente dos requisitos do caso de utilização. Como o objetivo deste oleoduto é prever a categoria de empresa, um modelo de classificação multi-classe é uma boa escolha. Tendo em conta que o número de funcionalidades é grande e estas características são escassas, utilizamos o modelo **multiclasse de regressão logística** para este pipeline.
 
 ## <a name="test-evaluate-and-compare"></a>Testar, avaliar e comparar
 
- Dividimos o conjunto de informações e usamos conjuntos de valores diferentes para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
+ Dividimos o conjunto de dados e usamos diferentes conjuntos de dados para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
 
-Depois que o modelo é treinado, usaremos o **modelo de Pontuação** e **avaliamos** os módulos de modelo para gerar resultados previstos e avaliar os modelos. No entanto, antes de usar o módulo **modelo de Pontuação** , é necessário realizar a engenharia de recursos como o que fizemos durante o treinamento. 
+Depois de o modelo ser treinado, usaríamos os módulos **'Modelo de Pontuação'** e Avaliamos os módulos de Modelo de **Pontuação** para gerar resultados previstos e avaliar os modelos. No entanto, antes de utilizar o módulo **Score Model,** é necessário executar a engenharia de funcionalidades como o que fizemos durante o treino. 
 
-Para o módulo **hash de recurso** , é fácil executar engenheiro de recursos no fluxo de Pontuação como fluxo de treinamento. Use o módulo **hash de recurso** diretamente para processar os dados de texto de entrada.
+Para o módulo **De Hashing feature,** é fácil executar o engenheiro de recursos no fluxo de pontuação como fluxo de treino. Utilize o módulo **de hashing de funcionalidade** diretamente para processar os dados de texto de entrada.
 
-Para **extrair o recurso N-Gram do módulo de texto** , conectamos **a saída do vocabulário de resultado** do fluxo de **dados** de treinamento ao vocabulário de entrada no fluxo de informações de Pontuação e definimos o parâmetro **modo de vocabulário** como **ReadOnly**.
+Para **extrair funcionalidade N-Gram do** módulo texto, ligaríamos a saída do Vocabulário de **Resultado** saca do fluxo de dados de treino ao Vocabulário de **Entrada** no fluxo de dados de pontuação, e definiria o parâmetro do **modo Vocabulário** para **ReadOnly**.
 [Gráfico ![da pontuação n-grama](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
 
-Depois de concluir a etapa de engenharia, o **modelo de Pontuação** poderia ser usado para gerar previsões para o conjunto de teste usando o modelo treinado. Para verificar o resultado, selecione a porta de saída do **modelo de Pontuação** e, em seguida, selecione **Visualizar**.
+Depois de terminar o passo de engenharia, o **Score Model** poderia ser usado para gerar previsões para o conjunto de dados de teste utilizando o modelo treinado. Para verificar o resultado, selecione a porta de saída do **Modelo de Pontuação** e, em seguida, selecione **Visualize**.
 
-Em seguida, passamos as pontuações para o módulo **modelo** de avaliação para gerar métricas de avaliação. O **modelo de avaliação** tem duas portas de entrada, para que possamos avaliar e comparar conjuntos de dados pontuados que são gerados com métodos diferentes. Neste exemplo, comparamos o desempenho do resultado gerado com o método de hash de recurso e o método n-Gram.
-Para verificar o resultado, selecione a porta de saída do **modelo de avaliação** e, em seguida, selecione **Visualizar**.
+Em seguida, passamos as pontuações para o módulo **'Avaliar Modelo'** para gerar métricas de avaliação. **Avaliar o Model** tem duas portas de entrada, para que possamos avaliar e comparar conjuntos de dados pontuados que são gerados com diferentes métodos. Nesta amostra, comparamos o desempenho do resultado gerado com o método de hashing de características e o método n-gram.
+Para verificar o resultado, selecione a porta de saída do **Modelo de Avaliação** e, em seguida, selecione **Visualize**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -109,10 +109,10 @@ Para verificar o resultado, selecione a porta de saída do **modelo de avaliaç�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore os outros exemplos disponíveis para o designer:
-- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exemplo 2-regressão: comparar algoritmos para previsão de preço de automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exemplo 3-classificação com seleção de recursos: Previsão de renda](how-to-designer-sample-classification-predict-income.md)
-- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
-- [Exemplo 6-classificação: prever atrasos de voo](how-to-designer-sample-classification-flight-delay.md)
+Explore as outras amostras disponíveis para o designer:
+- [Amostra 1 - Regressão: Prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Amostra 2 - Regressão: Comparar algoritmos para previsão de preços do automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Amostra 3 - Classificação com seleção de características: Previsão do Rendimento](how-to-designer-sample-classification-predict-income.md)
+- [Amostra 4 - Classificação: Prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Amostra 5 - Classificação: Prever churn](how-to-designer-sample-classification-churn.md)
+- [Amostra 6 - Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)

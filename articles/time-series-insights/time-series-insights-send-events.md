@@ -1,6 +1,6 @@
 ---
-title: Enviar eventos para um ambiente-Azure Time Series Insights | Microsoft Docs
-description: Saiba como configurar um hub de eventos, executar um aplicativo de exemplo e enviar eventos para seu ambiente de Azure Time Series Insights.
+title: Envie eventos para um ambiente - Azure Time Series Insights [ Azure Time Series Insights ] Microsoft Docs
+description: Aprenda a configurar um centro de eventos, executar uma aplicação de amostra e envie eventos para o seu ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,78 +9,84 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: b9d64c347881f78e832a39bca8404fdad98cbf17
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76981111"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152521"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights com um hub de eventos
 
-Este artigo explica como criar e configurar um hub de eventos nos hubs de eventos do Azure. Ele também descreve como executar um aplicativo de exemplo para enviar eventos por push a Azure Time Series Insights dos hubs de eventos. Se você tiver um hub de eventos existente com eventos no formato JSON, pule este tutorial e exiba seu ambiente em [Azure Time Series insights](./time-series-insights-update-create-environment.md).
+Este artigo explica como criar e configurar um centro de eventos em Azure Event Hubs. Também descreve como executar uma aplicação de amostra para empurrar eventos para Azure Time Series Insights de Event Hubs. Se tiver um hub de eventos existente com eventos em formato JSON, ignore este tutorial e veja o seu ambiente em Insights da [Série De Tempo Azure](./time-series-insights-update-create-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Configurar um hub de eventos
 
-1. Para saber como criar um hub de eventos, leia a [documentação dos hubs de eventos](https://docs.microsoft.com/azure/event-hubs/).
-1. Na caixa de pesquisa, procure **os Hubs de eventos**. Na lista devolvida, selecione **os Hubs de eventos**.
+1. Para aprender a criar um hub de eventos, leia a documentação do [Event Hubs.](https://docs.microsoft.com/azure/event-hubs/)
+1. Na caixa de pesquisa, procure Hubs de **Eventos**. Na lista devolvida, selecione **Event Hubs**.
 1. Selecione o seu hub de eventos.
-1. Ao criar um hub de eventos, você está criando um namespace de Hub de eventos. Se você ainda não criou um hub de eventos dentro do namespace, no menu, em **entidades**, crie um hub de eventos.  
+1. Quando crias um centro de eventos, estás a criar um espaço de nome sem nome para eventos. Se ainda não criou um hub de eventos dentro do espaço de nome, no menu, em Entidades, crie um hub de **eventos.**  
 
     [![Lista de centros de eventos](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
 1. Depois de criar um hub de eventos, selecione-o na lista de hubs de eventos.
-1. No menu, em **entidades**, selecione **hubs de eventos**.
+1. No menu, em **Entidades,** selecione **Centros de Eventos**.
 1. Selecione o nome do hub de eventos para configurá-lo.
-1. Em **visão geral**, selecione **grupos de consumidores**e, em seguida, selecione grupo de **consumidores**.
+1. Em **resumo,** selecione **grupos de consumidores**e, em seguida, selecione **Consumer Group**.
 
     [![Criar um grupo de consumidores](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
-1. Certifique-se de criar um grupo de consumidores que é usado exclusivamente pelo seu Time Series Insights origem do evento.
+1. Certifique-se de criar um grupo de consumidores que seja utilizado exclusivamente pela sua fonte de eventos Time Series Insights.
 
     > [!IMPORTANT]
-    > Verifique se esse grupo de consumidores não é usado por nenhum outro serviço, como um trabalho Azure Stream Analytics ou outro ambiente de Time Series Insights. Se o grupo de consumidores for utilizado por outros serviços, operações de leitura são afetados negativamente para este ambiente e para outros serviços. Se usar **$Default** como o grupo de consumidores, outros leitores potencialmente poderão reutilizar seu grupo de consumidores.
+    > Certifique-se de que este grupo de consumidores não é utilizado por nenhum outro serviço, como um trabalho de Azure Stream Analytics ou outro ambiente time series Insights. Se o grupo de consumidores for utilizado por outros serviços, operações de leitura são afetados negativamente para este ambiente e para outros serviços. Se utilizar **$Default** como grupo de consumidores, outros leitores poderão potencialmente reutilizar o seu grupo de consumidores.
 
-1. No menu, em **configurações**, selecione **políticas de acesso compartilhado**e, em seguida, selecione **Adicionar**.
+1. No menu, em **Definições,** selecione políticas de **acesso partilhados,** e, em seguida, selecione **Adicionar**.
 
     [![Selecione as políticas de acesso partilhado e, em seguida, selecione o botão Adicionar](media/send-events/add-shared-access-policy.png)](media/send-events/add-shared-access-policy.png#lightbox)
 
-1. Na **Adicionar nova política de acesso partilhado** painel, criar um acesso partilhado com o nome **MySendPolicy**. Você usa essa política de acesso compartilhado para enviar eventos nos C# exemplos mais adiante neste artigo.
+1. No novo painel de política de **acesso partilhado Add,** crie um acesso partilhado chamado **MySendPolicy**. Você usa esta política de acesso C# partilhado para enviar eventos nos exemplos mais tarde neste artigo.
 
     [![Na caixa de nome política, introduza MySendPolicy](media/send-events/configure-shared-access-policy-confirm.png)](media/send-events/configure-shared-access-policy-confirm.png#lightbox)
 
-1. Em **declaração**, marque a caixa de seleção **Enviar** .
+1. Em **'Reclamação',** selecione a caixa de verificação **Enviar.**
 
 ## <a name="add-a-time-series-insights-instance"></a>Adicionar uma instância do Time Series Insights
 
-A atualização do Time Series Insights utiliza instâncias para adicionar dados contextuais para dados telemétricos recebidos. Os dados são associados no momento da consulta ao utilizar um **ID de série de tempo**. A **ID da série temporal** para o projeto Windmills de exemplo que usamos mais adiante neste artigo é `id`. Para saber mais sobre as instâncias do time Series insights e a **ID da série temporal**, leia [modelos de série temporal](./time-series-insights-update-tsm.md).
+A atualização do Time Series Insights utiliza instâncias para adicionar dados contextuais para dados telemétricos recebidos. Os dados são unidos na hora da consulta utilizando um ID da **Série De Tempo**. O ID da **Série Tempo** para o projeto de moinhos de vento que usamos mais tarde neste artigo é `id`. Para saber mais sobre os casos de Insight da Série Tempo e **id da Série de Tempo,** leia os [Modelos da Série de Tempo](./time-series-insights-update-tsm.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Criar uma fonte de eventos do Time Series Insights
 
-1. Se não tiver criado uma origem de evento, conclua os passos para [criar uma origem de evento](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+1. Se ainda não criou uma fonte de evento, complete os passos para criar uma fonte de [evento.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)
 
-1. Definir um valor para `timeSeriesId`. Para saber mais sobre a **ID da série temporal**, leia [modelos de série temporal](./time-series-insights-update-tsm.md).
+1. Detete um valor para `timeSeriesId`. Para saber mais sobre o **ID da Série Tempo,** leia [os Modelos da Série De Tempo](./time-series-insights-update-tsm.md).
 
-### <a name="push-events-to-windmills-sample"></a>Enviar eventos por push para o exemplo de Windmills
+### <a name="push-events-to-windmills-sample"></a>Empurre eventos para a amostra de moinhos de vento
 
-1. Na barra de pesquisa, procure **os Hubs de eventos**. Na lista devolvida, selecione **os Hubs de eventos**.
+1. Na barra de pesquisa, procure Hubs de **Eventos.** Na lista devolvida, selecione **Event Hubs**.
 
-1. Selecione sua instância do hub de eventos.
+1. Selecione a sua instância de centro de eventos.
 
-1. Vá para **políticas de acesso compartilhado** > **MySendPolicy**. Copie o valor para **ligação chave primária da cadeia de caracteres**.
+1. Vá para **as políticas** de acesso partilhado > **MySendPolicy**. Copie o valor da tecla primária de fio de **ligação**.
 
     [![Copiar o valor para a cadeia de ligação principal](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Aceda a https://tsiclientsample.azurewebsites.net/windFarmGen.html. O URL é executado windmill simulado dispositivos.
-1. Na caixa **cadeia de conexão do hub de eventos** na página da Web, Cole a cadeia de conexão que você copiou no [campo de entrada Windmill](#push-events-to-windmills-sample).
+1. Aceda a https://tsiclientsample.azurewebsites.net/windFarmGen.html. O URL cria e executa dispositivos simulados de moinho de vento.
+1. Na caixa de cordas de **ligação** do Event Hub na página web, cola a cadeia de ligação que copiou no campo de entrada do moinho de [vento](#push-events-to-windmills-sample).
   
     [![Colar a cadeia de ligação principal principal na caixa de cordas de ligação do Hub de Evento](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Selecione **clique aqui para iniciar**. O simulador gera instância JSON que pode utilizar diretamente.
+1. Selecione **Clique para começar**. 
 
-1. Regresse ao seu hub de eventos no portal do Azure. Na página **visão geral** , os novos eventos recebidos pelo hub de eventos são exibidos.
+    > [!TIP]
+    > O simulador de moinho de vento também cria JSON que pode usar como carga útil com as [APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query)de consulta GA Da Série De Tempo .
+
+    > [!NOTE]
+    > O simulador continuará a enviar dados até que o separador do navegador esteja fechado.
+
+1. Regresse ao seu hub de eventos no portal do Azure. Na página **'Overview',** os novos eventos recebidos pelo centro do evento são apresentados.
 
     [![Uma página de visão geral do centro de eventos que mostra métricas para o centro de eventos](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 
@@ -88,7 +94,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 ### <a name="example-one"></a>Exemplo um
 
-* **Entrada**: um objeto JSON simples.
+* **Entrada**: Um simples objeto JSON.
 
     ```JSON
     {
@@ -97,7 +103,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
     }
     ```
 
-* **Saída**: um evento.
+* **Saída**: Um evento.
 
     |ID|carimbo de data/hora|
     |--------|---------------|
@@ -105,7 +111,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 ### <a name="example-two"></a>Exemplo dois
 
-* **Input**: uma matriz JSON com dois objetos JSON. Cada objeto JSON é convertido para um evento.
+* **Entrada**: Uma matriz JSON com dois objetos JSON. Cada objeto JSON é convertido para um evento.
 
     ```JSON
     [
@@ -120,7 +126,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
     ]
     ```
 
-* **Saída**: dois eventos.
+* **Saída**: Dois eventos.
 
     |ID|carimbo de data/hora|
     |--------|---------------|
@@ -129,7 +135,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 ### <a name="example-three"></a>Exemplo três
 
-* **Input**: um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON.
+* **Entrada**: Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON.
 
     ```JSON
     {
@@ -147,7 +153,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
     }
     ```
 
-* **Saída**: dois eventos. A propriedade **localização** é copiada para cada evento.
+* **Saída**: Dois eventos. A **localização** da propriedade é copiada para cada evento.
 
     |localização|events.id|events.timestamp|
     |--------|---------------|----------------------|
@@ -156,7 +162,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 ### <a name="example-four"></a>Exemplo quatro
 
-* **Input**: um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa entrada demonstra que propriedades globais podem ser representadas pelo objeto JSON complexo.
+* **Entrada**: Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa entrada demonstra que propriedades globais podem ser representadas pelo objeto JSON complexo.
 
     ```JSON
     {
@@ -188,7 +194,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
     }
     ```
 
-* **Saída**: dois eventos.
+* **Saída**: Dois eventos.
 
     |localização|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
@@ -197,6 +203,6 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Exiba seu ambiente](https://insights.timeseries.azure.com) no time Series insights Explorer.
+- [Veja o seu ambiente](https://insights.timeseries.azure.com) no explorador time series Insights.
 
-- Leia mais sobre [as mensagens do dispositivo do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+- Ler mais sobre mensagens de [dispositivo IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)

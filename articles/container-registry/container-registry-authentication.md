@@ -3,12 +3,12 @@ title: Opções de autenticação do registro
 description: Opções de autenticação para um registo privado de contentores Azure, incluindo a assinatura com uma identidade azure Ative Directory, utilizando diretores de serviço, e usando credenciais de administração opcionais.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 384f401a986c58dc6ce63384ce3e2a43b8db27fa
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 5459ac29c1264b18404cb2863b9d4209907ac029
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029882"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152948"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticar com um registo de contentores Azure
 
@@ -23,7 +23,7 @@ A tabela que se segue lista os métodos de autenticação disponíveis e os cen�
 | Método                               | Como autenticar                                           | Cenários                                                            | RBAC                             | Limitações                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Identidade de anúncio individual](#individual-login-with-azure-ad)                | `az acr login` em  Azure CLI                            | Push/pull interativo por desenvolvedores, testadores                                    | Sim                              | O token ad deve ser renovado a cada 3 horas     |
-| [  principal de serviço de ad](#service-principal)                 | `docker login`<br/><br/>`az acr login` em Azure CLI<br/><br/> Definições de login de registo em APIs ou ferramentas<br/><br/> Kubernetes tiram     secretos                                       | Impulso não acompanhado do oleoduto CI/CD<br/><br/> Puxão não acompanhado para serviços azure ou externos  | Sim                              | A caducidade da senha do SP é de 1 ano       |                                                           
+| [  principal de serviço de ad](#service-principal)                 | `docker login`<br/><br/>`az acr login` em Azure CLI<br/><br/> Definições de login de registo em APIs ou ferramentas<br/><br/> [Kubernetes puxam](container-registry-auth-kubernetes.md)     secretos                                       | Impulso não acompanhado do oleoduto CI/CD<br/><br/> Puxão não acompanhado para serviços azure ou externos  | Sim                              | A caducidade da senha do SP é de 1 ano       |                                                           
 | [Integrar com a AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Anexar o registo quando o cluster AKS foi criado ou atualizado  | Puxe sem vigilância para o cluster AKS                                                  | Não, só puxar o acesso             | Disponível apenas com cluster AKS            |
 | [Identidade gerida para os recursos do Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` em Azure CLI                                       | Impulso não acompanhado do oleoduto Azure CI/CD<br/><br/> Puxão sem supervisão para os serviços do Azure<br/><br/>   | Sim                              | Utilizar apenas a partir de serviços Azure que [suportam identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
 | [  de utilizador de administrador](#admin-account)                           | `docker login`                                          | Push/pull interativo por desenvolvedor ou tester individual                           | Não, puxe sempre e empurre o acesso  | Conta única por registo, não recomendada para vários utilizadores         |
@@ -68,7 +68,7 @@ Para que os scripts CLI criem um principal de serviço para autenticação com u
 Cada registro de contêiner inclui uma conta de usuário administrador, que é desabilitada por padrão. Você pode habilitar o usuário administrador e gerenciar suas credenciais no portal do Azure ou usando o CLI do Azure ou outras ferramentas do Azure.
 
 > [!IMPORTANT]
-> A conta de administrador é projetada para que um único usuário acesse o registro, principalmente para fins de teste. Não recomendamos o compartilhamento das credenciais da conta de administrador entre vários usuários. Todos os usuários que se autenticam com a conta de administrador aparecem como um único usuário com acesso de push e pull ao registro. Alterar ou desabilitar essa conta desabilita o acesso ao registro para todos os usuários que usam suas credenciais. A identidade individual é recomendada para usuários e entidades de serviço para cenários sem periféricos.
+> A conta de administração destina-se a um único utilizador a aceder ao registo, principalmente para efeitos de teste. Não recomendamos o compartilhamento das credenciais da conta de administrador entre vários usuários. Todos os usuários que se autenticam com a conta de administrador aparecem como um único usuário com acesso de push e pull ao registro. Alterar ou desabilitar essa conta desabilita o acesso ao registro para todos os usuários que usam suas credenciais. A identidade individual é recomendada para utilizadores e diretores de serviço para cenários sem cabeça.
 >
 
 A conta de administrador é fornecida com duas senhas, que podem ser regeneradas. Duas senhas permitem manter a conexão com o registro usando uma senha enquanto você gera novamente a outra. Se a conta de administração estiver ativada, pode passar o nome de utilizador e qualquer palavra-passe para o comando `docker login` quando solicitado para autenticação básica no registo. Por exemplo:

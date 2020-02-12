@@ -1,131 +1,129 @@
 ---
-title: 'Modelo de validação cruzada: referência de módulo'
+title: 'Modelo de validação cruzada: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo modelo de validação cruzada em Azure Machine Learning para validar as estimativas de parâmetro de classificação ou regressão cruzada, Particionando os dados.
+description: Aprenda a utilizar o módulo Cross-Validate Model em Azure Machine Learning para validar as estimativas de parâmetros de classificação ou regressão através da partilha dos dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 6dd8246d5751609e2f20ee9d5e519529752940f7
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546712"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137532"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
-Este artigo descreve como usar o módulo modelo de validação cruzada no designer de Azure Machine Learning (versão prévia). A *validação cruzada* é uma técnica usada com frequência no aprendizado de máquina para avaliar a variabilidade de um conjunto de dados e a confiabilidade de qualquer modelo treinado por meio desse dado.  
+Este artigo descreve como usar o módulo Cross Validate Model em Azure Machine Learning designer (pré-visualização). *A validação cruzada* é uma técnica frequentemente utilizada na aprendizagem automática para avaliar tanto a variabilidade de um conjunto de dados como a fiabilidade de qualquer modelo treinado através desses dados.  
 
-O módulo modelo de validação cruzada usa como entrada um conjunto de dados rotulado, junto com um modelo de classificação ou regressão não treinado. Ele divide o conjunto de valores em alguns subconjuntos (*dobras*), cria um modelo em cada dobra e retorna um conjunto de estatísticas de precisão para cada dobra. Ao comparar as estatísticas de precisão de todas as dobras, você pode interpretar a qualidade do conjunto de dados. Em seguida, você pode entender se o modelo é suscetível a variações nos dados.  
+O módulo Cross Validate Model toma como entrada um conjunto de dados rotulado, juntamente com um modelo de classificação ou regressão não treinado. Divide o conjunto de dados em alguns subconjuntos *(dobras),* constrói um modelo em cada dobra e, em seguida, devolve um conjunto de estatísticas de precisão para cada dobra. Comparando as estatísticas de precisão para todas as dobras, pode interpretar a qualidade do conjunto de dados. Pode então compreender se o modelo é suscetível a variações nos dados.  
 
-O modelo de validação cruzada também retorna resultados previstos e probabilidades para o conjunto de os, para que você possa avaliar a confiabilidade das previsões.  
+Cross Validate Model também devolve resultados e probabilidades previsíveis para o conjunto de dados, para que possa avaliar a fiabilidade das previsões.  
 
 ### <a name="how-cross-validation-works"></a>Como funciona a validação cruzada
 
-1. A validação cruzada divide aleatoriamente os dados de treinamento em dobras. 
+1. A validação cruzada divide aleatoriamente os dados de treino em dobras. 
 
-   O algoritmo assume o padrão de 10 dobras se você não tiver particionado anteriormente o conjunto de os. Para dividir o conjunto de espaço em um número diferente de dobras, você pode usar o módulo [partição e exemplo](partition-and-sample.md) e indicar quantas dobras deseja usar.  
+   O algoritmo falha em 10 dobras se não tiver previamente dividido o conjunto de dados. Para dividir o conjunto de dados num número diferente de dobras, pode utilizar o módulo [De Partilha e Amostra](partition-and-sample.md) e indicar quantas dobras usar.  
 
-2.  O módulo separa os dados na dobra 1 para usar para validação. (Às vezes, isso é chamado de *dobra*de controle.) O módulo usa as dobras restantes para treinar um modelo. 
+2.  O módulo reserva os dados no ponto 1 para ser utilizado para validação. (Isto às vezes é chamado de dobra de *retenção*.) O módulo utiliza as restantes dobras para treinar um modelo. 
 
-    Por exemplo, se você criar cinco dobras, o módulo gerará cinco modelos durante a validação cruzada. O módulo treina cada modelo usando quatro quintas dos dados. Ele testa cada modelo no restante de um quinto.  
+    Por exemplo, se criar cinco dobras, o módulo gera cinco modelos durante a validação cruzada. O módulo treina cada modelo utilizando quatro quintos dos dados. Testa cada modelo no restante quinto.  
 
-3.  Durante o teste do modelo para cada dobra, o módulo avalia várias estatísticas de precisão. As estatísticas que o módulo usa dependem do tipo de modelo que você está avaliando. Estatísticas diferentes são usadas para avaliar modelos de classificação versus modelos de regressão.  
+3.  Durante o teste do modelo para cada dobra, o módulo avalia estatísticas de precisão múltipla. Quais as estatísticas que o módulo utiliza depende do tipo de modelo que está a avaliar. Diferentes estatísticas são usadas para avaliar modelos de classificação versus modelos de regressão.  
 
-4.  Quando o processo de criação e avaliação é concluído para todas as dobras, o modelo de validação cruzada gera um conjunto de métricas de desempenho e resultados pontuados para todos os dados. Examine essas métricas para ver se alguma única dobra tem precisão alta ou baixa. 
+4.  Quando o processo de construção e avaliação estiver concluído para todas as dobras, o Cross Validate Model gera um conjunto de métricas de desempenho e resultados pontuados para todos os dados. Reveja estas métricas para ver se qualquer dobra tem uma precisão elevada ou baixa. 
 
 ### <a name="advantages-of-cross-validation"></a>Vantagens da validação cruzada
 
-Uma maneira diferente e comum de avaliar um modelo é dividir os dados em um conjunto de treinamento e teste usando [dividir dados](split-data.md)e validar o modelo nos dados de treinamento. Mas a validação cruzada oferece algumas vantagens:  
+Uma forma diferente e comum de avaliar um modelo é dividir os dados num conjunto de treino e teste utilizando [Dados Split](split-data.md)e, em seguida, validar o modelo nos dados de formação. Mas a validação cruzada oferece algumas vantagens:  
 
--   A validação cruzada usa mais dados de teste.
+-   A validação cruzada utiliza mais dados de teste.
 
-    A validação cruzada mede o desempenho do modelo com os parâmetros especificados em um espaço de dados maior. Ou seja, a validação cruzada usa todo o conjunto de teste de treinamento para treinamento e avaliação, em vez de uma parte. Por outro lado, se você validar um modelo usando dados gerados de uma divisão aleatória, normalmente você avaliará o modelo em apenas 30% ou menos dos dados disponíveis.  
+    A validação cruzada mede o desempenho do modelo com os parâmetros especificados num espaço de dados maior. Ou seja, a validação cruzada utiliza todo o conjunto de dados de treino tanto para treino como para avaliação, em vez de uma parte. Em contraste, se validar um modelo utilizando dados gerados a partir de uma divisão aleatória, normalmente avalia o modelo em apenas 30% ou menos dos dados disponíveis.  
 
-    No entanto, como a validação cruzada treina e valida o modelo várias vezes em um conjunto de informações maior, é muito mais intensivo computacionalmente. Demora muito mais do que validar em uma divisão aleatória.  
+    No entanto, como a validação cruzada treina e valida o modelo várias vezes sobre um conjunto de dados maior, é muito mais intensivo computacionalmente. Demora muito mais do que validar numa divisão aleatória.  
 
--   A validação cruzada avalia o conjunto de ambos e o modelo.
+-   A validação cruzada avalia tanto o conjunto de dados como o modelo.
 
-    A validação cruzada não simplesmente mede a precisão de um modelo. Ele também lhe dá uma ideia de como o representativo do conjunto de dados e de quão confidencial o modelo pode ser para variações nos mesmos.  
+    A validação cruzada não mede simplesmente a precisão de um modelo. Também lhe dá uma ideia de quão representativo é o conjunto de dados e quão sensível o modelo pode ser para variações nos dados.  
 
-## <a name="how-to-use-cross-validate-model"></a>Como usar o modelo de validação cruzada
+## <a name="how-to-use-cross-validate-model"></a>Como usar o Modelo De Validação Cruzada
 
-A validação cruzada pode levar muito tempo para ser executada se o conjunto de seus conjuntos de seus for grande.  Portanto, você pode usar o modelo de validação cruzada na fase inicial de criação e teste do seu modelo. Nessa fase, você pode avaliar a sorte dos parâmetros do modelo (supondo que o tempo de computação seja tolerável). Você pode treinar e avaliar seu modelo usando os parâmetros estabelecidos com os módulos modelo de [treinamento](train-model.md) e [avaliar](evaluate-model.md) modelo.
+A validação cruzada pode demorar muito tempo a ser executada se o seu conjunto de dados for grande.  Assim, pode utilizar o Cross Validate Model na fase inicial de construção e teste do seu modelo. Nessa fase, pode avaliar a bondade dos parâmetros do modelo (assumindo que o tempo de computação é tolerável). Em seguida, pode treinar e avaliar o seu modelo utilizando os parâmetros estabelecidos com os módulos [Modelo de Comboio](train-model.md) e Avaliar os módulos do Modelo de [Comboio.](evaluate-model.md)
 
-Nesse cenário, você treina e testa o modelo usando o modelo de validação cruzada.
+Neste cenário, ambos treinam e testam o modelo utilizando o Cross Validate Model.
 
-1. Adicione o módulo modelo de validação cruzada ao seu pipeline. Você pode encontrá-lo no Azure Machine Learning designer, na categoria de **avaliação de Pontuação do modelo &** . 
+1. Adicione o módulo Cross Validate Model ao seu pipeline. Pode encontrá-lo no designer de Machine Learning Azure, na categoria **Model Scoring & Evaluation.** 
 
-2. Conecte a saída de qualquer modelo de classificação ou regressão. 
+2. Ligue a saída de qualquer modelo de classificação ou regressão. 
 
-    Por exemplo, se você estiver usando **duas máquinas do ponto de Bayes de classe** para classificação, configure o modelo com os parâmetros desejados. Em seguida, arraste um conector da porta de **modelo não treinada** do classificador para a porta correspondente do modelo de validação cruzada. 
+    Por exemplo, se estiver a usar a Árvore de Decisão Impulsionada de **Duas Classes** para classificação, configure o modelo com os parâmetros que deseja. Em seguida, arraste um conector da porta **modelo não treinada** do classificador para a porta correspondente do Modelo Cross Validate. 
 
     > [!TIP] 
-    > Você não precisa treinar o modelo, pois o modelo de validação cruzada treina automaticamente o modelo como parte da avaliação.  
-3.  Na porta do **conjunto** de um modelo de validação cruzada, conecte qualquer conjunto de DataSet de treinamento rotulado.  
+    > Não é preciso treinar o modelo, porque o Cross-Validate Model treina automaticamente o modelo como parte da avaliação.  
+3.  Na porta **dataset** do Cross Validate Model, ligue qualquer conjunto de dados de treino rotulado.  
 
-4.  No painel **Propriedades** do modelo de validação cruzada, selecione **Iniciar seletor de coluna**. Escolha a única coluna que contém o rótulo de classe ou o valor previsível. 
+4.  No painel direito do Cross Validate Model, clique na **coluna Editar**. Selecione a coluna única que contém a etiqueta de classe ou o valor previsível. 
 
-5. Defina um valor para o parâmetro **semente aleatória** se desejar repetir os resultados da validação cruzada entre execuções sucessivas nos mesmos dados.  
+5. Defina um valor para o parâmetro de **sementes Aleatórias** se pretender repetir os resultados da validação cruzada através de sucessivas correções nos mesmos dados.  
 
 6. Executar o pipeline.
 
-7. Consulte a seção [resultados](#results) para obter uma descrição dos relatórios.
-
-    Para obter uma cópia do modelo para reutilização posterior, alterne para a guia **saídas** no painel direito do módulo que contém o algoritmo (por exemplo, a máquina do **ponto de Bayes de duas classes**). Em seguida, selecione o ícone **registrar conjunto de registros** para salvar uma cópia do modelo treinado na árvore de módulos.
+7. Consulte a secção [resultados](#results) para obter uma descrição dos relatórios.
 
 ## <a name="results"></a>Resultados
 
-Depois que todas as iterações forem concluídas, o modelo de validação cruzada criará pontuações para todo o conjunto de resultados. Ele também cria métricas de desempenho que você pode usar para avaliar a qualidade do modelo.
+Depois de todas as iterações estarem completas, cross Validate Model cria pontuações para todo o conjunto de dados. Também cria métricas de desempenho que pode usar para avaliar a qualidade do modelo.
 
 ### <a name="scored-results"></a>Resultados pontuados
 
-A primeira saída do módulo fornece os dados de origem para cada linha, junto com alguns valores previstos e probabilidades relacionadas. 
+A primeira saída do módulo fornece os dados de origem para cada linha, juntamente com alguns valores previstos e probabilidades relacionadas. 
 
-Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **Visualizar resultados pontuados**.
+Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. **Selecione Visualizar resultados pontuados**.
 
-| Nome da nova coluna      | Descrição                              |
+| Novo nome da coluna      | Descrição                              |
 | -------------------- | ---------------------------------------- |
-| Etiquetas Classificadas        | Essa coluna é adicionada ao final do conjunto de uma. Ele contém o valor previsto para cada linha. |
-| Probabilidades pontuadas | Essa coluna é adicionada ao final do conjunto de uma. Indica a probabilidade estimada do valor em **Rótulos pontuados**. |
-| Número de dobra          | Indica o índice de base zero do dobramento ao qual cada linha de dados foi atribuída durante a validação cruzada. |
+| Etiquetas pontuadas        | Esta coluna é adicionada no final do conjunto de dados. Contém o valor previsto para cada linha. |
+| Probabilidades pontuadas | Esta coluna é adicionada no final do conjunto de dados. Indica a probabilidade estimada do valor em **etiquetas pontuadas**. |
+| Número de dobra          | Indica o índice de base zero da dobra a que cada linha de dados foi atribuída durante a validação cruzada. |
 
  ### <a name="evaluation-results"></a>Resultados da avaliação
 
-O segundo relatório é agrupado por dobras. Lembre-se de que durante a execução, o modelo de validação cruzada divide aleatoriamente os dados de treinamento em *n* dobras (por padrão, 10). Em cada iteração do conjunto de um, o modelo de validação cruzada usa uma dobra como um conjunto de uma validação. Ele usa as *n-1* dobras restantes para treinar um modelo. Cada um dos modelos *n* é testado em relação aos dados em todas as outras dobras.
+O segundo relatório é agrupado por dobras. Lembre-se que durante a execução, cross Validate Model divide aleatoriamente os dados de treino em *n* dobras (por padrão, 10). Em cada iteração sobre o conjunto de dados, o Cross Validate Model utiliza uma dobra como conjunto de dados de validação. Usa as restantes dobras *n-1* para treinar um modelo. Cada um dos modelos *n* é testado com os dados em todas as outras dobras.
 
-Neste relatório, as dobras são listadas por valor de índice, em ordem crescente.  Para fazer a ordem em qualquer outra coluna, você pode salvar os resultados como um conjunto de um.
+Neste relatório, as dobras são listadas pelo valor do índice, por ordem ascendente.  Para encomendar em qualquer outra coluna, pode guardar os resultados como conjunto de dados.
 
-Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **Visualizar resultados da avaliação por dobra**.
+Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. **Selecione Visualizar resultados de avaliação por dobrar**.
 
 
-|Nome da coluna| Descrição|
+|nome da coluna| Descrição|
 |----|----|
-|Número de dobra| Um identificador para cada dobra. Se você tiver criado cinco dobras, haveria cinco subconjuntos de dados, numerados de 0 a 4.
-|Número de exemplos em dobra|O número de linhas atribuídas a cada dobra. Eles devem ser aproximadamente iguais. |
+|Número de dobragem| Um identificador para cada dobra. Se criasse cinco dobras, haveria cinco subconjuntos de dados, numerados de 0 a 4.
+|Número de exemplos em dobra|O número de linhas atribuídas a cada dobra. Devem ser aproximadamente iguais. |
 
 
-O módulo também inclui as seguintes métricas para cada dobra, dependendo do tipo de modelo que você está avaliando: 
+O módulo também inclui as seguintes métricas para cada dobra, dependendo do tipo de modelo que está a avaliar: 
 
-+ **Modelos de classificação**: precisão, recall, F-score, AUC, precisão  
++ **Modelos de classificação:** Precisão, recordação, pontuação F, AUC, precisão  
 
-+ **Modelos de regressão**: erro absoluto médio, erro de raiz quadrada média, erro absoluto relativo, erro de quadrado relativo e coeficiente de determinação
++ **Modelos de regressão**: Erro absoluto médio, erro quadrado da raiz, erro absoluto relativo, erro quadrado relativo e coeficiente de determinação
 
 
 ## <a name="technical-notes"></a>Notas técnicas  
 
-+ É uma prática recomendada normalizar conjuntos de valores antes de usá-los para validação cruzada. 
++ É uma boa prática normalizar conjuntos de dados antes de usá-los para validação cruzada. 
 
-+ O modelo de validação cruzada é muito mais intensivo computacionalmente e leva mais tempo para ser concluído do que se você validou o modelo usando um conjunto de informações dividido aleatoriamente. O motivo é que o modelo de validação cruzada treina e valida o modelo várias vezes.
++ Cross Validate Model é muito mais intensivo computacionalmente e demora mais tempo a ser concluído do que se tiver validado o modelo utilizando um conjunto de dados dividido aleatoriamente. A razão é que cross Validate Model treina e valida o modelo várias vezes.
 
-+ Não há necessidade de dividir o conjunto de linhas em conjuntos de treinamento e teste quando você usa a validação cruzada para medir a precisão do modelo. 
++ Não há necessidade de dividir o conjunto de dados em conjuntos de treino e teste quando se utiliza validação cruzada para medir a precisão do modelo. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1802c3a92ed18dec5cba974c54c92f01324245eb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 64934dd5bc591415c0bad6ac3dc6a4a2d98dd005
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847618"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136299"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Azure Ative Directory utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -35,8 +35,8 @@ Para permitir o início de sessão para utilizadores de uma organização espec�
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino ad organizacional Azure (por exemplo, contoso.com). Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
-1. Selecione **novo registro**.
-1. Insira um **nome** para seu aplicativo. Por exemplo, `Azure AD B2C App`.
+1. Selecione **Novo registo**.
+1. Insira um **Nome** para a sua candidatura. Por exemplo, `Azure AD B2C App`.
 1. Aceite a seleção padrão de **Contas neste diretório organizacional apenas** para esta aplicação.
 1. Para o **Redirect URI,** aceite o valor da **Web**e introduza o seguinte URL em todas as letras minúsculas, onde `your-B2C-tenant-name` é substituído pelo nome do seu inquilino Azure AD B2C.
 
@@ -46,19 +46,32 @@ Para permitir o início de sessão para utilizadores de uma organização espec�
 
     Por exemplo, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
-1. Selecione **Registar**. Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
+1. Selecione **Registar**. Grave o ID de **Aplicação (cliente)** para utilização num passo posterior.
 1. Selecione **Certificados e segredos**e, em seguida, selecione **novo segredo do cliente**.
 1. Introduza uma **Descrição** para o segredo, selecione uma expiração e, em seguida, **selecione Adicionar**. Grave o **valor** do segredo para uso num passo posterior.
+
+## <a name="configuring-optional-claims"></a>Configurar reclamações opcionais
+
+Se pretender obter as `family_name` e `given_name` reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Ative Directory**.
+1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
+1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
+1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)** .
+1. **Selecione Adicionar reclamação opcional**.
+1. Selecione o tipo de ficha que pretende configurar.
+1. Selecione as reclamações opcionais a adicionar.
+1. Clique em **Adicionar**.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave política
 
 Você precisa armazenar a chave de aplicação que criou no seu inquilino Azure AD B2C.
 
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino Azure AD AD B2C.
-1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-1. Em **políticas**, selecione **estrutura de experiência de identidade**.
+1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+1. No âmbito **das Políticas,** selecione Quadro de **Experiência de Identidade**.
 1. Selecione **teclas Policy** e, em seguida, selecione **Adicionar**.
-1. Para **Opções**, escolha `Manual`.
+1. Para **opções,** escolha `Manual`.
 1. Introduza um **nome** para a chave política. Por exemplo, `ContosoAppSecret`.  O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave quando é criado, pelo que a sua referência no XML na secção seguinte é *B2C_1A_ContosoAppSecret*.
 1. Em **Segredo,** insira o seu segredo de cliente que gravou anteriormente.
 1. Para **a utilização da chave,** selecione `Signature`.
@@ -73,23 +86,20 @@ Pode definir a AD Azure como um fornecedor de sinistros adicionando AD Azure ao 
 1. Abra o ficheiro *TrustFrameworkExtensions.xml.*
 2. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
 3. Adicione um novo Fornecedor de **Reclamações** da seguinte forma:
-
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>Contoso</Domain>
       <DisplayName>Login using Contoso</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
+        <TechnicalProfile Id="OIDC-Contoso">
           <DisplayName>Contoso Employee</DisplayName>
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
-            <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-            <!-- Update the Client ID below to the Application ID -->
+            <Item Key="METADATA">https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
+            <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
@@ -125,12 +135,11 @@ Pode definir a AD Azure como um fornecedor de sinistros adicionando AD Azure ao 
 
 Para obter um símbolo do ponto final da AD Azure, você precisa definir os protocolos que Azure AD B2C deve usar para comunicar com Azure AD. Isto é feito dentro do elemento **TechnicalProfile** do **ClaimsProvider**.
 
-1. Atualize o ID do elemento **TechnicalProfile.** Este ID é utilizado para se referir a este perfil técnico de outras partes da política.
+1. Atualize o ID do elemento **TechnicalProfile.** Este ID é utilizado para se referir a este perfil técnico de outras partes da política, por exemplo, `OIDC-Contoso`.
 1. Atualize o valor para **DisplayName**. Este valor será apresentado no botão de início de sessão no ecrã de início de sessão.
 1. Atualizar o valor para **Descrição**.
 1. A Azure AD utiliza o protocolo OpenID Connect, por isso certifique-se de que o valor para o **Protocolo** é `OpenIdConnect`.
-1. Detete o valor dos **METADADOS** para `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, onde `your-AD-tenant-name` é o seu nome de inquilino Azure AD. Por exemplo, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
-1. Abra o seu navegador e vá ao URL **DEMETADATA** que acaba de atualizar, procure o objeto **emitente** e, em seguida, copie e cole o valor no valor para **O Nome do Fornecedor** no ficheiro XML.
+1. Detete o valor dos **METADADOS** para `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, onde `tenant-name` é o seu nome de inquilino Azure AD. Por exemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. Detete **client_id** ao ID da aplicação a partir do registo de candidatura.
 1. Em **CryptographicKeys, atualize**o valor do **StorageReferenceId** para o nome da chave de política que criou anteriormente. Por exemplo, `B2C_1A_ContosoAppSecret`.
 
@@ -171,10 +180,10 @@ Agora que tens um botão no lugar, tens de ligá-lo a uma ação. A ação, nest
 1. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que utiliza o mesmo valor para **id** que utilizou para **TargetClaimsExchangeId**:
 
     ```XML
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
+    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="OIDC-Contoso" />
     ```
 
-    Atualize o valor do **TechnicalProfileReferenceId** para o **ID** do perfil técnico que criou anteriormente. Por exemplo, `ContosoProfile`.
+    Atualize o valor do **TechnicalProfileReferenceId** para o **ID** do perfil técnico que criou anteriormente. Por exemplo, `OIDC-Contoso`.
 
 1. Guarde o ficheiro *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 

@@ -1,30 +1,39 @@
 ---
-title: Saiba mais sobre codificadores recomendados pelos serviços de mídia do Azure | Microsoft Docs
-description: Este artigo lista os codificadores locais recomendados pelos serviços de mídia do Azure.
+title: Conheça os codificadores recomendados pela Azure Media Services Microsoft Docs
+description: Este artigo lista nas instalações codificadores recomendados pela Azure Media Services.
 services: media-services
-keywords: codificação; codificadores; mídia
+keywords: codificação;codificadores;meios
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a0af9d040c801c125d04a5af72b2ea53322ccdb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 89b01a3fb066f181f5ec54b481b71feaa7a6ae08
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74886576"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131410"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locais recomendados
-Ao fazer streaming ao vivo com os serviços de mídia do Azure, você pode especificar como deseja que seu canal receba o fluxo de entrada. Se você optar por usar um codificador local com um canal de codificação ativa, o codificador deverá enviar por push um fluxo de taxa de bits única de alta qualidade como saída. Se você optar por usar um codificador local com um canal de passagem, o codificador deverá enviar por push um fluxo de múltiplas taxas de bits como saída com todas as qualidades de saída desejadas. Para obter mais informações, consulte [transmissão ao vivo com codificadores locais](media-services-live-streaming-with-onprem-encoders.md).
 
-Os serviços de mídia do Azure recomendam o uso de um dos seguintes codificadores ao vivo que têm RTMP como saída:
+Ao transmitir em direto com o Azure Media Services, pode especificar como pretende que o seu canal receba o fluxo de entrada. Se optar por utilizar um codificador no local com um canal de codificação ao vivo, o seu codificador deve empurrar um fluxo de bitrate de alta qualidade como saída. Se optar por utilizar um codificador no local com um canal de passagem, o seu codificador deve empurrar um fluxo multibitado como saída com todas as qualidades de saída desejadas. Para mais informações, consulte [o streaming ao vivo com os codificadores](media-services-live-streaming-with-onprem-encoders.md)no local.
+
+## <a name="encoder-requirements"></a>Requisitos codificadores
+
+Os codificadores devem suportar o TLS 1.2 quando utilizarem protocolos HTTPS ou RTMPS.
+
+## <a name="live-encoders-that-output-rtmp"></a>Codificadores ao vivo que output RTMP 
+
+A Azure Media Services recomenda a utilização de um dos seguintes codificadores ao vivo que tenham RTMP como saída:
+
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast 8.1+
-- Telestream Wirecast S
+- Telestream Wirecast (versão 13.0.2 ou superior devido ao requisito TLS 1.2)
+
+  Os codificadores devem suportar o TLS 1.2 ao utilizarem protocolos RTMPS.
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -33,52 +42,58 @@ Os serviços de mídia do Azure recomendam o uso de um dos seguintes codificador
 - xStream
 - Switcher Studio (iOS)
 
-Os serviços de mídia do Azure recomendam o uso de um dos seguintes codificadores ao vivo com múltiplas taxas de bits fragmentadas-MP4 (Smooth Streaming) como saída:
+## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores ao vivo que produzem MP4 fragmentado 
+
+A Azure Media Services recomenda a utilização de um dos seguintes codificadores ao vivo que tenham mp4 fragmentado multibitado fragmentado (Smooth Streaming) como saída:
+
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
+- Elemental Live (versão 2.14.15 e superior devido ao requisito TLS 1.2)
+
+  Os codificadores devem suportar o TLS 1.2 ao utilizarem protocolos HTTPS.
 - Envivio 4Caster C4 Gen III
-- Imagine Communications selenio MCP3
+- Imagine comunicações Selenio MCP3
 
 > [!NOTE]
-> Um codificador ao vivo pode enviar um fluxo de taxa de bits única para um canal de passagem, mas essa configuração não é recomendada porque não permite o streaming de taxa de bits adaptável para o cliente.
+> Um codificador ao vivo pode enviar um fluxo de bitrate único para um canal, mas esta configuração não é recomendada porque não permite o streaming de bitrate adaptativo ao cliente.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Como se tornar um parceiro de codificador local
-Como um parceiro de codificador local dos serviços de mídia do Azure, os serviços de mídia promovem seu produto, recomendando o codificador para clientes corporativos. Para se tornar um parceiro de codificador local, você deve verificar a compatibilidade do codificador local com os serviços de mídia. Para fazer isso, conclua as seguintes verificações:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Como tornar-se um parceiro codificador no local
 
-Verificação de canal de passagem
-1. Criar ou visitar sua conta dos serviços de mídia do Azure
+Como parceiro de codificador a Azure Media Services, a Media Services promove o seu produto recomendando o seu codificador aos clientes empresariais. Para se tornar um parceiro codificador no local, deve verificar a compatibilidade do seu código no local com os Serviços de Media. Para o fazer, complete as seguintes verificações:
+
+Passar pela verificação do canal
+1. Crie ou visite a sua conta Azure Media Services
 2. Criar e iniciar um canal **de passagem**
-3. Configure seu codificador para enviar por push um fluxo ao vivo com múltiplas taxas de bits.
+3. Configure o seu codificador para empurrar um fluxo ao vivo multibitável.
 4. Criar um evento ao vivo publicado
-5. Execute o codificador ao vivo por aproximadamente 10 minutos
-6. Parar o evento ao vivo
-7. Crie, inicie um ponto de extremidade de streaming, use um player como [player de mídia do Azure](https://aka.ms/azuremediaplayer) para assistir ao ativo arquivado para garantir que a reprodução não tenha nenhum problema visível para todos os níveis de qualidade (ou observe e valide de forma alternativa por meio da URL de visualização durante a sessão ativa antes da etapa 6)
-8. Registre a ID do ativo, a URL de streaming publicada para o arquivo em tempo real e as configurações e a versão usadas no codificador ao vivo
-9. Redefinir o estado do canal depois de criar cada amostra
-10. Repita as etapas de 3 a 9 para todas as configurações com suporte no seu codificador (com e sem sinalização/legendas do AD/velocidades de codificação diferentes)
+5. Execute o seu codificador ao vivo durante aproximadamente 10 minutos
+6. Pare o evento ao vivo
+7. Criar, iniciar um ponto final de Streaming, utilizar um jogador como o [Azure Media Player](https://aka.ms/azuremediaplayer) para ver o ativo arquivado para garantir que a reprodução não tem falhas visíveis para todos os níveis de qualidade (ou, em alternativa, assistir e validar através do URL de pré-visualização durante a sessão ao vivo antes do passo 6)
+8. Grave o ID do Ativo, url de streaming publicado para o arquivo ao vivo, e as definições e versão utilizadas a partir do seu codificador ao vivo
+9. Redefinir o estado do canal após a criação de cada amostra
+10. Repita os passos 3 a 9 para todas as configurações suportadas pelo seu codificador (com e sem sinalização de anúncios/legendas/diferentes velocidades de codificação)
 
-Verificação de canal de codificação ativa
-1. Criar ou visitar sua conta dos serviços de mídia do Azure
-2. Criar e iniciar um canal de **codificação ativa**
-3. Configure seu codificador para enviar por push um fluxo ao vivo de taxa de bits única.
+Verificação de canais de codificação ao vivo
+1. Crie ou visite a sua conta Azure Media Services
+2. Criar e iniciar um canal **de codificação ao vivo**
+3. Configure o seu codificador para empurrar um fluxo ao vivo de um só bitrate.
 4. Criar um evento ao vivo publicado
-5. Execute o codificador ao vivo por aproximadamente 10 minutos
-6. Parar o evento ao vivo
-7. Crie, inicie um ponto de extremidade de streaming, use um player como [player de mídia do Azure](https://aka.ms/azuremediaplayer) para assistir ao ativo arquivado para garantir que a reprodução não tenha nenhum problema visível para todos os níveis de qualidade (ou observe e valide de forma alternativa por meio da URL de visualização durante a sessão ativa antes da etapa 6)
-8. Registre a ID do ativo, a URL de streaming publicada para o arquivo em tempo real e as configurações e a versão usadas no codificador ao vivo
-9. Redefinir o estado do canal depois de criar cada amostra
-10. Repita as etapas de 3 a 9 para todas as configurações com suporte no seu codificador (com e sem sinalização/legendas do AD/várias velocidades de codificação)
+5. Execute o seu codificador ao vivo durante aproximadamente 10 minutos
+6. Pare o evento ao vivo
+7. Criar, iniciar um ponto final de Streaming, utilizar um jogador como o [Azure Media Player](https://aka.ms/azuremediaplayer) para ver o ativo arquivado para garantir que a reprodução não tem falhas visíveis para todos os níveis de qualidade (ou, em alternativa, assistir e validar através do URL de pré-visualização durante a sessão ao vivo antes do passo 6)
+8. Grave o ID do Ativo, url de streaming publicado para o arquivo ao vivo, e as definições e versão utilizadas a partir do seu codificador ao vivo
+9. Redefinir o estado do canal após a criação de cada amostra
+10. Repita os passos 3 a 9 para todas as configurações suportadas pelo seu codificador (com e sem sinalização de anúncios/legendas/várias velocidades de codificação)
 
-Verificação de longevidade
-1. Criar ou visitar sua conta dos serviços de mídia do Azure
+Verificação da longevidade
+1. Crie ou visite a sua conta Azure Media Services
 2. Criar e iniciar um canal **de passagem**
-3. Configure seu codificador para enviar por push um fluxo ao vivo com múltiplas taxas de bits.
+3. Configure o seu codificador para empurrar um fluxo ao vivo multibitável.
 4. Criar um evento ao vivo publicado
-5. Execute seu codificador ao vivo por uma semana ou mais
-6. Use um player como [player de mídia do Azure](https://aka.ms/azuremediaplayer) para observar a transmissão ao vivo de tempos em tempos (ou ativo arquivado) para garantir que a reprodução não tenha nenhum problema visível
-7. Parar o evento ao vivo
-8. Registre a ID do ativo, a URL de streaming publicada para o arquivo em tempo real e as configurações e a versão usadas no codificador ao vivo
+5. Execute o seu codificador ao vivo por uma semana ou mais
+6. Utilize um jogador como [o Azure Media Player](https://aka.ms/azuremediaplayer) para ver o streaming ao vivo de vez em quando (ou ativo arquivado) para garantir que a reprodução não tem falhas visíveis
+7. Pare o evento ao vivo
+8. Grave o ID do Ativo, url de streaming publicado para o arquivo ao vivo, e as definições e versão utilizadas a partir do seu codificador ao vivo
 
-Por fim, envie as configurações gravadas e os parâmetros de arquivamento dinâmico para os serviços de mídia enviando amsstreaming@microsoft.compor email. Após o recebimento, os serviços de mídia executam testes de verificação nos exemplos de seu codificador ao vivo. Você pode entrar em contato com os serviços de mídia com qualquer dúvida sobre esse processo.
+Por último, envie as suas definições gravadas e parâmetros de arquivo ao vivo para os Serviços de Media, enviando um e-mail amsstreaming@microsoft.com. Após a receção, a Media Services realiza testes de verificação das amostras do seu codificador ao vivo. Pode contactar os Serviços de Comunicação Social com quaisquer questões relacionadas com este processo.

@@ -9,60 +9,60 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 5df00d68b7114cc489b0708f5c2e401c87d0be15
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314033"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138157"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer"></a>Importar seus dados para o designer de Azure Machine Learning
+# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importar seus dados para o designer de Azure Machine Learning (versão prévia)
 
 Neste artigo, você aprenderá a importar seus próprios dados no designer para criar soluções personalizadas. Há duas maneiras de importar dados para o designer: 
 
-* **Azure Machine Learning conjuntos** de dados-registrar [conjuntos](concept-data.md#datasets) de dados no Azure Machine Learning para habilitar recursos avançados que o ajudarão a gerenciá-los.
-* **Importar módulo de dados** – use o módulo [importar dados](algorithm-module-reference/import-data.md) para acessar diretamente os dados de fontes de dados online.
+* **Conjuntos de dados de Aprendizagem Automática Azure** - Registe [os conjuntos de dados](concept-data.md#datasets) no Azure Machine Learning para permitir funcionalidades avançadas que o ajudem a gerir os seus dados.
+* **Módulo de Dados de Importação** - Utilize o módulo dados de [importação](algorithm-module-reference/import-data.md) para aceder diretamente a dados de fontes de dados online.
 
 ## <a name="use-azure-machine-learning-datasets"></a>Usar conjuntos de Azure Machine Learning
 
-É recomendável que você use [conjuntos](concept-data.md#datasets) de dados para importar o designer. Quando você registra um conjunto de dados, você pode aproveitar ao máximo os recursos de recurso avançados, como [controle de versão e](how-to-version-track-datasets.md) [monitoramento de dados](how-to-monitor-datasets.md).
+Recomendamos que utilize [conjuntos](concept-data.md#datasets) de dados para importar dados para o designer. Ao registar um conjunto de dados, pode tirar o máximo partido de funcionalidades avançadas de dados, como [verversão e rastreio](how-to-version-track-datasets.md) e [monitorização de dados](how-to-monitor-datasets.md).
 
 ### <a name="register-a-dataset"></a>Registrar um conjunto de uma
 
-Você pode registrar conjuntos de registros existentes [programaticamente com o SDK](how-to-create-register-datasets.md#use-the-sdk) ou [visualmente no Azure Machine Learning Studio](how-to-create-register-datasets.md#use-the-ui).
+Pode registar os conjuntos de dados existentes [programaticamente com o SDK](how-to-create-register-datasets.md#use-the-sdk) ou [visualmente no estúdio Azure Machine Learning.](how-to-create-register-datasets.md#use-the-ui)
 
 Você também pode registrar a saída para qualquer módulo do designer como um conjunto de um.
 
 1. Selecione o módulo que gera os dados que você deseja registrar.
 
-1. No painel Propriedades, selecione **saídas** > **conjunto de registros**.
+1. No painel de propriedades, selecione **Saídas** > **Registar conjunto**de dados .
 
     ![Captura de tela mostrando como navegar para a opção Registrar conjunto de registros](media/how-to-designer-import-data/register-dataset-designer.png)
 
-### <a name="use-a-dataset"></a>Usar um conjunto de uma
+### <a name="use-a-dataset"></a>Utilize um conjunto de dados
 
-Seus conjuntos de valores registrados podem ser encontrados na paleta de módulos, em **conjuntos** de > **meus conjuntos de valores**. Para usar um conjunto de um, arraste-o e solte-o na tela do pipeline. Em seguida, conecte a porta de saída do conjunto de resultados a outros módulos na paleta.
+Os seus conjuntos de dados registados podem ser encontrados na paleta de módulos, em **conjuntos** de dados > **Meus Conjuntos**de Dados . Para usar um conjunto de um, arraste-o e solte-o na tela do pipeline. Em seguida, conecte a porta de saída do conjunto de resultados a outros módulos na paleta.
 
 ![Captura de tela mostrando o local dos conjuntos de itens salvos na paleta do designer](media/how-to-designer-import-data/use-datasets-designer.png)
 
-Qualquer [conjunto](how-to-create-register-datasets.md#dataset-types) de informações de arquivo registrado no seu espaço de trabalho do Machine Learning será exibido na paleta de módulos. Você não está limitado ao uso de conjuntos de valores criados no designer.
+
 
 > [!NOTE]
-> Atualmente, o designer dá suporte apenas ao processamento de [conjuntos de tabelas de tabela](how-to-create-register-datasets.md#dataset-types). Se você quiser usar [conjuntos de arquivos de arquivo](how-to-create-register-datasets.md#dataset-types), use o SDK do Azure Machine Learning disponível para Python e R.
+> Atualmente, o designer apenas suporta o processamento de conjuntos de [dados tabular.](how-to-create-register-datasets.md#dataset-types) Se pretender utilizar conjuntos de dados de [ficheiros,](how-to-create-register-datasets.md#dataset-types)utilize o SDK de Aprendizagem automática Azure disponível para Python e R.
 
 ## <a name="import-data-using-the-import-data-module"></a>Importar dados usando o módulo importar dados
 
-Embora seja recomendável usar os conjuntos de dados para importar, você também pode usar o módulo [importar dados](algorithm-module-reference/import-data.md) . O módulo importar dados ignora o registro de seu conjunto em Azure Machine Learning e importa os dados diretamente de um [repositório de armazenamento](concept-data.md#datastores) ou URL http.
+Embora recomendemos que utilize conjuntos de dados para importar dados, também pode utilizar o módulo [de Dados de Importação.](algorithm-module-reference/import-data.md) O módulo de dados de importação ignora o registo do seu conjunto de dados no Azure Machine Learning e importa dados diretamente de uma loja de [dados](concept-data.md#datastores) ou URL HTTP.
 
-Para obter informações detalhadas sobre como usar o módulo importar dados, consulte a [página Importar dados referência](algorithm-module-reference/import-data.md).
+Para obter informações detalhadas sobre como utilizar o módulo de dados de importação, consulte a página de [referência dos dados de importação](algorithm-module-reference/import-data.md).
 
 
 ## <a name="supported-sources"></a>Fontes com suporte
 
-Esta seção lista as fontes de dados com suporte pelo designer. Os dados entram no designer de um datastore ou de um [DataSet tabular](how-to-create-register-datasets.md#dataset-types).
+Esta seção lista as fontes de dados com suporte pelo designer. Os dados entram no designer a partir de uma datastore ou de conjunto de [dados tabular](how-to-create-register-datasets.md#dataset-types).
 
 ### <a name="datastore-sources"></a>Fontes de repositório de armazenamento
-Para obter uma lista de fontes de armazenamento de dados com suporte, confira [acessar os recursos nos serviços de armazenamento do Azure](how-to-access-data.md#supported-data-storage-service-types).
+Para obter uma lista de fontes suportadas de datastore, consulte os dados do Access nos serviços de [armazenamento do Azure.](how-to-access-data.md#supported-data-storage-service-types)
 
 ### <a name="tabular-dataset-sources"></a>Fontes de conjunto de tabelas de tabela
 
@@ -78,16 +78,16 @@ O designer reconhece internamente os seguintes tipos de dados:
 
 * Cadeia
 * Número inteiro
-* Decimal
+* decimal
 * Booleano
-* Date
+* Data
 
-O designer usa um tipo de dados interno para passar dados entre módulos. Você pode converter explicitamente seus dados em formato de tabela de dados usando o módulo [converter para conjunto de](algorithm-module-reference/convert-to-dataset.md) dados. Qualquer módulo que aceite formatos diferentes do formato interno converterá os dados silenciosamente antes de passá-los para o próximo módulo.
+O designer usa um tipo de dados interno para passar dados entre módulos. Pode converter explicitamente os seus dados em formato de tabela de dados utilizando o módulo [Converte para Dataset.](algorithm-module-reference/convert-to-dataset.md) Qualquer módulo que aceite formatos diferentes do formato interno converterá os dados silenciosamente antes de passá-los para o próximo módulo.
 
 ## <a name="data-constraints"></a>Restrições de dados
 
-Os módulos no designer são limitados pelo tamanho do destino de computação. Para conjuntos de grandes maiores, você deve usar um recurso de computação Azure Machine Learning maior. Para obter mais informações sobre Azure Machine Learning computação, consulte [o que são destinos de computação no Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+Os módulos no designer são limitados pelo tamanho do destino de computação. Para conjuntos de grandes maiores, você deve usar um recurso de computação Azure Machine Learning maior. Para obter mais informações sobre o computacional Azure Machine Learning, veja [quais são os alvos da computação no Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda as noções básicas do designer com [o tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md).
+Conheça o básico do designer com [tutorial: Preveja](tutorial-designer-automobile-price-train-score.md)o preço do automóvel com o designer.

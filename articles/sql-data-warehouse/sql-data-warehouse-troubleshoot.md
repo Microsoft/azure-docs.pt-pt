@@ -1,5 +1,5 @@
 ---
-title: Resolução de Problemas
+title: Resolução de problemas
 description: Resolução de problemas Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 11/25/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ce57c48e568e840f3a651a5530f3fba6c0be60b7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4eec340a04b9cdbc85a2c8712a11d31132766206
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721052"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153371"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Resolução de problemas Azure SQL Data Warehouse
 Este artigo enumera uma pergunta comum de resolução de problemas.
@@ -27,7 +27,7 @@ Este artigo enumera uma pergunta comum de resolução de problemas.
 | falha no início de sessão do utilizador "NT AUTHORITY\ANONYMOUS LOGON". (Microsoft SQL Server, Error: 18456) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador nessa base de dados.  Para corrigir este problema, especifique o SQL Data Warehouse a que pretende ligar na hora de ligação ou adicione o utilizador à base de dados mestra.  Consulte o artigo [de visão geral da Segurança](sql-data-warehouse-overview-manage-security.md) para mais detalhes. |
 | o principal do servidor "MyUserName" não consegue aceder à base de dados "mestra" no contexto de segurança atual. Não é possível abrir a base de dados predefinida do utilizador. O início de sessão falhou. O início de sessão falhou para o utilizador"MyUserName". (Microsoft SQL Server, Error: 916) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador nessa base de dados.  Para corrigir este problema, especifique o SQL Data Warehouse a que pretende ligar na hora de ligação ou adicione o utilizador à base de dados mestra.  Consulte o artigo [de visão geral da Segurança](sql-data-warehouse-overview-manage-security.md) para mais detalhes. |
 | Erro CTAIP                                                  | Este erro pode ocorrer quando foi criado um login na base de dados principal do servidor SQL, mas não na base de dados do Armazém de Dados SQL.  Se encontrar este erro, veja o artigo sobre a visão geral da [Segurança.](sql-data-warehouse-overview-manage-security.md)  Este artigo explica como criar um login e utilizador no master, e depois como criar um utilizador na base de dados do SQL Data Warehouse. |
-| Bloqueado pelo firewall                                          | As bases de dados Azure SQL estão protegidas por firewalls de nível de servidor e base de dados para garantir que apenas os endereços IP conhecidos tenham acesso a uma base de dados. As firewalls são seguras por defeito, o que significa que deve ativar explicitamente o endereço IP ou o alcance dos endereços antes de poder ligar.  Para configurar a sua firewall para acesso, siga as etapas no acesso à firewall do [servidor Configure para o seu IP do cliente](sql-data-warehouse-get-started-provision.md) nas [instruções de provisionamento](sql-data-warehouse-get-started-provision.md). |
+| Bloqueado por Firewall                                          | As bases de dados Azure SQL estão protegidas por firewalls de nível de servidor e base de dados para garantir que apenas os endereços IP conhecidos tenham acesso a uma base de dados. As firewalls são seguras por defeito, o que significa que deve ativar explicitamente o endereço IP ou o alcance dos endereços antes de poder ligar.  Para configurar a sua firewall para acesso, siga as etapas no acesso à firewall do [servidor Configure para o seu IP do cliente](sql-data-warehouse-get-started-provision.md) nas [instruções de provisionamento](sql-data-warehouse-get-started-provision.md). |
 | Não pode ligar-se com ferramenta ou controlador                           | O SQL Data Warehouse recomenda a utilização de [SSMS,](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) [SSDT para Estúdio Visual,](sql-data-warehouse-install-visual-studio.md)ou [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) para consultar os seus dados. Para obter mais informações sobre os condutores e a ligação ao SQL Data Warehouse, consulte [os condutores do Azure SQL Data Warehouse](sql-data-warehouse-connection-strings.md) e o Connect aos artigos do Armazém de Dados [Azure SQL.](sql-data-warehouse-connect-overview.md) |
 
 ## <a name="tools"></a>Ferramentas
@@ -48,12 +48,12 @@ Este artigo enumera uma pergunta comum de resolução de problemas.
 | Como melhorar o desempenho com escala                      | Por vezes, a solução para melhorar o desempenho é simplesmente adicionar mais poder de computação às suas consultas, [dimensionando o seu Armazém de Dados SQL](sql-data-warehouse-manage-compute-overview.md). |
 | Mau desempenho de consulta como resultado da má qualidade do índice     | Algumas vezes as consultas podem abrandar devido à má qualidade do índice da [coluna.](../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality)  Consulte este artigo para obter mais informações e como [reconstruir índices para melhorar a qualidade](../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)do segmento. |
 
-## <a name="system-management"></a>Gerenciamento do sistema
+## <a name="system-management"></a>Gestão do sistema
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Msg 40847: Não conseguiu executar a operação porque o servidor excederia a quota permitida da Unidade de Transações de Base de Dados de 45000. | Ou reduza o [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) da base de dados que está a tentar criar ou [solicite um aumento](sql-data-warehouse-get-started-create-support-ticket.md)de quota . |
 | Investigar a utilização do espaço                              | Consulte os [tamanhos]( ../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) da tabela para entender a utilização do espaço do seu sistema. |
-| Ajuda na gestão de tabelas                                    | Consulte o artigo [Visão geral da tabela][Visão geral] para ajudar na gestão das suas tabelas.  Este artigo também inclui links para tópicos mais detalhados como tipos de dados de [tabela,](sql-data-warehouse-tables-data-types.md) [distribuição de uma tabela,](sql-data-warehouse-tables-distribute.md) [Indexação de uma tabela,](sql-data-warehouse-tables-index.md) [divisão de uma tabela,](sql-data-warehouse-tables-partition.md)manutenção de estatísticas de [tabelas](sql-data-warehouse-tables-statistics.md) e [tabelas temporárias.](sql-data-warehouse-tables-temporary.md) |
+| Ajuda na gestão de tabelas                                    | Consulte o artigo de [visão geral](../sql-data-warehouse/sql-data-warehouse-tables-overview.md) da Tabela para obter ajuda na gestão das suas tabelas.  Este artigo também inclui links para tópicos mais detalhados como tipos de dados de [tabela,](sql-data-warehouse-tables-data-types.md) [distribuição de uma tabela,](sql-data-warehouse-tables-distribute.md) [Indexação de uma tabela,](sql-data-warehouse-tables-index.md) [divisão de uma tabela,](sql-data-warehouse-tables-partition.md)manutenção de estatísticas de [tabelas](sql-data-warehouse-tables-statistics.md) e [tabelas temporárias.](sql-data-warehouse-tables-temporary.md) |
 | A barra de progresso transparente de encriptação de dados (TDE) não está a ser atualizada no portal Azure | Pode ver o estado do TDE através [da powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 
@@ -67,7 +67,7 @@ Este artigo enumera uma pergunta comum de resolução de problemas.
 | Limitações de procedimento armazenadas          | Consulte [as limitações de procedimento armazenadas](../sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md#limitations) para compreender algumas das limitações dos procedimentos armazenados. |
 | Os UDFs não suportam declarações SELECT | Esta é uma limitação atual dos nossos UDFs.  Consulte a [FUNÇÃO CREATE](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) para a sintaxe que apoiamos. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para mais ajuda na procura de solução para o seu problema, aqui estão outros recursos que pode tentar.
 
 * [Blogues](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

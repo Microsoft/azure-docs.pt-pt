@@ -1,56 +1,56 @@
 ---
 title: Ampliar a sua experimentação com R
 titleSuffix: ML Studio (classic) - Azure
-description: Como estender a funcionalidade de Azure Machine Learning Studio (clássico) por meio da linguagem R usando o módulo executar script R.
+description: Como alargar a funcionalidade do Azure Machine Learning Studio (clássico) através da linguagem R utilizando o módulo Execute R Script.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 13d385c69151891030ea0ee8f87ea8b55197a73f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6c5c09d0214b8ab0d427b15e5637adb5e7cbfdee
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837610"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153048"
 ---
-# <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio (clássico): Estenda seu experimento com o R 
-Você pode estender a funcionalidade do Azure Machine Learning Studio (clássico) por meio da linguagem R usando o módulo [Executar script r][execute-r-script] .
+# <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio (clássico): Prolongue a sua experiência com R 
+Pode estender a funcionalidade do Azure Machine Learning Studio (clássico) através da linguagem R utilizando o módulo [Execute R Script.][execute-r-script]
 
-Esse módulo aceita vários conjuntos de dados de entrada e produz um único conjunto como saída. Você pode digitar um script R no parâmetro de **script r** do módulo [Executar script r][execute-r-script] .
+Este módulo aceita múltiplos conjuntos de dados de entrada e produz um único conjunto de dados como saída. Pode digitar um script R no parâmetro **R Script** do módulo Execute [R Script.][execute-r-script]
 
-Você acessa cada porta de entrada do módulo usando um código semelhante ao seguinte:
+Acede a cada porta de entrada do módulo utilizando código semelhante ao seguinte:
 
     dataset1 <- maml.mapInputPort(1)
 
-## <a name="listing-all-currently-installed-packages"></a>Listando todos os pacotes instalados no momento
-A lista de pacotes instalados pode ser alterada. Uma lista de pacotes instalados no momento pode ser encontrada em [pacotes de R com suporte pelo Azure Machine Learning Studio (clássico)](https://msdn.microsoft.com/library/azure/mt741980.aspx).
+## <a name="listing-all-currently-installed-packages"></a>Listando todos os pacotes atualmente instalados
+A lista de pacotes instalados pode ser alterada. Uma lista de pacotes atualmente instalados pode ser encontrada em [Pacotes R Suportados pelo Azure Machine Learning Studio (clássico)](https://msdn.microsoft.com/library/azure/mt741980.aspx).
 
-Você também pode obter a lista completa e atual dos pacotes instalados inserindo o seguinte código no módulo [Executar script R][execute-r-script] :
+Também pode obter a lista completa e atual de pacotes instalados, inserindo o seguinte código no módulo [Execute R Script:][execute-r-script]
 
     out <- data.frame(installed.packages(,,,fields="Description"))
     maml.mapOutputPort("out")
 
-Isso envia a lista de pacotes para a porta de saída do módulo [Executar script R][execute-r-script] .
-Para exibir a lista de pacotes, conecte um módulo de conversão, como [converter em CSV][convert-to-csv] , para a saída esquerda do módulo [Executar script R][execute-r-script] , executar o experimento e, em seguida, clique na saída do módulo de conversão e selecione **baixar**. 
+Isto envia a lista de pacotes para a porta de saída do módulo [Execute R Script.][execute-r-script]
+Para visualizar a lista de pacotes, ligue um módulo de conversão como [Converter para CSV][convert-to-csv] à saída esquerda do módulo [Execute R Script,][execute-r-script] execute a experiência, clique na saída do módulo de conversão e selecione **Download**. 
 
-![Baixar a saída do módulo "converter em CSV"](./media/extend-your-experiment-with-r/download-package-list.png)
+![Descarregue a saída do módulo "Converta para CSV"](./media/extend-your-experiment-with-r/download-package-list.png)
 
 
 <!--
 For convenience, here is the [current full list with version numbers in Excel format](https://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
-## <a name="importing-packages"></a>Importando pacotes
-Você pode importar pacotes que ainda não estão instalados usando os seguintes comandos no módulo [Executar script R][execute-r-script] :
+## <a name="importing-packages"></a>Pacotes de importação
+Pode importar pacotes que ainda não estejam instalados utilizando os seguintes comandos no módulo [Execute R Script:][execute-r-script]
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
 
-onde o arquivo de `my_favorite_package.zip` contém o pacote.
+onde o ficheiro `my_favorite_package.zip` contém o seu pacote.
 
 
 

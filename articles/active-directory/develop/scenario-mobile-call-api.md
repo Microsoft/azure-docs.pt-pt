@@ -1,7 +1,7 @@
 ---
 title: Ligue para uma Web API de uma aplicação móvel Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como construir uma aplicação móvel que chama APIs web (chamando uma API web)
+description: Aprenda a construir uma aplicação móvel que chama APIs web. (Ligue para uma Web API.)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,37 +16,37 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6b87809e29940b343a395ffb461c0829295fcd8a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f41c9a0e4754c60fd248e540a81e2afa833d655b
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702067"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132410"
 ---
-# <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Aplicação móvel que chama APIs web - ligue para uma Web API
+# <a name="call-a-web-api-from-a-mobile-app"></a>Ligue para uma Web API de uma aplicação móvel
 
-Depois de a sua aplicação ter assinado num utilizador e recebido fichas, a MSAL expõe várias informações sobre o utilizador, o ambiente do utilizador e as fichas emitidas. A sua aplicação pode utilizar estes valores para chamar uma API web ou apresentar uma mensagem de boas-vindas ao utilizador.
+Depois de a sua aplicação assinar num utilizador e receber fichas, a Microsoft Authentication Library (MSAL) expõe informações sobre o utilizador, o ambiente do utilizador e os tokens emitidos. A sua aplicação pode utilizar estes valores para chamar uma API web ou apresentar uma mensagem de boas-vindas ao utilizador.
 
-Primeiro, vamos ver o resultado da MSAL. Depois vamos ver como usar um sinal de acesso do `AuthenticationResult` ou `result` para chamar uma API protegida.
+Neste artigo, vamos primeiro olhar para o resultado da MSAL. Depois vamos ver como usar um sinal de acesso de `AuthenticationResult` ou `result` para chamar uma API protegida.
 
 ## <a name="msal-result"></a>Resultado da MSAL
 A MSAL fornece os seguintes valores: 
 
-- `AccessToken`: Utilizado para chamar APIs web protegidos num pedido http Bearer.
-- `IdToken`: Contém informações úteis sobre o utilizador inscrito, como o nome do utilizador, o inquilino da casa e um identificador único para armazenamento.
-- `ExpiresOn`: O tempo de validade do símbolo. MSAL lida com a atualização automática para apps.
-- `TenantId`: O identificador do inquilino com quem o utilizador assinou. Para os utilizadores convidados (Azure Ative Directory B2B), este valor identificará o inquilino com quem o utilizador assinou, e não o inquilino da casa do utilizador.  
-- `Scopes`: Os âmbitos que foram concedidos com o seu símbolo. Os âmbitos concedidos podem ser um subconjunto dos âmbitos que solicitou.
+- `AccessToken` chama APIs protegidos web num pedido de portador http.
+- `IdToken` contém informações úteis sobre o utilizador inscrito. Estas informações incluem o nome do utilizador, o inquilino da casa, e um identificador único para armazenamento.
+- `ExpiresOn` é o tempo de validade do símbolo. A MSAL trata da atualização automática de uma aplicação.
+- `TenantId` é o identificador do inquilino onde o utilizador inscreveu. Para os utilizadores convidados do Azure Ative Directory (Azure AD) B2B, este valor identifica o inquilino onde o utilizador inscreveu. O valor não identifica o inquilino da casa do utilizador.  
+- `Scopes` indica os âmbitos que foram concedidos com o seu símbolo. Os âmbitos concedidos podem ser um subconjunto dos âmbitos que solicitou.
 
-A MSAL também fornece uma abstração para uma `Account`. Um `Account` representa a conta de assinatura do utilizador atual.
+A MSAL também fornece uma abstração para um valor `Account`. Um valor `Account` representa a conta de assinatura do utilizador atual:
 
-- `HomeAccountIdentifier`: O identificador do inquilino do utilizador.
-- `UserName`: O nome de utilizador preferido do utilizador. Isto pode estar vazio para os utilizadores do Azure Ative Directory B2C.
-- `AccountIdentifier`: O identificador do utilizador inscrito. Este valor será o mesmo que o valor `HomeAccountIdentifier` na maioria dos casos, a menos que o utilizador seja hóspede de outro inquilino.
+- `HomeAccountIdentifier` identifica o inquilino da casa do utilizador.
+- `UserName` é o nome de utilizador preferido do utilizador. Este valor pode estar vazio para os utilizadores do Azure AD B2C.
+- `AccountIdentifier` identifica o utilizador inscrito. Na maioria dos casos, este valor é o mesmo que o valor `HomeAccountIdentifier`, a menos que o utilizador seja hóspede de outro inquilino.
 
 ## <a name="call-an-api"></a>Chame uma API
 
-Depois de ter o sinal de acesso, é fácil chamar uma API web. A sua aplicação utilizará o símbolo para construir um pedido HTTP e, em seguida, executar o pedido.
+Depois de ter o sinal de acesso, pode chamar uma API web. A sua aplicação utilizará o símbolo para construir um pedido HTTP e, em seguida, executar o pedido.
 
 ### <a name="android"></a>Android
 
@@ -90,9 +90,7 @@ Depois de ter o sinal de acesso, é fácil chamar uma API web. A sua aplicação
 
 ### <a name="msal-for-ios-and-macos"></a>MSAL para iOS e macOS
 
-Os métodos para adquirir tokens retornam um objeto `MSALResult`. `MSALResult` expõe uma propriedade `accessToken` que pode ser usada para chamar uma API da Web. O token de acesso deve ser adicionado ao cabeçalho de autorização HTTP, antes de fazer a chamada para acessar a API Web protegida.
-
-Objective-C:
+Os métodos para adquirir fichas devolvem um objeto `MSALResult`. `MSALResult` expõe uma propriedade `accessToken`. Pode usar `accessToken` para chamar uma API web. Adicione esta propriedade ao cabeçalho de autorização http antes de ligar para aceder à API da web protegida.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -105,8 +103,6 @@ NSURLSessionDataTask *task =
      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {}];
 [task resume];
 ```
-
-Swift
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -122,16 +118,17 @@ task.resume()
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-## <a name="making-several-api-requests"></a>Fazer vários pedidos de API
+## <a name="make-several-api-requests"></a>Faça vários pedidos de API
 
-Se precisar de ligar várias vezes para a mesma API, ou se precisar de ligar para várias APIs, tenha em consideração o seguinte quando construir a sua aplicação:
+Se precisar de ligar várias vezes para a mesma API, ou se precisar de ligar para várias APIs, considere os seguintes assuntos quando construir a sua aplicação:
 
-- **Consentimento incremental**: A plataforma de identidade da Microsoft permite que as aplicações obtem o consentimento do utilizador, uma vez que são necessárias permissões, em vez de todas no início. Cada vez que a sua aplicação estiver pronta para chamar uma API, deve solicitar apenas os âmbitos que precisa de utilizar.
-- **Acesso Condicional**: Em certos cenários, poderá obter requisitos adicionais de Acesso Condicional quando então então então então vários pedidos de API. Isto pode acontecer se o primeiro pedido não tiver políticas de Acesso Condicional aplicadas e a sua aplicação tentar aceder silenciosamente a uma nova API que requer acesso condicional. Para lidar com este cenário, certifique-se de que apanha erros de pedidos silenciosos e esteja preparado para fazer um pedido interativo.  Para saber mais, consulte [Orientação para Acesso Condicional](conditional-access-dev-guide.md).
+- **Consentimento incremental**: A plataforma de identidade da Microsoft permite que as aplicações obtem o consentimento do utilizador quando são necessárias permissões e não todas no início. Cada vez que a sua aplicação estiver pronta para chamar uma API, deve solicitar apenas os âmbitos de que necessita.
 
-## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>Chamando várias APIs em Xamarin ou UWP - Consentimento incremental e acesso condicional
+- **Acesso condicional**: Quando efaz vários pedidos de API, em certos cenários poderá ter de cumprir requisitos adicionais de acesso condicional. Os requisitos podem aumentar desta forma se o primeiro pedido não tiver políticas de acesso condicional e a sua aplicação tentar aceder silenciosamente a uma nova API que requer acesso condicional. Para lidar com este problema, certifique-se de que apanha erros de pedidos silenciosos e esteja preparado para fazer um pedido interativo.  Para mais informações, consulte [Orientação para acesso condicional](conditional-access-dev-guide.md).
 
-Se necessitar de ligar para várias APIs para o mesmo utilizador, uma vez adquirido um símbolo para um utilizador, pode evitar repetidamente pedir credenciais ao utilizador, ligando `AcquireTokenSilent` para obter um sinal.
+## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Ligue para várias APIs usando o consentimento incremental e o acesso condicional
+
+Se necessitar de ligar para várias APIs para o mesmo utilizador, depois de adquirir um símbolo para o utilizador, pode evitar repetidamente pedir credenciais ao utilizador, ligando posteriormente para `AcquireTokenSilent` para obter um símbolo:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -141,10 +138,10 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-Os casos em que a interação é necessária é quando:
+A interação é necessária quando:
 
-- O usuário consentiu a primeira API, mas agora precisa consentir para obter mais escopos (consentimento incremental)
-- A primeira API não exigia a autenticação de vários fatores, mas a próxima.
+- O usuário consentiu para a primeira API, mas agora precisa consentir para mais escopos. Neste caso, usa o consentimento incremental.
+- A primeira API não requer autenticação de vários fatores, mas a próxima API requer.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -166,4 +163,4 @@ catch(MsalUiRequiredException ex)
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Mover para produção](scenario-mobile-production.md)
+> [Passar para a produção](scenario-mobile-production.md)

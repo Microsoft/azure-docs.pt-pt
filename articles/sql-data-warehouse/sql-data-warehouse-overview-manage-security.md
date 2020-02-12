@@ -1,6 +1,6 @@
 ---
 title: Proteja uma base de dados
-description: Dicas para garantir uma base de dados no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+description: Dicas para garantir uma base de dados e desenvolver soluções no recurso de piscina SQL da SQL Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5eeb1c25264c36909774ec689b7410765881c8e2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 26cdbb1fc2899d1b03fea6199074467623706c63
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064738"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153286"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteja uma base de dados no Armazém de Dados SQL
 > [!div class="op_single_selector"]
@@ -27,21 +27,21 @@ ms.locfileid: "77064738"
 > 
 > 
 
-Este artigo percorre o básico de garantir a sua base de dados azure SQL Data Warehouse. Em particular, este artigo faz com que você tenha começado com recursos para limitar o acesso, proteger dados e monitorizar atividades numa base de dados.
+Este artigo irá acompanhá-lo através do básico de garantir a sua piscina SQL dentro do SQL Analytics. Em particular, este artigo faz com que você tenha começado com recursos para limitar o acesso, proteger dados e monitorizar atividades numa base de dados aprovisionada usando o pool SQL.
 
 ## <a name="connection-security"></a>Segurança da Ligação
 A Segurança da Ligação diz respeito à forma como restringe e protege as ligações à sua base de dados através de regras de firewall e de encriptação da ligação.
 
 As regras de firewall são utilizadas tanto pelo servidor como pela base de dados para rejeitar tentativas de ligação a partir de endereços IP que não tenham sido explicitamente listadas com a lista branca. Para permitir ligações a partir da sua aplicação ou endereço IP público da máquina cliente, você deve primeiro criar uma regra de firewall ao nível do servidor usando o portal Azure, REST API ou PowerShell. 
 
-Como melhor prática, deve restringir o máximo possível os intervalos de endereços IP permitidos na firewall do servidor.  Para aceder ao Azure SQL Data Warehouse a partir do seu computador local, certifique-se de que a firewall na sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
+Como melhor prática, deve restringir o máximo possível os intervalos de endereços IP permitidos na firewall do servidor.  Para aceder à piscina SQL a partir do seu computador local, certifique-se de que a firewall na sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
 
-O Azure Synapse utiliza regras de firewall IP ao nível do servidor. Ele não dá suporte a regras de firewall de IP no nível de banco de dados. Para mais informações, consulte as regras de firewall da Base de [Dados Azure SQL](../sql-database/sql-database-firewall-configure.md)
+O Azure Synapse Analytics utiliza regras de firewall IP ao nível do servidor. Não suporta regras de firewall IP de nível de base de dados. Para mais informações, consulte as regras de firewall da Base de [Dados Azure SQL](../sql-database/sql-database-firewall-configure.md)
 
-As ligações ao seu Armazém de Dados SQL são encriptadas por padrão.  A modificação das definições de ligação para desativar a encriptação é ignorada.
+As ligações à sua piscina SQL são encriptadas por padrão.  A modificação das definições de ligação para desativar a encriptação é ignorada.
 
 ## <a name="authentication"></a>Autenticação
-A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. O SQL Data Warehouse suporta atualmente a Autenticação do Servidor SQL com um nome de utilizador e senha, e com diretório Ativo Azure. 
+A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. O pool SQL suporta atualmente a Autenticação do Servidor SQL com um nome de utilizador e senha, e com diretório Ativo Azure. 
 
 Quando criou o servidor lógico para a sua base de dados, especificou um início de sessão "administrador do servidor" com um nome de utilizador e palavra-passe. Utilizando estas credenciais, pode autenticar qualquer base de dados desse servidor como proprietário da base de dados, ou "dbo" através da Autenticação do Servidor SQL.
 
@@ -55,7 +55,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Em seguida, ligue-se à sua base de **dados do SQL Data Warehouse** com o seu servidor de login e crie um utilizador de base de dados com base no login do servidor que criou.
+Em seguida, ligue-se à sua base de dados de **piscina SQL** com o seu servidor de login e crie um utilizador de base de dados com base no login do servidor que criou.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -98,4 +98,4 @@ Na Base de Dados SQL, a chave de encriptação da base de dados está protegida 
 Pode encriptar a sua base de dados através do [portal Azure](sql-data-warehouse-encryption-tde.md) ou [DoT T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para mais detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to SQL Data Warehouse](sql-data-warehouse-connect-overview.md).
+Para mais detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to SQL pool](sql-data-warehouse-connect-overview.md).

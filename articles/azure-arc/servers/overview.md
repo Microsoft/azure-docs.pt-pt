@@ -10,12 +10,12 @@ keywords: automação azul, DSC, powershell, configuração de estado desejada, 
 ms.date: 02/03/2020
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: c38bc2d5d9a7e23c0bb3041a5cb3b5cd1da9adb1
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: ad24418bf3879e4ef9a0ae4833c37c051079c668
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114234"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133852"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é O Arco Azure para servidores (pré-visualização)
 
@@ -63,7 +63,7 @@ As seguintes versões do sistema operativo Windows e Linux são oficialmente sup
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de subscrição e serviço do Azure
 
-Antes de configurar as suas máquinas com o Azure Arc para servidores (pré-visualização), deverá rever os [limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) de subscrição do Gestor de Recursos do Azure e [os limites do grupo](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) de recursos para planear o número de máquinas a ligar.
+Antes de configurar as suas máquinas com o Azure Arc para servidores (pré-visualização), deverá rever os [limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) de subscrição do Gestor de Recursos do Azure e [os limites do grupo](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) de recursos para planear o número de máquinas a ligar.
 
 ### <a name="networking-configuration"></a>Configuração de rede
 

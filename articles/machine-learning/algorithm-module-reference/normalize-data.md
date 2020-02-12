@@ -1,32 +1,32 @@
 ---
 title: 'Normalizar dados: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo Normalize data no Azure Machine Learning para transformar um conjunto de dados por meio da *normalização*.
+description: Aprenda a utilizar o módulo Normalize Data em Azure Machine Learning para transformar um conjunto de dados através da *normalização*..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e74e80c7db7e624649494201d56fd82486e193d7
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8eb54e232478ae24e1efb49a8ad43dc827aa2b6a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546610"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150685"
 ---
 # <a name="normalize-data-module"></a>Módulo normalizar dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
-Use este módulo para transformar um conjunto de um DataSet por meio de *normalização*.
+Utilize este módulo para transformar um conjunto de dados através da *normalização*.
 
 A normalização é uma técnica geralmente aplicada como parte da preparação de dados para o aprendizado de máquina. O objetivo da normalização é alterar os valores das colunas numéricas no conjunto de dados para usar uma escala comum, sem distorcer diferenças nos intervalos de valores ou perda de informações. A normalização também é necessária para alguns algoritmos para modelar os dados corretamente.
 
-Por exemplo, suponha que o conjunto de dados de entrada contenha uma coluna com valores variando de 0 a 1 e outra coluna com valores variando de 10.000 a 100.000. A grande diferença na *escala* dos números pode causar problemas quando você tenta combinar os valores como recursos durante a modelagem.
+Por exemplo, suponha que o conjunto de dados de entrada contenha uma coluna com valores variando de 0 a 1 e outra coluna com valores variando de 10.000 a 100.000. A grande diferença na *escala* dos números pode causar problemas quando se tenta combinar os valores como características durante a modelação.
 
-A *normalização* evita esses problemas criando novos valores que mantêm a distribuição geral e as proporções nos dados de origem, mantendo os valores em uma escala aplicada em todas as colunas numéricas usadas no modelo.
+*A normalização* evita estes problemas criando novos valores que mantêm a distribuição geral e os rácios nos dados de origem, mantendo ao mesmo tempo valores dentro de uma escala aplicada em todas as colunas numéricas utilizadas no modelo.
 
 Esse módulo oferece várias opções para transformar dados numéricos:
 
@@ -39,26 +39,26 @@ Esse módulo oferece várias opções para transformar dados numéricos:
 
 ##  <a name="configure-normalize-data"></a>Configurar dados de normalização
 
-Você pode aplicar apenas um método de normalização por vez usando esse módulo. Portanto, o mesmo método de normalização é aplicado a todas as colunas que você selecionar. Para usar métodos de normalização diferentes, use uma segunda instância de **dados normalizados**.
+Você pode aplicar apenas um método de normalização por vez usando esse módulo. Portanto, o mesmo método de normalização é aplicado a todas as colunas que você selecionar. Para utilizar diferentes métodos de normalização, utilize uma segunda instância de **Normalizar dados**.
 
-1. Adicione o módulo **normalizar dados** ao seu pipeline. Você pode encontrar o módulo em Azure Machine Learning, em **transformação de dados**, na categoria **escala e redução** .
+1. Adicione o módulo **Normalize Data** ao seu pipeline. Pode encontrar o módulo Em Aprendizagem automática Azure, na categoria **De transformação**de Dados, na **categoria Escala e Redução.**
 
 2. Conecte um conjunto de um DataSet que contenha pelo menos uma coluna de todos os números.
 
-3. Use o seletor de coluna para escolher as colunas numéricas a serem normalizadas. Se você não escolher colunas individuais, por padrão, **todas as** colunas de tipo numérico na entrada serão incluídas e o mesmo processo de normalização será aplicado a todas as colunas selecionadas. 
+3. Use o seletor de coluna para escolher as colunas numéricas a serem normalizadas. Se não escolher colunas individuais, por defeito **todas as** colunas numéricas da entrada estão incluídas e o mesmo processo de normalização é aplicado a todas as colunas selecionadas. 
 
     Isso pode levar a resultados estranhos se você incluir colunas numéricas que não devem ser normalizadas! Sempre verifique as colunas com cuidado.
 
     Se nenhuma coluna numérica for detectada, verifique os metadados da coluna para verificar se o tipo de dados da coluna é um tipo numérico com suporte.
 
     > [!TIP]
-    > Para garantir que as colunas de um tipo específico sejam fornecidas como entrada, tente usar o módulo [selecionar colunas no conjunto](./select-columns-in-dataset.md) de dados antes de **normalizar o dado**.
+    > Para garantir que as colunas de um tipo específico são fornecidas como entrada, tente utilizar as [Colunas Select no](./select-columns-in-dataset.md) módulo Dataset antes de **normalizar os dados**.
 
-4. **Usar 0 para colunas constantes quando marcada**: Selecione esta opção quando qualquer coluna numérica contiver um único valor inalterável. Isso garante que essas colunas não sejam usadas em operações de normalização.
+4. **Utilize 0 para colunas constantes quando verificadas**: Selecione esta opção quando qualquer coluna numérica contiver um único valor imutável. Isso garante que essas colunas não sejam usadas em operações de normalização.
 
-5. Na lista suspensa **método de transformação** , escolha uma única função matemática para aplicar a todas as colunas selecionadas. 
+5. A partir da lista de abandono do **método transformação,** escolha uma única função matemática para aplicar a todas as colunas selecionadas. 
   
-    - **Zscore**: converte todos os valores em uma pontuação z.
+    - **Zscore**: Converte todos os valores para uma pontuação z.
     
       Os valores na coluna são transformados usando a seguinte fórmula:  
   
@@ -66,47 +66,47 @@ Você pode aplicar apenas um método de normalização por vez usando esse módu
   
       A média e o desvio padrão são calculados para cada coluna separadamente. O desvio padrão da população é usado.
   
-    - **Por minMax**: o normalizador min-max redimensiona linearmente cada recurso para o intervalo [0, 1].
+    - **MinMax**: O normalizador min-max redimensiona todas as características para o intervalo [0,1].
     
-      Redimensionar para o intervalo [0, 1] é feito alternando os valores de cada recurso para que o valor mínimo seja 0 e, em seguida, dividindo pelo novo valor máximo (que é a diferença entre os valores máximos e mínimos originais).
+      A redimensionamento para o intervalo [0,1] é feita deslocando os valores de cada característica de modo a que o valor mínimo seja 0, e depois dividindo-se pelo novo valor máximo (que é a diferença entre os valores máximos e mínimos originais).
       
       Os valores na coluna são transformados usando a seguinte fórmula:  
   
-      ![normalização usando a função&#45;Min Max](media/module/aml-normalization-minmax.png "AML_normalization-por minMax")  
+      ![normalização usando a&#45;função min max](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
   
-    - **Logística**: os valores na coluna são transformados usando a seguinte fórmula:
+    - **Logística**: Os valores da coluna são transformados utilizando a seguinte fórmula:
 
-      ![fórmula para normalização por função de logística](media/module/aml-normalization-logistic.png "AML_normalization-logística")  
+      ![fórmula para normalização por função logística](media/module/aml-normalization-logistic.png "AML_normalization-logística")  
   
-    - **LogNormal**: essa opção converte todos os valores em uma escala LogNormal.
+    - **LogNormal**: Esta opção converte todos os valores numa escala lognormal.
   
       Os valores na coluna são transformados usando a seguinte fórmula:
   
-      ![distribuição normal&#45;do log de fórmulas](media/module/aml-normalization-lognormal.png "AML_normalization-lognormal")
+      ![fórmula&#45;log distribuição normal](media/module/aml-normalization-lognormal.png "lognormal AML_normalization")
     
       Aqui, μ e σ são os parâmetros da distribuição, computados empiricamente dos dados como estimativas de probabilidade máxima, para cada coluna separadamente.  
   
-    - **TanH**: todos os valores são convertidos em uma tangente hiperbólica.
+    - **TanH:** Todos os valores são convertidos para uma tangente hiperbólica.
     
       Os valores na coluna são transformados usando a seguinte fórmula:
     
       ![normalização usando a função tanh](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Execute o pipeline ou clique duas vezes no módulo **normalizar dados** e selecione **executar selecionado**. 
+6. Executar o pipeline ou clicar duas vezes no módulo **Normalize Data** e selecione **Executar Selecionado**. 
 
 ## <a name="results"></a>Resultados
 
-O módulo **normalizar dados** gera duas saídas:
+O módulo **Normalize Data** gera duas saídas:
 
-- Para exibir os valores transformados, clique com o botão direito do mouse no módulo e selecione **Visualizar**.
+- Para ver os valores transformados, clique no módulo e **selecione Visualize**.
 
-    Por padrão, os valores são transformados em vigor. Se você quiser comparar os valores transformados com os valores originais, use o módulo [adicionar colunas](./add-columns.md) para recombinar os conjuntos de os e exibir as colunas lado a lado.
+    Por padrão, os valores são transformados em vigor. Se pretender comparar os valores transformados com os valores originais, utilize o módulo [Adicionar Colunas](./add-columns.md) para recombinar os conjuntos de dados e ver as colunas lado a lado.
 
-- Para salvar a transformação para que você possa aplicar o mesmo método de normalização a outro conjunto de um, selecione o módulo e selecione **registrar conjunto de registros** na guia **saídas** no painel direito.
+- Para evitar a transformação para que possa aplicar o mesmo método de normalização a outro conjunto de dados, selecione o módulo e selecione o conjunto de **dados do Registo** sob o separador **Saídas** no painel certo.
 
-    Em seguida, você pode carregar as transformações salvas no grupo **transformações** do painel de navegação esquerdo e aplicá-las a um conjunto de um DataSet com o mesmo esquema usando a [transformação./Apply](apply-transformation.md).  
+    Em seguida, pode carregar as transformações guardadas do grupo **Transforms** do painel de navegação esquerdo e aplicá-la num conjunto de dados com o mesmo esquema utilizando [a transformação ./Apply .](apply-transformation.md)  
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

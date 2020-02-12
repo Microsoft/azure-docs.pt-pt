@@ -1,5 +1,6 @@
 ---
-title: Exemplos de JavaScript – Azure Active Directory B2C | Microsoft Docs
+title: Exemplos de JavaScript
+titleSuffix: Azure AD B2C
 description: Saiba como utilizar JavaScript no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,39 +8,47 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42dc09ef4518bfda8c63ee183499b1b2e8c22991
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1381ddb16697b1e892794604bbfafda815bd6182
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841936"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149083"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemplos de JavaScript para utilização no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Você pode adicionar seu próprio código do lado do cliente JavaScript aos seus aplicativos Azure Active Directory B2C (Azure AD B2C). Para habilitar o JavaScript para seus aplicativos, você deve adicionar um elemento à sua [política personalizada](custom-policy-overview.md), selecionar um [layout de página](page-layout.md)e usar [b2clogin.com](b2clogin.md) em suas solicitações. Este artigo descreve como você pode alterar sua política personalizada para habilitar a execução de script.
+Pode adicionar o seu próprio código do lado do cliente JavaScript às aplicações do Diretório Ativo Azure B2C (Azure AD B2C).
+
+Para ativar o JavaScript para as suas aplicações:
+
+* Adicione um elemento à sua [política personalizada](custom-policy-overview.md)
+* Selecione um layout de [página](page-layout.md)
+* Use [b2clogin.com](b2clogin.md) nos seus pedidos
+
+Este artigo descreve como pode alterar a sua política personalizada para permitir a execução do script.
 
 > [!NOTE]
-> Se você quiser habilitar o JavaScript para fluxos de usuário, consulte [JavaScript e versões de layout de página em Azure Active Directory B2C](user-flow-javascript-overview.md).
+> Se pretender ativar o JavaScript para fluxos de utilizadores, consulte [as versões JavaScript e page layout no Azure Ative Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="select-a-page-layout"></a>Selecionar um layout de página
+### <a name="select-a-page-layout"></a>Selecione um layout de página
 
-* [Selecione um layout de página](page-layout.md) para os elementos da interface do usuário do seu aplicativo.
+* Selecione um layout de [página](contentdefinitions.md#select-a-page-layout) para os elementos de interface do utilizador da sua aplicação.
 
-    Se você pretende usar o JavaScript, precisará [definir uma versão de layout de página](page-layout.md#replace-datauri-values) para *todas* as definições de conteúdo em sua política personalizada.
+    Se pretender utilizar o JavaScript, precisa de [definir uma versão](contentdefinitions.md#migrating-to-page-layout) de layout de página com versão `contract` página para todas *as* definições de conteúdo na sua política personalizada.
 
 ## <a name="add-the-scriptexecution-element"></a>Adicione o elemento de ScriptExecution
 
-Ativar a execução do script adicionando os **ScriptExecution** elemento para a [RelyingParty](relyingparty.md) elemento.
+Ativa a execução do script adicionando o elemento **ScriptExecution** ao elemento [RelyingParty.](relyingparty.md)
 
 1. Abra o ficheiro de política personalizada. Por exemplo, *SignUpOrSignin.xml*.
-2. Adicionar a **ScriptExecution** elemento para a **UserJourneyBehaviors** elemento da **RelyingParty**:
+2. Adicione o elemento **ScriptExecution** ao elemento **UserJourneyBehaviors** of **RelyingParty:**
 
     ```XML
     <RelyingParty>
@@ -52,31 +61,13 @@ Ativar a execução do script adicionando os **ScriptExecution** elemento para a
     ```
 3. Guardar e carregue o ficheiro.
 
-## <a name="guidelines-for-using-javascript"></a>Diretrizes para usar o JavaScript
-
-Siga estas diretrizes quando personalizar a interface do seu aplicativo usando JavaScript:
-
-- Não ligar um evento de clique em `<a>` elementos HTML.
-- Não se uma dependência no código do Azure AD B2C ou comentários.
-- Não altere a ordem ou uma hierarquia de elementos HTML do Azure AD B2C. Utilize uma política do Azure AD B2C para controlar a ordem dos elementos da interface do Usuário.
-- Pode chamar qualquer serviço RESTful com estas considerações:
-    - Poderá ter de definir o seu serviço RESTful CORS para permitir chamadas HTTP do lado do cliente.
-    - Certifique-se de que o seu serviço RESTful é protegido e utiliza apenas o protocolo HTTPS.
-    - Não utilize o JavaScript diretamente para chamar pontos finais do Azure AD B2C.
-- Pode incorporar o JavaScript ou pode ligar a arquivos JavaScript externos. Ao usar um arquivo JavaScript externo, certifique-se utilizar o URL absoluto e não um URL relativo.
-- Estruturas do JavaScript:
-    - O Azure AD B2C utiliza uma versão específica do jQuery. Não inclua a outra versão da jQuery. Utilizar mais de uma versão na mesma página faz com que os problemas.
-    - Usar o RequireJS não é suportada.
-    - A maioria das estruturas de JavaScript não são suportadas pelo Azure AD B2C.
-- As definições de B2C do Azure podem ser lidos chamando `window.SETTINGS`, `window.CONTENT` objetos, tais como o idioma da interface do Usuário atual. Não altere o valor desses objetos.
-- Para personalizar a mensagem de erro do Azure AD B2C, use a localização numa política.
-- Se nada pode ser obtido com uma política, geralmente é a forma recomendada.
+[!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
 ## <a name="javascript-samples"></a>Exemplos de JavaScript
 
 ### <a name="show-or-hide-a-password"></a>Mostrar ou ocultar uma palavra-passe
 
-Uma forma comum de ajudar os seus clientes com o seu sucesso de inscrição é permitir-lhes para verem o que eles introduziu como a palavra-passe. Esta opção ajuda os utilizadores inscrever-se ao ativá-las facilmente ver e fazer correções para a palavra-passe se for necessário. Qualquer campo de palavra-passe do tipo tem uma caixa de seleção com um **palavra-passe de Show** etiqueta.  Isto permite que o utilizador ver a palavra-passe em texto simples. Inclua este fragmento de código no seu modelo de inscrição ou início de sessão para uma página de declaração própria:
+Uma forma comum de ajudar os seus clientes com o seu sucesso de inscrição é permitir-lhes para verem o que eles introduziu como a palavra-passe. Esta opção ajuda os utilizadores inscrever-se ao ativá-las facilmente ver e fazer correções para a palavra-passe se for necessário. Qualquer tipo de senha tem uma caixa de verificação com uma etiqueta de **palavra-passe Show.**  Isto permite que o utilizador ver a palavra-passe em texto simples. Inclua este fragmento de código no seu modelo de inscrição ou início de sessão para uma página de declaração própria:
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -122,7 +113,7 @@ setupPwdTogglers();
 
 ### <a name="add-terms-of-use"></a>Adicionar termos de utilização
 
-Incluir o seguinte código na sua página em que pretende incluir uma **termos de utilização** caixa de verificação. Esta caixa de verificação, normalmente, é necessário em suas páginas de inscrição de redes sociais e inscreva-se a conta de conta local.
+Inclua o seguinte código na sua página onde pretende incluir uma caixa de verificação **De Utilização.** Esta caixa de verificação, normalmente, é necessário em suas páginas de inscrição de redes sociais e inscreva-se a conta de conta local.
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -147,8 +138,8 @@ function addTermsOfUseLink() {
 }
 ```
 
-No código, substitua `termsOfUseUrl` com a ligação para os seus termos do contrato de utilização. Para seu diretório, crie um novo atributo de usuário chamado **termsOfUse** e, em seguida, inclua **termsOfUse** como um atributo de usuário.
+No código, substitua `termsOfUseUrl` com o link para os seus termos de acordo de utilização. Para o seu diretório, crie um novo atributo de utilizador chamado **termsOfUse** e, em seguida, inclua **termosOfUse** como atributo de utilizador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Encontrar mais informações sobre como pode personalizar a interface do usuário das suas aplicações na [personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C](custom-policy-ui-customization.md).
+Encontre mais informações sobre como personalizar a interface de utilizador das suas aplicações em [Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Diretório Ativo Azure B2C](custom-policy-ui-customization.md).

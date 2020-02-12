@@ -1,128 +1,177 @@
 ---
-title: 'Tutorial: treinar e implantar um modelo-Machine Learning no Azure IoT Edge'
-description: Neste tutorial, você treinará um modelo de aprendizado de máquina usando Azure Machine Learning e, em seguida, empacotará o modelo como uma imagem de contêiner que pode ser implantada como um módulo Azure IoT Edge.
+title: 'Tutorial: Treine e implante um modelo - Machine Learning on Azure IoT Edge'
+description: Neste tutorial, você irá treinar um modelo de machine learning usando O Machine Learning Azure e, em seguida, embalar o modelo como uma imagem de recipiente que pode ser implantado como um Módulo de Borda Azure IoT.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 2/10/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c0613d319c0c82fa61d75ed016d68d38dfcea8d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5f576d28d30907f3834600d0a6a5c152025cf912
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701831"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133446"
 ---
-# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: treinar e implantar um modelo de Azure Machine Learning
+# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treine e implante um modelo de Aprendizagem automática Azure
 
 > [!NOTE]
-> Este artigo faz parte de uma série de um tutorial sobre como usar Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, incentivamos você a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter os melhores resultados.
+> Este artigo faz parte de uma série para um tutorial sobre a utilização de Machine Learning Azure em IoT Edge. Se chegou diretamente a este artigo, encorajamo-lo a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter os melhores resultados.
 
-Neste artigo, usamos Azure Notebooks primeiro para treinar um modelo de aprendizado de máquina usando Azure Machine Learning e, em seguida, empacotar esse modelo como uma imagem de contêiner que pode ser implantada como um módulo Azure IoT Edge. O Azure Notebooks aproveitar um espaço de trabalho Azure Machine Learning, que é um bloco básico usado para experimentar, treinar e implantar modelos de aprendizado de máquina.
+Neste artigo, fazemos as seguintes tarefas:
 
-As atividades nesta parte do tutorial são divididas em dois blocos de anotações.
+* Utilize cadernos Azure para formar um modelo de aprendizagem automática.
+* Embala o modelo treinado como imagem de recipiente.
+* Implante a imagem do recipiente como um módulo Azure IoT Edge.
 
-* **01-turbofan\_regressão. ipynb:** Este bloco de anotações percorre as etapas para treinar e publicar um modelo usando Azure Machine Learning. Em grande medida, as etapas envolvidas são:
+Os Cadernos Azure aproveitam um espaço de trabalho Azure Machine Learning, um bloco fundamental usado para experimentar, treinar e implementar modelos de aprendizagem automática.
 
-  1. Baixe, prepare e explore os dados de treinamento
-  2. Usar o espaço de trabalho de serviço para criar e executar uma experiência de aprendizado de máquina
-  3. Avaliar os resultados do modelo a partir do experimento
-  4. Publicar o melhor modelo no espaço de trabalho de serviço
+Os passos neste artigo podem ser normalmente realizados por cientistas de dados.
 
-* **02-turbofan\_implantar\_Model. ipynb:** Este bloco de anotações usa o modelo criado no bloco de anotações anterior e o usa para criar uma imagem de contêiner pronta para ser implantada em um dispositivo Azure IoT Edge.
+## <a name="set-up-azure-notebooks"></a>Configurar cadernos Azure
 
-  1. Criar um script de Pontuação para o modelo
-  2. Criar e publicar a imagem
-  3. Implantar a imagem como um serviço Web na instância de contêiner do Azure
-  4. Usar o serviço Web para validar o modelo e a imagem funcionam conforme o esperado
+Utilizamos cadernos Azure para acolher os dois Cadernos Jupyter e ficheiros de apoio. Aqui criamos e configuramos um projeto De Cadernos Azure. Se não usou os cadernos Jupyter e/ou Azure, aqui estão alguns documentos introdutórios:
 
-As etapas neste artigo podem ser normalmente executadas por cientistas de dados.
+* **Quickstart:** [Criar e partilhar um caderno](../notebooks/quickstart-create-share-jupyter-notebook.md)
+* **Tutorial:** [Crie e execute um caderno Jupyter com Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
-## <a name="set-up-azure-notebooks"></a>Configurar Azure Notebooks
-
-Usamos Azure Notebooks para hospedar os dois notebooks Jupyter e arquivos de suporte. Aqui, criamos e configuramos um projeto Azure Notebooks. Se você não usou Jupyter e/ou Azure Notebooks, aqui estão alguns documentos introdutórios:
-
-* **Início rápido:** [criar e compartilhar um bloco de anotações](../notebooks/quickstart-create-share-jupyter-notebook.md)
-* **Tutorial:** [criar e executar um notebook Jupyter com Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
-
-Assim como a máquina virtual do desenvolvedor antes, o uso de blocos de anotações do Azure garante um ambiente consistente para o exercício.
+A utilização de cadernos Azure garante um ambiente consistente para o exercício.
 
 > [!NOTE]
-> Uma vez configurado, o serviço de Azure Notebooks pode ser acessado em qualquer computador. Durante a instalação, você deve usar a máquina virtual de desenvolvimento, que tem todos os arquivos que serão necessários.
+> Uma vez configurado, o serviço Depornais Azure pode ser acedido a partir de qualquer máquina. Durante a configuração, deve utilizar o VM de desenvolvimento, que tem todos os ficheiros de que necessita.
 
-### <a name="create-an-azure-notebooks-account"></a>Criar uma conta de Azure Notebooks
+### <a name="create-an-azure-notebooks-account"></a>Criar uma conta de Cadernos Azure
 
-As contas do bloco de anotações do Azure são independentes das assinaturas do Azure. Para usar Azure Notebooks, você precisa criar uma conta.
+Para utilizar os Cadernos Azure, é necessário criar uma conta. As contas do Azure Notebook são independentes das subscrições do Azure.
 
-1. Navegue até [blocos de anotações do Azure](https://notebooks.azure.com).
+1. Navegue para [os cadernos Azure.](https://notebooks.azure.com)
 
-2. Clique em **entrar** no canto superior direito da página.
+1. Clique em **Iniciar sessão** no canto superior direito da página.
 
-3. Entre com sua conta corporativa ou de estudante (Azure Active Directory) ou sua conta pessoal (conta da Microsoft).
+1. Inscreva-se na sua conta de trabalho ou escolar (Diretório Ativo Azure) ou na sua conta pessoal (Conta Microsoft).
 
-4. Se você não tiver usado Azure Notebooks antes, será solicitado a conceder acesso para o aplicativo Azure Notebooks.
+1. Se não tiver usado os Cadernos Azure antes, será solicitado a conceder acesso à aplicação Azure Notebooks.
 
-5. Crie uma ID de usuário para Azure Notebooks.
+1. Crie uma identificação de utilizador para os Cadernos Azure.
 
-### <a name="upload-jupyter-notebooks-files"></a>Carregar arquivos do Jupyter notebooks
+### <a name="upload-jupyter-notebook-files"></a>Upload de ficheiros de caderno jupyter
 
-Nesta etapa, criamos um novo projeto Azure Notebooks e carregamos arquivos nele. Especificamente, os arquivos que carregamos são:
+Enviaremos ficheiros de cadernos de amostras para um novo projeto de Cadernos Azure.
 
-* **01-turbofan\_regressão. ipynb**: arquivo de notebook Jupyter que percorre o processo de download dos dados gerados pelo equipamento de dispositivo da conta de armazenamento do Azure; explorando e preparando os dados para treinar o classificador; treinando o modelo; testando os dados usando o conjunto de dado de teste encontrado no teste\_arquivo FD003. txt; e, por fim, salvar o modelo do classificador no espaço de trabalho Machine Learning serviço.
+1. A partir da página de utilizador da sua nova conta, selecione **My Projects** a partir da barra de menu seletiva.
 
-* **02-turbofan\_implantar\_Model. ipynb:** Jupyter notebook, que orienta você pelo processo de usar o modelo de classificação salvo no espaço de trabalho do serviço Machine Learning para produzir uma imagem de contêiner. Depois que a imagem for criada, o notebook o guiará pelo processo de implantação da imagem como um serviço Web para que você possa validá-la se está funcionando conforme o esperado. A imagem validada será implantada em nosso dispositivo de IoT Edge na parte [criar e implantar módulos de IOT Edge personalizados](tutorial-machine-learning-edge-06-custom-modules.md) deste tutorial.
+1. Na caixa de diálogo **Create New Project,** forneça um Nome de **Projeto** que também forme automaticamente o ID do **Projeto**.
 
-* **Teste\_FD003. txt:** Esse arquivo contém os dados que usaremos como nosso conjunto de testes ao validar nosso classificador treinado. Optamos por usar os dados de teste fornecidos para o concurso original como nosso conjunto de teste para simplificar o exemplo.
+1. Deixe **o Público** e a **README** descontrolados, uma vez que não há necessidade de o projeto ser público ou ter um readme.
 
-* **RUL\_FD003. txt:** Esse arquivo contém o RUL para o último ciclo de cada dispositivo no teste\_arquivo FD003. txt. Consulte os arquivos **README. txt** e **. pdf de propagação de danos** na fonte C:\\\\IoTEdgeAndMlSample\\data\\turbofan para obter uma explicação detalhada dos dados.
+1. Selecione **Criar**.
 
-* **Utils.py:** Contém um conjunto de funções de utilitário Python para trabalhar com dados. O primeiro bloco de anotações contém uma explicação detalhada das funções.
+1. **Selecione Upload** (o ícone da seta para cima) e escolha **Entre O Computador**.
 
-* **README.MD:** Leiame que descreve o uso dos notebooks.
+1. Selecione **Escolher ficheiros**.
 
-Crie um novo projeto e carregue os arquivos para o bloco de anotações.
+1. Navegue para **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Selecione todos os ficheiros da lista e clique em **Abrir**.
 
-1. Selecione **meus projetos** na barra de menus superior.
+1. Selecione **Carregar** para começar a carregar e, em seguida, selecione **Feito** assim que o processo estiver concluído.
 
-1. Selecione **+ novo projeto**. Forneça um nome e uma ID. Não é necessário que o projeto seja público ou tenha um Leiame.
+### <a name="azure-notebook-files"></a>Ficheiros de cadernos Azure
 
-1. Selecione **carregar** e escolha **do computador**.
+Vamos rever os ficheiros que fez no seu projeto Decadernos Azure. As atividades nesta parte do tutorial estendem-se por dois ficheiros de cadernos, que utilizam alguns ficheiros de suporte.
 
-1. Selecione **escolher arquivos**.
+* **01-turbofan\_regressão.ipynb:** Este caderno utiliza o espaço de trabalho do serviço machine learning para criar e executar uma experiência de aprendizagem automática. Em termos gerais, o caderno faz os seguintes passos:
 
-1. Navegue até **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Selecione todos os arquivos e clique em **abrir**.
+  1. Descarrega dados da conta De armazenamento azure que foi gerado pelo arnês do dispositivo.
+  1. Explora e prepara dados para formação e o modelo de anúncio sinuoso.
+  1. Avalie o modelo a partir da experiência utilizando um conjunto de dados de teste (Teste\_FD003.txt).
+  1. Publica o melhor modelo de classificação para o espaço de trabalho do serviço de Aprendizagem automática.
 
-1. Selecione **carregar** para começar a carregar e, em seguida, selecione **concluído** depois que o processo for concluído.
+* **02-turbofan\_implementar\_model.ipynb:** Este caderno pega no modelo criado no caderno anterior e usa-o para criar uma imagem de contentor pronta a ser implantada para um dispositivo Azure IoT Edge. O caderno executa os seguintes passos:
 
-## <a name="run-azure-notebooks"></a>Executar Azure Notebooks
+  1. Cria um roteiro de pontuação para o modelo.
+  1. Produz uma imagem de recipiente utilizando o modelo de classificação que foi guardado no espaço de trabalho do serviço de Aprendizagem Automática.
+  1. Implanta a imagem como um serviço web em Azure Container Instance.
+  1. Usa o serviço web para validar o modelo e o trabalho de imagem como esperado. A imagem validada será implantada para o nosso dispositivo IoT Edge na [parte de Módulos Create e implementará módulos IoT Edge personalizados](tutorial-machine-learning-edge-06-custom-modules.md) deste tutorial.
 
-Agora que o projeto foi criado, execute **01-turbofan\_regressão. ipynb** notebook.
+* **Teste\_FD003.txt:** Este ficheiro contém os dados que usaremos como o nosso conjunto de testes ao validar o nosso classificador treinado. Optámos por utilizar os dados do teste, conforme previsto para o concurso original, como o nosso teste definido para a sua simplicidade.
 
-1. Na página do projeto turbofan, selecione **01-turbofan\_regressão. ipynb**.
+* **RUL\_FD003.txt:** Este ficheiro contém o RUL para o último ciclo de cada dispositivo no ficheiro Test\_FD003.txt. Consulte os ficheiros readme.txt e da propagação de danos Modeling.pdf no C: fonte\\\\IoTEdgeAndMlSample\\dados\\Turbofan para obter uma explicação detalhada dos dados.
 
-    ![Selecione o primeiro bloco de anotações a ser executado](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
+* **Utils.py:** Contém um conjunto de funções de utilidade python para trabalhar com dados. O primeiro caderno contém uma explicação detalhada das funções.
 
-2. Se solicitado, escolha o kernel Python 3,6 na caixa de diálogo e selecione **definir kernel**.
+* **README.md:** Readme descrevendo o uso dos cadernos.  
 
-3. Se o bloco de anotações estiver listado como **não confiável**, clique no widget **não confiável** no canto superior direito do bloco de anotações. Quando a caixa de diálogo aparecer, selecione **confiar**.
+## <a name="run-azure-notebooks"></a>Executar cadernos Azure
 
-4. Siga as instruções no bloco de anotações.
+Agora que o projeto é criado, pode sondar os cadernos. 
 
-    * `Ctrl + Enter` executa uma célula.
-    * `Shift + Enter` executa uma célula e navega para a próxima célula.
-    * Quando uma célula está em execução, ela tem um asterisco entre colchetes, como **[\*]** . Quando for concluído, o asterisco será substituído por um número e uma saída relevante poderá ser exibida abaixo. Como as células geralmente se baseiam no trabalho dos anteriores, apenas uma célula pode ser executada por vez.
+1. Na sua página do projeto, selecione **01-turbofan\_regressão.ipynb**.
 
-5. Quando terminar de executar a execução do **turbofan\_regressão. ipynb** do notebook, retorne à página do projeto.
+    ![Selecione o primeiro caderno para executar](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-6. Abra **02-turbofan\_implantar\_Model. ipynb** e repita as etapas nesta seção para executar o segundo bloco de anotações.
+1. Se solicitado, escolha o Kernel Python 3.6 a partir do diálogo e selecione **set Kernel**.
+
+1. Se o caderno estiver listado como **Não Confiável,** clique no widget **Não Confiável** no direito superior do caderno. Quando o diálogo aparecer, selecione **Trust**.
+
+1. No caderno, desloque-se até à célula que segue as instruções **de propriedades globais definidas** e que começa com o código `AZURE_SUBSCRIPTION_ID =` e preencha os valores para a sua subscrição, configurações e recursos do Azure.
+
+    ![Definir propriedades globais no caderno](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
+
+1. Executar a célula selecionando **Executar** na barra de ferramentas.
+
+    Quando uma célula está em funcionamento, apresenta um asterisco entre os suportes quadrados (\*]). Quando o funcionamento da célula estiver concluído, o asterisco é substituído por um número e pode aparecer uma saída relevante. As células de um caderno constroem sequencialmente e só uma pode estar a funcionar de cada vez.
+
+    Siga as instruções no caderno. Também pode usar opções de execução a partir do menu **Cell,** `Ctrl` + `Enter` para executar uma célula, e `Shift` + `Enter` para executar uma célula e avançar para a próxima célula.
+
+    > [!TIP]
+    > Para operações celulares consistentes, evite executar o mesmo caderno a partir de vários separadores no seu navegador.
+
+1. Desloque-se até à célula que segue imediatamente o texto de visão geral do espaço de **trabalho e** execute essa célula. Na saída da célula, procure o link que o instrua a iniciar sessão para autenticar. 
+
+    ![Inscreva-se em solicitação para autenticação do dispositivo](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
+
+    Abra o link e introduza o código especificado. Este procedimento de entrada autentica o caderno Jupyter para aceder aos recursos do Azure utilizando a Interface de Linha de Comando de Plataformas Cruzadas Microsoft Azure.  
+
+    ![Autenticar aplicação na confirmação do dispositivo](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
+
+1. Neste momento, pode supor o resto das células. É ideal executar todas as células para que o código nas células seja executado sequencialmente. Selecione **Executar Tudo** a partir do menu **Cell.** Volte a ler o caderno e reveja como as operações celulares estão concluídas.
+
+    Na secção **De dados Explore,** pode rever as células nas **leituras do Sensor e** na subsecção RUL que tornam dispersos as medições dos sensores.
+
+    ![Dispersões de leituras de sensores](media/tutorial-machine-learning-edge-04-train-model/sensor-readings.png)
+
+1. Guarde o caderno e volte à sua página do projeto clicando no nome do seu projeto no canto superior direito do caderno ou voltando ao seu navegador.
+
+1. Abra **o\_de 22 turbofans,\_modelo.ipynb** e repita os passos neste procedimento para executar o segundo caderno.
+
+1. Guarde o caderno e volte à sua página do projeto clicando no nome do seu projeto no canto superior direito do caderno ou voltando ao seu navegador.
+
+### <a name="verify-success"></a>Verificar o sucesso
+
+Para verificar se os cadernos foram concluídos com sucesso, verifique se foram criados alguns itens.
+
+1. Na página do projeto Do seu Projeto De Cadernos Azure, selecione **itens escondidos** para que os nomes de itens que começam com um período apareçam.
+
+1. Verifique se foram criados os seguintes ficheiros:
+
+    | Ficheiro | Descrição |
+    | --- | --- |
+    | ./aml_config/.azureml/config.json | Ficheiro de configuração utilizado para criar o espaço de trabalho de aprendizagem automática Azure. |
+    | ./aml_config/model_config.json | Ficheiro de configuração que teremos de implementar o modelo no espaço de trabalho **turbofanDemo** Machine Learning em Azure. |
+    | myenv.yml| Fornece informações sobre as dependências do modelo de Machine Learning implantado.|
+
+1. Verifique no portal Azure que o espaço de trabalho **turboFanDemo** Machine Learning existe no seu grupo de recursos.
+
+### <a name="debugging"></a>Depurar
+
+Pode inserir declarações de Python no caderno para depuração, principalmente o comando `print()`. Se vir variáveis ou objetos que não estejam definidos, corra as células onde são declaradas ou instantâneas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, usamos dois blocos de anotações do Jupyter em execução no Azure Notebooks para usar os dados dos dispositivos turbofan para treinar um classificador restante da vida útil (RUL), para salvar o classificador como um modelo, para criar uma imagem de contêiner e para implantar e testar a imagem como uma Web se rvice.
+Neste artigo, usamos dois Cadernos Jupyter em execução em Cadernos Azure para usar os dados dos dispositivos turbofan para treinar uma vida útil restante (RUL) classificada, para salvar o classificador como modelo, para criar uma imagem de recipiente, e para implantar e testar a imagem como uma web se rvice.
 
-Continue no próximo artigo para criar um dispositivo IoT Edge.
+Continue para o próximo artigo para criar um dispositivo IoT Edge.
 
 > [!div class="nextstepaction"]
-> [Configurar um dispositivo IoT Edge](tutorial-machine-learning-edge-05-configure-edge-device.md)
+> [Configure um dispositivo IoT Edge](tutorial-machine-learning-edge-05-configure-edge-device.md)

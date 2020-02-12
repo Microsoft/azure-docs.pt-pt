@@ -2,17 +2,17 @@
 title: Recursos para desenvolvedores-Reconhecimento vocal
 description: SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compreensão de Línguas (LUIS) na sua linguagem de programação. Gerencie os seus recursos Azure e as previsões do LUIS.
 ms.topic: reference
-ms.date: 02/09/2020
-ms.openlocfilehash: ed869b7022e43b8ecf8c1f05bb3c6f0919076818
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 02/11/2020
+ms.openlocfilehash: fda4301a0851e6a36cbb6493dcf48293b2c5db37
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119972"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152691"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvimento sdK, REST e CLI para a compreensão da linguagem (LUIS)
 
-SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compreensão de Línguas (LUIS) na sua linguagem de programação. Gerencie os seus recursos Azure e as previsões do LUIS. 
+SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compreensão de Línguas (LUIS) na sua linguagem de programação. Gerencie os seus recursos Azure e as previsões do LUIS.
 
 ## <a name="azure-resource-management"></a>Gerenciamento de recursos do Azure
 
@@ -36,6 +36,10 @@ Conheça o ponto final da [previsão V3.](luis-migration-api-v3.md)
 
 Utilize o código de [amostra dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-quickstart-code) para aprender e utilizar as tarefas mais comuns.
 
+### <a name="rest-specifications"></a>Especificações de REPOUSO
+
+As [especificações LUIS REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/cognitiveservices/data-plane/LUIS), juntamente com todas as [especificações do Azure REST](https://github.com/Azure/azure-rest-api-specs), estão disponíveis publicamente no GitHub.
+
 ### <a name="rest-apis"></a>APIs REST
 
 As APIS de ponto de extremidade de criação e de previsão estão disponíveis em APIs REST:
@@ -44,6 +48,29 @@ As APIS de ponto de extremidade de criação e de previsão estão disponíveis 
 |--|--|
 |Criação|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[pré-visualização V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |predição|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
+
+### <a name="rest-endpoints"></a>Pontos Finais REST
+
+A LUIS tem atualmente 2 tipos de pontos finais:
+
+* autoria sobre o ponto final de treino
+* previsão de consulta no ponto final do tempo de execução.
+
+|Objetivo|do IdP|
+|--|--|
+|Autoria sobre o ponto final da formação|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|V2 Runtime - todas as previsões sobre o ponto final do tempo de execução|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+|V3 Runtime - previsão de versões no ponto final do tempo de execução|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|V3 Runtime - previsão de slot no ponto final do tempo de execução|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+
+A tabela que se segue explica os parâmetros, denotados com aparelhos encaracolados `{}`, na tabela anterior.
+
+|Parâmetro|Objetivo|
+|--|--|
+|`your-resource-name`|Nome de recurso Azure|
+|`q` ou `query`|texto de expressão enviado a partir do aplicativo de cliente, como o bot de bate-papo|
+|`version`|Nome de versão de 10 caracteres|
+|`slot`| `production` ou `staging`|
 
 ### <a name="language-based-sdks"></a>SDKs baseados em linguagem
 
@@ -77,7 +104,7 @@ A estrutura bot fornece [várias ferramentas](https://github.com/microsoft/botbu
 * [Despacho](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- gerencie aplicativos para pais e filhos
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto C#gera suporte /Aulas de scripts para as suas intenções e entidades LUIS.
 * [Bot Framework emulador](https://github.com/Microsoft/BotFramework-Emulator/releases) - uma aplicação de ambiente de trabalho que permite aos desenvolvedores de bots testar e depurar bots construídos usando o Bot Framework SDK
-
+* [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - uma ferramenta de desenvolvimento integrada para programadores e equipas multidisciplinares para construir bots e experiências de conversação com o Microsoft Bot Framework
 
 ## <a name="next-steps"></a>Passos seguintes
 

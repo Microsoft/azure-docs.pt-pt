@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: 25dd4810cf8cccab8bcbf211da4f6abbcd147056
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40659414848adb9be86b6163cf456809e9cb750f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020034"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134602"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar uma piscina de anfitriões usando o Azure Marketplace
 
-Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas em ambientes de locatário da área de trabalho virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativos com os quais os usuários podem interagir como fariam em uma área de trabalho física.
+As piscinas hospedeiras são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de inquilinos do Windows Virtual Desktop. Cada piscina de anfitriões pode conter um grupo de aplicações com o quais os utilizadores podem interagir como fariam num ambiente de trabalho físico.
 
 Este tutorial descreve como criar uma piscina de anfitriões dentro de um inquilino do Windows Virtual Desktop utilizando uma oferta do Microsoft Azure Marketplace. As tarefas incluem:
 
@@ -26,7 +26,7 @@ Este tutorial descreve como criar uma piscina de anfitriões dentro de um inquil
 > * Junte-se aos VMs no domínio do Diretório Ativo.
 > * Registe os VMs com o Windows Virtual Desktop.
 
-Antes de começar, [faça o download e importe o módulo Windows Virtual Desktop PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para utilizar na sua sessão PowerShell se ainda não o fez. Depois disso, execute o seguinte cmdlet para entrar em sua conta:
+Antes de começar, [faça o download e importe o módulo Windows Virtual Desktop PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para utilizar na sua sessão PowerShell se ainda não o fez. Depois disso, execute o seguinte cmdlet para iniciar sessão na sua conta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -65,6 +65,10 @@ Eis o que faz esquelético para a lâmina **básica:**
 Para a lâmina de **máquinas virtuais Configure:**
 
 1. Ou aceita os predefinidos ou personaliza o número e o tamanho dos VMs.
+    
+    >[!NOTE]
+    >Se o tamanho de VM específico que procura não aparecer no seletor de tamanho VM, isso é porque ainda não o embarcamos na ferramenta Azure Marketplace. Para solicitar um tamanho VM, crie um pedido ou revote um pedido existente no [fórum Windows Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    
 2. Introduza um prefixo para os nomes das máquinas virtuais. Por exemplo, se introduzir o nome "prefixo", as máquinas virtuais serão chamadas de "prefixo-0", "prefixo-1", e assim por diante.
 3. Selecione **Seguinte : Definições de máquinavirtual**.
 
@@ -129,11 +133,11 @@ Aqui estão os clientes suportados atuais:
 - [Windows Virtual Desktop web client](connect-web.md)
 
 >[!IMPORTANT]
->Para ajudar a proteger seu ambiente de área de trabalho virtual do Windows no Azure, recomendamos que você não abra a porta de entrada 3389 em suas VMs. A área de trabalho virtual do Windows não requer uma porta de entrada aberta 3389 para que os usuários acessem as VMs do pool de hosts. Se você precisar abrir a porta 3389 para fins de solução de problemas, recomendamos o uso [do acesso à VM just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Para ajudar a proteger o ambiente de ambiente de trabalho virtual do Windows em Azure, recomendamos que não abra a porta de entrada 3389 nos seus VMs. O Windows Virtual Desktop não necessita de uma porta de entrada aberta 3389 para os utilizadores acederem aos VMs do grupo anfitrião. Se tiver de abrir a porta 3389 para efeitos de resolução de problemas, recomendamos que utilize [o acesso VM just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez uma piscina de anfitriões e atribuiu aos utilizadores para acederem ao seu ambiente de trabalho, pode povoar a sua piscina de anfitriões com programas RemoteApp. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, consulte este tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial para gerenciar grupos de aplicativos](./manage-app-groups.md)
+> [Gerir o tutorial de grupos de aplicações](./manage-app-groups.md)
