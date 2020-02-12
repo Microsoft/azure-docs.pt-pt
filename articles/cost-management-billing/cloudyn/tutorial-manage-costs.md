@@ -1,21 +1,20 @@
 ---
 title: Tutorial – Gerir os custos através da Cloudyn no Azure | Microsoft Docs
 description: Neste tutorial, saiba com efetuar a gestão dos custos com relatórios de alocação, análise de custos e estorno.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
-manager: benshy
-ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.reviewer: benshy
+ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75987412"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769898"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerir os custos através da Cloudyn
 
@@ -23,7 +22,7 @@ Pode gerir os custos e produzir relatórios de análise de custos na Cloudyn ao 
 
 Por exemplo, pode querer ser reembolsado relativamente aos custos de engenharia. Tem de conseguir mostrar à sua equipa de engenharia que precisa de um montante específico, com base nos custos de recursos. Pode mostrar-lhes um relatório para todos os recursos consumidos marcados como *engenharia*.
 
-Neste artigo, as etiquetas e as categorias por vezes são sinónimos. As categorias são coleções alargadas e podem ser muitas coisas. Poderão incluir unidades de negócio, centros, de custos, serviços Web ou qualquer coisa esteja marcada. As marcas são pares de nome/valor que permitem categorizar recursos e exibir e gerenciar informações de cobrança consolidadas aplicando a mesma marca a vários recursos e grupos de recursos. Em versões anteriores do portal do Azure, um *nome da etiqueta* foi referido como uma *chave*. As etiquetas são criadas para e armazenadas por uma única subscrição do Azure. As etiquetas no AWS consistem em pares chave/valor. Uma vez que o Azure e o AWS utilizaram o termo *chave*, a Cloudyn utiliza esse termo. O Category Manager utiliza chaves (nomes da etiqueta) para unir as etiquetas.
+Neste artigo, as etiquetas e as categorias por vezes são sinónimos. As categorias são coleções alargadas e podem ser muitas coisas. Poderão incluir unidades de negócio, centros, de custos, serviços Web ou qualquer coisa esteja marcada. As etiquetas são pares nome/valor que permitem categorizar recursos, ver e gerir informação de faturação consolidada ao aplicar a mesma etiqueta a vários recursos e grupos de recursos. Em versões anteriores do portal do Azure, um *nome da etiqueta* foi referido como uma *chave*. As etiquetas são criadas para e armazenadas por uma única subscrição do Azure. As etiquetas no AWS consistem em pares chave/valor. Uma vez que o Azure e o AWS utilizaram o termo *chave*, a Cloudyn utiliza esse termo. O Category Manager utiliza chaves (nomes da etiqueta) para unir as etiquetas.
 
 Neste tutorial, ficará a saber como:
 
@@ -51,13 +50,13 @@ Não se esqueça de que as informações da etiqueta não são apresentadas para
 
 Quando inicia a alocação de custos, a primeira coisa a fizer é definir o âmbito através de um modelo de custos. O modelo de custos não altera os custos, distribui-os. Quando criar um modelo de custos, segmenta os dados por entidade de custo, conta ou subscrição e por múltiplas etiquetas. Etiquetas de exemplo comuns podem incluir um código de faturação, centro de custos ou nome do grupo. As etiquetas também ajudam a efetuar a análise de custos ou o estorno para outras partes da sua organização.
 
-Para criar um modelo de alocação de custos personalizado, selecione **Custos** &gt; **Cost Management** &gt; **Cost Allocation 360°** no menu relatório.
+Para criar um modelo de alocação de custos personalizado, selecione **Custos** &gt; **Cost Management** &gt; **Cost Allocation 360°** no menu do relatório.
 
-![Exemplo que mostra um dashboard, onde poderá selecionar Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Exemplo a mostrar um dashboard para selecionar o Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 Na página **Cost Allocation 360**, selecione **Adicionar** e, em seguida, introduza um nome e uma descrição para o modelo de custos. Selecione todas as contas ou contas individuais. Se quiser utilizar contas individuais, pode selecionar múltiplas contas de vários fornecedores de serviços cloud. Em seguida, clique em **Categorização** para escolher as etiquetas detetadas que categorizam os dados de custo. Escolha as etiquetas (categorias) que quer incluir no modelo. No exemplo seguinte, a etiqueta **Unidade** está selecionada.
 
-![Categorização de modelos de exemplo que mostra custos](./media/tutorial-manage-costs/cost-model01.png)
+![Exemplo a mostrar a categorização do modelo de custos](./media/tutorial-manage-costs/cost-model01.png)
 
 O exemplo mostra que o valor 19 680 $ não está categorizado (sem etiquetas).
 
@@ -95,7 +94,7 @@ Para definir uma nova regra, na área **Regras**, crie uma nova regra. Por exemp
 
 A imagem seguinte mostra um exemplo de regras criadas para uma nova categoria designada **Carga de Trabalho**:
 
-![Exemplo que mostra a nova categoria de carga de trabalho](./media/tutorial-manage-costs/category01.png)
+![Exemplo a mostrar a nova categoria de carga de trabalho](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Relatórios e origens de etiquetas
 
@@ -122,7 +121,7 @@ O método que as organizações utilizam para efetuar uma análise de custos e e
 
 Para ver os resultados da alocação de custos, abra o relatório Análise de Custos e selecione o modelo de custos que criou. Em seguida, adicione um agrupamento de uma ou mais das etiquetas selecionadas no modelo de custos.
 
-![Relatório de análise de custo que mostra um exemplo de dados do custo de novo](./media/tutorial-manage-costs/cost-analysis.png)
+![Relatório Análise de Custos a mostrar um exemplo dos dados do novo custo](./media/tutorial-manage-costs/cost-analysis.png)
 
 Pode facilmente criar e guardar relatórios que se concentrem em serviços específicos consumidos por grupos específicos. Por exemplo, pode ter um departamento que utiliza extensivamente VMs do Azure. Pode criar um relatório que seja filtrado nas VMs do Azure para mostrar o consumo e os custos.
 

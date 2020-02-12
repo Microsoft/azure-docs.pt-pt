@@ -135,7 +135,7 @@
           href: logic-apps-enterprise-integration-certificates.md
         - name: Metadados de artefactos
           href: logic-apps-enterprise-integration-metadata.md
-        - name: Receber mensagens B2B
+        - name: Receber e enviar mensagens B2B
           href: logic-apps-enterprise-integration-b2b.md
         - name: Trocar mensagens AS2
           href: logic-apps-enterprise-integration-as2.md

@@ -1,185 +1,178 @@
 ---
-title: Atribuir acesso aos dados de gerenciamento de custos do Azure
-description: Este artigo descreve apesar de atribuir permissões a dados do Azure Cost Management para vários âmbitos de acesso.
+title: Atribuir acesso a dados do Azure Cost Management
+description: Este artigo mostra-lhe os passos para a atribuição de permissão a dados do Azure Cost Management para vários âmbitos de acesso.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: e3140ee990127db6815828314103a09dff7cf26e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 8cb803c78b8bb5acd7880f79a19b5e3f0a978bd8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989023"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773974"
 ---
-# <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados de gestão de custos
+# <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Cost Management
 
-Para usuários com contratos Enterprise do Azure, uma combinação de permissões concedidas no portal do Azure e no portal Enterprise (EA) definem o nível de acesso de um usuário aos dados de gerenciamento de custos do Azure. Para usuários com outros tipos de conta do Azure, definir o nível de acesso de um usuário aos dados de gerenciamento de custos é mais simples usando o controle de acesso baseado em função do Azure. Este artigo orienta-o através da atribuição de acesso a dados de gestão de custos. Após a combinação de permissões é atribuída, os dados de vistas de utilizador no Cost Management com a base do âmbito que têm acesso a e no âmbito que selecionarem no portal do Azure.
+Para os utilizadores com contratos Azure Enterprise, uma combinação de permissões concedidas no portal do Azure e no portal Enterprise (EA) define o nível de acesso de um utilizador aos dados do Azure Cost Management. Para os utilizadores com outros tipos de contas do Azure, a definição do nível de acesso de um utilizador aos dados do Cost Management é mais simples através da utilização do controlo de acesso baseado em funções do Azure. Este artigo mostra-lhe os passos para atribuir acesso a dados do Cost Management. Depois de a combinação de permissões ser atribuída, o utilizador vê os dados no Cost Management com base no âmbito a que têm acesso e no âmbito que selecionam no portal do Azure.
 
-O âmbito do que um usuário selecionar é utilizado em toda a gestão de custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Quando utilizar âmbitos, os utilizadores não seleção múltipla-los. Em vez disso, eles selecionam um âmbito maior que âmbitos subordinados até implementar e, em seguida, eles filtro pendente para o que quer ver. Consolidação de dados é importante compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar.
+O âmbito que um utilizador seleciona será utilizado em todo o Cost Management para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Ao utilizarem os âmbitos, os utilizadores não podem selecionar vários. Em vez disso, selecionam um âmbito maior onde os âmbitos subordinados estão incluídos e, em seguida, filtram para o que querem visualizar. É importante que compreenda a consolidação dos dados, porque algumas pessoas não devem ter acesso a um âmbito principal no qual os âmbitos subordinados estão incluídos.
 
-Assista ao vídeo [como atribuir acesso com o gerenciamento de custos do Azure](https://www.youtube.com/watch?v=J997ckmwTa8) para saber mais sobre a atribuição de acesso para exibir custos e encargos com o controle de acesso baseado em função do Azure.
+Veja o vídeo [How to assign access with Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) (Como atribuir acesso com o Azure Cost Management) para saber mais sobre a atribuição de acesso para ver custos cobranças com o controlo de acesso baseado em funções do Azure.
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
-## <a name="cost-management-scopes"></a>Âmbitos de gestão de custos
+## <a name="cost-management-scopes"></a>Âmbitos do Cost Management
 
-O gerenciamento de custos dá suporte a uma variedade de tipos de conta do Azure. Para exibir a lista completa de tipos de conta com suporte, consulte [entender os dados de gerenciamento de custos](understand-cost-mgt-data.md). O tipo de conta determina os escopos disponíveis.
+O Cost Management suporta uma variedade de tipos de contas do Azure. Para ver a lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](understand-cost-mgt-data.md). O tipo de conta determina os âmbitos disponíveis.
 
-### <a name="azure-ea-subscription-scopes"></a>Escopos de assinatura do EA do Azure
+### <a name="azure-ea-subscription-scopes"></a>Âmbitos de subscrição do Azure EA
 
-Para exibir dados de custo para assinaturas do Azure EA, um usuário deve ter pelo menos acesso de leitura a um ou mais dos escopos a seguir.
+Para ver os dados dos custos das subscrições do Azure EA, um utilizador tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos.
 
-| **Âmbito** | **Definido no** | **Acesso necessário para ver os dados** | **Definição de pré-requisitos de EA** | **Consolida os dados para** |
+| **Âmbito** | **Definido no** | **Acesso necessário para ver dados** | **Definição de pré-requisitos de EA** | **Consolida dados para** |
 | --- | --- | --- | --- | --- |
 | Conta de faturação<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Administrador da Empresa | Nenhuma | Todas as subscrições do contrato enterprise |
-| Departamento | [https://ea.azure.com](https://ea.azure.com/) | Administrador do Departamento | **Custos de vista DA** ativada | Todas as subscrições que pertencem a uma conta de inscrição que está associada ao departamento |
-| Conta de inscrição<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Proprietário da Conta | **Custos de exibição AO** ativada | Todas as subscrições da conta de inscrição |
-| Grupo de gestão | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Cost Management (ou Leitor) | **Custos de exibição AO** ativada | Todas as subscrições abaixo o grupo de gestão |
-| Subscrição | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Cost Management (ou Leitor) | **Custos de exibição AO** ativada | Todos os recursos/grupos de recursos na subscrição |
-| Grupo de recursos | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Cost Management (ou Leitor) | **Custos de exibição AO** ativada | Todos os recursos no grupo de recursos |
+| Departamento | [https://ea.azure.com](https://ea.azure.com/) | Administrador do Departamento | **Custos da vista do AD** ativados | Todas as subscrições que pertencem a uma conta de inscrição que está associada ao departamento |
+| Conta de inscrição<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Proprietário da Conta | **Custos da vista do PC** ativados | Todas as subscrições da conta de inscrição |
+| Grupo de gestão | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Cost Management (ou Leitor) | **Custos da vista do PC** ativados | Todas as subscrições abaixo o grupo de gestão |
+| Subscrição | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Cost Management (ou Leitor) | **Custos da vista do PC** ativados | Todos os recursos/grupos de recursos na subscrição |
+| Grupo de recursos | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Cost Management (ou Leitor) | **Custos da vista do PC** ativados | Todos os recursos no grupo de recursos |
 
-<sup>1</sup> a conta de cobrança também é referida como o Enterprise Agreement ou inscrição.
+<sup>1</sup> A conta de faturação é também referida como o Contrato Enterprise ou Inscrição.
 
-<sup>2</sup> a conta de inscrição é também referida como o proprietário da conta.
+<sup>2</sup> A conta de inscrição é também referida como o proprietário da conta.
 
-O diagrama a seguir ilustra a relação entre escopos de gerenciamento de custos com funções e configurações do portal de EA.
 
-![Diagrama mostrando a relação entre escopos de gerenciamento de custos com funções e configurações do portal de EA](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+## <a name="other-azure-account-scopes"></a>Outros âmbitos de contas do Azure
 
-Quando os **encargos da exibição do da** são desabilitados no portal de ea, você verá uma mensagem informando *custos desabilitados para sua organização* ao tentar exibir os custos de departamentos e contas.
-
-Da mesma forma, quando os **encargos de exibição** do ao são desabilitados no portal do ea, você verá uma mensagem informando *os custos desabilitados para sua organização* ao tentar exibir os custos de contas de registro, grupos de gerenciamento, assinaturas e grupos de recursos.
-
-## <a name="other-azure-account-scopes"></a>Outros escopos de conta do Azure
-
-Para exibir dados de custo para outras assinaturas do Azure, um usuário deve ter pelo menos acesso de leitura a um ou mais dos seguintes escopos:
+Para ver os dados de custos de outras subscrições do Azure, um utilizador tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos:
 
 - Conta do Azure
 - Grupo de gestão
 - Grupo de recursos
 
-Vários escopos estão disponíveis depois que os parceiros integram clientes a um contrato de cliente da Microsoft. Os clientes do CSP podem usar os recursos de gerenciamento de custos quando habilitados pelo parceiro CSP. Para obter mais informações, consulte Introdução [ao gerenciamento de custos do Azure para parceiros](get-started-partners.md).
+Estão disponíveis vários âmbitos depois de os parceiros integrarem os clientes num Contrato de Cliente Microsoft. Os clientes de CSP podem, depois, utilizar as funcionalidades do Cost Management quando estas forem ativadas pelo seu parceiro de CSP. Para obter mais informações, veja [Introdução ao Azure Cost Management para parceiros](get-started-partners.md).
 
-## <a name="enable-access-to-costs-in-the-ea-portal"></a>Ativar o acesso aos custos no portal de EA
+## <a name="enable-access-to-costs-in-the-ea-portal"></a>Ativar o acesso aos custos no EA Portal
 
-O âmbito de departamento requer o **cobranças de vista DA** opção **ativado** no portal do EA. Todos os outros âmbitos de exigem a **cobranças de exibição de pedidos** opção **ativado** no portal do EA.
+O âmbito do departamento requer a opção **Custos da vista do AD** como **Ativada** no EA Portal. Todos os outros âmbitos requerem a opção **Custos da vista do CP** como **Ativada** no EA Portal.
 
 Para ativar uma opção:
 
-1. Inicie sessão no portal do EA em [ https://ea.azure.com ](https://ea.azure.com) com uma conta de administrador de empresa.
-2. Selecione **gerir** no painel esquerdo.
-3. Para a gestão de custos âmbitos que deseja fornecer acesso, ative a opção de custos para **cobranças de vista DA** e/ou **cobranças de exibição AO**.  
-    ![Guia de inscrição que mostra a vista DA e AO cobra opções](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
+1. Inicie sessão no EA Portal em [https://ea.azure.com](https://ea.azure.com) com uma conta de administrador empresarial.
+2. Selecione **Gerir** no painel esquerdo.
+3. Para os âmbitos de gestão de custos aos quais pretende fornecer acesso, ative a opção de custos para **Custos da vista do AD** e/ou **Custos da vista do CP**.  
+    ![Separador Inscrição que mostra as opções de custos da vista do AD e do CP](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Depois das opções de custo de vista estiverem ativadas, a maioria dos âmbitos também exigem configuração de permissão do controlo (RBAC) de acesso baseado em funções no portal do Azure.
+Depois de as opções das vistas de custos serem ativadas, a maioria dos âmbitos também requer uma configuração de permissão de controlo de acesso baseado em funções (RBAC) no portal do Azure.
 
-## <a name="enterprise-administrator-role"></a>Função de administrador de empresa
+## <a name="enterprise-administrator-role"></a>Função de administrador empresarial
 
-Por predefinição, o administrador da empresa tem acesso à conta de faturação (Enterprise Agreement/inscrição) e a todos os outros âmbitos, que são os âmbitos subordinados. O administrador de empresa atribui o acesso a âmbitos para outros utilizadores. Como melhor prática para continuidade do negócio, deve ter sempre dois utilizadores com acesso de administrador de empresa. As secções seguintes são exemplos passo a passo do acesso de atribuição de administrador empresarial a âmbitos para outros utilizadores.
+Por predefinição, um administrador empresarial tem acesso à conta de faturação (Contrato Enterprise/inscrição) e a todos os outros âmbitos, que são âmbitos subordinados. O administrador empresarial atribui acesso aos âmbitos a outros utilizadores. Enquanto melhor prática para a continuidade empresarial, deve ter sempre dois utilizadores com acesso de administrador empresarial. As secções que se seguem são exemplos de instruções de um administrador empresarial a atribuir acesso a âmbitos a outros utilizadores.
 
-## <a name="assign-billing-account-scope-access"></a>Atribuir acesso de âmbito de conta faturação
+## <a name="assign-billing-account-scope-access"></a>Atribuir acesso ao âmbito da conta de faturação
 
-Acesso ao âmbito da conta de faturação requer permissão de administrador de empresa no portal do EA. O administrador de empresa tem acesso para ver os custos entre a inscrição de EA toda ou várias inscrições. É necessária nenhuma ação no portal do Azure para o âmbito da conta de faturação.
+O acesso ao âmbito da conta de faturação requer a permissão do administrador empresarial no EA Portal. O administrador empresarial tem acesso à vista de custos em todas as inscrições do EA ou a várias inscrições. Não é necessária qualquer ação no portal do Azure para o âmbito de conta de faturação.
 
-1. Inicie sessão no portal do EA em [ https://ea.azure.com ](https://ea.azure.com) com uma conta de administrador de empresa.
-2. Selecione **gerir** no painel esquerdo.
-3. Sobre o **inscrição** separador, selecione a inscrição que pretende gerir.  
-    ![Selecione a sua inscrição no EA portal](./media/assign-access-acm-data/ea-portal.png)
-4. Clique em **+ Adicionar administrador**.
-5. Na caixa de adicionar administrador, selecione o tipo de autenticação e escreva o endereço de e-mail do utilizador.
-6. Se o utilizador deve ter acesso só de leitura aos dados de utilização e custos, em **só de leitura**, selecione **Sim**.  Caso contrário, selecione **não**.
-7. Clique em **adicionar** para criar a conta.  
-    ![informações de exemplo mostradas na caixa de administrador a adicionar](./media/assign-access-acm-data/add-admin.png)
+1. Inicie sessão no EA Portal em [https://ea.azure.com](https://ea.azure.com) com uma conta de administrador empresarial.
+2. Selecione **Gerir** no painel esquerdo.
+3. No separador **Inscrição**, selecione a inscrição que quer gerir.  
+    ![selecionar a inscrição no EA Portal](./media/assign-access-acm-data/ea-portal.png)
+4. Clique em **+ Adicionar Administrador**.
+5. Na caixa Adicionar Administrador, selecione o tipo de autenticação e escreva o endereço de e-mail do utilizador.
+6. Caso o utilizador deva ter acesso só de leitura aos dados de custos e utilização, em **Só de leitura**, selecione **Sim**.  Caso contrário, selecione **Não**.
+7. Clique em **Adicionar** para criar a conta.  
+    ![informações de exemplo mostradas na caixa Adicionar Administrador](./media/assign-access-acm-data/add-admin.png)
 
-Pode demorar até 30 minutos para que o novo utilizador possa aceder a dados no Cost Management.
+Poderá ter de esperar até 30 minutos até que o novo utilizador tenha acesso aos dados no Cost Management.
 
-### <a name="assign-department-scope-access"></a>Atribuir acesso de âmbito do departamento
+### <a name="assign-department-scope-access"></a>Atribuir acesso de âmbito de departamento
 
-Acesso ao âmbito departamento requer o acesso de (custos de vista DA) do departamento administrador no portal do EA. O administrador do departamento tem acesso para ver os custos e os dados de utilização associado a um departamento ou para vários departamentos. Os dados para o departamento de incluem todas as subscrições pertencentes a uma conta de inscrição que estejam ligadas ao departamento. É necessária nenhuma ação no portal do Azure.
+O acesso de âmbito de departamento requer acesso de administrador de departamento (custos da vista do AD) no EA Portal. O administrador do departamento tem acesso aos dados das vistas de custos e da utilização associados a um departamento ou a vários departamentos. Os dados do departamento incluem todas as subscrições que pertencem a uma conta de inscrição que está associada ao departamento. Não é necessária qualquer ação no portal do Azure.
 
-1. Inicie sessão no portal do EA em [ https://ea.azure.com ](https://ea.azure.com) com uma conta de administrador de empresa.
-2. Selecione **gerir** no painel esquerdo.
-3. Sobre o **inscrição** separador, selecione a inscrição que pretende gerir.
-4. Clique nas **departamento** separador e, em seguida, clique em **Adicionar administrador**.
-5. Na caixa de adicionar administrador de departamento, selecione o tipo de autenticação e, em seguida, escreva o endereço de e-mail do utilizador.
-6. Se o utilizador deve ter acesso só de leitura aos dados de utilização e custos, em **só de leitura**, selecione **Sim**.  Caso contrário, selecione **não**.
-7. Selecione os departamentos que pretende conceder permissões administrativas do departamento para.
-8. Clique em **adicionar** para criar a conta.  
-    ![Introduza as informações necessárias na caixa de administrador do departamento de adicionar](./media/assign-access-acm-data/add-depart-admin.png)
+1. Inicie sessão no EA Portal em [https://ea.azure.com](https://ea.azure.com) com uma conta de administrador empresarial.
+2. Selecione **Gerir** no painel esquerdo.
+3. No separador **Inscrição**, selecione a inscrição que quer gerir.
+4. Clique no separador **Departamento** e, em seguida, clique em **Adicionar Administrador**.
+5. Na caixa Adicionar Administrador de Departamento, selecione o tipo de autenticação e, em seguida, escreva o endereço de e-mail do utilizador.
+6. Caso o utilizador deva ter acesso só de leitura aos dados de custos e utilização, em **Só de leitura**, selecione **Sim**.  Caso contrário, selecione **Não**.
+7. Selecione os departamentos aos quais quer conceder permissão administrativa de departamentos.
+8. Clique em **Adicionar** para criar a conta.  
+    ![introduzir as informações necessárias na caixa Adicionar administrador de departamento](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>Atribuir acesso de âmbito de conta de inscrição
 
-Acesso ao âmbito da conta de inscrição requer acesso de (custos de exibição de pedidos) de proprietário de conta no portal de EA. O proprietário da conta pode ver os custos e os dados de utilização associados às subscrições criadas a partir dessa conta de inscrição. É necessária nenhuma ação no portal do Azure.
+O acesso ao âmbito de conta de inscrição requer o acesso de proprietário da conta (custos de vista do PC) no EA Portal. O proprietário da conta pode ver os dados de custos e de utilização associados às subscrições criadas nessa conta de inscrição. Não é necessária qualquer ação no portal do Azure.
 
-1. Inicie sessão no portal do EA em [ https://ea.azure.com ](https://ea.azure.com) com uma conta de administrador de empresa.
-2. Selecione **gerir** no painel esquerdo.
-3. Sobre o **inscrição** separador, selecione a inscrição que pretende gerir.
-4. Clique nas **conta** separador e, em seguida, clique em **adicionar conta**.
-5. Na caixa de adicionar conta, selecione o **departamento** associar a conta para ou deixá-la como não atribuídos.
+1. Inicie sessão no EA Portal em [https://ea.azure.com](https://ea.azure.com) com uma conta de administrador empresarial.
+2. Selecione **Gerir** no painel esquerdo.
+3. No separador **Inscrição**, selecione a inscrição que quer gerir.
+4. Clique no separador **Conta** e, em seguida, clique em **Adicionar Conta**.
+5. Na caixa Adicionar Conta, selecione o **Departamento** a associar à conta ou deixe-o como não atribuído.
 6. Selecione o tipo de autenticação e escreva o nome da conta.
-7. Escreva o endereço de e-mail do utilizador e, em seguida, opcionalmente, escreva o Centro de custos.
-8. Clique em **adicionar** para criar a conta.  
-    ![Introduza as informações necessárias na caixa Adicionar conta de uma conta de inscrição](./media/assign-access-acm-data/add-account.png)
+7. Escreva o endereço de e-mail do utilizador e, em seguida, escreva o centro de custos (opcional).
+8. Clique em **Adicionar** para criar a conta.  
+    ![introduzir as informações necessárias na caixa Adicionar Conta numa conta de inscrição](./media/assign-access-acm-data/add-account.png)
 
-Depois de concluir os passos acima, a conta de utilizador torna-se uma conta de inscrição no portal da empresa e pode criar subscrições. O utilizador pode aceder a dados de utilização e de custo para as subscrições que criaram.
+Depois de completar os passos acima, a conta de utilizador torna-se numa conta de inscrição no EA Portal e pode criar subscrições. O utilizador pode aceder aos dados dos custos e da utilização das subscrições que criar.
 
-## <a name="assign-management-group-scope-access"></a>Atribuir acesso de âmbito do grupo de gestão
+## <a name="assign-management-group-scope-access"></a>Atribuir acesso de âmbito de grupo de gestão
 
-O acesso para exibir o escopo do grupo de gerenciamento requer pelo menos a permissão leitor de gerenciamento de custos (ou leitor). Pode configurar permissões para um grupo de gestão no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para o grupo de gestão ativar o acesso para outras pessoas. E, para contas do Azure EA, você também deve ter habilitado a configuração de **encargos de exibição** do ao no portal do ea.
+O acesso para ver o âmbito de grupo de gestão requer, no mínimo, a permissão de Leitor do Cost Management (ou Leitor). Pode configurar permissões para um grupo de gestão no portal do Azure. Tem de ter, no mínimo, a permissão de Administrador de Acesso de Utilizadores (ou Proprietário) para o grupo de gestão para permitir o acesso aos outros. No caso das contas do Azure EA, também tem de ativar a definição **Custos de vista do CP** no EA Portal.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Selecione **todos os serviços** na barra lateral, procure _grupos de gestão_, em seguida, selecione **grupos de gestão**.
+2. Selecione **Todos os Serviços** na barra lateral, procure _grupos de gestão_ e, em seguida, selecione **grupos de gestão**.
 3. Selecione o grupo de gestão na hierarquia.
-4. Junto ao nome do seu grupo de gestão, clique em **detalhes**.
-5. Selecione **controlo de acesso (IAM)** no painel à esquerda.
+4. Ao lado do nome do grupo de gestão, clique em **Detalhes**.
+5. Selecione **Controlo de Acesso (IAM)** no painel esquerdo.
 6. Clique em **Adicionar**.
-7. Sob **função**, selecione **leitor de gestão de custos**.
-8. Sob **atribuir acesso aos**, selecione **utilizador do Azure AD, grupo ou aplicação**.
-9. Para atribuir acesso, procure e, em seguida, selecione o utilizador.
+7. Em **Função**, selecione **Leitor do Cost Management**.
+8. Em **Atribuir acesso a**, selecione **Utilizador, grupo ou aplicação do Azure Active Directory**.
+9. Para atribuir acesso, procure o utilizador e selecione-o.
 10. Clique em **Guardar**.  
-    ![informações de exemplo na caixa de permissões de adicionar, de um grupo de gestão](./media/assign-access-acm-data/add-permissions.png)
+    ![informações de exemplo na caixa Adicionar permissões num grupo de gestão](./media/assign-access-acm-data/add-permissions.png)
 
-## <a name="assign-subscription-scope-access"></a>Atribuir acesso de âmbito da subscrição
+## <a name="assign-subscription-scope-access"></a>Atribuir acesso de âmbito de subscrição
 
-Acesso a uma subscrição, pelo menos, requer a permissão do leitor de gestão de custos (ou leitor). Pode configurar as permissões para uma subscrição no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para a subscrição ativar o acesso para outras pessoas. E, para contas do Azure EA, você também deve ter habilitado a configuração de **encargos de exibição** do ao no portal do ea.
+O acesso a uma subscrição requer, no mínimo, a permissão de Leitor do Cost Management (ou Leitor). Pode configurar permissões para uma subscrição no portal do Azure. Tem de ter, no mínimo, a permissão de Administrador de Acesso de Utilizadores (ou Proprietário) para a subscrição para permitir o acesso aos outros. No caso das contas do Azure EA, também tem de ativar a definição **Custos de vista do CP** no EA Portal.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Selecione **todos os serviços** na barra lateral, procure _subscrições_, em seguida, selecione **subscrições**.
+2. Selecione **Todos os Serviços** na barra lateral, procure _subscrições_ e, em seguida, selecione **Subscrições**.
 3. Selecione a sua subscrição.
-4. Selecione **controlo de acesso (IAM)** no painel à esquerda.
+4. Selecione **Controlo de Acesso (IAM)** no painel esquerdo.
 5. Clique em **Adicionar**.
-6. Sob **função**, selecione **leitor de gestão de custos**.
-7. Sob **atribuir acesso aos**, selecione **utilizador do Azure AD, grupo ou aplicação**.
-8. Para atribuir acesso, procure e, em seguida, selecione o utilizador.
+6. Em **Função**, selecione **Leitor do Cost Management**.
+7. Em **Atribuir acesso a**, selecione **Utilizador, grupo ou aplicação do Azure Active Directory**.
+8. Para atribuir acesso, procure o utilizador e selecione-o.
 9. Clique em **Guardar**.
 
-## <a name="assign-resource-group-scope-access"></a>Atribuir acesso de âmbito do grupo de recursos
+## <a name="assign-resource-group-scope-access"></a>Atribuir acesso de âmbito de grupo de recursos
 
-Acesso a um grupo de recursos requer, pelo menos, a permissão do leitor de gestão de custos (ou leitor). Pode configurar permissões para um grupo de recursos no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para o grupo de recursos ativar o acesso para outras pessoas. E, para contas do Azure EA, você também deve ter habilitado a configuração de **encargos de exibição** do ao no portal do ea.
+O acesso a um grupo de recursos requer, no mínimo, a permissão de Leitor do Cost Management (ou Leitor). Pode configurar permissões para um grupo de recursos no portal do Azure. Tem de ter, no mínimo, a permissão de Administrador de Acesso de Utilizadores (ou Proprietário) para o grupo de recursos para permitir o acesso aos outros. No caso das contas do Azure EA, também tem de ativar a definição **Custos de vista do CP** no EA Portal.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Selecione **todos os serviços** na barra lateral, procure _grupos de recursos_, em seguida, selecione **grupos de recursos**.
-3. Selecione o grupo de recursos.
-4. Selecione **controlo de acesso (IAM)** no painel à esquerda.
+2. Selecione **Todos os Serviços** na barra lateral, procure _grupos de recursos_ e, em seguida, selecione **grupos de recursos**.
+3. Selecione o seu grupo de recursos.
+4. Selecione **Controlo de Acesso (IAM)** no painel esquerdo.
 5. Clique em **Adicionar**.
-6. Sob **função**, selecione **leitor de gestão de custos**.
-7. Sob **atribuir acesso aos**, selecione **utilizador do Azure AD, grupo ou aplicação**.
-8. Para atribuir acesso, procure e, em seguida, selecione o utilizador.
+6. Em **Função**, selecione **Leitor do Cost Management**.
+7. Em **Atribuir acesso a**, selecione **Utilizador, grupo ou aplicação do Azure Active Directory**.
+8. Para atribuir acesso, procure o utilizador e selecione-o.
 9. Clique em **Guardar**.
 
-## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticação entre locatários
+## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticação entre inquilinos
 
-Atualmente, o gerenciamento de custos do Azure tem suporte limitado para autenticação entre locatários. Em algumas circunstâncias, quando você tenta autenticar entre locatários, você pode receber um erro de **acesso negado** na análise de custo. Esse problema pode ocorrer se você configurar o controle de acesso baseado em função (RBAC) para a assinatura de outro locatário e, em seguida, tentar exibir dados de custo.
+Atualmente, o Azure Cost Management oferece suporte limitado para a autenticação entre inquilinos. Em algumas circunstâncias, quanto tenta autenticar em vários inquilinos, poderá receber um erro **Acesso negado** na análise de custos. Este problema poderá ocorrer se configurar o controlo de acesso baseado em funções (RBAC) para outra subscrição do inquilino e, depois, tentar ver os dados dos custos.
 
-*Para solucionar o problema*: depois de configurar o RBAC entre locatários, aguarde uma hora. Em seguida, tente exibir os custos na análise de custos ou conceder acesso de gerenciamento de custos aos usuários em ambos os locatários.  
+*Para contornar o problema*: depois de configurar o RBAC entre inquilinos, aguarde uma hora. Depois, tente ver os custos na análise de custos ou conceda acesso ao Cost Management a utilizadores em ambos os inquilinos.  
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se ainda não tiver concluído o primeira guia de introdução do Cost Management, leia-a em [começar a analisar os custos](quick-acm-cost-analysis.md).
+- Se ainda não tiver concluído o primeiro início rápido do Cost Management, leia-o em [Começar a analisar os custos](quick-acm-cost-analysis.md).

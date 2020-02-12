@@ -8,7 +8,7 @@
       items:
         - name: Acerca do Container Registry
           href: container-registry-intro.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       expanded: true
       items:
         - name: Criar registo de contentor - CLI
@@ -84,12 +84,14 @@
               items:
                 - name: Descrição geral da autenticação
                   href: container-registry-authentication.md
-                - name: Autenticação do principal de serviço
+                - name: Autenticar com o principal de serviço
                   href: container-registry-auth-service-principal.md
-                - name: Autenticação de identidade gerida
+                - name: Autenticar com a identidade gerida
                   href: container-registry-authentication-managed-identity.md
                 - name: Autenticação no Azure Container Instances
                   href: container-registry-auth-aci.md
+                - name: Autenticar a partir do Kubernetes com segredo de solicitação
+                  href: container-registry-auth-kubernetes.md
                 - name: Autenticação no Azure Kubernetes Service (AKS)
                   href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
             - name: Controlo de acesso baseado em funções
@@ -129,7 +131,7 @@
       items:
         - name: Sobre as Tarefas do ACR
           href: container-registry-tasks-overview.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       expanded: true
       items:
         - name: 'Criar, emitir e executar uma imagem - CLI'

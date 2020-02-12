@@ -52,6 +52,17 @@
         - name: Passos para implementar
           displayName: 'standards, cis'
           href: ./samples/cis-azure-1.1.0/deploy.md
+    - name: Impacto DoD Nível 4
+      items:
+        - name: Descrição geral
+          displayName: 'standards, DoD, IL4'
+          href: ./samples/dod-impact-level-4/index.md
+        - name: Mapeamento de controlo
+          displayName: 'standards, DoD, IL4'
+          href: ./samples/dod-impact-level-4/control-mapping.md
+        - name: Passos para implementar
+          displayName: 'standards, DoD, IL4'
+          href: ./samples/dod-impact-level-4/deploy.md
     - name: FedRAMP Moderado
       items:
         - name: Descrição geral

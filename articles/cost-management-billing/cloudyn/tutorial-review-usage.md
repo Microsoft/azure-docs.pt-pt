@@ -1,26 +1,25 @@
 ---
 title: Tutorial – Rever a utilização e os custos através da Cloudyn no Azure | Microsoft Docs
 description: Neste tutorial, reveja a utilização e os custos para ver tendências, detetar ineficiências e criar alertas.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
-manager: benshy
-ms.openlocfilehash: 1489c447513d2a470c75c909faf4ecccb6df5b17
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.reviewer: benshy
+ms.openlocfilehash: a2d4525b0b29feb230f5496196a84e651e651e52
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986971"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76774030"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
-# <a name="tutorial-review-usage-and-costs"></a>Tutorial: rever a utilização e os custos
+# <a name="tutorial-review-usage-and-costs"></a>Tutorial: Rever a utilização e os custos
 
 A Cloudyn mostra-lhe a utilização e os custos, de modo a que possa ver tendências, detetar ineficiências e criar alertas. Todos os dados de utilização e de custos são apresentados nos relatórios e nos dashboards da Cloudyn. Os exemplos neste tutorial orientam-no ao longo da revisão da utilização e dos custos através dos dashboards e dos relatórios.
 
@@ -51,15 +50,15 @@ O dinheiro efetivamente gasto para utilização e custos é controlado com os re
 
 Segue-se um exemplo de relatório:
 
-![Relatório de custo Efetivo ao longo do tempo de exemplo](./media/tutorial-review-usage/actual-cost01.png)
+![Exemplo de relatório Custos Reais ao Longo do Tempo](./media/tutorial-review-usage/actual-cost01.png)
 
 O relatório mostra todos os gastos ao longo dos últimos 30 dias. Para ver os gastos apenas para serviços do Azure, aplique o grupo Serviços e filtre por todos os serviços do Azure. A imagem seguinte mostra os serviços filtrados.
 
-![A mostrar exemplo filtrado serviços do Azure](./media/tutorial-review-usage/actual-cost02.png)
+![Exemplo a mostrar os serviços do Azure filtrados](./media/tutorial-review-usage/actual-cost02.png)
 
 No exemplo anterior, foi gasto menos dinheiro a partir de 29-10-2018. No entanto, haver demasiadas colunas pode ocultar uma tendência óbvia. Pode alterar a vista do relatório para uma linha ou área do gráfico para ver os dados apresentados noutras vistas. A imagem seguinte mostra a tendência com mais clareza.
 
-![Exemplo que mostra uma tendência de custo de VM do Azure diminuir](./media/tutorial-review-usage/actual-cost03.png)
+![Exemplo a mostrar a tendência dos custos das VMs do Azure em declínio](./media/tutorial-review-usage/actual-cost03.png)
 
 Continuando com o exemplo, pode ver que o custo de VMs do Azure diminuiu. Os custos para outros serviços do Azure também começou a diminuir nesse dia. Então, o que é que originou a redução nas despesas? Neste exemplo, um projeto grande de trabalho foi concluído, pelo que o consumo de muitos serviços do Azure também diminuíram.
 
@@ -77,39 +76,39 @@ O relatório Recomendações de Dimensionamento Económico identifica potenciais
 
 No menu na parte superior do portal, clique em **Otimizador** > **Otimização de Dimensionamento** > **Recomendações de Dimensionamento Económico**. Se for útil, aplique um filtro para reduzir os resultados. Segue-se uma imagem de exemplo.
 
-![Custo eficaz de dimensionar os relatórios de recomendação para VMs do Azure](./media/tutorial-review-usage/sizing01.png)
+![Relatório de recomendações de dimensionamento económico das VMs do Azure](./media/tutorial-review-usage/sizing01.png)
 
 Neste exemplo, seguir as recomendações para alterar os tipos de instância de VM levaria a uma poupança de 2382 $. Clique no sinal de adição (+) em **Detalhes** na primeira recomendação. Seguem-se os detalhes da primeira recomendação.
 
-![Detalhes de recomendação do exemplo que mostra](./media/tutorial-review-usage/sizing02.png)
+![Exemplo a mostrar os detalhes da recomendação](./media/tutorial-review-usage/sizing02.png)
 
 Clique no sinal de mais junto a **Lista de Candidatos** para ver os IDs das instâncias de VMs.
 
-![Exemplo que mostra uma lista de candidatos VM para redimensionar](./media/tutorial-review-usage/sizing03.png)
+![Exemplo a mostrar uma lista de VMs candidatas ao redimensionamento](./media/tutorial-review-usage/sizing03.png)
 
 Para ver um tutorial em vídeo sobre como detetar ineficiências de utilização, veja [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) (Otimizar o Tamanho das VMs na Cloudyn).
 
-O Azure Cost Management também fornece recomendações de poupança de custos para serviços do Azure. Para obter mais informações, veja [Tutorial: otimizar os custos de recomendações](../costs/tutorial-acm-opt-recommendations.md).
+O Azure Cost Management também fornece recomendações de poupança de custos para serviços do Azure. Para obter mais informações, veja [Tutorial: Otimizar os custos com base em recomendações](../costs/tutorial-acm-opt-recommendations.md).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para despesas invulgares
 
-Os alertas permitem notificar automaticamente os participantes do gasto de anomalias e a gastar riscos. Você pode criar alertas usando relatórios que dão suporte a alertas com base no orçamento e nos limites de custo.
+Os alertas permitem-lhe notificar automaticamente os intervenientes sobre anomalias de gastos e riscos de grandes gastos. Pode criar alertas através de relatórios que os suportem com base em limiares de orçamentos e de custos.
 
-Este exemplo usa o relatório de **custo real ao longo do tempo** para enviar uma notificação quando seus gastos em uma VM do Azure se aproximarem do orçamento total. Nesse cenário, você tem um orçamento total de $20000 e deseja receber uma notificação quando os custos estão se aproximando da metade do orçamento, $9000 e um alerta adicional quando os custos atingem $10000.
+Este exemplo utiliza o relatório **Custos Reais ao Longo do Tempo** para enviar uma notificação quando as despesas com uma VM do Azure estiverem prestes a atingir o seu orçamento total. Neste cenário, tem um orçamento total de 20 000 $ e quer receber uma notificação quando os custos estiverem a atingir metade do orçamento, 9000 $, e um alerta adicional quando os custos atingirem os 10 000 $.
 
-1. No menu na parte superior do portal do Cloudyn, selecione **custos** > **análise de custo** > **custo real ao longo do tempo**.
+1. No menu na parte superior do portal da Cloudyn, selecione **Custos** > **Análise de Custos** > **Custos Reais ao Longo do Tempo**.
 2. Defina **Grupos** como **Serviços** e defina **Filtrar por serviço** como **Azure/VM**.
-3. No canto superior direito do relatório, selecione **ações** e, em seguida, selecione **agendar relatório**.
-4. Para enviar por conta própria um email do relatório no intervalo agendado, selecione a guia **agendamento** na caixa de diálogo **salvar ou agendar este** relatório. Lembre-se de selecionar **Enviar por e-mail**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório enviado por email.
-5. Selecione a guia **limite** e, em seguida, selecione **custo real versus limite**.
-   1. Na caixa limite de **alerta vermelho** , insira 10000.
-   2. Na caixa limite de **alerta amarelo** , digite 9000.
-   3. Na caixa **número de alertas consecutivos** , insira o número de alertas consecutivos a serem recebidos. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais.
+3. No canto superior direito do relatório, selecione **Ações** e, em seguida, **Agendar relatório**.
+4. Para enviar um e-mail para si próprio com o relatório de acordo com o intervalo agendado, selecione o separador **Agendamento** na caixa de diálogo **Guardar ou Agendar este relatório**. Lembre-se de selecionar **Enviar por e-mail**. Todos os grupos, etiquetas e filtragem que utiliza são incluídos no e-mail com o relatório.
+5. Selecione o separador **Limiar** e, em seguida, selecione **Custos Reais vs. Limiar**.
+   1. Na caixa de limiar **Alerta vermelho**, introduza 10 000.
+   2. Na caixa de limiar **Alerta amarelo**, introduza 9000.
+   3. Na caixa **Número de alertas consecutivos**, introduza o número de alertas consecutivos a receber. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais.
 6. Selecione **Guardar**.
 
-![Exemplo que mostra alertas amarelas e vermelhas, com base nos limites de gastos](./media/tutorial-review-usage/schedule-alert01.png)
+![Exemplo a mostrar alertas vermelhos e amarelos com base nos limiares de despesas](./media/tutorial-review-usage/schedule-alert01.png)
 
-Você também pode escolher o **percentual de custo versus** a métrica de limite de orçamento para criar alertas. Isso permite que você especifique os limites como porcentagens de seu orçamento em vez de valores de moeda.
+Também pode escolher a métrica de limiar **Percentagem de Custos vs. Orçamento** para criar os alertas. Esta métrica permite especificar os limiares como percentagens do seu orçamento em vez de valores de moeda.
 
 ## <a name="export-data"></a>Exportar dados
 

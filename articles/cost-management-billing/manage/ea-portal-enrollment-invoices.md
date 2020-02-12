@@ -4,16 +4,16 @@ description: Este artigo explica como gerir e interpretar a fatura Azure Enterpr
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/21/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 1379f4acb88020234aa3a8fa2d3289f0bff0f108
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2a75972d00733d23df7f4a59b2d5010404df8dc3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769550"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023400"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição do Azure Enterprise
 
@@ -464,7 +464,7 @@ Para os serviços em que a zona e a região afetam os preços, veja a tabela seg
 | Área Geográfica | Regiões de Transferência de Dados | Regiões de CDN |
 | --- | --- | --- |
 | Zona 1 | Norte da Europa <br> Europa Ocidental <br> E.U.A. Oeste <br> E.U.A Leste <br> E.U.A. Centro-Norte <br> E.U.A. Centro-Sul <br> E.U.A. Leste 2 <br> E.U.A. Central | América do Norte <br> Europa |
-| Zona 2 | Este da Ásia-Pacífico <br> Sudeste da Ásia-Pacífico <br> Leste do Japão <br> Oeste do Japão <br> Leste da Austrália <br> Sudeste da Austrália | Ásia-Pacífico <br> Japão <br> América Latina <br> Médio Oriente/África <br> Leste da Austrália <br> Sudeste da Austrália |
+| Zona 2 | Este da Ásia-Pacífico <br> Sudeste da Ásia-Pacífico <br> Leste do Japão <br> Oeste do Japão <br> Leste da Austrália <br> Austrália Sudeste | Ásia-Pacífico <br> Japão <br> América Latina <br> Médio Oriente/África <br> Leste da Austrália <br> Austrália Sudeste |
 | Zona 3 | Sul do Brasil |   |
 
 Não há custos para a saída de dados entre serviços alojados no mesmo datacenter. Por exemplo, o Office 365 e o Azure.

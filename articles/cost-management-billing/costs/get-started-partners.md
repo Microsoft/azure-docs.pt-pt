@@ -1,93 +1,93 @@
 ---
-title: Introdução ao gerenciamento de custos do Azure para parceiros
-description: Este artigo explica como os parceiros usam os recursos de gerenciamento de custos do Azure e como eles permitem o acesso de gerenciamento de custos para seus clientes.
+title: Começar a utilizar o Azure Cost Management para parceiros
+description: Este artigo explica como os parceiros utilizam as funcionalidades do Azure Cost Management e como ativam o acesso ao Cost Management para os clientes.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/16/2020
+ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: aparnag
+ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: MT
+ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293917"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76842423"
 ---
-# <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao gerenciamento de custos do Azure para parceiros
+# <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
-O gerenciamento de custos do Azure está disponível nativamente para parceiros que integraram seus clientes a um contrato de cliente da Microsoft e [compraram um plano do Azure](/partner-center/purchase-azure-plan). Este artigo explica como os parceiros usam os recursos de [Gerenciamento de custos do Azure](../index.yml) para exibir os custos de assinaturas no plano do Azure. Ele também descreve como os parceiros permitem o acesso de gerenciamento de custos para seus clientes. Os clientes podem usar os recursos de gerenciamento de custos quando habilitados pelo parceiro CSP.
+O Azure Cost Management está disponível de forma nativa para os parceiros que tenham integrado os clientes num Contrato de Cliente Microsoft e tenham [comprado um Plano do Azure](/partner-center/purchase-azure-plan). Este artigo explica como os parceiros utilizam as funcionalidades do [Azure Cost Management](../index.yml) para ver os custos das subscrições no Plano do Azure. Também descreve como os parceiros ativam o acesso ao Cost Management para os clientes. Os clientes podem utilizar as funcionalidades do Cost Management quando estas forem ativadas pelo parceiro CSP.
 
-Os parceiros CSP usam o gerenciamento de custos para:
+Os parceiros CSP utilizam o Cost Management para:
 
-- Entenda os custos faturados e associe os custos ao cliente, às assinaturas, aos grupos de recursos e aos serviços.
-- Obtenha uma visão intuitiva dos custos do Azure na [análise de custos](quick-acm-cost-analysis.md) com recursos para analisar os custos por cliente, assinatura, grupo de recursos, recurso, medidor, serviço e muitas outras dimensões.
-- Exibir os custos de recursos que têm o PEC (crédito ganho) do parceiro aplicado na análise de custo.
-- Configure notificações e automação usando [orçamentos](tutorial-acm-create-budgets.md) programáticos e alertas quando os custos excederem orçamentos.
-- Habilite a política de Azure Resource Manager que fornece acesso de cliente aos dados de gerenciamento de custos. Os clientes podem exibir dados de custo de consumo para suas assinaturas usando as tarifas pré- [pagas](https://azure.microsoft.com/pricing/calculator/).
-- Exporte seus dados de custo e uso para um blob de armazenamento com uma assinatura paga conforme o uso.
+- Compreender os custos faturados e associar os custos ao cliente, às subscrições, aos grupos de recursos e aos serviços.
+- Obter uma vista intuitiva dos custos do Azure na [análise de custos](quick-acm-cost-analysis.md) com capacidades para analisar os custos por cliente, subscrição, grupo de recursos, recurso, medidor, serviço e muitas outras dimensões.
+- Ver os custos dos recursos com o Crédito Ganho pelo Parceiro (PEC) aplicado na Análise de Custos.
+- Configurar notificações e a automatização com [orçamentos ](tutorial-acm-create-budgets.md) programáticos e alertas quando os custos ultrapassam os orçamentos.
+- Ativar a política do Azure Resource Manager que fornece aos clientes acesso aos dados do Cost Management. Em seguida, os clientes poderão ver os dados dos custos de consumo das subscrições com as [tarifas pay as you go](https://azure.microsoft.com/pricing/calculator/).
+- Exportar os dados dos custos e da utilização para uma blob de armazenamento com uma subscrição pay as you go.
 
-Aqui está um exemplo mostrando os custos para todos os clientes.
-![exemplo mostrando os custos para todos os clientes](./media/get-started-partners/customer-costs1.png)
+Segue-se um exemplo que mostra os custos para todos os clientes.
+![Exemplo a mostrar os custos para todos os clientes](./media/get-started-partners/customer-costs1.png)
 
-Veja um exemplo que mostra os custos de um único cliente.
-![exemplo mostrando os custos de um único cliente](./media/get-started-partners/customer-costs2.png)
+Segue-se um exemplo que mostra os custos para um único cliente.
+![Exemplo a mostrar os custos para um único cliente](./media/get-started-partners/customer-costs2.png)
 
-Todas as funcionalidades disponíveis no gerenciamento de custos do Azure também estão disponíveis com APIs REST. Use as APIs para automatizar as tarefas de gerenciamento de custos.
+Todas as funcionalidades disponíveis no Azure Cost Management também estão disponíveis com as APIs REST. Utilize as APIs para automatizar as tarefas de gestão dos custos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Como parceiro, o gerenciamento de custos do Azure está disponível nativamente apenas para assinaturas que estão no plano do Azure.
+Como parceiro, o Azure Cost Management está disponível de forma nativa apenas para subscrições incluídas no plano do Azure.
 
-Para habilitar o gerenciamento de custos do Azure no portal do Azure, você deve ter confirmado a aceitação do cliente do contrato do cliente da Microsoft (em nome do cliente) e transicionado o cliente para o plano do Azure. Somente os custos de assinaturas que estão em transição para o plano do Azure estão disponíveis no gerenciamento de custos do Azure.
+Para ativar o Azure Cost Management no portal do Azure, deve confirmar a aceitação do cliente do Contrato de Cliente Microsoft (em nome do cliente) e migrar o cliente para o Plano do Azure. Apenas os custos das subscrições migradas para o plano do Azure estão disponíveis no Azure Cost Management.
 
-O gerenciamento de custos do Azure requer acesso de leitura à sua conta de cobrança ou assinatura.
+O Azure Cost Management requer acesso de leitura à conta de faturação ou à subscrição.
 
-Para obter mais informações sobre como habilitar e atribuir acesso ao gerenciamento de custos do Azure para uma conta de cobrança, consulte [atribuir funções e permissões de usuários](/partner-center/permissions-overview). As funções de **administrador global** e **agente de administração** podem gerenciar os custos de uma conta de cobrança.
+Para obter mais informações sobre a ativação e a atribuição de acesso ao Azure Cost Management para uma conta de faturação, veja [Assign users roles and permissions](/partner-center/permissions-overview) (Atribuir funções e permissões de utilizadores). As funções **Administrador global** e **Agente de administração** podem gerir os custos de uma conta de faturação.
 
-Para acessar o gerenciamento de custos do Azure no escopo da assinatura, qualquer usuário com acesso RBAC a uma assinatura pode exibir os custos em tarifas de varejo (pago conforme o uso). No entanto, a política de visibilidade de custo para o locatário do cliente deve ser habilitada. Para exibir uma lista completa de tipos de conta com suporte, consulte [entender os dados de gerenciamento de custos](understand-cost-mgt-data.md).
+Para aceder ao Azure Cost Management no âmbito da subscrição, qualquer utilizador com acesso RBAC a uma subscrição pode ver os custos nas tarifas de retalho (pay as you go). No entanto, a política de visibilidade dos custos do inquilino do cliente deve estar ativada. Para ver uma lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](understand-cost-mgt-data.md).
 
 
-## <a name="how-cost-management-uses-scopes"></a>Como o gerenciamento de custos usa escopos
+## <a name="how-cost-management-uses-scopes"></a>Como o Cost Management utiliza os âmbitos
 
-Os escopos são onde você gerencia os dados de cobrança, têm funções específicas para pagamentos, exibem faturas e realizam o gerenciamento geral da conta. As funções de cobrança e de conta são gerenciadas separadamente dos escopos usados para o gerenciamento de recursos, que usam o RBAC. Para distinguir claramente a intenção dos escopos separados, incluindo as diferenças de controle de acesso, eles são chamados de escopos de cobrança e escopos de RBAC, respectivamente.
+Os âmbitos são onde gere os dados de faturação, tem funções específicas de pagamentos, visualiza faturas e onde realiza a gestão global da conta. As funções de faturação e de conta são geridas separadamente dos âmbitos utilizados na gestão de recursos, que utilizam o RBAC. Para fazermos a distinção clara do objetivo dos diferentes âmbitos, incluindo as diferenças de controlo de acesso, serão designados como âmbitos de faturação e âmbitos RBAC, respetivamente.
 
-Para entender escopos de cobrança e escopos de RBAC e como o gerenciamento de custos funciona com escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
+Para compreender os âmbitos de faturação e os âmbitos RBAC, e como funciona a gestão de custos com âmbitos, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
 
-## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Gerenciar custos com escopos de cobrança de locatário do parceiro
+## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Gerir os custos com âmbitos de faturação do inquilino do parceiro
 
-Depois de integrar seus clientes a um contrato do cliente da Microsoft, os _escopos de cobrança_ a seguir estão disponíveis em seu locatário. Use os escopos para gerenciar custos no gerenciamento de custos.
+Depois de integrar os seus clientes num Contrato de Cliente Microsoft, estarão disponíveis os seguintes _âmbitos de faturação_ no inquilino. Utilize os âmbitos para gerir os custos no Cost Management.
 
-### <a name="billing-account-scope"></a>Escopo da conta de cobrança
+### <a name="billing-account-scope"></a>Âmbito da conta de faturação
 
-Use o escopo da conta de cobrança para exibir os custos de imposto em todos os seus clientes e perfis de cobrança. Os custos da fatura são mostrados apenas para produtos baseados em consumo do cliente no contrato do cliente da Microsoft. No entanto, os custos de fatura são mostrados para produtos baseados em compra para clientes no contrato do cliente da Microsoft e na oferta do CSP. Atualmente, a moeda padrão para exibir os custos no escopo é de US $100,00. Os orçamentos definidos para o escopo também estão em USD.
+Utilize o âmbito da conta de faturação para ver os custos antes de impostos em todos os seus clientes e perfis de faturação. Os custos faturados só são apresentados para os produtos baseados no consumo do cliente no Contrato de Cliente Microsoft. No entanto, os custos faturados são apresentados para os produtos baseados na compra para clientes no Contrato de Cliente Microsoft e na oferta CSP. Atualmente, a moeda predefinida para ver os custos no âmbito é o dólar americano. Os orçamentos definidos para o âmbito também estão em USD.
 
-Independentemente das diferentes moedas cobradas pelo cliente, os parceiros usam o escopo da conta de cobrança para definir orçamentos e gerenciar custos em USD em seus clientes, assinaturas, recursos e grupos de recursos.
+Independentemente das diferentes moedas faturadas pelo cliente, os parceiros utilizam o âmbito da conta de faturação para definir os orçamentos e gerir os custos em USD por clientes, subscrições, recursos e grupos de recursos.
 
-Os parceiros também filtram os custos em uma moeda de cobrança específica entre clientes na exibição de análise de custo. Selecione a lista de **custo real** para exibir os custos em moedas de cobrança de cliente com suporte.
+Os parceiros também filtram os custos com base numa moeda de faturação específica para os clientes na vista de análise de custos. Selecione a lista **Custos reais** para ver os custos nas moedas de faturação dos clientes suportadas.
 
-![Exemplo mostrando a seleção de custo real para moedas](./media/get-started-partners/actual-cost-selector.png)
+![Exemplo a mostrar a seleção de Custos reais para as moedas](./media/get-started-partners/actual-cost-selector.png)
 
-Use a [exibição de custo amortizada](quick-acm-cost-analysis.md#customize-cost-views) em escopos de cobrança para exibir os custos amortizados da instância reservada em um termo de reserva.
+Utilize a [vista de custos amortizados](quick-acm-cost-analysis.md#customize-cost-views) nos âmbitos de faturação para ver os custos amortizados das instâncias reservadas dentro do termo de reserva.
 
-### <a name="billing-profile-scope"></a>Escopo do perfil de cobrança
+### <a name="billing-profile-scope"></a>Âmbito do perfil de faturação
 
-Use o escopo do perfil de cobrança para exibir os custos de imposto na moeda de cobrança em todos os seus clientes para todos os produtos e assinaturas incluídos em uma fatura. Você pode filtrar os custos em um perfil de cobrança para uma fatura específica usando o filtro **faturaid** . O filtro mostra os custos de consumo e compra de produto para uma nota fiscal específica. Você também pode filtrar os custos de um cliente específico na fatura para ver os custos de imposto prévio.
+Utilize o âmbito do perfil de faturação para ver os custos antes de impostos na moeda de faturação em todos os seus clientes para todos os produtos e subscrições incluídos numa fatura. Pode filtrar os custos num perfil de faturação para uma fatura específica através do filtro **InvoiceID**. O filtro mostra os custos de consumo e de compra de produtos para uma fatura específica. Também pode filtrar os custos de um cliente específico na fatura para ver os custos antes de impostos.
 
-Depois de integrar os clientes a um contrato de cliente da Microsoft, você receberá uma fatura que inclui todos os encargos de todos os produtos (consumo, compras e direitos) para esses clientes no contrato do cliente da Microsoft. Quando cobrado na mesma moeda, essas notas fiscais também incluem os encargos de produtos adquiridos e de qualificação, como SaaS, Azure Marketplace e reservas para clientes que ainda estão na oferta do CSP.
+Depois de integrar os clientes num Contrato de Cliente Microsoft, receberá uma fatura com todos os custos de todos os produtos (consumo, compras e direitos) para estes clientes no Contrato de Cliente Microsoft. Quando faturadas na mesma moeda, estas faturas também incluem os custos relativos aos produtos de direito e comprados, tais como SaaS, Azure Marketplace e reservas para os clientes que ainda estão na oferta CSP.
 
-Para ajudar a reconciliar os encargos em relação à fatura do cliente, o escopo do perfil de cobrança permite que você veja todos os custos acumulados para uma fatura para seus clientes. Como a fatura, o escopo mostra os custos de cada cliente no novo contrato do cliente da Microsoft. O escopo também mostra cada encargo para os produtos de direitos do cliente ainda na oferta atual do CSP.
+Para ajudar a reconciliar os custos com a fatura do cliente, o âmbito do perfil de faturação permite-lhe ver todos os custos acumulados numa fatura dos seus clientes. Tal como a fatura, o âmbito mostra os custos de cada cliente no novo Contrato de Cliente Microsoft. O âmbito também mostra todos os custos dos produtos de direito do cliente ainda na oferta CSP atual.
 
-O perfil de cobrança e os escopos de conta de cobrança são os únicos escopos aplicáveis que mostram encargos para produtos baseados em compras e de compra, como o Azure Marketplace e as compras de reserva.
+Os âmbitos do perfil de faturação e da conta de faturação são os únicos âmbitos aplicáveis que apresentam os custos dos produtos baseados no direito e na compra, como o Azure Marketplace e as compras de reservas.
 
-Os perfis de cobrança definem as assinaturas que são incluídas em uma fatura. Os perfis de cobrança são o equivalente funcional de um registro do Enterprise Agreement. Um perfil de cobrança é o escopo onde as notas fiscais são geradas.
+Os perfis de faturação definem as subscrições que estão incluídas numa fatura. Os perfis de faturação são o equivalente funcional de uma inscrição no contrato Enterprise. Um perfil de faturação é o âmbito onde as faturas são geradas.
 
-Atualmente, a moeda de cobrança do cliente é a moeda padrão ao exibir os custos no escopo do perfil de cobrança. Os orçamentos definidos no escopo do perfil de cobrança estão na moeda de cobrança.
+Atualmente, a moeda de faturação do cliente é a moeda predefinida quando visualizar os custos no âmbito do perfil de faturação. Os orçamentos definidos no âmbito do perfil de faturação estão na moeda de faturação.
 
-Os parceiros podem usar o escopo para reconciliar com faturas. E eles usam o escopo para definir orçamentos na moeda de cobrança para os seguintes itens:
+Os parceiros podem utilizar o âmbito para fazer a reconciliação com as faturas. Além disso, utilizam o âmbito para definir orçamentos na moeda de faturação para os seguintes itens:
 
 - Fatura filtrada específica
 - Cliente
@@ -98,201 +98,201 @@ Os parceiros podem usar o escopo para reconciliar com faturas. E eles usam o esc
 - Medidor
 - ResellerMPNID
 
-### <a name="customer-scope"></a>Escopo do cliente
+### <a name="customer-scope"></a>Âmbito do cliente
 
-Os parceiros usam o escopo para gerenciar os custos associados aos clientes que são integrados ao contrato do cliente da Microsoft. O escopo permite que os parceiros exibam os custos de imposto de um cliente específico. Você também pode filtrar os custos antes do imposto para uma assinatura, um grupo de recursos ou um recurso específico.
+Os parceiros utilizam o âmbito para gerir os custos associados aos clientes integrados no Contrato de Cliente Microsoft. O âmbito permite aos parceiros ver os custos antes de impostos para um cliente específico numa moeda de faturação. Também pode filtrar os custos antes de impostos para uma subscrição, grupo de recursos ou recurso específicos.
 
-O escopo do cliente não inclui clientes que estão na oferta atual do CSP. O escopo inclui apenas os clientes que têm um contrato de cliente da Microsoft. Os custos de direito, não o uso do Azure, para a oferta atual do CSP oferecem aos clientes a conta de cobrança e os escopos do perfil de cobrança quando você aplica o filtro de cliente.
+O âmbito do cliente não inclui clientes que estejam na oferta CSP atual. O âmbito inclui apenas clientes que tenham um Contrato de Cliente Microsoft. Os custos de direito, não os da utilização do Azure, para os clientes da oferta CSP atual estão disponíveis nos âmbitos da conta de faturação e do perfil de faturação quando aplica o filtro do cliente. Os orçamentos definidos neste âmbito estão na moeda de faturação.
 
-## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Acesso de parceiro a escopos de cobrança no gerenciamento de custos
+## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Acesso dos parceiros aos âmbitos de faturação no Cost Management
 
-Somente os usuários com funções de **administrador global** e **agente de administração** podem gerenciar e exibir os custos de contas de cobrança, perfis de cobrança e clientes diretamente no locatário do Azure do parceiro. Para obter mais informações sobre as funções do Partner Center, consulte [atribuir funções e permissões de usuários](/partner-center/permissions-overview).
+Apenas os utilizadores com as funções **Administrador global** e **Agente de administração** podem gerir e ver os custos para contas de faturação, perfis de faturação e clientes diretamente no inquilino do Azure do parceiro. Para obter mais informações sobre as funções do centro de parceiros, veja [Assign users roles and permissions](/partner-center/permissions-overview) (Atribuir funções e permissões de utilizadores).
 
-## <a name="enable-cost-management-in-the-customer-tenant"></a>Habilitar o gerenciamento de custos no locatário do cliente
+## <a name="enable-cost-management-in-the-customer-tenant"></a>Ativar a gestão de custos no inquilino do cliente
 
-Os parceiros podem habilitar o acesso ao gerenciamento de custos depois que os clientes são integrados a um contrato de cliente da Microsoft. Em seguida, os parceiros podem habilitar uma política que permite aos clientes Exibir seus custos computados com taxas de varejo pagas conforme o uso. Os custos são mostrados na moeda de cobrança do cliente para seu uso consumido em escopos de grupos de recursos e assinatura RBAC.
+Os parceiros podem permitir o acesso ao Cost Management depois de os clientes estarem integrados num Contrato de Cliente Microsoft. Em seguida, os parceiros podem ativar uma política que permita aos clientes ver os custos calculados nas tarifas de retalho pay as you go. Os custos são apresentados na moeda de faturação do cliente relativos ao consumo nos âmbitos da subscrição RBAC e dos grupos de recursos.
 
-Quando a política de visibilidade de custo é habilitada pelo parceiro, qualquer usuário com acesso Azure Resource Manager à assinatura pode gerenciar e analisar os custos de acordo com as tarifas pagas conforme o uso. Efetivamente, revendedores e clientes que têm o acesso RBAC apropriado às assinaturas do Azure podem exibir o custo.
+Quando a política de visibilidade dos custos for ativada pelo parceiro, qualquer utilizador com acesso do Azure Resource Manager à subscrição pode gerir e analisar os custos nas tarifas pay as you go. Efetivamente, os revendedores e os clientes com acesso RBAC adequado às subscrições do Azure podem ver os custos.
 
-Independentemente da política, os parceiros também podem exibir os custos se tiverem acesso à assinatura e ao grupo de recursos.
+Independentemente da política, os parceiros também poderão ver os custos se tiverem acesso à subscrição e ao grupo de recursos.
 
-### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Habilitar a política para exibir os encargos de uso do Azure
+### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Ativar a política para ver os custos de utilização do Azure
 
-Os parceiros usam as informações a seguir para habilitar a política para exibir os encargos de uso do Azure para seus clientes.
+Os parceiros utilizam as seguintes informações para permitir à política ver os custos de utilização do Azure dos clientes.
 
-No portal do Azure, entre no locatário do parceiro e selecione gerenciamento de **custos + cobrança**. Selecione a conta de cobrança relevante do Microsoft Partner Agreement e, em seguida, selecione **clientes**. A lista de clientes está associada à conta de cobrança.
+No portal do Azure, inicie sessão no inquilino do parceiro e selecione **Cost Management + Faturação**. Selecione a conta de faturação relevante do Contrato de Parceiro da Microsoft e, em seguida, selecione **Clientes**. A lista de clientes está associada à conta de faturação.
 
-Na lista de clientes, selecione o cliente que você deseja permitir para exibir os custos.
+Na lista de clientes, selecione o cliente que quer permitir que veja os custos.
 
-![Selecionar clientes no gerenciamento de custos](./media/get-started-partners/customer-list.png)
+![Selecionar clientes no Cost Management](./media/get-started-partners/customer-list.png)
 
-Em **configurações**, selecione **políticas**.
+Em **Definições**, selecione **Políticas**.
 
-A política de visibilidade de custo atual é mostrada para encargos de **uso do Azure** associados às assinaturas do cliente selecionado.
-![política para permitir que os clientes exibam encargos pagos conforme o uso](./media/get-started-partners/cost-management-billing-policies.png)
+A política de visibilidade dos custos atual é apresentada para os custos de **Utilização do Azure** associados às subscrições do cliente selecionado.
+![Política para permitir aos clientes ver os custos pay as you go](./media/get-started-partners/cost-management-billing-policies.png)
 
-Quando a política estiver definida como **não**, o gerenciamento de custos do Azure não estará disponível para os usuários de assinatura associados ao cliente. A menos que seja habilitado por um parceiro, a política de visibilidade de custo é desabilitada por padrão para todos os usuários de assinatura.
+Quando a política está definida como **Não**, o Azure Cost Management não está disponível para os utilizadores da subscrição associados ao cliente. A menos que seja ativada por um parceiro, a política de visibilidade dos custos está desativada por predefinição para todos os utilizadores da subscrição.
 
-Quando a política de custo é definida como **Sim**, os usuários de assinatura associados ao locatário do cliente podem ver os encargos de uso em tarifas pagas conforme o uso.
+Quando a política de custos está definida como **Sim**, os utilizadores da subscrição associados ao inquilino do cliente podem ver os custos de utilização nas tarifas pay as you go.
 
-Quando a política de visibilidade de custo é habilitada, todos os serviços que têm uso de assinatura mostram os custos em tarifas pagas conforme o uso. O uso de reserva é exibido com encargos zero para custos reais e amortizados. As compras e os direitos não estão associados a uma assinatura específica. Portanto, as compras não são exibidas no escopo da assinatura.
+Quando a política de visibilidade dos custos está ativada, todos os serviços com utilização de subscrições mostram os custos nas tarifas pay as you go. A utilização de reservas aparece com zero custos para custos reais e amortizados. As compras e os direitos não estão associados a uma subscrição específica. Assim, as compras não são apresentadas no âmbito da subscrição.
 
-Para exibir os custos do locatário do cliente, abra **Gerenciamento de custos + cobrança** e selecione a conta de cobrança relevante do Microsoft Partner Agreement.
+Para ver os custos do inquilino do cliente, abra **Cost Management + Faturação** e selecione a conta de faturação relevante do Contrato de Parceiro da Microsoft.
 
-![Selecionar uma conta de cobrança](./media/get-started-partners/select-billing-account.png)
+![Selecionar uma conta de faturação](./media/get-started-partners/select-billing-account.png)
 
-Em **cobrança**, selecione **assinaturas do Azure**e, em seguida, selecione um cliente.
+Em **Faturação**, selecione **Subscrições do Azure** e, em seguida, selecione um cliente.
 
-![Selecionar um cliente de assinatura do Azure](./media/get-started-partners/subscriptions-select-customer.png)
+![Selecionar um cliente de uma subscrição do Azure](./media/get-started-partners/subscriptions-select-customer.png)
 
-Selecione **análise de custo** e comece a revisar os custos.
-Análise de custo, orçamentos e alertas estão disponíveis para os escopos de RBAC de grupo de recursos e assinatura em custos pagos conforme o uso.
+Selecione **Análise de custos** e comece a rever os custos.
+A análise de custos, os orçamentos e os alertas estão disponíveis para os âmbitos RBAC da subscrição e do grupo de subscrição nas tarifas pay as you go.
 
-![Exibir análise de custo como um cliente ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+![Ver a análise de custos como um cliente ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
 
-As exibições amortizadas e os custos reais das instâncias reservadas nos escopos do RBAC mostram zero encargos. Os custos de instância reservada são mostrados apenas em escopos de cobrança em que as compras foram feitas.
+As vistas amortizadas e os custos reais das instâncias reservadas nos âmbitos RBAC mostram zero custos. Os custos das instâncias reservadas só são apresentados nos âmbitos de faturação onde foram efetuadas compras.
 
-## <a name="analyze-costs-in-cost-analysis"></a>Analisar custos na análise de custo
+## <a name="analyze-costs-in-cost-analysis"></a>Analisar os custos na análise de custos
 
-Os parceiros com acesso a escopos de cobrança no locatário do parceiro podem explorar e analisar os custos faturados na análise de custos entre clientes para um cliente específico ou para uma fatura. Na exibição [análise de custo](quick-acm-cost-analysis.md) , você também pode [salvar exibições](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) e exportar dados para [arquivos CSV e png](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Os parceiros com acesso aos âmbitos de faturação no inquilino do parceiro podem explorar e analisar os custos faturados na análise de custos para um cliente específico ou para uma fatura. Na vista [análise de custos](quick-acm-cost-analysis.md), também pode [guardar vistas](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) e exportar dados para [ficheiros CSV e PNG](quick-acm-cost-analysis.md#automation-and-offline-analysis).
 
-Os usuários do RBAC com acesso à assinatura no locatário do cliente também podem analisar os custos de varejo para assinaturas no locatário do cliente, salvar exibições e exportar dados para arquivos CSV e PNG.
+Os utilizadores RBAC com acesso à subscrição no inquilino do cliente também podem analisar os custos de retalho das subscrições no inquilino do cliente, guardar vistas e exportar dados para ficheiros CSV e PNG.
 
-Você pode usar filtrar e agrupar por recursos na análise de custo para analisar os custos por vários campos. Os campos específicos do parceiro são mostrados na próxima seção.
+Pode utilizar filtros e grupos por funcionalidades na análise de custos para analisar os custos em vários campos. Os campos específicos do parceiro são mostrados na secção seguinte.
 
 ## <a name="data-fields"></a>Campos de dados
 
-Os campos de dados a seguir são encontrados em arquivos de detalhes de uso e APIs de gerenciamento de custos. Quando disponível, as informações equivalentes do Partner Center são mostradas. Para os seguintes campos em negrito, os parceiros podem usar filtrar e agrupar por recursos na análise de custo para analisar os custos por vários campos. Os campos em negrito se aplicam somente aos contratos de clientes da Microsoft com suporte pelos parceiros.
+Os seguintes campos de dados estão disponíveis nos ficheiros de detalhes de utilização e nas APIs do Cost Management. Sempre que estiverem disponíveis, são mostradas as informações equivalentes no Centro de Parceiros. Para seguintes os campos a negrito, os parceiros podem utilizar as funcionalidades para filtrar e agrupar da análise de custos para analisar os custos em vários campos. Os campos a negrito são apenas aplicáveis aos Contratos de Cliente Microsoft suportados pelos parceiros.
 
-| **Nome do campo** | **Descrição** | **Equivalente do Partner Center** |
+| **Nome do campo** | **Descrição** | **Equivalente no Centro de Parceiros** |
 | --- | --- | --- |
-| invoiceId | A ID da nota fiscal mostrada na nota fiscal para a transação específica. | Número da nota fiscal em que a transação é mostrada. |
-| previousInvoiceID | Referência a uma fatura original há um reembolso (custo negativo). Populado somente quando há um reembolso. | N/A |
-| billingAccountName | Nome da conta de cobrança que representa o parceiro. Ele acumula todos os custos entre os clientes que se integraram a um contrato com o cliente da Microsoft e os clientes do CSP que fizeram compras de direitos como SaaS, Azure Marketplace e reservas. | N/A |
-| billingAccountID | Identificador da conta de cobrança que representa o parceiro. | ID raiz do MCAPI Partner Commerce. Usado em uma solicitação, mas não incluído em uma resposta.|
-| billingProfileID | Identificador do perfil de cobrança que agrupa custos entre faturas em uma única moeda de cobrança entre os clientes que se integraram a um contrato de cliente da Microsoft e os clientes do CSP que fizeram compras de direitos como SaaS, Azure Marketplace e Reservas. | ID do grupo de cobrança do parceiro MCAPI. Usado em uma solicitação, mas não incluído em uma resposta. |
-| billingProfileName | Nome do perfil de cobrança que agrupa custos entre faturas em uma única moeda de cobrança entre os clientes que se integraram a um contrato de cliente da Microsoft e os clientes do CSP que fizeram compras de direitos como SaaS, Azure Marketplace e Reservas. | N/A |
-| invoiceSectionName | Nome do projeto que está sendo cobrado na fatura. Não aplicável para contratos de clientes da Microsoft integrados por parceiros. | N/A |
-| invoiceSectionID | Identificador do projeto que está sendo cobrado na fatura. Não aplicável para contratos de clientes da Microsoft integrados por parceiros. | N/A |
-| **CustomerTenantID** | Identificador do locatário de Azure Active Directory da assinatura do cliente. | ID organizacional do cliente – a Tenantid de Azure Active Directory do cliente. |
-| **Customer** | Nome do locatário de Azure Active Directory para a assinatura do cliente. | Nome da organização do cliente, conforme mostrado no Partner Center. Importante para reconciliar a fatura com as informações do sistema. |
-| **CustomerTenantDomainName** | Nome de domínio para o locatário de Azure Active Directory da assinatura do cliente. | Domínio de locatário de Azure Active Directory do cliente. |
-| **PartnerTenantID** | Identificador para o locatário de Azure Active Directory do parceiro. | O parceiro Azure Active Directory ID do locatário chamado como ID do parceiro, no formato GUID. |
-| **PartnerName** | Nome do locatário do parceiro Azure Active Directory. | Nome do parceiro. |
-| **ResellerMPNID** | MPNID para o revendedor associado à assinatura. | ID de MPN do revendedor no registro para a assinatura. Não disponível para a atividade atual. |
-| costCenter | Centro de custo associado à assinatura. | N/A |
-| billingPeriodStartDate | Data de início do período de cobrança, conforme mostrado na nota fiscal. | N/A |
-| billingPeriodEndDate | Data de término do período de cobrança, conforme mostrado na nota fiscal. | N/A |
-| servicePeriodStartDate | Data de início do período de classificação em que o uso do serviço foi classificado para cobranças. Os preços dos serviços do Azure são determinados para o período de classificação. | ChargeStartDate no Partner Center. Data de início do ciclo de cobrança, exceto ao apresentar datas de dados de uso latentes anteriormente não cobrados de um ciclo de cobrança anterior. O tempo é sempre o início do dia, 0:00. |
-| servicePeriodEndDate | Data de término do período em que o uso do serviço foi classificado para cobranças. Os preços dos serviços do Azure são determinados com base no período de classificação. | N/A |
-| date | Para dados de consumo do Azure, ele mostra a data de uso como classificado. Para a instância reservada, ela mostra a data de compra. Para encargos recorrentes e encargos de uso único, como Marketplace e suporte, ele mostra a data de compra. | N/A |
-| productID | Identificador do produto que tem encargos acumulados por consumo ou compra. É a chave concatenada de productID e SKuID, conforme mostrado no Partner Center. | A ID do produto. |
-| produto | Nome do produto que tem encargos acumulados por consumo ou compra, conforme mostrado na nota fiscal. | O nome do produto no catálogo. |
-| serviceFamily | Mostra a família de serviços para o produto adquirido ou cobrado. Por exemplo, armazenamento ou computação. | N/A |
-| productOrderID | O identificador do ativo ou o nome do plano do Azure ao qual a assinatura pertence. Por exemplo, plano do Azure. | N/A |
-| productOrderName | O nome do plano do Azure ao qual a assinatura pertence. Por exemplo, plano do Azure. | N/A|
-| consumedService | Serviço consumido (taxonomia herdada), conforme usado em detalhes de uso de EA herdado. | Serviço mostrado no Partner Center. Por exemplo, Microsoft. Storage, Microsoft. Compute e Microsoft. operationalinsights. |
-| meterId | Identificador medido para consumo medido. | A ID do medidor usado. |
-| meterName | Identifica o nome do medidor para consumo medido. | O nome do medidor consumido. |
-| meterCategory | Identifica o serviço de nível superior para uso. | O serviço de nível superior para o uso. |
-| meterSubCategory | Define o tipo ou a subcategoria do serviço do Azure que pode afetar a taxa. | O tipo de serviço do Azure que pode afetar a taxa.|
-| meterRegion | Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter. | O local regional de um data center para serviços, quando aplicável e preenchidos. |
-| ID da subscrição | Identificador exclusivo gerado pela Microsoft para a assinatura do Azure. | N/A |
-| subscriptionName | Nome da subscrição do Azure. | N/A |
-| Duração | Apresenta o termo da validade da oferta. Por exemplo, as instâncias reservadas mostram 12 meses de um termo anual da instância reservada. Para compras de uma vez ou compras recorrentes, o termo exibe um mês para SaaS, Azure Marketplace e suporte. Não aplicável ao consumo do Azure. | N/A |
-| PublisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Tipo de Publicador que identifica o Publicador como primeira parte, revendedor de terceiros ou agência de terceiros. | N/A |
-| partNumber | Número de peça para a instância reservada não usada e os serviços do Azure Marketplace. | N/A |
-| publisherName | Nome do editor do serviço, incluindo Publicadores da Microsoft ou de terceiros. | O nome do editor do produto.|
-| reservationId | Identificador para a compra de instância reservada. | N/A |
-| reservationName | Nome da instância reservada. | N/A |
-| reservationOrderId | OrderID para a instância reservada. | N/A |
-| frequência | Frequência de pagamento para uma instância reservada. | N/A |
-| resourceGroup | Nome do grupo de recursos do Azure usado para gerenciamento de recursos do ciclo de vida. | Nome do grupo de recursos. |
-| instanceID (ou) ResourceId | Identificador da instância de recurso. | Mostrado como um ResourceURI que inclui propriedades de recurso completas. |
-| resourceLocation | Nome do local do recurso. | O local do recurso. |
-| Localização | Local normalizado do recurso. | N/A |
-| effectivePrice | O preço unitário efetivo do serviço, em moeda de preços. Exclusivo para um produto, uma família de serviços, um medidor e uma oferta. Usado com preços na folha de preços da conta de cobrança. Quando há preços em camadas ou uma quantidade incluída, ele mostra o preço combinado do consumo. | O preço unitário após os ajustes serem feitos. |
-| Quantidade | Quantidade medida comprada ou consumida. O valor do medidor usado durante o período de cobrança. | Número de unidades. Verifique se ele corresponde às informações em seu sistema de cobrança durante a reconciliação. |
-| unitOfMeasure | Identifica a unidade na qual o serviço é cobrado. Por exemplo, GB e horas. | Identifica a unidade na qual o serviço é cobrado. Por exemplo, GB, horas e 10.000 s. |
+| invoiceId | ID da fatura mostrado na fatura para a transação específica. | Número da fatura onde a transação é mostrada. |
+| previousInvoiceID | Referência a uma fatura original em caso de reembolso (custo negativo). Povoado apenas quando existe um reembolso. | N/D |
+| billingAccountName | Nome da conta de faturação que representa o parceiro. Acumula todos os custos dos clientes que integraram um Contrato de Cliente Microsoft e os clientes CSP que fizeram compras de direitos como SaaS, Azure Marketplace e reservas. | N/D |
+| billingAccountID | Identificador da conta de faturação que representa o parceiro. | ID Raiz do Comércio de Parceiros MCAPI. Utilizado num pedido, mas não incluído numa resposta.|
+| billingProfileID | Identificador do perfil de faturação que agrupa os custos nas faturas numa única moeda de faturação para os clientes que integraram um Contrato de Cliente Microsoft e para os clientes CSP que fizeram compras de direitos como SaaS, Azure Marketplace e reservas. | ID do Grupo de Faturação do Parceiro MCAPI. Utilizado num pedido, mas não incluído numa resposta. |
+| billingProfileName | Nome do perfil de faturação que agrupa os custos nas faturas numa única moeda de faturação nos clientes que integraram um Contrato de Cliente Microsoft e os clientes CSP que fizeram compras de direitos como SaaS, Azure Marketplace e reservas. | N/D |
+| invoiceSectionName | Nome do projeto que está a ser cobrado na fatura. Não aplicável aos Contratos de Cliente Microsoft integrados por parceiros. | N/D |
+| invoiceSectionID | Identificador do projeto que está a ser cobrado na fatura. Não aplicável aos Contratos de Cliente Microsoft integrados por parceiros. | N/D |
+| **CustomerTenantID** | Identificador do inquilino do Azure Active Directory da subscrição do cliente. | ID organizacional do cliente: o TenantID do Azure Ative Directory do cliente. |
+| **CustomerName** | Nome do inquilino do Azure Active Directory da subscrição do cliente. | Nome da organização do cliente, conforme mostrado no Centro de Parceiros. Importante para reconciliar a fatura com as informações do sistema. |
+| **CustomerTenantDomainName** | Nome de domínio do inquilino do Azure Active Directory da subscrição do cliente. | Domínio do inquilino do Azure Active Directory do cliente. |
+| **PartnerTenantID** | Identificador do inquilino do Azure Ative Directory do parceiro. | ID do Inquilino do Azure Active Directory do Parceiro denominado ID de Parceiro, no formato GUID. |
+| **PartnerName** | Nome do inquilino do Azure Ative Directory do parceiro. | Nome do parceiro. |
+| **ResellerMPNID** | MPNID do revendedor associado à subscrição. | ID do MPN do revendedor no registo da subscrição. Não disponível para a atividade atual. |
+| costCenter | Centro de custos associado à subscrição. | N/D |
+| billingPeriodStartDate | Data de início do período de faturação, conforme mostrado na fatura. | N/D |
+| billingPeriodEndDate | Data de fim do período de faturação, conforme mostrado na fatura. | N/D |
+| servicePeriodStartDate | Data de início do período de classificação quando a utilização do serviço foi classificada para os custos. Os preços dos serviços do Azure são determinados para o período de classificação. | ChargeStartDate no Centro de Parceiros. Data de início do ciclo de faturação, exceto quando apresentar datas de dados de utilização latente anteriormente não cobrados de um ciclo de faturação anterior. A hora é sempre o início do dia, 00:00. |
+| servicePeriodEndDate | Data de fim do período quando a utilização do serviço foi classificada para os custos. Os preços dos serviços do Azure são determinados com base no período de classificação. | N/D |
+| date | Para dados de consumo do Azure, mostra a data de utilização conforme foi classificada. Para uma instância reservada, mostra a data de compra. Para custos recorrentes e únicos, como o Marketplace e o suporte, mostra a data de compra. | N/D |
+| productID | Identificador do produto que acumulou custos por consumo ou compra. Trata-se da chave concatenada de productID e SKuID, conforme mostrado no Centro de Parceiros. | ID do produto. |
+| produto | Nome do produto que acumulou custos por consumo ou compra, conforme mostrado na fatura. | O nome do produto no catálogo. |
+| serviceFamily | Mostra a família de serviços do produto comprado ou cobrado. Por exemplo, Armazenamento ou Computação. | N/D |
+| productOrderID | O identificador do recurso ou nome do plano do Azure a que a subscrição pertence. Por exemplo, Plano do Azure. | CommerceSubscriptionID |
+| productOrderName | O nome do plano do Azure a que a subscrição pertence. Por exemplo, Plano do Azure. | N/D|
+| consumedService | Serviço consumido (taxonomia legada) conforme utilizado nos detalhes de utilização do EA legados. | Serviço mostrado no Centro de Parceiros. Por exemplo, Microsoft.Storage, Microsoft.Compute e microsoft.operationalinsights. |
+| meterId | Identificador medido para o consumo medido. | O ID do medidor utilizado. |
+| meterName | Identifica o nome do medidor para o consumo medido. | O nome do medidor consumido. |
+| meterCategory | Identifica o serviço de nível superior para a utilização. | O serviço de nível superior para a utilização. |
+| meterSubCategory | Define o tipo ou subcategoria de serviço do Azure que pode afetar a tarifa. | O tipo de serviço do Azure que pode afetar a tarifa.|
+| meterRegion | Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter. | A localização regional de um datacenter para os serviços, quando aplicável e povoada. |
+| ID da subscrição | Identificador exclusivo gerado pela Microsoft para a subscrição do Azure. | EntitlementID |
+| subscriptionName | Nome da subscrição do Azure. | N/D |
+| Termo | Apresenta o termo da validade da oferta. Por exemplo, as instâncias reservadas mostram 12 meses de um período anual da instância reservada. Para compras únicas ou recorrentes, este período apresenta um mês para SaaS, Azure Marketplace e suporte. Não aplicável ao consumo do Azure. | N/D |
+| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Tipo de editor que identifica o editor como proprietário, revendedor de terceiros ou agência de terceiros. | N/D |
+| partNumber | Número de peça da instância reservada não utilizada e dos serviços do Azure Marketplace. | N/D |
+| publisherName | Nome do publicador do serviço, incluindo a Microsoft ou editores de terceiros. | O nome do editor do produto.|
+| reservationId | Identificador da compra da instância reservada. | N/D |
+| reservationName | Nome da instância reservada. | N/D |
+| reservationOrderId | OrderID da instância reservada. | N/D |
+| frequência | Frequência de pagamento de uma instância reservada. | N/D |
+| resourceGroup | Nome do grupo de recursos do Azure utilizado na gestão de recursos do ciclo de vida. | Nome do grupo de recursos. |
+| instanceID (ou) ResourceID | Identificador da instância de recurso. | Mostrado como um ResourceURI que inclui propriedades de recursos completas. |
+| resourceLocation | Nome da localização do recurso. | A localização do recurso. |
+| Localização | Localização normalizada do recurso. | N/D |
+| effectivePrice | O preço unitário efetivo do serviço, na moeda do preço. Exclusivo para um produto, família de serviços, medidor e oferta. Utilizado nos preços da folha de preços da conta de faturação. Quando existem preços em escalões ou uma quantidade incluída, mostra o preço do consumo combinado. | O preço unitário após os ajustes. |
+| Quantidade | Quantidade medida comprada ou consumida. O valor do medidor utilizado durante o período de faturação. | Número de unidades. Verifique se corresponde às informações no sistema de faturação durante a reconciliação. |
+| unitOfMeasure | Identifica a unidade em que o serviço é cobrado. Por exemplo, GB e horas. | Identifica a unidade em que o serviço é cobrado. Por exemplo, GB, horas e 10 000 s. |
 | pricingCurrency | A moeda que define o preço unitário. | A moeda na lista de preços.|
-| billingCurrency | A moeda que define o custo cobrado. | A moeda da região geográfica do cliente. |
-| chargeType | Define o tipo de encargo que o custo representa no gerenciamento de custos do Azure, como compra e reembolso. | O tipo de encargo ou ajuste. Não disponível para a atividade atual. |
-| costinBillingCurrency | ExtendedCost ou custo combinado antes do imposto na moeda cobrada. | N/A |
-| costinPricingCurrency | ExtendedCost ou custo combinado antes do imposto na moeda de preços para correlacionar com os preços. | N/A |
-| **costinUSD** | ExtendedCost estimado ou custo combinado antes do imposto em USD. | N/A |
-| **paygCostInBillingCurrency** | Mostra os custos se os preços estiverem em preços de varejo. Mostra os preços pagos conforme o uso na moeda de cobrança. Disponível somente em escopos de RBAC. | N/A |
-| **paygCostInUSD** | Mostra os custos se os preços estiverem em preços de varejo. Mostra os preços pagos conforme o uso em USD. Disponível somente em escopos de RBAC. | N/A |
-| exchangeRate | Taxa de câmbio usada para converter da moeda de preço para a moeda de cobrança. | Conhecido como PCToBCExchangeRate no Partner Center. A moeda de preço para a taxa de câmbio da moeda de cobrança.|
-| exchangeRateDate | A data da taxa de câmbio usada para converter da moeda de preço para a moeda de cobrança. | Conhecido como PCToBCExchangeRateDat no Partner Center. A moeda de preço para cobrança da moeda da taxa de câmbio.|
-| isAzureCreditEligible | Indica se o custo é qualificado para pagamento por créditos do Azure. | N/A |
-| serviceInfo1 | Campo herdado que captura metadados específicos do serviço opcionais. | Metadados de serviço do Azure internos. |
-| serviceInfo2 | Campo herdado que captura metadados específicos do serviço opcionais. | Informações de serviço. Por exemplo, um tipo de imagem para uma máquina virtual e o nome do ISP para ExpressRoute.|
-| additionalInfo | Metadados específicos do serviço. Por exemplo, um tipo de imagem de uma máquina virtual. | Quaisquer informações adicionais não abordadas em outras colunas. Os metadados específicos do serviço. Por exemplo, um tipo de imagem de uma máquina virtual.|
-| etiquetas | Marca que você atribui ao medidor. Use marcas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir custos pelo departamento que usa o medidor. | Marcas adicionadas pelo cliente.|
-| **partnerEarnedCreditRate** | Taxa de desconto aplicado se houver um acordo de crédito de parceiro (PEC) com base no acesso de link do administrador do parceiro. | A taxa de o PEC (crédito ganho do parceiro). Por exemplo, 0% ou 15%. |
-| **partnerEarnedCreditApplied** | Indica se o crédito obtido do parceiro foi aplicado. | N/A |
+| billingCurrency | A moeda que define o custo faturado. | A moeda da região geográfica do cliente. |
+| chargeType | Define o tipo de custo representado no Azure Cost Management, como compra e reembolso. | O tipo de custo ou ajuste. Não disponível para a atividade atual. |
+| costinBillingCurrency | ExtendedCost ou custo combinado antes de impostos na moeda faturada. | N/D |
+| costinPricingCurrency | ExtendedCost ou custo combinado antes de impostos na moeda de preço para correlacionar com os preços. | N/D |
+| **costinUSD** | ExtendedCost estimado ou custo combinado antes de impostos em USD. | N/D |
+| **paygCostInBillingCurrency** | Mostrará os custos se os preços forem de retalho. Mostra preços pay as you go na moeda de faturação. Disponível apenas nos âmbitos RBAC. | N/D |
+| **paygCostInUSD** | Mostrará os custos se os preços forem de retalho. Mostra os preços pay as you go em USD. Disponível apenas nos âmbitos RBAC. | N/D |
+| exchangeRate | Taxa de câmbio utilizada para converter a moeda do preço na moeda de faturação. | Referida como PCToBCExchangeRate no Centro de Parceiros. A moeda do preço à taxa de câmbio da moeda de faturação.|
+| exchangeRateDate | A data da taxa de câmbio utilizada para converter a moeda do preço na moeda de faturação. | Referida como PCToBCExchangeRateDat no Centro de Parceiros. A moeda do preço à data da taxa de câmbio da moeda de faturação.|
+| isAzureCreditEligible | Indica se o custo é elegível para pagamento por créditos do Azure. | N/D |
+| serviceInfo1 | Campo legado que captura metadados opcionais específicos do serviço. | Metadados internos do serviço do Azure. |
+| serviceInfo2 | Campo legado que captura metadados opcionais específicos do serviço. | Informações do serviço. Por exemplo, um tipo de imagem de uma máquina virtual e o nome do ISP para o ExpressRoute.|
+| additionalInfo | Metadados específicos do serviço. Por exemplo, um tipo de imagem de uma máquina virtual. | Qualquer informação adicional não abrangida noutras colunas. Os metadados específicos do serviço. Por exemplo, um tipo de imagem de uma máquina virtual.|
+| etiquetas | Etiqueta que atribui ao medidor. Utilize etiquetas para agrupar os registos de faturação. Por exemplo, pode utilizar etiquetas para distribuir os custos pelo departamento que utiliza o medidor. | Etiquetas adicionadas pelo cliente.|
+| **partnerEarnedCreditRate** | Taxa de desconto aplicada se houver um crédito ganho pelo parceiro (PEC) com base no acesso da ligação de administração do parceiro. | A taxa de crédito ganho pelo parceiro (PEC). Por exemplo, 0% ou 15%. |
+| **partnerEarnedCreditApplied** | Indica se foi aplicado o crédito ganho pelo parceiro. | N/D |
 
-## <a name="view-partner-earned-credit-pec-resource-costs"></a>Exibir custos de recursos do PEC (crédito acumulado) do parceiro
+## <a name="view-partner-earned-credit-pec-resource-costs"></a>Ver os custos de recursos do Crédito Ganho pelo Parceiro (PEC)
 
-No gerenciamento de custos do Azure, os parceiros podem usar a análise de custo para exibir os custos que receberam os benefícios do PEC.
+No Azure Cost Management, os parceiros podem utilizar a análise de custos para ver os custos que receberam os benefícios do PEC.
 
-No portal do Azure, entre no locatário do parceiro e selecione gerenciamento de **custos + cobrança**. Em **Gerenciamento de custos**, selecione **análise de custo**.
+No portal do Azure, inicie sessão no inquilino do parceiro e selecione **Cost Management + Faturação**. Em **Cost Management**, selecione **Análise de custos**.
 
-A exibição análise de custo mostra os custos da conta de cobrança do parceiro. Selecione o **escopo** conforme necessário para o parceiro, um cliente específico ou um perfil de cobrança para reconciliar faturas.
+A vista Análise de custos mostra os custos da conta de faturação do parceiro. Selecione o **Âmbito** necessário para o parceiro, um cliente específico ou um perfil de faturação para reconciliar as faturas.
 
-Em um gráfico de rosca, selecione a lista suspensa e selecione **PartnerEarnedCreditApplied** para analisar os custos do PEC.
+Num gráfico em anel, selecione a lista pendente e selecione **PartnerEarnedCreditApplied** para analisar os custos PEC.
 
-![Exemplo mostrando como exibir o crédito obtido pelo parceiro](./media/get-started-partners/cost-analysis-pec1.png)
+![Exemplo que mostra como ver o crédito ganho pelo parceiro](./media/get-started-partners/cost-analysis-pec1.png)
 
-Quando a propriedade **PartnerEarnedCreditApplied** é _verdadeira_, o custo associado tem o benefício do acesso de administrador obtido pelo parceiro.
+Quando a propriedade **PartnerEarnedCreditApplied** for _True_, o custo associado tem o benefício do acesso administrativo ganho pelo parceiro.
 
-Quando a propriedade **PartnerEarnedCreditApplied** é _false_, o custo associado não atende à qualificação necessária para o crédito. Ou, o serviço adquirido não está qualificado para crédito de parceiro ganho.
+Quando a propriedade **PartnerEarnedCreditApplied** for _False_, o custo associado não cumpriu a elegibilidade necessária para o crédito. Ou o serviço comprado não é elegível para o crédito ganho pelo parceiro.
 
-Os dados de uso do serviço normalmente levam 8-24 horas para serem exibidos no gerenciamento de custos. Para obter mais informações, consulte a [frequência de atualização de dados de uso varia](understand-cost-mgt-data.md#usage-data-update-frequency-varies). Os créditos do PEC aparecem dentro de 48 horas a partir do tempo de acesso no gerenciamento de custos do Azure.
+Os dados de utilização do serviço demoram normalmente 8 a 24 horas a aparecer no Cost Management. Para obter mais informações, veja [A frequência de atualização dos dados de utilização varia](understand-cost-mgt-data.md#usage-data-update-frequency-varies). Os créditos PEC aparecem dentro de 48 horas a partir da hora de acesso no Azure Cost Management.
 
 
-Você também pode agrupar e filtrar pela propriedade **PartnerEarnedCreditApplied** usando as opções **Agrupar por** . Use as opções para examinar os custos que fazem e não têm o PEC.
+Também pode agrupar e filtrar pela propriedade **PartnerEarnedCreditApplied** com as opções **Agrupar por**. Utilize as opções para examinar os custos que têm e não têm PEC.
 
-![Agrupar ou filtrar por crédito obtido pelo parceiro](./media/get-started-partners/cost-analysis-pec2.png)
+![Agrupar ou filtrar pelo crédito ganho pelo parceiro](./media/get-started-partners/cost-analysis-pec2.png)
 
-## <a name="export-cost-data-to-azure-storage"></a>Exportar dados de custo para o armazenamento do Azure
+## <a name="export-cost-data-to-azure-storage"></a>Exportar os dados dos custos para o Armazenamento do Microsoft Azure
 
-Os parceiros com acesso a escopos de cobrança em um locatário de parceiro podem exportar seus dados de custo e de uso para um blob de armazenamento do Azure. O blob deve estar em uma assinatura no locatário do parceiro que não seja uma assinatura de serviço compartilhada ou uma assinatura do cliente. Para habilitar a exportação de dados de custo, recomendamos que você configure uma assinatura paga conforme o uso independente no locatário do parceiro para hospedar os dados de custo exportados. A conta de armazenamento de exportação é criada no blob de armazenamento do Azure hospedado na assinatura paga conforme o uso. Com base no escopo em que o parceiro cria a exportação, os dados associados são exportados para a conta de armazenamento automaticamente de forma recorrente.
+Os parceiros com acesso aos âmbitos de faturação num inquilino do parceiro podem exportar os dados dos custos e da utilização para um blob do Armazenamento do Microsoft Azure. O blob deve estar numa subscrição no inquilino do parceiro que não seja uma subscrição de serviço partilhada ou uma subscrição do cliente. Para permitir a exportação dos dados dos custos, recomendamos que configure uma subscrição pay as you go independente no inquilino do parceiro para alojar os dados dos custos exportados. A conta de armazenamento de exportação é criada no blob do Armazenamento do Microsoft Azure alojado na subscrição pay as you go. Com base no âmbito em que o parceiro cria a exportação, os dados associados são exportados automaticamente para a conta de armazenamento periodicamente.
 
-Os usuários com acesso RBAC à assinatura também podem exportar os dados de custo para um blob de armazenamento do Azure hospedado em qualquer assinatura no locatário do cliente.
+Os utilizadores com acesso RBAC à subscrição também podem exportar os dados de custos para um blob do Armazenamento do Microsoft Azure alojado em qualquer subscrição do inquilino do cliente.
 
-### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Criar uma exportação em um locatário de parceiro ou locatário de cliente
+### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Criar uma exportação num inquilino do parceiro ou do cliente
 
-No portal do Azure, entre no locatário do parceiro ou no locatário do cliente e selecione **Gerenciamento de custos + cobrança**. Selecione um escopo apropriado, por exemplo, uma conta de cobrança do contrato de parceiro da Microsoft e selecione **análise de custo**. Quando a página for carregada, selecione **Exportar**. Selecione **Exibir todas as exportações** em agendar exportação.
+No portal do Azure, inicie sessão no inquilino do parceiro ou do cliente e selecione **Cost Management + Faturação**. Selecione um âmbito adequado, por exemplo, uma conta de faturação do Contrato de Parceiro da Microsoft e, em seguida, selecione **Análise de Custos**. Quando a página for carregada, selecione **Exportar**. Selecione **Ver todas as exportações** em Agendar Exportação.
 
-![Selecionar exportar e exibir todas as exportações](./media/get-started-partners/export01.png)
+![Selecionar Exportar e Ver todas as exportações](./media/get-started-partners/export01.png)
 
-Em seguida, selecione **Adicionar** e digite o nome e selecione um tipo de exportação. Selecione a guia **armazenamento** e insira as informações necessárias.
+Em seguida, selecione **Adicionar**, escreva o nome e selecione um tipo de exportação. Selecione o separador **Armazenamento** e introduza as informações necessárias.
 
-![Adicionar nova exportação e selecionar a guia armazenamento](./media/get-started-partners/export02.png)
+![Adicione a nova exportação e selecione o separador Armazenamento](./media/get-started-partners/export02.png)
 
-Ao criar uma exportação no locatário do parceiro, selecione a assinatura paga conforme o uso no locatário do parceiro. Crie uma conta de armazenamento do Azure usando essa assinatura.
+Quando criar uma exportação no inquilino do parceiro, selecione a subscrição pay as you go no inquilino do parceiro. Crie uma conta do Armazenamento do Microsoft Azure com essa subscrição.
 
-Para usuários do RBAC no locatário do cliente, selecione uma assinatura no locatário do cliente. Crie uma conta de armazenamento do Azure usando a assinatura.
+Para os utilizadores RBAC no inquilino do cliente, selecione uma subscrição no inquilino do cliente. Crie uma conta de Armazenamento do Azure com a subscrição.
 
-Examine o conteúdo e, em seguida, selecione **criar** para agendar uma exportação.
+Reveja o conteúdo e, em seguida, selecione **Criar** para agendar uma exportação.
 
-Para verificar os dados na lista exportar, selecione o nome da conta de armazenamento. Na página conta de armazenamento, selecione **contêineres** e, em seguida, selecione o contêiner. Navegue até a pasta correspondente e selecione o arquivo CSV. Selecione **baixar** para obter o arquivo CSV e abri-lo. Os dados exportados exportados se assemelham a dados de custo semelhantes aos detalhes de uso do portal do Azure.
+Para verificar os dados na lista de exportação, selecione o nome da conta de armazenamento. Na página da conta de armazenamento, selecione **Contentores** e, em seguida, selecione o contentor. Navegue para a pasta correspondente e selecione o ficheiro CSV. Selecione **Transferir** para obter o ficheiro CSV e abri-lo. Os dados exportados assemelham-se aos dados dos custos semelhantes aos detalhes de utilização do portal do Azure.
 
 ![Exemplo de dados exportados](./media/get-started-partners/example-export-data.png)
 
-## <a name="cost-management-rest-apis"></a>APIs REST de gerenciamento de custos
+## <a name="cost-management-rest-apis"></a>APIs REST do Cost Management
 
-Parceiros e clientes podem usar as APIs de gerenciamento de custos descritas nas seções a seguir para tarefas comuns.
+Os parceiros e clientes podem utilizar as APIs do Cost Management descritas nas seguintes secções para tarefas comuns.
 
-### <a name="azure-cost-management-apis---direct-and-indirect-providers"></a>APIs de gerenciamento de custos do Azure – provedores diretos e indiretos
+### <a name="azure-cost-management-apis---direct-and-indirect-providers"></a>APIs do Azure Cost Management – Fornecedores diretos e indiretos
 
-Os parceiros com acesso a escopos de cobrança em um locatário de parceiro podem usar as seguintes APIs para exibir os custos faturados.
+Os parceiros com acesso aos âmbitos de faturação num inquilino do parceiro podem utilizar as seguintes APIs para ver os custos faturados.
 
-As APIs no escopo da assinatura podem ser chamadas por um parceiro, independentemente da política de custo, se tiverem acesso à assinatura. Outros usuários com acesso à assinatura, como o cliente ou revendedor, podem chamar as APIs somente depois que o parceiro habilita a política de custo para o locatário do cliente.
+As APIs no âmbito da subscrição poderão ser chamadas por um parceiro, independentemente da política de custos, se tiverem acesso à subscrição. Outros utilizadores com acesso à subscrição, como o cliente ou o revendedor, só podem chamar as APIs depois de o parceiro ativar a política de custos do inquilino do cliente.
 
 
-#### <a name="to-get-a-list-of-billing-accounts"></a>Para obter uma lista de contas de cobrança
+#### <a name="to-get-a-list-of-billing-accounts"></a>Para obter uma lista de contas de faturação
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
@@ -304,19 +304,19 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers?api-version=2019-10-01-preview
 ```
 
-#### <a name="to-get-a-list-of-subscriptions"></a>Para obter uma lista de assinaturas
+#### <a name="to-get-a-list-of-subscriptions"></a>Para obter uma lista de subscrições
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions?api-version=2019-10-01-preview
 ```
 
-#### <a name="to-get-a-list-of-invoices-for-a-period-of-time"></a>Para obter uma lista de faturas por um período de tempo
+#### <a name="to-get-a-list-of-invoices-for-a-period-of-time"></a>Para obter uma lista de faturas para um período de tempo
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices?api-version=2019-10-01-preview&periodStartDate={periodStartDate}&periodEndDate={periodEndDate}
 ```
 
-A chamada à API retorna uma matriz de faturas que tem elementos semelhantes ao código JSON a seguir.
+A chamada à API devolve uma matriz de faturas com elementos semelhantes ao seguinte código JSON.
 
 ```
     {
@@ -331,58 +331,58 @@ A chamada à API retorna uma matriz de faturas que tem elementos semelhantes ao 
     }
 ```
 
-Use o valor do campo ID retornado anteriormente e substitua-o no exemplo a seguir como o escopo para consultar os detalhes de uso.
+Utilize o valor de campo do ID anterior devolvido e substitua-o no exemplo seguinte como âmbito para consultar os detalhes de utilização.
 
 ```
 GET https://management.azure.com/{id}/providers/Microsoft.Consumption/UsageDetails?api-version=2019-10-01
 ```
 
-O exemplo retorna os registros de uso associados à fatura específica.
+O exemplo devolve os registos de utilização associados à fatura específica.
 
 
-#### <a name="to-get-the-policy-for-customers-to-view-costs"></a>Para obter a política para os clientes exibirem custos
+#### <a name="to-get-the-policy-for-customers-to-view-costs"></a>Para obter a política para os clientes verem os custos
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
-#### <a name="to-set-the-policy-for-customers-to-view-costs"></a>Para definir a política para os clientes exibirem custos
+#### <a name="to-set-the-policy-for-customers-to-view-costs"></a>Para definir a política para os clientes verem os custos
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
-#### <a name="to-get-azure-service-usage-for-a-billing-account"></a>Para obter o uso do serviço do Azure para uma conta de cobrança
+#### <a name="to-get-azure-service-usage-for-a-billing-account"></a>Para obter a utilização do serviço do Azure para uma conta de faturação
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
 ```
 
-#### <a name="to-download-a-customers-azure-service-usage"></a>Para baixar o uso do serviço do Azure de um cliente
+#### <a name="to-download-a-customers-azure-service-usage"></a>Para transferir a utilização do serviço do Azure de um cliente
 
-A seguinte chamada Get é uma operação assíncrona.
+A chamada GET seguinte é uma operação assíncrona.
 
 ```
 GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
 ```
 
-Chame o URI de `Location` retornado na resposta para verificar o status da operação. Quando o status for *concluído*, a propriedade `downloadUrl` conterá um link que você pode usar para baixar o relatório gerado.
+Chame o URI `Location` devolvido na resposta para verificar o estado da operação. Quando o estado for *Concluído*, a propriedade `downloadUrl` apresentará uma ligação que pode utilizar para transferir o relatório gerado.
 
 
-#### <a name="to-get-or-download-the-price-sheet-for-consumed-azure-services"></a>Para obter ou baixar a folha de preços dos serviços do Azure consumidos
+#### <a name="to-get-or-download-the-price-sheet-for-consumed-azure-services"></a>Para obter ou transferir a folha de preços dos serviços do Azure consumidos
 
-Primeiro, use a seguinte postagem.
+Primeiro, utilize a seguinte publicação.
 
 ```
 POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-Em seguida, chame o valor da propriedade de operação assíncrona. Por exemplo:
+Em seguida, chame o valor de propriedade da operação assíncrona. Por exemplo:
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview
 ```
-A chamada Get anterior retorna o link de download que contém a folha de preços.
+A chamada GET anterior devolve a ligação de transferência com a folha de preços.
 
 
 #### <a name="to-get-aggregated-costs"></a>Para obter custos agregados
@@ -403,7 +403,7 @@ PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2019-10-01
 ```
 
-#### <a name="delete-a-budget"></a>Excluir um orçamento
+#### <a name="delete-a-budget"></a>Eliminar um orçamento
 
 ```
 DELETE
@@ -412,5 +412,5 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billin
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Comece a analisar os custos](quick-acm-cost-analysis.md) no gerenciamento de custos
-- [Criar e gerenciar orçamentos](tutorial-acm-create-budgets.md) no gerenciamento de custos
+- [Começar a analisar custos](quick-acm-cost-analysis.md) no Cost Management
+- [Criar e gerir orçamentos](tutorial-acm-create-budgets.md) no Cost Management
