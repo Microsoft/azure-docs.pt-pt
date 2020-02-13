@@ -12,12 +12,12 @@ metadata:
   ms.author: joflore
   ms.date: 08/20/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 39f9cf3e64e343c2da98f2c4f4b403ccdc0f3f20
-  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.openlocfilehash: d44745bcea348f944a2434e1164e59e32d1f92dc
+  ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/21/2019
-  ms.locfileid: "69874271"
+  ms.lasthandoff: 02/13/2020
+  ms.locfileid: "77186067"
 landingContent:
 - title: Acerca do Acesso Condicional
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: O que são condições?
-      url: conditions.md
+      url: concept-conditional-access-conditions.md
     - text: Como posso definir localizações?
       url: location-condition.md
     - text: O que são controlos?
