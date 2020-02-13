@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: 3cbc4ab4f0e2ad18c7d1d430ed5501e23b5f5f4d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 961eef939684b1bfb4ebe1840ff87e7bd836f205
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75987069"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121774"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Analisar a fatura do Contrato de Cliente Microsoft
 
@@ -27,7 +27,7 @@ Este tutorial aplica-se apenas aos clientes do Azure com um Contrato de Cliente 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Rever as transações faturadas no portal do Azure
+> * Analisar as transações faturadas no portal do Azure
 > * Rever custos pendentes para estimar a próxima fatura
 > * Analisar os custos de utilização do Azure
 
@@ -41,7 +41,7 @@ Passaram mais de 30 dias desde o dia em que subscreveu o Azure. O Azure cobra-o 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-- Inicie sessão no portal do Azure em https://portal.azure.com.
+- Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 

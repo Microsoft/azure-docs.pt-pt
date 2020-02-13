@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 169a188e842fac667091aacd3c7e8b762a32ecf8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ea156e8efabcb73b324f0a102945b227558cece9
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76774077"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117775"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registar-se com o programa de Parceiro CSP e ver dados de custos
 
@@ -34,7 +34,7 @@ Na qualidade de Parceiro CSP, pode efetuar o registo na Cloudyn. O registo conce
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-- Inicie sessão no portal do Azure em https://portal.azure.com.
+- Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="register-with-cloudyn"></a>Registar-se na Cloudyn
 
