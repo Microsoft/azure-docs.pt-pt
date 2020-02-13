@@ -1,30 +1,34 @@
 ---
-title: Notas de versão e download do emulador Cosmos do Azure
-description: Obtenha as notas de versão do emulador Cosmos do Azure para diferentes versões e informações de download.
+title: Notas de descarregamento e lançamento do Emulador Azure Cosmos
+description: Obtenha as notas de lançamento do emulador Azure Cosmos para diferentes versões e descarregamento de informações.
 ms.service: cosmos-db
 ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 3878f6d01a2adfff2adc6a22aad20a5f83992b8d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719692"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168653"
 ---
-# <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador Cosmos do Azure – notas de versão e informações de download
+# <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador Azure Cosmos - Notas de lançamento e descarregamento de informações
 
-Este artigo mostra as notas de versão do emulador Cosmos do Azure com uma lista de atualizações de recursos que foram feitas em cada versão. Ele também lista a versão mais recente do emulador para baixar e usar.
+Este artigo mostra as notas de lançamento do emulador Azure Cosmos com uma lista de atualizações de funcionalidades que foram feitas em cada lançamento. Também lista a versão mais recente do emulador para descarregar e usar.
 
 ## <a name="download"></a>Transferência
 
 | | |
 |---------|---------|
 |**Download de MSI**|[Centro de Transferências da Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Get started**|[Desenvolver localmente com o emulador Azure Cosmos](local-emulator.md)|
+|**Introdução**|[Desenvolver localmente com o emulador Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="291"></a>2.9.1
+
+- Esta versão corrige problemas de casal no suporte a API de consulta e restaura a compatibilidade com OSs mais antigos, como o Windows Server 2012.
 
 ### <a name="290"></a>2.9.0
 
@@ -32,22 +36,22 @@ Este artigo mostra as notas de versão do emulador Cosmos do Azure com uma lista
 
 ### <a name="272"></a>2.7.2
 
-- Esta versão adiciona suporte ao servidor do MongoDB versão 3,6 para o emulador Cosmos. Para iniciar um ponto de extremidade do MongoDB que tenha como destino a versão 3,6 do serviço, inicie o emulador de uma linha de comando do administrador com a opção "/EnableMongoDBEndpoint = 3.6".
+- Esta versão adiciona suporte ao servidor MongoDB versão 3.6 ao Emulador Cosmos. Para iniciar um ponto final mongoDB que visa a versão 3.6 do serviço, inicie o emulador a partir de uma linha de comando administrador com a opção "/EnableMongoDBEndpoint=3.6".
 
 ### <a name="270"></a>2.7.0
 
-- Esta versão corrige uma regressão que impediu os usuários de executar consultas na conta da API do SQL do emulador ao usar clientes .NET Core ou x86 baseados em .NET.
+- Esta versão corrige uma regressão que impediu os utilizadores de executarem consultas contra a conta SQL API do emulador ao utilizar emprementem .NET core ou x86 .NET clientes baseados.
 
 ### <a name="246"></a>2.4.6
 
-- Este lançamento proporciona paridade com as características do serviço Azure Cosmos a partir de julho de 2019, com as exceções observadas no Desenvolvimento Local com o [emulador Azure Cosmos.](local-emulator.md) Ele também corrige vários bugs relacionados ao desligamento do emulador quando invocado por linha de comando e substituições de endereço IP interno para clientes SDK usando conectividade de modo direto.
+- Este lançamento proporciona paridade com as características do serviço Azure Cosmos a partir de julho de 2019, com as exceções observadas no Desenvolvimento Local com o [emulador Azure Cosmos.](local-emulator.md) Também corrige vários bugs relacionados com a paragem do emulador quando invocado através da linha de comando e do endereço IP interno para os clientes SDK usando conectividade de modo direto.
 
 ### <a name="243"></a>2.4.3
 
-- Desabilitado a inicialização do serviço MongoDB por padrão. Somente o ponto de extremidade SQL está habilitado como padrão. O usuário deve iniciar o ponto de extremidade manualmente usando a opção de linha de comando "/EnableMongoDbEndpoint" do emulador. Agora, é como todos os outros pontos de extremidade de serviço, como Gremlin, Cassandra e Table.
-- Corrigido um bug no emulador ao começar com "/AllowNetworkAccess", em que os pontos de extremidade Gremlin, Cassandra e table não estavam lidando corretamente com solicitações de clientes externos.
-- Adicione portas de conexão direta às configurações de regras de firewall.
+- Desativado iniciando o serviço MongoDB por defeito. Apenas o ponto final SQL está ativado como padrão. O utilizador deve iniciar manualmente o ponto final utilizando a opção de linha de comando "/EnableMongoDbEndpoint" do emulador. Agora, é como todos os outros pontos finais de serviço, como Gremlin, Cassandra e Table.
+- Fixou um bug no emulador ao começar pelo "/AllowNetworkAccess" onde os pontos finais gremlin, Cassandra e Table não estavam a lidar adequadamente com pedidos de clientes externos.
+- Adicione portas de ligação direta às definições das Regras de Firewall.
 
 ### <a name="240"></a>2.4.0
 
-- Foi corrigido um problema com falha na inicialização do emulador quando aplicativos de monitoramento de rede, como o cliente Pulse, estão presentes no computador host.
+- Corrigiu um problema com o emulador não ter começado quando as aplicações de monitorização da rede, como o Pulse Client, estão presentes no computador anfitrião.

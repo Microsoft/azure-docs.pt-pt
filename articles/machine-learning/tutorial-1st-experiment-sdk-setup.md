@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 1dacc59ee0bf79128efd8920a91f3c3d54e5584a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a6f977c0cdca670b40ccdc01db64a493962e3dda
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116604"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77165981"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Começar a criar a sua primeira experiência ML com o Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,10 +99,6 @@ Completa as seguintes etapas de experimentação no estúdio Azure Machine Learn
 1. Uma vez disponível o VM, será apresentado na barra de ferramentas superior.  Agora pode executar o caderno utilizando **executar tudo** na barra de ferramentas, ou utilizando o **Shift+Enter** nas células de código do caderno.
 
 Se tiver widgets personalizados ou preferir usar o Jupyter/JupyterLab, selecione o **Jupyter** descer na extrema direita, então selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador será aberta.
-
-> [!NOTE]
-> Os casos computacionais (pré-visualização) estão atualmente disponíveis apenas para espaços de trabalho com uma região do **Norte Dos EUA**, Leste dos **EUA 2**, Norte da **Europa** ou Reino **Unido Sul,** com apoio para outras regiões em breve.
->Se o seu espaço de trabalho estiver em qualquer outra região, pode continuar a criar e utilizar um [VM de caderno.](concept-compute-instance.md#notebookvm)  Pode utilizar um VM de caderno ou uma instância de cálculo para executar o seu caderno. Um VM continuará a correr e a incorrer em custos a menos que o pare. Pode detê-lo manualmente a partir do separador **Compute** no Studio, ou ver a publicação do [blog](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) sobre a paragem automática programada para VMs Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

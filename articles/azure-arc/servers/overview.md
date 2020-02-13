@@ -7,15 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualizações, rastreio de alterações, inventário, livros de execução, pitão, gráfico, híbrido
-ms.date: 02/03/2020
-ms.custom: mvc
+ms.date: 02/12/2020
 ms.topic: overview
-ms.openlocfilehash: ad24418bf3879e4ef9a0ae4833c37c051079c668
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 33681d5c9e296d7c292dabbd64560e3d95c45af2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133852"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190308"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é O Arco Azure para servidores (pré-visualização)
 
@@ -41,6 +40,8 @@ Com o Azure Arc para servidores (pré-visualização), apenas algumas regiões s
 - WestUS2
 - Europa Ocidental
 - Ásia Ocidental
+
+Na maioria dos casos, a localização que seleciona quando criar o script de instalação deve ser a região de Azure geograficamente mais próxima da localização da sua máquina. Os dados em repouso serão armazenados dentro da geografia Azure que contenha a região que especifica, o que também pode afetar a sua escolha de região se tiver requisitos de residência de dados. Se a região azure a que a sua máquina estiver ligada for afetada por uma paragem, a máquina conectada não é afetada, mas as operações de gestão utilizando o Azure podem não conseguir completar. Para resiliência em caso de paragem regional, se tiver vários locais que fornecem um serviço geograficamente redundante, o melhor é ligar as máquinas em cada local a uma região azure diferente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -135,10 +136,10 @@ As máquinas de ligação no seu ambiente híbrido diretamente com o Azure podem
 
 | Método | Descrição |
 |--------|-------------|
-| Interativamente | Instale manualmente o agente num único ou pequeno número de máquinas seguindo os passos em [Connect machines a partir do portal Azure](quickstart-onboard-portal.md).<br> A partir do portal Azure, pode gerar um script e executá-lo na máquina para automatizar os passos de instalação e configuração do agente.|
-| À escala | Instale e configure o agente para várias máquinas que seguem as [máquinas Connect utilizando um diretor de serviço](quickstart-onboard-powershell.md).<br> Este método cria um diretor de serviço para ligar as máquinas de forma não interativa.|
+| Interativamente | Instale manualmente o agente num único ou pequeno número de máquinas seguindo os passos em [Connect machines a partir do portal Azure](onboard-portal.md).<br> A partir do portal Azure, pode gerar um script e executá-lo na máquina para automatizar os passos de instalação e configuração do agente.|
+| À escala | Instale e configure o agente para várias máquinas que seguem as [máquinas Connect utilizando um diretor de serviço](onboard-service-principal.md).<br> Este método cria um diretor de serviço para ligar as máquinas de forma não interativa.|
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para começar a avaliar o Azure Arc para servidores (pré-visualização), siga o artigo [Ligar máquinas híbridas a Azure a partir do portal Azure](quickstart-onboard-portal.md). 
+- Para começar a avaliar o Azure Arc para servidores (pré-visualização), siga o artigo [Ligar máquinas híbridas a Azure a partir do portal Azure](onboard-portal.md). 

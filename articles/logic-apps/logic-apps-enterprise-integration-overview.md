@@ -1,6 +1,6 @@
 ---
 title: Integração empresarial B2B
-description: Saiba mais sobre como criar fluxos de trabalho B2B automatizados para a integração corporativa usando os aplicativos lógicos do Azure e Enterprise Integration Pack
+description: Saiba mais sobre a construção de fluxos de trabalho b2B automatizados para integração empresarial utilizando aplicações da Azure Logic e pacote de integração empresarial
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,54 +8,54 @@ ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 141f1a7fc8f966132cb3570fd9d9cfa911127eed
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9356cecb22672ae15505d14b5ac73d5baeef09e0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792449"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191378"
 ---
-# <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Soluções de integração corporativa B2B com aplicativos lógicos do Azure e Enterprise Integration Pack
+# <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Soluções de integração empresarial B2B com Aplicações Lógicas Azure e Pacote de Integração Empresarial
 
-Para Soluções B2B (entre empresas) e comunicação direta entre organizações, você pode criar fluxos de trabalho de integração empresarial escalonáveis automatizados usando o Enterprise Integration Pack (EIP) com [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md). Embora as organizações usem diferentes protocolos e formatos, elas podem trocar mensagens eletronicamente. O EIP transforma formatos diferentes em um formato que os sistemas de sua organização podem processar e dá suporte a protocolos padrão do setor, incluindo [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md)e [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Você também pode proteger mensagens com criptografia e assinaturas digitais. O EIP dá suporte a esses [conectores de integração corporativa](../connectors/apis-list.md#integration-account-connectors) e estes padrões do setor:
+Para soluções business-to-business (B2B) e comunicação perfeita entre organizações, você pode construir fluxos de trabalho automatizados de integração empresarial escalável usando o Enterprise Integration Pack (EIP) com [Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md). Embora as organizações utilizem diferentes protocolos e formatos, podem trocar mensagens eletronicamente. O EIP transforma diferentes formatos num formato que os sistemas das suas organizações podem processar e apoiar protocolos padrão da indústria, incluindo [AS2,](../logic-apps/logic-apps-enterprise-integration-as2.md) [X12](logic-apps-enterprise-integration-x12.md)e [EDIFACT.](../logic-apps/logic-apps-enterprise-integration-edifact.md) Também pode melhorar a segurança das mensagens utilizando encriptação e assinaturas digitais. O EIP apoia estes [conectores](../connectors/apis-list.md#integration-account-connectors) de integração empresarial e estas normas do setor:
 
-* EDI (intercâmbio eletrônico de dados)
-* Integração de aplicativos empresariais (EAI)
+* Intercâmbio eletrónico de dados (EDI)
+* Integração de Aplicações Empresariais (EAI)
 
-Se você estiver familiarizado com o Microsoft BizTalk Server ou os serviços BizTalk do Azure, o EIP seguirá conceitos semelhantes, tornando os recursos fáceis de usar. No entanto, uma grande diferença é que o EIP é baseado em arquiteturas em "contas de integração" para simplificar o armazenamento e o gerenciamento de artefatos usados em comunicações B2B. Essas contas são contêineres baseados em nuvem que armazenam todos os seus artefatos, como parceiros, contratos, esquemas, mapas e certificados. 
+Se estiver familiarizado com o Microsoft BizTalk Server ou com os Serviços Azure BizTalk, o EIP segue conceitos semelhantes, tornando as funcionalidades fáceis de usar. No entanto, uma grande diferença é que o PiIp se baseia em "contas de integração" para simplificar o armazenamento e a gestão dos artefactos utilizados nas comunicações B2B. Estas contas são recipientes baseados em nuvem que armazenam todos os seus artefactos, tais como parceiros, acordos, schemas, mapas e certificados. 
 
-## <a name="why-use-the-enterprise-integration-pack"></a>Por que usar o Enterprise Integration Pack?
+## <a name="why-use-the-enterprise-integration-pack"></a>Porquê usar o Pacote de Integração Empresarial?
 
-* Com o EIP, você pode armazenar todos os seus artefatos em um local – sua conta de integração.
+* Com o EIP, pode armazenar todos os seus artefactos num só local - a sua conta de integração.
 
-* Você pode criar fluxos de trabalho B2B e integrá-los a aplicativos de software como serviço (SaaS) de terceiros, aplicativos locais e aplicativos personalizados usando os aplicativos e conectores lógicos do Azure.
+* Você pode construir fluxos de trabalho B2B e integrar-se com aplicações de software de terceiros (SaaS), aplicações no local e aplicações personalizadas usando Apps e conectores Azure Logic.
 
-* Você pode criar código personalizado para seus aplicativos lógicos com o Azure functions.
+* Pode criar código personalizado para as suas aplicações lógicas com funções Azure.
 
-## <a name="how-do-i-get-started"></a>Como começo?
+## <a name="how-do-i-get-started"></a>Como posso começar?
 
-Antes de começar a criar fluxos de trabalho do aplicativo lógico B2B com o EIP, você precisará destes itens:
+Antes de começar a construir fluxos de aplicações lógicaB2B com o EIP, precisa destes itens:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) com os artefatos que você deseja usar
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) com os artefactos que pretende usar
 
-* Para criar mapas e esquemas, você pode usar o [Microsoft Azure aplicativos lógicos Enterprise Integration ferramentas para visual studio 2015 2,0](https://aka.ms/vsmapsandschemas) e visual Studio 2015.
+* Para criar mapas e schemas, pode utilizar as Ferramentas de Integração Empresarial da [Microsoft Azure Logic Apps para o Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) e visual Studio 2015.
 
-Depois de criar uma conta de integração e adicionar seus artefatos, você pode começar a criar fluxos de trabalho B2B com esses artefatos criando um aplicativo lógico no portal do Azure. Se você for novo em aplicativos lógicos, tente [criar um aplicativo lógico básico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para trabalhar com esses artefatos, certifique-se de primeiro vincular sua conta de integração ao seu aplicativo lógico. Depois disso, seu aplicativo lógico pode acessar sua conta de integração. Você também pode criar, gerenciar e implantar aplicativos lógicos usando o Visual Studio ou o [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
+Depois de criar uma conta de integração e adicionar os seus artefactos, pode começar a construir fluxos de trabalho B2B com estes artefactos criando uma aplicação lógica no portal Azure. Se você é novo em aplicativos lógicos, tente [criar uma aplicação lógica básica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para trabalhar com estes artefactos, certifique-se de que liga a sua conta de integração à sua aplicação lógica. Depois disso, a sua aplicação lógica pode aceder à sua conta de integração. Também pode criar, gerir e implementar aplicações lógicas utilizando o Visual Studio ou [o PowerShell.](https://docs.microsoft.com/powershell/module/az.logicapp)
 
-Aqui estão as etapas de alto nível para começar a criar aplicativos lógicos B2B:
+Aqui estão os passos de alto nível para começar a construir aplicações lógicas B2B:
 
-![Pré-requisitos para a criação de aplicativos lógicos B2B](./media/logic-apps-enterprise-integration-overview/overview.png)  
+![Pré-requisitos para a criação de aplicações lógicas B2B](./media/logic-apps-enterprise-integration-overview/overview.png)  
 
 ## <a name="try-now"></a>Experimente agora
 
-[Implantar um aplicativo lógico de exemplo totalmente operacional que envia e recebe mensagens AS2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive)
+[Implemente uma aplicação lógica de amostra totalmente operacional que envia e recebe mensagens AS2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar parceiros comerciais](logic-apps-enterprise-integration-partners.md)
-* [Criar contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md)
+* [Criar acordos](../logic-apps/logic-apps-enterprise-integration-agreements.md)
 * [Adicionar esquemas](logic-apps-enterprise-integration-schemas.md)
 * [Adicionar mapas](../logic-apps/logic-apps-enterprise-integration-maps.md)
-* [Migrar dos serviços BizTalk](../logic-apps/logic-apps-move-from-mabs.md)
+* [Migrar dos Serviços BizTalk](../logic-apps/logic-apps-move-from-mabs.md)

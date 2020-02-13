@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0695416c65eed2bbf0a19d5ed1ea0c53a7ece332
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ac928d9087ba5db312540b8ec542d7a2a29e2a99
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485510"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179147"
 ---
 | Recurso | Limite predefinido |
 | --- | :--- |
-| Máximo de clusters por assinatura | 100 |
-| Máximo de nós por cluster com conjuntos de disponibilidade de máquina virtual e SKU de Load Balancer básica  | 100 |
-| Máximo de nós por cluster com conjuntos de dimensionamento de máquinas virtuais e [Standard Load BALANCER SKU][standard-load-balancer] | 800 (100 nós por [pool de nós][node-pool]) |
-| Pods máxima por nó: [sistema de rede básico][basic-networking] com Kubenet | 110 |
-| Pods máxima por nó: [rede avançada][advanced-networking] com a interface de rede de contêiner do Azure | Implementação da CLI do Azure: 30<sup>1</sup><br />Modelo de Azure Resource Manager: 30<sup>1</sup><br />Implementação do portal: 30 |
+| Clusters máximos por subscrição | 100 |
+| Nómáximo por cluster com conjuntos de disponibilidade de máquinas virtuais e Balancer de carga básica SKU  | 100 |
+| Nómáximo por cluster com conjuntos de escala de máquina virtual e [Balancer de carga padrão SKU][standard-load-balancer] | 1000 (100 nós por piscina de [nós)][node-pool] |
+| Cápsulas máximas por nó: [Networking básico][basic-networking] com Kubenet | 110 |
+| Cápsulas máximas por nó: [Rede avançada][advanced-networking] com interface de rede de contentores Azure | Implementação da CLI do Azure: 30<sup>1</sup><br />Modelo de Gestor de Recursos Azure: 30<sup>1</sup><br />Implementação do portal: 30 |
 
-<sup>1</sup> Quando você implanta um cluster do AKS (serviço kubernetes do Azure) com o CLI do Azure ou um modelo do Resource Manager, esse valor é configurado até 250 pods por nó. Não é possível configurar o pods máximo por nó depois que você já tiver implantado um cluster AKS ou se você implantar um cluster usando o portal do Azure.<br />
+<sup>1</sup> Quando implementa um cluster de Serviço Azure Kubernetes (AKS) com o Modelo Azure CLI ou um Gestor de Recursos, este valor é configurável até 250 cápsulas por nó. Não é possível configurar cápsulas máximas por nó depois de já ter implantado um cluster AKS, ou se implementar um cluster utilizando o portal Azure.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

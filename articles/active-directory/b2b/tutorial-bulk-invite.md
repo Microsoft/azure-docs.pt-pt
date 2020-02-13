@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c43f1fe0d5850b53f0f72f05633e498a94d871c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149309"
+ms.locfileid: "77166445"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: A granel convida utilizadores de colaboração Azure AD B2B (pré-visualização)
 
@@ -27,7 +27,7 @@ ms.locfileid: "77149309"
 
 > [!NOTE]
 > A partir de 12/22/2019, a funcionalidade de convite a granel (Pré-visualização) foi temporariamente desativada.
-> Atualmente não existe uma data conhecida para quando esta funcionalidade será reativada no portal Azure. Para convidar utilizadores convidados a granel utilizando o PowerShell, consulte [o código B2B e as amostras PowerShell](code-samples.md).
+> Atualmente não existe uma data conhecida para quando esta funcionalidade será reativada no portal Azure. Para convidar os utilizadores convidados a granel utilizando o PowerShell, consulte o tutorial de convite a [granel B2B](bulk-invite-powershell.md) ou o [código B2B e as amostras PowerShell](code-samples.md).
 
 Se utilizar a colaboração B2B do Azure Active Directory (Azure AD) para trabalhar com parceiros externos, pode convidar múltiplos utilizadores convidados para a sua organização ao mesmo tempo. Neste tutorial, aprende-se a utilizar o portal Azure para enviar convites a granel para utilizadores externos. Deve fazer o seguinte:
 

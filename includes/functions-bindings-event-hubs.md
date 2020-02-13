@@ -4,27 +4,27 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: ec3a7b6420144278df66f693d9fd9933449b3d80
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: a31dc1c6d1a7f4dce6e7baae5a0e0e8f3d6d3d34
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748794"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179117"
 ---
 ## <a name="trigger"></a>Acionador
 
-Use o gatilho de função para responder a um evento enviado a um fluxo de eventos do hub de eventos. Você deve ter acesso de leitura ao Hub de eventos subjacente para configurar o gatilho. Quando a função é disparada, a mensagem passada para a função é digitada como uma cadeia de caracteres.
+Utilize o gatilho de função para responder a um evento enviado para um fluxo de eventos do centro de eventos. Deve ter lido o acesso ao centro de eventos subjacente para configurar o gatilho. Quando a função é ativada, a mensagem transmitida para a função é dactilografada como uma corda.
 
-## <a name="trigger---scaling"></a>Gatilho-dimensionamento
+## <a name="trigger---scaling"></a>Gatilho - escala
 
 Cada instância de uma função desencadeada por eventos é apoiada por uma única instância do [EventProcessorHost.](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) O gatilho (alimentado por Event Hubs) garante que apenas uma instância do [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) pode obter um arrendamento numa determinada partição.
 
-Por exemplo, considere um hub de eventos da seguinte maneira:
+Por exemplo, considere um Hub de Eventos da seguinte forma:
 
-* 10 partições
-* 1\.000 eventos distribuídos uniformemente em todas as partições, com 100 mensagens em cada partição
+* 10 divisórias
+* 1\.000 eventos distribuídos uniformemente por todas as divisórias, com 100 mensagens em cada partição
 
-Quando sua função é habilitada pela primeira vez, há apenas uma instância da função. Vamos chamar a primeira função `Function_0`. A função `Function_0` tem uma única instância de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) que detém um contrato de arrendamento em todas as dez divisórias. Esta instância está lendo eventos das partições 0-9. Deste ponto em diante, um dos seguintes acontece:
+Quando a sua função está ativada pela primeira vez, há apenas um exemplo da função. Vamos chamar a primeira função `Function_0`. A função `Function_0` tem uma única instância de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) que detém um contrato de arrendamento em todas as dez divisórias. Este caso é ler eventos de divisórias 0-9. A partir de agora, um dos seguintes acontece:
 
 * **Não são necessárias novas instâncias**de função : `Function_0` é capaz de processar todos os 1.000 eventos antes que a lógica de escalação das Funções entre em vigor. Neste caso, todas as 1.000 mensagens são processadas por `Function_0`.
 
@@ -32,9 +32,9 @@ Quando sua função é habilitada pela primeira vez, há apenas uma instância d
 
 * **N mais casos de função são adicionados**: Se a lógica de escalação de Funções determinar que tanto `Function_0` como `Function_1` têm mais mensagens do que podem processar, novas instâncias de aplicações de função `Functions_N` são criadas.  As aplicações são criadas ao ponto de `N` é maior do que o número de divisórias do centro de eventos. No nosso exemplo, os Event Hubs voltam a carregar equilibra as divisórias, neste caso em todos os casos `Function_0`...`Functions_9`.
 
-À medida que a escala ocorre, `N` casos é um número maior do que o número de divisórias do centro de eventos. Este padrão é usado para garantir que os casos do [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) estão disponíveis para obter fechaduras em divisórias à medida que ficam disponíveis de outras instâncias. Você é cobrado apenas pelos recursos usados quando a instância de função é executada. Em outras palavras, você não será cobrado por esse excesso de provisionamento.
+À medida que a escala ocorre, `N` casos é um número maior do que o número de divisórias do centro de eventos. Este padrão é usado para garantir que os casos do [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) estão disponíveis para obter fechaduras em divisórias à medida que ficam disponíveis de outras instâncias. Só é cobrado pelos recursos utilizados quando a instância de função executa. Por outras palavras, não lhe é cobrado este excesso de provisionamento.
 
-Quando todas as execuções de função são concluídas (com ou sem erros), os pontos de verificação são adicionados à conta de armazenamento associada. Quando o ponto de verificação for executado com sucesso, todas as mensagens 1.000 nunca serão recuperadas novamente.
+Quando toda a execução da função completa (com ou sem erros), os pontos de verificação são adicionados à conta de armazenamento associada. Quando a verificação de verificação for bem sucedida, todas as 1.000 mensagens nunca mais são recuperadas.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -48,7 +48,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para obter acesso aos metadados de [eventos](#trigger---event-metadata) no código de função, ligue-se a um objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requer uma declaração de utilização para `Microsoft.Azure.EventHubs`). Você também pode acessar as mesmas propriedades usando expressões de associação na assinatura do método.  O exemplo a seguir mostra as duas maneiras de obter os mesmos dados:
+Para obter acesso aos metadados de [eventos](#trigger---event-metadata) no código de função, ligue-se a um objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requer uma declaração de utilização para `Microsoft.Azure.EventHubs`). Também pode aceder às mesmas propriedades utilizando expressões vinculativas na assinatura do método.  O exemplo que se segue mostra ambas as formas de obter os mesmos dados:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -90,11 +90,11 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 # <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [ C# função de script](../articles/azure-functions/functions-reference-csharp.md) que utiliza a ligação. A função registra o corpo da mensagem do gatilho do hub de eventos.
+O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [ C# função de script](../articles/azure-functions/functions-reference-csharp.md) que utiliza a ligação. A função regista o corpo da mensagem do gatilho do centro do evento.
 
 Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.*
 
-#### <a name="version-2x-and-higher"></a>Versão 2. x e superior
+#### <a name="version-2x-and-higher"></a>Versão 2.x e superior
 
 ```json
 {
@@ -106,7 +106,7 @@ Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *func
 }
 ```
 
-### <a name="version-1x"></a>Versão 1. x
+### <a name="version-1x"></a>Versão 1.x
 
 ```json
 {
@@ -129,7 +129,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Para obter acesso aos metadados de [eventos](#trigger---event-metadata) no código de função, ligue-se a um objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requer uma declaração de utilização para `Microsoft.Azure.EventHubs`). Você também pode acessar as mesmas propriedades usando expressões de associação na assinatura do método.  O exemplo a seguir mostra as duas maneiras de obter os mesmos dados:
+Para obter acesso aos metadados de [eventos](#trigger---event-metadata) no código de função, ligue-se a um objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requer uma declaração de utilização para `Microsoft.Azure.EventHubs`). Também pode aceder às mesmas propriedades utilizando expressões vinculativas na assinatura do método.  O exemplo que se segue mostra ambas as formas de obter os mesmos dados:
 
 ```cs
 #r "Microsoft.Azure.EventHubs"
@@ -175,7 +175,7 @@ O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num fich
 
 Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.*
 
-#### <a name="version-2x-and-higher"></a>Versão 2. x e superior
+#### <a name="version-2x-and-higher"></a>Versão 2.x e superior
 
 ```json
 {
@@ -187,7 +187,7 @@ Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *func
 }
 ```
 
-### <a name="version-1x"></a>Versão 1. x
+### <a name="version-1x"></a>Versão 1.x
 
 ```json
 {
@@ -214,7 +214,7 @@ module.exports = function (context, myEventHubMessage) {
 
 Para receber eventos num lote, detete `cardinality` `many` no ficheiro *função.json,* como mostram os seguintes exemplos.
 
-#### <a name="version-2x-and-higher"></a>Versão 2. x e superior
+#### <a name="version-2x-and-higher"></a>Versão 2.x e superior
 
 ```json
 {
@@ -227,7 +227,7 @@ Para receber eventos num lote, detete `cardinality` `many` no ficheiro *função
 }
 ```
 
-### <a name="version-1x"></a>Versão 1. x
+### <a name="version-1x"></a>Versão 1.x
 
 ```json
 {
@@ -273,7 +273,7 @@ Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *func
 }
 ```
 
-Este é o código Python:
+Aqui está o código Python:
 
 ```python
 import logging
@@ -289,17 +289,7 @@ def main(event: func.EventHubEvent):
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O exemplo seguinte mostra uma ligação do gatilho do Event Hub num ficheiro *function.json* e uma [função Java](../articles/azure-functions/functions-reference-java.md) que utiliza a ligação. A função registra o corpo da mensagem do gatilho do hub de eventos.
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "msg",
-  "direction": "in",
-  "eventHubName": "myeventhubname",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
+O exemplo seguinte mostra uma ligação do gatilho do Event Hub que regista o corpo de mensagem do gatilho do Centro de Eventos.
 
 ```java
 @FunctionName("ehprocessor")
@@ -313,7 +303,7 @@ public void eventHubProcessor(
  }
 ```
 
- Na biblioteca de tempo de funcionamento das [funções java,](/java/api/overview/azure/functions/runtime)utilize a anotação `EventHubTrigger` em parâmetros cujo valor viria do Event Hub. Parâmetros com essas anotações fazem com que a função seja executada quando um evento chega.  Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores nuníveis usando `Optional<T>`.
+ Na biblioteca de tempo de funcionamento das [funções java,](/java/api/overview/azure/functions/runtime)utilize a anotação `EventHubTrigger` em parâmetros cujo valor viria do Event Hub. Os parâmetros com estas anotações fazem com que a função funcione quando um evento chega.  Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores nuníveis usando `Optional<T>`.
 
  ---
 
@@ -323,7 +313,7 @@ public void eventHubProcessor(
 
 Nas [ C# bibliotecas de classes,](../articles/azure-functions/functions-dotnet-class-library.md)utilize o atributo [EventHubTriggerAttribute.](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs)
 
-O construtor do atributo usa o nome do hub de eventos, o nome do grupo de consumidores e o nome de uma configuração de aplicativo que contém a cadeia de conexão. Para obter mais informações sobre estas definições, consulte a secção de [configuração](#trigger---configuration)do gatilho . Aqui está um exemplo de atributo `EventHubTriggerAttribute`:
+O construtor do atributo tem o nome do centro do evento, o nome do grupo de consumidores e o nome de uma definição de aplicação que contém a cadeia de ligação. Para obter mais informações sobre estas definições, consulte a secção de [configuração](#trigger---configuration)do gatilho . Aqui está um exemplo de atributo `EventHubTriggerAttribute`:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -337,19 +327,19 @@ Para um exemplo completo, consulte [O Gatilho - C# exemplo](#trigger).
 
 # <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
 
-O script não dá suporte C# a atributos.
+Os atributos C# não são suportados pelo Script.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+Os atributos não são suportados pelo JavaScript.
 
 # <a name="pythontabpython"></a>[python](#tab/python)
 
-Não há suporte para atributos no Python.
+Os atributos não são suportados pela Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-A partir da biblioteca de [tempo de funcionamento](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)das funções java, use a anotação [EventHubTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) em parâmetros cujo valor viria do Event Hub. Parâmetros com essas anotações fazem com que a função seja executada quando um evento chega. Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores nuníveis usando `Optional<T>`.
+A partir da biblioteca de [tempo de funcionamento](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)das funções java, use a anotação [EventHubTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) em parâmetros cujo valor viria do Event Hub. Os parâmetros com estas anotações fazem com que a função funcione quando um evento chega. Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores nuníveis usando `Optional<T>`.
 
 ---
 
@@ -361,16 +351,16 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 |---------|---------|----------------------|
 |**tipo** | n/d | deve ser definido para `eventHubTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | deve ser definido para `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
-|**nome** | n/d | O nome da variável que representa o item de evento no código de função. |
-|**caminho** |**Nome EventHub** | Somente funções 1. x. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. |
-|**eventoHubName** |**Nome EventHub** | Functions 2. x e superior. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. Pode ser referenciado através de configurações de aplicativo %eventHubName% |
+|**nome** | n/d | O nome da variável que representa o item do evento no código de função. |
+|**caminho** |**Nome EventHub** | Funciona apenas 1.x. O nome do centro de eventos. Quando o nome do centro do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. |
+|**eventoHubName** |**Nome EventHub** | Funções 2.x e superiores. O nome do centro de eventos. Quando o nome do centro do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. Pode ser referenciado através de configurações de aplicativo %eventHubName% |
 |**consumerGroup** |**Grupo de Consumidores** | Uma propriedade opcional que define o grupo de [consumidores](../articles/event-hubs/event-hubs-features.md#event-consumers) usado para subscrever eventos no centro. Se omitir, o grupo de consumidores `$Default` é utilizado. |
-|**cardinalidade** | n/d | Para JavaScript. Desloque-se para `many` de modo a ativar o loteamento.  Se omitida ou definida para `one`, uma única mensagem é passada para a função. |
-|**conexão** |**Conexão** | O nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie esta cadeia de ligação clicando no botão Informação de **Ligação** para o espaço de [nome,](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)e não para o próprio centro de eventos. Essa cadeia de conexão deve ter pelo menos permissões de leitura para ativar o gatilho.|
+|**cardinalidade** | n/d | Para Javascript. Desloque-se para `many` de modo a ativar o loteamento.  Se omitida ou definida para `one`, uma única mensagem é passada para a função. |
+|**conexão** |**Conexão** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nome do centro de eventos. Copie esta cadeia de ligação clicando no botão Informação de **Ligação** para o espaço de [nome,](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)e não para o próprio centro de eventos. Esta cadeia de ligação deve ter pelo menos permissões para ativar o gatilho.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
-## <a name="trigger---event-metadata"></a>Gatilho-metadados de evento
+## <a name="trigger---event-metadata"></a>Gatilho - metadados de eventos
 
 O gatilho do Event Hubs fornece várias [propriedades de metadados.](../articles/azure-functions/./functions-bindings-expressions-patterns.md) As propriedades dos metadados podem ser usadas como parte de expressões de ligação noutras encadernações ou como parâmetros no seu código. As propriedades vêm da classe [EventData.](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata)
 
@@ -378,9 +368,9 @@ O gatilho do Event Hubs fornece várias [propriedades de metadados.](../articles
 |--------|----|-----------|
 |`PartitionContext`|[Contexto de partição](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|O `PartitionContext` caso.|
 |`EnqueuedTimeUtc`|`DateTime`|O tempo de colocados em fila em UTC.|
-|`Offset`|`string`|O deslocamento dos dados relativos ao fluxo de partição do hub de eventos. O deslocamento é um marcador ou identificador de um evento dentro do fluxo de hubs de eventos. O identificador é exclusivo dentro de uma partição do fluxo dos hubs de eventos.|
-|`PartitionKey`|`string`|A partição para a qual os dados de evento devem ser enviados.|
-|`Properties`|`IDictionary<String,Object>`|As propriedades do usuário dos dados do evento.|
+|`Offset`|`string`|A compensação dos dados relativos ao fluxo de partição do Event Hub. O offset é um marcador ou identificador para um evento dentro da corrente de Hubs de Eventos. O identificador é único dentro de uma partição do fluxo de Hubs de Eventos.|
+|`PartitionKey`|`string`|A partição para que os dados do evento devem ser enviados.|
+|`Properties`|`IDictionary<String,Object>`|As propriedades dos utilizadores dos dados do evento.|
 |`SequenceNumber`|`Int64`|O número de sequência lógica do evento.|
 |`SystemProperties`|`IDictionary<String,Object>`|As propriedades do sistema, incluindo os dados do evento.|
 
@@ -394,7 +384,7 @@ O ficheiro [host.json](../articles/azure-functions/functions-host-json.md#eventh
 
 ## <a name="output"></a>Saída
 
-Use a associação de saída dos hubs de eventos para gravar eventos em um fluxo de eventos. Deve ter enviado permissão a um centro de eventos para escrever eventos.
+Utilize a ligação de saída dos Centros de Eventos para escrever eventos num fluxo de eventos. Deve ter enviado permissão a um centro de eventos para escrever eventos.
 
 Certifique-se de que as referências de pacote saem em vigor antes de tentar implementar uma ligação de saída.
 
@@ -412,7 +402,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-O exemplo que se segue mostra como usar a interface `IAsyncCollector` para enviar um lote de mensagens. Esse cenário é comum quando você está processando mensagens provenientes de um hub de eventos e enviando o resultado para outro hub de eventos.
+O exemplo que se segue mostra como usar a interface `IAsyncCollector` para enviar um lote de mensagens. Este cenário é comum quando está a processar mensagens provenientes de um Hub de Eventos e a enviar o resultado para outro Hub de Eventos.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -434,9 +424,9 @@ public static async Task Run(
 
 # <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [ C# função de script](../articles/azure-functions/functions-reference-csharp.md) que utiliza a ligação. A função grava uma mensagem em um hub de eventos.
+O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [ C# função de script](../articles/azure-functions/functions-reference-csharp.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
 
-Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.* O primeiro exemplo é para o Functions 2. x e superior, e o segundo é para o Functions 1. x. 
+Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.* O primeiro exemplo é para funções 2.x e superior, e o segundo é para funções 1.x. 
 
 ```json
 {
@@ -458,7 +448,7 @@ Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *func
 }
 ```
 
-Aqui está C# o código de script que cria uma mensagem:
+Aqui está C# o código do script que cria uma mensagem:
 
 ```cs
 using System;
@@ -486,9 +476,9 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [função JavaScript](../articles/azure-functions/functions-reference-node.md) que utiliza a ligação. A função grava uma mensagem em um hub de eventos.
+O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [função JavaScript](../articles/azure-functions/functions-reference-node.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
 
-Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.* O primeiro exemplo é para o Functions 2. x e superior, e o segundo é para o Functions 1. x. 
+Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.* O primeiro exemplo é para funções 2.x e superior, e o segundo é para funções 1.x. 
 
 ```json
 {
@@ -510,7 +500,7 @@ Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *func
 }
 ```
 
-Este é o código JavaScript que envia uma única mensagem:
+Aqui está o código JavaScript que envia uma única mensagem:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -521,7 +511,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Este é o código JavaScript que envia várias mensagens:
+Aqui está o código JavaScript que envia várias mensagens:
 
 ```javascript
 module.exports = function(context) {
@@ -538,7 +528,7 @@ module.exports = function(context) {
 
 # <a name="pythontabpython"></a>[python](#tab/python)
 
-O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [função Python](../articles/azure-functions/functions-reference-python.md) que utiliza a ligação. A função grava uma mensagem em um hub de eventos.
+O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [função Python](../articles/azure-functions/functions-reference-python.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
 
 Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.*
 
@@ -552,7 +542,7 @@ Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *func
 }
 ```
 
-Aqui está o código do Python que envia uma única mensagem:
+Aqui está o código Python que envia uma única mensagem:
 
 ```python
 import datetime
@@ -568,7 +558,7 @@ def main(timer: func.TimerRequest) -> str:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra uma função Java que grava uma mensagem que contém a hora atual em um hub de eventos.
+O exemplo seguinte mostra uma função Java que escreve uma mensagem que contém o tempo atual para um Hub de Eventos.
 
 ```java
 @FunctionName("sendTime")
@@ -589,7 +579,7 @@ Na [biblioteca de tempo de funcionamento das funções java,](/java/api/overview
 
 Para [ C# bibliotecas de classes,](../articles/azure-functions/functions-dotnet-class-library.md)utilize o atributo [EventHubAttribute.](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs)
 
-O construtor do atributo usa o nome do hub de eventos e o nome de uma configuração de aplicativo que contém a cadeia de conexão. Para obter mais informações sobre estas definições, consulte [Saída - configuração](#output---configuration). Aqui está um exemplo de atributo `EventHub`:
+O construtor do atributo tem o nome do centro do evento e o nome de uma definição de aplicação que contém a cadeia de ligação. Para obter mais informações sobre estas definições, consulte [Saída - configuração](#output---configuration). Aqui está um exemplo de atributo `EventHub`:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -604,15 +594,15 @@ Para um exemplo completo, consulte [A Saída - C# exemplo](#output).
 
 # <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
 
-O script não dá suporte C# a atributos.
+Os atributos C# não são suportados pelo Script.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+Os atributos não são suportados pelo JavaScript.
 
 # <a name="pythontabpython"></a>[python](#tab/python)
 
-Não há suporte para atributos no Python.
+Os atributos não são suportados pela Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
@@ -626,12 +616,12 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido como "eventHub". |
-|**direção** | n/d | Tem de ser definido para "Sair". Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure. |
-|**nome** | n/d | O nome da variável usada no código de função que representa o evento. |
-|**caminho** |**Nome EventHub** | Somente funções 1. x. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. |
-|**eventoHubName** |**Nome EventHub** | Functions 2. x e superior. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. |
-|**conexão** |**Conexão** | O nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie esta cadeia de ligação clicando no botão Informação de **Ligação** para o espaço de *nome,* e não para o próprio centro de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem para o fluxo de eventos.|
+|**tipo** | n/d | Deve ser definido para "eventHub". |
+|**direção** | n/d | Tem de ser definido para "Sair". Este parâmetro é definido automaticamente quando cria a ligação no portal Azure. |
+|**nome** | n/d | O nome variável usado no código de função que representa o evento. |
+|**caminho** |**Nome EventHub** | Funciona apenas 1.x. O nome do centro de eventos. Quando o nome do centro do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. |
+|**eventoHubName** |**Nome EventHub** | Funções 2.x e superiores. O nome do centro de eventos. Quando o nome do centro do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. |
+|**conexão** |**Conexão** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nome do centro de eventos. Copie esta cadeia de ligação clicando no botão Informação de **Ligação** para o espaço de *nome,* e não para o próprio centro de eventos. Esta cadeia de ligação deve ter enviado permissões para enviar a mensagem para o fluxo do evento.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -677,7 +667,7 @@ Existem duas opções para eliminar uma mensagem do Event Hub a partir de uma fu
 
 ## <a name="hostjson-settings"></a>definições de Host. JSON
 
-Esta seção descreve as definições de configuração global disponíveis para essa associação nas versões 2. x e superior. O arquivo host. JSON de exemplo abaixo contém apenas as configurações da versão 2. x + para essa associação. Para obter mais informações sobre as configurações globais de configuração nas versões 2.x e além, consulte a [referência host.json para funções azure](../articles/azure-functions/functions-host-json.md).
+Esta secção descreve as definições de configuração global disponíveis para esta ligação nas versões 2.x e superiores. O ficheiro exemplo host.json abaixo contém apenas as definições da versão 2.x+ para esta ligação. Para obter mais informações sobre as configurações globais de configuração nas versões 2.x e além, consulte a [referência host.json para funções azure](../articles/azure-functions/functions-host-json.md).
 
 > [!NOTE]
 > Para uma referência do host.json nas funções 1.x, consulte a [referência host.json para as funções Azure 1.x](../articles/azure-functions/functions-host-json-v1.md).
@@ -699,6 +689,6 @@ Esta seção descreve as definições de configuração global disponíveis para
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|`maxBatchSize`|10|A contagem máxima de eventos recebida por loop de recebimento.|
+|`maxBatchSize`|10|A contagem máxima de evento recebida por ciclo de receção.|
 |`prefetchCount`|300|A contagem pre-fetch predefinida utilizada pela `EventProcessorHost`subjacente .|
-|`batchCheckpointFrequency`|1|O número de lotes de eventos a serem processados antes de criar um ponto de verificação de cursor do EventHub.|
+|`batchCheckpointFrequency`|1|O número de lotes de eventos para processar antes de criar um ponto de verificação de cursor EventHub.|
