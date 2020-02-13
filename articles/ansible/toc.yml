@@ -4,13 +4,13 @@
   items:
     - name: Sobre o Ansible no Azure
       href: ./ansible-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Implementar modelo de solução do Ansible no CentOS
       href: ./ansible-deploy-solution-template.md
     - name: Instalar o Ansible em máquinas virtuais do Linux
-      href: /azure/virtual-machines/linux/ansible-install-configure
+      href: ./ansible-install-configure.md
       maintainContext: true
     - name: Executar manuais de procedimentos no Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
@@ -18,10 +18,10 @@
       expanded: true
       items:
         - name: Configurar máquinas virtuais do Linux
-          href: /azure/virtual-machines/linux/ansible-create-vm
+          href: ./ansible-create-vm.md
           maintainContext: true
         - name: Gerir máquinas virtuais do Linux
-          href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+          href: ./ansible-manage-linux-vm.md
           maintainContext: true
 - name: Tutoriais
   items:

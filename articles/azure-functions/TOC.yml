@@ -327,7 +327,15 @@
     - name: Acionadores e enlaces
       items:
         - name: Armazenamento de blobs
-          href: functions-bindings-storage-blob.md
+          items:
+            - name: Descrição geral
+              href: functions-bindings-storage-blob.md
+            - name: Acionador
+              href: functions-bindings-storage-blob-trigger.md
+            - name: Input
+              href: functions-bindings-storage-blob-input.md
+            - name: Saída
+              href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
           items:
             - name: Funções 1.x
