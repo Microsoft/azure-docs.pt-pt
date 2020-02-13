@@ -1,21 +1,20 @@
 ---
 title: Atribuir acesso a dados do Azure Cost Management
 description: Este artigo mostra-lhe os passos para a atribuição de permissão a dados do Azure Cost Management para vários âmbitos de acesso.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/27/2020
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 8cb803c78b8bb5acd7880f79a19b5e3f0a978bd8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8ba31d58e57081ca8d2edbe5d6d0c3db3a470cb7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773974"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152062"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Cost Management
 
