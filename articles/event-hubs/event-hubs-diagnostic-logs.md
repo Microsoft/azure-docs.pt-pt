@@ -16,25 +16,25 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 12a20abb4014712f26e5827bcd1d3c822e8b25a1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750725"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162315"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnóstico para um hub de eventos do Azure
 
 Pode ver dois tipos de registos para os Hubs de eventos do Azure:
 
-* **[Registos de atividades](../azure-monitor/platform/platform-logs-overview.md)** : estes registos têm informações sobre as operações executadas numa tarefa. Os registos são sempre ativados.
-* **[Os registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : pode configurar os registos de diagnóstico para uma vista mais avançada de tudo o que acontece com uma tarefa. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
+* **[Registos de atividade](../azure-monitor/platform/platform-logs-overview.md)** : Estes registos têm informações sobre operações realizadas num trabalho. Os registos são sempre ativados.
+* **[Registos de diagnóstico:](../azure-monitor/platform/platform-logs-overview.md)** Pode configurar registos de diagnóstico para uma visão mais rica de tudo o que acontece com um trabalho. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
 
 ## <a name="enable-diagnostic-logs"></a>Ativar registos de diagnóstico
 
 Os registos de diagnóstico estão desativados por predefinição. Para ativar os registos de diagnóstico, siga estes passos:
 
-1.  Na [portal do Azure](https://portal.azure.com), em **monitorização + gestão**, clique em **registos de diagnóstico**.
+1.  No [portal Azure,](https://portal.azure.com)sob **monitorização + gestão,** clique em **registos de Diagnóstico**.
 
     ![Navegação do painel para registos de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)
 
@@ -44,24 +44,24 @@ Os registos de diagnóstico estão desativados por predefinição. Para ativar o
 
     ![Ativar registos de diagnóstico](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.  Para **Status**, clique em **no**.
+4.  Para **o Estado,** clique **em**.
 
     ![Alterar o estado dos registos de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Defina o destino de arquivo desejado; por exemplo, uma conta de armazenamento, um hub de eventos ou logs de Azure Monitor.
+5.  Definir o alvo de arquivo que deseja; por exemplo, uma conta de armazenamento, um hub de eventos ou registos do Monitor Azure.
 
 6.  Guarde as novas definições de diagnóstico.
 
-Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, registos de constar no destino arquivamento configurado, o **registos de diagnóstico** painel.
+Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, os registos aparecem no alvo de arquivo configurado, no painel de registos de **diagnóstico.**
 
-Para obter mais informações sobre como configurar diagnósticos, consulte a [descrição geral dos registos de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para obter mais informações sobre a configuração dos diagnósticos, consulte a [visão geral dos registos de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorias de registos de diagnóstico
 
 Os Hubs de eventos captura os registos de diagnóstico para duas categorias:
 
-* **Arquivar registos**: registos relacionados com os Hubs de eventos de arquivos, especificamente, os registos relacionados com erros de arquivo.
-* **Registos operacionais**: informações sobre o que está a acontecer durante as operações de Hubs de eventos, especificamente, o tipo de operação, incluindo a criação do hub de eventos, os recursos utilizados e o estado da operação.
+* **Registos de arquivo**: registos relacionados com arquivos de Centros de Eventos, especificamente, registos relacionados com erros de arquivo.
+* **Registos Operacionais**: informações sobre o que está a acontecer durante as operações do Event Hubs, especificamente, o tipo de operação, incluindo a criação do hub de eventos, os recursos utilizados e o estado da operação.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de registos de diagnóstico
 
@@ -139,6 +139,10 @@ Example:
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Introdução aos Hubs de eventos](event-hubs-what-is-event-hubs.md)
-* [Descrição geral da API dos Hubs de Eventos](event-hubs-api-overview.md)
-* [Introdução ao Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
+- [Introdução aos Centros de Eventos](event-hubs-what-is-event-hubs.md)
+- [Event Hubs API overview (Descrição geral da API dos Hubs de Eventos)](event-hubs-api-overview.md)
+- Introdução ao Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)

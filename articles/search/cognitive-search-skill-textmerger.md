@@ -1,42 +1,42 @@
 ---
-title: Habilidade cognitiva de mesclagem de texto
+title: Habilidade cognitiva de fusão de texto
 titleSuffix: Azure Cognitive Search
-description: Mesclar texto de uma coleção de campos em um campo consolidado. Use essa habilidade cognitiva em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
+description: Fundir texto de uma coleção de campos num campo consolidado. Use esta habilidade cognitiva num oleoduto de enriquecimento de IA em Pesquisa Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c44f37c37bff2ddeb0fbba83d170054bf21129a6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 98ea416305f080850d85498f74693eb2d45b0944
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791845"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162349"
 ---
-#   <a name="text-merge-cognitive-skill"></a>Habilidade cognitiva de mesclagem de texto
+#   <a name="text-merge-cognitive-skill"></a>Habilidade cognitiva de fusão de texto
 
-A habilidade de **mesclagem de texto** consolida o texto de uma coleção de campos em um único campo. 
+A habilidade **Text Merge** consolida texto de uma coleção de campos num único campo. 
 
 > [!NOTE]
-> Essa habilidade não está associada a uma API de serviços cognitivas e você não é cobrado por usá-la. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md)para substituir a opção de recurso **gratuito** que limita você a um pequeno número de aprimoramentos diários por dia.
+> Esta habilidade não está ligada a uma API de Serviços Cognitivos e você não é cobrado por usá-lo. No entanto, deve ainda [anexar um recurso dos Serviços Cognitivos](cognitive-search-attach-cognitive-services.md)para anular a opção de recursos **gratuitos** que o limita a um pequeno número de enriquecimentos diários por dia.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. Skills. Text. MergeSkill
+Microsoft.Skills.Text.MergeSkill
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
-Os parâmetros diferenciam maiúsculas de minúsculas.
+Os parâmetros são sensíveis aos casos.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| insertPreTag  | Cadeia de caracteres a ser incluída antes de cada inserção. O valor padrão é `" "`. Para omitir o espaço, defina o valor como `""`.  |
-| insertPostTag | Cadeia de caracteres a ser incluída após cada inserção. O valor padrão é `" "`. Para omitir o espaço, defina o valor como `""`.  |
+| inserirPreTag  | Corda a ser incluída antes de cada inserção. O valor predefinido é `" "`. Para omitir o espaço, detete o valor para `""`.  |
+| insertPostTag | Corda a ser incluída após cada inserção. O valor predefinido é `" "`. Para omitir o espaço, detete o valor para `""`.  |
 
 
-##  <a name="sample-input"></a>Entrada de exemplo
-Um documento JSON que fornece entrada utilizável para essa habilidade pode ser:
+##  <a name="sample-input"></a>Entrada da amostra
+Um documento da JSON que forneça uma entrada utilizável para esta habilidade pode ser:
 
 ```json
 {
@@ -47,7 +47,7 @@ Um documento JSON que fornece entrada utilizável para essa habilidade pode ser:
       {
         "text": "The brown fox jumps over the dog",
         "itemsToInsert": ["quick", "lazy"],
-        "offsets": [3, 28],
+        "offsets": [3, 28]
       }
     }
   ]
@@ -55,7 +55,7 @@ Um documento JSON que fornece entrada utilizável para essa habilidade pode ser:
 ```
 
 ##  <a name="sample-output"></a>Resultado da amostra
-Este exemplo mostra a saída da entrada anterior, supondo que *insertPreTag* está definido como `" "`e *insertPostTag* é definido como `""`. 
+Este exemplo mostra a saída da entrada anterior, assumindo que o *preserção* de entrada está definido para `" "`, e *a inserção PostTag* está definida para `""`. 
 
 ```json
 {
@@ -71,11 +71,11 @@ Este exemplo mostra a saída da entrada anterior, supondo que *insertPreTag* est
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Definição de contended de amostra estendida
+## <a name="extended-sample-skillset-definition"></a>Definição de habilidade de amostra estendida
 
-Um cenário comum para usar a mesclagem de texto é mesclar a representação textual das imagens (texto de uma habilidade de OCR ou a legenda de uma imagem) no campo de conteúdo de um documento. 
+Um cenário comum para a utilização do Text Merge é fundir a representação textual de imagens (texto de uma habilidade OCR, ou a legenda de uma imagem) no campo de conteúdo de um documento. 
 
-O seguinte meio de habilidade de exemplo usa a habilidade de OCR para extrair texto de imagens inseridas no documento. Em seguida, ele cria um campo *merged_text* para conter o texto original e o OCRed de cada imagem. Você pode saber mais sobre a habilidade de OCR [aqui](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+O exemplo seguinte utiliza a habilidade OCR para extrair texto de imagens incorporadas no documento. Em seguida, cria um campo *merged_text* para conter texto original e OCRed de cada imagem. Pode saber mais sobre a habilidade do OCR [aqui.](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr)
 
 ```json
 {
@@ -126,7 +126,7 @@ O seguinte meio de habilidade de exemplo usa a habilidade de OCR para extrair te
   ]
 }
 ```
-O exemplo acima pressupõe que exista um campo de imagens normalizadas. Para obter o campo de imagens normalizadas, defina a configuração *imageaction* na definição do indexador como *generateNormalizedImages* , conforme mostrado abaixo:
+O exemplo acima pressupõe que existe um campo de imagens normalizadas. Para obter o campo de imagens normalizadas, detete a configuração *imageAction* na definição do indexador para *gerarImagens Normalizadas* como mostrado abaixo:
 
 ```json
 {
@@ -140,8 +140,8 @@ O exemplo acima pressupõe que exista um campo de imagens normalizadas. Para obt
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
-+ [Habilidades internas](cognitive-search-predefined-skills.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
-+ [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Competências incorporadas](cognitive-search-predefined-skills.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Criar Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

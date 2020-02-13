@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: cbcd3d27da3aff66e1dc6758af8a573666c0bbbe
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
-ms.translationtype: MT
+ms.openlocfilehash: 213e5523c0c99309c3244e19a406a7b82297188f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121405"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161805"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteja uma API utilizando o OAuth 2.0 com o Diretório Ativo Azure e a Gestão da API
 
@@ -212,7 +212,7 @@ Pode utilizar a política [De Validação JWT](api-management-access-restriction
 
 ## <a name="build-an-application-to-call-the-api"></a>Construa uma aplicação para chamar a API
 
-Neste guia, utilizou a Consola de Desenvolvimento em Gestão API como aplicação do cliente da amostra para chamar a `Echo API` protegida pela OAuth 2.0. Para saber mais sobre como construir uma aplicação e implementar o OAuth 2.0, consulte as amostras de código do [Diretório Ativo azure.](../active-directory/develop/sample-v1-code.md)
+Neste guia, utilizou a Consola de Desenvolvimento em Gestão API como aplicação do cliente da amostra para chamar a `Echo API` protegida pela OAuth 2.0. Para saber mais sobre como construir uma aplicação e implementar o OAuth 2.0, consulte as amostras de código do [Diretório Ativo azure.](../active-directory/develop/sample-v2-code.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).

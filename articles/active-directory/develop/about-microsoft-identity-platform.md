@@ -12,16 +12,16 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
-ms.openlocfilehash: 78e18998d6e6096b045cc8328ca5adacb1342e68
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 3c18440e87cf50e370b21b5f0ca33b42e0069fc1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699534"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161431"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
 
-A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Ele permite que os desenvolvedores criem aplicativos que conectam usuários, obtenham tokens para chamar APIs, como Microsoft Graph ou APIs que os desenvolvedores criaram. Ele consiste em um serviço de autenticação, bibliotecas de software livre, registro de aplicativo e configuração (por meio de um portal do desenvolvedor e API de aplicativo), documentação completa para desenvolvedores, exemplos de início rápido, exemplos de código, tutoriais, guias de instruções e outro conteúdo do desenvolvedor. A plataforma de identidade da Microsoft suporta protocolos padrão da indústria, tais como OAuth 2.0 e OpenID Connect.
+A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Ele permite que os desenvolvedores criem aplicativos que conectam usuários, obtenham tokens para chamar APIs, como Microsoft Graph ou APIs que os desenvolvedores criaram. Ele consiste em um serviço de autenticação, bibliotecas de software livre, registro de aplicativo e configuração (por meio de um portal do desenvolvedor e API de aplicativo), documentação completa para desenvolvedores, exemplos de início rápido, exemplos de código, tutoriais, guias de instruções e outro conteúdo do desenvolvedor. A plataforma de identidades da Microsoft suporta protocolos norma da indústria, tais como OAuth 2.0 e o OpenID Connect.
 
 Até agora, a maioria dos desenvolvedores trabalhou com a plataforma Azure AD v 1.0 para autenticar contas corporativas e de estudante (provisionadas pelo Azure AD) solicitando tokens do ponto de extremidade v 1.0 do Azure AD, usando a ADAL (biblioteca de autenticação do Azure AD), portal do Azure para registro e configuração do aplicativo e Azure AD API do Graph para configuração de aplicativo programática.
 
@@ -29,8 +29,8 @@ Com a plataforma de identidade unificada da Microsoft (v 2.0), você pode escrev
 
 Com a plataforma de identidade da Microsoft, expanda seu alcance para esses tipos de usuários:
 
-- Contas corporativas e de estudante (contas do Azure AD provisionadas)
-- Contas pessoais (como Outlook.com ou Hotmail.com)
+- Contas de trabalho e escola (contas ads do Azure)
+- Contas pessoais (tais como Outlook.com ou Hotmail.com)
 - Seus clientes que trazem seu próprio email ou identidade social (como LinkedIn, Facebook, Google) via MSAL e Azure AD B2C
 
 Você pode usar o portal do Azure para registrar e configurar seu aplicativo e usar a API Microsoft Graph para configuração de aplicativo programática.
@@ -45,11 +45,11 @@ O diagrama seguinte mostra a experiência de identidade da Microsoft a um nível
 
 ### <a name="app-registration-experience"></a>Experiência de registro do aplicativo
 
-A experiência de **[Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908)** portal do Azure é a experiência de um portal para gerenciar todos os aplicativos que você integrou à plataforma de identidades da Microsoft. Se você estiver usando o portal de registro de aplicativos, comece a usar a experiência de registro de aplicativo portal do Azure.
+A experiência de **[registos](https://go.microsoft.com/fwlink/?linkid=2083908)** do portal Azure App é a experiência de um portal para gerir todas as aplicações que integrou com a plataforma de identidade da Microsoft. Se você estiver usando o portal de registro de aplicativos, comece a usar a experiência de registro de aplicativo portal do Azure.
 
 Para integração com o Azure AD B2C (ao autenticar identidades sociais ou locais), você precisará registrar seu aplicativo em um locatário Azure AD B2C. Essa experiência também faz parte do portal do Azure.
 
-A **API do aplicativo no Microsoft Graph** está atualmente em visualização. Use essa API para configurar programaticamente seus aplicativos integrados à plataforma Microsoft Identity para autenticar qualquer identidade da Microsoft. No entanto, até que essa API atinja a disponibilidade geral, você deve usar a API do Azure AD Graph 1,6 e o manifesto do aplicativo.
+A **aplicação API no Microsoft Graph** encontra-se atualmente em pré-visualização. Use essa API para configurar programaticamente seus aplicativos integrados à plataforma Microsoft Identity para autenticar qualquer identidade da Microsoft. No entanto, até que essa API atinja a disponibilidade geral, você deve usar a API do Azure AD Graph 1,6 e o manifesto do aplicativo.
 
 ### <a name="msal-libraries"></a>Bibliotecas MSAL
 
@@ -57,7 +57,7 @@ Você pode usar a biblioteca MSAL para criar aplicativos que autenticam todas as
 
 Você também pode usar as bibliotecas MSAL para integrar seu aplicativo com Azure AD B2C.
 
-As bibliotecas do lado do servidor para criar aplicativos Web e APIs Web estão geralmente disponíveis: [ASP.net](https://docs.microsoft.com/aspnet/overview) e [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2)
+Bibliotecas do lado do servidor para a construção de aplicações web e APIs web estão geralmente disponíveis: [ASP.NET](https://docs.microsoft.com/aspnet/overview) e [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2)
 
 ### <a name="microsoft-identity-platform-endpoint"></a>Ponto de extremidade da plataforma Microsoft Identity
 
@@ -67,5 +67,5 @@ O ponto de extremidade da plataforma Microsoft Identity (v 2.0) agora é certifi
 
 Saiba mais sobre v1.0 e v2.0.
 
-* [Visão geral da plataforma Microsoft Identity (v 2.0)](v2-overview.md)
-* [Visão geral de Azure Active Directory para desenvolvedores (v 1.0)](v1-overview.md)
+* [Visão geral da plataforma de identidade da Microsoft (v2.0)](v2-overview.md)
+* [Diretório Ativo Azure para programadores (v1.0) visão geral](../azuread-dev/v1-overview.md)

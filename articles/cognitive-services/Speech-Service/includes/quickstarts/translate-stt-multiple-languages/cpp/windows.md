@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: traduzir a fala para vários C++ idiomas, (Windows)-serviço de fala'
+title: 'Quickstart: Traduzir o discurso C++ para várias línguas, (Windows) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: ba5b7fe4f706dc0b71bf8c1e97599b2aed1cfa89
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 000cd10d713d5008c8dbff27c9030a6d7435c86a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469803"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156557"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Criar um recurso de fala azure](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=windows)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -44,7 +44,8 @@ Antes de começar, certifique-se de:
    void TranslateSpeechToText()
    {
        // Creates an instance of a speech translation config with specified subscription key and service region.
-       // Replace with your own subscription key and service region (e.g., "westus").
+       // Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+       // from here: https://aka.ms/speech/sdkregion).   
        auto config = SpeechTranslationConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
        // Sets source and target languages.
@@ -106,17 +107,17 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Na barra de menus, escolha **arquivo** > **salvar tudo**.
+1. Na barra de menus, escolha **File** > **Save All**.
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-1. Na barra de menus, selecione **compilar** > **Compilar solução** para compilar o aplicativo. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menus, selecione **Build** > **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
+1. Escolha **debug** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação **helloworld.**
 
-1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para o serviço de fala, que converte e transcreve em texto (neste caso, para francês e alemão). Em seguida, o serviço de fala envia o texto de volta para o aplicativo para exibição.
+1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso ao serviço da Fala, que se traduz e transcreve para texto (neste caso, para francês e alemão). O serviço de Fala envia então o texto de volta para a aplicação para exibição.
 
 ````
 Say something...

@@ -1,6 +1,6 @@
 ---
-title: Como executar a transmissão ao vivo com codificadores locais usando o .NET | Microsoft Docs
-description: Este tópico mostra como usar o .NET para executar a codificação ativa com codificadores locais.
+title: Como realizar streaming ao vivo com codificadores no local usando .NET  Microsoft Docs
+description: Este tópico mostra como usar .NET para realizar codificação ao vivo com codificadores no local.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bc7c8a059e1e17b7b280a7061206b10ed6c530aa
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 11c6da0b79f169b250dc0178f76dcd885ce91668
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69015830"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162893"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Como executar a transmissão ao vivo com codificadores locais usando o .NET
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Como realizar streaming ao vivo com codificadores no local usando .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -29,9 +29,9 @@ ms.locfileid: "69015830"
 > 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
-Este tutorial orienta você pelas etapas de uso do SDK do .NET dos serviços de mídia do Azure para criar um **canal** configurado para uma entrega de passagem. 
+Este tutorial acompanha-o através dos passos de utilização do Azure Media Services .NET SDK para criar um **Canal** que esteja configurado para uma entrega pass-through. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 O seguinte é necessário para concluir o tutorial:
@@ -39,10 +39,10 @@ O seguinte é necessário para concluir o tutorial:
 * Uma conta do Azure.
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Como Criar uma Conta de Media Services](media-services-portal-create-account.md).
 * Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo está no estado **Em execução**. 
-* Configure seu ambiente de desenvolvimento. Para obter mais informações, consulte [configurar seu ambiente](media-services-set-up-computer.md).
-* Uma câmara Web. Por exemplo, [codificador Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm).
+* Instale o seu ambiente de dev. Para mais informações, consulte [Configurar o seu ambiente](media-services-set-up-computer.md).
+* Uma câmara Web. Por exemplo, [codificador Telestream Wirecast](media-services-configure-wirecast-live-encoder.md).
 
-Recomendado para examinar os seguintes artigos:
+Recomendado rever os seguintes artigos:
 
 * [Azure Media Services RTMP Support and Live Encoders (Suporte RTMP dos Serviços de Multimédia do Azure e Codificadores em Direto)](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Transmissão em fluxo em direto com codificadores no local que criam transmissões com velocidade de transmissão múltipla](media-services-live-streaming-with-onprem-encoders.md)
@@ -53,23 +53,23 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 ## <a name="example"></a>Exemplo
 
-O exemplo de código a seguir demonstra como obter as seguintes tarefas:
+O seguinte exemplo de código demonstra como realizar as seguintes tarefas:
 
 * Ligar aos Media Services
 * Criar um canal
 * Atualizar o canal
-* Recupere o ponto de extremidade de entrada do canal. O ponto de extremidade de entrada deve ser fornecido para o codificador ao vivo local. O codificador ao vivo converte sinais da câmera em fluxos que são enviados para o ponto de extremidade de entrada (ingestão) do canal.
-* Recuperar o ponto de extremidade de visualização do canal
+* Recupere o ponto final de entrada do canal. O ponto final de entrada deve ser fornecido ao codificador ao vivo no local. O codificador ao vivo converte sinais da câmara para os streams que são enviados para o ponto final de entrada (ingerir) do canal.
+* Recupere o ponto final de pré-visualização do canal
 * Criar e iniciar um programa
-* Criar um localizador necessário para acessar o programa
+* Criar um localizador necessário para aceder ao programa
 * Criar e iniciar um StreamingEndpoint
-* Atualizar o ponto de extremidade de streaming
-* Desligar recursos
+* Atualizar o ponto final de streaming
+* Encerrar recursos
     
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
-Para obter informações sobre como configurar um codificador ao vivo, consulte [suporte RTMP dos serviços de mídia do Azure e codificadores ao vivo](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Para obter informações sobre como configurar um codificador ao vivo, consulte [o Suporte RTMP dos Serviços de Mídia Azure e](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)os Codificadores ao Vivo .
 
 ```csharp
 using System;
@@ -399,8 +399,8 @@ namespace AMSLiveTest
 }
 ```
 
-## <a name="next-step"></a>Próxima etapa
-Examinar os roteiros de aprendizagem dos serviços de mídia
+## <a name="next-step"></a>Próximo passo
+Rever os caminhos de aprendizagem dos Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

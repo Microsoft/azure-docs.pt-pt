@@ -1,6 +1,6 @@
 ---
-title: Configurar write-back de senha para SSPR-Azure Active Directory
-description: Usar o Azure AD e Azure AD Connect para fazer write-back de senhas para um diretório local
+title: Configure a reescrita da palavra-passe para SSPR - Diretório Ativo Azure
+description: Utilize a Azure AD e a Azure AD Connect para reescrever palavras-passe para um diretório no local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67737aed3bd9961a37dc761fddf608d9bcfe3ffe
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f1fa447312ad6a1f92eaed1164020cb6ee95606e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847257"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161601"
 ---
-# <a name="how-to-configure-password-writeback"></a>Como: configurar o Write-back de senha
+# <a name="how-to-configure-password-writeback"></a>Como: Configurar a reescrita da palavra-passe
 
-As etapas a seguir pressupõem que você já tenha configurado Azure AD Connect em seu ambiente usando as configurações [expressas](../hybrid/how-to-connect-install-express.md) ou [personalizadas](../hybrid/how-to-connect-install-custom.md) .
+Os seguintes passos assumem que já configuraram o Azure AD Connect no seu ambiente utilizando as definições [Express](../hybrid/how-to-connect-install-express.md) ou [Custom.](../hybrid/how-to-connect-install-custom.md)
 
 1. Para configurar e ativar a repetição de escrita de palavras-passe, inicie sessão no seu servidor do Azure AD Connect e inicie o assistente de configuração **Azure AD Connect**.
 2. Na página de **Boas-vindas**, selecione **Configurar**.
@@ -28,21 +28,21 @@ As etapas a seguir pressupõem que você já tenha configurado Azure AD Connect 
 4. Na página **Ligar ao Azure AD**, introduza uma credencial de administrador global e, em seguida, selecione **Seguinte**.
 5. Nas páginas de filtragem **Ligar diretórios** e **Domínio/UO**, selecione **Seguinte**.
 6. Na página **Funcionalidades opcionais**, selecione a caixa junto a **Repetição de escrita de palavras-passe** e selecione **Seguinte**.
-   ![Habilitar write-back de senha no Azure AD Connect][Writeback]
+   ![Ativar a reescrita da palavra-passe no Azure AD Connect][Writeback]
 7. Na página **Pronto a configurar**, selecione **Configurar** e aguarde que o processo termine.
 8. Quando vir a configuração a concluir, selecione **Sair**.
 
-Para tarefas comuns de solução de problemas relacionadas ao Write-back de senha, consulte a seção [solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) em nosso artigo de solução de problemas
+Para tarefas comuns de resolução de problemas relacionadas com a reescrita de palavra-passe, consulte a secção [Troubleshoot password writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) no nosso artigo de resolução de problemas.
 
 > [!WARNING]
-> O Write-back de senha deixará de funcionar para clientes que estão usando Azure AD Connect versões 1.0.8641.0 e mais antigas quando o [serviço de controle de acesso do Azure (ACS) for desativado em 7 de novembro de 2018](../develop/active-directory-acs-migration.md). Azure AD Connect versões 1.0.8641.0 e mais antigas não permitirão mais write-back de senha nesse momento porque dependem do ACS para essa funcionalidade.
+> A reversão da palavra-passe deixará de funcionar para os clientes que estão a utilizar as versões Azure AD Connect 1.0.8641.0 e mais antigas quando o serviço de Controlo de [Acesso Azure (ACS) for retirado a 7 de novembro de 2018.](../azuread-dev/active-directory-acs-migration.md) Azure AD Connect versões 1.0.8641.0 e mais antigas não permitirão mais write-back de senha nesse momento porque dependem do ACS para essa funcionalidade.
 >
-> Para evitar uma interrupção no serviço, atualize de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [Azure ad Connect: atualizar de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
+> Para evitar uma perturbação no serviço, atualize de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [Azure AD Connect: Upgrade de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para Write-back de senha
 
-**Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local é um recurso Premium do Azure ad**. Para obter mais informações sobre licenciamento, consulte o [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+**Reset/Change/Unlock com a reescrita de palavras-passe de self-service é uma característica premium do Azure AD**. Para mais informações sobre o licenciamento, consulte o site de [preços do Diretório Ativo Azure.](https://azure.microsoft.com/pricing/details/active-directory/)
 
 Para usar o Write-back de senha, você deve ter uma das seguintes licenças atribuídas em seu locatário:
 
@@ -56,53 +56,53 @@ Para usar o Write-back de senha, você deve ter uma das seguintes licenças atri
 * Microsoft 365 Empresas
 
 > [!WARNING]
-> Os planos de licenciamento do Office 365 autônomos *não dão suporte a "redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que essa funcionalidade funcione.
+> Os planos de licenciamento autónomos do Office 365 *não suportam "Reset/Change/Unlock with on-premis"* e exigem que tenha um dos planos anteriores para que esta funcionalidade funcione.
 >
 
-## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Permissões de Active Directory e políticas de complexidade de senha local 
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Permissões de Diretório Ativo e políticas de complexidade de senhas no local 
 
-A conta especificada no utilitário Azure AD Connect deve ter os seguintes itens definidos se você quiser estar no escopo para SSPR:
+A conta especificada no utilitário Azure AD Connect deve ter os seguintes itens definidos se quiser estar à margem do SSPR:
 
 * **Repor palavra-passe** 
 * **Alterar palavra-passe** 
-* **Permissões de gravação** em `lockoutTime`
-* **Permissões de gravação** em `pwdLastSet`
-* **Direitos estendidos** em:
-   * O objeto raiz de *cada domínio* nessa floresta
-   * As UOs (unidades organizacionais) do usuário que você deseja que estejam no escopo para SSPR
+* **Escreva permissões** na `lockoutTime`
+* **Escreva permissões** na `pwdLastSet`
+* **Direitos alargados** sobre ambos:
+   * O objeto raiz de *cada domínio* naquela floresta
+   * As unidades organizacionais do utilizador (OUs) que pretende estar ao seu alcance para o SSPR
 
-Se você não tiver certeza de qual conta a conta descrita se refere, abra a interface do usuário de configuração do Azure Active Directory Connect e selecione a opção **Exibir configuração atual** . A conta à qual você precisa adicionar permissão está listada em **diretórios sincronizados**.
+Se não tiver a certeza a que conta a conta descrita se refere, abra o UI de configuração de Diretório Ativo Do Azure e selecione a opção de **configuração atual do View.** A conta a que precisa de adicionar permissão está listada em **Diretórios Sincronizados**.
 
-Se você definir essas permissões, a conta de serviço do MA para cada floresta poderá gerenciar senhas em nome das contas de usuário dentro dessa floresta. 
+Se definir estas permissões, a conta de serviço mA para cada floresta pode gerir senhas em nome das contas de utilizador dentro dessa floresta. 
 
 > [!IMPORTANT]
-> Se você não atribuir essas permissões, então, mesmo que o Write-back pareça estar configurado corretamente, os usuários encontrarão erros quando tentarem gerenciar suas senhas locais da nuvem.
+> Se não atribuir estas permissões, então, embora o writeback pareça estar configurado corretamente, os utilizadores encontrarão erros quando tentam gerir as suas palavras-passe no local a partir da nuvem.
 >
 
 > [!NOTE]
-> Pode levar até uma hora ou mais para que essas permissões sejam replicadas em todos os objetos em seu diretório.
+> Pode levar até uma hora ou mais para estas permissões replicarem todos os objetos do seu diretório.
 >
 
-Para configurar as permissões apropriadas para que o Write-back de senha ocorra, conclua as seguintes etapas:
+Para configurar as permissões adequadas para a reescrita de palavra-passe, complete os seguintes passos:
 
-1. Abra Active Directory usuários e computadores com uma conta que tenha as permissões de administração de domínio apropriadas.
-2. No menu **Exibir** , verifique se **recursos avançados** está ativado.
-3. No painel esquerdo, clique com o botão direito do mouse no objeto que representa a raiz do domínio e selecione **propriedades** > **segurança** > **avançado**.
-4. Na guia **permissões** , selecione **Adicionar**.
-5. Escolha a conta à qual as permissões estão sendo aplicadas (na Azure AD Connect configuração).
-6. Na lista suspensa **aplica-se a** , selecione **objetos de usuário descendentes**.
-7. Em **permissões**, selecione as caixas para as seguintes opções:
+1. Open Ative Directory Users and Computers com uma conta que tem as permissões de administração de domínio apropriadas.
+2. A partir do menu **'Ver',** certifique-se de que **as funcionalidades Avançadas** estão ligadas.
+3. No painel esquerdo, clique à direita no objeto que representa a raiz do domínio e selecione **Propriedades** > **Segurança** > **Avançado**.
+4. A partir do separador **Permissões,** selecione **Adicionar**.
+5. Escolha a conta a que estão a ser aplicadas permissões (a partir da configuração Azure AD Connect).
+6. Na lista **Aplica-se à** lista de abandono, selecione **objetos de utilizador descendentes**.
+7. Em **Permissões,** selecione as caixas para as seguintes opções:
     * **Alterar palavra-passe**
     * **Repor palavra-passe**
 8. Em **Propriedades**, selecione as caixas para as seguintes opções:
-    * **Gravação de locktime**
-    * **PwdLastSet de gravação**
-9. Selecione **aplicar/Ok** para aplicar as alterações e sair de qualquer caixa de diálogo aberta.
+    * **Escreva lockoutTime**
+    * **Escreva pwdLastSet**
+9. Selecione **Apply/OK** para aplicar as alterações e sair de quaisquer caixas de diálogo abertas.
 
-Como a origem da autoridade está no local, as políticas de complexidade de senha se aplicam da mesma fonte de dados conectada. Verifique se você alterou as políticas de grupo existentes para "duração mínima da senha". A política de grupo não deve ser definida como 1, o que significa que a senha deve ter pelo menos um dia de idade antes de ser atualizada. Você precisa ter certeza de que ele está definido como 0. Essas configurações podem ser encontradas em `gpmc.msc` em **configuração do computador > políticas > configurações do Windows > configurações de segurança > políticas de conta**. Execute `gpupdate /force` para garantir que a alteração entra em vigor. 
+Uma vez que a fonte de autoridade está no local, as políticas de complexidade da palavra-passe aplicam-se a partir da mesma fonte de dados conectada. Certifique-se de que alterou as políticas de grupo existentes para a "idade mínima da senha". A política do grupo não deve ser definida para 1, o que significa que a palavra-passe deve ter pelo menos um dia antes de ser atualizada. Tens de ter a certeza que está marcado para 0. Estas definições podem ser encontradas em `gpmc.msc` em configuração de **computador > Políticas > Definições do Windows > Definições de Segurança > Políticas de Conta**. Faça `gpupdate /force` para garantir que a mudança tenha efeito. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[O que é o Write-back de senha?](concept-sspr-writeback.md)
+[O que é a redação da palavra-passe?](concept-sspr-writeback.md)
 
-[Writeback]: ./media/howto-sspr-writeback/enablepasswordwriteback.png "Habilitar write-back de senha no Azure AD Connect"
+[Writeback]: ./media/howto-sspr-writeback/enablepasswordwriteback.png "Ativar a reescrita da palavra-passe no Azure AD Connect"

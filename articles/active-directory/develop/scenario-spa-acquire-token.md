@@ -1,6 +1,6 @@
 ---
-title: Adquirir um token para chamar uma API Web (aplicativos de página única)-plataforma de identidade da Microsoft | Azure
-description: Saiba como criar um aplicativo de página única (adquirir um token para chamar uma API)
+title: Adquirir um símbolo para chamar um API web (aplicações de página única) - Plataforma de identidade da Microsoft Azure
+description: Saiba como construir uma aplicação de uma única página (adquira um símbolo para chamar a API)
 services: active-directory
 documentationcenter: dev-center-name
 author: negoe
@@ -14,37 +14,37 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: 290b0073ea6736141bca035f82f7aa37bdf364ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701931"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160071"
 ---
-# <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicativo de página única: adquirir um token para chamar uma API
+# <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicação de página única: Adquira um símbolo para chamar a API
 
-O padrão para adquirir tokens para APIs com MSAL. js é primeiro tentar uma solicitação de token silenciosa usando o método `acquireTokenSilent`. Quando esse método é chamado, a biblioteca verifica primeiro o cache no armazenamento do navegador para ver se existe um token válido e o retorna. Quando nenhum token válido está no cache, ele envia uma solicitação de token silenciosa para Azure Active Directory (Azure AD) de um iframe oculto. Esse método também permite que a biblioteca renove tokens. Para obter mais informações sobre a sessão de logon único e os valores de tempo de vida do token no Azure AD, consulte [tempos de vida do token](active-directory-configurable-token-lifetimes.md).
+O padrão para adquirir fichas para APIs com MSAL.js é primeiro tentar um pedido de token silencioso usando o método `acquireTokenSilent`. Quando este método é chamado, a biblioteca verifica primeiro a cache no armazenamento do navegador para ver se existe um token válido e devolve-o. Quando não há ficha válida na cache, envia um pedido de ficha silenciosa ao Azure Ative Directory (Azure AD) a partir de um iframe oculto. Este método também permite que a biblioteca renove fichas. Para obter mais informações sobre a sessão de inscrição única e os valores de vida simbólicos em Azure AD, consulte [token lifetimes](active-directory-configurable-token-lifetimes.md).
 
-As solicitações de token silencioso para o Azure AD podem falhar por motivos como uma sessão expirada do Azure AD ou uma alteração de senha. Nesse caso, você pode invocar um dos métodos interativos (que solicitarão o usuário) para adquirir tokens:
+Os pedidos de ficha silenciosa para a AD Azure podem falhar por razões como uma sessão de Anúncio Saque Azure expirada ou uma alteração de senha. Nesse caso, pode invocar um dos métodos interativos (o que irá levar o utilizador) a adquirir fichas:
 
-* [Janela pop-up](#acquire-a-token-with-a-pop-up-window), usando `acquireTokenPopup`
-* [Redirecionar](#acquire-a-token-with-a-redirect), usando `acquireTokenRedirect`
+* [Janela pop-up,](#acquire-a-token-with-a-pop-up-window)usando `acquireTokenPopup`
+* [Redirecione,](#acquire-a-token-with-a-redirect)utilizando `acquireTokenRedirect`
 
-## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Escolha entre uma experiência de pop-up ou de redirecionamento
+## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Escolha entre uma experiência pop-up ou redirecionamento
 
- Você não pode usar os métodos pop-up e Redirect em seu aplicativo. A escolha entre uma experiência de pop-up ou de redirecionamento depende do seu fluxo de aplicativo:
+ Não pode usar os métodos pop-up e redirecionamento na sua aplicação. A escolha entre uma experiência pop-up ou redirecionamento depende do fluxo de aplicação:
 
-* Se você não quiser que os usuários se afastem da página principal do aplicativo durante a autenticação, recomendamos o método pop-up. Como o redirecionamento de autenticação ocorre em uma janela pop-up, o estado do aplicativo principal é preservado.
+* Se não quiser que os utilizadores se afastem da sua página principal de aplicação durante a autenticação, recomendamos o método pop-up. Como o redirecionamento da autenticação acontece numa janela pop-up, o estado da aplicação principal é preservado.
 
-* Se os usuários tiverem restrições de navegador ou políticas em que as janelas pop-ups estiverem desabilitadas, você poderá usar o método Redirect. Use o método redirecionar com o navegador Internet Explorer, pois há [problemas conhecidos com janelas pop-up no Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
+* Se os utilizadores tiverem restrições ou políticas de navegador em que as janelas pop-ups são desativadas, pode utilizar o método de redirecionamento. Utilize o método de redirecionamento com o navegador Internet Explorer, porque existem [problemas conhecidos com janelas pop-up no Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
 
-Você pode definir os escopos de API que deseja que o token de acesso inclua ao criar a solicitação de token de acesso. Observe que todos os escopos solicitados podem não ser concedidos no token de acesso. Isso depende do consentimento do usuário.
+Você pode definir os âmbitos da API que você quer que o token de acesso inclua quando está construindo o pedido de acesso. Note que todos os âmbitos solicitados podem não ser concedidos no token de acesso. Depende do consentimento do utilizador.
 
-## <a name="acquire-a-token-with-a-pop-up-window"></a>Adquirir um token com uma janela pop-up
+## <a name="acquire-a-token-with-a-pop-up-window"></a>Adquira um símbolo com uma janela pop-up
 
-### <a name="javascript"></a>Javascript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-O código a seguir combina o padrão descrito anteriormente com os métodos para uma experiência de pop-up:
+O seguinte código combina o padrão previamente descrito com os métodos para uma experiência pop-up:
 
 ```javascript
 const accessTokenRequest = {
@@ -69,11 +69,11 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
-O wrapper angular MSAL fornece o interceptador HTTP, que automaticamente adquirirá tokens de acesso silenciosamente e os anexará às solicitações HTTP para APIs.
+O invólucro MSAL Angular fornece o intercetor HTTP, que adquirirá automaticamente fichas de acesso silenciosamente e as ligará aos pedidos http às APIs.
 
-Você pode especificar os escopos para APIs na opção de configuração `protectedResourceMap`. `MsalInterceptor` solicitará esses escopos ao adquirir tokens automaticamente.
+Pode especificar os âmbitos para APIs na opção de configuração `protectedResourceMap`. `MsalInterceptor` solicitará estes âmbitos ao adquirir automaticamente fichas.
 
 ```javascript
 //In app.module.ts
@@ -92,7 +92,7 @@ providers: [ ProductService, {
    ],
 ```
 
-Para obter êxito e falha da aquisição de token silenciosa, o MSAL angular fornece retornos de chamada que você pode assinar. Também é importante lembrar-se de cancelar a assinatura.
+Para o sucesso e falha da aquisição de token silencioso, a MSAL Angular fornece callbacks que pode subscrever. Também é importante lembrar de cancelar a inscrição.
 
 ```javascript
 // In app.component.ts
@@ -109,13 +109,15 @@ ngOnDestroy() {
  }
 ```
 
-Como alternativa, você pode adquirir tokens explicitamente usando os métodos de aquisição-token conforme descrito na biblioteca do core MSAL. js.
+Alternativamente, pode adquirir explicitamente fichas utilizando os métodos de aquisição de token, conforme descrito na biblioteca core MSAL.js.
 
-## <a name="acquire-a-token-with-a-redirect"></a>Adquirir um token com um redirecionamento
+---
 
-### <a name="javascript"></a>Javascript
+## <a name="acquire-a-token-with-a-redirect"></a>Adquirir um símbolo com um redirecionamento
 
-O padrão a seguir é conforme descrito anteriormente, mas mostrado com um método de redirecionamento para adquirir tokens interativamente. Você precisará registrar o retorno de chamada de redirecionamento, conforme mencionado anteriormente.
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+O seguinte padrão é descrito anteriormente, mas mostrado com um método de redirecionamento para adquirir fichas interativamente. Terá de registar a redirecção, como mencionado anteriormente.
 
 ```javascript
 function authCallback(error, response) {
@@ -141,16 +143,16 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-## <a name="request-optional-claims"></a>Solicitar declarações opcionais
-Você pode usar declarações opcionais para as seguintes finalidades:
+## <a name="request-optional-claims"></a>Solicitar reclamações opcionais
 
-- Inclua declarações adicionais em tokens para seu aplicativo.
-- Altere o comportamento de determinadas declarações que o Azure AD retorna em tokens.
-- Adicione e acesse declarações personalizadas para seu aplicativo. 
+Pode utilizar reclamações opcionais para os seguintes fins:
 
-Para solicitar declarações opcionais em `IdToken`, você pode enviar um objeto de declarações em cadeias para o campo `claimsRequest` da classe `AuthenticationParameters.ts`.
+- Inclua reclamações adicionais em fichas para a sua aplicação.
+- Mude o comportamento de certas alegações que a AD Azure devolve em fichas.
+- Adicione e aceda a reclamações personalizadas para a sua aplicação. 
 
-### <a name="javascript"></a>Javascript
+Para solicitar reclamações opcionais em `IdToken`, pode enviar um objeto de reclamações stringificado soado ao campo `claimsRequest` da classe `AuthenticationParameters.ts`.
+
 ```javascript
 "optionalClaims":  
    {
@@ -168,14 +170,16 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
-Para saber mais, confira [declarações opcionais](active-directory-optional-claims.md).
 
+Para saber mais, consulte [As reclamações opcionais.](active-directory-optional-claims.md)
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
-Esse código é o mesmo descrito anteriormente.
+Este código é o mesmo descrito anteriormente.
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Chamando uma API Web](scenario-spa-call-api.md)
+> [Chamando uma API web](scenario-spa-call-api.md)

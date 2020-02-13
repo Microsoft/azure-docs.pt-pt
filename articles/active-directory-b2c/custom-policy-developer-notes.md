@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: acd02f143fe35edd867ce26f26a4cba74bd6f10b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6439393b72eb724ca017edc17ce7a7c36c275fca
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847345"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166965"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas de desenvolvedor espreitapara políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -28,8 +28,8 @@ Embora a maioria das opções de política personalizadas disponíveis estejam a
 ## <a name="features-that-are-generally-available"></a>Características que estão geralmente disponíveis
 
 - Autor e carregue as viagens de utilizador de autenticação personalizada utilizando políticas personalizadas.
-    - Descrever as viagens passo a passo do usuário como trocas entre provedores de declarações.
-    - Defina a ramificação condicional em percursos do usuário.
+    - Descreva as viagens de utilizador passo a passo como trocas entre fornecedores de sinistros.
+    - Defina a ramificação condicional nas viagens do utilizador.
 - Interopera com serviços com API REST nas suas viagens de utilizador de autenticação personalizada.
 - Federate com fornecedores de identidade que estejam em conformidade com o protocolo OpenIDConnect.
 - Federate com fornecedores de identidade que aderem ao protocolo SAML 2.0.
@@ -61,7 +61,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="identity-providers-tokens-protocols"></a>Fornecedores de Identidade, Tokens, Protocolos
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | Por exemplo, google+.  |
 | IDP-OAUTH2 |  |  | X | Por exemplo, Facebook.  |
@@ -72,24 +72,24 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 | Partido Dependente OAUTH1 |  |  |  | Não suportado. |
 | Partido Dependente OAUTH2 |  |  | X |  |
 | Partido Dependente OIDC |  |  | X |  |
-| Partido Dependente SAML | X |  |  |  |
+| Partido Dependente SAML |  |X  |  |  |
 | Partido De Base WSFED | X |  |  |  |
 | Rest API com auth básico e certificado |  |  | X | Por exemplo, Aplicativos Azure Logic. |
 
 ### <a name="component-support"></a>Suporte de Componentes
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Multi-Factor Authentication do Azure |  |  | X |  |
+| Autenticação de fator multi-factor azure |  |  | X |  |
 | Diretório Azure Ative como diretório local |  |  | X |  |
 | Subsistema de e-mail Azure para verificação de email |  |  | X |  |
-| Suporte a vários idiomas|  |  | X |  |
+| Suporte multilingues|  |  | X |  |
 | Validações Predicadas |  |  | X | Por exemplo, complexidade de senhas. |
-| Utilização de fornecedores de serviços de e-mail de terceiros | X |  |  |  |
+| Utilização de fornecedores de serviços de e-mail de terceiros |  |X  |  |  |
 
 ### <a name="content-definition"></a>Definição de Conteúdo
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Página de erro, api.error |  |  | X |  |
 | Página de seleção idp, api.idpselections |  |  | X |  |
@@ -105,7 +105,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="app-ief-integration"></a>Integração App-IEF
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parâmetro de corda de consulta domain_hint |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
 | Parâmetro de corda de consulta login_hint |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
@@ -115,7 +115,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="session-management"></a>Gestão de Sessões
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Provedor de SSO Sessão |  |  | X |  |
 | Fornecedor externo de sessão de login |  |  | X |  |
@@ -124,7 +124,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="security"></a>Segurança
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Chaves de política- Gerar, Manual, Carregar |  |  | X |  |
 | Chaves políticas- RSA/Cert, Segredos |  |  | X |  |
@@ -132,7 +132,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="developer-interface"></a>Interface de desenvolvedor
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Ux do Portal-IEF |  |  | X |  |
 | Informações de aplicação UserJourney Logs |  | X |  | Usado para resolução de problemas durante o desenvolvimento.  |

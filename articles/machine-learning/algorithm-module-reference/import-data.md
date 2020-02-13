@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 930ff1abf77c4e28d377daf12174ff3fbb60cf23
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152249"
+ms.locfileid: "77163199"
 ---
 # <a name="import-data-module"></a>Módulo de Dados de Importação
 
@@ -42,7 +42,7 @@ Antes de utilizar o armazenamento em nuvem, tem de registar primeiro uma loja de
 
 Depois de definir os dados que pretende e ligar à fonte, **[os Dados de Importação](./import-data.md)** inferem o tipo de dados de cada coluna com base nos valores que contém e carregam os dados no seu pipeline de design. A produção de Dados de **Importação** é um conjunto de dados que pode ser usado com qualquer pipeline de design.
 
-Se os seus dados de origem forem alterações, pode atualizar o conjunto de dados e adicionar novos dados reexecutando [dados de importação](./import-data.md). No entanto, se não quiser voltar a ler a partir da fonte cada vez que executar o gasoduto, detete te opção **de resultados em cache** para TRUE. Quando esta opção é selecionada, o módulo verifica se o gasoduto já foi executado anteriormente utilizando as mesmas opções de origem e entrada. Se for encontrada uma execução anterior, os dados da cache são utilizados, em vez de recarregar os dados da fonte.
+Se os seus dados de origem forem alterações, pode atualizar o conjunto de dados e adicionar novos dados reexecutando [dados de importação](./import-data.md).
 
 ## <a name="how-to-configure-import-data"></a>Como configurar dados de importação
 
@@ -60,11 +60,7 @@ Se os seus dados de origem forem alterações, pode atualizar o conjunto de dado
 
     ![importação-dados-pré-visualização](media/module/import-data.png)
 
-1. Selecione a opção **de resultados em cache Use** se pretender colocar o conjunto de dados para reutilização em execuções sucessivas.
 
-    Assumindo que não houve outras alterações nos parâmetros do módulo, o gasoduto carrega os dados apenas na primeira vez que o módulo é executado, e posteriormente utiliza uma versão em cache do conjunto de dados.
-
-    Desmarque esta opção se necessitar de recarregar os dados sempre que executar o gasoduto.
 
 1. Executar o pipeline.
 

@@ -1,22 +1,21 @@
 ---
-title: 'Início rápido: criar um hub de eventos usando o PowerShell-hubs de eventos do Azure'
+title: 'Quickstart: Criar um hub de eventos usando powerShell - Hubs de eventos Azure'
 description: Este início rápido descreve como criar um hub de eventos com o Azure PowerShell e, em seguida, enviar e receber eventos com o SDK .NET Standard.
 services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: 2a88fe340037c31a71cb34181682095f31400c36
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.author: spelluru
+ms.openlocfilehash: 89ec1957e75fa45eef6c7939a77e5cc1b3cf7806
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720604"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162128"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Início Rápido: Criar um hub de eventos com o Azure PowerShell
 
@@ -31,14 +30,14 @@ Neste início rápido, vai criar um hub de eventos com o Azure PowerShell.
 Para concluir este tutorial, confirme que tem:
 
 - Subscrição do Azure. Se não tiver uma, [crie uma conta gratuita][] antes de começar.
-- [Visual Studio 2019](https://www.visualstudio.com/vs).
+- [Estúdio Visual 2019.](https://www.visualstudio.com/vs)
 - [SDK .NET Standard](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se estiver a utilizar o PowerShell localmente, tem de executar a versão mais recente do PowerShell para concluir este início rápido. Se precisar de instalar ou atualizar, veja [Instalar e Configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é uma coleção lógica dos recursos do Azure e precisa de um grupo de recursos para criar um hub de eventos. 
 
@@ -59,7 +58,7 @@ New-AzEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namesp
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
 Agora que tem um espaço de nomes dos Hubs de Eventos, crie um hub de eventos nesse espaço de nomes:  
-O período permitido para `MessageRetentionInDays` está entre 1 e 7 dias.
+O período permitido para `MessageRetentionInDays` é entre 1 e 7 dias.
 
 ```azurepowershell-interactive
 New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
@@ -69,16 +68,15 @@ Parabéns! Utilizou o Azure PowerShell para criar um espaço de nomes dos Hubs d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou o espaço de nomes dos Hubs de Eventos e utilizou exemplos de aplicações para enviar e receber eventos do hub de eventos. Para obter instruções detalhadas sobre como enviar eventos para (ou) receber eventos de um hub de eventos, consulte os tutoriais de **eventos de envio e recebimento** : 
+Neste artigo, criou o espaço de nomes dos Hubs de Eventos e utilizou exemplos de aplicações para enviar e receber eventos do hub de eventos. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte o **Envio e receba** tutoriais de eventos: 
 
-- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-- [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send.md)
-- [Node.js](event-hubs-node-get-started-send.md)
+- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [Java](get-started-java-send-v2.md)
+- [python](get-started-python-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
-- [C (somente enviar)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (somente reecive)](event-hubs-storm-getstarted-receive.md)
+- [C (apenas enviar)](event-hubs-c-getstarted-send.md)
+- [Tempestade Apache (receber apenas)](event-hubs-storm-getstarted-receive.md)
 
 
 [crie uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

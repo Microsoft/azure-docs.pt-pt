@@ -13,37 +13,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e0505960a413308283c4e67e33ec495eedd3b092
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 568a21cee5b50a8914c603976f5951d0235dbff7
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827730"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157181"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e a terminologia nos Hubs de eventos do Azure
 
-Os Hubs de eventos do Azure é uma serviço que ingere e processa grandes volumes de eventos e dados, com baixa latência e alta fiabilidade de processamento de eventos escalável. Ver [o que é o Hubs de eventos?](event-hubs-what-is-event-hubs.md) para uma visão geral.
+Os Hubs de eventos do Azure é uma serviço que ingere e processa grandes volumes de eventos e dados, com baixa latência e alta fiabilidade de processamento de eventos escalável. Vê [o que é O Event Hubs](event-hubs-what-is-event-hubs.md) para uma visão geral de alto nível.
 
-Este artigo baseia-se nas informações dos [artigo de descrição geral](event-hubs-what-is-event-hubs.md)e fornece detalhes técnicos e de implementação sobre componentes de Hubs de eventos e recursos.
+Este artigo baseia-se na informação no artigo de [visão geral,](event-hubs-what-is-event-hubs.md)e fornece detalhes técnicos e de implementação sobre componentes e funcionalidades do Event Hubs.
 
-## <a name="namespace"></a>Espaço de Nomes
-Um espaço de nomes de Hubs de eventos fornece um contentor de âmbito exclusivo, referenciado pela respetiva [nome de domínio completamente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), em que cria um ou mais dos hubs de eventos ou tópicos do Kafka. 
+## <a name="namespace"></a>Espaço de nomes
+Um espaço de nome de Event Hubs fornece um recipiente de digitalização único, referenciado pelo seu nome de [domínio totalmente qualificado,](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)no qual cria um ou mais centros de eventos ou tópicos de Kafka. 
 
 ## <a name="event-hubs-for-apache-kafka"></a>Hubs de Eventos para o Apache Kafka
 
-[Esta funcionalidade](event-hubs-for-kafka-ecosystem-overview.md) fornece um ponto final que permite que os clientes comunicar com os Hubs de eventos utilizando o protocolo de Kafka. Esta integração fornece aos clientes um ponto de extremidade do Kafka. Isto permite aos clientes configurar seus aplicativos existentes do Kafka para comunicar com os Hubs de eventos, fornecendo uma alternativa à execução de seus próprios clusters do Kafka. Os Hubs de eventos para o Apache Kafka suporta os protocolos de Kafka 1.0 e posterior. 
+[Esta funcionalidade](event-hubs-for-kafka-ecosystem-overview.md) fornece um ponto final que permite aos clientes falar com os Event Hubs usando o protocolo Kafka. Esta integração fornece aos clientes um ponto de extremidade do Kafka. Isto permite aos clientes configurar seus aplicativos existentes do Kafka para comunicar com os Hubs de eventos, fornecendo uma alternativa à execução de seus próprios clusters do Kafka. Os Hubs de eventos para o Apache Kafka suporta os protocolos de Kafka 1.0 e posterior. 
 
-Com esta integração, não precisa executar clusters de Kafka ou geri-las com Zookeeper. Isso também permite que trabalhe com alguns dos recursos mais exigentes de Hubs de eventos, como a capturar, a ampliação automática de mensagens em fila e a recuperação após desastre geográfico.
+Com esta integração, você não precisa executar aglomerados kafka ou geri-los com Zookeeper. Isso também permite que trabalhe com alguns dos recursos mais exigentes de Hubs de eventos, como a capturar, a ampliação automática de mensagens em fila e a recuperação após desastre geográfico.
 
 Esta integração também permite que as aplicações, como criador de espelho ou estrutura como o Kafka ligar trabalhar clusterless apenas alterações de configuração. 
 
 ## <a name="event-publishers"></a>Publicadores de eventos
 
-Qualquer entidade que envie dados para um hub de eventos é um produtor de eventos, ou *publicador de eventos*. Os publicadores de eventos podem publicar eventos através de HTTPS ou AMQP 1.0 ou Kafka 1.0 e posterior. Os publicadores de eventos utilizam um token de Assinatura de Acesso Partilhado (SAS) para se identificarem a si próprios perante um hub de eventos e podem ter uma identidade exclusiva ou utilizar um token SAS comum.
+Qualquer entidade que envie dados para um centro de eventos é um produtor de eventos, ou editor de *eventos.* Os publicadores de eventos podem publicar eventos através de HTTPS ou AMQP 1.0 ou Kafka 1.0 e posterior. Os publicadores de eventos utilizam um token de Assinatura de Acesso Partilhado (SAS) para se identificarem a si próprios perante um hub de eventos e podem ter uma identidade exclusiva ou utilizar um token SAS comum.
 
 ### <a name="publishing-an-event"></a>Publicar um evento
 
-Pode publicar um evento através de AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. Os Event Hubs fornecem [bibliotecas de cliente e classes](event-hubs-dotnet-framework-api-overview.md) para publicar eventos para um hub de eventos a partir de clientes .NET. Para outros tempos de execução e plataformas, pode utilizar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). Pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados de eventos) tem um limite de 1 MB, independentemente de ser um evento simples ou um lote. Publicar eventos maiores do que este resultados de limiar num erro. É preferível os publicadores não terem conhecimento das partições dentro do hub de eventos e apenas especificarem uma *chave de partição* (apresentada na secção seguinte) ou a sua identidade através do respetivo token SAS.
+Pode publicar um evento através de AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. O Event Hubs fornece [bibliotecas e aulas](event-hubs-dotnet-framework-api-overview.md) de clientes para a publicação de eventos a um centro de eventos de clientes .NET. Para outros tempos de execução e plataformas, pode utilizar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). Pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados de eventos) tem um limite de 1 MB, independentemente de ser um evento simples ou um lote. Publicar eventos maiores do que este resultados de limiar num erro. É preferível os publicadores não terem conhecimento das partições dentro do hub de eventos e apenas especificarem uma *chave de partição* (apresentada na secção seguinte) ou a sua identidade através do respetivo token SAS.
 
 A opção para utilizar AMQP ou HTTPS é específica do cenário de utilização. O AMQP requer o estabelecimento de um socket bidirecional persistente, para além da segurança de nível do transporte (TLS) ou SSL/TLS. O AMQP tem custos de rede superiores ao inicializar a sessão. No entanto, o HTTPS requer sobrecarga SSL adicional para cada pedido. O AMQP tem um desempenho superior para publicadores frequentes.
 
@@ -63,7 +63,7 @@ Não precisa de criar os nomes dos publicadores com antecedência, mas devem cor
 
 ## <a name="capture"></a>Captura
 
-[Captura de Hubs de eventos](event-hubs-capture-overview.md) permite-lhe capturar os dados de transmissão em fluxo nos Hubs de eventos e guarde-o à sua escolha de uma conta de armazenamento de BLOBs ou uma conta do Azure Data Lake Service automaticamente. Pode ativar a captura do portal do Azure e especifique um tamanho mínimo e a janela de tempo para executar a captura. Utilizar a captura de Hubs de eventos, especificar sua própria conta de armazenamento de Blobs do Azure e um contentor ou uma conta de serviço do Azure Data Lake, um dos quais é utilizado para armazenar os dados capturados. Dados capturados são escritos no formato Apache Avro.
+A Captura de Hubs de [Eventos](event-hubs-capture-overview.md) permite-lhe capturar automaticamente os dados de streaming em Event Hubs e guardá-los à sua escolha de uma conta de armazenamento Blob ou de uma conta azure Data Lake Service. Pode ativar a captura do portal do Azure e especifique um tamanho mínimo e a janela de tempo para executar a captura. Utilizar a captura de Hubs de eventos, especificar sua própria conta de armazenamento de Blobs do Azure e um contentor ou uma conta de serviço do Azure Data Lake, um dos quais é utilizado para armazenar os dados capturados. Dados capturados são escritos no formato Apache Avro.
 
 ## <a name="partitions"></a>Partições
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -83,7 +83,7 @@ O mecanismo de publicação/subscrição de Hubs de Eventos é ativado através 
 
 Na arquitetura de processamento de transmissão, cada aplicação a jusante equaciona um grupo de consumidores. Se pretender escrever dados de eventos para armazenamento de longa duração, essa aplicação de escrita de armazenamento é um grupo de consumidores. O processamento de eventos complexos pode ser efetuado por outro grupo de consumidores, em separado. Só pode aceder a partições através de um grupo de consumidores. Há sempre um grupo de consumidores predefinido num hub de eventos e pode criar até 20 grupos de consumidores para um hub de eventos de camada Standard.
 
-Pode haver no máximo 5 leitores simultâneos numa partição por grupo de consumidores No entanto **recomenda-se que existe apenas um recetor ativo numa partição por grupo de consumidores**. Dentro de uma única partição, cada leitor recebe todas as mensagens. Se tiver vários leitores na mesma partição, em seguida, processa mensagens duplicadas. Terá de lidar com isso em seu código, que pode não ser trivial. No entanto, é uma abordagem válida em alguns cenários.
+Pode haver no máximo 5 leitores simultâneos numa partilha por grupo de consumidores; no **entanto, recomenda-se que exista apenas um recetor ativo numa partilha por grupo de consumidores.** Dentro de uma única partição, cada leitor recebe todas as mensagens. Se tiver vários leitores na mesma partição, em seguida, processa mensagens duplicadas. Terá de lidar com isso em seu código, que pode não ser trivial. No entanto, é uma abordagem válida em alguns cenários.
 
 
 Apresentamos a seguir exemplos da convenção de URI do grupo de consumidores:
@@ -130,15 +130,18 @@ Dados do evento:
 
 É da sua responsabilidade gerir o desvio.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os Hubs de Eventos, visite as seguintes ligações:
 
-* Introdução a um [Tutorial dos Event Hubs][Event Hubs tutorial]
+- Introdução ao Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Guia de programação dos Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência em Hubs de Eventos](event-hubs-availability-and-consistency.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
-* [Exemplos de Hubs de eventos][]
+* [Amostras de Hubs de Eventos][]
 
-[Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
-[Exemplos de Hubs de eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Amostras de Hubs de Eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples

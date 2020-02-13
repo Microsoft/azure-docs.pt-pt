@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 353e849332aa04d26774cda22508b6f1c269df7e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c23122024533871dcdb374fa0c21a82faf670f85
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900468"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156292"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -20,88 +20,88 @@ Antes de começar:
 * Se este é C# o seu primeiro projeto, use este guia para criar um projeto <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>de amostra vazia.
 * <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Instale o SDK de <span class="docon docon-navigate-external x-hidden-focus"> </span>Discurso para o seu ambiente </a>de desenvolvimento.
 
-## <a name="create-a-luis-app-for-intent-recognition"></a>Criar um aplicativo LUIS para reconhecimento de intenção
+## <a name="create-a-luis-app-for-intent-recognition"></a>Criar uma app LUIS para reconhecimento de intenções
 
 [!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
 
-## <a name="open-your-project-in-visual-studio"></a>Abra seu projeto no Visual Studio
+## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Estúdio Visual
 
-Em seguida, abra o projeto no Visual Studio.
+Em seguida, abra o seu projeto no Estúdio Visual.
 
-1. Inicie o Visual Studio 2019.
-2. Carregue seu projeto e abra `Program.cs`.
+1. Lançar O Estúdio Visual 2019.
+2. Carregue o seu projeto e abra `Program.cs`.
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com algum código clichê
+## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para nosso projeto. Lembre-se de que você criou um método assíncrono chamado `RecognizeIntentAsync()`.
+Vamos adicionar um código que funciona como um esqueleto para o nosso projeto. Tome nota de que criou um método de asincronização chamado `RecognizeIntentAsync()`.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=7-17,77-86)]
 
-## <a name="create-a-speech-configuration"></a>Criar uma configuração de fala
+## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
 
-Antes de inicializar um objeto `IntentRecognizer`, você precisa criar uma configuração que usa a chave e o local para o recurso de previsão LUIS.
+Antes de poder inicializar um `IntentRecognizer` objeto, precisa de criar uma configuração que utilize a chave e localização para o seu recurso de previsão LUIS.
 
 > [!IMPORTANT]
-> A chave inicial e as chaves de criação não funcionarão. Você deve usar sua chave de previsão e o local que você criou anteriormente. Para obter mais informações, consulte [criar um aplicativo Luis para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
+> A sua chave de arranque e as chaves de autor não funcionarão. Deve usar a sua chave de previsão e localização que criou anteriormente. Para mais informações, consulte [Criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
-Insira esse código no método `RecognizeIntentAsync()`. Certifique-se de atualizar esses valores:
+Insira este código no método `RecognizeIntentAsync()`. Certifique-se de atualizar estes valores:
 
-* Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão LUIS.
-* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo local do LUIS.
+* Substitua `"YourLanguageUnderstandingSubscriptionKey"` com a sua chave de previsão LUIS.
+* Substitua `"YourLanguageUnderstandingServiceRegion"` pela sua localização LUIS. Utilize o "Parâmetro SDK de fala" da [região](https://aka.ms/speech/sdkregion).
 
 >[!TIP]
-> Se você precisar de ajuda para encontrar esses valores, consulte [criar um aplicativo Luis para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
+> Se precisar de ajuda para encontrar estes valores, consulte [Criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-Este exemplo usa o método `FromSubscription()` para criar o `SpeechConfig`. Para obter uma lista completa dos métodos disponíveis, consulte [classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+Esta amostra utiliza o método `FromSubscription()` para construir a `SpeechConfig`. Para obter uma lista completa dos métodos disponíveis, consulte a [Aula de SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
-O SDK de fala usará como padrão o reconhecimento do uso de en-US para a linguagem, consulte [especificar o idioma de origem de fala para texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
+O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
-## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntençãoReconhecedor
 
-Agora, vamos criar um `IntentRecognizer`. Esse objeto é criado dentro de uma instrução using para garantir a liberação adequada de recursos não gerenciados. Insira esse código no método `RecognizeIntentAsync()`, logo abaixo da sua configuração de fala.
+Agora, vamos criar uma `IntentRecognizer`. Este objeto é criado dentro de uma declaração de utilização para garantir a libertação adequada de recursos não geridos. Insira este código no método `RecognizeIntentAsync()`, logo abaixo da configuração do Discurso.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=29-30,76)]
 
-## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicionar uma LanguageUnderstandingModel e tentativas
+## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um LanguageUnderstandingModel e intenções
 
-Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenção e adicionar as tentativas que você deseja que sejam reconhecidos. Vamos usar as intenções do domínio predefinido para a automação doméstica. Insira este código na instrução using da seção anterior. Certifique-se de substituir `"YourLanguageUnderstandingAppId"` pela ID do aplicativo LUIS.
+Precisa associar um `LanguageUnderstandingModel` com o reconhecimento de intenções, e adicionar as intenções que quer que seja reconhecido. Vamos usar as intenções do domínio pré-construído para a domótica. Insira este código na declaração de utilização da secção anterior. Certifique-se de que substitui `"YourLanguageUnderstandingAppId"` com o seu ID de aplicação LUIS.
 
 >[!TIP]
-> Se precisar de ajuda para encontrar esse valor, consulte [criar um aplicativo Luis para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
+> Se precisar de ajuda para encontrar este valor, consulte [Criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
-A partir do objeto `IntentRecognizer`, você chamará o método `RecognizeOnceAsync()`. Esse método permite que o serviço de fala saiba que você está enviando uma única frase para reconhecimento e que, depois que a frase for identificada para parar de reconhecer a fala.
+Pelo `IntentRecognizer` objeto, vai chamar o método `RecognizeOnceAsync()`. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
 
 Dentro da declaração de utilização, adicione este código abaixo do seu modelo: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
-## <a name="display-recognition-results-or-errors"></a>Exibir resultados de reconhecimento (ou erros)
+## <a name="display-recognition-results-or-errors"></a>Resultados de reconhecimento de visualização (ou erros)
 
-Quando o resultado do reconhecimento for retornado pelo serviço de fala, você desejará fazer algo com ele. Vamos mantê-lo simples e imprimir os resultados no console.
+Quando o resultado do reconhecimento for devolvido pelo serviço de Discurso, vai querer fazer algo com ele. Vamos mantê-lo simples e imprimir os resultados para consolar.
 
-Dentro da instrução using, abaixo `RecognizeOnceAsync()`, adicione este código:
+Dentro da declaração de utilização, abaixo `RecognizeOnceAsync()`, adicione este código:
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=49-75)]
 
-## <a name="check-your-code"></a>Verifique seu código
+## <a name="check-your-code"></a>Verifique o seu código
 
-Neste ponto, seu código deve ter a seguinte aparência:
+Neste ponto, o seu código deve ser assim:
 
 > [!NOTE]
-> Adicionamos alguns comentários a esta versão.
+> Adicionámos alguns comentários a esta versão.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=7-86)]
 
-## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
+## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Agora você está pronto para criar seu aplicativo e testar nosso reconhecimento de fala usando o serviço de fala.
+Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
 
-1. **Compilar o código** -na barra de menus do Visual Studio, escolha **Compilar** > **Compilar solução**.
-2. **Inicie seu aplicativo** -na barra de menus, escolha **depurar** > **Iniciar Depuração** ou pressione <kbd>F5</kbd>.
-3. **Iniciar reconhecimento** -ele solicitará que você fale uma frase em inglês. Sua fala é enviada ao serviço de fala, transcrita como texto e renderizada no console do.
+1. **Compile o código** - A partir da barra de menu sécpor do Estúdio Visual, escolha **Build** > **Build Solution**.
+2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug** > **Começar dedepuração** ou prima <kbd>F5</kbd>.
+3. **Comece a reconhecer** - Vai instá-lo a falar uma frase em inglês. O seu discurso é enviado para o serviço da Fala, transcrito como texto, e renderizado na consola.
 
 ## <a name="next-steps"></a>Passos seguintes
 

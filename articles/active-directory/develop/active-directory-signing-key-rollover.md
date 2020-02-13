@@ -12,18 +12,18 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d3994b56b55a7aac0ba3ab64d53b6436bc19c45b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f3585cfa7ea6f0d8afc61e899f9641d415a2e354
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698548"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161193"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Assinatura de capotamento de chave no Diretório Ativo do Azure
 Este artigo discute o que precisa de saber sobre as chaves públicas que são usadas no Azure Ative Directory (Azure AD) para assinar fichas de segurança. É importante notar que estas chaves rolam periodicamente e, em caso de emergência, podem ser imediatamente revestidas. Todas as aplicações que utilizem a AD Azure devem ser capazes de lidar programáticamente com o processo de capotamento da chave ou estabelecer um processo de capotamento manual periódico. Continuar a ler Para perceber como funcionam as chaves, como avaliar o impacto do capotamento na sua aplicação e como atualizar a sua aplicação ou estabelecer um processo de capotamento manual periódico para lidar com o capotamento da chave, se necessário.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Visão geral da assinatura de chaves em Azure AD
-A Azure AD utiliza criptografia de chave pública baseada nos padrões da indústria para estabelecer confiança entre si e as aplicações que a utilizam. Em termos práticos, isto funciona da seguinte forma: a Azure AD usa uma chave de assinatura que consiste num par de chaves público sacana e privado. Quando um utilizador insere uma aplicação que utiliza a AD Azure para autenticação, a Azure AD cria um sinal de segurança que contém informações sobre o utilizador. Esta ficha é assinada pela Azure AD utilizando a sua chave privada antes de ser devolvida ao pedido. Para verificar se o símbolo é válido e originado a partir de Azure AD, a aplicação deve validar a assinatura do token utilizando a chave pública exposta pela Azure AD que está contida no documento de [descoberta openID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do inquilino ou no documento de [metadados](azure-ad-federation-metadata.md)da federação SAML/WS-Fed .
+A Azure AD utiliza criptografia de chave pública baseada nos padrões da indústria para estabelecer confiança entre si e as aplicações que a utilizam. Em termos práticos, isto funciona da seguinte forma: a Azure AD usa uma chave de assinatura que consiste num par de chaves público sacana e privado. Quando um utilizador insere uma aplicação que utiliza a AD Azure para autenticação, a Azure AD cria um sinal de segurança que contém informações sobre o utilizador. Esta ficha é assinada pela Azure AD utilizando a sua chave privada antes de ser devolvida ao pedido. Para verificar se o símbolo é válido e originado a partir de Azure AD, a aplicação deve validar a assinatura do token utilizando a chave pública exposta pela Azure AD que está contida no documento de [descoberta openID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do inquilino ou no documento de [metadados](../azuread-dev/azure-ad-federation-metadata.md)da federação SAML/WS-Fed .
 
 Para efeitos de segurança, a chave de assinatura da Azure AD rola periodicamente e, em caso de emergência, pode ser imediatamente rerolada. Qualquer aplicação que se integre com a AD Azure deve estar preparada para lidar com um evento de capotamento chave, independentemente da frequência com que possa ocorrer. Se não o fizer, e a sua aplicação tentar utilizar uma chave caducada para verificar a assinatura num símbolo, o pedido de inscrição falhará.
 
@@ -131,7 +131,7 @@ Se adicionou a autenticação à sua solução manualmente, a sua aplicação po
 ### <a name="vs2013"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2013
 Se a sua aplicação foi construída utilizando um modelo de aplicação web no Visual Studio 2013 e selecionou **Contas Organizacionais** do menu **'Change Authentication',** já tem a lógica necessária para lidar automaticamente com o capotamento da chave. Esta lógica armazena o identificador único da sua organização e a informação chave de assinatura em duas tabelas de bases de dados associadas ao projeto. Pode encontrar a cadeia de ligação para a base de dados no ficheiro Web.config do projeto.
 
-Se adicionou a autenticação à sua solução manualmente, a sua aplicação pode não ter a lógica de capotamento necessária. Terá de escrever pessoalmente ou, siga os passos no [aplicações Web / APIs utilizar quaisquer outras bibliotecas de ou implementar manualmente a qualquer um dos protocolos suportados](#other).
+Se adicionou a autenticação à sua solução manualmente, a sua aplicação pode não ter a lógica de capotamento necessária. Você mesmo terá de escrevê-lo, ou seguir os passos em [aplicações Web /APIs usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos suportados.](#other). .
 
 Os seguintes passos irão ajudá-lo a verificar se a lógica está a funcionar corretamente na sua aplicação.
 
@@ -140,7 +140,7 @@ Os seguintes passos irão ajudá-lo a verificar se a lógica está a funcionar c
 3. Na tabela **ItsuingAuthorityKeys,** haverá pelo menos uma linha, o que corresponde ao valor de impressão digital da chave. Apague as linhas da mesa.
 4. Clique na tabela **dos Inquilinos** e, em seguida, clique em **Mostrar Dados**da Tabela .
 5. Na tabela dos **Inquilinos,** haverá pelo menos uma fila, o que corresponde a um identificador de inquilino de diretório único. Apague as linhas da mesa. Se não apagar as linhas na tabela **Tenants** e na tabela **ItsuingAuthorityKeys,** terá um erro no prazo de execução.
-6. Compile e execute a aplicação. Depois de ter iniciado sessão na sua conta, pode parar o pedido.
+6. Construa e execute a aplicação. Depois de ter iniciado sessão na sua conta, pode parar o pedido.
 7. Volte ao **Server Explorer** e veja os valores na tabela **ItsuingAuthorityKeys** e **Tenants.** Vai notar que foram automaticamente repovoados com as informações apropriadas do documento de metadados da federação.
 
 ### <a name="vs2013"></a>ApIs web protegendo recursos e criado com Visual Studio 2013
@@ -281,7 +281,7 @@ Siga os passos abaixo para verificar se a lógica de capotamento da chave está 
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. No **\<adicione impressão digital=">** definição, altere o valor da impressão digital substituindo qualquer personagem por outro. Guarde o ficheiro **Web.config**.
+2. No **\<adicione impressão digital=">** definição, altere o valor da impressão digital substituindo qualquer personagem por outro. Guarde o ficheiro **Web.config.**
 3. Construa a aplicação e, em seguida, executá-la. Se conseguir completar o processo de inscrição, a sua aplicação está a atualizar com sucesso a chave, baixando as informações necessárias a partir do documento de metadados da federação do seu diretório. Se tiver problemas de sessão, certifique-se de que as alterações na sua aplicação estão corretas, lendo o [Sign-On adicionando à sua aplicação web utilizando](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) o artigo da AD Azure, ou descarregando e inspecionando a seguinte amostra de código: [Aplicação multi-inquilino cloud para diretório ativo azure](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2008 ou 2010 e a Windows Identity Foundation (WIF) v1.0 para .NET 3.5

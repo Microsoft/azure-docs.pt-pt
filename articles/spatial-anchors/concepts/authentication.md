@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6149fa631633d05399568bd1ec797c5ee47d29a4
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 3de84e2d814acfca67bc722243a90fa41f6536e1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152606"
+ms.locfileid: "77161686"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização às Âncoras Espaciais Azure
 
@@ -92,7 +92,7 @@ Uma vez feito, o SDK tratará da troca da chave da conta por um token de acesso 
 
 ## <a name="azure-ad-user-authentication"></a>Autenticação do utilizador da AD Azure
 
-Para aplicações dirigidas aos utilizadores do Azure Ative Directory, a abordagem recomendada é utilizar um token Azure AD para o utilizador, que pode obter utilizando a biblioteca ADAL, conforme descrito na seguinte documentação: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview; ](../../active-directory/develop/v1-overview.md) deve seguir os passos listados em "Quick starts", que incluem:
+Para aplicações dirigidas aos utilizadores do Azure Ative Directory, a abordagem recomendada é utilizar um token Azure AD para o utilizador, que pode obter através da [biblioteca MSAL](../../active-directory/develop/msal-overview.md). Deve seguir os passos listados no [registo de uma aplicação quickstart](../../active-directory/develop/quickstart-register-app.md), que incluem:
 
 1. Configuração no portal Azure
     1.  Registe a sua candidatura em Azure AD como **aplicação nativa.** Como parte do registo, terá de determinar se a sua candidatura deve ou não ser multi-arrendatária e fornecer os URLs redirecionados permitidos para a sua aplicação.
@@ -118,7 +118,7 @@ Para aplicações dirigidas aos utilizadores do Azure Ative Directory, a abordag
         3.  Se a sua aplicação apoiar **todos os utilizadores da conta microsoft,** substitua este valor por **Common**
     3.  No seu pedido simbólico, desloque o **recurso** para "https://sts.mixedreality.azure.com". Este "recurso" indicará à Azure AD que a sua aplicação está a solicitar um sinal para o serviço Deâncoras Espaciais Azure.
 
-Com isso, a sua aplicação deverá poder obter a partir da ADAL um token AD Azure; pode definir o token Azure AD como a **autenticaçãoToken** no seu objeto config de sessão em nuvem.
+Com isso, a sua aplicação deverá poder obter a partir da MSAL um token Azure AD; pode definir o token Azure AD como a **autenticaçãoToken** no seu objeto config de sessão em nuvem.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -168,7 +168,7 @@ A opção recomendada para implementar aplicações que alavancam as Âncoras Es
 
 Aqui, assume-se que a sua aplicação utiliza o seu próprio mecanismo (por exemplo: conta Microsoft, PlayFab, Facebook, Google ID, nome de utilizador/palavra-passe personalizado, etc.) para autenticar o seu serviço de backend. Assim que os seus utilizadores forem autenticados no seu serviço backend, esse serviço pode recuperar um token Azure AD, trocá-lo por um sinal de acesso para Âncoras Espaciais Azure e devolvê-lo à sua aplicação de cliente.
 
-O token de acesso Azure AD é recuperado utilizando a biblioteca ADAL, conforme descrito na seguinte documentação: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview; ](../../active-directory/develop/v1-overview.md) deve seguir os passos listados em "Quick starts", que incluem:
+O token de acesso Azure AD é recuperado utilizando a [biblioteca MSAL](../../active-directory/develop/msal-overview.md). Deve seguir os passos listados no [registo de uma aplicação quickstart](../../active-directory/develop/quickstart-register-app.md), que incluem:
 
 1.  Configuração no portal Azure:
     1.  Registe a sua candidatura em Azure AD:

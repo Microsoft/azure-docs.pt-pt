@@ -64,7 +64,7 @@
   items:
     - name: Reposição personalizada de palavra-passe
       items:
-        - name: Implementar a reposição personalizada de palavras-passe
+        - name: Guia de implementação
           href: howto-sspr-deployment.md
         - name: Pré-registar dados de autenticação
           href: howto-sspr-authenticationdata.md
@@ -74,7 +74,7 @@
           href: howto-sspr-windows.md
     - name: MFA baseada na cloud
       items:
-        - name: Implementar o MFA baseado na cloud
+        - name: Guia de implementação
           href: howto-mfa-getstarted.md
         - name: MFA por utilizador
           href: howto-mfa-userstates.md

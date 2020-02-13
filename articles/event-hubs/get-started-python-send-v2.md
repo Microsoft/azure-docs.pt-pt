@@ -6,31 +6,27 @@ author: spelluru
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 01/30/2020
+ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: d977ae9ea8b78664ac1d3a318f58553da696c089
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 7c971dcac702318d15a27736828092e987468ca3
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906353"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162978"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Envie eventos ou receba eventos de centros de eventos utilizando Python (versão azure-eventhub 5)
-
-O Azure Event Hubs é uma plataforma de streaming de grandes dados e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os centros de eventos podem processar e armazenar eventos, dados ou telemetria que é produzido por software e dispositivos distribuídos. Os dados enviados para um centro de eventos podem ser transformados e armazenados utilizando qualquer fornecedor de análise em tempo real ou adaptadores de lotação/armazenamento. Para mais informações, consulte as funcionalidades do [Event Hubs](event-hubs-about.md) e [do Event Hubs.](event-hubs-features.md)
-
-Este quickstart descreve como criar aplicações Python que podem enviar eventos ou receber eventos a partir de um centro de eventos.
+Este quickstart mostra como enviar eventos e receber eventos de um hub de eventos usando o pacote **azure-eventhub versão 5** Python.
 
 > [!IMPORTANT]
-> Este guia de início rápido usa a versão 5 do SDK do Python de hubs de eventos do Azure. Para um início rápido que utiliza a versão 1 do Python SDK, consulte [este artigo](event-hubs-python-get-started-send.md). 
+> Este quickstart utiliza o mais recente pacote azure-eventhub versão 5. Para um início rápido que usa o antigo pacote azure-eventhub versão 1, consulte Enviar e receber eventos usando a [versão azure-eventhub 1](event-hubs-python-get-started-send.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](event-hubs-about.md) antes de fazer este quickstart. 
 
 Para concluir este guia de início rápido, você precisa dos seguintes pré-requisitos:
 
-- Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Um espaço de nome ative Event Hubs e centro de eventos. Para criá-las, siga as instruções na [Quickstart: Crie um centro de eventos utilizando o portal Azure](event-hubs-create.md). Grave os nomes do espaço de nome e do centro de eventos para usar mais tarde neste arranque rápido.
-- O nome da chave de acesso compartilhado e o valor da chave primária para seu namespace de hubs de eventos. Obtenha o nome e o valor da chave de acesso seguindo as instruções da [Get a event hubs connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). O nome da chave de acesso padrão é *RootManageSharedAccessKey*. Grave o nome-chave e o valor-chave principal para usar mais tarde neste arranque rápido.
+- **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
 - Python 2.7 ou 3.5 ou mais tarde, com PIP instalado e atualizado.
 - O pacote do Python para hubs de eventos. 
 
@@ -45,12 +41,13 @@ Para concluir este guia de início rápido, você precisa dos seguintes pré-req
     ```cmd
     pip install azure-eventhub-checkpointstoreblob-aio
     ```
+- **Crie um espaço de nome sinuoso do Event Hubs e um centro de eventos.** O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo.](event-hubs-create.md) Em seguida, obtenha a cadeia de **ligação para o espaço** de nome do Event Hubs seguindo as instruções do artigo: Obtenha a corda de [ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Usa a corda de ligação mais tarde neste arranque rápido.
 
 ## <a name="send-events"></a>Enviar eventos
 Nesta secção, você cria um roteiro Python para enviar eventos para o centro de eventos que criou anteriormente.
 
-1. Abra seu editor de Python favorito, como [Visual Studio Code](https://code.visualstudio.com/).
-2. Criar um script chamado *send.py*. Este guião envia um lote de eventos para o centro de eventos que criou anteriormente.
+1. Abra o seu editor favorito da Python, como [Visual Studio Code.](https://code.visualstudio.com/)
+2. Crie um guião chamado *send.py.* Este guião envia um lote de eventos para o centro de eventos que criou anteriormente.
 3. Colar o seguinte código em *send.py:*
 
     ```python
@@ -89,9 +86,9 @@ Este quickstart utiliza o armazenamento Azure Blob como uma loja de controlo. A 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Crie uma conta de armazenamento Azure e um recipiente de bolhas
 Crie uma conta de armazenamento Azure e um recipiente de bolhas, fazendo os seguintes passos:
 
-1. [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal)
-2. [Criar um contêiner de BLOBs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Obter a cadeia de conexão para a conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+1. [Criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)
+2. [Criar um recipiente de bolhas](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
 
 Certifique-se de que regista o nome da cadeia de ligação e do recipiente para posterior utilização no código de receção.
 
@@ -100,8 +97,8 @@ Certifique-se de que regista o nome da cadeia de ligação e do recipiente para 
 
 Nesta seção, você cria um script Python para receber eventos do hub de eventos:
 
-1. Abra seu editor de Python favorito, como [Visual Studio Code](https://code.visualstudio.com/).
-2. Criar um script chamado *recv.py*.
+1. Abra o seu editor favorito da Python, como [Visual Studio Code.](https://code.visualstudio.com/)
+2. Crie um guião chamado *recv.py.*
 3. Colar o seguinte código em *recv.py:*
 
     ```python

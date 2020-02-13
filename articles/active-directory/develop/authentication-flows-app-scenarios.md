@@ -1,239 +1,239 @@
 ---
-title: Os fluxos de autenticação da plataforma de identidade da Microsoft & cenários de aplicativo | Azure
-description: Saiba mais sobre fluxos de autenticação e cenários de aplicativos para a plataforma de identidade da Microsoft. Saiba mais sobre os diferentes tipos de aplicativos que podem autenticar identidades, adquirir tokens e chamar APIs protegidas.
+title: Fluxos de autenticação da plataforma de identidade da Microsoft e cenários de apps / Azure
+description: Conheça os fluxos de autenticação e cenários de aplicação para a plataforma de identidade da Microsoft. Conheça os diferentes tipos de aplicações que podem autenticar identidades, adquirir fichas e chamar APIs protegidos.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 2c13956fa84b0bdb1ff694878ff2994bee4b64c9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bdcc93fe84d2fded914f21dfa2a29d9e2a2ab449
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698293"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161363"
 ---
-# <a name="authentication-flows-and-application-scenarios"></a>Fluxos de autenticação e cenários de aplicativos
+# <a name="authentication-flows-and-application-scenarios"></a>Fluxos de autenticação e cenários de aplicação
 
-O ponto de extremidade da plataforma Microsoft Identity (v 2.0) dá suporte à autenticação para diferentes tipos de arquiteturas de aplicativo modernas. Todas as arquiteturas são baseadas nos protocolos padrão do setor [OAuth 2,0 e OpenID Connect](active-directory-v2-protocols.md).  Usando as [bibliotecas de autenticação](reference-v2-libraries.md), os aplicativos autenticam identidades e adquirem tokens para acessar APIs protegidas.
+A plataforma de identidade da Microsoft (v2.0) suporta a autenticação para diferentes tipos de arquiteturas de aplicações modernas. Todas as arquiteturas são baseadas nos protocolos padrão da indústria [OAuth 2.0 e OpenID Connect](active-directory-v2-protocols.md).  Utilizando as bibliotecas de [autenticação,](reference-v2-libraries.md)as aplicações autenticam identidades e adquirem fichas para aceder a APIs protegidas.
 
-Este artigo descreve os diferentes fluxos de autenticação e os cenários de aplicativo em que eles são usados. Este artigo também fornece listas de:
-- [Cenários de aplicativos e fluxos de autenticação com suporte](#scenarios-and-supported-authentication-flows).
-- [Cenários de aplicativos e plataformas e linguagens com suporte](#scenarios-and-supported-platforms-and-languages).
+Este artigo descreve os diferentes fluxos de autenticação e os cenários de aplicação em que são usados. Este artigo também fornece listas de:
+- [Cenários de aplicação e fluxos de autenticação suportados.](#scenarios-and-supported-authentication-flows)
+- [Cenários de aplicação e plataformas e idiomas suportados.](#scenarios-and-supported-platforms-and-languages)
 
-## <a name="application-categories"></a>Categorias de aplicativo
+## <a name="application-categories"></a>Categorias de candidaturas
 
-Os tokens podem ser adquiridos de vários tipos de aplicativos, incluindo:
+Os tokens podem ser adquiridos a partir de vários tipos de aplicações, incluindo:
 
-- Aplicações Web
-- Aplicações Móveis
-- Aplicativos para desktops
+- Web Apps
+- Aplicações móveis
+- Aplicativos de desktop
 - APIs da Web
 
-Eles também podem ser adquiridos de aplicativos em execução em dispositivos que não têm um navegador ou que estão em execução no IoT.
+Também podem ser adquiridos a partir de apps que executam dispositivos que não têm navegador ou que estão a funcionar no IoT.
 
-Os aplicativos podem ser categorizados como na lista a seguir:
+As candidaturas podem ser categorizadas como na seguinte lista:
 
-- [Recursos protegidos vs. aplicativos cliente](#protected-resources-vs-client-applications): alguns cenários são sobre a proteção de recursos, como aplicativos Web ou APIs Web. Outros cenários são sobre a aquisição de um token de segurança para chamar uma API Web protegida.
-- [Com usuários ou sem usuários](#with-users-or-without-users): alguns cenários envolvem um usuário conectado, mas outros, como cenários de daemon, não envolvem um usuário.
-- [Aplicativos cliente de página única, cliente público e confidencial](#single-page-public-client-and-confidential-client-applications): são três grandes categorias de tipos de aplicativos. Cada uma é usada com diferentes bibliotecas e objetos.
-- [Público-alvo](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): os fluxos de autenticação disponíveis diferem de acordo com o público-alvo. Alguns fluxos estão disponíveis apenas para contas corporativas ou de estudante. E alguns estão disponíveis para contas corporativas ou de estudante e para contas pessoais da Microsoft. O público permitido depende dos fluxos de autenticação.
-- [Fluxos OAuth 2,0 com suporte](#scenarios-and-supported-authentication-flows): os fluxos de autenticação são usados para implementar os cenários de aplicativo que estão solicitando tokens. Não há um mapeamento de um para um entre cenários de aplicativo e fluxos de autenticação.
-- [Plataformas com suporte](#scenarios-and-supported-platforms-and-languages): nem todos os cenários de aplicativo estão disponíveis para cada plataforma.
+- [Recursos protegidos vs. aplicações de clientes](#protected-resources-vs-client-applications): Alguns cenários são sobre a proteção de recursos como aplicações web ou APIs web. Outros cenários são sobre adquirir um símbolo de segurança para chamar uma API web protegida.
+- [Com utilizadores ou sem utilizadores](#with-users-or-without-users): Alguns cenários envolvem um utilizador inscrito, mas outros, como cenários de daemon, não envolvem um utilizador.
+- [Aplicações de cliente de página única, cliente público e clientes confidenciais](#single-page-public-client-and-confidential-client-applications): Estas são três grandes categorias de tipos de aplicações. Cada um é usado com diferentes bibliotecas e objetos.
+- [Audiência de entrada](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): Os fluxos de autenticação disponíveis diferem consoante o público de entrada. Alguns fluxos estão disponíveis apenas para contas de trabalho ou escolar. E alguns estão disponíveis tanto para contas de trabalho como de escola e para contas pessoais da Microsoft. O público permitido depende dos fluxos de autenticação.
+- [Fluxos OAuth 2.0 suportados](#scenarios-and-supported-authentication-flows): Os fluxos de autenticação são utilizados para implementar os cenários de aplicação que estão a solicitar fichas. Não existe um mapeamento um-para-um entre cenários de aplicação e fluxos de autenticação.
+- [Plataformas suportadas](#scenarios-and-supported-platforms-and-languages): Nem todos os cenários de aplicação estão disponíveis para todas as plataformas.
 
-### <a name="protected-resources-vs-client-applications"></a>Recursos protegidos versus aplicativos cliente
+### <a name="protected-resources-vs-client-applications"></a>Recursos protegidos vs. aplicações de clientes
 
 Os cenários de autenticação envolvem duas atividades:
 
-- **Adquirindo tokens de segurança para uma API Web protegida**: a Microsoft recomenda que você use [bibliotecas de autenticação](reference-v2-libraries.md#microsoft-supported-client-libraries) para adquirir tokens, especialmente a família de MSAL (biblioteca de autenticação da Microsoft).
-- **Proteger uma API da Web ou um aplicativo Web**: um desafio de proteger um recurso de aplicativo Web ou API da Web é validar o token de segurança. Em algumas plataformas, a Microsoft oferece [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Adquirir tokens**de segurança para uma Web API protegida : A Microsoft recomenda que utilize bibliotecas de [autenticação](reference-v2-libraries.md#microsoft-supported-client-libraries) para adquirir fichas, em particular a família Microsoft Authentication Library (MSAL).
+- **Proteger uma API web ou uma aplicação web**: Um dos desafios de proteger um recurso web API ou web app é validar o token de segurança. Em algumas plataformas, a Microsoft oferece [bibliotecas de middleware.](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries)
 
-### <a name="with-users-or-without-users"></a>Com usuários ou sem usuários
+### <a name="with-users-or-without-users"></a>Com utilizadores ou sem utilizadores
 
-A maioria dos cenários de autenticação adquire tokens em nome de usuários conectados.
+A maioria dos cenários de autenticação adquirem fichas em nome dos utilizadores inscritos.
 
-![Cenários com usuários](media/scenarios/scenarios-with-users.svg)
+![Cenários com utilizadores](media/scenarios/scenarios-with-users.svg)
 
-No entanto, também há cenários de daemon-aplicativo, nos quais os aplicativos adquirem tokens em nome de si mesmos sem usuário.
+No entanto, existem também cenários de aplicações daemon, em que as aplicações adquirem fichas em nome de si mesmos sem utilizador.
 
-![Cenários com aplicativos daemon](media/scenarios/daemon-app.svg)
+![Cenários com apps daemon](media/scenarios/daemon-app.svg)
 
-### <a name="single-page-public-client-and-confidential-client-applications"></a>Aplicativos cliente de página única, cliente público e confidencial
+### <a name="single-page-public-client-and-confidential-client-applications"></a>Aplicações de cliente de página única, cliente público e pedidos confidenciais de clientes
 
-Os tokens de segurança podem ser adquiridos de vários tipos de aplicativos. Esses aplicativos tendem a ser separados em três categorias:
+As fichas de segurança podem ser adquiridas a partir de vários tipos de aplicações. Estas aplicações tendem a ser separadas em três categorias:
 
-- **Aplicativos de página única**: também conhecidos como spas, são aplicativos Web nos quais os tokens são adquiridos de um aplicativo JavaScript ou TypeScript em execução no navegador. Muitos aplicativos modernos têm um front-end de aplicativo de página única que é escrito principalmente em JavaScript. O aplicativo geralmente usa uma estrutura como angular, reagir ou Vue. MSAL. js é a única biblioteca de autenticação da Microsoft que dá suporte a aplicativos de página única.
+- **Aplicações de página única**: Também conhecidas como SPAs, estas são aplicações web nas quais os tokens são adquiridos a partir de uma aplicação JavaScript ou TypeScript em execução no navegador. Muitas aplicações modernas têm uma primeira página de aplicação que está escrita principalmente no JavaScript. A aplicação usa frequentemente uma estrutura como Angular, Reagir ou Vue. MSAL.js é a única biblioteca de autenticação da Microsoft que suporta aplicações de uma página única.
 
-- **Aplicativos cliente públicos**: estes aplicativos sempre entram em usuários:
-  - Aplicativos da área de trabalho chamando APIs da Web em nome do usuário conectado
-  - Aplicações Móveis
-  - Aplicativos em execução em dispositivos que não têm um navegador, como aqueles em execução na iOT
+- **Aplicações**de clientes públicos : Estas aplicações assinam sempre nos utilizadores:
+  - Aplicativos de desktop que ligam para a web APIs em nome do utilizador inscrito
+  - Aplicações móveis
+  - Aplicativos em execução em dispositivos que não têm um navegador, como aqueles que estão em execução no iOT
 
-  Esses aplicativos são representados pela classe MSAL [PublicClientApplication](msal-client-applications.md) .
+  Estas aplicações são representadas pela classe MSAL [PublicClientApplication.](msal-client-applications.md)
 
-- **Aplicativos cliente confidenciais**:
-  - Aplicativos Web chamando uma API Web
-  - APIs da Web chamando uma API da Web
-  - Aplicativos daemon, mesmo quando implementados como um serviço de console como um daemon do Linux ou um serviço do Windows
+- **Aplicações confidenciais do cliente:**
+  - Aplicativos web chamando um API web
+  - Apis web chamando uma Web API
+  - Aplicativos Daemon, mesmo quando implementados como um serviço de consola como um daemon Linux ou um serviço Windows
 
-  Esses tipos de aplicativos usam a classe [ConfidentialClientApplication](msal-client-applications.md) .
+  Este tipo de aplicações utilizam a classe [ConfidentialClientApplication.](msal-client-applications.md)
 
 ## <a name="application-scenarios"></a>Cenários de aplicações
 
-O ponto de extremidade da plataforma de identidade da Microsoft dá suporte à autenticação para diferentes tipos de arquiteturas de aplicativo:
+O ponto final da plataforma de identidade da Microsoft suporta a autenticação para diferentes tipos de arquiteturas de aplicações:
 
 - Aplicações de página única
-- Aplicações Web
+- Web Apps
 - APIs da Web
-- Aplicações Móveis
+- Aplicações móveis
 - Aplicativos nativos
 - Aplicações daemon
 - Aplicativos do lado do servidor
 
-Os aplicativos usam os diferentes fluxos de autenticação para conectar usuários e obter tokens para chamar APIs protegidas.
+As aplicações utilizam os diferentes fluxos de autenticação para iniciar sessão nos utilizadores e obter fichas para chamadas de APIs protegidas.
 
-### <a name="a-single-page-application"></a>Um aplicativo de página única
+### <a name="a-single-page-application"></a>Uma aplicação de uma página única
 
-Muitos aplicativos Web modernos são criados como aplicativos de página única do lado do cliente escritos usando JavaScript ou uma estrutura SPA como angular, Vue. js e reagir. js. Esses aplicativos são executados em um navegador da Web. Suas características de autenticação diferem das de aplicativos Web tradicionais do lado do servidor. Usando a plataforma de identidade da Microsoft, os aplicativos de página única podem conectar usuários e obter tokens para acessar serviços de back-end ou APIs da Web.
+Muitas aplicações web modernas são construídas como aplicações de uma página única escritas usando JavaScript ou uma estrutura SPA como Angular, Vue.js e React.js. Estas aplicações são executadas num navegador web. As suas características de autenticação diferem das das aplicações web tradicionais do lado do servidor. Ao utilizar a plataforma de identidade da Microsoft, as aplicações de uma só página podem iniciar sessão nos utilizadores e obter fichas para aceder a serviços de back-end ou APIs web.
 
-![Um aplicativo de página única](media/scenarios/spa-app.svg)
+![Uma aplicação de uma página única](media/scenarios/spa-app.svg)
 
-Para obter mais informações, consulte [aplicativos de página única](scenario-spa-overview.md).
+Para mais informações, consulte [aplicações de página única](scenario-spa-overview.md).
 
-### <a name="a-web-app-that-is-signing-in-a-user"></a>Um aplicativo Web que está entrando em um usuário
+### <a name="a-web-app-that-is-signing-in-a-user"></a>Uma aplicação web que está assinando em um utilizador
 
-![Um aplicativo Web que assina um usuário](media/scenarios/scenario-webapp-signs-in-users.svg)
+![Uma aplicação web que assina em um utilizador](media/scenarios/scenario-webapp-signs-in-users.svg)
 
-Para proteger um aplicativo Web que está entrando em um usuário:
+Para proteger uma aplicação web que está a assinar num utilizador:
 
-- Se você desenvolver no .NET, use ASP.NET ou ASP.NET Core com o middleware ASP.NET Open ID Connect. A proteção de um recurso envolve validar o token de segurança, que é feito pela biblioteca [de extensões IdentityModel para .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) e não por bibliotecas MSAL.
+- Se desenvolver em .NET, utilize ASP.NET ou ASP.NET Core com o ASP.NET Open ID Connect. Proteger um recurso implica validar o símbolo de segurança, que é feito pelas [extensões do IdentityModel para](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) a biblioteca .NET e não bibliotecas MSAL.
 
-- Se você desenvolver no node. js, use o Passport. js.
+- Se desenvolver no Node.js, use Passport.js.
 
-Para obter mais informações, consulte [aplicativo Web que entra em usuários](scenario-web-app-sign-user-overview.md).
+Para mais informações, consulte a [aplicação Web que assina nos utilizadores](scenario-web-app-sign-user-overview.md).
 
-### <a name="a-web-app-that-signs-in-a-user-and-calling-a-web-api-on-behalf-of-the-user"></a>Um aplicativo Web que assina um usuário e chama uma API da Web em nome do usuário
+### <a name="a-web-app-that-signs-in-a-user-and-calling-a-web-api-on-behalf-of-the-user"></a>Uma aplicação web que assina num utilizador e chama uma API web em nome do utilizador
 
-![Um aplicativo Web chamando APIs Web](media/scenarios/web-app.svg)
+![Uma aplicação web chamando APIs web](media/scenarios/web-app.svg)
 
-Para chamar uma API da Web de um aplicativo Web em nome de um usuário, use a classe MSAL **ConfidentialClientApplication** . Você usa o fluxo de código de autorização e armazena os tokens adquiridos no cache de token. Quando necessário, o MSAL atualiza os tokens e o controlador adquire silenciosamente os tokens do cache.
+Para ligar para uma Web API a partir de uma aplicação web em nome de um utilizador, utilize a classe MSAL **ConfidentialClientApplication.** Utiliza o fluxo de código de autorização e armazena as fichas adquiridas na cache simbólica. Quando necessário, a MSAL refresca tokens e o controlador adquire silenciosamente tokens da cache.
 
-Para obter mais informações, consulte [um aplicativo Web chamando APIs da Web](scenario-web-app-call-api-overview.md).
+Para mais informações, consulte [Uma aplicação web que chama APIs web](scenario-web-app-call-api-overview.md).
 
-### <a name="a-desktop-app-calling-a-web-api-on-behalf-of-a-signed-in-user"></a>Um aplicativo de desktop chamando uma API da Web em nome de um usuário conectado
+### <a name="a-desktop-app-calling-a-web-api-on-behalf-of-a-signed-in-user"></a>Uma aplicação de desktop chamando uma API web em nome de um utilizador inscrito
 
-Para um aplicativo de desktop chamar uma API Web que conecta usuários, use os métodos de aquisição de token interativo da classe MSAL **PublicClientApplication** . Com esses métodos interativos, você pode controlar a experiência de interface do usuário de entrada. O MSAL usa um navegador da Web para essa interação.
+Para uma aplicação de desktop para chamar uma API web que assina nos utilizadores, utilize os métodos interativos de aquisição de tokens da classe MSAL **PublicClientApplication.** Com estes métodos interativos, pode controlar a experiência de ui de inscrição. A MSAL utiliza um navegador web para esta interação.
 
-![Um aplicativo de desktop chamando uma API Web](media/scenarios/desktop-app.svg)
+![Uma aplicação de desktop chamando uma Web API](media/scenarios/desktop-app.svg)
 
-Há outra possibilidade de aplicativos hospedados no Windows em computadores ingressados em um domínio do Windows ou por Azure Active Directory (Azure AD). Esses aplicativos podem adquirir um token silenciosamente usando a [autenticação integrada do Windows](https://aka.ms/msal-net-iwa).
+Existe outra possibilidade de aplicações hospedadas no Windows em computadores que se juntam a um domínio Windows ou ao Azure Ative Directory (Azure AD). Estas aplicações podem adquirir silenciosamente um símbolo utilizando a [Autenticação Integrada do Windows.](https://aka.ms/msal-net-iwa)
 
-Os aplicativos em execução em um dispositivo sem um navegador ainda podem chamar uma API em nome de um usuário. Para autenticar, o usuário deve entrar em outro dispositivo que tenha um navegador da Web. Este cenário requer que você use o [fluxo de código do dispositivo](https://aka.ms/msal-net-device-code-flow).
+As aplicações que estão a funcionar num dispositivo sem um browser ainda podem chamar uma API em nome de um utilizador. Para autenticar, o utilizador deve iniciar sessão noutro dispositivo que tenha um navegador web. Este cenário requer que utilize o fluxo do Código do [Dispositivo](https://aka.ms/msal-net-device-code-flow).
 
-![Fluxo de código do dispositivo](media/scenarios/device-code-flow-app.svg)
+![Fluxo de código de dispositivo](media/scenarios/device-code-flow-app.svg)
 
-Embora não recomendemos que você o use, o [fluxo de nome de usuário/senha](https://aka.ms/msal-net-up) está disponível em aplicativos cliente públicos. Esse fluxo ainda é necessário em alguns cenários, como DevOps.
+Embora não o recomendemos, o [fluxo username/password](https://aka.ms/msal-net-up) está disponível nas aplicações do cliente público. Este fluxo ainda é necessário em alguns cenários como DevOps.
 
-Mas o uso desse fluxo impõe restrições em seus aplicativos. Por exemplo, os aplicativos que usam esse fluxo não podem entrar em um usuário que precise executar a autenticação multifator ou o acesso condicional. Seus aplicativos também não se beneficiam do logon único.
+Mas usar este fluxo impõe restrições às suas aplicações. Por exemplo, as aplicações que utilizam este fluxo não podem inscrever-se num utilizador que precisa de realizar a autenticação de vários fatores ou acesso condicional. As suas candidaturas também não beneficiam de um único sinal.
 
-A autenticação com o fluxo de nome de usuário/senha vai contra os princípios de autenticação moderna e é fornecida somente por motivos herdados.
+A autenticação com o fluxo username/password vai contra os princípios da autenticação moderna e é fornecida apenas por razões antigas.
 
-Em aplicativos de desktop, se você quiser que o cache de token seja persistente, você deve [Personalizar a serialização de cache de token](https://aka.ms/msal-net-token-cache-serialization). Ao implementar a [serialização de cache de token duplo](https://aka.ms/msal-net-dual-cache-serialization), você pode usar caches de token compatíveis com versões anteriores e de encaminhamento com gerações antigas de bibliotecas de autenticação. Bibliotecas específicas incluem biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) versão 3 e versão 4.
+Em aplicações de ambiente de trabalho, se quiser que a cache simbólica seja persistente, deve [personalizar a serialização da cache simbólica.](https://aka.ms/msal-net-token-cache-serialization) Ao implementar a serialização de cache de [duplo token,](https://aka.ms/msal-net-dual-cache-serialization)pode utilizar caches simbólicos compatíveis para trás e compatíveis com a frente com gerações anteriores de bibliotecas de autenticação. Bibliotecas específicas incluem Biblioteca de Autenticação AD Azure para a versão 3 (ADAL.NET) e versão 4.
 
-Para obter mais informações, consulte [aplicativo de área de trabalho que chama APIs da Web](scenario-desktop-overview.md).
+Para mais informações, consulte a [aplicação Desktop que chama APIs web](scenario-desktop-overview.md).
 
-### <a name="a-mobile-app-calling-a-web-api-on-behalf-of-an-interactive-user"></a>Um aplicativo móvel chamando uma API da Web em nome de um usuário interativo
+### <a name="a-mobile-app-calling-a-web-api-on-behalf-of-an-interactive-user"></a>Uma aplicação móvel que chama uma API web em nome de um utilizador interativo
 
-Semelhante a um aplicativo de área de trabalho, um aplicativo móvel chama os métodos de aquisição de token interativo da classe MSAL **PublicClientApplication** para adquirir um token para chamar uma API da Web.
+Semelhante a uma aplicação de desktop, uma aplicação móvel chama os métodos interativos de aquisição de tokens da classe MSAL **PublicClientApplication** para adquirir um símbolo para chamar uma API web.
 
-![Um aplicativo móvel chamando uma API Web](media/scenarios/mobile-app.svg)
+![Uma aplicação móvel chamando uma Web API](media/scenarios/mobile-app.svg)
 
-MSAL iOS e MSAL Android usam o navegador da Web do sistema por padrão. No entanto, você pode direcioná-los para usar a exibição da Web inserida. Há especificidades que dependem da plataforma móvel: Plataforma Universal do Windows (UWP), iOS ou Android.
+MSAL iOS e MSAL Android usam o navegador web do sistema por padrão. No entanto, pode direcioná-los para a utilização da Web View incorporada. Existem especificidades que dependem da plataforma móvel: Universal Windows Platform (UWP), iOS ou Android.
 
-Alguns cenários, como aqueles que envolvem o acesso condicional relacionado a uma ID de dispositivo ou um registro de dispositivo, exigem que um [agente](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) seja instalado no dispositivo. Exemplos de agentes são o Microsoft Portal da Empresa no Android e o Microsoft Authenticator no Android e no iOS. Além disso, o MSAL agora pode interagir com os agentes.
+Alguns cenários, como os que envolvem acesso condicional relacionadocom um ID de dispositivo ou uma inscrição de dispositivo, exigem que um [corretor](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) seja instalado no dispositivo. Exemplos de corretores são o Portal da Microsoft Company no Android e Microsoft Authenticator no Android e iOS. Além disso, a MSAL pode agora interagir com corretores.
 
 > [!NOTE]
-> Seu aplicativo móvel que usa MSAL. iOS, MSAL. O Android ou o MSAL.NET no Xamarin podem ter políticas de proteção de aplicativo aplicadas a ele. Por exemplo, as políticas podem impedir que um usuário Copie texto protegido. O aplicativo móvel é [gerenciado pelo Intune](https://docs.microsoft.com/intune/app-sdk) e reconhecido pelo Intune como um aplicativo gerenciado. O [SDK de aplicativos do Intune](https://docs.microsoft.com/intune/app-sdk-get-started) é separado das bibliotecas MSAL e interage com o Azure ad por conta própria.
+> A sua aplicação móvel que utiliza MSAL.iOS, MSAL. Android, ou MSAL.NET em Xamarin pode ter políticas de proteção de aplicações aplicadas ao mesmo. Por exemplo, as políticas podem impedir um utilizador de copiar texto protegido. A aplicação móvel é [gerida pela Intune](https://docs.microsoft.com/intune/app-sdk) e reconhecida pela Intune como uma aplicação gerida. O [Intune App SDK](https://docs.microsoft.com/intune/app-sdk-get-started) é separado das bibliotecas MSAL e interage com a Azure AD por si só.
 
-Para obter mais informações, consulte [aplicativo móvel que chama APIs da Web](scenario-mobile-overview.md).
+Para mais informações, consulte a [aplicação Mobile que liga para a web APIs](scenario-mobile-overview.md).
 
-### <a name="a-protected-web-api"></a>Uma API Web protegida
+### <a name="a-protected-web-api"></a>Uma API web protegida
 
-Você pode usar o ponto de extremidade da plataforma de identidade da Microsoft para proteger serviços Web como a API Web RESTful do seu aplicativo. Uma API Web protegida é chamada com um token de acesso para proteger os dados da API e autenticar solicitações de entrada. O chamador de uma API da Web acrescenta um token de acesso no cabeçalho de autorização de uma solicitação HTTP.
+Pode utilizar o ponto final da Plataforma de Identidade da Microsoft para garantir serviços web como a API web RESTful da sua aplicação. Uma API web protegida é chamada com um sinal de acesso para proteger os dados da API e autenticar pedidos de entrada. O autor de uma API web anexa um sinal de acesso no cabeçalho de autorização de um pedido HTTP.
 
-Se você quiser proteger sua API Web do ASP.NET ou ASP.NET Core, será necessário validar o token de acesso. Para essa validação, você usa o middleware JWT ASP.NET. A validação é feita pelas [extensões IdentityModel para a biblioteca .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) e não por MSAL.net.
+Se quiser proteger o seu ASP.NET ou ASP.NET Core Web API, tem de validar o token de acesso. Para esta validação, utiliza o ASP.NET jWT middleware. A validação é feita pelas [extensões Do IdentityModel para](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) a biblioteca .NET e não por MSAL.NET.
 
-Para obter mais informações, consulte [Protected Web API](scenario-protected-web-api-overview.md).
+Para mais informações, consulte [API da web protegida](scenario-protected-web-api-overview.md).
 
-### <a name="a-web-api-calling-another-web-api-on-behalf-of-a-user"></a>Uma API Web que chama outra API da Web em nome de um usuário
+### <a name="a-web-api-calling-another-web-api-on-behalf-of-a-user"></a>Uma API web chamando outra Web API em nome de um utilizador
 
-Para seu ASP.NET ou ASP.NET Core API da Web protegida chamar outra API da Web em nome de um usuário, seu aplicativo precisa adquirir um token para a API da Web downstream. Ele faz isso chamando o método [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) da classe **ConfidentialClientApplication** . Essas chamadas também são denominadas chamadas serviço a serviços. As APIs da Web que chamam outras APIs da Web precisam fornecer serialização de cache Personalizada.
+Para que a sua ASP.NET ou ASP.NET Core a Web API protegida para ligar para outra Web API em nome de um utilizador, a sua aplicação precisa de adquirir um símbolo para a Web API a jusante. Fá-lo chamando o método [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) da classe **ConfidentialClientApplication.** Estas chamadas também são chamadas de serviço a serviço. As APIs web que chamam outras APIs web precisam fornecer serialização de cache personalizada.
 
-  ![Uma API Web chamando outra API Web](media/scenarios/web-api.svg)
+  ![Um API web chamando outra Web API](media/scenarios/web-api.svg)
 
-Para obter mais informações, consulte [API Web que chama APIs da Web](scenario-web-api-call-api-overview.md).
+Para mais informações, consulte [a Web API que chama APIs web](scenario-web-api-call-api-overview.md).
 
-### <a name="a-daemon-app-calling-a-web-api-in-the-daemons-name"></a>Um aplicativo daemon chamando uma API Web no nome do daemon
+### <a name="a-daemon-app-calling-a-web-api-in-the-daemons-name"></a>Uma aplicação daemon chamando uma API web em nome do daemon
 
-Aplicativos que têm processos de execução longa ou que operam sem interação do usuário também precisam de uma maneira de acessar APIs da Web seguras. Esse aplicativo pode autenticar e obter tokens usando a identidade do aplicativo em vez da identidade delegada de um usuário. O aplicativo comprova sua identidade usando um certificado ou segredo do cliente.
+As aplicações que tenham processos de longo prazo ou que funcionem sem interação do utilizador também precisam de uma forma de aceder a APIs web seguras. Tal aplicação pode autenticar e obter fichas usando a identidade da aplicação em vez da identidade delegada de um utilizador. A aplicação prova a sua identidade utilizando um segredo ou certificado de cliente.
 
-Você pode escrever esses aplicativos de daemon que adquirem um token para o aplicativo de chamada usando os métodos de aquisição de [credenciais de cliente](https://aka.ms/msal-net-client-credentials) da classe MSAL **ConfidentialClientApplication** . Esses métodos exigem que o aplicativo de chamada tenha registrado um segredo com o Azure AD. Em seguida, o aplicativo compartilha o segredo com o daemon chamado. Exemplos desses segredos incluem senhas de aplicativo, declaração de certificado ou asserção de cliente.
+Pode escrever tais aplicações daemon que adquirem um símbolo para a aplicação de chamadas utilizando os métodos de aquisição de [credenciais](https://aka.ms/msal-net-client-credentials) de cliente da classe MSAL **ConfidentialClientApplication.** Estes métodos exigem que a aplicação de chamadas tenha registado um segredo com a Azure AD. A aplicação partilha então o segredo com o chamado daemon. Exemplos de tais segredos incluem senhas de aplicação, afirmação de certificado ou afirmação do cliente.
 
-![Um aplicativo daemon chamado por outros aplicativos e APIs](media/scenarios/daemon-app.svg)
+![Uma aplicação daemon chamada por outras apps e APIs](media/scenarios/daemon-app.svg)
 
-Para obter mais informações, consulte [daemon Application que chama APIs da Web](scenario-daemon-overview.md).
+Para mais informações, consulte a [aplicação Daemon que chama APIs web](scenario-daemon-overview.md).
 
-## <a name="scenarios-and-supported-authentication-flows"></a>Cenários e fluxos de autenticação com suporte
+## <a name="scenarios-and-supported-authentication-flows"></a>Cenários e fluxos de autenticação suportados
 
-Os cenários que envolvem a aquisição de tokens também são mapeados para os fluxos de autenticação do OAuth 2,0, conforme detalhado nos [protocolos da plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
+Cenários que envolvem a aquisição de fichas também mapeiam para os fluxos de autenticação OAuth 2.0, conforme detalhado nos protocolos da [plataforma de identidade microsoft.](active-directory-v2-protocols.md)
 
 <table>
  <thead>
-  <tr><th>Cenário</th> <th>Orientação detalhada do cenário</th> <th>Fluxo e concessão do OAuth 2,0</th> <th>Audiência</th></tr>
+  <tr><th>Cenário</th> <th>Cenário detalhado walk-through</th> <th>OAuth 2.0 fluxo e concessão</th> <th>Audiência</th></tr>
  </thead>
  <tbody>
   <tr>
    <td><a href="scenario-spa-overview.md"><img alt="Single-Page App" src="media/scenarios/spa-app.svg"></a></td>
    <td><a href="scenario-spa-overview.md">Aplicação de página única</a></td>
-   <td><a href="v2-oauth2-implicit-grant-flow.md">Localiza</a></td>
-   <td>Contas corporativas ou de estudante, contas pessoais e Microsoft Azure Active Directory B2C (Azure AD B2C)</td>
+   <td><a href="v2-oauth2-implicit-grant-flow.md">Implícito</a></td>
+   <td>Contas de trabalho ou escola, contas pessoais e Microsoft Azure Ative Directory B2C (Azure AD B2C)</td>
  </tr>
 
   <tr>
    <td><a href="scenario-web-app-sign-user-overview.md"><img alt="Web App that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
-   <td><a href="scenario-web-app-sign-user-overview.md">Um aplicativo Web que assina usuários</a></td>
-   <td><a href="v2-oauth2-auth-code-flow.md">Código de autorização</a></td>
-   <td>Contas corporativas ou de estudante, contas pessoais e Azure AD B2C</td>
+   <td><a href="scenario-web-app-sign-user-overview.md">Uma aplicação web que assina nos utilizadores</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">Código de Autorização</a></td>
+   <td>Trabalho ou contas escolares, contas pessoais e Azure AD B2C</td>
  </tr>
 
   <tr>
    <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web App that signs in users" src="media/scenarios/web-app.svg"></a></td>
-   <td><a href="scenario-web-app-call-api-overview.md">Um aplicativo Web que chama APIs da Web</a></td>
-   <td><a href="v2-oauth2-auth-code-flow.md">Código de autorização</a></td>
-   <td>Contas corporativas ou de estudante, contas pessoais e Azure AD B2C</td>
+   <td><a href="scenario-web-app-call-api-overview.md">Uma aplicação web que chama APIs web</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">Código de Autorização</a></td>
+   <td>Trabalho ou contas escolares, contas pessoais e Azure AD B2C</td>
  </tr>
 
   <tr>
    <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
-   <td rowspan="4"><a href="scenario-desktop-overview.md">Um aplicativo de desktop que chama APIs da Web</a></td>
-   <td>Interativo usando <a href="v2-oauth2-auth-code-flow.md">código de autorização</a> com PKCE</td>
-   <td>Contas corporativas ou de estudante, contas pessoais e Azure AD B2C</td>
+   <td rowspan="4"><a href="scenario-desktop-overview.md">Uma aplicação de desktop que chama APIs web</a></td>
+   <td>Interativo através do Código de <a href="v2-oauth2-auth-code-flow.md">Autorização</a> com PKCE</td>
+   <td>Trabalho ou contas escolares, contas pessoais e Azure AD B2C</td>
  </tr>
 
   <tr>
-   <td>Autenticação integrada do Windows</td>
+   <td>Windows Auth integrado</td>
    <td>Contas escolares ou profissionais</td>
  </tr>
 
   <tr>
-   <td><a href="v2-oauth-ropc.md">Senha do proprietário do recurso</a></td>
-   <td>Contas corporativas ou de estudante e Azure AD B2C</td>
+   <td><a href="v2-oauth-ropc.md">Palavra-passe do proprietário de recursos</a></td>
+   <td>Trabalho ou contas escolares e Azure AD B2C</td>
  </tr>
 
   <tr>
@@ -244,36 +244,36 @@ Os cenários que envolvem a aquisição de tokens também são mapeados para os 
 
  <tr>
    <td rowspan="2"><a href="scenario-mobile-overview.md"><img alt="Mobile app that calls web APIs" src="media/scenarios/mobile-app.svg"></a></td>
-   <td rowspan="2"><a href="scenario-mobile-overview.md">Um aplicativo móvel que chama APIs da Web</a></td>
-   <td>Interativo usando <a href="v2-oauth2-auth-code-flow.md">código de autorização</a> com PKCE</td>
-   <td>Contas corporativas ou de estudante, contas pessoais e Azure AD B2C</td>
+   <td rowspan="2"><a href="scenario-mobile-overview.md">Uma aplicação móvel que chama APIs web</a></td>
+   <td>Interativo através do Código de <a href="v2-oauth2-auth-code-flow.md">Autorização</a> com PKCE</td>
+   <td>Trabalho ou contas escolares, contas pessoais e Azure AD B2C</td>
  </tr>
 
   <tr>
-   <td><a href="v2-oauth-ropc.md">Senha do proprietário do recurso</a></td>
-   <td>Contas corporativas ou de estudante e Azure AD B2C</td>
+   <td><a href="v2-oauth-ropc.md">Palavra-passe do proprietário de recursos</a></td>
+   <td>Trabalho ou contas escolares e Azure AD B2C</td>
  </tr>
 
   <tr>
    <td><a href="scenario-daemon-overview.md"><img alt="Daemon app that calls web APIs" src="media/scenarios/daemon-app.svg"></a></td>
-   <td><a href="scenario-daemon-overview.md">Um aplicativo daemon que chama APIs da Web</a></td>
+   <td><a href="scenario-daemon-overview.md">Uma aplicação daemon que chama APIs web</a></td>
    <td><a href="v2-oauth2-client-creds-grant-flow.md">Credenciais de cliente</a></td>
-   <td>Permissões somente de aplicativo sem usuário e usadas somente em organizações do Azure AD</td>
+   <td>Permissões apenas com aplicações sem utilizador e utilizadas apenas em organizações da AD Azure</td>
  </tr>
 
   <tr>
    <td><a href="scenario-web-api-call-api-overview.md"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
-   <td><a href="scenario-web-api-call-api-overview.md">Uma API Web que chama APIs da Web</a></td>
+   <td><a href="scenario-web-api-call-api-overview.md">Um API web que chama APIs web</a></td>
    <td><a href="v2-oauth2-on-behalf-of-flow.md">Em nome de</a></td>
-   <td>Contas corporativas ou de estudante e contas pessoais</td>
+   <td>Trabalho ou contas escolares e contas pessoais</td>
  </tr>
 
  </tbody>
 </table>
 
-## <a name="scenarios-and-supported-platforms-and-languages"></a>Cenários e plataformas com suporte e linguagens
+## <a name="scenarios-and-supported-platforms-and-languages"></a>Cenários e plataformas e línguas apoiadas
 
-As bibliotecas de autenticação da Microsoft dão suporte a várias plataformas:
+As bibliotecas de autenticação da Microsoft suportam várias plataformas:
 
 - Javascript
 - .NET Framework
@@ -281,27 +281,27 @@ As bibliotecas de autenticação da Microsoft dão suporte a várias plataformas
 - Windows 10/UWP
 - Xamarin.iOS
 - Xamarin.Android
-- iOS Nativo
+- IOS nativo
 - macOS
 - Android nativo
 - Java
 - Python
 
-Você também pode usar várias linguagens para compilar seus aplicativos. Observe que alguns tipos de aplicativos não estão disponíveis em todas as plataformas.
+Também pode usar várias línguas para construir as suas aplicações. Note que alguns tipos de aplicações não estão disponíveis em todas as plataformas.
 
-Na coluna Windows da tabela a seguir, cada vez que o .NET Core é mencionado, .NET Framework também é possível. O último é omitido para evitar a aglomeração da tabela.
+Na coluna Windows da tabela seguinte, cada vez que é mencionado .NET Core, .NET Framework também é possível. Este último é omitido para evitar desatar a mesa.
 
 |Cenário  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|
-| [Aplicação de página única](scenario-spa-overview.md) <br/>[![aplicativo de página única](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
-| [Aplicativo Web que assina usuários](scenario-web-app-sign-user-overview.md) <br/>[![aplicativo Web que faz logon de usuários](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
-| [Aplicativo Web que chama APIs da Web](scenario-web-app-call-api-overview.md) <br/> <br/>[![aplicativo Web que chama APIs da Web](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python
-| [Aplicação de ambiente de trabalho que chama APIs Web](scenario-desktop-overview.md) <br/> <br/>[![aplicativo de área de trabalho que chama APIs da web](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![fluxo de código do dispositivo](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> ![iOS/objetivo C ou Swift](media/sample-v2-code/small_logo_iOS.png) MSAL. ObjC |
-| [Aplicativo móvel que chama APIs da Web](scenario-mobile-overview.md) <br/> [![aplicativo móvel que chama APIs da Web](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS/objetivo C ou Swift](media/sample-v2-code/small_logo_iOS.png) MSAL. ObjC | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL. Android
-| [Aplicativo daemon](scenario-daemon-overview.md) <br/> [![aplicativo daemon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
-| [API Web que chama APIs da Web](scenario-web-api-call-api-overview.md) <br/><br/> [![API Web que chama APIs da Web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
+| [Aplicação de página única](scenario-spa-overview.md) <br/>[![app de página única](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [Web App que assina nos utilizadores](scenario-web-app-sign-user-overview.md) <br/>[![Web App que inscreve utilizadores](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>Núcleo de ASP.NET | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>Núcleo de ASP.NET | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>Núcleo de ASP.NET
+| [Web App que chama APIs web](scenario-web-app-call-api-overview.md) <br/> <br/>[![Web App que chama APIs web](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python| ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python| ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python
+| [Aplicação de ambiente de trabalho que chama APIs Web](scenario-desktop-overview.md) <br/> <br/>[![aplicação desktop que chama a web APIs](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![código de fluxo de código](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> ![iOS / Objetivo C ou rápido](media/sample-v2-code/small_logo_iOS.png) MSAL.objc |
+| [Aplicação móvel que chama APIs web](scenario-mobile-overview.md) <br/> [![aplicação móvel que chama APIs web](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS / Objetivo C ou rápido](media/sample-v2-code/small_logo_iOS.png) MSAL.objc | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL. Android
+| [App Daemon](scenario-daemon-overview.md) <br/> [app ![Daemon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
+| [Web API que chama APIs web](scenario-web-api-call-api-overview.md) <br/><br/> [![Web API que chama APIs web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
-Consulte também [bibliotecas com suporte da Microsoft por sistema operacional/idioma](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
+Consulte também [bibliotecas suportadas pela Microsoft por OS/idioma](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre [noções básicas de autenticação](authentication-scenarios.md) e [tokens de acesso](access-tokens.md).
+Saiba mais sobre os [fundamentos de autenticação](authentication-scenarios.md) e os [tokens](access-tokens.md)de acesso.

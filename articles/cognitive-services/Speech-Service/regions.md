@@ -1,7 +1,7 @@
 ---
-title: Regiões-serviço de fala
+title: Regiões - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Uma lista de regiões e pontos de extremidade disponíveis para o serviço de fala, incluindo conversão de fala em texto, texto em fala e tradução de fala.
+description: Uma lista das regiões disponíveis e pontos finais para o serviço da Fala, incluindo o discurso a texto, o texto-a-fala e a tradução da fala.
 services: cognitive-services
 author: mahilleb-msft
 manager: nitinme
@@ -11,56 +11,43 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 409ce8b904997f2ab75f70b2138ec5b1e70a0e69
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f1379202fc59e9cca7a3543be201f8ebff276bef
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816661"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168365"
 ---
-# <a name="speech-service-supported-regions"></a>Regiões com suporte do serviço de fala
+# <a name="speech-service-supported-regions"></a>Serviço de fala apoiado regiões
 
 O serviço de voz permite que seu aplicativo converter áudio em texto, efetuar a tradução de voz e converter texto em voz. O serviço está disponível em várias regiões com pontos de extremidade exclusivos para o SDK de voz e REST APIs.
 
-Certifique-se de que use o ponto final que corresponde à região para a sua subscrição.
+O portal Speech para realizar configurações personalizadas para a sua experiência de fala para todas as regiões está disponível aqui: https://speech.microsoft.com
 
-## <a name="speech-sdk"></a>SDK de Voz
+Para invocações do seu serviço de Discurso, certifique-se de que a chamada corresponde à região para a sua subscrição.
 
-No [SDK de fala](speech-sdk.md), as regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` no SDK C#de fala para).
+## <a name="speech-sdk"></a>API de Voz
 
-### <a name="speech-to-text-text-to-speech-and-translation"></a>Conversão de fala em texto, texto em fala e tradução
+No [SDK](speech-sdk.md)do Discurso, as regiões são especificadas como uma corda (por exemplo, C#como parâmetro para `SpeechConfig.FromSubscription` no SDK do discurso para ).
 
-O SDK de fala está disponível nessas regiões para **reconhecimento de fala**, conversão de **texto em fala**e **tradução**:
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Discurso-texto, texto-a-fala e tradução
 
-| Região           | Parâmetro do SDK de voz | Portal de personalização de voz    |
-| ---------------- | -------------------- | ------------------------------ |
-| E.U.A. Oeste          | `westus`             | https://westus.cris.ai         |
-| E.U.A. Oeste 2        | `westus2`            | https://westus2.cris.ai        |
-| E.U.A. Leste          | `eastus`             | https://eastus.cris.ai         |
-| E.U.A. Leste 2        | `eastus2`            | https://eastus2.cris.ai        |
-| E.U.A. Central       | `centralus`          | https://centralus.cris.ai      |
-| E.U.A. Centro-Norte | `northcentralus`     | https://northcentralus.cris.ai |
-| E.U.A. Centro-Sul | `southcentralus`     | https://southcentralus.cris.ai |
-| Índia Central    | `centralindia`       | https://centralindia.cris.ai   |
-| Ásia Leste        | `eastasia`           | https://eastasia.cris.ai       |
-| Ásia Sudeste   | `southeastasia`      | https://southeastasia.cris.ai  |
-| Leste do Japão       | `japaneast`          | https://japaneast.cris.ai      |
-| Coreia do Sul Central    | `koreacentral`       | https://koreacentral.cris.ai   |
-| Leste da Austrália   | `australiaeast`      | https://australiaeast.cris.ai  |
-| Canadá Central   | `canadacentral`      | https://canadacentral.cris.ai  |
-| Europa do Norte     | `northeurope`        | https://northeurope.cris.ai    |
-| Europa Ocidental      | `westeurope`         | https://westeurope.cris.ai     |
-| Sul do Reino Unido         | `uksouth`            | https://uksouth.cris.ai        |
-| França Central   | `francecentral`      | https://francecentral.cris.ai  |
+O portal de personalização da fala está disponível aqui: https://speech.microsoft.com
+
+O serviço de Fala está disponível nestas regiões para reconhecimento da **fala,** **texto-a-fala**e **tradução:**
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+Se utilizar o [SDK](speech-sdk.md)da fala, as regiões são especificadas pelo **Identificador** regional (por exemplo, como parâmetro para `SpeechConfig.FromSubscription`). Certifique-se de que a região está a corresponder à região da sua subscrição.
 
 ### <a name="intent-recognition"></a>Reconhecimento de intenção
 
-As regiões disponíveis para o **reconhecimento de intenções** por meio do SDK de fala são as seguintes:
+As regiões disponíveis para reconhecimento de **intenções** através do SDK da fala são as seguintes:
 
 | Região global | Região           | Parâmetro do SDK de voz |
 | ------------- | ---------------- | -------------------- |
-| Ásia          | Ásia Leste        | `eastasia`           |
-| Ásia          | Ásia Sudeste   | `southeastasia`      |
+| Ásia          | Ásia Oriental        | `eastasia`           |
+| Ásia          | Sudeste Asiático   | `southeastasia`      |
 | Austrália     | Leste da Austrália   | `australiaeast`      |
 | Europa        | Europa do Norte     | `northeurope`        |
 | Europa        | Europa Ocidental      | `westeurope`         |
@@ -69,24 +56,24 @@ As regiões disponíveis para o **reconhecimento de intenções** por meio do SD
 | América do Norte | E.U.A. Centro-Sul | `southcentralus`     |
 | América do Norte | E.U.A. Centro-Oeste  | `westcentralus`      |
 | América do Norte | E.U.A. Oeste          | `westus`             |
-| América do Norte | E.U.A. Oeste 2        | `westus2`            |
+| América do Norte | E.U.A.Oeste 2        | `westus2`            |
 | América do Sul | Sul do Brasil     | `brazilsouth`        |
 
-Esse é um subconjunto das regiões de publicação com suporte do [Luis (serviço de reconhecimento vocal)](/azure/cognitive-services/luis/luis-reference-regions).
+Trata-se de um subconjunto das regiões editoriais apoiadas pelo serviço de Compreensão da [Língua (LUIS).](/azure/cognitive-services/luis/luis-reference-regions)
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 
-O [SDK de fala](speech-sdk.md) dá suporte a recursos do **Assistente de voz** nessas regiões:
+O [SDK de Fala](speech-sdk.md) apoia as capacidades de assistente de **voz** nestas regiões:
 
 | Região         | Parâmetro do SDK de voz |
 | -------------- | -------------------- |
 | E.U.A. Oeste        | `westus`             |
-| E.U.A. Oeste 2      | `westus2`            |
+| E.U.A.Oeste 2      | `westus2`            |
 | E.U.A. Leste        | `eastus`             |
 | E.U.A. Leste 2      | `eastus2`            |
 | Europa Ocidental    | `westeurope`         |
 | Europa do Norte   | `northeurope`        |
-| Ásia Sudeste | `southeastasia`      |
+| Sudeste Asiático | `southeastasia`      |
 
 ## <a name="rest-apis"></a>APIs REST
 
@@ -94,12 +81,23 @@ O serviço de voz também expõe os pontos finais REST para pedidos de voz em te
 
 ### <a name="speech-to-text"></a>Conversão de voz em texto
 
-Para obter a documentação de referência de fala para texto, consulte [API REST de fala em texto](rest-speech-to-text.md).
+Para documentação de referência fala-a-texto, consulte [API REST Speech-to-text](rest-speech-to-text.md).
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+O ponto final para a Rest API tem este formato:
+
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Substitua `<REGION_IDENTIFIER>` pelo identificador que corresponde à região da sua subscrição a partir desta tabela:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> O parâmetro de idioma deve ser anexado ao URL para evitar receber um erro de 4xx HTTP. Por exemplo, a língua definida para o inglês americano usando o ponto final dos EUA Ocidental é: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ### <a name="text-to-speech"></a>Conversão de texto em voz
 
-Para obter a documentação de referência de conversão de texto em fala, consulte [API REST de conversão de texto em fala](rest-text-to-speech.md).
+Para obter documentação de referência texto-a-voz, consulte [API REST Text-to-speech](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

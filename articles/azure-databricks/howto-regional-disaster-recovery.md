@@ -1,6 +1,6 @@
 ---
-title: Recuperação de desastre regional para Azure Databricks
-description: Este artigo descreve uma abordagem para fazer a recuperação de desastres no Azure Databricks.
+title: Recuperação regional de desastres para os Tijolos de Dados Azure
+description: Este artigo descreve uma abordagem para fazer a recuperação de desastres em Azure Databricks.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -8,89 +8,89 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639876"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161941"
 ---
-# <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação de desastre regional para clusters de Azure Databricks
+# <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação regional de desastres para clusters de Databricks Azure
 
-Este artigo descreve uma arquitetura de recuperação de desastre útil para clusters Azure Databricks e as etapas para realizar esse design.
+Este artigo descreve uma arquitetura de recuperação de desastres útil para os clusters Azure Databricks, e os passos para realizar esse design.
 
-## <a name="azure-databricks-architecture"></a>Arquitetura de Azure Databricks
+## <a name="azure-databricks-architecture"></a>Arquitetura Azure Databricks
 
-Em um alto nível, quando você cria um espaço de trabalho de Azure Databricks da portal do Azure, um [dispositivo gerenciado](../azure-resource-manager/managed-applications/overview.md) é implantado como um recurso do Azure em sua assinatura, na região do Azure escolhida (por exemplo, oeste dos EUA). Esse dispositivo é implantado em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) com um [grupo de segurança de rede](../virtual-network/manage-network-security-group.md) e uma conta de armazenamento do Azure, disponível em sua assinatura. A rede virtual fornece segurança de nível de perímetro para o espaço de trabalho do databricks e é protegida por meio do grupo de segurança de rede. No espaço de trabalho, você pode criar clusters do databricks fornecendo o tipo de VM de operador e de driver e a versão de tempo de execução do databricks. Os dados persistentes estão disponíveis em sua conta de armazenamento, que pode ser o armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Depois que o cluster é criado, você pode executar trabalhos por meio de blocos de anotações, APIs REST, pontos de extremidade ODBC/JDBC anexando-os a um cluster específico.
+A um nível elevado, quando se cria um espaço de trabalho Azure Databricks a partir do portal Azure, um [aparelho gerido](../azure-resource-manager/managed-applications/overview.md) é implantado como um recurso Azure na sua subscrição, na região de Azure escolhida (por exemplo, West US). Este aparelho é implantado numa [Rede Virtual Azure](../virtual-network/virtual-networks-overview.md) com um Grupo de Segurança de [Rede](../virtual-network/manage-network-security-group.md) e uma conta de Armazenamento Azure, disponível na sua subscrição. A rede virtual fornece segurança ao nível do perímetro para o espaço de trabalho databricks e está protegida através de um grupo de segurança de rede. Dentro do espaço de trabalho, pode criar clusters databricks fornecendo o tipo de VM do trabalhador e do condutor e versão de tempo de execução databricks. Os dados persistidos estão disponíveis na sua conta de armazenamento, que pode ser o Armazenamento de Blob Azure ou o Armazenamento do Lago Azure Data. Uma vez criado o cluster, pode executar trabalhos através de cadernos, APIs REST, pontos finais ODBC/JDBC, fixando-os a um cluster específico.
 
-O plano de controle do databricks gerencia e monitora o ambiente de espaço de trabalho do databricks. Qualquer operação de gerenciamento, como criar cluster, será iniciada no plano de controle. Todos os metadados, como os trabalhos agendados, são armazenados em um banco de dados do Azure com replicação geográfica para tolerância a falhas.
+O plano de controlo databricks gere e monitoriza o ambiente espaço de trabalho databricks. Qualquer operação de gestão como criar cluster será iniciada a partir do plano de controlo. Todos os metadados, como empregos programados, são armazenados numa Base de Dados Azure com geo-replicação para tolerância a falhas.
 
-![Arquitetura do databricks](media/howto-regional-disaster-recovery/databricks-architecture.png)
+![Arquitetura de tijolos de dados](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
-Uma das vantagens dessa arquitetura é que os usuários podem se conectar Azure Databricks a qualquer recurso de armazenamento em sua conta. Um dos principais benefícios é que tanto a computação (Azure Databricks) quanto o armazenamento podem ser dimensionados independentemente um do outro.
+Uma das vantagens desta arquitetura é que os utilizadores podem ligar os Azure Databricks a qualquer recurso de armazenamento na sua conta. Um benefício fundamental é que tanto a computação (Azure Databricks) como o armazenamento podem ser dimensionados independentemente uns dos outros.
 
-## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Como criar uma topologia de recuperação de desastre regional
+## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Como criar uma topologia regional de recuperação de desastres
 
-Como você observa na descrição da arquitetura anterior, há uma série de componentes usados para um pipeline de Big data com o Azure Databricks: armazenamento do Azure, banco de dados do Azure e outras fontes. Azure Databricks é a *computação* do pipeline de Big Data. Ele é *efêmero* por natureza, o que significa que, embora seus dados ainda estejam disponíveis no armazenamento do Azure, a *computação* (Azure Databricks cluster) pode ser encerrada para que você não precise pagar pela computação quando não precisar dela. As fontes de *computação* (Azure Databricks) e de armazenamento devem estar na mesma região para que os trabalhos não tenham alta latência.  
+Como nota na descrição da arquitetura anterior, existem vários componentes utilizados para um pipeline Big Data com tijolos de dados Azure: Armazenamento Azure, Base de Dados Azure e outras fontes de dados. Azure Databricks é a *computação* do oleoduto Big Data. É de natureza *efémera,* o que significa que, embora os seus dados ainda estejam disponíveis no Armazenamento Azure, o *cálculo* (cluster Azure Databricks) pode ser encerrado para que não tenha de pagar a computação quando não precisa. A *computação* (Azure Databricks) e as fontes de armazenamento devem estar na mesma região para que os empregos não experimentem alta latência.  
 
-Para criar sua própria topologia de recuperação de desastre regional, siga estes requisitos:
+Para criar a sua própria topologia regional de recuperação de desastres, siga estes requisitos:
 
-   1. Provisione vários espaços de trabalho Azure Databricks em regiões separadas do Azure. Por exemplo, crie o espaço de trabalho primário Azure Databricks no leste dos EUA 2. Crie o espaço de trabalho de recuperação de desastres secundário Azure Databricks em uma região separada, como oeste dos EUA.
+   1. Fornecer vários espaços de trabalho Azure Databricks em regiões separadas de Azure. Por exemplo, crie o espaço de trabalho primário azure Databricks no Leste dos EUA2. Crie o espaço de trabalho de recuperação secundária de desastres Azure Databricks numa região separada, como os EUA Ocidentais.
 
-   2. Use o [armazenamento com redundância geográfica](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). Os dados associados a Azure Databricks são armazenados por padrão no armazenamento do Azure. Os resultados de trabalhos do databricks também são armazenados no armazenamento de BLOBs do Azure, para que os dados processados sejam duráveis e permaneçam altamente disponíveis depois que o cluster for encerrado. Como o cluster de armazenamento e databricks estão colocalizados, você deve usar o armazenamento com redundância geográfica para que os dados possam ser acessados na região secundária se a região primária não estiver mais acessível.
+   2. Utilize [armazenamento geo-redundante.](../storage/common/storage-redundancy.md) Os dados associados aos Tijolos de Dados Azure são armazenados por padrão no Armazenamento Azure. Os resultados dos trabalhos dos Databricks também são armazenados no Armazenamento De Blob Azure, de modo que os dados processados são duráveis e permanecem altamente disponíveis após o encerramento do cluster. Como o cluster de Armazenamento e Databricks é co-localizado, você deve usar armazenamento geo-redundante para que os dados possam ser acedidos na região secundária se a região primária deixar de ser acessível.
 
-   3. Depois que a região secundária é criada, você deve migrar os usuários, pastas de usuário, blocos de anotações, configuração de cluster, configuração de trabalhos, bibliotecas, armazenamento, scripts de inicialização e reconfigurar o controle de acesso. Detalhes adicionais são descritos na seção a seguir.
+   3. Uma vez criada a região secundária, é necessário migrar os utilizadores, pastas de utilizador, cadernos, configuração de clusters, configuração de empregos, bibliotecas, armazenamento, scripts init e reconfigurar o controlo de acesso. Detalhes adicionais são delineados na secção seguinte.
 
 ## <a name="detailed-migration-steps"></a>Passos de migração detalhados
 
-1. **Configurar a interface de linha de comando do databricks em seu computador**
+1. **Configurar a interface de linha de comando databricks no seu computador**
 
-   Este artigo mostra vários exemplos de código que usam a interface de linha de comando para a maioria das etapas automatizadas, pois é um wrapper fácil para o usuário em Azure Databricks API REST.
+   Este artigo mostra uma série de exemplos de código que utilizam a interface da linha de comando para a maioria dos passos automatizados, uma vez que é um invólucro fácil de usar sobre a API DO REST De dados azure.
 
-   Antes de executar qualquer etapa de migração, instale o databricks-CLI no computador desktop ou em uma máquina virtual na qual você planeja fazer o trabalho. Para obter mais informações, consulte [instalar o databricks CLI](/azure/databricks/dev-tools/databricks-cli)
+   Antes de realizar quaisquer passos de migração, instale os databricks-cli no seu computador de secretária ou numa máquina virtual onde planeia fazer o trabalho. Para mais informações, consulte [Instalar databricks CLI](/azure/databricks/dev-tools/databricks-cli)
 
    ```bash
    pip install databricks-cli
    ```
 
    > [!NOTE]
-   > Todos os scripts Python fornecidos neste artigo devem funcionar com o Python 2.7 + < 3. x.
+   > Espera-se que quaisquer scripts python fornecidos neste artigo funcionem com Python 2.7+ < 3.x.
 
 2. **Configure dois perfis.**
 
-   Configure um para o espaço de trabalho primário e outro para o espaço de trabalho secundário:
+   Configure um para o espaço de trabalho primário, e outro para o espaço de trabalho secundário:
 
    ```bash
    databricks configure --profile primary
    databricks configure --profile secondary
    ```
 
-   Os blocos de código neste artigo alternam entre perfis em cada etapa subsequente usando o comando de espaço de trabalho correspondente. Certifique-se de que os nomes dos perfis criados sejam substituídos em cada bloco de código.
+   Os blocos de código neste artigo alterem entre perfis em cada passo subsequente utilizando o comando espaço de trabalho correspondente. Certifique-se de que os nomes dos perfis que cria são substituídos em cada bloco de código.
 
    ```python
    EXPORT_PROFILE = "primary"
    IMPORT_PROFILE = "secondary"
    ```
 
-   Você pode alternar manualmente na linha de comando, se necessário:
+   Pode ligar manualmente na linha de comando se necessário:
 
    ```bash
    databricks workspace ls --profile primary
    databricks workspace ls --profile secondary
    ```
 
-3. **Migrar Azure Active Directory usuários**
+3. **Utilizadores de Diretório Ativo Migrate Azure**
 
-   Adicione manualmente os mesmos Azure Active Directory usuários ao espaço de trabalho secundário que existem no espaço de trabalho primário.
+   Adicione manualmente os mesmos utilizadores do Azure Ative Directory ao espaço de trabalho secundário que existe no espaço de trabalho primário.
 
-4. **Migrar as pastas e os blocos de anotações do usuário**
+4. **Migrar as pastas e cadernos de utilizadores**
 
-   Use o código Python a seguir para migrar os ambientes de usuário em área restrita, que incluem a estrutura de pastas aninhada e os blocos de anotações por usuário.
+   Utilize o seguinte código python para migrar os ambientes de utilizador encaixotados de areia, que incluem a estrutura das pastas aninhadas e os cadernos por utilizador.
 
    > [!NOTE]
-   > As bibliotecas não são copiadas nesta etapa, pois a API subjacente não dá suporte a elas.
+   > As bibliotecas não são copiadas neste passo, uma vez que a API subjacente não as suporta.
 
-   Copie e salve o script Python a seguir em um arquivo e execute-o na linha de comando do databricks. Por exemplo, `python scriptname.py`.
+   Copie e guarde o seguinte guião python para um ficheiro e execute-o na linha de comando databricks. Por exemplo, `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -124,16 +124,16 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
    print "All done"
    ```
 
-5. **Migrar as configurações de cluster**
+5. **Migrar as configurações do cluster**
 
-   Depois que os notebooks tiverem sido migrados, você poderá, opcionalmente, migrar as configurações de cluster para o novo espaço de trabalho. É quase uma etapa totalmente automatizada usando o databricks-CLI, a menos que você queira fazer a migração de configuração de cluster seletiva, em vez de todos.
+   Uma vez migrados os cadernos, pode migrar opcionalmente as configurações do cluster para o novo espaço de trabalho. É quase um passo totalmente automatizado usando databricks-cli, a menos que você gostaria de fazer migração de config de cluster seletivo em vez de para todos.
 
    > [!NOTE]
-   > Infelizmente, não há nenhum ponto de extremidade de configuração de cluster Create, e esse script tenta criar cada cluster imediatamente. Se não houver núcleos suficientes disponíveis em sua assinatura, a criação do cluster poderá falhar. A falha pode ser ignorada, desde que a configuração seja transferida com êxito.
+   > Infelizmente não há nenhum ponto final de config de cluster, e este script tenta criar cada cluster imediatamente. Se não houver núcleos suficientes disponíveis na sua subscrição, a criação do cluster pode falhar. A falha pode ser ignorada, desde que a configuração seja transferida com sucesso.
 
-   O script a seguir fornecido imprime um mapeamento de IDs de cluster antigo para o novo, que poderia ser usado para a migração de trabalho posteriormente (para trabalhos configurados para usar clusters existentes).
+   O seguinte script forneceu impressões de um mapeamento de antigos para novos IDs de cluster, que poderia ser usado para migração de emprego mais tarde (para trabalhos que estão configurados para usar clusters existentes).
 
-   Copie e salve o script Python a seguir em um arquivo e execute-o na linha de comando do databricks. Por exemplo, `python scriptname.py`.
+   Copie e guarde o seguinte guião python para um ficheiro e execute-o na linha de comando databricks. Por exemplo, `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -216,16 +216,16 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
    print ("       If you won't use those new clusters at the moment, please don't forget terminating your new clusters to avoid charges")
    ```
 
-6. **Migrar a configuração de trabalhos**
+6. **Migrar a configuração de empregos**
 
-   Se você migrou as configurações de cluster na etapa anterior, você pode optar por migrar as configurações de trabalho para o novo espaço de trabalho. É uma etapa totalmente automatizada usando o databricks-CLI, a menos que você queira fazer migração de configuração de trabalho seletiva em vez de fazer isso para todos os trabalhos.
+   Se migrar configurações de cluster no passo anterior, pode optar por migrar configurações de trabalho para o novo espaço de trabalho. Trata-se de um passo totalmente automatizado utilizando databricks-cli, a menos que queira fazer uma migração seletiva de config em vez de fazê-lo para todos os trabalhos.
 
    > [!NOTE]
-   > A configuração de um trabalho agendado contém também as informações de "agendamento", portanto, por padrão, isso começará a funcionar de acordo com o tempo configurado assim que for migrado. Portanto, o bloco de código a seguir remove todas as informações de agendamento durante a migração (para evitar execuções duplicadas em espaços de trabalho novos e antigos). Configure os agendamentos para esses trabalhos quando você estiver pronto para a transferência.
+   > A configuração para um trabalho programado também contém a informação de "agenda", pelo que, por padrão, começará a funcionar de acordo com o tempo configurado assim que for migrado. Assim, o seguinte bloco de código remove qualquer informação de horário durante a migração (para evitar duplicações em espaços de trabalho antigos e novos). Configure os horários para tais trabalhos uma vez que esteja pronto para o corte.
 
-   A configuração do trabalho requer configurações para um cluster novo ou existente. Se você estiver usando um cluster existente, o script/Code abaixo tentará substituir a ID de cluster antiga pela nova ID de cluster.
+   A configuração do trabalho requer configurações para um novo ou um cluster existente. Se utilizar o cluster existente, o script/código abaixo tentará substituir o id do cluster antigo por um novo ID de cluster.
 
-   Copie e salve o script Python a seguir em um arquivo. Substitua o valor para `old_cluster_id` e `new_cluster_id`, com a saída da migração de cluster feita na etapa anterior. Execute-o em sua linha de comando do databricks-CLI, por exemplo, `python scriptname.py`.
+   Copie e guarde o seguinte guião python para um ficheiro. Substitua o valor para `old_cluster_id` e `new_cluster_id`, com a produção da migração do cluster feita em etapas anteriores. Execute-o na sua linha de comando databricks-cli, por exemplo, `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -280,17 +280,17 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
    print "All done"
    ```
 
-7. **Migrar bibliotecas**
+7. **Bibliotecas de migração**
 
-   Atualmente, não há uma maneira simples de migrar bibliotecas de um espaço de trabalho para outro. Em vez disso, reinstale as bibliotecas no novo espaço de trabalho manualmente. É possível automatizar o uso da combinação de [CLI DBFS](https://github.com/databricks/databricks-cli#dbfs-cli-examples) para carregar bibliotecas personalizadas para o espaço de trabalho e [bibliotecas CLI](https://github.com/databricks/databricks-cli#libraries-cli).
+   Não há uma maneira simples de migrar bibliotecas de um espaço de trabalho para outro. Em vez disso, reinstale manualmente essas bibliotecas no novo espaço de trabalho. É possível automatizar usando a combinação de [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) para carregar bibliotecas personalizadas para o espaço de trabalho e [bibliotecas CLI](https://github.com/databricks/databricks-cli#libraries-cli).
 
-8. **Migrar o armazenamento de BLOBs do Azure e montagens de Azure Data Lake Storage**
+8. **Armazenamento de blob Migrate Azure e suportes de armazenamento de lago de dados Azure**
 
-   Remonte manualmente todos os pontos de montagem [do armazenamento de BLOBs do Azure e do](/azure/databricks/data/data-sources/azure/azure-storage) [Azure data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) usando uma solução baseada em bloco de anotações. Os recursos de armazenamento teriam sido montados no espaço de trabalho primário e precisam ser repetidos no espaço de trabalho secundário. Não há API externa para montagens.
+   Remonte manualmente todos os pontos de [armazenamento do Azure Blob](/azure/databricks/data/data-sources/azure/azure-storage) e [do Azure Data Lake (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) utilizando uma solução baseada em cadernos. Os recursos de armazenamento teriam sido montados no espaço de trabalho primário, e isso tem de ser repetido no espaço de trabalho secundário. Não há API externo para cavalos.
 
-9. **Migrar scripts de inicialização de cluster**
+9. **Migrar cluster init scripts**
 
-   Todos os scripts de inicialização do cluster podem ser migrados do espaço de trabalho antigo para o novo usando a [CLI do DBFS](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Primeiro, copie os scripts necessários de `dbfs:/dat abricks/init/..` para sua área de trabalho local ou máquina virtual. Em seguida, copie esses scripts para o novo espaço de trabalho no mesmo caminho.
+   Quaisquer scripts de inicialização de cluster podem ser migrados de antigos para novos espaços de trabalho usando o [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Em primeiro lugar, copie os scripts necessários do `dbfs:/dat abricks/init/..` para o seu ambiente de trabalho local ou máquina virtual. Em seguida, copie esses scripts para o novo espaço de trabalho no mesmo caminho.
 
    ```bash
    // Primary to local
@@ -300,16 +300,16 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
    dbfs cp -r old-ws-init-scripts dbfs:/databricks/init --profile secondary
    ```
 
-10. **Reconfigure e reaplique manualmente o controle de acesso.**
+10. **Reconfigurar manualmente e reaplicar o controlo de acesso.**
 
-    Se o espaço de trabalho primário existente estiver configurado para usar a SKU (camada Premium), é provável que você também esteja usando o [recurso de controle de acesso](/azure/databricks/administration-guide/access-control/index).
+    Se o seu espaço de trabalho primário existente estiver configurado para utilizar o nível Premium (SKU), é provável que também esteja a utilizar a [função](/azure/databricks/administration-guide/access-control/index)de Controlo de Acesso .
 
-    Se você usar o recurso de controle de acesso, reaplique manualmente o controle de acesso aos recursos (blocos de anotações, clusters, trabalhos, tabelas).
+    Se utilizar a função de Controlo de Acesso, reaplique manualmente o controlo de acesso aos recursos (Cadernos, Clusters, Empregos, Tabelas).
 
-## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Recuperação de desastre para seu ecossistema do Azure
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Recuperação de desastres para o seu ecossistema Azure
 
-Se você estiver usando outros serviços do Azure, certifique-se de implementar práticas recomendadas de recuperação de desastre para esses serviços também. Por exemplo, se você optar por usar uma instância de metastore do Hive externa, deverá considerar a recuperação de desastre para o [azure SQL Server](../sql-database/sql-database-disaster-recovery.md), o [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)e/ou o [banco de dados do Azure para MySQL](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre a recuperação de desastre, consulte [recuperação de desastre para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Se estiver a utilizar outros serviços Azure, certifique-se de implementar as melhores práticas de recuperação de desastres para esses serviços também. Por exemplo, se optar por utilizar uma metaloja externa da Hive, deve considerar a recuperação de desastres para [o Servidor Azure SQL,](../sql-database/sql-database-disaster-recovery.md) [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)e/ou Base de [Dados Azure para MySQL](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre a recuperação de desastres, consulte a recuperação de [desastres para aplicações do Azure.](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte a [documentação do Azure Databricks](index.yml).
+Para mais informações, consulte a [documentação dos Bricks do Azure.](index.yml)

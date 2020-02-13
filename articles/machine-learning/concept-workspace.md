@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: ba3e677b98406a5f126649aafc2f89fb9d20c895
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 82ae0cab2d3dd7c65371e7a5bfec506e484fcdd2
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137617"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169779"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -77,13 +77,6 @@ Também pode executar as seguintes tarefas de gestão do espaço de trabalho:
 | Upgrade para edição enterprise    | **&check;** | **&check;**  | |     |
 | Criar e gerir recursos computacionais    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Criar uma VM do notebook |   | **&check;** | |     |
-
-> [!NOTE]
-> Os casos de cálculo estão disponíveis apenas para espaços de trabalho com uma região do **Norte Dos EUA**, Leste dos **EUA 2**, Norte da **Europa** ou Reino **Unido Sul,** com apoio para outras regiões em breve.
->Se o seu espaço de trabalho estiver em qualquer outra região, pode continuar a criar e utilizar um [VM de caderno.](concept-compute-instance.md#notebookvm)
-
-> [!WARNING]
-> A mudança do seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou a mudança da subscrição própria para um novo inquilino, não é suportada. Fazê-lo pode causar erros.
 
 ## <a name='create-workspace'></a>Criar um espaço de trabalho
 

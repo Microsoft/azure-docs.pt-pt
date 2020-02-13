@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 364395a05737f6dc6333b922f54376a9d5149fe6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 38cb1222a64b1759528749caa15dfb1bb906cef6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701455"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159918"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Arrendamento em Diretório Ativo Azure
 
@@ -36,7 +36,7 @@ No que diz respeito ao desenvolvimento de apps, os desenvolvedores podem optar p
 
 No portal Azure, pode configurar a sua app para ser um inquilino único ou multi-inquilino, definindo o público da seguinte forma.
 
-| Audiência | Inquilino único/multi-inquilino | Quem pode entrar | 
+| Audiência | Inquilino único/multi-inquilino | Quem pode assinar | 
 |----------|--------| ---------|
 | Contas neste diretório apenas | Inquilino único | Todas as contas de utilizador e hóspedes do seu diretório podem utilizar a sua aplicação ou API.<br>*Use esta opção se o seu público-alvo for interno para a sua organização.* |
 | Contas em qualquer diretório da AD Azure | Multi-inquilino | Todos os utilizadores e hóspedes com uma conta de trabalho ou escola da Microsoft podem usar a sua aplicação ou API. Isto inclui escolas e empresas que usam o Escritório 365.<br>*Utilize esta opção se o seu público-alvo for clientes empresariais ou educativos.* |
@@ -46,9 +46,9 @@ No portal Azure, pode configurar a sua app para ser um inquilino único ou multi
 
 A construção de grandes aplicações multi-arrendatárias pode ser um desafio devido ao número de políticas diferentes que os administradores de TI podem definir nos seus inquilinos. Se optar por construir uma aplicação multi-inquilinos, siga estas boas práticas:
 
-* Teste a sua aplicação num inquilino que tenha configurado as políticas de [Acesso Condicional.](conditional-access-dev-guide.md)
+* Teste a sua aplicação num inquilino que tenha configurado as políticas de [Acesso Condicional.](../azuread-dev/conditional-access-dev-guide.md)
 * Siga o princípio do menor acesso ao utilizador para garantir que a sua aplicação apenas solicita permissões de que realmente necessita. Evite solicitar permissões que exijam consentimento administrativo, uma vez que isso pode impedir que os utilizadores adquiram a sua app em algumas organizações. 
-* Forneça nomes e descrições apropriados para quaisquer permissões que exponha como parte da sua aplicação. Isto ajuda os utilizadores e administradores a saberem com o que estão a concordar quando tentam utilizar as APIs da sua aplicação. Para mais informações, consulte a secção de boas práticas no guia de [permissões](v1-permissions-and-consent.md).
+* Forneça nomes e descrições apropriados para quaisquer permissões que exponha como parte da sua aplicação. Isto ajuda os utilizadores e administradores a saberem com o que estão a concordar quando tentam utilizar as APIs da sua aplicação. Para mais informações, consulte a secção de boas práticas no guia de [permissões](v2-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

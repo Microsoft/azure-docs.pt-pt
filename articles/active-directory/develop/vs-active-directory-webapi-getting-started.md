@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: e2216d1f489acea27bbc788c6ded21c6d9835915
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 33894e237144628634c3b63393130eb0af5b9877
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699942"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159459"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Começar com o Diretório Ativo Azure (projetos WebApi)
 
@@ -35,4 +35,4 @@ Todos os controladores do seu projeto foram adornados com o atributo `[Authorize
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Cenários de autenticação para o Diretório Ativo do Azure](authentication-scenarios.md)
-- [Adicione o sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v1-aspnet-webapp.md)
+- [Adicione o sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v2-aspnet-webapp.md)

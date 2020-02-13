@@ -3,21 +3,19 @@ title: Utilize grupos de dispositivos na sua aplicação Azure IoT Central / Mic
 description: Como operador, aprenda a utilizar grupos de dispositivos para analisar a telemetria a partir de dispositivos na sua aplicação Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 4fd05631e7f54b6258978f70fdd5dfb9705f989b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 758ac037fcd224d02f62239b3408b41b50390147
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026968"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167257"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: Use grupos de dispositivos para analisar a telemetria do dispositivo
-
-
 
 Este artigo descreve como, como operador, usar grupos de dispositivos para analisar a telemetria do dispositivo na sua aplicação Azure IoT Central.
 
@@ -27,19 +25,19 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um grupo de dispositivos
-> * USe um grupo de dispositivos para analisar telemetria de dispositivos
+> * Use um grupo de dispositivos para analisar a telemetria do dispositivo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você deve concluir a [criação de um aplicativo de IOT central do Azure](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado aos seus](./quick-create-pnp-device.md) guias de início rápido do aplicativo IOT central para criar o modelo de dispositivo do **sensor de ambiente** com o qual trabalhar.
+Antes de começar, deve completar a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) e [adicionar um dispositivo simulado à sua aplicação IoT Central](./quick-create-pnp-device.md) rapidamente para criar o modelo de dispositivo **MXChip IoT DevKit** para trabalhar.
 
 ## <a name="create-simulated-devices"></a>Criar dispositivos simulados
 
-Antes de criar um grupo de dispositivos, adicione pelo menos cinco dispositivos simulados do modelo do dispositivo do **Sensor** ambiental para utilizar neste tutorial:
+Antes de criar um grupo de dispositivos, adicione pelo menos cinco dispositivos simulados do modelo de dispositivo **MXChip IoT DevKit** para utilizar neste tutorial:
 
-![Cinco dispositivos de sensores ambientais simulados](./media/tutorial-use-device-groups/simulated-devices.png)
+![Cinco dispositivos de sensor simulados](./media/tutorial-use-device-groups/simulated-devices.png)
 
-Para quatro dos dispositivos de sensor ambiental, utilize a visão do **Sensor Ambiental** para definir o nome do cliente para **Contoso:**
+Para quatro dos dispositivos de sensor simulados, utilize a vista **do dispositivo Manage** para definir o nome do cliente para *Contoso:*
 
 ![Definir o nome do cliente para Contoso](./media/tutorial-use-device-groups/customer-name.png)
 
@@ -47,19 +45,19 @@ Para quatro dos dispositivos de sensor ambiental, utilize a visão do **Sensor A
 
 Para criar um grupo de dispositivos:
 
-1. Escolha grupos de **dispositivos** no painel esquerdo.
+1. Escolha **os grupos de dispositivos** no painel esquerdo.
 
-1. Selecione **+ Novo**.
+1. Selecione **+:**
 
     ![Novo grupo de dispositivos](media/tutorial-use-device-groups/image1.png)
 
-1. Dê ao seu grupo de dispositivos um nome como **dispositivos Contoso**. Também pode adicionar uma descrição. Um grupo de dispositivos só pode conter dispositivos a partir de um único modelo de dispositivo. Escolha o modelo do dispositivo **Sensor Ambiental** para utilizar para este grupo.
+1. Dê ao seu grupo de dispositivos o nome *Contoso dispositivos*. Também pode adicionar uma descrição. Um grupo de dispositivos só pode conter dispositivos a partir de um único modelo de dispositivo. Escolha o modelo de dispositivo **MXChip IoT DevKit** para utilizar para este grupo.
 
-1. Crie a consulta para identificar os dispositivos pertencentes a **Contoso** para o grupo de dispositivos, selecionando a propriedade **Nome do Cliente,** o operador de comparação **Equals,** e **Contoso** como o valor. Pode adicionar múltiplas consultas e dispositivos que satisfaçam **todos os** critérios colocados no grupo do dispositivo. O grupo de dispositivos que cria é acessível a qualquer pessoa que tenha acesso à aplicação, para que qualquer pessoa possa visualizar, modificar ou eliminar o grupo do dispositivo.
+1. Para personalizar o grupo do dispositivo para incluir apenas os dispositivos pertencentes a **Contoso,** **selecione + Filter**. Selecione a propriedade Nome do **Cliente,** o operador de comparação **Equals,** e **Contoso** como o valor. Pode adicionar vários filtros e dispositivos que satisfaçam **todos os** critérios de filtro são colocados no grupo do dispositivo. O grupo de dispositivos que cria é acessível a qualquer pessoa que tenha acesso à aplicação, para que qualquer pessoa possa visualizar, modificar ou eliminar o grupo do dispositivo:
 
     ![Consulta de grupo de dispositivos](media/tutorial-use-device-groups/image2.png)
 
-    > [!NOTE]
+    > [!TIP]
     > O grupo de dispositivos é uma consulta dinâmica. Sempre que vê a lista de dispositivos, pode haver diferentes dispositivos na lista. A lista depende dos dispositivos que atualmente satisfazem os critérios da consulta.
 
 1. Escolha **Guardar**.

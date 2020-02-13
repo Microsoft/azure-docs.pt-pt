@@ -1,6 +1,6 @@
 ---
-title: Iniciar um failover de conta de armazenamento (versão prévia) – armazenamento do Azure
-description: Saiba como iniciar um failover de conta caso o ponto de extremidade primário da sua conta de armazenamento fique indisponível. O failover atualiza a região secundária para se tornar a região primária da sua conta de armazenamento.
+title: Iniciar uma falha na conta de armazenamento (pré-visualização) - Armazenamento Azure
+description: Saiba como iniciar uma falha de conta caso o ponto final primário da sua conta de armazenamento fique indisponível. O failover atualiza a região secundária para se tornar a região primária para a sua conta de armazenamento.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,73 +9,73 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2bac51a86c8acdba0f6c2f03e5a24ab2b133aa8e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7529cfbd0ab75d0113e5cea666bc04aa1b15d30b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520998"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157725"
 ---
-# <a name="initiate-a-storage-account-failover-preview"></a>Iniciar um failover de conta de armazenamento (versão prévia)
+# <a name="initiate-a-storage-account-failover-preview"></a>Iniciar uma falha na conta de armazenamento (pré-visualização)
 
-Se o ponto de extremidade primário para sua conta de armazenamento com redundância geográfica ficar indisponível por algum motivo, você poderá iniciar um failover de conta (versão prévia). Um failover de conta atualiza o ponto de extremidade secundário para se tornar o ponto de extremidade primário para sua conta de armazenamento. Quando o failover for concluído, os clientes poderão começar a gravar na nova região primária. O failover forçado permite que você mantenha a alta disponibilidade para seus aplicativos.
+Se o principal ponto final da sua conta de armazenamento geo-redundante ficar indisponível por qualquer motivo, pode iniciar uma falha na conta (pré-visualização). Uma falha de conta atualiza o ponto final secundário para se tornar o ponto final primário da sua conta de armazenamento. Uma vez concluída a falha, os clientes podem começar a escrever para a nova região primária. Falha forçada permite-lhe manter alta disponibilidade para as suas aplicações.
 
-Este artigo mostra como iniciar um failover de conta para sua conta de armazenamento usando o portal do Azure, o PowerShell ou o CLI do Azure. Para saber mais sobre o failover de conta, consulte [recuperação de desastre e failover de conta (versão prévia) no armazenamento do Azure](storage-disaster-recovery-guidance.md).
+Este artigo mostra como iniciar uma falha na conta para a sua conta de armazenamento usando o portal Azure, PowerShell ou Azure CLI. Para saber mais sobre o fracasso da conta, consulte a recuperação de desastres e a falha da [conta (pré-visualização) no Armazenamento Azure](storage-disaster-recovery-guidance.md).
 
 > [!WARNING]
-> Um failover de conta normalmente resulta em alguma perda de dados. Para entender as implicações de um failover de conta e para se preparar para a perda de dados, examine [entender o processo de failover de conta](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
+> Uma falha de conta normalmente resulta em alguma perda de dados. Para compreender as implicações de uma falha de conta e preparar-se para a perda de dados, reveja Compreender o processo de [falha da conta](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de executar um failover de conta em sua conta de armazenamento, verifique se você executou as seguintes etapas:
+Antes de poder executar uma falha na conta de armazenamento, certifique-se de que realizou os seguintes passos:
 
-- Registre-se para a versão prévia de failover da conta. Para obter informações sobre como se registrar, consulte [sobre a versão prévia](storage-disaster-recovery-guidance.md#about-the-preview).
-- Verifique se sua conta de armazenamento está configurada para usar o armazenamento com redundância geográfica (GRS) ou o armazenamento com redundância geográfica com acesso de leitura (RA-GRS). Para obter mais informações sobre o armazenamento com redundância geográfica, consulte [armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md). 
+- Registe-se na pré-visualização do failover da conta. Para obter informações sobre como se registar, consulte [sobre a pré-visualização](storage-disaster-recovery-guidance.md#about-the-preview).
+- Certifique-se de que a sua conta de armazenamento está configurada para utilizar armazenamento geo-redundante (GRS) ou armazenamento geo-redundante de acesso de leitura (RA-GRS). Para obter mais informações sobre o armazenamento geo-redundante, consulte a [redundância do Armazenamento Azure.](storage-redundancy.md)
 
-## <a name="important-implications-of-account-failover"></a>Implicações importantes do failover de conta
+## <a name="important-implications-of-account-failover"></a>Implicações importantes da falha da conta
 
-Quando você inicia um failover de conta para sua conta de armazenamento, os registros DNS para o ponto de extremidade secundário são atualizados para que o ponto de extremidade secundário se torne o ponto de extremidade primário. Verifique se você entendeu o impacto potencial para sua conta de armazenamento antes de iniciar um failover.
+Quando inicia uma falha na conta para a sua conta de armazenamento, os registos dNS para o ponto final secundário são atualizados de modo a que o ponto final secundário se torne o ponto final primário. Certifique-se de que compreende o impacto potencial na sua conta de armazenamento antes de iniciar uma falha.
 
-Para estimar a extensão de perda de dados provável antes de iniciar um failover, verifique a propriedade **hora da última sincronização** usando o cmdlet `Get-AzStorageAccount` PowerShell e inclua o parâmetro `-IncludeGeoReplicationStats`. Em seguida, verifique a propriedade `GeoReplicationStats` para sua conta. 
+Para estimar a extensão da provável perda de dados antes de iniciar uma falha, verifique a propriedade **Last Sync Time** utilizando o `Get-AzStorageAccount` cmdlet PowerShell e inclua o parâmetro `-IncludeGeoReplicationStats`. Em seguida, verifique a propriedade `GeoReplicationStats` para a sua conta. \
 
-Após o failover, o tipo de conta de armazenamento é convertido automaticamente em LRS (armazenamento com redundância local) na nova região primária. Você pode habilitar novamente o armazenamento com redundância geográfica (GRS) ou o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) para a conta. Observe que a conversão de LRS para GRS ou RA-GRS incorre em um custo adicional. Para obter informações adicionais, consulte [detalhes de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
+Após o failover, o seu tipo de conta de armazenamento é automaticamente convertido para armazenamento localmente redundante (LRS) na nova região primária. Pode reativar o armazenamento geo-redundante (GRS) ou o armazenamento geo-redundante de acesso de leitura (RA-GRS) para a conta. Note que a conversão de LRS para GRS ou RA-GRS incorre num custo adicional. Para obter informações adicionais, consulte os detalhes de preços da [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Depois que você reabilitar o GRS para sua conta de armazenamento, a Microsoft começará a replicar os dados em sua conta para a nova região secundária. O tempo de replicação depende da quantidade de dados sendo replicados.  
+Depois de reativar o GRS para a sua conta de armazenamento, a Microsoft começa a replicar os dados da sua conta para a nova região secundária. O tempo de replicação depende da quantidade de dados que estão a ser replicados.  
 
 ## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-Para iniciar um failover de conta do portal do Azure, siga estas etapas:
+Para iniciar uma falha de conta no portal Azure, siga estes passos:
 
 1. Navegue até à sua conta de armazenamento.
-2. Em **configurações**, selecione **replicação geográfica**. A imagem a seguir mostra a replicação geográfica e o status de failover de uma conta de armazenamento.
+2. Em **Definições,** **selecione Geo-replicação**. A imagem seguinte mostra a geo-replicação e o estado de failover de uma conta de armazenamento.
 
-    ![Captura de tela mostrando o status de failover e replicação geográfica](media/storage-initiate-account-failover/portal-failover-prepare.png)
+    ![Screenshot mostrando geo-replicação e estado de failover](media/storage-initiate-account-failover/portal-failover-prepare.png)
 
-3. Verifique se sua conta de armazenamento está configurada para armazenamento com redundância geográfica (GRS) ou armazenamento com redundância geográfica com acesso de leitura (RA-GRS). Se não for, selecione **configuração** em **configurações** para atualizar sua conta para ser com redundância geográfica. 
-4. A propriedade **hora da última sincronização** indica até onde o secundário está atrás do primário. A **hora da última sincronização** fornece uma estimativa da extensão da perda de dados que você terá após a conclusão do failover.
-5. Selecione **preparar para failover (versão prévia)** . 
-6. Examine a caixa de diálogo de confirmação. Quando estiver pronto, insira **Sim** para confirmar e iniciar o failover.
+3. Verifique se a sua conta de armazenamento está configurada para armazenamento geo-redundante (GRS) ou armazenamento geo-redundante de acesso de leitura (RA-GRS). Caso contrário, selecione **Configuração** em **Definições** para atualizar a sua conta para ser geo-redundante. 
+4. A propriedade **Do Último Tempo sincronizado** indica a distância que o secundário está atrás das primárias. **O Último Tempo de Sincronização** fornece uma estimativa da extensão da perda de dados que irá experimentar após a conclusão da falha.
+5. **Selecione Preparar para a falha (pré-visualização)** . 
+6. Reveja o diálogo de confirmação. Quando estiver pronto, insira **Sim** para confirmar e iniciar a falha.
 
-    ![Captura de tela mostrando a caixa de diálogo de confirmação para um failover de conta](media/storage-initiate-account-failover/portal-failover-confirm.png)
+    ![Screenshot mostrando diálogo de confirmação para uma falha de conta](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
 ## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para usar o PowerShell para iniciar um failover de conta, você deve primeiro instalar o módulo 6.0.1 Preview. Siga estas etapas para instalar o módulo:
+Para utilizar o PowerShell para iniciar uma falha na conta, tem primeiro de instalar o módulo de pré-visualização 6.0.1. Siga estes passos para instalar o módulo:
 
-1. Desinstale todas as instalações anteriores do Azure PowerShell:
+1. Desinstale quaisquer instalações anteriores da Azure PowerShell:
 
-    - Remova todas as instalações anteriores do Azure PowerShell do Windows usando a configuração **aplicativos & recursos** em **configurações**.
-    - Remova todos os módulos do **Azure** de `%Program Files%\WindowsPowerShell\Modules`.
+    - Remova quaisquer instalações anteriores do Azure PowerShell do Windows utilizando as definições de **Apps &** em definições em **Definições**.
+    - Retire todos os módulos **Azure** da `%Program Files%\WindowsPowerShell\Modules`.
 
-1. Verifique se você tem a versão mais recente do PowerShellGet instalada. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
+1. Certifique-se de que tem a versão mais recente do PowerShellGet instalada. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
 
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
 
-1. Feche e reabra a janela do PowerShell depois de instalar o PowerShellGet. 
+1. Feche e reabra a janela PowerShell depois de instalar o PowerShellGet. 
 
 1. Instale a versão mais recente do Azure PowerShell:
 
@@ -83,15 +83,15 @@ Para usar o PowerShell para iniciar um failover de conta, você deve primeiro in
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Instalar um módulo de visualização do armazenamento do Azure que dá suporte ao failover de conta:
+1. Instale um módulo de pré-visualização de armazenamento Azure que suporta falhas na conta:
 
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
 
-1. Feche e reabra a janela do PowerShell.
+1. Feche e reabra a janela PowerShell.
  
-Para iniciar um failover de conta do PowerShell, execute o seguinte comando:
+Para iniciar uma falha de conta a partir da PowerShell, execute o seguinte comando:
 
 ```powershell
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
@@ -99,7 +99,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 ## <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para usar CLI do Azure para iniciar um failover de conta, execute os seguintes comandos:
+Para utilizar o Azure CLI para iniciar uma falha de conta, execute os seguintes comandos:
 
 ```cli
 az storage account show \ --name accountName \ --expand geoReplicationStats
@@ -110,6 +110,6 @@ az storage account failover \ --name accountName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Recuperação de desastres e failover de conta (versão prévia) no armazenamento do Azure](storage-disaster-recovery-guidance.md)
+- [Recuperação de desastres e falha na conta (pré-visualização) no Armazenamento Azure](storage-disaster-recovery-guidance.md)
 - [Conceber aplicações de elevada disponibilidade com o RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md) 
+- [Tutorial: Construir uma aplicação altamente disponível com armazenamento Blob](../blobs/storage-create-geo-redundant-storage.md) 

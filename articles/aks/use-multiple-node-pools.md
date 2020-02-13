@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: e494a5141a96409fc6691df3a5f1194600ad0c32
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: bbfb65c31bf6fd46cc18c9eee66086afbbff1d5f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086461"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157979"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no serviço de kubernetes do Azure (AKS)
 
@@ -29,17 +29,16 @@ Você precisa do CLI do Azure versão 2.0.76 ou posterior instalado e configurad
 
 ## <a name="limitations"></a>Limitações
 
-As seguintes limitações se aplicam quando você cria e gerencia clusters AKS que dão suporte a vários pools de nós:
+As seguintes limitações aplicam-se quando cria e gere clusters AKS que suportam múltiplos conjuntos de nós:
 
+* Ver Quotas, restrições de tamanho de máquina virtual e disponibilidade da [região no Serviço Azure Kubernetes (AKS)][quotas-skus-regions].
 * Não é possível excluir o pool de nós padrão (primeiro).
-* O complemento de roteamento de aplicativo HTTP não pode ser usado.
+* O add-on de encaminhamento de aplicações HTTP não pode ser utilizado.
 * O cluster AKS deve usar o balanceador de carga SKU padrão para usar vários pools de nós, o recurso não tem suporte com balanceadores de carga de SKU básicos.
 * O cluster AKS deve usar conjuntos de dimensionamento de máquinas virtuais para os nós.
-* O nome de um pool de nós pode conter apenas caracteres alfanuméricos minúsculos e deve começar com uma letra minúscula. Para pools de nós do Linux, o comprimento deve ter entre 1 e 12 caracteres, para pools de nó do Windows o comprimento deve ter entre 1 e 6 caracteres.
-* O cluster AKS pode ter um máximo de 10 pools de nós.
-* O cluster AKS pode ter um máximo de 1000 nós entre esses 10 pools de nós.
-* Todos os pools de nós devem residir na mesma vnet e sub-rede.
-* Ao criar vários pools de nós no momento da criação do cluster, todas as versões do kubernetes usadas por pools de nós devem corresponder à versão definida para o plano de controle. Isso pode ser atualizado depois que o cluster tiver sido provisionado usando operações de pool por nó.
+* O nome de uma piscina de nó só pode conter caracteres alfanuméricos minúsculos e deve começar com uma letra minúscula. Para pools de nós do Linux, o comprimento deve ter entre 1 e 12 caracteres, para pools de nó do Windows o comprimento deve ter entre 1 e 6 caracteres.
+* Todas as piscinas de nós devem residir na mesma rede e subnet.
+* Ao criar várias piscinas de nós no cluster criar tempo, todas as versões Kubernetes usadas por piscinas de nós devem corresponder à versão definida para o plano de controlo. Isto pode ser atualizado após o aglomerado ter sido provisionado utilizando operações de piscina de nó.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
@@ -131,7 +130,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ## <a name="upgrade-a-node-pool"></a>Atualizar um pool de nós
 
 > [!NOTE]
-> As operações de atualização e dimensionamento em um cluster ou pool de nós não podem ocorrer simultaneamente, se uma tentativa de erro for retornada. Em vez disso, cada tipo de operação deve ser concluído no recurso de destino antes da próxima solicitação no mesmo recurso. Leia mais sobre isso no nosso guia de resolução de [problemas.](https://aka.ms/aks-pending-upgrade)
+> As operações de atualização e dimensionamento em um cluster ou pool de nós não podem ocorrer simultaneamente, se uma tentativa de erro for retornada. Em vez disso, cada tipo de funcionamento deve ser preenchido no recurso-alvo antes do próximo pedido sobre esse mesmo recurso. Leia mais sobre isso no nosso guia de resolução de [problemas.](https://aka.ms/aks-pending-upgrade)
 
 Quando o seu cluster AKS foi inicialmente criado no primeiro passo, foi especificado um `--kubernetes-version` de *1.15.7.* Isso define a versão kubernetes para o plano de controle e o pool de nós padrão. Os comandos nesta seção explicam como atualizar um único pool de nós específico.
 
@@ -191,34 +190,34 @@ Como prática recomendada, você deve atualizar todos os pools de nós em um clu
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Atualizar um plano de controle de cluster com vários pools de nós
 
 > [!NOTE]
-> A Kubernetes utiliza o esquema padrão de [versão semântica.](https://semver.org/) O número da versão é expresso como *x.y.z*, onde *x* é a versão principal, *y* é a versão menor, e *z* é a versão patch. Por exemplo, na versão *1.12.6*, 1 é a versão principal, 12 é a versão menor, e 6 é a versão patch. A versão kubernetes do plano de controle e o pool de nós inicial são definidos durante a criação do cluster. Todos os pools de nós adicionais têm sua versão kubernetes definida quando são adicionados ao cluster. As versões do kubernetes podem ser diferentes entre pools de nós, bem como entre um pool de nós e o plano de controle.
+> A Kubernetes utiliza o esquema padrão de [versão semântica.](https://semver.org/) O número da versão é expresso como *x.y.z*, onde *x* é a versão principal, *y* é a versão menor, e *z* é a versão patch. Por exemplo, na versão *1.12.6*, 1 é a versão principal, 12 é a versão menor, e 6 é a versão patch. A versão Kubernetes do plano de controlo e a piscina inicial do nó são definidas durante a criação do cluster. Todos os pools de nós adicionais têm sua versão kubernetes definida quando são adicionados ao cluster. As versões Kubernetes podem diferir entre piscinas de nós, bem como entre uma piscina de nó e o plano de controlo.
 
 Um cluster AKS tem dois objetos de recurso de cluster com versões do kubernetes associadas.
 
-1. Uma versão kubernetes do plano de controle de cluster.
-2. Um pool de nós com uma versão kubernetes.
+1. Uma versão kubernetes de plano de controlo de clusters.
+2. Uma piscina de nó com uma versão Kubernetes.
 
 Um plano de controle é mapeado para um ou vários pools de nós. O comportamento de uma operação de atualização depende de qual CLI do Azure comando é usado.
 
-A atualização de um plano de controlo AKS requer a utilização de `az aks upgrade`. Isso atualiza a versão do plano de controle e todos os pools de nós no cluster. 
+A atualização de um plano de controlo AKS requer a utilização de `az aks upgrade`. Isto melhora a versão do plano de controlo e todas as piscinas de nós no cluster. 
 
-Emitir o comando `az aks upgrade` com a bandeira `--control-plane-only` atualiza apenas o plano de controlo de clusters. Nenhum dos pools de nós associados no cluster foi alterado.
+Emitir o comando `az aks upgrade` com a bandeira `--control-plane-only` atualiza apenas o plano de controlo de clusters. Nenhuma das piscinas de nós associadas no cluster é alterada.
 
 A atualização das piscinas individuais do nó requer a utilização de `az aks nodepool upgrade`. Isso atualiza somente o pool de nós de destino com a versão especificada do kubernetes
 
-### <a name="validation-rules-for-upgrades"></a>Regras de validação para atualizações
+### <a name="validation-rules-for-upgrades"></a>Regras de validação para upgrades
 
-As atualizações de kubernetes válidas para o plano de controle e os pools de nós do cluster são validadas pelos seguintes conjuntos de regras.
+As atualizações válidas da Kubernetes para um plano de controlo e piscinas de nó de um cluster são validadas pelos seguintes conjuntos de regras.
 
-* Regras para versões válidas para atualizar pools de nós:
+* Regras para versões válidas para atualizar piscinas de nó:
    * A versão do piscina do nó deve ter a mesma versão *principal* do plano de controlo.
    * A versão *menor* do nó pool deve estar dentro de duas versões *menores* da versão de plano de controlo.
    * A versão do pool de nó não pode ser maior do que a versão `major.minor.patch` de controlo.
 
-* Regras para enviar uma operação de atualização:
-   * Não é possível fazer downgrade do plano de controle ou de uma versão kubernetes do pool de nós.
-   * Se uma versão de kubernetes do pool de nós não for especificada, o comportamento dependerá do cliente que está sendo usado. A declaração nos modelos do Resource Manager volta à versão existente definida para o pool de nós, se for usada, se nenhuma for definida, a versão do plano de controle será usada para fazer fallback.
-   * Você pode atualizar ou dimensionar um plano de controle ou um pool de nós em um determinado momento, não pode enviar várias operações em um único plano de controle ou recurso de pool de nós simultaneamente.
+* Regras para a apresentação de uma operação de atualização:
+   * Não é possível desvalorizar o plano de controlo ou uma versão kubernetes de piscina de nó.
+   * Se uma versão de kubernetes do pool de nós não for especificada, o comportamento dependerá do cliente que está sendo usado. A declaração nos modelos do Gestor de Recursos recai para a versão existente definida para o conjunto do nó se utilizada, se nenhuma for definida, a versão do plano de controlo é usada para recorrer.
+   * Você pode atualizar ou escalar um plano de controlo ou uma piscina de nó num dado momento, você não pode submeter múltiplas operações em um único plano de controlo ou recursos de piscina de nó simultaneamente.
 
 ## <a name="scale-a-node-pool-manually"></a>Dimensionar um pool de nós manualmente
 
@@ -387,7 +386,7 @@ aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
 aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
 ```
 
-O Agendador kubernetes pode usar os conteúdo e os Tolerations para restringir quais cargas de trabalho podem ser executadas em nós.
+O programador Kubernetes pode usar manchas e tolerâncias para restringir o que as cargas de trabalho podem ser executadas em nódosos.
 
 * Uma **mancha** é aplicada a um nó que indica que apenas podem ser programadas cápsulas específicas.
 * Uma **tolerância** é então aplicada a uma vagem que lhes permite *tolerar* a mancha de um nó.
@@ -456,7 +455,7 @@ Apenas as cápsulas que tenham esta mancha aplicada podem ser programadas em nó
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gerenciar pools de nós usando um modelo do Resource Manager
 
-Ao usar um modelo de Azure Resource Manager para criar e gerenciar recursos, você normalmente pode atualizar as configurações em seu modelo e reimplantar para atualizar o recurso. Com pools de nós no AKS, o perfil do pool de nós inicial não pode ser atualizado depois que o cluster AKS tiver sido criado. Esse comportamento significa que você não pode atualizar um modelo existente do Resource Manager, fazer uma alteração nos pools de nós e reimplantar. Em vez disso, você deve criar um modelo do Resource Manager separado que atualize apenas os pools de nós para um cluster AKS existente.
+Ao usar um modelo de Azure Resource Manager para criar e gerenciar recursos, você normalmente pode atualizar as configurações em seu modelo e reimplantar para atualizar o recurso. Com pools de nós no AKS, o perfil do pool de nós inicial não pode ser atualizado depois que o cluster AKS tiver sido criado. Esse comportamento significa que você não pode atualizar um modelo existente do Resource Manager, fazer uma alteração nos pools de nós e reimplantar. Em vez disso, você deve criar um modelo separado de Gestor de Recursos que atualiza apenas as piscinas de nós para um cluster AKS existente.
 
 Crie um modelo como `aks-agentpools.json` e cola o seguinte manifesto exemplo. Este modelo de exemplo define as seguintes configurações:
 
@@ -604,6 +603,7 @@ Para criar e utilizar piscinas de nó de contentores do Windows Server, consulte
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
+[quotas-skus-regions]: quotas-skus-regions.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create

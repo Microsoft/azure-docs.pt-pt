@@ -9,40 +9,40 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: dapine
-ms.openlocfilehash: edb6846974dc58af04ba800c0aa32e3ecc5d4b9a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 68392bfdb80236a1cf82261332d3bf3b4d09e02b
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76309056"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156494"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=vs)
+> * [Criar um recurso azure speech](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=vs)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
-## <a name="open-your-project-in-visual-studio"></a>Abra seu projeto no Visual Studio
+## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Estúdio Visual
 
-A primeira etapa é certificar-se de que seu projeto esteja aberto no Visual Studio.
+O primeiro passo é garantir que tem o seu projeto aberto no Estúdio Visual.
 
-1. Inicie o Visual Studio 2019.
-2. Carregue seu projeto e abra `Program.cs`.
-3. Baixe o <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike. wav <span class="docon docon-download x-hidden-focus"></span> </a> e adicione-o ao seu projeto.
-    - Salve o arquivo *whatstheweatherlike. wav* ao lado do arquivo de `Program.cs`.
-    - No **Gerenciador de soluções** clique com o botão direito do mouse no projeto, selecione **Adicionar > item existente**.
-    - Selecione o arquivo *whatstheweatherlike. wav* e, em seguida, selecione o botão **Adicionar** .
-    - Clique com o botão direito do mouse no arquivo recém-adicionado, selecione **Propriedades**.
-    - Altere a **cópia para diretório de saída** para **copiar sempre**.
+1. Lançar O Estúdio Visual 2019.
+2. Carregue o seu projeto e abra `Program.cs`.
+3. Descarregue o <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span> </a> e adicione-o ao seu projeto.
+    - Guarde o ficheiro *whatstheweatherlike.wav* ao lado do ficheiro `Program.cs`.
+    - A partir do clique direito do **Solution Explorer** no projeto, selecione **Add > item existente**.
+    - Selecione o ficheiro *whatstheweatherlike.wav* e, em seguida, selecione o botão **Adicionar.**
+    - Clique à direita no ficheiro recém-adicionado, selecione **Propriedades**.
+    - Mude sempre a **Cópia para O Diretório** de Saída para **Copiar**.
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com algum código clichê
+## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para nosso projeto. Lembre-se de que você criou um método assíncrono chamado `RecognizeSpeechAsync()`.
+Vamos adicionar um código que funciona como um esqueleto para o nosso projeto. Tome nota de que criou um método de asincronização chamado `RecognizeSpeechAsync()`.
 
 ```csharp
 using System;
@@ -66,21 +66,23 @@ namespace HelloWorld
 }
 ```
 
-## <a name="create-a-speech-configuration"></a>Criar uma configuração de fala
+## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
 
-Antes de inicializar um objeto `SpeechRecognizer`, você precisa criar uma configuração que usa sua chave de assinatura e sua região de assinatura. Insira esse código no método `RecognizeSpeechAsync()`.
+Antes de poder inicializar um `SpeechRecognizer` objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este código no método `RecognizeSpeechAsync()`.
 
 > [!NOTE]
-> Este exemplo usa o método `FromSubscription()` para criar o `SpeechConfig`. Para obter uma lista completa dos métodos disponíveis, consulte [classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
-> O SDK de fala usará como padrão o reconhecimento do uso de en-US para a linguagem, consulte [especificar o idioma de origem de fala para texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
+> Esta amostra utiliza o método `FromSubscription()` para construir a `SpeechConfig`. Para obter uma lista completa dos métodos disponíveis, consulte a [Aula de SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+> O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
 ```csharp
+// Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+// from here: https://aka.ms/speech/sdkregion).
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-## <a name="create-an-audio-configuration"></a>Criar uma configuração de áudio
+## <a name="create-an-audio-configuration"></a>Criar uma configuração áudio
 
-Agora, você precisa criar um objeto `AudioConfig` que aponte para o arquivo de áudio. Esse objeto é criado dentro de uma instrução using para garantir a liberação adequada de recursos não gerenciados. Insira esse código no método `RecognizeSpeechAsync()`, logo abaixo da sua configuração de fala.
+Agora, tens de criar um objeto `AudioConfig` que aponte para o teu ficheiro áudio. Este objeto é criado dentro de uma declaração de utilização para garantir a libertação adequada de recursos não geridos. Insira este código no método `RecognizeSpeechAsync()`, logo abaixo da configuração do Discurso.
 
 ```csharp
 using (var audioInput = AudioConfig.FromWavFileInput("whatstheweatherlike.wav"))
@@ -88,9 +90,9 @@ using (var audioInput = AudioConfig.FromWavFileInput("whatstheweatherlike.wav"))
 }
 ```
 
-## <a name="initialize-a-speechrecognizer"></a>Inicializar um SpeechRecognizer
+## <a name="initialize-a-speechrecognizer"></a>Inicializar um Reconhecedor de Discursos
 
-Agora, vamos criar o objeto `SpeechRecognizer` usando os objetos `SpeechConfig` e `AudioConfig` criados anteriormente. Esse objeto também é criado dentro de uma instrução using para garantir a liberação adequada de recursos não gerenciados. Insira esse código no método `RecognizeSpeechAsync()`, dentro da instrução using que encapsula o objeto ```AudioConfig```.
+Agora, vamos criar o `SpeechRecognizer` objeto usando os objetos `SpeechConfig` e `AudioConfig` criados anteriormente. Este objeto também é criado dentro de uma declaração de utilização para garantir a libertação adequada de recursos não geridos. Insira este código no método `RecognizeSpeechAsync()`, dentro da declaração de utilização que envolve o seu objeto ```AudioConfig```.
 
 ```csharp
 using (var recognizer = new SpeechRecognizer(config, audioInput))
@@ -100,20 +102,20 @@ using (var recognizer = new SpeechRecognizer(config, audioInput))
 
 ## <a name="recognize-a-phrase"></a>Reconhecer uma frase
 
-A partir do objeto `SpeechRecognizer`, você chamará o método `RecognizeOnceAsync()`. Esse método permite que o serviço de fala saiba que você está enviando uma única frase para reconhecimento e que, depois que a frase for identificada para parar de reconhecer a fala.
+Pelo `SpeechRecognizer` objeto, vai chamar o método `RecognizeOnceAsync()`. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
 
-Dentro da instrução using, adicione este código:
+Dentro da declaração de utilização, adicione este código:
 
 ```csharp
 Console.WriteLine("Recognizing first result...");
 var result = await recognizer.RecognizeOnceAsync();
 ```
 
-## <a name="display-the-recognition-results-or-errors"></a>Exibir os resultados de reconhecimento (ou erros)
+## <a name="display-the-recognition-results-or-errors"></a>Mostrar os resultados do reconhecimento (ou erros)
 
-Quando o resultado do reconhecimento for retornado pelo serviço de fala, você desejará fazer algo com ele. Vamos mantê-lo simples e imprimir o resultado no console.
+Quando o resultado do reconhecimento for devolvido pelo serviço de Discurso, vai querer fazer algo com ele. Vamos mantê-lo simples e imprimir o resultado para consolar.
 
-Dentro da instrução using, abaixo `RecognizeOnceAsync()`, adicione este código:
+Dentro da declaração de utilização, abaixo `RecognizeOnceAsync()`, adicione este código:
 
 ```csharp
 switch (result.Reason)
@@ -138,9 +140,9 @@ switch (result.Reason)
 }
 ```
 
-## <a name="check-your-code"></a>Verifique seu código
+## <a name="check-your-code"></a>Verifique o seu código
 
-Neste ponto, seu código deve ter a seguinte aparência:
+Neste ponto, o seu código deve ser assim:
 
 ```csharp
 //
@@ -198,12 +200,12 @@ namespace HelloWorld
 }
 ```
 
-## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
+## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Agora você está pronto para criar seu aplicativo e testar nosso reconhecimento de fala usando o serviço de fala.
+Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
 
-1. Compile o código: na barra de menus do *Visual Studio*, escolha **Compilar** > **Compilar solução**.
-2. Inicie seu aplicativo: na barra de menus, escolha **depurar** > **Iniciar Depuração** ou pressione **F5**.
+1. Compile o código: A partir da barra de menus do *Estúdio Visual,* escolha **Construir** > **Build Solution**.
+2. Inicie a sua aplicação: A partir da barra de menus, escolha **Debug** > **Começar dedepuração** ou prima **F5**.
 3. Iniciar reconhecimento: o arquivo de áudio é enviado para o serviço de fala, transcrita como texto e renderizado no console do.
 
    ```console

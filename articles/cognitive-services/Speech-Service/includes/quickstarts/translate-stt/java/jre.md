@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: converter a fala em texto, Java (Windows, Linux)-serviço de fala'
+title: 'Quickstart: Traduzir discurso a texto, Java (Windows, Linux) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: f7efecc88fe3c4400732d18a2eea39701269d89c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 30e293eceafc9c94d6c4e0aba70dfbc3313d7665
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468231"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156583"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Criar um recurso de fala azure](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -51,7 +51,8 @@ Antes de começar, certifique-se de:
        {
            // Creates an instance of a speech translation config with specified
            // subscription key and service region. Replace with your own subscription key
-           // and service region (e.g., "westus").
+           // and service region (e.g., "westus", use the one of SpeechSDKParameters
+           // from here: https://aka.ms/speech/sdkregion).   
 
            int exitCode = 1;
            SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription(("YourSubscriptionKey",  "YourServiceRegion");
@@ -123,7 +124,7 @@ Antes de começar, certifique-se de:
 
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 1. Guarde as alterações ao projeto.
 
@@ -131,7 +132,7 @@ Antes de começar, certifique-se de:
 
 Prima F11 ou selecione **Executar** > **Depurar**.
 
-1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para o serviço de fala, que converte e transcreve em texto (neste caso, para alemão). Em seguida, o serviço de fala envia o texto de volta para o aplicativo para exibição.
+1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso ao serviço da Fala, que se traduz e transcreve para texto (neste caso, para alemão). O serviço de Fala envia então o texto de volta para a aplicação para exibição.
 
 ````
 Say something...

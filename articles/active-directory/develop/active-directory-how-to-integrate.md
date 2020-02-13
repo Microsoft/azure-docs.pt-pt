@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: c5b8c506398af27ced284405dd75e48fb19a17af
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: dbbe501b27bf7ae4d4cb4bc00501aeb1fb06819e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698854"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161227"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração com Diretório Ativo Azure
 
@@ -32,7 +32,7 @@ Existem várias formas de a sua aplicação se integrar com a Azure AD. Aproveit
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Apoie a AD Azure como forma de iniciar sessão na sua candidatura
 
-**Reduza o sinal de atrito e reduza os custos de suporte.** Ao utilizar o Azure AD para iniciar sessão na sua aplicação, os seus utilizadores não terão mais um nome e senha para recordar. Como desenvolvedor, terá uma palavra-passe a menos para armazenar e proteger. Não ter de lidar com resets de senhas esquecidas pode ser uma poupança significativa por si só. Os poderes da Azure AD assinam algumas das aplicações de nuvem mais populares do mundo, incluindo o Office 365 e o Microsoft Azure. Com centenas de milhões de utilizadores de milhões de organizações, é provável que o seu utilizador já esteja inscrito no Azure AD. Saiba mais sobre [adicionar suporte para o signo da AD Azure .](v1-authentication-scenarios.md)
+**Reduza o sinal de atrito e reduza os custos de suporte.** Ao utilizar o Azure AD para iniciar sessão na sua aplicação, os seus utilizadores não terão mais um nome e senha para recordar. Como desenvolvedor, terá uma palavra-passe a menos para armazenar e proteger. Não ter de lidar com resets de senhas esquecidas pode ser uma poupança significativa por si só. Os poderes da Azure AD assinam algumas das aplicações de nuvem mais populares do mundo, incluindo o Office 365 e o Microsoft Azure. Com centenas de milhões de utilizadores de milhões de organizações, é provável que o seu utilizador já esteja inscrito no Azure AD. Saiba mais sobre [adicionar suporte para o signo da AD Azure .](authentication-scenarios.md)
 
 **Simplifique a inscrição para a sua candidatura.**  Durante a inscrição para a sua aplicação, o Azure AD pode enviar informações essenciais sobre um utilizador para que possa pré-preencher o formulário de inscrição ou eliminá-lo completamente. Os utilizadores podem inscrever-se na sua aplicação através da sua conta Azure AD através de uma experiência de consentimento familiar semelhante à encontrada nas redes sociais e aplicações móveis. Qualquer utilizador pode inscrever-se e iniciar sessão numa aplicação integrada com a Azure AD sem necessitar de envolvimento de TI. Saiba mais sobre [a inscrição da sua candidatura para login da Conta AD Azure](../../app-service/configure-authentication-provider-aad.md).
 
@@ -70,7 +70,7 @@ A integração com a Azure AD vem com benefícios que não exigem que escreva c�
 
 **A Azure AD estende o Diretório Ativo à nuvem para que a sua aplicação possa integrar-se com a AD.**  Muitas organizações em todo o mundo usam o Ative Directory como o seu principal sistema de sign-in e gestão de identidade, e exigem que as suas aplicações trabalhem com a AD. Integrando com a Azure AD integra a sua app com diretório ativo.
 
-### <a name="advanced-security-features"></a>Funcionalidades de segurança avançadas
+### <a name="advanced-security-features"></a>Funcionalidades avançadas de segurança
 
 **Autenticação multi-factor.**  A Azure AD fornece autenticação nativa de vários fatores. Os administradores de TI podem exigir a autenticação de vários fatores para aceder à sua aplicação, para que não tenha de codificar este suporte por si mesmo. Saiba mais sobre [a autenticação multi-factor.](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
@@ -92,5 +92,5 @@ A integração com a Azure AD vem com benefícios que não exigem que escreva c�
 
 [Começar a escrever código.](v2-overview.md#getting-started)
 
-[Inscreva utilizadores na utilização da plataforma de identidade da Microsoft](v1-authentication-scenarios.md)
+[Inscreva utilizadores na utilização da plataforma de identidade da Microsoft](authentication-scenarios.md)
 

@@ -1,89 +1,89 @@
 ---
-title: Gerenciar orçamentos do Cloudyn no Azure
-description: Este artigo ajuda-o a criar rapidamente os orçamentos e começar a geri-los no Cloudyn.
+title: Gerir os orçamentos da Cloudyn no Azure
+description: Este artigo ajuda-o a criar rapidamente orçamentos e a começar a geri-los na Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 3572296da8e81602e905a3d9f515e7d49067cfa4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 91a1027add615c71784b6be1261fab97aadd9f3a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75990596"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769994"
 ---
-# <a name="manage-azure-budgets-with-cloudyn"></a>Gira orçamentos do Azure no Cloudyn
+# <a name="manage-azure-budgets-with-cloudyn"></a>Gerir orçamentos do Azure com a Cloudyn
 
-Definição de segurança orçamentos e com base no orçamento alerta ajuda a melhorar a governação de cloud e a responsabilidade. Este artigo ajuda-o a criar rapidamente os orçamentos e começar a geri-los no Cloudyn.
+A configuração dos orçamentos e dos alertas baseados em orçamentos ajudam a melhorar a governação e a responsabilidade na cloud. Este artigo ajuda-o a criar rapidamente orçamentos e a começar a geri-los na Cloudyn.
 
-Quando tiver uma conta de empresa ou MSP, pode utilizar a sua estrutura de entidades de custo hierárquica para atribuir as quotas mensais de orçamento para diferentes unidades de negócios, departamentos ou qualquer outra entidade de custo. Quando tiver uma conta de Premium, pode utilizar a funcionalidade de gestão do orçamento, que, em seguida, é aplicada a suas atribuições de despesas de integralmente na nuvem. Todos os orçamentos manualmente são atribuídos.
+Se tiver uma conta Enterprise ou MSP, poderá utilizar a estrutura de entidades de custos hierárquica para atribuir quotas orçamentais mensais a diferentes unidades de negócio, departamentos ou qualquer outra entidade de custos. Se tiver uma conta Premium, poderá utilizar a funcionalidade de gestão de orçamentos, que será aplicada a todos os gastos da cloud. Todos os orçamentos são atribuídos manualmente.
 
-Com base nos orçamentos atribuídos, pode definir alertas de limiar com base na percentagem de seu orçamento de que é consumido e definir a gravidade de cada limite.
+Com base nos orçamentos atribuídos, pode estabelecer alertas de limiar com base na percentagem do orçamento consumido e definir a gravidade de cada limiar.
 
-Os relatórios de orçamento mostram o orçamento atribuído. Os utilizadores podem ver quando seus gastos é através de, em ou semelhante com o respetivo consumo ao longo do tempo. Quando seleciona **Mostrar/ocultar campos** na parte superior de um relatório de orçamento, pode ver o custo, o orçamento, o custo acumulado ou o orçamento total.
+Os relatórios orçamentais mostram o orçamento atribuído. Os utilizadores podem ver quando as suas despesas estão acima, abaixo ou iguais em comparação com o consumo ao longo do tempo. Quando selecionar a opção **Mostrar/Ocultar Campos** na parte superior do relatório orçamental, pode ver o custo, o orçamento, o custo acumulado ou o orçamento total.
 
-O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações sobre os orçamentos no Cost Management, consulte [criar e gerir orçamentos](../costs/tutorial-acm-create-budgets.md).
+O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações sobre orçamentos no Cost Management, veja [Criar e gerir orçamentos](../costs/tutorial-acm-create-budgets.md).
 
 ## <a name="create-budgets"></a>Criar orçamentos
 
-Quando cria um orçamento, pode defini-la para o ano fiscal e aplica-se para uma entidade específica.
+Quando cria um orçamento, define-o para o seu ano fiscal e é aplicado a uma entidade específica.
 
 Para criar um orçamento e atribuí-lo a uma entidade:
 
-1. Navegue para **custos** &gt; **gestão de custos** &gt; **orçamento**.
-2. Na página de gestão do orçamento, sob **entidades**, selecione a entidade em que pretende criar o orçamento.
-3. No ano de orçamento, selecione o ano em que pretende criar o orçamento.
-4. Para cada mês, defina um valor de orçamento. Quando tiver terminado, clique em **guardar**.
-Neste exemplo, o orçamento mensal para Junho de 2018 é definido como $135,000. O orçamento total para o ano é US $1,615,000.00.
-![Criar uma página de orçamento onde define um orçamento de todos os meses](./media/manage-budgets/set-budget.png)
+1. Navegue para **Custos** &gt; **Cost Management** &gt; **Orçamento**.
+2. Na página Gestão de Orçamentos, em **Entidades**, selecione a entidade onde quer criar o orçamento.
+3. No ano do orçamento, selecione o ano em que quer criar o orçamento.
+4. Para cada mês, defina um valor orçamental. Quando tiver terminado, clique em **Guardar**.
+Neste exemplo, o orçamento mensal para junho de 2018 está fixado em 135 000 $. O orçamento total do ano é de 1 615 000,00 $.
+![Página Criar um orçamento, onde define um orçamento para cada mês](./media/manage-budgets/set-budget.png)
 
 
 Para importar um ficheiro para o orçamento anual:
 
-1. Sob **ações**, selecione **exportar** para transferir um modelo CSV em branco para utilizar como a base para o orçamento.
-2. Preencha o ficheiro CSV com suas entradas de orçamento e guarde-o localmente.
-3. Sob **ações**, selecione **importação**.
-4. Selecione o seu ficheiro guardado e, em seguida, clique em **OK**.
+1. Em **Ações**, selecione **Exportar** para transferir um modelo CSV vazio para utilizar como base para o orçamento.
+2. Preencha o ficheiro CSV com as suas entradas de orçamento e guarde-o localmente.
+3. Em **Ações**, selecione **Importar**.
+4. Selecione o ficheiro guardado e, em seguida, clique em **OK**.
 
-Para exportar seu orçamento concluído como um ficheiro CSV, em **ações**, selecione **exportar** para transferir o ficheiro.
+Para exportar o orçamento concluído como um ficheiro CSV, em **Ações**, selecione **Exportar** para transferir o ficheiro.
 
-## <a name="view-budget-in-reports"></a>Orçamento de modo de exibição nos relatórios
+## <a name="view-budget-in-reports"></a>Ver o orçamento nos relatórios
 
-Quando concluído, o orçamento é mostrado na maioria dos relatórios de custo em **custos** &gt; **análise de custo** e no relatório custo versus orçamento ao longo do tempo. Também pode agendar relatórios baseados em limiares de orçamento usando **ações**.
+Quando estiver concluído, o orçamento é apresentado na maioria dos relatórios de Custos, em **Custos** &gt; **Análise de Custos** e no relatório Custos vs. Orçamento ao Longo do Tempo. Também pode agendar relatórios com base em limiares do orçamento com **Ações**.
 
-Eis um exemplo do relatório de análise de custos. Mostra o orçamento total e o custo por tipos de carga de trabalho e a utilização desde o início do ano.
+Segue-se um exemplo do relatório Análise de Custos. Mostra o orçamento total e o custo por carga de trabalho e tipos de utilização desde o início do ano.
 
-![Relatório de análise de custos de exemplo com orçamento](./media/manage-budgets/cost-analysis-budget-example.png)
+![Exemplo de relatório Análise de Custos com orçamento](./media/manage-budgets/cost-analysis-budget-example.png)
 
-Neste exemplo, suponha que a data atual é de 22 de Junho. O custo de Junho de 2018 é US $71,611.28 em comparação com o orçamento mensal de US $135,000. O custo é muito menor do que o orçamento mensal porque ainda existem oito dias dos gastos antes do final do mês.
+Neste exemplo, assuma que a data atual é 22 de junho. O custo para junho de 2018 é de 71 611,28 $ em comparação com o orçamento mensal de 135 000 $. O custo é muito inferior ao orçamento mensal, porque ainda faltam oito dias de despesas até ao final do mês.
 
-Outra forma de ver o relatório é examinar o custo acumulado vs seu orçamento. Para ver os custos acumulados, em **Mostrar/ocultar campos**, selecione **custo acumulado** e **orçamento Total**. Eis um exemplo que mostra o custo acumulado desde o início do ano.
+Outra forma de ver o relatório é olhar para o custo acumulado vs. o seu orçamento. Para ver os custos acumulados, em **Mostrar/Ocultar Campos**, selecione **Custos Acumulados** e **Orçamento Total**. Segue-se um exemplo que mostra o custo acumulado desde o início do ano.
 
-![Custo acumulado de exemplo e orçamento total mostrados no relatório custo versus orçamento ao longo do tempo](./media/manage-budgets/accumulated-budget.png)
+![Exemplo de custo acumulado e orçamento total apresentados no relatório Custos vs. Orçamento ao Longo do Tempo](./media/manage-budgets/accumulated-budget.png)
 
-Algum tempo no futuro o custo acumulado pode exceder seu orçamento. Vemos que mais facilmente se alterar a vista de gráfico para o _linha_ tipo.
+Em algum momento no futuro, o custo acumulado pode ultrapassar o orçamento. Poderá ver isso mais facilmente se alterar a vista do gráfico para o tipo _Linhas_.
 
-![Mostrada um gráfico de linhas no custo por relatório de meses de orçamento](./media/manage-budgets/budget-line.png)
+![Orçamento apresentado num gráfico de linhas no relatório Custo por Meses](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>Criar alertas de orçamento para um filtro
 
-No exemplo anterior, pode ver que o custo acumulado abordado do orçamento. Pode criar alertas de orçamento automática para que receberá uma notificação quando gastos abordagens ou excede o seu orçamento. Basicamente, o alerta é um relatório agendado com um limiar. Métricas de limiar de alerta de orçamento incluem:
+No exemplo anterior, pode ver que o custo acumulado se aproximou do orçamento. Pode criar alertas de orçamento automáticos para ser notificado quando as despesas se aproximarem ou ultrapassarem o orçamento. Basicamente, o alerta é um relatório agendado com um limiar. As métricas de limiar de alertas de orçamento incluem:
 
-- Restante custo versus Orçamento – para especificar um limiar de valor de moeda
-- Percentagem de custo versus Orçamento – para especificar um limiar de valor de percentagem
+- Custo restante vs. orçamento, para especificar um limiar de valor de moeda
+- Percentagem de custos vs. orçamento, para especificar um limiar de valor de percentagem
 
-Vamos examinar um exemplo.
+Vejamos um exemplo.
 
-No relatório custo versus orçamento ao longo do tempo, clique em **ações** e selecione **agendar relatório**. No separador do limiar, selecione uma métrica de limiar. Por exemplo, **orçamento de vs de percentagem de custo**. Selecione um tipo de alerta e introduza um valor de percentagem do orçamento. Se quiser ser notificado de uma só vez, selecione **número de alertas consecutivos** e, em seguida, escreva _1_. Clique em **Guardar**.
+No relatório Custos vs. Orçamento ao Longo do Tempo, clique em **Ações** e, em seguida, selecione **Agendar relatório**. No separador Limiar, selecione uma métrica de limiar. Por exemplo, **Percentagem de custos vs. orçamento**. Selecione um tipo de alerta e introduza um valor de percentagem do orçamento. Se quiser ser notificado apenas uma vez, selecione **Número de alertas consecutivos** e, em seguida, escreva _1_. Clique em **Guardar**.
 
-![Criar um orçamento alertar relativamente ao salvar ou agendar esta caixa de relatório](./media/manage-budgets/budget-alert.png)
+![Criar um alerta de orçamento na caixa Guardar ou Agendar este relatório](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se ainda não tiver concluído o primeiro tutorial da Cloudyn, leia-a em [rever a utilização e custos](tutorial-review-usage.md).
-- Saiba mais sobre o [relatórios disponíveis no Cloudyn](use-reports.md).
+- Se ainda não tiver concluído o primeiro tutorial da Cloudyn, leia-o em [Rever a utilização e os custos](tutorial-review-usage.md).
+- Saiba mais sobre os [relatórios disponíveis na Cloudyn](use-reports.md).

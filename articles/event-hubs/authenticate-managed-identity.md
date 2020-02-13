@@ -7,14 +7,14 @@ documentationcenter: ''
 author: spelluru
 manager: ''
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c5d3eca4a01488f521f9a85fa129eb0ac72c363
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dd95bde74b77686c0971c41a8c3f262f73107b61
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904545"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169229"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerida com o Diretório Ativo Azure para aceder aos Recursos hubs do Evento
 O Azure Event Hubs apoia a autenticação azure Ative Directory (Azure AD) com [identidades geridas para os recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md) Identidades geridas para recursos Azure podem autorizar o acesso aos recursos do Event Hubs utilizando credenciais de AD Azure de aplicações em execução em Máquinas Virtuais Azure (VMs), aplicações de função, conjuntos de escala de máquina virtual e outros serviços. Usando identidades gerenciadas para recursos do Azure junto com a autenticação do Azure AD, você pode evitar o armazenamento de credenciais com seus aplicativos que são executados na nuvem.
@@ -25,10 +25,10 @@ Este artigo mostra como autorizar o acesso a um centro de eventos utilizando uma
 Antes de poder utilizar identidades geridas para a Azure Resources para autorizar os recursos do Event Hubs a partir do seu VM, tem primeiro de ativar identidades geridas para os Recursos Azure no VM. Para saber como habilitar identidades gerenciadas para recursos do Azure, consulte um destes artigos:
 
 - [Portal do Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
-- [O Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modelo do Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Bibliotecas de cliente Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Bibliotecas de clientes do Gestor de Recursos Azure](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permissões a uma identidade gerida em Azure AD
 Para autorizar um pedido ao serviço Event Hubs a partir de uma identidade gerida na sua aplicação, configurar as definições de controlo de acesso baseado em funções (RBAC) para essa identidade gerida. O Azure Event Hubs define funções RBAC que englobam permissões para envio e leitura a partir de Centros de Eventos. Quando a função RBAC é atribuída a uma identidade gerida, a identidade gerida é dada acesso aos dados do Event Hubs no âmbito apropriado.
@@ -60,12 +60,12 @@ Para atribuir um papel aos recursos do Event Hubs, navegue para esse recurso no 
 
 1. No portal Azure, navegue para o espaço de nome dos Hubs de Eventos e exiba a **visão geral** para o espaço de nome. 
 1. Selecione **Control de Acesso (IAM)** no menu esquerdo para visualizar as definições de controlo de acesso para o centro do evento.
-1.  Selecione a guia **atribuições de função** para ver a lista de atribuições de função.
+1.  Selecione o separador de **atribuições de funções** para ver a lista de atribuições de papéis.
 3.  Selecione **Adicionar** para adicionar um novo papel.
 4.  Na página de atribuição de **funções Add,** selecione as funções de Event Hubs que pretende atribuir. Em seguida, procure localizar a identidade de serviço que tinha registado para atribuir o papel.
     
     ![Adicionar página de atribuição de papéis](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  Selecione **Guardar**. A identidade para a qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem que se segue mostra que a identidade do serviço tem o proprietário de Dados do Event Hubs.
+5.  Selecione **Guardar**. A identidade a quem atribuiu o papel aparece listada nesse papel. Por exemplo, a imagem que se segue mostra que a identidade do serviço tem o proprietário de Dados do Event Hubs.
     
     ![Identidade atribuída a um papel](./media/authenticate-managed-identity/role-assigned.png)
 
@@ -136,6 +136,15 @@ Instale o mais recente pacote a partir do [NuGet](https://www.nuget.org/packages
 var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHubNamespace}/"), EventHubName);
 ```
 ---
+
+## <a name="samples"></a>Amostras
+- [Microsoft.Azure.EventHubs amostras](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    Estas amostras utilizam a antiga biblioteca **Microsoft.Azure.EventHubs,** mas pode facilmente atualizá-la para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.** Para mover a amostra da utilização da antiga biblioteca para uma nova, consulte o [Guia para migrar de Microsoft.Azure.EventHubs para Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+- [Amostras de Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+
+    Esta amostra foi atualizada para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.**
+
 
 ## <a name="next-steps"></a>Passos seguintes
 - Veja o seguinte artigo para conhecer identidades geridas para os recursos do Azure: [O que são as identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)

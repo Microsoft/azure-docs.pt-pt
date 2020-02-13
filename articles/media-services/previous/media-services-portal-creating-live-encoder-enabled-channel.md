@@ -1,5 +1,5 @@
 ---
-title: Executar a transmissão ao vivo usando os serviços de mídia do Azure para criar fluxos de múltiplas taxas de bits com portal do Azure | Microsoft Docs
+title: Realizar streaming ao vivo utilizando o Azure Media Services para criar streams multibitantes com portal Azure  Microsoft Docs
 description: Este tutorial explica-lhe os passos da criação de um canal que recebe uma transmissão em fluxo em direto com uma velocidade de transmissão única e a codifica para uma transmissão em fluxo com velocidade de transmissão múltipla utilizando o Portal do Azure.
 services: media-services
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015211"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162570"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Executar a transmissão ao vivo usando os serviços de mídia para criar fluxos de múltiplas taxas de bits com portal do Azure  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Realizar streaming ao vivo usando media services para criar streams multibitados com portal Azure  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial explica-lhe os passos da criação de um **Canal** que recebe uma transmissão em fluxo em direto com uma velocidade de transmissão única e a codifica para uma transmissão com velocidade de transmissão múltipla.
 
@@ -41,10 +41,10 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 > [!NOTE]
 > Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 
-1. Ligue uma câmara de vídeo a um computador. <br/>Para ideias de instalação, confira [configuração simples e portátil de monitoração de vídeo de eventos]( https://link.medium.com/KNTtiN6IeT).
+1. Ligue uma câmara de vídeo a um computador. <br/>Para ideias de configuração, confira configuração de equipamento de [vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
 
-    Se você não tiver acesso a uma câmera, as ferramentas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) poderão ser usadas para gerar um feed ao vivo de um arquivo de vídeo.
-1. Inicie e configure um codificador ao vivo local que pode gerar um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Além disso, confira este blog: [Produção de transmissão ao vivo com Obs](https://link.medium.com/ttuwHpaJeT).
+    Se não tiver acesso a uma câmara, ferramentas como [a Telestream Wirecast](media-services-configure-wirecast-live-encoder.md) podem ser usadas geram um feed ao vivo a partir de um ficheiro de vídeo.
+1. Inicie e configure um codificador em direto no local que possa enviar uma transmissão de velocidade de transmissão única através de um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Além disso, confira este blog: Produção de [streaming ao vivo com OBS](https://link.medium.com/ttuwHpaJeT).
 
     Este passo também pode ser realizado depois de criar o Canal.
 1. Crie e inicie um Canal. 
@@ -65,8 +65,8 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 
 O seguinte é necessário para concluir o tutorial.
 
-* Para concluir este tutorial, precisa de uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. 
-  Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Para concluir este tutorial, precisa de uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. 
+  Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Criar Conta](media-services-portal-create-account.md).
 * Uma câmara Web e um codificador que possa enviar uma transmissão de velocidade de transmissão única.
 
@@ -94,7 +94,7 @@ O seguinte é necessário para concluir o tutorial.
         Não é possível alterar a opção de protocolo enquanto o Canal ou os seus evento/programas associados estiverem em execução. Se necessitar de protocolos diferentes, deve criar canais separados para cada protocolo de transmissão em fluxo.  
    2. Pode aplicar restrição de IP na ingestão. 
 
-       Pode definir os endereços IP que estão autorizados a ingerir um vídeo neste canal. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo,  "10.0.0.1"), um intervalo IP com um endereço IP e uma máscara sub-rede CIDR (por exemplo "10.0.0.1/22") ou um intervalo IP com um endereço IP e uma máscara sub-rede de ponto decimal (por exemplo, '10.0.0.1(255.255.252.0)').
+       Pode definir os endereços IP que estão autorizados a ingerir um vídeo neste canal. Os endereços IP autorizados podem ser especificados como um único endereço IP (por exemplo. «10.0.0.1»), uma gama IP que utiliza um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22'), ou uma gama IP utilizando um endereço IP e uma máscara de sub-rede decimal pontilhada (por exemplo, '10.0.0.1 (255.255.252.0)»).
 
        Se não for especificado qualquer endereço IP e não existir nenhuma definição de regra, então, não será permitido qualquer endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.
 6. No separador **ré-visualização**, aplique de restrição de IP na pré-visualização.
@@ -114,7 +114,7 @@ Para obter mais informações, consulte [Transmissão em fluxo em direto utiliza
 ## <a name="get-ingest-urls"></a>Obter URLs de inserção
 Assim que o canal seja criado, pode obter os URLs de inserção que fornecerá ao codificador em direto. O codificador utiliza estes URLs para exibir uma transmissão um fluxo direto.
 
-![URLs de ingestão](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![urls ingerir](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Criar e gerir eventos
 

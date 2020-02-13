@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 01/28/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c32d2fb45bbd4f4a9b4845bb4ef27a439d536677
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9bf33aae5de600d6e5b0ab836c99da1d56935db3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905862"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169385"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o cofre chave azure com a política azure
 
@@ -93,54 +93,54 @@ Gere-se um cofre de chaves usado por várias equipas que contém 100 certificado
 1. Inicie sessão no portal do Azure. 
 1. Pesquise "Política" na Barra de Pesquisa e Selecione **A Política**.
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img1.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img1.png)
 
 1. Na janela Política, selecione **Definições**.
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img2.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img2.png)
 
 1. No filtro categoria, **selecione tudo** e selecione **Key Vault**. 
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img3.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img3.png)
 
 1. Agora você deve ser capaz de ver todas as políticas disponíveis para visualização pública, para Azure Key Vault. Certifique-se de que leu e compreendeu a secção de orientação política acima e selecione uma política que pretende atribuir a um âmbito.  
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img4.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img4.png)
 
 ### <a name="assign-a-policy-to-a-scope"></a>Atribuir uma Política a um Âmbito 
 
 1. Selecione uma política que pretende aplicar, neste exemplo, a política do Período de Validade do **Certificado de Gestão** é mostrada. Clique no botão de atribuição no canto superior esquerdo.
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img5.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img5.png)
   
 1. Selecione a subscrição onde pretende que a política seja aplicada. Pode optar por restringir o âmbito a apenas um grupo de recursos únicos dentro de uma subscrição. Se quiser aplicar a apólice a toda a subscrição e excluir alguns grupos de recursos, também pode configurar uma lista de exclusão. Desloque o seletor de aplicação da política para **ativado** se pretender que o efeito da política (auditoria ou negação) ocorra ou **desativado** para desligar o efeito (auditoria ou negar). 
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img6.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img6.png)
 
 1. Clique no separador de parâmetros na parte superior do ecrã para especificar o período máximo de validade nos meses que desejar. Selecione **auditoria** ou **negue** o efeito da apólice seguindo as orientações nas secções acima referidas. Em seguida, selecione a revisão + criar o botão. 
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img7.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img7.png)
 
 ### <a name="view-compliance-results"></a>Ver Resultados de Conformidade
 
 1. Volte à lâmina política e selecione o separador de conformidade. Clique na atribuição de política para a sua desejaver.
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img8.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img8.png)
 
 1. A partir desta página pode filtrar os resultados através de cofres conformes ou não conformes. Aqui pode ver uma lista de cofres-chave não conformes no âmbito da atribuição de políticas. Um cofre é considerado incompatível se algum dos componentes (certificados) no cofre não for compatível. Pode selecionar um cofre individual para visualizar os componentes não conformes individuais (certificados). 
 
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img9.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img9.png)
 
 1. Veja o nome dos componentes dentro de um cofre que não são compatíveis
 
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img10.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img10.png)
 
 1. Se precisar de verificar se os utilizadores estão a ser negados a capacidade de criar recursos dentro do cofre de chaves, pode clicar no separador **Component Events (pré-visualização)** para ver um resumo das operações de certificados negados com o solicitador e os carimbos de tempo dos pedidos. 
 
 
-    ![Visão geral de como Azure Key Vault funciona](./media/policy-img11.png)
+    ![Visão geral de como funciona o Cofre de Chaves Azure](./media/policy-img11.png)
 
 ## <a name="feature-limitations"></a>Limitações de funcionalidades
 
@@ -149,8 +149,7 @@ A atribuição de uma política com um efeito "negar" pode demorar até 30 minut
 - Não há cofres chave no âmbito da missão política.
 - Não há cofres-chave com certificados no âmbito da atribuição de apólices. 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre o [serviço de Política Azure](../governance/policy/overview.md)
-- Veja uma amostra: [Cofres key vault sem pontos finais](../governance/policy/samples/keyvault-no-vnet-rules.md) de rede virtual
-
+- Ver amostras do Cofre chave: [Chave Vault embutida definições políticas](../governance/policy/samples/built-in-policies.md#key-vault)

@@ -14,48 +14,48 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773238"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158031"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
-Quando todo regiões do Azure ou de centros de dados (se não [zonas de disponibilidade](../availability-zones/az-overview.md) servem) sofrer períodos de inatividade, é fundamental para processamento de dados continuar a funcionar numa região diferente ou datacenter. Como tal, *recuperação após desastre geográfico* e *georreplicação* são recursos importantes para todas as empresas. Os Hubs de eventos do Azure suporta a recuperação após desastre geográfico e georreplicação, ao nível do espaço de nomes. 
+Quando regiões ou centros de dados inteiros do Azure (se não forem [utilizadas zonas](../availability-zones/az-overview.md) de disponibilidade) experimentam tempo de inatividade, é fundamental que o processamento de dados continue a operar numa região ou datacenter diferente. Como tal, *a recuperação geo-desastre* e *a geo-replicação* são características importantes para qualquer empresa. Os Hubs de eventos do Azure suporta a recuperação após desastre geográfico e georreplicação, ao nível do espaço de nomes. 
 
 > [!NOTE]
-> O recurso de recuperação de desastres geograficamente só está disponível para [SKUs padrão e dedicados](https://azure.microsoft.com/pricing/details/event-hubs/).  
+> A funcionalidade de recuperação de geo-desastres só está disponível para as [SKUs padrão e dedicadas.](https://azure.microsoft.com/pricing/details/event-hubs/)  
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 
-É importante observar a distinção entre "falhas" e "desastres." Uma *indisponibilidade* é a indisponibilidade temporária de Event Hubs do Azure e pode afetar alguns componentes do serviço, como um arquivo de mensagens ou até mesmo todo o datacenter. No entanto, depois de corrigido o problema, os Hubs de eventos ficar novamente disponível. Normalmente, uma indisponibilidade não irá causar a perda de mensagens ou outros dados. Um exemplo de um período de indisponibilidade, pode ser uma falha de energia no Centro de dados. Algumas falhas são apenas as perdas de ligação abreviada devido a problemas de rede ou transitório. 
+É importante observar a distinção entre "falhas" e "desastres." Uma *paralisação* é a indisponibilidade temporária de Hubs de Eventos Azure, e pode afetar alguns componentes do serviço, como uma loja de mensagens, ou mesmo todo o datacenter. No entanto, depois de corrigido o problema, os Hubs de eventos ficar novamente disponível. Normalmente, uma indisponibilidade não irá causar a perda de mensagens ou outros dados. Um exemplo de um período de indisponibilidade, pode ser uma falha de energia no Centro de dados. Algumas falhas são apenas as perdas de ligação abreviada devido a problemas de rede ou transitório. 
 
-R *desastre* é definido como a perda permanente ou longo prazo de um cluster dos Hubs de eventos, a região do Azure ou o Centro de dados. A região ou o Centro de dados poderá ou pode não se tornar disponível novamente ou pode estar inativa para horas ou dias. Exemplos de tais desastres são fire, sobrecarregar ou sismo. Um desastre que se torna permanente poderão causar a perda de algumas mensagens, eventos ou outros dados. No entanto, na maioria dos casos, não se deve haver sem perda de dados e as mensagens podem ser recuperadas depois do Centro de dados de cópia de segurança.
+Um *desastre* é definido como a perda permanente, ou a longo prazo de um cluster de Hubs de Eventos, região de Azure ou datacenter. A região ou o Centro de dados poderá ou pode não se tornar disponível novamente ou pode estar inativa para horas ou dias. Exemplos de tais desastres são fire, sobrecarregar ou sismo. Um desastre que se torna permanente poderão causar a perda de algumas mensagens, eventos ou outros dados. No entanto, na maioria dos casos, não se deve haver sem perda de dados e as mensagens podem ser recuperadas depois do Centro de dados de cópia de segurança.
 
-O recurso de recuperação após desastre geográfico dos Hubs de eventos do Azure é uma solução de recuperação após desastre. Os conceitos e o fluxo de trabalho descrito neste artigo aplicam-se para cenários de desastre e não para as falhas transitórias ou temporárias. Para obter uma discussão detalhada da recuperação de desastres no Microsoft Azure, consulte [este artigo](/azure/architecture/resiliency/disaster-recovery-azure-applications).
+O recurso de recuperação após desastre geográfico dos Hubs de eventos do Azure é uma solução de recuperação após desastre. Os conceitos e o fluxo de trabalho descrito neste artigo aplicam-se para cenários de desastre e não para as falhas transitórias ou temporárias. Para uma discussão detalhada sobre a recuperação de desastres no Microsoft Azure, consulte [este artigo](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="basic-concepts-and-terms"></a>Conceitos e termos básicos
 
 O recurso de recuperação de desastres implementa a recuperação após desastre de metadados e baseia-se nos espaços de nomes de recuperação de desastres primário e secundário. 
 
-O recurso de recuperação de desastres geograficamente está disponível apenas para os [SKUs padrão e dedicados](https://azure.microsoft.com/pricing/details/event-hubs/) . Não é necessário efetuar quaisquer alterações de cadeia de ligação, como a conexão é feita por meio de um alias.
+A funcionalidade de recuperação de geo-desastres está disponível apenas para as [SKUs padrão e dedicadas.](https://azure.microsoft.com/pricing/details/event-hubs/) Não é necessário efetuar quaisquer alterações de cadeia de ligação, como a conexão é feita por meio de um alias.
 
 Os termos seguintes são utilizados neste artigo:
 
--  *Alias*: O nome de uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de ligação de domínio completamente qualificado nome (FQDN) estável. Aplicações utilizam esta cadeia de ligação de alias para ligar a um espaço de nomes. 
+-  *Pseudónimo*: O nome para uma configuração de recuperação de desastres que configura. O alias fornece uma única cadeia de ligação de domínio completamente qualificado nome (FQDN) estável. Aplicações utilizam esta cadeia de ligação de alias para ligar a um espaço de nomes. 
 
--  *Namespace primário/secundário*: Os namespaces que correspondem ao alias. O espaço de nomes principal está "ativo" e recebe mensagens (pode ser um espaço de nomes novo ou existente). O espaço de nomes secundário é "passivo" e não a receber mensagens. Os metadados entre ambos estão em sincronização, para que ambos forma totalmente integrada podem aceitar mensagens sem quaisquer alterações de cadeia de ligação ou código da aplicação. Para garantir que apenas o espaço de nomes ativo recebe mensagens, tem de utilizar o alias. 
+-  Espaço de *nome primário/secundário*: Os espaços de nome que correspondem ao pseudónimo. O espaço de nomes principal está "ativo" e recebe mensagens (pode ser um espaço de nomes novo ou existente). O espaço de nomes secundário é "passivo" e não a receber mensagens. Os metadados entre ambos estão em sincronização, para que ambos forma totalmente integrada podem aceitar mensagens sem quaisquer alterações de cadeia de ligação ou código da aplicação. Para garantir que apenas o espaço de nomes ativo recebe mensagens, tem de utilizar o alias. 
 
--  *Metadados*: Entidades como hubs de eventos e grupos de consumidores; e suas propriedades do serviço que estão associadas ao namespace. Tenha em atenção que apenas as entidades e suas configurações são replicadas automaticamente. Mensagens e os eventos não são replicados. 
+-  *Metadados*: Entidades como centros de eventos e grupos de consumidores; e as suas propriedades do serviço que estão associados ao espaço de nome. Tenha em atenção que apenas as entidades e suas configurações são replicadas automaticamente. Mensagens e os eventos não são replicados. 
 
--  *Failover*: O processo de ativação do namespace secundário.
+-  *Failover*: O processo de ativação do espaço de nome secundário.
 
-## <a name="supported-namespace-pairs"></a>Pares de namespace com suporte
-Há suporte para as seguintes combinações de namespaces primários e secundários:  
+## <a name="supported-namespace-pairs"></a>Pares de espaço de nome suportados
+As seguintes combinações de espaços de nomes primários e secundários são suportadas:  
 
-| Namespace primário | Namespace secundário | Há suporte | 
+| Espaço de nome primário | Espaço de nome secundário | Suportado | 
 | ----------------- | -------------------- | ---------- |
 | Standard | Standard | Sim | 
 | Standard | Dedicado | Sim | 
@@ -63,7 +63,7 @@ Há suporte para as seguintes combinações de namespaces primários e secundár
 | Dedicado | Standard | Não | 
 
 > [!NOTE]
-> Não é possível emparelhar namespaces que estão no mesmo cluster dedicado. Você pode emparelhar namespaces que estão em clusters separados. 
+> Não se pode emparelhar espaços de nomes que estão no mesmo aglomerado dedicado. Pode emparelhar espaços de nome sinuosos em aglomerados separados. 
 
 ## <a name="setup-and-failover-flow"></a>Configuração e ativação pós-falha do fluxo
 
@@ -71,7 +71,7 @@ A seção a seguir uma visão geral do processo de ativação pós-falha e expli
 
 ![1][]
 
-### <a name="setup"></a>Configurar
+### <a name="setup"></a>Configuração
 
 Primeiro cria ou utiliza um espaço de nomes de principal existente e um novo espaço de nomes secundário, em seguida, emparelhe os dois. Esse emparelhamento dá-lhe um alias que pode utilizar para ligar. Uma vez que utilizar um alias, não é necessário que alterar as cadeias de ligação. Apenas novos namespaces podem ser adicionados a seu emparelhamento de ativação pós-falha. Por fim, deve adicionar alguma monitorização para detetar se uma ativação pós-falha é necessária. Na maioria dos casos, o serviço é uma parte de um vasto ecossistema, portanto, os failovers automáticos são raramente possíveis, como, com muita frequência as ativações pós-falha devem ser executadas em sincronia com o subsistema de restantes ou a infraestrutura.
 
@@ -100,7 +100,7 @@ Se tiver efetuado um erro; Por exemplo, emparelhado as regiões de errado durant
 
 ## <a name="samples"></a>Amostras
 
-O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) mostra como configurar e iniciar uma ativação pós-falha. Este exemplo demonstra os seguintes conceitos:
+A [amostra no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) mostra como configurar e iniciar uma falha. Este exemplo demonstra os seguintes conceitos:
 
 - Definições necessárias no Azure Active Directory para utilizar o Azure Resource Manager com os Hubs de eventos. 
 - Passos necessários para executar o código de exemplo. 
@@ -110,39 +110,43 @@ O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 Tenha em atenção as seguintes considerações a ter em conta com esta versão:
 
-1. Por design, a recuperação de desastre geográfica dos hubs de eventos não replica os dados e, portanto, você não pode reutilizar o valor de deslocamento antigo do seu hub de eventos primário em seu hub de eventos secundário. É recomendável reiniciar o receptor de eventos com um dos seguintes:
+1. Por design, a recuperação geo-desastre do Event Hubs não replica dados, pelo que não pode reutilizar o antigo valor de compensação do seu centro de eventos primários no seu centro de eventos secundários. Recomendamos reiniciar o recetor do evento com um dos seguintes:
 
-- *EventPosition. FromStart ()* – se você quiser ler todos os dados em seu hub de eventos secundário.
-- *EventPosition. deextremidade ()* – se você quiser ler todos os novos dados da hora da conexão com o Hub de eventos secundário.
-- *EventPosition. FromEnqueuedTime (DateTime)* – se você quiser ler todos os dados recebidos em seu hub de eventos secundário a partir de uma determinada data e hora.
+- *EventPosition.FromStart()* - Se desejar ler todos os dados do seu centro de eventos secundários.
+- *EventPosition.FromEnd()* - Se desejar ler todos os novos dados a partir do momento da ligação ao seu centro de eventos secundários.
+- *EventPosition.FromEnqueuedTime (dataTime)* - Se desejar ler todos os dados recebidos no seu centro de eventos secundários a partir de uma determinada data e hora.
 
 2. No seu planeamento de ativação pós-falha, também deve considerar o fator de tempo. Por exemplo, se perder a conectividade durante mais de 15 a 20 minutos, pode decidir iniciar a ativação pós-falha. 
  
 3. O fato de que não existem dados são replicados significa que atualmente sessões ativas não são replicadas. Além disso, deteção de duplicados e de mensagens agendadas poderão não funcionar. Novas sessões de mensagens agendadas e duplicados novo irão funcionar. 
 
-4. Realizar a ativação pós-falha de uma infraestrutura distribuída complexa deve estar [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) , pelo menos, uma vez. 
+4. A falta de uma infraestrutura distribuída complexa deve ser [ensaiada](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) pelo menos uma vez. 
 
 5. Sincronização de entidades pode demorar algum tempo, aproximadamente 50 a 100 entidades por minuto.
 
 ## <a name="availability-zones"></a>Zonas de Disponibilidade 
 
-O SKU Standard dos hubs de eventos dá suporte a [zonas de disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados com falhas em uma região do Azure. 
+O Evento Hubs Standard SKU suporta Zonas de [Disponibilidade,](../availability-zones/az-overview.md)fornecendo localizações isoladas de falhas dentro de uma região do Azure. 
 
 > [!NOTE]
-> O suporte Zonas de Disponibilidade para o padrão de hubs de eventos do Azure só está disponível em [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) em que as zonas de disponibilidade estão presentes.
+> O suporte das Zonas de Disponibilidade para o Azure Event Hubs Standard só está disponível nas [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) onde existem zonas de disponibilidade.
 
 Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com o portal do Azure. Os Hubs de eventos não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona após ativá-la no seu espaço de nomes.
 
 ![3][]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) percorre um fluxo de trabalho simple que cria uma combinação de georreplicação e inicia uma ativação pós-falha para um cenário de recuperação de desastres.
-* O [referência da REST API](/rest/api/eventhub/disasterrecoveryconfigs) descreve as APIs para executar a configuração da recuperação após desastre geográfico.
+* A [amostra no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) atravessa um simples fluxo de trabalho que cria um geo-emparelhamento e inicia uma falha para um cenário de recuperação de desastres.
+* A [referência REST API](/rest/api/eventhub/disasterrecoveryconfigs) descreve APIs para executar a configuração de recuperação de geo-desastres.
 
 Para obter mais informações sobre os Hubs de Eventos, visite as seguintes ligações:
 
-* Introdução a um [Tutorial dos Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
+- Introdução ao Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 * [Aplicações de exemplo que utilizam Hubs de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: iainfoulds
   ms.author: iainfou
-  ms.date: 08/20/2019
+  ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 01e1fe5ed73275078fc37dbec9a0857a8c4a8619
-  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+  ms.openlocfilehash: 3c431b81c0da54045e9b9b020de5275912b394c6
+  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74847156"
+  ms.lasthandoff: 02/12/2020
+  ms.locfileid: "77166422"
 landingContent:
 - title: Acerca da autenticação
   linkLists:
@@ -39,16 +39,16 @@ landingContent:
       url: concept-sspr-howitworks.md
     - text: Repetição de escrita de palavras-passe
       url: concept-sspr-writeback.md
-  - linkListType: quickstart
+  - linkListType: tutorial
     links:
-    - text: Início rápido da reposição personalizada de palavra-passe
-      url: quickstart-sspr.md
+    - text: Ativar a reposição de palavras-passe self-service
+      url: tutorial-enable-sspr.md
+    - text: Ativar a repetição de escrita de palavras-passe no local
+      url: tutorial-enable-writeback.md
   - linkListType: deploy
     links:
-    - text: Implementar a reposição personalizada de palavra-passe do Azure AD
+    - text: Guia de implementação para reposição personalizada de palavras-passe
       url: howto-sspr-deployment.md
-    - text: Ativar repetição de escrita de palavras-passe
-      url: howto-sspr-writeback.md
     - text: Ativar a reposição de palavra-passe no ecrã de início de sessão do Windows
       url: howto-sspr-windows.md
 - title: Ativar a Multi-Factor Authentication do Azure
@@ -59,13 +59,13 @@ landingContent:
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Direcionar o MFA do Azure a aplicações específicas
-      url: tutorial-mfa-applications.md
-    - text: Utilizar deteções de riscos para acionar o Multi-Factor Authentication e as alterações de palavra-passe
+    - text: Ativar a Multi-Factor Authentication do Azure
+      url: tutorial-enable-azure-mfa.md
+    - text: Ativar o Multi-Factor Authentication baseado no risco
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Implementar o Multi-Factor Authentication do Azure
+    - text: Guia de implementação para o Multi-Factor Authentication do Azure
       url: howto-mfa-getstarted.md
     - text: Utilizar a extensão NPS para integrar aplicações no local
       url: howto-mfa-nps-extension.md

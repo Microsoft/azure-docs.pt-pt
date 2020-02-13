@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f32d9832f0bad81ca29ab7553d956b593531d1bd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9fd5fa943468924c289587285fe7986a73c21dba
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698939"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161346"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Como: Utilizar a API do gráfico Azure AD
 
@@ -81,7 +81,7 @@ Para efeitos deste guia Quickstart, pode utilizar o Fiddler Web Debugger para pr
 
 No exemplo abaixo, você usa Fiddler Web Debugger para criar um novo grupo de segurança 'MyTestGroup' no seu diretório Azure AD.
 
-**Obtenha um sinal de acesso:** Para aceder ao Azure AD Graph, os clientes são obrigados a autenticar com sucesso a Azure AD primeiro. Para mais informações, consulte cenários de [autenticação para AD Azure](v1-authentication-scenarios.md).
+**Obtenha um sinal de acesso:** Para aceder ao Azure AD Graph, os clientes são obrigados a autenticar com sucesso a Azure AD primeiro. Para mais informações, consulte cenários de [autenticação para AD Azure](authentication-scenarios.md).
 
 **Componha e execute uma consulta**: Complete os seguintes passos:
 

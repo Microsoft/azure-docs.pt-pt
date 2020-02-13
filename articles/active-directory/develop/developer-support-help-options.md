@@ -13,12 +13,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e85a768d8e4f11ca3637bc8f0b394cfb1ea9744a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697477"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160972"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para programadores
 
@@ -31,7 +31,7 @@ Se está apenas a começar a integrar-se com o Azure Ative Directory (Azure AD),
 > * Se encontrar um problema com uma das nossas bibliotecas de autenticação, levante um problema *gitHub*
 > * Finalmente, se precisar de falar com alguém, talvez queira abrir um pedido de apoio.
 
-## <a name="search"></a>Search
+## <a name="search"></a>Pesquisa
 
 Se tiver uma pergunta relacionada com o desenvolvimento, poderá encontrar a resposta na documentação, [amostras gitHub](https://github.com/azure-samples)ou respostas às perguntas do [Stack Overflow.](https://www.stackoverflow.com)
 
@@ -62,11 +62,11 @@ Se não encontrar uma resposta à sua pergunta através de pesquisa, envie uma n
 |---------|---------|
 | Biblioteca ADAL | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | Biblioteca MSAL     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
-| Middleware OWIN  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| Middleware OWIN  | [[azure-active-directório]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 | [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
 | [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
-| Qualquer outra área relacionada com tópicos de autenticação ou autorização | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| Qualquer outra área relacionada com tópicos de autenticação ou autorização | [[azure-active-directório]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
 Os seguintes posts do Stack Overflow contêm dicas sobre como fazer perguntas e como adicionar código fonte. Siga estas orientações para aumentar as possibilidades de os membros da comunidade avaliarem e responderem rapidamente à sua pergunta:
 
@@ -79,8 +79,8 @@ Se encontrar um bug ou problema relacionado com as nossas bibliotecas, levante u
 
 Para obter uma lista de bibliotecas e seus repositórios GitHub, consulte o seguinte:
 
-* [Bibliotecas ADAL](active-directory-authentication-libraries.md) e repositórios GitHub
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js,](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)e [Bibliotecas MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) e repositórios GitHub
+* [Bibliotecas da Biblioteca de Autenticação de Diretórios Ativos azure (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) e repositórios GitHub
+* [Bibliotecas da Biblioteca de Autenticação da Microsoft (MSAL)](reference-v2-libraries.md) e repositórios GitHub
 
 ## <a name="open-a-support-request"></a>Abra um pedido de apoio
 

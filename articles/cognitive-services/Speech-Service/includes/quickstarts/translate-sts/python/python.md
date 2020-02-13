@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: traduzir fala para fala, serviço de fala em Python'
+title: 'Quickstart: Traduzir discurso-a-discurso, Python - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
-ms.openlocfilehash: 80f4535bd5716e1506ed9a862787030111392d77
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44a764533de97d0422a122d588b1c739b0509036
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468637"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156584"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=python)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=python)
+> * [Criar um recurso de fala azure](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=python)
+> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=python)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -38,7 +38,8 @@ Antes de começar, certifique-se de:
     def translate_speech_to_speech():
 
         # Creates an instance of a speech translation config with specified subscription key and service region.
-        # Replace with your own subscription key and service region (e.g., "westus").
+        # Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+        # from here: https://aka.ms/speech/sdkregion).   
         translation_config = speechsdk.translation.SpeechTranslationConfig(subscription=speech_key, region=service_region)
 
         # Sets source and target languages.
@@ -89,19 +90,19 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](../../../../regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](../../../../regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Salve as alterações feitas no `quickstart.py`.
+1. Guarde as alterações que fez para `quickstart.py`.
 
-## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
+## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-1. Execute o exemplo do console do ou do no IDE:
+1. Executar a amostra a partir da consola ou no seu IDE:
 
    ```
    python quickstart.py
    ```
 
-1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para o serviço de fala, que converte e transcreve em texto (neste caso, para alemão). Em seguida, o serviço de fala envia o áudio sintetizado e o texto de volta para o aplicativo para exibição.
+1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso ao serviço da Fala, que se traduz e transcreve para texto (neste caso, para alemão). O serviço de Fala envia então o áudio sintetizado e o texto de volta para a aplicação para exibição.
 
    ```
    Say something...

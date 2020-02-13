@@ -1,22 +1,22 @@
 ---
-title: Marcar recursos para a organização lógica
-description: Mostra como aplicar marcas para organizar recursos do Azure para cobrança e gerenciamento.
+title: Recursos de etiqueta para organização lógica
+description: Mostra como aplicar tags para organizar recursos Azure para faturação e gestão.
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 5751f2d1bc123c5918ae0fabc5b908b5f4fec71d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c7f8d8672e205fa677bff33c8ed173c1105b26c6
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087321"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166585"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Use tags para organizar os seus recursos Azure
 
-Você aplica marcas aos recursos do Azure para organizá-los logicamente em uma taxonomia. Cada marca consiste em um par de nome e valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
+Aplica etiquetas aos seus recursos Azure para logicamente organizá-las numa taxonomia. Cada etiqueta consiste num nome e num par de valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
 Depois de aplicar etiquetas, pode obter todos os recursos na sua subscrição com este nome e este valor da etiqueta. As etiquetas permitem-lhe recuperar recursos relacionados de diferentes grupos de recursos. Esta abordagem é útil quando precisa de organizar os recursos de gestão ou de faturação.
 
-Sua taxonomia deve considerar uma estratégia de marcação de metadados de autoatendimento, além de uma estratégia de marcação automática para reduzir a carga sobre os usuários e aumentar a precisão.
+A sua taxonomia deve considerar uma estratégia de marcação de metadados de autosserviço, além de uma estratégia de marcação automática para reduzir os encargos para os utilizadores e aumentar a precisão.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -24,26 +24,26 @@ Sua taxonomia deve considerar uma estratégia de marcação de metadados de auto
 
 As seguintes limitações aplicam-se às etiquetas:
 
-* Nem todos os tipos de recurso dão suporte a marcas. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte o [suporte da Tag para os recursos Azure](tag-support.md).
-* Cada recurso ou grupo de recursos pode ter um máximo de 50 pares de nome/valor de marca. Se você precisar aplicar mais marcas do que o número máximo permitido, use uma cadeia de caracteres JSON para o valor da marca. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Um grupo de recursos pode conter muitos recursos que têm um número de 50 pares de nome/valor de marca.
+* Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte o [suporte da Tag para os recursos Azure](tag-support.md).
+* Cada grupo de recursos ou recursos pode ter um máximo de 50 pares de nome/valor de 50 tags. Se precisar aplicar mais etiquetas do que o número máximo permitido, utilize uma corda JSON para o valor da etiqueta. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Um grupo de recursos pode conter muitos recursos que cada um tem 50 pares de nome/valor de etiquetas.
 * O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
-* As VMs generalizadas não dão suporte a marcas.
+* VMs generalizados não suportam etiquetas.
 * As etiquetas aplicadas ao grupo de recursos não são herdadas pelos recursos nesse grupo de recursos.
-* As marcas não podem ser aplicadas a recursos clássicos, como serviços de nuvem.
+* As etiquetas não podem ser aplicadas a recursos clássicos, como os Serviços cloud.
 * Os nomes de etiquetas não podem conter estes caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Atualmente, as zonas DNS do Azure e os serviços do Gerenciador de tráfego também não permitem o uso de espaços na marca. 
+   > Atualmente, as zonas DeDNs azure e os serviços de Traffic Manger também não permitem a utilização de espaços na etiqueta. 
 
-## <a name="required-access"></a>Acesso necessário
+## <a name="required-access"></a>Acesso obrigatório
 
-Para aplicar marcas aos recursos, o usuário deve ter acesso de gravação a esse tipo de recurso. Para aplicar etiquetas a todos os tipos de recursos, utilize a função [Contributiva.](../../role-based-access-control/built-in-roles.md#contributor) Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar etiquetas em máquinas virtuais, utilize o Colaborador da [Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Para aplicar etiquetas aos recursos, o utilizador deve ter acesso a esse tipo de recursos. Para aplicar etiquetas a todos os tipos de recursos, utilize a função [Contributiva.](../../role-based-access-control/built-in-roles.md#contributor) Para aplicar etiquetas a apenas um tipo de recurso, utilize a função de contribuinte para esse recurso. Por exemplo, para aplicar etiquetas em máquinas virtuais, utilize o Colaborador da [Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="policies"></a>Políticas
 
-Pode usar a [Política Azure](../../governance/policy/overview.md) para impor regras e convenções de marcação. Ao criar uma política, você evita o cenário dos recursos que estão sendo implantados em sua assinatura que não estão em conformidade com as marcas esperadas para sua organização. Em vez de aplicar marcas manualmente ou procurar recursos que não são compatíveis, você pode criar uma política que aplica automaticamente as marcas necessárias durante a implantação. As etiquetas também podem agora ser aplicadas aos recursos existentes com o novo efeito [Modificar](../../governance/policy/concepts/effects.md#modify) e uma tarefa de [reparação.](../../governance/policy/how-to/remediate-resources.md) A seção a seguir mostra as políticas de exemplo para marcas.
+Pode usar a [Política Azure](../../governance/policy/overview.md) para impor regras e convenções de marcação. Ao criar uma política, evita o cenário de recursos que estão a ser implantados na sua subscrição que não cumprem as etiquetas esperadas para a sua organização. Em vez de aplicar manualmente tags ou procurar recursos que não sejam compatíveis, pode criar uma política que aplique automaticamente as etiquetas necessárias durante a implementação. As etiquetas também podem agora ser aplicadas aos recursos existentes com o novo efeito [Modificar](../../governance/policy/concepts/effects.md#modify) e uma tarefa de [reparação.](../../governance/policy/how-to/remediate-resources.md) A secção seguinte mostra políticas de exemplo para tags.
 
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-general-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
 
@@ -68,7 +68,7 @@ Para ver as etiquetas existentes para um recurso que tenha um nome e um grupo de
 (Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
-Ou, se você tiver a ID de recurso para um recurso, poderá passar essa ID de recurso para obter as marcas.
+Ou, se tiver o ID de recurso para um recurso, pode passar essa identificação de recursos para obter as etiquetas.
 
 ```azurepowershell-interactive
 (Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
@@ -115,7 +115,7 @@ $resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName exampleg
 Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $resource.ResourceId -Force
 ```
 
-Você pode ter mais de um recurso com o mesmo nome em um grupo de recursos. Nesse caso, você pode definir cada recurso com os seguintes comandos:
+Pode ter mais de um recurso com o mesmo nome num grupo de recursos. Nesse caso, pode definir cada recurso com os seguintes comandos:
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
@@ -194,7 +194,7 @@ Ou, para ver as etiquetas existentes para um recurso que tenha um nome, tipo e g
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-Ao executar um loop em uma coleção de recursos, talvez você queira mostrar o recurso por ID de recurso. Um exemplo completo é mostrado posteriormente neste artigo. Para ver as etiquetas existentes de um *recurso que tem um ID de recurso específico*, utilize:
+Ao passar por uma coleção de recursos, é melhor mostrar o recurso por id de recursos. Um exemplo completo é mostrado mais tarde neste artigo. Para ver as etiquetas existentes de um *recurso que tem um ID de recurso específico*, utilize:
 
 ```azurecli-interactive
 az resource show --id <resource-id> --query tags
@@ -212,27 +212,27 @@ Para obter todos os recursos que tenham uma etiqueta e valor particulares, use `
 az resource list --tag Dept=Finance
 ```
 
-Ao adicionar marcas a um grupo de recursos ou recurso, você pode substituir as marcas existentes ou acrescentar novas marcas a marcas existentes.
+Ao adicionar tags a um grupo de recursos ou recurso, pode substituir as etiquetas existentes ou anexar novas etiquetas às etiquetas existentes.
 
-Para substituir as marcas existentes em um grupo de recursos, use:
+Para substituir as etiquetas existentes num grupo de recursos, utilize:
 
 ```azurecli-interactive
 az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
 ```
 
-Para acrescentar uma marca às marcas existentes em um grupo de recursos, use:
+Para anexar uma etiqueta às etiquetas existentes num grupo de recursos, utilize:
 
 ```azurecli-interactive
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Para substituir as marcas em um recurso, use:
+Para substituir as etiquetas num recurso, utilize:
 
 ```azurecli-interactive
 az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Para acrescentar uma marca às marcas existentes em um recurso, use:
+Para anexar uma etiqueta às etiquetas existentes num recurso, utilize:
 
 ```azurecli-interactive
 az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
@@ -265,7 +265,7 @@ do
 done
 ```
 
-Se os nomes ou valores de marcação incluírem espaços, você deverá executar algumas etapas adicionais. O exemplo a seguir aplica todas as marcas de um grupo de recursos a seus recursos quando as marcas podem conter espaços.
+Se os seus nomes ou valores incluem espaços, deve dar alguns passos extra. O exemplo seguinte aplica todas as etiquetas de um grupo de recursos aos seus recursos quando as etiquetas podem conter espaços.
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -361,7 +361,7 @@ Pode definir um parâmetro de objeto que armazene várias etiquetas e aplicar es
 
 ### <a name="apply-a-json-string-to-the-tag-name"></a>Aplicar uma cadeia JSON ao nome da etiqueta
 
-Para armazenar muitos valores numa única etiqueta, aplique uma cadeia JSON que represente os valores. A cadeia de caracteres JSON inteira é armazenada como uma marca que não pode exceder 256 caracteres. O exemplo seguinte tem uma única etiqueta com o nome `CostCenter` que contém vários valores de uma cadeia JSON:  
+Para armazenar muitos valores numa única etiqueta, aplique uma cadeia JSON que represente os valores. Toda a cadeia JSON é armazenada como uma etiqueta que não pode exceder 256 caracteres. O exemplo seguinte tem uma única etiqueta com o nome `CostCenter` que contém vários valores de uma cadeia JSON:  
 
 ```json
 {
@@ -392,7 +392,7 @@ Para armazenar muitos valores numa única etiqueta, aplique uma cadeia JSON que 
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Aplicar marcas do grupo de recursos
+### <a name="apply-tags-from-resource-group"></a>Aplicar etiquetas do grupo de recursos
 
 Para aplicar etiquetas de um grupo de recursos a um recurso, utilize a função [resourceGroup.](../templates/template-functions-resource.md#resourcegroup) Ao obter o valor da etiqueta, use a sintaxe `tags[tag-name]` em vez da sintaxe `tags.tag-name`, porque alguns caracteres não são analisados corretamente na notação do ponto.
 
@@ -434,7 +434,7 @@ Para aplicar etiquetas de um grupo de recursos a um recurso, utilize a função 
 
 O portal Azure e a PowerShell usam ambos a [API REST API do Gestor](/rest/api/resources/) de Recursos nos bastidores. Se precisar de integrar a marcação noutro ambiente, pode obter etiquetas utilizando o **GET** no ID de recurso e atualizar o conjunto de tags utilizando uma chamada **PATCH.**
 
-## <a name="tags-and-billing"></a>Marcas e cobrança
+## <a name="tags-and-billing"></a>Etiquetas e faturação
 
 Pode utilizar etiquetas para agrupar os seus dados de faturação. Por exemplo, se estiver a executar vários VMs para diferentes organizações, use as etiquetas para agrupar o uso por centro de custos. Também pode usar etiquetas para categorizar custos através de um ambiente de tempo de funcionamento, como o uso de faturação para VMs em funcionamento no ambiente de produção.
 
@@ -444,5 +444,5 @@ Para operações rest API, consulte [Azure Billing REST API Reference](/rest/api
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Nem todos os tipos de recurso dão suporte a marcas. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte o [suporte da Tag para os recursos Azure](tag-support.md).
+* Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte o [suporte da Tag para os recursos Azure](tag-support.md).
 * Para uma introdução à utilização do portal, consulte [Utilizar o portal Azure para gerir os seus recursos Azure.](manage-resource-groups-portal.md)  

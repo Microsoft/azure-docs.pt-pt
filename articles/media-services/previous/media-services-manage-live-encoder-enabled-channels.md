@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: ec34ed723e9b0743a9a5fbbe6413659dd63b0e8a
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134915"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162536"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -31,7 +31,7 @@ ms.locfileid: "77134915"
 Na Azure Media Services (AMS), um **Canal** representa um oleoduto para o processamento de conteúdos de streaming ao vivo. Um **Canal** recebe streams de entrada ao vivo de uma de duas maneiras:
 
 * Um codificador ao vivo no local envia um fluxo de bitrate único para o Canal que está habilitado a realizar codificação ao vivo com os Media Services num dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
-* Um codificador ao vivo no local envia um **RTMP** multibitado ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado a realizar codificação ao vivo com ams. Os fluxos ingeridos passam pelo **Canal**sem qualquer processamento adicional. Este método **chama-se pass-through**. Pode utilizar os seguintes codificadores ao vivo que produzem streaming liso multibitado: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo de saída RTMP: Telestream Wirecast, Haivision, Teradek e Tricaster codificadores.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador ao vivo no local envia um **RTMP** multibitado ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado a realizar codificação ao vivo com ams. Os fluxos ingeridos passam pelo **Canal**sem qualquer processamento adicional. Este método **chama-se pass-through**. Pode utilizar os seguintes codificadores ao vivo que produzem streaming liso multibitado: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo de saída RTMP: [Telestream Wirecast,](media-services-configure-wirecast-live-encoder.md)Haivision, Teradek e Tricaster codificadores.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
   > [!NOTE]
   > Usar um método de passagem é a forma mais económica de fazer streaming ao vivo.
@@ -146,7 +146,7 @@ Considerações:
 * Taxa de amostragem de 44,1 kHz
 * Embalagem ADTS estilo MPEG-2
 * Os codificadores recomendados incluem:
-* Difusão telestream
+* [Difusão telestream](media-services-configure-wirecast-live-encoder.md)
 * Flash Media Live Encoder
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>MP4 fragmentado de velocidade de transmissão única (Transmissão em Fluxo Uniforme)

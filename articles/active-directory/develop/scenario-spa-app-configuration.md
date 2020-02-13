@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f72b2b85fcaae4e0a21e4bbe2f3af79359ca2fa6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f1e0bf44515aab18019b19b4f0a6f84183e5aac3
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701914"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160088"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplicação de página única: Configuração do código
 
@@ -38,7 +38,7 @@ A plataforma de identidade da Microsoft fornece as seguintes bibliotecas da Micr
 
 Numa biblioteca da MSAL, a informação de inscrição da aplicação é passada como configuração durante a inicialização da biblioteca.
 
-### <a name="javascript"></a>Javascript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 // Configuration object constructed.
@@ -52,9 +52,10 @@ const config = {
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);
 ```
+
 Para obter mais informações sobre as opções configuráveis, consulte [a aplicação inicialização com mSAL.js](msal-js-initializing-client-applications.md).
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 ```javascript
 //In app.module.ts
@@ -68,6 +69,8 @@ import { MsalModule } from '@azure/msal-angular';
 
   export class AppModule { }
 ```
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

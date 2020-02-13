@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 23c292a950deea262ee063b4141b07a4f64f9f84
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 02/05/2020
+ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061333"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162417"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utilize data lake storage Gen1 com clusters Azure HDInsight
 
@@ -131,6 +131,8 @@ Para configurar o acesso ao Armazenamento de Data Lake do seu cluster HDInsight,
 > [!NOTE]  
 > Se vai utilizar o Azure Data Lake Storage Gen1 como armazenamento adicional para o cluster HDInsight, recomendamos vivamente que o faça enquanto cria o cluster como descrito neste artigo. Adicionar o Azure Data Lake Storage Gen1 como armazenamento adicional a um cluster HDInsight existente não é um cenário suportado.
 
+Para obter mais informações sobre os fundamentos do modelo de controlo de acesso para Data Lake Storage Gen1, consulte o controlo de [acesso em Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
 ## <a name="access-files-from-the-cluster"></a>Aceder a ficheiros a partir do cluster
 
 Existem várias formas de aceder aos ficheiros no Armazenamento de Data Lake a partir de um cluster HDInsight.
@@ -141,7 +143,7 @@ Existem várias formas de aceder aos ficheiros no Armazenamento de Data Lake a p
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Utilizando o formato de caminho abreviado**. Com essa abordagem, você substitui o caminho até a raiz do cluster por:
+* **Utilizando o formato de caminho abreviado**. Com esta abordagem, você substitui o caminho até a raiz do cluster por:
 
     ```
     adl:///<file path>
@@ -155,17 +157,17 @@ Existem várias formas de aceder aos ficheiros no Armazenamento de Data Lake a p
 
 ### <a name="data-access-examples"></a>Exemplos de acesso a dados
 
-Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) ao nó da cabeça do cluster. Os exemplos usam todos os três esquemas de URI. Substitua `DATALAKEACCOUNT` e `CLUSTERNAME` os valores relevantes.
+Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) ao nó da cabeça do cluster. Os exemplos utilizam os três esquemas URI. Substitua `DATALAKEACCOUNT` e `CLUSTERNAME` os valores relevantes.
 
-#### <a name="a-few-hdfs-commands"></a>Alguns comandos do HDFS
+#### <a name="a-few-hdfs-commands"></a>Alguns comandos hdfs
 
-1. Crie um arquivo simples no armazenamento local.
+1. Crie um simples arquivo sobre o armazenamento local.
 
     ```bash
     touch testFile.txt
     ```
 
-1. Crie diretórios no armazenamento de cluster.
+1. Crie diretórios no armazenamento de clusters.
 
     ```bash
     hdfs dfs -mkdir adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -173,7 +175,7 @@ Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-uni
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. Copie dados do armazenamento local para o armazenamento de cluster.
+1. Copie dados do armazenamento local para o armazenamento de clusters.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -181,7 +183,7 @@ Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-uni
     hdfs dfs -copyFromLocal testFile.txt /sampledata3/
     ```
 
-1. Liste o conteúdo do diretório no armazenamento de cluster.
+1. Lista de conteúdos de diretório no armazenamento de clusters.
 
     ```bash
     hdfs dfs -ls adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -189,9 +191,9 @@ Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-uni
     hdfs dfs -ls /sampledata3/
     ```
 
-#### <a name="creating-a-hive-table"></a>Criando uma tabela Hive
+#### <a name="creating-a-hive-table"></a>Criando uma mesa de colmeia
 
-Três locais de arquivo são mostrados para fins ilustrativos. Para a execução real, utilize apenas uma das entradas `LOCATION`.
+Três localizações de ficheiros são mostradas para fins ilustrativos. Para a execução real, utilize apenas uma das entradas `LOCATION`.
 
 ```hql
 DROP TABLE myTable;

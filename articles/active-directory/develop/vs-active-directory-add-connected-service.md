@@ -1,5 +1,5 @@
 ---
-title: Usando o serviço conectado do Active Directory (Visual Studio)
+title: Utilizando o serviço conectado Ative Directory (Estúdio Visual)
 description: Adicione um Diretório Ativo Azure utilizando a caixa de diálogo Visual Studio Add Connected Services
 author: ghogen
 manager: jillfra
@@ -11,14 +11,14 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 3e246ffe66dca38916d1072c489cf8e3ab265334
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f139fc8cb59c40ea169e195312326773296b0592
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700155"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159630"
 ---
-# <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionar um Azure Active Directory usando os serviços conectados no Visual Studio
+# <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicione um Diretório Ativo Azure utilizando serviços conectados em estúdio visual
 
 Utilizando o Azure Ative Directory (Azure AD), pode apoiar o Single Sign-On (SSO) para aplicações web ASP.NET MVC ou autenticação de diretório ativo nos serviços Web API. Com a Autenticação AD Azure, os seus utilizadores podem utilizar as suas contas a partir do Diretório Ativo Azure para se conectarem às suas aplicações web. As vantagens da Autenticação AD Azure com API web incluem uma maior segurança de dados ao expor uma API de uma aplicação web. Com a Azure AD, não é necessário gerir um sistema de autenticação separado com a sua própria conta e gestão de utilizadores.
 
@@ -74,4 +74,4 @@ Ao adicionar o serviço conectado o assistente, o Visual Studio adiciona o Azure
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Cenários de autenticação para o Diretório Ativo do Azure](authentication-scenarios.md)
-- [Adicione o sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v1-aspnet-webapp.md)
+- [Adicione o sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v2-aspnet-webapp.md)

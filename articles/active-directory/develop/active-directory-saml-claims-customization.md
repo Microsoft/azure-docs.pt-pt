@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7a4a58943b251628780694c001ca441a14e9c09a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 52779b7ffea0f33676426f145a700c7181cf0bf1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698684"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161261"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar as reclamações emitidas no token SAML para aplicações empresariais
 
@@ -59,7 +59,7 @@ A partir do formato de identificação de **nome Escolha,** pode selecionar uma 
 |---------------|-------------|
 | **Predefinição** | A Azure AD utilizará o formato de origem predefinido. |
 | **Persistente** | O Azure AD utilizará o Persistent como formato NameID. |
-| **EmailAddress** | O Azure AD utilizará o EmailAddress como formato NameID. |
+| **Endereço de e-mail** | O Azure AD utilizará o EmailAddress como formato NameID. |
 | **Não especificado** | A Azure AD utilizará o formato NameID não especificado. |
 | **Nome qualificado do domínio do Windows** | O Azure AD utilizará o Nome Do Domínio do WindowsComo formato NameID. |
 
@@ -71,10 +71,10 @@ Selecione a fonte desejada para a alegação `NameIdentifier` (ou NameID). Pode 
 
 | Nome | Descrição |
 |------|-------------|
-| E-mail | Endereço de e-mail do utilizador |
+| Email | Endereço de e-mail do utilizador |
 | userprincipalName | Nome principal do utilizador (UPN) do utilizador |
 | onpremisessamaccount | Nome da conta SAM que foi sincronizado a partir do local Azure AD |
-| ObjectID | Objectid do utilizador em Azure AD |
+| objectide | Objectid do utilizador em Azure AD |
 | employeeid | Identificação do empregado do utilizador |
 | Extensões de diretórios | Extensões de [diretório sincronizadas a partir de diretório ativo no local utilizando O Sincronizado de Ligação AD Azure](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Atributos de extensão 1-15 | Atributos de extensão no local utilizados para estender o esquema Azure AD |
@@ -101,10 +101,10 @@ Também pode utilizar as funções de transformação de sinistros.
 
 | Função | Descrição |
 |----------|-------------|
-| **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de e-mail ou do nome principal do utilizador. Isto extrai apenas a primeira parte do nome de utilizador que está a ser transmitida (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
-| **Join()** | Junta-se a um atributo com um domínio verificado. Se o valor do identificador de utilizador selecionado tiver um domínio, extrairá o nome de utilizador para anexar o domínio verificado selecionado. Por exemplo, se selecionar o e-mail (joe_smith@contoso.com) como o valor do identificador do utilizador e selecionar contoso.onmicrosoft.com como domínio verificado, isto resultará em joe_smith@contoso.onmicrosoft.com. |
+| **ExtractmailPrefix()** | Remove o sufixo de domínio do endereço de e-mail ou do nome principal do utilizador. Isto extrai apenas a primeira parte do nome de utilizador que está a ser transmitida (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
+| **Aderir** | Junta-se a um atributo com um domínio verificado. Se o valor do identificador de utilizador selecionado tiver um domínio, extrairá o nome de utilizador para anexar o domínio verificado selecionado. Por exemplo, se selecionar o e-mail (joe_smith@contoso.com) como o valor do identificador do utilizador e selecionar contoso.onmicrosoft.com como domínio verificado, isto resultará em joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
-| **ToUpper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
+| **Toupper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
 
 ## <a name="adding-application-specific-claims"></a>Adição de reclamações específicas para aplicações
 
@@ -128,13 +128,13 @@ Pode utilizar as seguintes funções para transformar reclamações.
 
 | Função | Descrição |
 |----------|-------------|
-| **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de e-mail ou do nome principal do utilizador. Isto extrai apenas a primeira parte do nome de utilizador que está a ser transmitida (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
-| **Join()** | Cria um novo valor juntando dois atributos. Opcionalmente, pode utilizar um separador entre os dois atributos. Para a transformação da reivindicação NameID, a adesão é restrita a um domínio verificado. Se o valor do identificador de utilizador selecionado tiver um domínio, extrairá o nome de utilizador para anexar o domínio verificado selecionado. Por exemplo, se selecionar o e-mail (joe_smith@contoso.com) como o valor do identificador do utilizador e selecionar contoso.onmicrosoft.com como domínio verificado, isto resultará em joe_smith@contoso.onmicrosoft.com. |
+| **ExtractmailPrefix()** | Remove o sufixo de domínio do endereço de e-mail ou do nome principal do utilizador. Isto extrai apenas a primeira parte do nome de utilizador que está a ser transmitida (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
+| **Aderir** | Cria um novo valor juntando dois atributos. Opcionalmente, pode utilizar um separador entre os dois atributos. Para a transformação da reivindicação NameID, a adesão é restrita a um domínio verificado. Se o valor do identificador de utilizador selecionado tiver um domínio, extrairá o nome de utilizador para anexar o domínio verificado selecionado. Por exemplo, se selecionar o e-mail (joe_smith@contoso.com) como o valor do identificador do utilizador e selecionar contoso.onmicrosoft.com como domínio verificado, isto resultará em joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
-| **ToUpper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
+| **Toupper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
 | **Contém()** | Saídas um atributo ou constante se a entrada corresponder ao valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se pretender emitir uma reclamação onde o valor é o endereço de e-mail do utilizador se contiver o domínio "@contoso.com", caso contrário, pretende-se obter o nome principal do utilizador. Para tal, configuraria os seguintes valores:<br/>*Parâmetro 1(entrada)* : user.email<br/>*Valor*: "@contoso.com"<br/>Parâmetro 2 (saída): user.email<br/>Parâmetro 3 (saída se não houver correspondência): user.userprincipalname |
 | **EndWith()** | Produz um atributo ou constante se a entrada terminar com o valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se pretender emitir uma reclamação em que o valor é o ID do empregado do utilizador se o ID do empregado terminar com "000", caso contrário, pretende-se obter um atributo de extensão. Para tal, configuraria os seguintes valores:<br/>*Parâmetro 1(entrada)* : user.employeeid<br/>*Valor*: "000"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
-| **StartWith()** | Produz um atributo ou constante se a entrada começar com o valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se quiser emitir uma reclamação em que o valor é o ID do utilizador se o país/região começar com "EUA", caso contrário, pretende obter um atributo de extensão. Para tal, configuraria os seguintes valores:<br/>*Parâmetro 1(entrada)* : user.country<br/>*Valor*: "NÓS"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
+| **Início Com** | Produz um atributo ou constante se a entrada começar com o valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se quiser emitir uma reclamação em que o valor é o ID do utilizador se o país/região começar com "EUA", caso contrário, pretende obter um atributo de extensão. Para tal, configuraria os seguintes valores:<br/>*Parâmetro 1(entrada)* : user.country<br/>*Valor*: "NÓS"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
 | **Extrato() - Após a correspondência** | Devolve o substring depois de corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon", o valor correspondente é "Finance_", então a saída da reclamação é "BSimon". |
 | **Extrato() - Antes de combinar** | Devolve o substring até corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "BSimon_US", o valor correspondente é "_US", então a saída da reclamação é "BSimon". |
 | **Extrato() - Entre a correspondência** | Devolve o substring até corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon_US", o primeiro valor correspondente é "Finance_", o segundo valor correspondente é "_US", então a saída da reclamação é "BSimon". |
@@ -143,7 +143,7 @@ Pode utilizar as seguintes funções para transformar reclamações.
 | **ExtractoNumérico() - Prefixo** | Devolve a parte numérica prefixo da corda.<br/>Por exemplo, se o valor da entrada for "123_BSimon", então devolve "123". |
 | **ExtractoNumérico() - Sufixo** | Devolve a parte numérica do sufixo da corda.<br/>Por exemplo, se o valor da entrada for "BSimon_123", então devolve "123". |
 | **IfEmpty()** | Saídas um atributo ou constante se a entrada for nula ou vazia.<br/>Por exemplo, se pretender obter um atributo armazenado num atributo extensão se o ID do empregado para um determinado utilizador estiver vazio. Para tal, configuraria os seguintes valores:<br/>Parâmetro 1(entrada): user.employeeid<br/>Parâmetro 2 (saída): user.extensionattribute1<br/>Parâmetro 3 (saída se não houver correspondência): user.employeeid |
-| **IfNotEmpty()** | Saídas um atributo ou constante se a entrada não for nula ou vazia.<br/>Por exemplo, se pretender obter um atributo armazenado num atributo extensão se o ID do empregado para um determinado utilizador não estiver vazio. Para tal, configuraria os seguintes valores:<br/>Parâmetro 1(entrada): user.employeeid<br/>Parâmetro 2 (saída): user.extensionattribute1 |
+| **IfnotEmpty()** | Saídas um atributo ou constante se a entrada não for nula ou vazia.<br/>Por exemplo, se pretender obter um atributo armazenado num atributo extensão se o ID do empregado para um determinado utilizador não estiver vazio. Para tal, configuraria os seguintes valores:<br/>Parâmetro 1(entrada): user.employeeid<br/>Parâmetro 2 (saída): user.extensionattribute1 |
 
 Se precisar de transformações adicionais, submeta a sua ideia no fórum de [feedback em Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) na categoria de *aplicação SaaS.*
 
@@ -180,4 +180,4 @@ Em primeiro lugar, a Azure AD verifica se o tipo de utilizador da Brita é `All 
 
 * [Gestão de aplicações em Azure AD](../manage-apps/what-is-application-management.md)
 * [Configure um único sinal sobre aplicações que não estejam na galeria de aplicações da AD Azure](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Srams de problemas saml único sign-on](howto-v1-debug-saml-sso-issues.md)
+* [Srams de problemas saml único sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

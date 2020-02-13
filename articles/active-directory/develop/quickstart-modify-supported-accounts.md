@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 59c1b7dbb4c47b6963cd4bbcfdeb1b2b9a2d3bb6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704124"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160694"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início rápido: modificar as contas com suporte em um aplicativo
 
@@ -39,8 +39,8 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**.
-1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **os registos**da App .
+1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação ou a página de registo principal.
 1. Siga os passos para [alterar o registo de aplicação para suportar diferentes contas](#change-the-application-registration-to-support-different-accounts).
 1. Se tiver uma aplicação de página única, [ative a concessão implícita de OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).
 
@@ -63,7 +63,7 @@ Se estiver a escrever uma aplicação e pretende disponibilizá-la aos seus clie
 
 Geralmente, as aplicações de página única (SPAs) são estruturadas com um front-end altamente baseado em JavaScript que é executado no browser e que chama o back-end da API Web da aplicação para realizar a respetiva lógica de negócio. Relativamente às SPAs alojadas no Azure AD, é utilizada a Concessão Implícita de OAuth 2.0 para autenticar o utilizador no Azure AD e obter um token que pode ser utilizado para proteger as chamadas do cliente JavaScript da aplicação para a respetiva API Web de back-end.
 
-Depois de o utilizador conceder o consentimento, este mesmo protocolo de autenticação pode ser utilizado para obter tokens para proteger as chamadas entre o cliente e os outros recursos da API Web configurados para a aplicação. Para saber mais sobre a concessão de autorização implícita e decidir se é adequada para o cenário da sua aplicação, obtenha informações sobre o fluxo de concessão implícita de OAuth 2.0 no Azure AD [v1.0](v1-oauth2-implicit-grant-flow.md) e [v2.0](v2-oauth2-implicit-grant-flow.md).
+Depois de o utilizador conceder o consentimento, este mesmo protocolo de autenticação pode ser utilizado para obter tokens para proteger as chamadas entre o cliente e os outros recursos da API Web configurados para a aplicação. Para saber mais sobre a concessão de autorização implícita e decidir se é adequada para o cenário da sua aplicação, obtenha informações sobre o fluxo de concessão implícita de OAuth 2.0 no Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) e [v2.0](v2-oauth2-implicit-grant-flow.md).
 
 Por predefinição, a concessão implícita de OAuth 2.0 está desativada nas aplicações. Pode ativar a concessão implícita de OAuth 2.0 para a sua aplicação ao seguir os passos descritos abaixo.
 

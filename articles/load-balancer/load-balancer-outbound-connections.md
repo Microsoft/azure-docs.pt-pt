@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d3e4a794a948dd6bd9860c9b7e6f06ac981f86b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934559"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162502"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -34,16 +34,16 @@ O Azure utiliza a tradução de endereços de rede fonte (SNAT) para executar es
 Existem [vários cenários de saída.](#scenarios) Pode combinar estes cenários conforme necessário. Reveja-os cuidadosamente para compreender as capacidades, constrangimentos e padrões que se aplicam ao seu modelo de implementação e cenário de aplicação. Rever orientações para [a gestão destes cenários.](#snatexhaust)
 
 >[!IMPORTANT] 
->Standard Load Balancer e Standard Public IP introduzem novas habilidades e diferentes comportamentos para a conectividade de saída.  Não são os mesmos que as SKUs básicas.  Se você quiser a conectividade de saída ao trabalhar com SKUs padrão, deverá defini-la explicitamente com endereços IP públicos padrão ou Load Balancer públicos padrão.  Isto inclui a criação de conectividade de saída ao utilizar um Balancer de Carga Padrão interno.  Recomendamos que utilize sempre regras de saída num Balancer de Carga Pública Standard.  [O cenário 3](#defaultsnat) não está disponível com o Standard SKU.  Isto significa que, quando um Balancer de Carga Padrão interno é utilizado, você precisa tomar medidas para criar conectividade de saída para os VMs na piscina de backend se a conectividade de saída for desejada.  No contexto da conectividade de saída, um Único VM autónomo, todos os VM's em um Conjunto de Disponibilidade, todos os casos em um VMSS comportam-se como um grupo. Isto significa que, se um único VM num Conjunto de Disponibilidade estiver associado a um SKU Padrão, todos os casos de VM dentro deste Conjunto de Disponibilidade comportam-se agora pelas mesmas regras que se estiverem associados ao SKU Padrão, mesmo que uma instância individual não esteja diretamente associada ao mesmo.  Reveja cuidadosamente todo este documento para compreender os conceitos globais, reveja o [Standard Load Balancer](load-balancer-standard-overview.md) para obter diferenças entre As EK E reveja [as regras de saída](load-balancer-outbound-rules-overview.md).  A utilização de regras de saída permite-lhe um controlo fino sobre todos os aspetos da conectividade de saída.
+>Standard Load Balancer e Standard Public IP introduzem novas habilidades e diferentes comportamentos para a conectividade de saída.  Não são os mesmos que as SKUs básicas.  Se pretender conectividade de saída ao trabalhar com as SKUs Standard, deve defini-la explicitamente com endereços IP públicos padrão ou um balancer de carga público padrão.  Isto inclui a criação de conectividade de saída ao utilizar um Balancer de Carga Padrão interno.  Recomendamos que utilize sempre regras de saída num Balancer de Carga Pública Standard.  [O cenário 3](#defaultsnat) não está disponível com o Standard SKU.  Isto significa que, quando um Balancer de Carga Padrão interno é utilizado, você precisa tomar medidas para criar conectividade de saída para os VMs na piscina de backend se a conectividade de saída for desejada.  No contexto da conectividade de saída, um Único VM autónomo, todos os VM's em um Conjunto de Disponibilidade, todos os casos em um VMSS comportam-se como um grupo. Isto significa que, se um único VM num Conjunto de Disponibilidade estiver associado a um SKU Padrão, todos os casos de VM dentro deste Conjunto de Disponibilidade comportam-se agora pelas mesmas regras que se estiverem associados ao SKU Padrão, mesmo que uma instância individual não esteja diretamente associada ao mesmo.  Reveja cuidadosamente todo este documento para compreender os conceitos globais, reveja o [Standard Load Balancer](load-balancer-standard-overview.md) para obter diferenças entre As EK E reveja [as regras de saída](load-balancer-outbound-rules-overview.md).  A utilização de regras de saída permite-lhe um controlo fino sobre todos os aspetos da conectividade de saída.
 
 ## <a name="scenarios"></a>Visão geral do cenário
 
 O Azure Load Balancer e os recursos conexos são explicitamente definidos quando se está a utilizar o Gestor de [Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Atualmente, o Azure fornece três métodos diferentes para alcançar a conectividade de saída para os recursos do Gestor de Recursos Azure. 
 
-| SKUs | Cenário | Método | Protocolos IP | Descrição |
+| Rio SKUs | Cenário | Método | Protocolos IP | Descrição |
 | --- | --- | --- | --- | --- |
 | Standard, Básico | [1. VM com endereço IP público (com ou sem Balancer de Carga)](#ilpip) | SNAT, porta disfarçada não utilizada | TCP, UDP, ICMP, ESP | O Azure utiliza o IP público atribuído à configuração IP do NIC da instância. A instância tem todas as portas efémeras disponíveis. Ao utilizar o Standard Load Balancer, deve utilizar regras de [saída](load-balancer-outbound-rules-overview.md) para definir explicitamente a conectividade de saída |
-| Standard, Básico | [2. Equilibrador de Carga Pública associado a um VM (sem endereço IP público na instância)](#lb) | SNAT com máscara de porta (PAT) utilizando as extremidades dianteiras do Balanceor de Carga | TCP, UDP |A Azure partilha o endereço IP público dos frontends públicos do Load Balancer com vários endereços IP privados. Azure usa portas efémeras das extremidades dianteiras para PAT. |
+| Standard, Básico | [1. VM com um endereço IP público de nível de instância (com ou sem equilíbrio de carga)](#ilpip) | SNAT, porta disfarçada não utilizada | TCP, UDP, ICMP, ESP | O Azure utiliza o IP público atribuído à configuração IP do NIC da instância. A instância tem todas as portas efémeras disponíveis. Ao utilizar o Standard Load Balancer, [as regras](load-balancer-outbound-rules-overview.md) de saída não são suportadas se um IP público for atribuído à Máquina Virtual |
 | nenhum ou Básico | [3. VM autónomo (sem Balancer de carga, sem endereço IP público)](#defaultsnat) | SNAT com máscara de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, partilha este endereço IP público com múltiplos endereços IP privados do conjunto de disponibilidade, e utiliza portas efémeras deste endereço IP público. Este cenário é um recuo para os cenários anteriores. Não o recomendamos se precisar de visibilidade e controlo. |
 
 Se não quiser que um VM comunique com pontos finais fora do Azure no espaço público de endereços IP, pode utilizar grupos de segurança de rede (NSGs) para bloquear o acesso conforme necessário. A secção [Que impede a conectividade de saída](#preventoutbound) discute mais detalhadamente os NSGs. A orientação sobre a conceção, implementação e gestão de uma rede virtual sem qualquer acesso de saída está fora do âmbito deste artigo.
@@ -91,7 +91,7 @@ Um exemplo é uma implantação do Gestor de Recursos Azure onde a aplicação d
 
 ### <a name="multife"></a>Múltiplas frentes para fluxos de saída
 
-#### <a name="standard-load-balancer"></a>Balanceador de Carga Standard
+#### <a name="standard-load-balancer"></a>Balanceador de Carga Padrão
 
 O Standard Load Balancer utiliza todos os candidatos para fluxos de saída ao mesmo tempo que [vários frontends IP (públicos)](load-balancer-multivip-overview.md) estão presentes. Cada extremidade frontal multiplica o número de portas SNAT preallocalizadas disponíveis se uma regra de equilíbrio de carga estiver ativada para ligações de saída.
 
@@ -257,12 +257,12 @@ Se um NSG bloquear os pedidos de sonda de saúde a partir da etiqueta padrão AZ
 
 ## <a name="limitations"></a>Limitações
 - O Desactivador OutOutboundSnat não está disponível como opção para configurar uma regra de equilíbrio de carga no portal.  Utilize as ferramentas DE REPOUSO, modelo ou cliente.
-- As funções de Web Worker sem uma VNet e outros serviços de plataforma da Microsoft podem ser acessíveis quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços de VNet e outros serviços de plataforma funcionam. Não confie neste efeito colateral, uma vez que o próprio serviço ou a plataforma subjacente podem mudar sem aviso prévio. Deve sempre assumir que precisa de criar uma conectividade de saída explicitamente, se desejar, quando utilizar apenas um Balancer de Carga Padrão interno. O cenário [padrão sNAT](#defaultsnat) 3 descrito neste artigo não está disponível.
+- As Funções dos Trabalhadores Web sem um VNet e outros serviços da plataforma Microsoft podem ser acessíveis quando apenas um Balancer de Carga Padrão interno é usado devido a um efeito colateral a partir do funcionamento dos serviços pré-VNet e de outros serviços da plataforma. Não confie neste efeito colateral, uma vez que o próprio serviço ou a plataforma subjacente podem mudar sem aviso prévio. Deve sempre assumir que precisa de criar uma conectividade de saída explicitamente, se desejar, quando utilizar apenas um Balancer de Carga Padrão interno. O cenário [padrão sNAT](#defaultsnat) 3 descrito neste artigo não está disponível.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
 - Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md) para o Standard Public Load Balancer.
-- Saiba mais sobre [Load Balancer](load-balancer-overview.md).
-- Saiba mais sobre [grupos de segurança de rede](../virtual-network/security-overview.md).
-- Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) no Azure.
+- Saiba mais sobre [o Balancer de Carga.](load-balancer-overview.md)
+- Saiba mais sobre [grupos](../virtual-network/security-overview.md)de segurança de rede .
+- Conheça algumas das [outras principais capacidades](../networking/networking-overview.md) de networking em Azure.

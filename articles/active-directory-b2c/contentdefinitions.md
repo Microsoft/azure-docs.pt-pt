@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 724736bedd81ea45d7472a615fa22cde6916f21c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148866"
+ms.locfileid: "77157878"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -84,11 +84,11 @@ O elemento **DataUri** é utilizado para especificar o identificador da página.
 | `globalexception` | Exibe uma página de erro quando uma exceção ou um erro é encontrado. |
 | `providerselection` | Lista os provedores de identidade que os usuários podem escolher durante a entrada. |
 | `unifiedssp` | Exibe um formulário para entrar com uma conta local com base em um endereço de email ou um nome de usuário. Esse valor também fornece a "funcionalidade de conexão" manter-me "e" esqueceu sua senha? " criar. |
-| `unifiedssp` | Exibe um formulário para entrar com uma conta local com base em um endereço de email ou um nome de usuário. |
+| `unifiedssd` | Exibe um formulário para entrar com uma conta local com base em um endereço de email ou um nome de usuário. |
 | `multifactor` | Verifica os números de telefone usando o texto ou a voz durante a inscrição ou entrada. |
 | `selfasserted` | Exibe um formulário que permite aos usuários criar ou atualizar seu perfil. |
 
-## <a name="select-a-page-layout"></a>Selecione um layout de página
+### <a name="select-a-page-layout"></a>Selecione um layout de página
 
 Pode ativar o [código do lado do cliente JavaScript](javascript-samples.md) inserindo `contract` entre `elements` e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
@@ -126,6 +126,29 @@ O formato do valor deve conter a palavra `contract`: _urn:com:microsoft:aad:b2c:
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+
+### <a name="metadata"></a>Metadados
+
+Um elemento **metadados** contém os seguintes elementos:
+
+| Elemento | Ocorrências | Descrição |
+| ------- | ----------- | ----------- |
+| Item | 0:n | Os metadados que se relacionam com a definição de conteúdo. |
+
+O elemento **Item** do elemento **Metadados** contém os seguintes atributos:
+
+| Atributo | Necessário | Descrição |
+| --------- | -------- | ----------- |
+| Chave | Sim | A chave dos metadados.  |
+
+#### <a name="metadata-keys"></a>Chaves de metadados
+
+A definição de conteúdo suporta os seguintes itens de metadados: 
+
+| Chave | Necessário | Descrição |
+| --------- | -------- | ----------- |
+| DisplayName | Não | Uma cadeia que contém o nome da definição de conteúdo. |
+
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
 O elemento **LocalizadoResourcesReferences** contém os seguintes elementos:
@@ -134,7 +157,7 @@ O elemento **LocalizadoResourcesReferences** contém os seguintes elementos:
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1: n | Uma lista de referências de recursos localizadas para a definição de conteúdo. |
 
-O elemento **LocalizadoResourcesReferences** contém os seguintes atributos:
+O elemento **LocalizadoResourcesReference** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |

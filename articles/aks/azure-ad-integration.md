@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 9a82b51083a7d31bc39c4556712c1489bad8bca0
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 956cfbafeebadaa23ba3a48f7d38c6f95b412bd9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031480"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158218"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes
 
-O Serviço Azure Kubernetes (AKS) pode ser configurado para utilizar o Azure Ative Directory (Azure AD) para autenticação do utilizador. Nessa configuração, você pode entrar em um cluster AKS usando o token de autenticação do Azure AD.
+O Serviço Azure Kubernetes (AKS) pode ser configurado para utilizar o Azure Ative Directory (Azure AD) para autenticação do utilizador. Nesta configuração, pode iniciar sessão num cluster AKS utilizando o seu símbolo de autenticação Azure AD.
 
 Os administradores de cluster podem configurar o controlo de acesso baseado em funções da Kubernetes (RBAC) com base na identidade de um utilizador ou na adesão de um grupo de diretórios.
 
@@ -104,7 +104,7 @@ A primeira aplicação Azure AD é aplicada para obter a adesão de um utilizado
 
 6. Volte à página de **visão geral** da aplicação e note o ID da **Aplicação (cliente).** Quando implementa um cluster AKS ativado por AD, este valor chama-se ID de aplicação do servidor.
 
-    ![Obter ID do aplicativo](media/aad-integration/application-id.png)
+    ![Obter ID de aplicação](media/aad-integration/application-id.png)
 
 ## <a name="create-the-client-application"></a>Criar a aplicação do cliente
 
@@ -303,7 +303,7 @@ Para saber mais sobre identidade e controlo de recursos, consulte [as melhores p
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

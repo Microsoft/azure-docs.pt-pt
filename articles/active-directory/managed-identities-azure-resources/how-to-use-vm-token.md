@@ -1,6 +1,6 @@
 ---
-title: Usar identidades gerenciadas em uma máquina virtual para adquirir o token de acesso-Azure AD
-description: Instruções passo a passo e exemplos para usar identidades gerenciadas para recursos do Azure em máquinas virtuais para adquirir um token de acesso OAuth.
+title: Utilize identidades geridas numa máquina virtual para adquirir acesso a ficha - Azure AD
+description: Instruções passo a passo e exemplos para usar identidades geridas para os recursos Do Azure numa máquina virtual para adquirir um símbolo de acesso OAuth.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,56 +15,56 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 443f1eb1576f2d6eb28d0de16f37e37912b707b9
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9ac0f4d5c10cf128b6161163a81cc171bcafbd36
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547360"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159000"
 ---
-# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para adquirir um token de acesso 
+# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para adquirir um sinal de acesso 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 
-Identidades gerenciadas para recursos do Azure fornecem serviços do Azure com uma identidade gerenciada automaticamente no Azure Active Directory. Você pode usar essa identidade para autenticar em qualquer serviço que ofereça suporte à autenticação do Azure AD, sem ter credenciais em seu código. 
+Identidades geridas para recursos Azure fornecem serviços Azure com uma identidade gerida automaticamente no Diretório Ativo Azure. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação DaD Azure, sem ter credenciais no seu código. 
 
-Este artigo fornece vários exemplos de código e script para aquisição de token, bem como orientações sobre tópicos importantes, como tratamento de expiração de token e erros HTTP. 
+Este artigo fornece vários exemplos de código e script para aquisição simbólica, bem como orientação sobre temas importantes como manipulação de expiração de token e erros HTTP. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Se você planeja usar os exemplos de Azure PowerShell neste artigo, certifique-se de instalar a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps).
+Se planeia utilizar os exemplos do Azure PowerShell neste artigo, certifique-se de instalar a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 > [!IMPORTANT]
-> - Todo o código/script de exemplo neste artigo pressupõe que o cliente está sendo executado em uma máquina virtual com identidades gerenciadas para recursos do Azure. Use o recurso "conectar" da máquina virtual no portal do Azure para conectar-se remotamente à sua VM. Para obter detalhes sobre como habilitar identidades gerenciadas para recursos do Azure em uma VM, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (usando o PowerShell, a CLI, um modelo ou um SDK do Azure). 
+> - Todo o código/script da amostra neste artigo pressupõe que o cliente está a funcionar numa máquina virtual com identidades geridas para os recursos do Azure. Utilize a função de máquina virtual "Connect" no portal Azure, para ligar remotamente ao seu VM. Para mais detalhes sobre a possibilidade de permitir identidades geridas para os recursos Azure num VM, consulte [as identidades geridas pela Configure para os recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (utilizando PowerShell, CLI, um modelo ou um Azure SDK). 
 
 > [!IMPORTANT]
-> - O limite de segurança de identidades gerenciadas para recursos do Azure é o recurso em que ele está sendo usado. Todos os códigos/scripts em execução em uma máquina virtual podem solicitar e recuperar tokens para quaisquer identidades gerenciadas disponíveis nele. 
+> - O limite de segurança das identidades geridas para os recursos do Azure é o recurso em que está a ser usado. Todos os códigos/scripts que estão a funcionar numa máquina virtual podem solicitar e recuperar fichas para quaisquer identidades geridas disponíveis nele. 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-Um aplicativo cliente pode solicitar identidades gerenciadas para o [token de acesso somente de aplicativo](../develop/developer-glossary.md#access-token) de recursos do Azure para acessar um determinado recurso. O token é [baseado nas identidades gerenciadas para a entidade de serviço de recursos do Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Assim, não há necessidade de o cliente se registrar para obter um token de acesso em sua própria entidade de serviço. O token é adequado para uso como um token de portador em [chamadas de serviço a serviço que exigem credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
+Uma aplicação de cliente pode solicitar identidades geridas para o [acesso apenas](../develop/developer-glossary.md#access-token) a aplicações de recursos Azure para aceder a um determinado recurso. O símbolo [baseia-se nas identidades geridas para](overview.md#how-does-the-managed-identities-for-azure-resources-work)o principal de serviço de recursos azure. Como tal, não há necessidade de o cliente se registar para obter um sinal de acesso ao abrigo do seu próprio serviço principal. O símbolo é adequado para ser usado como um símbolo portador em [chamadas de serviço a serviço que requerem credenciais](../develop/v2-oauth2-client-creds-grant-flow.md)de cliente .
 
 |  |  |
 | -------------- | -------------------- |
-| [Obter um token usando HTTP](#get-a-token-using-http) | Detalhes de protocolo para identidades gerenciadas do ponto de extremidade de token de recursos do Azure |
-| [Obter um token usando a biblioteca Microsoft. Azure. Services. AppAuthentication para .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exemplo de uso da biblioteca Microsoft. Azure. Services. AppAuthentication de um cliente .NET
-| [Obter um token usandoC#](#get-a-token-using-c) | Exemplo de uso de identidades gerenciadas para o ponto de C# extremidade REST de recursos do Azure de um cliente |
-| [Obter um token usando o Java](#get-a-token-using-java) | Exemplo de uso de identidades gerenciadas para o ponto de extremidade REST de recursos do Azure de um cliente Java |
-| [Obter um token usando go](#get-a-token-using-go) | Exemplo de uso de identidades gerenciadas para o ponto de extremidade REST de recursos do Azure de um cliente go |
-| [Obter um token usando Azure PowerShell](#get-a-token-using-azure-powershell) | Exemplo de uso de identidades gerenciadas para o ponto de extremidade REST de recursos do Azure de um cliente do PowerShell |
-| [Obter um token usando ONDULAção](#get-a-token-using-curl) | Exemplo de uso de identidades gerenciadas para o ponto de extremidade REST de recursos do Azure de um cliente de bash/ONDULAção |
-| Lidando com cache de token | Diretrizes para manipulação de tokens de acesso expirados |
-| [Processamento de erros](#error-handling) | Diretrizes para tratamento de erros de HTTP retornados do ponto de extremidade de identidades gerenciadas para o token de recursos do Azure |
-| [IDs de recurso para serviços do Azure](#resource-ids-for-azure-services) | Onde obter as IDs de recurso para os serviços do Azure com suporte |
+| [Obtenha um símbolo usando HTTP](#get-a-token-using-http) | Detalhes do protocolo para identidades geridas para o ponto final simbólico dos recursos do Azure |
+| [Obtenha um símbolo utilizando a biblioteca Microsoft.Azure.Services.AppAuthentication para .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exemplo de utilização da biblioteca Microsoft.Azure.Services.AppAuthentication de um cliente .NET
+| [Obter um símbolo usandoC#](#get-a-token-using-c) | Exemplo de utilização de identidades geridas para C# o ponto final do Rest point de recursos Azure de um cliente |
+| [Obter um símbolo usando Java](#get-a-token-using-java) | Exemplo de utilização de identidades geridas para os recursos Azure REST point de um cliente Java |
+| [Obter um símbolo usando Go](#get-a-token-using-go) | Exemplo de utilização de identidades geridas para os recursos Azure REST point de um cliente Go |
+| [Obtenha um símbolo usando azure PowerShell](#get-a-token-using-azure-powershell) | Exemplo de utilização de identidades geridas para os recursos Azure REST point de um cliente PowerShell |
+| [Obtenha um símbolo usando curl](#get-a-token-using-curl) | Exemplo de utilização de identidades geridas para os recursos Azure REST point de um cliente Bash/CURL |
+| Manuseamento de caching de token | Orientação para manusear fichas de acesso expiradas |
+| [Processamento de erros](#error-handling) | Orientação para lidar com erros HTTP devolvidos das identidades geridas para o ponto final simbólico dos recursos do Azure |
+| [IDs de recursos para serviços Azure](#resource-ids-for-azure-services) | Onde obter iDs de recursos para serviços Azure suportados |
 
-## <a name="get-a-token-using-http"></a>Obter um token usando HTTP 
+## <a name="get-a-token-using-http"></a>Obtenha um símbolo usando HTTP 
 
-A interface fundamental para adquirir um token de acesso é baseada em REST, tornando-o acessível para qualquer aplicativo cliente em execução na VM que possa fazer chamadas HTTP REST. Isso é semelhante ao modelo de programação do Azure AD, exceto que o cliente usa um ponto de extremidade na máquina virtual (vs. um ponto de extremidade do Azure AD).
+A interface fundamental para a aquisição de um token de acesso baseia-se no REST, tornando-o acessível a qualquer aplicação do cliente em execução no VM que possa fazer chamadas HTTP REST. Isto é semelhante ao modelo de programação da AD Azure, exceto que o cliente utiliza um ponto final na máquina virtual (vs um ponto final da AD Azure).
 
-Exemplo de solicitação usando o ponto de extremidade do IMDS (serviço de metadados de instância) do Azure *(recomendado)* :
+Pedido de amostra geminação utilizando o ponto final do Serviço de Metadados de Instância Seletiva (IMDS) *(recomendado):*
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -72,16 +72,16 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 
 | Elemento | Descrição |
 | ------- | ----------- |
-| `GET` | O verbo HTTP, indicando que você deseja recuperar dados do ponto de extremidade. Nesse caso, um token de acesso OAuth. | 
-| `http://169.254.169.254/metadata/identity/oauth2/token` | O ponto de extremidade de identidades gerenciadas para recursos do Azure para o serviço de metadados de instância. |
-| `api-version`  | Um parâmetro de cadeia de caracteres de consulta, que indica a versão da API para o ponto de extremidade IMDS. Use a versão da API `2018-02-01` ou superior. |
-| `resource` | Um parâmetro de cadeia de caracteres de consulta, indicando o URI da ID do aplicativo do recurso de destino. Ele também aparece na declaração de `aud` (público) do token emitido. Este exemplo solicita um token para acessar Azure Resource Manager, que tem um URI de ID de aplicativo de https://management.azure.com/. |
-| `Metadata` | Um campo de cabeçalho de solicitação HTTP, exigido por identidades gerenciadas para recursos do Azure como uma mitigação contra o ataque de falsificação de solicitação do lado do servidor (SSRF). Esse valor deve ser definido como "true", em todas as letras minúsculas. |
-| `object_id` | Adicional Um parâmetro de cadeia de caracteres de consulta, que indica a object_id da identidade gerenciada para a qual você gostaria de obter o token. Necessário, se sua VM tiver várias identidades gerenciadas atribuídas pelo usuário.|
-| `client_id` | Adicional Um parâmetro de cadeia de caracteres de consulta, que indica a client_id da identidade gerenciada para a qual você gostaria de obter o token. Necessário, se sua VM tiver várias identidades gerenciadas atribuídas pelo usuário.|
-| `mi_res_id` | Adicional Um parâmetro de cadeia de caracteres de consulta, que indica a mi_res_id (ID de recurso do Azure) da identidade gerenciada para a qual você gostaria de obter o token. Necessário, se sua VM tiver várias identidades gerenciadas atribuídas pelo usuário. |
+| `GET` | O verbo HTTP, indicando que pretende recuperar dados do ponto final. Neste caso, um sinal de acesso da OAuth. | 
+| `http://169.254.169.254/metadata/identity/oauth2/token` | As identidades geridas para o ponto final dos recursos do Azure para o Serviço de Metadados de Exemplo. |
+| `api-version`  | Um parâmetro de corda de consulta, indicando a versão API para o ponto final do IMDS. Por favor, utilize a versão API `2018-02-01` ou superior. |
+| `resource` | Um parâmetro de corda de consulta, indicando o ID da aplicação URI do recurso alvo. Também aparece na alegação `aud` (audiência) do símbolo emitido. Este exemplo solicita um sinal de acesso ao Azure Resource Manager, que tem um ID app URI de https://management.azure.com/. |
+| `Metadata` | Um campo de cabeçalho de pedido HTTP, exigido por identidades geridas para os recursos Do Azure como uma mitigação contra o ataque de Forgery de Pedido lateral do Servidor (SSRF). Este valor deve ser definido como "verdadeiro", em todos os casos inferiores. |
+| `object_id` | (Opcional) Um parâmetro de corda de consulta, indicando o object_id da identidade gerida para a que gostaria do símbolo. Necessário, se o seu VM tiver várias identidades geridas atribuídas ao utilizador.|
+| `client_id` | (Opcional) Um parâmetro de corda de consulta, indicando o client_id da identidade gerida para a que gostaria do símbolo. Necessário, se o seu VM tiver várias identidades geridas atribuídas ao utilizador.|
+| `mi_res_id` | (Opcional) Um parâmetro de corda de consulta, indicando o mi_res_id (Azure Resource ID) da identidade gerida para a que gostaria do símbolo. Necessário, se o seu VM tiver várias identidades geridas atribuídas ao utilizador. |
 
-Exemplo de solicitação usando as identidades gerenciadas para os recursos do Azure ponto de extremidade de extensão de VM *(planejado para substituição em janeiro de 2019)* :
+Pedido de amostra utilizando as identidades geridas para os recursos Azure VM Extension Endpoint *(previsto para depreciação em janeiro de 2019)*
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -90,14 +90,14 @@ Metadata: true
 
 | Elemento | Descrição |
 | ------- | ----------- |
-| `GET` | O verbo HTTP, indicando que você deseja recuperar dados do ponto de extremidade. Nesse caso, um token de acesso OAuth. | 
-| `http://localhost:50342/oauth2/token` | O ponto de extremidade de identidades gerenciadas para recursos do Azure, em que 50342 é a porta padrão e é configurável. |
-| `resource` | Um parâmetro de cadeia de caracteres de consulta, indicando o URI da ID do aplicativo do recurso de destino. Ele também aparece na declaração de `aud` (público) do token emitido. Este exemplo solicita um token para acessar Azure Resource Manager, que tem um URI de ID de aplicativo de https://management.azure.com/. |
-| `Metadata` | Um campo de cabeçalho de solicitação HTTP, exigido por identidades gerenciadas para recursos do Azure como uma mitigação contra o ataque de falsificação de solicitação do lado do servidor (SSRF). Esse valor deve ser definido como "true", em todas as letras minúsculas.|
-| `object_id` | Adicional Um parâmetro de cadeia de caracteres de consulta, que indica a object_id da identidade gerenciada para a qual você gostaria de obter o token. Necessário, se sua VM tiver várias identidades gerenciadas atribuídas pelo usuário.|
-| `client_id` | Adicional Um parâmetro de cadeia de caracteres de consulta, que indica a client_id da identidade gerenciada para a qual você gostaria de obter o token. Necessário, se sua VM tiver várias identidades gerenciadas atribuídas pelo usuário.|
+| `GET` | O verbo HTTP, indicando que pretende recuperar dados do ponto final. Neste caso, um sinal de acesso da OAuth. | 
+| `http://localhost:50342/oauth2/token` | As identidades geridas para o ponto final dos recursos Azure, onde 50342 é a porta padrão e é configurável. |
+| `resource` | Um parâmetro de corda de consulta, indicando o ID da aplicação URI do recurso alvo. Também aparece na alegação `aud` (audiência) do símbolo emitido. Este exemplo solicita um sinal de acesso ao Azure Resource Manager, que tem um ID app URI de https://management.azure.com/. |
+| `Metadata` | Um campo de cabeçalho de pedido HTTP, exigido por identidades geridas para os recursos Do Azure como uma mitigação contra o ataque de Forgery de Pedido lateral do Servidor (SSRF). Este valor deve ser definido como "verdadeiro", em todos os casos inferiores.|
+| `object_id` | (Opcional) Um parâmetro de corda de consulta, indicando o object_id da identidade gerida para a que gostaria do símbolo. Necessário, se o seu VM tiver várias identidades geridas atribuídas ao utilizador.|
+| `client_id` | (Opcional) Um parâmetro de corda de consulta, indicando o client_id da identidade gerida para a que gostaria do símbolo. Necessário, se o seu VM tiver várias identidades geridas atribuídas ao utilizador.|
 
-Exemplo de resposta:
+Resposta da amostra:
 
 ```json
 HTTP/1.1 200 OK
@@ -115,21 +115,21 @@ Content-Type: application/json
 
 | Elemento | Descrição |
 | ------- | ----------- |
-| `access_token` | O token de acesso solicitado. Ao chamar uma API REST protegida, o token é inserido no campo de cabeçalho de solicitação de `Authorization` como um token de "portador", permitindo que a API autentique o chamador. | 
-| `refresh_token` | Não é usado por identidades gerenciadas para recursos do Azure. |
-| `expires_in` | O número de segundos que o token de acesso continua a ser válido, antes de expirar, a partir do momento da emissão. O tempo de emissão pode ser encontrado na declaração de `iat` do token. |
-| `expires_on` | O TimeSpan quando o token de acesso expira. A data é representada como o número de segundos de "1970-01-01T0:0: 0Z UTC" (corresponde à declaração de `exp` do token). |
-| `not_before` | O TimeSpan quando o token de acesso entra em vigor e pode ser aceito. A data é representada como o número de segundos de "1970-01-01T0:0: 0Z UTC" (corresponde à declaração de `nbf` do token). |
-| `resource` | O recurso para o qual o token de acesso foi solicitado, que corresponde ao parâmetro de cadeia de caracteres de consulta `resource` da solicitação. |
-| `token_type` | O tipo de token, que é um token de acesso "portador", que significa que o recurso pode dar acesso ao portador desse token. |
+| `access_token` | O sinal de acesso solicitado. Ao chamar uma API DE REPOUSO segura, o símbolo está incorporado no campo de cabeçalho de pedido `Authorization` como um símbolo "portador", permitindo que a API autenticar o chamador. | 
+| `refresh_token` | Não usado por identidades geridas para recursos Azure. |
+| `expires_in` | O número de segundos que o token de acesso continua a ser válido, antes de expirar, a partir do momento da emissão. O tempo de emissão pode ser encontrado na reivindicação de `iat` do token. |
+| `expires_on` | O tempo de espera quando o sinal de acesso expira. A data é representada como o número de segundos de "1970-01-01T0:0:0Z UTC" (corresponde ao pedido de `exp` do token). |
+| `not_before` | O tempo de espera quando o token de acesso entra em vigor, e pode ser aceite. A data é representada como o número de segundos de "1970-01-01T0:0:0Z UTC" (corresponde ao pedido de `nbf` do token). |
+| `resource` | O recurso para o sinal de acesso foi solicitado, que corresponde ao parâmetro de corda de consulta `resource` do pedido. |
+| `token_type` | O tipo de ficha, que é um símbolo de acesso "Portador", o que significa que o recurso pode dar acesso ao portador deste símbolo. |
 
-## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Obter um token usando a biblioteca Microsoft. Azure. Services. AppAuthentication para .NET
+## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Obtenha um símbolo utilizando a biblioteca Microsoft.Azure.Services.AppAuthentication para .NET
 
-Para aplicativos e funções .NET, a maneira mais simples de trabalhar com identidades gerenciadas para recursos do Azure é por meio do pacote Microsoft. Azure. Services. AppAuthentication. Essa biblioteca também permitirá que você teste seu código localmente em seu computador de desenvolvimento, usando sua conta de usuário do Visual Studio, o [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)ou Active Directory autenticação integrada. Para obter mais informações sobre opções de desenvolvimento local com essa biblioteca, consulte a [referência Microsoft. Azure. Services. AppAuthentication](/azure/key-vault/service-to-service-authentication). Esta seção mostra como começar a usar a biblioteca em seu código.
+Para aplicações e funções .NET, a forma mais simples de trabalhar com identidades geridas para os recursos Azure é através do pacote Microsoft.Azure.Services.Services.AppAuthentication. Esta biblioteca também lhe permitirá testar o seu código localmente na sua máquina de desenvolvimento, utilizando a sua conta de utilizador do Visual Studio, do [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)ou da Autenticação Integrada do Diretório Ativo. Para mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte a [referência Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication). Esta secção mostra-lhe como começar com a biblioteca no seu código.
 
-1. Adicione referências aos pacotes NuGet [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft. Azure. keyvault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) ao seu aplicativo.
+1. Adicione referências aos pacotes [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet à sua aplicação.
 
-2.  Adicione o seguinte código ao seu aplicativo:
+2.  Adicione o seguinte código à sua aplicação:
 
     ```csharp
     using Microsoft.Azure.Services.AppAuthentication;
@@ -141,9 +141,9 @@ Para aplicativos e funções .NET, a maneira mais simples de trabalhar com ident
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Para saber mais sobre o Microsoft. Azure. Services. AppAuthentication e as operações que ele expõe, consulte a [referência do Microsoft. Azure. Services. AppAuthentication](/azure/key-vault/service-to-service-authentication) e o [serviço de aplicativo e o keyvault com identidades gerenciadas para o exemplo do .net de recursos do Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Para saber mais sobre microsoft.Azure.Services.AppAuthentication e as operações que expõe, consulte a [referência Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication) e o [App Service e KeyVault com identidades geridas para os recursos Azure .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
-## <a name="get-a-token-using-c"></a>Obter um token usandoC#
+## <a name="get-a-token-using-c"></a>Obter um símbolo usandoC#
 
 ```csharp
 using System;
@@ -176,9 +176,9 @@ catch (Exception e)
 
 ```
 
-## <a name="get-a-token-using-java"></a>Obter um token usando o Java
+## <a name="get-a-token-using-java"></a>Obter um símbolo usando Java
 
-Use esta [biblioteca JSON](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) para recuperar um token usando Java.
+Use esta [biblioteca JSON](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) para recuperar um símbolo usando Java.
 
 ```Java
 import java.io.*;
@@ -220,7 +220,7 @@ class GetMSIToken {
 }
 ```
 
-## <a name="get-a-token-using-go"></a>Obter um token usando go
+## <a name="get-a-token-using-go"></a>Obter um símbolo usando Go
 
 ```
 package main
@@ -298,18 +298,18 @@ func main() {
 }
 ```
 
-## <a name="get-a-token-using-azure-powershell"></a>Obter um token usando Azure PowerShell
+## <a name="get-a-token-using-azure-powershell"></a>Obtenha um símbolo usando azure PowerShell
 
-O exemplo a seguir demonstra como usar as identidades gerenciadas para o ponto de extremidade REST de recursos do Azure de um cliente do PowerShell para:
+O exemplo que se segue demonstra como usar as identidades geridas para os recursos Azure REST point de um cliente PowerShell para:
 
-1. Adquirir um token de acesso.
-2. Use o token de acesso para chamar uma API REST do Azure Resource Manager e obter informações sobre a VM. Certifique-se de substituir sua ID de assinatura, nome do grupo de recursos e nome da máquina virtual por `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`e `<VM-NAME>`, respectivamente.
+1. Adquira um sinal de acesso.
+2. Utilize o sinal de acesso para ligar para um Gestor de Recursos Azure REST API e obter informações sobre o VM. Certifique-se de substituir o seu ID de subscrição, nome de grupo de recursos e nome de máquina virtual para `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, e `<VM-NAME>`, respectivamente.
 
 ```azurepowershell
 Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Headers @{Metadata="true"}
 ```
 
-Exemplo de como analisar o token de acesso da resposta:
+Exemplo sobre como analisar o símbolo de acesso da resposta:
 ```azurepowershell
 # Get an access token for managed identities for Azure resources
 $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' `
@@ -325,14 +325,14 @@ echo $vmInfoRest
 
 ```
 
-## <a name="get-a-token-using-curl"></a>Obter um token usando ONDULAção
+## <a name="get-a-token-using-curl"></a>Obtenha um símbolo usando curl
 
 ```bash
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s
 ```
 
 
-Exemplo de como analisar o token de acesso da resposta:
+Exemplo sobre como analisar o símbolo de acesso da resposta:
 
 ```bash
 response=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s)
@@ -340,69 +340,69 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The managed identities for Azure resources access token is $access_token
 ```
 
-## <a name="token-caching"></a>Cache de token
+## <a name="token-caching"></a>Caching de token
 
-Enquanto as identidades gerenciadas para o subsistema de recursos do Azure sendo usado (identidades IMDS/gerenciadas para extensão de VM de recursos do Azure) armazenam tokens de cache, também recomendamos implementar o cache de token em seu código. Como resultado, você deve se preparar para cenários em que o recurso indica que o token expirou. 
+Embora as identidades geridas para o subsistema de recursos Azure que estão a ser utilizadas (identidades IMDS/geridas para extensão VM de recursos Azure) faça tokens cache, também recomendamos implementar cacheching no seu código. Como resultado, deve preparar-se para cenários em que o recurso indique que o token está expirado. 
 
-Chamadas durante a transmissão para o resultado do Azure AD somente quando:
-- o erro de cache ocorre devido a nenhum token nas identidades gerenciadas do cache do subsistema de recursos do Azure
-- o token armazenado em cache expirou
+As chamadas no cabo para a AD Azure só resultam quando:
+- cache miss ocorre devido a nenhum símbolo nas identidades geridas para o cache do subsistema de recursos Azure
+- o símbolo cached é expirado
 
 ## <a name="error-handling"></a>Processamento de erros
 
-O ponto de extremidade de identidades gerenciadas para recursos do Azure sinaliza erros por meio do campo código de status do cabeçalho da mensagem de resposta HTTP, como erros 4xx ou 5xx:
+As identidades geridas para os recursos do Azure assinalam erros através do campo de código de estado do cabeçalho de mensagem de resposta HTTP, como erros 4xx ou 5xx:
 
-| Código de status | Motivo do erro | Como tratar |
+| Código de Estado | Razão do erro | Como lidar |
 | ----------- | ------------ | ------------- |
-| 404 não encontrado. | O ponto de extremidade IMDS está atualizando. | Tente novamente com a retirada de Expontential. Consulte as diretrizes abaixo. |
-| 429 número excessivo de solicitações. |  Limite de limitação de IMDS atingido. | Tente novamente com retirada exponencial. Consulte as diretrizes abaixo. |
-| Erro de 4xx na solicitação. | Um ou mais dos parâmetros de solicitação estavam incorretos. | Não tente novamente.  Examine os detalhes do erro para obter mais informações.  erros de 4xx são erros de tempo de design.|
-| erro transitório de 5xx do serviço. | As identidades gerenciadas para o subsistema de recursos do Azure ou Azure Active Directory retornaram um erro transitório. | É seguro tentar novamente depois de aguardar pelo menos 1 segundo.  Se você tentar novamente com muita rapidez ou muitas vezes, o IMDS e/ou o Azure AD poderão retornar um erro de limite de taxa (429).|
-| tempo limite | O ponto de extremidade IMDS está atualizando. | Tente novamente com a retirada de Expontential. Consulte as diretrizes abaixo. |
+| 404 não encontrados. | O ponto final do IMDS está a atualizar-se. | Retry com Backoff Expontenteial. Consulte a orientação abaixo. |
+| 429 pedidos a mais. |  Limite de aceleração IMDS atingido. | Retry com Backoff Exponencial. Consulte a orientação abaixo. |
+| Erro 4xx a pedido. | Um ou mais dos parâmetros de pedido estavam incorretos. | Não tente de novo.  Examine os detalhes do erro para mais informações.  Erros 4xx são erros de tempo de design.|
+| Erro transitório 5xx do serviço. | As identidades geridas para o subsistema de recursos Azure ou Azure Ative Directory devolveu um erro transitório. | É seguro voltar a tentar depois de esperar pelo menos 1 segundo.  Se voltar a tentar com demasiada rapidez ou demasiadas vezes, o IMDS e/ou o Azure AD podem devolver um erro de limite de taxa (429).|
+| tempo limite | O ponto final do IMDS está a atualizar-se. | Retry com Backoff Expontenteial. Consulte a orientação abaixo. |
 
-Se ocorrer um erro, o corpo de resposta HTTP correspondente conterá JSON com os detalhes do erro:
+Se ocorrer um erro, o corpo de resposta http correspondente contém JSON com os detalhes do erro:
 
 | Elemento | Descrição |
 | ------- | ----------- |
-| erro   | Identificador de erro. |
-| error_description | Descrição detalhada do erro. **As descrições de erro podem ser alteradas a qualquer momento. Não grave o código que ramifica com base nos valores na descrição do erro.**|
+| erro   | Identificador de erros. |
+| error_description | Verbose descrição de erro. **As descrições de erros podem mudar a qualquer momento. Não escreva código que se responsacom base em valores na descrição do erro.**|
 
 ### <a name="http-response-reference"></a>Referência de resposta HTTP
 
-Esta seção documenta as possíveis respostas de erro. Um status "200 OK" é uma resposta bem-sucedida e o token de acesso está contido no JSON do corpo de resposta, no elemento access_token.
+Esta secção documenta as possíveis respostas de erro. Um estado de "200 OK" é uma resposta bem sucedida, e o sinal de acesso está contido no corpo de resposta JSON, no elemento access_token.
 
 | Código de estado | Erro | Descrição do erro | Solução |
 | ----------- | ----- | ----------------- | -------- |
-| 400 solicitação inadequada | invalid_resource | AADSTS50001: o aplicativo chamado *\<URI\>* não foi encontrado no locatário chamado *\<tenant-ID\>* . Isso pode acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou consentido por qualquer usuário no locatário. Você pode ter enviado sua solicitação de autenticação para o locatário errado. \ | (Somente Linux) |
-| 400 solicitação inadequada | bad_request_102 | Cabeçalho de metadados necessário não especificado | O campo de cabeçalho de solicitação `Metadata` está ausente da sua solicitação ou está formatado incorretamente. O valor deve ser especificado como `true`, em todas as letras minúsculas. Consulte a "solicitação de exemplo" na seção REST anterior para obter um exemplo.|
-| 401 não autorizado | unknown_source | URI de *\<* de origem desconhecido\> | Verifique se o URI de solicitação HTTP GET está formatado corretamente. A parte `scheme:host/resource-path` deve ser especificada como `http://localhost:50342/oauth2/token`. Consulte a "solicitação de exemplo" na seção REST anterior para obter um exemplo.|
-|           | invalid_request | A solicitação não tem um parâmetro obrigatório, inclui um valor de parâmetro inválido, inclui um parâmetro mais de uma vez ou está malformado. |  |
-|           | unauthorized_client | O cliente não está autorizado a solicitar um token de acesso usando este método. | Causado por uma solicitação que não usou o loopback local para chamar a extensão ou em uma VM que não tem identidades gerenciadas para recursos do Azure configurados corretamente. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md) se você precisar de assistência com a configuração da VM. |
-|           | access_denied | O proprietário do recurso ou o servidor de autorização negou a solicitação. |  |
-|           | unsupported_response_type | O servidor de autorização não dá suporte à obtenção de um token de acesso usando esse método. |  |
-|           | invalid_scope | O escopo solicitado é inválido, desconhecido ou malformado. |  |
-| erro interno do servidor 500 | conhecidos | Falha ao recuperar o token do Active Directory. Para obter detalhes, consulte logs em *\<caminho do arquivo\>* | Verifique se as identidades gerenciadas dos recursos do Azure foram habilitadas na VM. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md) se você precisar de assistência com a configuração da VM.<br><br>Verifique também se o URI de solicitação HTTP GET está formatado corretamente, particularmente o URI de recurso especificado na cadeia de caracteres de consulta. Consulte a "solicitação de exemplo" na seção REST anterior para obter um exemplo ou [Serviços do Azure que dão suporte à autenticação do Azure ad](services-support-msi.md) para obter uma lista de serviços e suas respectivas IDs de recurso.
+| 400 Mau Pedido | invalid_resource | AADSTS50001: O pedido denominado *\<\>URI* não foi encontrado no inquilino chamado\<*TENANT-ID\>* . Isto pode acontecer se o pedido não tiver sido instalado pelo administrador do inquilino ou consentir com qualquer utilizador do arrendatário. Pode ter enviado o seu pedido de autenticação ao inquilino errado. | (apenas Linux) |
+| 400 Mau Pedido | bad_request_102 | Cabeçalho de metadados exigido não especificado | Ou o campo de cabeçalho do pedido de `Metadata` está ausente do seu pedido, ou está formatado incorretamente. O valor deve ser especificado como `true`, em todos os casos inferiores. Consulte o "Pedido de amostra" na secção REST anterior, por exemplo.|
+| 401 Não autorizado | unknown_source | Fonte Desconhecida *\<\>URI* | Verifique se o seu pedido HTTP GET URI está formatado corretamente. A parte `scheme:host/resource-path` deve ser especificada como `http://localhost:50342/oauth2/token`. Consulte o "Pedido de amostra" na secção REST anterior, por exemplo.|
+|           | invalid_request | Falta um parâmetro necessário, inclui um valor de parâmetro inválido, inclui um parâmetro superior a uma vez, ou está mal formado. |  |
+|           | unauthorized_client | O cliente não está autorizado a solicitar um sinal de acesso utilizando este método. | Causado por um pedido que não usou o loopback local para chamar a extensão, ou num VM que não tenha gerido identidades para recursos Azure configurados corretamente. Consulte [as identidades geridas pela Configure para os recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração VM. |
+|           | access_denied | O proprietário do recurso ou servidor de autorização negou o pedido. |  |
+|           | unsupported_response_type | O servidor de autorização não suporta obter um sinal de acesso utilizando este método. |  |
+|           | invalid_scope | O âmbito solicitado é inválido, desconhecido ou mal formado. |  |
+| Erro do servidor interno 500 | desconhecido | Não conseguiu recuperar o símbolo do diretório Ative. Para mais detalhes consulte os registos no *\<caminho de ficheiro\>* | Verifique se as identidades geridas para os recursos Azure foram ativadas no VM. Consulte [as identidades geridas pela Configure para os recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração VM.<br><br>Verifique também se o seu pedido HTTP GET URI está formatado corretamente, em particular o recurso URI especificado na cadeia de consulta. Consulte o "pedido de amostra" na secção REST anterior, por exemplo, ou [os serviços Azure que suportam a autenticação Azure AD](services-support-msi.md) para uma lista de serviços e respetivos IDs de recursos.
 
-## <a name="retry-guidance"></a>Diretrizes de repetição 
+## <a name="retry-guidance"></a>Orientação de retry 
 
-É recomendável tentar novamente se você receber um código de erro 404, 429 ou 5xx (consulte [tratamento de erros](#error-handling) acima).
+Recomenda-se que se retente se receber um código de erro 404, 429 ou 5xx (ver [error handling](#error-handling) acima).
 
-Limites de limitação se aplicam ao número de chamadas feitas ao ponto de extremidade IMDS. Quando o limite de limitação for excedido, o ponto de extremidade IMDS limitará quaisquer outras solicitações enquanto a limitação estiver em vigor. Durante esse período, o ponto de extremidade IMDS retornará o código de status HTTP 429 ("muitas solicitações") e as solicitações falharão. 
+Os limites de estrangulamento aplicam-se ao número de chamadas efetuadas ao ponto final do IMDS. Quando o limiar de estrangulamento é ultrapassado, o ponto final do IMDS limita quaisquer pedidos adicionais enquanto o acelerador estiver em vigor. Durante este período, o ponto final do IMDS devolverá o código de estado HTTP 429 ("Pedidos a mais"), e os pedidos falham. 
 
-Para tentar novamente, recomendamos a seguinte estratégia: 
+Para voltar a tentar, recomendamos a seguinte estratégia: 
 
 | **Estratégia de repetição** | **Definições** | **Valores** | **Como funciona** |
 | --- | --- | --- | --- |
 |ExponentialBackoff |Contagem de repetições<br />Término mín.<br />Término máx.<br />Término delta<br />Primeira repetição rápida |5<br />0 s<br />60 s<br />2 s<br />false |Tentativa 1 – atraso de 0 s<br />Tentativa 2 – atraso de ~2 s<br />Tentativa 3 – atraso de ~6 s<br />Tentativa 4 – atraso de ~14 s<br />Tentativa 5 – atraso de ~30 s |
 
-## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
+## <a name="resource-ids-for-azure-services"></a>IDs de recursos para serviços Azure
 
-Consulte [Serviços do Azure que dão suporte à autenticação do Azure ad](services-support-msi.md) para obter uma lista de recursos que dão suporte ao Azure AD e foram testados com identidades gerenciadas para recursos do Azure e suas respectivas IDs de recurso.
+Consulte [os serviços Azure que suportam a autenticação Azure AD](services-support-msi.md) para uma lista de recursos que suportam a Azure AD e foram testados com identidades geridas para recursos Azure, e seus respetivos IDs de recursos.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para habilitar identidades gerenciadas para recursos do Azure em uma VM do Azure, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md).
+- Para permitir identidades geridas para os recursos Azure num Azure VM, consulte [as identidades geridas pela Configure para os recursos Azure num VM utilizando o portal Azure.](qs-configure-portal-windows-vm.md)
 
 
 

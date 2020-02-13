@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 20b667ae345e468bcd3db25d85b7c9de561af4bc
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 447e8a67cedbb8f78e4db9602f603fefd382693c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111474"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162944"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Utilize base de dados de seguidores para anexar bases de dados no Azure Data Explorer
 
@@ -206,8 +206,8 @@ Pode implantar o modelo do Gestor de Recursos Azure [utilizando o portal Azure](
 
 |**Definição**  |**Descrição**  |
 |---------|---------|
-|Nome do cluster do seguidor     |  O nome do cluster de acompanhamento. Este é o cluster em que este modelo será implantado.  |
-|Nome de configurações de bases de dados anexadas    |    O nome do objeto de configurações de bases de dados anexado. O nome pode ser qualquer corda desde que seja única no nível do cluster.     |
+|Nome do cluster do seguidor     |  O nome do agrupamento de seguidores; onde o modelo será implantado.  |
+|Nome de configurações de bases de dados anexadas    |    O nome do objeto de configurações de bases de dados anexado. O nome pode ser qualquer corda que seja única no nível do cluster.     |
 |Nome da Base de Dados     |      O nome da base de dados a seguir. Se quiser seguir todas as bases de dados do líder, use '*'.   |
 |ID de recurso de cluster líder    |   A identificação de recursos do cluster líder.      |
 |Tipo de modificação de principais predefinidos    |   O tipo de modificação do principal padrão. Pode ser `Union`, `Replace` ou `None`. Para obter mais informações sobre o tipo de modificação principal predefinido, consulte o comando de controlo do tipo de [modificação principal](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |

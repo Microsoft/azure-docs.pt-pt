@@ -1,6 +1,6 @@
 ---
-title: Fluxo de concessão implícita do OAuth 2,0 – plataforma de identidade da Microsoft | Azure
-description: Proteger aplicativos de página única usando o fluxo implícito da plataforma de identidade da Microsoft.
+title: OAuth 2.0 fluxo implícito de subvenção - plataforma de identidade da Microsoft Azure
+description: Proteja aplicativos de uma página usando o fluxo implícito da plataforma de identidade microsoft.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,44 +17,71 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 42d315b44a76e79d6f1db48e5024094099564a98
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d7f27ad2adc5d4abf2b5ec993b3398ebf1370f52
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700486"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159680"
 ---
-# <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de concessão implícita
+# <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de subvenção implícita
 
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+Com o ponto final da plataforma de identidade da Microsoft, pode inscrever os utilizadores nas suas aplicações de uma página única com contas pessoais e de trabalho ou escolares da Microsoft. As aplicações JavaScript de página única e outras que funcionam principalmente num navegador enfrentam alguns desafios interessantes no que diz respeito à autenticação:
 
-Com o ponto de extremidade da plataforma Microsoft Identity, você pode conectar os usuários em seus aplicativos de página única com contas pessoais e corporativas ou de estudante da Microsoft. Uma página única e outros aplicativos JavaScript que são executados principalmente em um navegador enfrentam alguns desafios interessantes quando se trata de autenticação:
+* As características de segurança destas aplicações são significativamente diferentes das aplicações web tradicionais baseadas em servidores.
+* Muitos servidores de autorização e fornecedores de identidade não suportam pedidos CORS.
+* Os redirecionamentos do navegador de página inteira para longe da app tornam-se particularmente invasivos para a experiência do utilizador.
 
-* As características de segurança desses aplicativos são significativamente diferentes dos aplicativos Web tradicionais baseados em servidor.
-* Muitos servidores de autorização e provedores de identidade não dão suporte a solicitações CORS.
-* O navegador de página inteira redireciona para fora do aplicativo se torna particularmente invasivo para a experiência do usuário.
+Para estas aplicações (AngularJS, Ember.js, React.js, e assim por diante), a plataforma de identidade da Microsoft suporta o fluxo de Subvenção Implícita OAuth 2.0. O fluxo implícito é descrito na [especificação OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). O seu principal benefício é que permite que a app obtenha fichas da plataforma de identidade da Microsoft sem realizar uma troca de credenciais de servidor de backend. Isto permite que a aplicação assine no utilizador, mantenha a sessão e obtenha fichas para outras APIs web, todas dentro do código JavaScript do cliente. Existem algumas considerações importantes de segurança a ter em conta ao utilizar o fluxo implícito especificamente em torno da personificação do [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e do [utilizador.](https://tools.ietf.org/html/rfc6749#section-10.3)
 
-Para esses aplicativos (AngularJS, Ember. js, reajam. js e assim por diante), a plataforma de identidade da Microsoft dá suporte ao fluxo de concessão implícita do OAuth 2,0. O fluxo implícito é descrito na [especificação do OAuth 2,0](https://tools.ietf.org/html/rfc6749#section-4.2). Seu principal benefício é que ele permite que o aplicativo obtenha tokens da plataforma de identidade da Microsoft sem executar uma troca de credenciais de servidor de back-end. Isso permite que o aplicativo entre no usuário, mantenha a sessão e obtenha tokens para outras APIs Web no código JavaScript do cliente. Há algumas considerações de segurança importantes a serem levadas em conta ao usar o fluxo implícito especificamente em relação à representação do [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e do [usuário](https://tools.ietf.org/html/rfc6749#section-10.3).
+Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Sempre que possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas em vez de adquirir fichas e ligar para [APIs web protegidos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também as [aplicações de amostra que utilizam o MSAL.](sample-v2-code.md)
 
-Este artigo descreve como programar diretamente em relação ao protocolo em seu aplicativo.  Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte em vez de [adquirir tokens e chamar APIs da Web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
-
-No entanto, se você preferir não usar uma biblioteca em seu aplicativo de página única e enviar mensagens de protocolo por conta própria, siga as etapas gerais abaixo.
+No entanto, se preferir não usar uma biblioteca na sua aplicação de uma página única e enviar mensagens protocolares, siga os passos gerais abaixo.
 
 > [!NOTE]
-> Nem todos os cenários e recursos do Azure Active Directory (AD do Azure) são suportados pelo ponto de extremidade da plataforma de identidade da Microsoft. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
+> Nem todos os cenários e funcionalidades do Azure Ative Directory (Azure AD) são suportados pelo ponto final da plataforma de identidade da Microsoft. Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações](active-directory-v2-limitations.md)da plataforma de identidade da Microsoft .
+
+## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Cenários adequados para a subvenção implícita OAuth2
+
+A especificação OAuth2 declara que a subvenção implícita foi concebida para permitir aplicações de agente de utilizador – ou seja, aplicações JavaScript executadas dentro de um browser. A característica determinante de tais aplicações é que o código JavaScript é usado para aceder aos recursos do servidor (tipicamente um API Web) e para atualizar a experiência do utilizador da aplicação em conformidade. Pense em aplicações como o Gmail ou o Outlook Web Access: quando selecionar uma mensagem da sua caixa de entrada, apenas o painel de visualização de mensagens muda para exibir a nova seleção, enquanto o resto da página permanece inalterado. Esta característica contrasta com as aplicações Web tradicionais baseadas em redireciones, onde cada interação do utilizador resulta num postback de página inteira e numa renderização de página inteira da nova resposta do servidor.
+
+As aplicações que tomam a abordagem baseada no JavaScript ao seu extremo são chamadas aplicações de página única, ou SPAs. A ideia é que estas aplicações apenas sirvam uma página inicial de HTML e javaScript associado, com todas as interações subsequentes sendo conduzidas por chamadas Web API realizadas via JavaScript. No entanto, as abordagens híbridas, em que a aplicação é maioritariamente orientada para o pós-recuo, mas executam chamadas js ocasionais, não são incomuns – a discussão sobre o uso implícito do fluxo também é relevante para aqueles.
+
+As aplicações baseadas em redirecionamento normalmente asseguram os seus pedidos através de cookies, no entanto, essa abordagem não funciona tão bem para aplicações JavaScript. Os cookies só funcionam contra o domínio para o que foram gerados, enquanto as chamadas JavaScript podem ser direcionadas para outros domínios. De facto, isso será frequentemente o caso: pense em aplicações que invocam a Microsoft Graph API, Office API, Azure API – todos residentes fora do domínio de onde a aplicação é servida. Uma tendência crescente para as aplicações JavaScript é não ter qualquer backend, confiando 100% em APIs web de terceiros para implementar a sua função de negócio.
+
+Atualmente, o método preferido de proteger chamadas para uma API Web é usar a abordagem token do portador OAuth2, onde cada chamada é acompanhada por um sinal de acesso OAuth2. A Web API examina o sinal de acesso de entrada e, se encontrar nele os âmbitos necessários, dá acesso à operação solicitada. O fluxo implícito fornece um mecanismo conveniente para as aplicações JavaScript obterem fichas de acesso para uma API Web, oferecendo inúmeras vantagens em relação aos cookies:
+
+* Os tokens podem ser obtidos de forma fiável sem qualquer necessidade de chamadas de origem cruzada – registo obrigatório do URI redirecionado para o qual as fichas são de retorno garante que as fichas não são deslocadas
+* As aplicações JavaScript podem obter o máximo de fichas de acesso que precisarem, para o maior número de APIs web que visam – sem restrições em domínios
+* Características HTML5 como sessão ou bolsa de armazenamento local concedem controlo total sobre o caching simbólico e a gestão vitalícia, enquanto a gestão de cookies é opaca para a app
+* Fichas de acesso não são suscetíveis a ataques de falsificação de pedido de cross-site (CSRF)
+
+O fluxo implícito de subvenção não emite fichas de atualização, principalmente por razões de segurança. Um token refrescante não é tão estreitamente traçado como fichas de acesso, concedendo muito mais energia, permitindo muito mais danos no caso de ser vazado. No fluxo implícito, as fichas são entregues no URL, daí que o risco de interceção seja maior do que na concessão do código de autorização.
+
+No entanto, uma aplicação JavaScript tem outro mecanismo à sua disposição para renovar fichas de acesso sem solicitar repetidamente ao utilizador credenciais. A aplicação pode usar um iframe oculto para realizar novos pedidos simbólicos contra o ponto final de autorização do Azure AD: desde que o navegador ainda tenha uma sessão ativa (leia-se: tem um cookie de sessão) contra o domínio DaA Azure, o pedido de autenticação pode ocorre ndo com sucesso sem qualquer necessidade de interação do utilizador.
+
+Este modelo concede à aplicação JavaScript a capacidade de renovar independentemente os tokens de acesso e até adquirir novos para uma nova API (desde que o utilizador previamente consentiu por eles). Isto evita o fardo acrescido de adquirir, manter e proteger um artefacto de alto valor, como um símbolo de atualização. O artefacto que torna possível a renovação silenciosa, o cookie de sessão Azure AD, é gerido fora da aplicação. Outra vantagem desta abordagem é que um utilizador pode assinar a partir do Azure AD, utilizando qualquer uma das aplicações assinadas no Azure AD, funcionando em qualquer um dos separadores do navegador. Isto resulta na eliminação do cookie de sessão Azure AD, e a aplicação JavaScript perderá automaticamente a capacidade de renovar fichas para o utilizador assinado.
+
+## <a name="is-the-implicit-grant-suitable-for-my-app"></a>A subvenção implícita é adequada para a minha aplicação?
+
+A subvenção implícita apresenta mais riscos do que outras subvenções, e as áreas a que precisa de estar atento estão bem documentadas (por exemplo, [Utilização indevida de acesso ao proprietário de recursos imitadores em Fluxo Implícito][OAuth2-Spec-Implicit-Implicit-Misuse] e [OAuth 2.0 Threat Model e Considerações de Segurança][OAuth2-Threat-Model-And-Security-Implications]). No entanto, o perfil de risco mais elevado deve-se, em grande parte, ao facto de se destinar a ativar aplicações que executam código ativo, servidos por um recurso remoto para um navegador. Se estiver a planear uma arquitetura SPA, não tenha componentes de backend ou pretenda invocar um Web API via JavaScript, recomenda-se a utilização do fluxo implícito para aquisição de fichas.
+
+Se a sua aplicação é um cliente nativo, o fluxo implícito não é um grande ajuste. A ausência do cookie de sessão Azure AD no contexto de um cliente nativo priva a sua aplicação dos meios de manter uma sessão de longa duração. O que significa que a sua aplicação irá incitar repetidamente o utilizador a obter fichas de acesso para novos recursos.
+
+Se estiver a desenvolver uma aplicação Web que inclua um backend, e a consumir uma API do seu código de backend, o fluxo implícito também não é um bom ajuste. Outras subvenções dão-lhe muito mais poder. Por exemplo, a concessão de credenciais de cliente OAuth2 fornece a capacidade de obter fichas que reflitam as permissões atribuídas à própria aplicação, ao contrário das delegações dos utilizadores. Isto significa que o cliente tem a capacidade de manter o acesso programático aos recursos mesmo quando um utilizador não está ativamente envolvido numa sessão, e assim por diante. Não só isso, mas tais subvenções dão garantias de segurança mais elevadas. Por exemplo, os tokens de acesso nunca transitam através do navegador de utilizador, não correm o risco de ser guardados no histórico do navegador, e assim por diante. A aplicação do cliente também pode realizar uma autenticação forte ao solicitar um símbolo.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
-O diagrama a seguir mostra a aparência de todo o fluxo de entrada implícito e as seções a seguir descrevem cada etapa mais detalhadamente.
+O diagrama seguinte mostra como é todo o fluxo implícito de entrada e as secções que se seguem descrevem cada passo com mais detalhes.
 
-![Diagrama mostrando o fluxo de entrada implícito](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
+![Diagrama mostrando o fluxo implícito de entrada](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
 
-## <a name="send-the-sign-in-request"></a>Enviar a solicitação de entrada
+## <a name="send-the-sign-in-request"></a>Envie o pedido de inscrição
 
 Para inicialmente assinar o utilizador na sua aplicação, pode enviar um pedido de autenticação [OpenID Connect](v2-protocols-oidc.md) e obter uma `id_token` a partir do ponto final da plataforma de identidade da Microsoft.
 
 > [!IMPORTANT]
-> Para solicitar um token de ID e/ou um token de acesso com êxito, o registro do aplicativo na página de [portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) deve ter o fluxo de concessão implícito correspondente habilitado, selecionando **tokens de ID** e. ou **tokens de acesso** na seção **concessão implícita** . Se não estiver ativado, será devolvido um erro `unsupported_response`: O valor fornecido para o parâmetro de **entrada 'response_type' não é permitido para este cliente. Valor esperado é 'código'**
+> Para solicitar com sucesso um token de identificação e/ou um token de acesso, o registo da aplicação no [portal Azure - Página](https://go.microsoft.com/fwlink/?linkid=2083908) de registos de aplicações deve ter o fluxo implícito de subvenção correspondente habilitado, selecionando **tokens** de ID e.ou **fichas** de acesso ao abrigo da secção **de subvenção implícita.** Se não estiver ativado, será devolvido um erro `unsupported_response`: O valor fornecido para o parâmetro de **entrada 'response_type' não é permitido para este cliente. Valor esperado é 'código'**
 
 ```
 // Line breaks for legibility only
@@ -75,23 +102,23 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| `tenant` | required |O valor de `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers`e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | required | A ID do aplicativo (cliente) que a página de [portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
-| `response_type` | required |Deve incluir `id_token` para o acesso ao OpenID Connect. Pode também incluir a response_type `token`. Usar `token` aqui permitirá que seu aplicativo receba um token de acesso imediatamente do ponto de extremidade de autorização sem precisar fazer uma segunda solicitação para o ponto de extremidade de autorização. Se utilizar o `token` response_type, o parâmetro `scope` deve conter um âmbito que indique para que recurso emitir o símbolo (por exemplo, user.read no Microsoft Graph).  |
+| `tenant` | Necessário |O valor `{tenant}` no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são `common`, `organizations`, `consumers`, e identificadores de inquilinos. Para mais detalhes, consulte [os fundamentos do protocolo.](active-directory-v2-protocols.md#endpoints) |
+| `client_id` | Necessário | O ID de Aplicação (cliente) que o [portal Azure - Página](https://go.microsoft.com/fwlink/?linkid=2083908) de registos de aplicações atribuída à sua app. |
+| `response_type` | Necessário |Deve incluir `id_token` para o acesso ao OpenID Connect. Pode também incluir a response_type `token`. A utilização `token` aqui permitirá que a sua aplicação receba imediatamente um sinal de acesso a partir do ponto final autorizado sem ter de fazer um segundo pedido para o ponto final de autorização. Se utilizar o `token` response_type, o parâmetro `scope` deve conter um âmbito que indique para que recurso emitir o símbolo (por exemplo, user.read no Microsoft Graph).  |
 | `redirect_uri` | recomendado |O redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua app. Deve corresponder exatamente a uma das redirect_uris que registou no portal, exceto que deve ser codificada. |
-| `scope` | required |Uma lista de [escopos](v2-permissions-and-consent.md)separados por espaços. Para o OpenID Connect (id_tokens), deve incluir o âmbito `openid`, que se traduz na permissão "Iniciar sessão" na UI de consentimento. Opcionalmente, talvez você também queira incluir os escopos `email` e `profile` para obter acesso a dados de usuário adicionais. Você também pode incluir outros escopos nesta solicitação para solicitar o consentimento para vários recursos, se um token de acesso for solicitado. |
-| `response_mode` | opcional |Especifica o método que deve ser usado para enviar o token resultante de volta ao seu aplicativo. Incumprimentos à consulta por apenas um sinal de acesso, mas fragmentado se o pedido incluir um id_token. |
-| `state` | recomendado |Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo que você desejar. Um valor exclusivo gerado aleatoriamente geralmente é usado para [impedir ataques de solicitação entre sites forjado](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que eles estavam. |
-| `nonce` | required |Um valor incluído no pedido, gerado pela app, que será incluído na id_token resultante como reivindicação. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. O valor normalmente é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. Só é necessário quando é solicitado um id_token. |
-| `prompt` | opcional |Indica o tipo de interação do usuário que é necessário. Os únicos valores válidos neste momento são 'login', 'nenhum', 'select_account' e 'consentimento'. `prompt=login` forçará o usuário a inserir suas credenciais nessa solicitação, negando o logon único. `prompt=none` é o oposto, ele garantirá que o usuário não seja apresentado a nenhum prompt interativo. Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade da plataforma de identidade da Microsoft retornará um erro. `prompt=select_account` envia o utilizador para um apanhador de conta onde todas as contas lembradas na sessão aparecerão. `prompt=consent` disparará a caixa de diálogo de consentimento do OAuth depois que o usuário fizer logon, solicitando que o usuário conceda permissões ao aplicativo. |
-| `login_hint`  |opcional |Pode ser usado para preencher previamente o campo nome de usuário/endereço de email da página de entrada do usuário, se você souber seu nome de usuário antes do tempo. Muitas vezes as aplicações usam este parâmetro durante a reautenticação, tendo já extraído o nome de utilizador de um início de sessão anterior utilizando a `preferred_username` reivindicação.|
-| `domain_hint` | opcional |Se for incluído, ele ignorará o processo de descoberta baseado em email que o usuário passa na página de entrada, levando a uma experiência de usuário um pouco mais simplificada. Isso é normalmente usado para aplicativos de linha de negócios que operam em um único locatário, no qual eles fornecerão um nome de domínio dentro de um determinado locatário.  Isso encaminhará o usuário para o provedor de Federação para esse locatário.  Observe que isso impedirá convidados de entrar neste aplicativo.  |
+| `scope` | Necessário |Uma lista de [âmbitos separados](v2-permissions-and-consent.md)pelo espaço. Para o OpenID Connect (id_tokens), deve incluir o âmbito `openid`, que se traduz na permissão "Iniciar sessão" na UI de consentimento. Opcionalmente, também pode querer incluir as `email` e `profile` âmbitos para ter acesso a dados adicionais do utilizador. Pode também incluir outros âmbitos neste pedido de pedido de consentimento para vários recursos, caso seja solicitado um sinal de acesso. |
+| `response_mode` | opcional |Especifica o método que deve ser usado para enviar o símbolo resultante de volta para a sua aplicação. Incumprimentos à consulta por apenas um sinal de acesso, mas fragmentado se o pedido incluir um id_token. |
+| `state` | recomendado |Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de qualquer conteúdo que desejes. Um valor único gerado aleatoriamente é normalmente usado para [prevenir ataques de falsificação de pedidos de local.](https://tools.ietf.org/html/rfc6749#section-10.12) O Estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que estavam. |
+| `nonce` | Necessário |Um valor incluído no pedido, gerado pela app, que será incluído na id_token resultante como reivindicação. A aplicação pode então verificar este valor para mitigar ataques de repetição de tokens. O valor é tipicamente uma cadeia aleatória e única que pode ser usada para identificar a origem do pedido. Só é necessário quando é solicitado um id_token. |
+| `prompt` | opcional |Indica o tipo de interação do utilizador que é necessária. Os únicos valores válidos neste momento são 'login', 'nenhum', 'select_account' e 'consentimento'. `prompt=login` obrigará o utilizador a introduzir as suas credenciais nesse pedido, negando o simples sinal. `prompt=none` é o oposto - irá garantir que o utilizador não seja apresentado com qualquer tipo de solicitação interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, o ponto final da plataforma de identidade da Microsoft devolverá um erro. `prompt=select_account` envia o utilizador para um apanhador de conta onde todas as contas lembradas na sessão aparecerão. `prompt=consent` irá desencadear o diálogo de consentimento da OAuth após a assinatura do utilizador, pedindo ao utilizador que conceda permissões à aplicação. |
+| `login_hint`  |opcional |Pode ser usado para pré-preencher o campo de endereço sinuoso/e-mail da página do utilizador, se souber o seu nome de utilizador com antecedência. Muitas vezes as aplicações usam este parâmetro durante a reautenticação, tendo já extraído o nome de utilizador de um início de sessão anterior utilizando a `preferred_username` reivindicação.|
+| `domain_hint` | opcional |Se incluído, irá ignorar o processo de descoberta baseado em e-mail que o utilizador passa no sinal na página, levando a uma experiência de utilizador um pouco mais simplificada. Isto é comumente usado para apps Line of Business que operam em um único inquilino, onde eles fornecerão um nome de domínio dentro de um determinado inquilino.  Isto irá encaminhar o utilizador para o provedor da federação para aquele inquilino.  Note que isso impedirá os hóspedes de assinar em esta aplicação.  |
 
-Neste ponto, o usuário será solicitado a inserir suas credenciais e concluir a autenticação. O ponto de extremidade da plataforma Microsoft Identity também garantirá que o usuário tenha consentido as permissões indicadas no parâmetro de consulta `scope`. Se o usuário tiver consentido **nenhuma** dessas permissões, ele solicitará que o usuário consenti as permissões necessárias. Para obter mais informações, consulte [permissões, consentimento e aplicativos de vários locatários](v2-permissions-and-consent.md).
+Neste momento, o utilizador será solicitado a introduzir as suas credenciais e a completar a autenticação. O ponto final da plataforma de identidade da Microsoft também garantirá que o utilizador consentiu nas permissões indicadas no parâmetro de consulta `scope`. Se o utilizador tiver consentido **com nenhuma** dessas permissões, pedirá ao utilizador que consinta nas permissões necessárias. Para mais informações, consulte [permissões, consentimento e aplicações multi-inquilinos.](v2-permissions-and-consent.md)
 
 Assim que o utilizador autenticar e conceder o consentimento, o ponto final da plataforma de identidade da Microsoft devolverá uma resposta à sua aplicação no `redirect_uri`indicado, utilizando o método especificado no parâmetro `response_mode`.
 
-#### <a name="successful-response"></a>Resposta bem-sucedida
+#### <a name="successful-response"></a>Resposta bem sucedida
 
 Uma resposta bem sucedida usando `response_mode=fragment` e `response_type=id_token+token` se parece com o seguinte (com quebras de linha para a legibilidade):
 
@@ -105,12 +132,12 @@ GET https://localhost/myapp/#
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `access_token` |Incluído se `response_type` inclui `token`. O token de acesso solicitado pelo aplicativo. O token de acesso não deve ser decodificado ou inspecionado de outra forma, ele deve ser tratado como uma cadeia de caracteres opaca. |
-| `token_type` |Incluído se `response_type` inclui `token`. Sempre será `Bearer`. |
-| `expires_in`|Incluído se `response_type` inclui `token`. Indica o número de segundos que o token é válido, para fins de cache. |
-| `scope` |Incluído se `response_type` inclui `token`. Indica o âmbito(s) para o qual o access_token será válido. Pode não incluir todos os escopos solicitados, se eles não forem aplicáveis ao usuário (no caso de escopos somente AD do Azure serem solicitados quando uma conta pessoal for usada para fazer logon). |
-| `id_token` | Um JWT (token Web JSON) assinado. O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que se conectou. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para mais informações sobre id_tokens, consulte a [`id_token reference`](id-tokens.md). <br> **Observação:** Fornecido somente se `openid` escopo foi solicitado. |
-| `state` |Se um parâmetro de estado for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
+| `access_token` |Incluído se `response_type` inclui `token`. O sinal de acesso que a app solicitou. O sinal de acesso não deve ser descodificado ou inspecionado de outra forma, deve ser tratado como uma corda opaca. |
+| `token_type` |Incluído se `response_type` inclui `token`. Será sempre `Bearer`. |
+| `expires_in`|Incluído se `response_type` inclui `token`. Indica o número de segundos em que o símbolo é válido, para fins de cache. |
+| `scope` |Incluído se `response_type` inclui `token`. Indica o âmbito(s) para o qual o access_token será válido. Pode não incluir todos os âmbitos solicitados, se não forem aplicáveis ao utilizador (no caso dos âmbitos apenas da AD Azure apenas solicitados quando uma conta pessoal é utilizada para fazer login). |
+| `id_token` | Um JSON Web Token assinado (JWT). A aplicação pode descodificar os segmentos deste token para solicitar informações sobre o utilizador que assinou. A aplicação pode cache os valores e exibi-los, mas não deve confiar neles para qualquer autorização ou limites de segurança. Para mais informações sobre id_tokens, consulte a [`id_token reference`](id-tokens.md). <br> **Nota:** Só for solicitado se `openid` âmbito de aplicação. |
+| `state` |Se um parâmetro estatal estiver incluído no pedido, o mesmo valor deve figurar na resposta. A aplicação deve verificar se os valores do Estado no pedido e resposta são idênticos. |
 
 #### <a name="error-response"></a>Resposta de erro
 
@@ -124,14 +151,14 @@ error=access_denied
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `error` |Uma cadeia de caracteres de código de erro que pode ser usada para classificar tipos de erros que ocorrem e pode ser usada para reagir a erros. |
-| `error_description` |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
+| `error` |Uma cadeia de código de erro que pode ser usada para classificar tipos de erros que ocorrem, e pode ser usada para reagir a erros. |
+| `error_description` |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa principal de um erro de autenticação. |
 
-## <a name="getting-access-tokens-silently-in-the-background"></a>Obtendo tokens de acesso silenciosamente em segundo plano
+## <a name="getting-access-tokens-silently-in-the-background"></a>Obtendo fichas de acesso silenciosamente no fundo
 
-Agora que você assinou o usuário em seu aplicativo de página única, você pode obter silenciosamente tokens de acesso para chamar APIs da Web protegidas pela plataforma de identidade da Microsoft, como o [Microsoft Graph](https://developer.microsoft.com/graph). Mesmo que já tenha recebido um símbolo usando o response_type `token`, pode usar este método para adquirir fichas para recursos adicionais sem ter que redirecionar o utilizador para iniciar sessão novamente.
+Agora que assinou o utilizador na sua aplicação de uma página única, pode obter silenciosamente fichas de acesso para chamadas de APIs web protegidas pela plataforma de identidade da Microsoft, como o [Microsoft Graph](https://developer.microsoft.com/graph). Mesmo que já tenha recebido um símbolo usando o response_type `token`, pode usar este método para adquirir fichas para recursos adicionais sem ter que redirecionar o utilizador para iniciar sessão novamente.
 
-No fluxo normal do OpenID Connect/OAuth, você faria isso fazendo uma solicitação para o ponto de extremidade de `/token` da plataforma de identidade da Microsoft. No entanto, o ponto de extremidade da plataforma Microsoft Identity não oferece suporte a solicitações CORS, portanto, fazer chamadas AJAX para obter e atualizar tokens está fora da pergunta. Em vez disso, você pode usar o fluxo implícito em um iframe oculto para obter novos tokens para outras APIs da Web: 
+No fluxo normal do OpenID Connect/OAuth, fá-lo-ia fazendo um pedido à plataforma de identidade da Microsoft `/token` ponto final. No entanto, o ponto final da plataforma de identidade da Microsoft não suporta pedidos cors, pelo que fazer chamadas ajax para obter e refrescar tokens está fora de questão. Em vez disso, pode usar o fluxo implícito num iframe oculto para obter novos tokens para outras APIs web: 
 
 ```
 // Line breaks for legibility only
@@ -148,17 +175,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &login_hint=myuser@mycompany.com
 ```
 
-Para obter detalhes sobre os parâmetros de consulta na URL, consulte [enviar a solicitação de entrada](#send-the-sign-in-request).
+Para obter mais informações sobre os parâmetros de consulta no URL, consulte [enviar o sinal a pedido](#send-the-sign-in-request).
 
 > [!TIP]
-> Tente copiar & colar a solicitação abaixo em uma guia do navegador! (Não se esqueça de substituir os valores `login_hint` pelo valor correto para o utilizador)
+> Experimente copiar e colar o pedido abaixo num separador de navegador! (Não se esqueça de substituir os valores `login_hint` pelo valor correto para o utilizador)
 >
 >`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
 >
 
-Graças ao parâmetro `prompt=none`, essa solicitação será bem-sucedida ou falhará imediatamente e retornará ao seu aplicativo. Uma resposta bem sucedida será enviada para a sua aplicação no `redirect_uri`indicado, utilizando o método especificado no parâmetro `response_mode`.
+Graças ao parâmetro `prompt=none`, este pedido terá sucesso ou falhará imediatamente e regressará à sua aplicação. Uma resposta bem sucedida será enviada para a sua aplicação no `redirect_uri`indicado, utilizando o método especificado no parâmetro `response_mode`.
 
-#### <a name="successful-response"></a>Resposta bem-sucedida
+#### <a name="successful-response"></a>Resposta bem sucedida
 
 Uma resposta bem sucedida usando `response_mode=fragment` parece:
 
@@ -173,16 +200,16 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `access_token` |Incluído se `response_type` inclui `token`. O token de acesso que o aplicativo solicitou, neste caso, para o Microsoft Graph. O token de acesso não deve ser decodificado ou inspecionado de outra forma, ele deve ser tratado como uma cadeia de caracteres opaca. |
-| `token_type` | Sempre será `Bearer`. |
-| `expires_in` | Indica o número de segundos que o token é válido, para fins de cache. |
-| `scope` | Indica o âmbito(s) para o qual o access_token será válido. Pode não incluir todos os escopos solicitados, se eles não forem aplicáveis ao usuário (no caso de escopos somente AD do Azure serem solicitados quando uma conta pessoal for usada para fazer logon). |
-| `id_token` | Um JWT (token Web JSON) assinado. Incluído se `response_type` inclui `id_token`. O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que se conectou. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para mais informações sobre id_tokens, consulte a [referência`id_token`.](id-tokens.md) <br> **Observação:** Fornecido somente se `openid` escopo foi solicitado. |
-| `state` |Se um parâmetro de estado for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
+| `access_token` |Incluído se `response_type` inclui `token`. O sinal de acesso que a app solicitou, neste caso para o Microsoft Graph. O sinal de acesso não deve ser descodificado ou inspecionado de outra forma, deve ser tratado como uma corda opaca. |
+| `token_type` | Será sempre `Bearer`. |
+| `expires_in` | Indica o número de segundos em que o símbolo é válido, para fins de cache. |
+| `scope` | Indica o âmbito(s) para o qual o access_token será válido. Pode não incluir todos os âmbitos solicitados, se não forem aplicáveis ao utilizador (no caso dos âmbitos apenas da AD Azure apenas solicitados quando uma conta pessoal é utilizada para fazer login). |
+| `id_token` | Um JSON Web Token assinado (JWT). Incluído se `response_type` inclui `id_token`. A aplicação pode descodificar os segmentos deste token para solicitar informações sobre o utilizador que assinou. A aplicação pode cache os valores e exibi-los, mas não deve confiar neles para qualquer autorização ou limites de segurança. Para mais informações sobre id_tokens, consulte a [referência`id_token`.](id-tokens.md) <br> **Nota:** Só for solicitado se `openid` âmbito de aplicação. |
+| `state` |Se um parâmetro estatal estiver incluído no pedido, o mesmo valor deve figurar na resposta. A aplicação deve verificar se os valores do Estado no pedido e resposta são idênticos. |
 
 #### <a name="error-response"></a>Resposta de erro
 
-As respostas de erro também podem ser enviadas para o `redirect_uri` para que a aplicação possa manuseá-las adequadamente. No caso do `prompt=none`, um erro esperado será:
+As respostas de erro também podem ser enviadas para o `redirect_uri` para que a aplicação possa manuseá-las adequadamente. No caso de `prompt=none`, um erro esperado será:
 
 ```
 GET https://localhost/myapp/#
@@ -192,18 +219,18 @@ error=user_authentication_required
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `error` |Uma cadeia de caracteres de código de erro que pode ser usada para classificar tipos de erros que ocorrem e pode ser usada para reagir a erros. |
-| `error_description` |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
+| `error` |Uma cadeia de código de erro que pode ser usada para classificar tipos de erros que ocorrem, e pode ser usada para reagir a erros. |
+| `error_description` |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa principal de um erro de autenticação. |
 
-Se você receber esse erro na solicitação de iframe, o usuário deverá fazer logon interativamente novamente para recuperar um novo token. Você pode optar por lidar com esse caso de qualquer maneira faz sentido para seu aplicativo.
+Se receber este erro no pedido de iframe, o utilizador deve voltar a iniciar sessão para recuperar um novo token. Pode optar por lidar com este caso de qualquer forma que faça sentido para a sua aplicação.
 
-## <a name="refreshing-tokens"></a>Atualizando tokens
+## <a name="refreshing-tokens"></a>Fichas refrescantes
 
-A concessão implícita não fornece tokens de atualização. Tanto `id_token`s como `access_token`expirarão após um curto período de tempo, pelo que a sua aplicação deve estar preparada para refrescar estes tokens periodicamente. Para atualizar qualquer tipo de token, você pode executar a mesma solicitação de iframe oculto acima usando o parâmetro `prompt=none` para controlar o comportamento da plataforma de identidade. Se quiser receber um novo `id_token`, certifique-se de utilizar `id_token` nos `response_type` e `scope=openid`, bem como um parâmetro `nonce`.
+A subvenção implícita não fornece fichas refrescantes. Tanto `id_token`s como `access_token`expirarão após um curto período de tempo, pelo que a sua aplicação deve estar preparada para refrescar estes tokens periodicamente. Para refrescar qualquer tipo de ficha, pode executar o mesmo pedido de iframe escondido de cima usando o parâmetro `prompt=none` para controlar o comportamento da plataforma de identidade. Se quiser receber um novo `id_token`, certifique-se de utilizar `id_token` nos `response_type` e `scope=openid`, bem como um parâmetro `nonce`.
 
-## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de saída
+## <a name="send-a-sign-out-request"></a>Enviar um pedido de sinalização
 
-O OpenID Connect `end_session_endpoint` permite que a sua aplicação envie um pedido para o ponto final da plataforma de identidade da Microsoft para terminar a sessão de um utilizador e limpar cookies definidos pelo ponto final da plataforma de identidade da Microsoft. Para desconectar completamente um usuário de um aplicativo Web, seu aplicativo deve encerrar sua própria sessão com o usuário (normalmente limpando um cache de token ou descartando cookies) e, em seguida, redirecionar o navegador para:
+O OpenID Connect `end_session_endpoint` permite que a sua aplicação envie um pedido para o ponto final da plataforma de identidade da Microsoft para terminar a sessão de um utilizador e limpar cookies definidos pelo ponto final da plataforma de identidade da Microsoft. Para assinar totalmente um utilizador a partir de uma aplicação web, a sua aplicação deve terminar a sua própria sessão com o utilizador (normalmente limpando uma cache simbólica ou deixando cair cookies), e depois redirecionar o navegador para:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
@@ -211,9 +238,9 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| `tenant` |required |O valor de `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers`e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
-| `post_logout_redirect_uri` | recomendado | A URL para a qual o usuário deve ser devolvido após a conclusão do logout. Esse valor deve corresponder a um dos URIs de redirecionamento registrados para o aplicativo. Se não estiver incluído, o usuário receberá uma mensagem genérica do ponto de extremidade da plataforma Microsoft Identity. |
+| `tenant` |Necessário |O valor `{tenant}` no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são `common`, `organizations`, `consumers`, e identificadores de inquilinos. Para mais detalhes, consulte [os fundamentos do protocolo.](active-directory-v2-protocols.md#endpoints) |
+| `post_logout_redirect_uri` | recomendado | O URL a que o utilizador deve ser devolvido após o início do início de sessão. Este valor deve corresponder a um dos URIs redirecionais registados para a aplicação. Caso não esteja incluído, o utilizador será mostrado uma mensagem genérica pelo ponto final da plataforma de identidade da Microsoft. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Veja as [amostras do MSAL js](sample-v2-code.md) para começar a codificar.
+* Recorra às [amostras da MSAL JS](sample-v2-code.md) para começar a codificar.

@@ -1,6 +1,6 @@
 ---
-title: Configurar a aceleração automática de entrada usando a descoberta de realm inicial
-description: Saiba como configurar a política de descoberta de realm inicial para autenticação Azure Active Directory para usuários federados, incluindo dicas de domínio e aceleração automática.
+title: Configure a aceleração automática do sign-in usando home realm Discovery
+description: Saiba como configurar a política de Descoberta do Home Realm para a autenticação do Diretório Ativo Azure para utilizadores federados, incluindo dicas de aceleração automática e de domínio.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,96 +15,96 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 174cdc31d7e5f29716febc7f68bbb410f33926c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274633"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159170"
 ---
-# <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o comportamento de entrada Azure Active Directory para um aplicativo usando uma política de descoberta de realm inicial
+# <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configure Azure Ative Diretório assina comportamento para uma aplicação usando uma política home realm discovery
 
-Este artigo fornece uma introdução à configuração de Azure Active Directory comportamento de autenticação para usuários federados. Ele aborda a configuração de aceleração automática e restrições de autenticação para usuários em domínios federados.
+Este artigo fornece uma introdução para configurar o comportamento de autenticação do Azure Ative Diretório para utilizadores federados. Abrange a configuração de restrições de aceleração automática e autenticação para os utilizadores em domínios federados.
 
 ## <a name="home-realm-discovery"></a>Deteção de Território Doméstica
-O HRD (Home Realm Discovery) é o processo que permite ao Azure Active Directory (Azure AD) determinar onde um usuário precisa se autenticar no momento da entrada.  Quando um usuário entra em um locatário do Azure AD para acessar um recurso ou para a página de entrada comum do Azure AD, ele digita um nome de usuário (UPN). O Azure AD usa isso para descobrir onde o usuário precisa entrar. 
+Home Realm Discovery (HRD) é o processo que permite ao Azure Ative Directory (Azure AD) determinar onde um utilizador precisa de autenticar a tempo de início de hora de início.  Quando um utilizador inscreve num inquilino da AD Azure para aceder a um recurso, ou à página de entrada comum da AD Azure, escreve um nome de utilizador (UPN). A Azure AD usa-o para descobrir onde o utilizador precisa de iniciar sessão. 
 
-O usuário pode precisar ser levado para um dos seguintes locais a ser autenticado:
+O utilizador poderá ter de ser levado para um dos seguintes locais a autenticar:
 
-- O locatário inicial do usuário (pode ser o mesmo locatário do recurso que o usuário está tentando acessar). 
+- O inquilino da casa do utilizador (pode ser o mesmo inquilino que o recurso a que o utilizador está a tentar aceder). 
 
-- conta Microsoft.  O usuário é um convidado no locatário do recurso.
+- Conta da Microsoft.  O utilizador é um hóspede no inquilino de recursos.
 
--  Um provedor de identidade local, como o Serviços de Federação do Active Directory (AD FS) (AD FS).
+-  Um fornecedor de identidade no local, como os Serviços da Federação de Directórioactivo Ativo (AD FS).
 
-- Outro provedor de identidade que é federado com o locatário do Azure AD.
+- Outro fornecedor de identidade federado com o inquilino da AD Azure.
 
 ## <a name="auto-acceleration"></a>Aceleração automática 
-Algumas organizações configuram domínios em seu locatário Azure Active Directory para federar com outro IdP, como AD FS para autenticação de usuário.  
+Algumas organizações configuram domínios no seu inquilino do Azure Ative Directory para federar com outro IDP, como AD FS para autenticação do utilizador.  
 
-Quando um usuário entra em um aplicativo, ele é apresentado pela primeira vez com uma página de entrada do Azure AD. Depois de digitar seu UPN, se eles estiverem em um domínio federado, eles serão levados para a página de entrada do IdP servindo esse domínio. Em determinadas circunstâncias, os administradores podem querer direcionar os usuários para a página de entrada quando estiverem entrando em aplicativos específicos. 
+Quando um utilizador assina numa aplicação, é apresentado pela primeira vez com uma página de entrada de AD Azure. Depois de terem dado a sua UPN, se estiverem num domínio federado, são levados para a página de inscrição do IDP que serve esse domínio. Em determinadas circunstâncias, os administradores podem querer direcionar os utilizadores para a página de sessão quando estão a iniciar sessão em aplicações específicas. 
 
-Como resultado, os usuários podem ignorar a página de Azure Active Directory inicial. Esse processo é conhecido como "aceleração automática de entrada".
+Como resultado, os utilizadores podem saltar a página inicial do Diretório Ativo Do Azure. Este processo é referido como "aceleração automática de inscrição".
 
-Nos casos em que o locatário é federado a outro IdP para entrada, a aceleração automática torna a entrada do usuário mais simplificada.  Você pode configurar a aceleração automática para aplicativos individuais.
+Nos casos em que o inquilino é federado para outro IDP para iniciar sessão, a aceleração automática torna o registo do utilizador mais simplificado.  Pode configurar a aceleração automática para aplicações individuais.
 
 >[!NOTE]
->Se você configurar um aplicativo para aceleração automática, os usuários convidados não poderão entrar. Se você levar um usuário diretamente para um IdP federado para autenticação, não haverá nenhuma maneira de fazê-los voltar à página de entrada Azure Active Directory. Os usuários convidados, que talvez precisem ser direcionados a outros locatários ou a um IdP externo, como um conta Microsoft, não podem entrar nesse aplicativo porque eles estão ignorando a etapa de descoberta de realm inicial.  
+>Se configurar uma aplicação para aceleração automática, os utilizadores convidados não podem iniciar o contrato. Se levar um utilizador diretamente a um IdP federado para autenticação, não há como voltar à página de inscrição do Diretório Ativo Azure. Os utilizadores convidados, que podem precisar de ser direcionados para outros inquilinos ou um IDP externo, como uma conta microsoft, não podem assinar essa aplicação porque estão a faltar ao passo Home Realm Discovery.  
 
-Há duas maneiras de controlar a aceleração automática para um IdP federado:   
+Há duas maneiras de controlar a aceleração automática de um IDP federado:   
 
-- Use uma dica de domínio em solicitações de autenticação para um aplicativo. 
-- Configure uma política de descoberta de realm inicial para habilitar a aceleração automática.
+- Utilize uma dica de domínio sobre pedidos de autenticação para uma aplicação. 
+- Configure uma política de Descoberta do Reino Doméstico para permitir a aceleração automática.
 
 ### <a name="domain-hints"></a>Dicas de domínio    
-Dicas de domínio são diretivas que são incluídas na solicitação de autenticação de um aplicativo. Eles podem ser usados para acelerar o usuário para sua página de entrada IdP federada. Ou podem ser usados por um aplicativo multilocatário para acelerar o usuário diretamente para a página de entrada do Azure AD com marca para seu locatário.  
+As sugestões de domínio são diretivas que estão incluídas no pedido de autenticação de um pedido. Podem ser utilizados para acelerar o utilizador à sua página de sinalização idp federada. Ou podem ser usados por uma aplicação multi-inquilino para acelerar o utilizador diretamente para a página de entrada da Marca Azure AD para o seu inquilino.  
 
-Por exemplo, o aplicativo "largeapp.com" pode permitir que seus clientes acessem o aplicativo em uma URL personalizada "contoso.largeapp.com". O aplicativo também pode incluir uma dica de domínio para contoso.com na solicitação de autenticação. 
+Por exemplo, a aplicação "largeapp.com" pode permitir aos seus clientes aceder à aplicação num URL personalizado "contoso.largeapp.com". A aplicação também pode incluir uma dica de domínio para contoso.com no pedido de autenticação. 
 
-A sintaxe de dica de domínio varia dependendo do protocolo que é usado e normalmente é configurada no aplicativo.
+A sintaxe de sugestão de domínio varia consoante o protocolo que é usado, e é tipicamente configurado na aplicação.
 
-**WS-Federation**: WHR = contoso. com na cadeia de caracteres de consulta.
+**WS-Federação**: whr=contoso.com na corda de consulta.
 
-**SAML**: uma solicitação de autenticação SAML que contém uma dica de domínio ou uma cadeia de caracteres de consulta WHR = contoso. com.
+**SAML**: Ou um pedido de autenticação SAML que contém uma dica de domínio ou uma corda de consulta whr=contoso.com.
 
-**Open ID Connect**: uma cadeia de caracteres de consulta domain_hint = contoso. com. 
+**Open ID Connect**: Uma cadeia de consulta domain_hint=contoso.com. 
 
-Se uma dica de domínio for incluída na solicitação de autenticação do aplicativo e o locatário for federado com esse domínio, o Azure AD tentará redirecionar a entrada para o IdP configurado para esse domínio. 
+Se uma sugestão de domínio for incluída no pedido de autenticação da aplicação, e o inquilino for federado com esse domínio, a Azure AD tenta redirecionar o início de sessão para o IDP que está configurado para esse domínio. 
 
-Se a dica de domínio não se referir a um domínio federado verificado, ela será ignorada e a descoberta de realm inicial normal será invocada.
+Se a dica de domínio não se refere a um domínio federado verificado, é ignorado e a Descoberta normal do Reino doméstico é invocada.
 
-Para obter mais informações sobre a aceleração automática usando as dicas de domínio com suporte no Azure Active Directory, consulte o [blog Enterprise Mobility + Security](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
+Para obter mais informações sobre a aceleração automática utilizando as dicas de domínio que são suportadas pelo Azure Ative Directory, consulte o [blog Enterprise Mobility + Security](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
 >[!NOTE]
->Se uma dica de domínio for incluída em uma solicitação de autenticação, sua presença substituirá a aceleração automática definida para o aplicativo na política de HRD.
+>Se uma sugestão de domínio for incluída num pedido de autenticação, a sua presença substitui a aceleração automática definida para a aplicação na política de RHD.
 
-### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Política de descoberta de realm inicial para aceleração automática
-Alguns aplicativos não fornecem uma maneira de configurar a solicitação de autenticação que eles emitem. Nesses casos, não é possível usar dicas de domínio para controlar a aceleração automática. A aceleração automática pode ser configurada por meio da política para obter o mesmo comportamento.  
+### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Política de Descoberta do Reino Doméstico para aceleração automática
+Algumas aplicações não fornecem uma forma de configurar o pedido de autenticação que emitem. Nestes casos, não é possível usar sugestões de domínio para controlar a aceleração automática. A aceleração automática pode ser configurada através da política para alcançar o mesmo comportamento.  
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>Habilitar a autenticação direta para aplicativos herdados
-A prática recomendada é que os aplicativos usem bibliotecas do AAD e logon interativo para autenticar usuários. As bibliotecas cuidam dos fluxos de usuário federados.  Às vezes, os aplicativos herdados não são escritos para entender a Federação. Eles não executam a descoberta de realm inicial e não interagem com o ponto de extremidade federado correto para autenticar um usuário. Se você optar por, poderá usar a política HRD para habilitar aplicativos herdados específicos que enviam credenciais de nome de usuário/senha para autenticar diretamente com Azure Active Directory. A sincronização de hash de senha deve ser habilitada. 
+## <a name="enable-direct-authentication-for-legacy-applications"></a>Ativar a autenticação direta para aplicações antigas
+A melhor prática é que as aplicações utilizem bibliotecas AAD e entrada interativa para autenticar os utilizadores. As bibliotecas cuidam dos fluxos de utilizadores federados.  Às vezes, as aplicações antigas não são escritas para entender a federação. Não realizam a descoberta do reino doméstico e não interagem com o ponto final federado correto para autenticar um utilizador. Se optar, pode utilizar a Política de RHD para permitir aplicações específicas do legado que submetem credenciais de nome de utilizador/palavra-passe para autenticar diretamente com o Diretório Ativo Azure. A Password Hash Sync deve ser ativada. 
 
 > [!IMPORTANT]
-> Habilite somente a autenticação direta se você tiver a sincronização de hash de senha ativada e souber que não há problema em autenticar esse aplicativo sem nenhuma política implementada pelo IdP local. Se você desativar a sincronização de hash de senha ou desativar a sincronização de diretório com o AD Connect por qualquer motivo, deverá remover essa política para evitar a possibilidade de autenticação direta usando um hash de senha obsoleto.
+> Só ative a autenticação direta se tiver o Password Hash Sync ligado e sabe que não há problema em autenticar esta aplicação sem quaisquer políticas implementadas pelo seu IdP no local. Se desligar o Password Hash Sync ou desligar a Sincronização de Diretório com o AD Connect por qualquer motivo, deverá remover esta política para evitar a possibilidade de autenticação direta utilizando um hash de senha.
 
-## <a name="set-hrd-policy"></a>Definir política de HRD
-Há três etapas para definir a política de HRD em um aplicativo para aceleração automática de entrada federada ou aplicativos baseados em nuvem diretos:
+## <a name="set-hrd-policy"></a>Definir a política de HRD
+Existem três etapas para definir a política de HRD sobre uma aplicação para aplicações federadas de aceleração automática ou baseadas em nuvem direta:
 
-1. Crie uma política de HRD.
+1. Criar uma política de RHD.
 
-2. Localize a entidade de serviço à qual a política será anexada.
+2. Localize o principal de serviço para anexar a apólice.
 
-3. Anexe a política à entidade de serviço. 
+3. Anexar a apólice ao diretor de serviço. 
 
-As políticas só entram em vigor para um aplicativo específico quando são anexadas a uma entidade de serviço. 
+As políticas só têm efeito para uma aplicação específica quando estão anexadas a um diretor de serviço. 
 
-Somente uma política de HRD pode estar ativa em uma entidade de serviço a qualquer momento.  
+Apenas uma política de RHD pode estar ativa num diretor de serviço a qualquer momento.  
 
-Você pode usar a API do Microsoft Azure Active Directory Graph diretamente ou os cmdlets do Azure Active Directory PowerShell para criar e gerenciar a política HRD.
+Pode utilizar diretamente o Microsoft Azure Ative Directory Graph API, ou os cmdlets PowerShell do Diretório Ativo Azure para criar e gerir a política de RHD.
 
-O API do Graph que manipula a política é descrito no artigo [operações na política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) no msdn.
+A API graph que manipula a política é descrita no artigo [de operações sobre política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) sobre a MSDN.
 
-Veja a seguir um exemplo de definição de política HRD:
+Segue-se um exemplo de definição de política de RHD:
     
  ```
    {  
@@ -119,156 +119,156 @@ Veja a seguir um exemplo de definição de política HRD:
 
 O tipo de política é "HomeRealmDiscoveryPolicy".
 
-**AccelerateToFederatedDomain** é opcional. Se **AccelerateToFederatedDomain** for false, a política não terá efeito sobre a aceleração automática. Se **AccelerateToFederatedDomain** for true e houver apenas um domínio verificado e federado no locatário, os usuários serão levados diretamente para o IDP federado para entrar. Se for true e houver mais de um domínio verificado no locatário, **PreferredDomain** deverá ser especificado.
+**AccelerateToFederatedDomain** é opcional. Se **o AccelerateToFederatedDomain** for falso, a política não tem qualquer efeito na aceleração automática. Se **o AccelerateToFederatedDomain** for verdadeiro e houver apenas um domínio verificado e federado no inquilino, então os utilizadores serão levados diretamente para o IdP federado para iniciar sessão. Se for verdade e houver mais de um domínio verificado no inquilino, o **PreferredDomain** deve ser especificado.
 
-**PreferredDomain** é opcional. **PreferredDomain** deve indicar um domínio para o qual acelerar. Ele poderá ser omitido se o locatário tiver apenas um domínio federado.  Se ele for omitido e houver mais de um domínio federado verificado, a política não terá efeito.
+**PreferredDomain** é opcional. **PreferredDomain** deve indicar um domínio para acelerar. Pode ser omitido se o inquilino tiver apenas um domínio federado.  Se for omitida, e houver mais de um domínio federado verificado, a política não tem qualquer efeito.
 
- Se **PreferredDomain** for especificado, ele deverá corresponder a um domínio federado verificado para o locatário. Todos os usuários do aplicativo devem ser capazes de entrar nesse domínio.
+ Se o **PreferredDomain** for especificado, deve corresponder a um domínio verificado e federado para o inquilino. Todos os utilizadores da aplicação devem poder iniciar sessão nesse domínio.
 
-**AllowCloudPasswordValidation** é opcional. Se **AllowCloudPasswordValidation** for true, o aplicativo poderá autenticar um usuário federado apresentando as credenciais de nome de usuário/senha diretamente para o ponto de extremidade do token de Azure Active Directory. Isso só funcionará se a sincronização de hash de senha estiver habilitada.
+**Permitir Validação de Passwords Do Utilizador** é opcional. Se o **AllowCloudPasswordValidação** for verdadeiro, a aplicação é autorizada a autenticar um utilizador federado apresentando credenciais de nome de utilizador/palavra-passe diretamente para o ponto final do Diretório Ativo Azure. Isto só funciona se o Password Hash Sync estiver ativado.
 
-### <a name="priority-and-evaluation-of-hrd-policies"></a>Prioridade e avaliação de políticas de HRD
-As políticas de HRD podem ser criadas e atribuídas a organizações específicas e entidades de serviço. Isso significa que é possível que várias políticas sejam aplicadas a um aplicativo específico. A política HRD que entra em vigor segue estas regras:
-
-
-- Se uma dica de domínio estiver presente na solicitação de autenticação, qualquer política de HRD será ignorada para aceleração automática. O comportamento especificado pela dica de domínio é usado.
-
-- Caso contrário, se uma política for explicitamente atribuída à entidade de serviço, ela será imposta. 
-
-- Se não houver nenhuma dica de domínio e nenhuma política for explicitamente atribuída à entidade de serviço, uma política atribuída explicitamente à organização pai da entidade de serviço será imposta. 
-
-- Se não houver nenhuma dica de domínio e nenhuma política tiver sido atribuída à entidade de serviço ou à organização, o comportamento padrão do HRD será usado.
-
-## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>Tutorial para definir a política HRD em um aplicativo 
-Usaremos os cmdlets do PowerShell do Azure AD para percorrer alguns cenários, incluindo:
+### <a name="priority-and-evaluation-of-hrd-policies"></a>Prioridade e avaliação das políticas de RHD
+As políticas de RHD podem ser criadas e, em seguida, atribuídas a organizações específicas e diretores de serviços. Isto significa que é possível que várias políticas se apliquem a uma aplicação específica. A política de RHD que entra em vigor segue estas regras:
 
 
-- Configurando a política HRD para fazer a aceleração automática para um aplicativo em um locatário com um único domínio federado.
+- Se uma sugestão de domínio estiver presente no pedido de autenticação, então qualquer política de HRD é ignorada para aceleração automática. O comportamento especificado pela sugestão de domínio é usado.
 
-- Configurar a política de HRD para fazer a aceleração automática de um aplicativo para um dos vários domínios que são verificados para seu locatário.
+- Caso contrário, se uma política for explicitamente atribuída ao diretor de serviço, é aplicada. 
 
-- Configurando a política HRD para permitir que um aplicativo herdado faça autenticação direta de nome de usuário/senha para Azure Active Directory para um usuário federado.
+- Se não houver nenhuma pista de domínio, e nenhuma política for explicitamente atribuída ao diretor de serviço, uma política que é explicitamente atribuída à organização-mãe do diretor de serviço é aplicada. 
 
-- Listando os aplicativos para os quais uma política está configurada.
+- Se não houver nenhuma pista de domínio, e nenhuma política foi atribuída ao diretor de serviço ou à organização, o comportamento padrão do HRD é usado.
+
+## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>Tutorial para definir a política de HRD numa aplicação 
+Usaremos cmdlets Azure AD PowerShell para percorrer alguns cenários, incluindo:
+
+
+- Criação de uma política de RHD para fazer aceleração automática para uma aplicação num inquilino com um único domínio federado.
+
+- A criação da política de RHD para fazer aceleração automática para uma aplicação a um dos vários domínios que são verificados para o seu inquilino.
+
+- Configurar a política de HRD para permitir que uma aplicação antiga faça a autenticação direta de username/password para o Diretório Ativo do Azure para um utilizador federado.
+
+- Enumerando as aplicações para as quais uma política está configurada.
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas em entidades de serviço de aplicativo no Azure AD.
+Nos seguintes exemplos, cria, atualiza, liga e elimina políticas sobre os principais de serviços de aplicação em Azure AD.
 
-1.  Para começar, baixe a versão prévia do cmdlet do PowerShell do Azure AD mais recente. 
+1.  Para começar, baixe a mais recente pré-visualização de cmdlet Da AD AD. 
 
-2.  Depois de baixar os cmdlets do PowerShell do Azure AD, execute o comando conectar para entrar no Azure AD com sua conta de administrador:
+2.  Depois de ter descarregado os cmdlets Azure AD PowerShell, execute o comando Connect para iniciar sessão no Azure AD com a sua conta de administração:
 
     ``` powershell
     Connect-AzureAD -Confirm
     ```
-3.  Execute o seguinte comando para ver todas as políticas em sua organização:
+3.  Execute o seguinte comando para ver todas as políticas da sua organização:
 
     ``` powershell
     Get-AzureADPolicy
     ```
 
-Se nada for retornado, isso significa que você não tem políticas criadas em seu locatário.
+Se nada for devolvido, significa que não tem nenhuma política criada no seu inquilino.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>Exemplo: definir a política de HRD para um aplicativo 
+### <a name="example-set-hrd-policy-for-an-application"></a>Exemplo: Definir a política de HRD para uma aplicação 
 
-Neste exemplo, você cria uma política que, quando atribuída a um aplicativo, pode: 
-- Acelera automaticamente os usuários para uma tela de entrada AD FS quando eles estão entrando em um aplicativo quando há um único domínio em seu locatário. 
-- Acelera automaticamente os usuários para uma tela de entrada de AD FS há mais de um domínio federado em seu locatário.
-- Habilita a entrada de nome de usuário/senha não interativa diretamente em Azure Active Directory para usuários federados para os aplicativos aos quais a política está atribuída.
+Neste exemplo, cria-se uma política que, quando é atribuída a uma aplicação: 
+- Acelera automaticamente os utilizadores para um ecrã de sinal de AD FS quando estão a iniciar sessão numa aplicação quando existe um único domínio no seu inquilino. 
+- Automatiza automaticamente os utilizadores para um ecrã de sinal De AD FS há mais de um domínio federado no seu inquilino.
+- Permite o sinal de username/palavra-passe não interativo diretamente para o Azure Ative Directory para utilizadores federados para as aplicações a que a política é atribuída.
 
-#### <a name="step-1-create-an-hrd-policy"></a>Etapa 1: criar uma política de HRD
+#### <a name="step-1-create-an-hrd-policy"></a>Passo 1: Criar uma política de RHD
 
-A política a seguir acelera automaticamente os usuários para uma tela de entrada AD FS quando eles estão entrando em um aplicativo quando há um único domínio em seu locatário.
+A seguinte política acelera automaticamente os utilizadores a um ecrã de sessão aD FS quando estão a iniciar sessão numa aplicação quando existe um único domínio no seu inquilino.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
-A política a seguir acelera automaticamente os usuários para uma tela de entrada de AD FS há mais de um domínio federado em seu locatário. Se você tiver mais de um domínio federado que autentique usuários para aplicativos, será necessário especificar o domínio a ser acelerado automaticamente.
+A seguinte política acelera automaticamente os utilizadores para um ecrã de sinal De AD FS há mais de um domínio federado no seu inquilino. Se tiver mais de um domínio federado que autentica os utilizadores para aplicações, precisa especificar o domínio para acelerar automaticamente.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
-Para criar uma política para habilitar a autenticação de nome de usuário/senha para usuários federados diretamente com Azure Active Directory para aplicativos específicos, execute o seguinte comando:
+Para criar uma política que permita a autenticação de username/password para utilizadores federados diretamente com o Diretório Ativo Azure para aplicações específicas, execute o seguinte comando:
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 
-Para ver sua nova política e obter seu **ObjectID**, execute o seguinte comando:
+Para ver a sua nova política e obter o seu **ObjectID,** execute o seguinte comando:
 
 ``` powershell
 Get-AzureADPolicy
 ```
 
 
-Para aplicar a política HRD depois de criá-la, você pode atribuí-la a várias entidades de serviço do aplicativo.
+Para aplicar a política de HRD depois de a ter criado, pode atribuí-la a vários diretores de serviços de aplicação.
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Etapa 2: Localize a entidade de serviço à qual atribuir a política  
-Você precisa do **ObjectID** das entidades de serviço às quais deseja atribuir a política. Há várias maneiras de localizar o **ObjectID** das entidades de serviço.    
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Passo 2: Localizar o principal de serviço para atribuir a apólice  
+Precisa do **ObjectID** dos diretores de serviço a que pretende atribuir a apólice. Existem várias formas de encontrar o **ObjectID** dos principais de serviço.    
 
-Você pode usar o portal ou pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Você também pode ir para a [ferramenta Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e entrar em sua conta do Azure ad para ver todas as entidades de serviço da sua organização. 
+Pode utilizar o portal, ou pode consultar o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Você também pode ir à [Ferramenta do Explorador de Gráficos](https://developer.microsoft.com/graph/graph-explorer) e iniciar sessão na sua conta Azure AD para ver todos os diretores de serviço da sua organização. 
 
-Como você está usando o PowerShell, você pode usar o cmdlet a seguir para listar as entidades de serviço e suas IDs.
+Como está a utilizar o PowerShell, pode utilizar o seguinte cmdlet para listar os diretores de serviço e as suas identificações.
 
 ``` powershell
 Get-AzureADServicePrincipal
 ```
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Etapa 3: atribuir a política à entidade de serviço  
-Depois de ter o **ObjectID** da entidade de serviço do aplicativo para o qual você deseja configurar a aceleração automática, execute o comando a seguir. Esse comando associa a política HRD que você criou na etapa 1 com a entidade de serviço que você localizou na etapa 2.
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Passo 3: Atribuir a apólice ao seu diretor de serviço  
+Depois de ter o **ObjectID** do diretor de serviço da aplicação para o qual pretende configurar a aceleração automática, executar o seguinte comando. Este comando associa a política de HRD que criou no passo 1 com o diretor de serviço que localizou no passo 2.
 
 ``` powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 ```
 
-Você pode repetir esse comando para cada entidade de serviço à qual você deseja adicionar a política.
+Pode repetir este comando para cada diretor de serviço ao qual pretende adicionar a apólice.
 
-No caso em que um aplicativo já tem uma política HomeRealmDiscovery atribuída, você não poderá adicionar um segundo.  Nesse caso, altere a definição da política de descoberta de realm inicial atribuída ao aplicativo para adicionar parâmetros adicionais.
+No caso de uma aplicação já ter uma política HomeRealmDiscovery atribuída, não poderá adicionar uma segunda.  Nesse caso, altere a definição da política home realm discovery que é atribuída à aplicação para adicionar parâmetros adicionais.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Etapa 4: verificar a quais entidades de serviço de aplicativo sua política de HRD está atribuída
-Para verificar quais aplicativos têm a política HRD configurada, use o cmdlet **Get-AzureADPolicyAppliedObject** . Passe o **ObjectID** da política que você deseja verificar.
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Passo 4: Verifique quais os principais do serviço de aplicação a que a sua política de RHD é atribuída
+Para verificar quais as aplicações configuradas pela política de HRD, utilize o cmdlet **Get-AzureADPolicyAppliedObject.** Passe-o o **ObjectID** da apólice que pretende verificar.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
-#### <a name="step-5-youre-done"></a>Etapa 5: você terminou!
-Experimente o aplicativo para verificar se a nova política está funcionando.
+#### <a name="step-5-youre-done"></a>Passo 5: Está feito!
+Tente o pedido para verificar se a nova política está a funcionar.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exemplo: listar os aplicativos para os quais a política de HRD está configurada
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exemplo: Enumerar as aplicações para as quais a política de RHD está configurada
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Etapa 1: listar todas as políticas que foram criadas em sua organização 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Passo 1: Enumerar todas as políticas que foram criadas na sua organização 
 
 ``` powershell
 Get-AzureADPolicy
 ```
 
-Observe o **ObjectID** da política para a qual você deseja listar as atribuições.
+Note o **ObjectID** da política para a quais pretende listar as atribuições.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Etapa 2: listar as entidades de serviço às quais a política é atribuída  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Passo 2: Enumerar os diretores de serviço a que a política é atribuída  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exemplo: remover uma política de HRD para um aplicativo
-#### <a name="step-1-get-the-objectid"></a>Etapa 1: obter o ObjectID
-Use o exemplo anterior para obter a **ObjectID** da política e a entidade de serviço do aplicativo da qual você deseja removê-la. 
+### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exemplo: Remover uma política de RHD para uma aplicação
+#### <a name="step-1-get-the-objectid"></a>Passo 1: Obtenha o ObjectID
+Utilize o exemplo anterior para obter o **ObjectID** da apólice e o do diretor do serviço de aplicação a partir do qual pretende removê-lo. 
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Etapa 2: remover a atribuição de política da entidade de serviço do aplicativo  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Passo 2: Retirar a atribuição de apólices do principal serviço de aplicação  
 
 ``` powershell
 Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Etapa 3: verificar a remoção listando as entidades de serviço às quais a política é atribuída 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Passo 3: Verificar a remoção enumerando os diretores de serviço a que a apólice é atribuída 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Passos seguintes
-- Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação do Azure ad](../develop/authentication-scenarios.md).
-- Para obter mais informações sobre o logon único do usuário, consulte [logon único para aplicativos no Azure Active Directory](what-is-single-sign-on.md).
-- Visite o [Guia do desenvolvedor Active Directory](../develop/v1-overview.md) para obter uma visão geral de todo o conteúdo relacionado ao desenvolvedor.
+- Para obter mais informações sobre como funciona a autenticação em Azure AD, consulte cenários de [autenticação para AD Azure](../develop/authentication-scenarios.md).
+- Para obter mais informações sobre o utilizador, consulte o único sinal de [inscrição para aplicações no Diretório Ativo do Azure](what-is-single-sign-on.md).
+- Visite a [plataforma de identidade](../develop/v2-overview.md) da Microsoft para uma visão geral de todos os conteúdos relacionados com o desenvolvedor.

@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 75893a85f975d5d1454f1b93535a1df7a45e8731
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 018d0c3bc009f6063de75b9a479be650b2c06e7c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084016"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160849"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Lidar com exceções e erros da MSAL
 
@@ -506,7 +506,7 @@ O seguinte código de amostra do Objectivo-C demonstra as melhores práticas par
 
 ## <a name="conditional-access-and-claims-challenges"></a>Acesso Condicional e desafios de sinistros
 
-Ao obter fichas silenciosamente, a sua aplicação pode receber erros quando um desafio de [acesso condicional,](conditional-access-dev-guide.md) como a política de MFA, é exigido por uma API a que está a tentar aceder.
+Ao obter fichas silenciosamente, a sua aplicação pode receber erros quando um desafio de [acesso condicional,](../azuread-dev/conditional-access-dev-guide.md) como a política de MFA, é exigido por uma API a que está a tentar aceder.
 
 O padrão para lidar com este erro é adquirir interativamente um símbolo usando mSAL. Adquirir um token interactivamente leva o utilizador e dá-lhes a oportunidade de satisfazer a política de Acesso Condicional exigida.
 
@@ -520,7 +520,7 @@ Para lidar com o desafio da reivindicação, terá de usar o método `.WithClaim
 
 ### <a name="javascript"></a>Javascript
 
-Ao obter fichas silenciosamente (usando `acquireTokenSilent`) usando MSAL.js, a sua aplicação pode receber erros quando um desafio de [acesso condicional](conditional-access-dev-guide.md) alega, como a política de MFA, é exigido por uma API a que está a tentar aceder.
+Ao obter fichas silenciosamente (usando `acquireTokenSilent`) usando MSAL.js, a sua aplicação pode receber erros quando um desafio de [acesso condicional](../azuread-dev/conditional-access-dev-guide.md) alega, como a política de MFA, é exigido por uma API a que está a tentar aceder.
 
 O padrão para lidar com este erro é fazer uma chamada interativa para adquirir ficha em MSAL.js, como `acquireTokenPopup` ou `acquireTokenRedirect` como no exemplo seguinte:
 

@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: abe40898643fa2fd11952d2fb6626034fb408133
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e1ea2a90d8eaf26d514457fbf7d4b08f9204dad3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503242"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77155977"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Criar um recurso de fala azure](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -46,10 +46,14 @@ ms.locfileid: "73503242"
            try {
                // Replace below with your own subscription key
                String speechSubscriptionKey = "YourSubscriptionKey";
-               // Replace below with your own service region (e.g., "westus").
+
+               // Replace below with your own service region (e.g., "westus", use the one of SpeechSDKParameters
+               // from here: https://aka.ms/speech/sdkregion).               
                String serviceRegion = "YourServiceRegion";
+
                // Replace below with your own filename.
                String audioFileName = "helloworld.wav";
+
                // Replace below with your own filename.
                String text = "Hello world!";
 
@@ -100,18 +104,18 @@ ms.locfileid: "73503242"
 
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Substitua a cadeia de caracteres `helloworld.wav` pelo seu próprio nome de arquivo.
+1. Substitua a cadeia `helloworld.wav` pelo seu próprio nome de ficheiro.
 
-1. Substitua a cadeia de caracteres `Hello world!` pelo seu próprio texto.
+1. Substitua a cadeia `Hello world!` com o seu próprio texto.
 
 1. Guarde as alterações ao projeto.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
 Prima F11 ou selecione **Executar** > **Depurar**.
-O texto é convertido em fala e salvo nos dados de áudio especificados.
+O seu texto é convertido em fala e guardado nos dados áudio especificados.
 
    ```text
    Speech synthesized to [helloworld.wav] for text [Hello world!]
@@ -121,7 +125,7 @@ O texto é convertido em fala e salvo nos dados de áudio especificados.
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Veja também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Gravar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

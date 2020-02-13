@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/11/2020
-ms.openlocfilehash: 1073b9014c83ae5d52d0b1a740819c48c9622936
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152725"
+ms.locfileid: "77162859"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escala automaticamente os clusters Azure HDInsight
 
 > [!Important]
-> A funcionalidade De escala automática funciona apenas para os clusters Apache Spark, ApacheHive, LLAP e Apache HBase criados após o dia 8 de maio de 2019.
+> A funcionalidade De escala automática funciona apenas para os clusters Apache Spark, ApacheHive, LLAP e Apache HBase criados após o dia 8 de maio de 2019. A escala automática para LLAP e HBase está em pré-visualização.
 
 A função de cluster Autoscale da Azure HDInsight escala automaticamente o número de nós de trabalhador num cluster para cima e para baixo. Outros tipos de nós no cluster não podem ser escalados atualmente.  Durante a criação de um novo cluster HDInsight, pode ser definido um número mínimo e máximo de nós de trabalhadores. A escala automática monitoriza então os requisitos de recursos da carga de análise e escala o número de nós dos trabalhadores para cima ou para baixo. Não há nenhuma taxa adicional para esta funcionalidade.
 

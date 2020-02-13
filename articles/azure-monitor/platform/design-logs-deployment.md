@@ -1,138 +1,138 @@
 ---
-title: Criando sua implantação de logs de Azure Monitor | Microsoft Docs
-description: Este artigo descreve as considerações e recomendações para os clientes se preparando para implantar um espaço de trabalho no Azure Monitor.
+title: Conceber a sua implementação de Registos de Monitores Azure  Microsoft Docs
+description: Este artigo descreve as considerações e recomendações para os clientes que se preparam para implantar um espaço de trabalho no Monitor Azure.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2d530792e1a6f598dbf2ed66889c01cc43467ed
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395764"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162247"
 ---
-# <a name="designing-your-azure-monitor-logs-deployment"></a>Criando sua implantação de logs de Azure Monitor
+# <a name="designing-your-azure-monitor-logs-deployment"></a>Conceber a sua implementação de Registos de Monitores Azure
 
-O Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics, que é um recurso do Azure e um contêiner em que os dados são coletados, agregados e servem como um limite administrativo. Embora você possa implantar um ou mais espaços de trabalho em sua assinatura do Azure, há várias considerações que você deve entender para garantir que a implantação inicial esteja seguindo nossas diretrizes para fornecer a você um custo eficaz, gerenciável e escalonável a implantação atende às necessidades de suas organizações.
+O Azure Monitor armazena dados de [registo](data-platform-logs.md) num espaço de trabalho do Log Analytics, que é um recurso Azure e um contentor onde os dados são recolhidos, agregados e servem como limite administrativo. Embora possa implementar um ou mais espaços de trabalho na sua subscrição Azure, existem várias considerações que deve compreender para garantir que a sua implementação inicial está a seguir as nossas diretrizes para lhe fornecer um custo eficaz, manejável e escalável implantação que satisfaz as suas organizações precisa.
 
-Os dados em um espaço de trabalho são organizados em tabelas, cada um dos quais armazena diferentes tipos de dados e tem seu próprio conjunto exclusivo de propriedades com base no recurso que gera os dados. A maioria das fontes de dados será gravada em suas próprias tabelas em um espaço de trabalho Log Analytics.
+Os dados de um espaço de trabalho são organizados em tabelas, cada uma das quais armazena diferentes tipos de dados e tem o seu próprio conjunto único de propriedades com base no recurso que gera os dados. A maioria das fontes de dados escreverá para as suas próprias tabelas num espaço de trabalho de Log Analytics.
 
-![Exemplo de modelo de dados de espaço de trabalho](./media/design-logs-deployment/logs-data-model-01.png)
+![Modelo de dados do espaço de trabalho de exemplo](./media/design-logs-deployment/logs-data-model-01.png)
 
-Um espaço de trabalho Log Analytics fornece:
+Um espaço de trabalho log Analytics fornece:
 
 * Uma localização geográfica para armazenamento de dados.
-* Isolamento de dados concedendo direitos de acesso de usuários diferentes após uma das nossas estratégias de design recomendadas.
-* Escopo para configuração de configurações, como [tipo de preço](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retenção](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e limitação de [dados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
+* Isolamento de dados, concedendo aos diferentes utilizadores direitos de acesso seguindo uma das nossas estratégias de design recomendadas.
+* Âmbito para configuração de configurações como nível de [preços,](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier) [retenção,](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) [e captação](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume)de dados .
 
-Este artigo fornece uma visão geral detalhada das considerações de design e migração, visão geral do controle de acesso e uma compreensão das implementações de design recomendadas para sua organização de ti.
+Este artigo fornece uma visão detalhada das considerações de design e migração, visão geral do controlo de acesso e uma compreensão das implementações de design que recomendamos para a sua organização de TI.
 
 
 
-## <a name="important-considerations-for-an-access-control-strategy"></a>Considerações importantes para uma estratégia de controle de acesso
+## <a name="important-considerations-for-an-access-control-strategy"></a>Considerações importantes para uma estratégia de controlo de acesso
 
-Identificar o número de espaços de trabalho de que você precisa é influenciado por um ou mais dos seguintes requisitos:
+Identificar o número de espaços de trabalho de que necessita é influenciado por um ou mais dos seguintes requisitos:
 
-* Você é uma empresa global e precisa de dados de log armazenados em regiões específicas para fins de conformidade ou de soberania de dados.
+* É uma empresa global e precisa de dados de registo armazenados em regiões específicas por razões de soberania ou conformidade de dados.
 * Estiver a utilizar o Azure e pretender evitar custos de transferência de dados de saída ao ter uma área de trabalho na mesma região dos recursos do Azure que gere.
-* Você gerencia vários departamentos ou grupos de negócios e deseja que cada um deles veja seus próprios dados, mas não dados de outros. Além disso, não há nenhum requisito comercial para uma exibição consolidada entre departamentos ou de grupos de negócios.
+* Gere vários departamentos ou grupos empresariais, e quer que cada um veja os seus próprios dados, mas não dados de outros. Além disso, não existe qualquer exigência de negócio para uma visão consolidada do departamento transversal ou do grupo empresarial.
 
-Hoje, as organizações de ti são modeladas seguindo um híbrido centralizado, descentralizado ou um entre as duas estruturas. Como resultado, os seguintes modelos de implantação de espaço de trabalho foram comumente usados para mapear para uma dessas estruturas organizacionais:
+As organizações de TI são hoje modeladas seguindo um híbrido centralizado, descentralizado ou um híbrido intermédio de ambas as estruturas. Como resultado, os seguintes modelos de implantação do espaço de trabalho têm sido comumente usados para mapear uma destas estruturas organizacionais:
 
-* **Centralizado**: todos os logs são armazenados em um espaço de trabalho central e administrados por uma única equipe, com Azure monitor fornecendo acesso diferenciado por equipe. Nesse cenário, é fácil de gerenciar, Pesquisar entre recursos e correlacionar logs de forma cruzada. O espaço de trabalho pode crescer significativamente dependendo da quantidade de dados coletados de vários recursos em sua assinatura, com sobrecarga administrativa adicional para manter o controle de acesso a diferentes usuários.
-* **Descentralizado**: cada equipe tem seu próprio espaço de trabalho criado em um grupo de recursos que ele possui e gerencia, e os dados de log são separados por recurso. Nesse cenário, o espaço de trabalho pode ser mantido seguro e o controle de acesso é consistente com o acesso aos recursos, mas é difícil correlacionar os logs. Os usuários que precisam de uma visão ampla de muitos recursos não podem analisar os dados de uma maneira significativa.
-* **Híbrido**: os requisitos de conformidade de auditoria de segurança complicam ainda mais esse cenário porque muitas organizações implementam ambos os modelos de implantação em paralelo. Isso normalmente resulta em uma configuração complexa, cara e difícil de manter com lacunas na cobertura de logs.
+* **Centralizado**: Todos os registos são armazenados num espaço de trabalho central e administrados por uma única equipa, com o Monitor Azure a proporcionar acesso diferenciado por equipa. Neste cenário, é fácil gerir, pesquisar através de recursos e cruzar registos. O espaço de trabalho pode crescer significativamente dependendo da quantidade de dados recolhidos a partir de vários recursos na sua subscrição, com despesas administrativas adicionais para manter o controlo de acesso a diferentes utilizadores. Este modelo é conhecido como "hub e falado".
+* **Descentralizado**: Cada equipa tem o seu próprio espaço de trabalho criado num grupo de recursos que possuem e gerem, e os dados de registo são segregados por recurso. Neste cenário, o espaço de trabalho pode ser mantido seguro e o controlo de acesso é consistente com o acesso de recursos, mas é difícil cruzar registos. Os utilizadores que precisam de uma visão ampla de muitos recursos não podem analisar os dados de forma significativa.
+* **Híbrido**: Os requisitos de conformidade da auditoria de segurança complicam ainda mais este cenário porque muitas organizações implementam ambos os modelos de implementação em paralelo. Isto geralmente resulta numa configuração complexa, cara e difícil de manter com lacunas na cobertura de logs.
 
-Ao usar os agentes de Log Analytics para coletar dados, você precisa entender o seguinte para planejar a implantação do agente:
+Ao utilizar os agentes Log Analytics para recolher dados, é necessário compreender o seguinte para planear a implementação do seu agente:
 
-* Para coletar dados de agentes do Windows, você pode [configurar cada agente para reportar para um ou mais espaços de trabalho](../../azure-monitor/platform/agent-windows.md), mesmo enquanto estiver relatando a um grupo de gerenciamento de System Center Operations Manager. O agente do Windows pode relatar até quatro espaços de trabalho.
-* O agente do Linux não dá suporte a hospedagem múltipla e só pode relatar para um único espaço de trabalho.
+* Para recolher dados de agentes do Windows, pode [configurar cada agente para reportar a um ou mais espaços](../../azure-monitor/platform/agent-windows.md)de trabalho , mesmo quando está a reportar a um grupo de gestão de Gestão de Operações do System Center. O agente do Windows pode reportar até quatro espaços de trabalho.
+* O agente Linux não suporta multi-homing e só pode reportar a um único espaço de trabalho.
 
-Se você estiver usando o System Center Operations Manager 2012 R2 ou posterior:
+Se estiver a utilizar o System Center Operations Manager 2012 R2 ou mais tarde:
 
-* Cada grupo de gerenciamento de Operations Manager pode ser [conectado a apenas um espaço de trabalho](../platform/om-agents.md). 
-* Os computadores Linux que relatam para um grupo de gerenciamento devem ser configurados para relatar diretamente a um espaço de trabalho Log Analytics. Se os computadores Linux já estiverem se reportando diretamente a um espaço de trabalho e você quiser monitorá-los com Operations Manager, siga estas etapas para [relatar a um grupo de gerenciamento de Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
-* Você pode instalar o Log Analytics agente do Windows no computador Windows e fazer com que ele se reporte a ambos Operations Manager integrados a um espaço de trabalho e a um espaço de trabalho diferente.
+* Cada grupo de gestão do Gestor de Operações pode ser [ligado a penas apenas um espaço de trabalho.](../platform/om-agents.md) 
+* Os computadores Linux que reportem a um grupo de gestão devem ser configurados para reportar diretamente a um espaço de trabalho de Log Analytics. Se os seus computadores Linux já estão a reportar diretamente a um espaço de trabalho e pretende monitorizá-los com o Gestor de Operações, siga estes passos para reportar a um grupo de gestão do Gestor de [Operações](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
+* Pode instalar o agente Windows de Log Analytics no computador Windows e fazê-lo reportar tanto ao Gestor de Operações integrado com um espaço de trabalho e a um espaço de trabalho diferente.
 
 ## <a name="access-control-overview"></a>Descrição geral do controlo de acesso
 
-Com o RBAC (controle de acesso baseado em função), você pode conceder aos usuários e grupos apenas a quantidade de acesso de que eles precisam para trabalhar com dados de monitoramento em um espaço de trabalho. Isso permite que você se alinhe com o modelo operacional da organização de ti usando um único espaço de trabalho para armazenar os dados coletados habilitados em todos os seus recursos. Por exemplo, você concede acesso à sua equipe responsável pelos serviços de infraestrutura hospedados em VMs (máquinas virtuais) do Azure e, como resultado, eles terão acesso apenas aos logs gerados pelas VMs. Isso está seguindo nosso novo modelo de log de contexto de recurso. A base desse modelo é para cada registro de log emitido por um recurso do Azure, ele é automaticamente associado a esse recurso. Os logs são encaminhados para um espaço de trabalho central que respeita o escopo e o RBAC com base nos recursos.
+Com o controlo de acesso baseado em papéis (RBAC), pode conceder aos utilizadores e grupos apenas a quantidade de acesso de que necessitam para trabalhar em monitorização de dados num espaço de trabalho. Isto permite-lhe alinhar-se com o seu modelo operativo da organização de TI utilizando um único espaço de trabalho para armazenar dados recolhidos ativados em todos os seus recursos. Por exemplo, você concede acesso à sua equipa responsável pelos serviços de infraestrutura hospedados em máquinas virtuais Azure (VMs), e como resultado eles terão acesso apenas aos registos gerados pelos VMs. Isto está a seguir o nosso novo modelo de registo de contexto de recursos. A base para este modelo é para cada registo de registo emitido por um recurso Azure, este é automaticamente associado a este recurso. Os registos são encaminhados para um espaço de trabalho central que respeita a deteção e o RBAC com base nos recursos.
 
-Os dados aos quais um usuário tem acesso são determinados por uma combinação de fatores listados na tabela a seguir. Cada um é descrito nas seções a seguir.
+Os dados a que um utilizador tem acesso são determinados por uma combinação de fatores que estão listados na tabela seguinte. Cada um é descrito nas secções abaixo.
 
 | Fator | Descrição |
 |:---|:---|
-| [Modo de acesso](#access-mode) | Método usado pelo usuário para acessar o espaço de trabalho.  Define o escopo dos dados disponíveis e o modo de controle de acesso que é aplicado. |
-| [Modo de controle de acesso](#access-control-mode) | Configuração no espaço de trabalho que define se as permissões são aplicadas no nível de espaço de trabalho ou de recurso. |
-| [Permissões](manage-access.md) | Permissões aplicadas a indivíduo ou grupos de usuários para o espaço de trabalho ou recurso. Define a quais dados o usuário terá acesso. |
-| [RBAC de nível de tabela](manage-access.md#table-level-rbac) | Permissões granulares opcionais que se aplicam a todos os usuários, independentemente do modo de acesso ou do modo de controle de acesso. Define quais tipos de dados um usuário pode acessar. |
+| [Modo de acesso](#access-mode) | Método que o utilizador utiliza para aceder ao espaço de trabalho.  Define o âmbito dos dados disponíveis e o modo de controlo de acesso que é aplicado. |
+| [Modo de controlo de acesso](#access-control-mode) | Definição no espaço de trabalho que define se as permissões são aplicadas ao nível do espaço de trabalho ou do recurso. |
+| [Permissões](manage-access.md) | Permissões aplicadas a indivíduos ou grupos de utilizadores para o espaço de trabalho ou recurso. Define a que dados o utilizador terá acesso. |
+| [RBAC nível de mesa](manage-access.md#table-level-rbac) | Permissões granulares opcionais que se aplicam a todos os utilizadores, independentemente do seu modo de acesso ou do modo de controlo de acesso. Define quais os tipos de dados a que um utilizador pode aceder. |
 
 ## <a name="access-mode"></a>Modo de acesso
 
-O *modo de acesso* refere-se a como um usuário acessa um espaço de trabalho log Analytics e define o escopo dos dados que eles podem acessar. 
+O modo de *acesso* refere-se à forma como um utilizador acede a um espaço de trabalho do Log Analytics e define o âmbito dos dados a que pode aceder. 
 
-Os usuários têm duas opções para acessar os dados:
+Os utilizadores têm duas opções para aceder aos dados:
 
-* **Espaço de trabalho-contexto**: você pode exibir todos os logs no espaço de trabalho para o qual você tem permissão. As consultas nesse modo têm o escopo definido para todos os dados em todas as tabelas no espaço de trabalho. Esse é o modo de acesso usado quando os logs são acessados com o espaço de trabalho como o escopo, como quando você seleciona **logs** no menu **Azure monitor** na portal do Azure.
+* **Contexto espaço de trabalho:** Pode ver todos os registos no espaço de trabalho a que tem permissão. As consultas neste modo são consultadas a todos os dados em todas as tabelas do espaço de trabalho. Este é o modo de acesso utilizado quando os registos são acedidos com o espaço de trabalho como âmbito, como quando seleciona **Registos** do menu **Do Monitor Azure** no portal Azure.
 
     ![Log Analytics contexto do espaço de trabalho](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Recurso-contexto**: quando você acessa o espaço de trabalho para um recurso específico, grupo de recursos ou assinatura, como quando você seleciona **logs** de um menu de recursos no portal do Azure, você pode exibir logs somente para recursos em todas as tabelas às quais você tem acesso. As consultas neste modo têm o escopo para apenas os dados associados a esse recurso. Esse modo também permite o RBAC granular.
+* **Contexto de recursos**: Quando acede ao espaço de trabalho para um determinado recurso, grupo de recursos ou subscrição, como quando seleciona **Registos** de um menu de recursos no portal Azure, pode ver registos apenas para recursos em todas as tabelas a que tem acesso. As consultas neste modo são reparadas apenas com dados associados a esse recurso. Este modo também permite rBAC granular.
 
-    ![Log Analytics contexto do recurso](./media/design-logs-deployment/query-from-resource.png)
+    ![Log Analytics contexto a partir de recurso](./media/design-logs-deployment/query-from-resource.png)
 
     > [!NOTE]
-    > Os logs estarão disponíveis para consultas de contexto de recurso somente se estiverem corretamente associados ao recurso relevante. Atualmente, os seguintes recursos têm limitações:
-    > - Computadores fora do Azure
+    > Os registos só estão disponíveis para consultas de contexto de recursos se estiverem devidamente associados ao recurso relevante. Atualmente, os seguintes recursos têm limitações:
+    > - Computadores fora de Azure
     > - Service Fabric
-    > - Estatísticas das Aplicações
+    > - Application Insights
     >
-    > Você pode testar se os logs estão corretamente associados ao recurso executando uma consulta e inspecionando os registros nos quais você está interessado. Se a ID de recurso correta estiver na propriedade [_ResourceId](log-standard-properties.md#_resourceid) , os dados estarão disponíveis para consultas centradas em recursos.
+    > Pode testar se os registos estão devidamente associados ao seu recurso, executando uma consulta e inspecionando os registos em que está interessado. Se o ID de recurso correto estiver na [propriedade _ResourceId,](log-standard-properties.md#_resourceid) então os dados estão disponíveis para consultas centradas em recursos.
 
-Azure Monitor determina automaticamente o modo correto dependendo do contexto do qual você executa a pesquisa de log. O escopo é sempre apresentado na seção superior esquerda de Log Analytics.
+O Monitor Azure determina automaticamente o modo certo dependendo do contexto de que realiza a pesquisa de registo. O âmbito é sempre apresentado na secção superior-esquerda do Log Analytics.
 
-### <a name="comparing-access-modes"></a>Comparando modos de acesso
+### <a name="comparing-access-modes"></a>Comparar modos de acesso
 
-A tabela a seguir resume os modos de acesso:
+A tabela que se segue resume os modos de acesso:
 
-| | Espaço de trabalho-contexto | Recurso-contexto |
+| | Contexto espaço de trabalho | Contexto de recursos |
 |:---|:---|:---|
-| A quem cada modelo se destina? | Administração Central. Os administradores que precisam configurar a coleta de dados e os usuários que precisam de acesso a uma ampla variedade de recursos. Também exigido no momento para os usuários que precisam acessar os logs para recursos fora do Azure. | Equipes de aplicativos. Administradores de recursos do Azure sendo monitorados. |
-| O que um usuário precisa para exibir os logs? | Permissões para o espaço de trabalho. Consulte **permissões de espaço de trabalho** em [gerenciar acesso usando permissões de espaço de trabalho](manage-access.md#manage-access-using-workspace-permissions). | Acesso de leitura ao recurso. Consulte **permissões de recurso** em [gerenciar o acesso usando as permissões do Azure](manage-access.md#manage-access-using-azure-permissions). As permissões podem ser herdadas (por exemplo, do grupo de recursos que a contém) ou diretamente atribuídas ao recurso. A permissão para os logs do recurso será atribuída automaticamente. |
-| Qual é o escopo das permissões? | Espaço. Os usuários com acesso ao espaço de trabalho podem consultar todos os logs no espaço de trabalho de tabelas às quais eles têm permissões. Consulte [controle de acesso à tabela](manage-access.md#table-level-rbac) | Recurso do Azure. O usuário pode consultar logs de recursos específicos, grupos de recursos ou assinaturas aos quais eles têm acesso de qualquer espaço de trabalho, mas não podem consultar logs para outros recursos. |
-| Como o usuário pode acessar os logs? | <ul><li>Inicie **os logs** no menu **Azure monitor** .</li></ul> <ul><li>Iniciar **logs** de **log Analytics espaços de trabalho**.</li></ul> <ul><li>De [pastas de trabalho](../visualizations.md#workbooks)do Azure monitor.</li></ul> | <ul><li>Iniciar **logs** no menu do recurso do Azure</li></ul> <ul><li>Inicie **os logs** no menu **Azure monitor** .</li></ul> <ul><li>Iniciar **logs** de **log Analytics espaços de trabalho**.</li></ul> <ul><li>De [pastas de trabalho](../visualizations.md#workbooks)do Azure monitor.</li></ul> |
+| Para quem é cada modelo destinado? | Administração central. Administradores que precisam de configurar a recolha de dados e utilizadores que precisam de acesso a uma grande variedade de recursos. Atualmente também é necessário para utilizadores que necessitem de aceder a registos de recursos fora do Azure. | Equipas de candidatura. Administradores de recursos Azure estão a ser monitorizados. |
+| O que é que um utilizador precisa para ver os registos? | Permissões para o espaço de trabalho. Consulte **permissões do Espaço de Trabalho** no Acesso gerir utilizando [permissões no espaço de trabalho](manage-access.md#manage-access-using-workspace-permissions). | Leia o acesso ao recurso. Consulte **permissões de recursos** no acesso gerir utilizando [permissões Azure](manage-access.md#manage-access-using-azure-permissions). As permissões podem ser herdadas (como por exemplo, do grupo de recursos que contêm) ou diretamente atribuídas ao recurso. A permissão para os registos do recurso será automaticamente atribuída. |
+| Qual é o âmbito das permissões? | Espaço de trabalho. Os utilizadores com acesso ao espaço de trabalho podem consultar todos os registos no espaço de trabalho a partir das tabelas a que têm permissões. Ver controlo de acesso à [mesa](manage-access.md#table-level-rbac) | Recurso azure. O utilizador pode consultar registos de recursos específicos, grupos de recursos ou subscrição a que têm acesso a partir de qualquer espaço de trabalho, mas não podem consultar registos de outros recursos. |
+| Como pode o utilizador aceder aos registos? | <ul><li>Inicie **registos** do menu **Do Monitor Azure.**</li></ul> <ul><li>Inicie **registos** a partir de espaços de **trabalho log Analytics**.</li></ul> <ul><li>Dos livros de [trabalho](../visualizations.md#workbooks)do Monitor Azure.</li></ul> | <ul><li>Iniciar **Registos** a partir do menu para o recurso Azure</li></ul> <ul><li>Inicie **registos** do menu **Do Monitor Azure.**</li></ul> <ul><li>Inicie **registos** a partir de espaços de **trabalho log Analytics**.</li></ul> <ul><li>Dos livros de [trabalho](../visualizations.md#workbooks)do Monitor Azure.</li></ul> |
 
-## <a name="access-control-mode"></a>Modo de controle de acesso
+## <a name="access-control-mode"></a>Modo de controlo de acesso
 
-O *modo de controle de acesso* é uma configuração em cada espaço de trabalho que define como as permissões são determinadas para o espaço de trabalho.
+O *modo de controlo de acesso* é uma definição em cada espaço de trabalho que define como as permissões são determinadas para o espaço de trabalho.
 
-* **Exigir permissões de espaço de trabalho**: este modo de controle não permite RBAC granular. Para que um usuário acesse o espaço de trabalho, ele deve receber permissões para o espaço de trabalho ou para tabelas específicas.
+* **Requerer permissões no espaço**de trabalho : Este modo de controlo não permite rBAC granular. Para que um utilizador aceda ao espaço de trabalho, deve ser-lhes concedida permissão para o espaço de trabalho ou para tabelas específicas.
 
-    Se um usuário acessar o espaço de trabalho após o modo de contexto de espaço de trabalho, ele terá acesso a todos os dados em qualquer tabela à qual tenha sido concedido acesso. Se um usuário acessar o espaço de trabalho após o modo de contexto de recurso, ele terá acesso a apenas dados para esse recurso em qualquer tabela à qual tenha sido concedido acesso.
+    Se um utilizador aceder ao espaço de trabalho seguindo o modo de contexto espaço de trabalho, tem acesso a todos os dados em qualquer tabela a que tenha tido acesso. Se um utilizador aceder ao espaço de trabalho seguindo o modo de contexto de recursos, tem acesso apenas a dados para esse recurso em qualquer tabela a que tenha tido acesso.
 
-    Essa é a configuração padrão para todos os espaços de trabalho criados antes de março de 2019.
+    Esta é a definição padrão para todos os espaços de trabalho criados antes de março de 2019.
 
-* **Usar permissões de recurso ou espaço de trabalho**: esse modo de controle permite RBAC granular. Os usuários podem receber acesso a apenas dados associados aos recursos que podem exibir atribuindo a permissão de `read` do Azure. 
+* **Utilize permissões**de recursos ou espaço de trabalho : Este modo de controlo permite rBAC granular. Os utilizadores podem ter acesso apenas a dados associados aos recursos que possam visualizar atribuindo a permissão `read` Azure. 
 
-    Quando um usuário acessa o espaço de trabalho no modo de contexto de espaço de trabalho, as permissões de espaço de trabalho se aplicam. Quando um usuário acessa o espaço de trabalho no modo de contexto de recurso, somente as permissões de recurso são verificadas e as permissões de espaço de trabalho são ignoradas. Habilite o RBAC para um usuário removendo-os das permissões do espaço de trabalho e permitindo que suas permissões de recurso sejam reconhecidas.
+    Quando um utilizador acede ao espaço de trabalho no modo de contexto espaço de trabalho, aplicam-se permissões no espaço de trabalho. Quando um utilizador acede ao espaço de trabalho no modo de contexto de recursos, apenas são verificadas permissões de recursos e as permissões do espaço de trabalho são ignoradas. Ative o RBAC para um utilizador, removendo-os das permissões do espaço de trabalho e permitindo que as suas permissões de recursos sejam reconhecidas.
 
-    Essa é a configuração padrão para todos os espaços de trabalho criados depois de março de 2019.
+    Esta é a definição padrão para todos os espaços de trabalho criados após março de 2019.
 
     > [!NOTE]
-    > Se um usuário tiver apenas permissões de recurso para o espaço de trabalho, ele só poderá acessar o espaço de trabalho usando o modo de contexto de recurso, supondo que o modo de acesso do espaço de trabalho esteja definido para **usar permissões de recurso ou espaço de trabalho**.
+    > Se um utilizador tiver apenas permissões de recursos para o espaço de trabalho, só é possível aceder ao espaço de trabalho utilizando o modo de contexto de recursos, assumindo que o modo de acesso ao espaço de trabalho está definido para **utilizar permissões**de recursos ou espaço de trabalho.
 
-Para saber como alterar o modo de controle de acesso no portal, com o PowerShell ou usando um modelo do Resource Manager, consulte [Configurar o modo de controle de acesso](manage-access.md#configure-access-control-mode).
+Para aprender a alterar o modo de controlo de acesso no portal, com o PowerShell, ou utilizando um modelo de Gestor de Recursos, consulte o modo de controlo de [acesso Configure](manage-access.md#configure-access-control-mode).
 
 ## <a name="ingestion-volume-rate-limit"></a>Limite da taxa de volume de ingestão
 
-Azure Monitor é um serviço de dados de alta escala que atende a milhares de clientes enviando terabytes de dados por mês em um ritmo crescente. O limite de taxa de ingestão padrão é definido como **6 GB/min** por espaço de trabalho. Esse é um valor aproximado, pois o tamanho real pode variar entre os tipos de dados, dependendo do tamanho do log e de sua taxa de compactação. Esse limite não se aplica aos dados enviados de agentes ou da [API do coletor de dados](data-collector-api.md).
+O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. O limiar da taxa de ingestão padrão é fixado em **6 GB/min** por espaço de trabalho. Este é um valor aproximado, uma vez que o tamanho real pode variar entre os tipos de dados dependendo do comprimento do registo e da sua relação de compressão. Este limite não se aplica aos dados enviados por agentes ou pela API do [Coletor](data-collector-api.md)de Dados .
 
-Se você enviar dados a uma taxa mais alta para um único espaço de trabalho, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continuará sendo excedido. Se o volume de ingestão continuar exceder o limite de taxa ou você estiver esperando contatá-lo em breve, poderá solicitar um aumento no espaço de trabalho abrindo uma solicitação de suporte.
+Se enviar dados a uma taxa mais elevada para um único espaço de trabalho, alguns dados são retirados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se o seu volume de ingestão continuar a exceder o limite de taxa ou se estiver à espera de o atingir em breve, poderá solicitar um aumento para o seu espaço de trabalho abrindo um pedido de apoio.
  
-Para ser notificado sobre esse evento em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com a base de lógica de alerta no número de resultados mais rígidos que zero.
+Para ser notificado sobre tal evento no seu espaço de trabalho, crie uma regra de alerta de [registo](alerts-log.md) utilizando a seguinte consulta com base lógica de alerta no número de resultados do que zero.
 
 ``` Kusto
 Operation
@@ -143,27 +143,27 @@ Operation
 
 ## <a name="recommendations"></a>Recomendações
 
-![Exemplo de design de contexto de recurso](./media/design-logs-deployment/workspace-design-resource-context-01.png)
+![Exemplo de design de contexto de recursos](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 
-Este cenário aborda um design de espaço de trabalho único em sua assinatura de organizações de ti que não é restrita pela soberania de dados ou conformidade regulatória, ou que precisa mapear para as regiões em que os recursos são implantados. Ele permite que as equipes de segurança e administrador de ti da sua organização possam aproveitar a integração aprimorada com o gerenciamento de acesso do Azure e um controle de acesso mais seguro.
+Este cenário abrange um único design de espaço de trabalho na subscrição das suas organizações de TI que não é limitado pela soberania de dados ou conformidade regulamentar, ou precisa de mapear para as regiões que os seus recursos estão implantados dentro. Permite às suas organizações segurança e administração de TI a capacidade de alavancar a melhor integração com a gestão de acesso seleções azure e um controlo de acesso mais seguro.
 
-Todos os recursos, soluções de monitoramento e informações como Application Insights e Azure Monitor para VMs, a infraestrutura de suporte e os aplicativos mantidos pelas diferentes equipes são configurados para encaminhar seus dados de log coletados para as organizações de ti espaço de trabalho compartilhado centralizado. Os usuários em cada equipe recebem acesso a logs para recursos aos quais eles receberam acesso.
+Todos os recursos, soluções de monitorização e Insights como Application Insights e Azure Monitor para VMs, infraestruturas de apoio e aplicações mantidas pelas diferentes equipas estão configuradas para encaminhar os seus dados de registo recolhidos para as organizações de TI espaço de trabalho partilhado centralizado. Os utilizadores de cada equipa têm acesso a registos de recursos a que lhes foi dado acesso.
 
-Depois de implantar a arquitetura do espaço de trabalho, você pode impor isso nos recursos do Azure com [Azure Policy](../../governance/policy/overview.md). Ele fornece uma maneira de definir políticas e garantir a conformidade com os recursos do Azure para que eles enviem todos os seus logs de recursos para um espaço de trabalho específico. Por exemplo, com máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais, você pode usar políticas existentes que avaliam a conformidade do espaço de trabalho e os resultados do relatório, ou personalizar para corrigir se não estiver em conformidade.  
+Depois de ter implantado a sua arquitetura de espaço de trabalho, pode impor isso aos recursos do Azure com [a Política Azure.](../../governance/policy/overview.md) Fornece uma forma de definir políticas e garantir o cumprimento dos seus recursos Azure para que enviem todos os seus registos de recursos para um determinado espaço de trabalho. Por exemplo, com máquinas virtuais Azure ou conjuntos de escala de máquinas virtuais, pode utilizar as políticas existentes que avaliam a conformidade do espaço de trabalho e os resultados do relatório, ou personalizar para remediar se não for em conformidade.  
 
-## <a name="workspace-consolidation-migration-strategy"></a>Estratégia de migração de consolidação de espaço de trabalho
+## <a name="workspace-consolidation-migration-strategy"></a>Estratégia de migração de consolidação do espaço de trabalho
 
-Para os clientes que já implantaram vários espaços de trabalho e estão interessados em consolidar para o modelo de acesso de contexto de recurso, recomendamos que você use uma abordagem incremental para migrar para o modelo de acesso recomendado e não tente atingir isso de forma rápida ou agressiva. Seguir uma abordagem em fases para planejar, migrar, validar e desativar seguindo uma linha do tempo razoável ajudará a evitar incidentes não planejados ou um impacto inesperado em suas operações de nuvem. Se você não tiver uma política de retenção de dados para fins de conformidade ou de negócios, você precisará avaliar o tempo apropriado para manter os dados no espaço de trabalho que está migrando durante o processo. Enquanto você estiver reconfigurando os recursos para relatar para o espaço de trabalho compartilhado, você ainda poderá analisar os dados no espaço de trabalho original, conforme necessário. Quando a migração for concluída, se você for regido a manter os dados no espaço de trabalho original antes do final do período de retenção, não o exclua.
+Para os clientes que já implantaram vários espaços de trabalho e estão interessados em consolidar-se para o modelo de acesso ao contexto de recursos, recomendamos que tome uma abordagem incremental para migrar para o modelo de acesso recomendado, e não tente alcançar isso rápida ou agressivamente. Seguindo uma abordagem faseada do plano, migrar, validar e reformar-se seguindo uma linha temporal razoável ajudará a evitar quaisquer incidentes não planeados ou impacto inesperado nas suas operações na nuvem. Se não tiver uma política de retenção de dados por razões de conformidade ou negócio, terá de avaliar o tempo adequado para reter dados no espaço de trabalho de onde está a migrar durante o processo. Enquanto está a reconfigurar os recursos para reportar ao espaço de trabalho partilhado, ainda pode analisar os dados no espaço de trabalho original, se necessário. Uma vez concluída a migração, se for governado para reter dados no espaço de trabalho original antes do final do período de retenção, não os elimine.
 
-Ao planejar a migração para esse modelo, considere o seguinte:
+Ao planear a sua migração para este modelo, considere o seguinte:
 
-* Entenda quais são os regulamentos do setor e as políticas internas relacionadas à retenção de dados que você deve obedecer.
-* Verifique se as equipes de aplicativo podem trabalhar na funcionalidade de contexto de recurso existente.
-* Identifique o acesso concedido aos recursos para suas equipes de aplicativo e teste em um ambiente de desenvolvimento antes de implementar em produção.
-* Configure o espaço de trabalho para habilitar **as permissões usar recurso ou espaço de trabalho**.
-* Remova a permissão de equipes de aplicativo para ler e consultar o espaço de trabalho.
-* Habilite e configure qualquer solução de monitoramento, informações como Azure Monitor para contêineres e/ou Azure Monitor para VMs, suas contas de automação e soluções de gerenciamento, como Gerenciamento de Atualizações, iniciar/parar VMs, etc., que foram implantadas no espaço de trabalho original.
+* Compreenda quais os regulamentos do setor e políticas internas relativas à retenção de dados que deve cumprir.
+* Certifique-se de que as suas equipas de aplicação podem trabalhar dentro da funcionalidade de contexto de recursos existente.
+* Identifique o acesso concedido aos recursos para as suas equipas de aplicação e teste num ambiente de desenvolvimento antes de implementar em produção.
+* Configure o espaço de trabalho para ativar **o recurso de utilização ou as permissões do espaço**de trabalho.
+* Remova a permissão das equipas de aplicação para ler e consultar o espaço de trabalho.
+* Ative e configure quaisquer soluções de monitorização, insights como o Monitor Azure para contentores e/ou Monitor Azure para VMs, a sua conta de Automação ou soluções de gestão como A Gestão de Atualizações, Start/Stop VMs, etc., que foram implantados no espaço de trabalho original.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para implementar as permissões de segurança e os controles recomendados neste guia, examine [gerenciar o acesso aos logs](manage-access.md).
+Para implementar as permissões e controlos de segurança recomendados neste guia, [reveja a gestão do acesso aos registos](manage-access.md).

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dc705fbd17a12ee001e1e8de15b49e841f08b81
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 43c49cce1dd53edd5c2b13b01a31f94752579dff
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049265"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169324"
 ---
 # <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorização unificada da conectividade com o Monitor de Ligação (Pré-visualização)
 
@@ -403,7 +403,7 @@ Para criar um Grupo de Teste num Monitor de Ligação, especifice o valor para o
 
       ![Adicionar Destinos 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
-   2. Clique no separador "Endpoints" para selecionar VMs Azure como destinos. A lista de pontos finais será povoada com URLs de teste O365 e D365, agrupados pelo nome.  Também pode escolher um ponto final criado noutros grupos de teste no mesmo Monitor de Ligação. Para adicionar um novo ponto final, clique em "+ Endpoint" a partir do canto superior direito do ecrã e forneça URL/IP/FQDN de ponto final
+   2. Clique no separador "Pontos Finais" para selecionar Pontos Finais como destinos. A lista de pontos finais será povoada com URLs de teste O365 e D365, agrupados pelo nome.  Também pode escolher um ponto final criado noutros grupos de teste no mesmo Monitor de Ligação. Para adicionar um novo ponto final, clique em "+ Endpoint" a partir do canto superior direito do ecrã e forneça URL/IP/FQDN de ponto final
 
       ![Adicionar pontos finais](./media/connection-monitor-2-preview/add-endpoints.png)
 
@@ -577,7 +577,7 @@ Tipo de Recursos - Microsoft.Network/NetworkWatchers/connectionMonitors
 | Métrica | Nome a apresentar de métrica | Unidade | Tipo de Agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % sondas falhadas | Percentagem | Média | % das sondas de monitorização da conectividade falharam | Nenhuma dimensão |
-| AverageRoundtripMs | Média de tempo de ida e volta (MS) | Milissegundos | Média | Tempo de ida e volta médio da rede (MS) para investigações de monitoramento de conectividade enviadas entre a origem e o destino |             Nenhuma dimensão |
+| AverageRoundtripMs | Avg. Tempo de ida e volta (ms) | MilliSeconds | Média | Tempo médio de ida e volta da rede (MS) para sondas de monitorização de conectividade enviadas entre fonte e destino |             Nenhuma dimensão |
 | ChecksFailedPercent (Pré-visualização) | % de verificações falhadas (pré-visualização) | Percentagem | Média | % dos controlos falharam para um teste | * ConnectionMonitorResourceId <br> * Endereço de origem <br> * Nome de origem <br> * SourceResourceId <br> * Tipo de fonte <br> * Protocolo <br> * Endereço de destino <br> * Nome de destino <br> * DestinationResourceid <br> * DestinoTipo <br> * DestinationPort <br> * TestGroupName <br> * Nome de Configuração de Teste <br> * Região |
 | RoundTripTimeMs (Pré-visualização) | Tempo de ida e volta (ms) (Pré-visualização) | Milissegundos | Média | Tempo de ida e volta (MS) para verificações enviadas entre fonte e destino. Este valor não é mediado | * ConnectionMonitorResourceId <br> * Endereço de origem <br> * Nome de origem <br> * SourceResourceId <br> * Tipo de fonte <br> * Protocolo <br> * Endereço de destino <br> * Nome de destino <br> * DestinationResourceid <br> * DestinoTipo <br> * DestinationPort <br> * TestGroupName <br> * Nome de Configuração de Teste <br> * Região |
 

@@ -7,25 +7,25 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
-ms.openlocfilehash: a0bb2567a28912f3cdfed27138effe3868eb0e6e
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 99c8b77328d9e42dd66428b202cbeb0644972ced
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264530"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156467"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Criar um recurso azure speech](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Abra **Program.cs**e substitua todo o código nele pelo seguinte código:
+1. Abra **Program.cs**e substitua todo o código com o seguinte código:
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -47,6 +47,9 @@ Antes de começar, certifique-se de:
             {
                 // Replace these values with the details of your Cognitive Speech subscription
                 string subscriptionKey = "YourSubscriptionKey";
+
+                // Replace below with your own service region (e.g., "westus", use the one of SpeechSDKParameters
+                // from here: https://aka.ms/speech/sdkregion).                   
                 string region = "YourServiceRegion";
     
                 // Sets source and target languages.
@@ -198,26 +201,26 @@ Antes de começar, certifique-se de:
     }
     ```
 
-1. No mesmo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura de fala cognitiva.
+1. No mesmo ficheiro, substitua a cadeia `YourSubscriptionKey` com a chave de subscrição da Fala Cognitiva.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Na barra de menus, escolha **arquivo** > **salvar tudo**.
+1. Na barra de menus, escolha **File** > **Save All**.
 
 ## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Compilar e executar o aplicativo para criar uma nova conversa
 
-1. Na barra de menus, selecione **compilar** > **Compilar solução** para compilar o aplicativo. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menus, selecione **Build** > **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
+1. Escolha **debug** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação **helloworld.**
 
-1. Depois de ver a mensagem `Started transcribing` exibida, você pode começar a falar. Você verá que as transcrições aparecem à medida que você fala.
+1. Assim que vir a mensagem `Started transcribing` aparecer, pode começar a falar. Você verá que as transcrições aparecem à medida que você fala.
     - Se você compartilhar o código de conversa com os outros e eles ingressarem na conversa, você verá suas transcrições também.
 
-1. Quando você terminar de falar, pressione <kbd>Ctrl + C</kbd> para parar a captura de áudio e terminar a conversa.
+1. Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> para parar a captura de áudio e terminar a conversa.
 
 ## <a name="build-and-run-the-application-to-join-an-existing-conversation"></a>Compilar e executar o aplicativo para ingressar em uma conversa existente
 
-1. Copie e cole a seguinte função em seu **Program.cs**:
+1. Copie e cole a seguinte função no seu **Program.cs:**
 
     ```csharp
     static async Task JoinConversationAsync(string conversationId)
@@ -293,7 +296,7 @@ Antes de começar, certifique-se de:
     }
     ```
 
-2. Substitua `CreateConversationAsync();` em sua função `public static async Task Main(string[] args)` com:
+2. Substitua `CreateConversationAsync();` na sua função `public static async Task Main(string[] args)` com:
 
     ```csharp
     // Set this to the conversation you want to join
@@ -302,19 +305,19 @@ Antes de começar, certifique-se de:
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
 
-4. Volte para o Visual Studio e substitua a cadeia de caracteres `YourConversationId` pela ID de conversa criada na etapa anterior.
+4. Volte para o Visual Studio e substitua a `YourConversationId` de cordas com o ID de conversação que criou no passo anterior.
 
-5. Na barra de menus, selecione **compilar** > **Compilar solução** para compilar o aplicativo. Agora o código deverá ser compilado sem erros.
+5. A partir da barra de menus, selecione **Build** > **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-6. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
+6. Escolha **debug** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação **helloworld.**
 
-7. Depois de ver a mensagem `Started transcribing` exibida, você pode começar a falar. Você verá que as transcrições aparecem à medida que você fala.
+7. Assim que vir a mensagem `Started transcribing` aparecer, pode começar a falar. Você verá que as transcrições aparecem à medida que você fala.
     - Se você voltar para o navegador, verá que suas transcrições aparecem aqui como você também fala.
 
-8. Quando você terminar de falar, pressione <kbd>Ctrl + C</kbd> para parar a captura de áudio e terminar a conversa.
+8. Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> para parar a captura de áudio e terminar a conversa.
 
 9. Volte para o navegador e saia da conversa usando o botão sair no canto superior direito.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [footer](./footer.md)]

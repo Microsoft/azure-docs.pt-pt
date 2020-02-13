@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3c77b74eb97f03b1234cb2735b4a680b030d2073
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 0282336cb5df7d010571a15e9d1f9d93b82d461e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108192"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160327"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemplos de código da plataforma Microsoft Identity (ponto de extremidade v 2.0)
 
@@ -34,7 +34,7 @@ Você pode usar a plataforma de identidade da Microsoft para:
 Este artigo descreve brevemente e fornece links para exemplos do ponto de extremidade da plataforma Microsoft Identity. Esses exemplos mostram como isso é feito e também fornecem trechos de código que você pode usar em seus aplicativos. Na página de exemplo de código, você encontrará tópicos detalhados do Leiame que ajudam com requisitos, instalação e configuração. Os comentários dentro do código ajudam você a entender as seções críticas.
 
 > [!NOTE]
-> Se estiver interessado em amostras v1.0, consulte amostras de [código Azure AD (v1.0 endpoint)](sample-v1-code.md).
+> Se estiver interessado em amostras v1.0, consulte amostras de [código Azure AD (v1.0 endpoint)](../azuread-dev/sample-v1-code.md).
 
 Para compreender o cenário básico de cada tipo de amostra, consulte os tipos de [aplicativos para o ponto final da plataforma de identidade da Microsoft](v2-app-types.md).
 
@@ -132,6 +132,6 @@ Para conhecer [amostras](https://github.com/microsoftgraph/msgraph-community-sam
 
 ## <a name="see-also"></a>Veja também
 
-- [Guia de desenvolvedor estoque ativo azure (v1.0)](v1-overview.md)
+- [Guia de desenvolvedor estoque ativo azure (v1.0)](../azuread-dev/v1-overview.md)
 - [Conceito e referência do gráfico azure AD API](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 - [Biblioteca de Ajudante api gráfico azure API](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
