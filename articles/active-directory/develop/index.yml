@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 11554fe04f452b412d626123a36d84735114ffbd
-  ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+  ms.openlocfilehash: ea67860d851e9228ca14c6e53c4831f8d6f34f17
+  ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/12/2020
-  ms.locfileid: "77160870"
+  ms.lasthandoff: 02/13/2020
+  ms.locfileid: "77194543"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:
@@ -30,6 +30,8 @@ landingContent:
     links:
     - text: Noções básicas sobre autenticação
       url: authentication-scenarios.md
+    - text: Vídeos que abordam conceitos básicos
+      url: identity-videos.md
     - text: Fluxos de autenticação e cenários de aplicações
       url: authentication-flows-app-scenarios.md
     - text: Melhores práticas e recomendações

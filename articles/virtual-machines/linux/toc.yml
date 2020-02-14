@@ -160,6 +160,8 @@
           href: disk-scalability-targets.md
         - name: Cópia de Segurança e recuperação após desastre para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Discos partilhados
+          href: disks-shared.md
         - name: Discos de SO Efémeros
           href: ephemeral-os-disks.md
     - name: Redes
@@ -553,6 +555,8 @@
         - name: Implementar discos com modelo
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
+        - name: Ativar discos partilhados
+          href: disks-shared-enable.md
         - name: Carregar um VHD para um disco - CLI
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Redimensionar um disco

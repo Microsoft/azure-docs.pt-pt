@@ -23,14 +23,18 @@
           href: connect-truffle.md
 - name: Tutoriais
   items:
-    - name: Utilizar contratos inteligentes
+    - name: Criar contratos inteligentes
       href: send-transaction.md
+    - name: Publicar dados através do Data Manager
+      href: data-manager-cosmosdb.md
 - name: Conceitos
   items:
     - name: Consórcio
       href: consortium.md
     - name: Acesso e segurança dos dados
       href: data-security.md
+    - name: Descrição geral do Data Manager
+      href: data-manager.md
     - name: Programar
       href: develop.md
     - name: Limites
@@ -41,6 +45,10 @@
   items:
     - name: Configurar o acesso ao Azure AD
       href: configure-aad.md
+    - name: Configurar Data Manager - Portal
+      href: data-manager-portal.md
+    - name: Configurar Data Manager - CLI
+      href: data-manager-cli.md
     - name: Configurar os nós de transação
       href: configure-transaction-nodes.md
     - name: Gerir com a CLI do Azure
@@ -51,16 +59,6 @@
       href: ethereum-logic-app.md
     - name: Monitorizar o Azure Blockchain Service
       href: monitor-azure-blockchain-service.md
-- name: Blockchain Data Manager
-  items:
-    - name: Descrição geral do Data Manager
-      href: data-manager.md
-    - name: Configurar Data Manager - Portal
-      href: data-manager-portal.md
-    - name: Configurar Data Manager - CLI
-      href: data-manager-cli.md
-    - name: Publicar dados no Cosmos DB
-      href: data-manager-cosmosdb.md
 - name: Recursos
   items:
     - name: Development Kit do Azure Blockchain

@@ -23,8 +23,6 @@
           href: b2b-tutorial-require-mfa.md
     - name: Amostras
       items:
-        - name: Exemplo de portal de inscrição personalizado
-          href: self-service-portal.md
         - name: Exemplos de códigos e do Azure PowerShell
           href: code-samples.md
     - name: Conceitos
@@ -50,6 +48,8 @@
           href: conditional-access.md
         - name: B2B para organizações híbridas
           href: hybrid-organizations.md
+        - name: Inscrição self-service
+          href: self-service-portal.md
         - name: Limitações atuais
           href: current-limitations.md
     - name: Guias de procedimentos
