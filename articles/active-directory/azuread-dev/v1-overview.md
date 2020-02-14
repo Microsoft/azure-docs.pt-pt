@@ -16,12 +16,12 @@ ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ed74e779ea87c4d6ddf58c7607c9a1e900021b48
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 638c265fda3c8b331415d54047180b3c0ee2174a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164022"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77197549"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Diretório Ativo Azure para programadores (v1.0) visão geral
 
@@ -57,5 +57,8 @@ Os seguintes artigos fornecem informações detalhadas sobre APIs, mensagens de 
 | [Glossário](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | Terminologia e definições de palavras que são utilizadas nesta documentação. |
 |  |  |
 
+## <a name="videos"></a>Vídeos
+
+Consulte vídeos da plataforma de [desenvolvimento do Azure Ative Directory](videos.md) para ajudar a migrar para a nova plataforma de identidade da Microsoft.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

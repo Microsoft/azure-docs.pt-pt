@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 01/23/2020
+ms.date: 02/12/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fc1129b4ca6d0618e6b818a103e2a5513f69f3d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c5ccfb4719d14d0ce73caf093c5fe63631eda2a7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758224"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195220"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 
@@ -30,23 +30,29 @@ O seguinte vídeo apresenta uma visão geral útil.
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Colaborar com parceiros com recurso às identidades deles
-Com a colaboração B2B do Azure Active Directory, o parceiro utiliza a sua própria solução de gestão de identidades, pelo que a sua organização não sofre nenhuma sobrecarga administrativa externa. 
-- O parceiro utiliza as suas próprias identidades e credenciais, não sendo necessário o Azure Active Directory. 
-- Não precisa de gerir contas externas nem palavras-passe. 
+
+Com a colaboração B2B do Azure Active Directory, o parceiro utiliza a sua própria solução de gestão de identidades, pelo que a sua organização não sofre nenhuma sobrecarga administrativa externa.
+
+- O parceiro utiliza as suas próprias identidades e credenciais, não sendo necessário o Azure Active Directory.
+- Não precisa de gerir contas externas nem palavras-passe.
 - Não precisa de sincronizar contas nem de gerir os ciclos de vida da conta.  
 
 ![Screenshot mostrando a página adicionar membros](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Convidar utilizadores convidados através de um simples processo de convite e resgate
+
 Os utilizadores convidados iniciam sessão nas suas aplicações e serviços com as respetivas identidades das redes sociais, da escola ou do trabalho. Se o utilizador convidado não tiver uma conta Microsoft ou uma conta do Azure Active Directory, ser-lhe-á criada uma automaticamente quando resgatar o convite. 
+
 - Convide utilizadores convidados através da identidade de e-mail à escolha deles.
-- Envie uma ligação direta para uma aplicação ou envie um convite para o próprio Painel de Acesso do utilizador convidado. 
+- Envie uma ligação direta para uma aplicação ou envie um convite para o próprio Painel de Acesso do utilizador convidado.
 - Os utilizadores convidados seguem alguns passos simples de resgate para iniciar sessão.
 
 ![Screenshot mostrando a página de permissões de Revisão](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Utilizar políticas para partilhar as suas aplicações e serviços de forma segura
+
 Pode utilizar políticas de autorização para proteger o seu conteúdo corporativo. As políticas de Acesso Condicional, como a autenticação de vários fatores, podem ser aplicadas:
+
 - Ao nível do inquilino.
 - Ao nível da aplicação.
 - Para os utilizadores convidados específicos protegerem aplicações e dados empresariais.
@@ -57,6 +63,7 @@ Pode utilizar políticas de autorização para proteger o seu conteúdo corporat
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Adicionar facilmente utilizadores convidados no portal do Azure Active Directory
 
 Como administrador, pode facilmente adicionar utilizadores convidados à sua organização no portal do Azure.
+
 - Crie um novo utilizador convidado no Azure Active Directory da mesma forma que adicionaria um novo utilizador.
 - O utilizador convidado recebe imediatamente um convite personalizável que lhe permite iniciar sessão no respetivo Painel de Acesso.
 - Os utilizadores convidados no diretório podem ser atribuídos a aplicações ou grupos.  
@@ -65,19 +72,19 @@ Como administrador, pode facilmente adicionar utilizadores convidados à sua org
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Permitir que os proprietários de aplicações e de grupos façam a gestão dos seus próprios utilizadores convidados
 
-Pode delegar a gestão de utilizadores convidados aos proprietários da aplicação para que possam adicionar utilizadores convidados diretamente a qualquer aplicação que pretendem partilhar, quer se trate ou não de uma aplicação da Microsoft. 
- - Os administradores configuram a gestão self-service de aplicações e grupos.
- - Os não administradores utilizam o respetivo [Painel de Acesso](https://myapps.microsoft.com) para adicionar utilizadores convidados a aplicações ou grupos.
+Pode delegar a gestão de utilizadores convidados aos proprietários da aplicação para que possam adicionar utilizadores convidados diretamente a qualquer aplicação que pretendem partilhar, quer se trate ou não de uma aplicação da Microsoft.
+
+- Os administradores configuram a gestão self-service de aplicações e grupos.
+- Os não administradores utilizam o respetivo [Painel de Acesso](https://myapps.microsoft.com) para adicionar utilizadores convidados a aplicações ou grupos.
 
 ![Screenshot mostrando o painel de acesso para um utilizador convidado](media/what-is-b2b/access-panel-manage-app.png)
 
-## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Utilizar APIs e código de exemplo para criar facilmente aplicações para integrar
+## <a name="customize-the-onboarding-experience-for-b2b-guest-users"></a>Personalize a experiência de embarque para utilizadores convidados B2B
 
 Integre os seus parceiros externos de forma personalizada de acordo com as necessidades da sua organização.
-- Utilize as [APIs de convite da colaboração B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) para personalizar as suas experiências de integração, incluindo a criação de portais de inscrição self-service. 
-- Utilize o código de amostra que fornecemos para um portal de self-service [no GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-![Screenshot mostrando o portal de inscrição da amostra](media/what-is-b2b/sign-up-portal.png)
+- Utilize a [gestão de direitos da Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) para configurar políticas que [gerem o acesso a utilizadores externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
+- Utilize o convite de [colaboração B2B APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) para personalizar as suas experiências de embarque.
 
 ## <a name="next-steps"></a>Passos seguintes
 

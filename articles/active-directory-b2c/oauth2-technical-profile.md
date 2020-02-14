@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 53190eda66347c23b981c5d6e0631630e9989deb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d0fc5e6b5cafa22da6707a8f34675dcbdf5af8cc
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840371"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198025"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth2 numa política personalizada do Diretório Ativo Azure B2C
 
@@ -35,7 +35,7 @@ O **nome** atributo do elemento **protocolo** tem de ser definido para `OAuth2`.
   ...
 ```
 
-## <a name="input-claims"></a>Declarações de entrada
+## <a name="input-claims"></a>Reclamações de entrada
 
 Os elementos **InputClaims** e **InputClaimsTransformations** não são necessários. Mas pode querer enviar parâmetros adicionais ao seu fornecedor de identidade. O exemplo seguinte adiciona o parâmetro de cadeia de consulta **domain_hint** com o valor de `contoso.com` ao pedido de autorização.
 
@@ -45,11 +45,11 @@ Os elementos **InputClaims** e **InputClaimsTransformations** não são necessá
 </InputClaims>
 ```
 
-## <a name="output-claims"></a>Declarações de saída
+## <a name="output-claims"></a>Reclamações de produção
 
 O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo fornecedor de identidade OAuth2. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no fornecedor de identidade. Também pode incluir reclamações que não sejam devolvidas pelo fornecedor de identidade desde que detetete o `DefaultValue` atributo.
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
 
 O exemplo que se segue mostra as reclamações devolvidas pelo fornecedor de identidade do Facebook:
 
@@ -77,7 +77,7 @@ O perfil técnico também devolve reclamações que não são devolvidas pelo fo
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
 | IdTokenAudience | Não | O público do id_token. Se especificado, o Azure AD B2C verifica se o token está numa reclamação devolvida pelo fornecedor de identidade e é igual à especificada. |
@@ -96,16 +96,17 @@ O perfil técnico também devolve reclamações que não são devolvidas pelo fo
 | ResponseErrorCodeParamName | Não | O nome do parâmetro que contém a mensagem de erro devolvida em HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | Não | Contém os parâmetros extra que podem ser devolvidos na resposta do **AccessTokenEndpoint** por alguns fornecedores de identidade. Por exemplo, a resposta do **AccessTokenEndpoint** contém um parâmetro extra como `openid`, que é um parâmetro obrigatório além do access_token numa cadeia de consulta de pedido **de ReclamaçõesEndpoint.** Vários nomes de parâmetros devem ser escapados e separados pela vírposta '', delimitador. |
 | ExtraParamsInClaimsEndpointRequest | Não | Contém os parâmetros extra que podem ser devolvidos no pedido **de ClaimsEndpoint** por alguns fornecedores de identidade. Vários nomes de parâmetros devem ser escapados e separados pela vírposta '', delimitador. |
+| Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`, ou `false` (predefinido). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
 O elemento **CryptographicKeys** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade. A chave criptográfica só é necessária se os metadados **response_types** estiverem definidos para `code`. Neste caso, o Azure AD B2C faz outra chamada para trocar o código de autorização por um sinal de acesso. Se os metadados estiverem definidos para `id_token`, pode omitir a chave criptográfica. |
 
-## <a name="redirect-uri"></a>Redirecione uri
+## <a name="redirect-uri"></a>URI de Redirecionamento
 
 Quando configurar o URL de redirecionamento do seu fornecedor de identidade, insira `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Certifique-se de substituir o **inquilino** pelo nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com) e **políticaId** pelo identificador da sua política (por exemplo, b2c_1a_policy). O URI redirecionado tem de estar em todas as minúsculas.
 

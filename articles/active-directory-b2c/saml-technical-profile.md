@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a0a6581e0eed74725a7186e528618da5d8a4f890
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3a3df4d3a955926381a664ab872e03ae987f0839
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840252"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77197977"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico SAML numa política personalizada do Diretório Ativo Azure B2C
 
@@ -86,13 +86,13 @@ O exemplo seguinte mostra a secção de encriptação de perfil técnico Azure A
 
 O **nome** atributo do elemento protocolo tem de ser definido para `SAML2`.
 
-## <a name="output-claims"></a>Declarações de saída
+## <a name="output-claims"></a>Reclamações de produção
 
 O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo fornecedor de identidade SAML ao abrigo da secção `AttributeStatement`. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no fornecedor de identidade. Também pode incluir reclamações que não sejam devolvidas pelo fornecedor de identidade desde que detetete o `DefaultValue` atributo.
 
 Para ler a afirmação SAML **NamedId** in **Subject** como uma reclamação normalizada, detete tea reivindicação **O Type** de reclamação para `assertionSubjectName`. Certifique-se de que o **NameId** é o primeiro valor na afirmação XML. Quando define mais do que uma afirmação, O Azure AD B2C escolhe o valor do assunto a partir da última afirmação.
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
 
 O exemplo que se segue mostra as reclamações devolvidas pelo fornecedor de identidade do Facebook:
 
@@ -121,7 +121,7 @@ O perfil técnico também devolve reclamações que não são devolvidas pelo fo
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Entidade Parceira | Sim | URL dos metadados do fornecedor de identidade SAML. Copie os metadados do fornecedor de identidade e adicione-os dentro do elemento CDATA `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | Não | Indica se o perfil técnico requer a assinatura de todos os pedidos de autenticação de saída. Valores possíveis: `true` ou `false`. O valor predefinido é `true`. Quando o valor estiver definido para `true`, a chave criptográfica **SamlMessageSigning** precisa de ser especificada e todos os pedidos de autenticação de saída são assinados. Se o valor for definido para `false`, os parâmetros **SigAlg** e **Signature** (fio de consulta ou parâmetro de post) são omitidos do pedido. Estes metadados também controlam os metadados **AuthnRequestsSigned** atributo, que é a saída nos metadados do perfil técnico Azure AD B2C que é partilhado com o fornecedor de identidade. O Azure AD B2C não assina o pedido se o valor dos **Pedidos de Pedidos de Solicitação** nos metadados de perfil técnico estiver definido para `false` e os metadados do fornecedor de identidade **WantAuthnRequestsSigned** estiverem definidos para `false` ou não especificados. |
@@ -135,12 +135,13 @@ O perfil técnico também devolve reclamações que não são devolvidas pelo fo
 | AuthenticationRequestExtensions | Não | Elementos de extensão de mensagem de protocolo opcionais que são acordados entre o Azure AD BC e o fornecedor de identidade. A extensão é apresentada em formato XML. Adicione os dados XML dentro do elemento CDATA `<![CDATA[Your IDP metadata]]>`. Verifique a documentação do seu fornecedor de identidade para ver se o elemento de extensão é suportado. |
 | IncludeAuthnContextClassReferences | Não | Especifica uma ou mais referências URI identificando aulas de contexto de autenticação. Por exemplo, para permitir que um utilizador assine apenas com o nome de utilizador e a palavra-passe, defino o valor para `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Para permitir o sessão através do nome de utilizador e da palavra-passe durante uma sessão protegida (SSL/TLS), especifique `PasswordProtectedTransport`. Veja a documentação do seu fornecedor de identidade para obter orientações sobre as URIs **AuthnContextClassRef** que são suportadas. Especifique vários URIs como uma lista delimitada de vírina. |
 | Incluir KeyInfo | Não | Indica se o pedido de autenticação SAML contém a chave pública do certificado quando a ligação está definida para `HTTP-POST`. Valores possíveis: `true` ou `false`. |
+| Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`, ou `false` (predefinido). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
 O elemento **CryptographicKeys** contém os seguintes atributos:
 
-| Atributo |Obrigatório | Descrição |
+| Atributo |Necessário | Descrição |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Sim | O certificado X509 (conjunto de teclas RSA) para utilizar para assinar mensagens SAML. O Azure AD B2C utiliza esta chave para assinar os pedidos e enviá-los para o fornecedor de identidade. |
 | SamlAssertionDecryption |Sim | O certificado X509 (conjunto de teclas RSA) para utilizar para desencriptar mensagens SAML. Este certificado deve ser fornecido pelo fornecedor de identidade. O Azure AD B2C utiliza este certificado para desencriptar os dados enviados pelo fornecedor de identidade. |

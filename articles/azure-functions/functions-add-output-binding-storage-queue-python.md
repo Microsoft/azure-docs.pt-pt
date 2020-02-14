@@ -3,12 +3,12 @@ title: Adicione uma ligação de fila de armazenamento Azure à sua função Pyt
 description: Integre uma fila de armazenamento Azure com uma função Python utilizando uma ligação de saída.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: 14a381d13da052fd67679ed17bbb6b6711f7a0e6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715366"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198484"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicione uma ligação de fila de armazenamento Azure à sua função Python
 
@@ -156,7 +156,7 @@ Observe que *não* precisa de escrever nenhum código para autenticação, obter
 1. Quando terminar, pare o hospedeiro com **Ctrl**+**C**.
 
 > [!TIP]
-> Durante o arranque, o anfitrião descarrega e instala a [extensão de ligação](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) de Armazenamento e outras extensões de ligação da Microsoft. Esta instalação ocorre porque as extensões de ligação são ativadas por padrão no ficheiro *host.json* com as seguintes propriedades:
+> Durante o arranque, o anfitrião descarrega e instala a [extensão de ligação](functions-bindings-storage-blob.md#add-to-your-functions-app) de Armazenamento e outras extensões de ligação da Microsoft. Esta instalação ocorre porque as extensões de ligação são ativadas por padrão no ficheiro *host.json* com as seguintes propriedades:
 >
 > ```json
 > {
@@ -279,7 +279,7 @@ Caso contrário, utilize o seguinte comando para eliminar o grupo de recursos e 
 az group delete --name AzureFunctionsQuickstart-rg
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ativar a integração de Insights de Aplicação com uma aplicação De Funções Azure](functions-monitoring.md#manually-connect-an-app-insights-resource)
