@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: migrar um aplicativo Android | Mapas do Microsoft Azure'
-description: Como migrar um aplicativo Android do Google Maps para mapas de Microsoft Azure.
+title: 'Tutorial: Migrar uma aplicação Android Microsoft Azure Maps'
+description: Como migrar uma aplicação Android do Google Maps para o Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 855036a5a8e87bd10e9a4d524a1e8ea8bcdccf50
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086298"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209737"
 ---
-# <a name="migrate-an-android-app-from-google-maps"></a>Migrar um aplicativo Android do Google Maps
+# <a name="migrate-an-android-app-from-google-maps"></a>Migrar uma aplicação Android do Google Maps
 
 O Azure Maps Android SDK tem uma interface API semelhante ao Web SDK. Se desenvolveu com um destes SDKs, muitos dos mesmos conceitos, boas práticas e arquiteturas se aplicam.
 
-O Azure Maps SDK do Android dá suporte a uma versão mínima do Android da API 21: Android 5.0.0 (pirulito).
+O Azure Maps Android SDK suporta uma versão Android mínima de API 21: Android 5.0.0 (Lollipop).
 
 Todos os exemplos são fornecidos em Java; no entanto, pode utilizar o Kotlin com o Azure Maps Android SDK.
 
@@ -30,8 +30,8 @@ Para obter mais informações sobre o desenvolvimento com o Android SDK by Azure
 
 Carregar um mapa numa aplicação Android utilizando o Google ou o Azure Maps consiste em passos semelhantes. Ao utilizar qualquer um dos SDK, deve:
 
-- Obtenha uma API ou chave de assinatura para acessar qualquer uma das plataformas.
-- Adicione um XML a uma atividade para especificar onde o mapa deve ser renderizado e como ele deve ser disposto.
+- Obtenha uma chave API ou subscrição para aceder a qualquer uma das plataformas.
+- Adicione um pouco de XML a uma Atividade para especificar onde o mapa deve ser renderizado e como deve ser definido.
 - Sobrepor todos os métodos de ciclo de vida da Atividade que contém a vista do mapa para os métodos correspondentes na classe do mapa. Em particular, deve anular os seguintes métodos:
     - `onCreate(Bundle)`
     - `onStart()`
@@ -45,9 +45,9 @@ Carregar um mapa numa aplicação Android utilizando o Google ou o Azure Maps co
 
 **Antes: Google Maps**
 
-Para exibir um mapa usando o SDK do Google Maps para Android, as etapas a seguir serão executadas:
+Para exibir um mapa utilizando o Google Maps SDK para Android, serão feitos os seguintes passos:
 
-1.  Verifique se os serviços do Google Play estão instalados.
+1.  Certifique-se de que os serviços da Google Play estão instalados.
 2.  Adicione uma dependência para o serviço Do Google Maps ao ficheiro **gradle.build** do módulo: 
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
@@ -67,7 +67,7 @@ Para exibir um mapa usando o SDK do Google Maps para Android, as etapas a seguir
             android:layout_height="match_parent"/>
     ```
 
-1.  No ficheiro **MainActivity.java,** terá de importar o Google Maps SDK. Encaminhe todos os métodos de ciclo de vida da atividade que contém a exibição de mapa para os correspondentes na classe de mapa. Recupere uma `MapView` instância do fragmento do mapa utilizando o método `getMapAsync(OnMapReadyCallback)`. O `MapView` inicia automaticamente o sistema de mapas e a vista. Editar o ficheiro **MainActivity.java** da seguinte forma:
+1.  No ficheiro **MainActivity.java,** terá de importar o Google Maps SDK. Encaminhar todos os métodos de ciclo de vida da atividade que contém a vista do mapa para os correspondentes na classe do mapa. Recupere uma `MapView` instância do fragmento do mapa utilizando o método `getMapAsync(OnMapReadyCallback)`. O `MapView` inicia automaticamente o sistema de mapas e a vista. Editar o ficheiro **MainActivity.java** da seguinte forma:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -150,7 +150,7 @@ Quando executa uma aplicação, o controlo do mapa carrega como na imagem seguin
 
 **Depois: Mapas Azure**
 
-Para exibir um mapa usando o SDK do Azure Maps para Android, as etapas a seguir precisam ser feitas:
+Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário fazer os seguintes passos:
 
 1. Abra o ficheiro **build.gradle** de nível superior e adicione o seguinte código à secção de todos **os projetos:**
 
@@ -164,7 +164,7 @@ Para exibir um mapa usando o SDK do Azure Maps para Android, as etapas a seguir 
     
     1. Certifique-se de que o **minSdkVersion** do seu projeto está na API 21 ou superior.
 
-    2. Adicione o seguinte código à seção do Android:
+    2. Adicione o seguinte código à secção Android:
 
         ```java
         compileOptions {
@@ -204,7 +204,7 @@ Para exibir um mapa usando o SDK do Azure Maps para Android, as etapas a seguir 
 4. No ficheiro **MainActivity.java** terá de:
     
     * Importa o Azure Maps SDK
-    * definir as informações de autenticação do Azure Maps
+    * definir as suas informações de autenticação do Azure Maps
     * Obtenha a instância de controlo do mapa no método **onCreate**
 
      Detete as informações de autenticação na classe `AzureMaps` utilizando os métodos `setSubscriptionKey` ou `setAadProperties`. Esta atualização global, certifique-se de que adiciona as suas informações de autenticação a todas as visualizações.
@@ -307,10 +307,10 @@ Se executar a sua aplicação, o controlo do mapa carregará como na seguinte im
 
 ![](media/migrate-google-maps-android-app/simple-azure-maps.png)</center> simples de mapas azure
 
-Observe que o controle de mapas do Azure dá suporte à ampliação de mais e fornece uma exibição mundial.
+Note que o controlo do Azure Maps suporta a ampliação mais e proporciona mais uma visão do mundo.
 
 > [!TIP]
-> Se estiver a utilizar um emulador Android numa máquina windows, o mapa pode não render devido a conflitos com o OpenGL e a renderização gráfica acelerada do software. O seguinte tem funcionado, para algumas pessoas, para resolver esta questão. Abra o Gerenciador de AVD e selecione o dispositivo virtual a ser editado. Desloque-se para baixo no painel **de configuração de verificação.** Na secção **Performance Emulada,** detete a opção **Gráficos** para **hardware**.
+> Se estiver a utilizar um emulador Android numa máquina windows, o mapa pode não render devido a conflitos com o OpenGL e a renderização gráfica acelerada do software. O seguinte tem funcionado, para algumas pessoas, para resolver esta questão. Abra o Gestor AVD e selecione o dispositivo virtual para editar. Desloque-se para baixo no painel **de configuração de verificação.** Na secção **Performance Emulada,** detete a opção **Gráficos** para **hardware**.
 
 ## <a name="localizing-the-map"></a>Localização do mapa
 
@@ -330,7 +330,7 @@ getBaseContext().getResources().updateConfiguration(config,
         getBaseContext().getResources().getDisplayMetrics());
 ```
 
-Aqui está um exemplo do Google Maps com o idioma definido como "fr".
+Aqui está um exemplo do Google Maps com o idioma definido para "fr".
 
 <center>
 
@@ -374,7 +374,7 @@ mapControl.onReady(map -> {
 });
 ```
 
-Aqui está um exemplo de mapas do Azure com o idioma definido como "fr-FR".
+Aqui está um exemplo de Azure Maps com a linguagem definida para "fr-FR".
 
 <center>
 
@@ -405,13 +405,13 @@ public void onMapReady(GoogleMap googleMap) {
 ![google Maps definir vista](media/migrate-google-maps-android-app/google-maps-set-view.png)</center>
 
 > [!NOTE]
-> O Google Maps usa blocos que são 256 pixels em dimensões enquanto o Azure Maps usa um bloco maior de 512 pixels. Isto reduz o número de pedidos de rede necessários pelo Azure Maps para carregar a mesma área de mapas que o Google Maps. Para atingir essa mesma área visível que um mapa no Google Maps, é necessário subtrair o nível de zoom utilizado no Google Maps por um ao utilizar o Azure Maps. 
+> O Google Maps utiliza azulejos com 256 pixels em dimensões, enquanto o Azure Maps utiliza um azulejo de 512 pixels maior. Isto reduz o número de pedidos de rede necessários pelo Azure Maps para carregar a mesma área de mapas que o Google Maps. Para atingir essa mesma área visível que um mapa no Google Maps, é necessário subtrair o nível de zoom utilizado no Google Maps por um ao utilizar o Azure Maps. 
 
 **Depois: Mapas Azure**
 
 Como notado anteriormente, para alcançar a mesma área visível no Azure Maps subtrai o nível de zoom usado no Google Maps por um. Neste caso, utilize um nível de zoom de 14.
 
-O modo de exibição de mapa inicial pode ser definido em atributos XML no controle de mapa.
+A vista inicial do mapa pode ser definida em atributos XML no controlo do mapa.
 
 ```xml
 <com.microsoft.azure.maps.mapcontrol.MapControl
@@ -685,7 +685,7 @@ mapControl.onReady(map -> {
 
  Utilize camadas de azulejos para sobrepor imagens de camadas que foram divididas em imagens de azulejos menores, que se alinham com o sistema de inclinação dos mapas. Esta abordagem é uma forma comum de sobrepor imagens de camadas ou grandes conjuntos de dados. As camadas de azulejos são conhecidas como sobreposições de imagem no Google Maps.
 
-Os seguintes exemplos sobrepõem uma camada de azulejos de radar meteorológico do Iowa Environmental Mesonet da Universidade Estadual de Iowa. Os blocos têm 256 pixels de tamanho.
+Os seguintes exemplos sobrepõem uma camada de azulejos de radar meteorológico do Iowa Environmental Mesonet da Universidade Estadual de Iowa. Os azulejos têm 256 píxeis de tamanho.
 
 **Antes: Google Maps**
 
@@ -722,10 +722,10 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Depois: Mapas Azure**
 
-Uma camada de azulejo pode ser adicionada ao mapa de forma semelhante a qualquer outra camada. Um URL formatado que tem espaços reservados x, y e zoom; `{x}`, `{y}`, `{z}`, respectivamente, é usado para dizer à camada onde aceder aos azulejos. Além disso, camadas de azulejos em Azure Maps suportam `{quadkey}`, `{bbox-epsg-3857}`e `{subdomain}` espaços reservados. Para tornar a camada de bloco semitransparente, é usado um valor de opacidade de 0,8. Opacidade e transparência, embora similares, usam valores invertidos. Para converter entre ambas as opções, subtraia o seu valor do número um.
+Uma camada de azulejo pode ser adicionada ao mapa de forma semelhante a qualquer outra camada. Um URL formatado que tem espaços reservados x, y e zoom; `{x}`, `{y}`, `{z}`, respectivamente, é usado para dizer à camada onde aceder aos azulejos. Além disso, camadas de azulejos em Azure Maps suportam `{quadkey}`, `{bbox-epsg-3857}`e `{subdomain}` espaços reservados. Para tornar a camada de azulejosemi-transparente, é utilizado um valor de opacidade de 0,8. Opacidade e transparência, embora similares, usam valores invertidos. Para converter entre ambas as opções, subtraia o seu valor do número um.
 
 > [!TIP]
-> No Azure Maps, é conveniente renderizar camadas abaixo de outras camadas, incluindo camadas de mapas base. Muitas vezes é desejável tornar camadas de azulejos abaixo dos rótulos do mapa para que sejam fáceis de ler. O método `map.layers.add` leva um segundo parâmetro que é o id da camada em que inserir a nova camada abaixo. Para inserir uma camada de azulejos abaixo das etiquetas do mapa, pode ser utilizado o seguinte código: `map.layers.add(myTileLayer, "labels");`
+> No Azure Maps, é conveniente renderizar camadas abaixo de outras camadas, incluindo camadas de mapas base. Além disso, é muitas vezes desejável tornar camadas de azulejos abaixo dos rótulos do mapa para que sejam fáceis de ler. O método `map.layers.add` leva um segundo parâmetro que é o id da camada em que inserir a nova camada abaixo. Para inserir uma camada de azulejos abaixo das etiquetas do mapa, pode ser utilizado o seguinte código: `map.layers.add(myTileLayer, "labels");`
 
 ```java
 mapControl.onReady(map -> {
@@ -781,7 +781,7 @@ mapControl.onReady(map -> {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o SDK do Android do Azure Maps.
+Saiba mais sobre o Azure Maps Android SDK.
 
 > [!div class="nextstepaction"]
 > [Como utilizar o controlo do mapa Android](how-to-use-android-map-control-library.md)

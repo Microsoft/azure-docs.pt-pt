@@ -1,5 +1,5 @@
 ---
-title: Importar um Aplicativo de funções do Azure como uma API no gerenciamento de API
+title: Importar uma App de Função Azure como API em Gestão de API
 titleSuffix: Azure API Management
 description: Este tutorial mostra como importar uma Function App do Azure para a Gestão de API do Azure como uma API.
 services: api-management
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 97e4863294a32e7c11cd0c4bfa987b4e5764c0d4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442586"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209193"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
 
@@ -32,7 +32,7 @@ Vai aprender a:
 > * Importar uma Function App do Azure como uma API
 > * Anexar uma Function App do Azure como uma API
 > * Ver a nova chave de anfitrião da Function App do Azure e o valor nomeado da Gestão de API do Azure
-> * Testar a API no portal do Azure
+> * Testar a API no Portal do Azure
 > * Testar a API no portal do programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -111,14 +111,14 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
     ![Anexar a partir da Function App](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a>Nesse
+## <a name="authorization"></a>Autorização
 
 A importação de uma Function App do Azure gera automaticamente:
 
-* Chave de host dentro do Aplicativo de funções com o nome APIM-{*nome da instância do serviço de gerenciamento de API do Azure*},
-* Valor nomeado dentro da instância de gerenciamento de API do Azure com o nome {*seu nome de instância do aplicativo de funções do Azure*}-chave, que contém a chave de host criada.
+* Chave de hospedar dentro da App função com o nome apim-{ o nome de instância de*serviço Azure API Management*},
+* Valor nomeado dentro da instância de Gestão API Azure com o nome { o nome da aplicação de*função Azure*}-chave, que contém a chave de hospedar criada.
 
-Para APIs criadas após 4º de abril de 2019, a chave do host é passada em solicitações HTTP do gerenciamento de API para o Aplicativo de funções em um cabeçalho. APIs mais antigas passam a chave de host como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Esse comportamento pode ser alterado por meio da [chamada à API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) `PATCH Backend` na entidade de *back-end* associada ao aplicativo de funções.
+Para APIs criadaapós 4 de abril de 2019, a chave anfitriã é passada em pedidos HTTP da API Management para a App de Funções em um cabeçalho. APIs mais antigos passam a chave hospedeira como parâmetro de [consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Este comportamento pode ser alterado através da chamada `PATCH Backend` [REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) sobre a entidade *Backend* associada à App de Função.
 
 > [!WARNING]
 > Remover ou alterar o valor da chave de anfitrião da Aplicação de Funções do Azure ou o valor nomeado da Gestão de API do Azure irá interromper a comunicação entre os serviços. Os valores não são sincronizados automaticamente.
@@ -143,7 +143,7 @@ Navegue até à sua instância de Gestão de API do Azure e selecione **Valores 
 
 ![Adicionar a partir da Function App](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a>Testar a nova API no portal do Azure
+## <a name="test-in-azure-portal"></a>Teste a nova API no portal Azure
 
 Pode chamar operações diretamente a partir do portal do Azure. Utilizar o portal do Azure é um meio cómodo de ver e testar as operações de uma API.  
 

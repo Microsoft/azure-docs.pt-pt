@@ -1,64 +1,64 @@
 ---
-title: 'Tutorial: rotear veículos elétricos usando o Azure Notebooks (Python) | Mapas do Microsoft Azure'
-description: Encaminhar veículos elétricos usando Microsoft Azure mapeia APIs de roteamento e Azure Notebooks.
-author: walsehgal
-ms.author: v-musehg
+title: 'Tutorial: Rota dos veículos elétricos utilizando cadernos Azure (Python)  Microsoft Azure Maps'
+description: Encaminhe veículos elétricos utilizando apis de encaminhamento do Microsoft Azure Maps e cadernos Azure.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844756"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208170"
 ---
-# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: rotear veículos elétricos usando o Azure Notebooks (Python)
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Rota dos veículos elétricos utilizando cadernos Azure (Python)
 
-O mapas do Azure é um portfólio de APIs de serviço geoespaciais que são nativamente integrados ao Azure. Com estas APIs, desenvolvedores, empresas e ISVs podem criar aplicações conscientes da localização, IoT, mobilidade, logística e soluções de rastreio de ativos. 
+O Azure Maps é um portfólio de APIs de serviço geoespacial que está integrado de forma nativa no Azure. Estas APIs permitem que desenvolvedores, empresas e ISVs desenvolvam aplicações conscientes da localização, IoT, mobilidade, logística e soluções de rastreio de ativos. 
 
-As APIs REST do Azure Maps podem ser chamadas de idiomas como Python e R para habilitar a análise de dados geoespaciais e cenários de aprendizado de máquina. O mapas do Azure oferece um conjunto robusto de [APIs de roteamento](https://docs.microsoft.com/rest/api/maps/route) que permitem que os usuários calculem rotas entre vários pontos de dados. Os cálculos se baseiam em várias condições, como tipo de veículo ou área alcançável. 
+As APIs DE REPOUSO Do Azure Maps podem ser chamadas a partir de línguas como Python e R para permitir a análise de dados geoespaciais e cenários de aprendizagem automática. O Azure Maps oferece um conjunto robusto de APIs de [encaminhamento](https://docs.microsoft.com/rest/api/maps/route) que permite aos utilizadores calcular rotas entre vários pontos de dados. Os cálculos baseiam-se em várias condições, tais como o tipo de veículo ou a área alcançável. 
 
 Neste tutorial, você anda ajuda um condutor cuja bateria de veículo elétrico é baixa. O condutor precisa de encontrar o posto de carregamento mais próximo possível da localização do veículo.
 
 Neste tutorial, irá:
 
 > [!div class="checklist"]
-> * Crie e execute um bloco de anotações Jupyter em [Azure notebooks](https://docs.microsoft.com/azure/notebooks) na nuvem.
-> * Chamar as APIs REST do Azure Maps no Python.
-> * Pesquise um intervalo acessível com base no modelo de consumo do veículo elétrico.
-> * Pesquise pelas estações de carregamento do veículo elétrico dentro do intervalo acessível ou isochrone.
-> * Renderizar as estações de limite e carga de intervalo acessíveis em um mapa.
-> * Localize e visualize uma rota para a estação de carregamento de veículo elétrico mais próxima com base no tempo da unidade.
+> * Crie e execute um caderno Jupyter em [Cadernos Azure](https://docs.microsoft.com/azure/notebooks) na nuvem.
+> * Ligue para o Azure Maps REST APIs em Python.
+> * Procure uma gama acessível com base no modelo de consumo do veículo elétrico.
+> * Procure postos de carregamento de veículos elétricos dentro do alcance acessível, ou isocronona.
+> * Torne os postos de limite de alcance e carregamento acessíveis num mapa.
+> * Encontre e visualize uma rota para a estação de carregamento de veículos elétricos mais próxima com base no tempo de condução.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Para concluir este tutorial, primeiro você precisa criar uma conta do Azure Maps e obter sua chave primária (chave de assinatura). 
+Para completar este tutorial, primeiro é necessário criar uma conta Azure Maps e obter a sua chave principal (chave de subscrição). 
 
 Para criar uma subscrição de conta Azure Maps, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps). Precisa de uma subscrição de conta Azure Maps com o nível de preço S1. 
 
-Para obter a chave de assinatura primária para sua conta, siga as instruções em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+Para obter a chave de subscrição primária para a sua conta, siga as instruções para obter a [chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-Para obter mais informações sobre autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
+Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps](./how-to-manage-authentication.md).
 
-## <a name="create-an-azure-notebook"></a>Criar um bloco de anotações do Azure
+## <a name="create-an-azure-notebook"></a>Criar um caderno Azure
 
-Para acompanhar este tutorial, você precisa criar um projeto de bloco de anotações do Azure e baixar e executar o arquivo do bloco de anotações Jupyter. O arquivo de bloco de anotações contém o código Python, que implementa o cenário neste tutorial. Para criar um projeto de caderno Azure e enviar-lhe o documento do caderno Jupyter, faça os seguintes passos:
+Para acompanhar este tutorial, você precisa criar um projeto de portátil Azure e baixar e executar o arquivo de portátil Jupyter. O ficheiro do portátil contém código Python, que implementa o cenário neste tutorial. Para criar um projeto de caderno Azure e enviar-lhe o documento do caderno Jupyter, faça os seguintes passos:
 
-1. Aceda a [blocos de notas do Azure](https://notebooks.azure.com) e iniciar sessão. Para obter mais informações, consulte [início rápido: entrar e definir uma ID de usuário](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
-1. Na parte superior da sua página de perfil público, selecione **meus projetos**.
+1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. Para mais informações, consulte [Quickstart: Inicie e detete um ID do utilizador](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
+1. No topo da sua página de perfil público, selecione **My Projects**.
 
-    ![O botão meus projetos](./media/tutorial-ev-routing/myproject.png)
+    ![O botão My Projects](./media/tutorial-ev-routing/myproject.png)
 
-1. Na página **meus projetos** , selecione **novo projeto**.
+1. Na página **My Projects,** selecione **New Project**.
  
-   ![O botão novo projeto](./media/tutorial-ev-routing/create-project.png)
+   ![O botão New Project](./media/tutorial-ev-routing/create-project.png)
 
-1. No painel **criar novo projeto** , insira um nome de projeto e uma ID de projeto.
+1. No painel **Create New Project,** insira um nome de projeto e id do projeto.
  
     ![O painel criar novo projeto](./media/tutorial-ev-routing/create-project-window.png)
 
@@ -66,34 +66,34 @@ Para acompanhar este tutorial, você precisa criar um projeto de bloco de anota�
 
 1. Depois de criado o seu projeto, descarregue este ficheiro de documentos do [portátil Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) do [repositório de cadernos Azure Maps Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
-1. Na lista projetos na página **meus projetos** , selecione seu projeto e, em seguida, selecione **carregar** para carregar o arquivo de documento do notebook Jupyter. 
+1. Na lista de projetos na página **My Projects,** selecione o seu projeto e, em seguida, selecione **Upload** para carregar o ficheiro de documentos do portátil Jupyter. 
 
-    ![carregar bloco de anotações](./media/tutorial-ev-routing/upload-notebook.png)
+    ![caderno de upload](./media/tutorial-ev-routing/upload-notebook.png)
 
-1. Carregue o arquivo do seu computador e, em seguida, selecione **concluído**.
+1. Faça upload do ficheiro a partir do seu computador e, em seguida, selecione **Done**.
 
-1. Depois que o carregamento for concluído com êxito, o arquivo será exibido na página do projeto. Clique duas vezes no ficheiro para o abrir como um caderno Jupyter.
+1. Depois de o upload ter terminado com sucesso, o seu ficheiro é apresentado na sua página do projeto. Clique duas vezes no ficheiro para o abrir como um caderno Jupyter.
 
-Para ajudá-lo a entender melhor a funcionalidade implementada no ficheiro do portátil, execute o código no caderno uma célula de cada vez. Você pode executar o código em cada célula selecionando o botão **executar** na parte superior do aplicativo do bloco de anotações.
+Tente entender a funcionalidade implementada no ficheiro do caderno. Executa o código, no ficheiro do caderno, uma célula de cada vez. Pode executar o código em cada célula selecionando o botão **Executar** na parte superior da aplicação portátil.
 
-  ![O botão executar](./media/tutorial-ev-routing/run.png)
+  ![O botão Executar](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Instalar pacotes de nível de projeto
 
 Para executar o código no caderno, instale pacotes ao nível do projeto fazendo os seguintes passos:
 
-1. Baixe o arquivo [*requirements. txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório do bloco de anotações Jupyter do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)e, em seguida, carregue-o em seu projeto.
-1. No dashboard do projeto, selecione **definições do projeto**. 
-1. No painel **configurações do projeto** , selecione a guia **ambiente** e, em seguida, selecione **Adicionar**.
-1. Em **etapas de configuração do ambiente**, faça o seguinte:   
-    a. Na primeira lista suspensa, selecione **requirements. txt**.  
-    b. Na segunda lista suspensa, selecione seu arquivo *requirements. txt* .  
-    c. Na terceira lista suspensa, selecione **Python versão 3,6** como sua versão.
+1. Faça o download do ficheiro [*requisitos.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório de cadernos Azure Maps Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)e, em seguida, faça o upload para o seu projeto.
+1. No painel de instrumentos do projeto, selecione **Definições de Projeto**. 
+1. No painel **definições** do projeto, selecione o separador **Ambiente** e, em seguida, selecione **Adicionar**.
+1. Em etapas de **configuração ambiente,** faça o seguinte:   
+    a. Na primeira lista de entregas, selecione **Requirements.txt**.  
+    b. Na segunda lista de entrega, selecione o ficheiro *requisitos.txt.*  
+    c. Na terceira lista de descidas, selecione **Python Version 3.6** como versão.
 1. Selecione **Guardar**.
 
     ![Instalar pacotes](./media/tutorial-ev-routing/install-packages.png)
 
-## <a name="load-the-required-modules-and-frameworks"></a>Carregar os módulos e as estruturas necessárias
+## <a name="load-the-required-modules-and-frameworks"></a>Carregue os módulos e quadros necessários
 
 Para carregar todos os módulos e quadros necessários, execute o seguinte script.
 
@@ -104,13 +104,13 @@ import urllib.parse
 from IPython.display import Image, display
 ```
 
-## <a name="request-the-reachable-range-boundary"></a>Solicitar o limite de intervalo acessível
+## <a name="request-the-reachable-range-boundary"></a>Solicitar o limite de alcance acessível
 
-Uma empresa de entrega de pacotes tem alguns veículos elétricos na sua frota. Durante o dia, os veículos elétricos precisam ser recobrados sem a necessidade de retornar ao depósito. Sempre que a carga restante cai para menos de uma hora, procura um conjunto de postos de carregamento que estejam dentro de um alcance acessível. Essencialmente, procure um posto de carregamento quando a bateria estiver com pouca carga. E obtém-se a informação de fronteira para essa gama de postos de carregamento. 
+Uma empresa de entrega de pacotes tem alguns veículos elétricos na sua frota. Durante o dia, os veículos elétricos precisam de ser recarregados sem terem de regressar ao armazém. Sempre que a carga restante cai para menos de uma hora, procura um conjunto de postos de carregamento que estejam dentro de um alcance acessível. Essencialmente, procure um posto de carregamento quando a bateria estiver com pouca carga. E obtém-se a informação de fronteira para essa gama de postos de carregamento. 
 
-Como a empresa prefere usar rotas que exigem um equilíbrio de economia e velocidade, o routetype solicitado é o *eco*. O seguinte script chama a [Gama Get Route API](https://docs.microsoft.com/rest/api/maps/route/getrouterange) do serviço de encaminhamento Do Azure Maps. Utiliza parâmetros para o modelo de consumo do veículo. Em seguida, o script analisa a resposta para criar um objeto Polygon do formato geojson, que representa o intervalo máximo de alcançável do carro.
+Como a empresa prefere utilizar rotas que exijam um equilíbrio económico e de velocidade, o routeType solicitado é *eco*. O seguinte script chama a [Gama Get Route API](https://docs.microsoft.com/rest/api/maps/route/getrouterange) do serviço de encaminhamento Do Azure Maps. Utiliza parâmetros para o modelo de consumo do veículo. O script analisa então a resposta para criar um objeto de polígono do formato geojson, que representa a gama máxima acessível do carro.
 
-Para determinar os limites do intervalo alcançável do veículo elétrico, execute o script na seguinte célula:
+Para determinar os limites para a gama alcançável do veículo elétrico, execute o script na seguinte célula:
 
 ```python
 subscriptionKey = "Your Azure Maps key"
@@ -152,13 +152,13 @@ boundsData = {
              }
 ```
 
-## <a name="search-for-electric-vehicle-charging-stations-within-the-reachable-range"></a>Pesquisar estações de carregamento do veículo elétrico dentro do intervalo acessível
+## <a name="search-for-electric-vehicle-charging-stations-within-the-reachable-range"></a>Pesquisa de postos de carregamento de veículos elétricos dentro da gama alcançável
 
-Depois de determinar o intervalo alcançável (isochrone) para o veículo elétrico, você pode pesquisar por estações de carregamento dentro desse intervalo. 
+Depois de determinar a gama alcançável (isochrone) para o veículo elétrico, pode procurar postos de carregamento dentro dessa gama. 
 
-O script a seguir chama a [pesquisa de postagem](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)do Azure Maps dentro da API de geometria. Ele pesquisa estações de cobrança de veículo elétrica dentro dos limites do intervalo máximo de alcance do carro e, em seguida, analisa a resposta para uma matriz de locais acessíveis.
+O seguinte script chama o Azure Maps [Post Search Inside Geometry API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry). Procura postos de carregamento para veículos elétricos, dentro dos limites do alcance máximo de alcance do carro. Em seguida, o script analisa a resposta a uma variedade de locais acessíveis.
 
-Para procurar estações de carregamento do veículo elétrico dentro do intervalo acessível, execute o seguinte script:
+Para procurar postos de carregamento de veículos elétricos dentro da gama alcançável, execute o seguinte script:
 
 ```python
 # Search for electric vehicle stations within reachable range.
@@ -171,11 +171,11 @@ for loc in range(len(searchPolyResponse["results"])):
                 reachableLocations.append(location)
 ```
 
-## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Carregar o intervalo acessível e os pontos de cobrança para o serviço de dados do Azure Maps
+## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Faça upload da gama e pontos de carregamento acessíveis para o Serviço de Dados do Azure Maps
 
 Num mapa, você vai querer visualizar os postos de carregamento e o limite para a gama máxima acessível do veículo elétrico. Para tal, faça o upload dos dados de fronteira e dos postos de carregamento como objetos geojson para o Serviço de Dados do Mapa Do Azure. Utilize a [API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)de upload de dados . 
 
-Para carregar os dados de limite e de ponto de carregamento para o serviço de dados do Azure Maps, execute as duas células a seguir:
+Para fazer o upload dos dados de pontos de fronteira e de carregamento para o Serviço de Dados do Azure Maps, execute as seguintes duas células:
 
 ```python
 rangeData = {
@@ -237,7 +237,7 @@ while True:
 poiUdid = getPoiUdid["udid"]
 ```
 
-## <a name="render-the-charging-stations-and-reachable-range-on-a-map"></a>Renderizar as estações de carregamento e o intervalo alcançável em um mapa
+## <a name="render-the-charging-stations-and-reachable-range-on-a-map"></a>Tornar as estações de carregamento e alcance acessível num mapa
 
 Depois de ter enviado os dados para o serviço de dados, ligue para o [serviço](https://docs.microsoft.com/rest/api/maps/render/getmapimage)De imagem do Mapa do Mapa do Azure Maps . Este serviço é utilizado para tornar os pontos de carregamento e o limite máximo alcançável na imagem do mapa estático executando o seguinte script:
 
@@ -276,16 +276,16 @@ poiRangeMap = await staticMapResponse.content.read()
 display(Image(poiRangeMap))
 ```
 
-![Um mapa que mostra o intervalo de localização](./media/tutorial-ev-routing/location-range.png)
+![Um mapa que mostra a gama de localização](./media/tutorial-ev-routing/location-range.png)
 
 
-## <a name="find-the-optimal-charging-station"></a>Encontre a estação de cobrança ideal
+## <a name="find-the-optimal-charging-station"></a>Encontre a estação de carregamento ideal
 
 Em primeiro lugar, pretende determinar todas as potenciais estações de carregamento dentro do alcance acessível. Então, quer saber qual deles pode ser alcançado num período mínimo de tempo. 
 
-O seguinte guião chama a [API de Encaminhamento de Matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)de Mapas Azure . Devolve a localização especificada do veículo, o tempo de viagem e a distância a cada estação de carregamento. O script na próxima célula analisa a resposta para localizar a estação de cobrança acessível mais próxima em relação ao tempo.
+O seguinte guião chama a [API de Encaminhamento de Matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)de Mapas Azure . Devolve a localização especificada do veículo, o tempo de viagem e a distância a cada estação de carregamento. O script na célula seguinte analisa a resposta para localizar a estação de carregamento mais próxima possível no que diz respeito ao tempo.
 
-Para localizar a estação de cobrança acessível mais próxima que pode ser alcançada na menor quantidade de tempo, execute o script na seguinte célula:
+Para encontrar a estação de carregamento mais próxima e acessível que pode ser alcançada no menor período de tempo, faça o script na seguinte célula:
 
 ```python
 locationData = {
@@ -312,11 +312,11 @@ minDistLoc.extend([reachableLocations[minDistIndex][1], reachableLocations[minDi
 closestChargeLoc = ",".join(str(i) for i in minDistLoc)
 ```
 
-## <a name="calculate-the-route-to-the-closest-charging-station"></a>Calcular a rota para a estação de cobrança mais próxima
+## <a name="calculate-the-route-to-the-closest-charging-station"></a>Calcular a rota para a estação de carregamento mais próxima
 
-Agora que você encontrou a estação de cobrança mais próxima, você pode chamar a [API obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) para solicitar a rota detalhada do local atual do veículo elétrico para a estação de cobrança.
+Agora que encontrou a estação de carregamento mais próxima, pode ligar para a API Get [Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) para solicitar a rota detalhada da localização atual do veículo elétrico para a estação de carregamento.
 
-Para obter a rota para a estação de cobrança e analisar a resposta para criar um objeto geojson que representa a rota, execute o script na seguinte célula:
+Para obter o percurso até à estação de carregamento e analisar a resposta para criar um objeto geojson que represente a rota, executar o script na seguinte célula:
 
 ```python
 # Get the route from the electric vehicle's current location to the closest charging station. 
@@ -338,7 +338,7 @@ routeData = {
 
 Para ajudar a visualizar a rota, primeiro faça o upload dos dados da rota como um objeto geojson para o Serviço de Dados do Azure Maps. Para tal, utilize a [API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)de upload de dados do Azure Maps . Em seguida, ligue para o serviço de renderização, [Obtenha API de Imagem de Mapa,](https://docs.microsoft.com/rest/api/maps/render/getmapimage)para tornar a rota no mapa, e visualizá-la.
 
-Para obter uma imagem para a rota renderizada no mapa, execute o seguinte script:
+Para obter uma imagem para a rota renderizada no mapa, executar o seguinte script:
 
 ```python
 # Upload the route data to Azure Maps Data Service.
@@ -385,21 +385,21 @@ await session.close()
 display(Image(staticMapImage))
 ```
 
-![Um mapa que mostra a rota](./media/tutorial-ev-routing/route.png)
+![Um mapa mostrando a rota](./media/tutorial-ev-routing/route.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a chamar as APIs REST do Azure Maps diretamente e visualizar os dados do Azure Maps usando o Python.
+Neste tutorial, aprendeu a ligar diretamente para as APIs do Azure Maps e visualizar os dados do Azure Maps utilizando python.
 
 Para explorar as APIs do Azure Maps que são usadas neste tutorial, consulte:
 
-* [Obter intervalo de rotas](https://docs.microsoft.com/rest/api/maps/route/getrouterange)
-* [Postar pesquisa dentro da geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
-* [Carregamento de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
-* [Render-obter imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Lançar matriz de rota](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
-* [Obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
+* [Obtenha alcance de rota](https://docs.microsoft.com/rest/api/maps/route/getrouterange)
+* [Pós-Pesquisa Dentro da Geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
+* [Upload de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
+* [Render - Obter Imagem do Mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Matriz de pós-rota](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
+* [Obtenha direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
-Para obter uma lista completa de APIs REST do Azure Maps, consulte [APIs REST do Azure Maps](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+Para obter uma lista completa de APIs REST DO Azure Maps, consulte [O PDP](https://docs.microsoft.com/azure/azure-maps/consumption-model)REST Do Azure Maps .
 
-Para saber mais sobre Azure Notebooks, consulte [Azure notebooks](https://docs.microsoft.com/azure/notebooks).
+Para saber mais sobre os Cadernos Azure, consulte [os Cadernos Azure.](https://docs.microsoft.com/azure/notebooks)

@@ -5,23 +5,23 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 94a7218933935aa1a9d38a9fc420bb8d3f669492
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91a37178f8dc8ecc3c61ca16f193e2e52c309d46
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472745"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209482"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: criar várias instâncias de recursos com modelos do Resource Manager
 
 Saiba como iterar no seu modelo do Azure Resource Manager para criar várias instâncias de um recurso do Azure. Neste tutorial, modifica um modelo para criar três instâncias de contas de armazenamento.
 
-![Azure Resource Manager cria o diagrama de várias instâncias](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+![Gestor de recursos azure cria diagrama de múltiplas instâncias](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Abrir um modelo de Início rápido
+> * Abrir um modelo de Início Rápido
 > * Editar o modelo
 > * Implementar o modelo
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com a extensão de ferramentas do Resource Manager. Consulte [usar Visual Studio Code para criar modelos de Azure Resource Manager](use-vs-code-to-create-template.md).
+* Código de estúdio visual com extensão de ferramentas de gestor de recursos. Consulte [o Código do Estúdio Visual para criar modelos](use-vs-code-to-create-template.md)de Gestor de Recursos Azure .
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -108,7 +108,7 @@ O modelo completo assemelha-se a:
 }
 ```
 
-Para obter mais informações sobre a criação de várias instâncias, veja [Implementar várias instâncias de um recurso ou propriedade nos Modelos do Azure Resource Manager](./create-multiple-instances.md)
+Para obter mais informações sobre a criação de várias instâncias, veja [Implementar várias instâncias de um recurso ou propriedade nos Modelos do Azure Resource Manager](./copy-resources.md)
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 

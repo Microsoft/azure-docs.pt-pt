@@ -4,19 +4,18 @@ metadata:
   title: Documentação da Automatização do Azure
   description: Saiba como utilizar a Automatização para configurar e automatizar tarefas operacionais num ambiente híbrido.
   services: automation
-  author: bobbytreed
+  author: mgoedtel
   manager: carmonm
   ms.service: automation
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 09/06/2019
-  ms.author: robreed
-  ms.openlocfilehash: 9207c92a1fcb6a6f5522a450912ddd10d0294c3f
-  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+  ms.author: magoedte
+  ms.openlocfilehash: d154705e17a51453648a8e1d3dd14bcdc6881917
+  ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/09/2020
-  ms.locfileid: "75769970"
+  ms.lasthandoff: 02/14/2020
+  ms.locfileid: "77208673"
 landingContent:
 - title: Introdução à Automatização do Azure
   linkLists:

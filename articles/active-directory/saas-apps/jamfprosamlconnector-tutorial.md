@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 02/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc99e23e1b885de25bd2159d7916790cad851108
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 68de948261ec8bad429daafcb27e63ca5f7efb7a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150319"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207311"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutorial: Integração azure Ative Directory SSO com jamf Pro
 

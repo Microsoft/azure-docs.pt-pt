@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: migrar do Google Maps para o mapas do Azure | Mapas do Microsoft Azure'
-description: Um tutorial sobre como migrar do Google Maps para mapas do Microsoft Azure. Orientações orienta você sobre como alternar para APIs e SDKs do Azure Maps.
+title: 'Tutorial: Migrar do Google Maps para o Azure Maps Microsoft Azure Maps'
+description: Um tutorial sobre como migrar do Google Maps para o Microsoft Azure Maps. A orientação acompanha-o através de como mudar para APIs e SDKs do Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
@@ -9,57 +9,57 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 11eb2e0363682d39a00a3f47cd3cc6c4badc040f
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 175625ab9fca9103bde027c3c0ea0986806ad846
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086474"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208307"
 ---
-# <a name="migrate-from-google-maps-to-azure-maps"></a>Migrar do Google Maps para mapas do Azure
+# <a name="migrate-from-google-maps-to-azure-maps"></a>Migrar do Google Maps para o Azure Maps
 
-Este tutorial fornece informações sobre como migrar aplicativos Web, móveis e baseados em servidor do Google Maps para a plataforma de mapas do Microsoft Azure. Este tutorial inclui exemplos de código comparativa, sugestões de migração e práticas recomendadas para migrar para mapas do Azure.
+Este tutorial fornece informações sobre como migrar aplicações web, móveis e baseadas em servidores do Google Maps para a plataforma Microsoft Azure Maps. Este tutorial inclui amostras de código comparativos, sugestões de migração e boas práticas para migrar para o Azure Maps.
 
-## <a name="azure-maps-platform-overview"></a>Visão geral da plataforma do Azure Maps
+## <a name="azure-maps-platform-overview"></a>Visão geral da plataforma Azure Maps
 
-O Azure Maps fornece aos desenvolvedores de todas as indústrias poderosas capacidades geoespaciais. As capacidades estão repletas de dados de mapas atualizados regularmente, para fornecer contexto geográfico para aplicações web e móveis. O Azure Maps tem um conjunto de APIs de API compatível com a API. Essas APIs rest oferecem mapas renderização, pesquisa, encaminhamento, tráfego, fusos horários, geolocalização, geofencing, dados do mapa, meteorologia, mobilidade e operações espaciais. As operações são acompanhadas por SDKs Web e Android para facilitar o desenvolvimento, flexível e portátil em várias plataformas.
+O Azure Maps fornece aos desenvolvedores de todas as indústrias poderosas capacidades geoespaciais. As capacidades estão repletas de dados de mapas atualizados regularmente para fornecer contexto geográfico para aplicações web e móveis. O Azure Maps tem um conjunto de APIs de API compatível com a API. As APIs restantes oferecem mapas renderização, pesquisa, encaminhamento, tráfego, fusos horários, geolocalização, geofencing, dados do mapa, meteorologia, mobilidade e operações espaciais. As operações são acompanhadas por SDKs Web e Android para facilitar o desenvolvimento, flexível e portátil em várias plataformas.
 
 ## <a name="high-level-platform-comparison"></a>Comparação de plataforma de alto nível
 
-A tabela fornece uma lista de alto nível de funcionalidades do Azure Maps, que correspondem às funcionalidades do Google Maps. Esta lista não mostra todas as funcionalidades do Azure Maps. Algumas funcionalidades adicionais do Azure Maps incluem acessibilidade, geofencing APIs, isochrones, operações espaciais, acesso ao azulejo de mapas diretos, serviços de lote e comparações de cobertura de dados (isto é, cobertura de imagens).
+A tabela fornece uma lista de alto nível de funcionalidades do Azure Maps, que correspondem às funcionalidades do Google Maps. Esta lista não mostra todas as funcionalidades do Azure Maps. As funcionalidades adicionais do Azure Maps incluem: acessibilidade, geofencing, isochrones, operações espaciais, acesso ao azulejo do mapa direto, serviços de lote e comparações de cobertura de dados (isto é, cobertura de imagens).
 
-| Recurso do Google Maps         | Suporte ao Azure Maps                     |
+| Recurso do Google Maps         | Suporte do Azure Maps                     |
 |-----------------------------|:--------------------------------------:|
 | Web SDK                     | ✓                                      |
 | SDK Android                 | ✓                                      |
 | iOS SDK                     | Planeado                                |
-| APIs de serviço REST           | ✓                                      |
-| Direções (roteamento)        | ✓                                      |
+| SERVIÇO DE REPOUSO APIs           | ✓                                      |
+| Instruções (Encaminhamento)        | ✓                                      |
 | Matriz de Distância             | ✓                                      |
 | Elevação                   | Planeado                                |
-| Geocodificação (encaminhar/reverter) | ✓                                      |
+| Geocodificação (Para a frente/para trás) | ✓                                      |
 | Geolocalização                 | N/D                                    |
 | Pesquisa de locais               | ✓                                      |
-| Detalhes de locais              | N/A – site & número de telefone disponível |
-| Fotos de locais               | N/D                                    |
+| Detalhes dos locais              | N/A – site e número de telefone disponível |
+| Fotos de lugares               | N/D                                    |
 | Lugar Autocompleto          | ✓                                      |
-| Mapas estáticos                 | ✓                                      |
-| Exibição de rua estática          | N/D                                    |
+| Mapas Estáticos                 | ✓                                      |
+| Vista de rua estática          | N/D                                    |
 | Fuso Horário                   | ✓                                      |
-| API de mapas inseridos           | N/D                                    |
+| Mapas Incorporados API           | N/D                                    |
 | URLs de mapa                    | N/D                                    |
 
-O Google Maps fornece a autenticação básica baseada em chaves. O Azure Maps fornece tanto a autenticação baseada em chaves básicas como a autenticação do Diretório Ativo Azure. O Azure Ative Directory tem mais funcionalidades de segurança, em comparação com a autenticação básica baseada em chaves.
+O Google Maps fornece autenticação básica baseada em chaves. O Azure Maps fornece autenticação básica baseada em chaves e autenticação do Diretório Ativo Azure. A autenticação do Diretório Ativo Azure fornece mais funcionalidades de segurança, em comparação com a autenticação básica baseada em chaves.
 
-## <a name="licensing-considerations"></a>Considerações sobre licenciamento
+## <a name="licensing-considerations"></a>Considerações de licenciamento
 
 Ao migrar para o Azure Maps do Google Maps, considere os seguintes pontos sobre o licenciamento.
 
-- O Azure Maps cobra pelo uso de mapas interativos, que se baseiam no número de telhas de mapas carregadas. Por outro lado, o Google Maps cobra por carregar o controlo do mapa. Nos SDKs interativos do Azure Maps, os azulejos do mapa são automaticamente cached para reduzir o custo de desenvolvimento. Uma transação do Azure Maps é gerada para cada 15 blocos de mapa que são carregados. Os SDKs interativos do Azure Maps usam blocos de 512 pixels e, em média, gera uma ou menos transações por exibição de página.
-- Muitas vezes, é mais rentável substituir imagens estáticas de mapas dos serviços web do Google Maps pelo Azure Maps Web SDK. O Azure Maps Web SDK utiliza azulejos de mapas, e a menos que o utilizador faça panelas e zooms o mapa, o serviço gera frequentemente apenas uma fração de uma transação por carga de mapa. O Azure Maps web SDK tem opções para desativar a panorâmica e o zooming, se desejar. Além disso, o Web SDK do Azure Maps fornece muito mais opções de visualização do que o serviço web de mapas estáticos.
-- O mapas do Azure permite que os dados de sua plataforma sejam armazenados no Azure. Além disso, os dados podem ser cacheados em outros lugares por um máximo de seis meses, de acordo com os [termos de utilização](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
+- O Azure Maps cobra pelo uso de mapas interativos, que se baseiam no número de telhas de mapas carregadas. Por outro lado, o Google Maps cobra por carregar o controlo do mapa. Nos SDKs interativos do Azure Maps, os azulejos do mapa são automaticamente cached para reduzir o custo de desenvolvimento. Uma transação do Azure Maps é gerada por cada 15 telhas de mapas que são carregadas. Os SDKs interativos do Azure Maps utilizam azulejos de 512 pixels e, em média, gera mato ou menos transações por visualização de página.
+- Muitas vezes, é mais rentável substituir imagens estáticas de mapas dos serviços web do Google Maps pelo Azure Maps Web SDK. O Azure Maps Web SDK utiliza azulejos de mapas. A menos que o utilizador faça panelas e zoom o mapa, o serviço gera frequentemente apenas uma fração de uma transação por carga de mapa. O Azure Maps web SDK tem opções para desativar a panorâmica e o zooming, se desejar. Além disso, o Web SDK do Azure Maps fornece muito mais opções de visualização do que o serviço web de mapas estáticos.
+- O Azure Maps permite que os dados da sua plataforma sejam armazenados no Azure. Além disso, os dados podem ser cacheados em outros lugares por um máximo de seis meses, de acordo com os [termos de utilização](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
 
-Aqui estão alguns recursos relacionados para mapas do Azure:
+Aqui estão alguns recursos relacionados para o Azure Maps:
 
 - [Página de preços do Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/)
 - [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
@@ -68,18 +68,18 @@ Aqui estão alguns recursos relacionados para mapas do Azure:
 
 ## <a name="suggested-migration-plan"></a>Plano de migração sugerido
 
-Este é um plano de migração de alto nível.
+Segue-se um plano de migração de alto nível.
 
 1. Faça o inventário dos SDKs e serviços do Google Maps que a sua aplicação utiliza. Verifique se o Azure Maps fornece SDKs e serviços alternativos.
 2. Se ainda não tem uma, crie uma subscrição Azure no [https://azure.com](https://azure.com).
 3. Criar uma conta Azure Maps[(documentação)](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)e chave de autenticação ou Diretório Ativo Azure[(documentação).](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
-4. Migre o código do aplicativo.
-5. Teste seu aplicativo migrado.
-6. Implante seu aplicativo migrado para produção.
+4. Migra o teu código de candidatura.
+5. Teste a sua aplicação migratória.
+6. Implante a sua aplicação migrada para a produção.
 
 ## <a name="azure-maps-technical-resources"></a>Recursos técnicos do Azure Maps
 
-Aqui está uma lista de recursos técnicos úteis para mapas do Azure.
+Aqui está uma lista de recursos técnicos úteis para o Azure Maps.
 
 - Visão geral: [https://azure.com/maps](https://azure.com/maps)
 - Documentação: [https://aka.ms/AzureMapsDocs](https://aka.ms/AzureMapsDocs)

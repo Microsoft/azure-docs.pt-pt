@@ -132,7 +132,16 @@
           displayName: 'linked templates, nested templates'
           href: linked-templates.md
         - name: Criar múltiplas instâncias
-          href: create-multiple-instances.md
+          items:
+            - name: Recursos
+              displayName: 'iteration,copy'
+              href: copy-resources.md
+            - name: Propriedades
+              displayName: 'iteration,copy'
+              href: copy-properties.md
+            - name: Variáveis
+              displayName: 'iteration,copy'
+              href: copy-variables.md
         - name: Recursos ao nível da subscrição
           href: deploy-to-subscription.md
         - name: Recursos ao nível do grupo de gestão

@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: pesquisar locais próximos em um mapa | Mapas do Microsoft Azure'
+title: 'Tutorial: Procure por locais próximos num mapa Microsoft Azure Maps'
 description: Neste tutorial, você aprenderá a procurar pontos de interesse em um mapa usando mapas de Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9b390806e678c7900b166a07316d7f8ac32a5153
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1035f9c8284f3acf2667d93ce257039defeb3c71
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716182"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209516"
 ---
-# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisar pontos de interesse próximos usando o Azure Maps
+# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisa pontos de interesse próximos usando o Azure Maps
 
 Este tutorial mostra como configurar uma conta com o Azure Maps e, em seguida, utilizar as APIs do Maps para procurar um ponto de interesse. Neste tutorial, ficará a saber como:
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -49,19 +49,19 @@ Crie uma nova conta dos Maps com os seguintes passos:
     * Leia a *Licença* e a *Declaração de Privacidade*, e selecione a caixa de verificação para aceitar os termos.
     * Clique no botão **Criar**.
 
-![Criar conta do Azure Maps no portal do Azure](./media/tutorial-search-location/create-account.png)
+![Criar conta Azure Maps no portal Azure](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
 ## <a name="get-the-primary-key-for-your-account"></a>Obter a chave primária para a sua conta
 
-Depois de a sua conta do Maps ser criada com êxito, obtenha a chave que lhe permite consultar as APIs do Maps. É recomendável usar a chave primária da sua conta como a chave de assinatura ao chamar os serviços do Azure Maps.
+Depois de a sua conta do Maps ser criada com êxito, obtenha a chave que lhe permite consultar as APIs do Maps. Recomendamos que utilize a chave principal da sua conta como chave de subscrição ao ligar para os serviços do Azure Maps.
 
 1. Abra a sua conta do Maps no portal.
 2. Na secção definições, **selecione Autenticação**.
 3. Copie a **Chave primária** para a área de transferência. Guarde-a localmente para a utilizar mais tarde neste tutorial.
 
-![Obter chave primária no portal do Azure](./media/tutorial-search-location/get-key.png)
+![Obtenha chave primária no portal Azure](./media/tutorial-search-location/get-key.png)
 
 Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps](how-to-manage-authentication.md).
 
@@ -72,7 +72,7 @@ Para obter mais informações sobre a autenticação no Azure Maps, consulte [a 
 A API de Controle de Mapeamento é uma biblioteca de cliente conveniente. Essa API permite que você integre facilmente os mapas em seu aplicativo Web. Ele oculta a complexidade das chamadas de serviço Bare-REST e aumenta sua produtividade com componentes personalizáveis. Os passos seguintes mostram como criar uma página HTML estática incorporada com a API de Controlo de Mapas.
 
 1. No seu computador local, crie um novo ficheiro e dê-lhe o nome **MapSearch.html**.
-2. Adicione os seguintes componentes de HTML ao ficheiro:
+2. Adicione os seguintes componentes HTML ao ficheiro:
 
    ```HTML
     <!DOCTYPE html>
@@ -163,7 +163,7 @@ A API de Controle de Mapeamento é uma biblioteca de cliente conveniente. Essa A
     });
     ```
 
-   Neste segmento de código, um evento `ready` é adicionado ao mapa, que irá disparar quando os recursos do mapa tiverem sido carregados e o mapa estiver pronto para ser acedido. No mapa `ready` manipulador de eventos, é criada uma fonte de dados para armazenar dados de resultados. É criada e anexada uma camada de símbolo à origem de dados. Essa camada especifica como os dados de resultado na fonte de dados devem ser renderizados. Nesse caso, o resultado é renderizado com um ícone de pino redondo azul escuro, centralizado sobre a coordenada de resultados e permite que outros ícones se sobreponham. A camada de resultado é adicionada às camadas do mapa.
+   Neste segmento de código, um evento `ready` é adicionado ao mapa, que irá disparar quando os recursos do mapa tiverem sido carregados e o mapa estiver pronto para ser acedido. No mapa `ready` manipulador de eventos, é criada uma fonte de dados para armazenar dados de resultados. É criada e anexada uma camada de símbolo à origem de dados. Essa camada especifica como os dados de resultado na fonte de dados devem ser renderizados. Nesse caso, o resultado é renderizado com um ícone de pino redondo azul escuro, centralizado sobre a coordenada de resultados e permite que outros ícones se sobreponham. A camada de resultados é adicionada às camadas do mapa.
 
 <a id="usesearch"></a>
 
@@ -188,7 +188,7 @@ Esta secção mostra como usar a [API](https://docs.microsoft.com/rest/api/maps/
 
    O `SubscriptionKeyCredential` cria uma `SubscriptionKeyCredentialPolicy` para autenticar pedidos DE HTTP para o Azure Maps com a chave de subscrição. O `atlas.service.MapsURL.newPipeline()` apodera-se da política `SubscriptionKeyCredential` e cria uma instância [de Pipeline.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) O `searchURL` representa um URL para operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Maps.
 
-2. Em seguida, adicione o seguinte bloco de script para criar a consulta de pesquisa. Utiliza o Fuzzy Search Service, que é uma API de pesquisa básica do Search Service. O Fuzzy Search Service processa a maioria das entradas difusas, como quaisquer endereços, lugares e pontos de interesse (POI). Esse código procura estações de gasolina próximas dentro do raio especificado da latitude e longitude fornecidas. Uma recolha de funcionalidades GeoJSON da resposta é então extraída utilizando o método `geojson.getFeatures()` e adicionada à fonte de dados, o que resulta automaticamente na prestação dos dados no mapa através da camada de símbolo. A última parte do script define a vista da câmera dos mapas com a caixa delimitadora dos resultados através da propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Mapa.
+2. Em seguida, adicione o seguinte bloco de script para criar a consulta de pesquisa. Utiliza o Fuzzy Search Service, que é uma API de pesquisa básica do Search Service. O Fuzzy Search Service processa a maioria das entradas difusas, como quaisquer endereços, lugares e pontos de interesse (POI). Este código procura postos de gasolina próximos dentro do raio especificado da latitude e longitude fornecidas. Uma recolha de funcionalidades GeoJSON da resposta é então extraída utilizando o método `geojson.getFeatures()` e adicionada à fonte de dados, o que resulta automaticamente na prestação dos dados no mapa através da camada de símbolo. A última parte do script define a vista da câmera dos mapas com a caixa delimitadora dos resultados através da propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Mapa.
 
     ```JavaScript
     var query =  'gasoline-station';
@@ -275,7 +275,7 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
 
     ![Search Service e Controlo de Mapas do Azure](./media/tutorial-search-location/popup-map.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
