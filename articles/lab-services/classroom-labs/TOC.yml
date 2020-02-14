@@ -52,6 +52,8 @@
           href: how-to-manage-lab-accounts.md
         - name: Configurar contas de laboratório
           href: how-to-configure-lab-accounts.md
+        - name: Permitir que o criador do laboratório escolha a localização do laboratório
+          href: allow-lab-creator-pick-lab-location.md
         - name: Ligar os seus laboratórios a uma rede virtual de peering
           href: how-to-connect-peer-virtual-network.md
         - name: Anexar ou desanexar uma galeria de imagens partilhadas

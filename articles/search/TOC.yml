@@ -313,14 +313,20 @@
           href: search-pagination-page-layout.md
         - name: Otimização da relevância (perfis de classificação)
           href: index-add-scoring-profiles.md
-    - name: Gerir e monitorizar
+    - name: Gerir um serviço
       items:
-        - name: Administração do portal
+        - name: Portal
           href: search-manage.md
-        - name: Administração do PowerShell
+        - name: PowerShell
           href: search-manage-powershell.md
-        - name: Monitorizar atividade e registo
+    - name: Monitorizar e registar
+      items:
+        - name: Noções Básicas
           href: search-monitor-usage.md
+        - name: Monitorizar atividade de consultas
+          href: search-monitor-queries.md
+        - name: Registo de diagnósticos
+          href: search-monitor-logs.md
         - name: Procurar análises de tráfego
           href: search-traffic-analytics.md
     - name: Resolução de problemas

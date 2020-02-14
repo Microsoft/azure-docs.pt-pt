@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 07/27/2019
-  ms.openlocfilehash: 1ce670f2783eb12db307eac42974667dd809de9d
-  ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+  ms.openlocfilehash: e11e0edf214d3362784285cc24ee209855383119
+  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 02/12/2020
-  ms.locfileid: "77159306"
+  ms.locfileid: "77166172"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -70,15 +70,15 @@ conceptualContent:
       text: Ver mais
   - title: Autenticação
     links:
-    - url: ./authentication/concept-mfa-howitworks.md
+    - url: ./authentication/overview-authentication.md
       itemType: concept
-      text: 'Como funciona: Azure MFA'
-    - url: ./authentication/concept-sspr-howitworks.md
-      itemType: concept
-      text: Reposição personalizada de palavra-passe do Azure AD
-    - url: ./authentication/concept-password-ban-bad.md
-      itemType: concept
-      text: Proteção de palavras-passe do Azure AD
+      text: O que é a Azure AD Authentication?
+    - url: ./authentication/tutorial-enable-sspr.md
+      itemType: tutorial
+      text: Ativar a reposição de palavras-passe self-service
+    - url: ./authentication/tutorial-enable-azure-mfa.md
+      itemType: tutorial
+      text: Ativar a Multi-Factor Authentication do Azure
     footerLink:
       url: ./authentication/index.yml
       text: Ver mais
