@@ -1,33 +1,33 @@
 ---
-title: Aplicar licença do Windows a máquinas virtuais do host de sessão – Azure
-description: Descreve como aplicar a licença do Windows para VMs de área de trabalho virtual do Windows.
+title: Aplicar licença do Windows para sessão de anfitriões de máquinas virtuais - Azure
+description: Descreve como aplicar a licença Do Windows para VMs de ambiente de trabalho virtual windows.
 services: virtual-desktop
 author: ChristianMontoya
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: af8542ccc8fad8d833d8329999ded2f5a52b3d03
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 2543dd12e8a75a038a1fc04371b8c562ef696e25
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69564202"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201480"
 ---
-# <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicar licença do Windows a máquinas virtuais do host de sessão
+# <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicar licença do Windows para sessão de anfitriões de máquinas virtuais
 
-Os clientes que estão devidamente licenciados para executar cargas de trabalho de área de desktop virtual do Windows estão qualificados a aplicar uma licença do Windows a suas máquinas virtuais do host de sessão e executá-las sem pagar por outra licença. Para obter mais informações, consulte [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+Os clientes devidamente licenciados para executar as cargas de trabalho do Windows Virtual Desktop são elegíveis para aplicar uma licença do Windows às suas máquinas virtuais de anfitrião de sessão e executá-las sem pagar por outra licença. Para mais informações, consulte os preços do [Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
-## <a name="ways-to-use-your-windows-virtual-desktop-license"></a>Maneiras de usar sua licença de área de trabalho virtual do Windows
-O licenciamento de área de trabalho virtual do Windows permite que você aplique uma licença a qualquer máquina virtual Windows ou Windows Server registrada como um host de sessão em um pool de hosts e receba conexões de usuário. Essa licença não se aplica a máquinas virtuais que estão sendo executadas como servidores de compartilhamento de arquivos, controladores de domínio e assim por diante.
+## <a name="ways-to-use-your-windows-virtual-desktop-license"></a>Formas de utilizar a sua licença de ambiente de trabalho virtual do Windows
+O licenciamento do Windows Virtual Desktop permite-lhe aplicar uma licença a qualquer máquina virtual do Windows ou do Windows Server que esteja registada como anfitrião de uma sessão num pool de anfitriões e que receba as ligações do utilizador. Esta licença não se aplica a máquinas virtuais que estão a funcionar como servidores de partilha de ficheiros, controladores de domínio, e assim por diante.
 
-Há algumas maneiras de usar a licença de área de trabalho virtual do Windows:
-- Você pode criar um pool de hosts e suas máquinas virtuais de host de sessão usando a [oferta do Azure Marketplace](./create-host-pools-azure-marketplace.md). As máquinas virtuais criadas dessa maneira automaticamente têm a licença aplicada.
-- Você pode criar um pool de hosts e suas máquinas virtuais de host de sessão usando o [modelo de Azure Resource Manager do GitHub](./create-host-pools-arm-template.md). As máquinas virtuais criadas dessa maneira automaticamente têm a licença aplicada.
-- Você pode aplicar uma licença a uma máquina virtual de host de sessão existente. Para fazer isso, primeiro siga as instruções em [criar um pool de hosts com o PowerShell](./create-host-pools-powershell.md) para criar um pool de hosts e VMs associadas e, em seguida, retorne a este artigo para saber como aplicar a licença.
+Existem algumas formas de utilizar a licença de ambiente de trabalho virtual do Windows:
+- Você pode criar uma piscina anfitriã e sua sessão hospedar máquinas virtuais usando a [oferta Azure Marketplace](./create-host-pools-azure-marketplace.md). As máquinas virtuais criadas desta forma têm automaticamente a licença aplicada.
+- Você pode criar um pool anfitrião e sua sessão anfitrião máquinas virtuais usando o [modelo GitHub Azure Resource Manager](./create-host-pools-arm-template.md). As máquinas virtuais criadas desta forma têm automaticamente a licença aplicada.
+- Pode aplicar uma licença a uma máquina virtual de anfitrião de sessão existente. Para isso, siga primeiro as instruções em [Criar um pool de anfitriões com](./create-host-pools-powershell.md) a PowerShell para criar uma piscina hospedeira e VMs associados, em seguida, volte a este artigo para aprender a aplicar a licença.
 
-## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Aplicar uma licença do Windows a uma VM host de sessão
-Verifique se você [instalou e configurou as Azure PowerShell mais recentes](/powershell/azure/overview). Execute o seguinte cmdlet do PowerShell para aplicar a licença do Windows:
+## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Aplicar uma licença do Windows a um VM anfitrião de sessão
+Certifique-se de que [instalou e configurou o mais recente Azure PowerShell](/powershell/azure/overview). Executar o seguinte cmdlet PowerShell para aplicar a licença Windows:
 
 ```powershell
 $vm = Get-AzVM -ResourceGroup <resourceGroupName> -Name <vmName>
@@ -35,13 +35,13 @@ $vm.LicenseType = "Windows_Client"
 Update-AzVM -ResourceGroupName <resourceGroupName> -VM $vm
 ```
 
-## <a name="verify-your-session-host-vm-is-utilizing-the-licensing-benefit"></a>Verifique se a VM do host de sessão está utilizando o benefício de licenciamento
-Depois de implantar sua VM, execute este cmdlet para verificar o tipo de licença:
+## <a name="verify-your-session-host-vm-is-utilizing-the-licensing-benefit"></a>Verifique se a sua vm anfitriã o anfitrião da sessão está a utilizar o benefício de licenciamento
+Depois de implantar o seu VM, execute este cmdlet ot verificar o tipo de licença:
 ```powershell
-Get-AzVM -ResourceGroup <resourceGroupName> -Name <vmName>
+Get-AzVM -ResourceGroupName <resourceGroupName> -Name <vmName>
 ```
 
-Uma VM de host de sessão com a licença do Windows aplicada mostrará algo assim:
+Um VM anfitrião de sessão com a licença do Windows aplicada irá mostrar-lhe algo assim:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -49,7 +49,7 @@ Location                 : westus
 LicenseType              : Windows_Client
 ```
 
-As VMs sem a licença do Windows aplicada mostrarão algo assim:
+VMs sem a licença do Windows aplicada mostrar-lhe-ão algo assim:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -57,9 +57,9 @@ Location                 : westus
 LicenseType              :
 ```
 
-Execute o seguinte cmdlet para ver uma lista de todas as VMs de host de sessão que têm a licença do Windows aplicada em sua assinatura do Azure:
+Execute o seguinte cmdlet para ver uma lista de todos os VMs anfitriões da sessão que tenham a licença Windows aplicada na sua subscrição Azure:
 
 ```powershell
 $vms = Get-AzVM
-$vms | ?{$_.LicenseType -like "Windows_Client"} | select ResourceGroupName, Name, LicenseType
+$vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object ResourceGroupName, Name, LicenseType
 ```

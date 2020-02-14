@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 47b9c0f89cb3db1610b8e3d98f408283c6ff9980
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3a7fc8028348ae20403df62cd03c76a266edf07c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116928"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191324"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -29,7 +29,7 @@ Para controlar o acesso e proteger os dados nos aplicativos lógicos do Azure, v
 
 Se a sua aplicação lógica utilizar um gatilho baseado em pedidos, que recebe chamadas ou pedidos recebidos, como o [gatilho De pedido](../connectors/connectors-native-reqres.md) ou [webhook,](../connectors/connectors-native-webhook.md) pode limitar o acesso para que apenas os clientes autorizados possam ligar para a sua aplicação lógica. Todas as solicitações recebidas por um aplicativo lógico são criptografadas e protegidas com o protocolo protocolo SSL (SSL).
 
-Aqui estão as maneiras como você pode proteger o acesso a esse tipo de gatilho:
+Aqui estão as opções que podem ajudá-lo a garantir o acesso a este tipo de gatilho:
 
 * [Gerar assinaturas de acesso partilhado](#sas)
 * [Restringir os endereços IP de entrada](#restrict-inbound-ip-addresses)
@@ -62,7 +62,7 @@ Para obter mais informações sobre como proteger o acesso com SAS, consulte est
 
 #### <a name="regenerate-access-keys"></a>Regenerar chaves de acesso
 
-Para gerar uma nova chave de acesso seguro a qualquer momento, use a API REST do Azure ou portal do Azure. Todas as URLs geradas anteriormente que usam a chave antiga são invalidadas e não têm mais autorização para disparar o aplicativo lógico. As URLs que você recupera após a regeneração são assinadas com a nova chave de acesso.
+Para gerar uma nova chave de acesso à segurança a qualquer momento, utilize o portal Azure REST API ou Azure. Todas as URLs geradas anteriormente que usam a chave antiga são invalidadas e não têm mais autorização para disparar o aplicativo lógico. As URLs que você recupera após a regeneração são assinadas com a nova chave de acesso.
 
 1. No [portal Azure,](https://portal.azure.com)abra a app lógica que tem a chave que pretende regenerar.
 
@@ -92,7 +92,7 @@ Ao gerar ou listar URLs de retorno de chamada para um gatilho baseado em solicit
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Essa propriedade retorna uma URL que é assinada pela chave segura especificada.
+No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Esta propriedade devolve um URL assinado pela chave de segurança especificada.
 
 <a name="restrict-inbound-ip"></a>
 
@@ -188,7 +188,7 @@ Para controlar o acesso às entradas e saídas no histórico de execução do ap
 
 * [Restringir o acesso por gama de endereços IP](#restrict-ip).
 
-  Essa opção permite proteger o acesso ao histórico de execução com base nas solicitações de um intervalo de endereços IP específico.
+  Esta opção ajuda-o a garantir o acesso ao histórico de execução com base nos pedidos de uma gama específica de endereços IP.
 
 * Ocultar dados do histórico de [execução utilizando a obfuscção](#obfuscate).
 
@@ -257,21 +257,21 @@ Se [automatizar a implementação de aplicações lógicas utilizando modelos](.
 
 ### <a name="hide-data-from-run-history-by-using-obfuscation"></a>Ocultar dados do histórico de execução usando ofuscação
 
-Muitos gatilhos e ações têm configurações para ocultar entradas, saídas ou ambos do histórico de execução de um aplicativo lógico. Aqui ficam [algumas considerações a rever](#obfuscation-considerations) quando utiliza estas definições para proteger estes dados.
+Muitos gatilhos e ações têm configurações para ocultar entradas, saídas ou ambos do histórico de execução de um aplicativo lógico. Aqui ficam [algumas considerações a rever](#obfuscation-considerations) quando utiliza estas definições para o ajudar a proteger estes dados.
 
-#### <a name="secure-inputs-and-outputs-in-the-designer"></a>Proteger entradas e saídas no designer
+#### <a name="hide-inputs-and-outputs-in-the-designer"></a>Ocultar inputs e saídas no designer
 
 1. No [portal Azure,](https://portal.azure.com)abra a sua aplicação lógica no Logic App Designer.
 
    ![Abrir o aplicativo lógico no designer de aplicativo lógico](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
-1. No gatilho ou ação onde pretende guardar dados, selecione o botão elipses ( **...** ) e, em seguida, selecione **Definições**.
+1. No gatilho ou ação onde pretende ocultar dados sensíveis, selecione o botão elipses ( **...** ) e, em seguida, selecione **Definições**.
 
    ![Abrir configurações de gatilho ou ação](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
 1. Ligue as **inputs seguras,** **as saídas seguras,** ou ambas. Quando tiver terminado, selecione **Concluído**.
 
-   ![Ativar entradas ou saídas seguras](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
+   ![Ligue "Entradas seguras" ou "saídas seguras"](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
    A ação ou gatilho agora mostra um ícone de cadeado na barra de título.
 
@@ -287,20 +287,20 @@ Muitos gatilhos e ações têm configurações para ocultar entradas, saídas ou
 
    1. No painel de execução de **aplicações Logic,** expanda as ações que pretende rever.
 
-      Se você optar por proteger as entradas e saídas, esses valores agora aparecerão ocultos.
+      Se optou por ocultar tanto as inputs como as saídas, esses valores parecem agora escondidos.
 
       ![Entradas e saídas ocultas no histórico de execuções](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
 <a name="secure-data-code-view"></a>
 
-#### <a name="secure-inputs-and-outputs-in-code-view"></a>Proteger entradas e saídas no modo de exibição de código
+#### <a name="hide-inputs-and-outputs-in-code-view"></a>Ocultar inputs e saídas na vista de código
 
 Na definição de gatilho ou de ação subjacente, adicione ou atualize o conjunto de `runtimeConfiguration.secureData.properties` com ambos ou ambos os valores:
 
 * `"inputs"`: Assegura as inputs na história da execução.
 * `"outputs"`: Assegura saídas na história da execução.
 
-Aqui ficam [algumas considerações a rever](#obfuscation-considerations) quando utiliza estas definições para proteger estes dados.
+Aqui ficam [algumas considerações a rever](#obfuscation-considerations) quando utiliza estas definições para o ajudar a proteger estes dados.
 
 ```json
 "<trigger-or-action-name>": {
@@ -324,13 +324,13 @@ Aqui ficam [algumas considerações a rever](#obfuscation-considerations) quando
 
 #### <a name="considerations-when-hiding-inputs-and-outputs"></a>Considerações ao ocultar entradas e saídas
 
-* Quando você protege as entradas ou saídas em um gatilho ou ação, os aplicativos lógicos não enviam os dados protegidos para o Azure Log Analytics. Além disso, não é possível adicionar [propriedades rastreadas](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a esse gatilho ou ação para monitorização.
+* Quando obscurece as inputs ou saídas num gatilho ou ação, as Aplicações Lógicas não enviam os dados seguros para o Azure Log Analytics. Além disso, não é possível adicionar [propriedades rastreadas](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a esse gatilho ou ação para monitorização.
 
 * A [API de Aplicações Lógicas para lidar com o histórico de fluxos](https://docs.microsoft.com/rest/api/logic/) de trabalho não devolve saídas seguras.
 
-* Para proteger as saídas de uma ação que proteja as inputs ou utilize explicitamente saídas seguras, ligue manualmente as **saídas seguras** nessa ação.
+* Para ocultar saídas de uma ação que obscurece as inputs ou obscurece explicitamente as saídas, ligue manualmente as **saídas seguras** nessa ação.
 
-* Certifique-se de que liga **as inputs seguras** ou as **saídas seguras** em ações a jusante, onde espera que o histórico de execução garanta esses dados.
+* Certifique-se de que liga **as inputs seguras** ou as **saídas seguras** em ações a jusante, onde espera que o histórico de execução obscureça esses dados.
 
   **Definição de saídas seguras**
 
@@ -358,7 +358,7 @@ Aqui ficam [algumas considerações a rever](#obfuscation-considerations) quando
 
 Se você implantar em ambientes diferentes, considere a possibilidade de parametrização dos valores na definição do fluxo de trabalho que variam de acordo com esses ambientes. Desta forma, pode evitar dados codificados com código sinuoso utilizando um modelo de Gestor de [Recursos Azure](../azure-resource-manager/templates/overview.md) para implementar a sua aplicação lógica, proteger dados sensíveis definindo parâmetros seguros e passar esses dados como entradas separadas através [dos parâmetros do modelo](../azure-resource-manager/templates/template-parameters.md) utilizando um ficheiro de [parâmetros](../azure-resource-manager/templates/parameter-files.md).
 
-Por exemplo, se autenticar as ações do HTTP com o [Azure Ative Directory OAuth,](#azure-active-directory-oauth-authentication)pode definir e fixar os parâmetros que aceitam o ID do cliente e o segredo do cliente que são usados para autenticação. Para definir estes parâmetros na sua aplicação lógica, use a secção `parameters` na definição de fluxo de trabalho da sua aplicação lógica e modelo de Gestor de Recursos para implementação. Para ocultar valores de parâmetros que não quer mostrados ao editar a sua aplicação lógica ou ver o histórico de execução, defina os parâmetros utilizando o tipo `securestring` ou `secureobject` e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para aceder a estes valores de parâmetros durante o tempo de funcionamento, utilize a expressão `@parameters('<parameter-name>')` dentro da definição de fluxo de trabalho. Esta expressão é avaliada apenas no prazo de funcionamento e é descrita pela [Linguagem definição](../logic-apps/logic-apps-workflow-definition-language.md)de fluxo de trabalho.
+Por exemplo, se autenticar as ações do HTTP com o [Azure Ative Directory OAuth,](#azure-active-directory-oauth-authentication)pode definir e ocultar os parâmetros que aceitam o ID do cliente e o segredo do cliente que são usados para autenticação. Para definir estes parâmetros na sua aplicação lógica, use a secção `parameters` na definição de fluxo de trabalho da sua aplicação lógica e modelo de Gestor de Recursos para implementação. Para ocultar valores de parâmetros que não quer mostrados ao editar a sua aplicação lógica ou ver o histórico de execução, defina os parâmetros utilizando o tipo `securestring` ou `secureobject` e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para aceder a estes valores de parâmetros durante o tempo de funcionamento, utilize a expressão `@parameters('<parameter-name>')` dentro da definição de fluxo de trabalho. Esta expressão é avaliada apenas no prazo de funcionamento e é descrita pela [Linguagem definição](../logic-apps/logic-apps-workflow-definition-language.md)de fluxo de trabalho.
 
 > [!NOTE]
 > Se você usar um parâmetro em um cabeçalho ou corpo de solicitação, esse parâmetro poderá ser visível quando você exibir o histórico de execução do aplicativo lógico e a solicitação HTTP de saída. Certifique-se de também definir suas políticas de acesso de conteúdo adequadamente. Também pode usar [a obfuscação](#obfuscate) para ocultar inputs e saídas na sua história de execução. Os cabeçalhos de autorização nunca são visíveis por meio de entradas ou saídas. Portanto, se um segredo for usado lá, esse segredo não será recuperável.
@@ -566,7 +566,7 @@ Este modelo de exemplo que tem múltiplas definições de parâmetros seguros qu
 
 ## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Acesso a serviços e sistemas chamados de aplicativos lógicos
 
-Aqui estão algumas maneiras que você pode proteger pontos de extremidade que recebem chamadas ou solicitações de seu aplicativo lógico:
+Aqui estão algumas formas de ajudar a garantir pontos finais que recebem chamadas ou pedidos da sua aplicação lógica:
 
 * Adicionar autenticação a solicitações de saída.
 
@@ -586,13 +586,13 @@ Aqui estão algumas maneiras que você pode proteger pontos de extremidade que r
 
   Todas as chamadas para pontos de extremidade de aplicativos lógicos originam-se de endereços IP designados específicos que se baseiam nas regiões dos seus aplicativos lógicos. Você pode adicionar a filtragem que aceita solicitações somente desses endereços IP. Para obter estes endereços IP, consulte [Limites e configuração para Aplicações Lógicas Azure](logic-apps-limits-and-config.md#configuration).
 
-* Proteger conexões com sistemas locais.
+* Melhorar a segurança das ligações aos sistemas no local.
 
-  Os aplicativos lógicos do Azure fornecem integração com esses serviços para comunicação local segura e confiável.
+  As Aplicações Lógicas Azure proporcionam integração com estes serviços para ajudar a fornecer uma comunicação mais segura e fiável no local.
 
   * Gateway de dados no local
 
-    Muitos conectores gerenciados nos aplicativos lógicos do Azure fornecem conexões seguras para sistemas locais, como sistema de arquivos, SQL, SharePoint e DB2. O gateway envia dados de fontes locais em canais criptografados por meio do barramento de serviço do Azure. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. Saiba [como funciona o gateway de dados no local.](logic-apps-gateway-install.md#gateway-cloud-service)
+    Muitos conectores geridos em Aplicações Lógicas Azure facilitam ligações seguras a sistemas no local, tais como Sistema de Ficheiros, SQL, SharePoint e DB2. O gateway envia dados de fontes locais em canais criptografados por meio do barramento de serviço do Azure. Todo o tráfego origina-se como tráfego de saída seguro do agente de porta. Saiba [como funciona o gateway de dados no local.](logic-apps-gateway-install.md#gateway-cloud-service)
 
   * Conectar-se por meio do gerenciamento de API do Azure
 
@@ -680,9 +680,9 @@ Quando utiliza [parâmetros seguros](#secure-action-parameters) para manusear e 
 
 Para obter mais informações sobre como proteger serviços usando a autenticação de certificado do cliente, consulte estes tópicos:
 
-* [APIs seguros que utilizam autenticação de certificado de cliente na Gestão da API Azure](../api-management/api-management-howto-mutual-certificates-for-clients.md)
-* [Serviços back-end seguros usando autenticação de certificado de cliente na Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Proteja o seu serviço RESTfuL utilizando certificados de cliente](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
+* [Melhorar a segurança das APIs utilizando a autenticação de certificado de cliente na Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
+* [Melhorar a segurança dos serviços back-end utilizando a autenticação de certificado de cliente na Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
+* [Melhorar a segurança do seu serviço RESTfuL utilizando certificados de cliente](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
 * [Credenciais de certificado para autenticação de pedido](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Utilize um certificado SSL no seu código de aplicação no Serviço de Aplicações Azure](../app-service/configure-ssl-certificate-in-code.md)
 

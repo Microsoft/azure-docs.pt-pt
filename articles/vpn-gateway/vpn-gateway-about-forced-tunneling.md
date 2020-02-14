@@ -1,5 +1,5 @@
 ---
-title: 'Gateway de VPN do Azure: configurar o túnel forçado-conexões site a site: clássico'
+title: 'Azure VPN Gateway: Configurar túneis forçados - Ligações Local-A-Local: clássico'
 description: Como redirecionar ou "forçar" todo o tráfego vinculado à Internet para sua localização no local.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6b31555215f4f2efc63d0e1df0a7b4bf13a43924
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834587"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201582"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configurar o túnel forçado utilizando o modelo de implementação clássico
 
@@ -20,7 +20,7 @@ O túnel forçado permite redirecionar ou “forçar” todo o tráfego associad
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Este artigo orienta-o por meio de configurar imposição de túnel para redes virtuais criadas com o modelo de implementação clássica. O túnel forçado pode ser configurado com o PowerShell, não através do portal. Se você quiser configurar o túnel forçado para o modelo de implantação do Gerenciador de recursos, selecione o artigo do Resource Manager na lista suspensa a seguir:
+Este artigo orienta-o por meio de configurar imposição de túnel para redes virtuais criadas com o modelo de implementação clássica. O túnel forçado pode ser configurado com o PowerShell, não através do portal. Se pretender configurar túneis forçados para o modelo de implementação do Gestor de Recursos, selecione o artigo do Gestor de Recursos na lista de dropdown seguinte:
 
 > [!div class="op_single_selector"]
 > * [PowerShell – Clássica](vpn-gateway-about-forced-tunneling.md)
@@ -33,13 +33,13 @@ O túnel forçado no Azure está configurado por meio de rotas definidas pelo ut
 
 * Cada sub-rede da rede virtual tem uma tabela de roteamento interno, do sistema. A tabela de encaminhamento do sistema tem os seguintes três grupos de rotas:
 
-  * **As rotas locais de VNet:** diretamente para o destino de VMs na mesma rede virtual.
-  * **As rotas locais:** para o VPN gateway do Azure.
-  * **Rota predefinida:** diretamente à Internet. Pacotes destinados aos endereços IP privados, não abrangidos pelas rotas de duas anteriores serão ignorados.
+  * **Rotas VNet locais:** Diretamente para os VMs de destino na mesma rede virtual.
+  * **Rotas no local:** Para o portal Azure VPN.
+  * **Rota padrão:** Diretamente para a Internet. Pacotes destinados aos endereços IP privados, não abrangidos pelas rotas de duas anteriores serão ignorados.
 * Com o lançamento das rotas definidas pelo utilizador, pode criar uma tabela de encaminhamento para adicionar uma rota predefinida e, em seguida, associar a tabela de encaminhamento para as sub-redes de VNet para ativar o protocolo de túnel forçado nessas sub-redes.
 * Tem de definir um "site predefinido" entre os sites locais em vários locais ligado à rede virtual.
 * O túnel forçado tem de ser associado a uma VNet com um gateway de VPN encaminhamento dinâmico (não um gateway estático).
-* Túnel forçado do ExpressRoute não está configurado por intermédio deste mecanismo, mas em vez disso, está ativado por uma rota predefinida por meio de sessões de peering de BGP de ExpressRoute de publicidade. Consulte a [documentação do ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para obter mais informações.
+* Túnel forçado do ExpressRoute não está configurado por intermédio deste mecanismo, mas em vez disso, está ativado por uma rota predefinida por meio de sessões de peering de BGP de ExpressRoute de publicidade. Consulte a [Documentação ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para mais informações.
 
 ## <a name="configuration-overview"></a>Descrição geral da configuração
 No exemplo a seguir, o front-end sub-rede não é forçado em túnel. As cargas de trabalho na sub-rede de front-end podem continuar a aceitar e responder aos pedidos dos clientes da Internet diretamente. As sub-redes de escalão médio e de back-end são forçadas encapsulada. Qualquer conexões de saída destas duas sub-redes para a Internet serão forçados ou redirecionados para um site no local através de um dos túneis S2S VPN.
@@ -49,11 +49,24 @@ Isto permite-lhe restringir e inspecionar o acesso à Internet das suas máquina
 ![Túnel Forçado](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
 
 ## <a name="before-you-begin"></a>Antes de começar
-Antes de iniciar a configuração, verifique se tem os seguintes itens.
+Antes de iniciar a configuração, verifique se tem os seguintes itens:
 
 * Uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma rede virtual configurada. 
-* A versão mais recente dos cmdlets do PowerShell do Azure. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações sobre como instalar os cmdlets PowerShell.
+* [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
+
+### <a name="to-sign-in"></a>Para assinar
+
+1. Abra a consola PowerShell com direitos elevados. Para mudar para a gestão do serviço, utilize este comando:
+
+   ```powershell
+   azure config mode asm
+   ```
+2. Ligar à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
+
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="configure-forced-tunneling"></a>Configurar túnel forçado
 O procedimento seguinte irá ajudá-lo a especificar o protocolo de túnel forçado para uma rede virtual. Os passos de configuração correspondem para o ficheiro de configuração de rede de VNet.

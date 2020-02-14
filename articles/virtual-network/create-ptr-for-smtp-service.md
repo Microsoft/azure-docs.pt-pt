@@ -1,7 +1,7 @@
 ---
-title: Configurar zonas de pesquisa inversa para uma verificação de faixa SMTP no Azure
+title: Configure zonas de procura inversas para uma verificação de banner SMTP
 titlesuffix: Azure Virtual Network
-description: Descreve como configurar zonas de pesquisa inversa para uma verificação de faixa SMTP no Azure
+description: Descreve como configurar zonas de procura inversas para uma verificação de banner SMTP em Azure
 services: virtual-network
 documentationcenter: virtual-network
 author: genlin
@@ -13,35 +13,35 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 084fdb7f850f3819738a982127fa98efab114197
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 6c37ba61005c9936e6421d06369d1f52b93ac264
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059023"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201701"
 ---
-# <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Configurar zonas de pesquisa inversa para uma verificação de faixa SMTP
+# <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Configure zonas de procura inversas para uma verificação de banner SMTP
 
-Este artigo descreve como usar uma zona inversa no DNS do Azure e criar um registro DNS (PTR) reverso para verificação de faixa de SMTP.
+Este artigo descreve como usar uma zona inversa em DNS Azure e criar um registo DeDNs (PTR) invertido para verificação de banners SMTP.
 
 ## <a name="symptom"></a>Sintoma
 
-Se você hospedar um servidor SMTP no Microsoft Azure, poderá receber a seguinte mensagem de erro ao enviar ou receber uma mensagem de servidores de email remotos:
+Se hospedar um servidor SMTP no Microsoft Azure, poderá receber a seguinte mensagem de erro quando enviar ou receber uma mensagem de servidores de correio remoto:
 
-**554: Nenhum registro PTR**
+**554: Sem registo ptr**
 
 ## <a name="solution"></a>Solução
 
-Para um endereço IP virtual no Azure, os registros inversos são criados em zonas de domínio pertencentes à Microsoft, não zonas de domínio personalizadas.
+Para um endereço IP virtual em Azure, os registos inversos são criados em zonas de domínio da Microsoft, e não em zonas de domínio personalizados.
 
-Para configurar os registros PTR em zonas corporativas da Microsoft, use a propriedade-ReverseFqdn no recurso PublicIpAddress. Para obter mais informações, consulte [Configurar o DNS reverso para serviços hospedados no Azure](../dns/dns-reverse-dns-for-azure-services.md).
+Para configurar os registos de PTR em zonas próprias da Microsoft, utilize a propriedade -ReverseFqdn no recurso PublicIpAddress. Para mais informações, consulte [Configure reverter DNS para serviços hospedados em Azure](../dns/dns-reverse-dns-for-azure-services.md).
 
-Ao configurar os registros PTR, certifique-se de que o endereço IP e o FQDN reverso sejam de propriedade da assinatura. Se você tentar definir um FQDN reverso que não pertença à assinatura, você receberá a seguinte mensagem de erro:
+Quando configurar os registos ptr, certifique-se de que o endereço IP e o FQDN invertido são propriedade da subscrição. Se tentar definir um FQDN invertido que não pertença à subscrição, recebe a seguinte mensagem de erro:
 
     Set-AzPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership:
                         
-    1) ReverseFqdn corresponde ao FQDN de qualquer recurso de IP público na assinatura;
-    2) ReverseFqdn resolve para o FQDN (por meio da cadeia de registros CName) de qualquer recurso de IP público na assinatura;
-    3) Ele resolve para o endereço IP (por meio de CName e uma cadeia de registros) de um recurso IP público estático na assinatura.
+    1) ReverseFqdn corresponde a fqdn de qualquer recurso ip público ao abrigo da subscrição;
+    2) A ReverseFqdn resolve para o fqdn (através da cadeia de registos CName) qualquer recurso ip público sob a subscrição;
+    3) Resolve-se no endereço ip (através da cadeia CName e A records) de um recurso ip público estático ao abrigo da subscrição.
 
-Se você alterar manualmente sua faixa SMTP para corresponder ao nosso FQDN padrão reverso, o servidor de email remoto ainda poderá falhar porque pode esperar que o host de faixa SMTP corresponda ao registro MX do domínio.
+Se alterar manualmente o seu banner SMTP para corresponder ao nosso FQDN invertido predefinido, o servidor de correio remoto ainda pode falhar porque pode esperar que o banner host SMTP corresponda ao registo MX para o domínio.

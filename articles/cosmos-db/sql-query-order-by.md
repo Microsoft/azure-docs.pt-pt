@@ -1,21 +1,21 @@
 ---
-title: Cláusula ORDER BY no Azure Cosmos DB
-description: Saiba mais sobre a cláusula ORDER BY do SQL para Azure Cosmos DB. Use SQL como uma linguagem de consulta JSON Azure Cosmos DB.
-author: markjbrown
+title: CLÁUSULA ORDER BY em Azure Cosmos DB
+description: Conheça a cláusula SQL ORDER BY para O Azure Cosmos DB. Use o SQL como uma linguagem de consulta Azure Cosmos DB JSON.
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: fc5c875f4ae54ed334318efc5a1d5610b89bdda5
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.date: 02/12/2020
+ms.author: tisande
+ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929589"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188738"
 ---
-# <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY no Azure Cosmos DB
+# <a name="order-by-clause-in-azure-cosmos-db"></a>CLÁUSULA ORDER BY em Azure Cosmos DB
 
-A cláusula ORDER BY opcional especifica a ordem de classificação dos resultados retornados pela consulta.
+A cláusula OPCIONAL ORDER BY especifica a ordem de triagem dos resultados devolvidos pela consulta.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,19 +29,19 @@ ORDER BY <sort_specification>
   
 - `<sort_specification>`  
   
-   Especifica uma expressão no qual ordenar o conjunto de resultados de consulta ou de propriedade. Uma coluna de classificação pode ser especificada como um nome ou alias de propriedade.  
+   Especifica uma expressão no qual ordenar o conjunto de resultados de consulta ou de propriedade. Uma coluna de classificação pode ser especificada como um nome ou pseudónimo de propriedade.  
   
-   Várias propriedades podem ser especificadas. Os nomes de propriedade devem ser exclusivos. A sequência das propriedades de classificação na cláusula ORDER BY define a organização do conjunto de resultados classificado. Ou seja, o conjunto de resultados é ordenado pela primeira propriedade e, em seguida, essa lista ordenada é ordenada pela propriedade segundo e assim por diante.  
+   Várias propriedades podem ser especificadas. Os nomes de propriedade devem ser únicos. A sequência das propriedades do tipo na cláusula ORDER BY define a organização do conjunto de resultados ordenados. Ou seja, o conjunto de resultados é ordenado pela primeira propriedade e, em seguida, essa lista ordenada é ordenada pela propriedade segundo e assim por diante.  
   
-   Os nomes de propriedade referenciados na cláusula ORDER BY devem corresponder a uma propriedade na lista de seleção ou a uma propriedade definida na coleção especificada na cláusula FROM sem nenhuma ambiguidade.  
+   Os nomes de propriedade referidos na cláusula ORDER BY devem corresponder a um imóvel na lista selecionada ou a um imóvel definido na cláusula DE Cobrança especificada na cláusula FROM sem quaisquer ambiguidades.  
   
 - `<sort_expression>`  
   
-   Especifica uma ou mais propriedades ou expressões nas quais classificar o conjunto de resultados da consulta.  
+   Especifica uma ou mais propriedades ou expressões para classificar o conjunto de resultados de consulta.  
   
 - `<scalar_expression>`  
   
-   Consulte a [expressões escalares](sql-query-scalar-expressions.md) secção para obter detalhes.  
+   Consulte a secção de [expressões Scalar](sql-query-scalar-expressions.md) para mais detalhes.  
   
 - `ASC | DESC`  
   
@@ -49,14 +49,14 @@ ORDER BY <sort_specification>
   
 ## <a name="remarks"></a>Observações  
   
-   A cláusula ORDER BY requer que a política de indexação inclua um índice para os campos que estão sendo classificados. O tempo de execução de Azure Cosmos DB consulta dá suporte à classificação em relação a um nome de propriedade e não a Propriedades computadas. Azure Cosmos DB dá suporte a várias propriedades ORDER BY. Para executar uma consulta com várias propriedades ORDER BY, você deve definir um [índice composto](index-policy.md#composite-indexes) nos campos que estão sendo classificados.
-   
-> [!Note] 
-> Se as propriedades que estão sendo classificadas puderem ser indefinidas para alguns documentos e você quiser recuperá-las em uma consulta ORDER BY, você deverá criar explicitamente um índice nessas propriedades. A política de indexação padrão não permitirá a recuperação dos documentos em que a Propriedade Sort é indefinida.
+   A cláusula `ORDER BY` exige que a política de indexação inclua um índice para os campos que estão a ser classificados. O tempo de execução da consulta Azure Cosmos DB suporta a triagem contra um nome de propriedade e não contra propriedades computadas. A Azure Cosmos DB suporta várias propriedades `ORDER BY`. Para fazer uma consulta com múltiplas propriedades ORDER BY, deve definir um [índice composto](index-policy.md#composite-indexes) sobre os campos que estão sendo classificados.
+
+> [!Note]
+> Se as propriedades que estão a ser classificadas podem não estar definidas para alguns documentos e quiser recuperá-las numa consulta ORDER BY, deve incluir explicitamente este caminho no índice. A política de indexação padrão não permitirá a recuperação dos documentos onde a propriedade de classificação é indefinida. [Reveja as consultas de exemplo em documentos com alguns campos desaparecidos.](#documents-with-missing-fields)
 
 ## <a name="examples"></a>Exemplos
 
-Por exemplo, aqui está uma consulta que recupera famílias em ordem crescente do nome da cidade residente:
+Por exemplo, aqui está uma consulta que recupera famílias em ordem ascendente do nome da cidade residente:
 
 ```sql
     SELECT f.id, f.address.city
@@ -79,7 +79,7 @@ Os resultados são:
     ]
 ```
 
-A consulta a seguir recupera a família `id`s em ordem de data de criação do item. O item `creationDate` é um número que representa o *tempo de época*ou tempo decorrido desde Jan. 1, 1970 em segundos.
+A seguinte consulta recupera a família `id`por ordem da data de criação do artigo. Item `creationDate` é um número que representa o tempo da *época,* ou tempo decorrido desde 1 de janeiro de 1970 em segundos.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -102,7 +102,7 @@ Os resultados são:
     ]
 ```
 
-Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a consulta seguinte:
+Além disso, pode encomendar por várias propriedades. Uma consulta que encomenda por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a seguinte consulta:
 
 ```sql
     SELECT f.id, f.creationDate
@@ -110,10 +110,114 @@ Além disso, você pode ordenar por várias propriedades. Uma consulta que orden
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-Essa consulta recupera a família `id` em ordem crescente do nome da cidade. Se vários itens tiverem o mesmo nome de cidade, a consulta será ordenada pelo `creationDate` em ordem decrescente.
+Esta consulta recupera a família `id` em ordem ascendente do nome da cidade. Se vários itens tiverem o mesmo nome da cidade, a consulta será ordenada pelo `creationDate` em ordem descendente.
+
+## <a name="documents-with-missing-fields"></a>Documentos com campos desaparecidos
+
+As consultas com `ORDER BY` que são executadas contra contentores com a política de indexação padrão não devolverão documentos onde a propriedade de classificação é indefinida. Se você gostaria de incluir documentos onde a propriedade de classificação é indefinida, você deve explicitamente incluir esta propriedade na política de indexação.
+
+Por exemplo, aqui está um contentor com uma política de indexação que não inclui explicitamente quaisquer caminhos além de `"/*"`:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+Se executar uma consulta que inclua `lastName` na cláusula `Order By`, os resultados incluirão apenas documentos que tenham uma propriedade `lastName` definida. Não definimos um caminho explícito para `lastName` pelo que quaisquer documentos sem `lastName` não aparecerão nos resultados da consulta.
+
+Aqui está uma consulta que classifica por `lastName` em dois documentos, um dos quais não tem um `lastName` definido:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName
+```
+
+Os resultados incluem apenas o documento que tem um `lastName`definido:
+
+```json
+    [
+        {
+            "id": "AndersenFamily",
+            "lastName": "Andersen"
+        }
+    ]
+```
+
+Se atualizarmos a política de indexação do contentor para incluir explicitamente um caminho para `lastName`, incluiremos documentos com uma propriedade de tipo indefinida nos resultados da consulta. Deve definir explicitamente o caminho para levar a este valor escalar (e não para além dele). Deve utilizar o carácter `?` na definição de caminho na política de indexação para garantir que indexa explicitamente a propriedade `lastName` e nenhum caminho adicional aninhada além dela.
+
+Aqui está uma política de indexação de amostras que lhe permite ter documentos com uma `lastName` indefinida aparecer nos resultados da consulta:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/lastName/?"
+        },
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+Se fizer a mesma consulta novamente, os documentos que faltam `lastName` aparecem primeiro nos resultados da consulta:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName
+```
+
+Os resultados são:
+
+```json
+[
+    {
+        "id": "WakefieldFamily"
+    },
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen"
+    }
+]
+```
+
+Se modificar a ordem de classificação para `DESC`, os documentos que faltam `lastName` aparecem em último nos resultados da consulta:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName DESC
+```
+
+Os resultados são:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen"
+    },
+    {
+        "id": "WakefieldFamily"
+    }
+]
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
-- [Cláusula SELECT](sql-query-select.md)
-- [Cláusula de limite de deslocamento](sql-query-offset-limit.md)
+- [Políticas de indexação no Azure Cosmos DB](index-policy.md)
+- [Cláusula LIMITE OFFSET](sql-query-offset-limit.md)

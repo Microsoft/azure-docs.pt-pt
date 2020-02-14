@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 944f5008cff8d982ef15a1b129e2cd41d7df5cb4
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 1598451ce184db5a25cac28870b70a446aef123c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137708"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198825"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gerir o IoT Central a partir do Azure PowerShell
 
@@ -28,6 +28,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se preferir executar o Azure PowerShell na sua máquina local, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps). Quando executar o Azure PowerShell localmente, utilize o cmdlet **Connect-AzAccount** para iniciar sessão no Azure antes de experimentar os cmdlets neste artigo.
+
+> [!TIP]
+> Se precisar de executar os seus comandos PowerShell numa subscrição Azure diferente, consulte [Alterar a subscrição ativa](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription).
 
 ## <a name="install-the-iot-central-module"></a>Instale o módulo IoT Central
 

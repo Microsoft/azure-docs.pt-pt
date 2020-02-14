@@ -3,12 +3,12 @@ title: Considerações de armazenamento para funções azure
 description: Conheça os requisitos de armazenamento das Funções Azure e sobre encriptar dados armazenados.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 353fdd3bf7775e3bc7a9d017a9e8dd8238b09830
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: f094996ca44ec36d46330e54eac56b28794ef22e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964985"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190307"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções azure
 
@@ -17,9 +17,9 @@ As Funções Azure requerem uma conta de Armazenamento Azure quando cria uma ins
 
 |Serviço de armazenamento  | Utilização de funções  |
 |---------|---------|
-| [Armazenamento de Blobs do Azure](/storage/blobs/storage-blobs-overview.md)     | Mantenha as ligações de estado e chaves de função.  <br/>Também utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md) |
+| [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantenha as ligações de estado e chaves de função.  <br/>Também utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md) |
 | [Ficheiros do Azure](../storage/files/storage-files-introduction.md)  | Partilha de ficheiros utilizada para armazenar e executar o código da aplicação de funções num Plano de [Consumo](functions-scale.md#consumption-plan). |
-| [Armazenamento de filas do Azure](../storage/queues/storage-queues-introduction.md)     | Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)   |
+| [Armazenamento de fila azure](../storage/queues/storage-queues-introduction.md)     | Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)   |
 | [Armazenamento de tabelas do Azure](../storage/tables/table-storage-overview.md)  |  Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)       |
 
 > [!IMPORTANT]
@@ -35,13 +35,13 @@ Embora possa utilizar uma conta de armazenamento existente com a sua aplicação
 
 ## <a name="storage-account-guidance"></a>Orientação da conta de armazenamento
 
-Cada aplicativo de funções requer uma conta de armazenamento para operar. Se essa conta for eliminada, a sua aplicação de função não será executada. Para resolver problemas relacionados com o armazenamento, consulte [como resolver problemas relacionados com o armazenamento](functions-recover-storage-account.md). As seguintes considerações adicionais aplicam-se à conta de Armazenamento utilizada pelas aplicações de função.
+Todas as aplicações de função requerem uma conta de armazenamento para funcionar. Se essa conta for eliminada, a sua aplicação de função não será executada. Para resolver problemas relacionados com o armazenamento, consulte [como resolver problemas relacionados com o armazenamento](functions-recover-storage-account.md). As seguintes considerações adicionais aplicam-se à conta de Armazenamento utilizada pelas aplicações de função.
 
 ### <a name="storage-account-connection-setting"></a>Definição de conexão de conta de armazenamento
 
-A conexão da conta de armazenamento é mantida na [configuração do aplicativo AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+A ligação da conta de armazenamento é mantida na definição da [aplicação AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
 
-A cadeia de ligação à conta de armazenamento deve ser atualizada quando regenera as chaves de armazenamento. [Leia mais sobre o gerenciamento de chaves de armazenamento aqui](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+A cadeia de ligação à conta de armazenamento deve ser atualizada quando regenera as chaves de armazenamento. [Leia mais sobre a gestão da chave](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)de armazenamento aqui .
 
 ### <a name="shared-storage-accounts"></a>Contas de armazenamento partilhadas
 
@@ -53,9 +53,9 @@ A cadeia de ligação à conta de armazenamento deve ser atualizada quando regen
 
 ## <a name="storage-data-encryption"></a>Encriptação de dados de armazenamento
 
-O armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Para obter mais informações, consulte [criptografia de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md).
+O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Para mais informações, consulte [a encriptação do Armazenamento Azure para obter dados em repouso](../storage/common/storage-service-encryption.md).
 
-Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer chaves geridas pelo cliente para usar para encriptação de dados blob e ficheiros. Estas chaves devem estar presentes no Cofre de Chaves Azure para que as funções possam aceder à conta de armazenamento. Para saber mais, consulte as [chaves geridas pelo cliente Configure com o Cofre de Chaves Azure utilizando o portal Azure](../storage/common/storage-encryption-keys-portal.md).  
+Por padrão, os dados são encriptados com chaves geridas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer chaves geridas pelo cliente para usar para encriptação de dados blob e ficheiros. Estas chaves devem estar presentes no Cofre de Chaves Azure para que as funções possam aceder à conta de armazenamento. Para saber mais, consulte as [chaves geridas pelo cliente Configure com o Cofre de Chaves Azure utilizando o portal Azure](../storage/common/storage-encryption-keys-portal.md).  
 
 ## <a name="next-steps"></a>Passos seguintes
 

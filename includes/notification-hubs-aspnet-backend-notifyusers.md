@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "70934120"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192541"
 ---
-## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI
+## <a name="create-the-webapi-project"></a>Criar o Projeto WebAPI
 
 As secções seguintes abordam a criação de um novo back-end de ASP.NET WebAPI. Este processo tem três objetivos principais:
 
-- **Autenticar clientes**: Você adiciona um manipulador de mensagens para autenticar solicitações de cliente e associar o usuário à solicitação.
-- **Registre-se para receber notificações usando o back-end WebAPI**: Você adiciona um controlador para lidar com novos registros para um dispositivo cliente receber notificações. O nome de utilizador autenticado é adicionado automaticamente ao registo como uma [etiqueta](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
-- **Enviar notificações aos clientes**: Você adiciona um controlador para fornecer uma maneira para os usuários dispararem um envio por push seguro para dispositivos e clientes associados à marca.
+- **Autenticar os clientes**: é adicionado um processador de mensagens para autenticar os pedidos dos clientes e associar os utilizadores aos pedidos.
+- **Registar-se para receber notificações ao utilizar o back-end de WebAPI**: é adicionado um controlador para processar registos novos, para que um dispositivo de cliente receba notificações. O nome de utilizador autenticado é adicionado automaticamente ao registo como uma [etiqueta](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
+- **Enviar notificações para os clientes**: é adicionado um controlador para permitir que os utilizadores acionem um envio seguro para dispositivos e clientes associados à etiqueta.
 
 Crie o novo back-end de ASP.NET WebAPI através das seguintes ações:
 
@@ -59,7 +59,7 @@ Crie o novo back-end de ASP.NET WebAPI através das seguintes ações:
 
     ![A janela Configurar Aplicação Web do Microsoft Azure][B5]
 
-    Se você não vir esta página para configurar o plano do serviço de aplicativo, continue com o tutorial. Você pode configurá-lo enquanto publica o aplicativo mais tarde. 
+    Se não vir esta página para configurar o plano de serviço de aplicações, continue com o tutorial. Pode configurá-la enquanto publica a aplicação mais tarde. 
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autenticar clientes no back-end de WebAPI
 
@@ -108,7 +108,7 @@ Nesta secção, crie uma nova classe de processadores de mensagens com o nome **
                 string user = authorizationUserAndPwd.Split(':')[0];
                 string password = authorizationUserAndPwd.Split(':')[1];
 
-                if (verifyUserAndPwd(user, password))
+                if (VerifyUserAndPwd(user, password))
                 {
                     // Attach the new principal object to the current HttpContext object
                     HttpContext.Current.User =
@@ -123,7 +123,7 @@ Nesta secção, crie uma nova classe de processadores de mensagens com o nome **
             return base.SendAsync(request, cancellationToken);
         }
 
-        private bool verifyUserAndPwd(string user, string password)
+        private bool VerifyUserAndPwd(string user, string password)
         {
             // This is not a real authentication scheme.
             return user == password;
@@ -140,7 +140,7 @@ Nesta secção, crie uma nova classe de processadores de mensagens com o nome **
     ```
 
     > [!NOTE]
-    > Observação de segurança: A `AuthenticationTestHandler` classe não fornece autenticação verdadeira. É utilizada apenas para imitar a autenticação básica e não é segura. Tem de implementar um mecanismo de autenticação segura nos seus serviços e aplicações de produção.
+    > Nota de segurança: a classe `AuthenticationTestHandler` não fornece uma autenticação verdadeira. É utilizada apenas para imitar a autenticação básica e não é segura. Tem de implementar um mecanismo de autenticação segura nos seus serviços e aplicações de produção.
 5. Para registar o processador de mensagens, adicione o seguinte código ao fim do método `Register` na classe **App_Start/WebApiConfig.cs**:
 
     ```csharp
@@ -186,7 +186,7 @@ Nesta secção, adicione um controlador novo ao back-end de WebAPI para processa
     }
     ```
     > [!IMPORTANT]
-    > Insira o **nome** e o **DefaultFullSharedAccessSignature** do seu hub antes de continuar. 
+    > Introduza o **nome** e a **Assinatura DeAcesso Partilhado Predefinido** do seu hub antes de prosseguir. 
     
 7. Em seguida, crie um controlador novo com o nome **RegisterController**. No Explorador de Soluções, clique com o botão direito do rato na pasta **Controladores**, selecione **Adicionar** e, em seguida, selecione **Controlador**.
 

@@ -1,6 +1,6 @@
 ---
-title: Estamos movendo imagens de máquina virtual (VM) para o armazenamento em disco gerenciado no Azure Marketplace
-description: Para fornecer armazenamento mais rápido e confiável e suporte para novos recursos e funcionalidades do Marketplace, estamos movendo as imagens de VM do Marketplace para o armazenamento em disco gerenciado.
+title: Estamos a mover imagens de máquinavirtual (VM) para gerir o armazenamento de discos no Azure Marketplace
+description: Para fornecer armazenamento e suporte mais rápidos e fiáveis para novas funcionalidades e capacidades do mercado, estamos a mover imagens VM do mercado para gerir o armazenamento de discos.
 author: MaggiePucciEvans
 manager: evansma
 ms.author: evansma
@@ -8,59 +8,59 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: d85f6ba9d50b7d30930322ca34cb15edb30e1472
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 683b35661a41325cfd5baa877acdb0e37529bb94
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775003"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198739"
 ---
-# <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Estamos movendo as imagens da VM (máquina virtual) no Azure Marketplace para o armazenamento em disco gerenciado
+# <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Estamos a mover imagens de máquinavirtual (VM) no Azure Marketplace para gerir o armazenamento de discos
 
-Para fornecer armazenamento mais rápido e confiável e suporte para novos recursos e funcionalidades do Marketplace, estamos movendo as imagens de VM do Marketplace para o armazenamento em disco gerenciado.
+Para fornecer armazenamento e suporte mais rápidos e fiáveis para novas funcionalidades e capacidades do mercado, estamos a mover imagens VM do mercado para gerir o armazenamento de discos.
 
-A partir de 2 de janeiro de 2020, moveremos as imagens da VM para o armazenamento em disco gerenciado em fases. Na primeira fase, moveremos apenas imagens sem novas implantações ou máquinas virtuais em execução nos últimos 90 dias. Antes de movermos qualquer uma das imagens, enviaremos um email para permitir que o Publicador saiba quais imagens serão movidas e quando elas serão transferidas.
+A partir de 2 de janeiro de 2020, vamos mover imagens VM para gerir o armazenamento de discos em fases. Na primeira fase, só moveremos imagens sem novas implementações ou executando VMs nos 90 dias anteriores. Antes de movermos qualquer uma das imagens, enviaremos um e-mail para informar a editora quais as imagens que se movem e quando serão movidas.
 
-Os editores ou consumidores não precisam realizar nenhuma ação e os usuários não serão afetados. As ofertas do Marketplace permanecerão disponíveis e os clientes ainda poderão implantar VMs gerenciadas dessas imagens, durante e após a movimentação.
+Editores ou consumidores não precisam de tomar qualquer medida, e os utilizadores não serão afetados. As ofertas do mercado continuarão disponíveis e os clientes ainda poderão implementar VMs geridos a partir destas imagens, durante e após a mudança.
 
-Se você tiver alguma dúvida, [entre em contato conosco](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff).
+Se tiver alguma dúvida, [contacte-nos.](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>Perguntas mais frequentes
 
-### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>Os usuários de minhas imagens de VM sofreram uma interrupção?
+### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>Os utilizadores das minhas imagens VM sentiriam uma falha?
 
-Os usuários das imagens de VM não sofrerão uma interrupção. 
+Os utilizadores das imagens VM não sentirão uma paragem. 
 
-Na primeira fase, moveremos apenas as imagens de VM que não têm VMs em execução. Como não há nenhum usuário para essas imagens, não haverá nenhum impacto. Para as fases subsequentes também, não haverá nenhum impacto sobre os usuários.
+Na primeira fase, só moveremos imagens VM que não têm VMs em execução. Como não há utilizadores para estas imagens, não haverá qualquer impacto. Também para as fases seguintes, não haverá impacto nos utilizadores.
 
-### <a name="how-long-does-it-take-for-the-process-to-complete"></a>Quanto tempo leva para que o processo seja concluído?
+### <a name="how-long-does-it-take-for-the-process-to-complete"></a>Quanto tempo demora o processo a ser concluído?
 
-Pode levar até 24 horas para concluir a migração.
+Pode levar até 24 horas para completar a migração.
 
-### <a name="do-i-need-to-take-any-action"></a>Preciso realizar qualquer ação?
+### <a name="do-i-need-to-take-any-action"></a>Preciso de tomar alguma ação?
 
-Não. Os editores ou consumidores não precisam realizar nenhuma ação.
+Não. Editores ou consumidores não precisam de tomar qualquer medida.
 
-### <a name="do-i-have-to-update-my-system-to-call-the-cloud-portal-apis-in-a-different-way-after-they-are-moved-to-managed-disk-storage"></a>É necessário atualizar meu sistema para chamar as APIs do portal de nuvem de uma maneira diferente depois que elas são movidas para o armazenamento de disco gerenciado?
+### <a name="do-i-have-to-update-my-system-to-call-the-cloud-portal-apis-in-a-different-way-after-they-are-moved-to-managed-disk-storage"></a>Tenho de atualizar o meu sistema para ligar para as APIs do Portal cloud de uma forma diferente depois de serem transferidas para o armazenamento de Discos Geridos?
 
-Não. Suas chamadas à API existentes continuarão a funcionar.
+Não. As chamadas api existentes continuarão a funcionar.
 
-### <a name="would-all-my-vm-images-be-moved-to-managed-disk-at-the-same-time"></a>Todas as imagens de minha VM seriam movidas para o disco gerenciado ao mesmo tempo?
+### <a name="would-all-my-vm-images-be-moved-to-managed-disk-at-the-same-time"></a>Todas as minhas imagens vm seriam movidas para O Disco Gerido ao mesmo tempo?
 
-Iremos mover todas as suas imagens de VM no mesmo dia. Você será notificado quando eles forem movidos.
+Vamos mover todas as suas imagens VM no mesmo dia. Vamos notificá-lo assim que forem movidos.
 
-### <a name="can-i-request-to-schedule-the-move-of-my-vm-images-to-a-later-time"></a>Posso solicitar para agendar a movimentação de minhas imagens de VM para um momento posterior?
+### <a name="can-i-request-to-schedule-the-move-of-my-vm-images-to-a-later-time"></a>Posso pedir para agendar a mudança das minhas imagens VM para uma hora posterior?
 
-Recomendamos mover as imagens na data agendada. No entanto, se você tiver preocupações, entre em contato conosco para reagendar a movimentação.
+Recomendamos que se desloque as imagens na data marcada. No entanto, se tiver preocupações, contacte-nos para reagendar a mudança.
 
-### <a name="can-i-publish-updates-to-my-vm-images-during-the-move"></a>Posso publicar atualizações em minhas imagens de VM durante a movimentação?
+### <a name="can-i-publish-updates-to-my-vm-images-during-the-move"></a>Posso publicar atualizações para as minhas Imagens VM durante a mudança?
 
-As atualizações para as imagens de VM não podem ser feitas durante a movimentação.
+As atualizações das imagens VM não podem ser feitas durante a mudança.
 
 ### <a name="will-the-publishing-process-change-after-my-vm-image-is-moved-to-managed-disk"></a>O processo de publicação mudará depois da minha Imagem VM ser transferida para O Disco Gerido?
 
 Não, o processo de publicação permanecerá o mesmo. 
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="can-the-publisher-move-their-offers-to-managed-disk"></a>A editora pode mover as suas ofertas para O Disco Gerido?
 
-Visite a página de [Guia do Publicador de oferta de máquina virtual](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) .
+Não, os editores não podem mover as suas ofertas para o Managed Disk. Terão de esperar e as suas imagens serão automaticamente movidas. Enviaremos notificações ao editor antes de fazermos quaisquer alterações.

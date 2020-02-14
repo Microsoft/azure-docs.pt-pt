@@ -1,22 +1,22 @@
 ---
-title: Ingestão de dados com o SDK do Azure Data Explorer .NET Standard (pré-visualização)
-description: Neste artigo, irá aprender a ingerir dados de (carga) no Explorador de dados do Azure com o SDK de .NET padrão.
+title: Dados de ingestão utilizando o Azure Data Explorer .NET Standard SDK (Pré-visualização)
+description: Neste artigo, aprende-se a ingerir (carregar) dados no Azure Data Explorer utilizando o .NET Standard SDK.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 53cf055a0900a25923fe67b961755c1f4367e1fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fb1301ae7e0cdff36f3771a44769c8bf9cc9c62
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496880"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187920"
 ---
-# <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Ingestão de dados com o SDK do Azure Data Explorer .NET Standard (pré-visualização)
+# <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Dados de ingestão utilizando o Azure Data Explorer .NET Standard SDK (Pré-visualização)
 
-Explorador de dados do Azure (ADX) é um serviço de exploração de dados rápida e altamente escalável para dados de telemetria e de registo. ADX fornece duas bibliotecas de cliente para o .NET Standard: uma [biblioteca de ingestão](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e [uma biblioteca de dados](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Estas bibliotecas permitem ingerir (carregar) dados para um cluster e consultar dados a partir do código. Neste artigo, primeiro crie uma tabela e o mapeamento de dados num cluster de teste. Em seguida, colocar em fila uma ingestão ao cluster e validar os resultados.
+O Azure Data Explorer (ADX) é um serviço de exploração de dados rápido e altamente escalável para dados de registo e telemetria. A ADX fornece duas bibliotecas de clientes para .NET Standard: uma [biblioteca ingerir](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e [uma biblioteca de dados.](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard) Estas bibliotecas permitem ingerir (carregar) dados para um cluster e consultar dados a partir do código. Neste artigo, cria-se primeiro uma tabela e mapeamento de dados num cluster de teste. Em seguida, faça fila de uma ingestão para o cluster e valide os resultados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -24,7 +24,7 @@ Explorador de dados do Azure (ADX) é um serviço de exploração de dados rápi
 
 * [Um cluster e uma base de dados de teste](create-cluster-database-portal.md)
 
-## <a name="install-the-ingest-library"></a>Instalar a biblioteca de ingestão
+## <a name="install-the-ingest-library"></a>Instale a biblioteca ingerir
 
 ```
 Install-Package Microsoft.Azure.Kusto.Ingest.NETStandard
@@ -46,7 +46,7 @@ Por exemplo, se o seu domínio for *contoso.com*, o URL é: [https://login.windo
 
 Neste caso, o ID de inquilino é `6babcaad-604b-40ac-a9d7-9fd97c0b779f`.
 
-Este exemplo utiliza um utilizador do AAD e a palavra-passe para a autenticação para aceder ao cluster. Também pode utilizar o certificado de aplicação do AAD e a chave de aplicação do AAD. Definir os seus valores para `tenantId`, `user`, e `password` antes de executar esse código.
+Este exemplo utiliza um utilizador AAD e uma senha para autenticação para aceder ao cluster. Também pode utilizar o certificado de aplicação AAD e a chave de aplicação AAD. Detete os seus valores para `tenantId`, `user`e `password` antes de executar este código.
 
 ```csharp
 var tenantId = "<TenantId>";
@@ -54,7 +54,7 @@ var user = "<User>";
 var password = "<Password>";
 ```
 
-## <a name="construct-the-connection-string"></a>Construir a cadeia de ligação
+## <a name="construct-the-connection-string"></a>Construa a corda de ligação
 Agora construa a cadeia de ligação. Irá criar a tabela de destino e o mapeamento num passo posterior.
 
 ```csharp
@@ -74,14 +74,14 @@ var kustoConnectionStringBuilder =
 
 ## <a name="set-source-file-information"></a>Definir as informações do ficheiro de origem
 
-Defina o caminho para o ficheiro de origem. Este exemplo utiliza um ficheiro de exemplo alojado no Armazenamento de Blobs do Azure. O conjunto de dados de exemplo **StormEvents** contém dados relacionados com Meteorologia dos [Centros Nacionais de Informações Ambientais](https://www.ncdc.noaa.gov/stormevents/).
+Desloque o caminho para o ficheiro fonte. Este exemplo utiliza um ficheiro de exemplo alojado no Armazenamento de Blobs do Azure. O conjunto de dados de exemplo **StormEvents** contém dados relacionados com Meteorologia dos [Centros Nacionais de Informações Ambientais](https://www.ncdc.noaa.gov/stormevents/).
 
 ```csharp
 var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
 ```
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Criar uma tabela no cluster de teste
-Criar uma tabela chamada `StormEvents` que corresponda ao esquema dos dados no `StormEvents.csv` ficheiro.
+Crie uma tabela com o nome `StormEvents` que corresponda ao esquema dos dados no ficheiro `StormEvents.csv`.
 
 ```csharp
 var table = "StormEvents";
@@ -122,8 +122,8 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 
 ## <a name="define-ingestion-mapping"></a>Definir o mapeamento de ingestão
 
-Mapear dados de entrada de CSV para os nomes de coluna utilizados ao criar a tabela.
-Aprovisionar um [objeto de mapeamento de coluna CSV](/azure/kusto/management/tables#create-ingestion-mapping) nessa tabela
+Mapeie os dados cSV que chegam para os nomes de colunautilizados na criação da tabela.
+Fornecer um objeto de mapeamento de [coluna CSV](/azure/kusto/management/create-ingestion-mapping-command) nessa tabela
 
 ```csharp
 var tableMapping = "StormEvents_CSV_Mapping";
@@ -165,7 +165,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 
 ## <a name="queue-a-message-for-ingestion"></a>Colocar uma mensagem em fila para ingestão
 
-Uma mensagem da fila para extrair os dados do armazenamento de BLOBs e ingerir dados no ADX.
+Faça fila com uma mensagem para retirar dados do armazenamento de blob e ingerir esses dados no ADX.
 
 ```csharp
 var ingestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -193,9 +193,9 @@ using (var ingestClient = KustoIngestFactory.CreateQueuedIngestClient(ingestConn
 }
 ```
 
-## <a name="validate-data-was-ingested-into-the-table"></a>Validar dados foi ingeridos para a tabela
+## <a name="validate-data-was-ingested-into-the-table"></a>Os dados de validação foram ingeridos na tabela
 
-Aguarde cinco a dez minutos para a ingestão em fila agendar a ingestão e carregar os dados para ADX. Em seguida, execute o seguinte código para obter a contagem de registos na tabela `StormEvents`.
+Aguarde cinco a dez minutos para que a ingestão em fila agende a ingerir e carregue os dados em ADX. Em seguida, execute o seguinte código para obter a contagem de registos na tabela `StormEvents`.
 
 ```csharp
 using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoConnectionStringBuilder))
@@ -226,12 +226,12 @@ Execute o seguinte comando para ver o estado de todas as operações de ingestã
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se planeja seguir nossos outros artigos, mantenha os recursos que criou. Caso contrário, execute o seguinte comando na base de dados para limpar a tabela `StormEvents`.
+Se planeia seguir os nossos outros artigos, guarde os recursos que criou. Caso contrário, execute o seguinte comando na base de dados para limpar a tabela `StormEvents`.
 
 ```Kusto
 .drop table StormEvents
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Escrever consultas](write-queries.md)

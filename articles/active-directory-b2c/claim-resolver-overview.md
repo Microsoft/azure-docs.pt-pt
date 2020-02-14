@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3a80628e5729813e1d405e58ecb623925b63076
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836053"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193384"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre pedidos de reclamação em políticas personalizadas do Diretório Ativo Azure B2C
 
@@ -66,14 +66,14 @@ A lista de secções seguintes disponível de reclamação resolve.
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |O parâmetro de corda de consulta `acr_values`. | N/A |
+| {OIDC:AuthenticationContextReferences} |O parâmetro de corda de consulta `acr_values`. | N/D |
 | {OIDC:ClientId} |O parâmetro de corda de consulta `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |O parâmetro de corda de consulta `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  O parâmetro de corda de consulta `login_hint`. | someone@contoso.com |
-| {OIDC:Maxage} | O `max_age`. | N/A |
+| {OIDC:Maxage} | O `max_age`. | N/D |
 | {OIDC:Nonce} |O parâmetro de corda de consulta `Nonce`. | padrãoNonce |
 | {OIDC:Prompt} | O parâmetro de corda de consulta `prompt`. | início de sessão |
-| {OIDC:Recurso} |O parâmetro de corda de consulta `resource`. | N/A |
+| {OIDC:Recurso} |O parâmetro de corda de consulta `resource`. | N/D |
 | {OIDC:scope} |O parâmetro de corda de consulta `scope`. | openid |
 
 ### <a name="context"></a>Contexto
@@ -96,13 +96,35 @@ Qualquer nome de parâmetro incluído como parte de um pedido oIDC ou OAuth2 pod
 | {OAUTH-KV:campaignId} | Um parâmetro de corda de consulta. | havaiano |
 | {OAUTH-KV:app_session} | Um parâmetro de corda de consulta. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Um parâmetro de corda de consulta. | 1234 |
-| {OAUTH-KV:qualquer corda de consulta personalizada} | Um parâmetro de corda de consulta. | N/A |
+| {OAUTH-KV:qualquer corda de consulta personalizada} | Um parâmetro de corda de consulta. | N/D |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | O token de acesso. | N/A |
+| {oauth2:access_token} | O token de acesso. | N/D |
+
+## <a name="using-claim-resolvers"></a>Utilização de pedidos de indemnização 
+
+Pode utilizar reclamações com os seguintes elementos: 
+
+| Item | Elemento | Definições |
+| ----- | ----------------------- | --------|
+|Perfil técnico de Insights de Aplicação |`InputClaim` | |
+|Perfil técnico [do Diretório Ativo Azure](active-directory-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico [OAuth2](oauth2-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico [openID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico de transformação de [sinistros](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico do [fornecedor RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
+|Perfil técnico [SAML2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
+|Perfil técnico [autoafirmado](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|[Definição de Conteúdo](contentdefinitions.md)| `LoadUri`| |
+|[Parâmetros de Definição de Conteúdo](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
+|[Perfil](relyingparty.md#technicalprofile) técnico do Partido Da Base| `OutputClaim`| 2 |
+
+Configurações: 
+1. Os metadados `IncludeClaimResolvingInClaimsHandling` devem ser definidos para `true`
+1. Os pedidos de entrada ou de saída atribuem `AlwaysUseDefaultValue` devem ser definidos para `true`
 
 ## <a name="how-to-use-claim-resolvers"></a>Como usar os resolvers de reclamação
 

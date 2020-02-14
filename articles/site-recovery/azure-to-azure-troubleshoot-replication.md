@@ -5,41 +5,42 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.openlocfilehash: b8afdd0f2dd98260a628116fa7402e05cd39e06b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e5e52c6e8560c7369054cfc9fcf2ba4c405671e0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965862"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190815"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
 
-Este artigo descreve problemas comuns no Azure Site Recovery quando você está replicando e recuperando máquinas virtuais do Azure de uma região para outra região. Ele também explica como solucionar esses problemas. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs do Azure](site-recovery-support-matrix-azure-to-azure.md).
+Este artigo descreve problemas comuns na Recuperação do Sítio Azure quando está a replicar e a recuperar máquinas virtuais Azure de uma região para outra. Também explica como resolver os problemas comuns. Para obter mais informações sobre configurações suportadas, consulte a matriz de [suporte para replicar VMs Azure](site-recovery-support-matrix-azure-to-azure.md).
 
-Azure Site Recovery Replica consistentemente os dados da região de origem para a região de recuperação de desastre e cria um ponto de recuperação consistente com falhas a cada 5 minutos. Se Site Recovery não puder criar pontos de recuperação por 60 minutos, ele o alertará com essas informações:
+A Recuperação do Site Azure replica consistentemente dados da região de origem para a região de recuperação de desastres. Também cria um ponto de recuperação consistente a cada 5 minutos. Se a Recuperação do Site não conseguir criar pontos de recuperação durante 60 minutos, alerta-o com esta informação:
 
-Mensagem de erro: "nenhum ponto de recuperação consistente com falha disponível para a VM nos últimos 60 minutos".</br>
-ID do erro: 153007 </br>
+Error message: "No crash consistente ponto de recuperação disponível para o VM nos últimos 60 minutos."</br>
+ID de erro: 153007
 
-As seções a seguir descrevem as causas e as soluções.
+As seguintes secções descrevem causas e soluções.
 
-## <a name="high-data-change-rate-on-the-source-virtal-machine"></a>Alta taxa de alteração de dados na máquina virtual de origem
-Azure Site Recovery acionará um evento se a taxa de alteração de dados na máquina virtual de origem for maior do que os limites com suporte. Para verificar se o problema se deve à alta rotatividade, acesse **itens replicados** > **VM** > **eventos – últimas 72 horas**.
-Você deve ver o evento "taxa de alteração de dados além dos limites com suporte":
+## <a name="high-data-change-rate-on-the-source-virtal-machine"></a>Alta taxa de variação de dados na máquina virtual de origem
 
-![data_change_rate_high](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png)
+A Recuperação do Site Azure cria um evento se a taxa de alteração de dados na máquina virtual de origem for superior aos limites suportados. Para ver se o problema se deve ao alto rebuliço, vá a **itens replicados** > **VM** > **Events - dura72 horas**.
+Deve ver o evento "Taxa de alteração de dados para além dos limites suportados":
 
-Se você selecionar o evento, deverá ver as informações exatas do disco:
+![Página de Recuperação de Sites Azure que mostra uma alta taxa de mudança de dados que é muito alta](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png)
 
-![data_change_rate_event](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png)
+Se selecionar o evento, deverá ver as informações exatas sobre o disco:
 
+![Página que mostra os detalhes do evento de alteração de dados](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png)
 
 ### <a name="azure-site-recovery-limits"></a>Limites do Azure Site Recovery
-A tabela seguinte fornece os limites do Azure Site Recovery. Esses limites se baseiam em nossos testes, mas não podem abranger todas as combinações de e/s de aplicativo possíveis. Os resultados reais podem variar consoante a combinação de E/S da sua aplicação.
 
-Há dois limites a serem considerados, variação de dados por disco e variação de dados por máquina virtual. Por exemplo, vamos examinar o disco P20 Premium na tabela a seguir. Site Recovery pode lidar com 5 MB/s de rotatividade por disco com um máximo de cinco discos por VM, devido ao limite de 25 MB/s de rotatividade total por VM.
+A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites baseiam-se nos nossos testes, mas não podem cobrir todas as combinações possíveis de entrada de entrada (I/O). Os resultados reais podem variar consoante a combinação de E/S da sua aplicação.
 
-**Destino do armazenamento da replicação** | **Tamanho médio de e/s para o disco de origem** |**Variação média de dados para o disco de origem** | **Total de rotatividade de dados por dia para o disco de dados de origem**
+Há dois limites a ter em conta: o churn de dados por disco e o churn de dados por máquina virtual. Vejamos o disco Premium P20 na tabela seguinte, por exemplo. Para um único VM, a Recuperação do Site pode manusear 5 MB/s de churn por disco com um máximo de cinco discos deste tipo. A Recuperação do Site tem um limite de 25 MB/s de total de churn por VM.
+
+**Destino do armazenamento da replicação** | **Tamanho médio de I/S para disco de origem** |**Recolha média de dados para disco de origem** | **Total de dados churn por dia para disco de dados de origem**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
@@ -49,92 +50,99 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MB/s | 842 GB por disco
 
 ### <a name="solution"></a>Solução
-O Azure Site Recovery tem limites na taxa de alteração de dados, com base no tipo de disco. Para saber se esse problema é recorrente ou momentâneo, localize a taxa de alteração de dados da máquina virtual afetada. Vá para a máquina virtual de origem, localize as métricas em **monitoramento**e adicione as métricas, conforme mostrado nesta captura de tela:
 
-![Processo de três etapas para localizar a taxa de alteração de dados](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
+A Recuperação do Site Azure tem limites nas taxas de alteração de dados, dependendo do tipo de disco. Para ver se este problema é recorrente ou temporário, encontre a taxa de mudança de dados da máquina virtual afetada. Vá à máquina virtual de origem, encontre as métricas sob **Monitorização,** e adicione as métricas como mostrado nesta imagem:
 
-1. Selecione **Adicionar métrica**e adicionar **bytes de gravação de disco do sistema operacional/s** e bytes de gravação do disco de **dados/s**.
-2. Monitore o pico conforme mostrado na captura de tela.
-3. Exiba o total de operações de gravação que ocorrem nos discos do sistema operacional e todos os discos de dados combinados. Essas métricas podem não fornecer informações no nível por disco, mas indicam o padrão total de rotatividade de dados.
+![Página que mostra o processo de três etapas para encontrar a taxa de alteração de dados](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
 
-Se um pico for de uma intermitência de dados ocasional e a taxa de alteração de dados for maior que 10 MB/s (para Premium) e 2 MB/s (para o padrão) por algum tempo e ficar inativa, a replicação será atualizada. Mas se a rotatividade estiver bem além do limite com suporte na maior parte do tempo, considere uma dessas opções, se possível:
+1. **Selecione Adicionar métrica**, e adicionar Os Disk Write **Bytes/Sec** e **Data Disk Write Bytes/Sec**.
+1. Monitorize o pico como mostrado na imagem.
+1. Veja as operações totais de escrita que estão a ocorrer através dos discos de OS e de todos os discos de dados combinados. Estas métricas podem não lhe dar informações ao nível por disco, mas indicam o padrão total de dados.
 
-* **Exclua o disco que está causando uma alta taxa de alteração de dados**: você pode excluir o disco usando o [PowerShell](./azure-to-azure-exclude-disks.md). Para excluir o disco, você precisa desabilitar a replicação primeiro.
-* **Alterar a camada do disco de armazenamento de recuperação de desastre**: essa opção só será possível se a variação de dados do disco for menor que 20 MB/s. Digamos que uma VM com um disco P10 esteja tendo uma variação de dados maior que 8 MB/s, mas menos de 10 MB/s. Se o cliente puder usar um disco p30 para o armazenamento de destino durante a proteção, o problema poderá ser resolvido. Observe que essa solução só é possível para computadores que usam Managed Disks Premium. Siga as etapas abaixo:
-    - Navegue até a folha discos da máquina replicada afetada e copie o nome do disco de réplica
-    - Navegar até este disco gerenciado de réplica
-    - Você pode ver uma faixa na folha de visão geral dizendo que uma URL SAS foi gerada. Clique nessa faixa e cancele a exportação. Ignore esta etapa se você não vir a faixa.
-    - Assim que a URL SAS for revogada, vá para a folha de configuração do disco gerenciado e aumente o tamanho para que Site Recovery suporte a taxa de rotatividade observada no disco de origem
+Um pico na taxa de mudança de dados pode vir de uma explosão ocasional de dados. Se a taxa de alteração de dados for superior a 10 MB/s (para Premium) ou 2 MB/s (para a Standard) e descer, a replicação irá recuperar. Se o churn está consistentemente muito além do limite suportado, considere uma destas opções:
 
-## <a name="Network-connectivity-problem"></a>Problemas de conectividade de rede
+- Exclua o disco que está a causar uma elevada taxa de mudança de dados: Primeiro, desative a replicação. Em seguida, pode excluir o disco utilizando [powerShell](./azure-to-azure-exclude-disks.md).
+- Alterar o nível do disco de armazenamento de recuperação de desastres: Esta opção só é possível se o ressuposição de dados do disco for inferior a 20 MB/s. Digamos que um VM com um disco P10 tem um conjunto de dados superior a 8 MB/s, mas inferior a 10 MB/s. Se o cliente puder utilizar um disco P30 para armazenamento de alvos durante a proteção, o problema pode ser resolvido. Esta solução só é possível para máquinas que utilizem discos geridos por prémios. Siga estes passos.
 
-### <a name="network-latency-to-a-cache-storage-account"></a>Latência de rede para uma conta de armazenamento de cache
-Site Recovery envia dados replicados para a conta de armazenamento de cache. Você poderá ver a latência de rede se o carregamento dos dados de uma máquina virtual para a conta de armazenamento de cache for mais lento do que 4 MB em 3 segundos.
+    1. Vá aos **Discos** da máquina replicada afetada e copie o nome do disco de réplica.
+    1. Vá a esta réplica do disco gerido.
+    1. Pode ver um banner em **visão geral** que diz que um URL SAS foi gerado. Selecione este banner e cancele a exportação. Ignore este passo se não vir o estandarte.
+    1. Assim que o URL SAS for revogado, vá à **Configuração** para o disco gerido. Aumente o tamanho de modo que a Recuperação do Site suporte a taxa de churn observada no disco de origem.
 
-Para verificar um problema relacionado à latência, use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) para carregar dados da máquina virtual para a conta de armazenamento de cache. Se a latência for alta, verifique se você está usando uma solução de virtualização de rede (NVA) para controlar o tráfego de rede de saída das VMs. O dispositivo poderá ser limitado se todo o tráfego de replicação passar pelo NVA.
+## <a name="Network-connectivity-problem"></a>Problemas de conectividade da rede
 
-É recomendável criar um ponto de extremidade de serviço de rede em sua rede virtual para "armazenamento" para que o tráfego de replicação não vá para o NVA. Para obter mais informações, consulte [configuração de solução de virtualização de rede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
+### <a name="network-latency-to-a-cache-storage-account"></a>Latência da rede a uma conta de armazenamento de cache
 
-### <a name="network-connectivity"></a>Conectividade de rede
-Para replicação do Site Recovery para o trabalho, a conectividade de saída para URLs ou IP específicos a intervalos é necessária da VM. Se sua VM estiver atrás de um firewall ou usar regras de NSG (grupo de segurança de rede) para controlar a conectividade de saída, você poderá enfrentar um desses problemas. Para verificar se todas as URLs estão conectadas, confira [conectividade de saída para URLs de site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
+A Recuperação do Site envia dados replicados para a conta de armazenamento de cache. Poderá sentir latência da rede se o upload dos dados de uma máquina virtual para a conta de armazenamento de cache for mais lento do que 4 MB em 3 segundos.
 
-## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>ID do erro 153006-nenhum ponto de recuperação consistente com o aplicativo disponível para a VM nos últimos ' XXX ' minutos
+Para verificar se há um problema relacionado com a latência, utilize o [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy). Pode utilizar este utilitário de linha de comando para fazer o upload de dados da máquina virtual para a conta de armazenamento de cache. Se a latência for elevada, verifique se está a utilizar um aparelho virtual de rede (NVA) para controlar o tráfego de rede de saída a partir de VMs. O aparelho pode ficar estrangulado se todo o tráfego de replicação passar pela NVA.
 
-Alguns dos problemas mais comuns estão listados abaixo
+Recomendamos a criação de um ponto final do serviço de rede na sua rede virtual para "Armazenamento" para que o tráfego de replicação não vá para o NVA. Para mais informações, consulte a [configuração do aparelho virtual da Rede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
 
-#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Causa 1: problema conhecido no SQL Server 2008/2008 R2
-**Como corrigir** : há um problema conhecido com o SQL Server 2008/2008 R2. Consulte este artigo da base [de conhecimento Azure site Recovery agente ou outro backup de VSS que não seja de componente falha para um servidor que hospeda SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+### <a name="network-connectivity"></a>Conectividade da rede
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Causa 2: os trabalhos de Azure Site Recovery falham em servidores que hospedam qualquer versão de instâncias de SQL Server com bancos de AUTO_CLOSE
-**Como corrigir** : consulte o [artigo](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) da base de conhecimento
+Para que a replicação da recuperação do site funcione, precisa do VM para fornecer conectividade de saída a URLs específicos ou intervalos IP. Pode ter o seu VM atrás de uma firewall ou utilizar regras do grupo de segurança da rede (NSG) para controlar a conectividade de saída. Se assim for, pode ter problemas. Para se certificar de que todos os URLs estão ligados, consulte a [conectividade de saída para URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)de Recuperação do Local .
+
+## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-past-x-minutes"></a>Error ID 153006 - Nenhum ponto de recuperação consistente com aplicações disponíveis para o VM nos minutos "X" passados
+
+Seguem-se algumas das questões mais comuns.
+
+#### <a name="known-issue-in-sql-server-20082008-r2"></a>Problema conhecido no servidor SQL 2008/2008 R2
+
+**Como corrigir**: Existe um problema conhecido com o servidor SQL 2008/2008 R2. Consulte o artigo O Agente de Recuperação do [Site Azure ou outra cópia de segurança VSS não componente falha para um servidor que hospeda o SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2).
+
+#### <a name="azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Os trabalhos de recuperação do site Azure falham nos servidores que hospedam qualquer versão de instâncias do SQL Server com DBs AUTO_CLOSE
+
+**Como corrigir**: Consulte o artigo Cópias de [segurança VSS não componentes, tais como trabalhos de recuperação de sites do Azure, falham nos servidores que hospedam instâncias do Servidor SQL com DBs AUTO_CLOSE](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser).
 
 
-#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Causa 3: problema conhecido em SQL Server 2016 e 2017
-**Como corrigir** : consulte o [artigo](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) da base de conhecimento
+#### <a name="known-issue-in-sql-server-2016-and-2017"></a>Edição conhecida no SQL Server 2016 e 2017
 
-#### <a name="cause-4-you-are-using-storage-spaces-direct-configuration"></a>Causa 4: você está usando a configuração de espaços de armazenamento diretos
-**Como corrigir** : Azure site Recovery não é possível criar um ponto de recuperação consistente com o aplicativo para a configuração de espaços de armazenamento diretos. Consulte o artigo para [configurar corretamente a política de replicação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
+**Como corrigir**: Consulte o artigo O erro ocorre quando faz backup de uma máquina virtual com cópia de [segurança não baseada em componentes no SQL Server 2016 e 2017](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component).
 
-### <a name="more-causes-due-to-vss-related-issues"></a>Mais causas devido a problemas relacionados ao VSS:
+#### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Está a usar a configuração direta dos espaços de armazenamento azure
 
-Para solucionar os problemas, verifique os arquivos no computador de origem para obter o código de erro exato para a falha:
+**Como corrigir:** A Recuperação do Site Azure não pode criar um ponto de recuperação consistente para espaços de armazenamento Configuração direta. [Configure a política](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)de replicação .
+
+### <a name="more-causes-because-of-vss-related-issues"></a>Mais causas por causa de questões relacionadas com o VSS:
+
+Para resolver ainda mais os problemas, verifique os ficheiros da máquina de origem para obter o código de erro exato para falha:
 
     C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
-Como localizar os erros no arquivo?
-Procure a cadeia de caracteres "vacpError" abrindo o arquivo vacp. log em um editor
+Para localizar os erros no ficheiro, procure a cadeia "vacpError" abrindo o ficheiro vacp.log num editor.
 
     Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
-No exemplo acima, **2147754994** é o código de erro que informa sobre a falha, conforme mostrado abaixo
+No exemplo anterior, **2147754994** é o código de erro que lhe diz sobre a falha que se segue a esta frase.
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>O gravador VSS não está instalado-erro 2147221164
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>O escritor VSS não está instalado - Error 2147221164
 
-*Como corrigir*: para gerar a marca de consistência do aplicativo, Azure site Recovery usa o VSS (serviço de cópias de sombra de volume) da Microsoft. Ele instala um provedor VSS para sua operação para obter instantâneos de consistência do aplicativo. Este provedor VSS é instalado como um serviço. Caso o serviço do provedor do VSS não esteja instalado, a criação do instantâneo de consistência do aplicativo falha com a ID do erro 0x80040154 "classe não registrada". </br>
-Consulte o [artigo para solução de problemas de instalação do gravador VSS](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+**Como corrigir**: Para gerar uma etiqueta de consistência da aplicação, a Recuperação do Site Azure utiliza o Serviço de Cópia sonora de Volume Shadow (VSS). A Recovery do Site instala um Fornecedor VSS para a sua operação para tirar fotos de consistência da aplicação. A Azure Site Recovery instala este Fornecedor VSS como um serviço. Se o Fornecedor VSS não estiver instalado, a criação de instantâneos de consistência da aplicação falha. Mostra o erro ID 0x80040154 "Classe não registada". Consulte o artigo para a instalação de problemas de instalação de [escritores VSS](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures).
 
-#### <a name="vss-writer-is-disabled---error-2147943458"></a>O gravador VSS está desabilitado-erro 2147943458
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>Escritor VSS está incapacitado - Error 2147943458
 
-**Como corrigir**: para gerar a marca de consistência do aplicativo, Azure site Recovery usa o VSS (serviço de cópias de sombra de volume) da Microsoft. Ele instala um provedor VSS para sua operação para obter instantâneos de consistência do aplicativo. Este provedor VSS é instalado como um serviço. Caso o serviço do provedor do VSS esteja desabilitado, a criação do instantâneo de consistência do aplicativo falha com a ID do erro "o serviço especificado está desabilitado e não pode ser iniciado (0x80070422)". </br>
+**Como corrigir**: Para gerar a etiqueta de consistência da aplicação, a Recuperação do Site Azure utiliza VSS. A Recovery do Site instala um Fornecedor VSS para a sua operação para tirar fotos de consistência da aplicação. Este Fornecedor VSS está instalado como um serviço. Se não tiver o serviço VSS Provider ativado, a criação de instantâneos de consistência da aplicação falha. Mostra o erro "O serviço especificado está desativado e não pode ser iniciado (0x80070422)."
 
-- Se o VSS estiver desabilitado,
-    - Verifique se o tipo de inicialização do serviço do provedor do VSS está definido como **automático**.
-    - Reinicie os seguintes serviços:
-        - Serviço VSS
-        - Azure Site Recovery o provedor de VSS
-        - Serviço VDS
+Se o VSS estiver desativado:
 
-####  <a name="vss-provider-not_registered---error-2147754756"></a>PROVEDOR VSS NOT_REGISTERED-erro 2147754756
+- Verifique se o tipo de arranque do serviço VSS Provider está definido para **Automático**.
+- Reiniciar os seguintes serviços:
+   - Serviço VSS
+   - Fornecedor VSS de Recuperação do Site Azure
+   - Serviço VDS
 
-**Como corrigir**: para gerar a marca de consistência do aplicativo, Azure site Recovery usa o VSS (serviço de cópias de sombra de volume) da Microsoft.
-Verifique se o serviço do provedor VSS Azure Site Recovery está instalado ou não. </br>
+#### <a name="vss-provider-not_registered---error-2147754756"></a>VSS PROVIDER NOT_REGISTERED - Erro 2147754756
 
-- Repita a instalação do provedor usando os seguintes comandos:
-- Desinstalar o provedor existente: C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\agent\ InMageVSSProvider_Uninstall. cmd
-- Reinstalar: C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\agent\ InMageVSSProvider_Install. cmd
+**Como corrigir**: Para gerar a etiqueta de consistência da aplicação, a Recuperação do Site Azure utiliza VSS. Verifique se o serviço de recuperação do site Azure VSS Provider está instalado.
 
-Verifique se o tipo de inicialização do serviço do provedor do VSS está definido como **automático**.
-    - Reinicie os seguintes serviços:
-        - Serviço VSS
-        - Azure Site Recovery o provedor de VSS
-        - Serviço VDS
+Utilize os seguintes comandos para reinstalar o Fornecedor VSS:
+1. Desinstalar o fornecedor existente: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+1. Reinstalar o Fornecedor VSS: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+
+Verifique se o tipo de arranque do serviço VSS Provider está definido para **Automático**.
+
+Reiniciar os seguintes serviços:
+- Serviço VSS
+- Fornecedor VSS de Recuperação do Site Azure
+- Serviço VDS

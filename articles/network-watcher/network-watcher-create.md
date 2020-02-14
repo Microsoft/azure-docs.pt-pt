@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b091c501fb565fb267c40f686dc037e41f3c90ee
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 77812a3765a027152c957f6dbb7c9b3811a2278f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845118"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191184"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância de Observador de Rede Azure
 
-O Network Watcher é um serviço regional que lhe permite monitorizar e diagnosticar condições ao nível do cenário da rede, de e para o Azure. A monitorização do nível de cenário permite diagnosticar problemas no final da visão do nível da rede. As ferramentas de diagnóstico e visualização de rede disponíveis com o observador de rede ajudam você a entender, diagnosticar e obter informações sobre sua rede no Azure. O Network Watcher está ativado através da criação de um recurso Do Observador de Rede. Este recurso permite-lhe utilizar as capacidades do Observador de Rede.
+O Network Watcher é um serviço regional que lhe permite monitorizar e diagnosticar condições ao nível do cenário da rede, de e para o Azure. A monitorização do nível de cenário permite diagnosticar problemas no final da visão do nível da rede. As ferramentas de diagnóstico e visualização de rede disponíveis com o Network Watcher ajudam-no a compreender, diagnosticar e obter informações sobre a sua rede em Azure. O Network Watcher está ativado através da criação de um recurso Do Observador de Rede. Este recurso permite-lhe utilizar as capacidades do Observador de Rede.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>O Observador de Rede está ativado automaticamente
-Quando criar ou atualizar uma rede virtual na sua subscrição, o Observador de Rede será ativado automaticamente na região da rede Virtual. Não há impacto nos seus recursos ou cobrança associada para ativar automaticamente o Observador da Rede.
+Quando criar ou atualizar uma rede virtual na sua subscrição, o Observador de Rede será ativado automaticamente na região da rede Virtual. Não há qualquer impacto nos seus recursos ou encargos associados para ativar automaticamente o Observador da Rede.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Opt-out da ativação automática do Observador de Rede
 Se quiser optar por não ativar o Observador de Rede, pode fazê-lo executando os seguintes comandos:
@@ -51,7 +51,7 @@ az provider register -n Microsoft.Network
 
 Navegue para **todos os serviços** > **Networking** > **Network Watcher**. Pode selecionar todas as subscrições que pretende ativar o Network Watcher. Esta ação cria um Observador de Rede em todas as regiões disponíveis.
 
-![Criar um observador de rede](./media/network-watcher-create/figure1.png)
+![criar um observador de rede](./media/network-watcher-create/figure1.png)
 
 Quando ativa o Observador de Rede utilizando o portal, o nome da instância Do Observador da Rede é automaticamente definido para *NetworkWatcher_region_name* onde *region_name* corresponde à região do Azure onde a instância está ativada. Por exemplo, um Observador de Rede ativado na região centro-oeste dos EUA é nomeado *NetworkWatcher_westcentralus*.
 
@@ -79,7 +79,7 @@ az network watcher configure --resource-group NetworkWatcherRG --locations westc
 
 O ARMclient é usado para chamar a API REST usando powerShell. O ARMClient é encontrado em chocolate na [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-### <a name="log-in-with-armclient"></a>Fazer logon com ARMClient
+### <a name="log-in-with-armclient"></a>Iniciar sessão com a ARMClient
 
 ```powerShell
 armclient login
@@ -132,5 +132,3 @@ Agora que tem uma instância de Network Watcher, saiba mais sobre as funcionalid
 * [Vista do grupo de segurança](network-watcher-security-group-view-overview.md)
 * [Exploração de fluxo saneado do NSG](network-watcher-nsg-flow-logging-overview.md)
 * [Resolução de problemas da Rede Virtual Gateway](network-watcher-troubleshoot-overview.md)
-
-Uma vez que uma instância do Observador de Rede é, pode ativar a captura de pacotes dentro de máquinas virtuais. Para saber como, ver [Criar um alerta desencadeado captura de pacote](network-watcher-alert-triggered-packet-capture.md)

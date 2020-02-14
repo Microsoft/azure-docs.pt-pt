@@ -1,6 +1,6 @@
 ---
-title: Domínios personalizados no Azure Proxy de Aplicativo do AD | Microsoft Docs
-description: Configurar e gerenciar domínios personalizados no Azure Proxy de Aplicativo do AD.
+title: Domínios personalizados no Proxy de aplicações do Azure AD | Documentos da Microsoft
+description: Configure e gerencie domínios personalizados em Procuração de Aplicação AD Azure.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,133 +16,133 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189b8666adde0eedcb451655657a4a82dc5e4fec
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062536"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185545"
 ---
-# <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurar domínios personalizados com o Azure Proxy de Aplicativo do AD
+# <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configure domínios personalizados com procuração de aplicação ad azure
 
-Ao publicar um aplicativo por meio do Proxy de Aplicativo do Azure Active Directory, você cria uma URL externa para seus usuários. Esta URL Obtém o domínio padrão *yourtenant.msappproxy.net*. Por exemplo, se você publicar um aplicativo chamado *despesas* em seu locatário chamado *contoso*, a URL externa será *https: \//Expenses-contoso.msappproxy.net*. Se você quiser usar seu próprio nome de domínio em vez de *msappproxy.net*, poderá configurar um domínio personalizado para seu aplicativo. 
+Ao publicar uma aplicação através do Azure Ative Directory Application Proxy, cria um URL externo para os seus utilizadores. Este URL obtém o domínio padrão *yourtenant.msappproxy.net*. Por exemplo, se publicar uma aplicação chamada *Despesas* do seu inquilino chamada *Contoso,* o URL externo é *https:\//expenses-contoso.msappproxy.net*. Se quiser usar o seu próprio nome de domínio em vez de *msappproxy.net,* pode configurar um domínio personalizado para a sua aplicação. 
 
-## <a name="benefits-of-custom-domains"></a>Benefícios de domínios personalizados
+## <a name="benefits-of-custom-domains"></a>Benefícios dos domínios personalizados
 
-É uma boa ideia configurar domínios personalizados para seus aplicativos sempre que possível. Alguns motivos para usar domínios personalizados incluem:
+É uma boa ideia configurar domínios personalizados para as suas apps sempre que possível. Algumas razões para usar domínios personalizados incluem:
 
-- Os links entre aplicativos funcionam mesmo fora da rede corporativa. Sem um domínio personalizado, se seu aplicativo tiver links internos embutidos em código para destinos fora do proxy de aplicativo e os links não forem resolvidos externamente, eles serão interrompidos. Quando suas URLs internas e externas são as mesmas, você evita esse problema. Se não for possível usar domínios personalizados, consulte [redirecionar links codificados para aplicativos publicados com o Azure proxy de aplicativo do AD](../application-proxy-link-translation.md) para outras maneiras de resolver esse problema. 
+- As ligações entre apps funcionam mesmo fora da rede corporativa. Sem um domínio personalizado, se a sua aplicação tiver ligações internas codificadas para alvos fora do Proxy de Aplicação, e os links não forem resolúveis externamente, quebrarão. Quando os seus URLs internos e externos são os mesmos, evita este problema. Se não conseguir utilizar domínios personalizados, consulte [links codificados redirecionamento para aplicações publicadas com o Procurador de Aplicação AD Azure](../application-proxy-link-translation.md) para outras formas de resolver este problema. 
   
-- Os usuários terão uma experiência mais fácil, pois podem acessar o aplicativo com a mesma URL de dentro ou fora de sua rede. Eles não precisam aprender diferentes URLs internas e externas, ou controlar seu local atual. 
+- Os seus utilizadores terão uma experiência mais fácil, pois podem chegar à aplicação com o mesmo URL de dentro ou fora da sua rede. Não precisam de aprender diferentes URLs internos e externos, ou rastrear a sua localização atual. 
 
-- Você pode controlar sua identidade visual e criar as URLs desejadas. Um domínio personalizado pode ajudar a criar a confiança dos usuários, pois os usuários veem e usam um nome familiar em vez de *msappproxy.net*.
+- Pode controlar a sua marca e criar os URLs que deseja. Um domínio personalizado pode ajudar a construir a confiança dos seus utilizadores, porque os utilizadores vêem e usam um nome familiar em vez de *msappproxy.net*.
 
-- Algumas configurações só funcionarão com domínios personalizados. Por exemplo, você precisa de domínios personalizados para aplicativos que usam Security Assertion Markup Language (SAML), como quando você está usando Serviços de Federação do Active Directory (AD FS) (AD FS), mas não é possível usar o WS-Federation. Para obter mais informações, consulte [trabalhar com aplicativos com reconhecimento de declaração no proxy de aplicativo](application-proxy-configure-for-claims-aware-applications.md). 
+- Algumas configurações só funcionarão com domínios personalizados. Por exemplo, você precisa de domínios personalizados para apps que usam linguagem de marcação de afirmação de segurança (SAML), como quando você está usando Serviços da Federação de Diretório Ativo (AD FS), mas não é capaz de usar WS-Federation. Para mais informações, consulte [Trabalhar com aplicações conscientes de sinistros no Proxy](application-proxy-configure-for-claims-aware-applications.md)de Aplicação . 
 
-Se não for possível fazer as URLs internas e externas corresponderem, não será tão importante usar domínios personalizados, mas você ainda poderá aproveitar os outros benefícios. 
+Se não conseguir fazer com que os URLs internos e externos correspondam, não é tão importante usar domínios personalizados, mas ainda pode tirar partido dos outros benefícios. 
 
-## <a name="dns-configuration-options"></a>Opções de configuração de DNS
+## <a name="dns-configuration-options"></a>Opções de configuração DNS
 
-Há várias opções para configurar sua configuração de DNS, dependendo de seus requisitos:
+Existem várias opções para configurar a sua configuração DNS, dependendo dos seus requisitos:
 
-### <a name="same-internal-and-external-url-different-internal-and-external-behavior"></a>Mesma URL interna e externa, diferente comportamento interno e externo 
+### <a name="same-internal-and-external-url-different-internal-and-external-behavior"></a>Mesmo URL interno e externo, comportamento interno e externo diferente 
 
-Se você não quiser que os usuários internos sejam direcionados por meio do proxy de aplicativo, poderá configurar um *DNS de divisão-Brain*. Uma infraestrutura de DNS de divisão direciona hosts internos para um servidor de nome de domínio interno e hosts externos para um servidor de nome de domínio externo, para resolução de nomes. 
+Se não quiser que os seus utilizadores internos sejam direcionados através do Proxy de Aplicação, pode configurar um *DNS de cérebro dividido*. Uma infraestrutura DNS dividida direciona os anfitriões internos para um servidor de nome de domínio interno, e anfitriões externos para um servidor de nome de domínio externo, para resolução de nomes. 
 
-![DNS de divisão-Brain](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+![DNS Dividido](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
 
-### <a name="different-internal-and-external-urls"></a>Diferentes URLs internas e externas 
+### <a name="different-internal-and-external-urls"></a>URLs internos e externos diferentes 
 
-Se as URLs internas e externas forem diferentes, você não precisará configurar o comportamento de divisão-Brain, pois o roteamento do usuário é determinado pela URL. Nesse caso, você altera apenas o DNS externo e roteia a URL externa para o ponto de extremidade do proxy de aplicativo. 
+Se os URLs internos e externos forem diferentes, não é necessário configurar o comportamento do cérebro dividido, porque o encaminhamento do utilizador é determinado pelo URL. Neste caso, altera apenas o DNS externo e encaminha o URL externo para o ponto final do Proxy de Aplicação. 
 
-Quando você seleciona um domínio personalizado para uma URL externa, uma barra de informações mostra a entrada CNAME que você precisa adicionar ao provedor DNS externo. Você sempre pode ver essas informações indo para a página proxy de **aplicativo** do aplicativo.
+Quando seleciona um domínio personalizado para um URL externo, uma barra de informação mostra a entrada CNAME que precisa adicionar ao fornecedor externo de DNS. Pode sempre ver esta informação indo para a página de procuração da **aplicação** da aplicação.
 
 ## <a name="set-up-and-use-custom-domains"></a>Configurar e usar domínios personalizados
 
-Para configurar um aplicativo local para usar um domínio personalizado, você precisa de um Azure Active Directory domínio personalizado verificado, um certificado PFX para o domínio personalizado e um aplicativo local para configurar. 
+Para configurar uma aplicação no local para utilizar um domínio personalizado, precisa de um domínio personalizado de Diretório Ativo Azure verificado, um certificado PFX para o domínio personalizado e uma aplicação no local para configurar. 
 
 ### <a name="create-and-verify-a-custom-domain"></a>Criar e verificar um domínio personalizado
 
 Para criar e verificar um domínio personalizado:
 
-1. Em Azure Active Directory, selecione **nomes de domínio personalizados** no painel de navegação esquerdo e, em seguida, selecione **Adicionar domínio personalizado**. 
-1. Insira seu nome de domínio personalizado e selecione **Adicionar domínio**. 
-1. Na página domínio, copie as informações de registro TXT para seu domínio. 
-1. Acesse seu registrador de domínio e crie um novo registro TXT para seu domínio, com base nas informações de DNS copiadas.
-1. Depois de registrar o domínio, na página do domínio em Azure Active Directory, selecione **verificar**. Depois que o status de domínio for **verificado**, você poderá usar o domínio em todas as suas configurações do Azure AD, incluindo o proxy de aplicativo. 
+1. No Diretório Ativo Azure, selecione nomes de **domínio personalizados** na navegação à esquerda e, em seguida, selecione **Adicionar domínio personalizado**. 
+1. Introduza o nome de domínio personalizado e selecione **Adicionar Domínio**. 
+1. Na página de domínio, copie as informações de registo TXT para o seu domínio. 
+1. Vá ao seu registo de domínio e crie um novo disco TXT para o seu domínio, com base nas suas informações de DNS copiadas.
+1. Depois de registar o domínio, na página do domínio no Diretório Ativo Azure, selecione **Verificar**. Uma vez **verificado**o estado de domínio, pode utilizar o domínio em todas as configurações do Anúncio Azure, incluindo o Proxy de Aplicação. 
 
-Para obter instruções mais detalhadas, consulte [Adicionar seu nome de domínio personalizado usando o portal de Azure Active Directory](../fundamentals/add-custom-domain.md).
+Para obter instruções mais detalhadas, consulte Adicionar o seu nome de [domínio personalizado utilizando o portal de diretório Ativo Azure](../fundamentals/add-custom-domain.md).
 
-### <a name="configure-an-app-to-use-a-custom-domain"></a>Configurar um aplicativo para usar um domínio personalizado
+### <a name="configure-an-app-to-use-a-custom-domain"></a>Configure uma aplicação para usar um domínio personalizado
 
-Para publicar seu aplicativo por meio do proxy de aplicativo com um domínio personalizado:
+Para publicar a sua aplicação através do Application Proxy com um domínio personalizado:
 
-1. Para um novo aplicativo, em Azure Active Directory, selecione **aplicativos empresariais** no painel de navegação esquerdo. Selecione **Nova aplicação**. Na seção **aplicativos locais** , selecione **Adicionar um aplicativo local**. 
+1. Para uma nova aplicação, no Azure Ative Directory, selecione **aplicações da Enterprise** na navegação à esquerda. Selecione **Nova aplicação**. Na secção de **aplicações No local,** selecione **Adicionar uma aplicação no local**. 
    
-   Para um aplicativo que já está em **aplicativos corporativos**, selecione-o na lista e, em seguida, selecione **proxy de aplicativo** no painel de navegação esquerdo. 
+   Para uma aplicação já em **aplicações da Enterprise,** selecione-a a partir da lista e, em seguida, selecione **proxy de Aplicação** na navegação esquerda. 
 
-2. Na página Configurações de proxy de aplicativo, insira um **nome** se você estiver adicionando seu próprio aplicativo local.
+2. Na página de definições de Procuração de Aplicação, introduza um **Nome** se estiver a adicionar a sua própria aplicação no local.
 
-3.  No campo **URL interna** , insira a URL interna para seu aplicativo.
+3.  No campo **Url Interno,** introduza o URL interno para a sua aplicação.
    
-4. No campo **URL externa** , clique na lista suspensa e selecione o domínio personalizado que você deseja usar.
+4. No campo **Url Externo,** deixe cair a lista e selecione o domínio personalizado que pretende utilizar.
    
 5. Selecione **Adicionar**.
    
-   ![Selecionar domínio personalizado](./media/application-proxy-configure-custom-domain/application-proxy.png)
+   ![Selecione domínio personalizado](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-6. Se o domínio já tiver um certificado, o campo **certificado** exibirá as informações do certificado. Caso contrário, selecione o campo **certificado** . 
+6. Se o domínio já tiver um certificado, o campo **certificado** apresenta as informações do certificado. Caso contrário, selecione o campo **Certificado.** 
    
-   ![Clique para carregar um certificado](./media/application-proxy-configure-custom-domain/certificate.png)
+   ![Clique aqui para carregar um certificado](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. Na página **certificado SSL** , navegue até e selecione o arquivo de certificado PFX. Insira a senha para o certificado e selecione **carregar certificado**. Para obter mais informações sobre certificados, consulte a seção [certificados para domínios personalizados](#certificates-for-custom-domains) .
+7. Na página de **certificadoS SSL,** navegue e selecione o seu ficheiro de certificado PFX. Introduza a palavra-passe para o certificado e **selecione'Sou Certificado de Upload**. Para obter mais informações sobre certificados, consulte a secção [Certificados para domínios personalizados.](#certificates-for-custom-domains)
    
-   ![Carregar certificado](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
+   ![Certificado de upload](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
    > [!TIP] 
-   > Um domínio personalizado precisa apenas de seu certificado carregado uma vez. Depois disso, o certificado carregado é aplicado automaticamente quando você usa o domínio personalizado para outros aplicativos.
+   > Um domínio personalizado só precisa do seu certificado carregado uma vez. Depois disso, o certificado carregado é aplicado automaticamente quando utiliza o domínio personalizado para outras aplicações.
    
-8. Se você adicionou um certificado, na página **proxy de aplicativo** , selecione **salvar**. 
+8. Se tiver adicionado um certificado, na página proxy da **Aplicação,** selecione **Guardar**. 
    
-9. Na barra de informações na página **proxy de aplicativo** , observe a entrada CNAME que você precisa adicionar à zona DNS. 
+9. Na barra de informações na página proxy da **Aplicação,** note a entrada CNAME que precisa adicionar à sua zona DNS. 
    
-   ![Adicionar entrada DNS CNAME](./media/application-proxy-configure-custom-domain/dns-info.png)
+   ![Adicionar entrada CNAME DNS](./media/application-proxy-configure-custom-domain/dns-info.png)
    
-10. Siga as instruções em [gerenciar registros DNS e conjuntos de registros usando o portal do Azure](../../dns/dns-operations-recordsets-portal.md) para adicionar um registro DNS que redireciona a nova URL externa para o domínio *msappproxy.net* .
+10. Siga as instruções em [Registos DNS de Gestão e recordes utilizando o portal Azure](../../dns/dns-operations-recordsets-portal.md) para adicionar um registo DNS que redireciona o novo URL externo para o domínio *msappproxy.net.*
    
-11. Para verificar se o registro DNS está configurado corretamente, use o comando [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) para confirmar se a URL externa está acessível e se o domínio *msapproxy.net* aparece como um alias.
+11. Para verificar se o registo DNS está configurado corretamente, utilize o comando [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) para confirmar que o seu URL externo é acessível e que o domínio *msapproxy.net* aparece como um pseudónimo.
 
-Seu aplicativo agora está configurado para usar o domínio personalizado. Certifique-se de atribuir usuários ao seu aplicativo antes de testá-lo ou liberá-lo. 
+A sua aplicação está agora configurada para utilizar o domínio personalizado. Certifique-se de atribuir utilizadores à sua aplicação antes de testá-la ou libertá-la. 
 
-Para alterar o domínio de um aplicativo, selecione um domínio diferente na lista suspensa na **URL externa** na página **proxy de aplicativo** do aplicativo. Carregue um certificado para o domínio atualizado, se necessário, e atualize o registro DNS. Se você não vir o domínio personalizado que deseja na lista suspensa na **URL externa**, talvez ele não seja verificado.
+Para alterar o domínio de uma aplicação, selecione um domínio diferente da lista de **dropdown** no URL Externo na página de proxy da **aplicação.** Faça o upload de um certificado para o domínio atualizado, se necessário, e atualize o registo DNS. Se não vir o domínio personalizado que deseja na lista de dropdown em **URL Externo,** pode não ser verificado.
 
-Para obter instruções mais detalhadas sobre o proxy de aplicativo, consulte [tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md).
+Para obter instruções mais detalhadas para o Proxy da Aplicação, consulte [Tutorial: Adicione um pedido no local para acesso remoto através de Application Proxy no Diretório Ativo Azure](application-proxy-add-on-premises-application.md).
 
 ## <a name="certificates-for-custom-domains"></a>Certificados para domínios personalizados
 
-Um certificado cria a conexão SSL segura para seu domínio personalizado. 
+Um certificado cria a ligação SSL segura para o seu domínio personalizado. 
 
-### <a name="certificate-formats"></a>Formatos de certificado
+### <a name="certificate-formats"></a>Formatos de certificados
 
-Você deve usar um certificado PFX para garantir que todos os certificados intermediários necessários estejam incluídos. O certificado deve incluir a chave privada.
+Deve utilizar um certificado PFX, para garantir que todos os certificados intermédios necessários estão incluídos. O certificado deve incluir a chave privada.
 
-Não há restrição para os métodos de assinatura de certificado. O ECC (criptografia de curva elíptica), o SAN (nome alternativo da entidade) e outros tipos de certificado comuns têm suporte. 
+Não há restrições nos métodos de assinatura de certificado. Criptografia da Curva Elíptica (ECC), Nome Alternativo sujeito (SAN) e outros tipos de certificados comuns são suportados. 
 
-Você pode usar certificados curinga, desde que o curinga corresponda à URL externa. Você deve usar certificados curinga para [aplicativos curinga](application-proxy-wildcard.md). Se você quiser usar o certificado para também acessar subdomínios, deverá adicionar os curingas de subdomínio como nomes alternativos da entidade no mesmo certificado. Por exemplo, um certificado para *\*. Adventure-Works.com* não funcionará para *\*. Apps.Adventure-Works.com* , a menos que você adicione *\*. Apps.Adventure-Works.com* como um nome alternativo da entidade. 
+Pode utilizar certificados wildcard desde que o wildcard corresponda ao URL externo. Deve utilizar certificados wildcard para [aplicações wildcard](application-proxy-wildcard.md). Se pretender utilizar o certificado para aceder também a subdomínios, deve adicionar os wildcards de subdomínio como nomes alternativos sujeitos no mesmo certificado. Por exemplo, um certificado para *\*.adventure-works.com* não funcionará para *\*.apps.adventure-works.com* a menos que adicione *\*.apps.adventure-works.com* como um nome alternativo sujeito. 
 
-Você pode usar certificados emitidos por sua própria PKI (infraestrutura de chave pública) se a cadeia de certificados estiver instalada em seus dispositivos cliente. O Intune pode implantar esses certificados em dispositivos gerenciados. Para dispositivos não gerenciados, você deve instalar manualmente esses certificados.
+Pode utilizar certificados emitidos pela sua própria infraestrutura de chaves públicas (PKI) se a cadeia de certificados estiver instalada nos seus dispositivos clientes. Intune pode implementar estes certificados para dispositivos geridos. Para dispositivos não geridos, tem de instalar manualmente estes certificados.
 
-Não é uma boa ideia usar uma autoridade de certificação raiz privada. A AC raiz privada também precisaria ser enviada por push para computadores cliente, o que apresenta muitos desafios. 
+Não é boa ideia usar uma raiz privada. A AC de raiz privada também teria de ser empurrada para as máquinas de clientes, o que introduz muitos desafios. 
 
 ### <a name="certificate-management"></a>Gestão de certificados
 
-Todo o gerenciamento de certificados é por meio das páginas individuais do aplicativo. Acesse a página **proxy de aplicativo** do aplicativo para acessar o campo **certificado** .
+Toda a gestão de certificados é através das páginas de candidatura individual. Aceda à página de procuração de pedidos de **aplicação** do pedido para aceder ao campo **Certificado.**
 
-Você pode usar o mesmo certificado para vários aplicativos. Se um certificado carregado funcionar com outro aplicativo, ele será aplicado automaticamente. Você não será solicitado a carregá-lo novamente quando adicionar ou configurar o aplicativo. 
+Pode utilizar o mesmo certificado para várias aplicações. Se um certificado carregado funcionar com outra aplicação, será aplicado automaticamente. Não será solicitado que o carregue novamente quando adicionar ou configurar a aplicação. 
 
-Quando um certificado expirar, você receberá um aviso informando que você deseja carregar outro certificado. Se o certificado for revogado, os usuários poderão ver um aviso de segurança ao acessar o aplicativo. Para atualizar o certificado para um aplicativo, navegue até a página **proxy de aplicativo** do aplicativo, selecione **certificado**e carregue um novo certificado. Se o certificado antigo não estiver sendo usado por outros aplicativos, ele será excluído automaticamente. 
+Quando um certificado expira, recebe um aviso a dizer-lhe para fazer o upload de outro certificado. Se o certificado for revogado, os seus utilizadores poderão ver um aviso de segurança ao aceder à aplicação. Para atualizar o certificado para uma aplicação, navegue para a página proxy da **Aplicação** para a aplicação, selecione **Certificado**, e faça upload de um novo certificado. Se o certificado antigo não estiver a ser utilizado por outras aplicações, é apagado automaticamente. 
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Habilite o logon único](application-proxy-configure-single-sign-on-with-kcd.md) para seus aplicativos publicados com a autenticação do Azure AD.
-* [Habilite o acesso condicional](../conditional-access/technical-reference.md#cloud-apps-assignments) para seus aplicativos publicados.
+* Ative um [único início de sessão](application-proxy-configure-single-sign-on-with-kcd.md) nas suas aplicações publicadas com autenticação Azure AD.
+* [Ative o Acesso Condicional](../conditional-access/overview.md) às suas aplicações publicadas.
 

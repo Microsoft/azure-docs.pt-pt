@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 060a84c06e65441381a0cf74f20fb4a9d7b0f042
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 512d05b245f1279a977ba61d5b4c4904fc0f6bf2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642152"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77202128"
 ---
-Você pode usar os seguintes tipos de parâmetro para a associação de entrada de blob:
+Pode utilizar os seguintes tipos de parâmetros para a ligação de entrada blob:
 
 * `Stream`
 * `TextReader`
@@ -29,8 +29,8 @@ Você pode usar os seguintes tipos de parâmetro para a associação de entrada 
 * `CloudPageBlob`<sup>1</sup>
 * `CloudAppendBlob`<sup>1</sup>
 
-<sup>1</sup> requer Associação `direction` "Inout" em *Function. JSON* ou `FileAccess.ReadWrite` em uma C# biblioteca de classes.
+<sup>1</sup> Requer `direction` de ligação "inout" em *função.json* ou `FileAccess.ReadWrite` numa C# biblioteca de classes.
 
-Se você tentar se associar a um dos tipos de SDK de armazenamento e receber uma mensagem de erro, verifique se você tem uma referência para [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
+Se tentar ligar-se a um dos tipos de SDK de armazenamento e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](../articles/azure-functions/functions-bindings-storage-blob.md#azure-storage-sdk-version-in-functions-1x).
 
-A associação `string` a `Byte[]` ou é recomendada somente se o tamanho do blob for pequeno, pois todo o conteúdo do blob será carregado na memória. Em geral, é preferível usar um `Stream` tipo `CloudBlockBlob` ou. Para obter mais informações, consulte [simultaneidade e uso de memória](#trigger---concurrency-and-memory-usage) anteriormente neste artigo.
+A ligação a `string` ou `Byte[]` só é recomendada se o tamanho da bolha for pequeno, uma vez que todo o conteúdo da bolha é carregado na memória. Geralmente, é preferível utilizar um tipo `Stream` ou `CloudBlockBlob`. Para mais informações, consulte [a Concurrency e](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage) o uso da memória no início deste artigo.

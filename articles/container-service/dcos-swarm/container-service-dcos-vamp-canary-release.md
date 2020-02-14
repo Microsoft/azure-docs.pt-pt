@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275667"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189115"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>PRETERIDO Canário liberar os microserviços com uma nova edição em um cluster DC/OS do serviço de contêiner do Azure
 
@@ -27,38 +27,38 @@ Neste tutorial, configuramos a orientação sobre o serviço de contêiner do Az
 ## <a name="about-canary-releases-and-vamp"></a>Sobre as versões de canário e a nova
 
 
-A [liberação do canário](https://martinfowler.com/bliki/CanaryRelease.html) é uma estratégia de implantação inteligente adotada por organizações inovadoras como Netflix, Facebook e Spotify. Trata-se de uma abordagem que faz sentido, pois reduz problemas, apresenta redes de segurança e aumenta a inovação. Então, por que as empresas não estão usando isso? Estender um pipeline de CI/CD para incluir estratégias de canário adiciona complexidade e requer conhecimento e experiência de DevOps extensivos. Isso é suficiente para bloquear empresas menores e empresas antes mesmo de começar. 
+[A libertação de canários](https://martinfowler.com/bliki/CanaryRelease.html) é uma estratégia de implementação inteligente adotada por organizações inovadoras como netflix, Facebook e Spotify. Trata-se de uma abordagem que faz sentido, pois reduz problemas, apresenta redes de segurança e aumenta a inovação. Então, por que as empresas não estão usando isso? Estender um pipeline de CI/CD para incluir estratégias de canário adiciona complexidade e requer conhecimento e experiência de DevOps extensivos. Isso é suficiente para bloquear empresas menores e empresas antes mesmo de começar. 
 
-A [estrutura é um](https://vamp.io/) sistema de software livre projetado para facilitar essa transição e colocar os recursos de lançamento do canário em seu Agendador de contêiner preferido. A funcionalidade canário de uma nova modela vai além das distribuições baseadas em porcentagem. O tráfego pode ser filtrado e dividido em uma ampla gama de condições, por exemplo, para direcionar usuários específicos, intervalos de IP ou dispositivos. Acompanhe as faixas e analise as métricas de desempenho, permitindo a automação baseada em dados do mundo real. Você pode configurar a reversão automática em erros ou dimensionar variantes de serviço individuais com base na carga ou latência.
+[Vamp](https://vamp.io/) é um sistema de código aberto projetado para facilitar esta transição e trazer funcionalidades de libertação canária ao seu programador de contentores preferido. A funcionalidade canário de uma nova modela vai além das distribuições baseadas em porcentagem. O tráfego pode ser filtrado e dividido em uma ampla gama de condições, por exemplo, para direcionar usuários específicos, intervalos de IP ou dispositivos. Acompanhe as faixas e analise as métricas de desempenho, permitindo a automação baseada em dados do mundo real. Você pode configurar a reversão automática em erros ou dimensionar variantes de serviço individuais com base na carga ou latência.
 
 ## <a name="set-up-azure-container-service-with-dcos"></a>Configurar o serviço de contêiner do Azure com o DC/so
 
 
 
-1. [Implante um cluster DC/os](container-service-deployment.md) com um mestre e dois agentes de tamanho padrão. 
+1. [Implementar um cluster DC/OS](container-service-deployment.md) com um mestre e dois agentes de tamanho padrão. 
 
-2. [Crie um túnel SSH](../container-service-connect.md) para se conectar ao cluster DC/os. Este artigo pressupõe que você túnel para o cluster na porta local 80.
+2. [Crie um túnel SSH](../container-service-connect.md) para ligar ao cluster DC/OS. Este artigo pressupõe que você túnel para o cluster na porta local 80.
 
 
 ## <a name="set-up-vamp"></a>Configurar a remodelação
 
-Agora que você tem um cluster DC/OS em execução, é possível instalar o modestas da interface do usuário do DC/OS (http:\//localhost: 80). 
+Agora que tem um cluster DC/OS em execução, pode instalar o Vamp a partir do DC/OS UI (http:\//localhost:80). 
 
 ![IU do DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
 A instalação é feita em dois estágios:
 
-1. **Implantar Elasticsearch**.
+1. **Implementar elástico**.
 
-2. Em seguida, **implante o remodelado** instalando o pacote do universo DC/so de modelação.
+2. Em seguida, **implemente o Vamp** instalando o pacote do universo Vamp DC/OS.
 
 ### <a name="deploy-elasticsearch"></a>Implantar Elasticsearch
 
-A remodelação requer Elasticsearch para coleta e agregação de métricas. Você pode usar as [imagens do Docker magneticio](https://hub.docker.com/r/magneticio/elastic/) para implantar uma pilha Elasticsearch de remodelação compatível.
+A remodelação requer Elasticsearch para coleta e agregação de métricas. Pode usar as [imagens magneticio Docker](https://hub.docker.com/r/magneticio/elastic/) para implementar uma pilha de pesquisa de vamp elástico compatível.
 
-1. Na interface do usuário do DC/so, acesse **Serviços** e clique em **implantar serviço**.
+1. Na UI DC/OS, vá aos **Serviços** e clique em **Serviço de Implantação**.
 
-2. Selecione **modo JSON** no pop-up **implantar novo serviço** .
+2. Selecione o **modo JSON** a partir do pop-up **Deploy New Service.**
 
    ![Selecionar modo JSON](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
 
@@ -91,28 +91,28 @@ A remodelação requer Elasticsearch para coleta e agregação de métricas. Voc
    ```
   
 
-3. Clique em **implementar**.
+3. Clique em **Implementar**.
 
-   O DC/OS implanta o contêiner Elasticsearch. Você pode acompanhar o progresso na página **Serviços** .  
+   O DC/OS implanta o contêiner Elasticsearch. Pode acompanhar o progresso na página **dos Serviços.**  
 
    ![implantar e? Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
 
 ### <a name="deploy-vamp"></a>Implantar a nova
 
-Depois que o Elasticsearch reportar como **em execução**, você poderá adicionar o pacote de universo DC/os de remodelação. 
+Uma vez que a Pesquisa Elástica reporte como **Running,** pode adicionar o pacote Vamp DC/OS Universe. 
 
-1. Vá para o **universo** e pesquise por uma **nova**localização. 
-   ![se remodelar no universo DC/OS](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
+1. Vá ao **Universo** e procure **vampiros.** 
+   ![Vamp no universo DC/OS](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
 
-2. Clique em **instalar** ao lado do pacote de remodelação e escolha **instalação avançada**.
+2. Clique em **instalar** ao lado da embalagem vamp e escolha **instalação avançada**.
 
-3. Role para baixo e insira o seguinte elasticsearch: `http://elasticsearch.marathon.mesos:9200`. 
+3. Desloque-se para baixo e introduza o seguinte elástico url de pesquisa: `http://elasticsearch.marathon.mesos:9200`. 
 
    ![Insira a URL do Elasticsearch](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
 
-4. Clique em **revisar e instalar e**, em seguida, clique em **instalar** para iniciar a implantação.  
+4. Clique em **Rever e Instalar**e, em seguida, clique em **Instalar** para iniciar a implementação.  
 
-   O DC/OS implanta todos os componentes de remodelação necessários. Você pode acompanhar o progresso na página **Serviços** .
+   O DC/OS implanta todos os componentes de remodelação necessários. Pode acompanhar o progresso na página **dos Serviços.**
   
    ![Implantar uma nova planta como um pacote do universo](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
   
@@ -127,11 +127,11 @@ Depois que o Elasticsearch reportar como **em execução**, você poderá adicio
 
 Agora que a figura está em funcionamento, implante um serviço de um plano gráfico. 
 
-Em sua forma mais simples, um [plano gráfico de remodelação](https://vamp.io/documentation/using-vamp/blueprints/) descreve os pontos de extremidade (gateways), os clusters e os serviços a serem implantados. A remodelação usa clusters para agrupar variantes diferentes do mesmo serviço em grupos lógicos para A liberação de canário ou teste A/B.  
+Na sua forma mais simples, um [projeto vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) descreve os pontos finais (gateways), clusters e serviços para implantar. A remodelação usa clusters para agrupar variantes diferentes do mesmo serviço em grupos lógicos para A liberação de canário ou teste A/B.  
 
-Esse cenário usa um aplicativo monolítico de exemplo chamado [**Sava**](https://github.com/magneticio/sava), que está na versão 1,0. O monolítico é empacotado em um contêiner do Docker, que está no Hub do Docker em magneticio/Sava: 1.0.0. O aplicativo normalmente é executado na porta 8080, mas você deseja expô-lo na porta 9050 nesse caso. Implante o aplicativo por meio de uma nova estrutura usando um plano gráfico simples.
+Este cenário utiliza uma aplicação monolítica de amostra chamada [**sava**](https://github.com/magneticio/sava), que está na versão 1.0. O monolítico é empacotado em um contêiner do Docker, que está no Hub do Docker em magneticio/Sava: 1.0.0. O aplicativo normalmente é executado na porta 8080, mas você deseja expô-lo na porta 9050 nesse caso. Implante o aplicativo por meio de uma nova estrutura usando um plano gráfico simples.
 
-1. Vá para **implantações**.
+1. Ir a **Destacamentos.**
 
 2. Clique em **Adicionar**.
 
@@ -153,13 +153,13 @@ Esse cenário usa um aplicativo monolítico de exemplo chamado [**Sava**](https:
 
 4. Clique em **Guardar**. A remodelação inicia a implantação.
 
-A implantação é listada na página **implantações** . Clique na implantação para monitorar seu status.
+A implementação está listada na página **de Implantações.** Clique na implantação para monitorar seu status.
 
 ![Interface do usuário de remodelação – implantando Sava](./media/container-service-dcos-vamp-canary-release/09_sava100.png)
 
 ![serviço Sava na interface do usuário de remodelação](./media/container-service-dcos-vamp-canary-release/09a_sava100.png)
 
-Dois gateways são criados, que são listados na página **gateways** :
+São criados dois gateways, que estão listados na página **Gateways:**
 
 * um ponto de extremidade estável para acessar o serviço em execução (porta 9050) 
 * um gateway interno com gerenciamento de Nova modela (mais informações sobre esse gateway mais tarde). 
@@ -173,14 +173,14 @@ O serviço Sava agora foi implantado, mas você não pode acessá-lo externament
 
 A nova implantação implantou o serviço Sava nos nós do agente DC/so, expondo um ponto de extremidade estável na porta 9050. Para acessar o serviço de fora do cluster DC/OS, faça as seguintes alterações na configuração de rede do Azure na implantação do cluster: 
 
-1. **Configure o Azure Load Balancer** para os agentes (o recurso chamado **DCOs-Agent-lb-xxxx**) com uma investigação de integridade e uma regra para encaminhar o tráfego na porta 9050 para as instâncias de Sava. 
+1. **Configure o Balancer** de Carga Azure para os agentes (o recurso chamado **dcos-agent-lb-xxxx**) com uma sonda de saúde e uma regra para encaminhar o tráfego na porta 9050 para os casos de sava. 
 
-2. **Atualize o grupo de segurança de rede** para os agentes públicos (o recurso chamado **xxxx-Agent-Public-NSG-xxxx**) para permitir o tráfego na porta 9050.
+2. **Atualize o grupo** de segurança da rede para os agentes públicos (o recurso chamado **XXXX-agent-public-nsg-XXXX**) para permitir o tráfego no porto 9050.
 
-Para obter etapas detalhadas para concluir essas tarefas usando o portal do Azure, consulte [habilitar acesso público a um aplicativo do serviço de contêiner do Azure](container-service-enable-public-access.md). Especifique a porta 9050 para todas as configurações de porta.
+Para que as diligências detalhadas completem estas tarefas utilizando o portal Azure, consulte Permitir o acesso do público a uma aplicação do Serviço de [Contentores Azure.](container-service-enable-public-access.md) Especifique a porta 9050 para todas as configurações de porta.
 
 
-Depois que tudo tiver sido criado, vá para a folha **visão geral** do balanceador de carga do agente DC/so (o recurso chamado **DCOs-Agent-lb-xxxx**). Localize o **endereço IP público**e use o endereço para acessar o Sava na porta 9050.
+Uma vez que tudo tenha sido criado, vá à lâmina de **visão geral** do equilibrador de carga do agente DC/OS (o recurso chamado **dcos-agent-lb-xxxx**). Encontre o **endereço IP público**e utilize o endereço para aceder ao sava no porto 9050.
 
 ![Portal do Azure-obter endereço IP público](./media/container-service-dcos-vamp-canary-release/18_public_ip_address.png)
 
@@ -189,15 +189,15 @@ Depois que tudo tiver sido criado, vá para a folha **visão geral** do balancea
 
 ## <a name="run-a-canary-release"></a>Executar uma versão do canário
 
-Suponha que você tenha uma nova versão deste aplicativo que deseja canário a liberação para produção. Você o tem em contêineres como magneticio/Sava: 1.1.0 e está pronto para começar. A nova forma permite que você adicione facilmente novos serviços à implantação em execução. Esses serviços "mesclados" são implantados juntamente com os serviços existentes no cluster e atribuídos a um peso de 0%. Nenhum tráfego é roteado para um serviço mesclado recentemente até que você ajuste a distribuição de tráfego. O controle deslizante peso na interface do usuário de remodelação fornece a você controle total sobre a distribuição, permitindo ajustes incrementais (versão canário) ou uma reversão instantânea.
+Suponha que você tenha uma nova versão deste aplicativo que deseja canário a liberação para produção. Você o tem em contêineres como magneticio/Sava: 1.1.0 e está pronto para começar. A nova forma permite que você adicione facilmente novos serviços à implantação em execução. Estes serviços "fundidos" são implantados juntamente com os serviços existentes no cluster, e atribuíram um peso de 0%. Nenhum tráfego é roteado para um serviço mesclado recentemente até que você ajuste a distribuição de tráfego. O controle deslizante peso na interface do usuário de remodelação fornece a você controle total sobre a distribuição, permitindo ajustes incrementais (versão canário) ou uma reversão instantânea.
 
 ### <a name="merge-a-new-service-variant"></a>Mesclar uma nova variante de serviço
 
 Para mesclar o novo serviço Sava 1,1 com a implantação em execução:
 
-1. Na interface do usuário da remodelação, clique em **plantas**.
+1. Na UI Vamp, clique em **Plantas**.
 
-2. Clique em **Adicionar** e cole o seguinte YAML Blueprint: este projeto descreve uma nova variante de serviço (Sava: 1.1.0) a ser implantada no cluster existente (sava_cluster).
+2. Clique em **Adicionar** e colar na seguinte planta YAML: Esta planta descreve uma nova variante de serviço (sava:1.1.0) para implantar dentro do cluster existente (sava_cluster).
 
    ```YAML
    name: sava:1.1.0      # blueprint name
@@ -211,31 +211,31 @@ Para mesclar o novo serviço Sava 1,1 com a implantação em execução:
               webport: 8080/http # cluster endpoint to update
    ```
   
-3. Clique em **Guardar**. O plano gráfico é armazenado e listado na página **plantas** .
+3. Clique em **Guardar**. A planta é armazenada e listada na página **Blueprints.**
 
-4. Abra o menu Ação no plano gráfico Sava: 1.1 e clique em **Mesclar para**.
+4. Abra o menu de ação na planta sava:1.1 e clique em **Fundir para**.
 
    ![Interface do usuário de remodelação-plantas](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
 
-5. Selecione a implantação do **Sava** e clique em **mesclar**.
+5. Selecione a implementação da **sava** e clique em **Fundir**.
 
    ![Interface do usuário de remodelação-gráfico de mesclagem para implantação](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
 
-A estrutura implanta a nova variante de serviço Sava: 1.1.0 descrita no Blueprint juntamente com Sava: 1.0.0 no **sava_cluster** da implantação em execução. 
+Vamp implementa a nova variante de serviço sava:1.1.0 descrita na planta ao lado de sava:1.0.0 no **sava_cluster** da implantação em execução. 
 
 ![Interface do usuário de remodelação-implantação de Sava atualizada](./media/container-service-dcos-vamp-canary-release/22_sava_cluster.png)
 
-O gateway **/webport Sava/sava_cluster** (o ponto de extremidade do cluster) também é atualizado, adicionando uma rota para o Sava: 1.1.0 implantado recentemente. Neste ponto, nenhum tráfego é roteado aqui (o **peso** é definido como 0%).
+O gateway **sava/sava_cluster/webport** (o ponto final do cluster) também é atualizado, adicionando uma rota para o recém-implantado sava:1.1.0. Neste ponto, não há tráfego aqui (o **PESO** está fixado em 0%).
 
 ![Interface do usuário de remodelação-gateway de cluster](./media/container-service-dcos-vamp-canary-release/23_sava_cluster_webport.png)
 
 ### <a name="canary-release"></a>Versão canário
 
-Com as duas versões do Sava implantadas no mesmo cluster, ajuste a distribuição do tráfego entre elas movendo o controle deslizante **peso** .
+Com ambas as versões de sava implantadas no mesmo cluster, ajuste a distribuição de tráfego entre elas movendo o slider **WEIGHT.**
 
-1. Clique em ![interface do usuário de remodelação – editar](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) ao lado de **peso**.
+1. Clique ![Vamp UI - edite](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) ao lado do **PESO**.
 
-2. Defina a distribuição de peso para 50%/50% e clique em **salvar**.
+2. Detete a distribuição de peso para 50%/50% e clique em **Guardar**.
 
    ![IU de remodelação-controle deslizante de peso](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
 
@@ -252,25 +252,25 @@ Com as duas versões do Sava implantadas no mesmo cluster, ajuste a distribuiç�
 
 Suponha que após a implantação você descobriu uma incompatibilidade no Sava: 1.1.0 que causa problemas de exibição em navegadores Firefox. Você pode definir uma nova medida para filtrar o tráfego de entrada e direcionar todos os usuários do Firefox para o Sava estável conhecido: 1.0.0. Esse filtro resolve instantaneamente a interrupção dos usuários do Firefox, enquanto todos os outros continuam a aproveitar os benefícios do Sava: 1.1.0 aprimorado.
 
-A remodelação usa **condições** para filtrar o tráfego entre rotas em um gateway. O tráfego é primeiro filtrado e direcionado de acordo com as condições aplicadas a cada rota. Todo o tráfego restante é distribuído de acordo com a configuração de peso do gateway.
+Vamp usa **condições** para filtrar o tráfego entre as rotas de um portal. O tráfego é primeiro filtrado e direcionado de acordo com as condições aplicadas a cada rota. Todo o tráfego restante é distribuído de acordo com a configuração de peso do gateway.
 
 Você pode criar uma condição para filtrar todos os usuários do Firefox e direcioná-los para o antigo Sava: 1.0.0:
 
-1. Na página **gateways** do sava/sava_cluster/webport, clique em ![interface do usuário de remodelação-editar](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) para adicionar uma **condição** à rota Sava/sava_cluster/Sava: 1.0.0/webport. 
+1. Na página sava/sava_cluster/webport **Gateways,** clique ![Vamp UI - edite](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) para adicionar uma **CONDIÇÃO** à rota sava/sava_cluster/sava:1.0.0/webport. 
 
-2. Insira a condição **User-Agent = = Firefox** e clique em ![interface do usuário de remodelar – salvar](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png).
+2. Introduza a condição **de agente utilizador == Firefox** e clique em ![Vamp UI - guarde](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png).
 
-   Remodelar adiciona a condição com uma força padrão de 0%. Para iniciar a filtragem de tráfego, você precisa ajustar a intensidade da condição.
+   Vamp adiciona a condição com uma força padrão de 0%. Para iniciar a filtragem de tráfego, você precisa ajustar a intensidade da condição.
 
-3. Clique em ![interface do usuário de remodelação – editar](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) para alterar a **força** aplicada à condição.
+3. Clique ![Vamp UI - edite](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) para alterar a **STRENGTH** aplicada à circunstância.
  
-4. Defina a **força** como 100% e clique em ![interface do usuário de remodelação – salvar](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) para salvar.
+4. Desloque a **FORÇA** a 100% e clique ![Vamp UI - poupe](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) para guardar.
 
    A remodelação agora envia todo o tráfego que corresponde à condição (todos os usuários do Firefox) para Sava: 1.0.0.
 
    ![Interface do usuário de remodelação – aplicar condição ao gateway](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
 
-5. Por fim, ajuste o peso do gateway para enviar todo o tráfego restante (todos os usuários que não são do Firefox) para o novo Sava: 1.1.0. Clique em ![interface do usuário de remodelação – editar](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) ao lado de **peso** e defina a distribuição de peso de modo que 100% seja direcionado para a rota sava/sava_cluster/Sava: 1.1.0/webport.
+5. Por fim, ajuste o peso do gateway para enviar todo o tráfego restante (todos os usuários que não são do Firefox) para o novo Sava: 1.1.0. Clique ![Vamp UI - edite](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) ao lado do **WEIGHT** e detete a distribuição de peso para que 100% seja direcionado para a rota sava/sava_cluster/sava:1.1.0/webport.
 
    Todo o tráfego não filtrado pela condição agora é direcionado para o novo Sava: 1.1.0.
 
@@ -287,9 +287,9 @@ Também abordamos alguns recursos poderosos de remodelação: mesclando uma nova
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como gerenciar ações de remodelação por meio da [API REST de Dimodelação](https://vamp.io/documentation/api/api-reference/).
+* Aprenda sobre a gestão das ações do Vamp através da [API Vamp REST](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
 
-* Crie scripts de automação de forma nova no node. js e execute-os como fluxos de trabalho de forma de [modelação](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
+* Construa scripts de automação vamp em Node.js e execute-os como fluxos de [trabalho vamp](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
 
-* Consulte tutoriais adicionais de [remodelação](https://vamp.io/documentation/tutorials/).
+* Consulte [tutoriais VAMP](https://docs.vamp.io/tutorials/)adicionais .
 

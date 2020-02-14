@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 187989153ae32704df8a7ff061e19fe35206e0e8
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 53de4608616cb8f3b85bb88f1dbc5a4a79f4c02b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162519"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188852"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory
 
@@ -140,16 +140,16 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
-      -SubscriptionName <SUBSCRIPTION_NAME> `
-      -ResourceName <RESOURCE_NAME> `
-      -ResourceSubdomain <RESOURCE_SUBDOMAIN> `
-      -ResourceSKU <RESOURCE_SKU> `
-      -ResourceLocation <RESOURCE_LOCATION> `
-      -ResourceGroupName <RESOURCE_GROUP_NAME> `
-      -ResourceGroupLocation <RESOURCE_GROUP_LOCATION> `
-      -AADAppDisplayName <AAD_APP_DISPLAY_NAME> `
-      -AADAppIdentifierUri <AAD_APP_IDENTIFIER_URI> `
-      -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
+      -SubscriptionName '<SUBSCRIPTION_NAME>' `
+      -ResourceName '<RESOURCE_NAME>' `
+      -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' `
+      -ResourceSKU '<RESOURCE_SKU>' `
+      -ResourceLocation '<RESOURCE_LOCATION>' `
+      -ResourceGroupName '<RESOURCE_GROUP_NAME>' `
+      -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' `
+      -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
+      -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
+      -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
     ```
 
     | Parâmetro | Comentários |

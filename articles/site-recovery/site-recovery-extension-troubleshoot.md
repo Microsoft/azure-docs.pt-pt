@@ -5,93 +5,95 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: a9d28a12f5f1fa32d2bc3bcf590134930503f2ac
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a780a42179a0bacf0e4a12ba1e75ae84943539b4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970389"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190730"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Solucionar problemas de extensão de VM do Azure
 
-Este artigo fornece etapas de solução de problemas que podem ajudá-lo a resolver erros de Azure Site Recovery relacionados ao agente de VM e à extensão.
+Este artigo fornece passos de resolução de problemas que podem ajudá-lo a resolver erros de recuperação do site azure relacionados com o agente VM e extensão.
 
 
-## <a name="azure-site-recovery-extension-time-out"></a>Tempo limite da extensão de Azure Site Recovery  
+## <a name="azure-site-recovery-extension-time-out"></a>Tempo de extensão de extensão do site azure  
 
-Mensagem de erro: "a execução da tarefa atingiu o tempo limite durante o rastreamento da operação de extensão a ser iniciada"<br>
+Mensagem de erro: "A execução da tarefa tem esgotado enquanto rastreia a operação de extensão a ser iniciada"<br>
 Código de erro: "151076"
 
- Azure Site Recovery instalar uma extensão na máquina virtual como parte do trabalho de habilitação de proteção. Qualquer uma das condições a seguir pode impedir que a proteção seja disparada e o trabalho falhe. Conclua as seguintes etapas de solução de problemas e repita a operação:
+ A Azure Site Recovery instalou uma extensão na máquina virtual como parte de um trabalho de proteção ativa. Qualquer uma das seguintes condições pode impedir que a proteção seja acionada e fazer com que o trabalho falhe. Complete os seguintes passos de resolução de problemas e, em seguida, tente novamente a sua operação:
 
-**Causa 1: [o agente está instalado na VM, mas não está respondendo (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [a extensão de site Recovery falha ao atualizar ou carregar](#the-site-recovery-extension-fails-to-update-or-load)**  
+- [O agente está instalado no VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+- [O agente instalado no VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+- [A extensão de recuperação do site não atualiza ou carrega](#the-site-recovery-extension-fails-to-update-or-load)
 
 Mensagem de erro: "a operação de extensão de Site Recovery anterior está levando mais tempo do que o esperado".<br>
-Código de erro: "150066"<br>
+Código de erro: "150066"
 
-**Causa 1: [o agente está instalado na VM, mas não está respondendo (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [o status da extensão de site Recovery está incorreto](#the-site-recovery-extension-fails-to-update-or-load)**  
+- [O agente está instalado no VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+- [O agente instalado no VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+- [O estado de extensão de recuperação do site está incorreto](#the-site-recovery-extension-fails-to-update-or-load)
 
-## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>A proteção falha porque o agente de VM não está respondendo
+## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>A proteção falha porque o agente VM não responde
 
-Mensagem de erro: "a execução da tarefa atingiu o tempo limite durante o rastreamento da operação de extensão a ser iniciada".<br>
-Código de erro: "151099"<br>
+Mensagem de erro: "A execução da tarefa tem esgotado enquanto rastreia a operação de extensão a ser iniciada."<br>
+Código de erro: "151099"
 
-Esse erro pode ocorrer se o agente convidado do Azure na máquina virtual não estiver no estado pronto.
-Você pode verificar o status do agente convidado do Azure no [portal do Azure](https://portal.azure.com/). Vá para a máquina virtual que você está tentando proteger e verifique o status em "configurações de VM > > Propriedades > status do agente". Na maioria das vezes, o status do agente fica pronto após a reinicialização da máquina virtual. No entanto, se a reinicialização não for uma opção possível ou se você ainda estiver enfrentando o problema, conclua as seguintes etapas de solução de problemas.
+Este erro pode acontecer se o agente convidado azure na máquina virtual não estiver em estado de preparação.
 
-**Causa 1: [o agente está instalado na VM, mas não está respondendo (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+Pode verificar o estado do agente convidado Azure no [portal Azure.](https://portal.azure.com/) Vá à máquina virtual que está a tentar proteger e verifique o estado em **Definições** **de > VM** > **Propriedades** > Estado **do Agente**. Na maior parte do tempo, o estado do agente está pronto depois de reiniciar a máquina virtual. No entanto, se não conseguir reiniciar ou ainda estiver de frente para o problema, então complete os seguintes passos de resolução de problemas:
+
+- [O agente está instalado no VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+- [O agente instalado no VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 
 
-Mensagem de erro: "a execução da tarefa atingiu o tempo limite durante o rastreamento da operação de extensão a ser iniciada".<br>
-Código de erro: "151095"<br>
+Mensagem de erro: "A execução da tarefa tem esgotado enquanto rastreia a operação de extensão a ser iniciada."<br>
+Código de erro: "151095"
 
-Isso ocorre quando a versão do agente no computador Linux é antiga. Execute a seguinte etapa de solução de problemas.<br>
-  **Causa 1: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+Este erro ocorre quando a versão do agente na máquina Linux está desatualizada. Complete o seguinte passo de resolução de problemas:
+
+- [O agente instalado no VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)  
+
 ## <a name="causes-and-solutions"></a>Causas e soluções
 
-### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado na VM, mas não está respondendo (para VMs do Windows)
+### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado no VM, mas não responde (para VMs do Windows)
 
 #### <a name="solution"></a>Solução
-O agente de VM pode ter sido corrompido ou o serviço pode ter sido interrompido. Reinstalar o agente de VM ajuda a obter a versão mais recente. Ele também ajuda a reiniciar a comunicação com o serviço.
+O agente vm pode ter sido corrompido, ou o serviço pode ter sido interrompido. Reinstalar o agente VM ajuda a obter a versão mais recente. Também ajuda a reiniciar a comunicação com o serviço.
 
-1. Determine se o "serviço do agente convidado do Windows Azure" está em execução nos serviços de VM (Services. msc). Tente reiniciar o "serviço do agente convidado do Windows Azure".    
-2. Se o serviço do agente convidado do Windows Azure não estiver visível em serviços, no painel de controle, vá para **programas e recursos** para determinar se o serviço do agente convidado do Windows está instalado.
-4. Se o agente convidado do Windows Azure aparecer em **programas e recursos**, desinstale o agente convidado do Windows.
-5. Baixe e instale a [versão mais recente do MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você deve ter direitos de administrador para concluir a instalação.
-6. Verifique se os serviços do agente convidado do Windows Azure aparecem em serviços.
-7. Reinicie o trabalho de proteção.
+1. Determine se o serviço de Agente Convidado Windows Azure está a funcionar nos serviços VM (services.msc). Reinicie o serviço de Agente Convidado Windows Azure.    
+1. Se o serviço de Agente Convidado Windows Azure não estiver visível nos serviços, abra o Painel de Controlo. Vá a **Programas e Funcionalidades** para ver se o serviço de Agente Convidado do Windows está instalado.
+1. Se o Agente Convidado do Windows Azure aparecer em **Programas e Funcionalidades,** desinstale o Agente Convidado do Windows Azure.
+1. Descarregue e instale a [versão mais recente do agente MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Precisa dos direitos do administrador para completar a instalação.
+1. Verifique se o serviço de Agente Convidado Windows Azure aparece nos serviços.
+1. Reinicie o trabalho de proteção.
 
-Além disso, verifique se o [Microsoft .NET 4,5 está instalado](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) na VM. O .NET 4,5 é necessário para que o agente de VM se comunique com o serviço.
+Além disso, verifique se o [Microsoft .NET 4.5 está instalado](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) no VM. Precisa de .NET 4.5 para que o agente VM se comunique com o serviço.
 
-### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>O agente instalado na VM está desatualizado (para VMs do Linux)
+### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>O agente instalado no VM está desatualizado (para VMs Linux)
 
 #### <a name="solution"></a>Solução
-A maioria das falhas relacionadas ao agente ou relacionadas à extensão para VMs do Linux são causadas por problemas que afetam um agente de VM desatualizado. Para solucionar esse problema, siga estas diretrizes gerais:
+A maioria das falhas relacionadas com o agente ou as falhas relacionadas com a extensão dos VMs linux são causadas por problemas que afetam um agente VM desatualizado. Para resolver esta questão, siga estas orientações gerais:
 
-1. Siga as instruções para [atualizar o agente de VM do Linux](../virtual-machines/linux/update-agent.md).
+1. Siga as instruções para [atualizar o agente Linux VM](../virtual-machines/linux/update-agent.md).
 
    > [!NOTE]
-   > É *altamente recomendável* que você atualize o agente somente por meio de um repositório de distribuição. Não é recomendável baixar o código do agente diretamente do GitHub e atualizá-lo. Se o agente mais recente para sua distribuição não estiver disponível, entre em contato com o suporte de distribuição para obter instruções sobre como instalá-lo. Para verificar o agente mais recente, acesse a página do [agente Linux do Windows Azure](https://github.com/Azure/WALinuxAgent/releases) no repositório github.
+   > *Recomendamos vivamente* que atualize o agente apenas através de um repositório de distribuição. Não recomendamos descarregar o código do agente diretamente do GitHub e atualizá-lo. Se o mais recente agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. Para verificar o agente mais recente, vá à página de [agente do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) no repositório GitHub.
 
-2. Verifique se o agente do Azure está em execução na VM executando o seguinte comando: `ps -e`
+1. Certifique-se de que o agente Azure está a funcionar no VM executando o seguinte comando: `ps -e`
 
-   Se o processo não estiver em execução, reinicie-o usando os seguintes comandos:
+   Se o processo não estiver em execução, reinicie-o utilizando os seguintes comandos:
 
-   * Para o Ubuntu: `service walinuxagent start`
-   * Para outras distribuições: `service waagent start`
+   - Para Ubuntu: `service walinuxagent start`
+   - Para outras distribuições: `service waagent start`
 
-3. [Configure o agente de reinicialização automática](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
-4. Habilite a proteção da máquina virtual.
+1. [Configure o reinício automático](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
+1. Ativar a proteção da máquina virtual.
 
+### <a name="the-site-recovery-extension-fails-to-update-or-load"></a>A extensão de recuperação do site não atualiza ou carrega
 
-
-### <a name="the-site-recovery-extension-fails-to-update-or-load"></a>A extensão de Site Recovery falha ao atualizar ou carregar
-Se o status das extensões for "Empty", "ilegível" ou em transição.
+O estado de extensão mostra como "Vazio", "Não Pronto" ou "Transição".
 
 #### <a name="solution"></a>Solução
 
@@ -99,12 +101,12 @@ Desinstale a extensão e reinicie a operação.
 
 Para desinstalar a extensão:
 
-1. Na [portal do Azure](https://portal.azure.com/), vá para a VM que está apresentando falha de backup.
-2. Selecione **definições**.
-3. Selecione **Extensions** (Extensões).
-4. Selecione a **extensão site Recovery**.
-5. Selecione **Desinstalar**.
+1. No [portal Azure,](https://portal.azure.com/)vá ao VM que está a sofrer uma falha de backup.
+1. Selecione **Definições**.
+1. Selecione **Extensions** (Extensões).
+1. **Selecione extensão**de recuperação do site .
+1. Selecione **Desinstalar**.
 
-Para a VM do Linux, se a extensão VMSnapshot não aparecer na portal do Azure, [atualize o agente Linux do Azure](../virtual-machines/linux/update-agent.md)e, em seguida, execute a proteção.
+Para o Linux VM, se a extensão VMSnapshot não aparecer no portal Azure, [atualize o Agente Azure Linux](../virtual-machines/linux/update-agent.md). Então, dirija a proteção.
 
-A conclusão dessas etapas faz com que a extensão seja reinstalada durante a proteção.
+Quando completa estes passos, faz com que a extensão seja reinstalada durante a proteção.

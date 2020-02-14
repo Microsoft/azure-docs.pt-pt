@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
-ms.openlocfilehash: 143f2f36cc93a9d67a3ab800782c9a6bb8a52af0
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77067360"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187016"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Desenvolvimento e integração da API da ExpressRoute CrossConnnections
 
@@ -51,7 +51,7 @@ Os locais de observação do teste: dispositivos de boneco e portas não estão 
 
 ### <a name="2-register-the-dev_provider-subscription-to-access-the-expressroutecrossconnections-api"></a>2. Registe a subscrição Dev_Provider para aceder à API expressRouteCrossConnections
 
-Para aceder à API expressRouteCrossConnections, a subscrição do parceiro precisa de ser inscrita no **Microsoft.Network Resource Provider**. Siga os passos nos fornecedores de [recursos azure e tipo](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#portal) de artigo para completar o processo de registo.
+Para aceder à API expressRouteCrossConnections, a subscrição do parceiro precisa de ser inscrita no **Microsoft.Network Resource Provider**. Siga os passos nos fornecedores de [recursos azure e tipo](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) de artigo para completar o processo de registo.
 
 ### <a name="3-set-up-authentication-for-azure-resource-manager-rest-api-calls"></a>3. Configurar a autenticação para chamadas da API do Gestor de Recursos Do Azure
 

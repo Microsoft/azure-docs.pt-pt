@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 54e2516211495f7f044f716c518291ca8008f92d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118917"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189006"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de inquilino (pré-visualização)
 
@@ -79,9 +79,9 @@ Depois de o seu administrador ter ativado o Modelo de Inquilino para a sua organ
 
    > [!NOTE]
    > O Office 365 clientes empresariais na América do Norte são elegíveis para criar um modelo de inquilino (inglês). Se é um Customer Lockbox, Chave de Cliente ou cliente do Office 365 Government, esta funcionalidade não está disponível. Para determinar se é um lockbox de cliente ou cliente chave do cliente, consulte:
-   > * [Caixa de bloqueio do cliente](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
-   > * [Chave do cliente](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
-   > * [Gabinete 365 Governo](https://www.microsoft.com/microsoft-365/government)
+   > * [Caixa de bloqueio do cliente](/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Chave do cliente](/microsoft-365/compliance/customer-key-overview)
+   > * [Gabinete 365 Governo](/microsoft-365/government)
 
 1. Selecione **Optar por receber**.
 

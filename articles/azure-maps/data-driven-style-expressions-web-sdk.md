@@ -1,6 +1,6 @@
 ---
-title: Expressões de estilo controladas por dados no SDK da Web do Azure Maps | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a usar expressões de estilo controladas por dados no SDK da Web do Microsoft Azure Maps.
+title: Expressões de estilo orientados por dados no Azure Maps Web SDK  Microsoft Azure Maps
+description: Neste artigo, você aprenderá sobre como usar expressões de estilo baseadas em dados no Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e3e8476d09541518d964bfaff4dabad47755eeb9
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911768"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189653"
 ---
-# <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo controladas por dados (SDK da Web)
+# <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo orientadas por dados (Web SDK)
 
-As expressões permitem aplicar lógica de negócios a opções de estilo que observam as propriedades definidas em cada forma em uma fonte de dados. As expressões também podem ser usadas para filtrar dados em uma fonte de dados ou camada. As expressões podem consistir em lógica condicional, como If-Statements, e também podem ser usadas para manipular dados com; operadores de cadeia de caracteres, lógicos e matemáticos. 
+Expressões permitem-lhe aplicar lógica de negócio a opções de estilo que observam as propriedades definidas em cada forma numa fonte de dados. As expressões podem filtrar dados numa fonte de dados ou numa camada. Expressões podem consistir em lógica condicional, como declarações se. E podem ser usados para manipular dados utilizando: operadores de cordas, operadores lógicos e operadores matemáticos.
 
-Os estilos controlados por dados podem reduzir a quantidade de código necessária para implementar a lógica de negócios em relação ao estilo. Quando usado com camadas, as expressões são avaliadas no tempo de renderização em um thread separado que fornece maior desempenho quando comparada à avaliação da lógica de negócios no thread da interface do usuário.
+Os estilos orientados por dados reduzem a quantidade de código necessário para implementar a lógica do negócio em torno do styling. Quando usados com camadas, as expressões são avaliadas no tempo de renderização num fio separado. Esta funcionalidade proporciona um desempenho acrescido em comparação com a avaliação da lógica do negócio no fio UI.
 
-O vídeo a seguir fornece uma visão geral do estilo controlado por dados no SDK da Web do Azure Maps.
+Este vídeo fornece uma visão geral do estilo baseado em dados no Azure Maps Web SDK.
 
 <br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-As expressões são representadas como matrizes JSON. O primeiro elemento de uma expressão na matriz é uma cadeia de caracteres que especifica o nome do operador de expressão. Por exemplo, "+" ou "Case". Os próximos elementos (se houver) são os argumentos para a expressão. Cada argumento é um valor literal (uma cadeia de caracteres, número, booliano ou `null`) ou outra matriz de expressão. O pseudocódigo a seguir define a estrutura básica de uma expressão. 
+As expressões são representadas como matrizes JSON. O primeiro elemento de uma expressão na matriz é uma cadeia que especifica o nome do operador de expressão. Por exemplo, "+" ou "caso". Os elementos seguintes (se houver) são os argumentos para a expressão. Cada argumento é um valor literal (uma corda, número, booleano ou `null`), ou outra matriz de expressão. O pseudocódigo seguinte define a estrutura básica de uma expressão. 
 
 ```javascript
 [ 
@@ -39,24 +39,24 @@ As expressões são representadas como matrizes JSON. O primeiro elemento de uma
 ] 
 ```
 
-O SDK da Web do Azure Maps dá suporte a muitos tipos de que podem ser usados por conta própria ou em combinação com outras expressões.
+O Azure Maps Web SDK suporta muitos tipos de expressões. As expressões podem ser usadas por si próprias ou em combinação com outras expressões.
 
 | Tipo de expressões | Descrição |
 |---------------------|-------------|
-| [Expressão de agregação](#aggregate-expression) | Uma expressão que define um cálculo que é processado em um conjunto de dados e pode ser usado com a opção `clusterProperties` de um `DataSource`. |
-| [Expressões booleanas](#boolean-expressions) | As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas. |
-| [Expressões de cores](#color-expressions) | As expressões de cor facilitam a criação e a manipulação de valores de cores. |
-| [Expressões condicionais](#conditional-expressions) | As expressões condicionais fornecem operações lógicas que são como instruções IF-. |
-| [Expressões de dados](#data-expressions) | Fornece acesso aos dados de propriedade em um recurso. |
-| [Expressões de interpolação e etapas](#interpolate-and-step-expressions) | As expressões Interpolate e Step podem ser usadas para calcular valores ao longo de uma curva interpolada ou função Step. |
-| [Expressões específicas de camada](#layer-specific-expressions) | Expressões especiais que só se aplicam a uma única camada. |
-| [Expressões matemáticas](#math-expressions) | Fornece operadores matemáticos para executar cálculos controlados por dados dentro do Expression Framework. |
-| [Expressões de operador de cadeia de caracteres](#string-operator-expressions) | Expressões do operador String executam operações de conversão em cadeias de caracteres como concatenar e converter o caso. |
-| [Expressões de tipo](#type-expressions) | As expressões de tipo fornecem ferramentas para testar e converter diferentes tipos de dados, como cadeias de caracteres, números e valores Boolianos. |
-| [Expressões de associação de variáveis](#variable-binding-expressions) | As expressões de associação de variáveis permitem que os resultados de um cálculo sejam armazenados em uma variável e referenciados em outro lugar em uma expressão várias vezes sem precisar recalcular o valor armazenado. |
-| [Expressão de zoom](#zoom-expression) | Recupera o nível de zoom atual do mapa no momento da renderização. |
+| [Expressão agregada](#aggregate-expression) | Uma expressão que define um cálculo que é processado sobre um conjunto de dados e pode ser usado com a opção `clusterProperties` de um `DataSource`. |
+| [Expressões booleanas](#boolean-expressions) | Expressões booleanas fornecem um conjunto de expressões de operadores booleanos para avaliar comparações booleanas. |
+| [Expressões de cor](#color-expressions) | As expressões de cor facilitam a criação e manipulação dos valores de cor. |
+| [Expressões condicionais](#conditional-expressions) | Expressões condicionais fornecem operações lógicas que são como declarações se. |
+| [Expressões de dados](#data-expressions) | Fornece acesso aos dados da propriedade numa funcionalidade. |
+| [Expressões Interpolate e Step](#interpolate-and-step-expressions) | As expressões interpoladas e de passopodem ser usadas para calcular valores ao longo de uma curva ou função de passo interpolada. |
+| [Expressões específicas da camada](#layer-specific-expressions) | Expressões especiais que só são aplicáveis a uma única camada. |
+| [Expressões matemáticas](#math-expressions) | Fornece aos operadores matemáticos a realização de cálculos baseados em dados no quadro de expressão. |
+| [Expressões de operador de cordas](#string-operator-expressions) | As expressões do operador de cordas realizam operações de conversão em cordas como a concatenação e a conversão do caso. |
+| [Expressão suóloga](#type-expressions) | As expressões de tipo fornecem ferramentas para testar e converter diferentes tipos de dados, como cordas, números e valores booleanos. |
+| [Expressões de ligação variáveis](#variable-binding-expressions) | Expressões de ligação variáveis armazenam os resultados de um cálculo numa variável e referenciados em outros lugares numa expressão múltiplas vezes sem ter que recalcular o valor armazenado. |
+| [Expressão de zoom](#zoom-expression) | Recupera o nível de zoom atual do mapa no momento de renderização. |
 
-Todos os exemplos neste documento usarão o recurso a seguir para demonstrar diferentes maneiras em que os diferentes tipos de expressões podem ser usados. 
+Todos os exemplos deste documento utilizam a seguinte funcionalidade para demonstrar diferentes formas de utilização dos diferentes tipos de expressões. 
 
 ```javascript
 {
@@ -79,22 +79,22 @@ Todos os exemplos neste documento usarão o recurso a seguir para demonstrar dif
 
 ## <a name="data-expressions"></a>Expressões de dados
 
-As expressões de dados fornecem acesso aos dados de propriedade em um recurso. 
+As expressões de dados fornecem acesso aos dados da propriedade numa funcionalidade. 
 
-| Expressão | Tipo de retorno | Descrição |
+| Expressão | Tipo de devolução | Descrição |
 |------------|-------------|-------------|
 | `['at', number, array]` | objeto | Recupera um item de uma matriz. |
-| `['geometry-type']` | string | Obtém o tipo de geometria do recurso: ponto, MultiPoint, LineString, MultiLineString, polígono, MultiPolygon. |
-| `['get', string]` | valor | Obtém o valor da propriedade das propriedades do recurso atual. Retornará NULL se a propriedade solicitada estiver ausente. |
-| `['get', string, object]` | valor | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
-| `['has', string]` | boolean | Determina se as propriedades de um recurso têm a propriedade especificada. |
+| `['geometry-type']` | string | Obtém o tipo de geometria da funcionalidade: Ponto, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['get', string]` | valor | Obtém o valor da propriedade a partir das propriedades da funcionalidade atual. Devoluções nulas se a propriedade solicitada estiver em falta. |
+| `['get', string, object]` | valor | Obtém o valor da propriedade a partir das propriedades do objeto fornecido. Devoluções nulas se a propriedade solicitada estiver em falta. |
+| `['has', string]` | boolean | Determina se as propriedades de uma funcionalidade têm a propriedade especificada. |
 | `['has', string, object]` | boolean | Determina se as propriedades do objeto têm a propriedade especificada. |
-| `['id']` | valor | Obtém a ID do recurso se ele tiver um. |
-| `['length', string | array]` | número | Obtém o comprimento de uma cadeia de caracteres ou matriz. |
+| `['id']` | valor | Obtém a identificação da funcionalidade se tiver uma. |
+| `['length', string | array]` | número | Tem o comprimento de uma corda ou de uma matriz. |
 
 **Exemplos**
 
-As propriedades de um recurso podem ser acessadas diretamente em uma expressão usando uma expressão `get`. O exemplo a seguir usa o valor "zoneColor" do recurso para especificar a Propriedade Color de uma camada Bubble. 
+As propriedades de uma funcionalidade podem ser acedidas diretamente numa expressão utilizando uma expressão `get`. Este exemplo utiliza o valor "zoneColor" da funcionalidade para especificar a propriedade da cor de uma camada de bolha. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -102,7 +102,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-O exemplo acima funcionará bem se todos os recursos de ponto tiverem a propriedade `zoneColor`, mas se não tiverem, a cor provavelmente retornará para "preto". Para modificar a cor de fallback, uma expressão `case` pode ser usada em combinação com a expressão `has` para verificar se a propriedade existe e, se ela não retornar uma cor de fallback, em vez disso.
+O exemplo acima funcionará bem, se todas as características de ponto tiverem a propriedade `zoneColor`. Se não o fizerem, a cor provavelmente voltará a "preto". Para modificar a cor do recuo, utilize uma expressão `case` em combinação com a expressão `has` para verificar se a propriedade existe. Se a propriedade não existir, devolva uma cor de recuo.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -117,7 +117,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-As camadas de bolhas e símbolos renderizarão as coordenadas de todas as formas em uma fonte de dados por padrão. Isso pode ser feito para realçar os vértices de um polígono ou linha. A opção `filter` da camada pode ser usada para limitar o tipo de geometria dos recursos que ele renderiza usando uma expressão `['geometry-type']` dentro de uma expressão booleana. O exemplo a seguir limita uma camada de bolha para que apenas recursos `Point` sejam renderizados.
+Camadas de bolhas e símbolos tornarão as coordenadas de todas as formas numa fonte de dados, por padrão. Este comportamento pode destacar os vértices de um polígono ou uma linha. A opção `filter` da camada pode ser usada para limitar o tipo de geometria das características que presta, utilizando uma expressão `['geometry-type']` dentro de uma expressão booleana. O exemplo seguinte limita uma camada de bolha para que apenas `Point` características sejam renderizadas.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -125,7 +125,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-O exemplo a seguir permitirá que os recursos `Point` e `MultiPoint` sejam renderizados. 
+O exemplo que se segue permite que as funcionalidades `Point` e `MultiPoint` sejam prestadas. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -133,90 +133,90 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Da mesma forma, a estrutura de polígonos será renderizada em camadas de linha. Para desabilitar esse comportamento em uma camada de linha, adicione um filtro que permita apenas `LineString` e `MultiLineString` recursos.  
+Da mesma forma, o contorno dos Polígonos renderizará em camadas de linha. Para desativar este comportamento numa camada de linha, adicione um filtro que só permite `LineString` e `MultiLineString` funcionalidades.  
 
 ## <a name="math-expressions"></a>Expressões matemáticas
 
-As expressões matemáticas fornecem operadores matemáticos para executar cálculos controlados por dados dentro do Expression Framework.
+As expressões matemáticas fornecem aos operadores matemáticos a realização de cálculos baseados em dados no quadro de expressão.
 
-| Expressão | Tipo de retorno | Descrição |
+| Expressão | Tipo de devolução | Descrição |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | número | Calcula a soma dos números especificados. |
 | `['-', number]` | número | Subtrai 0 pelo número especificado. |
 | `['-', number, number]` | número | Subtrai os primeiros números pelo segundo número. |
-| `['*', number, number, …]` | número | Multiplica os números especificados juntos. |
+| `['*', number, number, …]` | número | Multiplica os números especificados em conjunto. |
 | `['/', number, number]` | número | Divide o primeiro número pelo segundo número. |
-| `['%', number, number]` | número | Calcula o resto ao dividir o primeiro número pelo segundo número. |
-| `['^', number, number]` | número | Calcula o valor do primeiro valor elevado à potência do segundo número. |
+| `['%', number, number]` | número | Calcula o restante ao dividir o primeiro número pelo segundo número. |
+| `['^', number, number]` | número | Calcula o valor do primeiro valor elevado ao poder do segundo número. |
 | `['abs', number]` | número | Calcula o valor absoluto do número especificado. |
-| `['acos', number]` | número | Calcula o arco cosseno do número especificado. |
-| `['asin', number]` | número | Calcula o arco seno do número especificado. |
-| `['atan', number]` | número | Calcula o arco tangente do número especificado. |
-| `['ceil', number]` | número | Arredonda o número para cima até o próximo número inteiro. |
-| `['cos', number]` | número | Calcula o cos do número especificado. |
-| `['e']` | número | Retorna a constante matemática `e`. |
-| `['floor', number]` | número | Arredonda o número para baixo até o inteiro completo anterior. |
-| `['ln', number]` | número | Calcula o logaritmo natural do número especificado. |
-| `['ln2']` | número | Retorna a constante matemática `ln(2)`. |
-| `['log10', number]` | número | Calcula o logaritmo de base 10 do número especificado. |
-| `['log2', number]` | número | Calcula o logaritmo de base dois do número especificado. |
+| `['acos', number]` | número | Calcula a arccosina do número especificado. |
+| `['asin', number]` | número | Calcula o arco do número especificado. |
+| `['atan', number]` | número | Calcula o arquitangente do número especificado. |
+| `['ceil', number]` | número | Arredonda o número até ao próximo inteiro inteiro inteiro. |
+| `['cos', number]` | número | Calcula os cos do número especificado. |
+| `['e']` | número | Devolve a constante matemática `e`. |
+| `['floor', number]` | número | Arredonda o número para o inteiro inteiro anterior. |
+| `['ln', number]` | número | Calcula o logarithm natural do número especificado. |
+| `['ln2']` | número | Devolve a constante matemática `ln(2)`. |
+| `['log10', number]` | número | Calcula o logarithm base-dez do número especificado. |
+| `['log2', number]` | número | Calcula o logarithm base-dois do número especificado. |
 | `['max', number, number, …]` | número | Calcula o número máximo no conjunto de números especificado. |
 | `['min', number, number, …]` | número | Calcula o número mínimo no conjunto de números especificado. |
-| `['pi']` | número | Retorna a constante matemática `PI`. |
-| `['round', number]` | número | Arredonda o número para o inteiro mais próximo. Valores intermediários são arredondados para longe de zero. Por exemplo, `['round', -1.5]` é avaliada como-2. |
+| `['pi']` | número | Devolve a constante matemática `PI`. |
+| `['round', number]` | número | Arredonda o número para o inteiro mais próximo. Os valores intermédios são arredondados de zero. Por exemplo, `['round', -1.5]` avalia para -2. |
 | `['sin', number]` | número | Calcula o seno do número especificado. |
 | `['sqrt', number]` | número | Calcula a raiz quadrada do número especificado. |
 | `['tan', number]` | número | Calcula a tangente do número especificado. |
 
-## <a name="aggregate-expression"></a>Expressão de agregação
+## <a name="aggregate-expression"></a>Expressão agregada
 
-Uma expressão de agregação define um cálculo que é processado em um conjunto de dados e pode ser usado com a opção `clusterProperties` de um `DataSource`. A saída dessas expressões deve ser um número ou booliano. 
+Uma expressão agregada define um cálculo que é processado sobre um conjunto de dados e pode ser usado com a opção `clusterProperties` de um `DataSource`. A saída destas expressões deve ser um número ou um booleano. 
 
-Uma expressão de agregação leva em três valores; um valor de operador e um valor inicial e uma expressão para recuperar uma propriedade de cada recurso em um dado para aplicar a operação de agregação. Essa expressão tem o seguinte formato:
+Uma expressão agregada requer três valores: um valor do operador e um valor inicial, e uma expressão para recuperar um imóvel de cada recurso em dados para aplicar o funcionamento agregado. Esta expressão tem o seguinte formato:
 
 ```javascript
 [operator: string, initialValue: boolean | number, mapExpression: Expression]
 ```
 
-- operador: uma função de expressão que é aplicada a todos os valores calculados pelo `mapExpression` para cada ponto no cluster. Operadores com suporte; 
-    - Para números: `+`, `*`, `max``min`
-    - Para boolianos: `all`, `any`
-- inicialvalue: um valor inicial no qual o primeiro valor calculado é agregado.
-- mapExpression: uma expressão que é aplicada a cada ponto no conjunto de dados.
+- operador: Uma função de expressão que é então aplicada contra todos os valores calculados pelo `mapExpression` para cada ponto do cluster. Operadores apoiados: 
+    - Para os números: `+`, `*`, `max`, `min`
+    - Para Booleans: `all`, `any`
+- inicialValor: Um valor inicial no qual o primeiro valor calculado é agregado contra.
+- mapExpression: Uma expressão que é aplicada contra cada ponto no conjunto de dados.
 
 **Exemplos**
 
-Se todos os recursos em um conjunto de dados tiverem uma propriedade `revenue` que seja um número. A receita total de todos os pontos em um cluster criado a partir do conjunto de dados pode ser calculada usando a seguinte expressão de agregação: `['+', 0, ['get', 'revenue']]`
+Se todas as funcionalidades de um conjunto de dados tiverem uma propriedade `revenue`, que é um número. Em seguida, a receita total de todos os pontos de um cluster, que são criados a partir do conjunto de dados, pode ser calculada. Este cálculo é feito utilizando a seguinte expressão agregada: `['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>Expressões booleanas
 
-As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas.
+Expressões booleanas fornecem um conjunto de expressões de operadores booleanos para avaliar comparações booleanas.
 
-Ao comparar valores, a comparação é estritamente digitada. Os valores de tipos diferentes são sempre considerados desiguais. Os casos em que os tipos são conhecidos como diferentes no momento da análise são considerados inválidos e produzirão um erro de análise. 
+Ao comparar valores, a comparação é estritamente dactilografada. Valores de diferentes tipos são sempre considerados desiguais. Os casos em que os tipos são conhecidos por serem diferentes no momento da análise são considerados inválidos e produzirão um erro de análise. 
 
-| Expressão | Tipo de retorno | Descrição |
+| Expressão | Tipo de devolução | Descrição |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Negação lógica. Retornará `true` se a entrada for `false`e `false` se a entrada for `true`. |
-| `['!= ', value, value]` | boolean | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
-| `['<', value, value]` | boolean | Retorna `true` se a primeira entrada for estritamente menor do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['<=', value, value]` | boolean | Retorna `true` se a primeira entrada for menor ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['==', value, value]` | boolean | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['>', value, value]` | boolean | Retorna `true` se a primeira entrada for estritamente maior do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['>=' value, value]` | boolean | Retorna `true` se a primeira entrada for maior ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['all', boolean, boolean, …]` | boolean | Retorna `true` se todas as entradas forem `true`, `false` caso contrário. |
-| `['any', boolean, boolean, …]` | boolean | Retorna `true` se alguma das entradas for `true``false` caso contrário. |
+| `['! ', boolean]` | boolean | Negação lógica. Devoluções `true` se a entrada for `false`e `false` se a entrada for `true`. |
+| `['!= ', value, value]` | boolean | Devoluções `true` se os valores de entrada não forem iguais, `false` de outra forma. |
+| `['<', value, value]` | boolean | Devoluções `true` se a primeira entrada for estritamente inferior à segunda, `false` de outra forma. Os argumentos são necessários para serem cordas ou ambos os números. |
+| `['<=', value, value]` | boolean | Devoluções `true` se a primeira entrada for inferior ou igual à segunda, `false` de outra forma. Os argumentos são necessários para serem cordas ou ambos os números. |
+| `['==', value, value]` | boolean | Devoluções `true` se os valores de entrada forem iguais, `false` de outra forma. Os argumentos são necessários para serem cordas ou ambos os números. |
+| `['>', value, value]` | boolean | Devoluções `true` se a primeira entrada for estritamente maior do que a segunda, `false` de outra forma. Os argumentos são necessários para serem cordas ou ambos os números. |
+| `['>=' value, value]` | boolean | Devoluções `true` se a primeira entrada for maior ou igual à segunda, `false` de outra forma. Os argumentos são necessários para serem cordas ou ambos os números. |
+| `['all', boolean, boolean, …]` | boolean | Devoluções `true` se todas as inputs forem `true`, `false` de outra forma. |
+| `['any', boolean, boolean, …]` | boolean | Devoluções `true` se alguma das inputs for `true`, `false` de outra forma. |
 
 ## <a name="conditional-expressions"></a>Expressões condicionais
 
-As expressões condicionais fornecem operações lógicas que são como instruções IF-.
+Expressões condicionais fornecem operações lógicas que são como declarações se.
 
-As expressões a seguir executam operações lógicas condicionais nos dados de entrada. Por exemplo, a expressão `case` fornece a lógica "if/then/else" enquanto a expressão de `match` é como uma "switch-Statement". 
+As seguintes expressões realizam operações lógicas condicionais nos dados de entrada. Por exemplo, a expressão `case` fornece lógica "se/então/outra" enquanto a expressão `match` é como uma "switch-statement". 
 
-### <a name="case-expression"></a>Expressão Case
+### <a name="case-expression"></a>Expressão de caso
 
-Uma expressão de `case` é um tipo de expressão condicional que fornece If-Statement como lógica (if/then/else). Esse tipo de expressão percorre uma lista de condições booleanas e retorna o valor de saída da primeira condição booliana que é verdadeira.
+Uma expressão `case` é um tipo de expressão condicional que fornece lógica "se/então/eelse". Este tipo de expressão passa por uma lista de condições booleanas. Devolve o valor de saída da primeira condição booleana para avaliar a verdade.
 
-O pseudocódigo a seguir define a estrutura da expressão de `case`. 
+O pseudocódigo seguinte define a estrutura da expressão `case`. 
 
 ```javascript
 [
@@ -232,7 +232,7 @@ O pseudocódigo a seguir define a estrutura da expressão de `case`.
 
 **Exemplo**
 
-O exemplo a seguir percorre diferentes condições booleanas até encontrar uma que seja avaliada como `true`e, em seguida, retorna esse valor associado. Se nenhuma condição booliana for avaliada como `true`, um valor de fallback será retornado. 
+O exemplo seguinte passa por diferentes condições booleanas até encontrar uma que avalie para `true`, e depois devolve esse valor associado. Se nenhuma condição booleana avaliar para `true`, um valor de recuo será devolvido. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -253,11 +253,11 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-### <a name="match-expression"></a>Expressão de correspondência
+### <a name="match-expression"></a>Expressão do jogo
 
-Uma expressão de `match` é um tipo de expressão condicional que fornece a instrução switch, como lógica. A entrada pode ser qualquer expressão como `['get', 'entityType']` que retorna uma cadeia de caracteres ou um número. Cada rótulo deve ser um único valor literal ou uma matriz de valores literais, cujos valores devem ser todas as cadeias de caracteres ou todos os números. A entrada corresponde se qualquer um dos valores na matriz corresponder. Cada rótulo deve ser exclusivo. Se o tipo de entrada não corresponder ao tipo dos rótulos, o resultado será o valor de fallback.
+Uma expressão `match` é um tipo de expressão condicional que fornece a switch-statement como lógica. A entrada pode ser qualquer expressão, como `['get', 'entityType']` que retorne uma corda ou um número. Cada etiqueta deve ser um único valor literal ou uma série de valores literais, cujos valores devem ser todas cordas ou todos os números. A entrada corresponde se algum dos valores da matriz coincidir. Cada etiqueta deve ser única. Se o tipo de entrada não corresponder ao tipo das etiquetas, o resultado será o valor de recuo.
 
-O pseudocódigo a seguir define a estrutura da expressão de `match`. 
+O pseudocódigo seguinte define a estrutura da expressão `match`. 
 
 ```javascript
 [
@@ -274,7 +274,7 @@ O pseudocódigo a seguir define a estrutura da expressão de `match`.
 
 **Exemplos**
 
-O exemplo a seguir examina a propriedade `entityType` de um recurso de ponto em uma camada de bolha que procura uma correspondência. Se encontrar uma correspondência, esse valor especificado será retornado ou retornará o valor de fallback.
+O exemplo seguinte olha para a propriedade `entityType` de um recurso Point em uma camada de bolha procura uma correspondência. Se encontrar uma correspondência, esse valor especificado é devolvido ou devolve o valor de recuo.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -294,7 +294,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-O exemplo a seguir usa uma matriz para listar um conjunto de rótulos que devem retornar o mesmo valor. Isso é muito mais eficiente do que listar cada rótulo individualmente. Nesse caso, se a propriedade `entityType` for "restaurante" ou "grocery_store", a cor "vermelho" será retornada.
+O exemplo seguinte utiliza uma matriz para listar um conjunto de etiquetas que devem devolver todos o mesmo valor. Esta abordagem é muito mais eficiente do que a listagem individual de cada rótulo. Neste caso, se a propriedade `entityType` for "restaurante" ou "grocery_store", a cor "vermelho" será devolvida.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -315,7 +315,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-O exemplo a seguir usa uma expressão de correspondência para executar um filtro de tipo "em matriz" ou "matriz contém", neste caso, filtrando dados que têm um valor de ID que está em uma lista de IDs permitidas. Ao usar expressões com filtros, o resultado precisa ser um valor booliano.
+O exemplo seguinte utiliza uma expressão de correspondência para executar um filtro do tipo "in array" ou "array contains". Neste caso, a expressão filtra dados que têm um valor de ID que está numa lista de IDs permitidos. Ao utilizar expressões com filtros, o resultado tem de ser um valor booleano.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -337,11 +337,11 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-### <a name="coalesce-expression"></a>Expressão de adesão
+### <a name="coalesce-expression"></a>Expressão de coalesce
 
-Uma `coalesce` expressão percorre um conjunto de expressões até que o primeiro valor não nulo seja obtido e retorne esse valor. 
+Uma expressão `coalesce` passa por um conjunto de expressões até que o primeiro valor não nulo seja obtido e dereta esse valor. 
 
-O pseudocódigo a seguir define a estrutura da expressão de `coalesce`. 
+O pseudocódigo seguinte define a estrutura da expressão `coalesce`. 
 
 ```javascript
 [
@@ -354,7 +354,7 @@ O pseudocódigo a seguir define a estrutura da expressão de `coalesce`.
 
 **Exemplo**
 
-O exemplo a seguir usa uma expressão `coalesce` para definir a `textField` opção de uma camada de símbolo. Se a propriedade `title` estiver ausente do recurso ou definida como `null`, a expressão tentará procurar a propriedade `subtitle`, se ela estiver ausente ou `null`, retornará a uma cadeia de caracteres vazia. 
+O exemplo seguinte usa uma expressão `coalesce` para definir a `textField` opção de uma camada de símbolo. Se a propriedade `title` estiver em falta da funcionalidade ou definida para `null`, a expressão tentará então procurar a propriedade `subtitle`, se estiver em falta ou `null`, ela voltará a cair para uma corda vazia. 
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -375,7 +375,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
-O exemplo a seguir usa uma expressão `coalesce` para recuperar o primeiro ícone de imagem disponível disponível no mapa Sprite de uma lista de nomes de imagem especificados.
+O exemplo seguinte usa uma expressão `coalesce` para recuperar o primeiro ícone de imagem disponível no sprite do mapa a partir de uma lista de nomes de imagem especificados.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -393,22 +393,22 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ``` 
 
-## <a name="type-expressions"></a>Expressões de tipo
+## <a name="type-expressions"></a>Expressão suóloga
 
-As expressões de tipo fornecem ferramentas para testar e converter diferentes tipos de dados, como cadeias de caracteres, números e valores Boolianos.
+As expressões de tipo fornecem ferramentas para testar e converter diferentes tipos de dados, como cordas, números e valores booleanos.
 
-| Expressão | Tipo de retorno | Descrição |
+| Expressão | Tipo de devolução | Descrição |
 |------------|-------------|-------------|
-| `['literal', array]`<br/><br/>`['literal', object]` | objeto de \| de matriz | Retorna um valor de objeto ou matriz literal. Use esta expressão para impedir que uma matriz ou objeto seja avaliado como uma expressão. Isso é necessário quando uma matriz ou objeto precisa ser retornado por uma expressão. |
-| `['image', string]` | string | Verifica se uma ID de imagem especificada é carregada na imagem de mapas Sprite. Se for, a ID será retornada; caso contrário, NULL será retornado. |
-| `['to-boolean', value]` | boolean | Converte o valor de entrada em um booliano. O resultado é `false` quando a entrada é uma cadeia de caracteres vazia, `0`, `false`, `null`ou `NaN`; caso contrário, seu `true`. |
-| `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte o valor de entrada em uma cor. Se vários valores forem fornecidos, cada um será avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas puder ser convertida, a expressão será um erro. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Converte o valor de entrada em um número, se possível. Se a entrada for `null` ou `false`, o resultado será 0. Se a entrada for `true`, o resultado será 1. Se a entrada for uma cadeia de caracteres, ela será convertida em um número usando a função de cadeia de caracteres [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) da especificação da linguagem ECMAScript. Se vários valores forem fornecidos, cada um será avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas puder ser convertida, a expressão será um erro. |
-| `['to-string', value]` | string | Converte o valor de entrada em uma cadeia de caracteres. Se a entrada for `null`, o resultado será `""`. Se a entrada for um booliano, o resultado será `"true"` ou `"false"`. Se a entrada for um número, ela será convertida em uma cadeia de caracteres usando a função de número [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação da linguagem ECMAScript. Se a entrada for uma cor, ela será convertida para a cadeia de caracteres de cor do CSS RGBA `"rgba(r,g,b,a)"`. Caso contrário, a entrada é convertida em uma cadeia de caracteres usando a função [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da especificação da linguagem ECMAScript. |
-| `['typeof', value]` | string | Retorna uma cadeia de caracteres que descreve o tipo do valor especificado. |
+| `['literal', array]`<br/><br/>`['literal', object]` | matriz objeto \| | Devolve uma matriz literal ou valor de objeto. Utilize esta expressão para evitar que uma matriz ou objeto seja avaliado como expressão. Isto é necessário quando uma matriz ou objeto precisa de ser devolvido por uma expressão. |
+| `['image', string]` | string | Verifica se um ID de imagem especificado é carregado no sprite de imagem dos mapas. Se for, a identificação é devolvida, caso contrário, o nudismo é devolvido. |
+| `['to-boolean', value]` | boolean | Converte o valor de entrada para um booleano. O resultado é `false` quando a entrada é uma corda vazia, `0`, `false`, `null`ou `NaN`; caso contrário, o seu `true`. |
+| `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte o valor de entrada para uma cor. Se forem fornecidos vários valores, cada um é avaliado em ordem até que a primeira conversão bem sucedida seja obtida. Se nenhuma das inputas puder ser convertida, a expressão é um erro. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Converte o valor de entrada para um número, se possível. Se a entrada for `null` ou `false`, o resultado é 0. Se a entrada for `true`, o resultado é 1. Se a entrada for uma corda, é convertida para um número utilizando a função de cadeia [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) da Especificação de Idioma ECMAScript. Se forem fornecidos vários valores, cada um é avaliado em ordem até que a primeira conversão bem sucedida seja obtida. Se nenhuma das inputas puder ser convertida, a expressão é um erro. |
+| `['to-string', value]` | string | Converte o valor de entrada numa corda. Se a entrada for `null`, o resultado é `""`. Se a entrada for booleana, o resultado é `"true"` ou `"false"`. Se a entrada for um número, é convertida numa cadeia utilizando a função de número [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da Especificação de Idioma ECMAScript. Se a entrada for uma cor, é convertida em cor CSS RGBA `"rgba(r,g,b,a)"`. Caso contrário, a entrada é convertida numa cadeia utilizando a função [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da Especificação de Idioma ECMAScript. |
+| `['typeof', value]` | string | Devolve uma corda descrevendo o tipo do valor dado. |
 
 > [!TIP]
-> Se uma mensagem de erro semelhante a `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` aparecer no console do navegador, isso significa que há uma expressão em algum lugar em seu código que tem uma matriz que não tem uma cadeia de caracteres para seu primeiro valor. Se você quiser que a expressão retorne uma matriz, empacote a matriz com a expressão `literal`. O exemplo a seguir define o ícone `offset` opção de uma camada de símbolo, que precisa ser uma matriz que contém dois números, usando uma expressão `match` para escolher entre dois valores de deslocamento com base no valor da propriedade `entityType` do recurso de ponto.
+> Se uma mensagem de erro semelhante à `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` aparece na consola do navegador, significa que existe uma expressão algures no seu código que tem uma matriz que não tem uma cadeia para o seu primeiro valor. Se quiser que a expressão devolva uma matriz, envolva a matriz com a expressão `literal`. O exemplo seguinte define o ícone `offset` opção de uma camada de símbolo, que precisa ser uma matriz contendo dois números, utilizando uma expressão `match` para escolher entre dois valores de compensação com base no valor da propriedade `entityType` da característica do ponto.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -429,19 +429,19 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 > });
 > ```
 
-## <a name="color-expressions"></a>Expressões de cores
+## <a name="color-expressions"></a>Expressões de cor
 
-As expressões de cor facilitam a criação e a manipulação de valores de cores.
+As expressões de cor facilitam a criação e manipulação dos valores de cor.
 
-| Expressão | Tipo de retorno | Descrição |
+| Expressão | Tipo de devolução | Descrição |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | color | Cria um valor de cor dos componentes *vermelho*, *verde*e *azul* que devem variar entre `0` e `255`e um componente alfa de `1`. Se algum componente estiver fora do intervalo, a expressão será um erro. |
-| `['rgba', number, number, number, number]` | color | Cria um valor de cor de componentes *vermelhos*, *verdes*e *azuis* que devem variar entre `0` e `255`e um componente alfa dentro de um intervalo de `0` e `1`. Se algum componente estiver fora do intervalo, a expressão será um erro. |
-| `['to-rgba']` | \[number, number, number, number\] | Retorna uma matriz de quatro elementos que contém os componentes *vermelho*, *verde*, *azul*e *alfa* da cor de entrada, nessa ordem. |
+| `['rgb', number, number, number]` | color | Cria um valor de cor a partir de componentes *vermelhos,* *verdes*e *azuis* que devem variar entre `0` e `255`, e um componente alfa de `1`. Se algum componente estiver fora de alcance, a expressão é um erro. |
+| `['rgba', number, number, number, number]` | color | Cria um valor de cor a partir de componentes *vermelhos,* *verdes,* *azuis* que devem variar entre `0` e `255`, e um componente alfa dentro de uma gama de `0` e `1`. Se algum componente estiver fora de alcance, a expressão é um erro. |
+| `['to-rgba']` | \[número, número, número\] | Devolve uma matriz de quatro elementos contendo os componentes *vermelhos,* *verdes,* *azuis*e *alfa* da cor de entrada, por esta ordem. |
 
 **Exemplo**
 
-O exemplo a seguir cria e o valor de cor RGB que tem um valor *vermelho* de `255`e valores *verdes* e *azuis* que são calculados multiplicando `2.5` pelo valor da propriedade `temperature`. À medida que a temperatura muda, a cor mudará para diferentes tons de *vermelho*.
+O exemplo seguinte cria um valor de cor RGB que tem um valor *vermelho* de `255`, e valores *verdes* e *azuis* que são calculados multiplicando `2.5` pelo valor da propriedade `temperature`. À medida que a temperatura muda, a cor mudará para diferentes tons de *vermelho.*
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -457,19 +457,19 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-## <a name="string-operator-expressions"></a>Expressões de operador de cadeia de caracteres
+## <a name="string-operator-expressions"></a>Expressões de operador de cordas
 
-Expressões do operador String executam operações de conversão em cadeias de caracteres como concatenar e converter o caso. 
+As expressões do operador de cordas realizam operações de conversão em cordas como a concatenação e a conversão do caso. 
 
-| Expressão | Tipo de retorno | Descrição |
+| Expressão | Tipo de devolução | Descrição |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | string | Concatena várias cadeias de caracteres juntas. Cada valor deve ser uma cadeia de caracteres. Use a expressão de tipo `to-string` para converter outros tipos de valor em cadeia de caracteres, se necessário. |
-| `['downcase', string]` | string | Converte a cadeia de caracteres especificada em minúsculas. |
-| `['upcase', string]` | string | Converte a cadeia de caracteres especificada em maiúsculas. |
+| `['concat', string, string, …]` | string | Concatenates várias cordas juntas. Cada valor deve ser uma corda. Utilize a expressão do tipo `to-string` para converter outros tipos de valor em cadeia, se necessário. |
+| `['downcase', string]` | string | Converte a corda especificada para minúscula. |
+| `['upcase', string]` | string | Converte a corda especificada em maiúsculas. |
 
 **Exemplo**
 
-O exemplo a seguir converte a propriedade `temperature` do recurso Point em uma cadeia de caracteres e, em seguida, concatena "° f" ao final dela.
+O exemplo seguinte converte a propriedade `temperature` da característica do ponto numa corda e, em seguida, concatena "°F" até ao fim da sua.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -484,33 +484,33 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
-A expressão acima renderiza um PIN no mapa com o texto "64 ° f" sobreposto sobre ele, conforme mostrado na imagem abaixo.
+A expressão acima torna um pino no mapa com o texto "64°F" sobreposto em cima, como mostrado na imagem abaixo.
 
 <center>
 
-![exemplo de expressão de operador de cadeia de caracteres](media/how-to-expressions/string-operator-expression.png) </center>
+exemplo de expressão do operador de cordas ![](media/how-to-expressions/string-operator-expression.png) </center>
 
-## <a name="interpolate-and-step-expressions"></a>Expressões de interpolação e etapas
+## <a name="interpolate-and-step-expressions"></a>Expressões Interpolate e Step
 
-As expressões Interpolate e Step podem ser usadas para calcular valores ao longo de uma curva interpolada ou função Step. Essas expressões assumem uma expressão que retorna um valor numérico como sua entrada, por exemplo `['get',  'temperature']`. O valor de entrada é avaliado em pares de valores de entrada e saída, chamados "paradas", para determinar o valor que melhor se adapta à função de curva ou etapa interpolada. Os valores de entrada para cada parada devem ser um número e estar em ordem crescente. Os valores de saída devem ser um número e uma matriz de números ou uma cor.
+As expressões interpoladas e de passopodem ser usadas para calcular valores ao longo de uma curva ou função de passo interpolada. Estas expressões assumem uma expressão que devolve um valor numérico como sua entrada, por exemplo `['get',  'temperature']`. O valor de entrada é avaliado com pares de valores de entrada e de saída, para determinar o valor que melhor se adequa à curva ou função de passo interpolada. Os valores de saída são chamados de "paragens". Os valores de entrada para cada paragem devem ser um número e estar em ordem ascendente. Os valores de saída devem ser um número, e uma variedade de números, ou uma cor.
 
-### <a name="interpolate-expression"></a>Expressão Interpolate
+### <a name="interpolate-expression"></a>Expressão interpolada
 
-Uma expressão `interpolate` pode ser usada para calcular um conjunto de valores suave e contínuo, interpolando entre os valores de parada. Uma `interpolate` expressão que retorna valores de cor produz um gradiente de cor no qual os valores de resultado são selecionados.
+Uma expressão `interpolate` pode ser usada para calcular um conjunto contínuo e suave de valores, interpolando entre valores de paragem. Uma expressão `interpolate` que retorna os valores de cor produz um gradiente de cor no qual os valores de resultado são selecionados.
 
-Há três tipos de métodos de interpolação que podem ser usados em uma `interpolate` expressão:
+Existem três tipos de métodos de interpolação que podem ser utilizados numa expressão `interpolate`:
  
-* `['linear']`-interpola linearmente entre o par de paradas.
-* `['exponential', base]`-interpola exponencialmente entre as interrupções. O valor `base` controla a taxa na qual a saída aumenta. Valores mais altos fazem com que a saída aumente mais em direção ao alto fim do intervalo. Um valor `base` perto de 1 produz uma saída que aumenta de forma linear.
-* `['cubic-bezier', x1, y1, x2, y2]`-interpolações usando uma [curva de Bézier cúbica](https://developer.mozilla.org/docs/Web/CSS/timing-function) definida pelos pontos de controle fornecidos.
+* `['linear']` - Interpola linearmente entre o par de paragens.
+* `['exponential', base]` - Interpola exponencialmente entre as paragens. O valor `base` controla a taxa a que a produção aumenta. Valores mais elevados fazem com que a produção aumente mais para a extremidade alta da gama. Um valor `base` próximo de 1 produz uma saída que aumenta mais linearmente.
+* `['cubic-bezier', x1, y1, x2, y2]` - Interpolates utilizando uma [curva cúbica de Bezier](https://developer.mozilla.org/docs/Web/CSS/timing-function) definida pelos pontos de controlo dado.
 
-Veja um exemplo de como esses diferentes tipos de interpolações se parecem. 
+Aqui está um exemplo de como são estes diferentes tipos de interpolações. 
 
-| Linear  | Exponencial | Bezier cubica |
+| Linear  | Exponencial | Bezier cúbico |
 |---------|-------------|--------------|
-| ![Grafo de interpolação linear](media/how-to-expressions/linear-interpolation.png) | ![Grafo de interpolação exponencial](media/how-to-expressions/exponential-interpolation.png) | ![Grafo de interpolação Bézier cúbica](media/how-to-expressions/bezier-curve-interpolation.png) |
+| ![Gráfico de interpolação linear](media/how-to-expressions/linear-interpolation.png) | ![Gráfico de interpolação exponencial](media/how-to-expressions/exponential-interpolation.png) | ![Gráfico de interpolação de Bezier cúbico](media/how-to-expressions/bezier-curve-interpolation.png) |
 
-O pseudocódigo a seguir define a estrutura da expressão de `interpolate`. 
+O pseudocódigo seguinte define a estrutura da expressão `interpolate`. 
 
 ```javascript
 [
@@ -527,7 +527,7 @@ O pseudocódigo a seguir define a estrutura da expressão de `interpolate`.
 
 **Exemplo**
 
-O exemplo a seguir usa uma expressão `linear interpolate` para definir a propriedade `color` de uma camada de bolha com base na propriedade `temperature` do recurso de ponto. Se o valor de `temperature` for menor que 60, "Blue" será retornado, se entre 60 e menor que 70, amarelo será retornado, se entre 70 e menor que 80, "laranja" será retornado, se for 80 ou superior, "Red" será retornado.
+O exemplo seguinte usa uma expressão `linear interpolate` para definir a propriedade `color` de uma camada de bolha com base na propriedade `temperature` da característica do ponto. Se o valor `temperature` for inferior a 60, "azul" será devolvido. Se estiver entre 60 e menos de 70, o amarelo será devolvido. Se estiver entre 70 e menos de 80, "laranja" será devolvido. Se for 80 ou maior, "vermelho" será devolvido.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -547,17 +547,17 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-A imagem a seguir demonstra como as cores são escolhidas para a expressão acima.
+A imagem que se segue demonstra como as cores são escolhidas para a expressão acima.
  
 <center>
 
-![exemplo de expressão interpolação](media/how-to-expressions/interpolate-expression-example.png) </center>
+![exemplo de expressão interpolado](media/how-to-expressions/interpolate-expression-example.png) </center>
 
-### <a name="step-expression"></a>Expressão de etapa
+### <a name="step-expression"></a>Expressão do passo
 
-Uma expressão `step` pode ser usada para calcular valores de resultado discretos, avaliando uma [função piecewise](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) definida por paradas. 
+Uma expressão `step` pode ser usada para calcular valores de resultados discretos e pisados avaliando uma [função de constante peça](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) definida por paragens. 
 
-O pseudocódigo a seguir define a estrutura da expressão de `step`. 
+O pseudocódigo seguinte define a estrutura da expressão `step`. 
 
 ```javascript
 [
@@ -572,11 +572,11 @@ O pseudocódigo a seguir define a estrutura da expressão de `step`.
 ]
 ```
 
-As expressões de etapa retornam o valor de saída da parada logo antes do valor de entrada ou o primeiro valor de entrada se a entrada for menor que a primeira parada. 
+As expressões de passo devolvem o valor de saída da paragem pouco antes do valor de entrada, ou o primeiro valor de entrada se a entrada for inferior à primeira paragem. 
 
 **Exemplo**
 
-O exemplo a seguir usa uma expressão `step` para definir a propriedade `color` de uma camada de bolha com base na propriedade `temperature` do recurso de ponto. Se o valor de `temperature` for menor que 60, "Blue" será retornado, se entre 60 e menor que 70, "Yellow" será retornado, se entre 70 e menor que 80, "laranja" será retornado, se for 80 ou superior, "Red" será retornado.
+O exemplo seguinte usa uma expressão `step` para definir a propriedade `color` de uma camada de bolha com base na propriedade `temperature` da característica do ponto. Se o valor `temperature` for inferior a 60, "azul" será devolvido. Se estiver entre 60 e menos de 70, "amarelo" será devolvido. Se estiver entre 70 e menos de 80, "laranja" será devolvido. Se for 80 ou maior, "vermelho" será devolvido.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -594,27 +594,27 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-A imagem a seguir demonstra como as cores são escolhidas para a expressão acima.
+A imagem que se segue demonstra como as cores são escolhidas para a expressão acima.
  
 <center>
 
-![exemplo de expressão de etapa](media/how-to-expressions/step-expression-example.png)
+exemplo de expressão ![Passo](media/how-to-expressions/step-expression-example.png)
 </center>
 
-## <a name="layer-specific-expressions"></a>Expressões específicas de camada
+## <a name="layer-specific-expressions"></a>Expressões específicas da camada
 
-Expressões especiais que se aplicam somente a camadas específicas.
+Expressões especiais que se aplicam apenas a camadas específicas.
 
 ### <a name="heat-map-density-expression"></a>Expressão de densidade do mapa de calor
 
-Uma expressão de densidade do mapa de calor recupera o valor de densidade do mapa de calor para cada pixel em uma camada do mapa de calor e é definida como `['heatmap-density']`. Esse valor é um número entre `0` e `1` e é usado em combinação com uma expressão `interpolation` ou `step` para definir o gradiente de cor usado para colorir o mapa de calor. Essa expressão só pode ser usada na [opção de cor](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) da camada do mapa de calor.
+Uma expressão de densidade de mapa de calor recupera o valor de densidade do mapa de calor para cada pixel numa camada de mapa de calor e é definido como `['heatmap-density']`. Este valor é um número entre `0` e `1`. É usado em combinação com uma expressão `interpolation` ou `step` para definir o gradiente de cores usado para colorir o mapa de calor. Esta expressão só pode ser usada na [opção](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) de cor da camada de mapa de calor.
 
 > [!TIP]
-> A cor no índice 0 em uma expressão de interpolação ou a cor padrão de uma cor de etapa define a cor da área em que não há dados e pode ser usada para definir uma cor de plano de fundo. Muitos preferem definir esse valor como transparente ou um preto semitransparente. 
+> A cor no índice 0, numa expressão de interpolação ou na cor padrão de uma cor passo, define a cor da área onde não há dados. A cor no índice 0 pode ser usada para definir uma cor de fundo. Muitos preferem definir este valor para um preto transparente ou semi-transparente.
 
 **Exemplo**
 
-Este exemplo usa uma expressão de interpolação de capa para criar um gradiente de cor suave para renderizar o mapa de calor. 
+Este exemplo usa uma expressão de interpolação liner para criar um gradiente de cor suave para renderizar o mapa de calor. 
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -630,7 +630,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-Além de usar um gradiente suave para colorir um mapa de calor, as cores podem ser especificadas dentro de um conjunto de intervalos usando uma expressão `step`. O uso de uma `step` expressão para colorir o mapa de calor divide a densidade visualmente em intervalos que mais se assemelham a uma delimitação ou ao mapa de estilo de radar.  
+Além de usar um gradiente liso para colorir um mapa de calor, as cores podem ser especificadas dentro de um conjunto de gamas usando uma expressão `step`. Usando uma expressão `step` para colorir o mapa de calor, quebra visualmente a densidade em intervalos que se assemelham a um contorno ou mapa de estilo de radar.  
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -647,18 +647,18 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-Para obter mais informações, consulte a documentação [Adicionar uma camada do mapa de calor](map-add-heat-map-layer.md) .
+Para mais informações, consulte a documentação da camada de um mapa de [calor.](map-add-heat-map-layer.md)
 
-### <a name="line-progress-expression"></a>Expressão de progresso da linha
+### <a name="line-progress-expression"></a>Expressão de progresso de linha
 
-Uma expressão de progresso de linha recupera o progresso ao longo de uma linha de gradiente em uma camada de linha e é definida como `['line-progress']`. Esse valor é um número entre 0 e 1 e é usado em combinação com uma expressão `interpolation` ou `step`. Essa expressão só pode ser usada com a [opção strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) da camada de linha. 
+Uma expressão de progresso de linha recupera o progresso ao longo de uma linha de gradiente em uma camada de linha e é definida como `['line-progress']`. Este valor é um número entre 0 e 1. É usado em combinação com uma expressão `interpolation` ou `step`. Esta expressão só pode ser usada com a [opção de acidente vascular cerebral gradiente]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) da camada de linha. 
 
 > [!NOTE]
-> A opção `strokeGradient` da camada de linha requer que a opção `lineMetrics` da fonte de dados seja definida como `true`.
+> A opção `strokeGradient` da camada de linha requer que a `lineMetrics` opção da fonte de dados seja definida para `true`.
 
 **Exemplo**
 
-O exemplo a seguir usa a expressão `['line-progress']` para aplicar um gradiente de cor ao traço de uma linha.
+Este exemplo usa a expressão `['line-progress']` para aplicar um gradiente de cor ao curso de uma linha.
 
 ```javascript
 var layer = new atlas.layer.LineLayer(datasource, null, {
@@ -676,17 +676,17 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[Consulte o exemplo ao vivo](map-add-line-layer.md#line-stroke-gradient)
+[Ver exemplo ao vivo](map-add-line-layer.md#line-stroke-gradient)
 
-### <a name="text-field-format-expression"></a>Expressão de formato de campo de texto
+### <a name="text-field-format-expression"></a>Expressão do formato do campo de texto
 
-A expressão de formato de campo de texto pode ser usada com a opção `textField` das camadas de símbolo `textOptions` propriedade para fornecer formatação de texto misto. Essa expressão permite que um conjunto de cadeias de caracteres de entrada e opções de formatação sejam especificados. As opções a seguir podem ser especificadas para cada cadeia de caracteres de entrada nesta expressão.
+A expressão do formato do campo de texto pode ser usada com a opção `textField` das camadas de símbolo `textOptions` propriedade para fornecer formatação de texto misto. Esta expressão permite especificar um conjunto de cordas de entrada e opções de formatação. As seguintes opções podem ser especificadas para cada cadeia de entrada nesta expressão.
 
- * `'font-scale'`-especifica o fator de dimensionamento para o tamanho da fonte. Se especificado, esse valor substituirá a propriedade `size` do `textOptions` para a cadeia de caracteres individual.
- * `'text-font'`-especifica uma ou mais famílias de fontes que devem ser usadas para esta cadeia de caracteres. Se especificado, esse valor substituirá a propriedade `font` do `textOptions` para a cadeia de caracteres individual.
- * `'text-color'`-especifica uma cor a ser aplicada a um texto durante a renderização. 
+ * `'font-scale'` - Especifica o fator de escala para o tamanho da fonte. Se especificado, este valor irá sobrepor-se à propriedade `size` do `textOptions` para a cadeia individual.
+ * `'text-font'` - Especifica uma ou mais famílias de fontes que devem ser usadas para esta cadeia. Se especificado, este valor irá sobrepor-se à propriedade `font` do `textOptions` para a cadeia individual.
+ * `'text-color'` - Especifica uma cor para aplicar a um texto ao renderizar. 
 
-O pseudocódigo a seguir define a estrutura da expressão de formato de campo de texto. 
+O pseudocódigo seguinte define a estrutura da expressão do formato do campo de texto. 
 
 ```javascript
 [
@@ -709,7 +709,7 @@ O pseudocódigo a seguir define a estrutura da expressão de formato de campo de
 
 **Exemplo**
 
-O exemplo a seguir formata o campo de texto adicionando uma fonte em negrito e dimensionando o tamanho da fonte da propriedade `title` do recurso. Este exemplo também adiciona a propriedade `subtitle` do recurso em uma nova linha, com um tamanho de fonte reduzido vertical e cor vermelha.
+O exemplo seguinte formata o campo de texto adicionando uma fonte arrojada e aumentando o tamanho da fonte da propriedade `title` da funcionalidade. Este exemplo também adiciona a propriedade `subtitle` da funcionalidade numa novalinha, com um tamanho de fonte escalado para baixo e vermelho colorido.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -737,22 +737,22 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
-Essa camada renderizará o recurso de ponto, conforme mostrado na imagem abaixo:
+Esta camada irá tornar a característica de ponto como mostrado na imagem abaixo:
  
 <center>
 
-![imagem do recurso de ponto com](media/how-to-expressions/text-field-format-expression.png) de campo de texto formatado </center>
+![função Imagem de Ponto com campo de texto formatado](media/how-to-expressions/text-field-format-expression.png) </center>
 
-### <a name="number-format-expression"></a>Expressão de formato de número
+### <a name="number-format-expression"></a>Expressão do formato de número
 
-A expressão `number-format` só pode ser usada com a opção `textField` de uma camada de símbolo. Essa expressão converte o número fornecido em uma cadeia de caracteres formatada. Essa expressão encapsula a função [número. Tolocalstring](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) do JavaScript e dá suporte ao seguinte conjunto de opções.
+A expressão `number-format` só pode ser utilizada com a opção `textField` de uma camada de símbolo. Esta expressão converte o número fornecido numa corda formatada. Esta expressão envolve a função [Número.para LocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) do JavaScript e suporta o seguinte conjunto de opções.
 
- * `locale`-especifique essa opção para converter números em cadeias de caracteres de uma maneira que se alinhe com o idioma especificado. Passe uma [marca de idioma BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) para essa opção.
- * `currency`-para converter o número em uma cadeia de caracteres que representa uma moeda. Os valores possíveis são os [códigos de moeda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), como "USD" para o dólar americano, "EUR" para o euro ou "CNY" para o RMB do chinês.
- * `'min-fraction-digits'`-especifica o número mínimo de casas decimais a serem incluídas na versão da cadeia de caracteres do número.
- * `'max-fraction-digits'`-especifica o número máximo de casas decimais a serem incluídas na versão da cadeia de caracteres do número.
+ * `locale` - Especifique esta opção de conversão de números em cordas de uma forma que se alinhe com a linguagem especificada. Passe uma [etiqueta de língua bcp 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) nesta opção.
+ * `currency` - Converter o número numa cadeia que representa uma moeda. Os valores possíveis são os [códigos cambiais ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), como "USD" para o dólar norte-americano, "EUR" para o euro, ou "CNY" para o RMB chinês.
+ * `'min-fraction-digits'` - Especifica o número mínimo de locais decimais a incluir na versão de cadeia do número.
+ * `'max-fraction-digits'` - Especifica o número máximo de locais decimais a incluir na versão de cadeia do número.
 
-O pseudocódigo a seguir define a estrutura da expressão de formato de campo de texto. 
+O pseudocódigo seguinte define a estrutura da expressão do formato do campo de texto. 
 
 ```javascript
 [
@@ -769,7 +769,7 @@ O pseudocódigo a seguir define a estrutura da expressão de formato de campo de
 
 **Exemplo**
 
-O exemplo a seguir usa uma expressão `number-format` para modificar como a propriedade `revenue` do recurso de ponto é renderizada na opção `textField` de uma camada de símbolo, de modo que ela pareça um valor de dólar americano.
+O exemplo que se segue usa uma expressão `number-format` para modificar a forma como a propriedade `revenue` da característica de ponto é renderizada na opção `textField` de uma camada de símbolo de tal forma que parece um valor em dólares dos EUA.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -785,19 +785,19 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
-Essa camada renderizará o recurso de ponto, conforme mostrado na imagem abaixo:
+Esta camada irá tornar a característica de ponto como mostrado na imagem abaixo:
 
 <center>
 
-![exemplo de expressão de formato de número](media/how-to-expressions/number-format-expression.png) </center>
+exemplo de expressão de formato ![número](media/how-to-expressions/number-format-expression.png) </center>
 
 ## <a name="zoom-expression"></a>Expressão de zoom
 
-Uma expressão `zoom` é usada para recuperar o nível de zoom atual do mapa no momento da renderização e é definida como `['zoom']`. Essa expressão retorna um número entre o intervalo de nível de zoom mínimo e máximo do mapa. O uso dessa expressão permite que os estilos sejam modificados dinamicamente, pois o nível de zoom do mapa é alterado. A expressão `zoom` só pode ser usada com expressões `interpolate` e `step`.
+Uma expressão `zoom` é usada para recuperar o nível de zoom atual do mapa no momento de renderização e é definida como `['zoom']`. Esta expressão devolve um número entre a gama mínima e máxima de zoom do mapa. Os controlos de mapas interativos do Azure Maps para web e Android suportam 25 níveis de zoom, numerados de 0 a 24. A utilização da expressão `zoom` permite modificar os estilos dinamicamente à medida que o nível de zoom do mapa é alterado. A expressão `zoom` só pode ser utilizada com expressões `interpolate` e `step`.
 
 **Exemplo**
 
-Por padrão, o raios de pontos de dados renderizados na camada do mapa de calor têm um raio de pixel fixo para todos os níveis de zoom. Como o mapa é ampliado, os dados agregados em conjunto e a camada do mapa de calor é diferente. Uma expressão `zoom` pode ser usada para dimensionar o raio para cada nível de zoom, de modo que cada ponto de dados cubra a mesma área física do mapa. Isso fará com que a camada do mapa de calor pareça mais estática e consistente. Cada nível de zoom do mapa tem duas vezes mais pixels vertical e horizontalmente como o nível de zoom anterior. Dimensionar o raio de forma a dobrar com cada nível de zoom criará um mapa de calor que se parece consistente em todos os níveis de zoom. Isso pode ser feito usando a expressão `zoom` com uma expressão `base 2 exponential interpolation`, conforme mostrado abaixo. 
+Por padrão, o rádio dos pontos de dados renderizados na camada do mapa de calor tem um raio de pixel fixo para todos os níveis de zoom. À medida que o mapa é ampliado, os dados agregam-se e a camada do mapa de calor parece diferente. Uma expressão `zoom` pode ser usada para escalar o raio para cada nível de zoom de modo que cada ponto de dados cubra a mesma área física do mapa. Fará com que a camada do mapa de calor pareça mais estática e consistente. Cada nível de zoom do mapa tem o dobro de pixels vertical e horizontalmente do que o nível de zoom anterior. Dimensionar o raio, de tal forma que duplica a cada nível de zoom, criará um mapa de calor que parece consistente em todos os níveis de zoom. Pode ser realizado usando a expressão `zoom` com uma expressão `base 2 exponential interpolation` como mostrado abaixo. 
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -815,20 +815,20 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 };
 ```
 
-[Consulte o exemplo ao vivo](map-add-heat-map-layer.md#consistent-zoomable-heat-map)
+[Ver exemplo ao vivo](map-add-heat-map-layer.md#consistent-zoomable-heat-map)
 
-## <a name="variable-binding-expressions"></a>Expressões de associação de variáveis
+## <a name="variable-binding-expressions"></a>Expressões de ligação variáveis
 
-As expressões de associação de variáveis armazenam os resultados de um cálculo em uma variável para que possam ser referenciadas em outro lugar em uma expressão várias vezes sem precisar recalculá-la. Essa é uma otimização útil para expressões que envolvem muitos cálculos
+Expressões de ligação variáveis armazenam os resultados de um cálculo numa variável. Assim, que os resultados do cálculo podem ser referenciados em outro lugar numa expressão várias vezes. É uma otimização útil para expressões que envolvem muitos cálculos.
 
-| Expressão | Tipo de retorno | Descrição |
+| Expressão | Tipo de devolução | Descrição |
 |--------------|---------------|--------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' Let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome1: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome2: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Armazena um ou mais valores como variáveis para uso pela expressão `var` na expressão filho que retorna o resultado. |
-| `['var', name: string]` | qualquer | Faz referência a uma variável que foi criada usando a expressão `let`. |
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'vamos',<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome1: corda,<br/>&nbsp;&nbsp;&nbsp;&nbsp;valor1: qualquer,<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome2: corda,<br/>&nbsp;&nbsp;&nbsp;&nbsp;valor2: qualquer,<br/>&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;criançaExpressão<br/>\] | | Armazena um ou mais valores como variáveis para uso pela expressão `var` na expressão infantil que devolve o resultado. |
+| `['var', name: string]` | qualquer | Referências a uma variável que foi criada usando a expressão `let`. |
 
 **Exemplo**
 
-Este exemplo usa uma expressão que calcula a receita relativa à taxa de temperatura e, em seguida, usa uma expressão `case` para avaliar diferentes operações boolianas nesse valor. A expressão `let` é usada para armazenar a receita relativa à taxa de temperatura para que ela só precise ser calculada uma vez e a expressão `var` referencia essa variável com a frequência necessária, sem precisar recalculá-la.
+Este exemplo usa uma expressão que calcula a relação com a receita em relação à temperatura e, em seguida, usa uma expressão `case` para avaliar diferentes operações booleanas sobre este valor. A expressão `let` é usada para armazenar a receita em relação à relação com a temperatura, de modo que só precisa de ser calculada uma vez. A expressão `var` refere esta variável quantas vezes for necessário sem ter que recalculá-la.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -856,36 +856,36 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte os artigos a seguir para obter mais exemplos de código que implementam expressões:
+Consulte os seguintes artigos para obter mais amostras de código que implementem expressões:
 
 > [!div class="nextstepaction"] 
-> [Adicionar uma camada de símbolo](map-add-pin.md)
+> [Adicione uma camada de símbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"] 
-> [Adicionar uma camada de bolha](map-add-bubble-layer.md)
+> [Adicione uma camada de bolha](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de linha](map-add-line-layer.md)
+> [Adicione uma camada de linha](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de polígono](map-add-shape.md)
+> [Adicione uma camada de polígono](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
-> [Adicionar uma camada do mapa de calor](map-add-heat-map-layer.md)
+> [Adicione uma camada de mapa de calor](map-add-heat-map-layer.md)
 
-Saiba mais sobre as opções de camada que dão suporte a expressões:
-
-> [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
+Saiba mais sobre as opções de camada que suportam expressões:
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [Opções de bolhas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+> [Opções de HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [Opções de Camadas de Linha](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest) 
+> [Opções polygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"] 
+> [Opções de Matador de Símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest) 

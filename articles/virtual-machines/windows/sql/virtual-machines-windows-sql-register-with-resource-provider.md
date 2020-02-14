@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 148ded0eba61221a2bdf0b8a50392da47a4c5f20
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122483"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201633"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registe uma máquina virtual SQL Server em Azure com o fornecedor de recursos SQL VM
 
@@ -126,7 +126,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ### <a name="lightweight-management-mode"></a>Modo de gestão leve
 
-Se a extensão do [agente SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md) não tiver sido instalada no VM, então a recomendação é registar-se com o fornecedor de recursos SQL VM em modo leve. Isto instalará a extensão SQL IaaS em [modo leve](#management-modes) e impedirá o reinício do serviço SQL Server. Em seguida, pode fazer o upgrade para o modo completo a qualquer momento, mas fazê-lo reiniciará o serviço SQL Server, pelo que é aconselhável esperar até uma janela de manutenção programada. Você precisa fornecer o tipo de licença SQL Server como pagamento como você-vai (`PAYG`) para pagar por uso, ou Azure Hybrid Benefit (`AHUB`) para usar a sua própria licença.
+Se a extensão do [agente SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md) não tiver sido instalada no VM, então a recomendação é registar-se com o fornecedor de recursos SQL VM em modo leve. Isto instalará a extensão SQL IaaS em [modo leve](#management-modes) e impedirá o reinício do serviço SQL Server. Em seguida, pode fazer o upgrade para o modo completo a qualquer momento, mas fazê-lo reiniciará o serviço SQL Server, pelo que é aconselhável esperar até uma janela de manutenção programada. 
+
+Forneça o tipo de licença SQL Server como pagamento -as-you-go (`PAYG`) para pagar por utilização, Azure Hybrid Benefit (`AHUB`) para usar a sua própria licença, ou recuperação de desastres (`DR`) para ativar a [licença de réplica DR gratuita](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure).
 
 Falhas de cluster As instâncias e as implementações em várias instâncias só podem ser registadas com o fornecedor de recursos SQL VM em modo leve. 
 
@@ -176,7 +178,7 @@ Para registar o vM do seu Servidor SQL diretamente em modo completo (e possivelm
 
 O SQL Server 2008 e 2008 R2 instalados no Windows Server 2008 _(não R2_) podem ser registados com o fornecedor de recursos SQL VM no [modo NoAgent](#management-modes). Esta opção garante a conformidade e permite que o VM do Servidor SQL seja monitorizado no portal Azure com funcionalidade limitada.
 
-Especifique `AHUB` ou `PAYG` como o **sqlLicenseType**, e `SQL2008-WS2008` ou `SQL2008R2-WS2008` como o **sqlImageOffer**. 
+Especifique `AHUB`, `PAYG`, ou `DR` como o **sqlLicenseType,** e `SQL2008-WS2008` ou `SQL2008R2-WS2008` como o **sqlImageOffer**. 
 
 Para registar a sua instância SQL Server 2008 ou 2008 R2 na instância Windows Server 2008, utilize o seguinte snippet de código Az CLI ou PowerShell: 
 

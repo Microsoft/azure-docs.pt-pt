@@ -1,48 +1,48 @@
 ---
-title: Referência C# do Azure Functions Developer
-description: Entenda como desenvolver Azure Functions usando C#o.
+title: Referência do C# desenvolvedor de Funções Azure
+description: Entenda como desenvolver funções C#Azure utilizando .
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 89b3ae927b14454ac3f58fb510626e315842240f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: cfa53fe2defca768196af595c1d088d41bc60f71
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921053"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198382"
 ---
-# <a name="azure-functions-c-developer-reference"></a>Referência C# do Azure Functions Developer
+# <a name="azure-functions-c-developer-reference"></a>Referência do C# desenvolvedor de Funções Azure
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
-Este artigo é uma introdução ao desenvolvimento de Azure Functions usando C# as bibliotecas de classes .net.
+Este artigo é uma introdução ao desenvolvimento C# de Funções Azure utilizando bibliotecas da classe .NET.
 
-O Azure Functions C# suporta C# e linguagens de programação de script. Se você estiver procurando orientação sobre como [usar C# o portal do Azure](functions-create-function-app-portal.md), consulte [ C# referência do desenvolvedor de script (. CSX)](functions-reference-csharp.md).
+As Funções C# Azure C# suportam e programam linguagens. Se procura orientação sobre [ C# a utilização no portal Azure,](functions-create-function-app-portal.md)consulte [ C# a referência do desenvolvedor script (.csx).](functions-reference-csharp.md)
 
-Este artigo pressupõe que você já leu os seguintes artigos:
+Este artigo assume que já leu os seguintes artigos:
 
-* [Guia de desenvolvedores do Azure Functions](functions-reference.md)
-* [Ferramentas do Azure Functions Visual Studio 2019](functions-develop-vs.md)
+* [Guia de desenvolvedores de funções azure](functions-reference.md)
+* [Ferramentas Azure Functions Visual Studio 2019](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>Versões suportadas
 
-As versões do tempo de execução do Functions funcionam com versões específicas do .NET. A tabela a seguir mostra o nível mais alto de .NET Core e .NET Framework e .NET Core que podem ser usados com uma versão específica de funções em seu projeto. 
+As versões do tempo de funcionamento das Funções funcionam com versões específicas de .NET. O quadro seguinte mostra o nível mais elevado de .NET Core e .NET Framework e .NET Core que podem ser usados com uma versão específica de Funções no seu projeto. 
 
-| Versão de tempo de execução do Functions | Versão máxima do .NET |
+| Funções versão de tempo de execução | Versão Max .NET |
 | ---- | ---- |
-| Funções 3. x | .NET Core 3,1 |
+| Funções 3.x | .NET Core 3.1 |
 | Funções 2.x | .NET Core 2.2 |
 | Funções 1.x | .NET Framework 4.6 |
 
-Para saber mais, consulte [visão geral das versões do Azure Functions Runtime](functions-versions.md)
+Para saber mais, consulte as versões de execução do Funcionamento do [Azure Functions](functions-versions.md)
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
-No Visual Studio, o modelo de projeto **Azure Functions** cria C# um projeto de biblioteca de classes que contém os seguintes arquivos:
+No Estúdio Visual, o modelo de C# projeto **Funções Azure** cria um projeto de biblioteca de classes que contém os seguintes ficheiros:
 
-* [host. JSON](functions-host-json.md) – armazena as definições de configuração que afetam todas as funções no projeto quando executadas localmente ou no Azure.
-* [local. Settings. JSON](functions-run-local.md#local-settings-file) – armazena as configurações do aplicativo e as cadeias de conexão que são usadas durante a execução local. Este arquivo contém segredos e não é publicado em seu aplicativo de funções no Azure. Em vez disso, [adicione configurações de aplicativo ao seu aplicativo de funções](functions-develop-vs.md#function-app-settings).
+* [host.json](functions-host-json.md) - armazena configurações de configuração que afetam todas as funções do projeto ao executar localmente ou em Azure.
+* [local.settings.json](functions-run-local.md#local-settings-file) - armazena as definições de aplicativos e as cordas de ligação que são usadas quando estão a funcionar localmente. Este ficheiro contém segredos e não é publicado na sua aplicação de funções no Azure. Em vez disso, adicione as definições da [aplicação à sua aplicação de função](functions-develop-vs.md#function-app-settings).
 
-Quando você cria o projeto, uma estrutura de pastas parecida com o exemplo a seguir é gerada no diretório de saída da compilação:
+Ao construir o projeto, uma estrutura de pasta que se parece com o seguinte exemplo é gerada no diretório de saída de construção:
 
 ```
 <framework.version>
@@ -54,15 +54,15 @@ Quando você cria o projeto, uma estrutura de pastas parecida com o exemplo a se
  | - host.json
 ```
 
-Esse diretório é o que é implantado em seu aplicativo de funções no Azure. As extensões de associação necessárias na [versão 2. x](functions-versions.md) do tempo de execução do Functions são [adicionadas ao projeto como pacotes NuGet](./functions-bindings-register.md#vs).
+Este diretório é o que é implantado na sua app de funções em Azure. As extensões de encadernação exigidas na [versão 2.x](functions-versions.md) do tempo de funcionamento das Funções são [adicionadas ao projeto como pacotes NuGet](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
-> O processo de compilação cria um arquivo *Function. JSON* para cada função. Este arquivo *Function. JSON* não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função editando esse arquivo. Para saber como desabilitar uma função, consulte [como desabilitar funções](disable-function.md).
+> O processo de construção cria um ficheiro *function.json* para cada função. Este ficheiro *função.json* não deve ser editado diretamente. Não pode alterar a configuração de ligação ou desativar a função editando este ficheiro. Para aprender a desativar uma função, consulte [como desativar as funções](disable-function.md).
 
 
 ## <a name="methods-recognized-as-functions"></a>Métodos reconhecidos como funções
 
-Em uma biblioteca de classes, uma função é um método estático com um `FunctionName` e um atributo de gatilho, conforme mostrado no exemplo a seguir:
+Numa biblioteca de classes, uma função é um método estático com um `FunctionName` e um atributo de gatilho, como mostra o seguinte exemplo:
 
 ```csharp
 public static class SimpleExample
@@ -77,24 +77,24 @@ public static class SimpleExample
 } 
 ```
 
-O atributo `FunctionName` marca o método como um ponto de entrada de função. O nome deve ser exclusivo em um projeto, começar com uma letra e conter apenas letras, números, `_`e `-`, até 127 caracteres de comprimento. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser C# qualquer nome de método válido.
+O atributo `FunctionName` marca o método como ponto de entrada de função. O nome deve ser único dentro de um projeto, começar com uma letra e conter apenas letras, números, `_`, e `-`- até 127 caracteres de comprimento. Os modelos de projeto criam frequentemente um método C# chamado `Run`, mas o nome do método pode ser qualquer nome de método válido.
 
-O atributo Trigger especifica o tipo de gatilho e associa os dados de entrada a um parâmetro de método. A função de exemplo é disparada por uma mensagem da fila e a mensagem da fila é passada para o método no parâmetro `myQueueItem`.
+O atributo do gatilho especifica o tipo de gatilho e liga os dados de entrada a um parâmetro de método. A função de exemplo é desencadeada por uma mensagem de fila, e a mensagem de fila é transmitida ao método no parâmetro `myQueueItem`.
 
-## <a name="method-signature-parameters"></a>Parâmetros de assinatura do método
+## <a name="method-signature-parameters"></a>Parâmetros de assinatura de método
 
-A assinatura do método pode conter parâmetros diferentes daquele usado com o atributo Trigger. Aqui estão alguns dos parâmetros adicionais que você pode incluir:
+A assinatura do método pode conter parâmetros diferentes dos utilizados com o atributo do gatilho. Aqui estão alguns dos parâmetros adicionais que pode incluir:
 
-* [Associações de entrada e saída](functions-triggers-bindings.md) marcadas como tal, decorando-as com atributos.  
-* Um parâmetro `ILogger` ou `TraceWriter` ([versão 1. x somente](functions-versions.md#creating-1x-apps)) para [registro em log](#logging).
-* Um parâmetro `CancellationToken` para [desligamento normal](#cancellation-tokens).
-* Parâmetros de [expressões de associação](./functions-bindings-expressions-patterns.md) para obter metadados do gatilho.
+* [Encadernações](functions-triggers-bindings.md) de entrada e saída marcadas como tal, decorando-as com atributos.  
+* Um parâmetro `ILogger` ou `TraceWriter`[(versão 1.x-only](functions-versions.md#creating-1x-apps)) para [a exploração madeireira](#logging).
+* Um parâmetro `CancellationToken` para [uma paragem graciosa.](#cancellation-tokens)
+* [Parâmetros de expressões de ligação](./functions-bindings-expressions-patterns.md) para obter metadados de gatilho.
 
-A ordem dos parâmetros na assinatura da função não importa. Por exemplo, você pode colocar parâmetros de gatilho antes ou depois de outras associações, e pode colocar o parâmetro do agente antes ou depois dos parâmetros de gatilho ou de associação.
+A ordem dos parâmetros na assinatura da função não importa. Por exemplo, pode colocar parâmetros de gatilho antes ou depois de outras ligações, e pode colocar o parâmetro do madeireiro antes ou depois do gatilho ou dos parâmetros de ligação.
 
-### <a name="output-binding-example"></a>Exemplo de associação de saída
+### <a name="output-binding-example"></a>Exemplo de encadernação de saída
 
-O exemplo a seguir modifica o anterior, adicionando uma associação de fila de saída. A função grava a mensagem da fila que dispara a função para uma nova mensagem da fila em uma fila diferente.
+O exemplo seguinte modifica o anterior adicionando uma ligação de fila de saída. A função escreve a mensagem de fila que desencadeia a função para uma nova mensagem de fila numa fila diferente.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -111,11 +111,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-Os artigos de referência de associação ([filas de armazenamento](functions-bindings-storage-queue.md), por exemplo) explicam quais tipos de parâmetro você pode usar com atributos de associação de gatilho, entrada ou saída.
+Os artigos de referência de ligação (filas de[armazenamento,](functions-bindings-storage-queue.md)por exemplo) explicam quais os tipos de parâmetros que pode utilizar com atributos de ligação de gatilho, entrada ou saída.
 
-### <a name="binding-expressions-example"></a>Exemplo de expressões de associação
+### <a name="binding-expressions-example"></a>Exemplo de expressões vinculativas
 
-O código a seguir obtém o nome da fila a ser monitorada de uma configuração de aplicativo e obtém a hora de criação da mensagem da fila no parâmetro `insertionTime`.
+O código seguinte obtém o nome da fila para monitorizar a partir de uma definição de app, e obtém o tempo de criação de mensagens de fila no parâmetro `insertionTime`.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -132,13 +132,13 @@ public static class BindingExpressionsExample
 }
 ```
 
-## <a name="autogenerated-functionjson"></a>Function. JSON gerado automaticamente
+## <a name="autogenerated-functionjson"></a>Função autogerada.json
 
-O processo de compilação cria um arquivo *Function. JSON* em uma pasta de funções na pasta Build. Conforme observado anteriormente, esse arquivo não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função editando esse arquivo. 
+O processo de construção cria um ficheiro *function.json* numa pasta de função na pasta de construção. Como notado anteriormente, este ficheiro não deve ser editado diretamente. Não pode alterar a configuração de ligação ou desativar a função editando este ficheiro. 
 
-A finalidade desse arquivo é fornecer informações para o controlador de escala a ser usado para as [decisões de dimensionamento no plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Por esse motivo, o arquivo tem apenas informações de gatilho, não associações de entrada ou saída.
+O objetivo deste ficheiro é fornecer informações ao controlador de escala para utilizar para [decisões](functions-scale.md#how-the-consumption-and-premium-plans-work)de escala no plano de consumo . Por esta razão, o ficheiro apenas tem informações de gatilho, não de ligações de entrada ou de saída.
 
-O arquivo *Function. JSON* gerado inclui uma propriedade `configurationSource` que informa o tempo de execução para usar atributos .net para associações, em vez de configuração de *Function. JSON* . Segue-se um exemplo:
+O ficheiro *função.json* gerado inclui uma propriedade `configurationSource` que diz o tempo de funcionamento para usar atributos .NET para ligações, em vez de *configuração function.json.* Segue-se um exemplo:
 
 ```json
 {
@@ -159,11 +159,11 @@ O arquivo *Function. JSON* gerado inclui uma propriedade `configurationSource` q
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-A geração de arquivo *Function. JSON* é executada pelo pacote NuGet [Microsoft\.NET\.SDK\.funções](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+A geração de *ficheiros function.json* é executada pelo pacote NuGet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-O mesmo pacote é usado para a versão 1. x e 2. x do tempo de execução do functions. A estrutura de destino é o que diferencia um projeto 1. x de um projeto 2. x. Aqui estão as partes relevantes de arquivos *. csproj* , mostrando estruturas de destino diferentes e o mesmo pacote de `Sdk`:
+O mesmo pacote é utilizado para ambas as versões 1.x e 2.x do tempo de funcionamento das Funções. O quadro-alvo é o que diferencia um projeto 1.x de um projeto 2.x. Aqui estão as partes relevantes dos *ficheiros .csproj,* mostrando diferentes quadros-alvo e o mesmo pacote `Sdk`:
 
-**Funções 1. x**
+**Funções 1.x**
 
 ```xml
 <PropertyGroup>
@@ -174,7 +174,7 @@ O mesmo pacote é usado para a versão 1. x e 2. x do tempo de execução do fun
 </ItemGroup>
 ```
 
-**Funções 2. x**
+**Funções 2.x**
 
 ```xml
 <PropertyGroup>
@@ -186,39 +186,39 @@ O mesmo pacote é usado para a versão 1. x e 2. x do tempo de execução do fun
 </ItemGroup>
 ```
 
-Entre as dependências do pacote `Sdk` são gatilhos e associações. Um projeto 1. x refere-se a gatilhos e associações de 1. x porque esses gatilhos e associações se destinam ao .NET Framework, enquanto os gatilhos de 2. x e associações são direcionadas ao .NET Core.
+Entre os `Sdk` dependências de pacotes estão gatilhos e encadernações. Um projeto de 1.x refere-se a gatilhos e encadernações de 1.x porque esses gatilhos e encadernações visam o Quadro .NET, enquanto 2.x desencadeia e encaderna o alvo .NET Core.
 
-O pacote de `Sdk` também depende de [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json)e indiretamente em [WindowsAzure. Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Essas dependências garantem que seu projeto Use as versões desses pacotes que funcionam com a versão de tempo de execução do Functions que o projeto tem como destino. Por exemplo, `Newtonsoft.Json` tem a versão 11 para .NET Framework 4.6.1, mas o tempo de execução do Functions que tem como alvo .NET Framework 4.6.1 é compatível apenas com `Newtonsoft.Json` 9.0.1. Portanto, o código de função nesse projeto também precisa usar `Newtonsoft.Json` 9.0.1.
+O pacote `Sdk` também depende da [Newtonsoft.Json,](https://www.nuget.org/packages/Newtonsoft.Json)e indiretamente do [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Estas dependências certificam-se de que o seu projeto utiliza as versões dos pacotes que funcionam com a versão de tempo de execução functions que o projeto tem como alvo. Por exemplo, `Newtonsoft.Json` tem a versão 11 para .NET Framework 4.6.1, mas o tempo de funcionamento das funções que visa .NET Framework 4.6.1 só é compatível com `Newtonsoft.Json` 9.0.1. Assim, o seu código de funcionamento nesse projeto também tem de usar `Newtonsoft.Json` 9.0.1.
 
-O código-fonte para `Microsoft.NET.Sdk.Functions` está disponível no repositório GitHub [funções do azure\-\-\-\-SDK](https://github.com/Azure/azure-functions-vs-build-sdk).
+O código fonte para `Microsoft.NET.Sdk.Functions` está disponível nas funções de\-de  do GitHub [\-vs\-construir\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## <a name="runtime-version"></a>Versão de tempo de execução
+## <a name="runtime-version"></a>Versão runtime
 
-O Visual Studio usa o [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) para executar projetos do functions. As ferramentas principais são uma interface de linha de comando para o tempo de execução do functions.
+O Visual Studio utiliza as [Ferramentas Core funções do Azure](functions-run-local.md#install-the-azure-functions-core-tools) para executar projetos de funções. As Ferramentas Core são uma interface de linha de comando para o tempo de funcionamento das funções.
 
-Se você instalar as ferramentas principais usando o NPM, isso não afetará a versão das ferramentas principais usada pelo Visual Studio. Para o Functions Runtime versão 1. x, o Visual Studio armazena versões de ferramentas principais no *%USERPROFILE%\AppData\Local\Azure.Functions.CLI* e usa a versão mais recente armazenada lá. Para o Functions 2. x, as ferramentas principais estão incluídas no Azure Functions e na extensão de **ferramentas de trabalhos da Web** . Para 1. x e 2. x, você pode ver qual versão está sendo usada na saída do console ao executar um projeto do Functions:
+Se instalar as Ferramentas Core utilizando o npm, isso não afeta a versão Core Tools utilizada pelo Visual Studio. Para as funções runtime versão 1.x, visual Studio armazena versões Core Tools em *%USERPROFILE%\AppData\Local\Azure.Functions.Functions.* Para funções 2.x, as Ferramentas Core estão incluídas na extensão de Ferramentas de **Funcionamento Azul e Web Jobs.** Tanto para 1.x como 2.x, pode supor que versão está a ser utilizada na saída da consola quando executa um projeto Functions:
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
 ```
 
-## <a name="supported-types-for-bindings"></a>Tipos com suporte para associações
+## <a name="supported-types-for-bindings"></a>Tipos suportados para encadernações
 
-Cada associação tem seus próprios tipos com suporte; por exemplo, um atributo de gatilho de blob pode ser aplicado a um parâmetro de cadeia de caracteres, um parâmetro POCO, um parâmetro de `CloudBlockBlob` ou qualquer um dos vários outros tipos com suporte. O [artigo de referência de associação para associações de blob](functions-bindings-storage-blob.md#trigger---usage) lista todos os tipos de parâmetro com suporte. Para obter mais informações, consulte [gatilhos e associações](functions-triggers-bindings.md) e os [documentos de referência de associação para cada tipo de associação](functions-triggers-bindings.md#next-steps).
+Cada encadernação tem os seus próprios tipos suportados; por exemplo, um atributo do gatilho de bolha pode ser aplicado a um parâmetro de corda, um parâmetro POCO, um parâmetro `CloudBlockBlob` ou qualquer um de vários outros tipos suportados. O [artigo de referência vinculativo para encadernações blob](functions-bindings-storage-blob-trigger.md#usage) lista todos os tipos de parâmetros suportados. Para mais informações, consulte [Gatilhos e encadernações](functions-triggers-bindings.md) e os [docs de referência vinculativos para cada tipo de encadernação](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-## <a name="binding-to-method-return-value"></a>Associação ao valor de retorno do método
+## <a name="binding-to-method-return-value"></a>Vinculação ao valor de retorno do método
 
-Você pode usar um valor de retorno de método para uma associação de saída, aplicando o atributo ao valor de retorno do método. Para obter exemplos, consulte [gatilhos e associações](./functions-bindings-return-value.md). 
+Pode utilizar um valor de devolução de método para uma ligação de saída, aplicando o atributo ao valor de retorno do método. Por exemplo, consulte [Gatilhos e encadernações](./functions-bindings-return-value.md). 
 
-Use o valor de retorno somente se uma execução de função bem-sucedida sempre resultar em um valor de retorno para passar para a associação de saída. Caso contrário, use `ICollector` ou `IAsyncCollector`, conforme mostrado na seção a seguir.
+Utilize o valor de devolução apenas se uma execução de função bem sucedida resultar sempre num valor de retorno para passar para a ligação de saída. Caso contrário, utilize `ICollector` ou `IAsyncCollector`, como se pode ver na secção seguinte.
 
-## <a name="writing-multiple-output-values"></a>Gravando vários valores de saída
+## <a name="writing-multiple-output-values"></a>Escrever vários valores de saída
 
-Para gravar vários valores em uma associação de saída ou se uma invocação de função bem-sucedida pode não resultar em nada para passar para a associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) . Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
+Para escrever vários valores para uma ligação de saída, ou se uma invocação de função bem sucedida pode não resultar em nada para passar para a ligação de saída, use os [tipos`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`.](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) Estes tipos são coleções escritas apenas que são escritas para a ligação de saída quando o método completa.
 
-Este exemplo grava várias mensagens da fila na mesma fila usando `ICollector`:
+Este exemplo escreve várias mensagens de fila na mesma fila usando `ICollector`:
 
 ```csharp
 public static class ICollectorExample
@@ -238,7 +238,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Registo
 
-Para registrar a saída em seus logs de C#streaming no, inclua um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). É recomendável que você o nomeie `log`, como no exemplo a seguir:  
+Para iniciar sessão nos C#seus registos de streaming, inclua um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos que o nomeie `log`, como no seguinte exemplo:  
 
 ```csharp
 public static class SimpleExample
@@ -253,11 +253,11 @@ public static class SimpleExample
 } 
 ```
 
-Evite usar `Console.Write` em Azure Functions. Para obter mais informações, consulte [gravar logs C# em funções](functions-monitoring.md#write-logs-in-c-functions) no artigo **Azure Functions do monitor** .
+Evite utilizar `Console.Write` em funções Azure. Para mais informações, consulte [os registos de escrita em C# funções](functions-monitoring.md#write-logs-in-c-functions) no artigo **Funções Monitor Azure.**
 
 ## <a name="async"></a>Async
 
-Para tornar uma função [assíncrona](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use a palavra-chave `async` e retorne um objeto `Task`.
+Para fazer uma função [assíncrona,](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)use a palavra-chave `async` e devolva um objeto `Task`.
 
 ```csharp
 public static class AsyncExample
@@ -275,13 +275,13 @@ public static class AsyncExample
 }
 ```
 
-Você não pode usar parâmetros de `out` em funções assíncronas. Para associações de saída, use o [valor de retorno da função](#binding-to-method-return-value) ou um [objeto do coletor](#writing-multiple-output-values) em vez disso.
+Não se pode usar `out` parâmetros em funções de asincronização. Para encadernações de saída, utilize o valor de devolução da [função](#binding-to-method-return-value) ou um [objeto de coleção.](#writing-multiple-output-values)
 
-## <a name="cancellation-tokens"></a>Tokens de cancelamento
+## <a name="cancellation-tokens"></a>Fichas de cancelamento
 
-Uma função pode aceitar um parâmetro [CancellationToken](/dotnet/api/system.threading.cancellationtoken) , que permite que o sistema operacional Notifique seu código quando a função está prestes a ser encerrada. Você pode usar essa notificação para garantir que a função não seja encerrada inesperadamente de forma a deixar dados em um estado inconsistente.
+Uma função pode aceitar um parâmetro [CancelamentoToken,](/dotnet/api/system.threading.cancellationtoken) que permite ao sistema operativo notificar o seu código quando a função está prestes a ser terminada. Pode utilizar esta notificação para se certificar de que a função não termina inesperadamente de uma forma que deixe os dados num estado inconsistente.
 
-O exemplo a seguir mostra como verificar a terminação de função iminente.
+O exemplo que se segue mostra como verificar se há uma interrupção da função iminente.
 
 ```csharp
 public static class CancellationTokenExample
@@ -307,7 +307,7 @@ public static class CancellationTokenExample
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Para obter uma variável de ambiente ou um valor de configuração de aplicativo, use `System.Environment.GetEnvironmentVariable`, conforme mostrado no exemplo de código a seguir:
+Para obter uma variável ambiental ou um valor de definição de app, use `System.Environment.GetEnvironmentVariable`, como mostra o seguinte exemplo de código:
 
 ```csharp
 public static class EnvironmentVariablesExample
@@ -328,19 +328,19 @@ public static class EnvironmentVariablesExample
 }
 ```
 
-As configurações do aplicativo podem ser lidas de variáveis de ambiente ao desenvolver localmente e ao executar no Azure. Ao desenvolver localmente, as configurações do aplicativo são provenientes da coleção de `Values` no arquivo *local. Settings. JSON* . Em ambos os ambientes, local e Azure, `GetEnvironmentVariable("<app setting name>")` recupera o valor da configuração de aplicativo nomeado. Por exemplo, quando você estiver executando localmente, o "nome do meu site" será retornado se o arquivo *local. Settings. JSON* contiver `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
+As definições de aplicativos podem ser lidas a partir de variáveis ambientais tanto quando se desenvolve localmente como quando se está a correr em Azure. Ao desenvolver localmente, as definições de aplicativos provêm da recolha `Values` no ficheiro *local.settings.json.* Em ambos os ambientes, local e Azure, `GetEnvironmentVariable("<app setting name>")` recupera o valor da configuração de aplicações nomeada. Por exemplo, quando estiver a funcionar localmente, "My Site Name" seria devolvido se o seu ficheiro *local.settings.json* contiver `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
-A propriedade [System. Configuration. ConfigurationManager. AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter valores de configuração de aplicativo, mas recomendamos que você use `GetEnvironmentVariable` como mostrado aqui.
+A propriedade [System.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter valores de definição de aplicações, mas recomendamos que utilize `GetEnvironmentVariable` como mostrado aqui.
 
-## <a name="binding-at-runtime"></a>Associação em tempo de execução
+## <a name="binding-at-runtime"></a>Encadernação no tempo de execução
 
-No C# e em outras linguagens .net, você pode usar um padrão de associação [imperativo](https://en.wikipedia.org/wiki/Imperative_programming) , em oposição às associações [*declarativas*](https://en.wikipedia.org/wiki/Declarative_programming) em atributos. A associação imperativa é útil quando parâmetros de associação precisam ser computados em tempo de execução em vez de tempo de design. Com esse padrão, você pode associar a associações de entrada e saída com suporte imediatamente no seu código de função.
+Dentro C# e noutras línguas .NET, você pode usar um padrão de ligação [imperativo,](https://en.wikipedia.org/wiki/Imperative_programming) em oposição às ligações [*declarativas*](https://en.wikipedia.org/wiki/Declarative_programming) em atributos. A ligação imperativa é útil quando os parâmetros de ligação precisam de ser calculados no tempo de execução em vez de tempo de conceção. Com este padrão, pode ligar-se a encadernações de entrada e saída suportadas no seu código de função.
 
-Defina uma associação imperativa da seguinte maneira:
+Defina uma vinculação imperativa da seguinte forma:
 
-- **Não** inclua um atributo na assinatura da função para suas associações imperativas desejadas.
-- Passe um parâmetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
-- Use o padrão C# a seguir para executar a vinculação de dados.
+- **Não** inclua um atributo na assinatura de função para as suas encadernações imperativas desejadas.
+- Passe num parâmetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Utilize o C# seguinte padrão para efetuar a encadernação de dados.
 
   ```cs
   using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
@@ -349,11 +349,11 @@ Defina uma associação imperativa da seguinte maneira:
   }
   ```
 
-  `BindingTypeAttribute` é o atributo .NET que define sua associação e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela de aplicativos móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) com associação imperativa.
+  `BindingTypeAttribute` é o atributo .NET que define a sua ligação, e `T` é um tipo de entrada ou saída que é suportado por esse tipo de ligação. `T` não pode ser do tipo de parâmetro `out` (como `out JObject`). Por exemplo, a ligação de saída da tabela Mobile Apps suporta seis tipos de [saída,](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)mas só pode utilizar [o ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [o IAsyncCollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) com uma ligação imperativa.
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo único
 
-O código de exemplo a seguir cria uma [Associação de saída de blob de armazenamento](functions-bindings-storage-blob.md#output) com o caminho de blob definido em tempo de execução e, em seguida, grava uma cadeia de caracteres no BLOB.
+O seguinte código de exemplo cria uma ligação de saída de [blob de armazenamento](functions-bindings-storage-blob-output.md) com caminho blob que é definido no tempo de execução, em seguida, escreve uma corda para a bolha.
 
 ```cs
 public static class IBinderExample
@@ -374,11 +374,11 @@ public static class IBinderExample
 }
 ```
 
-[Blobattribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) define a associação de entrada ou saída de [blob de armazenamento](functions-bindings-storage-blob.md) , e [TextWriter](/dotnet/api/system.io.textwriter) é um tipo de associação de saída com suporte.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) define a entrada ou ligação de saída da bolha de [armazenamento,](functions-bindings-storage-blob.md) e [textWriter](/dotnet/api/system.io.textwriter) é um tipo de ligação de saída suportado.
 
 ### <a name="multiple-attribute-example"></a>Exemplo de atributo múltiplo
 
-O exemplo anterior Obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). Você pode especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando o [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Use um parâmetro `Binder`, não `IBinder`.  Por exemplo:
+O exemplo anterior obtém a definição da aplicação para a cadeia de ligação à conta de armazenamento principal da aplicação de função (que é `AzureWebJobsStorage`). Pode especificar uma definição de aplicação personalizada para usar na conta de Armazenamento, adicionando o [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando o conjunto de atributos para `BindAsync<T>()`. Utilize um parâmetro `Binder`, não `IBinder`.  Por exemplo:
 
 ```cs
 public static class IBinderExampleMultipleAttributes
@@ -410,7 +410,7 @@ public static class IBinderExampleMultipleAttributes
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre gatilhos e associações](functions-triggers-bindings.md)
+> [Saiba mais sobre gatilhos e encadernações](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as práticas recomendadas para Azure Functions](functions-best-practices.md)
+> [Saiba mais sobre as melhores práticas para funções azure](functions-best-practices.md)

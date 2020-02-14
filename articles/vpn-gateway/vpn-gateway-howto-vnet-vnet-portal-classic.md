@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/09/2020
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: ddcc7fcc14c7958e8c0d012c2395ad2b6c422f4f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63c6329ad62289cd127902c1438073b28fc8683e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157912"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201854"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configure uma ligação VNet-to-VNet (clássica)
 
@@ -61,9 +61,9 @@ Poderá pretender ligar redes virtuais pelos seguintes motivos:
 
 Para obter mais informações sobre ligações de VNet a VNet, veja [Considerações de VNet a VNet](#faq) no final deste artigo.
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="powershell"></a>Trabalhar com a Azure PowerShell
 
-Antes de iniciar este exercício, descarregue e instale a versão mais recente dos cmdlets PowerShell (Direção de Serviços Azure) (SM). Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). Utilizamos o portal para a maior parte dos passos, mas tem de usar o PowerShell para criar as ligações entre os VNets. Não é possível criar as ligações utilizando o portal Azure.
+Utilizamos o portal para a maior parte dos passos, mas tem de usar o PowerShell para criar as ligações entre os VNets. Não é possível criar as ligações utilizando o portal Azure. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="plan"></a>Passo 1 - Planear os intervalos de endereços IP
 
@@ -209,37 +209,34 @@ Quando cria VNets clássicos no portal Azure, o nome que vê não é o nome comp
 
 Nos seguintes passos, irá ligar-se à sua conta Azure e descarregar e ver o ficheiro de configuração da rede para obter os valores necessários para as suas ligações.
 
-1. Descarregue e instale a versão mais recente dos cmdlets PowerShell (Direção de Serviços Azure) (SM). Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+1. Descarregue e instale a versão mais recente dos cmdlets PowerShell (Direção de Serviços Azure) (SM). Para mais informações, consulte [Trabalhar com a Azure PowerShell](#powershell).
 
-2. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-   Verifique as subscrições da conta.
+2. Abra a consola PowerShell com direitos elevados. Utilize os seguintes exemplos para o ajudar a ligar. Tem de executar estes comandos localmente utilizando o módulo de gestão de serviços PowerShell. Para mudar para a gestão do serviço, utilize este comando:
 
    ```powershell
-   Get-AzSubscription
+   azure config mode asm
    ```
-
-   Se tiver mais do que uma subscrição, selecione a subscrição que pretende utilizar.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-   Em seguida, utilize o cmdlet seguinte para adicionar a sua subscrição do Azure para o PowerShell para o modelo de implementação clássica.
+3. Ligar à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
    ```powershell
    Add-AzureAccount
    ```
-3. Exportar e ver o ficheiro de configuração da rede. Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Neste exemplo, o ficheiro de configuração da rede é exportado para **C:\AzureNet**.
+4. Verifique as subscrições da conta.
+
+   ```powershell
+   Get-AzureSubscription
+   ```
+5. Se tiver mais do que uma subscrição, selecione a subscrição que pretende utilizar.
+
+   ```powershell
+   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+   ```
+6. Exportar e ver o ficheiro de configuração da rede. Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Neste exemplo, o ficheiro de configuração da rede é exportado para **C:\AzureNet**.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-4. Abra o ficheiro com um editor de texto e veja os nomes dos seus VNets e sites. Este será o nome que usa quando criar as suas ligações.<br>Os nomes vNet estão listados como **nome VirtualNetworkSite =**<br>Os nomes do site estão listados como **nome LocalNetworkSiteRef =**
+7. Abra o ficheiro com um editor de texto e veja os nomes dos seus VNets e sites. Estes nomes serão os nomes que usarquando criar as suas ligações.<br>Os nomes vNet estão listados como **nome VirtualNetworkSite =**<br>Os nomes do site estão listados como **nome LocalNetworkSiteRef =**
 
 ## <a name="createconnections"></a>Passo 8 - Criar as ligações de gateway VPN
 
@@ -273,7 +270,7 @@ Nos exemplos, note que a chave partilhada é exatamente a mesma. A chave partilh
 ## <a name="faq"></a>Considerações VNet-to-VNet para VNets clássicos
 * As redes virtuais podem estar nas mesmas ou diferentes subscrições.
 * As redes virtuais podem estar nas mesmas regiões ou em regiões (localizações) diferentes do Azure.
-* Um serviço cloud ou um ponto final de balanceamento de carga não pode abranger várias redes virtuais, mesmo se estiverem ligadas em conjunto.
+* Um serviço de nuvem ou um ponto final de equilíbrio de carga não pode abranger redes virtuais, mesmo que estejam ligadas entre si.
 * Ligar várias redes virtuais não requer nenhum dispositivo VPN.
 * A VNet-to-VNet suporta a ligação das Redes Virtuais Azure. Não suporta a ligação de máquinas virtuais ou serviços na nuvem que não sejam implantados numa rede virtual.
 * VNet-to-VNet requer gateways de encaminhamento dinâmicos. Os portões de encaminhamento estático azul não são suportados.

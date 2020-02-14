@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 125f92b64ee745a595d15ccacafb6a62414955a9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157538"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198705"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados de servidor único PostgreSQL com uma chave gerida pelo cliente
 
 > [!NOTE]
 > Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, contacte AskAzureDBforPostgreSQL@service.microsoft.com.
 
-A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Azure para o servidor Single PostgreSQL permite-lhe trazer a sua chave qwn (BYOK) para a proteção de dados em repouso. Permite ainda que as organizações implementem a separação de deveres na gestão de chaves e dados. Com a encriptação gerida pelo cliente, é responsável e, em pleno controlo, pelo ciclo de vida de uma chave, permissões de utilização chave e auditoria de operações em chaves.
+A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Azure para o servidor Single PostgreSQL permite-lhe trazer a sua própria chave (BYOK) para a proteção de dados em repouso. Permite ainda que as organizações implementem a separação de deveres na gestão de chaves e dados. Com a encriptação gerida pelo cliente, é responsável e, em pleno controlo, pelo ciclo de vida de uma chave, permissões de utilização chave e auditoria de operações em chaves.
 
 A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Azure para o servidor Single PostgreSQL, é definida ao nível do servidor. Para um determinado servidor, uma chave gerida pelo cliente, chamada chave de encriptação (KEK), é usada para encriptar a chave de encriptação de dados (DEK) utilizada pelo serviço. O KEK é uma chave assimétrica armazenada numa instância [azure key vault](../key-vault/key-Vault-secure-your-key-Vault.md) gerida pelo cliente e gerida pelo cliente. A chave de encriptação (KEK) e a chave de encriptação de dados (DEK) são descritas mais detalhadamente mais tarde neste artigo.
 

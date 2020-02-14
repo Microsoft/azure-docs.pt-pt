@@ -1,5 +1,5 @@
 ---
-title: Ligar redes virtuais com o peering de rede virtual - tutorial - Portal do Azure | Microsoft Docs
+title: Conecte redes virtuais com peering VNet - tutorial - portal Azure
 description: Neste tutorial, irá aprender a ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 65749182bf93e84c8712409cd16bd3a60184c7ca
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016056"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201303"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure
 
@@ -34,7 +34,7 @@ Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-connect-v
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure 
+## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -62,7 +62,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Espaço de endereços|10.1.0.0/16|
     |Grupo de recursos| Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**.|
     |Nome da sub-rede | Subnet2|
-    |Intervalo de Endereços da Sub-rede|10.1.0.0/24|
+    |Intervalo de endereços da sub-rede|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Colocar redes virtuais em modo de peering
 
@@ -165,7 +165,7 @@ A criação das VMs demora alguns minutos. Não prossiga com os restantes passos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo: 
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 

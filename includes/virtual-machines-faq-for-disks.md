@@ -8,227 +8,265 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2bfdf1046c67ed1651f792191923bf4c533d0299
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76961423"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205676"
 ---
-Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos de SSD Premium do Azure.
+Este artigo responde a algumas perguntas frequentes sobre discos Azure Managed Disks e Discos SSD Azure Premium.
 
 ## <a name="managed-disks"></a>Managed Disks
 
-**O que é o Azure Managed Disks?**
+**O que é Azure Managed Disks?**
 
-Managed Disks é um recurso que simplifica o gerenciamento de disco para VMs IaaS do Azure manipulando o gerenciamento de conta de armazenamento para você. Para obter mais informações, consulte a [visão geral de Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+A Managed Disks é uma funcionalidade que simplifica a gestão do disco para Os VMs Do Azure IaaS, manuseando a gestão da conta de armazenamento para si. Para mais informações, consulte a visão geral dos [Discos Geridos](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-**Se eu criar um disco gerenciado padrão de um VHD existente que tenha 80 GB, quanto isso custará?**
+**Se eu criar um disco gerido padrão a partir de um VHD existente que é de 80 GB, quanto é que isso vai me custar?**
 
-Um disco gerenciado padrão criado a partir de um VHD de 80 GB é tratado como o próximo tamanho de disco padrão disponível, que é um disco S10. Você é cobrado de acordo com o preço do disco S10. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Um disco gerido padrão criado a partir de um VHD de 80 GB é tratado como o próximo tamanho padrão de disco disponível, que é um disco S10. É cobrado de acordo com o preço do disco S10. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
-**Há algum custo de transação para o Managed disks Standard?**
+**Existem custos de transação para discos geridos padrão?**
 
-Sim. É-lhe cobrada qualquer transação. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Sim. É cobrado por cada transação. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
-**Para um disco gerenciado padrão, serei cobrado pelo tamanho real dos dados no disco ou pela capacidade provisionada do disco?**
+**Para um disco gerido padrão, serei cobrado pelo tamanho real dos dados no disco ou pela capacidade provisionada do disco?**
 
-É cobrado com base na capacidade aprovisionada do disco. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+É cobrado com base na capacidade do disco. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
-**Como o preço dos discos gerenciados Premium é diferente dos discos não gerenciados?**
+**Como é que a fixação de preços dos discos geridos premium é diferente dos discos não geridos?**
 
-O preço dos discos gerenciados Premium é o mesmo que os discos Premium não gerenciados.
+O preço dos discos geridos premium é o mesmo que os discos premium não geridos.
 
-**Posso alterar o tipo de conta de armazenamento (Standard ou Premium) dos meus discos gerenciados?**
+**Posso alterar o tipo de conta de armazenamento (Standard ou Premium) dos meus discos geridos?**
 
-Sim. Você pode alterar o tipo de conta de armazenamento de seus discos gerenciados usando o portal do Azure, o PowerShell ou o CLI do Azure.
+Sim. Pode alterar o tipo de conta de armazenamento dos seus discos geridos utilizando o portal Azure, PowerShell ou o Azure CLI.
 
-**Posso usar um arquivo VHD em uma conta de armazenamento do Azure para criar um disco gerenciado com uma assinatura diferente?**
+**Posso usar um ficheiro VHD numa conta de armazenamento Azure para criar um disco gerido com uma subscrição diferente?**
 
 Sim.
 
-**Posso usar um arquivo VHD em uma conta de armazenamento do Azure para criar um disco gerenciado em uma região diferente?**
+**Posso usar um ficheiro VHD numa conta de armazenamento Azure para criar um disco gerido numa região diferente?**
 
 Não.
 
-**Há limitações de escala para clientes que usam Managed disks?**
+**Existem limitações de escala para os clientes que utilizam discos geridos?**
 
-Managed Disks elimina os limites associados às contas de armazenamento. No entanto, o limite máximo é 50.000 discos gerenciados por região e por tipo de disco para uma assinatura.
+Os Discos Geridos eliminam os limites associados às contas de armazenamento. No entanto, o limite máximo é de 50.000 discos geridos por região e por tipo de disco para uma subscrição.
 
-**Posso pegar um instantâneo incremental de um disco gerenciado?**
+**Posso tirar uma foto incremental de um disco gerido?**
 
-Não. O recurso de instantâneo atual faz uma cópia completa de um disco gerenciado.
+Não. A capacidade de instantâneo atual faz uma cópia completa de um disco gerido.
 
-**As VMs em um conjunto de disponibilidade podem consistir em uma combinação de discos gerenciados e não gerenciados?**
+**Os VMs num conjunto de disponibilidade podem consistir numa combinação de discos geridos e não geridos?**
 
-Não. As VMs em um conjunto de disponibilidade devem usar todos os discos gerenciados ou todos os discos não gerenciados. Ao criar um conjunto de disponibilidade, você pode escolher o tipo de discos que deseja usar.
+Não. Os VMs num conjunto de disponibilidade devem utilizar todos os discos geridos ou todos os discos não geridos. Quando cria um conjunto de disponibilidade, pode escolher que tipo de discos pretende utilizar.
 
-**Managed Disks é a opção padrão no portal do Azure?**
+**Os Discos Geridos são a opção predefinida no portal Azure?**
 
 Sim.
 
-**Posso criar um disco gerenciado vazio?**
+**Posso criar um disco vazio?**
 
-Sim. Você pode criar um disco vazio. Um disco gerenciado pode ser criado independentemente de uma VM, por exemplo, sem anexá-lo a uma VM.
+Sim. Pode criar um disco vazio. Um disco gerido pode ser criado independentemente de um VM, por exemplo, sem o ligar a um VM.
 
-**Qual é a contagem de domínios de falha com suporte para um conjunto de disponibilidade que usa Managed Disks?**
+**Qual é a contagem de domínio de falha suportada para um conjunto de disponibilidade que utiliza Discos Geridos?**
 
-Dependendo da região em que o conjunto de disponibilidade que usa Managed Disks está localizado, a contagem de domínios de falha com suporte é 2 ou 3.
+Dependendo da região onde está localizado o conjunto de disponibilidade que utiliza discos geridos, a contagem de domínio de falha suportada é de 2 ou 3.
 
-**Como a conta de armazenamento padrão para o diagnóstico é configurada?**
+**Como é criada a conta de armazenamento padrão para diagnósticos?**
 
-Você configura uma conta de armazenamento particular para diagnóstico de VM.
+Criou uma conta de armazenamento privada para diagnósticos vm.
 
-**Que tipo de suporte ao controle de acesso baseado em função está disponível para Managed Disks?**
+**Que tipo de suporte de Controlo de Acesso baseado em Funções está disponível para discos geridos?**
 
-Managed Disks dá suporte a três funções padrão principais:
+Os Discos Geridos suportam três funções padrão fundamentais:
 
-* Proprietário: pode gerenciar tudo, incluindo o acesso
-* Colaborador: pode gerenciar tudo, exceto o acesso
-* Leitor: pode exibir tudo, mas não pode fazer alterações
+* Proprietário: Pode gerir tudo, incluindo acesso
+* Contribuinte: Pode gerir tudo menos acesso
+* Leitor: Pode ver tudo, mas não pode fazer alterações
 
-**Há uma maneira de copiar ou exportar um disco gerenciado para uma conta de armazenamento particular?**
+**Há alguma maneira de copiar ou exportar um disco gerido para uma conta de armazenamento privado?**
 
-Você pode gerar um URI de SAS (assinatura de acesso compartilhado) somente leitura para o disco gerenciado e usá-lo para copiar o conteúdo para uma conta de armazenamento particular ou armazenamento local. Você pode usar o URI de SAS usando o portal do Azure, Azure PowerShell, CLI do Azure ou [AzCopy](../articles/storage/common/storage-use-azcopy.md)
+Pode gerar uma assinatura de acesso partilhado de leitura (SAS) URI para o disco gerido e usá-lo para copiar o conteúdo para uma conta de armazenamento privada ou armazenamento no local. Pode utilizar o SAS URI utilizando o portal Azure, Azure PowerShell, o Azure CLI ou [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
-**Posso criar uma cópia do meu disco gerenciado?**
+**Posso criar uma cópia do meu disco gerido?**
 
-Os clientes podem tirar um instantâneo de seus discos gerenciados e, em seguida, usar o instantâneo para criar outro disco gerenciado.
+Os clientes podem tirar uma foto dos seus discos geridos e depois usar o instantâneo para criar outro disco gerido.
 
-**Ainda há suporte para discos não gerenciados?**
+**Os discos não geridos ainda são suportados?**
 
-Sim, há suporte para discos gerenciados e que não estão no gerenciamento. Recomendamos que você use discos gerenciados para novas cargas de trabalho e migre suas cargas de trabalho atuais para o Managed disks.
+Sim, tanto os discos não geridos como geridos são suportados. Recomendamos que utilize discos geridos para novas cargas de trabalho e emigra as suas cargas de trabalho atuais para discos geridos.
 
-**Posso colocalizar o Managed disks e os discos não gerenciados na mesma VM?**
+**Posso co-localizar discos não geridos e geridos no mesmo VM?**
 
 Não.
 
-**Se eu criar um disco de 128 GB e, em seguida, aumentar o tamanho para 130 Gibibytes (GiB), serei cobrado pelo próximo tamanho de disco (256 GiB)?**
+**Se eu criar um disco de 128 GB e depois aumentar o tamanho para 130 gibibytes (GiB), serei cobrado pelo próximo tamanho do disco (256 GiB)?**
 
 Sim.
 
-**Posso criar armazenamento com redundância local, armazenamento com redundância geográfica e discos gerenciados de armazenamento com redundância de zona?**
+**Posso criar armazenamento localmente redundante, armazenamento geo-redundante e discos geridos por zonas redundantes?**
 
-Atualmente, o Azure Managed Disks dá suporte apenas a discos gerenciados de armazenamento com redundância local.
+Atualmente, os Discos Geridos Azure suportam apenas discos geridos localmente redundantes.
 
-**Posso reduzir ou diminuir meus discos gerenciados?**
+**Posso encolher ou reduzir os meus discos geridos?**
 
-Não. Este recurso não tem suporte no momento.
+Não. Esta funcionalidade não é suportada atualmente.
 
-**Posso interromper uma concessão em meu disco?**
+**Posso quebrar um contrato de arrendamento no meu disco?**
 
-Não. Isso não tem suporte no momento, pois uma concessão está presente para evitar a exclusão acidental quando o disco está sendo usado.
+Não. Isto não é suportado atualmente, uma vez que está presente um contrato de arrendamento para evitar a supressão acidental quando o disco está a ser utilizado.
 
-**Posso alterar a propriedade nome do computador quando um disco do sistema operacional especializado (não criado usando a ferramenta de preparação do sistema ou generalizado) é usado para provisionar uma VM?**
+**Posso alterar a propriedade de nome do computador quando um disco de sistema de preparação especializado (não criado utilizando a ferramenta de preparação do sistema ou generalizado) é utilizado para fornecer um VM?**
 
-Não. Você não pode atualizar a propriedade nome do computador. A nova VM a herda da VM pai, que foi usada para criar o disco do sistema operacional. 
+Não. Não pode atualizar a propriedade do nome do computador. O novo VM herda-o do VM-progenitor, que foi usado para criar o disco do sistema operativo. 
 
-**Onde posso encontrar modelos de Azure Resource Manager de exemplo para criar VMs com discos gerenciados?**
-* [Lista de modelos usando Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+**Onde posso encontrar modelos de Gestor de Recursos Azure para criar VMs com discos geridos?**
+* [Lista de modelos usando discos geridos](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
-**Ao criar um disco de um blob, há qualquer relacionamento continuamente existente com esse blob de origem?**
+**Ao criar um disco a partir de uma bolha, existe alguma relação continuamente existente com essa bolha de origem?**
 
-Não, quando o novo disco é criado, ele é uma cópia autônoma completa desse blob naquele momento e não há nenhuma conexão entre os dois. Se desejar, depois de criar o disco, o blob de origem poderá ser excluído sem afetar o disco recém-criado de forma alguma.
+Não, quando o novo disco é criado é uma cópia autónoma completa dessa bolha nessa altura e não há nenhuma ligação entre os dois. Se quiser, uma vez criado o disco, a bolha de origem pode ser eliminada sem afetar de qualquer forma o disco recém-criado.
 
-**Posso renomear um disco gerenciado ou não gerenciado depois que ele tiver sido criado?**
+**Posso mudar o nome de um disco gerido ou não gerido depois de ter sido criado?**
 
-Para discos gerenciados, você não pode renomeá-los. No entanto, você pode renomear um disco não gerenciado contanto que ele não esteja anexado a um VHD ou VM no momento.
+Para discos geridos não é possível rebatizar o nome. No entanto, pode mudar o nome de um disco não gerido desde que não esteja atualmente ligado a um VHD ou VM.
 
-**Posso usar o particionamento GPT em um disco do Azure?**
+**Posso usar a partição de GPT num Disco Azure?**
 
-As imagens de geração 1 só podem usar o particionamento GPT em discos de dados, não OS discos do sistema operacional. Os discos do sistema operacional devem usar o estilo de partição MBR.
+As imagens da geração 1 só podem usar a divisão de GPT em discos de dados, e não em discos DES. Os discos OS devem utilizar o estilo de partição MBR.
 
-As [imagens de geração 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) podem usar o particionamento GPT no disco do sistema operacional, bem como os discos de dados.
+[As imagens](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) da Geração 2 podem usar a divisão de GPT no disco OS, bem como os discos de dados.
 
-**Quais tipos de disco dão suporte a instantâneos?**
+**Que tipos de disco suportam instantâneos?**
 
-Os instantâneos de suporte a SSD Premium, SSD padrão e HDD padrão. Para esses três tipos de disco, os instantâneos têm suporte para todos os tamanhos de disco (incluindo discos de até 32 TiB de tamanho). Ultra discos não oferecem suporte a instantâneos.
+SSD premium, SSD padrão e instantâneos de suporte HDD padrão. Para estes três tipos de disco, as imagens são suportadas para todos os tamanhos do disco (incluindo discos até 32 TiB em tamanho). Os discos ultra não suportam instantâneos.
 
 **O que são reservas de disco Azure?**
-A reserva de disco é a opção de comprar um ano de armazenamento em disco com antecedência, reduzindo o custo total. Para mais detalhes sobre reservas de discos Azure, consulte o nosso artigo sobre o assunto: Entenda como o seu desconto de [reserva é aplicado ao Disco Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
+A reserva do disco é a opção de comprar com antecedência um ano de armazenamento de disco, reduzindo o seu custo total. Para mais detalhes sobre reservas de discos Azure, consulte o nosso artigo sobre o assunto: Entenda como o seu desconto de [reserva é aplicado ao Disco Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**Quais opções a reserva de disco do Azure oferece?** A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, pode optar por pagar através de um pagamento único à cabeça ou de pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks. 
+**Que opções oferece a reserva de disco Azure?** A reserva de disco Azure oferece a opção de comprar SSDs Premium nas SKUs especificadas de P30 (1 TiB) até P80 (32 TiB) por um período de um ano. Não existe qualquer limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, pode optar por pagar com um pagamento único, adiantado ou pagamentos mensais. Não existe um custo transacional adicional aplicado aos Discos Geridos Premium SSD. 
 
-As reservas são feitas na forma de discos, não na capacidade. Por outras palavras, quando reserva um disco P80 (32 TiB), obtém-se um único disco P80, não pode então dividir essa reserva específica em dois discos P70 (16 TiB) mais pequenos. É claro que você pode reservar tantos discos quanto desejar, incluindo dois discos P70 (16 TiB) separados.
+As reservas são feitas sob a forma de discos, não de capacidade. Por outras palavras, quando reserva um disco P80 (32 TiB), obtém-se um único disco P80, não pode então dividir essa reserva específica em dois discos P70 (16 TiB) mais pequenos. Pode, naturalmente, reservar quantos ou menos discos quiser, incluindo dois discos P70 (16 TiB) separados.
 
-**Como a reserva de disco do Azure é aplicada?**  
-A reserva de discos segue um modelo semelhante às instâncias de VM (máquina virtual) reservadas. A diferença é que uma reserva de disco não pode ser aplicada a SKUs diferentes, enquanto uma instância de VM pode. Confira [salvar custos com instâncias de VM reservadas do Azure](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) para obter mais informações sobre instâncias de VM.    
+**Como é aplicada a reserva do disco Azure?**  
+A reserva de discos segue um modelo semelhante aos casos de máquina virtual reservada (VM). A diferença é que uma reserva de disco não pode ser aplicada a diferentes SKUs, enquanto uma instância vm pode. Consulte [custos de poupança com as Instâncias VM reservadas](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) do Azure para obter mais informações sobre casos vm.    
 
 Posso usar o meu armazenamento de dados comprado através da reserva de **discos Azure em várias regiões?**     
-A reserva de discos do Azure é adquirida para uma região e SKU específicos (como p30 no leste dos EUA 2) e, portanto, não pode ser usada fora dessas construções. Você sempre pode comprar uma reserva adicional de discos do Azure para suas necessidades de armazenamento em disco em outras regiões ou SKUs. 
+A reserva de discos Azure é comprada para uma região específica e SKU (como P30 no Leste dos EUA 2), e, portanto, não pode ser usada fora destas construções. Pode sempre adquirir uma Reserva adicional de Discos Azure para as suas necessidades de armazenamento em discos noutras regiões ou SKUs. 
 
 O que acontece quando a minha reserva de **discos Azure expirar?**    
-Você receberá notificações por email 30 dias antes da expiração e novamente na data de expiração. Depois que a reserva expirar, os discos implantados continuarão a ser executados e serão cobrados com as [tarifas pagas pelo uso](https://azure.microsoft.com/pricing/details/managed-disks/)mais recentes.
+Receberá notificações por e-mail 30 dias antes da expiração e novamente na data de validade. Uma vez expirada a reserva, os discos implantados continuarão a ser executados e serão cobrados com as mais recentes [tarifas de pagamento.](https://azure.microsoft.com/pricing/details/managed-disks/)
+
+### <a name="azure-shared-disks"></a>Discos compartilhados azure
+
+**A funcionalidade de discos partilhados é suportada para discos não geridos ou bolhas de página?**
+
+Não, só é suportado para discos geridos premium SSD.
+
+**Que regiões suportam discos partilhados?**
+
+Atualmente apenas no Centro-Oeste dos EUA.
+
+**Os discos partilhados podem ser usados como um disco de SO?**
+
+Não, os discos partilhados são suportados apenas para discos de dados.
+
+**Que tamanhos de disco suportam discos partilhados?**
+
+Apenas SSDs premium que sejam P15 ou discos partilhados de maior suporte.
+
+**Se eu tiver um SSD premium existente, posso ativar discos partilhados nele?**
+
+Todos os discos geridos criados com a versão API 2019-07-01 ou superior podem permitir discos partilhados. Para isso, é necessário desmontar o disco de todos os VMs a que está ligado. Em seguida, editar a propriedade `maxShares` no disco.
+
+**Se já não quero usar um disco em modo partilhado, como o desativo?**
+
+Desmonte o disco de todos os VMs a que está ligado. Em seguida, editar a propriedade maxShare no disco para 1.
+
+**Pode redimensionar um disco partilhado?**
+
+Sim.
+
+**Posso ativar o acelerador de escrita num disco que também tem discos partilhados ativados?**
+
+Não.
+
+**Posso ativar o cache do hospedeiro para um disco que tenha partilhado o disco ativado?**
+
+A única opção de cache de hospedeiro suportado é "Nenhuma".
 
 ## <a name="ultra-disks"></a>Discos ultra
 
-**Para que devo definir a taxa de transferência de ultra Disk?**
-Se você não tiver certeza sobre o que definir a taxa de transferência do disco como, recomendamos que comece supondo um tamanho de e/s de 16 KiB e ajuste o desempenho a partir daí, enquanto monitora seu aplicativo. A fórmula é: taxa de transferência em MBps = # de IOPS * 16/1000.
+**Para que devo definir a minha entrada de disco ultra?**
+Se não tiver a certeza do que definir a sua entrada de disco, recomendamos que comece por assumir um tamanho IO de 16 KiB e ajuste o desempenho a partir daí à medida que monitoriza a sua aplicação. A fórmula é: Entrada em MBps = # de IOPS * 16 / 1000.
 
-**Configurei meu disco para 40000 IOPS, mas estou vendo apenas 12800 IOPS, por que não estou vendo o desempenho do disco?**
-Além do acelerador de disco, há um acelerador de e/s que é imposto no nível da VM. Verifique se o tamanho da VM que você está usando pode dar suporte aos níveis que estão configurados em seus discos. Para obter detalhes sobre os limites de e/s impostos pela sua VM, consulte [tamanhos de máquinas virtuais do Windows no Azure](../articles/virtual-machines/windows/sizes.md).
+**Configurei o meu disco para 40000 IOPS mas só estou a ver 12800 IOPS, porque não estou a ver o desempenho do disco?**
+Além do acelerador do disco, há um acelerador io que é imposto ao nível de VM. Certifique-se de que o tamanho VM que está a utilizar pode suportar os níveis configurados nos seus discos. Para mais detalhes sobre os limites de IO impostos pelo seu VM, consulte [Tamanhos para máquinas virtuais Windows em Azure](../articles/virtual-machines/windows/sizes.md).
 
-**Posso usar níveis de cache com um ultra Disk?**
-Não, ultra discos não dão suporte aos diferentes métodos de cache que têm suporte em outros tipos de disco. Defina o cache de disco como nenhum.
+**Posso usar os níveis de cache com um disco ultra?**
+Não, os discos ultra não suportam os diferentes métodos de cache que são suportados em outros tipos de disco. Desloque o cache do disco para Nenhum.
 
-**Posso anexar um ultra Disk à minha VM existente?**
-Talvez sua VM tenha que estar em um par de regiões e de zona de disponibilidade que dá suporte a ultra discos. Consulte [introdução aos ultra discos](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) para obter detalhes.
+**Posso anexar um disco ultra ao meu VM existente?**
+Talvez o seu VM tenha de estar numa região e num par de zonas de disponibilidade que suporta discos Ultra. Veja [começar com discos ultra](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) para mais detalhes.
 
-**Posso usar um ultra Disk como o disco do sistema operacional para minha VM?**
-Não, ultra discos só têm suporte como discos de dados e só têm suporte como discos nativos de 4K.
+**Posso usar um disco ultra como disco de SO para o meu VM?**
+Não, os discos ultra são suportados apenas como discos de dados e são suportados apenas como discos nativos 4K.
 
-**Posso converter um disco existente em um ultra Disk?**
-Não, mas você pode migrar os dados de um disco existente para um ultra Disk. Para migrar um disco existente para um ultra Disk, anexe ambos os discos à mesma VM e copie os dados do disco de um disco para outro ou aproveite uma solução de terceiros para a migração de dados.
+**Posso converter um disco existente num disco ultra?**
+Não, mas podemigrar os dados de um disco existente para um disco ultra. Para migrar um disco existente para um disco ultra, fixe ambos os discos ao mesmo VM e copie os dados do disco de um disco para o outro ou aproveite uma solução de terceiros para a migração de dados.
 
-**Posso criar instantâneos para ultra disks?**
-Não, os instantâneos ainda não estão disponíveis.
+**Posso criar instantâneos para discos ultra?**
+Não, as fotos ainda não estão disponíveis.
 
-**O backup do Azure está disponível para ultra discos?**
-Não, o suporte do backup do Azure ainda não está disponível.
+**O Azure Backup está disponível para discos ultra?**
+Não, o suporte de backup Azure ainda não está disponível.
 
-**Posso anexar um ultra Disk a uma VM em execução em um conjunto de disponibilidade?**
-Não, ainda não há suporte para isso.
+**Posso anexar um disco ultra a um VM em execução num conjunto de disponibilidade?**
+Não, isto ainda não é apoiado.
 
-**Posso habilitar Azure Site Recovery para VMs usando ultra discos?**
-Não, o Azure Site Recovery ainda não tem suporte para ultra discos.
+**Posso permitir a recuperação do site Azure para VMs usando discos ultra?**
+Não, a Recuperação do Site Azure ainda não é suportada para discos ultra.
 
-## <a name="uploading-to-a-managed-disk"></a>Carregando para um disco gerenciado
+## <a name="uploading-to-a-managed-disk"></a>Upload para um disco gerido
 
-**Posso carregar dados em um disco gerenciado existente?**
+**Posso enviar dados para um disco gerido existente?**
 
-Não, o carregamento só pode ser usado durante a criação de um novo disco vazio com o estado **ReadyToUpload** .
+Não, o upload só pode ser usado durante a criação de um novo disco vazio com o estado **ReadyToUpload.**
 
-**Como fazer carregar em um disco gerenciado?**
+**Como faço o upload para um disco gerido?**
 
-Criar um disco gerenciado com a propriedade [createoption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) definida como "upload", você pode carregar dados nele.
+Crie um disco gerido com a propriedade [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) da [criaçãoData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) definido para "Upload", para depois pode fazer o upload de dados para o mesmo.
 
-**Posso anexar um disco a uma VM enquanto ele estiver em um estado de carregamento?**
-
-Não.
-
-**Posso tirar um instantâneo de um disco de gerenciada em um estado de carregamento?**
+**Posso prender um disco a um VM enquanto está num estado de upload?**
 
 Não.
 
-## <a name="standard-ssd-disks"></a>Discos SSD Standard
+**Posso tirar uma foto de um disco de manhoso num estado de upload?**
 
-**O que são os discos SSD Standard do Azure?**
-Os discos de SSD Standard são discos padrão com suporte de mídia de estado sólido, otimizados como armazenamento econômico para cargas de trabalho que precisam de desempenho consistente em níveis de IOPS inferiores.
+Não.
 
-<a id="standard-ssds-azure-regions"></a>**Quais são as regiões com suporte no momento para discos SSD Standard?**
-Todas as regiões do Azure agora dão suporte a discos SSD Standard.
+## <a name="standard-ssd-disks"></a>Discos SSD padrão
 
-**O backup do Azure está disponível ao usar o SSDs padrão?**
-Sim, o backup do Azure agora está disponível.
+**O que são discos SSD Standard Azure?**
+Os discos SSD padrão são discos standard apoiados por meios de estado sólido, otimizados como armazenamento rentável para cargas de trabalho que precisam de um desempenho consistente em níveis de IOPS mais baixos.
 
-**Como fazer criar discos SSD Standard?**
-Você pode criar SSD Standard discos usando modelos de Azure Resource Manager, SDK, PowerShell ou CLI. Abaixo estão os parâmetros necessários no modelo do Resource Manager para criar SSD Standard discos:
+<a id="standard-ssds-azure-regions"></a>**Quais são as regiões atualmente suportadas para discos Standard SSD?**
+Todas as regiões azure suportam agora discos Standard SSD.
 
-* *apiVersion* para Microsoft. Compute deve ser definido como `2018-04-01` (ou posterior)
+**O Azure Backup está disponível quando utilizar SSDs Standard?**
+Sim, o Azure Backup já está disponível.
+
+**Como crio discos Standard SSD?**
+Pode criar discos Standard SSD utilizando modelos de Gestor de Recursos Azure, SDK, PowerShell ou CLI. Abaixo estão os parâmetros necessários no modelo de Gestor de Recursos para criar discos SSD standard:
+
+* *apiVersão* para Microsoft.Compute deve ser definido como `2018-04-01` (ou mais tarde)
 * Especifique *o ManagedDisk.storageAccountType* como `StandardSSD_LRS`
 
-O exemplo a seguir mostra a seção *Properties. storageProfile. osDisk* para uma VM que usa SSD Standard discos:
+O exemplo seguinte mostra as *propriedades.storageProfile.osDisk* para um VM que utiliza discos SSD padrão:
 
 ```json
 "osDisk": {
@@ -242,213 +280,213 @@ O exemplo a seguir mostra a seção *Properties. storageProfile. osDisk* para um
 }
 ```
 
-Para obter um exemplo de modelo completo de como criar um disco de SSD Standard com um modelo, consulte [criar uma VM de uma imagem do Windows com discos de dados SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+Para obter um exemplo completo de como criar um disco SSD padrão com um modelo, consulte [Criar um VM a partir de uma imagem do Windows com discos de dados SSD padrão](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
-**Posso converter meus discos existentes em SSD Standard?**
-Sim, pode. Consulte [converter o armazenamento do Azure Managed disks de Standard para Premium e vice-versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para obter as diretrizes gerais para a conversão de Managed disks. E use o seguinte valor para atualizar o tipo de disco para SSD Standard.
+**Posso converter os meus discos existentes em SSD padrão?**
+Sim, pode. Consulte o armazenamento de discos geridos pela [Convert Azure de série para premium, e vice-versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para as diretrizes gerais para a conversão de Discos Geridos. E, use o seguinte valor para atualizar o tipo de disco para O SSD Padrão.
 -StandardSSD_LRS de tipo de conta
 
-**Qual é o benefício de usar discos SSD Standard em vez de HDD?**
-SSD Standard discos oferecem melhor latência, consistência, disponibilidade e confiabilidade em comparação com discos de HDD. As cargas de trabalho do aplicativo funcionam muito mais suavemente em SSD Standard por isso. Observe que os discos SSD Premium são a solução recomendada para a maioria das cargas de trabalho de produção com uso intensivo de e/s.
+**Qual é o benefício de usar discos Standard SSD em vez de HDD?**
+Os discos SSD padrão proporcionam melhor latência, consistência, disponibilidade e fiabilidade em comparação com os discos HDD. As cargas de trabalho de aplicação funcionam muito mais suavemente no SSD Padrão por causa disso. Nota: Os discos Premium SSD são a solução recomendada para a maioria das cargas de trabalho de produção intensivas da OI.
 
-**Posso usar o SSDs padrão como discos não gerenciados?**
-Não, os discos SSDs padrão só estão disponíveis como Managed Disks.
+**Posso usar SSDs standard como Discos Não Geridos?**
+Não, os discos Standard SSDs só estão disponíveis como Discos Geridos.
 
-**SSD Standard discos dão suporte a "SLA de VM de instância única"?**
-Não, o SSDs padrão não tem SLA de VM de instância única. Use SSD Premium discos para o SLA de VM de instância única.
+**Os Discos Standard SSD suportam "VM SLA de instância única"?**
+Não, os SSDs Standard não têm uma única instância VM SLA. Utilize discos SSD Premium para uma única instância VM SLA.
 
-## <a name="migrate-to-managed-disks"></a>Migrar para os Managed Disks
+## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks
 
-**Há algum impacto na migração no desempenho do Managed Disks?**
+**Existe algum impacto da migração no desempenho dos Discos Geridos?**
 
-A migração envolve a movimentação do disco de um local de armazenamento para outro. Isso é orquestrado por meio da cópia em segundo plano dos dados, o que pode levar várias horas para ser concluído, normalmente menos de 24 horas, dependendo da quantidade de dados nos discos. Durante esse tempo, seu aplicativo pode ficar mais alto do que a latência de leitura usual, já que algumas leituras podem ser redirecionadas para o local original e podem levar mais tempo para serem concluídas. Não há nenhum impacto na latência de gravação durante esse período.  
+A migração envolve o movimento do Disco de um local de armazenamento para outro. Isto é orquestrado através de cópia de fundo de dados, que podem levar várias horas para completar, tipicamente menos de 24 Hrs dependendo da quantidade de dados nos discos. Durante esse tempo, a sua aplicação pode experimentar uma latência de leitura superior ao habitual, uma vez que algumas leituras podem ser redirecionadas para a localização original, e podem demorar mais tempo a ser concluídas. Não há impacto na latência escrita durante este período.  
 
-**Quais alterações são necessárias em uma configuração de serviço de backup do Azure já existente anterior/após a migração para Managed Disks?**
+**Que alterações são necessárias numa configuração de serviço de backup azure pré-existente antes/após a migração para Discos Geridos?**
 
-Nenhuma alteração é necessária.
+Não são necessárias alterações.
 
-**Meus backups de VM serão criados por meio do serviço de backup do Azure antes que a migração continue a funcionar?**
+**Os meus backups VM criados através do serviço de backup Azure antes da migração continuar a funcionar?**
 
-Sim, os backups funcionam sem problemas.
+Sim, os reforços funcionam perfeitamente.
 
-**Quais alterações são necessárias em uma configuração de criptografia de discos do Azure pré-existente anterior/após a migração para o Managed Disks?**
+**Que alterações são necessárias numa configuração de encriptação de Discos Azure pré-existente antes/após a migração para Discos Geridos?**
 
-Nenhuma alteração é necessária.
+Não são necessárias alterações.
 
-**A migração automatizada de um conjunto de dimensionamento de máquinas virtuais existente de discos não gerenciados para Managed Disks tem suporte?**
+**A migração automatizada de uma escala virtual existente é definida de discos não geridos para discos geridos suportados?**
 
-Não. Você pode criar um novo conjunto de dimensionamento com Managed Disks usando a imagem do seu conjunto de dimensionamento antigo com discos não gerenciados.
+Não. Pode criar um novo conjunto de escala com Discos Geridos utilizando a imagem a partir do seu conjunto de escala antiga com discos não geridos.
 
-**Posso criar um disco gerenciado a partir de um instantâneo de blob de páginas obtido antes de migrar para Managed Disks?**
+**Posso criar um Disco Gerido a partir de uma imagem de uma imagem tirada antes de migrar para Discos Geridos?**
 
-Não. Você pode exportar um instantâneo de blob de páginas como um blob de páginas e, em seguida, criar um disco gerenciado com base no blob de páginas exportadas.
+Não. Você pode exportar um instantâneo de página blob como uma bolha de página e, em seguida, criar um Disco Gerido a partir da bolha de página exportada.
 
-**Posso fazer failover de meus computadores locais protegidos por Azure Site Recovery para uma VM com Managed Disks?**
+**Posso falhar nas minhas máquinas no local protegidas pela Recuperação do Site Azure para um VM com Discos Geridos?**
 
-Sim, você pode optar por fazer failover para uma VM com Managed Disks.
+Sim, pode optar por falhar num VM com Discos Geridos.
 
-**Há algum impacto na migração em VMs do Azure protegidas por Azure Site Recovery por meio da replicação do Azure para o Azure?**
+**Existe algum impacto da migração em VMs Azure protegidos pela recuperação do site Azure através da replicação azure para Azure?**
 
-Não. Azure Site Recovery proteção do Azure para o Azure para VMs com Managed Disks está disponível.
+Não. Está disponível a proteção Azure para Azure para VMs com Discos Geridos.
 
-**Posso migrar VMs com discos não gerenciados que estão localizados em contas de armazenamento que foram ou foram criptografadas anteriormente para discos gerenciados?**
+**Posso migrar VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptados para discos geridos?**
 
 Sim
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e Criptografia do Serviço de Armazenamento
+## <a name="managed-disks-and-storage-service-encryption"></a>Encriptação de serviço de discos geridos e armazenamento
 
-**O Azure Criptografia do Serviço de Armazenamento habilitado por padrão quando crio um disco gerenciado?**
+**A encriptação do serviço de armazenamento Azure está ativada por padrão quando crio um disco gerido?**
 
 Sim.
 
-**O volume de inicialização é criptografado por padrão em um disco gerenciado?**
+**O volume de arranque é encriptado por padrão num disco gerido?**
 
-Sim. Por padrão, todos os discos gerenciados são criptografados, incluindo o disco do sistema operacional.
+Sim. Por predefinição, todos os discos geridos são encriptados, incluindo o disco OS.
 
-**Quem gerencia as chaves de criptografia?**
+**Quem gere as chaves de encriptação?**
 
-A Microsoft gerencia as chaves de criptografia.
+A Microsoft gere as chaves de encriptação.
 
-**Posso desabilitar Criptografia do Serviço de Armazenamento para meus discos gerenciados?**
+**Posso desativar a encriptação do serviço de armazenamento para os meus discos geridos?**
 
 Não.
 
-**O Criptografia do Serviço de Armazenamento está disponível apenas em regiões específicas?**
+**A encriptação do serviço de armazenamento só está disponível em regiões específicas?**
 
-Não. Ele está disponível em todas as regiões onde Managed Disks estão disponíveis. Managed Disks está disponível em todas as regiões públicas e na Alemanha. Ele também está disponível na China, no entanto, apenas para chaves gerenciadas pela Microsoft, não para chaves gerenciadas pelo cliente.
+Não. Está disponível em todas as regiões onde os Discos Geridos estão disponíveis. Os Discos Geridos estão disponíveis em todas as regiões públicas e na Alemanha. No entanto, também está disponível na China, apenas para chaves geridas pela Microsoft, e não para as chaves geridas pelo cliente.
 
-**Como posso descobrir se meu disco gerenciado está criptografado?**
+**Como posso descobrir se o meu disco gerido está encriptado?**
 
-Você pode descobrir a hora em que um disco gerenciado foi criado no portal do Azure, no CLI do Azure e no PowerShell. Se o horário for posterior a 9 de junho de 2017, o disco será criptografado.
+Pode descobrir a hora em que um disco gerido foi criado a partir do portal Azure, do Azure CLI e do PowerShell. Se a hora for depois de 9 de junho de 2017, então o seu disco está encriptado.
 
-**Como eu posso criptografar meus discos existentes que foram criados antes de 10 de junho de 2017?**
+**Como posso encriptar os meus discos existentes que foram criados antes de 10 de junho de 2017?**
 
-A partir de 10 de junho de 2017, novos dados gravados em discos gerenciados existentes são criptografados automaticamente. Também estamos planejando criptografar os dados existentes e a criptografia ocorrerá de forma assíncrona em segundo plano. Se você precisar criptografar os dados existentes agora, crie uma cópia do disco. Novos discos serão criptografados.
+A partir de 10 de junho de 2017, novos dados escritos aos discos geridos existentes são automaticamente encriptados. Também estamos a planear encriptar os dados existentes, e a encriptação vai acontecer de forma assíncrona em segundo plano. Se tiver de encriptar os dados existentes agora, crie uma cópia do seu disco. Novos discos serão encriptados.
 
-* [Copiar discos gerenciados usando o CLI do Azure](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copiar discos gerenciados usando o PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Copiar discos geridos utilizando o Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Copiar discos geridos utilizando powerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-**Os instantâneos gerenciados e as imagens são criptografados?**
+**As imagens e imagens geridas são encriptadas?**
 
-Sim. Todos os instantâneos e imagens gerenciados criados após 9 de junho de 2017 são criptografados automaticamente. 
+Sim. Todos os instantâneos e imagens geridos criados após 9 de junho de 2017, são automaticamente encriptados. 
 
-**Posso converter VMs com discos não gerenciados que estão localizados em contas de armazenamento que foram ou foram criptografadas anteriormente para discos gerenciados?**
+**Posso converter VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptados para discos geridos?**
 
 Sim
 
-**Um VHD exportado de um disco gerenciado ou um instantâneo também será criptografado?**
+**Será que um VHD exportado de um disco gerido ou um instantâneo também será encriptado?**
 
-Não. Mas se você exportar um VHD para uma conta de armazenamento criptografada de um disco gerenciado ou instantâneo criptografado, ele será criptografado. 
+Não. Mas se exportar um VHD para uma conta de armazenamento encriptada a partir de um disco ou instantâneo encriptado, então está encriptado. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Discos Premium: gerenciados e não gerenciados
+## <a name="premium-disks-managed-and-unmanaged"></a>Discos premium: Geridos e não geridos
 
-**Se uma VM usa uma série de tamanho que dá suporte a discos SSD Premium, como um DSv2, posso anexar discos de dados Premium e Standard?** 
+**Se um VM utilizar uma série de tamanhos que suporta discos Premium SSD, como um DSv2, posso anexar discos de dados premium e standard?** 
 
 Sim.
 
-**Posso anexar discos de dados Premium e Standard a uma série de tamanho que não dá suporte a discos SSD Premium, como a série D, Dv2, G ou F?**
+**Posso anexar discos de dados premium e standard a uma série de tamanhos que não suporta discos Premium SSD, tais como séries D, Dv2, G ou F?**
 
-Não. Você pode anexar somente discos de dados padrão a VMs que não usam uma série de tamanho que dá suporte a discos SSD Premium.
+Não. Só é possível anexar discos de dados padrão a VMs que não utilizem uma série de tamanhos que suporta discos SSD Premium.
 
-**Se eu criar um disco de dados Premium de um VHD existente que tenha 80 GB, quanto custará?**
+**Se eu criar um disco de dados premium de um VHD existente que era de 80 GB, quanto é que isso vai custar?**
 
-Um disco de dados Premium criado a partir de um VHD de 80 GB é tratado como o tamanho do disco Premium disponível próximo, que é um disco P10. Você é cobrado de acordo com o preço do disco P10.
+Um disco de dados premium criado a partir de um VHD de 80 GB é tratado como o próximo tamanho de disco premium disponível, que é um disco P10. É cobrado de acordo com o preço do disco P10.
 
-**Há custos de transação para usar SSD Premium discos?**
+**Existem custos de transação para utilizar discos Premium SSD?**
 
-Há um custo fixo para cada tamanho de disco, que vem provisionado com limites específicos de IOPS e taxa de transferência. Os outros custos são a largura de banda de saída e a capacidade do instantâneo, se aplicável. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Existe um custo fixo para cada tamanho do disco, que vem provisionado com limites específicos no IOPS e na entrada. Os outros custos são a largura de banda de saída e a capacidade instantânea, se aplicável. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
-**Quais são os limites de IOPS e taxa de transferência que posso obter do cache de disco?**
+**Quais são os limites para o IOPS e a entrada que posso obter da cache do disco?**
 
 Os limites combinados para cache e SSD local para uma série DS são 4.000 IOPS por núcleo e 33 MiB por segundo por núcleo. A série GS oferece 5.000 IOPS por núcleo e 50 MiB por segundo por núcleo.
 
-**O SSD local é compatível com uma VM Managed Disks?**
+**O SSD local é suportado para um VM de Discos Geridos?**
 
-O SSD local é um armazenamento temporário que é incluído com uma VM Managed Disks. Não há nenhum custo adicional para esse armazenamento temporário. Recomendamos que você não use esse SSD local para armazenar os dados do aplicativo porque eles não são persistidos no armazenamento de BLOBs do Azure.
+O SSD local é armazenamento temporário que está incluído com um VM de Discos Geridos. Não há custo extra para este armazenamento temporário. Recomendamos que não utilize este SSD local para armazenar os seus dados de aplicação porque não é persistido no armazenamento da Blob Azure.
 
-**Há alguma repercussão para o uso de TRIM em discos Premium?**
+**Existem repercussões para a utilização de TRIM em discos premium?**
 
-Não há nenhuma desvantagem do uso de TRIM em discos do Azure em discos Premium ou Standard.
+Não há nenhuma desvantagem na utilização do TRIM nos discos Azure em discos premium ou standard.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: gerenciados e não gerenciados
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: Geridoe não gerido
 
-**Quais regiões dão suporte à capacidade de intermitência para o tamanho de disco SSD Premium aplicável?**
+**Que regiões suportam a capacidade de rutura para o tamanho do disco SSD premium aplicável?**
 
-No momento, há suporte para a capacidade de intermitência no Azure West EUA Central.
+A capacidade de rebentamento é atualmente suportada no Azure West Central US.
 
-**Quais regiões são 4/8/16 GiB de tamanhos de disco gerenciado (P1/P2/P3, E1/E2/E3) com suporte no?**
+**Em que regiões estão apoiadas 4/8/16 Tamanhos de disco geridos gib (P1/P2/P3, E1/E2/E3) suportados?**
 
-Atualmente, há suporte para esses novos tamanhos de disco no Azure West EUA Central.
+Estes novos tamanhos de disco são atualmente suportados no Azure West Central US.
 
-**Os tamanhos de disco P1/P2/P3 têm suporte para discos não gerenciados ou BLOBs de página?**
+**Os tamanhos do disco P1/P2/P3 são suportados para discos não geridos ou bolhas de página?**
 
-Não, só há suporte para os discos gerenciados do SSD Premium. 
+Não, só é suportado em discos geridos premium SSD. 
 
-**Os tamanhos de disco E1/E2/E3 têm suporte para discos não gerenciados ou BLOBs de páginas?**
+**Os tamanhos do disco E1/E2/E3 suportam discos não geridos ou bolhas de página?**
 
-Não, os discos gerenciados do SSD Standard de qualquer tamanho não podem ser usados com discos não gerenciados ou BLOBs de páginas.
+Não, os discos geridos padrão sSD de qualquer tamanho não podem ser usados com discos não geridos ou bolhas de página.
 
-**Qual é o maior tamanho de disco gerenciado com suporte para discos de sistema operacional e de dados?**
+**Qual é o maior tamanho de disco gerido suportado para sistema operativo e discos de dados?**
 
-O tipo de partição que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato MBR dá suporte a um tamanho de disco de até 2 TiB. O maior tamanho que o Azure dá suporte para um disco do sistema operacional é 2 TiB. O Azure dá suporte a até 32 TiB para discos de dados gerenciados.
+O tipo de partição que o Azure suporta para um disco do sistema operativo é o registo de arranque principal (MBR). O formato MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que o Azure suporta para um disco de sistema operativo é 2 TiB. O Azure suporta até 32 TiB para discos de dados geridos.
 
-**Qual é o maior tamanho de disco não gerenciado com suporte para discos de sistema operacional e de dados?**
+**Qual é o maior tamanho de disco não gerido suportado para sistema operativo e discos de dados?**
 
-O tipo de partição que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato MBR dá suporte a um tamanho de disco de até 2 TiB. O maior tamanho que o Azure dá suporte para um disco não gerenciado do sistema operacional é 2 TiB. O Azure dá suporte a até 4 TiB para discos não gerenciados.
+O tipo de partição que o Azure suporta para um disco do sistema operativo é o registo de arranque principal (MBR). O formato MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que o Azure suporta para um sistema operativo Não gerido disco é 2 TiB. O Azure suporta até 4 TiB para dados de discos não geridos.
 
-**Qual é o tamanho do blob de páginas maior com suporte?**
+**Qual é o maior tamanho de página blob que é suportado?**
 
-O maior tamanho de blob de páginas ao qual o Azure dá suporte é 8 TiB (8.191 GiB). O tamanho máximo de blob de páginas quando anexado a uma VM como dados ou discos do sistema operacional é 4 TiB (4.095 GiB).
+O maior tamanho de página blob que o Azure suporta é 8 TiB (8.191 GiB). O tamanho máximo da página quando ligado a um VM como discos de dados ou sistemaoperativo é 4 TiB (4.095 GiB).
 
-**Preciso usar uma nova versão das ferramentas do Azure para criar, anexar, redimensionar e carregar discos com mais de 1 TiB?**
+**Preciso de usar uma nova versão das ferramentas Azure para criar, anexar, redimensionar e carregar discos maiores do que 1 TiB?**
 
-Você não precisa atualizar suas ferramentas existentes do Azure para criar, anexar ou redimensionar discos com mais de 1 TiB. Para carregar o arquivo VHD do local diretamente no Azure como um blob de página ou disco não gerenciado, você precisa usar os conjuntos de ferramentas mais recentes listados abaixo. Há suporte apenas para carregamentos de VHD de até 8 TiB.
+Não precisa de atualizar as ferramentas Azure existentes para criar, anexar ou redimensionar discos maiores do que 1 TiB. Para fazer o upload do ficheiro VHD diretamente para o Azure como uma página blob ou um disco não gerido, precisa de utilizar os mais recentes conjuntos de ferramentas listados abaixo. Só apoiamos carregamentos VHD de até 8 TiB.
 
 |Ferramentas do Azure      | Versões suportadas                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Número de versão 4.1.0: versão de junho de 2017 ou posterior|
-|CLI do Azure v1     | Número de versão 0.10.13: maio de 2017 versão ou posterior|
-|CLI do Azure v2     | Número de versão 2.0.12: versão de julho de 2017 ou posterior|
-|AzCopy           | Número de versão 6.1.0: versão de junho de 2017 ou posterior|
+|Azure PowerShell | Versão número 4.1.0: Lançamento de junho de 2017 ou posterior|
+|Azure CLI v1     | Versão número 0.10.13: Lançamento de maio de 2017 ou posterior|
+|Azure CLI v2     | Versão número 2.0.12: Lançamento de julho de 2017 ou posterior|
+|AzCopy           | Versão número 6.1.0: Lançamento de junho de 2017 ou posterior|
 
-**Os tamanhos de disco P4 e P6 têm suporte para discos não gerenciados ou BLOBs de página?**
+**Os tamanhos do disco P4 e P6 são suportados para discos não geridos ou bolhas de página?**
 
-Os tamanhos de disco P4 (32 GiB) e P6 (64 GiB) não têm suporte como as camadas de disco padrão para discos não gerenciados e blobs de páginas. Você precisa definir explicitamente [a camada de blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) como P4 e P6 para que o disco seja mapeado para essas camadas. Se você implantar um disco não gerenciado ou um blob de página com o tamanho do disco ou o comprimento do conteúdo inferior a 32 GiB ou entre 32 GiB para 64 GiB sem definir a camada de BLOB, você continuará a ir para P10 com 500 IOPS e 100 MiB/s e o tipo de preço mapeado.
+Os tamanhos do disco P4 (32 GiB) e P6 (64 GiB) não são suportados como os níveis de disco padrão para discos não geridos e bolhas de página. Você precisa definir explicitamente [o Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) para P4 e P6 para ter o seu disco mapeado para estes níveis. Se implantar um disco ou uma bolha de página não gerida com o tamanho ou o comprimento do conteúdo do disco inferior a 32 GiB ou entre 32 GiB a 64 GiB sem definir o Nível Blob, continuará a aterrar no P10 com 500 IOPS e 100 MiB/s e o nível de preços mapeado.
 
-**Se o meu disco gerenciado Premium existente com menos de 64 GiB foi criado antes de o pequeno disco ter sido habilitado (cerca de 15 de junho de 2017), como ele é cobrado?**
+**Se o meu disco gerido pelo prémio existente foi criado com menos de 64 GiB antes do pequeno disco ter sido ativado (por volta de 15 de junho de 2017), como é cobrado?**
 
-Os discos pequenos Premium existentes com menos de 64 GiB continuam sendo cobrados de acordo com o tipo de preço P10.
+Os discos premium existentes inferiores a 64 GiB continuam a ser faturados de acordo com o nível de preços P10.
 
-**Como posso mudar a camada de disco de pequenos discos Premium com menos de 64 GiB de P10 para P4 ou P6?**
+**Como posso mudar o nível de disco de discos premium pequenos menos de 64 GiB de P10 para P4 ou P6?**
 
-Você pode tirar um instantâneo dos discos pequenos e, em seguida, criar um disco para alternar automaticamente o tipo de preço para P4 ou P6 com base no tamanho provisionado.
+Pode tirar uma fotografia dos seus discos pequenos e, em seguida, criar um disco para mudar automaticamente o nível de preços para P4 ou P6 com base no tamanho provisionado.
 
-**Você pode redimensionar Managed Disks existentes de tamanhos menos de 4 tebibytes (TiB) para novos tamanhos de disco recentemente introduzidos até 32 TiB?**
+**Pode redimensionar os discos geridos existentes de tamanhos inferiores a 4 tebibytes (TiB) até aos novos tamanhos de disco recém-introduzidos até 32 TiB?**
 
 Sim.
 
-**Quais são os maiores tamanhos de disco com suporte pelo serviço de backup e Azure Site Recovery do Azure?**
+**Quais são os maiores tamanhos de disco suportados pelo serviço azure backup e serviço de recuperação de sites Azure?**
 
 O maior tamanho do disco suportado pela Azure Backup é 32 TiB (4 TiB para discos encriptados). O maior tamanho do disco suportado pela Azure Site Recovery é 8 TiB. O suporte para os discos maiores até 32 TiB ainda não está disponível na Recuperação do Site Azure.
 
-**Quais são os tamanhos de VM recomendados para tamanhos de disco maiores (> 4 TiB) para SSD Standard e HDD Standard discos para alcançar IOPS e largura de banda de disco otimizados?**
+**Quais são os tamanhos de VM recomendados para tamanhos de disco maiores (>4 TiB) para discos Standard SSD e Standard HDD para alcançar iOPS e Largura de Banda otimizadas?**
 
-Para obter a taxa de transferência de disco de SSD Standard e HDD Standard tamanhos de disco grandes (> 4 TiB) Além de 500 IOPS e 60 MiB/s, recomendamos que você implante uma nova VM de um dos seguintes tamanhos de VM para otimizar o desempenho: série B, série DSv2, série Dsv3, série ESv3, série FS, série Fsv2, série M, séries GS, NCv2, série NCv3 ou VMs da série ls... e 2. Anexar discos grandes a VMs ou VMS existentes que não usam os tamanhos recomendados acima pode apresentar um desempenho inferior.
+Para obter a entrada de disco de tamanhos grandes de disco Standard SSD e Standard HDD (>4 TiB) para além de 500 IOPS e 60 MiB/s, recomendamos que implemente um novo VM a partir de um dos seguintes tamanhos VM para otimizar o seu desempenho: série B, série DSv2, Série DSV3, Série SV3, Série SF, série Fs, série SF2, série M, série GS, série NCv2, série NCv3 ou VMs da série Ls. A fixação de discos grandes a VMs ou VMs existentes que não estejam a utilizar os tamanhos recomendados acima pode experimentar um desempenho mais baixo.
 
-**Como posso atualizar meus discos (> 4 TiB) que foram implantados durante a visualização de tamanhos de disco maiores para obter o IOPS mais alto & largura de banda em GA?**
+**Como posso atualizar os meus discos (>4 TiB) que foram implantados durante a pré-visualização do tamanho do disco maior, a fim de obter a maior largura de banda iOPS e banda na GA?**
 
-Você pode parar e iniciar a VM na qual o disco está anexado ou desanexar e anexar novamente o disco. Os destinos de desempenho de tamanhos de disco maiores foram aumentados para SSDs Premium e SSDs padrão na GA.
+Pode parar e ligar o VM a que o disco está ligado ou, desmontar e voltar a ligar o disco. Os objetivos de desempenho de tamanhos de disco maiores foram aumentados tanto para SSDs premium como SSDs padrão na GA.
 
-**Quais regiões são os tamanhos de disco gerenciado de 8 TiB, 16 TiB e 32 TiB com suporte no?**
+**Em que regiões são suportadas as dimensões do disco gerido de 8 TiB, 16 TiB e 32 TiB?**
 
-As SKUs de disco 8 TiB, 16 TiB e 32 TiB têm suporte em todas as regiões em global Azure, Microsoft Azure Governamental e Azure China 21Vianet.
+Os 8 TiB, 16 TiB e 32 TiB disk SKUs são suportados em todas as regiões sob o governo global de Azure, Microsoft Azure e Azure China 21Vianet.
 
-**Há suporte para habilitar o cache de host em todos os tamanhos de disco?**
+**Apoiamos a habilitação do Hospedeiro Caching em todos os tamanhos do disco?**
 
-Damos suporte ao cache de host de ReadOnly e leitura/gravação em tamanhos de disco inferiores a 4 TiB. Para tamanhos de disco mais de 4 TiB, não há suporte para a definição da opção de cache diferente de nenhum. É recomendável aproveitar o cache para tamanhos de disco menores, em que você pode esperar observar melhor desempenho com os dados armazenados em cache para a VM.
+Apoiamos o Recolhimento de Caching de ReadOnly e Read/Write em tamanhos de disco inferiores a 4 TiB. Para tamanhos de disco superiores a 4 TiB, não suportamos a definição de opção de cache para além de Nenhuma. Recomendamos que se reforce para tamanhos de disco mais pequenos, onde pode esperar observar um melhor aumento de desempenho com dados em cache para o VM.
 
-## <a name="what-if-my-question-isnt-answered-here"></a>E se minha pergunta não for respondida aqui?
+## <a name="what-if-my-question-isnt-answered-here"></a>E se a minha pergunta não for respondida aqui?
 
-Se sua pergunta não estiver listada aqui, informe-nos e ajudaremos você a encontrar uma resposta. Você pode postar uma pergunta no final deste artigo nos comentários. Para se envolver com a equipe de armazenamento do Azure e outros membros da Comunidade sobre este artigo, use o [Fórum do armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)no msdn.
+Se a sua pergunta não estiver listada aqui, avise-nos e ajudaremos a encontrar uma resposta. Pode publicar uma pergunta no final deste artigo nos comentários. Para se envolver com a equipa de Armazenamento Azure e outros membros da comunidade sobre este artigo, use o fórum de armazenamento MSDN [Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 
-Para solicitar recursos, envie suas solicitações e ideias para o [Fórum de comentários do armazenamento do Azure](https://feedback.azure.com/forums/217298-storage).
+Para solicitar funcionalidades, envie os seus pedidos e ideias para o fórum de feedback do [Armazenamento Azure](https://feedback.azure.com/forums/217298-storage).

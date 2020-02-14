@@ -1,34 +1,34 @@
 ---
-title: Definir um perfil técnico de transformação de declarações
+title: Definir um perfil técnico de transformação de Reclamações
 titleSuffix: Azure AD B2C
-description: Defina um perfil técnico de transformação de declarações em uma política personalizada no Azure Active Directory B2C.
+description: Defina um perfil técnico de transformação de Reclamações numa política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf06fe7d4e529eb04b156a2d61011198a6fe0978
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: fbc1d59ac401adedcf897d0c16edb6904c89acc3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949428"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193448"
 ---
-# <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de transformação de declarações em uma política personalizada de Azure Active Directory B2C
+# <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de transformação de sinistros numa política personalizada do Diretório Ativo Azure B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Um perfil técnico de transformação de declarações permite que você chame transformações de declarações de saída para manipular valores de declarações, validar declarações ou definir valores padrão para um conjunto de declarações de saída.
+Um perfil técnico de transformação de sinistros permite-lhe chamar transformações de sinistros de saída para manipular valores de sinistros, validar reclamações ou definir valores padrão para um conjunto de reclamações de saída.
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **Handler** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo que é usado pelo Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+O **nome** atributo do elemento **protocolo** tem de ser definido para `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipulador esprotocolo utilizado pelo Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-O exemplo a seguir mostra um perfil técnico de transformação de declarações:
+O exemplo seguinte mostra um perfil técnico de transformação de sinistros:
 
 ```XML
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
@@ -37,9 +37,9 @@ O exemplo a seguir mostra um perfil técnico de transformação de declarações
   ...
 ```
 
-## <a name="output-claims"></a>Declarações de saída
+## <a name="output-claims"></a>Reclamações de produção
 
-O elemento **OutputClaims** é obrigatório. Você deve fornecer pelo menos uma declaração de saída retornada pelo perfil técnico. O exemplo a seguir mostra como definir valores padrão nas declarações de saída:
+O elemento **OutputClaims** é obrigatório. Deve fornecer pelo menos uma reclamação de saída devolvida pelo perfil técnico. O exemplo que se segue mostra como definir valores predefinidos nas alegações de saída:
 
 ```xml
 <OutputClaims>
@@ -48,9 +48,9 @@ O elemento **OutputClaims** é obrigatório. Você deve fornecer pelo menos uma 
 </OutputClaims>
 ```
 
-## <a name="output-claims-transformations"></a>Transformações de declarações de saída
+## <a name="output-claims-transformations"></a>Transformações de sinistros de produção
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar declarações ou gerar novos. O seguinte perfil técnico chama a transformação declarações de **RemoveAlternativeSecurityIdByIdentityProvider** . Essa transformação de declarações remove uma identidade social da coleção de **AlternativeSecurityIds**. As declarações de saída deste perfil técnico são **identityProvider2**, que é definida como `facebook.com`e **AlternativeSecurityIds**, que contém a lista de identidades sociais associadas a esse usuário após a remoção da identidade Facebook.com.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar reclamações ou gerar novos. O perfil técnico seguinte chama a **remoção DeFormaçãoIdByIdentityProvider** alega a transformação. Esta transformação de sinistros remove uma identificação social da coleção de **AlternativasSegurançaIds**. As alegações de saída deste perfil técnico são **identidadeProvider2**, que está definida para `facebook.com`, e **AlternativaSecurityIds**, que contém a lista de identidades sociais associadas a este utilizador após a remoção facebook.com identidade.
 
 ```XML
 <ClaimsTransformations>
@@ -82,7 +82,7 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-O perfil técnico de transformação de declarações permite que você execute uma transformação de declarações de qualquer etapa de orquestração de jornada do usuário. No exemplo a seguir, a etapa de orquestração chama um dos perfis técnicos desvinculados, como **unlink-Facebook-OAuth**. Este perfil técnico chama o perfil técnico de transformação de declarações **RemoveAlternativeSecurityIdByIdentityProvider**, que gera uma nova declaração **AlternativeSecurityIds2** que contém a lista de identidades sociais do usuário, ao mesmo tempo em que remove a identidade do Facebook das coleções.
+O perfil técnico de transformação de sinistros permite-lhe executar uma transformação de sinistros a partir do passo de orquestração de qualquer viagem do utilizador. No exemplo seguinte, o passo da orquestração chama um dos perfis técnicos dedesvinculação, como **unLink-Facebook-OAUTH**. Este perfil técnico chama ao perfil técnico de transformação de sinistros **RemoveAlternativeSecurityIdByIdentityProvider,** que gera uma nova alegação **AlternativeSecurityIds2** que contém a lista de identidades sociais dos utilizadores, removendo a identidade do Facebook das coleções.
 
 ```XML
 <UserJourney Id="AccountUnLink">
@@ -100,9 +100,15 @@ O perfil técnico de transformação de declarações permite que você execute 
 </UserJourney>
 ```
 
-## <a name="use-a-validation-technical-profile"></a>Usar um perfil técnico de validação
+## <a name="metadata"></a>Metadados
 
-Um perfil técnico de transformação de declarações pode ser usado para validar informações. No exemplo a seguir, o [perfil técnico autodeclarado](self-asserted-technical-profile.md) chamado **LocalAccountSignUpWithLogonEmail** solicita que o usuário insira o email duas vezes e, em seguida, chama o [perfil técnico de validação](validation-technical-profile.md) chamado **Validate-email** para validar os emails. O perfil técnico de **validação de email** chama o **AssertEmailAreEqual** de transformação de declarações para comparar os dois **emails** de declarações e **emailRepeat**e lança uma exceção se elas não forem iguais de acordo com a comparação especificada.
+| Atributo | Necessário | Descrição |
+| --------- | -------- | ----------- |
+| Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`, ou `false` (predefinido). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
+
+## <a name="use-a-validation-technical-profile"></a>Utilize um perfil técnico de validação
+
+Um perfil técnico de transformação de sinistros pode ser usado para validar informação. No exemplo seguinte, o [perfil técnico autoafirmado](self-asserted-technical-profile.md) chamado **LocalAccountSignUpWithLogonEmail** pede ao utilizador que introduza o e-mail duas vezes, e depois liga para o perfil técnico de [validação](validation-technical-profile.md) chamado **Validate-Email** para validar os e-mails. O perfil técnico **validado-e-mail** chama a transformação de sinistros **AssertEmailAreEqual** para comparar os dois **e-mails** e **emails de reclamaçõesRepeat**, e lançar uma exceção se não forem iguais de acordo com a comparação especificada.
 
 ```XML
 <ClaimsTransformations>
@@ -118,7 +124,7 @@ Um perfil técnico de transformação de declarações pode ser usado para valid
 </ClaimsTransformations>
 ```
 
-O perfil técnico de transformação de declarações chama a transformação declarações **AssertEmailAreEqual** , que declara que os emails fornecidos pelo usuário são os mesmos.
+O perfil técnico de transformação de sinistros chama a transformação de **reivindicações Da AssertEmailAreEqual,** que afirma que os e-mails fornecidos pelo utilizador são os mesmos.
 
 ```XML
 <TechnicalProfile Id="Validate-Email">
@@ -137,7 +143,7 @@ O perfil técnico de transformação de declarações chama a transformação de
 </TechnicalProfile>
 ```
 
-Um perfil técnico autodeclarado pode chamar o perfil técnico de validação e mostrar a mensagem de erro conforme especificado nos metadados do **UserMessageIfClaimsTransformationStringsAreNotEqual** .
+Um perfil técnico autoafirmado pode ligar para o perfil técnico de validação e mostrar a mensagem de erro conforme especificado nos metadados **UserMessageIfClaimsTransformationStringsAreNotEqual.**
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">

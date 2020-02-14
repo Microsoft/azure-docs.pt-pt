@@ -1,163 +1,163 @@
 ---
-title: Adicionar autenticação para proteger chamadas para APIs personalizadas
-description: Como configurar a autenticação para proteger chamadas para APIs personalizadas de aplicativos lógicos do Azure
+title: Adicionar autenticação para garantir chamadas a APIs personalizadas
+description: Como configurar a autenticação para melhorar a segurança das chamadas para APIs personalizadas de Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666901"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191397"
 ---
-# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas para APIs personalizadas de aplicativos lógicos do Azure
+# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança para chamadas a APIs personalizadas de Apps Lógicas Azure
 
-Para proteger as chamadas para suas APIs, você pode configurar a autenticação do Azure Active Directory (AD do Azure) por meio do portal do Azure para que não precise atualizar seu código. Pode, também, pedir e impor a autenticação através do código da API.
+Para melhorar a segurança das chamadas para as suas APIs, pode configurar a autenticação azure Ative Directory (Azure AD) através do portal Azure para que não tenha de atualizar o seu código. Pode, também, pedir e impor a autenticação através do código da API.
 
-## <a name="authentication-options-for-your-api"></a>Opções de autenticação para sua API
+## <a name="authentication-options-for-your-api"></a>Opções de autenticação para a sua API
 
-Você pode proteger chamadas para sua API personalizada das seguintes maneiras:
+Pode melhorar a segurança das chamadas para a sua API personalizada desta forma:
 
-* [Nenhuma alteração de código](#no-code): Proteja sua API com o [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) por meio do portal do Azure, para que você não precise atualizar seu código ou reimplantar sua API.
+* [Sem alterações de código](#no-code): Proteja o seu API com [o Azure Ative Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) através do portal Azure, para que não tenha de atualizar o seu código ou reutilizar a Sua API.
 
   > [!NOTE]
-  > Por padrão, a autenticação do Azure AD que você ativa no portal do Azure não fornece autorização refinada. Por exemplo, essa autenticação bloqueia sua API para apenas um locatário específico, não para um usuário ou aplicativo específico. 
+  > Por predefinição, a autenticação adaque azure que liga no portal Azure não fornece uma autorização de grãos finos. Por exemplo, esta autenticação bloqueia a sua API a penas específicas de um inquilino, não a um utilizador ou app específico. 
 
-* [Atualize o código da API](#update-code): Proteja sua API impondo a autenticação de [certificado](#certificate), a [autenticação básica](#basic)ou a [autenticação do Azure ad](#azure-ad-code) por meio de código.
+* [Atualize o código da API](#update-code): Proteja a sua API através da aplicação da autenticação do [certificado,](#certificate) [da autenticação básica](#basic)ou da [autenticação AD Azure](#azure-ad-code) através do código.
 
 <a name="no-code"></a>
 
-### <a name="authenticate-calls-to-your-api-without-changing-code"></a>Autenticar chamadas para sua API sem alterar o código
+### <a name="authenticate-calls-to-your-api-without-changing-code"></a>Autenticar chamadas para a sua API sem alterar código
 
-Aqui estão as etapas gerais para este método:
+Aqui estão os passos gerais para este método:
 
-1. Crie duas identidades de aplicativo do Azure Active Directory (AD do Azure): uma para seu aplicativo lógico e uma para seu aplicativo Web (ou aplicativo de API).
+1. Crie duas identidades de aplicação Azure Ative Directory (Azure AD): uma para a sua aplicação lógica e outra para a sua aplicação web (ou app API).
 
-2. Para autenticar chamadas para sua API, use as credenciais (ID do cliente e segredo) para a entidade de serviço associada à identidade do aplicativo do Azure AD para seu aplicativo lógico.
+2. Para autenticar chamadas para a sua API, use as credenciais (ID do cliente e segredo) para o diretor de serviço que está associado à identidade de aplicação da AD Azure para a sua aplicação lógica.
 
-3. Inclua as IDs de aplicativo em sua definição de aplicativo lógico.
+3. Inclua os IDs da aplicação na definição de aplicações lógicas.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: criar uma identidade de aplicativo do Azure AD para seu aplicativo lógico
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Criar uma identidade de aplicação Azure AD para a sua aplicação lógica
 
-Seu aplicativo lógico usa essa identidade de aplicativo do Azure AD para se autenticar no Azure AD. Você só precisa configurar essa identidade uma vez para seu diretório. Por exemplo, você pode optar por usar a mesma identidade para todos os seus aplicativos lógicos, embora possa criar identidades exclusivas para cada aplicativo lógico. Você pode configurar essas identidades no portal do Azure ou usar o [PowerShell](#powershell).
+A sua aplicação lógica utiliza esta identidade de aplicação Azure AD para autenticar contra a AD Azure. Só tens de configurar esta identidade uma vez para o teu diretório. Por exemplo, pode optar por usar a mesma identidade para todas as suas aplicações lógicas, mesmo que possa criar identidades únicas para cada aplicação lógica. Pode configurar estas identidades no portal Azure ou utilizar o [PowerShell](#powershell).
 
-**Crie a identidade do aplicativo para seu aplicativo lógico no portal do Azure**
+**Crie a identidade de aplicação para a sua aplicação lógica no portal Azure**
 
-1. Na [portal do Azure](https://portal.azure.com "https://portal.azure.com"), escolha **Azure Active Directory**. 
+1. No [portal Azure,](https://portal.azure.com "https://portal.azure.com")escolha **O Diretório Ativo Azure.** 
 
-2. Confirme que você está no mesmo diretório que seu aplicativo Web ou aplicativo de API.
-
-   > [!TIP]
-   > Para alternar os diretórios, escolha seu perfil e selecione outro diretório. Ou escolha **visão geral** > **diretório de comutador**.
-
-3. No menu diretório, em **gerenciar**, escolha **registros de aplicativo** > **novo registro de aplicativo**.
+2. Confirme que está no mesmo diretório que a sua aplicação web ou app API.
 
    > [!TIP]
-   > Por padrão, a lista de registros de aplicativo mostra todos os registros de aplicativo em seu diretório. Para exibir apenas os registros do aplicativo, ao lado da caixa de pesquisa, selecione **meus aplicativos**. 
+   > Para mudar de diretórios, escolha o seu perfil e selecione outro diretório. Ou, escolha **overview** > **diretório switch**.
 
-   ![Criar novo registro de aplicativo](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
+3. No menu de diretório, no âmbito **do Manage,** escolha **as inscrições** da App > **Novo registo de candidaturas.**
 
-4. Dê um nome à identidade do aplicativo, deixe o **tipo de aplicativo** definido como **aplicativo Web/API**, forneça uma cadeia de caracteres formatada como um domínio para a **URL de logon**e escolha **criar**.
+   > [!TIP]
+   > Por padrão, a lista de registos de aplicações mostra todos os registos de aplicações no seu diretório. Para visualizar apenas os registos da sua aplicação, junto à caixa de pesquisa, **selecione Minhas aplicações**. 
 
-   ![Forneça o nome e a URL de logon para a identidade do aplicativo](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
+   ![Criar nova inscrição de aplicativos](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
 
-   A identidade do aplicativo que você criou para seu aplicativo lógico agora aparece na lista de registros do aplicativo.
+4. Dê um nome à sua identidade de aplicação, deixe o tipo de **aplicação** definido para **a aplicação Web / API,** forneça uma corda única formatada como domínio para **URL de início de empresa,** e escolha **Criar**.
 
-   ![Identidade do aplicativo para seu aplicativo lógico](./media/logic-apps-custom-api-authentication/logic-app-identity-created.png)
+   ![Fornecer url de nome e inscrição para identidade de aplicação](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
 
-5. Na lista registros do aplicativo, selecione a nova identidade do aplicativo. Copie e salve a **ID do aplicativo** para usar como "ID do cliente" para seu aplicativo lógico na parte 3.
+   A identidade da aplicação que criou para a sua aplicação lógica aparece agora na lista de registos de aplicações.
 
-   ![Copiar e salvar a ID do aplicativo para o aplicativo lógico](./media/logic-apps-custom-api-authentication/logic-app-application-id.png)
+   ![Identidade de aplicação para a sua aplicação lógica](./media/logic-apps-custom-api-authentication/logic-app-identity-created.png)
 
-6. Se as configurações de identidade do aplicativo não estiverem visíveis, escolha **configurações** ou **todas as configurações**.
+5. Na lista de registos de aplicações, selecione a sua nova identidade de aplicação. Copie e guarde o ID da **aplicação** para usar como "ID do cliente" para a sua aplicação lógica na Parte 3.
 
-7. Em **acesso à API**, escolha **chaves**. Em **Descrição**, forneça um nome para a chave. Em **expirar**, selecione uma duração para sua chave.
+   ![Copiar e guardar ID de aplicação para aplicação lógica](./media/logic-apps-custom-api-authentication/logic-app-application-id.png)
 
-   A chave que você está criando atua como "segredo" ou senha da identidade do aplicativo para seu aplicativo lógico.
+6. Se as definições de identidade da aplicação não estiverem visíveis, escolha **Definições** ou **Todas as definições**.
 
-   ![Criar chave para a identidade do aplicativo lógico](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
+7. No **acesso API,** escolha **Chaves**. Em **Descrição,** forneça um nome para a sua chave. Em **Expirações,** selecione uma duração para a sua chave.
 
-8. Na barra de ferramentas, escolha **salvar**. Em **valor**, sua chave agora é exibida. 
-**Certifique-se de copiar e salvar sua chave** para uso posterior porque a chave é ocultada quando você sai da página **chaves** .
+   A chave que está a criar funciona como o "segredo" ou senha da identidade da aplicação para a sua aplicação lógica.
 
-   Ao configurar seu aplicativo lógico na parte 3, você especifica essa chave como "segredo" ou senha.
+   ![Criar chave para a identidade da aplicação lógica](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
 
-   ![Copiar e salvar a chave para mais tarde](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
+8. Na barra de ferramentas, escolha **Guardar**. Under **Value,** a sua chave agora aparece. 
+**Certifique-se de copiar e guardar a chave** para posterior utilização porque a chave está escondida quando sair da página **Keys.**
+
+   Quando configurar a sua aplicação lógica na Parte 3, especifice esta chave como "segredo" ou palavra-passe.
+
+   ![Copiar e guardar a chave para mais tarde](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
 <a name="powershell"></a>
 
-**Criar a identidade do aplicativo para seu aplicativo lógico no PowerShell**
+**Crie a identidade da aplicação para a sua aplicação lógica no PowerShell**
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Você pode executar essa tarefa por meio do Azure Resource Manager com o PowerShell. No PowerShell, execute estes comandos:
+Pode executar esta tarefa através do Gestor de Recursos Azure com a PowerShell. Na PowerShell, execute estes comandos:
 
 1. `Add-AzAccount`
 
 1. `$SecurePassword = Read-Host -AsSecureString`
 
-1. Insira uma senha e pressione Enter.
+1. Introduza uma palavra-passe e prima Introduza.
 
 1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
-1. Certifique-se de copiar a **ID do locatário** (GUID para seu locatário do Azure AD), a ID do **aplicativo**e a senha que você usou.
+1. Certifique-se de copiar o ID do **Inquilino** (GUID para o seu inquilino Azure AD), o ID de **aplicação,** e a palavra-passe que usou.
 
-Para obter mais informações, saiba como [criar uma entidade de serviço com o PowerShell para acessar recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Para mais informações, saiba como criar um diretor de [serviço com a PowerShell para aceder a recursos.](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Parte 2: criar uma identidade de aplicativo do Azure AD para seu aplicativo Web ou aplicativo de API
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Parte 2: Criar uma identidade de aplicação Azure AD para a sua aplicação web ou app API
 
-Se seu aplicativo Web ou aplicativo de API já estiver implantado, você poderá ativar a autenticação e criar a identidade do aplicativo no portal do Azure. Caso contrário, você pode [ativar a autenticação ao implantar com um modelo de Azure Resource Manager](#authen-deploy). 
+Se a sua aplicação web ou aplicação API já estiver em implementação, pode ativar a autenticação e criar a identidade da aplicação no portal Azure. Caso contrário, pode [ativar a autenticação quando implementar com um modelo de Gestor](#authen-deploy)de Recursos Azure . 
 
-**Criar a identidade do aplicativo e ativar a autenticação no portal do Azure para aplicativos implantados**
+**Criar a identidade da aplicação e ativar a autenticação no portal Azure para aplicações implementadas**
 
-1. Na [portal do Azure](https://portal.azure.com "https://portal.azure.com"), localize e selecione seu aplicativo Web ou aplicativo de API. 
+1. No [portal Azure,](https://portal.azure.com "https://portal.azure.com")encontre e selecione a sua aplicação web ou API. 
 
-2. Em **configurações**, escolha **autenticação/autorização**. Em **autenticação do serviço de aplicativo**,ative a autenticação. Em **provedores de autenticação**, escolha **Azure Active Directory**.
+2. Em **Definições,** escolha **Autenticação/Autorização**. No âmbito da autenticação do **serviço de aplicações,** **ligue**a autenticação . No âmbito dos Fornecedores de **Autenticação,** escolha **o Diretório Ativo Azure.**
 
    ![Ativar a autenticação](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
-3. Agora, crie uma identidade de aplicativo para seu aplicativo Web ou aplicativo de API, conforme mostrado aqui. Na página **configurações de Azure Active Directory** , defina **modo de gerenciamento** como **Express**. Escolha **criar novo aplicativo do AD**. Dê um nome à identidade do aplicativo e escolha **OK**. 
+3. Agora crie uma identidade de aplicação para a sua aplicação web ou aplicação API, como mostrado aqui. Na página de **Definições de Diretório Ativo Azure,** delineie o **modo de gestão** para **expressar**. Escolha **criar uma nova aplicação de anúncios.** Dê um nome à sua identidade de candidatura e escolha **OK**. 
 
-   ![Criar identidade de aplicativo para seu aplicativo Web ou aplicativo de API](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
+   ![Crie identidade de aplicação para a sua aplicação web ou app API](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
 4. Na página **Autenticação/Autorização**, escolha **Guardar**.
 
-Agora você deve encontrar a ID do cliente e a ID do locatário para a identidade do aplicativo que está associada ao aplicativo Web ou ao aplicativo de API. Você usa essas IDs na parte 3. Portanto, continue com estas etapas para o portal do Azure.
+Agora você deve encontrar o ID do cliente e id do inquilino para a identidade de aplicação que está associado com a sua aplicação web ou app API. Usas estas identificações na Parte 3. Por isso, continuem com estes passos para o portal Azure.
 
-**Localize a ID do cliente e a ID do locatário da identidade do aplicativo para seu aplicativo Web ou aplicativo de API no portal do Azure**
+**Encontre o ID do cliente da identidade da aplicação e o ID do inquilino para a sua aplicação web ou app API no portal Azure**
 
-1. Em **provedores de autenticação**, escolha **Azure Active Directory**. 
+1. No âmbito dos Fornecedores de **Autenticação,** escolha **o Diretório Ativo Azure.** 
 
    ![Escolher o "Azure Active Directory"](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
 
-2. Na página **configurações de Azure Active Directory** , defina **modo de gerenciamento** como **avançado**.
+2. Na página de **Definições de Diretório Ativo Azure,** delineie o **modo de gestão** para **Avançado**.
 
-3. Copie a **ID do cliente**e salve esse GUID para uso na parte 3.
+3. Copie o ID do **Cliente**e guarde esse GUID para utilização na Parte 3.
 
    > [!TIP] 
-   > Se a **ID do cliente** e a URL do **emissor** não aparecerem, tente atualizar o portal do Azure e repita a etapa 1.
+   > Se o **ID do cliente** e o **Emitente** Url não aparecerem, tente refrescar o portal Azure e repita o Passo 1.
 
-4. Em **URL do emissor**, copie e salve apenas o GUID da parte 3. Você também pode usar esse GUID no modelo de implantação do aplicativo Web ou do aplicativo de API, se necessário.
+4. Em **emissão Url,** copie e guarde apenas o GUID para a parte 3. Também pode utilizar este GUID na sua aplicação web ou no modelo de implementação da aplicação API, se necessário.
 
-   Esse GUID é o GUID do locatário específico ("ID do locatário") e deve aparecer nesta URL: `https://sts.windows.net/{GUID}`
+   Este GUID é o GUID do seu inquilino específico ("ID do inquilino") e deve aparecer nesta URL: `https://sts.windows.net/{GUID}`
 
-5. Sem salvar as alterações, feche a página **configurações de Azure Active Directory** .
+5. Sem guardar as suas alterações, feche a página de Definições de **Diretório Ativo Azure.**
 
 <a name="authen-deploy"></a>
 
-**Ativar a autenticação ao implantar com um modelo de Azure Resource Manager**
+**Ligue a autenticação quando implementar com um modelo de Gestor de Recursos Azure**
 
-Você ainda precisa criar uma identidade de aplicativo do Azure AD para seu aplicativo Web ou aplicativo de API que difere da identidade do aplicativo para seu aplicativo lógico. Para criar a identidade do aplicativo, siga as etapas anteriores na parte 2 da portal do Azure. 
+Ainda precisa de criar uma identidade de aplicação Azure AD para a sua aplicação web ou aplicação API que difere da identidade da aplicação para a sua aplicação lógica. Para criar a identidade de aplicação, siga os passos anteriores na Parte 2 para o portal Azure. 
 
-Você também pode seguir as etapas na parte 1, mas certifique-se de usar seu aplicativo Web ou o `https://{URL}` real do aplicativo de API para **URL de logon** e URI de **ID do aplicativo**. Nessas etapas, você precisa salvar a ID do cliente e a ID do locatário para uso no modelo de implantação do aplicativo e também para a parte 3.
+Também pode seguir os passos na Parte 1, mas **certifique-se** de usar a sua aplicação web ou o `https://{URL}` real da aplicação API para URL de início de empresa e **App ID URI**. A partir destes passos, você tem que guardar tanto o ID do cliente como o ID do inquilino para uso no modelo de implementação da sua aplicação e também para a Parte 3.
 
 > [!NOTE]
-> Ao criar a identidade do aplicativo do Azure AD para seu aplicativo Web ou aplicativo de API, você deve usar o portal do Azure, não o PowerShell. O commandlet do PowerShell não configura as permissões necessárias para conectar usuários em um site.
+> Quando criar a identidade de aplicação Azure AD para a sua aplicação web ou aplicação API, deve utilizar o portal Azure, e não o PowerShell. O comando PowerShell não configura as permissões necessárias para assinar os utilizadores num website.
 
-Depois de obter a ID do cliente e a ID do locatário, inclua essas IDs como um subrecurso de seu aplicativo Web ou aplicativo de API em seu modelo de implantação:
+Depois de obter o ID do cliente e o ID do inquilino, inclua estas Identidades como um subrecurso da sua aplicação web ou app API no seu modelo de implementação:
 
 ``` json
 "resources": [ 
@@ -177,15 +177,15 @@ Depois de obter a ID do cliente e a ID do locatário, inclua essas IDs como um s
 ]
 ```
 
-Para implantar automaticamente um aplicativo Web em branco e um aplicativo lógico junto com Azure Active Directory autenticação, [exiba o modelo completo aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json)ou clique em **implantar no Azure** aqui:
+Para implementar automaticamente uma aplicação web em branco e uma aplicação lógica juntamente com a autenticação do Diretório Ativo Azure, [veja o modelo completo aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json), ou clique em Deploy para **Azure** aqui:
 
 [![Implementar no Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: popular a seção de autorização em seu aplicativo lógico
+#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Povoar a secção de Autorização na sua aplicação lógica
 
-O modelo anterior já tem essa seção de autorização configurada, mas se você estiver criando diretamente o aplicativo lógico, deverá incluir a seção de autorização completa.
+O modelo anterior já tem esta secção de autorização configurada, mas se estiver diretamente a autoria da aplicação lógica, deve incluir a secção de autorização completa.
 
-Abra a definição do aplicativo lógico na exibição de código, vá para a definição da ação **http** , localize a seção **autorização** e inclua estas propriedades:
+Abra a definição de aplicação lógica em vista de código, vá à definição de ação **HTTP,** encontre a secção **de Autorização** e inclua estas propriedades:
 
 ```json
 {
@@ -197,12 +197,12 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 }
 ```
 
-| Propriedade | Obrigatório | Descrição | 
+| Propriedade | Necessário | Descrição | 
 | -------- | -------- | ----------- | 
-| tenant | Sim | O GUID para o locatário do Azure AD | 
-| audience | Sim | O GUID para o recurso de destino que você deseja acessar, que é a ID do cliente da identidade do aplicativo para seu aplicativo Web ou aplicativo de API | 
-| clientId | Sim | O GUID para o cliente que solicita acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
-| segredo | Sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
+| tenant | Sim | O GUID para o inquilino da AD Azure | 
+| audience | Sim | O GUID para o recurso-alvo a que pretende aceder, que é o ID do cliente a partir da identidade de aplicação para a sua aplicação web ou app API | 
+| clientId | Sim | O GUID para o cliente que solicita acesso, que é o ID do cliente da identidade da aplicação para a sua aplicação lógica | 
+| segredo | Sim | A chave ou senha da identidade de aplicação para o cliente que está a solicitar o sinal de acesso | 
 | tipo | Sim | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
@@ -230,15 +230,15 @@ Por exemplo:
 
 <a name="update-code"></a>
 
-### <a name="secure-api-calls-through-code"></a>Proteger chamadas de API por meio de código
+### <a name="secure-api-calls-through-code"></a>Chamadas API seguras através do código
 
 <a name="certificate"></a>
 
 #### <a name="certificate-authentication"></a>Autenticação de certificados
 
-Para validar as solicitações de entrada de seu aplicativo lógico para seu aplicativo Web ou aplicativo de API, você pode usar certificados de cliente. Para configurar seu código, saiba [como configurar a autenticação mútua TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
+Para validar os pedidos de entrada da sua aplicação lógica para a sua aplicação web ou aplicação API, pode utilizar certificados de cliente. Para configurar o seu código, aprenda [a configurar a autenticação mútua TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Na seção **autorização** , inclua estas propriedades:
+Na secção **de Autorização,** incluem estes imóveis:
 
 ```json
 {
@@ -248,20 +248,20 @@ Na seção **autorização** , inclua estas propriedades:
 } 
 ```
 
-| Propriedade | Obrigatório | Descrição |
+| Propriedade | Necessário | Descrição |
 | -------- | -------- | ----------- |
-| `type` | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
-| `password` | Não | A senha para acessar o certificado do cliente (arquivo PFX) |
-| `pfx` | Sim | O conteúdo codificado na base64 do certificado do cliente (arquivo PFX) |
+| `type` | Sim | O tipo de autenticação. Para os certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
+| `password` | Não | A palavra-passe para aceder ao certificado de cliente (ficheiro PFX) |
+| `pfx` | Sim | O conteúdo codificado base64 do certificado de cliente (ficheiro PFX) |
 ||||
 
 <a name="basic"></a>
 
 #### <a name="basic-authentication"></a>Autenticação básica
 
-Para validar as solicitações de entrada de seu aplicativo lógico para seu aplicativo Web ou aplicativo de API, você pode usar a autenticação básica, como um nome de usuário e senha. A autenticação básica é um padrão comum, e você pode usar essa autenticação em qualquer linguagem usada para criar seu aplicativo Web ou aplicativo de API.
+Para validar os pedidos de entrada da sua aplicação lógica para a sua aplicação web ou aplicação API, pode utilizar a autenticação básica, como um nome de utilizador e uma senha. A autenticação básica é um padrão comum, podendo utilizar esta autenticação em qualquer idioma utilizado para construir a sua aplicação web ou app API.
 
-Na seção **autorização** , inclua estas propriedades:
+Na secção **de Autorização,** incluem estes imóveis:
 
 ```json
 {
@@ -271,20 +271,20 @@ Na seção **autorização** , inclua estas propriedades:
 }
 ```
 
-| Propriedade | Obrigatório | Descrição | 
+| Propriedade | Necessário | Descrição | 
 | -------- | -------- | ----------- | 
-| tipo | Sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
-| o nome de utilizador | Sim | O nome de usuário que você deseja usar para autenticação | 
-| palavra-passe | Sim | A senha que você deseja usar para autenticação | 
+| tipo | Sim | O tipo de autenticação que pretende utilizar. Para a autenticação básica, o valor deve ser `Basic`. | 
+| o nome de utilizador | Sim | O nome de utilizador que pretende utilizar para autenticação | 
+| palavra-passe | Sim | A palavra-passe que pretende utilizar para autenticação | 
 |||| 
 
 <a name="azure-ad-code"></a>
 
-#### <a name="azure-active-directory-authentication-through-code"></a>Autenticação Azure Active Directory por meio de código
+#### <a name="azure-active-directory-authentication-through-code"></a>Autenticação do Diretório Ativo Azure através do código
 
-Por padrão, a autenticação do Azure AD que você ativa no portal do Azure não fornece autorização refinada. Por exemplo, essa autenticação bloqueia sua API para apenas um locatário específico, não para um usuário ou aplicativo específico. 
+Por predefinição, a autenticação adaque azure que liga no portal Azure não fornece uma autorização de grãos finos. Por exemplo, esta autenticação bloqueia a sua API a penas específicas de um inquilino, não a um utilizador ou app específico. 
 
-Para restringir o acesso de API ao seu aplicativo lógico por meio de código, extraia o cabeçalho que tem o JWT (token Web JSON). Verifique a identidade do chamador e rejeite as solicitações que não correspondem.
+Para restringir o acesso da API à sua aplicação lógica através de código, extraa o cabeçalho que tem o token web JSON (JWT). Verifique a identidade do chamador e rejeite pedidos que não correspondam.
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
@@ -295,4 +295,4 @@ you must follow the previous steps. -->
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Implantar e chamar APIs personalizadas de fluxos de trabalho do aplicativo lógico](../logic-apps/logic-apps-custom-api-host-deploy-call.md)
+* [Implementar e chamar APIs personalizados de fluxos de trabalho de aplicações lógicas](../logic-apps/logic-apps-custom-api-host-deploy-call.md)

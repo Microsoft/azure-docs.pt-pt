@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de bloco ao Android Maps | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a renderizar uma camada de bloco em um mapa usando a SDK do Android de mapas de Microsoft Azure.
+title: Adicione uma camada de azulejos aos mapas Android / Microsoft Azure Maps
+description: Neste artigo, você vai aprender a render uma camada de azulejos num mapa usando o Microsoft Azure Maps Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,47 +8,47 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4113f632e70bf1008c688066b51a27f1bc3c6345
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911518"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198263"
 ---
-# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicionar uma camada de bloco a um mapa usando o Azure Maps SDK do Android
+# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicione uma camada de azulejos a um mapa usando o Azure Maps Android SDK
 
-Este artigo mostra como renderizar uma camada de bloco em um mapa usando o SDK do Android do Azure Maps. As camadas de bloco permitem sobreimpor imagens na parte superior dos blocos de mapa base do Azure Maps. Mais informações sobre o sistema de divisão de mapas do Azure podem ser encontradas na documentação [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md) .
+Este artigo mostra-lhe como renderizar uma camada de azulejos num mapa usando o Azure Maps Android SDK. As camadas de azulejos permitem-lhe sobrepor imagens em cima dos azulejos do mapa base do Azure Maps. Mais informações sobre o sistema de azulejos Do Azure Maps podem ser encontradas nos níveis de Zoom e na documentação da [grelha de azulejos.](zoom-levels-and-tile-grid.md)
 
-Uma camada de bloco é carregada em blocos de um servidor. Essas imagens podem ser previamente renderizadas e armazenadas como qualquer outra imagem em um servidor usando uma Convenção de nomenclatura que a camada de bloco entenda ou um serviço dinâmico que gera as imagens em tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe TileLayer do Azure Maps; 
+Uma camada de azulejos carrega em azulejos de um servidor. Estas imagens podem ser pré-renderizadas e armazenadas como qualquer outra imagem num servidor, utilizando uma convenção de nomeação que a camada de azulejos entende. Ou, estas imagens podem ser renderizadas com um serviço dinâmico que gera as imagens em tempo real. Existem três diferentes convenções de nomeação de serviços de azulejos apoiadas pela classe Azure Maps TileLayer:
 
-* X, Y, aplicar notação de zoom-com base no nível de zoom, x é a coluna e Y é a posição de linha do bloco na grade de blocos.
-* Notação de Quadkey – combinação x, y, informações de zoom em um único valor de cadeia de caracteres que é um identificador exclusivo para um bloco.
-* A caixa delimitadora – as coordenadas da caixa delimitadora podem ser usadas para especificar uma imagem no formato `{west},{south},{east},{north}` que é normalmente usado pelos [serviços de mapeamento da Web (WMS)](https://www.opengeospatial.org/standards/wms).
+* X, Y, Zoom notação - Com base no nível de zoom, x é a coluna e y é a posição da linha do azulejo na grelha de azulejos.
+* Notação quadkey - Combinação x, y, zoom informação em um único valor de corda que é um identificador único para um azulejo.
+* Caixa de delimitação - As coordenadas de caixa de delimitação podem ser utilizadas para especificar uma imagem no formato `{west},{south},{east},{north}` que é comumente utilizada pelos Serviços de [Mapeamento Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> Um TileLayer é uma ótima maneira de Visualizar grandes conjuntos de dados no mapa. Uma camada de bloco não só pode ser gerada a partir de uma imagem, mas os dados vetoriais também podem ser renderizados como uma camada de bloco. Ao renderizar dados de vetor como uma camada de bloco, o controle de mapa só precisa carregar os blocos que podem ser muito menores no tamanho do arquivo do que os dados de vetor que eles representam. Essa técnica é usada por muitos que precisam renderizar milhões de linhas de dados no mapa.
+> A TileLayer é uma ótima maneira de visualizar grandes conjuntos de dados no mapa. Não só uma camada de azulejo pode ser gerada a partir de uma imagem, como os dados vetoriais também podem ser renderizados como uma camada de azulejos também. Ao tornar os dados vetoriais como uma camada de azulejos, o controlo do mapa só precisa de carregar os azulejos que podem ser muito menores no tamanho do ficheiro do que os dados vetoriais que representam. Esta técnica é usada por muitos que precisam de renderizar milhões de linhas de dados no mapa.
 
-A URL do bloco passada para uma camada de bloco deve ser uma URL http/https para um recurso TileJSON ou um modelo de URL de bloco que usa os seguintes parâmetros: 
+O URL de azulejos passado para uma camada de azulejos deve ser um URL http/https para um recurso TileJSON ou um modelo de URL de azulejos que utilize os seguintes parâmetros: 
 
-* posição `{x}`-X do bloco. Também precisa de `{y}` e `{z}`.
-* posição `{y}`-Y do bloco. Também precisa de `{x}` e `{z}`.
-* `{z}`-nível de zoom do bloco. Também precisa de `{x}` e `{y}`.
-* identificador de quadkey de bloco de `{quadkey}` com base na Convenção de nomenclatura do sistema de blocos do Bing Maps.
-* `{bbox-epsg-3857}`-uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
-* `{subdomain}`-um espaço reservado onde os valores de subdomínio se especificados serão adicionados.
+* `{x}` - Posição X do azulejo. Também precisa de `{y}` e `{z}`.
+* `{y}` - Posição Y do azulejo. Também precisa de `{x}` e `{z}`.
+* `{z}` - Nível de zoom do azulejo. Também precisa de `{x}` e `{y}`.
+* `{quadkey}` - Identificador quadkey de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
+* `{bbox-epsg-3857}` - Uma cadeia de caixa de limitador com o formato `{west},{south},{east},{north}` no Sistema de Referência Espacial EPSG 3857.
+* `{subdomain}` - Um espaço reservado para os valores do subdomínio, se o valor do subdomínio for especificado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
+Para completar o processo neste artigo, é necessário instalar o [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
 
 
-## <a name="add-a-tile-layer-to-the-map"></a>Adicionar uma camada de bloco ao mapa
+## <a name="add-a-tile-layer-to-the-map"></a>Adicione uma camada de azulejos ao mapa
 
- Este exemplo mostra como criar uma camada de peça que aponta para um conjunto de blocos que usam o sistema de divisão x, y e zoom. A origem dessa camada de peça é uma sobreposição de radar do [Iowa ambiente Mesonet da Universidade de estado do Iowa](https://mesonet.agron.iastate.edu/ogc/). 
+ Esta amostra mostra como criar uma camada de azulejos que aponta para um conjunto de azulejos. Estes azulejos usam o sistema de tiling "x, y, zoom". A fonte desta camada de azulejos é uma sobreposição de radares meteorológicos do [Iowa Environmental Mesonet da Universidade Estadual de Iowa.](https://mesonet.agron.iastate.edu/ogc/) 
 
-Você pode adicionar uma camada de bloco ao mapa seguindo as etapas abaixo.
+Pode adicionar uma camada de azulejo ao mapa seguindo os passos abaixo.
 
-1. Edite o **layout de > res > activity_main. xml** para que ele se pareça com o seguinte:
+1. Editar **res > layout > activity_main.xml** para que se pareça com o abaixo:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ Você pode adicionar uma camada de bloco ao mapa seguindo as etapas abaixo.
     </FrameLayout>
     ```
 
-2. Copie o trecho de código a seguir para o método **OnCreate ()** da sua classe `MainActivity.java`.
+2. Copie o seguinte código abaixo no método **onCreate()** da sua classe `MainActivity.java`.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ Você pode adicionar uma camada de bloco ao mapa seguindo as etapas abaixo.
     });
     ```
     
-    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um objeto `TileLayer` e passa uma URL de bloco do **XYZ** formatado para a opção `tileUrl`. A opacidade da camada é definida como `0.8` e, como os blocos do serviço de bloco que estão sendo usados são blocos de 256 pixels, essas informações são passadas para a opção `tileSize`. Em seguida, a camada de bloco é passada para o Gerenciador de camadas do Maps.
+    O código acima obtém primeiro uma instância de controlo de mapas Do Mapa Azure Maps utilizando o método de chamada **onReady().** Em seguida, cria um objeto `TileLayer` e passa um URL de **azulejos de xiz** formatado na opção `tileUrl`. A opacidade da camada está definida para `0.8` e uma vez que os azulejos do serviço de azulejos que estão a ser utilizados são de 256 pixels, esta informação é transmitida para a opção `tileSize`. A camada de azulejos é então passada para o gestor de camadas de mapas.
 
-    Depois de adicionar o trecho de código acima, seu `MainActivity.java` deve ser semelhante ao seguinte:
+    Depois de adicionar o código acima, o seu `MainActivity.java` deve parecer o abaixo:
     
     ```Java
     package com.example.myapplication;
@@ -168,15 +168,15 @@ Você pode adicionar uma camada de bloco ao mapa seguindo as etapas abaixo.
     }
     ```
 
-Se você executar o aplicativo agora, deverá ver uma linha no mapa, como mostrado abaixo:
+Se executar a sua aplicação agora, deve ver uma linha no mapa como visto abaixo:
 
 <center>
 
-](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center> de linha do mapa do Android ![
+![linha de mapas Android](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o artigo a seguir para saber mais sobre maneiras de definir estilos de mapa
+Veja o seguinte artigo para saber mais sobre formas de definir estilos de mapa
 
 > [!div class="nextstepaction"]
-> [Alterar estilos de mapa em mapas do Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Alterar estilos de mapa em mapas Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

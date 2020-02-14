@@ -8,202 +8,202 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: d89240467d5ea5172d04c8eb187fe85d1b702723
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c73a62b2d5feeae42a5ea35c88073dd5fcc0d78c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981164"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193084"
 ---
-## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
+## <a name="for-users-in-your-directory"></a>Para utilizadores no seu diretório
 
-Siga estas etapas se desejar permitir que os usuários em seu diretório possam solicitar esse pacote de acesso. Ao definir a política de solicitação, você pode especificar usuários individuais ou grupos de usuários mais comuns. Por exemplo, sua organização pode já ter um grupo como **todos os funcionários**.  Se esse grupo for adicionado na política para usuários que podem solicitar acesso, então qualquer membro desse grupo poderá solicitar acesso.
+Siga estas etapas se pretender permitir que os utilizadores do seu diretório possam solicitar este pacote de acesso. Ao definir a política de pedido, pode especificar utilizadores individuais ou mais frequentemente grupos de utilizadores. Por exemplo, a sua organização pode já ter um grupo como **todos os colaboradores.**  Se esse grupo for adicionado na política para utilizadores que possam solicitar acesso, então qualquer membro desse grupo pode então solicitar acesso.
 
-1. Na seção **usuários que podem solicitar acesso** , clique em **para usuários em seu diretório**.
+1. Nos **Utilizadores que podem solicitar** a secção de acesso, clique **para utilizadores no seu diretório**.
 
-    Quando você seleciona essa opção, novas opções aparecem para refinar ainda mais quem em seu diretório pode solicitar esse pacote de acesso.
+    Ao selecionar esta opção, novas opções parecem aperfeiçoar ainda mais quem no seu diretório pode solicitar este pacote de acesso.
 
-    ![Pacotes de acesso-solicitações-para usuários em seu diretório](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
+    ![Pacote de acesso - Pedidos - Para utilizadores no seu diretório](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
 
 1. Selecione uma das seguintes opções:
 
     |  |  |
     | --- | --- |
-    | **Usuários e grupos específicos** | Escolha esta opção se desejar que apenas os usuários e grupos em seu diretório especificados possam solicitar esse pacote de acesso. |
-    | **Todos os membros (exceto convidados)** | Escolha esta opção se desejar que todos os usuários Membros em seu diretório possam solicitar esse pacote de acesso. Essa opção não inclui nenhum usuário convidado que você possa ter convidado em seu diretório. |
-    | **Todos os usuários (incluindo convidados)** | Escolha esta opção se desejar que todos os usuários Membros e usuários convidados em seu diretório possam solicitar esse pacote de acesso. |
+    | **Utilizadores e grupos específicos** | Escolha esta opção se pretender apenas os utilizadores e grupos no seu diretório que especifice para poder solicitar este pacote de acesso. |
+    | **Todos os membros (excluindo convidados)** | Escolha esta opção se quiser que todos os utilizadores membros do seu diretório possam solicitar este pacote de acesso. Esta opção não inclui utilizadores convidados que possa ter convidado para o seu diretório. |
+    | **Todos os utilizadores (incluindo convidados)** | Escolha esta opção se quiser que todos os utilizadores membros e utilizadores convidados do seu diretório possam solicitar este pacote de acesso. |
 
-    Os usuários convidados se referem a usuários externos que foram convidados em seu diretório com o [Azure ad B2B](../articles/active-directory/b2b/what-is-b2b.md). Para obter mais informações sobre as diferenças entre usuários Membros e usuários convidados, consulte [quais são as permissões de usuário padrão no Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Os utilizadores convidados referem-se a utilizadores externos que tenham sido convidados para o seu diretório com [o Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Para obter mais informações sobre as diferenças entre utilizadores membros e utilizadores convidados, consulte [as permissões padrão dos utilizadores no Diretório Ativo do Azure?](../articles/active-directory/fundamentals/users-default-permissions.md)
 
-1. Se você selecionou **usuários e grupos específicos**, clique em **Adicionar usuários e grupos**.
+1. Se tiver selecionado **utilizadores e grupos Específicos,** clique em **Adicionar utilizadores e grupos**.
 
-1. No painel Selecionar usuários e grupos, selecione os usuários e grupos que você deseja adicionar.
+1. No painel De utilizadores e grupos Select, selecione os utilizadores e grupos que pretende adicionar.
 
-    ![Pacotes de acesso-solicitações-Selecionar usuários e grupos](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
+    ![Pacote de acesso - Pedidos - Selecione utilizadores e grupos](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
 
-1. Clique em **selecionar** para adicionar os usuários e grupos.
+1. Clique em **Selecionar** para adicionar os utilizadores e grupos.
 
-1. Pule para a seção [aprovação](#approval) .
+1. Passe para a secção [de aprovação.](#approval)
 
-## <a name="for-users-not-in-your-directory"></a>Para usuários que não estão em seu diretório
+## <a name="for-users-not-in-your-directory"></a>Para utilizadores que não estão no seu diretório
 
- **Os usuários que não estão em seu diretório** referem-se aos usuários que estão em outro diretório ou domínio do Azure AD. Esses usuários podem ainda não ter sido convidados para seu diretório. Os diretórios do AD do Azure devem ser configurados para permitir convites em **restrições de colaboração**. Para obter mais informações, consulte [habilitar colaboração externa B2B e gerenciar quem pode convidar convidados](../articles/active-directory/b2b/delegate-invitations.md).
+ **Os utilizadores que não estão no seu diretório** referem-se a utilizadores que se encontram noutro diretório ou domínio da AD Azure. Estes utilizadores podem ainda não ter sido convidados para o seu diretório. Os diretórios da AD Azure devem ser configurados para serem permitidos convites em restrições de **Colaboração**. Para mais informações, consulte a [colaboração externa Enable B2B e gerequem quem pode convidar os hóspedes.](../articles/active-directory/b2b/delegate-invitations.md)
 
 > [!NOTE]
-> Uma conta de usuário convidado será criada para um usuário que ainda não está em seu diretório cuja solicitação foi aprovada ou aprovada automaticamente. O convidado será convidado, mas não receberá um email de convite. Em vez disso, eles receberão um email quando sua atribuição de pacote de acesso for entregue. Por padrão, mais tarde, quando o usuário convidado não tiver mais nenhuma atribuição de pacote de acesso, porque sua última atribuição expirou ou foi cancelada, essa conta de usuário convidado será bloqueada de entrar e excluída subsequentemente. Se você quiser que os usuários convidados permaneçam em seu diretório indefinidamente, mesmo que eles não tenham atribuições de pacote de acesso, você poderá alterar as configurações de sua configuração de gerenciamento de direitos. Para obter mais informações sobre o objeto de usuário convidado, consulte [Propriedades de um usuário de colaboração Azure Active Directory B2B](../articles/active-directory/b2b/user-properties.md).
+> Será criada uma conta de utilizador convidado para um utilizador que ainda não esteja no seu diretório cujo pedido seja aprovado ou aprovado automaticamente. O hóspede será convidado, mas não receberá um e-mail convidado. Em vez disso, receberão um e-mail quando a atribuição do pacote de acesso for entregue. Por predefinição, mais tarde, quando esse utilizador deixar de ter quaisquer atribuições de pacotede acesso, uma vez que a sua última atribuição expirou ou foi cancelada, essa conta de utilizador convidado será bloqueada do registo e posteriormente eliminada. Se pretender que os utilizadores de hóspedes permaneçam no seu diretório indefinidamente, mesmo que não tenham atribuição de pacotes de acesso, pode alterar as definições para a sua configuração de gestão de direitos. Para obter mais informações sobre o objeto do utilizador convidado, consulte [Propriedades de um utilizador de colaboração Azure Ative Directory B2B](../articles/active-directory/b2b/user-properties.md).
 
-Siga estas etapas se desejar permitir que os usuários que não estão em seu diretório solicitem este pacote de acesso:
+Siga estas etapas se pretender permitir que os utilizadores que não estão no seu diretório solicitem este pacote de acesso:
 
-1. Na seção **usuários que podem solicitar acesso** , clique em **para usuários que não estão em seu diretório**.
+1. Nos **Utilizadores que podem solicitar** a secção de acesso, clique **para utilizadores que não estão no seu diretório**.
 
-    Quando você seleciona essa opção, novas opções são exibidas.
+    Quando seleciona esta opção, surgem novas opções.
 
-    ![Pacotes de acesso-solicitações-para usuários que não estão em seu diretório](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
+    ![Pacote de acesso - Pedidos - Para utilizadores que não estão no seu diretório](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
 
 1. Selecione uma das seguintes opções:
 
     |  |  |
     | --- | --- |
-    | **Organizações conectadas específicas** | Escolha esta opção se desejar selecionar em uma lista de organizações que o administrador adicionou anteriormente. Todos os usuários das organizações selecionadas podem solicitar esse pacote de acesso. |
-    | **Todas as organizações conectadas** | Escolha esta opção se todos os usuários de todas as suas organizações conectadas puderem solicitar esse pacote de acesso. |
-    | **Todos os usuários (todas as organizações conectadas + quaisquer novos usuários externos)** | Escolha esta opção se todos os usuários de todas as suas organizações conectadas puderem solicitar esse pacote de acesso e se as configurações de lista de permissões B2B ou de negação devem ter precedência para qualquer novo usuário externo. |
+    | **Organizações específicas ligadas** | Escolha esta opção se pretender selecionar de uma lista de organizações que o seu administrador adicionou anteriormente. Todos os utilizadores das organizações selecionadas podem solicitar este pacote de acesso. |
+    | **Todas as organizações conectadas** | Escolha esta opção se todos os utilizadores de todas as suas organizações conectadas puderem solicitar este pacote de acesso. |
+    | **Todos os utilizadores (Todas as organizações conectadas + quaisquer novos utilizadores externos)** | Escolha esta opção se todos os utilizadores de todas as suas organizações conectadas puderem solicitar este pacote de acesso e se o B2B permitir ou negar as definições da lista deve ter precedência para qualquer novo utilizador externo. |
 
-    Uma organização conectada é um diretório ou domínio externo do Azure AD com o qual você tem uma relação.
+    Uma organização conectada é um diretório ou domínio externo da AD Azure com o que tem uma relação.
 
-1. Se você selecionou **organizações conectadas específicas**, clique em **adicionar diretórios** para selecionar em uma lista de organizações conectadas que seu administrador adicionou anteriormente.
+1. Se selecionar **organizações específicas ligadas,** clique em **Adicionar diretórios** para selecionar a partir de uma lista de organizações conectadas que o seu administrador anteriormente acrescentou.
 
-1. Digite o nome ou nome de domínio para procurar uma organização conectada anteriormente.
+1. Digite o nome ou nome de domínio para procurar uma organização anteriormente ligada.
 
-    ![Pacotes de acesso-solicitações-selecionar diretórios](./media/active-directory-entitlement-management-request-policy/select-directories.png)
+    ![Pacote de acesso - Pedidos - Selecione diretórios](./media/active-directory-entitlement-management-request-policy/select-directories.png)
 
-    Se a organização com a qual você deseja colaborar não estiver na lista, você poderá pedir ao administrador para adicioná-lo como uma organização conectada. Para obter mais informações, consulte [Adicionar uma organização conectada](../articles/active-directory/governance/entitlement-management-organization.md).
+    Se a organização com quem pretende colaborar não estiver na lista, pode pedir ao seu administrador que a adicione como uma organização conectada. Para mais informações, consulte [Adicionar uma organização conectada](../articles/active-directory/governance/entitlement-management-organization.md).
 
-1. Depois de selecionar todas as suas organizações conectadas, clique em **selecionar**.
+1. Depois de selecionar todas as suas organizações conectadas, clique em **Select**.
 
     > [!NOTE]
-    > Todos os usuários das organizações conectadas selecionadas poderão solicitar esse pacote de acesso. Isso inclui os usuários no Azure AD de todos os subdomínios associados à organização, a menos que esses domínios sejam bloqueados pela lista de permissão ou negação B2B do Azure. Para obter mais informações, consulte [permitir ou bloquear convites aos utilizadores B2B de organizações específicos](../articles/active-directory/b2b/allow-deny-list.md).
+    > Todos os utilizadores das organizações conectadas selecionadas poderão solicitar este pacote de acesso. Isto inclui utilizadores em Azure AD de todos os subdomínios associados à organização, a menos que esses domínios sejam bloqueados pela lista de permitir ou negar do Azure B2B. Para mais informações, consulte [Permitir ou bloquear convites a utilizadores B2B de organizações específicas](../articles/active-directory/b2b/allow-deny-list.md).
 
-1. Pule para a seção [aprovação](#approval) .
+1. Passe para a secção [de aprovação.](#approval)
 
-## <a name="none-administrator-direct-assignments-only"></a>Nenhum (somente atribuições diretas do administrador)
+## <a name="none-administrator-direct-assignments-only"></a>Nenhuma (apenas atribuições diretas de administrador)
 
-Siga estas etapas se desejar ignorar as solicitações de acesso e permitir que os administradores atribuam usuários específicos diretamente a esse pacote de acesso. Os usuários não precisarão solicitar o pacote de acesso. Você ainda pode definir as configurações do ciclo de vida, mas não há configurações de solicitação.
+Siga estas medidas se pretender contornar os pedidos de acesso e permitir que os administradores atribuam diretamente utilizadores específicos a este pacote de acesso. Os utilizadores não terão de solicitar o pacote de acesso. Ainda é possível definir as definições do ciclo de vida, mas não existem definições de pedido.
 
-1. Na seção **usuários que podem solicitar acesso** , clique em **nenhum (somente atribuições diretas do administrador**.
+1. Nos **Utilizadores que podem solicitar** a secção de acesso, clique **em Nenhum (apenas em atribuições diretas**do administrador .
 
-    ![Pacotes de acesso-solicitações-nenhuma somente atribuições diretas de administrador](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
+    ![Pacote de acesso - Pedidos - Nenhuma atribuição direta de administrador apenas](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
-    Depois de criar o pacote do Access, você pode atribuir diretamente usuários internos e externos específicos ao pacote do Access. Se você especificar um usuário externo, uma conta de usuário convidado será criada em seu diretório. Para obter informações sobre como atribuir um usuário diretamente, consulte [Exibir, adicionar e remover atribuições para um pacote de acesso](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    Depois de criar o pacote de acesso, pode atribuir diretamente utilizadores internos e externos específicos ao pacote de acesso. Se especificar um utilizador externo, será criada uma conta de utilizador convidado no seu diretório. Para obter informações sobre a atribuição direta de um utilizador, consulte ['Ver', adicionar e remover atribuições para um pacote](../articles/active-directory/governance/entitlement-management-access-package-assignments.md)de acesso .
 
-1. Pule para a seção [habilitar solicitações](#enable-requests) .
+1. Salte para a secção [de pedidos enable.](#enable-requests)
 
 ## <a name="approval"></a>Aprovação
 
-Na seção aprovação, você especifica se uma aprovação é necessária quando os usuários solicitam esse pacote de acesso. As configurações de aprovação funcionam da seguinte maneira:
+Na secção aprovação, especifica se é necessária uma aprovação quando os utilizadores solicitam este pacote de acesso. As definições de aprovação funcionam da seguinte forma:
 
-- Somente um dos aprovadores ou aprovadores de fallback selecionados precisa aprovar uma solicitação de aprovação de estágio único. 
-- Somente um dos aprovadores selecionados de cada estágio precisa aprovar uma solicitação de aprovação de 2 estágios.
-- O aprovador pode ser um gerente, patrocinador interno ou patrocinador externo, dependendo de quem a política está governando o acesso.
-- A aprovação de cada aprovador selecionado não é necessária para a aprovação de um ou dois estágios.
-- A decisão de aprovação se baseia em qualquer aprovador que examine a solicitação primeiro.
+- Apenas um dos aprovadores selecionados ou aprovadores de recuos tem de aprovar um pedido de aprovação de uma fase única. 
+- Apenas um dos aprovadores selecionados de cada fase precisa de aprovar um pedido de aprovação em duas fases.
+- O aprovador pode ser um Gestor, patrocinador interno ou patrocinador externo dependendo de quem a política está a governar o acesso.
+- A aprovação de todos os aprovadores selecionados não é necessária para aprovação de uma única ou duas fases.
+- A decisão de aprovação baseia-se em qualquer aprovação que reveja primeiro o pedido.
 
-Para ver uma demonstração de como adicionar aprovadores a uma política de solicitação, Assista ao vídeo a seguir:
+Para uma demonstração de como adicionar aprovadores a uma política de pedido, veja o seguinte vídeo:
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
 
-Para ver uma demonstração de como adicionar uma aprovação de vários estágios a uma política de solicitação, Assista ao vídeo a seguir:
+Para uma demonstração de como adicionar uma aprovação em várias fases a uma política de pedidos, veja o seguinte vídeo:
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
 
-Siga estas etapas para especificar as configurações de aprovação para solicitações para o pacote de acesso:
+Siga estas medidas para especificar as definições de aprovação para pedidos para o pacote de acesso:
 
-1. Para exigir aprovação para solicitações dos usuários selecionados, defina a opção **exigir aprovação** para **Sim**. Ou, para que as solicitações sejam aprovadas automaticamente, defina a alternância para **não**.
+1. Para exigir a aprovação dos pedidos dos utilizadores selecionados, detete o realterno de **aprovação Require** para **Sim**. Ou, para ter pedidos automaticamente aprovados, detete o toggle para **No**.
 
-1. Para exigir que os usuários forneçam uma justificativa para solicitar o pacote de acesso, defina a alternância de **justificação exigir solicitante** como **Sim**.
+1. Para exigir que os utilizadores forneçam uma justificação para solicitar o pacote de acesso, detete o **pedido de justificação para** **sim**.
     
-1. Agora, determine se as solicitações exigirão a aprovação de um ou dois estágios. Defina o **número de estágios** de alternância para **1** para aprovação de estágio único ou defina a alternância como **2** para aprovação de dois estágios.
+1. Agora determine se os pedidos requerem aprovação única ou de 2 estágios. Detete o **número de estágios** alternar para **1** para aprovação de uma fase única ou definir o toggle para **2** para aprovação em 2 fases.
 
-    ![Pacotes de acesso-solicitações-configurações de aprovação](./media/active-directory-entitlement-management-request-policy/approval.png)
+    ![Pacote de acesso - Pedidos - Definições de aprovação](./media/active-directory-entitlement-management-request-policy/approval.png)
 
-Use as etapas a seguir para adicionar aprovadores depois de selecionar Quantos estágios você precisa: 
+Utilize os seguintes passos para adicionar os aprovadores depois de selecionar quantas fases necessita: 
 
-### <a name="single-stage-approval"></a>Aprovação de estágio único
+### <a name="single-stage-approval"></a>Aprovação de uma fase única
 
-1. Adicione o **primeiro aprovador**:
+1. Adicione o **Primeiro Aprovador:**
     
-    Se a política estiver definida para controlar o acesso para usuários em seu diretório, você poderá selecionar **gerente como Aprovador**. Ou então, adicione um usuário específico clicando em **Adicionar aprovadores** depois de selecionar escolher aprovadores específicos no menu suspenso.
+    Se a política estiver definida para reger o acesso dos utilizadores no seu diretório, pode selecionar **o Manager como aprovador**. Ou, adicione um utilizador específico clicando em **Adicionar aprovadores** depois de selecionar Escolha aprovadores específicos do menu dropdown.
     
-    ![Pacotes de acesso-solicitações-para usuários no diretório-aprovador primeiro](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
+    ![Pacote de acesso - Pedidos - Para utilizadores em diretório - Primeiro Aprovador](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    Se essa política estiver definida para controlar o acesso para usuários que não estão em seu diretório, você poderá selecionar **patrocinador externo** ou **patrocinador interno**. Ou então, adicione um usuário específico clicando em **Adicionar aprovadores** ou grupos em escolher aprovadores específicos.
+    Se esta política estiver definida para reger o acesso a utilizadores que não estão no seu diretório, pode selecionar **patrocinador externo** ou **patrocinador interno.** Ou, adicione um utilizador específico clicando em **Adicionar aprovadores** ou grupos sob a escolha de aprovadores específicos.
     
-    ![Pacotes de acesso-solicitações-para usuários fora do diretório-aprovador primeiro](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    ![Pacote de acesso - Pedidos - Para utilizadores fora do diretório - Primeiro Aprovador](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
     
-1. Se você selecionou **gerente** como o primeiro aprovador, clique em **Adicionar fallback** para selecionar um ou mais usuários ou grupos em seu diretório para ser um Aprovador de fallback. Os aprovadores de fallback receberão a solicitação se o gerenciamento de direitos não conseguir localizar o Gerenciador do usuário que solicitou acesso.
+1. Se selecionou **o Manager** como o primeiro aprovador, clique em **Adicionar backback** para selecionar um ou mais utilizadores ou grupos no seu diretório para ser um aprovador de recuo. Os aprovadores de fallback recebem o pedido se a gestão de direitos não conseguir encontrar o gestor para o utilizador que solicita acesso.
 
-    O gerente é encontrado pelo gerenciamento de direitos usando o atributo **Manager** . O atributo está no perfil do usuário no Azure AD. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um usuário usando Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    O gestor é encontrado pela gestão de direitos utilizando o atributo **do Gestor.** O atributo está no perfil do utilizador em Azure AD. Para mais informações, consulte [Adicionar ou atualizar as informações de perfil de um utilizador utilizando o Diretório Ativo do Azure](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. Se você selecionou **escolher aprovadores específicos**, clique em **Adicionar aprovadores** para selecionar um ou mais usuários ou grupos em seu diretório para serem aprovadores.
+1. Se tiver selecionado **Escolher aprovadores específicos,** clique em **Adicionar aprovadores** para selecionar um ou mais utilizadores ou grupos no seu diretório para serem aprovadores.
 
-1. Na caixa sob **decisão deve ser feita em quantos dias?** , especifique o número de dias que um aprovador precisa examinar uma solicitação para esse pacote de acesso.
+1. Na caixa de **decisão deve ser feita em quantos dias?**
 
-    Se uma solicitação não for aprovada dentro desse período de tempo, ela será negada automaticamente. O usuário precisará enviar outra solicitação para o pacote de acesso.
+    Se um pedido não for aprovado dentro deste período de tempo, será automaticamente negado. O utilizador terá de apresentar outro pedido para o pacote de acesso.
 
-1. Para exigir que os aprovadores forneçam uma justificativa para sua decisão, defina exigir justificação do aprovador como **Sim**.
+1. Para exigir que os aprovadores forneçam uma justificação para a sua decisão, detetere exigir justificação para **sim**.
 
-    A justificativa é visível para outros Aprovadores e o solicitante.
+    A justificação é visível para outros aprovadores e para o solicitador.
 
-### <a name="2-stage-approval-preview"></a>aprovação de 2 estágios (versão prévia)
+### <a name="2-stage-approval-preview"></a>Aprovação em 2 fases (Pré-visualização)
 
-Se você selecionou uma aprovação de dois estágios, precisará adicionar um segundo aprovador.
+Se selecionou uma aprovação de 2 fases, terá de adicionar um segundo aprovador.
 
-1. Adicione o **segundo aprovador**: 
+1. Adicione o **Segundo Aprovador:** 
     
-    Se os usuários estiverem em seu diretório, adicione um usuário específico como o segundo aprovador clicando em **Adicionar aprovadores** em escolher aprovadores específicos.
+    Se os utilizadores estiverem no seu diretório, adicione um utilizador específico como segundo aprovador clicando em **Adicionar aprovadores** em 'Escolha', aprovadores específicos.
 
-    ![Pacotes de acesso-solicitações-para usuários no Aprovador de diretório-segundo](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
+    ![Pacote de acesso - Pedidos - Para utilizadores em diretório - Segundo Aprovador](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
 
-    Se os usuários não estiverem em seu diretório, selecione **patrocinador interno** ou **patrocinador externo** como o segundo aprovador. Depois de selecionar o aprovador, adicione os aprovadores de fallback.
+    Se os utilizadores não estiverem no seu diretório, selecione **patrocinador interno** ou **patrocinador externo** como o segundo aprovador. Depois de selecionar o aprovador, adicione os aprovadores de recuo.
 
-    ![Pacotes de acesso-solicitações-para usuários fora do aprovador de diretório-segundo](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
+    ![Pacote de acesso - Pedidos - Para utilizadores fora do diretório - Segundo Aprovador](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
 
-1. Especifique o número de dias que o segundo aprovador precisa aprovar a solicitação na caixa sob **decisão deve ser feita em quantos dias?** . 
+1. Especificar o número de dias em que o segundo aprovador tem de aprovar o pedido na caixa ao abrigo da **Decisão deve ser feito em quantos dias?** 
 
-1. Defina a alternância exigir justificação do aprovador para **Sim** ou **não**.
+1. Defino a justificação do aprovador exigir alternar para **Sim** ou **Não**.
 
 ### <a name="alternate-approvers"></a>Aprovadores alternativos
 
-Você pode especificar aprovadores alternativos, semelhante à especificação do primeiro e do segundo Aprovadores que podem aprovar solicitações. Ter aprovadores alternativos ajudará a garantir que as solicitações sejam aprovadas ou negadas antes de expirarem (tempo limite). Você pode listar aprovadores alternativos o primeiro aprovador e o segundo aprovador para aprovação de 2 estágios. 
+Pode especificar aprovadores alternativos, semelhantes à especificação dos primeiros e segundos aprovadores que podem aprovar pedidos. Ter aprovadores alternativos ajudará a garantir que os pedidos são aprovados ou negados antes de expirarem (prazo de validade). Pode listar os aprovadores alternativos o primeiro aprovador e segundo aprovador para aprovação em duas fases. 
 
-Ao especificar aprovadores alternativos, no caso de o primeiro ou segundo aprovadores não conseguirem aprovar ou negar a solicitação, a solicitação pendente é encaminhada para os aprovadores alternativos, de acordo com o agendamento de encaminhamento especificado durante a configuração da política. Eles recebem um email para aprovar ou negar a solicitação pendente.
+Especificando os aprovadores alternativos, no caso de os primeiros ou segundos aprovadores não terem podido aprovar ou negar o pedido, o pedido pendente é reencaminhado para os aprovadores alternativos, de acordo com o calendário de encaminhamento especificado durante a configuração da apólice. Recebem um e-mail para aprovar ou negar o pedido pendente.
 
-Depois que a solicitação é encaminhada para os aprovadores alternativos, o primeiro ou o segundo aprovadores ainda podem aprovar ou negar a solicitação. Os aprovadores alternativos usam o mesmo site meu acesso para aprovar ou negar a solicitação pendente.
+Após o reexame do pedido aos aprovadores alternativos, os primeiros ou segundos aprovadores podem ainda aprovar ou negar o pedido. Os aprovadores alternativos usam o mesmo site My Access para aprovar ou negar o pedido pendente.
 
-Podemos listar pessoas ou grupos de pessoas para serem Aprovadores e aprovadores alternativos. Verifique se você lista diferentes conjuntos de pessoas para serem os aprovadores primeiro, segundo e alternativo.
-Por exemplo, se você tiver listado Alice e Bob como os primeiros Aprovadores, liste Carol e Dave como os aprovadores alternativos. Use as etapas a seguir para adicionar aprovadores alternativos a um pacote do Access:
+Podemos listar pessoas ou grupos de pessoas para serem aprovadores e aprovadores alternativos. Por favor, certifique-se de que lista diferentes conjuntos de pessoas para serem os primeiros, segundos e suplentes.
+Por exemplo, se listasse alice e Bob como os Primeiros Aprovadores, listasse Carol e Dave como os aprovadores alternativos. Utilize os seguintes passos para adicionar aprovadores alternativos a um pacote de acesso:
 
-1. No primeiro aprovador, segundo Aprovador ou ambos, clique em **Mostrar configurações avançadas de solicitação**.
+1. No primeiro aprovador, segundo aprovador, ou ambos, clique em **Mostrar definições avançadas de pedido**.
 
-    ![Pacotes de acesso-política-Mostrar configurações avançadas de solicitação](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+    ![Pacote de acesso - Política - Mostrar definições avançadas de pedidos](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
-1. Definir **se nenhuma ação foi executada, avançar para aprovadores alternativos?** alterne para **Sim**.
+1. Definir **Se não forem tomadas medidas, avance para os aprovadores alternativos?**
 
-1. Clique em **Adicionar aprovadores alternativos** e selecione os aprovadores alternativos na lista.
+1. Clique **em Adicionar aprovadores alternativos** e selecione os aprovadores alternativos da lista.
 
-    ![Pacote de acesso-política-adicionar aprovadores alternativos](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+    ![Pacote de acesso - Política - Adicionar Aprovadores Alternativos](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
 
-1. Na caixa **Avançar para aprovadores alternativos após a quantidade de dias** , coloque o número de dias que os aprovadores precisam aprovar ou negar uma solicitação. Se nenhum aprovador tiver aprovado ou negado a solicitação antes da duração da solicitação, a solicitação expirará (tempo limite) e o usuário precisará enviar outra solicitação para o pacote de acesso. 
+1. No **Forward para alternar aprovadores(s) após quantos dias** de caixa, coloque no número de dias que os aprovadores têm de aprovar ou negar um pedido. Se nenhum aprovador tiver aprovado ou negado o pedido antes da duração do pedido, o pedido expira (timeout), e o utilizador terá de apresentar outro pedido para o pacote de acesso. 
 
-    As solicitações só podem ser encaminhadas a aprovadores alternativos por dia após a duração da solicitação chegar à metade da vida útil. Neste exemplo, a duração da solicitação é de 14 dias. Portanto, a duração da solicitação atinge a metade da vida no dia 7. Portanto, a solicitação não pode ser encaminhada antes do dia 8. Além disso, as solicitações não podem ser encaminhadas no último dia da duração da solicitação. Portanto, no exemplo, a última solicitação pode ser encaminhada é o dia 13.
+    Os pedidos só podem ser encaminhados para aprovadores alternativos um dia após a duração do pedido chegar à meia-vida. Neste exemplo, a duração do pedido é de 14 dias. Assim, a duração do pedido atinge a meia-vida no dia 7. Então o pedido não pode ser reencaminhado antes do 8º dia. Além disso, os pedidos não podem ser reencaminhados no último dia da duração do pedido. Assim, no exemplo, o mais recente que o pedido pode ser reencaminhado é o dia 13.
 
-## <a name="enable-requests"></a>Habilitar solicitações
+## <a name="enable-requests"></a>Ativar pedidos
 
-1. Se você quiser que o pacote de acesso seja disponibilizado imediatamente para usuários na política de solicitação para solicitar, clique em **Sim** para habilitar.
+1. Se pretender que o pacote de acesso seja disponibilizado imediatamente para os utilizadores na política de pedido solicitar, mude o Toggle Enable para **Sim**.
 
-    Você sempre poderá habilitá-lo no futuro depois de concluir a criação do pacote de acesso.
+    Pode sempre permitir no futuro depois de ter terminado de criar o pacote de acesso.
 
-    Se você selecionou **nenhum (somente atribuições diretas de administrador)** e definir habilitar como **não**, os administradores não poderão atribuir diretamente este pacote de acesso.
+    Se selecionou **Nenhuma (apenas atribuições diretas** do administrador) e definiu o activato para **Não,** então os administradores não podem atribuir diretamente este pacote de acesso.
 
-    ![Pacote de acesso-configuração de política de habilitação de política](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![Pacote de acesso - Política- Ativar a definição de políticas](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Clique em **Seguinte**.

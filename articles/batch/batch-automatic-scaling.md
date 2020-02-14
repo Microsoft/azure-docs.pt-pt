@@ -1,6 +1,6 @@
 ---
-title: Dimensionar automaticamente nós de computação em um pool do lote do Azure | Microsoft Docs
-description: Habilite o dimensionamento automático em um pool de nuvem para ajustar dinamicamente o número de nós de computação no pool.
+title: Escala automaticamente os nódosos de computação numa piscina de Lote Azure  Microsoft Docs
+description: Ative a escala automática numa piscina de nuvem para ajustar dinamicamente o número de nós de computação na piscina.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -14,54 +14,54 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: a423b123626633eac761122583c5c494af68ca65
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 46be210ead3816356b63293b910e1c0e7ffc087b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020442"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200100"
 ---
-# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula automática para dimensionar nós de computação em um pool do lote
+# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para a escala de cafés de computação em uma piscina de lote
 
-O lote do Azure pode dimensionar automaticamente os pools com base nos parâmetros que você definir. Com o dimensionamento automático, o lote adiciona nós dinamicamente a um pool conforme as demandas de tarefas aumentam e remove os nós de computação à medida que eles diminuem. Você pode economizar tempo e dinheiro ajustando automaticamente o número de nós de computação usados pelo aplicativo do lote.
+O Lote Azure pode escalar automaticamente as piscinas com base em parâmetros que define. Com a escala automática, o Lote adiciona os nós a uma piscina à medida que as exigências de tarefa aumentam, e remove os nós de cálculo à medida que diminuem. Pode economizar tempo e dinheiro ajustando automaticamente o número de nós de computação utilizados pela sua aplicação Batch.
 
-Você habilita o dimensionamento automático em um pool de nós de computação associando a ele uma *fórmula de dimensionamento automático* definida por você. O serviço de lote usa a fórmula de dimensionamento automático para determinar o número de nós de computação necessários para executar sua carga de trabalho. Os nós de computação podem ser nós dedicados ou [nós de baixa prioridade](batch-low-pri-vms.md). O lote responde a dados de métricas de serviço que são coletados periodicamente. Usando esses dados de métricas, o lote ajusta o número de nós de computação no pool com base em sua fórmula e em um intervalo configurável.
+Permite a escala automática numa piscina de nódosos computacionais associando-se a ele uma fórmula de *escala automática* que define. O serviço Batch utiliza a fórmula de escala automática para determinar o número de nós de computação que são necessários para executar a sua carga de trabalho. Os nódos os comandados podem ser nódosos dedicados ou [nódosdeos de baixa prioridade.](batch-low-pri-vms.md) O lote responde aos dados das métricas de serviço que são recolhidos periodicamente. Utilizando estes dados de métricas, o Batch ajusta o número de nós de computação na piscina com base na sua fórmula e num intervalo configurável.
 
-Você pode habilitar o dimensionamento automático quando um pool é criado ou em um pool existente. Você também pode alterar uma fórmula existente em um pool configurado para dimensionamento automático. O lote permite que você avalie suas fórmulas antes de atribuí-las a pools e para monitorar o status das execuções de dimensionamento automático.
+Você pode ativar a escala automática quando uma piscina é criada, ou em uma piscina existente. Também pode alterar uma fórmula existente numa piscina que está configurada para autoscalcificar. O lote permite avaliar as suas fórmulas antes de as atribuir às piscinas e monitorizar o estado das operações de escala automática.
 
-Este artigo discute as várias entidades que compõem suas fórmulas de dimensionamento automático, incluindo variáveis, operadores, operações e funções. Discutiremos como obter várias métricas de tarefa e recurso de computação no lote. Você pode usar essas métricas para ajustar a contagem de nós do pool com base no uso de recursos e no status da tarefa. Em seguida, descrevemos como construir uma fórmula e habilitar o dimensionamento automático em um pool usando as APIs REST e .NET do lote. Finalmente, terminamos com algumas fórmulas de exemplo.
+Este artigo discute as várias entidades que compõem as suas fórmulas de escala automática, incluindo variáveis, operadores, operações e funções. Discutimos como obter vários recursos computacionais e métricas de tarefa dentro do Lote. Pode utilizar estas métricas para ajustar a contagem de nódoas do seu pool com base no uso do recurso e no estado de tarefa. Em seguida, descrevemos como construir uma fórmula e permitir a escala automática numa piscina utilizando tanto o Lote REST como as APIs .NET. Finalmente, terminamos com algumas fórmulas de exemplo.
 
 > [!IMPORTANT]
-> Ao criar uma conta do lote, você pode especificar a [configuração da conta](batch-api-basics.md#account), que determina se os pools são alocados em uma assinatura do serviço de lote (o padrão) ou em sua assinatura de usuário. Se você criou sua conta do lote com a configuração padrão do serviço de lote, sua conta será limitada a um número máximo de núcleos que podem ser usados para processamento. O serviço de lote dimensiona os nós de computação somente até esse limite de núcleo. Por esse motivo, o serviço de lote pode não alcançar o número de destino de nós de computação especificado por uma fórmula de dimensionamento automático. Consulte [cotas e limites para o serviço do lote do Azure](batch-quota-limit.md) para obter informações sobre como exibir e aumentar suas cotas de conta.
+> Quando criar uma conta 'Lote', pode especificar a configuração da [conta,](batch-api-basics.md#account)que determina se os pools são atribuídos numa subscrição de serviço do Batch (o predefinido) ou na subscrição do utilizador. Se criou a sua conta De Lote com a configuração padrão do Serviço de Lote, então a sua conta está limitada a um número máximo de núcleos que podem ser usados para processamento. O serviço de lote escala sinos de cálculo apenas até esse limite de núcleo. Por esta razão, o serviço Batch não pode atingir o número-alvo de nós de cálculo especificados por uma fórmula de escala automática. Consulte [Quotas e limites para o serviço Azure Batch](batch-quota-limit.md) para obter informações sobre visualização e aumento das quotas de conta.
 >
->Se você criou sua conta com a configuração de assinatura do usuário, sua conta será compartilhada na cota principal da assinatura. Para obter mais informações, veja [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) (Limites das Máquinas Virtuais), em [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) (Limites, quotas e limitações das subscrições e serviços do Azure).
+>Se criou a sua conta com a configuração de Subscrição do Utilizador, então a sua conta partilha na quota central para a subscrição. Para obter mais informações, veja [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) (Limites das Máquinas Virtuais), em [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) (Limites, quotas e limitações das subscrições e serviços do Azure).
 >
 >
 
-## <a name="automatic-scaling-formulas"></a>Fórmulas de dimensionamento automático
+## <a name="automatic-scaling-formulas"></a>Fórmulas de escala automática
 
-Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define que contém uma ou mais instruções. A fórmula de dimensionamento automático é atribuída ao elemento [autoScaleFormula][rest_autoscaleformula] do pool (REST do lote) ou à propriedade [CloudPool. autoScaleFormula][net_cloudpool_autoscaleformula] (.net do lote). O serviço de lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento. A cadeia de caracteres da fórmula não pode exceder 8 KB, pode incluir até 100 instruções separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
+Uma fórmula de escala automática é um valor de cadeia que se define que contém uma ou mais declarações. A fórmula de escala automática é atribuída ao elemento [autoScaleFormula][rest_autoscaleformula] (Batch REST) ou [à propriedade CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). O serviço Batch utiliza a sua fórmula para determinar o número de dados de cálculo na piscina para o próximo intervalo de processamento. A cadeia de fórmulas não pode exceder 8 KB, pode incluir até 100 declarações separadas por pontos evímetros, e pode incluir quebras de linha e comentários.
 
-Você pode considerar as fórmulas de dimensionamento automático como um "idioma" de autoescala do lote. As instruções de fórmula são expressões de forma livre que podem incluir variáveis definidas pelo serviço (variáveis definidas pelo serviço de lote) e variáveis definidas pelo usuário (variáveis que você define). Eles podem executar várias operações nesses valores usando tipos, operadores e funções internos. Por exemplo, uma instrução pode assumir o seguinte formato:
+Pode pensar em fórmulas de escala automática como uma "linguagem" de escala automática de Lote. As declarações de fórmula são expressões formadas livremente que podem incluir variáveis definidas pelo serviço (variáveis definidas pelo serviço De lote) e variáveis definidas pelo utilizador (variáveis que define). Podem realizar várias operações sobre estes valores utilizando tipos, operadores e funções incorporados. Por exemplo, uma declaração pode assumir o seguinte formulário:
 
 ```
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
 ```
 
-As fórmulas geralmente contêm várias instruções que executam operações em valores que são obtidos nas instruções anteriores. Por exemplo, primeiro obtemos um valor para `variable1`e, em seguida, o passamos para uma função para popular `variable2`:
+As fórmulas geralmente contêm múltiplas declarações que realizam operações sobre valores que são obtidos em declarações anteriores. Por exemplo, primeiro obtemos um valor para `variable1`, depois passamos para uma função de povoar `variable2`:
 
 ```
 $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-Inclua essas instruções em sua fórmula de dimensionamento automático para chegar a um número de nós de computação de destino. Nós dedicados e nós de baixa prioridade têm suas próprias configurações de destino, para que você possa definir um destino para cada tipo de nó. Uma fórmula de dimensionamento automático pode incluir um valor de destino para nós dedicados, um valor de destino para nós de baixa prioridade ou ambos.
+Inclua estas declarações na sua fórmula de escala automática para chegar a um número de nós de computação. Nós dedicados e nós de baixa prioridade cada um tem as suas próprias configurações de alvo, para que você possa definir um alvo para cada tipo de nó. Uma fórmula de escala automática pode incluir um valor-alvo para nós dedicados, um valor-alvo para nós de baixa prioridade, ou ambos.
 
-O número de nós de destino pode ser maior, menor ou igual ao número atual de nós desse tipo no pool. O lote avalia a fórmula de dimensionamento automático de um pool em um intervalo específico (consulte [intervalos de dimensionamento automático](#automatic-scaling-interval)). O lote ajusta o número de destino de cada tipo de nó no pool para o número que sua fórmula de dimensionamento automático especifica no momento da avaliação.
+O número alvo de nós pode ser maior, inferior ou o mesmo que o número atual de nós desse tipo na piscina. O lote avalia a fórmula de escala automática de uma piscina num intervalo específico (ver [intervalos automáticos](#automatic-scaling-interval)de escala). O lote ajusta o número-alvo de cada tipo de nó na piscina ao número que a sua fórmula de escala automática especifica no momento da avaliação.
 
-### <a name="sample-autoscale-formulas"></a>Fórmulas de autoescala de exemplo
+### <a name="sample-autoscale-formulas"></a>Fórmulas de escala automática de amostra
 
-Abaixo estão exemplos de duas fórmulas de dimensionamento automático, que podem ser ajustadas para funcionar na maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` nas fórmulas de exemplo podem ser ajustadas às suas necessidades.
+Abaixo estão exemplos de duas fórmulas de escala automática, que podem ser ajustadas para funcionar para a maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` nas fórmulas de exemplo podem ser ajustadas às suas necessidades.
 
 #### <a name="pending-tasks"></a>Tarefas pendentes
 
@@ -74,11 +74,11 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Com essa fórmula de autoescala, o pool é inicialmente criado com uma única VM. A métrica de `$PendingTasks` define o número de tarefas que estão em execução ou na fila. A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define a variável de `$TargetDedicatedNodes` de acordo. A fórmula garante que o número de destino de nós dedicados nunca exceda 25 VMs. À medida que novas tarefas são enviadas, o pool aumenta automaticamente. À medida que as tarefas são concluídas, as VMs tornam-se gratuitas uma a uma e a fórmula de dimensionamento automático reduz o pool.
+Com esta fórmula de escala automática, a piscina é inicialmente criada com um único VM. A métrica `$PendingTasks` define o número de tarefas que estão a decorrer ou em fila. A fórmula encontra o número médio de tarefas pendentes nos últimos 180 segundos e define a variável `$TargetDedicatedNodes` em conformidade. A fórmula garante que o número-alvo de nós dedicados nunca excede 25 VMs. À medida que novas tarefas são submetidas, a piscina cresce automaticamente. À medida que as tarefas completam, os VMs tornam-se gratuitos um a um e a fórmula autoscalcificante encolhe a piscina.
 
-Essa fórmula dimensiona os nós dedicados, mas pode ser modificada para se aplicar para dimensionar nós de baixa prioridade também.
+Esta fórmula escala nós dedicados, mas pode ser modificado para aplicar à escala de nós de baixa prioridade também.
 
-#### <a name="preempted-nodes"></a>Nós admitidos 
+#### <a name="preempted-nodes"></a>Nódosos pré-empreitados 
 
 ```
 maxNumberofVMs = 25;
@@ -87,79 +87,79 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Este exemplo cria um pool que começa com 25 nós de baixa prioridade. Toda vez que um nó de baixa prioridade é preempção, ele é substituído por um nó dedicado. Assim como no primeiro exemplo, a variável `maxNumberofVMs` impede que o pool exceda 25 VMs. Este exemplo é útil para aproveitar as VMs de baixa prioridade, garantindo também que apenas um número fixo de preempçãos ocorrerá durante o tempo de vida do pool.
+Este exemplo cria uma piscina que começa com 25 nós de baixa prioridade. Sempre que um nó de baixa prioridade é preempted, é substituído por um nó dedicado. Tal como no primeiro exemplo, a variável `maxNumberofVMs` impede que a piscina exceda 25 VMs. Este exemplo é útil para tirar partido de VMs de baixa prioridade, garantindo também que apenas um número fixo de preventivos ocorrerá durante toda a vida útil da piscina.
 
 ## <a name="variables"></a>Variáveis
 
-Você pode usar as variáveis definidas **pelo serviço** e **definidas pelo usuário** em suas fórmulas de dimensionamento automático. As variáveis definidas pelo serviço são internas ao serviço de lote. Algumas variáveis definidas pelo serviço são de leitura/gravação e outras são somente leitura. Variáveis definidas pelo usuário são variáveis que você define. Na fórmula de exemplo mostrada na seção anterior, `$TargetDedicatedNodes` e `$PendingTasks` são variáveis definidas pelo serviço. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` são variáveis definidas pelo usuário.
+Pode utilizar variáveis **definidas** pelo serviço e **definidas** pelo utilizador nas fórmulas de escala automática. As variáveis definidas pelo serviço são incorporadas no serviço Batch. Algumas variáveis definidas pelo serviço são de leitura-escrita, e algumas são apenas de leitura. Variáveis definidas pelo utilizador são variáveis que define. Na fórmula de exemplo mostrada na secção anterior, `$TargetDedicatedNodes` e `$PendingTasks` são variáveis definidas pelo serviço. Variáveis `startingNumberOfVMs` e `maxNumberofVMs` são variáveis definidas pelo utilizador.
 
 > [!NOTE]
-> As variáveis definidas pelo serviço são sempre precedidas por um cifrão ($). Para variáveis definidas pelo usuário, o cifrão é opcional.
+> As variáveis definidas pelo serviço são sempre precedidas por um sinal de dólar ($). Para variáveis definidas pelo utilizador, o sinal do dólar é opcional.
 >
 >
 
-As tabelas a seguir mostram as variáveis de leitura/gravação e somente leitura que são definidas pelo serviço de lote.
+As tabelas seguintes mostram variáveis de leitura e leitura apenas definidas pelo serviço Batch.
 
-Você pode obter e definir os valores dessas variáveis definidas pelo serviço para gerenciar o número de nós de computação em um pool:
+Você pode obter e definir os valores destas variáveis definidas pelo serviço para gerir o número de nós de computação em uma piscina:
 
-| Variáveis definidas pelo serviço de leitura/gravação | Descrição |
+| Variáveis definidas pelo serviço de leitura | Descrição |
 | --- | --- |
-| $TargetDedicatedNodes |O número alvo de nós de computação dedicados para o pool. O número de nós dedicados é especificado como um destino, pois um pool nem sempre pode atingir o número de nós desejado. Por exemplo, se o número de destino de nós dedicados for modificado por uma avaliação de dimensionamento automático antes que o pool tenha atingido o destino inicial, o pool poderá não alcançar o destino. <br /><br /> Um pool em uma conta criada com a configuração do serviço de lote poderá não atingir seu destino se o destino exceder um nó de conta do lote ou uma cota de núcleo. Um pool em uma conta criada com a configuração de assinatura do usuário poderá não atingir seu destino se o destino exceder a cota de núcleos compartilhada para a assinatura.|
-| $TargetLowPriorityNodes |O número de destino de nós de computação de baixa prioridade para o pool. O número de nós de baixa prioridade é especificado como um destino porque um pool nem sempre consegue obter o número desejado de nós. Por exemplo, se o número de destino de nós de baixa prioridade for modificado por uma avaliação de dimensionamento automático antes que o pool tenha atingido o destino inicial, o pool poderá não alcançar o destino. Um pool também pode não alcançar seu destino se o destino exceder um nó de conta do lote ou uma cota de núcleo. <br /><br /> Para obter mais informações sobre nós de computação de baixa prioridade, consulte [usar VMs de baixa prioridade com o lote](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |A ação que ocorre quando nós de computação são removidos de um pool. Os valores possíveis são:<ul><li>recolocar na **fila**--o valor padrão. Encerra as tarefas imediatamente e as coloca novamente na fila de trabalho para que elas sejam reagendadas. Essa ação garante que o número de destino dos nós seja atingido o mais rápido possível, mas pode ser menos eficiente, pois qualquer tarefa em execução será interrompida e precisará ser reiniciada, desperdiçando qualquer trabalho que já tenha feito. <li>**terminar**– encerra as tarefas imediatamente e as remove da fila de trabalhos.<li>**taskcompletion**--aguarda a conclusão das tarefas em execução no momento e, em seguida, remove o nó do pool. Use essa opção para evitar que tarefas sejam interrompidas e recolocadas na fila, desperdiçando qualquer trabalho que a tarefa tenha feito. <li>**retaineddata**--aguarda que todos os dados de tarefa local retidos no nó sejam limpos antes de remover o nó do pool.</ul> |
+| $TargetDedicatedNodes |O número alvo de nós de computação dedicados para a piscina. O número de nós dedicados é especificado como um alvo porque uma piscina pode nem sempre atingir o número desejado de nós. Por exemplo, se o número-alvo de nós dedicados for modificado por uma avaliação de escala automática antes de a piscina atingir o alvo inicial, então a piscina pode não atingir o alvo. <br /><br /> Um pool numa conta criada com a configuração do Serviço de Lote pode não atingir o seu alvo se o alvo exceder um nó de conta de Lote ou quota central. Um pool numa conta criada com a configuração de Subscrição do Utilizador pode não atingir o seu objetivo se o alvo exceder a quota de núcleo partilhada para a subscrição.|
+| $TargetLowPriorityNodes |O número alvo de nós de computação de baixa prioridade para a piscina. O número de nós de baixa prioridade é especificado como um alvo, uma vez que uma piscina pode nem sempre atingir o número desejado de nós. Por exemplo, se o número-alvo de nós de baixa prioridade for modificado por uma avaliação de escala automática antes de a piscina atingir o objetivo inicial, então a piscina pode não atingir o alvo. Um pool também não pode atingir o seu objetivo se o alvo exceder um nó de conta lote ou quota central. <br /><br /> Para obter mais informações sobre nós de computação de baixa prioridade, consulte [Use VMs de baixa prioridade com Lote](batch-low-pri-vms.md). |
+| $NodeDeallocationOption |A ação que ocorre quando os nódosos de computação são removidos de uma piscina. Os valores possíveis são:<ul><li>**refilar**- O valor padrão. Termina imediatamente as tarefas e coloca-as de volta na fila de trabalho para que sejam reagendadas. Esta ação garante que o número de nós alvo é alcançado o mais rapidamente possível, mas pode ser menos eficiente, uma vez que quaisquer tarefas de execução serão interrompidas e terão de ser reiniciadas, desperdiçando todo o trabalho que já tinham feito. <li>**terminar**-- Termina imediatamente as tarefas e retira-as da fila de trabalho.<li>realização de **tarefas**-- Aguarda que as tarefas em execução atualmente terminem e, em seguida, remova o nó da piscina. Utilize esta opção para evitar que as tarefas sejam interrompidas e ressonadas, desperdiçando qualquer trabalho que a tarefa tenha feito. <li>**dados retidos**-- Aguarda que todos os dados locais retidos na tarefa no nó sejam limpos antes de remover o nó da piscina.</ul> |
 
 > [!NOTE]
-> A variável `$TargetDedicatedNodes` também pode ser especificada usando o alias `$TargetDedicated`. Da mesma forma, a variável `$TargetLowPriorityNodes` pode ser especificada usando o alias `$TargetLowPriority`. Se a variável totalmente nomeada e seu alias forem definidos pela fórmula, o valor atribuído à variável totalmente nomeada terá precedência.
+> A variável `$TargetDedicatedNodes` também pode ser especificada utilizando o pseudónimo `$TargetDedicated`. Da mesma forma, a variável `$TargetLowPriorityNodes` pode ser especificada utilizando o pseudónimo `$TargetLowPriority`. Se tanto a variável totalmente nomeada como o seu pseudónimo forem definidos pela fórmula, o valor atribuído à variável totalmente nomeada terá precedência.
 >
 >
 
-Você pode obter o valor dessas variáveis definidas pelo serviço para fazer ajustes que se baseiam em métricas do serviço de lote:
+Você pode obter o valor destas variáveis definidas pelo serviço para fazer ajustes que são baseados em métricas do serviço Batch:
 
-| Variáveis definidas pelo serviço somente leitura | Descrição |
+| Variáveis definidas apenas pelo serviço de leitura | Descrição |
 | --- | --- |
-| $CPUPercent |A porcentagem média de uso da CPU. |
+| $CPUPercent |A percentagem média de utilização do CPU. |
 | $WallClockSeconds |O número de segundos consumidos. |
 | $MemoryBytes |O número médio de megabytes usados. |
 | $DiskBytes |O número médio de gigabytes usados nos discos locais. |
 | $DiskReadBytes |O número de bytes lidos. |
-| $DiskWriteBytes |O número de bytes gravados. |
-| $DiskReadOps |A contagem de operações de leitura de disco executadas. |
-| $DiskWriteOps |A contagem de operações de gravação de disco executadas. |
+| $DiskWriteBytes |O número de bytes escritos. |
+| $DiskReadOps |A contagem de operações de disco de leitura realizadas. |
+| $DiskWriteOps |A contagem de operações de disco de escrita realizadas. |
 | $NetworkInBytes |O número de bytes de entrada. |
 | $NetworkOutBytes |O número de bytes de saída. |
-| $SampleNodeCount |A contagem de nós de computação. |
-| $ActiveTasks |O número de tarefas que estão prontas para serem executadas, mas que ainda não estão em execução. A contagem de $ActiveTasks inclui todas as tarefas que estão no estado ativo e cujas dependências foram satisfeitas. Todas as tarefas que estão no estado ativo, mas cujas dependências não foram satisfeitas, são excluídas da contagem de $ActiveTasks.|
-| $RunningTasks |O número de tarefas em um estado de execução. |
-| $PendingTasks |A soma de $ActiveTasks e $RunningTasks. |
-| $SucceededTasks |O número de tarefas que foram concluídas com êxito. |
+| $SampleNodeCount |A contagem de nódosos de computação. |
+| $ActiveTasks |O número de tarefas que estão prontas a executar, mas que ainda não estão a executar. A contagem de $ActiveTasks inclui todas as tarefas que estão no estado ativo e cujas dependências foram satisfeitas. Quaisquer tarefas que estejam no estado ativo, mas cujas dependências não foram satisfeitas, estão excluídas da contagem $ActiveTasks.|
+| $RunningTasks |O número de tarefas em estado de execução. |
+| $PendingTasks |A soma dos $ActiveTasks e $RunningTasks. |
+| $SucceededTasks |O número de tarefas que terminaram com sucesso. |
 | $FailedTasks |O número de tarefas que falharam. |
 | $CurrentDedicatedNodes |O número atual de nós de computação dedicados. |
-| $CurrentLowPriorityNodes |O número atual de nós de computação de baixa prioridade, incluindo todos os nós que foram substituídas. |
-| $PreemptedNodeCount | O número de nós no pool que estão em um estado substituídas. |
+| $CurrentLowPriorityNodes |O número atual de nós de computação de baixa prioridade, incluindo quaisquer nós que tenham sido antecipados. |
+| $PreemptedNodeCount | O número de nós na piscina que estão em estado de preoptação. |
 
 > [!TIP]
-> As variáveis definidas pelo serviço e somente leitura que são mostradas na tabela anterior são *objetos* que fornecem vários métodos para acessar os dados associados a cada um. Para obter mais informações, consulte [obter dados de exemplo](#getsampledata) mais adiante neste artigo.
+> As variáveis apenas de leitura, definidas pelo serviço que são mostradas na tabela anterior são *objetos* que fornecem vários métodos de acesso aos dados associados a cada um. Para mais informações, consulte [Obter dados](#getsampledata) da amostra mais tarde neste artigo.
 >
 >
 
 ## <a name="types"></a>Tipos
 
-Esses tipos têm suporte em uma fórmula:
+Estes tipos são suportados numa fórmula:
 
 * double
 * doubleVec
 * doubleVecList
 * string
-* Timestamp--carimbo de data/hora é uma estrutura composta que contém os seguintes membros:
+* timestamp -- timestamp é uma estrutura composta que contém os seguintes membros:
 
   * ano
   * mês (1-12)
   * dia (1-31)
   * dia da semana (no formato de número; por exemplo, 1 para segunda-feira)
-  * hora (no formato de número de 24 horas; por exemplo, 13 significa 1 PM)
+  * hora (em formato de número 24 horas; por exemplo, 13 meios 1 3:00)
   * minuto (00-59)
   * segundo (00-59)
-* timeInterval
+* intervalo de tempo
 
   * TimeInterval_Zero
   * TimeInterval_100ns
@@ -172,65 +172,65 @@ Esses tipos têm suporte em uma fórmula:
   * TimeInterval_Week
   * TimeInterval_Year
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Operações
 
-Essas operações são permitidas nos tipos listados na seção anterior.
+Estas operações são permitidas nos tipos listados na secção anterior.
 
-| Operação | Operadores com suporte | Tipo de resultado |
+| Operação | Operadores apoiados | Tipo de resultado |
 | --- | --- | --- |
-| duplo de *operador* duplo |+, -, *, / |double |
-| *operador* de intervalo duplo |* |timeInterval |
-| doubleVec *operador* Double |+, -, *, / |doubleVec |
+| duplo *operador* duplo |+, -, *, / |double |
+| duplo intervalo de tempo *do operador* |* |intervalo de tempo |
+| duplo *operador* Vec duplo |+, -, *, / |doubleVec |
 | *operador* doubleVec doubleVec |+, -, *, / |doubleVec |
-| *operador* timeInterval duplo |*, / |timeInterval |
-| timeInterval *operador* timeintervalo |+, - |timeInterval |
-| carimbo de data/hora do *operador* timeInterval |+ |carimbo de data/hora |
-| timeInterval do *operador* timestamp |+ |carimbo de data/hora |
-| carimbo de data/hora do *operador* timestamp |- |timeInterval |
-| duplo de *operador* |-, ! |double |
-| *operator*timeinterval |- |timeInterval |
-| duplo de *operador* duplo |<, <=, ==, >=, >, != |double |
-| Cadeia de caracteres do *operador* String |<, <=, ==, >=, >, != |double |
-| carimbo de data/hora do *operador* timestamp |<, <=, ==, >=, >, != |double |
-| timeInterval *operador* timeintervalo |<, <=, ==, >=, >, != |double |
-| duplo de *operador* duplo |&&, &#124;&#124; |double |
+| operador *de* intervalo de tempo duplo |*, / |intervalo de tempo |
+| intervalo de tempo *do operador de* intervalo de tempo |+, - |intervalo de tempo |
+| carimbo de tempo *intervalado do operador* |+ |carimbo de data/hora |
+| intervalo de tempo *do operador da* marca de tempo |+ |carimbo de data/hora |
+| carimbo de tempo *do operador* |- |intervalo de tempo |
+| *operador*duplo |-, ! |double |
+| intervalo de tempo *do operador* |- |intervalo de tempo |
+| duplo *operador* duplo |<, <=, ==, >=, >, != |double |
+| string *operador* de cordas |<, <=, ==, >=, >, != |double |
+| carimbo de tempo *do operador* |<, <=, ==, >=, >, != |double |
+| intervalo de tempo *do operador de* intervalo de tempo |<, <=, ==, >=, >, != |double |
+| duplo *operador* duplo |&&, &#124;&#124; |double |
 
-Ao testar um Double com um operador ternário (`double ? statement1 : statement2`), diferente de zero é **true**e zero é **false**.
+Ao testar um duplo com um operador ternário (`double ? statement1 : statement2`), o não zero é **verdadeiro**, e zero é **falso**.
 
 ## <a name="functions"></a>Funções
-Essas **funções** predefinidas estão disponíveis para uso na definição de uma fórmula de dimensionamento automático.
+Estas **funções** pré-definidas estão disponíveis para que possa utilizar na definição de uma fórmula de escala automática.
 
-| Função | Tipo de retorno | Descrição |
+| Função | Tipo de devolução | Descrição |
 | --- | --- | --- |
-| avg(doubleVecList) |double |Retorna o valor médio de todos os valores no doubleVecList. |
-| len(doubleVecList) |double |Retorna o comprimento do vetor que é criado a partir de doubleVecList. |
-| LG (duplo) |double |Retorna a base de log 2 do duplo. |
-| lg(doubleVecList) |doubleVec |Retorna a base de log do componente 2 do doubleVecList. Um VEC (Double) deve ser passado explicitamente para o parâmetro. Caso contrário, a versão de LG dupla (Double) será assumida. |
-| ln (duplo) |double |Retorna o log natural do duplo. |
-| ln(doubleVecList) |doubleVec |Retorna o log natural do duplo. |
-| log (duplo) |double |Retorna a base de log 10 do duplo. |
-| log(doubleVecList) |doubleVec |Retorna a base do log do componente 10 do doubleVecList. Um VEC (Double) deve ser passado explicitamente para o único parâmetro Double. Caso contrário, a versão de log duplo (Double) é assumida. |
-| max(doubleVecList) |double |Retorna o valor máximo em doubleVecList. |
-| min(doubleVecList) |double |Retorna o valor mínimo no doubleVecList. |
-| norm(doubleVecList) |double |Retorna a duas normas do vetor que é criado a partir de doubleVecList. |
-| percentil (doubleVec v, duplo p) |double |Retorna o elemento percentil do vetor v. |
-| Rand () |double |Retorna um valor aleatório entre 0,0 e 1,0. |
-| range(doubleVecList) |double |Retorna a diferença entre os valores mínimo e máximo no doubleVecList. |
-| std(doubleVecList) |double |Retorna o desvio padrão de exemplo dos valores no doubleVecList. |
-| stop() | |Interrompe a avaliação da expressão de dimensionamento automático. |
-| sum(doubleVecList) |double |Retorna a soma de todos os componentes do doubleVecList. |
-| time(string dateTime="") |carimbo de data/hora |Retorna o carimbo de data/hora da hora atual se nenhum parâmetro for passado ou o carimbo de data/hora da cadeia de caracteres dateTime se ele for passado. Os formatos de data e hora com suporte são W3C-DTF e RFC 1123. |
-| Val (doubleVec v, duplo i) |double |Retorna o valor do elemento que está no local i no vetor v, com um índice inicial de zero. |
+| avg(doubleVecList) |double |Devolve o valor médio de todos os valores do doubleVecList. |
+| len(doubleVecList) |double |Devolve o comprimento do vetor que é criado a partir do doubleVecList. |
+| lg(duplo) |double |Devolve a base de registo 2 do duplo. |
+| lg(doubleVecList) |doubleVec |Devolve a base de registo em termos de componente 2 do doubleVecList. Um vec(duplo) deve ser explicitamente passado para o parâmetro. Caso contrário, assume-se a versão dupla lg(double). |
+| Inn(duplo) |double |Devolve o registo natural do duplo. |
+| ln(doubleVecList) |doubleVec |Devolve o registo natural do duplo. |
+| log (duplo) |double |Devolve a base de registo 10 do duplo. |
+| log(doubleVecList) |doubleVec |Devolve a base de registo em termos de componentes 10 do doubleVecList. Um vec(duplo) deve ser explicitamente passado para o parâmetro duplo único. Caso contrário, assume-se a versão de duplo registo (duplo). |
+| max(doubleVecList) |double |Devolve o valor máximo no doubleVecList. |
+| min(doubleVecList) |double |Devolve o valor mínimo no doubleVecList. |
+| norm(doubleVecList) |double |Devolve a norma de duas normas do vetor que é criada a partir do doubleVecList. |
+| percentil (doubleVec v, duplo p) |double |Devolve o elemento percentil do vetor v. |
+| rand() |double |Devolve um valor aleatório entre 0,0 e 1.0. |
+| range(doubleVecList) |double |Devolve a diferença entre o min e os valores máximos no doubleVecList. |
+| std(doubleVecList) |double |Devolve o desvio padrão da amostra dos valores no doubleVecList. |
+| stop() | |Interrompe a avaliação da expressão autoscalcificante. |
+| sum(doubleVecList) |double |Devolve a soma de todos os componentes do doubleVecList. |
+| time(string dateTime="") |carimbo de data/hora |Devolve o carimbo de tempo atual se não forem passados parâmetros ou o carimbo de tempo da corda dataTime se for passado. Data suportadaOs formatos de tempo são W3C-DTF e RFC 1123. |
+| val (doubleVec v, duplo i) |double |Devolve o valor do elemento que está no local i no vetor v, com um índice inicial de zero. |
 
-Algumas das funções descritas na tabela anterior podem aceitar uma lista como um argumento. A lista separada por vírgulas é qualquer combinação de *Double* e *doubleVec*. Por exemplo:
+Algumas das funções descritas na tabela anterior podem aceitar uma lista como argumento. A lista separada da vírposta é qualquer combinação de *duplo* e *duplo Vec*. Por exemplo:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-O valor de *doubleVecList* é convertido em um único *doubleVec* antes da avaliação. Por exemplo, se `v = [1,2,3]`, então chamar `avg(v)` equivale a chamar `avg(1,2,3)`. Chamar `avg(v, 7)` é equivalente a chamar `avg(1,2,3,7)`.
+O valor *doubleVecList* é convertido para um *único doubleVec* antes da avaliação. Por exemplo, se `v = [1,2,3]`, então chamar `avg(v)` equivale a chamar `avg(1,2,3)`. Chamar `avg(v, 7)` equivale a chamar `avg(1,2,3,7)`.
 
-## <a name="getsampledata"></a>Obter dados de exemplo
+## <a name="getsampledata"></a>Obter dados da amostra
 
-As fórmulas de dimensionamento automático agem em dados de métricas (exemplos) fornecidos pelo serviço de lote. Uma fórmula aumenta ou reduz o tamanho do pool com base nos valores obtidos do serviço. As variáveis definidas pelo serviço que foram descritas anteriormente são objetos que fornecem vários métodos para acessar dados associados a esse objeto. Por exemplo, a expressão a seguir mostra uma solicitação para obter os últimos cinco minutos de uso da CPU:
+As fórmulas de escala automática atuam em dados métricos (amostras) fornecidos pelo serviço Batch. Uma fórmula cresce ou diminui o tamanho da piscina com base nos valores que obtém do serviço. As variáveis definidas pelo serviço que foram descritas anteriormente são objetos que fornecem vários métodos de acesso a dados que estão associados a esse objeto. Por exemplo, a seguinte expressão mostra um pedido para obter os últimos cinco minutos de utilização do CPU:
 
 ```
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
@@ -238,59 +238,59 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Método | Descrição |
 | --- | --- |
-| GetSample() |O método `GetSample()` retorna um vetor de exemplos de dados.<br/><br/>Um exemplo é de 30 segundos de dados de métricas. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme observado abaixo, há um atraso entre o momento em que uma amostra é coletada e quando ela está disponível para uma fórmula. Dessa forma, nem todas as amostras de um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a serem obtidas dos exemplos mais recentes que foram coletados.<br/><br/>`GetSample(1)` retorna o último exemplo disponível. No entanto, para métricas como `$CPUPercent`, isso não deve ser usado porque é impossível saber *quando* o exemplo foi coletado. Pode ser recente ou, devido a problemas do sistema, pode ser muito mais antiga. Em tais casos, é melhor usar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para a coleta de dados de exemplo. Opcionalmente, ele também especifica a porcentagem de amostras que devem estar disponíveis no período de tempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolveria 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes na história do CPUPercent. No entanto, se o último minuto do histórico não estivesse disponível, apenas 18 amostras seriam retornadas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% das amostras estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` teria sucesso.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.<br/><br/>Conforme mencionado acima, há um atraso entre quando uma amostra é coletada e quando está disponível para uma fórmula. Considere esse atraso ao usar o método `GetSample`. Consulte `GetSamplePercent` abaixo. |
-| GetSamplePeriod() |Retorna o período de amostras que foram executadas em um conjunto de dados de exemplo histórico. |
-| Contagem () |Retorna o número total de amostras no histórico de métricas. |
-| HistoryBeginTime() |Retorna o carimbo de data/hora do exemplo de dados mais antigo disponível para a métrica. |
-| GetSamplePercent() |Retorna a porcentagem de amostras disponíveis para um determinado intervalo de tempo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Como o método `GetSample` falhará se a porcentagem de amostras retornada for menor que a `samplePercent` especificada, você poderá usar o método `GetSamplePercent` para verificar primeiro. Em seguida, você poderá executar uma ação alternativa se houver amostras insuficientes, sem interromper a avaliação automática de dimensionamento. |
+| GetSample() |O método `GetSample()` devolve um vetor de amostras de dados.<br/><br/>Uma amostra vale 30 segundos de dados métricos. Por outras palavras, as amostras são obtidas a cada 30 segundos. Mas, como se nota abaixo, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Como tal, nem todas as amostras durante um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a obter das amostras mais recentes que foram recolhidas.<br/><br/>`GetSample(1)` devolve a última amostra disponível. No entanto, para métricas como `$CPUPercent`, esta não deve ser utilizada porque é impossível saber *quando* a amostra foi recolhida. Pode ser recente, ou, devido a problemas de sistema, pode ser muito mais antigo. É melhor, nestes casos, utilizar um intervalo de tempo como mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um prazo para recolher dados da amostra. Opcionalmente, especifica também a percentagem de amostras que devem estar disponíveis no prazo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolveria 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes na história do CPUPercent. No entanto, se o último minuto da história não estivesse disponível, apenas 18 amostras seriam devolvidas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% das amostras estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` teria sucesso.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um prazo para a recolha de dados, com um tempo de início e um tempo de fim.<br/><br/>Como acima referido, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Considere este atraso quando utilizar o método `GetSample`. Veja `GetSamplePercent` abaixo. |
+| GetSamplePeriod() |Devolve o período de amostras colhidas num conjunto histórico de dados de amostras. |
+| Contagem() |Devolve o número total de amostras no histórico métrico. |
+| HistoryBeginTime() |Devolve o carimbo de tempo da amostra de dados disponíveis mais antiga para a métrica. |
+| GetSamplePercent() |Devolve a percentagem de amostras disponíveis para um determinado intervalo de tempo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Uma vez que o método `GetSample` falha se a percentagem de amostras devolvidas for inferior à `samplePercent` especificada, pode utilizar o método `GetSamplePercent` para verificar primeiro. Em seguida, pode realizar uma ação alternativa se houver amostras insuficientes, sem parar a avaliação automática de escala. |
 
-### <a name="samples-sample-percentage-and-the-getsample-method"></a>Exemplos, porcentagem de exemplo e o método *getsample ()*
-A principal operação de uma fórmula de dimensionamento automático é obter dados de métrica de tarefa e recurso e, em seguida, ajustar o tamanho do pool com base nesses dados. Assim, é importante ter uma compreensão clara de como as fórmulas de dimensionamento automático interagem com dados de métricas (exemplos).
+### <a name="samples-sample-percentage-and-the-getsample-method"></a>Amostras, percentagem de amostras e método *GetSample()*
+O funcionamento principal de uma fórmula de escala automática é obter dados métricos de tarefas e recursos e, em seguida, ajustar o tamanho da piscina com base nesses dados. Como tal, é importante ter uma compreensão clara de como as fórmulas de escala automática interagem com os dados das métricas (amostras).
 
 **Amostras**
 
-Periodicamente, o serviço de lote faz amostras de métricas de tarefas e recursos e as torna disponíveis para suas fórmulas de dimensionamento automático. Esses exemplos são gravados a cada 30 segundos pelo serviço de lote. No entanto, normalmente há um atraso entre quando essas amostras foram registradas e quando elas são disponibilizadas para (e podem ser lidas por) suas fórmulas de dimensionamento automático. Além disso, devido a vários fatores, como problemas de rede ou outros tipos de infraestrutura, os exemplos não podem ser registrados para um intervalo específico.
+O serviço De lote retira periodicamente amostras de métricas de tarefas e recursos e disponibiliza-as para as suas fórmulas de escala automática. Estas amostras são gravadas a cada 30 segundos pelo serviço Batch. No entanto, há tipicamente um atraso entre quando essas amostras foram gravadas e quando são disponibilizadas para (e podem ser lidas) as suas fórmulas de escala automática. Além disso, devido a diversos fatores, tais como problemas de rede ou outras infraestruturas, as amostras não podem ser registadas num determinado intervalo.
 
-**Porcentagem de amostra**
+**Percentagem de amostra**
 
-Quando `samplePercent` é passado para o método `GetSample()` ou o método `GetSamplePercent()` é chamado, _percent_ se refere a uma comparação entre o número total possível de amostras que são registradas pelo serviço de lote e o número de amostras disponíveis para sua fórmula de dimensionamento automático.
+Quando `samplePercent` é passada para o método `GetSample()` ou o método `GetSamplePercent()` é chamado, _por cento_ refere-se a uma comparação entre o número total possível de amostras que são registadas pelo serviço De lote e o número de amostras disponíveis para a sua fórmula de escala automática.
 
-Vamos examinar um período de 10 minutos como exemplo. Como os exemplos são registrados a cada 30 segundos em um período de 10 minutos, o número total máximo de amostras registradas pelo lote seria de 20 amostras (2 por minuto). No entanto, devido à latência inerente do mecanismo de relatório e outros problemas no Azure, pode haver apenas 15 exemplos disponíveis para sua fórmula de dimensionamento automático para leitura. Assim, por exemplo, durante esse período de 10 minutos, apenas 75% do número total de amostras registadas pode estar disponível para a sua fórmula.
+Vamos olhar para uma panela de 10 minutos como um exemplo. Uma vez que as amostras são registadas a cada 30 segundos num período de 10 minutos, o número total máximo de amostras que são registadas pelo Batch seria de 20 amostras (2 por minuto). No entanto, devido à latência inerente do mecanismo de reporte e de outras questões dentro do Azure, pode haver apenas 15 amostras disponíveis para a sua fórmula de escala automática para leitura. Assim, por exemplo, durante esse período de 10 minutos, apenas 75% do número total de amostras registadas pode estar disponível para a sua fórmula.
 
-**Intervalos de amostragem e de getsample ()**
+**GetSample() e gamas de amostras**
 
-Suas fórmulas de dimensionamento automático vão aumentar e reduzir seus pools &mdash; adicionando nós ou removendo nós. Como os nós custam dinheiro, você deseja garantir que suas fórmulas usem um método inteligente de análise baseado em dados suficientes. Portanto, recomendamos que você use uma análise de tipo de tendência em suas fórmulas. Esse tipo aumenta e reduz seus pools com base em uma variedade de amostras coletadas.
+As suas fórmulas de escala automática vão crescer e encolher as suas piscinas &mdash; adicionar nódosos ou remover os nódosos. Como os nós custam dinheiro, você quer garantir que as suas fórmulas usam um método inteligente de análise que é baseado em dados suficientes. Por isso, recomendamos que utilize uma análise do tipo de tendência nas suas fórmulas. Este tipo cresce e encolhe as suas piscinas com base numa série de amostras recolhidas.
 
-Para fazer isso, use `GetSample(interval look-back start, interval look-back end)` para retornar um vetor de exemplos:
+Para tal, use `GetSample(interval look-back start, interval look-back end)` para devolver um vetor de amostras:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Quando a linha acima é avaliada pelo lote, ela retorna um intervalo de amostras como um vetor de valores. Por exemplo:
+Quando a linha acima é avaliada pelo Batch, devolve uma gama de amostras como um vetor de valores. Por exemplo:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 ```
 
-Depois de coletar o vetor de exemplos, você pode usar funções como `min()`, `max()`e `avg()` para derivar valores significativos do intervalo coletado.
+Depois de recolher o vetor de amostras, pode então usar funções como `min()`, `max()`, e `avg()` obter valores significativos da gama recolhida.
 
-Para obter mais segurança, você pode forçar uma avaliação de fórmula a falhar se menos de um determinado percentual de amostra estiver disponível por um período de tempo específico. Quando você força uma avaliação de fórmula a falhar, você instrui o lote a cessar a avaliação adicional da fórmula se o percentual especificado de amostras não estiver disponível. Nesse caso, nenhuma alteração é feita no tamanho do pool. Para especificar uma porcentagem necessária de amostras para que a avaliação seja bem sucedida, especifique-a como o terceiro parâmetro a `GetSample()`. Aqui, é especificado um requisito de 75% dos exemplos:
+Para uma segurança adicional, pode forçar uma avaliação de fórmula a falhar se for inferior a uma determinada percentagem de amostra disponível durante um determinado período de tempo. Quando forçar uma avaliação de fórmula a falhar, instrui o Batch a cessar a avaliação da fórmula se a percentagem especificada de amostras não estiver disponível. Neste caso, não é feita qualquer alteração ao tamanho da piscina. Para especificar uma percentagem necessária de amostras para o sucesso da avaliação, especifique-a como o terceiro parâmetro a `GetSample()`. Aqui, é especificada uma exigência de 75% das amostras:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-Como pode haver um atraso na disponibilidade de exemplo, é importante sempre especificar um intervalo de tempo com uma hora de início de retirada com mais de um minuto. Demora aproximadamente um minuto para as amostras se propagarem através do sistema, para que as amostras da faixa `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` possam não estar disponíveis. Novamente, você pode usar o parâmetro percentual de `GetSample()` para forçar um requisito de percentual de exemplo específico.
+Como pode haver um atraso na disponibilidade da amostra, é importante especificar sempre um intervalo de tempo com um tempo de arranque que seja mais longo do que um minuto. Demora aproximadamente um minuto para as amostras se propagarem através do sistema, para que as amostras da faixa `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` possam não estar disponíveis. Mais uma vez, pode utilizar o parâmetro percentual de `GetSample()` para forçar uma determinada exigência de percentagem de amostra.
 
 > [!IMPORTANT]
-> É **altamente recomendável** que você **Evite confiar *apenas* em `GetSample(1)` em suas fórmulas de dimensionamento automático**. Isso ocorre porque `GetSample(1)` basicamente diz ao serviço de lote, "Dê-me o último exemplo que você tem, não importa por quanto tempo chegou." Como é apenas um exemplo, e pode ser um exemplo mais antigo, ele pode não ser representativo da visão mais recente do estado de tarefa ou recursos recentes. Se você usar `GetSample(1)`, verifique se ele faz parte de uma declaração maior e não o único ponto de dados do qual sua fórmula depende.
+> **Recomendamos vivamente** que **evite confiar *apenas* em `GetSample(1)` nas suas fórmulas**de escala automática. Isto porque `GetSample(1)` essencialmente diz ao serviço batch: "Dê-me a última amostra que tiver, não importa há quanto tempo a recuperou." Uma vez que se trata apenas de uma amostra, e pode ser uma amostra mais antiga, pode não ser representativa da imagem maior da tarefa recente ou do estado de recurso. Se utilizar `GetSample(1)`, certifique-se de que faz parte de uma declaração maior e não do único ponto de dados em que a sua fórmula depende.
 >
 >
 
 ## <a name="metrics"></a>Métricas
 
-Você pode usar as métricas de tarefa e de recurso quando estiver definindo uma fórmula. Ajuste o número de destino de nós dedicados no pool com base nos dados de métricas obtidos e avaliados. Consulte a seção de [variáveis](#variables) acima para obter mais informações sobre cada métrica.
+Pode utilizar métricas de recursos e tarefas quando estiver a definir uma fórmula. Ajusta o número de nós dedicados na piscina com base nos dados métricos que obtém e avalia. Consulte a secção [Variáveis](#variables) acima para obter mais informações sobre cada métrica.
 
 <table>
   <tr>
@@ -299,8 +299,8 @@ Você pode usar as métricas de tarefa e de recurso quando estiver definindo uma
   </tr>
   <tr>
     <td><b>Recurso</b></td>
-    <td><p>As métricas de recurso são baseadas na CPU, na largura de banda, no uso de memória de nós de computação e no número de nós.</p>
-        <p> Essas variáveis definidas pelo serviço são úteis para fazer ajustes com base na contagem de nós:</p>
+    <td><p>As métricas de recursos baseiam-se no CPU, na largura de banda, no uso da memória dos nós de computação e no número de nós.</p>
+        <p> Estas variáveis definidas pelo serviço são úteis para fazer ajustes com base na contagem de nós:</p>
     <p><ul>
             <li>$TargetDedicatedNodes</li>
             <li>$TargetLowPriorityNodes</li>
@@ -309,7 +309,7 @@ Você pode usar as métricas de tarefa e de recurso quando estiver definindo uma
             <li>$PreemptedNodeCount</li>
             <li>$SampleNodeCount</li>
     </ul></p>
-    <p>Essas variáveis definidas pelo serviço são úteis para fazer ajustes com base no uso de recursos do nó:</p>
+    <p>Estas variáveis definidas pelo serviço são úteis para fazer ajustes baseados na utilização do recurso do nó:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -324,7 +324,7 @@ Você pode usar as métricas de tarefa e de recurso quando estiver definindo uma
   </tr>
   <tr>
     <td><b>Tarefa</b></td>
-    <td><p>As métricas de tarefa baseiam-se no status das tarefas, como ativo, pendente e concluído. As seguintes variáveis definidas pelo serviço são úteis para fazer ajustes de tamanho de pool com base nas métricas de tarefa:</p>
+    <td><p>As métricas de tarefa baseiam-se no estado das tarefas, tais como Ativo, Pendente e Concluído. As seguintes variáveis definidas pelo serviço são úteis para fazer ajustes no tamanho da piscina com base em métricas de tarefa:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -335,18 +335,18 @@ Você pode usar as métricas de tarefa e de recurso quando estiver definindo uma
   </tr>
 </table>
 
-## <a name="write-an-autoscale-formula"></a>Escrever uma fórmula de autoescala
+## <a name="write-an-autoscale-formula"></a>Escreva uma fórmula de escala automática
 
-Você cria uma fórmula de dimensionamento automático formando instruções que usam os componentes acima e, em seguida, combina essas instruções em uma fórmula completa. Nesta seção, criamos um exemplo de fórmula de autoescala que pode executar algumas decisões de dimensionamento do mundo real.
+Constrói-se uma fórmula de escala automática formando declarações que utilizam os componentes acima referidos e, em seguida, combina-se essas declarações numa fórmula completa. Nesta secção, criamos uma fórmula de escala automática que pode executar algumas decisões de escala no mundo real.
 
-Primeiro, vamos definir os requisitos para nossa nova fórmula de autoescala. A fórmula deve:
+Primeiro, vamos definir os requisitos para a nossa nova fórmula de escala automática. A fórmula deve:
 
-1. Aumente o número alvo de nós de computação dedicados em um pool se o uso da CPU for alto.
-1. Diminua o número alvo de nós de computação dedicados em um pool quando o uso da CPU for baixo.
-1. Sempre restrinja o número máximo de nós dedicados a 400.
-1. Ao reduzir o número de nós, não remova os nós que estão executando tarefas; se necessário, aguarde até que as tarefas tenham sido concluídas para remover os nós.
+1. Aumente o número de nós de computação dedicados numa piscina se o uso de CPU for elevado.
+1. Diminua o número de nós de computação dedicados numa piscina quando o uso do CPU é baixo.
+1. Restrinja sempre o número máximo de nós dedicados a 400.
+1. Ao reduzir o número de nós, não remova os nós que estão a executar tarefas; se necessário, aguarde até que as tarefas tenham terminado para remover os nós.
 
-Para aumentar o número de nós durante o alto uso da CPU, defina a instrução que popula uma variável definida pelo usuário (`$totalDedicatedNodes`) com um valor que seja de 110% do número de destino atual de nós dedicados, mas somente se o uso médio mínimo de CPU durante os últimos 10 minutos tiver sido superior a 70%. Caso contrário, use o valor para o número atual de nós dedicados.
+Para aumentar o número de nós durante o elevado uso do CPU, defina a declaração que povoa uma variável definida pelo utilizador (`$totalDedicatedNodes`) com um valor que é de 110 por cento do número de nós dedicados, mas apenas se a média mínima de utilização do CPU durante os últimos 10 minutos for superior a 70 por cento. Caso contrário, utilize o valor para o número atual de nós dedicados.
 
 ```
 $totalDedicatedNodes =
@@ -354,7 +354,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-Para *diminuir* o número de nós dedicados durante o baixo uso da CPU, a próxima instrução em nossa fórmula define a mesma `$totalDedicatedNodes` variável como 90% do número de nós dedicados de destino atual se o uso médio da CPU nos últimos 60 minutos foi inferior a 20%. Caso contrário, use o valor atual de `$totalDedicatedNodes` que populamos na instrução acima.
+Para *diminuir* o número de nós dedicados durante a baixa utilização do CPU, a próxima declaração na nossa fórmula define a mesma variável `$totalDedicatedNodes` para 90% do número atual de nós dedicados se o uso médio de CPU nos últimos 60 minutos fosse inferior a 20 por cento. Caso contrário, utilize o valor atual de `$totalDedicatedNodes` que povoámos na declaração acima.
 
 ```
 $totalDedicatedNodes =
@@ -362,7 +362,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 0.9) : $totalDedicatedNodes;
 ```
 
-Agora, limite o número alvo de nós de computação dedicados a um máximo de 400:
+Agora limite o número de nomes de cálculo dedicados a um máximo de 400:
 
 ```
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
@@ -380,21 +380,21 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Criar um pool habilitado para autoescala com SDKs do lote
+## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Criar uma piscina ativada por escala automática com SDKs de Lote
 
-O dimensionamento automático do pool pode ser configurado usando qualquer um dos [SDKs](batch-apis-tools.md#azure-accounts-for-batch-development)do lote, os [cmdlets do PowerShell do lote](batch-powershell-cmdlets-get-started.md)da [API REST do lote](https://docs.microsoft.com/rest/api/batchservice/) e a CLI do [lote](batch-cli-get-started.md). Nesta seção, você pode ver exemplos para .NET e Python.
+A autodimensionamento da piscina pode ser configurada utilizando qualquer um dos [SDKs](batch-apis-tools.md#azure-accounts-for-batch-development)de Lote, os [cmdlets](batch-powershell-cmdlets-get-started.md)de PowerShell do [lote REST API](https://docs.microsoft.com/rest/api/batchservice/) e o [Lote CLI](batch-cli-get-started.md). Nesta secção, pode ver exemplos tanto para .NET como Python.
 
 ### <a name="net"></a>.NET
 
-Para criar um pool com o dimensionamento automático habilitado no .NET, siga estas etapas:
+Para criar uma piscina com autoscalcificação ativada em .NET, siga estes passos:
 
-1. Crie o pool com [BatchClient. PoolOperations. createpool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-1. Defina a propriedade [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) como `true`.
-1. Defina a propriedade [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) com sua fórmula de autoescala.
-1. Adicional Defina a propriedade [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (o padrão é 15 minutos).
-1. Confirme o pool com [CloudPool. Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Crie a piscina com [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
+1. Defina a propriedade [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) para `true`.
+1. Defina a propriedade [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) com a sua fórmula de escala automática.
+1. (Opcional) Defina a propriedade [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (predefinição é de 15 minutos).
+1. Comprometa a piscina com [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-O trecho de código a seguir cria um pool habilitado para autoescala no .NET. A fórmula de dimensionamento automático do pool define o número de nós dedicados de destino como 5 nas segundas-feiras e 1 em todos os outros dias da semana. O [intervalo de dimensionamento automático](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros C# trechos de código neste artigo, `myBatchClient` é uma instância corretamente inicializada da classe [BatchClient][net_batchclient] .
+O seguinte código snippet cria uma piscina ativada por escala automática em .NET. A fórmula de escala automática da piscina define o número de nós dedicados a 5 às segundas-feiras, e 1 em todos os dias da semana. O intervalo de [escala automática](#automatic-scaling-interval) está definido para 30 minutos. Neste e nos C# outros cortes neste artigo, `myBatchClient` é uma instância devidamente inicializada da classe [BatchClient.][net_batchclient]
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -408,31 +408,31 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Quando você cria um pool habilitado para autoescala, não especifique o parâmetro _targetDedicatedNodes_ ou o parâmetro _targetLowPriorityNodes_ na chamada para **createpool**. Em vez disso, especifique as propriedades **AutoScaleEnabled** e **AutoScaleFormula** no pool. Os valores para essas propriedades determinam o número de destino de cada tipo de nó. Além disso, para redimensionar manualmente um pool habilitado para autoescala (por exemplo, com [BatchClient. PoolOperations. ResizePoolAsync][net_poolops_resizepoolasync]), primeiro **desabilite** o dimensionamento automático no pool e, em seguida, redimensione-o.
+> Quando criar uma piscina ativada por escala automática, não especifique o parâmetro _targetDedicatedNodes_ ou o parâmetro _targetLowPriorityNodes_ na chamada para **CreatePool**. Em vez disso, especifique as propriedades **AutoScaleEnabled** e **AutoScaleFormula** na piscina. Os valores destas propriedades determinam o número-alvo de cada tipo de nó. Além disso, para redimensionar manualmente uma piscina ativada por escala automática (por exemplo, com [BatchClient.PoolOperations.ResizePoolAsync),][net_poolops_resizepoolasync]primeiro **desative** a escala automática na piscina e, em seguida, redimensione-a.
 >
 >
 
-#### <a name="automatic-scaling-interval"></a>Intervalo de dimensionamento automático
+#### <a name="automatic-scaling-interval"></a>Intervalo automático de escalação
 
-Por padrão, o serviço de lote ajusta o tamanho de um pool de acordo com sua fórmula de dimensionamento automático a cada 15 minutos. Esse intervalo é configurável usando as seguintes propriedades de pool:
+Por padrão, o serviço Batch ajusta o tamanho de uma piscina de acordo com a sua fórmula de escala automática a cada 15 minutos. Este intervalo é configurável utilizando as seguintes propriedades da piscina:
 
-* [CloudPool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (.net do lote)
-* [autoScaleEvaluationInterval][rest_autoscaleinterval] (API REST)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Lote .NET)
+* [autoScaleEvaluationInterval][rest_autoscaleinterval] (REST API)
 
-O intervalo mínimo é de cinco minutos e o máximo é de 168 horas. Se um intervalo fora desse intervalo for especificado, o serviço de lote retornará um erro de solicitação inadequada (400).
+O intervalo mínimo é de cinco minutos, e o máximo é de 168 horas. Se for especificado um intervalo for for além desta gama, o serviço 'Batch' devolve um erro de Pedido Mau (400).
 
 > [!NOTE]
-> O dimensionamento automático não se destina atualmente a responder a alterações em menos de um minuto, mas sim para ajustar o tamanho do pool gradualmente à medida que você executa uma carga de trabalho.
+> A autoscalcificação não se destina a responder a alterações em menos de um minuto, mas destina-se a ajustar gradualmente o tamanho da sua piscina à medida que executa uma carga de trabalho.
 >
 >
 
 ### <a name="python"></a>Python
 
-Da mesma forma, você pode criar um pool habilitado para autoescala com o SDK do Python:
+Da mesma forma, você pode fazer uma piscina ativada por escala automática com o Python SDK por:
 
-1. Crie um pool e especifique sua configuração.
-1. Adicione o pool ao cliente de serviço.
-1. Habilite o dimensionamento automático no pool com uma fórmula que você escreve.
+1. Crie uma piscina e especifique a sua configuração.
+1. Adicione a piscina ao cliente de serviço.
+1. Ative a escala automática na piscina com uma fórmula que escreve.
 
 ```python
 # Create a pool; specify configuration
@@ -466,31 +466,31 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 ```
 
 > [!TIP]
-> Mais exemplos de como usar o SDK do Python podem ser encontrados no [repositório do início rápido do Python do lote](https://github.com/Azure-Samples/batch-python-quickstart) no github.
+> Mais exemplos de utilização do SDK Python podem ser encontrados no [repositório Batch Python Quickstart](https://github.com/Azure-Samples/batch-python-quickstart) no GitHub.
 >
 >
 
-## <a name="enable-autoscaling-on-an-existing-pool"></a>Habilitar o dimensionamento automático em um pool existente
+## <a name="enable-autoscaling-on-an-existing-pool"></a>Ativar a autodimensionamento numa piscina existente
 
-Cada SDK do lote fornece uma maneira de habilitar o dimensionamento automático. Por exemplo:
+Cada Lote SDK fornece uma forma de permitir a autodimensionamento. Por exemplo:
 
-* [BatchClient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (.net do lote)
-* [Habilitar o dimensionamento automático em um pool][rest_enableautoscale] (API REST)
+* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Lote .NET)
+* [Ativar a escala automática numa piscina][rest_enableautoscale] (REST API)
 
-Ao habilitar o dimensionamento automático em um pool existente, tenha em mente os seguintes pontos:
+Quando ativa a autodimensionamento numa piscina existente, tenha em mente os seguintes pontos:
 
-* Se o dimensionamento automático estiver desabilitado no pool no momento, quando você emitir a solicitação para habilitar a autoescala, deverá especificar uma fórmula de dimensionamento automático válida ao emitir a solicitação. Opcionalmente, você pode especificar um intervalo de avaliação de dimensionamento automático. Se você não especificar um intervalo, o valor padrão de 15 minutos será usado.
-* Se o dimensionamento automático estiver habilitado no pool no momento, você poderá especificar uma fórmula de dimensionamento automático, um intervalo de avaliação ou ambos. Você deve especificar pelo menos uma dessas propriedades.
+* Se o escalonamento automático estiver atualmente desativado na piscina quando emitir o pedido para ativar a autoescalação, deve especificar uma fórmula de escala automática válida quando emitir o pedido. Pode especificar opcionalmente um intervalo de avaliação à escala automática. Se não especificar um intervalo, o valor padrão de 15 minutos é utilizado.
+* Se a escala automática estiver ativada na piscina, pode especificar uma fórmula de escala automática, um intervalo de avaliação ou ambos. Deve especificar pelo menos uma destas propriedades.
 
-  * Se você especificar um novo intervalo de avaliação de dimensionamento automático, o agendamento de avaliação existente será interrompido e uma nova agenda será iniciada. A hora de início da nova agenda é a hora em que a solicitação para habilitar o dimensionamento automático foi emitida.
-  * Se você omitir a fórmula de dimensionamento automático ou o intervalo de avaliação, o serviço de lote continuará a usar o valor atual dessa configuração.
+  * Se especificar um novo intervalo de avaliação à escala automática, então o calendário de avaliação existente é interrompido e um novo horário é iniciado. A hora de início do novo horário é o momento em que foi emitido o pedido para permitir a autoscalcificação.
+  * Se omitir a fórmula de escala automática ou o intervalo de avaliação, o serviço Batch continua a utilizar o valor atual dessa definição.
 
 > [!NOTE]
-> Se você especificou valores para os parâmetros *targetDedicatedNodes* ou *targetLowPriorityNodes* do método **createpool** quando criou o pool no .net ou para os parâmetros comparáveis em outra linguagem, esses valores serão ignorados quando a fórmula de dimensionamento automático for avaliada.
+> Se especificou valores para os *parâmetros targetDedicatedNodes* ou *targetLowPriorityNodes* do método **CreatePool** quando criou o pool em .NET, ou para os parâmetros comparáveis noutra língua, então esses valores são ignorados quando a fórmula de escala automática é avaliada.
 >
 >
 
-Este C# trecho de código usa a biblioteca [.net do lote][net_api] para habilitar o dimensionamento automático em um pool existente:
+Este C# fragmento de código utiliza a biblioteca [Batch .NET][net_api] para permitir a autodimensionamento numa piscina existente:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -503,9 +503,9 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
     autoscaleFormula: myAutoScaleFormula);
 ```
 
-### <a name="update-an-autoscale-formula"></a>Atualizar uma fórmula de dimensionamento automático
+### <a name="update-an-autoscale-formula"></a>Atualizar uma fórmula de escala automática
 
-Para atualizar a fórmula em um pool habilitado para autoescala existente, chame a operação para habilitar o dimensionamento automático novamente com a nova fórmula. Por exemplo, se o dimensionamento automático já estiver habilitado no `myexistingpool` quando o seguinte código .NET for executado, sua fórmula de autoescala será substituída pelo conteúdo de `myNewFormula`.
+Para atualizar a fórmula numa piscina ativada por escala automática existente, ligue para a operação para permitir a autodimensionamento novamente com a nova fórmula. Por exemplo, se a autodimensionamento já estiver ativada em `myexistingpool` quando for executado o seguinte código .NET, a sua fórmula de escala automática é substituída pelo conteúdo de `myNewFormula`.
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -513,9 +513,9 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
     autoscaleFormula: myNewFormula);
 ```
 
-### <a name="update-the-autoscale-interval"></a>Atualizar o intervalo de dimensionamento automático
+### <a name="update-the-autoscale-interval"></a>Atualizar o intervalo de escala automática
 
-Para atualizar o intervalo de avaliação de autoescala de um pool habilitado para dimensionamento automático existente, chame a operação para habilitar o dimensionamento automático novamente com o novo intervalo. Por exemplo, para definir o intervalo de avaliação de dimensionamento automático para 60 minutos para um pool que já está habilitado para autoescala no .NET:
+Para atualizar o intervalo de avaliação de escala automática de uma piscina ativada por escala automática existente, ligue para a operação para permitir a autodimensionamento novamente com o novo intervalo. Por exemplo, para definir o intervalo de avaliação de escala automática para 60 minutos para uma piscina que já está ativada automaticamente em .NET:
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -523,21 +523,21 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
     autoscaleEvaluationInterval: TimeSpan.FromMinutes(60));
 ```
 
-## <a name="evaluate-an-autoscale-formula"></a>Avaliar uma fórmula de dimensionamento automático
+## <a name="evaluate-an-autoscale-formula"></a>Avaliar uma fórmula de escala automática
 
-Você pode avaliar uma fórmula antes de aplicá-la a um pool. Dessa forma, você pode testar a fórmula para ver como suas instruções são avaliadas antes de colocar a fórmula em produção.
+Você pode avaliar uma fórmula antes de aplicá-la a uma piscina. Desta forma, pode testar a fórmula para ver como as suas declarações avaliam antes de colocar a fórmula em produção.
 
-Para avaliar uma fórmula de autoescala, você deve primeiro habilitar o dimensionamento automático no pool com uma fórmula válida. Para testar uma fórmula em um pool que ainda não tem o dimensionamento automático habilitado, use a fórmula de uma linha `$TargetDedicatedNodes = 0` quando você habilitar o dimensionamento automático pela primeira vez. Em seguida, use um dos seguintes para avaliar a fórmula que você deseja testar:
+Para avaliar uma fórmula de escala automática, primeiro deve ativar a autoscalcificação na piscina com uma fórmula válida. Para testar uma fórmula numa piscina que ainda não tenha autoscalcificação ativada, utilize a fórmula de uma linha `$TargetDedicatedNodes = 0` quando ativar automaticamente. Em seguida, use um dos seguintes para avaliar a fórmula que pretende testar:
 
-* [BatchClient. PoolOperations. EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) ou [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+* [BatchClient.PoolOperations.AssessAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) ou [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
-    Esses métodos .NET do lote exigem a ID de um pool existente e uma cadeia de caracteres que contém a fórmula de dimensionamento automático a ser avaliada.
+    Estes métodos de lote .NET requerem a identificação de uma piscina existente e uma cadeia contendo a fórmula de escala automática para avaliar.
 
-* [Avaliar uma fórmula de dimensionamento automático](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+* [Avaliar uma fórmula de escala automática](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
-    Nesta solicitação da API REST, especifique a ID do pool no URI e a fórmula de dimensionamento automático no elemento *autoScaleFormula* do corpo da solicitação. A resposta da operação contém qualquer informação de erro que possa estar relacionada à fórmula.
+    Neste pedido REST API, especifique o ID do pool no URI e a fórmula de escala automática no elemento *autoScaleFormula* do organismo de pedido. A resposta da operação contém qualquer informação de erro que possa estar relacionada com a fórmula.
 
-Neste trecho de código [.net do lote][net_api] , avaliamos uma fórmula de dimensionamento automático. Se o pool não tiver o dimensionamento automático habilitado, habilite-o primeiro.
+Neste [código Batch .NET,][net_api] avaliamos uma fórmula de escala automática. Se a piscina não tiver autoscalcificação ativada, nós a ativamos primeiro.
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -603,7 +603,7 @@ if (pool.AutoScaleEnabled == true)
 }
 ```
 
-A avaliação bem-sucedida da fórmula mostrada neste trecho de código produz resultados semelhantes a:
+A avaliação bem sucedida da fórmula mostrada neste código produz resultados semelhantes a:
 
 ```
 AutoScaleRun.Results:
@@ -615,19 +615,19 @@ AutoScaleRun.Results:
     $workHours=0
 ```
 
-## <a name="get-information-about-autoscale-runs"></a>Obter informações sobre as execuções de autoescala
+## <a name="get-information-about-autoscale-runs"></a>Obtenha informações sobre corridas de escala automática
 
-Para garantir que sua fórmula esteja sendo executada conforme o esperado, recomendamos que você verifique periodicamente os resultados das execuções de dimensionamento automático que o lote executa em seu pool. Para fazer isso, obtenha (ou atualize) uma referência ao pool e examine as propriedades de sua última execução de autoescala.
+Para garantir que a sua fórmula está a funcionar como esperado, recomendamos que verifique periodicamente os resultados das correções de autoscalcificação que o Batch executa na sua piscina. Para tal, obtenha (ou refresque) uma referência à piscina, e examine as propriedades da sua última corrida à escala automática.
 
-No .NET do lote, a propriedade [CloudPool. AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) tem várias propriedades que fornecem informações sobre a execução de dimensionamento automático mais recente executada no pool:
+Em Batch .NET, a propriedade [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) tem várias propriedades que fornecem informações sobre a mais recente corrida automática de escala realizada na piscina:
 
 * [AutoScaleRun.Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-* [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-* [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+* [AutoscaleRun.Resultados](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+* [AutoscaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-Na API REST, a solicitação [obter informações sobre um pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) retorna informações sobre o pool, que inclui as informações mais recentes de execução de dimensionamento automático na propriedade [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) .
+Na Rest API, o [Obter informações sobre um](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) pedido de piscina devolve informações sobre a piscina, que inclui as mais recentes informações de execução automática de escala na propriedade [autoScaleRun.](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool)
 
-O trecho C# de código a seguir usa a biblioteca .net do lote para imprimir informações sobre a última execução de autoescala no pool _mypool_:
+O C# seguinte código de snippet utiliza a biblioteca Batch .NET para imprimir informações sobre a última execução autoscalcificada na piscina _myPool:_
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
@@ -636,7 +636,7 @@ Console.WriteLine("Result:" + pool.AutoScaleRun.Results.Replace("$", "\n  $"));
 Console.WriteLine("Error: " + pool.AutoScaleRun.Error);
 ```
 
-Exemplo de saída do trecho anterior:
+Saída da amostra do corte anterior:
 
 ```
 Last execution: 10/14/2016 18:36:43
@@ -650,15 +650,15 @@ Result:
 Error:
 ```
 
-## <a name="example-autoscale-formulas"></a>Exemplo de fórmulas de autoescala
+## <a name="example-autoscale-formulas"></a>Fórmulas de escala automática exemplo
 
-Vamos examinar algumas fórmulas que mostram diferentes maneiras de ajustar a quantidade de recursos de computação em um pool.
+Vejamos algumas fórmulas que mostram diferentes formas de ajustar a quantidade de recursos computacionais numa piscina.
 
-### <a name="example-1-time-based-adjustment"></a>Exemplo 1: ajuste baseado em tempo
+### <a name="example-1-time-based-adjustment"></a>Exemplo 1: Ajuste baseado no tempo
 
-Suponha que você deseja ajustar o tamanho do pool com base no dia da semana e na hora do dia. Este exemplo mostra como aumentar ou diminuir o número de nós no pool de acordo.
+Suponha que queira ajustar o tamanho da piscina com base no dia da semana e hora do dia. Este exemplo mostra como aumentar ou diminuir o número de nós na piscina em conformidade.
 
-A fórmula primeiro obtém a hora atual. Se for um dia da semana (1-5) e no horário de trabalho (8:00 às 18:00), o tamanho do pool de destino será definido como 20 nós. Caso contrário, ele será definido como 10 nós.
+A fórmula obtém primeiro o tempo atual. Se for um dia de semana (1-5) e dentro do horário de trabalho (8:00 às 18:00), o tamanho da piscina alvo está definido para 20 nós. Caso contrário, está marcado para 10 nós.
 
 ```
 $curTime = time();
@@ -669,16 +669,16 @@ $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>Exemplo 2: ajuste baseado em tarefa
+### <a name="example-2-task-based-adjustment"></a>Exemplo 2: Ajustamento baseado em tarefas
 
-Neste exemplo, o tamanho do pool é ajustado com base no número de tarefas na fila. Os comentários e as quebras de linha são aceitáveis nas cadeias de caracteres de fórmula.
+Neste exemplo, o tamanho da piscina é ajustado com base no número de tarefas na fila. Tanto os comentários como as quebras de linha são aceitáveis nas cordas de fórmula.
 
 ```csharp
 // Get pending tasks for the past 15 minutes.
-$samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+$samples = $PendingTasks.GetSamplePercent(TimeInterval_Minute * 15);
 // If we have fewer than 70 percent data points, we use the last sample point,
 // otherwise we use the maximum of last sample point and the history average.
-$tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+$tasks = $samples < 70 ? max(0,$PendingTasks.GetSample(1)) : max( $PendingTasks.GetSample(1), avg($PendingTasks.GetSample(TimeInterval_Minute * 15)));
 // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise
 // half of current dedicated.
 $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
@@ -689,9 +689,9 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>Exemplo 3: contabilidade para tarefas paralelas
+### <a name="example-3-accounting-for-parallel-tasks"></a>Exemplo 3: Contabilização de tarefas paralelas
 
-Este exemplo ajusta o tamanho do pool com base no número de tarefas. Essa fórmula também leva em conta o valor de [MaxTasksPerComputeNode][net_maxtasks] que foi definido para o pool. Essa abordagem é útil em situações em que a [execução de tarefa paralela](batch-parallel-node-tasks.md) foi habilitada em seu pool.
+Este exemplo ajusta o tamanho da piscina com base no número de tarefas. Esta fórmula também tem em conta o valor [MaxTasksPerComputeNode][net_maxtasks] que foi definido para a piscina. Esta abordagem é útil em situações em que a execução paralela de [tarefas](batch-parallel-node-tasks.md) foi ativada na sua piscina.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -711,17 +711,17 @@ $TargetDedicatedNodes = max(0,min($targetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-4-setting-an-initial-pool-size"></a>Exemplo 4: definindo um tamanho de pool inicial
+### <a name="example-4-setting-an-initial-pool-size"></a>Exemplo 4: Definir um tamanho inicial da piscina
 
-Este exemplo mostra um C# trecho de código com uma fórmula de dimensionamento automático que define o tamanho do pool para um número especificado de nós por um período de tempo inicial. Em seguida, ele ajusta o tamanho do pool com base no número de tarefas em execução e ativas após o período de tempo inicial ter decorrido.
+Este exemplo C# mostra um corte de código com uma fórmula de escala automática que define o tamanho da piscina para um número especificado de nós durante um período de tempo inicial. Em seguida, ajusta o tamanho da piscina com base no número de tarefas de execução e ativas após o período de tempo inicial ter decorrido.
 
-A fórmula no trecho de código a seguir:
+A fórmula no seguinte código:
 
-* Define o tamanho inicial do pool para quatro nós.
-* Não ajusta o tamanho do pool nos primeiros 10 minutos do ciclo de vida do pool.
-* Após 10 minutos, obtém o valor máximo do número de tarefas em execução e ativas nos últimos 60 minutos.
-  * Se ambos os valores forem 0 (indicando que nenhuma tarefa estava em execução ou ativo nos últimos 60 minutos), o tamanho do pool será definido como 0.
-  * Se um valor for maior que zero, nenhuma alteração será feita.
+* Define o tamanho inicial da piscina para quatro nódosos.
+* Não ajusta o tamanho da piscina nos primeiros 10 minutos do ciclo de vida da piscina.
+* Após 10 minutos, obtém o valor máximo do número de tarefas de execução e ativas nos últimos 60 minutos.
+  * Se ambos os valores forem 0 (indicando que nenhuma tarefa estava a funcionar ou ativa nos últimos 60 minutos), o tamanho da piscina está definido para 0.
+  * Se qualquer um dos valores for superior a zero, não se faz qualquer alteração.
 
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
@@ -738,8 +738,8 @@ string formula = string.Format(@"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Maximizar o uso de recursos de computação do lote do Azure com tarefas de nó simultâneas](batch-parallel-node-tasks.md) contém detalhes sobre como você pode executar várias tarefas simultaneamente nos nós de computação em seu pool. Além do dimensionamento automático, esse recurso pode ajudar a reduzir a duração do trabalho para algumas cargas de trabalhos, economizando dinheiro.
-* Para outro auxiliar de eficiência, verifique se o aplicativo do lote consulta o serviço de lote da maneira mais ideal. Consulte [consultar o serviço do lote do Azure com eficiência](batch-efficient-list-queries.md) para saber como limitar a quantidade de dados que cruzam a conexão quando você consulta o status de potencialmente milhares de nós ou tarefas de computação.
+* O uso de [recursos computacionais do Maximize Azure Batch com tarefas de nó simultânea](batch-parallel-node-tasks.md) contém detalhes sobre como pode executar várias tarefas simultaneamente nos nós de computação na sua piscina. Além da autoscalcificação, esta funcionalidade pode ajudar a reduzir a duração do trabalho para algumas cargas de trabalho, poupando-lhe dinheiro.
+* Para outro reforço de eficiência, certifique-se de que a aplicação Batch consulta o serviço Batch da forma mais ideal. Consulte [o serviço Azure Batch de forma eficiente](batch-efficient-list-queries.md) para aprender a limitar a quantidade de dados que cruzam o fio quando se consulta o estado de milhares de potenciais nódos os nossos comíveis ou tarefas.
 
 [net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient

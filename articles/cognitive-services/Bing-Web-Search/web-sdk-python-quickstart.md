@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/11/2019
 ms.author: aahi
-ms.openlocfilehash: 64ef052478bed627c896cd0e0b5301961a8b6f21
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: a1407a35fbf645ad839fbf2fee046774fc303cb6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562872"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201208"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Python
 
@@ -86,11 +86,11 @@ Se a resposta contiver páginas Web, imagens, notícias ou vídeos, será impres
 
 1. Crie um novo projeto do Python através do seu editor ou IDE favorito.
 
-1. Copie este código de exemplo em seu projeto. `endpoint` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.:  
+1. Copie este código de amostra no seu projeto. `endpoint` pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.:  
 
     ```python
     # Import required modules.
-    from azure.cognitiveservices.search.websearch import WebSearchAPI
+    from azure.cognitiveservices.search.websearch import WebSearchClient
     from azure.cognitiveservices.search.websearch.models import SafeSearch
     from msrest.authentication import CognitiveServicesCredentials
 
@@ -98,7 +98,7 @@ Se a resposta contiver páginas Web, imagens, notícias ou vídeos, será impres
     subscription_key = "YOUR_SUBSCRIPTION_KEY"
 
     # Instantiate the client and replace with your endpoint.
-    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key), base_url = "YOUR_ENDPOINT")
+    client = WebSearchClient(endpoint="YOUR_ENDPOINT", CognitiveServicesCredentials(subscription_key))
 
     # Make a request. Replace Yosemite if you'd like.
     web_data = client.web.search(query="Yosemite")
@@ -170,13 +170,13 @@ Se a resposta contiver páginas Web, imagens, notícias ou vídeos, será impres
 
 1. Substitua `SUBSCRIPTION_KEY` por uma chave de subscrição válida.
 
-1. Substitua `YOUR_ENDPOINT` pela URL do ponto de extremidade no Portal.
+1. Substitua `YOUR_ENDPOINT` com o seu url de ponto final no portal.
 
 1. Execute o programa. Por exemplo: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Definir funções e filtrar resultados
 
-Agora que você fez sua primeira chamada para a API de Pesquisa na Web do Bing, vamos dar uma olhada em algumas funções. As seções a seguir destacam a funcionalidade do SDK para refinar consultas e filtrar os resultados. Cada função pode ser adicionada ao programa Python criado na seção anterior.
+Agora que fez a sua primeira chamada para a API de pesquisa web bing, vamos ver algumas funções. As seguintes secções destacam a funcionalidade SDK para refinar consultas e filtrar resultados. Cada função pode ser adicionada ao programa Python que criou na secção anterior.
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Limitar o número de resultados devolvidos pelo Bing
 
@@ -321,6 +321,6 @@ Quando tiver terminado este projeto, certifique-se de que remove a sua chave de 
 > [!div class="nextstepaction"]
 > [Exemplos de SDK do Python nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Referência do SDK Python do Azure](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)

@@ -1,6 +1,6 @@
 ---
-title: Migrar políticas de acesso condicional-Azure Active Directory
-description: Saiba o que você precisa saber para migrar políticas clássicas no portal do Azure.
+title: Políticas de acesso condicional migrador - Diretório Ativo Azure
+description: Saiba o que precisa de saber para migrar políticas clássicas no portal Azure.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,112 +11,112 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16c6ce46af8fb9a9ab4be5fcc63ccd4909374e4f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846181"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185915"
 ---
-# <a name="conditional-access-classic-policy-migration"></a>Migração de política clássica de acesso condicional
+# <a name="conditional-access-classic-policy-migration"></a>Acesso Condicional migração política clássica
 
-O acesso condicional é a ferramenta usada por Azure Active Directory para reunir sinais, tomar decisões e impor políticas organizacionais. O acesso condicional é o coração do novo plano de controle controlado por identidade. Embora a finalidade ainda seja a mesma, o lançamento do novo portal do Azure introduziu melhorias significativas no funcionamento do acesso condicional.
+O Acesso Condicional é a ferramenta utilizada pelo Azure Ative Directory para reunir sinais, tomar decisões e impor políticas organizacionais. O Acesso Condicional está no centro do novo plano de controlo orientado por identidade. Embora o objetivo continue a ser o mesmo, o lançamento do novo portal Azure introduziu melhorias significativas no funcionamento do Acesso Condicional.
 
-Considere migrar as políticas que você não criou no portal do Azure porque:
+Considere migrar as políticas que não criou no portal Azure porque:
 
-- Agora você pode abordar os cenários que não podia manipular antes.
-- Você pode reduzir o número de políticas a serem gerenciadas, consolidando-as.
-- Você pode gerenciar todas as políticas de acesso condicional em um local central.
-- O portal clássico do Azure será desativado.
+- Agora pode abordar cenários que não conseguiu resolver antes.
+- Pode reduzir o número de políticas que tem de gerir consolidando-as.
+- Você pode gerir todas as suas políticas de Acesso Condicional em um local central.
+- O portal clássico azure será retirado.
 
-Este artigo explica o que você precisa saber para migrar suas políticas de acesso condicional existentes para a nova estrutura.
+Este artigo explica o que precisa de saber para migrar as suas políticas de Acesso Condicional existentes para o novo quadro.
 
 ## <a name="classic-policies"></a>Políticas clássicas
 
-No [portal do Azure](https://portal.azure.com), as políticas de acesso condicional podem ser encontradas em Azure Active Directory **segurança** >  > **acesso condicional**. Sua organização também pode ter políticas de acesso condicional mais antigas não criadas usando esta página. Essas políticas são conhecidas como *políticas clássicas*. As políticas clássicas são políticas de acesso condicional, que você criou em:
+No [portal Azure,](https://portal.azure.com)as políticas de Acesso Condicional podem ser encontradas no **diretório Ativo do Azure** > **Segurança** > **Acesso Condicional.** A sua organização também pode ter políticas de Acesso Condicional mais antigas não criadas usando esta página. Estas políticas são conhecidas como *políticas clássicas.* As políticas clássicas são políticas de Acesso Condicional, criadas em:
 
-- O portal clássico do Azure
-- O portal clássico do Intune
-- O portal de Proteção de Aplicativo do Intune
+- O portal clássico azure
+- O portal clássico intune
+- O portal de proteção de aplicações intune
 
-Na página **acesso condicional** , você pode acessar suas políticas clássicas clicando em [**políticas clássicas**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) na seção **gerenciar** . 
+Na página de **Acesso Condicional,** pode aceder às suas políticas clássicas clicando em [**políticas clássicas**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) na secção **Gerir.** 
 
-![Acesso condicional no Azure AD mostrando a exibição de políticas clássicas](./media/policy-migration/71.png)
+![Acesso Condicional em Anúncio de Azure mostrando vista de políticas clássicas](./media/policy-migration/71.png)
 
-O modo de exibição **políticas clássicas** fornece uma opção para:
+A visão de **políticas clássicas** proporciona-lhe uma opção para:
 
-- Filtre suas políticas clássicas.
-- Desabilitar políticas clássicas.
-- Examine as configurações de uma política clássica e desabilite-a.
+- Filtre as suas políticas clássicas.
+- Desativar as políticas clássicas.
+- Reveja as definições de uma política clássica e desative-a.
 
-   ![Detalhes da política clássica, incluindo configuração de política existente](./media/policy-migration/74.png)
+   ![Detalhes de política clássicos, incluindo a configuração de políticas existentes](./media/policy-migration/74.png)
 
 > [!WARNING]
-> Depois de desabilitada, uma política clássica não pode ser reabilitada.
+> Uma vez desativada, uma política clássica não pode ser reativada.
 
-A exibição de detalhes de uma política clássica permite que você documente as configurações, modifique os grupos incluídos ou excluídos e desabilite a política.
+A visão de detalhes de uma política clássica permite-lhe documentar as definições, modificar os grupos incluídos ou excluídos e desativar a política.
 
-![Detalhes da política-grupos a serem incluídos ou excluídos](./media/policy-migration/75.png)
+![Detalhes da política - Grupos para incluir ou excluir](./media/policy-migration/75.png)
 
-Ao alterar os grupos selecionados ou excluindo grupos específicos, você pode testar o efeito de uma política clássica desabilitada para alguns usuários de teste antes de desabilitar a política para todos os usuários e grupos incluídos.
+Alterando os grupos selecionados ou excluindo grupos específicos, pode testar o efeito de uma política clássica desativada para alguns utilizadores de testes antes de desativar a política para todos os utilizadores e grupos incluídos.
  
 ## <a name="migration-considerations"></a>Considerações sobre a migração
 
-Neste artigo, as políticas de acesso condicional do Azure AD também são conhecidas como *novas políticas*.
-Suas políticas clássicas continuam a funcionar lado a lado com suas novas políticas até você desabilitá-las ou excluí-las. 
+Neste artigo, as políticas de Acesso Condicional da Azure AD são também referidas como *novas políticas.*
+As suas políticas clássicas continuam a funcionar lado a lado com as suas novas políticas até as desativar ou eliminar. 
 
-Os seguintes aspectos são importantes no contexto de uma consolidação de política:
+Os seguintes aspetos são importantes no contexto de uma consolidação política:
 
-- Embora as políticas clássicas estejam vinculadas a um aplicativo de nuvem específico, você pode selecionar quantos aplicativos de nuvem forem necessários para uma nova política.
-- Os controles de uma política clássica e uma nova política para um aplicativo de nuvem exigem que todos os controles (*e*) sejam atendidos. 
-- Em uma nova política, você pode:
-   - Combine várias condições, se exigido pelo seu cenário. 
-   - Selecionar vários requisitos de concessão como controle de acesso e combiná-los com um *or* lógico (exigir um dos controles selecionados) ou com um *and* lógico (exigir todos os controles selecionados).
+- Enquanto as políticas clássicas estão ligadas a uma aplicação específica na nuvem, pode selecionar o número de aplicações em nuvem que precisar numa nova política.
+- Os controlos de uma política clássica e de uma nova política para uma aplicação na nuvem exigem que todos os controlos *(E*) sejam cumpridos. 
+- Numa nova política, pode:
+   - Combine várias condições se necessário pelo seu cenário. 
+   - Selecione vários requisitos de concessão como controlo de acesso e combine-os com um *OR* lógico (requeiram um dos comandos selecionados) ou com um *e lógico E* (exija todos os controlos selecionados).
 
-### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
+### <a name="office-365-exchange-online"></a>Escritório 365 Trocar online
 
-Se você quiser migrar políticas clássicas para o **Office 365 Exchange Online** que inclua **Exchange Active Sync** como condição de aplicativos cliente, talvez não seja possível consolidá-las em uma nova política. 
+Se quiser migrar políticas clássicas para o **Office 365 Exchange online** que incluam o Exchange Ative **Sync** como condição de aplicações de clientes, poderá não conseguir consolidá-las numa nova política. 
 
-Isso é, por exemplo, o caso se você quiser dar suporte a todos os tipos de aplicativo cliente. Em uma nova política que tem **Exchange Active Sync** como condição de aplicativos cliente, você não pode selecionar outros aplicativos cliente.
+Este é, por exemplo, o caso se quiser suportar todos os tipos de aplicações do cliente. Numa nova política que tem **o Exchange Ative Sync** como condição de aplicações de clientes, não pode selecionar outras aplicações de clientes.
 
-![Acesso condicional selecionando aplicativos cliente](./media/policy-migration/64.png)
+![Acesso Condicional selecionando aplicações de clientes](./media/policy-migration/64.png)
 
-Uma consolidação em uma nova política também não será possível se suas políticas clássicas contiverem várias condições. Uma nova política que tem **Exchange Active Sync** como condição de aplicativos cliente configurada não oferece suporte a outras condições:   
+Uma consolidação numa nova política também não é possível se as suas políticas clássicas contiverem várias condições. Uma nova política que tem **o Exchange Ative Sync** como condição de aplicações de cliente configurada não suporta outras condições:   
 
-![O Exchange ActiveSync não oferece suporte às condições selecionadas](./media/policy-migration/08.png)
+![Exchange ActiveSync não suporta as condições selecionadas](./media/policy-migration/08.png)
 
-Se você tiver uma nova política que tenha **Exchange Active Sync** como condição de aplicativos cliente configurada, você precisará certificar-se de que todas as outras condições não estão configuradas. 
+Se tiver uma nova política que tenha **o Exchange Ative Sync** como condição de aplicações de cliente configurada, tem de se certificar de que todas as outras condições não estão configuradas. 
 
-![Condições de acesso condicional](./media/policy-migration/16.png)
+![Condições de Acesso Condicional](./media/policy-migration/16.png)
  
-As políticas clássicas [baseadas em aplicativo](technical-reference.md#approved-client-app-requirement) para o Office 365 Exchange Online que incluem o **Exchange Active Sync** como condição de aplicativos cliente permitem [plataformas de dispositivo](technical-reference.md#device-platform-condition) **com** e sem **suporte** . Embora não seja possível configurar plataformas de dispositivo individuais em uma nova política relacionada, você pode limitar o suporte apenas a [plataformas de dispositivo com suporte](technical-reference.md#device-platform-condition) . 
+Políticas clássicas baseadas em aplicativos para o Office 365 Exchange Online que incluem **O Exchange Ative Sync** como condição de aplicações de cliente permitem plataformas de dispositivos **suportadas** e **não suportadas.** Embora não possa configurar plataformas individuais de dispositivos numa nova política relacionada, pode limitar o suporte apenas a [plataformas de dispositivos suportadas.](concept-conditional-access-conditions.md#device-platforms) 
 
-![Acesso condicional selecione Exchange ActiveSync](./media/policy-migration/65.png)
+![Acesso Condicional selecione Exchange ActiveSync](./media/policy-migration/65.png)
 
-Você pode consolidar várias políticas clássicas que incluem **Exchange Active Sync** como condição de aplicativos cliente se eles tiverem:
+Pode consolidar múltiplas políticas clássicas que incluem **o Exchange Ative Sync** como condição de aplicações de cliente se tiverem:
 
-- Somente **Exchange Active Sync** como condição 
-- Vários requisitos para conceder acesso configurado
+- Apenas **trocar sincronização ativa** como condição 
+- Vários requisitos para a concessão de acesso configurado
 
 Um cenário comum é a consolidação de:
 
-- Uma política clássica baseada em dispositivo do portal clássico do Azure 
-- Uma política clássica baseada em aplicativo no portal de proteção de aplicativo do Intune 
+- Uma política clássica baseada em dispositivos do portal clássico Azure 
+- Uma política clássica baseada em aplicativos no portal de proteção de aplicações Intune 
  
-Nesse caso, você pode consolidar suas políticas clássicas em uma nova política que tem os dois requisitos selecionados.
+Neste caso, pode consolidar as suas políticas clássicas numa nova política que tenha ambos os requisitos selecionados.
 
-![Controles de concessão de acesso condicional](./media/policy-migration/62.png)
+![Controlos de subvenção de acesso condicional](./media/policy-migration/62.png)
 
-### <a name="device-platforms"></a>Plataformas de dispositivo
+### <a name="device-platforms"></a>Plataformas de dispositivos
 
-As políticas clássicas com [controles baseados em aplicativo](technical-reference.md#approved-client-app-requirement) são pré-configuradas com Ios e Android como a [condição de plataforma do dispositivo](technical-reference.md#device-platform-condition). 
+As políticas clássicas com controlos baseados em aplicações são pré-configuradas com iOS e Android como condição da plataforma do dispositivo. 
 
-Em uma nova política, você precisa selecionar as [plataformas de dispositivo](technical-reference.md#device-platform-condition) às quais deseja dar suporte individualmente.
+Numa nova política, é necessário selecionar as plataformas do [dispositivo](concept-conditional-access-conditions.md#device-platforms) que pretende suportar individualmente.
 
-![Seleção de plataformas de dispositivo de acesso condicional](./media/policy-migration/41.png)
+![Seleção de plataformas de dispositivos de acesso condicional](./media/policy-migration/41.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Use o modo somente de relatório para acesso condicional para determinar o impacto das novas decisões de política.](concept-conditional-access-report-only.md)
-- Se você quiser saber como configurar uma política de acesso condicional, consulte [políticas comuns de acesso condicional](concept-conditional-access-policy-common.md).
-- Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte o artigo [como planejar sua implantação de acesso condicional em Azure Active Directory](plan-conditional-access.md). 
+- [Utilize o modo de acesso condicional apenas para o relatório para determinar o impacto das novas decisões políticas.](concept-conditional-access-report-only.md)
+- Se quiser saber configurar uma política de acesso condicional, consulte políticas comuns de [Acesso Condicional.](concept-conditional-access-policy-common.md)
+- Se estiver pronto para configurar as políticas de Acesso Condicional para o seu ambiente, consulte o artigo Como: Planear a sua implementação de [Acesso Condicional no Diretório Ativo Azure](plan-conditional-access.md). 

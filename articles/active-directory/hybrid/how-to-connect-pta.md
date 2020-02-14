@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Autenticação de passagem | Microsoft Docs'
-description: Este artigo descreve a autenticação de passagem do Azure Active Directory (AD do Azure) e como ela permite entradas do Azure AD validando as senhas dos usuários no Active Directory local.
+title: 'Azure AD Connect: Autenticação pass-through  Microsoft Docs'
+description: Este artigo descreve a Autenticação Pass-through do Azure Ative Directory (Azure AD) e como permite os sign-ins Da Azure AD validando as palavras-passe dos utilizadores contra o Diretório Ativo no local.
 services: active-directory
-keywords: o que é Azure AD Connect autenticação de passagem, instalar Active Directory, componentes necessários para o Azure AD, SSO, logon único
+keywords: o que é a Autenticação pass-through Azure AD, instalar Diretório Ativo, componentes necessários para Azure AD, SSO, Sign-on Único
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -16,67 +16,67 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779114"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185508"
 ---
-# <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada do usuário com Azure Active Directory autenticação de passagem
+# <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada de utilizador com autenticação de passe de diretório ativo Azure
 
-## <a name="what-is-azure-active-directory-pass-through-authentication"></a>O que é Azure Active Directory autenticação de passagem?
+## <a name="what-is-azure-active-directory-pass-through-authentication"></a>O que é a autenticação de passagem de diretório ativo azure?
 
-A autenticação de passagem do Azure Active Directory (AD do Azure) permite que os usuários entrem em aplicativos locais e baseados em nuvem usando as mesmas senhas. Esta funcionalidade proporciona uma experiência melhor aos seus utilizadores - menos uma palavra-passe para memorizar - e reduz os custos com o suporte de TI, uma vez que é menos provável que os utilizadores se esqueçam de como iniciar sessão. Quando os usuários entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente em seu Active Directory local.
+A Autenticação pass-through do Azure Ative Directory (Azure AD) permite que os seus utilizadores acedam tanto nas instalações como nas aplicações baseadas na nuvem utilizando as mesmas palavras-passe. Esta funcionalidade proporciona uma experiência melhor aos seus utilizadores - menos uma palavra-passe para memorizar - e reduz os custos com o suporte de TI, uma vez que é menos provável que os utilizadores se esqueçam de como iniciar sessão. Quando os utilizadores entram na utilização do Azure AD, esta funcionalidade valida as palavras-passe dos utilizadores diretamente contra o seu Diretório Ativo no local.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Esse recurso é uma alternativa à [sincronização de hash de senha do Azure ad](how-to-connect-password-hash-synchronization.md), que fornece o mesmo benefício da autenticação de nuvem para as organizações. No entanto, certas organizações que desejam impor suas políticas locais de segurança Active Directory e senha, podem optar por usar a autenticação de passagem em vez disso. Examine [este guia](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para obter uma comparação dos vários métodos de entrada do Azure AD e como escolher o método de entrada correto para sua organização.
+Esta funcionalidade é uma alternativa à [Sincronização hash de senha azure AD,](how-to-connect-password-hash-synchronization.md)que proporciona o mesmo benefício de autenticação em nuvem às organizações. No entanto, certas organizações que pretendam impor as suas políticas de segurança e palavra-passe do Diretório Ativo no local podem optar por utilizar a Autenticação Pass-through. Reveja [este guia](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para uma comparação dos vários métodos de entrada em Anúncios Azure e como escolher o método de entrada certo para a sua organização.
 
-![Autenticação de passagem do Azure AD](./media/how-to-connect-pta/pta1.png)
+![Autenticação pass-through azure AD](./media/how-to-connect-pta/pta1.png)
 
-Você pode combinar a autenticação de passagem com o recurso de [logon único contínuo](how-to-connect-sso.md) . Dessa forma, quando os usuários estiverem acessando aplicativos em seus computadores corporativos dentro de sua rede corporativa, eles não precisarão digitar suas senhas para entrar.
+Pode combinar a autenticação pass-through com a funcionalidade [Single Sign-On sem emenda.](how-to-connect-sso.md) Desta forma, quando os seus utilizadores acedem a aplicações nas suas máquinas corporativas dentro da sua rede corporativa, não precisam de escrever as suas palavras-passe para iniciar sessão.
 
-## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Principais benefícios de usar a autenticação de passagem do Azure AD
+## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Principais benefícios da utilização da autenticação pass-through azure AD
 
 - *Experiência de utilizador excecional*
-  - Os usuários usam as mesmas senhas para entrar em aplicativos locais e baseados em nuvem.
-  - Os usuários gastam menos tempo se comunicando com a assistência técnica de ti resolvendo problemas relacionados a senhas.
-  - Os usuários podem concluir tarefas de [Gerenciamento de senhas](../authentication/active-directory-passwords-overview.md) de autoatendimento na nuvem.
-- *Fácil de implantar & administrar*
-  - Não há necessidade de implantações locais complexas ou configuração de rede.
-  - Precisa de apenas um agente leve para ser instalado no local.
-  - Sem sobrecarga de gerenciamento. O agente recebe automaticamente melhorias e correções de bugs.
+  - Os utilizadores usam as mesmas palavras-passe para iniciar sessão tanto no local como nas aplicações baseadas na nuvem.
+  - Os utilizadores passam menos tempo a falar com o helpdesk de TI a resolver problemas relacionados com a palavra-passe.
+  - Os utilizadores podem completar tarefas [de gestão de senhas de autosserviço](../authentication/active-directory-passwords-overview.md) na nuvem.
+- *Fácil de implementar e administrar*
+  - Não é necessário implementações complexas no local ou configuração da rede.
+  - Precisa apenas de um agente leve para ser instalado no local.
+  - Sem despesas de gestão. O agente recebe automaticamente melhorias e correções de erros.
 - *Proteger*
-  - As senhas locais nunca são armazenadas na nuvem em nenhum formato.
-  - O protege suas contas de usuário trabalhando diretamente com [as políticas de acesso condicional do Azure ad](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (autenticação multifator), o [bloqueio de autenticação herdada](../conditional-access/conditions.md) e a [filtragem de ataques de senha de força bruta](../authentication/howto-password-smart-lockout.md).
-  - O agente faz apenas conexões de saída de dentro de sua rede. Portanto, não há nenhum requisito para instalar o agente em uma rede de perímetro, também conhecido como DMZ.
-  - A comunicação entre um agente e o Azure AD é protegida usando a autenticação baseada em certificado. Esses certificados são renovados automaticamente a cada poucos meses pelo Azure AD.
+  - As palavras-passe no local nunca são armazenadas na nuvem de qualquer forma.
+  - Protege as suas contas de utilizador trabalhando perfeitamente com as políticas de [Acesso Condicional Azure AD,](../active-directory-conditional-access-azure-portal.md)incluindo a Autenticação Multi-Factor (MFA), [bloqueando a autenticação do legado](../conditional-access/concept-conditional-access-conditions.md) e [filtrando ataques](../authentication/howto-password-smart-lockout.md)de senha de força bruta .
+  - O agente só faz ligações de saída a partir da sua rede. Portanto, não existe qualquer obrigação de instalar o agente numa rede de perímetro, também conhecida como DMZ.
+  - A comunicação entre um agente e a AD Azure é assegurada com recurso à autenticação baseada em certificados. Estes certificados são automaticamente renovados a cada poucos meses pela Azure AD.
 - *Altamente disponível*
-  - Agentes adicionais podem ser instalados em vários servidores locais para fornecer alta disponibilidade de solicitações de entrada.
+  - Agentes adicionais podem ser instalados em vários servidores no local para fornecer uma alta disponibilidade de pedidos de sessão.
 
-## <a name="feature-highlights"></a>Destaques de recursos
+## <a name="feature-highlights"></a>Destaques de recurso
 
-- Dá suporte à entrada do usuário em todos os aplicativos baseados em navegador da Web e em Microsoft Office aplicativos cliente que usam [autenticação moderna](https://aka.ms/modernauthga).
-- Os nomes de usuário de entrada podem ser o nome de acesso padrão local (`userPrincipalName`) ou outro atributo configurado no Azure ad Connect (conhecido como `Alternate ID`).
-- O recurso funciona diretamente com recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md) , como o MFA (autenticação multifator) para ajudar a proteger seus usuários.
-- Integrado com o gerenciamento de [senhas](../authentication/active-directory-passwords-overview.md)de autoatendimento baseado em nuvem, incluindo o Write-back de senha para Active Directory local e proteção por senha, proibindo senhas comumente usadas.
-- Ambientes de várias florestas têm suporte se houver relações de confiança entre suas florestas do AD e se o roteamento de sufixo de nome estiver configurado corretamente.
-- É um recurso gratuito, e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
-- Ele pode ser habilitado por meio de [Azure ad Connect](whatis-hybrid-identity.md).
-- Ele usa um agente local leve que escuta e responde a solicitações de validação de senha.
-- A instalação de vários agentes fornece alta disponibilidade de solicitações de entrada.
-- Ele [protege](../authentication/howto-password-smart-lockout.md) suas contas locais contra ataques de senha de força bruta na nuvem.
+- Suporta o login do utilizador em todas as aplicações baseadas no navegador web e em aplicações de clientes do Microsoft Office que usam [a autenticação moderna.](https://aka.ms/modernauthga)
+- Os nomes de utilizador de entrada de sessão podem ser o nome de utilizador padrão no local (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (conhecido como `Alternate ID`).
+- A funcionalidade funciona [perfeitamente](../active-directory-conditional-access-azure-portal.md) com funcionalidades de Acesso Condicional, como a Autenticação Multi-Factor (MFA) para ajudar a proteger os seus utilizadores.
+- Integrado com a gestão de passwords de [autosserviço](../authentication/active-directory-passwords-overview.md)baseada na nuvem, incluindo a redação de palavras-passe para o Ative Directory e a proteção de passwords no local, proibindo senhas comumente usadas.
+- Ambientes multiflorestais são apoiados se houver fundos florestais entre as suas florestas ad e se o encaminhamento do sufixo de nome estiver corretamente configurado.
+- É uma funcionalidade gratuita, e não é preciso edições pagas de Azure AD para usá-lo.
+- Pode ser ativado através do [Azure AD Connect](whatis-hybrid-identity.md).
+- Utiliza um agente leve no local que ouve e responde a pedidos de validação de passwords.
+- A instalação de vários agentes proporciona uma elevada disponibilidade de pedidos de sessão.
+- Protege [](../authentication/howto-password-smart-lockout.md) as suas contas no local contra ataques de senha de força bruta na nuvem.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Início rápido](how-to-connect-pta-quick-start.md) -obtenha a autenticação de passagem do Azure AD em execução.
-- [Migrar de AD FS para autenticação de passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para a autenticação de passagem.
-- [Bloqueio inteligente](../authentication/howto-password-smart-lockout.md) – configure o recurso de bloqueio inteligente em seu locatário para proteger as contas de usuário.
-- [Limitações atuais](how-to-connect-pta-current-limitations.md) -saiba quais cenários têm suporte e quais não são.
-- [Aprofundamento técnico](how-to-connect-pta-how-it-works.md) – entenda como esse recurso funciona.
-- [Perguntas](how-to-connect-pta-faq.md) frequentes-respostas para perguntas frequentes.
-- [Solução de problemas](tshoot-connect-pass-through-authentication.md) -saiba como resolver problemas comuns com o recurso.
-- Aprofundamento de [segurança](how-to-connect-pta-security-deep-dive.md) -mais informações técnicas detalhadas sobre o recurso.
-- [SSO contínuo do Azure ad](how-to-connect-sso.md) -saiba mais sobre esse recurso complementar.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) -para o arquivamento de novas solicitações de recursos.
+- [Quickstart](how-to-connect-pta-quick-start.md) - Prepare-se e execute a autenticação de passagem do Azure AD Pass-through.
+- [Migrar de AD FS para a Autenticação Pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - Um guia detalhado para migrar de AD FS (ou outras tecnologias da federação) para a Autenticação Pass-through.
+- [Smart Lockout](../authentication/howto-password-smart-lockout.md) - Configure a capacidade de bloqueio inteligente no seu inquilino para proteger as contas do utilizador.
+- [Limitações atuais](how-to-connect-pta-current-limitations.md) - Saiba quais os cenários suportados e quais não são.
+- [Mergulho Técnico Deep](how-to-connect-pta-how-it-works.md) - Entenda como esta funcionalidade funciona.
+- [Perguntas frequentes](how-to-connect-pta-faq.md) - Respostas a perguntas frequentes.
+- [Troubleshoot](tshoot-connect-pass-through-authentication.md) - Aprenda a resolver problemas comuns com a funcionalidade.
+- [Security Deep Dive](how-to-connect-pta-security-deep-dive.md) - Informações técnicas adicionais sobre a funcionalidade.
+- [Azure AD Seamless SSO](how-to-connect-sso.md) - Saiba mais sobre esta funcionalidade complementar.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - Para arquivar novos pedidos de funcionalidades.

@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 414381d42c52e7489fbd6aaacf0f079cdd978ebe
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 0c0ab0e62a5d951f0bc0e237f44cf55c5b8e16cc
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642100"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77202102"
 ---
-Você pode associar aos seguintes tipos para gravar BLOBs:
+Pode ligar-se aos seguintes tipos para escrever bolhas:
 
 * `TextWriter`
 * `out string`
@@ -30,12 +30,12 @@ Você pode associar aos seguintes tipos para gravar BLOBs:
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> requer Associação `direction` "in" em *Function. JSON* ou `FileAccess.Read` em uma C# biblioteca de classes. No entanto, você pode usar o objeto de contêiner que o tempo de execução fornece para realizar operações de gravação, como carregar BLOBs para o contêiner.
+<sup>1</sup> Requer `direction` de encadernação "in" em C# *função.json* ou `FileAccess.Read` numa biblioteca de classes. No entanto, pode utilizar o objeto do recipiente que o tempo de execução proporciona para escrevê-lo, como o upload de bolhas para o recipiente.
 
-<sup>2</sup> requer Associação `direction` "Inout" em *Function. JSON* ou `FileAccess.ReadWrite` em uma C# biblioteca de classes.
+<sup>2</sup> Requer `direction` de encadernação "inout" em C# *função.json* ou `FileAccess.ReadWrite` numa biblioteca de classes.
 
-Se você tentar se associar a um dos tipos de SDK de armazenamento e receber uma mensagem de erro, verifique se você tem uma referência para [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
+Se tentar ligar-se a um dos tipos de SDK de armazenamento e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](../articles/azure-functions/functions-bindings-storage-blob.md#azure-storage-sdk-version-in-functions-1x).
 
-Nas funções assíncronas, utilize o valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
+Em funções de sincronização, utilize o valor de retorno ou `IAsyncCollector` em vez de um parâmetro `out`.
 
-A associação `string` a `Byte[]` ou é recomendada somente se o tamanho do blob for pequeno, pois todo o conteúdo do blob será carregado na memória. Em geral, é preferível usar um `Stream` tipo `CloudBlockBlob` ou. Para obter mais informações, consulte [simultaneidade e uso de memória](#trigger---concurrency-and-memory-usage) anteriormente neste artigo.
+A ligação a `string` ou `Byte[]` só é recomendada se o tamanho da bolha for pequeno, uma vez que todo o conteúdo da bolha é carregado na memória. Geralmente, é preferível utilizar um tipo `Stream` ou `CloudBlockBlob`. Para mais informações, consulte [a Concurrency e](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage) o uso da memória no início deste artigo.

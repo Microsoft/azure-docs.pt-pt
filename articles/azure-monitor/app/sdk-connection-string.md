@@ -8,16 +8,16 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2cf3c784c711977a6fe758bb9017e1f0dc404c33
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8febe1fd749842a6db0cd1c9991f4002eb7cf2ad
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992069"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190101"
 ---
 # <a name="connection-strings"></a>Cadeias de ligação
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 As cordas de ligação fornecem aos utilizadores do Application Insight uma única definição de configuração, eliminando a necessidade de várias definições de procuração. Altamente útil para servidores web intranet, ambientes de nuvem soberana ou híbrido que procuram enviar dados para o serviço de monitorização.
 
@@ -33,7 +33,7 @@ Cenários do cliente onde visualizamos isto tendo mais impacto:
 
 - Exceções de firewall ou redirecionamentos por procuração 
 
-    Nos casos em que é necessária monitorização para servidor web intranet, a nossa solução anterior pediu aos clientes que adicionassem pontos finais de serviço individuais à sua configuração. Para obter mais informações, consulte [aqui](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    Nos casos em que é necessária monitorização para servidor web intranet, a nossa solução anterior pediu aos clientes que adicionassem pontos finais de serviço individuais à sua configuração. Para mais informações, consulte [aqui.](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server) 
     As cordas de ligação oferecem uma alternativa melhor reduzindo este esforço para um único ajuste. Uma simples emenda prefixo e sufixo permite a população automática e a reorientação de todos os pontos finais para os serviços certos. 
 
 - Ambientes de nuvem soberana ou híbrido
@@ -55,7 +55,7 @@ A sua cadeia de ligação é exibida na lâmina de visão geral do seu recurso A
 
 A ligação tem um comprimento máximo suportado de 4096 caracteres.
 
-#### <a name="key-value-pairs"></a>Pares chave-valor
+#### <a name="key-value-pairs"></a>Pares valor-chave
 
 A cadeia de ligação consiste numa lista de definições representadas como pares de valor-chave separados por ponto evígula: `key1=value1;key2=value2;key3=value3`
 
@@ -140,10 +140,10 @@ Neste exemplo, esta cadeia de ligação especifica sobreposições explícitas p
 - Regime de autorização não passa por "ikey" 
 - Chave de Instrumentação: 00000000-0000-0000-0000-0000-000000000000000000
 - Os URIs de serviço regional baseiam-se nos valores explícitos de sobreposição: 
-   - Ingestão: https://custom.com:111/
-   - Métricas ao vivo: https://custom.com:222/
-   - Profiler: https://custom.com:333/ 
-   - https://custom.com:444/   
+   - Ingestão: https:\//custom.com:111/
+   - Métricas ao vivo: https:\//custom.com:222/
+   - Profiler: https:\//custom.com:333/ 
+   - Debugger: https:\//custom.com:444/   
 
 
 ## <a name="how-to-set-a-connection-string"></a>Como definir uma cadeia de ligação
@@ -268,14 +268,14 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 Introdução ao tempo de execução com:
 
-* [VM do Azure e conjunto de dimensionamento de máquinas virtuais do Azure aplicativos hospedados pelo IIS](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Aplicativos de escala virtual Azure VM e Azure conjunto iIS](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Servidor do IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Aplicações Web do Azure](../../azure-monitor/app/azure-web-apps.md)
 
 Introdução no momento de programação com:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+* [Núcleo do ASP.NET](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python (versão prévia)](../../azure-monitor/app/opencensus-python.md)
+* [Python (pré-visualização)](../../azure-monitor/app/opencensus-python.md)

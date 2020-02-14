@@ -2,20 +2,20 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: functions
-author: ggailey777
-manager: cfowler
+author: craigshoemaker
+manager: gwallace
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/17/2018
-ms.author: tdykstra
+ms.date: 01/28/2020
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: c2fff707dcaafac69efcad3dbf33446a7b797396
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6a37850eb6536c5399d63144e60ea210fbc194d8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608330"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198428"
 ---
-### <a name="azure-storage-sdk-version-in-functions-1x"></a>Versão do SDK do armazenamento do Azure nas funções 1.x
+#### <a name="azure-storage-sdk-version-in-functions-1x"></a>Versão SDK de Armazenamento Azure nas Funções 1.x
 
-As funções, 1.x, os acionadores do armazenamento e ligações de utilizam a versão 7.2.1 do SDK de armazenamento do Azure ([windowsazure. Storage](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1) pacote NuGet). Se fazer referência a uma versão diferente do SDK do armazenamento e vincular a um tipo de SDK de armazenamento na sua assinatura de função, o runtime das funções pode comunicar que não é possível vincular a esse tipo. A solução é certificar-se de que suas referências de projeto [windowsazure. Storage 7.2.1](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1).
+Nas funções 1.x, os gatilhos de armazenamento e encadernações utilizam a versão 7.2.1 do pacote Azure Storage SDK[(WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1) NuGet). Se se referir a uma versão diferente do SDK de armazenamento e se ligar a um tipo SDK de armazenamento na sua assinatura de função, o tempo de funcionamento das Funções pode relatar que não pode ligar-se a esse tipo. A solução é certificar-se de que o seu projeto faz referência ao [WindowsAzure.Storage 7.2.1](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1).

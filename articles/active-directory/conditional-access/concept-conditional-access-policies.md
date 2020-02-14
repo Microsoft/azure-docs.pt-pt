@@ -1,134 +1,136 @@
 ---
-title: Criando uma política de acesso condicional-Azure Active Directory
-description: Quais são todas as opções disponíveis para criar uma política de acesso condicional e o que elas significam?
+title: Construção de uma política de acesso condicional - Diretório Ativo Azure
+description: Quais são todas as opções disponíveis para construir uma política de Acesso Condicional e o que significam?
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f3e815f541ad4cfabc22d917ca9cecba47b50f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077610"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186240"
 ---
-# <a name="building-a-conditional-access-policy"></a>Criando uma política de acesso condicional
+# <a name="building-a-conditional-access-policy"></a>Construção de uma política de acesso condicional
 
-Conforme explicado no artigo [o que é acesso condicional](overview.md), uma política de acesso condicional é uma instrução if-then, de **atribuições** e **controles de acesso**. Uma política de acesso condicional reúne sinais, para tomar decisões e impor políticas organizacionais.
+Como explica do artigo [O que é o Acesso Condicional,](overview.md)uma política de Acesso Condicional é uma declaração se-então, de Atribuições e **controlos** de **acesso.** Uma política de acesso condicional reúne sinais, para tomar decisões e impor políticas organizacionais.
 
-Como uma organização cria essas políticas? O que é necessário?
+Como é que uma organização cria estas políticas? O que é necessário?
 
-![Acesso condicional (sinais + decisões + imposição = políticas)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+![Acesso Condicional (Sinais + Decisões + Execução = Políticas)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
 ## <a name="assignments"></a>Atribuições
 
-A parte de atribuições controla quem, e e onde a política de acesso condicional.
+A porção de atribuição controla quem, o quê e onde da política de Acesso Condicional.
 
 ### <a name="users-and-groups"></a>Utilizadores e grupos
 
-Usuários e grupos atribuem quem a política incluirá ou excluirá. Essa atribuição pode incluir todos os usuários, grupos específicos de usuários, funções de diretório ou usuários convidados externos. 
+[Utilizadores e grupos](concept-conditional-access-users-groups.md) atribuem quem a política incluirá ou excluirá. Esta atribuição pode incluir todos os utilizadores, grupos específicos de utilizadores, funções de diretório ou utilizadores externos de hóspedes. 
 
-### <a name="cloud-apps-or-actions"></a>Aplicações na cloud ou ações
+### <a name="cloud-apps-or-actions"></a>Aplicativos ou ações em nuvem
 
-Os aplicativos de nuvem ou as ações podem incluir ou excluir aplicativos de nuvem ou ações do usuário que estarão sujeitas à política.
+[Aplicações ou ações na nuvem](concept-conditional-access-cloud-apps.md) podem incluir ou excluir aplicações na nuvem ou ações de utilizador que estarão sujeitas à política.
 
 ### <a name="conditions"></a>Condições
 
-Uma política pode conter várias condições.
+Uma política pode conter [múltiplas condições.](concept-conditional-access-conditions.md)
 
-#### <a name="sign-in-risk"></a>Risco de entrada
+#### <a name="sign-in-risk"></a>Risco de inscrição
 
-Para organizações com [Azure ad Identity Protection](../identity-protection/overview.md), as detecções de risco geradas podem influenciar suas políticas de acesso condicional.
+Para organizações com Proteção de [Identidade Azure AD,](../identity-protection/overview.md)as deteções de risco aí geradas podem influenciar as suas políticas de Acesso Condicional.
 
 #### <a name="device-platforms"></a>Plataformas de dispositivos
 
-As organizações com várias plataformas de sistema operacional de dispositivos podem querer impor políticas específicas em diferentes plataformas. 
+Organizações com várias plataformas de sistemaoperativo de dispositivos podem querer impor políticas específicas em diferentes plataformas. 
 
-As informações usadas para calcular a plataforma de dispositivo vêm de fontes não verificadas, como cadeias de caracteres de agente do usuário que podem ser alteradas.
+As informações utilizadas para calcular a plataforma do dispositivo provêm de fontes não verificadas, como as cordas do agente utilizador que podem ser alteradas.
 
 #### <a name="locations"></a>Localizações
 
-Os dados de local são fornecidos por dados de localização geográfica de IP. Os administradores podem optar por definir locais e optar por marcá-los como confiáveis para os locais de rede de sua organização.
+Os dados de localização são fornecidos por dados de geolocalização IP. Os administradores podem optar por definir localizações e optar por marcar alguns como os de confiança para as localizações da sua organização.
 
-#### <a name="client-apps"></a>Aplicações do cliente
+#### <a name="client-apps"></a>Aplicativos para clientes
 
-Por padrão, as políticas de acesso condicional se aplicam a aplicativos de navegador, aplicativos móveis e clientes de área de trabalho que dão suporte à autenticação moderna. 
+Por padrão, as políticas de Acesso Condicional aplicam-se a aplicações de navegador, aplicações móveis e clientes de desktop que suportam a autenticação moderna. 
 
-Essa condição de atribuição permite que as políticas de acesso condicional destinam-se a aplicativos cliente específicos que não usam autenticação moderna. Esses aplicativos incluem clientes do Exchange ActiveSync, aplicativos mais antigos do Office que não usam autenticação moderna e protocolos de email como IMAP, MAPI, POP e SMTP.
+Esta condição de atribuição permite que as políticas de Acesso Condicional direcionem aplicações específicas do cliente que não utilizem a autenticação moderna. Estas aplicações incluem clientes Exchange ActiveSync, aplicações antigas do Office que não utilizam autenticação moderna, e protocolos de correio como IMAP, MAPI, POP e SMTP.
 
 #### <a name="device-state"></a>Estado do dispositivo
 
-Esse controle é usado para excluir dispositivos que são ingressados no Azure AD híbrido ou marcados como em conformidade no Intune. Essa exclusão pode ser feita para bloquear dispositivos não gerenciados. 
+Este controlo é utilizado para excluir dispositivos híbridos Azure AD unidos, ou marcados como compatíveis em Intune. Esta exclusão pode ser feita para bloquear dispositivos não geridos. 
 
 ## <a name="access-controls"></a>Controlos de acesso
 
-A parte controles de acesso da política de acesso condicional controla como uma política é imposta.
+A parte de controlo de acesso saem da política de acesso condicional na forma como uma política é aplicada.
 
-### <a name="grant"></a>Conceder
+### <a name="grant"></a>Concessão
 
-#### <a name="block-access"></a>Bloquear acesso
+[Grant](concept-conditional-access-grant.md) fornece aos administradores um meio de aplicação da política onde podem bloquear ou conceder acesso.
 
-Bloquear acesso faz exatamente isso, ele bloqueará o acesso nas atribuições especificadas. O controle de bloco é poderoso e deve ser atraente com o conhecimento apropriado.
+#### <a name="block-access"></a>Acesso ao bloco
+
+O acesso ao bloco faz isso mesmo, bloqueará o acesso ao abrigo das atribuições especificadas. O controlo do bloco é poderoso e deve ser exercido com o conhecimento adequado.
 
 #### <a name="grant-access"></a>Conceder acesso
 
-O controle Grant pode disparar a imposição de um ou mais controles. 
+O controlo da subvenção pode desencadear a aplicação de um ou mais controlos. 
 
-- Exigir autenticação multifator (autenticação multifator do Azure)
-- Exigir que o dispositivo seja marcado como compatível (Intune)
-- Exigir dispositivo ingressado no Azure AD híbrido
+- Exigir autenticação multi-factor (autenticação azure multi-factor)
+- Exigir que o dispositivo seja marcado como conforme (Intune)
+- Exigir dispositivo ad ad hybrid Azure
 - Requer aplicação aprovada do cliente
-- Requer uma política de proteção da aplicação
+- Pedir uma política de proteção de aplicações
 
-Os administradores podem optar por exigir um dos controles anteriores ou todos os controles selecionados usando as opções a seguir. O padrão para vários controles é exigir todos.
+Os administradores podem optar por exigir um dos controlos anteriores ou todos os controlos selecionados utilizando as seguintes opções. O padrão para vários controlos é exigir todos.
 
-- Exigir todos os controles selecionados (controle e controle)
-- Exigir um dos controles selecionados (controle ou controle)
+- Exigir todos os controlos selecionados (controlo e controlo)
+- Exigir um dos comandos selecionados (controlo ou controlo)
 
 ### <a name="session"></a>Sessão
 
-Controles de sessão podem limitar a experiência 
+[Os controlos de sessão](concept-conditional-access-session.md) podem limitar a experiência 
 
-- Utilizar as restrições da aplicação imposta
-   - Atualmente, funciona somente com o Exchange Online e o SharePoint Online.
-      - Passa informações do dispositivo para permitir o controle da experiência que concede acesso completo ou limitado.
-- Utilizar Controlo de Aplicações de Acesso Condicional
-   - Usa sinais de Microsoft Cloud App Security para fazer coisas como: 
-      - Bloquear download, recortar, copiar e imprimir documentos confidenciais.
-      - Monitore o comportamento de sessão arriscada.
-      - Exigir rotulagem de arquivos confidenciais.
-- Frequência de entrada
-   - Capacidade de alterar a frequência de entrada padrão para autenticação moderna.
-- Sessão de browser persistente
-   - Permite que os usuários permaneçam conectados após fechar e reabrir a janela do navegador.
+- Use restrições impostas por aplicações
+   - Atualmente trabalha apenas com o Exchange Online e o SharePoint Online.
+      - Passa informações do dispositivo para permitir o controlo da experiência que concede acesso completo ou limitado.
+- Utilizar controlo de aplicativos de acesso condicional
+   - Usa sinais do Microsoft Cloud App Security para fazer coisas como: 
+      - Bloquear o download, cortar, copiar e imprimir documentos sensíveis.
+      - Monitorize o comportamento da sessão de risco.
+      - Exija a rotulagem de ficheiros sensíveis.
+- Frequência de inscrição
+   - Capacidade de alterar o sinal predefinido na frequência para a autenticação moderna.
+- Sessão persistente do navegador
+   - Permite que os utilizadores permaneçam inscritos após o fecho e reabertura da janela do navegador.
 
 ## <a name="simple-policies"></a>Políticas simples
 
-Uma política de acesso condicional deve conter, no mínimo, o seguinte para ser aplicado:
+Uma política de acesso condicional deve conter, no mínimo, o seguinte a aplicar:
 
-- **Nome** da política.
+- **Nome** da apólice.
 - **Atribuições**
-   - **Usuários e/ou grupos** aos quais aplicar a política.
-   - **Aplicativos de nuvem ou ações** às quais aplicar a política.
-- **Controles de acesso**
-   - Controles **Grant** ou **Block**
+   - **Utilizadores e/ou grupos** para aplicar a política.
+   - **Aplicativos ou ações** em nuvem para aplicar a política.
+- **Controlos de acesso**
+   - **Controlos de concessão** ou **bloco**
 
-![Política de acesso condicional em branco](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
+![Política de Acesso Condicional Em Branco](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+O artigo [Políticas de Acesso Condicional Comum](concept-conditional-access-policy-common.md) inclui algumas políticas que pensamos que seriam úteis para a maioria das organizações.
 
-[Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
+## <a name="next-steps"></a>Passos seguintes
 
-[Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
+[Simular o sinal de comportamento usando a ferramenta de acesso condicional O que se a ferramenta](troubleshoot-conditional-access-what-if.md)
 
-[Planejando uma implantação da autenticação multifator do Azure baseada em nuvem](../authentication/howto-mfa-getstarted.md)
+[Planejando uma implementação de autenticação azure multi-factor baseada na nuvem](../authentication/howto-mfa-getstarted.md)
 
-[Gerenciando a conformidade do dispositivo com o Intune](https://docs.microsoft.com/intune/device-compliance-get-started)
+[Gerir o cumprimento do dispositivo com o Intune](https://docs.microsoft.com/intune/device-compliance-get-started)
 
-[Microsoft Cloud App Security e acesso condicional](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+[Segurança de aplicativos da Microsoft Cloud e acesso condicional](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

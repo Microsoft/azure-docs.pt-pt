@@ -1,6 +1,6 @@
 ---
-title: A ferramenta de What If de acesso condicional-Azure Active Directory
-description: Saiba como você pode entender o impacto de suas políticas de acesso condicional em seu ambiente.
+title: O acesso condicional O que se ferramenta - Diretório Ativo Azure
+description: Saiba como pode compreender o impacto das suas políticas de Acesso Condicional no seu ambiente.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,99 +11,99 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5846934a8ad8455ca375b4bc54fc46d45aba1cd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379985"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185871"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta de What If no acesso condicional
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Resolução de problemas utilizando a ferramenta What If no Acesso Condicional
 
-O [acesso condicional](../active-directory-conditional-access-azure-portal.md) é um recurso do Azure Active Directory (AD do Azure) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Como você sabe o que esperar das políticas de acesso condicional em seu ambiente? Para responder a essa pergunta, você pode usar a **ferramenta de What If de acesso condicional**.
+[O Acesso Condicional](../active-directory-conditional-access-azure-portal.md) é uma capacidade do Azure Ative Directory (Azure AD) que lhe permite controlar a forma como os utilizadores autorizados acedem às suas aplicações na nuvem. Como sabe o que esperar das políticas de Acesso Condicional no seu ambiente? Para responder a esta pergunta, pode utilizar o **Acesso Condicional E Se a ferramenta**.
 
-Este artigo explica como você pode usar essa ferramenta para testar suas políticas de acesso condicional.
+Este artigo explica como pode usar esta ferramenta para testar as suas políticas de Acesso Condicional.
 
 ## <a name="what-it-is"></a>O que é
 
-A **ferramenta de política de What If de acesso condicional** permite que você entenda o impacto de suas políticas de acesso condicional em seu ambiente. Em vez de testar as suas políticas ao executar vários inícios de sessão manualmente, esta ferramenta permite avaliar um início de sessão simulado de um utilizador. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação. O relatório não lista apenas as políticas de acesso condicional aplicadas, mas também [as políticas clássicas](policy-migration.md#classic-policies) , se existirem.    
+O **acesso condicional O que se** a ferramenta política lhe permitir compreender o impacto das suas políticas de Acesso Condicional no seu ambiente. Em vez de testar a condução das suas políticas executando múltiplos sign-ins manualmente, esta ferramenta permite-lhe avaliar um sinal de inscrição simulado de um utilizador. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação. O relatório enumera não só as políticas de acesso condicional aplicadas, mas também [as políticas clássicas](policy-migration.md#classic-policies) de acesso, caso existam.    
 
-A ferramenta de **What If** fornece uma maneira de determinar rapidamente as políticas que se aplicam a um usuário específico. Você pode usar as informações, por exemplo, se precisar solucionar um problema.    
+A ferramenta **What If** fornece uma forma de determinar rapidamente as políticas que se aplicam a um utilizador específico. Pode usar a informação, por exemplo, se precisar de resolver um problema.    
 
 ## <a name="how-it-works"></a>Como funciona
 
-Na **ferramenta de What If de acesso condicional**, primeiro você precisa definir as configurações do cenário de entrada que deseja simular. Essas configurações incluem:
+Na **ferramenta Acesso Condicional O que se a ferramenta,** é necessário configurar primeiro as definições do cenário de início de sessão que pretende simular. Estas definições incluem:
 
-- O usuário que você deseja testar 
-- Os aplicativos de nuvem que o usuário tentaria acessar
-- As condições sob as quais o acesso ao configura os aplicativos de nuvem são executadas
+- O utilizador que pretende testar 
+- As aplicações em nuvem que o utilizador tentaria aceder
+- As condições em que o acesso às aplicações de nuvem de configures é realizado
      
-Como uma próxima etapa, você pode iniciar uma execução de simulação que avalia suas configurações. Somente as políticas habilitadas fazem parte de uma execução de avaliação.
+Como próximo passo, pode iniciar uma simulação que avalia as suas definições. Apenas as políticas que estão habilitadas fazem parte de uma avaliação.
 
-Quando a avaliação for concluída, a ferramenta gerará um relatório das políticas afetadas.
+Quando a avaliação terminar, a ferramenta gera um relatório das políticas afetadas.
 
-## <a name="running-the-tool"></a>Executando a ferramenta
+## <a name="running-the-tool"></a>Executar a ferramenta
 
-Você pode encontrar a ferramenta **What If** na página **[acesso condicional-políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** no portal do Azure.
+Pode encontrar a ferramenta **What If** na página Acesso Condicional **[- Políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** no portal Azure.
 
-Para iniciar a ferramenta, na barra de ferramentas na parte superior da lista de políticas, clique em **What If**.
+Para iniciar a ferramenta, na barra de ferramentas no topo da lista de políticas, clique em **What If**.
 
 ![What If](./media/what-if-tool/01.png)
 
-Para poder executar uma avaliação, você deve definir as configurações.
+Antes de poder fazer uma avaliação, tem de configurar as definições.
 
 ## <a name="settings"></a>Definições
 
-Esta seção fornece informações sobre as configurações de execução de simulação.
+Esta secção fornece-lhe informações sobre as definições de simulação executadas.
 
 ![What If](./media/what-if-tool/02.png)
 
 ### <a name="user"></a>Utilizador
 
-Você só pode selecionar um usuário. Esse é o único campo obrigatório.
+Só é possível selecionar um utilizador. Este é o único campo necessário.
 
-### <a name="cloud-apps"></a>Aplicativos de nuvem
+### <a name="cloud-apps"></a>Aplicativos em nuvem
 
-O padrão para essa configuração é **todos os aplicativos de nuvem**. A configuração padrão executa uma avaliação de todas as políticas disponíveis em seu ambiente. Você pode restringir o escopo às políticas que afetam aplicativos de nuvem específicos.
+O padrão para esta definição são **todas as aplicações em nuvem**. A definição padrão realiza uma avaliação de todas as políticas disponíveis no seu ambiente. Pode reduzir o âmbito de aplicações que afetam aplicações específicas da nuvem.
 
 ### <a name="ip-address"></a>Endereço IP
 
-O endereço IP é um único endereço IPv4 para imitar a [condição de local](location-condition.md). O endereço representa o endereço voltado para a Internet do dispositivo usado pelo usuário para entrar. Você pode verificar o endereço IP de um dispositivo, por exemplo, navegando até [o que é meu endereço IP](https://whatismyipaddress.com).    
+O endereço IP é um único endereço IPv4 para imitar a condição de [localização](location-condition.md). O endereço representa o endereço virado para a Internet do dispositivo utilizado pelo utilizador para iniciar sessão. Pode verificar o endereço IP de um dispositivo navegando, por exemplo, para [o que é o meu endereço IP](https://whatismyipaddress.com).    
 
-### <a name="device-platforms"></a>Plataformas de dispositivo
+### <a name="device-platforms"></a>Plataformas de dispositivos
 
-Essa configuração imita a [condição de plataformas de dispositivo](conditions.md#device-platforms) e representa o equivalente a **todas as plataformas (incluindo sem suporte)** . 
+Esta definição imita a condição das plataformas do [dispositivo](concept-conditional-access-conditions.md#device-platforms) e representa o equivalente a todas as **plataformas (incluindo não suportadas)** . 
 
-### <a name="client-apps"></a>Aplicativos cliente
+### <a name="client-apps"></a>Aplicativos para clientes
 
-Essa configuração imita a [condição de aplicativos cliente](conditions.md#client-apps).
-Por padrão, essa configuração faz com que uma avaliação de todas as políticas tenha **aplicativos móveis e de navegador e clientes de área de trabalho** individualmente ou ambos selecionados. Ele também detecta políticas que impõem o **Exchange ActiveSync (EAS)** . Você pode restringir essa configuração selecionando:
+Esta definição imita a condição das [aplicações do cliente.](concept-conditional-access-conditions.md#client-apps-preview)
+Por padrão, esta definição causa uma avaliação de todas as políticas que têm aplicações **browser** ou mobile e clientes de desktop individualmente ou ambos **selecionados.** Também deteta políticas que impõem **o Exchange ActiveSync (EAS)** . Pode reduzir esta definição selecionando:
 
-- **Navegador** para avaliar todas as políticas que têm pelo menos o **navegador** selecionado. 
-- **Aplicativos móveis e clientes de desktop** para avaliar todas as políticas que têm pelo menos **aplicativos móveis e clientes de desktop** selecionados. 
+- **Browser** para avaliar todas as políticas tendo pelo menos **o Navegador** selecionado. 
+- **Aplicativos móveis e clientes de desktop** para avaliar todas as políticas com pelo menos **aplicações móveis e clientes de desktop selecionados.** 
 
-### <a name="sign-in-risk"></a>Risco de entrada
+### <a name="sign-in-risk"></a>Risco de inscrição
 
-Essa configuração imita a [condição de risco de entrada](conditions.md#sign-in-risk).   
+Esta definição imita a [condição de risco de inscrição](concept-conditional-access-conditions.md#sign-in-risk).   
 
-## <a name="evaluation"></a>Período 
+## <a name="evaluation"></a>Avaliação 
 
-Você inicia uma avaliação clicando em **What If**. O resultado da avaliação fornece um relatório que consiste em: 
+Inicia-se uma avaliação clicando no **What If**. O resultado da avaliação fornece-lhe um relatório que consiste em: 
 
 ![What If](./media/what-if-tool/03.png)
 
-- Um indicador de se existem políticas clássicas em seu ambiente
-- Políticas que se aplicam ao usuário
-- Políticas que não se aplicam ao usuário
+- Um indicador se existem políticas clássicas no seu ambiente
+- Políticas que se aplicam ao seu utilizador
+- Políticas que não se aplicam ao seu utilizador
 
-Se houver [políticas clássicas](policy-migration.md#classic-policies) para os aplicativos de nuvem selecionados, um indicador será apresentado a você. Ao clicar no indicador, você será redirecionado para a página políticas clássicas. Na página políticas clássicas, você pode migrar uma política clássica ou apenas desabilitá-la. Você pode retornar ao resultado da avaliação fechando esta página.
+Se existirem [políticas clássicas](policy-migration.md#classic-policies) para as aplicações em nuvem selecionadas, é-lhe apresentado um indicador. Ao clicar no indicador, é redirecionado para a página de políticas clássicas. Na página de políticas clássicas, pode migrar uma política clássica ou simplesmente desativá-la. Pode voltar ao resultado da sua avaliação fechando esta página.
 
-Na lista de políticas que se aplicam ao usuário selecionado, você também pode encontrar uma lista de [controles de concessão](controls.md#grant-controls) e de [sessão](controls.md#session-controls) que seu usuário deve atender.
+Na lista de políticas aplicáveis ao utilizador selecionado, também pode encontrar uma lista de controlos de [subvenções](controls.md#grant-controls) e controlos de [sessão](controls.md#session-controls) que o utilizador deve satisfazer.
 
-Na lista de políticas que não se aplicam ao usuário, você também pode encontrar os motivos pelos quais essas políticas não se aplicam. Para cada política listada, o motivo representa a primeira condição que não foi satisfeita. Um possível motivo para uma política que não é aplicada é uma política desabilitada porque elas não são mais avaliadas.   
+Na lista de políticas que não se aplicam ao seu utilizador, pode e também encontra as razões pelas quais estas políticas não se aplicam. Para cada política enumerada, a razão representa a primeira condição que não foi satisfeita. Uma possível razão para uma política que não é aplicada é uma política de deficientes, porque não são mais avaliadas.   
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se você quiser saber como configurar uma política de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md).
-- Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md). 
-- Se você quiser migrar políticas clássicas, consulte [migrar políticas clássicas no portal do Azure](policy-migration.md)  
+- Se quiser saber configurar uma política de Acesso Condicional, consulte [RequireM para aplicações específicas com Acesso Condicional de Diretório Ativo Azure](app-based-mfa.md).
+- Se estiver pronto para configurar as políticas de Acesso Condicional para o seu ambiente, consulte as [melhores práticas de Acesso Condicional no Diretório Ativo Azure](best-practices.md). 
+- se quiser migrar políticas clássicas, consulte [políticas clássicas de migrar no portal Azure](policy-migration.md)  

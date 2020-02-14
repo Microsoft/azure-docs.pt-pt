@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e27288f95f07c481ab98a112ed9f02a34046600a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9f00bebfbab7b3726930e212893ae9dd2f5c17c8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76835798"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193482"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de Diretório Ativo Azure numa política personalizada azure Ative Directory B2C
 
@@ -26,7 +26,7 @@ O Azure Ative Directory B2C (Azure AD B2C) presta suporte à gestão de utilizad
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+O **nome** atributo do elemento **protocolo** tem de ser definido para `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 Todos os perfis técnicos da AD Azure incluem o perfil técnico **AAD-Common.** Os seguintes perfis técnicos não especificam o protocolo porque o protocolo está configurado no perfil técnico **AAD-Common:**
 
@@ -56,7 +56,7 @@ O exemplo que se segue mostra o perfil técnico **AAD-Common:**
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>Declarações de entrada
+## <a name="input-claims"></a>Reclamações de entrada
 
 Os seguintes perfis técnicos incluem **InputClaims** para contas sociais e locais:
 
@@ -66,11 +66,11 @@ Os seguintes perfis técnicos incluem **InputClaims** para contas sociais e loca
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **de transformação inputClaims** que são usados para modificar as reclamações de entrada ou gerar novos.
 
-## <a name="output-claims"></a>Declarações de saída
+## <a name="output-claims"></a>Reclamações de produção
 
 O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo perfil técnico da AD Azure. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no Diretório Ativo Azure. Também pode incluir reclamações que não são devolvidas pelo Diretório Ativo Azure, desde que detetete o `DefaultValue` atributo.
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
 
 Por exemplo, o perfil técnico **AAD-UserWriteUseLogonEmail** cria uma conta local e devolve as seguintes reclamações:
 
@@ -253,7 +253,7 @@ O perfil técnico seguinte elimina uma conta de utilizador social utilizando **a
 ```
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Operação | Sim | A operação a ser realizada. Valores possíveis: `Read`, `Write`, `DeleteClaims`ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Levante um erro se o objeto do utilizador não existir no diretório. Valores possíveis: `true` ou `false`. |
@@ -262,6 +262,7 @@ O perfil técnico seguinte elimina uma conta de utilizador social utilizando **a
 | UserMessageIfClaimsPrincipalAlreadyExists | Não | Se for levantado um erro (ver RaiseErrorIfClaimsPrincipalAlreadyExists aatribuição), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador já existir. O valor pode ser [localizado.](localization.md)|
 | ApplicationObjectId | Não | O identificador de objeto de aplicação para atributos de extensão. Valor: ObjectId de uma aplicação. Para mais informações, consulte [Use atributos personalizados numa política](custom-policy-custom-attributes.md)de edição de perfil personalizado. |
 | ClientId | Não | O cliente identifica o inquilino como terceiro. Para mais informações, consulte [Use atributos personalizados numa política de edição de perfil personalizado](custom-policy-custom-attributes.md) |
+| Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`, ou `false` (predefinido). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
 
 
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: c49c37ced4a5d5cc7cdde0737b889aad3b538f7f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898972"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198637"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configure um gateway de aplicação com um ponto final de equilíbrio de carga interna (ILB)
 
@@ -27,11 +27,11 @@ Este artigo guia-o através dos passos para configurar um gateway de aplicação
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no portal Azure no <https://portal.azure.com>Kv
+Inscreva-se no portal Azure em <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual. Você pode criar uma nova rede virtual ou usar uma existente. Neste exemplo, cria-se uma nova rede virtual. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação. As instâncias do gateway de aplicativo são criadas em sub-redes separadas. Você cria duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end.
+Para que o Azure se comunique entre os recursos que cria, precisa de uma rede virtual. Pode criar uma nova rede virtual ou utilizar uma existente. Neste exemplo, cria-se uma nova rede virtual. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação. As instâncias de Gateway de aplicação são criadas em subredes separadas. Cria-se duas subredes neste exemplo: uma para o portal da aplicação e outra para os servidores de backend.
 
 1. Expanda o menu do portal e selecione **Criar um recurso.**
 2. Selecione **Rede** e, em seguida, selecione **Gateway de Aplicação** na lista Destaques.
@@ -74,22 +74,22 @@ Para que o Azure se comunique entre os recursos que você cria, ele precisa de u
 25. Aceite as restantes predefinições e selecione **Adicionar**.
 26. Na página de regra adicionar uma regra de **encaminhamento,** selecione **Adicionar**.
 27. Selecione **Seguinte: Etiquetas**.
-28. Selecione **Avançar: revisar + criar**.
-29. Reveja as definições na página sumária e, em seguida, selecione **Criar** para criar os recursos de rede e o gateway da aplicação. A criação do gateway de aplicação pode demorar vários minutos. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
+28. Selecione **Seguinte: Rever + criar**.
+29. Reveja as definições na página sumária e, em seguida, selecione **Criar** para criar os recursos de rede e o gateway da aplicação. A criação do gateway de aplicação pode demorar vários minutos. Aguarde até que a colocação termine com sucesso antes de passar para a secção seguinte.
 
 ## <a name="add-backend-pool"></a>Adicione piscina de backend
 
-O pool de back-end é usado para rotear solicitações para os servidores de back-end que atendem à solicitação. O backend pode ser composto por NICs, conjuntos de escala de máquinas virtuais, endereços IP públicos, endereços IP internos, nomes de domínio totalmente qualificados (FQDN), e back-ends multi-inquilinos como o Azure App Service. Neste exemplo, utiliza-se máquinas virtuais como o backend do alvo. Você pode usar máquinas virtuais existentes ou criar novas. Neste exemplo, cria-se duas máquinas virtuais que o Azure utiliza como servidores de backend para o gateway da aplicação.
+A piscina de backend é usada para encaminhar pedidos para os servidores backend que servem o pedido. O backend pode ser composto por NICs, conjuntos de escala de máquinas virtuais, endereços IP públicos, endereços IP internos, nomes de domínio totalmente qualificados (FQDN), e back-ends multi-inquilinos como o Azure App Service. Neste exemplo, utiliza-se máquinas virtuais como o backend do alvo. Pode utilizar as máquinas virtuais existentes ou criar novas. Neste exemplo, cria-se duas máquinas virtuais que o Azure utiliza como servidores de backend para o gateway da aplicação.
 
-Para fazer isso, você:
+Para fazer isto, tu:
 
 1. Crie duas novas máquinas virtuais, *myVM* e *myVM2,* usadas como servidores de backend.
-2. Instale o IIS nas máquinas virtuais para verificar se o gateway de aplicativo foi criado com êxito.
-3. Adicione os servidores de back-end ao pool de back-end.
+2. Instale o IIS nas máquinas virtuais para verificar se o gateway da aplicação foi criado com sucesso.
+3. Adicione os servidores de backend à piscina de backend.
 
-### <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. Selecione **criar um recurso**.
+1. Selecione **Criar um recurso**.
 2. **Selecione Compute** e, em seguida, selecione **a máquina Virtual**.
 4. Introduza estes valores para a máquina virtual:
    - selecione *myResourceGroupAG* para **o grupo de recursos**.
@@ -105,12 +105,12 @@ Para fazer isso, você:
 10. Aceite as restantes predefinições e selecione **Seguinte: Avançado**.
 11. Selecione **Seguinte : Etiquetas**.
 12. Selecione **Seguinte : Rever + criar**.
-13. Reveja as definições na página resumo e, em seguida, selecione **Criar**. Pode levar vários minutos para criar o VM. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
+13. Reveja as definições na página resumo e, em seguida, selecione **Criar**. Pode levar vários minutos para criar o VM. Aguarde até que a colocação termine com sucesso antes de passar para a secção seguinte.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
 1. Abra a Cloud Shell e certifique-se de que está definido para **powerShell**.
-    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Execute o comando seguinte para instalar o IIS na máquina virtual:
 
    ```azurepowershell
@@ -138,10 +138,10 @@ Para fazer isso, você:
 
 3. Crie uma segunda máquina virtual e instale o IIS com os passos que acabou de concluir. Introduza myVM2 para o seu nome e para VMName em Set-AzVMExtension.
 
-### <a name="add-backend-servers-to-backend-pool"></a>Adicionar servidores de back-end ao pool de back-end
+### <a name="add-backend-servers-to-backend-pool"></a>Adicione servidores de backend para backend pool
 
 1. **Selecione todos os recursos**e, em seguida, selecione **myAppGateway**.
-2. Selecione **conjuntos de back-end**. Selecione **appGatewayBackendPool**.
+2. Selecione **piscinas backend**. Selecione **appGatewayBackendPool**.
 3. No **tipo Target** selecione Máquina **Virtual** e sob **destino**, selecione o vNIC associado ao myVM.
 4. Repita para adicionar MyVM2.
    ![frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)

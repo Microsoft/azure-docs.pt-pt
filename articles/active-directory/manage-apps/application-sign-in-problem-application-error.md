@@ -1,6 +1,6 @@
 ---
-title: Mensagem de erro é apresentado na página de aplicação depois de iniciar sessão | Documentos da Microsoft
-description: Como resolver problemas com início de sessão do Azure AD quando a aplicação devolver uma mensagem de erro.
+title: A mensagem de erro aparece na página da aplicação depois de iniciar sessão Microsoft Docs
+description: Como resolver problemas com o Anúncio Azure iniciar o início quando a aplicação devolve uma mensagem de erro.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,152 +16,152 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e6a3d0b533dccc3c3111382b014907d5c026ab
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9b8d20b31e96973a492355f0515d0532deea0ac9
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612672"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185482"
 ---
-# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página da aplicação mostra uma mensagem de erro depois do utilizador inicia sessão
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página de aplicativo mostra uma mensagem de erro após o utilizador entrar
 
-Neste cenário, o Azure Active Directory (Azure AD) inicia o usuário sessão. Mas o aplicativo exibe uma mensagem de erro e não permite que o usuário concluir o fluxo de início de sessão. O problema é que a aplicação não aceita a resposta que emitiu do Azure AD.
+Neste cenário, o Azure Ative Directory (Azure AD) inscreve o utilizador. Mas a aplicação exibe uma mensagem de erro e não permite que o utilizador termine o fluxo de entrada. O problema é que a app não aceitou a resposta que a Azure AD emitiu.
 
-Existem vários motivos possíveis, por que a aplicação não aceitou a resposta do Azure AD. Se a mensagem de erro não identificar claramente o que está em falta na resposta, experimente o seguinte:
+Existem várias razões possíveis para a aplicação não ter aceitado a resposta da Azure AD. Se a mensagem de erro não identificar claramente o que falta na resposta, tente o seguinte:
 
--   Se a aplicação da galeria do Azure AD, certifique-se de que seguiu os passos em [como depurar baseado em SAML início de sessão único para aplicações no Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Se a aplicação for a galeria Azure AD, verifique se seguiu os passos de [Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Usar uma ferramenta como [Fiddler](https://www.telerik.com/fiddler) para capturar o pedido SAML, a resposta e o token.
+-   Utilize uma ferramenta como [o Fiddler](https://www.telerik.com/fiddler) para capturar o pedido, resposta e ficha da SAML.
 
--   Enviar a resposta SAML para o fornecedor da aplicação e peça-lhe o que está em falta.
+-   Envie a resposta SAML ao fornecedor de aplicações e pergunte-lhes o que falta.
 
-## <a name="attributes-are-missing-from-the-saml-response"></a>Atributos estão em falta da resposta SAML
+## <a name="attributes-are-missing-from-the-saml-response"></a>Faltam atributos da resposta SAML
 
-Para adicionar um atributo na configuração do Azure AD que será enviada na resposta do Azure AD, siga estes passos:
+Para adicionar um atributo na configuração azure aD que será enviada na resposta da AD Azure, siga estes passos:
 
-1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um administrador global ou coadministrador.
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como administrador global ou coadministrador.
 
-2. Na parte superior do painel de navegação no lado esquerdo, selecione **todos os serviços** para abrir a extensão do Azure AD.
+2. Na parte superior do painel de navegação do lado esquerdo, selecione **Todos os serviços** para abrir a extensão Azure AD.
 
-3. Tipo **do Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
+3. Digite o **Diretório Ativo Do** tipo Azure na caixa de pesquisa de filtros e, em seguida, selecione **Azure Ative Directory**.
 
-4. Selecione **aplicações empresariais** no painel de navegação do Azure AD.
+4. Selecione **Aplicações Empresariais** no painel de navegação Azure AD.
 
-5. Selecione **todos os aplicativos** para ver uma lista das suas aplicações.
+5. Selecione **Todas as Aplicações** para ver uma lista das suas apps.
 
    > [!NOTE]
-   > Se não vir a aplicação que pretende, utilize o **filtro** na parte superior do **todas as listas de aplicativos**. Definir o **mostrar** opção para "Todas as aplicações".
+   > Se não vir a aplicação que deseja, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações**. Detete a opção **Show** para "Todas as Aplicações".
 
-6. Selecione a aplicação que pretende configurar para início de sessão único.
+6. Selecione a aplicação que pretende configurar para um único início de sessão.
 
-7. Depois da aplicação for carregada, selecione **início de sessão único** no painel de navegação.
+7. Depois de a aplicação carregar, selecione **um único sinal no** painel de navegação.
 
-8. Na **atributos de utilizador** secção, selecione **ver e editar todos os outros atributos de utilizador**. Aqui, pode alterar os atributos a enviar para a aplicação no SAML token, quando os utilizadores iniciam sessão.
+8. Na secção **Atributos do Utilizador,** selecione **'Ver' e editar todos os outros atributos do utilizador**. Aqui pode alterar quais os atributos a enviar para a aplicação no token SAML quando os utilizadores iniciarem o seu insessão.
 
    Para adicionar um atributo:
 
-   1. Selecione **adicionar atributo**. Introduza o **Name**e selecione o **valor** na lista pendente.
+   1. **Selecione Adicionar atributo**. Introduza o **Nome**e selecione o **Valor** da lista de lançamentos.
 
-   1.  Selecione **Guardar**. Verá o novo atributo na tabela.
+   1.  Selecione **Guardar**. Verá o novo atributo na mesa.
 
 9. Guarde a configuração.
 
-   Da próxima vez que o utilizador inicia sessão na aplicação, o Azure AD irá enviar o novo atributo na resposta SAML.
+   Da próxima vez que o utilizador entrar na aplicação, o Azure AD enviará o novo atributo na resposta SAML.
 
 ## <a name="the-app-doesnt-identify-the-user"></a>A aplicação não identifica o utilizador
 
-Iniciar sessão aplicação falha porque a resposta SAML está em falta um atributo, como uma função. Falha porque a aplicação espera um formato diferente ou o valor para o **NameID** atributo (identificador de utilizador).
+A inscrição na aplicação falha porque a resposta SAML está a faltar um atributo, como um papel. Ou falha porque a aplicação espera um formato ou valor diferente para o atributo **NameID** (Identificador de Utilizador).
 
-Se estiver a utilizar [do Azure AD aprovisionamento automatizado do utilizador](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para criar, manter e remover utilizadores na aplicação, certifique-se de que o utilizador tiver sido aprovisionado para a aplicação SaaS. Para obter mais informações, consulte [os utilizadores não estão a ser aprovisionados para um aplicativo de galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
+Se estiver a utilizar o fornecimento automatizado de utilizadores da [Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para criar, manter e remover utilizadores na aplicação, verifique se o utilizador foi aprovisionado na aplicação SaaS. Para mais informações, não forneça utilizadores a uma aplicação da [Galeria AD Azure.](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Adicionar um atributo para a configuração de aplicações do Azure AD
+## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Adicione um atributo à configuração da aplicação Azure AD
 
-Para alterar o valor do identificador de utilizador, siga estes passos:
+Para alterar o valor do Identificador de Utilizador, siga estes passos:
 
-1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um administrador global ou coadministrador.
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como administrador global ou coadministrador.
 
-2. Selecione **todos os serviços** na parte superior do painel de navegação no lado esquerdo para abrir a extensão do Azure AD.
+2. Selecione **Todos os serviços** na parte superior do painel de navegação do lado esquerdo para abrir a extensão Azure AD.
 
-3. Tipo **do Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
+3. Digite o **Diretório Ativo Do** tipo Azure na caixa de pesquisa de filtros e, em seguida, selecione **Azure Ative Directory**.
 
-4. Selecione **aplicações empresariais** no painel de navegação do Azure AD.
+4. Selecione **Aplicações Empresariais** no painel de navegação Azure AD.
 
-5. Selecione **todos os aplicativos** para ver uma lista das suas aplicações.
+5. Selecione **Todas as Aplicações** para ver uma lista das suas apps.
 
    > [!NOTE]
-   > Se não vir a aplicação que pretende, utilize o **filtro** na parte superior do **todas as listas de aplicativos**. Definir o **mostrar** opção para "Todas as aplicações".
+   > Se não vir a aplicação que deseja, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações**. Detete a opção **Show** para "Todas as Aplicações".
 
 6. Selecione a aplicação que pretende configurar para SSO.
 
-7. Depois da aplicação for carregada, selecione **início de sessão único** no painel de navegação.
+7. Depois de a aplicação carregar, selecione **um único sinal no** painel de navegação.
 
-8. Sob **atributos de utilizador**, selecione o identificador exclusivo para o utilizador a **identificador de utilizador** na lista pendente.
+8. Em **atributos do Utilizador,** selecione o identificador único para o utilizador da lista de drop-down do Identificador do **Utilizador.**
 
 ## <a name="change-the-nameid-format"></a>Alterar o formato NameID
 
-Se o aplicativo esperar outro formato para o **NameID** atributo (identificador de utilizador), veja [nameID de edição](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) para alterar o formato NameID.
+Se a aplicação espera outro formato para o atributo **NameID** (Identificador de Utilizador), consulte o [nome de edição ID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) para alterar o formato NameID.
 
-O Azure AD seleciona o formato para o **NameID** atributo (identificador de utilizador) com base no formato que é solicitado pela aplicação no AuthRequest de SAML ou o valor que está selecionado. Para obter mais informações, consulte a secção "NameIDPolicy" [único início de sessão do protocolo SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
+O Azure AD seleciona o formato para o atributo **NameID** (Identificador de utilizador) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações, consulte a secção "NameIDPolicy" do [protocolo SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy)de inscrição única .
 
-## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>A aplicação espera que um método de assinatura diferente para a resposta SAML
+## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>A aplicação espera um método de assinatura diferente para a resposta SAML
 
-Para alterar as partes do SAML token são assinadas digitalmente pelo Azure AD, siga estes passos:
+Para alterar quais as partes do token SAML assinadas digitalmente pela Azure AD, siga estes passos:
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e inicie sessão como um administrador global ou coadministrador.
+1. Abra o [portal Azure](https://portal.azure.com/) e inscreva-se como administrador global ou coadministrador.
 
-2. Selecione **todos os serviços** na parte superior do painel de navegação no lado esquerdo para abrir a extensão do Azure AD.
+2. Selecione **Todos os serviços** na parte superior do painel de navegação do lado esquerdo para abrir a extensão Azure AD.
 
-3. Tipo **do Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
+3. Digite o **Diretório Ativo Do** tipo Azure na caixa de pesquisa de filtros e, em seguida, selecione **Azure Ative Directory**.
 
-4. Selecione **aplicações empresariais** no painel de navegação do Azure AD.
+4. Selecione **Aplicações Empresariais** no painel de navegação Azure AD.
 
-5. Selecione **todos os aplicativos** para ver uma lista das suas aplicações.
+5. Selecione **Todas as Aplicações** para ver uma lista das suas apps.
 
    > [!NOTE]
-   > Se não vir a aplicação que pretende, utilize o **filtro** na parte superior do **todas as listas de aplicativos**. Definir o **mostrar** opção para "Todas as aplicações".
+   > Se não vir a aplicação que deseja, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações**. Detete a opção **Show** para "Todas as Aplicações".
 
-6. Selecione a aplicação que pretende configurar para início de sessão único.
+6. Selecione a aplicação que pretende configurar para um único início de sessão.
 
-7. Depois da aplicação for carregada, selecione **início de sessão único** no painel de navegação.
+7. Depois de a aplicação carregar, selecione **um único sinal no** painel de navegação.
 
-8. Sob **certificado de assinatura SAML**, selecione **Mostrar definições de assinatura de certificado avançadas**.
+8. Sob o Certificado de **Assinatura SAML,** selecione **Mostrar definições avançadas**de assinatura de certificado .
 
-9. Selecione o **assinatura opção** que a aplicação espera entre estas opções:
+9. Selecione a **Opção de Contratação** que a aplicação espera entre estas opções:
 
    * **Assinar resposta SAML**
-   * **Assinar asserção e resposta SAML**
-   * **Assinar asserção SAML**
+   * **Assinar resposta e afirmação SAML**
+   * **Sign a afirmação do SAML**
 
-   Da próxima vez que o utilizador inicia sessão na aplicação do Azure AD assinará a parte da resposta SAML que selecionou.
+   Da próxima vez que o utilizador iniciar sessão na aplicação, o Azure AD assinará a parte da resposta SAML que selecionou.
 
-## <a name="the-app-expects-the-sha-1-signing-algorithm"></a>A aplicação espera que o algoritmo de assinatura de SHA-1
+## <a name="the-app-expects-the-sha-1-signing-algorithm"></a>A aplicação espera o algoritmo de assinatura SHA-1
 
-Por predefinição, o Azure AD assina o token SAML, utilizando o algoritmo mais segura. Recomendamos que não altere o algoritmo de assinatura *SHA-1* , a menos que a aplicação requer o SHA-1.
+Por padrão, a AD Azure assina o símbolo SAML utilizando o algoritmo mais seguro. Recomendamos que não altere o algoritmo de assinatura para *SHA-1* a menos que a aplicação exija SHA-1.
 
 Para alterar o algoritmo de assinatura, siga estes passos:
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e inicie sessão como um administrador global ou coadministrador.
+1. Abra o [portal Azure](https://portal.azure.com/) e inscreva-se como administrador global ou coadministrador.
 
-2. Selecione **todos os serviços** na parte superior do painel de navegação no lado esquerdo para abrir a extensão do Azure AD.
+2. Selecione **Todos os serviços** na parte superior do painel de navegação do lado esquerdo para abrir a extensão Azure AD.
 
-3. Tipo **do Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
+3. Digite o **Diretório Ativo Do** tipo Azure na caixa de pesquisa de filtros e, em seguida, selecione **Azure Ative Directory**.
 
-4. Selecione **aplicações empresariais** no painel de navegação do Azure AD.
+4. Selecione **Aplicações Empresariais** no painel de navegação Azure AD.
 
-5. Selecione **todos os aplicativos** para ver uma lista das suas aplicações.
+5. Selecione **Todas as Aplicações** para ver uma lista das suas aplicações.
 
    > [!NOTE]
-   > Se não vir a aplicação que pretende, utilize o **filtro** na parte superior do **todas as listas de aplicativos**. Definir o **mostrar** opção para "Todas as aplicações".
+   > Se não vir a aplicação que deseja, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações**. Detete a opção **Show** para "Todas as Aplicações".
 
-6. Selecione a aplicação que pretende configurar para início de sessão único.
+6. Selecione a aplicação que pretende configurar para um único início de sessão.
 
-7. Depois da aplicação for carregada, selecione **início de sessão único** no painel de navegação no lado esquerdo da aplicação.
+7. Depois de a aplicação carregar, selecione **um único sinal no** painel de navegação no lado esquerdo da aplicação.
 
-8. Sob **certificado de assinatura SAML**, selecione **Mostrar definições de assinatura de certificado avançadas**.
+8. Sob o Certificado de **Assinatura SAML,** selecione **Mostrar definições avançadas**de assinatura de certificado .
 
-9. Selecione **SHA-1** como o **algoritmo de assinatura**.
+9. Selecione **SHA-1** como algoritmo **de assinatura**.
 
-   Da próxima vez que o utilizador inicia sessão na aplicação do Azure AD assinar o token SAML, utilizando o algoritmo SHA-1.
+   Da próxima vez que o utilizador entrar na aplicação, o Azure AD assinará o símbolo SAML utilizando o algoritmo SHA-1.
 
-## <a name="next-steps"></a>Passos Seguintes
-[Como depurar baseado em SAML início de sessão único para aplicações no Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+## <a name="next-steps"></a>Passos seguintes
+[Como depurar uma única assinatura baseada em SAML para aplicações em Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).

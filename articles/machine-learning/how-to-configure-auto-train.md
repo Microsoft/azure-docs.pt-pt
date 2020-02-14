@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 00ab3e9c7902e253d39a38eb0e98ee166244bca2
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: b7f837c56214d2d01d0f119e0107a095bcfd782b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048570"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198774"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Para ver exemplos de experiências automatizadas de aprendizagem automática de 
 
 Opções de configuração disponíveis no automatizada de machine learning:
 
-* Selecione o tipo de experimento: classificação, regressão ou previsão de série temporal
+* Selecione o seu tipo de experiência: Classificação, Regressão ou Previsão da Série de Tempo
 * Origem de dados, formatos e obtenção de dados
 * Escolher o destino de computação: local ou remoto
 * Aprendizagem automatizada as definições de experimentação
@@ -39,11 +39,11 @@ Se preferir uma experiência sem código, também pode [criar as suas experiênc
 
 ## <a name="select-your-experiment-type"></a>Selecione o tipo de experimentação
 
-Antes de começar a sua experimentação, deve determinar o tipo de problema de aprendizado de máquina que está a resolver. O Machine Learning automatizado dá suporte a tipos de tarefas de classificação, regressão e previsão. Saiba mais sobre os tipos de [tarefas.](how-to-define-task-type.md)
+Antes de começar a sua experimentação, deve determinar o tipo de problema de aprendizado de máquina que está a resolver. O machine learning automatizado suporta tipos de tarefas de classificação, regressão e previsão. Saiba mais sobre os tipos de [tarefas.](how-to-define-task-type.md)
 
 Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo.
 
-Classificação | Regressão | Previsão de série temporal
+Classificação | Regressão | Previsão de séries temporais
 |-- |-- |--
 [Regressão Logística](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Rede Elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Rede Elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Gbm leve](https://lightgbm.readthedocs.io/en/latest/index.html)|[Gbm leve](https://lightgbm.readthedocs.io/en/latest/index.html)|[Gbm leve](https://lightgbm.readthedocs.io/en/latest/index.html)
@@ -59,7 +59,7 @@ Classificação | Regressão | Previsão de série temporal
 [Classificador Linear DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Regresso linear](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Regresso linear](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
 [Baías Ingénuas](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Regresso linear rápido](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
 [Descida do Gradiente Estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Gradiente Declive Online Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Profeta](https://facebook.github.io/prophet/docs/quick_start.html)
-|[Perceptron Classifier médio](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
+|[Perceptron Classifier médio](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||PrevisãoCN
 |[Classe Linear SVM](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
 
 Utilize o parâmetro `task` no construtor `AutoMLConfig` para especificar o seu tipo de experiência.
@@ -75,8 +75,8 @@ automl_config = AutoMLConfig(task = "classification")
 
 Aprendizagem automática suporta os dados que residem no ambiente de trabalho local ou na cloud, como o armazenamento de Blobs do Azure. Os dados podem ser lidos num **DataFrame pandas** ou num Conjunto de Dados de **Aprendizagem automática Azure .**  [Saiba mais sobre conjuntos](how-to-create-register-datasets.md)de dados .
 
-Requisitos para dados de treinamento:
-- Os dados devem estar no formato de tabela.
+Requisitos para os dados de formação:
+- Os dados devem estar na forma tabular.
 - O valor a prever, coluna de destino, deve estar nos dados.
 
 Os exemplos de código a seguir demonstram como armazenar os dados nesses formatos.
@@ -159,7 +159,7 @@ Alguns exemplos incluem:
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  Abaixo está um exemplo de um experimento de regressão definido para terminar após 60 minutos com cinco dobras cruzadas de validação.
+2.  Abaixo está um exemplo de uma experiência de regressão definida para terminar após 60 minutos com cinco dobras cruzadas de validação.
 
     ```python
     automl_regressor = AutoMLConfig(
@@ -174,10 +174,12 @@ Alguns exemplos incluem:
 
 Os três diferentes valores de parâmetro sétero `task` (o terceiro tipo de tarefa é `forecasting`, e usa um conjunto de algoritmos semelhante si `regression` tarefas) determinam a lista de modelos a aplicar. Utilize os parâmetros `whitelist` ou `blacklist` para modificar ainda mais as iterações com os modelos disponíveis para incluir ou excluir. A lista de modelos suportados pode ser encontrada na [Classe SupportEdModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) para ([Classificação,](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification) [Previsão](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)e [Regressão).](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)
 
+O serivce de validação automatizado do ML exigirá que `experiment_timeout_minutes` seja fixado para um tempo mínimo de 15 minutos, a fim de ajudar a evitar falhas no tempo de tempo.
+
 ### <a name="primary-metric"></a>Métrica primária
 A métrica primária determina a métrica a ser usada durante o treinamento do modelo para otimização. As métricas disponíveis que você pode selecionar são determinadas pelo tipo de tarefa que você escolher e a tabela a seguir mostra métricas primárias válidas para cada tipo de tarefa.
 
-|Classificação | Regressão | Previsão de série temporal
+|Classificação | Regressão | Previsão de séries temporais
 |-- |-- |--
 |accuracy| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
@@ -202,7 +204,7 @@ Ao configurar as suas experiências, pode ativar a configuração avançada `fea
 > [!NOTE]
 > Os passos automatizados de funcionalidade de aprendizagem automática (normalização de recursos, manuseamento de dados em falta, conversão de texto em numérico, etc.) tornam-se parte do modelo subjacente. Ao utilizar o modelo para previsões, os mesmos passos de caracterização aplicados durante o treino são aplicados automaticamente aos seus dados de entrada.
 
-### <a name="time-series-forecasting"></a>Previsão de série temporal
+### <a name="time-series-forecasting"></a>Previsão de séries temporais
 A série de tempo `forecasting` tarefa requer parâmetros adicionais no objeto de configuração:
 
 1. `time_column_name`: Parâmetro necessário que define o nome da coluna nos seus dados de treino contendo uma série de tempo válida.
@@ -242,13 +244,13 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 ### <a name="ensemble"></a>Configuração do conjunto
 
-Os modelos de Ensemble são habilitados por padrão e aparecem como as iterações de execução final em uma execução de Machine Learning automatizada. Atualmente, os métodos Ensemble com suporte são votação e empilhamento. A votação é implementada como votação suave usando médias ponderadas e a implementação de empilhamento está usando uma implementação de duas camadas, em que a primeira camada tem os mesmos modelos que o Ensemble de votação e o segundo modelo de camada é usado para encontrar a combinação ideal de os modelos da primeira camada. Se estiver a utilizar modelos ONNX **ou** tiver uma explicabilidade de modelo, o empilhamento será desativado e apenas o voto será utilizado.
+Os modelos de Ensemble são habilitados por padrão e aparecem como as iterações de execução final em uma execução de Machine Learning automatizada. Atualmente, os métodos Ensemble com suporte são votação e empilhamento. A votação é implementada como voto suave usando médias ponderadas, e a implementação do empilhamento está usando uma implementação de duas camadas, onde a primeira camada tem os mesmos modelos que o conjunto de votação, e o modelo de segunda camada é usado para encontrar a combinação ideal de os modelos da primeira camada. Se estiver a utilizar modelos ONNX **ou** tiver uma explicabilidade de modelo, o empilhamento será desativado e apenas o voto será utilizado.
 
 Existem múltiplos argumentos predefinidos que podem ser fornecidos como `kwargs` num objeto `AutoMLConfig` para alterar o comportamento padrão do conjunto de pilhas.
 
 * `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogéneos individuais. Os meta-aprendizes predefinidos são `LogisticRegression` para tarefas de classificação (ou `LogisticRegressionCV` se a validação cruzada estiver ativada) e `ElasticNet` para tarefas de regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver ativada). Este parâmetro pode ser uma das seguintes cordas: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`ou `LinearRegression`.
 * `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de formação (ao escolher o tipo de treino de comboio e validação) a reservar para a formação do meta-aprendiz. O valor predefinido é `0.2`.
-* `stack_meta_learner_kwargs`: parâmetros opcionais para passar para o inicializador do meta-aprendiz. Esses parâmetros e tipos de parâmetro espelham os parâmetros e os tipos de parâmetro do construtor de modelo correspondente e são encaminhados para o construtor de modelo.
+* `stack_meta_learner_kwargs`: parâmetros opcionais para passar para o inicializador do meta-aprendiz. Estes parâmetros e parâmetros espelham os parâmetros e os tipos de parâmetros do construtor de modelos correspondentes, e são encaminhados para o construtor do modelo.
 
 O código que se segue mostra um exemplo de especificar o comportamento do conjunto personalizado num objeto `AutoMLConfig`.
 
@@ -346,7 +348,7 @@ best_run, fitted_model = automl_run.get_output()
 Consulte a lista de pré-processamento e [engenharia automática](concept-automated-ml.md#preprocess) de recursos que acontece quando `"featurization": 'auto'`.
 
 Considere este exemplo:
-+ Há quatro recursos de entrada: A (numérico), B (numérico), C (numérico), D (DateTime)
++ Existem quatro funcionalidades de entrada: A (Numérico), B (Numérico), C (Numérico), D (DataTime)
 + O recurso numérico C é Descartado porque é uma coluna de ID com todos os valores exclusivos
 + Os recursos numéricos A e B têm valores ausentes e, portanto, são imputadosdos pela média
 + O recurso DateTime D é destacados em 11 recursos de engenharia diferentes
@@ -470,7 +472,7 @@ def print_model(model, prefix=""):
 print_model(fitted_model)
 ```
 
-A saída de exemplo a seguir é para um pipeline usando um algoritmo específico (LogisticRegression com RobustScalar, nesse caso).
+A seguinte saída de amostra é para um pipeline usando um algoritmo específico (LogisticRegression with RobustScalar, neste caso).
 
 ```
 RobustScaler
@@ -496,9 +498,9 @@ LogisticRegression
 'warm_start': False}
 ```
 
-### <a name="predict-class-probability"></a>Prever probabilidade de classe
+### <a name="predict-class-probability"></a>Prever a probabilidade da classe
 
-Os modelos produzidos usando o ML automatizado têm objetos wrapper que espelham a funcionalidade de sua classe de origem de código aberto. A maioria dos objetos de invólucro de modelo de classificação devolvidos por ML automatizado implementam a função `predict_proba()`, que aceita uma amostra de dados de matriz matriz matriz esparsa ou escassa das suas características (valores X), e devolve uma matriz n-dimensional de cada amostra e a sua respetiva probabilidade de classe.
+Os modelos produzidos com ML automatizado têm todos objetos de invólucro que espelham a funcionalidade da sua classe de origem de código aberto. A maioria dos objetos de invólucro de modelo de classificação devolvidos por ML automatizado implementam a função `predict_proba()`, que aceita uma amostra de dados de matriz matriz matriz esparsa ou escassa das suas características (valores X), e devolve uma matriz n-dimensional de cada amostra e a sua respetiva probabilidade de classe.
 
 Assumindo que recuperou o melhor modelo de execução e equipado utilizando as mesmas chamadas de cima, pode ligar `predict_proba()` diretamente do modelo equipado, fornecendo uma amostra `X_test` no formato apropriado, dependendo do tipo de modelo.
 

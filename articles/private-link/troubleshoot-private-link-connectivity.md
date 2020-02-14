@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 667fa1c85c63ffb87e49c4bf99112f57d0c85a72
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 0d26ad6802e551523875dcad13066fdbdbf39ada
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031923"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191046"
 ---
-# <a name="troubleshoot-private-link-service-connectivity-problems"></a>Problemas de problemas de conectividade private link service
+# <a name="troubleshoot-private-link-service-connectivity-problems"></a>Resolver problemas de conectividade do Serviço Private Link
 
 Este guia fornece orientações passo a passo para validar e diagnosticar conectividade para a configuração do seu serviço de ligação privada. 
 
@@ -112,4 +112,4 @@ Se estiver a ter problemas de conectividade com a configuração da ligação pr
 
  * [Criar um Serviço de Ligação Privada (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
 
- * [Guia de resolução de problemas de Endpoint privado](https://docs.microsoft.com/azure/private-link/private-endpoint-connectivity-troubleshooting)
+ * [Guia de resolução de problemas de Endpoint privado](troubleshoot-private-endpoint-connectivity.md)

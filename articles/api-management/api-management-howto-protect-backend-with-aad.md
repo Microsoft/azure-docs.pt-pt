@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 213e5523c0c99309c3244e19a406a7b82297188f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161805"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190368"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteja uma API utilizando o OAuth 2.0 com o Diretório Ativo Azure e a Gestão da API
 
@@ -71,7 +71,7 @@ Para proteger uma API com AD Azure, o primeiro passo é registar uma aplicação
 
 Todas as aplicações de clientes que liguem para a API também têm de ser registadas como aplicação em Azure AD. Neste exemplo, a aplicação do cliente é a Consola de Desenvolvimento no portal de desenvolvimento de Gestão aPI. Aqui está como registar outra aplicação em Azure AD para representar a Consola de Desenvolvimento.
 
-1. Vá ao [portal Azure](https://portal.azure.com) para registar a sua candidatura. Procure e selecione **registos API**.
+1. Vá ao [portal Azure](https://portal.azure.com) para registar a sua candidatura. Procure e selecione **registos DE APP**.
 
 1. Selecione **Novo registo**.
 
@@ -97,7 +97,7 @@ Quando o segredo for criado, note o valor-chave para uso num passo posterior.
 
 Agora que registou duas aplicações para representar a API e a Consola de Desenvolvimento, precisa de conceder permissões para permitir que a aplicação do cliente ligue para a aplicação de backend.  
 
-1. Vá ao [portal Azure](https://portal.azure.com) para conceder permissões à sua aplicação de cliente. Procure e selecione **registos API**.
+1. Vá ao [portal Azure](https://portal.azure.com) para conceder permissões à sua aplicação de cliente. Procure e selecione **registos DE APP**.
 
 1. Escolha a sua aplicação de cliente. Em seguida, na lista de páginas para a aplicação, selecione **permissões API**.
 
@@ -202,7 +202,7 @@ Pode utilizar a política [De Validação JWT](api-management-access-restriction
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID URI of backend-app}</value>
+            <value>{Application ID of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>

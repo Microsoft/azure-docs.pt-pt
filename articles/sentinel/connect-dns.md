@@ -1,6 +1,6 @@
 ---
-title: Conectar dados DNS no Azure Sentinel | Microsoft Docs
-description: Saiba como conectar dados DNS no Azure Sentinel.
+title: Conecte dados do DNS no Azure Sentinel. Microsoft Docs
+description: Saiba como ligar dados do DNS no Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: c5e58f496176ec0f1b8317c8b862a8ef2ffa434d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 96515d81668bf172325f88e3e5bac8d8cccfa999
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262736"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190864"
 ---
-# <a name="connect-your-domain-name-server"></a>Conectar seu servidor de nome de domínio
+# <a name="connect-your-domain-name-server"></a>Conecte o seu servidor de nome de domínio
 
 > [!IMPORTANT]
-> O conector de dados DNS no Azure Sentinel está atualmente em visualização pública.
-> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O conector de dados DNS em Azure Sentinel encontra-se atualmente em pré-visualização pública.
+> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Você pode conectar qualquer DNS (servidor de nomes de domínio) em execução no Windows para o Azure Sentinel. Isso é feito por meio da instalação de um agente no computador DNS. Usando logs DNS, você pode obter informações relacionadas à segurança, ao desempenho e às operações na infraestrutura de DNS da sua organização, coletando, analisando e correlacionando logs analíticos e de auditoria e outros dados relacionados dos servidores DNS.
+Pode ligar qualquer servidor de nome de domínio (DNS) que esteja a funcionar no Windows ao Azure Sentinel. Isto é feito instalando um agente na máquina DNS. Utilizando registos DNS, pode obter informações relacionadas com segurança, desempenho e operações sobre a infraestrutura DNS da sua organização, recolhendo, analisando e correlacionados registos analíticos e de auditoria e outros dados relacionados dos servidores DNS.
 
-Ao habilitar a conexão de log DNS, você pode:
-- Identificar clientes que tentam resolver nomes de domínio mal-intencionados
-- Identificar registros de recursos obsoletos
-- Identificar nomes de domínio consultados com frequência e clientes DNS comunicativos
-- Exibir a carga de solicitação em servidores DNS
-- Exibir falhas de registro de DNS dinâmico
+Quando ativa a ligação de registo DNS, pode:
+- Identifique clientes que tentem resolver nomes de domínio maliciosos
+- Identificar registos de recursos estanos
+- Identifique frequentemente nomes de domínio e clientes dNS falantes
+- Ver carga de pedido em servidores DNS
+- Ver falhas dinâmicas de registo dNS
 
 ## <a name="connected-sources"></a>Origens ligadas
 
@@ -45,35 +45,45 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | --- | --- | --- |
 | [Agentes do Windows](../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações de DNS de agentes do Windows. |
 | [Agentes do Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes diretos do Linux. |
-| [Grupo de gestão do System Center Operations Manager](../azure-monitor/platform/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes num grupo de gestão do Operations Manager ligado. Não é necessária uma conexão direta do agente de Operations Manager para Azure Monitor. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
+| [Grupo de gestão de gestão de gestão de gestão de operações do Centro de Sistema](../azure-monitor/platform/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes num grupo de gestão do Operations Manager ligado. Não é necessária uma ligação direta do agente do Gestor de Operações ao Monitor Azure. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
 | [Conta de armazenamento do Azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não é utilizado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes de recolha de dados
 
-A solução recolhe dados de relacionados a eventos DNS de inventário DNS e dos servidores DNS onde está instalado um agente de Log Analytics. Dados relacionados com o inventário, como o número de servidores DNS, zonas e registos de recursos, são recolhidos ao executar os cmdlets do PowerShell de DNS. Os dados são atualizados uma vez a cada dois dias. Os dados relacionados a eventos são recolhidos quase em tempo real do [analíticas e registos de auditoria](https://technet.microsoft.com/library/dn800669.aspx#enhanc) fornecida pelo aprimorados registo e diagnósticos DNS no Windows Server 2012 R2.
+A solução recolhe dados de relacionados a eventos DNS de inventário DNS e dos servidores DNS onde está instalado um agente de Log Analytics. Dados relacionados com o inventário, como o número de servidores DNS, zonas e registos de recursos, são recolhidos ao executar os cmdlets do PowerShell de DNS. Os dados são atualizados uma vez a cada dois dias. Os dados relacionados com o evento são recolhidos em quase tempo real a partir dos [registos analíticos e de auditoria](https://technet.microsoft.com/library/dn800669.aspx#enhanc) fornecidos por registos e diagnósticos dNS melhorados no Windows Server 2012 R2.
 
 
-## <a name="connect-your-dns-appliance"></a>Conectar seu dispositivo DNS
+## <a name="connect-your-dns-appliance"></a>Ligue o seu aparelho DNS
 
-1. No portal do Azure Sentinel, selecione **conectores de dados** e escolha o bloco **DNS (visualização)** .
-1. Se os computadores DNS estiverem no Azure:
-    1. Clique em **instalar agente na máquina virtual do Windows do Azure**.
-    1. Na lista **máquinas virtuais** , selecione o computador DNS que você deseja transmitir para o Azure Sentinel. Verifique se esta é uma VM do Windows.
-    1. Na janela que é aberta para essa VM, clique em **conectar**.  
-    1. Clique em **habilitar** na janela do **conector DNS** . 
+1. No portal Azure Sentinel, selecione **conectores** de dados e escolha o azulejo **DNS (Pré-visualização).**
+1. Se as suas máquinas DNS estiverem em Azure:
+    1. Clique **em instalar o agente na máquina virtual Do Windows .**
+    1. Na lista de **máquinas Virtuais,** selecione a máquina DNS que pretende transmitir para O Sentinel a dispor. Certifique-se de que este é um VM do Windows.
+    1. Na janela que se abre para esse VM, clique em **Connect**.  
+    1. Clique em **ativar** na janela do **conector DNS.** 
 
-2. Se o computador DNS não for uma VM do Azure:
-    1. Clique em **instalar agente em computadores não Azure**.
-    1. Na janela **agente direto** , selecione baixar o **agente do Windows (64 bits)** ou **baixar o agente do Windows (32 bits)** .
-    1. Instale o agente em seu computador DNS. Copie a **ID do espaço de trabalho**, a **chave primária**e a **chave secundária** e use-as quando solicitado durante a instalação.
+2. Se a sua máquina DNS não for um VM Azure:
+    1. Clique **em instalar o agente em máquinas não-Azure**.
+    1. Na janela **do agente Direct,** selecione o **agente Descarregamento do Windows (64 bits)** ou **o agente Dowindows (32 bits)** .
+    1. Instale o agente na sua máquina DNS. Copie o **ID workspace,** **a chave primária**e a tecla **secundária** e utilize-os quando solicitado durante a instalação.
 
-3. Para usar o esquema relevante no Log Analytics para os logs DNS, procure **DnsEvents**.
+3. Para utilizar o esquema relevante no Log Analytics para os registos DNS, procure **dnsEvents**.
 
-## <a name="validate"></a>Validar 
+## <a name="validate"></a>Validação 
 
-Em Log Analytics, procure o esquema **DnsEvents** e verifique se há eventos.
+No Log Analytics, procure o esquema **DnsEvents** e certifique-se de que existem eventos.
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se as consultas de lookup não aparecerem no Azure Sentinel, siga estes passos para que as consultas sejam exibidas corretamente:
+1. LIGUE os [registos do DNS Analytics nos seus servidores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+2. Certifique-se de que os DNSEvents aparecem na sua lista de recolha de Log Analytics.
+3. LIGUE [O Azure DNS Analytics](../azure-monitor/insights/dns-analytics.md).
+4. No Azure DNS Analytics, em **Configuração,** altere qualquer uma das definições, guarde-a e mude-a de volta se for necessário e, em seguida, guarde-a novamente.
+5. Consulte a análise do Azure DNS para se certificar de que as consultas estão agora a ser apresentadas.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, você aprendeu a conectar os dispositivos locais do DNS ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
+
+Neste documento, aprendeu a ligar os aparelhos DNS no local ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

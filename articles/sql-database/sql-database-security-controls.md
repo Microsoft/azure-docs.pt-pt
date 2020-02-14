@@ -1,6 +1,6 @@
 ---
 title: Controlos de segurança
-description: Uma lista de verificação de controles de segurança para avaliar o banco de dados SQL do Azure
+description: Uma lista de controlos de segurança para avaliar a Base de Dados Azure SQL
 services: sql-database
 author: msmbaldwin
 manager: rkalrin
@@ -8,69 +8,69 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58070cab1221b9d9585784d82cf1a48afcedb8af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ce7f3eafa57cbd993be98f4a2da3d89cb312f9b7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802834"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190683"
 ---
-# <a name="security-controls-for-azure-sql-database"></a>Controles de segurança para o banco de dados SQL do Azure
+# <a name="security-controls-for-azure-sql-database"></a>Controlos de segurança para base de dados Azure SQL
 
-Este artigo documenta os controles de segurança que são criados no banco de dados SQL do Azure.
+Este artigo documenta os controlos de segurança incorporados na Base de Dados Azure SQL.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
-O banco de dados SQL inclui [um único banco de dados e uma](sql-database-single-index.yml) [instância gerenciada](sql-database-managed-instance.md). As entradas a seguir se aplicam a ambas as ofertas, exceto onde indicado de outra forma.
+A Base de Dados SQL inclui uma [única base de dados](sql-database-single-index.yml) e instância [gerida](sql-database-managed-instance.md). As seguintes entradas aplicam-se a ambas as ofertas, exceto se for em contrário.
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Notas |
+| Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte ao ponto de extremidade de serviço| Sim | Aplica-se somente a [um único banco de dados](sql-database-single-index.yml) . |
-| Suporte à injeção de rede virtual do Azure| Sim | Aplica-se somente à [instância gerenciada](sql-database-managed-instance.md) . |
-| Isolamento de rede e suporte a firewall| Sim | Firewall no nível do banco de dados e do servidor. O isolamento de rede é apenas para [instância gerenciada](sql-database-managed-instance.md) . |
-| Suporte a túnel forçado| Sim | [Instância gerenciada](sql-database-managed-instance.md) por meio de uma VPN de [ExpressRoute](../expressroute/index.yml) . |
+| Suporte final de serviço| Sim | Aplica-se apenas à base de [dados.](sql-database-single-index.yml) |
+| Suporte à injeção da Rede Virtual Azure| Sim | Aplica-se apenas à [instância gerida.](sql-database-managed-instance.md) |
+| Isolamento da rede e suporte à firewall| Sim | Firewall tanto ao nível da base de dados como ao nível do servidor. O isolamento da rede é apenas para [casos geridos.](sql-database-managed-instance.md) |
+| Apoio de túnel forçado| Sim | [Caso gerido](sql-database-managed-instance.md) através de uma VPN [ExpressRoute.](../expressroute/index.yml) |
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitorização e exploração madeireira
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao monitoramento do Azure, como Log Analytics ou Application Insights| Sim | O SecureSphere, a solução SIEM da Imperva, também tem suporte por meio da integração dos [hubs de eventos do Azure](../event-hubs/index.yml) por meio da [auditoria do SQL](sql-database-auditing.md). |
-| Log e auditoria do plano de controle e do plano de gerenciamento| Sim | Sim apenas para alguns eventos |
-| Log e auditoria do plano de dados | Sim | Por meio da [auditoria do SQL](sql-database-auditing.md) |
+| Suporte de monitorização Azure, tais como Log Analytics ou Application Insights| Sim | A SecureSphere, a solução SIEM da Imperva, também é suportada através da integração dos Hubs de [Eventos Azure](../event-hubs/index.yml) através da [auditoria SQL.](sql-database-auditing.md) |
+| Exploração e auditoria de planos de controlo e de gestão| Sim | Sim, apenas para alguns eventos |
+| Exploração e auditoria de planos de dados | Sim | Via [auditoria SQL](sql-database-auditing.md) |
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Autenticação| Sim | Azure Active Directory (Azure AD) |
-| Autorização| Sim | Nenhum |
+| Autorização| Sim | Nenhuma |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Notas |
+| Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Chamado "criptografia em uso", conforme descrito no artigo [Always Encrypted](sql-database-always-encrypted.md). A criptografia do lado do servidor usa a [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).|
-| Criptografia em trânsito:<ul><li>Criptografia do Azure ExpressRoute</li><li>Criptografia em uma rede virtual</li><li>Criptografia entre redes virtuais</ul>| Sim | Usando HTTPS. |
-| Criptografia – manipulação de chaves, como CMK ou BYOK| Sim | O tratamento de chaves gerenciado pelo serviço e gerenciado pelo cliente é oferecido. O último é oferecido por meio de [Azure Key Vault](../key-vault/index.yml). |
-| Criptografia em nível de coluna fornecida pelos serviços de dados do Azure| Sim | Por meio de [Always Encrypted](sql-database-always-encrypted.md). |
-| Chamadas de API criptografadas| Sim | Usando HTTPS/SSL. |
+| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim | Chamada "encriptação em uso", como descrito no artigo [Always Encrypted](sql-database-always-encrypted.md). A encriptação do lado do servidor utiliza [encriptação de dados transparente.](transparent-data-encryption-azure-sql.md)|
+| Encriptação em trânsito:<ul><li>Encriptação Azure ExpressRoute</li><li>Encriptação em uma rede virtual</li><li>Encriptação entre redes virtuais</ul>| Sim | Utilizando HTTPS. |
+| Manuseamento de chaves de encriptação, como CMK ou BYOK| Sim | São oferecidos tanto o manuseamento de chaves gerido pelo serviço como gerido pelo cliente. Este último é oferecido através do [Cofre chave Azure.](../key-vault/index.yml) |
+| Encriptação ao nível da coluna fornecida pelos serviços de dados do Azure| Sim | Através [de Sempre Encriptado](sql-database-always-encrypted.md). |
+| Chamadas API encriptadas| Sim | Utilizando HTTPS/TLS. |
 
 ## <a name="configuration-management"></a>Gestão da configuração
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao gerenciamento de configuração, como o controle de versão da configuração| Não  | Nenhum |
+| Suporte de gestão de configuração, como versão da configuração| Não  | Nenhuma |
 
-## <a name="additional-security-controls-for-sql-database"></a>Controles de segurança adicionais para o banco de dados SQL
+## <a name="additional-security-controls-for-sql-database"></a>Controlos de segurança adicionais para base de dados SQL
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Preventivo: avaliação de vulnerabilidade | Sim | Consulte [serviço de avaliação de vulnerabilidade do SQL ajuda a identificar vulnerabilidades de banco de dados](sql-vulnerability-assessment.md). |
-| Preventivo: descoberta e classificação de dados  | Sim | Consulte [classificação de & do banco de dados SQL do Azure e SQL data warehouse a descoberta de data](sql-database-data-discovery-and-classification.md). |
-| Detecção: detecção de ameaças | Sim | Consulte [proteção avançada contra ameaças para o banco de dados SQL do Azure](sql-database-threat-detection-overview.md). |
+| Prevenção: avaliação da vulnerabilidade | Sim | Consulte o serviço de Avaliação de [VulnerabilidadeS SQL ajuda-o a identificar vulnerabilidades na base de dados](sql-vulnerability-assessment.md). |
+| Prevenção: descoberta e classificação de dados  | Sim | Consulte [a Base de Dados Azure SQL e a SQL Data Warehouse descoberta e classificação](sql-database-data-discovery-and-classification.md)de dados . |
+| Deteção: deteção de ameaças | Sim | Consulte A Proteção avançada de Ameaças para a Base de [Dados Azure SQL](sql-database-threat-detection-overview.md). |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).
+- Saiba mais sobre os [controlos de segurança incorporados em todos os serviços do Azure.](../security/fundamentals/security-controls.md)

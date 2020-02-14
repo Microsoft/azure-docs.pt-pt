@@ -4,16 +4,16 @@ description: Este artigo descreve como executar e depurar a OPC Publisher. Abord
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 2f99f50ffcccb052526981a712ac5046836a44ae
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4f5d57bab51d537b64ce4b800737219663c3d7a7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712895"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198791"
 ---
 # <a name="run-opc-publisher"></a>Executar o Publicador OPC
 
@@ -695,7 +695,7 @@ Configurar os nódosos para publicar pode ser feito usando métodos diretos IoT 
 
 A OPC Publisher implementa algumas chamadas adicionais do método ioT Hub para ler:
 
-- Informações gerais.
+- Informação geral.
 - Informações de diagnóstico sobre sessões de OPC, subscrições e itens monitorizados.
 - Informações de diagnóstico sobre mensagens e eventos do IoT Hub.
 - O registo de arranque.
@@ -710,6 +710,6 @@ Se não tiver um servidor UA Real oPC, pode utilizar a [amostra OPC UA PLC](http
 
 Implementa uma série de tags, que geram dados aleatórios e tags com anomalias. Pode estender a amostra se precisar de simular valores adicionais de etiqueta.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a gerir a OPC Publisher, os próximos passos recomendados são para aprender sobre [o OPC Twin](overview-opc-twin.md) e [o OPC Vault](overview-opc-vault.md).

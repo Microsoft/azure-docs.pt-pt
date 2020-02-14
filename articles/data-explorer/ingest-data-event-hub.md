@@ -1,35 +1,35 @@
 ---
-title: Ingerir dados do hub de eventos para o Azure Data Explorer
-description: Neste artigo, você aprenderá a ingerir (carregar) dados no Azure Data Explorer do hub de eventos.
+title: Ingerir dados do Event Hub no Azure Data Explorer
+description: Neste artigo, aprende-se a ingerir (carregar) dados no Azure Data Explorer a partir do Event Hub.
 author: orspod
 ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: e622abd16f900ca811385ddada187f3c96e7d758
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bb9357ca4388bd1fb7ae3e3704cf4112d07c1105
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773941"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188190"
 ---
-# <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados do hub de eventos para o Azure Data Explorer
+# <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados do Event Hub no Azure Data Explorer
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
-> * [Python](data-connection-event-hub-python.md)
+> * [python](data-connection-event-hub-python.md)
 > * [Modelo do Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece ingestão (carregamento de dados) a partir dos Hubs de Eventos, uma plataforma de transmissão de macrodados e um serviço de ingestão de eventos. Os [hubs de eventos](/azure/event-hubs/event-hubs-about) podem processar milhões de eventos por segundo quase em tempo real. Neste artigo, você cria um hub de eventos, conecta-o do Azure Data Explorer e vê o fluxo de dados por meio do sistema.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece ingestão (carregamento de dados) a partir dos Hubs de Eventos, uma plataforma de transmissão de macrodados e um serviço de ingestão de eventos. Os Centros de Eventos podem processar milhões de [eventos](/azure/event-hubs/event-hubs-about) por segundo em quase tempo real. Neste artigo, cria-se um hub de eventos, conecta-se a ele a partir do Azure Data Explorer e vê-se o fluxo de dados através do sistema.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Um cluster de teste e um banco de dados](create-cluster-database-portal.md).
-* [Um aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que gera dados e os envia para um hub de eventos. Baixe o aplicativo de exemplo em seu sistema.
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) para executar o aplicativo de exemplo.
+* [Um cluster de teste e base de dados.](create-cluster-database-portal.md)
+* [Uma aplicação de amostra](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que gera dados e envia para um centro de eventos. Descarregue a aplicação de amostra para o seu sistema.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) para executar a aplicação de amostras.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -37,9 +37,9 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
-Neste artigo, você gera dados de exemplo e os envia para um hub de eventos. O primeiro passo é criar um hub de eventos. Pode fazê-lo através de um modelo do Azure Resource Manager no portal do Azure.
+Neste artigo, gera dados de amostra e envia-os para um centro de eventos. O primeiro passo é criar um hub de eventos. Pode fazê-lo através de um modelo do Azure Resource Manager no portal do Azure.
 
-1. Para criar um hub de eventos, use o botão a seguir para iniciar a implantação. Clique com o botão direito do mouse e selecione **abrir em nova janela**para que você possa seguir o restante das etapas neste artigo.
+1. Para criar um centro de eventos, utilize o seguinte botão para iniciar a implementação. Clique à direita e selecione **Abra em nova janela,** para que possa seguir o resto dos passos neste artigo.
 
     [![Implementar no Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -49,7 +49,7 @@ Neste artigo, você gera dados de exemplo e os envia para um hub de eventos. O p
 
 1. Selecione a subscrição em que quer criar o hub de eventos e crie um grupo de recursos chamado *test-hub-rg*.
 
-    ![Criar um grupo de recursos](media/ingest-data-event-hub/create-resource-group.png)
+    ![Criar um grupo de recursos:](media/ingest-data-event-hub/create-resource-group.png)
 
 1. Preencha o formulário com as seguintes informações.
 
@@ -61,7 +61,7 @@ Neste artigo, você gera dados de exemplo e os envia para um hub de eventos. O p
     |---|---|---|
     | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
     | Grupo de recursos | *test-hub-rg* | Crie um novo grupo de recursos. |
-    | Localização | *E.U.A. Oeste* | Selecione *oeste dos EUA* para este artigo. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades. Crie o namespace do hub de eventos no mesmo local que o cluster Kusto para obter o melhor desempenho (o mais importante para namespaces do hub de eventos com alta taxa de transferência).
+    | Localização | *E.U.A. Oeste* | Selecione *West US* para este artigo. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades. Crie o espaço de nome do centro de eventos no mesmo local que o cluster Kusto para melhor desempenho (o mais importante para espaços de nome solo de eventocom alta produção).
     | Nome do espaço de nomes | Um nome de espaço de nomes exclusivo | Escolha um nome exclusivo que identifique o seu espaço de nomes. Por exemplo, *mytestnamespace*. O nome de domínio *servicebus.windows.net* é anexado ao nome que indicar. O nome só pode conter letras, números e hífenes. O nome tem de começar com uma letra e terminar com uma letra ou número. O valor deve ter entre 6 e 50 carateres.
     | Nome do hub de eventos | *test-hub* | O hub de eventos encontra-se no espaço de nomes, que fornece um contentor de âmbito exclusivo. O nome do hub de eventos tem de ser exclusivo no espaço de nomes. |
     | Nome do grupo de consumidores | *test-group* | Os grupos de consumidores permitem que cada aplicação de consumo tenha uma vista separada do fluxo de eventos. |
@@ -81,7 +81,7 @@ Agora, vai criar uma tabela no Azure Data Explorer, para onde os Hubs de Eventos
 
     ![Ligação da aplicação de consulta](media/ingest-data-event-hub/query-explorer-link.png)
 
-1. Copie o seguinte comando na janela e selecione **executar** para criar a tabela (TestTable) que receberá os dados ingeridos.
+1. Copie o seguinte comando na janela e selecione **Executar** para criar a tabela (TestTable) que receberá os dados ingeridos.
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
@@ -89,7 +89,7 @@ Agora, vai criar uma tabela no Azure Data Explorer, para onde os Hubs de Eventos
 
     ![Executar criação da consulta](media/ingest-data-event-hub/run-create-query.png)
 
-1. Copie o seguinte comando na janela e selecione **executar** para mapear os dados JSON de entrada para os nomes de coluna e tipos de dados da tabela (TestTable).
+1. Copie o seguinte comando na janela e selecione **Executar** para mapear os dados jSON de entrada para os nomes das colunas e tipos de dados da tabela (TestTable).
 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
@@ -105,11 +105,11 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
 
     ![Selecionar a base de dados de teste](media/ingest-data-event-hub/select-test-database.png)
 
-1. Selecione **ingestão de dados** e **Adicionar conexão de dados**. Em seguida, preencha o formulário com as informações a seguir. Selecione **criar** quando terminar.
+1. **Selecione a ingestão** de dados e **adicione a ligação de dados**. Em seguida, preencha o formulário com as seguintes informações. Selecione **Criar** quando terminar.
 
     ![Ligação ao hub de eventos](media/ingest-data-event-hub/event-hub-connection.png)
 
-    **Fonte de dados:**
+    **Fonte de Dados:**
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
@@ -117,25 +117,25 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
     | Espaço de nomes do hub de eventos | Um nome de espaço de nomes exclusivo | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
     | Hub de eventos | *test-hub* | O hub de eventos que criou. |
     | Grupo de consumidores | *test-group* | O grupo de consumidores definido no hub de eventos que criou. |
-    | Propriedades do sistema de eventos | Selecionar propriedades relevantes | As [Propriedades do sistema do hub de eventos](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Se houver vários registros por mensagem de evento, as propriedades do sistema serão adicionadas ao primeiro. Ao adicionar propriedades do sistema, [crie](/azure/kusto/management/tables#create-table) ou [atualize](/azure/kusto/management/tables#alter-table-and-alter-merge-table) o esquema de tabela e o [mapeamento](/azure/kusto/management/mappings) para incluir as propriedades selecionadas. |
-    | Compressão | *Nenhum* | O tipo de compressão das mensagens Do Event Hub. Tipos de compressão suportados: *Nenhum, GZip*.|
+    | Propriedades do sistema de eventos | Selecione propriedades relevantes | As propriedades do [sistema Event Hub.](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations) Se houver vários registos por mensagem de evento, as propriedades do sistema serão adicionadas à primeira. Ao adicionar propriedades do sistema, [crie](/azure/kusto/management/create-table-command) ou [atualize](/azure/kusto/management/alter-table-command) o esquema de tabela e [mapeie](/azure/kusto/management/mappings) para incluir as propriedades selecionadas. |
+    | Compressão | *Nenhuma.* | O tipo de compressão das mensagens Do Event Hub. Tipos de compressão suportados: *Nenhum, GZip*.|
     | | |
 
-    **Tabela de destino:**
+    **Tabela-alvo:**
 
-    Há duas opções para rotear os dados ingeridos: *estático* e *dinâmico*. 
-    Para este artigo, use o roteamento estático, no qual você especifica o nome da tabela, o formato de dados e o mapeamento. Portanto, deixe que **meus dados incluam as informações de roteamento** desmarcadas.
+    Existem duas opções para encaminhamento dos dados ingeridos: *estática* e *dinâmica.* 
+    Para este artigo, utiliza o encaminhamento estático, onde especifica o nome da tabela, o formato de dados e o mapeamento. Portanto, deixe **os meus dados incluem informações de encaminhamento** não selecionadas.
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Tabelas | *TestTable* | A tabela que criou em **TestDatabase**. |
+    | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
     | Formato de dados | *JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC e PARQUET. |
-    | Mapeamento de colunas | *TestMapping* | O [mapeamento](/azure/kusto/management/mappings) que você criou em **TestDatabase**, que mapeia os dados JSON de entrada para os nomes de coluna e tipos de dados de **TestTable**. Necessário para JSON ou MultiLINE JSON, e opcional para outros formatos.|
+    | Mapeamento de colunas | *TestMapping* | O [mapeamento](/azure/kusto/management/mappings) que criou no **TestDatabase,** que mapeia os dados jSON que chegam aos nomes das colunas e tipos de dados do **TestTable**. Necessário para JSON ou MultiLINE JSON, e opcional para outros formatos.|
     | | |
 
     > [!NOTE]
-    > * Selecionar **meus dados inclui informações de roteamento** para usar o roteamento dinâmico, onde os dados incluem as informações de roteamento necessárias, como visto nos comentários do [aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Se ambas as propriedades estática e dinâmica forem definidas, as propriedades dinâmicas substituirão as estáticas. 
-    > * Somente os eventos enfileirados após a criação da conexão de dados são ingeridos.
+    > * Selecione **Os meus dados incluem informações de encaminhamento** dinâmico para utilizar o encaminhamento dinâmico, onde os seus dados incluem as informações de encaminhamento necessárias, como se pode ver nos comentários da aplicação da [amostra.](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) Se as propriedades estáticas e dinâmicas forem definidas, as propriedades dinâmicas sobrepõem-se às estáticas. 
+    > * Só os eventos gravados depois de criar a ligação de dados são ingeridos.
     > * Também pode definir o tipo de compressão através de propriedades dinâmicas, como visto na [aplicação de amostras.](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)
     > * Os formatos Avro, ORC e PARQUET, bem como as propriedades do sistema de eventos, não são suportados na carga útil da compressão GZip.
 
@@ -155,7 +155,7 @@ Quando executa a [aplicação de exemplo](https://github.com/Azure-Samples/event
 
 ## <a name="generate-sample-data"></a>Gerar dados de exemplo
 
-Use o [aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que você baixou para gerar dados.
+Utilize a [aplicação de amostra](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que descarregou para gerar dados.
 
 1. Abra a solução de aplicação de exemplo no Visual Studio.
 
@@ -192,14 +192,14 @@ Com a aplicação de geração de dados, agora pode ver o fluxo dos dados do hub
     TestTable
     ```
 
-    O conjunto de resultados deve ser semelhante ao seguinte:
+    O conjunto de resultados deve parecer o seguinte:
 
     ![Conjunto de resultados das mensagens](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > * O Azure Data Explorer tem uma política de agregação (em lote) para ingestão de dados, projetada para otimizar o processo de ingestão. A política é configurada para 5 minutos ou 500 MB de dados, por padrão, para que você possa experimentar uma latência. Consulte [política de envio em lote](/azure/kusto/concepts/batchingpolicy) para obter opções de agregação. 
-    > * A ingestão de Hub de eventos inclui o tempo de resposta do hub de eventos de 10 segundos ou 1 MB. 
-    > * Configure sua tabela para dar suporte ao streaming e remova a latência no tempo de resposta. Consulte a [política de streaming](/azure/kusto/concepts/streamingingestionpolicy). 
+    > * O Azure Data Explorer tem uma política de agregação (loting) para a ingestão de dados, concebida para otimizar o processo de ingestão. A política está configurada a 5 minutos ou 500 MB de dados, por padrão, para que possa experimentar uma latência. Consulte [a política de lotação](/azure/kusto/concepts/batchingpolicy) para opções de agregação. 
+    > * A ingestão do Hub de Eventos inclui o tempo de resposta do Event Hub de 10 segundos ou 1 MB. 
+    > * Configure a sua tabela para suportar o streaming e remova o atraso no tempo de resposta. Consulte [a política de streaming.](/azure/kusto/concepts/streamingingestionpolicy) 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -217,4 +217,4 @@ Se não planear voltar a utilizar o hub de eventos, limpe **test-hub-rg**, para 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Consultar dados no Azure Data Explorer](web-query-data.md)
+* [Dados de consulta no Explorador de Dados do Azure](web-query-data.md)

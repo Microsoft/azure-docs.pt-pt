@@ -1,11 +1,9 @@
 ---
-title: Conecte redes virtuais com o peering de rede virtual - PowerShell / Microsoft Docs
+title: Conecte redes virtuais com peering VNet - Azure PowerShell
 description: Neste artigo, aprende-se a conectar redes virtuais com o peering de rede virtual, utilizando o Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
@@ -17,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 18a252e1e169aeb094e4aa6a507ff1e3d5ee931f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: caa620c2389bb6e2387636bc262ceb2de99d8e34
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022074"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201310"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conecte redes virtuais com o peering de rede virtual usando powerShell
 
@@ -43,13 +41,13 @@ Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a v
 
 ## <a name="create-virtual-networks"></a>Criar redes virtuais
 
-Antes de criar uma rede virtual, tem de criar um grupo de recursos para a rede virtual, e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de criar uma rede virtual, tem de criar um grupo de recursos para a rede virtual, e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Crie uma rede virtual com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). O exemplo seguinte cria uma rede virtual chamada *myVirtualNetwork1* com o prefixo de endereço *10.0.0.0.0/16*.
+Criar uma rede virtual com [new-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). O exemplo seguinte cria uma rede virtual chamada *myVirtualNetwork1* com o prefixo de endereço *10.0.0.0.0/16*.
 
 ```azurepowershell-interactive
 $virtualNetwork1 = New-AzVirtualNetwork `
@@ -160,7 +158,7 @@ A criação da VM demora alguns minutos. Não continue com passos posteriores at
 
 ## <a name="communicate-between-vms"></a>Comunicar entre VMs
 
-Pode ligar-se ao endereço IP público de um VM a partir da internet. Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para retornar o endereço IP público de uma VM. O exemplo seguinte devolve o endereço IP público da VM *myVm1*:
+Pode ligar-se ao endereço IP público de um VM a partir da internet. Utilize o [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para devolver o endereço IP público de um VM. O exemplo seguinte devolve o endereço IP público da VM *myVm1*:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress `

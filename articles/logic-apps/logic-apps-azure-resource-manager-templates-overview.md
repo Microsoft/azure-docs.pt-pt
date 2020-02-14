@@ -1,51 +1,51 @@
 ---
-title: Visão geral-automatizar a implantação para aplicativos lógicos do Azure
-description: Saiba mais sobre modelos de Azure Resource Manager para automatizar a implantação para aplicativos lógicos do Azure
+title: Visão geral - Implementação de automatizar para Aplicações Lógicas Azure
+description: Saiba sobre os modelos do Gestor de Recursos Azure para automatizar a implementação de aplicações lógicas do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 486f90d82af729a3dbfd836239d2d19ebdf44819
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972689"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191429"
 ---
-# <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager
+# <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: Implementação automática para Aplicações Lógicas Azure utilizando modelos de Gestor de Recursos Azure
 
-Quando estiver pronto para automatizar a criação e a implantação de seu aplicativo lógico, você poderá expandir a definição de fluxo de trabalho subjacente do aplicativo lógico para um [modelo de Azure Resource Manager](../azure-resource-manager/management/overview.md). Este modelo define a infraestrutura, os recursos, os parâmetros e outras informações para provisionar e implantar seu aplicativo lógico. Definindo parâmetros para valores que variam na implantação, também conhecido como *parametrização*, você pode implantar aplicativos lógicos de forma repetida e consistente com base em diferentes necessidades de implantação.
+Quando estiver pronto para automatizar a criação e implementação da sua aplicação lógica, pode expandir a definição de fluxo de trabalho subjacente da sua aplicação lógica para um [modelo de Gestor de Recursos Azure](../azure-resource-manager/management/overview.md). Este modelo define a infraestrutura, recursos, parâmetros e outras informações para o fornecimento e implementação da sua aplicação lógica. Ao definir parâmetros para valores que variam na implementação, também conhecido como *parametrização,* pode implementar repetida e consistentemente aplicações lógicas baseadas em diferentes necessidades de implementação.
 
-Por exemplo, se você implantar em ambientes para desenvolvimento, teste e produção, provavelmente usará cadeias de conexão diferentes para cada ambiente. Você pode declarar parâmetros de modelo que aceitam cadeias de conexão diferentes e, em seguida, armazenar essas cadeias de caracteres em um [arquivo de parâmetros](../azure-resource-manager/templates/parameter-files.md)separado. Dessa forma, você pode alterar esses valores sem precisar atualizar e reimplantar o modelo. Para cenários em que você tem valores de parâmetro que são confidenciais ou que devem ser protegidos, como senhas e segredos, você pode armazenar esses valores em [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) e fazer com que o arquivo de parâmetros recupere esses valores. No entanto, nesses cenários, você reimplantaria para recuperar os valores atuais.
+Por exemplo, se se implantar em ambientes de desenvolvimento, teste e produção, provavelmente utiliza cordas de ligação diferentes para cada ambiente. Pode declarar parâmetros de modelo que aceitam diferentes cordas de ligação e, em seguida, armazenar essas cordas num ficheiro de [parâmetros](../azure-resource-manager/templates/parameter-files.md)separados . Dessa forma, pode alterar esses valores sem ter de atualizar e recolocar o modelo. Para cenários em que tem valores de parâmetros sensíveis ou devem ser protegidos, como palavras-passe e segredos, pode armazenar esses valores no [Cofre de Chaves Azure](../azure-resource-manager/templates/key-vault-parameter.md) e ter os seus parâmetros de ficheiro para recuperar esses valores. No entanto, nestes cenários, redistribuir-se-ia para recuperar os valores atuais.
 
-Esta visão geral descreve os atributos em um modelo do Resource Manager que inclui uma definição de fluxo de trabalho do aplicativo lógico. O modelo e sua definição de fluxo de trabalho usam a sintaxe JSON, mas existem algumas diferenças porque a definição de fluxo de trabalho também segue o [esquema de linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md). Por exemplo, expressões de modelo e expressões de definição de fluxo de trabalho diferem em como eles [fazem referência a parâmetros](#parameter-references) e os valores que eles podem aceitar.
+Esta visão geral descreve os atributos num modelo de Gestor de Recursos que inclui uma definição lógica de fluxo de fluxo de aplicações. Tanto o modelo como a definição de fluxo de trabalho utilizam a sintaxe JSON, mas existem algumas diferenças porque a definição de fluxo de trabalho também segue o esquema de linguagem de definição de fluxo de [trabalho.](../logic-apps/logic-apps-workflow-definition-language.md) Por exemplo, as expressões de modelo e as expressões de definição de fluxo de trabalho diferem na forma como [referenciam parâmetros](#parameter-references) e nos valores que podem aceitar.
 
 > [!TIP]
-> Para obter uma maneira mais fácil de obter um modelo de aplicativo lógico parametrizado válido que está, na maioria das vezes, pronto para implantação, use o Visual Studio (versão gratuita da Comunidade ou superior) e as ferramentas de aplicativos lógicos do Azure para Visual Studio. Você pode [criar seu aplicativo lógico no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) ou [Localizar e baixar um aplicativo lógico existente do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
+> Para obter um modelo de aplicação lógica paramétrica válido que esteja maioritariamente pronto para ser implantado, use o Visual Studio (edição comunitária gratuita ou maior) e as Ferramentas de Aplicações lógicas Azure para o Estúdio Visual. Em seguida, pode [criar a sua aplicação lógica no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) ou encontrar e descarregar uma [aplicação lógica existente do Azure para o Visual Studio.](../logic-apps/manage-logic-apps-with-visual-studio.md)
 >
-> Ou, você pode criar modelos de aplicativo lógico usando [Azure PowerShell com o módulo LogicAppTemplate](../logic-apps/logic-apps-create-azure-resource-manager-templates.md#azure-powershell).
+> Ou, pode criar modelos de aplicações lógicas utilizando [o Azure PowerShell com o módulo LogicAppTemplate](../logic-apps/logic-apps-create-azure-resource-manager-templates.md#azure-powershell).
 
-O exemplo de aplicativo lógico neste tópico usa um [gatilho do Outlook do Office 365](/connectors/office365/) que é acionado quando um novo email chega e uma [ação de armazenamento de BLOBs do Azure](/connectors/azureblob/) que cria um blob para o corpo do email e carrega esse blob em um contêiner de armazenamento do Azure. Os exemplos também mostram como parametrizar valores que variam na implantação.
+A aplicação lógica de exemplo neste tópico usa um [gatilho do Office 365 Outlook](/connectors/office365/) que dispara quando um novo e-mail chega e uma ação de Armazenamento [Azure Blob](/connectors/azureblob/) que cria uma bolha para o corpo de e-mail e carrega essa bolha para um recipiente de armazenamento Azure. Os exemplos também mostram como parametrizar valores que variam na implantação.
 
-Para obter mais informações sobre modelos do Resource Manager, consulte estes tópicos:
+Para obter mais informações sobre os modelos do Gestor de Recursos, consulte estes tópicos:
 
-* [Estrutura e sintaxe do modelo de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Estrutura do modelo do Gestor de Recursos Azure e sintaxe](../azure-resource-manager/templates/template-syntax.md)
 * [Melhores práticas do modelo do Azure Resource Manager](../azure-resource-manager/templates/template-best-practices.md)
 * [Desenvolver modelo do Azure Resource Manager para consistência da cloud](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
-Para obter exemplos de modelos de aplicativo lógico, consulte estes exemplos:
+Para modelos de aplicativos de lógica de amostra, consulte estes exemplos:
 
-* [Modelo completo](#full-example-template) usado para os exemplos deste tópico
-* [Exemplo de modelo de aplicativo lógico de início rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) no github
+* [Modelo completo](#full-example-template) que é usado para os exemplos deste tópico
+* [Modelo de aplicativo de lógica quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) de amostra no GitHub
 
-Para obter informações de recursos de modelo específicas para aplicativos lógicos, contas de integração e artefatos de conta de integração, consulte [tipos de recursos Microsoft. Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Para informações de recursos de modelo específicas para aplicações lógicas, contas de integração e artefactos de conta de integração, consulte os tipos de [recursos Microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
 
 <a name="template-structure"></a>
 
 ## <a name="template-structure"></a>Estrutura do modelo
 
-No nível superior, um modelo do Resource Manager segue essa estrutura, que é totalmente descrita na [estrutura do modelo de Azure Resource Manager e](../azure-resource-manager/templates/template-syntax.md) no tópico de sintaxe:
+Ao nível superior, um modelo de Gestor de Recursos segue esta estrutura, que é totalmente descrita na estrutura do modelo do Gestor de Recursos Azure e no tópico de [sintaxe:](../azure-resource-manager/templates/template-syntax.md)
 
 ```json
 {
@@ -59,34 +59,34 @@ No nível superior, um modelo do Resource Manager segue essa estrutura, que é t
 }
 ```
 
-Para um modelo de aplicativo lógico, você trabalha principalmente com estes objetos de modelo:
+Para um modelo de aplicação lógica, você trabalha principalmente com estes objetos de modelo:
 
 | Atributo | Descrição |
 |-----------|-------------|
-| `parameters` | Declara os [parâmetros de modelo](../azure-resource-manager/templates/template-syntax.md#parameters) para aceitar os valores a serem usados ao criar e personalizar recursos para implantação no Azure. Por exemplo, esses parâmetros aceitam os valores para o nome e o local do seu aplicativo lógico, as conexões e outros recursos necessários para a implantação. Você pode armazenar esses valores de parâmetro em um [arquivo de parâmetros](#template-parameter-files), que é descrito posteriormente neste tópico. Para obter detalhes gerais, consulte [parâmetros – estrutura e sintaxe do modelo do Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters). |
-| `resources` | Define os [recursos](../azure-resource-manager/templates/template-syntax.md#resources) para criar ou atualizar e implantar em um grupo de recursos do Azure, como seu aplicativo lógico, conexões, contas de armazenamento do Azure e assim por diante. Para obter detalhes gerais, consulte [recursos – estrutura e sintaxe do modelo do Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources). |
+| `parameters` | Declara os [parâmetros](../azure-resource-manager/templates/template-syntax.md#parameters) do modelo para aceitar os valores a utilizar ao criar e personalizar recursos para implantação em Azure. Por exemplo, estes parâmetros aceitam os valores para o nome e localização da sua aplicação lógica, conexões e outros recursos necessários para a implementação. Pode armazenar estes valores de parâmetronum ficheiro de [parâmetros,](#template-parameter-files)que é descrito mais tarde neste tópico. Para mais detalhes gerais, consulte Parâmetros - Estrutura de modelo de gestor de [recursos e sintaxe.](../azure-resource-manager/templates/template-syntax.md#parameters) |
+| `resources` | Define os [recursos](../azure-resource-manager/templates/template-syntax.md#resources) para criar ou atualizar e implementar para um grupo de recursos Azure, como a sua aplicação lógica, conexões, contas de armazenamento Azure, e assim por diante. Para mais detalhes gerais, consulte Recursos - Estrutura de [modelo de Gestor de Recursos e sintaxe.](../azure-resource-manager/templates/template-syntax.md#resources) |
 ||||
 
-Seu modelo de aplicativo lógico usa este formato de nome de arquivo:
+O modelo de aplicação lógica utiliza este formato de nome de ficheiro:
 
-**<*Logic-app-name*>. JSON**
+**<*lógica-app-nome*>.json**
 
 > [!IMPORTANT]
-> A sintaxe do modelo diferencia maiúsculas de minúsculas, portanto, certifique-se de usar maiúsculas e minúsculas. 
+> A sintaxe do modelo é sensível ao caso, por isso certifique-se de que utiliza invólucroconsistente. 
 
 <a name="template-parameters"></a>
 
 ## <a name="template-parameters"></a>Parâmetros do modelo
 
-Um modelo de aplicativo lógico tem vários objetos `parameters` que existem em diferentes níveis e executam funções diferentes. Por exemplo, no nível superior, você pode declarar [parâmetros de modelo](../azure-resource-manager/templates/template-syntax.md#parameters) para os valores a serem aceitos e usados na implantação ao criar e implantar recursos no Azure, por exemplo:
+Um modelo de aplicação lógica tem vários objetos `parameters` que existem em diferentes níveis e desempenham diferentes funções. Por exemplo, ao nível superior, pode declarar [parâmetros](../azure-resource-manager/templates/template-syntax.md#parameters) de modelo para os valores aceitarem e utilizarem na implementação ao criar e implantar recursos em Azure, por exemplo:
 
-* Seu aplicativo lógico
-* Conexões que sua lógica usa para acessar outros serviços e sistemas por meio de [conectores gerenciados](../connectors/apis-list.md)
-* Outros recursos de que seu aplicativo lógico precisa para implantação
+* A sua aplicação lógica
+* Conexões que a sua lógica utiliza para aceder a outros serviços e sistemas através [de conectores geridos](../connectors/apis-list.md)
+* Outros recursos que a sua aplicação lógica precisa para a implantação
 
-  Por exemplo, se seu aplicativo lógico usa uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para cenários B2B (entre empresas), o objeto de `parameters` de nível superior do modelo declara o parâmetro que aceita a ID do recurso para essa conta de integração.
+  Por exemplo, se a sua aplicação lógica usa uma conta de [integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para cenários negócio-a-negócio (B2B), o objeto de `parameters` de nível superior do modelo declara o parâmetro que aceita o ID de recurso para essa conta de integração.
 
-Aqui está a estrutura geral e a sintaxe para uma definição de parâmetro, que é totalmente descrita por [parâmetros – estrutura de modelo do Resource Manager e sintaxe](../azure-resource-manager/templates/template-syntax.md#parameters):
+Aqui está a estrutura geral e a sintaxe para uma definição de parâmetro, que é totalmente descrita por Parâmetros - Estrutura de [modelo de Gestor de Recursos e sintaxe:](../azure-resource-manager/templates/template-syntax.md#parameters)
 
 ```json
 "<parameter-name>": {
@@ -99,10 +99,10 @@ Aqui está a estrutura geral e a sintaxe para uma definição de parâmetro, que
 },
 ```
 
-Este exemplo mostra apenas os parâmetros de modelo para os valores usados para criar e implantar esses recursos no Azure:
+Este exemplo mostra apenas os parâmetros do modelo para os valores utilizados para criar e implantar estes recursos em Azure:
 
-* Nome e local para seu aplicativo lógico
-* ID a ser usada para uma conta de integração vinculada ao aplicativo lógico
+* Nome e localização para a sua aplicação lógica
+* ID para usar para uma conta de integração que está ligada à aplicação lógica
 
 ```json
 {
@@ -143,52 +143,52 @@ Este exemplo mostra apenas os parâmetros de modelo para os valores usados para 
 }
 ```
 
-Exceto para parâmetros que manipulam valores que são confidenciais ou devem ser protegidos, como nomes de dados, senhas e segredos, todos esses parâmetros incluem `defaultValue` atributos, embora em alguns casos os valores padrão sejam valores vazios. Os valores de implantação a serem usados para esses parâmetros de modelo são fornecidos pelo [arquivo de parâmetros](#template-parameter-files) de exemplo descrito posteriormente neste tópico.
+Com exceção dos parâmetros que manuseam valores sensíveis ou devem ser protegidos, tais como nomes de utilizador, palavras-passe e segredos, todos estes parâmetros incluem `defaultValue` atributos, embora em alguns casos, os valores predefinidos sejam valores vazios. Os valores de implantação a utilizar para estes parâmetros de modelo são fornecidos pelo ficheiro de [parâmetros](#template-parameter-files) da amostra descrito mais tarde neste tópico.
 
-Para proteger os parâmetros de modelo, consulte estes tópicos:
+Para obter mais informações sobre a fixação de parâmetros de modelo, consulte estes tópicos:
 
 * [Recomendações de segurança para parâmetros de modelo](../azure-resource-manager/templates/template-best-practices.md#parameters)
-* [Parâmetros de modelo seguro](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Passar valores de parâmetros seguros com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+* [Melhorar a segurança dos parâmetros do modelo](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+* [Passe valores de parâmetro seguro com cofre de chave Azure](../azure-resource-manager/templates/key-vault-parameter.md)
 
-Outros objetos de modelo geralmente referenciam parâmetros de modelo para que eles possam usar os valores que passam por parâmetros de modelo, por exemplo:
+Outros objetos de modelo muitas vezes referenciam parâmetros de modelo para que possam usar os valores que passam através de parâmetros de modelo, por exemplo:
 
-* O [objeto de recursos do modelo](#template-resources), descrito mais adiante neste tópico, define cada recurso no Azure que você deseja criar e implantar, como a [definição de recurso do aplicativo lógico](#logic-app-resource-definition). Esses recursos geralmente usam valores de parâmetro de modelo, como o nome do aplicativo lógico e a localização e as informações de conexão.
+* O objeto de recursos do seu [modelo,](#template-resources)descrito mais tarde neste tópico, define cada recurso em Azure que pretende criar e implementar, como a definição de recursos da sua [aplicação lógica.](#logic-app-resource-definition) Estes recursos usam frequentemente valores de parâmetros de modelo, como o nome e a localização da sua aplicação lógica e informações de conexão.
 
-* Em um nível mais profundo na definição de recurso do aplicativo lógico, o [objeto de parâmetros da definição de fluxo de trabalho](#workflow-definition-parameters) declara parâmetros para os valores a serem usados no tempo de execução do aplicativo lógico. Por exemplo, você pode declarar parâmetros de definição de fluxo de trabalho para o nome de usuário e a senha que um gatilho HTTP usa para autenticação. Para especificar os valores para parâmetros de definição de fluxo de trabalho, use o `parameters` objeto que está *fora* da definição de fluxo de trabalho, mas ainda *dentro* da definição de recurso do aplicativo lógico. Nesse objeto `parameters` externo, você pode referenciar os parâmetros de modelo declarados anteriormente, que podem aceitar valores na implantação de um arquivo de parâmetros.
+* A um nível mais profundo na definição de recursos da sua aplicação lógica, o [objeto de parâmetros da definição de fluxo](#workflow-definition-parameters) de trabalho declara parâmetros para os valores a utilizar no tempo de execução da sua aplicação lógica. Por exemplo, pode declarar parâmetros de definição de fluxo de trabalho para o nome de utilizador e palavra-passe que um gatilho HTTP utiliza para autenticação. Para especificar os valores dos parâmetros de definição de fluxo de trabalho, utilize o `parameters` objeto que está *fora da* definição de fluxo de trabalho, mas ainda *dentro* da definição de recursos da sua aplicação lógica. Neste objeto `parameters` exterior, pode fazer referência a parâmetros de modelo previamente declarados, que podem aceitar valores na implementação a partir de um ficheiro de parâmetros.
 
-Ao referenciar parâmetros, as funções e expressões de modelo usam sintaxe diferente e se comportam de forma diferente das expressões e funções de definição de fluxo de trabalho Para obter mais informações sobre essas diferenças, consulte [References to Parameters](#parameter-references) , mais adiante neste tópico.
+Quando se referem parâmetros, expressões e funções de modelo usam diferentes sintaxe e comportam-se de forma diferente das expressões e funções da definição de fluxo de trabalho. Para obter mais informações sobre estas diferenças, consulte [referências aos parâmetros](#parameter-references) mais tarde neste tópico.
 
 <a name="best-practices-template-parameters"></a>
 
-## <a name="best-practices---template-parameters"></a>Práticas recomendadas-parâmetros de modelo
+## <a name="best-practices---template-parameters"></a>Boas práticas - parâmetros de modelo
 
-Aqui estão algumas práticas recomendadas para definir parâmetros:
+Aqui estão algumas boas práticas para definir parâmetros:
 
-* Declare parâmetros somente para valores que variam de acordo com suas necessidades de implantação. Não declare parâmetros para valores que permanecem os mesmos em diferentes requisitos de implantação.
+* Declare parâmetros apenas para valores que variam, com base nas suas necessidades de implantação. Não declare parâmetros para valores que permaneçam os mesmos em diferentes requisitos de implementação.
 
-* Inclua o atributo `defaultValue`, que pode especificar valores vazios, para todos os parâmetros, exceto para valores que são confidenciais ou devem ser protegidos. Sempre use parâmetros protegidos para nomes de usuário, senhas e segredos. Para ocultar ou proteger os valores de parâmetros confidenciais, siga as orientações nestes tópicos:
+* Incluir o atributo `defaultValue`, que pode especificar valores vazios, para todos os parâmetros, exceto para valores sensíveis ou devem ser protegidos. Utilize sempre parâmetros seguros para nomes de utilizadores, senhas e segredos. Para ocultar ou proteger valores sensíveis dos parâmetros, siga a orientação nestes tópicos:
 
   * [Recomendações de segurança para parâmetros de modelo](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
-  * [Parâmetros de modelo seguro](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+  * [Melhorar a segurança dos parâmetros do modelo](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [Passar valores de parâmetros seguros com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+  * [Passe valores de parâmetro seguro com cofre de chave Azure](../azure-resource-manager/templates/key-vault-parameter.md)
 
-* Para diferenciar nomes de parâmetro de modelo dos nomes de parâmetros de definição de fluxo de trabalho, você pode usar nomes de parâmetro de modelo descritivos, por exemplo: `TemplateFabrikamPassword`
+* Para diferenciar os nomes dos parâmetros de parâmetros de modelo de modelo dos nomes dos parâmetros de definição de fluxo de trabalho, pode utilizar nomes de parâmetros descritivos do modelo, por exemplo: `TemplateFabrikamPassword`
 
-Para obter mais práticas recomendadas de modelo, consulte [práticas recomendadas para parâmetros de modelo](../azure-resource-manager/templates/template-best-practices.md#parameters).
+Para mais práticas de modelo, consulte [as melhores práticas para parâmetros](../azure-resource-manager/templates/template-best-practices.md#parameters)de modelo .
 
 <a name="template-parameter-files"></a>
 
 ## <a name="template-parameters-file"></a>Arquivo de parâmetros de modelo
 
-Para fornecer os valores para parâmetros de modelo, armazene esses valores em um [arquivo de parâmetros](../azure-resource-manager/templates/parameter-files.md). Dessa forma, você pode usar arquivos de parâmetros diferentes com base nas suas necessidades de implantação. Este é o formato de nome de arquivo a ser usado:
+Para fornecer os valores para parâmetros de modelo, guarde esses valores num ficheiro de [parâmetros](../azure-resource-manager/templates/parameter-files.md). Dessa forma, pode utilizar diferentes ficheiros de parâmetros com base nas suas necessidades de implantação. Aqui está o formato de nome de ficheiro a utilizar:
 
-* Nome do arquivo de modelo do aplicativo lógico: **<*Logic-app-Name*>. JSON**
-* Nome do arquivo de parâmetros: **<*Logic-app-Name*>. Parameters. JSON**
+* Nome de ficheiro de modelo de aplicativo lógico: **<*logic-app-name*>.json**
+* Nome de ficheiro de parâmetros: **<*logic-app-name*>.parmeters.json**
 
-Aqui está a estrutura dentro do arquivo de parâmetros, que inclui uma referência do Key Vault para [passar um valor de parâmetro seguro com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
+Aqui está a estrutura dentro do ficheiro de parâmetros, que inclui uma referência chave do cofre para [passar um valor de parâmetro seguro com cofre de chave Azure:](../azure-resource-manager/templates/key-vault-parameter.md)
 
 ```json
 {
@@ -215,7 +215,7 @@ Aqui está a estrutura dentro do arquivo de parâmetros, que inclui uma referên
 }
 ```
 
-Este arquivo de parâmetros de exemplo especifica os valores para os parâmetros de modelo declarados anteriormente neste tópico:
+Este ficheiro de parâmetros de exemplo especifica os valores dos parâmetros do modelo declarados anteriormente neste tópico:
 
 ```json
 {
@@ -237,7 +237,7 @@ Este arquivo de parâmetros de exemplo especifica os valores para os parâmetros
 
 ## <a name="template-resources"></a>Recursos do modelo
 
-Seu modelo tem um objeto `resources`, que é uma matriz que contém definições para cada recurso a ser criado e implantado no Azure, como a [definição de recurso do aplicativo lógico](#logic-app-resource-definition), quaisquer [definições de recurso de conexão](#connection-resource-definitions)e quaisquer outros recursos que seu aplicativo lógico precisa para a implantação.
+O seu modelo tem um objeto `resources`, que é uma matriz que contém definições para cada recurso criar e implementar no Azure, como a definição de recursos da sua [aplicação lógica,](#logic-app-resource-definition)quaisquer definições de recursos de [ligação,](#connection-resource-definitions)e quaisquer outros recursos que a sua aplicação lógica precise para a implementação.
 
 ```json
 {
@@ -263,24 +263,24 @@ Seu modelo tem um objeto `resources`, que é uma matriz que contém definições
 ```
 
 > [!NOTE]
-> Os modelos podem incluir definições de recursos para vários aplicativos lógicos, portanto, certifique-se de que todos os recursos do aplicativo lógico especifiquem o mesmo grupo de recursos do Azure. Ao implantar o modelo em um grupo de recursos do Azure usando o Visual Studio, você será solicitado a inserir o aplicativo lógico que deseja abrir. Além disso, o projeto do grupo de recursos do Azure pode conter mais de um modelo, portanto, certifique-se de selecionar o arquivo de parâmetros correto quando solicitado.
+> Os modelos podem incluir definições de recursos para aplicações lógicas múltiplas, por isso certifique-se de que todos os recursos da sua lógica especificam o mesmo grupo de recursos Azure. Quando implementa o modelo para um grupo de recursos Azure utilizando o Visual Studio, é solicitado para que aplicação lógica pretende abrir. Além disso, o seu projeto de grupo de recursos Azure pode conter mais de um modelo, por isso certifique-se de que seleciona o ficheiro de parâmetros correto quando solicitado.
 
-Para obter informações gerais sobre os recursos de modelo e seus atributos, consulte estes tópicos:
+Para obter informações gerais sobre os recursos do modelo e os seus atributos, consulte estes tópicos:
 
-* [Recursos – estrutura e sintaxe do modelo do Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources)
-* [Práticas recomendadas para recursos de modelo](../azure-resource-manager/templates/template-best-practices.md#resources)
+* [Recursos - Estrutura de modelo de gestor de recursos e sintaxe](../azure-resource-manager/templates/template-syntax.md#resources)
+* [Boas práticas para recursos de modelo](../azure-resource-manager/templates/template-best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 
-### <a name="logic-app-resource-definition"></a>Definição de recurso de aplicativo lógico
+### <a name="logic-app-resource-definition"></a>Definição de recursos de aplicações lógicas
 
-A definição de recurso do aplicativo lógico começa com o objeto `properties`, que inclui essas informações:
+A definição de recursos da sua aplicação lógica começa com o objeto `properties`, que inclui esta informação:
 
-* O estado do aplicativo lógico na implantação
-* A ID de qualquer conta de integração usada pelo seu aplicativo lógico
-* A definição de fluxo de trabalho do aplicativo lógico
-* Um objeto `parameters` que define os valores a serem usados em tempo de execução
-* Outras informações de recurso sobre seu aplicativo lógico, como nome, tipo, local e assim por diante
+* O estado da sua aplicação lógica em implementação
+* O ID para qualquer conta de integração usada pela sua aplicação lógica
+* Definição de fluxo de trabalho da sua aplicação lógica
+* Um objeto `parameters` que define os valores a usar no tempo de execução
+* Outras informações sobre o seu aplicativo lógico, como nome, tipo, localização, e assim por diante
 
 ```json
 {
@@ -317,32 +317,32 @@ A definição de recurso do aplicativo lógico começa com o objeto `properties`
 }
 ```
 
-Aqui estão os atributos que são específicos para sua definição de recurso de aplicativo lógico:
+Aqui estão os atributos que são específicos da definição de recursos de aplicações lógicas:
 
-| Atributo | Obrigatório | Tipo | Descrição |
+| Atributo | Necessário | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| `state` | Sim | String | O estado do aplicativo lógico na implantação em que `Enabled` significa que seu aplicativo lógico está ativo e `Disabled` significa que seu aplicativo lógico está inativo. Por exemplo, se você não estiver pronto para o aplicativo lógico ficar ativo, mas desejar implantar uma versão de rascunho, poderá usar a opção `Disabled`. |
-| `integrationAccount` | Não | Objeto | Se seu aplicativo lógico usar uma conta de integração, que armazena artefatos para cenários B2B (entre empresas), esse objeto incluirá o atributo `id`, que especifica a ID da conta de integração. |
-| `definition` | Sim | Objeto | A definição de fluxo de trabalho subjacente do aplicativo lógico, que é o mesmo objeto que aparece na exibição de código e é totalmente descrita no tópico [referência de esquema para linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md) . Nessa definição de fluxo de trabalho, o objeto `parameters` declara parâmetros para os valores a serem usados no tempo de execução do aplicativo lógico. Para obter mais informações, consulte [definição de fluxo de trabalho e parâmetros](#workflow-definition-parameters). <p><p>Para exibir os atributos na definição de fluxo de trabalho do aplicativo lógico, alterne de "modo de exibição de design" para "exibição de código" no portal do Azure ou no Visual Studio ou usando uma ferramenta como [Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | Não | Objeto | Os [valores de parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) a serem usados no tempo de execução do aplicativo lógico As definições de parâmetro para esses valores aparecem dentro do [objeto de parâmetros da definição de fluxo de trabalho](#workflow-definition-parameters). Além disso, se seu aplicativo lógico usar [conectores gerenciados](../connectors/apis-list.md) para acessar outros serviços e sistemas, esse objeto incluirá um objeto `$connections` que define os valores de conexão a serem usados no tempo de execução. |
-| `accessControl` | Não | Objeto | Para especificar atributos de segurança para seu aplicativo lógico, como restringir o acesso IP para solicitações de gatilhos ou entradas e saídas de histórico de execução. Para obter mais informações, consulte [proteger o acesso aos aplicativos lógicos](../logic-apps/logic-apps-securing-a-logic-app.md). |
+| `state` | Sim | Cadeia | O estado da sua aplicação lógica na implementação, onde `Enabled` significa que a sua aplicação lógica está ao vivo e `Disabled` significa que a sua aplicação lógica está inativa. Por exemplo, se não estiver pronto para a sua aplicação lógica entrar em direto, mas quiser implementar uma versão de rascunho, pode utilizar a opção `Disabled`. |
+| `integrationAccount` | Não | Object | Se a sua aplicação lógica utilizar uma conta de integração, que armazena artefactos para cenários de negócios a empresas (B2B), este objeto inclui o atributo `id`, que especifica o ID para a conta de integração. |
+| `definition` | Sim | Object | A definição subjacente à definição de fluxo de trabalho da sua aplicação lógica, que é o mesmo objeto que aparece na vista de código e é totalmente descrita na [referência de Schema para](../logic-apps/logic-apps-workflow-definition-language.md) o tópico de Linguagem de Definição de Fluxo de Trabalho. Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a utilizar no tempo de execução da aplicação lógica. Para obter mais informações, consulte a [definição de Fluxo de Trabalho e os parâmetros](#workflow-definition-parameters). <p><p>Para ver os atributos na definição de fluxo de trabalho da sua aplicação lógica, mude de "vista de design" para "visão de código" no portal Azure ou Visual Studio, ou utilizando uma ferramenta como [o Azure Resource Explorer.](https://resources.azure.com) |
+| `parameters` | Não | Object | Os valores de [parâmetro de definição](#workflow-definition-parameters) de fluxo de trabalho para usar no tempo de execução da aplicação lógica. As definições de parâmetros para estes valores aparecem dentro [do objeto de parâmetros da definição de fluxo de trabalho](#workflow-definition-parameters). Além disso, se a sua aplicação lógica utilizar [conectores geridos](../connectors/apis-list.md) para aceder a outros serviços e sistemas, este objeto inclui um objeto `$connections` que define os valores de ligação a utilizar no tempo de execução. |
+| `accessControl` | Não | Object | Para especificar atributos de segurança para a sua aplicação lógica, como restringir o acesso IP a gatilhos de pedido ou executar inputs e saídas de histórico. Para mais informações, consulte [O acesso seguro a aplicações lógicas.](../logic-apps/logic-apps-securing-a-logic-app.md) |
 ||||
 
-Para obter informações de recursos de modelo específicas para aplicativos lógicos, contas de integração e artefatos de conta de integração, consulte [tipos de recursos Microsoft. Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Para informações de recursos de modelo específicas para aplicações lógicas, contas de integração e artefactos de conta de integração, consulte os tipos de [recursos Microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
 
 <a name="workflow-definition-parameters"></a>
 
 ## <a name="workflow-definition-and-parameters"></a>Definição e parâmetros de fluxo de trabalho
 
-A definição de fluxo de trabalho do aplicativo lógico aparece no objeto `definition`, que aparece no objeto `properties` dentro da definição de recurso do aplicativo lógico. Esse objeto `definition` é o mesmo objeto que aparece na exibição de código e é totalmente descrito no tópico [referência de esquema para linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md) . Sua definição de fluxo de trabalho inclui um objeto de declaração de `parameters` interno, no qual você pode definir novos parâmetros existentes ou editá-los para os valores que são usados pela definição de fluxo de trabalho em tempo de execução. Em seguida, você pode fazer referência a esses parâmetros dentro do gatilho ou ações em seu fluxo de trabalho. Por padrão, esse objeto `parameters` está vazio, a menos que seu aplicativo lógico crie conexões com outros serviços e sistemas por meio de [conectores gerenciados](../connectors/apis-list.md).
+A definição de fluxo de trabalho da sua aplicação lógica aparece no objeto `definition`, que aparece no objeto `properties` dentro da definição de recursos da sua aplicação lógica. Este `definition` objeto é o mesmo objeto que aparece na vista de código e é totalmente descrito na [referência de Schema para](../logic-apps/logic-apps-workflow-definition-language.md) o tópico de linguagem de definição de fluxo de trabalho. A definição de fluxo de trabalho inclui um objeto de declaração de `parameters` interior onde pode definir parâmetros novos ou editar os parâmetros existentes para os valores que são utilizados pela sua definição de fluxo de trabalho no prazo de funcionamento. Pode então fazer referência a estes parâmetros dentro do gatilho ou ações no seu fluxo de trabalho. Por padrão, este `parameters` objeto está vazio a menos que a sua aplicação lógica crie ligações a outros serviços e sistemas através de [conectores geridos](../connectors/apis-list.md).
 
-Para definir os valores dos parâmetros de definição de fluxo de trabalho, use o objeto `parameters` que está *fora* da definição de fluxo de trabalho, mas ainda *dentro* da definição de recurso do aplicativo lógico. Nesse objeto `parameters` externo, você pode fazer referência aos parâmetros de modelo declarados anteriormente, que podem aceitar valores na implantação de um arquivo de parâmetros.
+Para definir os valores para os parâmetros de definição de fluxo de trabalho, use o objeto `parameters` que está *fora da* definição de fluxo de trabalho, mas ainda *dentro* da definição de recursos da sua aplicação lógica. Neste objeto exterior `parameters`, pode então fazer referência aos parâmetros do modelo previamente declarados, que podem aceitar valores na implementação a partir de um ficheiro de parâmetros.
 
 > [!TIP]
 >
-> Como prática recomendada, não referencie diretamente os parâmetros de modelo, que são avaliados na implantação, de dentro da definição de fluxo de trabalho. Em vez disso, declare um parâmetro de definição de fluxo de trabalho, que pode ser definido no objeto `parameters` que está *fora* de sua definição de fluxo de trabalho, mas ainda *dentro* da definição de recurso do aplicativo lógico. Para obter mais informações, consulte [References to Parameters](#parameter-references).
+> Como uma boa prática, não referencia diretamente parâmetros de modelo, que são avaliados na implementação, a partir de dentro da definição de fluxo de trabalho. Em vez disso, declare um parâmetro de definição de fluxo de trabalho, que pode então definir no objeto `parameters` que está *fora da* sua definição de fluxo de trabalho, mas ainda *dentro* da definição de recursos da sua aplicação lógica. Para mais informações, consulte [Referências aos parâmetros](#parameter-references).
 
-Essa sintaxe mostra onde você pode declarar parâmetros nos níveis de definição de modelo e de fluxo de trabalho, juntamente com o local em que você pode definir esses valores de parâmetro referenciando o modelo e os parâmetros de definição de fluxo de trabalho:
+Esta sintaxe mostra onde pode declarar parâmetros tanto nos níveis de definição de modelo como de definição de fluxo de trabalho, juntamente com os quais pode definir esses valores de parâmetro, referenciando os parâmetros de definição de modelo e de fluxo de trabalho:
 
 ```json
 {
@@ -405,17 +405,17 @@ Essa sintaxe mostra onde você pode declarar parâmetros nos níveis de definiç
 
 <a name="secure-workflow-definition-parmameters"></a>
 
-### <a name="secure-workflow-definition-parameters"></a>Parâmetros de definição de fluxo de trabalho seguro
+### <a name="secure-workflow-definition-parameters"></a>Parâmetros seguros de definição de fluxo de trabalho
 
-Para um parâmetro de definição de fluxo de trabalho que manipula informações confidenciais, senhas, chaves de acesso ou segredos em tempo de execução, declare ou edite o parâmetro para usar o tipo de parâmetro `securestring` ou `secureobject`. Você pode fazer referência a esse parâmetro em toda a sua definição de fluxo de trabalho. No nível superior do modelo, declare um parâmetro que tenha o mesmo tipo para lidar com essas informações na implantação.
+Para um parâmetro de definição de fluxo de trabalho que lida com informações sensíveis, senhas, chaves de acesso ou segredos no tempo de execução, declare ou edite o parâmetro para utilizar o tipo de parâmetro `securestring` ou `secureobject`. Pode fazer referência a este parâmetro em toda a sua definição de fluxo de trabalho. No nível superior do modelo, declare um parâmetro que tenha o mesmo tipo para lidar com esta informação na implementação.
 
-Para definir o valor do parâmetro de definição de fluxo de trabalho, use o objeto `parameters` que está *fora* de sua definição de fluxo de trabalho, mas ainda *dentro* de sua definição de recurso de aplicativo lógico para referenciar o parâmetro de modelo. Por fim, para passar o valor para o parâmetro de modelo na implantação, armazene esse valor em [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) e faça referência a esse cofre de chaves no [arquivo de parâmetros](#template-parameter-files) que é usado pelo modelo na implantação.
+Para definir o valor para o parâmetro de definição de fluxo de trabalho, utilize o `parameters` objeto que está *fora da* definição de fluxo de trabalho, mas ainda *dentro da* definição de recursos de aplicação lógica para fazer referência ao parâmetro do modelo. Finalmente, para passar o valor para o seu parâmetro de modelo na implementação, guarde esse valor no [Cofre de Chaves Azure](../azure-resource-manager/templates/key-vault-parameter.md) e referência ao cofre chave no ficheiro de [parâmetros](#template-parameter-files) que é usado pelo seu modelo na implantação.
 
-Este modelo de exemplo mostra como você pode concluir essas tarefas definindo parâmetros protegidos quando necessário para que você possa armazenar seus valores no Azure Key Vault:
+Este modelo de exemplo mostra como pode completar estas tarefas definindo parâmetros seguros quando necessário para que possa armazenar os seus valores no Cofre chave Azure:
 
-* Declare parâmetros seguros para os valores usados para autenticar o acesso.
-* Use esses valores nos níveis de definição de modelo e de fluxo de trabalho.
-* Forneça esses valores usando um arquivo de parâmetros.
+* Declare parâmetros seguros para os valores utilizados para autenticar o acesso.
+* Utilize estes valores tanto nos níveis de definição de modelo como de definição de fluxo de trabalho.
+* Forneça estes valores utilizando um ficheiro de parâmetros.
 
 **Modelo**
 
@@ -546,27 +546,27 @@ Este modelo de exemplo mostra como você pode concluir essas tarefas definindo p
 
 <a name="best-practices-workflow-definition-parameters"></a>
 
-## <a name="best-practices---workflow-definition-parameters"></a>Práticas recomendadas-parâmetros de definição de fluxo de trabalho
+## <a name="best-practices---workflow-definition-parameters"></a>Boas práticas - parâmetros de definição de fluxo de trabalho
 
-Para certificar-se de que o designer de aplicativo lógico possa mostrar corretamente os parâmetros de definição de fluxo de trabalho, siga estas práticas recomendadas:
+Para garantir que o Logic App Designer pode mostrar corretamente parâmetros de definição de fluxo de trabalho, siga estas boas práticas:
 
-* Inclua o atributo `defaultValue`, que pode especificar valores vazios, para todos os parâmetros, exceto para valores que são confidenciais ou devem ser protegidos.
+* Incluir o atributo `defaultValue`, que pode especificar valores vazios, para todos os parâmetros, exceto para valores sensíveis ou devem ser protegidos.
 
-* Sempre use parâmetros protegidos para nomes de usuário, senhas e segredos. Para ocultar ou proteger os valores de parâmetros confidenciais, siga as orientações nestes tópicos:
+* Utilize sempre parâmetros seguros para nomes de utilizadores, senhas e segredos. Para ocultar ou proteger valores sensíveis dos parâmetros, siga a orientação nestes tópicos:
 
   * [Recomendações de segurança para parâmetros de ação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
-  * [Recomendações de segurança para parâmetros em definições de fluxo de trabalho](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
+  * [Recomendações de segurança para parâmetros nas definições de fluxo de trabalho](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
 
-  * [Passar valores de parâmetros seguros com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+  * [Passe valores de parâmetro seguro com cofre de chave Azure](../azure-resource-manager/templates/key-vault-parameter.md)
 
-Para obter mais informações sobre parâmetros de definição de fluxo de trabalho, consulte [parâmetros-linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
+Para obter mais informações sobre os parâmetros de definição de fluxo de trabalho, consulte [Parâmetros - Linguagem definição](../logic-apps/logic-apps-workflow-definition-language.md#parameters)de fluxo de trabalho .
 
 <a name="connection-resource-definitions"></a>
 
-## <a name="connection-resource-definitions"></a>Definições de recurso de conexão
+## <a name="connection-resource-definitions"></a>Definições de recursos de ligação
 
-Quando seu aplicativo lógico cria e usa conexões com outros serviços e sistema usando [conectores gerenciados](../connectors/apis-list.md), o objeto de `resources` do seu modelo contém as definições de recurso para essas conexões.
+Quando a sua aplicação lógica cria e utiliza ligações a outros serviços e sistemautilizando [conectores geridos,](../connectors/apis-list.md)o objeto `resources` do seu modelo contém as definições de recursos para essas ligações.
 
 ```json
 {
@@ -591,9 +591,9 @@ Quando seu aplicativo lógico cria e usa conexões com outros serviços e sistem
 }
 ```
 
-As definições de recurso de conexão fazem referência aos parâmetros de nível superior do modelo para seus valores, o que significa que você pode fornecer esses valores na implantação usando um arquivo de parâmetros. Verifique se as conexões usam o mesmo grupo de recursos do Azure e o mesmo local que seu aplicativo lógico.
+As definições de recursos de ligação referem os parâmetros de nível superior do modelo para os seus valores, o que significa que pode fornecer estes valores na implementação utilizando um ficheiro de parâmetros. Certifique-se de que as ligações utilizam o mesmo grupo de recursos Azure e localização como a sua aplicação lógica.
 
-Aqui está um exemplo de definição de recurso para uma conexão do Outlook do Office 365 e os parâmetros de modelo correspondentes:
+Aqui está uma definição de recurso exemplo para uma ligação do Office 365 Outlook e os parâmetros de modelo correspondentes:
 
 ```json
 {
@@ -646,15 +646,15 @@ Aqui está um exemplo de definição de recurso para uma conexão do Outlook do 
 }
 ```
 
-A definição de recurso do aplicativo lógico também funciona com definições de recurso de conexão das seguintes maneiras:
+A definição de recursos da sua aplicação lógica também funciona com definições de recursos de conexão desta forma:
 
-* Dentro de sua definição de fluxo de trabalho, o objeto `parameters` declara um parâmetro `$connections` para os valores de conexão a serem usados no tempo de execução do aplicativo lógico. Além disso, o gatilho ou a ação que cria uma conexão usa os valores correspondentes que passam por esse `$connections` parâmetro.
+* Dentro da sua definição de fluxo de trabalho, o objeto `parameters` declara um parâmetro `$connections` para os valores de ligação a utilizar no tempo de execução da aplicação lógica. Além disso, o gatilho ou ação que cria uma ligação utiliza os valores correspondentes que passam por este `$connections` parâmetro.
 
-* *Fora* de sua definição de fluxo de trabalho, mas ainda *dentro* da definição de recurso do aplicativo lógico, outro objeto `parameters` define os valores a serem usados em tempo de execução para o parâmetro `$connections` referenciando os parâmetros de modelo correspondentes. Esses valores usam expressões de modelo para referenciar recursos que armazenam com segurança os metadados para as conexões em seu aplicativo lógico.
+* *Fora da* definição de fluxo de trabalho, mas ainda *dentro* da definição de recursos da sua aplicação lógica, outro objeto `parameters` define os valores a utilizar no tempo de funcionamento para o parâmetro `$connections`, referindo os parâmetros de modelo correspondentes. Estes valores utilizam expressões de modelo para recursos de referência que armazenam de forma segura os metadados para as ligações na sua aplicação lógica.
 
-  Por exemplo, os metadados podem incluir cadeias de conexão e tokens de acesso, que você pode armazenar em [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Para passar esses valores para os parâmetros de modelo, você faz referência a esse cofre de chaves no [arquivo de parâmetros](#template-parameter-files) que é usado pelo modelo na implantação. Para obter mais informações sobre as diferenças em parâmetros de referência, consulte [References to Parameters](#parameter-references) , mais adiante neste tópico.
+  Por exemplo, os metadados podem incluir cordas de ligação e fichas de acesso, que pode armazenar no [Cofre de Chaves Azure](../azure-resource-manager/templates/key-vault-parameter.md). Para passar esses valores aos parâmetros do seu modelo, você refere esse cofre chave no ficheiro de [parâmetros](#template-parameter-files) que é usado pelo seu modelo na implantação. Para obter mais informações sobre diferenças na referência [aos parâmetros, consulte referências aos parâmetros](#parameter-references) mais tarde neste tópico.
 
-  Quando você abre a definição de fluxo de trabalho do aplicativo lógico na exibição de código por meio do portal do Azure ou do Visual Studio, o objeto `$connections` aparece fora de sua definição de fluxo de trabalho, mas no mesmo nível. Essa ordenação na exibição de código torna esses parâmetros mais fáceis de referenciar quando você atualiza manualmente a definição de fluxo de trabalho:
+  Ao abrir a definição de fluxo de trabalho da sua aplicação lógica em vista de código através do portal Azure ou do Visual Studio, o `$connections` objeto aparece fora da sua definição de fluxo de trabalho, mas ao mesmo nível. Esta encomenda em vista de código facilita a referência a estes parâmetros quando atualiza manualmente a definição de fluxo de trabalho:
 
   ```json
   {
@@ -663,11 +663,11 @@ A definição de recurso do aplicativo lógico também funciona com definições
   }
   ```
 
-* A definição de recurso do aplicativo lógico tem um objeto `dependsOn` que especifica as dependências nas conexões usadas pelo seu aplicativo lógico.
+* A definição de recursos da sua aplicação lógica tem um objeto `dependsOn` que especifica as dependências das ligações utilizadas pela sua aplicação lógica.
 
-Cada conexão que você cria tem um nome exclusivo no Azure. Quando você cria várias conexões com o mesmo serviço ou sistema, cada nome de conexão é anexado com um número, que é incrementado com cada nova conexão criada, por exemplo, `office365`, `office365-1`e assim por diante.
+Cada ligação que cria tem um nome único em Azure. Quando cria múltiplas ligações ao mesmo serviço ou sistema, cada nome de ligação é anexado com um número, que aumenta com cada nova ligação criada, por exemplo, `office365`, `office365-1`, e assim por diante.
 
-Este exemplo mostra as interações entre a definição de recurso do aplicativo lógico e uma definição de recurso de conexão para o Office 365 Outlook:
+Este exemplo mostra as interações entre a definição de recursos da sua aplicação lógica e uma definição de recurso de ligação para o Office 365 Outlook:
 
 ```json
 {
@@ -742,11 +742,11 @@ Este exemplo mostra as interações entre a definição de recurso do aplicativo
 
 <a name="secure-connection-parameters"></a>
 
-### <a name="secure-connection-parameters"></a>Parâmetros de conexão segura
+### <a name="secure-connection-parameters"></a>Parâmetros de ligação seguros
 
-Para um parâmetro de conexão que manipula informações confidenciais, senhas, chaves de acesso ou segredos, a definição de recurso da conexão inclui um objeto `parameterValues` que especifica esses valores no formato de par nome-valor. Para ocultar essas informações, você pode declarar ou editar os parâmetros de modelo para esses valores usando os tipos de parâmetro `securestring` ou `secureobject`. Em seguida, você pode armazenar essas informações em [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Para passar esses valores para os parâmetros de modelo, você faz referência a esse cofre de chaves no [arquivo de parâmetros](#template-parameter-files) que é usado pelo modelo na implantação.
+Para um parâmetro de ligação que lida com informações sensíveis, palavras-passe, chaves de acesso ou segredos, a definição de recursos da ligação inclui um objeto `parameterValues` que especifica estes valores no formato de par de nomes. Para ocultar esta informação, pode declarar ou editar os parâmetros do modelo para estes valores utilizando os tipos de parâmetros `securestring` ou `secureobject`. Em seguida, pode armazenar essa informação no [Cofre de Chaves Azure.](../azure-resource-manager/templates/key-vault-parameter.md) Para passar esses valores aos parâmetros do seu modelo, você refere esse cofre chave no ficheiro de [parâmetros](#template-parameter-files) que é usado pelo seu modelo na implantação.
 
-Aqui está um exemplo que fornece o nome da conta e a chave de acesso para uma conexão de armazenamento de BLOBs do Azure:
+Aqui está um exemplo que fornece o nome da conta e a chave de acesso para uma ligação de armazenamento Azure Blob:
 
 **Arquivo de parâmetros**
 
@@ -906,13 +906,13 @@ Aqui está um exemplo que fornece o nome da conta e a chave de acesso para uma c
 
 <a name="authenticate-connections"></a>
 
-### <a name="authenticate-connections"></a>Autenticar conexões
+### <a name="authenticate-connections"></a>Ligações autenticadas
 
-Após a implantação, seu aplicativo lógico funciona de ponta a ponta com parâmetros válidos. No entanto, você ainda deve autorizar quaisquer conexões OAuth para gerar tokens de acesso válidos para [autenticar suas credenciais](../active-directory/develop/authentication-scenarios.md). Para obter mais informações, consulte [autorizar conexões OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos. No entanto, deve ainda autorizar quaisquer ligações OAuth para gerar fichas de acesso válidas para [autenticar as suas credenciais](../active-directory/develop/authentication-scenarios.md). Para mais informações, consulte [Autorizar as ligações OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
-Algumas conexões dão suporte ao uso de uma entidade de [serviço](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (AD do Azure) para autorizar conexões para um aplicativo lógico que é [registrado no Azure ad](../active-directory/develop/quickstart-register-app.md). Por exemplo, essa Azure Data Lake definição de recurso de conexão mostra como referenciar os parâmetros de modelo que manipulam as informações da entidade de serviço e como o modelo declara esses parâmetros:
+Algumas ligações suportam a [utilização](../active-directory/develop/app-objects-and-service-principals.md) de um serviço de diretório Ativo Azure (Azure AD) para autorizar ligações para uma aplicação lógica [registada no Azure AD](../active-directory/develop/quickstart-register-app.md). Por exemplo, esta definição de recurso de conexão Azure Data Lake mostra como referenciar os parâmetros do modelo que lidam com as informações do diretor de serviço e como o modelo declara estes parâmetros:
 
-**Definição de recurso de conexão**
+**Definição de recurso de ligação**
 
 ```json
 {
@@ -938,15 +938,15 @@ Algumas conexões dão suporte ao uso de uma entidade de [serviço](../active-di
 
 | Atributo | Descrição |
 |-----------|-------------|
-| `token:clientId` | A ID do aplicativo ou do cliente associada à sua entidade de serviço |
-| `token:clientSecret` | O valor de chave associado à entidade de serviço |
-| `token:TenantId` | A ID de diretório para seu locatário do Azure AD |
-| `token:grantType` | O tipo de concessão solicitado, que deve ser `client_credentials`. Para obter mais informações, consulte [plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
+| `token:clientId` | A aplicação ou ID do cliente associado ao seu diretor de serviço |
+| `token:clientSecret` | O valor-chave associado ao seu diretor de serviço |
+| `token:TenantId` | A identificação do diretório para o seu inquilino da AD Azure |
+| `token:grantType` | O tipo de subvenção solicitado, que deve ser `client_credentials`. Para mais informações, consulte a plataforma de identidade da Microsoft e o fluxo de credenciais de [clientes OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
 |||
 
 **Definições de parâmetro de modelo**
 
-O objeto de `parameters` de nível superior do modelo declara esses parâmetros para a conexão de exemplo:
+O objeto de `parameters` de nível superior do modelo declara estes parâmetros para a ligação por exemplo:
 
 ```json
 {
@@ -1001,41 +1001,41 @@ O objeto de `parameters` de nível superior do modelo declara esses parâmetros 
 }
 ```
 
-Para obter mais informações sobre como trabalhar com entidades de serviço, consulte estes tópicos:
+Para obter mais informações sobre o trabalho com os diretores de serviço, consulte estes tópicos:
 
-* [Criar uma entidade de serviço usando o portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Criar uma entidade de serviço do Azure usando Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
-* [Criar uma entidade de serviço com um certificado usando Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Criar um serviço principal utilizando o portal Azure](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Crie um serviço Azure principal utilizando o Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Criar um diretor de serviço com um certificado utilizando o Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>
 
-## <a name="references-to-parameters"></a>Referências a parâmetros
+## <a name="references-to-parameters"></a>Referências aos parâmetros
 
-Para referenciar parâmetros de modelo, você pode usar expressões de modelo com [funções de modelo](../azure-resource-manager/templates/template-functions.md), que são avaliadas na implantação. As expressões de modelo usam colchetes ( **[]** ):
+Para os parâmetros do modelo de referência, pode utilizar expressões de modelo com funções de [modelo,](../azure-resource-manager/templates/template-functions.md)que são avaliadas na implementação. Expressões de modelo usam suportes quadrados **([]** ):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 
-Para referenciar parâmetros de definição de fluxo de trabalho, use [expressões e funções de linguagem de definição de fluxo de trabalho](../logic-apps/workflow-definition-language-functions-reference.md), que são avaliadas no tempo de execução Você pode observar que algumas funções de modelo e funções de definição de fluxo de trabalho têm o mesmo nome. As expressões de definição de fluxo de trabalho começam com o símbolo "at" ( **@** ):
+Para referência aos parâmetros de definição de fluxo de trabalho, utiliza [expressões e funções linguísticas](../logic-apps/workflow-definition-language-functions-reference.md)de definição de fluxo de trabalho, que são avaliadas no prazo de funcionamento. Pode notar que algumas funções de modelo e funções de definição de fluxo de trabalho têm o mesmo nome. As expressões de definição de fluxo de trabalho começam com o símbolo "at" **(@):**
 
 `"<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"`
 
-Você pode passar valores de parâmetro de modelo para sua definição de fluxo de trabalho para seu aplicativo lógico usar no tempo de execução. No entanto, evite usar parâmetros de modelo, expressões e sintaxe em sua definição de fluxo de trabalho porque o designer de aplicativo lógico não dá suporte a elementos de modelo. Além disso, a sintaxe do modelo e as expressões podem complicar seu código devido a diferenças em quando as expressões são avaliadas.
+Pode passar os valores dos parâmetros do modelo para a definição de fluxo de trabalho para a sua aplicação lógica usar no tempo de execução. No entanto, evite utilizar parâmetros de modelo, expressões e sintaxe na sua definição de fluxo de trabalho porque o Logic App Designer não suporta elementos de modelo. Além disso, a sintaxe do modelo e expressões podem complicar o seu código devido a diferenças no momento em que as expressões são avaliadas.
 
-Em vez disso, siga estas etapas gerais para declarar e referenciar os parâmetros de definição de fluxo de trabalho a serem usados em tempo de execução, declare e referencie os parâmetros de modelo a serem usados na implantação e especifique os valores a serem passados na implantação usando um arquivo de parâmetros. Para obter detalhes completos, consulte a seção [definição e parâmetros de fluxo de trabalho](#workflow-definition-parameters) anteriormente neste tópico.
+Em vez disso, siga estes passos gerais para declarar e referenciar os parâmetros de definição de fluxo de trabalho a utilizar no tempo de execução, declarar e referenciar os parâmetros do modelo a utilizar na implementação e especificar os valores a transmitir na implementação utilizando um ficheiro de parâmetros. Para mais detalhes, consulte a secção de [definição de Fluxo de Trabalho e parâmetros](#workflow-definition-parameters) mais cedo neste tópico.
 
-1. Crie seu modelo e declare os parâmetros de modelo para os valores a serem aceitos e usados na implantação.
+1. Crie o seu modelo e declare os parâmetros do modelo para que os valores aceitem e utilizem na implementação.
 
-1. Em sua definição de fluxo de trabalho, declare os parâmetros para os valores a serem aceitos e usados no tempo de execução. Em seguida, você pode fazer referência a esses valores em toda a sua definição de fluxo de trabalho.
+1. Na sua definição de fluxo de trabalho, declare os parâmetros para que os valores aceitem e utilizem no tempo de funcionamento. Pode então referenciar estes valores ao longo e dentro da sua definição de fluxo de trabalho.
 
-1. No objeto `parameters` que está *fora* de sua definição de fluxo de trabalho, mas ainda *dentro* da definição de recurso do aplicativo lógico, defina os valores para os parâmetros de definição do fluxo de trabalho referenciando os parâmetros de modelo correspondentes. Dessa forma, você pode passar valores de parâmetro de modelo para seus parâmetros de definição de fluxo de trabalho.
+1. No objeto `parameters` que está *fora da* definição de fluxo de trabalho, mas ainda *dentro* da definição de recursos da sua aplicação lógica, defina os valores para os parâmetros de definição de fluxo de trabalho, referindo os parâmetros de modelo correspondentes. Dessa forma, pode passar os valores dos parâmetros do modelo nos parâmetros da definição de fluxo de trabalho.
 
-1. No arquivo de parâmetros, especifique os valores para o modelo a ser usado na implantação.
+1. No ficheiro de parâmetros, especifique os valores para o seu modelo utilizar na implementação.
 
 <a name="full-example-template"></a>
 
 ## <a name="full-example-template"></a>Modelo de exemplo completo
 
-Este é o modelo de exemplo com parâmetros que é usado pelos exemplos deste tópico:
+Aqui está o modelo de amostra parametrizado que é usado pelos exemplos deste tópico:
 
 ```json
 {
@@ -1246,4 +1246,4 @@ Este é o modelo de exemplo com parâmetros que é usado pelos exemplos deste t�
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar modelos de aplicativo lógico](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
+> [Criar modelos de aplicativos lógicos](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)

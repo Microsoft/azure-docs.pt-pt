@@ -1,45 +1,45 @@
 ---
-title: As transformações de declarações de número de telefone em políticas personalizadas
+title: Número de telefone reclama transformações em políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Referência de política personalizada para transformações de declarações de número de telefone em Azure AD B2C.
+description: Referência política personalizada para número de telefone reclama transformações em Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c43e3386886456eed0c58fefd0fb1212795db66c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480167"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185477"
 ---
-# <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir transformações de declarações de número de telefone no Azure AD B2C
+# <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir número de telefone reclama transformações em Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece referência e exemplos para usar as transformações de declarações de número de telefone do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações sobre as transformações de declarações em geral, consulte [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece referência e exemplos para a utilização do número de telefone alega transformações do quadro de experiência de identidade em Azure Ative Directory B2C (Azure AD B2C). Para obter mais informações sobre as transformações de sinistros em geral, consulte [As Transformações de Sinistros](claimstransformations.md).
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="convertstringtophonenumberclaim"></a>ConvertStringToPhoneNumberClaim
+## <a name="convertstringtophonenumberclaim"></a>Reconversão stringtoPhoneNumberClaim
 
-Essa declaração valida o formato do número de telefone. Se ele estiver em um formato válido, altere-o para um formato padrão usado pelo Azure AD B2C. Se o número de telefone fornecido não estiver em um formato válido, uma mensagem de erro será retornada.
+Esta alegação valida o formato do número de telefone. Se estiver num formato válido, altere-o para um formato padrão utilizado pelo Azure AD B2C. Se o número de telefone fornecido não estiver num formato válido, uma mensagem de erro é devolvida.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | A declaração do tipo de cadeia de caracteres que converte de. |
-| OutputClaim | outputClaim | string | O resultado dessa transformação de declarações. |
+| inputClaim | inputClaim | string | A reivindicação do tipo de corda que se converte. |
+| OutputClaim | outputClaim | phoneNumber | O resultado desta transformação de reivindicações. |
 
-A transformação declarações **ConvertStringToPhoneNumberClaim** é sempre executada de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md) ou [controle de exibição](display-controls.md). Os metadados do perfil técnico autodeclarado **UserMessageIfClaimsTransformationInvalidPhoneNumber** controlam a mensagem de erro apresentada ao usuário.
+A transformação de reclamações **ConvertStringToPhoneNumberClaim** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md) ou controlo de [ecrã](display-controls.md). Os metadados de perfil técnico autoafirmados do **UserMessageIfClaimsTransformationInvalidNumber** controlam a mensagem de erro que é apresentada ao utilizador.
 
 ![Diagrama do caminho de execução da mensagem de erro](./media/phone-authentication/assert-execution.png)
 
-Você pode usar essa transformação de declarações para garantir que a declaração de cadeia de caracteres fornecida seja um número de telefone válido. Caso contrário, uma mensagem de erro será lançada. O exemplo a seguir verifica se **phoneaction** ClaimType é realmente um número de telefone válido e, em seguida, retorna o número de telefone no formato de Azure ad B2C padrão. Caso contrário, uma mensagem de erro será lançada.
+Pode utilizar esta transformação de reclamações para garantir que a reclamação de cordas fornecida é um número de telefone válido. Caso contrário, é lançada uma mensagem de erro. O exemplo seguinte verifica se o **telefone String** ClaimType é de facto um número de telefone válido e, em seguida, devolve o número de telefone no formato Padrão Azure AD B2C. Caso contrário, é lançada uma mensagem de erro.
 
 ```XML
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
@@ -52,7 +52,7 @@ Você pode usar essa transformação de declarações para garantir que a declar
 </ClaimsTransformation>
 ```
 
-O perfil técnico autodeclarado que chama o perfil técnico de validação que contém essa transformação de declarações pode definir a mensagem de erro.
+O perfil técnico autoafirmado que chama o perfil técnico de validação que contém esta transformação de sinistros pode definir a mensagem de erro.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
@@ -65,31 +65,31 @@ O perfil técnico autodeclarado que chama o perfil técnico de validação que c
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
-  - **inputClaim**: + 1 (123) 456-7890
-- Declarações de saída:
-  - **outputClaim**: + 11234567890
+- Créditos de entrada:
+  - **inputClaim:** +1 (123) 456-7890
+- Alegações de saída:
+  - **saídaSReclamação:** +11234567890
 
-## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
+## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberandCountryCodeFromNumberstring
 
-Isso extrairá o código do país e o número nacional da declaração de entrada e, opcionalmente, lançará uma exceção se o número de telefone fornecido não for válido.
+Isto extrai o código do país e o número nacional da alegação de entrada, e opcionalmente lança uma exceção se o número de telefone fornecido não for válido.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | string | A declaração de cadeia de caracteres do número de telefone. O número de telefone deve estar em formato internacional, completo com um "+" e código de país à esquerda. |
-| InputParameter | throwExceptionOnFailure | boolean | Adicional Um parâmetro que indica se uma exceção é lançada quando o número de telefone não é válido. O valor padrão é false. |
-| InputParameter | countryCodeType | string | Adicional Um parâmetro que indica o tipo de código do país na declaração de saída. Os valores disponíveis são **CallingCode** (o código de chamada internacional para um país, por exemplo + 1) ou **ISO3166** (o código do país ISO-3166 de duas letras). |
-| OutputClaim | nationalNumber | string | A declaração de cadeia de caracteres para o número nacional do número de telefone. |
-| OutputClaim | countryCode | string | A declaração de cadeia de caracteres para o código do país do número de telefone. |
+| inputClaim | phoneNumber | string | A alegação de corda do número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país. |
+| EntradaParametro | throwExceptionOnFailure | boolean | [Opcional] Um parâmetro que indique se é lançada uma exceção quando o número de telefone não é válido. O valor predefinido é falso. |
+| EntradaParametro | paísCodeType | string | [Opcional] Um parâmetro que indique o tipo de código do país na reivindicação de saída. Os valores disponíveis são **CallCode** (o código de chamada internacional para um país, por exemplo +1) ou **ISO3166** (o código de dois letras ISO-3166). |
+| OutputClaim | nacionalNúmero | string | A reivindicação de cordas para o número nacional do número de telefone. |
+| OutputClaim | countryCode | string | A reivindicação de cordas para o código do país do número de telefone. |
 
 
-Se a transformação declarações **GetNationalNumberAndCountryCodeFromPhoneNumberString** for executada a partir de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md) ou uma [ação de controle de exibição](display-controls.md#display-control-actions), os metadados do perfil técnico **UserMessageIfPhoneNumberParseFailure** autodeclarado controlam a mensagem de erro apresentada ao usuário.
+Se o **GetNationalNumberAndCountryCodeFromNumberString** a transformação é executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md) ou por uma ação de controlo de [ecrã](display-controls.md#display-control-actions), então o **userMessageIfNumberParseFailure** autoafirmado metadados de perfil técnico controla a mensagem de erro que é apresentada ao utilizador.
 
 ![Diagrama do caminho de execução da mensagem de erro](./media/phone-authentication/assert-execution.png)
 
-Você pode usar essa transformação de declarações para dividir um número de telefone completo no código do país e no número nacional. Se o número de telefone fornecido não for válido, você poderá optar por lançar uma mensagem de erro.
+Pode usar esta transformação de sinistros para dividir um número de telefone completo no código do país e no número nacional. Se o número de telefone fornecido não for válido, pode optar por enviar uma mensagem de erro.
 
-O exemplo a seguir tenta dividir o número de telefone no número nacional e no código do país. Se o número de telefone for válido, o número de telefone será substituído pelo número nacional. Se o número de telefone não for válido, uma exceção não será lançada e o número de telefone ainda terá seu valor original.
+O exemplo que se segue tenta dividir o número de telefone em número nacional e código de país. Se o número de telefone for válido, o número de telefone será ultrapassado pelo número nacional. Se o número de telefone não for válido, não será lançada uma exceção e o número de telefone ainda tem o seu valor original.
 
 ```XML
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
@@ -107,7 +107,7 @@ O exemplo a seguir tenta dividir o número de telefone no número nacional e no 
 </ClaimsTransformation>
 ```
 
-O perfil técnico autodeclarado que chama o perfil técnico de validação que contém essa transformação de declarações pode definir a mensagem de erro.
+O perfil técnico autoafirmado que chama o perfil técnico de validação que contém esta transformação de sinistros pode definir a mensagem de erro.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
@@ -120,22 +120,22 @@ O perfil técnico autodeclarado que chama o perfil técnico de validação que c
 
 ### <a name="example-1"></a>Exemplo 1
 
-- Declarações de entrada:
-  - **PhoneNumber**: + 49 (123) 456-7890
+- Créditos de entrada:
+  - **telefoneNúmero:** +49 (123) 456-7890
 - Parâmetros de entrada:
-  - **throwExceptionOnFailure**: false
-  - **countryCodeType**: ISO3166
-- Declarações de saída:
-  - **nationalNumber**: 1234567890
-  - **CountryCode**: de
+  - **throwExceptionOnFailure**: falso
+  - **paísCódigoType**: ISO3166
+- Alegações de saída:
+  - **nacionalNúmero**: 1234567890
+  - **paísCódigo**: DE
 
 ### <a name="example-2"></a>Exemplo 2
 
-- Declarações de entrada:
-  - **PhoneNumber**: + 49 (123) 456-7890
+- Créditos de entrada:
+  - **telefoneNúmero:** +49 (123) 456-7890
 - Parâmetros de entrada
-  - **throwExceptionOnFailure**: false
-  - **countryCodeType**: CallingCode
-- Declarações de saída:
-  - **nationalNumber**: 1234567890
-  - **CountryCode**: + 49
+  - **throwExceptionOnFailure**: falso
+  - **paísCódigoType**: Código de chamada
+- Alegações de saída:
+  - **nacionalNúmero**: 1234567890
+  - **paísCódigo**: +49

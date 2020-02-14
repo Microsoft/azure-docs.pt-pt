@@ -8,18 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760798"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191032"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceitos de skillset e composição em Pesquisa Cognitiva Azure
 
 Este artigo é para desenvolvedores que precisam de uma compreensão mais profunda de como o gasoduto de enriquecimento funciona e assume que você tem uma compreensão conceptual do processo de enriquecimento de IA. Se você é novo este conceito, comece com:
 + [Enriquecimento de IA em Pesquisa Cognitiva Azure](cognitive-search-concept-intro.md)
-+ [Loja de conhecimento (visualização)](knowledge-store-concept-intro.md)
++ [Loja de conhecimento (pré-visualização)](knowledge-store-concept-intro.md)
 
 ## <a name="specify-the-skillset"></a>Especificar o Skillset
 Um skillset é um recurso reutilizável na Pesquisa Cognitiva Azure que especifica uma coleção de habilidades cognitivas usadas para analisar, transformar e enriquecer o conteúdo de texto ou imagem durante a indexação. A criação de um skillset permite-lhe anexar enriquecimentos de texto e imagem na fase de ingestão de dados, extraindo e criando novas informações e estruturas a partir de conteúdo bruto.
@@ -37,17 +37,17 @@ As habilidades são da autoria da JSON. Pode construir habilidades complexas com
 ### <a name="enrichment-tree"></a>Árvore de enriquecimento
 
 Para visualizar como uma habilidade enriquece progressivamente o seu documento, vamos começar com o que o documento parece antes de qualquer enriquecimento. A saída de quebra de documentos depende da fonte de dados e do modo específico de análise selecionado. Este é também o estado do documento que os [mapeamentos](search-indexer-field-mappings.md) de campo podem obter conteúdo a partir da adição de dados ao índice de pesquisa.
-![Repositório de conhecimento no diagrama de pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Repositório de conhecimento no diagrama de pipeline")
+![Loja de conhecimento no diagrama do oleoduto](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Loja de conhecimento no diagrama do oleoduto")
 
 Uma vez que um documento está no oleoduto de enriquecimento, é representado como uma árvore de conteúdo e enriquecimentoassociado. Esta árvore é instantaneamente instantânea como a saída de documentos rachando. O formato de árvore de enriquecimento permite que o gasoduto de enriquecimento fixe metadados a tipos de dados até primitivos, não é um objeto JSON válido, mas pode ser projetado num formato JSON válido. A tabela que se segue mostra o estado de um documento que entra no gasoduto de enriquecimento:
 
 |Modo Fonte de Dados\Parsing|Predefinição|JSON, JSON Lines & CSV|
 |---|---|---|
-|Blob Storage|/documento/conteúdo<br>/documento/normalized_images/*<br>…|/documento/{key1}<br>/documento/{key2}<br>…|
-|SQL|/documento/{column1}<br>/documento/{column2}<br>…|N/A |
-|Cosmos DB|/documento/{key1}<br>/documento/{key2}<br>…|N/A|
+|Armazenamento de Blobs|/documento/conteúdo<br>/documento/normalized_images/*<br>…|/documento/{key1}<br>/documento/{key2}<br>…|
+|SQL|/documento/{column1}<br>/documento/{column2}<br>…|N/D |
+|BD do Cosmos|/documento/{key1}<br>/documento/{key2}<br>…|N/D|
 
- Como as habilidades executam, adicionam novos nós à árvore de enriquecimento. Estes novos nós podem então ser usados como entradas para competências a jusante, projetando para a loja de conhecimento, ou mapeando para campos indexados. Os enriquecimentos não são mutáveis: uma vez criados, os nós não podem ser editados. À medida que as suas habilidades se tornam mais complexas, também a sua árvore de enriquecimento, mas nem todos os nós na árvore de enriquecimento precisam chegar ao índice ou à loja de conhecimento. Pode persistir seletivamente apenas um subconjunto dos enriquecimentos ao índice ou à loja de conhecimento.
+ Como as habilidades executam, adicionam novos nós à árvore de enriquecimento. Estes novos nós podem então ser usados como entradas para competências a jusante, projetando para a loja de conhecimento, ou mapeando para campos indexados. Os enriquecimentos não são mutáveis: uma vez criados, os nós não podem ser editados. À medida que as suas habilidades se tornam mais complexas, também a sua árvore de enriquecimento, mas nem todos os nós na árvore de enriquecimento precisam chegar ao índice ou à loja de conhecimento. 
 
 Pode persistir seletivamente apenas um subconjunto dos enriquecimentos ao índice ou à loja de conhecimento.
 Para o resto deste documento, vamos assumir que estamos a trabalhar com o exemplo de avaliações de [hotéis,](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi)mas os mesmos conceitos aplicam-se ao enriquecimento de documentos de todas as outras fontes de dados.

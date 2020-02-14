@@ -1,20 +1,20 @@
 ---
-title: Parceiros Azure Virtual WAN [ Parceiros Azure Virtual WAN ] Microsoft Docs
+title: Azure Virtual WAN parceiros diretrizes de automação / Microsoft Docs
 description: Este artigo ajuda os parceiros a criar a automação Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6f95107960cf11ab15cb5a8294a5432498956a7a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775305"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190423"
 ---
-# <a name="virtual-wan-partners"></a>Parceiros virtuais wan
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros Virtuais WAN
 
 Este artigo ajuda-o a compreender como configurar o ambiente de automação para ligar e configurar um dispositivo de ramificação (um dispositivo VPN do cliente no local ou cpE SDWAN) para o Azure Virtual WAN. Se é um fornecedor que fornece dispositivos de sucursais que podem acomodar a conectividade VPN através de IPsec/IKEv2 ou IPsec/IKEv1, este artigo é para si.
 
@@ -97,7 +97,7 @@ O ficheiro de configuração do dispositivo contém as definições que vão ser
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Detalhes de configuração de conexão Vpngateway** , como BGP, chave pré-compartilhada, etc. A PSK é a chave pré-compartilhada que é gerada automaticamente para você. Pode sempre editar a ligação na página Overview (Descrição geral) de um PSK personalizado.
+    * Detalhes de configuração de **ligação vpngateway** tais como BGP, chave pré-partilhada, etc. O PSK é a chave pré-partilhada que é gerada automaticamente para si. Pode sempre editar a ligação na página Overview (Descrição geral) de um PSK personalizado.
   
 **Ficheiro de configuração do dispositivo de exemplo**
 

@@ -1,6 +1,6 @@
 ---
-title: Controles de acesso no Azure Active Directory acesso condicional
-description: Saiba como os controles de acesso no Azure Active Directory acesso condicional funcionam.
+title: Controlos de acesso no Acesso Condicional do Diretório Ativo azure
+description: Saiba como funcionam os controlos de acesso no Acesso Condicional do Diretório Ativo Azure.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,162 +11,162 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2ad8894078a15bf37a5383cdff3721f4bf7be910
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424975"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186219"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>O que são controles de acesso no Azure Active Directory acesso condicional?
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>O que são os controlos de acesso no Acesso Condicional do Diretório Ativo Azure?
 
-Com o [acesso condicional do Azure Active Directory (AD do Azure)](../active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Em uma política de acesso condicional, você define a resposta ("fazer isso") para o motivo do acionamento de sua política ("quando isso acontece").
+Com o Acesso Condicional do [Diretório Ativo Azure (Azure AD),](../active-directory-conditional-access-azure-portal.md)pode controlar a forma como os utilizadores autorizados acedem às suas aplicações na nuvem. Numa política de Acesso Condicional, define-se a resposta ("faça isto") à razão para desencadear a sua política ("quando isso acontece").
 
 ![Controlo](./media/controls/10.png)
 
-No contexto de acesso condicional,
+No contexto do Acesso Condicional,
 
-- "**Quando isso acontece**" é chamado de **condições**
-- "**Então faça isso**" é chamado de **controles de acesso**
+- "Quando**isto acontece**" é chamado **de condições**
+- **"Então faça isto**" é chamado de **controlos** de acesso
 
-A combinação de uma instrução Condition com seus controles representa uma política de acesso condicional.
+A combinação de uma declaração de condição com os seus controlos representa uma política de Acesso Condicional.
 
 ![Controlo](./media/controls/61.png)
 
-Cada controle é um requisito que deve ser atendido pela pessoa ou pelo sistema que está entrando ou uma restrição sobre o que o usuário pode fazer depois de entrar.
+Cada controlo é um requisito que deve ser cumprido pela pessoa ou pelo sistema de sessão, ou uma restrição ao que o utilizador pode fazer após a sua inscrição.
 
-Há dois tipos de controles:
+Existem dois tipos de controlos:
 
-- **Controles de concessão** -para acesso à porta
-- **Controles de sessão** – para restringir o acesso em uma sessão
+- **Controlos de subvenções** - Para o acesso ao portão
+- **Controlos de sessão** - Restringir o acesso dentro de uma sessão
 
-Este tópico explica os vários controles que estão disponíveis no acesso condicional do Azure AD. 
+Este tópico explica os vários controlos que estão disponíveis no Acesso Condicional da AD Azure. 
 
-## <a name="grant-controls"></a>Controles de concessão
+## <a name="grant-controls"></a>Controlos de subvenções
 
-Com os controles de concessão, você pode bloquear o acesso completamente ou permitir o acesso com requisitos adicionais selecionando os controles desejados. Para vários controles, você pode exigir:
+Com os controlos de subvenção, pode bloquear completamente o acesso ou permitir o acesso com requisitos adicionais selecionando os controlos pretendidos. Para vários controlos, pode exigir:
 
-- Todos os controles selecionados a serem atendidos (*e*)
-- Um controle selecionado a ser atendido (*ou*)
+- Todos os controlos selecionados a cumprir *(E)*
+- Um controlo selecionado a ser cumprido *(OR)*
 
 ![Controlo](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Autenticação multifator
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Você pode usar esse controle para exigir a autenticação multifator para acessar o aplicativo de nuvem especificado. Esse controle dá suporte aos seguintes provedores multifator:
+Pode utilizar este controlo para exigir a autenticação de vários fatores para aceder à aplicação em nuvem especificada. Este controlo suporta os seguintes fornecedores de múltiplos fatores:
 
 - Multi-Factor Authentication do Azure
-- Um provedor de autenticação multifator local, combinado com Serviços de Federação do Active Directory (AD FS) (AD FS).
+- Um fornecedor de autenticação multifactor no local, combinado com serviços da Federação de Diretórios Ativos (AD FS).
 
-O uso da autenticação multifator ajuda a proteger os recursos de serem acessados por um usuário não autorizado que pode ter obtido acesso às credenciais primárias de um usuário válido.
+A utilização da autenticação de vários fatores ajuda a proteger os recursos de serem acedidos por um utilizador não autorizado que possa ter tido acesso às credenciais primárias de um utilizador válido.
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-Você pode configurar políticas de acesso condicional que são baseadas em dispositivo. O objetivo de uma política de acesso condicional com base em dispositivo é conceder acesso apenas aos aplicativos de nuvem selecionados de [dispositivos gerenciados](require-managed-devices.md). Exigir que um dispositivo seja marcado como compatível é uma opção que você precisa limitar o acesso a dispositivos gerenciados. Um dispositivo pode ser marcado como compatível pelo Intune (para qualquer sistema operacional do dispositivo) ou por seu sistema MDM de terceiros para dispositivos Windows 10. Não há suporte para sistemas MDM de terceiros para tipos de so do dispositivo que não sejam o Windows 10. 
+Pode configurar políticas de Acesso Condicional baseadas em dispositivos. O objetivo de uma política de acesso condicional baseada em dispositivos é apenas dar acesso às aplicações em nuvem selecionadas a partir de [dispositivos geridos](require-managed-devices.md). Exigir que um dispositivo seja marcado como conforme é uma opção que tem de limitar o acesso a dispositivos geridos. Um dispositivo pode ser marcado como conforme pela Intune (para qualquer dispositivo OS) ou pelo seu sistema MDM de terceiros para dispositivos Windows 10. Os sistemas de MDM de terceiros para tipos de SISTEMA de dispositivos que não o Windows 10 não são suportados. 
 
-Seu dispositivo precisa ser registrado no Azure AD antes que ele possa ser marcado como em conformidade. Para registrar um dispositivo, você tem três opções: 
+O seu dispositivo tem de ser registado em Nome do Azure AD antes de ser marcado como conforme. Para registar um dispositivo, tem três opções: 
 
 - Dispositivos registados no Azure AD
 - Dispositivos associados ao Azure AD  
 - Dispositivos híbridos associados ao Azure AD
 
-Essas três opções são discutidas no artigo [o que é uma identidade de dispositivo?](../devices/overview.md)
+Estas três opções são discutidas no artigo O que é uma identidade de [dispositivo?](../devices/overview.md)
 
-Para obter mais informações, consulte [como exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional](require-managed-devices.md).
+Para mais informações, consulte [como exigir dispositivos geridos para acesso](require-managed-devices.md)a aplicações na nuvem com Acesso Condicional .
 
-### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo ingressado no Azure AD híbrido
+### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo adestado pela Hybrid Azure
 
-Exigir um dispositivo ingressado no Azure AD híbrido é outra opção que você precisa configurar políticas de acesso condicional com base no dispositivo. Esse requisito se refere a áreas de trabalho do Windows, laptops e tablets corporativos que ingressaram em um Active Directory local. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que ingressaram em seu Active Directory local e seu Azure Active Directory. Os dispositivos Mac não dão suporte à junção híbrida do Azure AD.
+Exigir um dispositivo híbrido Azure AD é outra opção que tem para configurar as políticas de Acesso Condicional baseadas em dispositivos. Este requisito refere-se a desktops do Windows, portáteis e tablets empresariais que se juntam a um Diretório Ativo no local. Se esta opção for selecionada, a sua política de Acesso Condicional concede acesso a tentativas de acesso feitas com dispositivos que se unem ao seu Diretório Ativo no local e ao seu Diretório Ativo Azure. Os dispositivos Mac não suportam a adesão híbrida azure AD.
 
-Para obter mais informações, consulte [configurar Azure Active Directory políticas de acesso condicional com base no dispositivo](require-managed-devices.md).
+Para mais informações, consulte a configuração de políticas de acesso condicional baseadas em [dispositivos Azure Ative Diretório.](require-managed-devices.md)
 
-### <a name="approved-client-app"></a>Aplicativo cliente aprovado
+### <a name="approved-client-app"></a>App de cliente aprovada
 
-Como seus funcionários usam dispositivos móveis para tarefas pessoais e de trabalho, talvez você queira ter a capacidade de proteger os dados da empresa acessados usando dispositivos mesmo no caso em que eles não são gerenciados por você.
-Você pode usar [as políticas de proteção de aplicativo do Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da sua empresa independentemente de qualquer solução de MDM (gerenciamento de dispositivo móvel).
+Uma vez que os seus colaboradores utilizam dispositivos móveis para tarefas pessoais e de trabalho, é possível que pretenda ter a capacidade de proteger os dados da empresa acedidos através de dispositivos, mesmo no caso de estes não serem geridos por si.
+Pode utilizar políticas de proteção de [aplicações Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da sua empresa independentemente de qualquer solução de gestão de dispositivos móveis (MDM).
 
-Com os aplicativos cliente aprovados, você pode exigir um aplicativo cliente que tenta acessar seus aplicativos de nuvem para dar suporte a [políticas de proteção de aplicativo do Intune](https://docs.microsoft.com/intune/app-protection-policy). Por exemplo, você pode restringir o acesso ao Exchange Online para o aplicativo Outlook. Uma política de acesso condicional que requer aplicativos cliente aprovados também é conhecida como [política de acesso condicional baseada em aplicativo](app-based-conditional-access.md). Para obter uma lista de aplicativos cliente aprovados com suporte, consulte [requisito de aplicativo cliente aprovado](technical-reference.md#approved-client-app-requirement).
+Com aplicações de clientes aprovadas, pode exigir uma aplicação de cliente que tente aceder às suas aplicações na nuvem para suportar as políticas de proteção de [aplicações Intune](https://docs.microsoft.com/intune/app-protection-policy). Por exemplo, pode restringir o acesso ao Exchange Online à aplicação Outlook. Uma política de acesso condicional que requer aplicações de clientes aprovadas também é conhecida como [política de acesso condicional baseada em aplicações.](app-based-conditional-access.md) Para obter uma lista de aplicações de clientes aprovadas suportadas, consulte o [requisito de aplicação de cliente aprovado](concept-conditional-access-grant.md#require-approved-client-app).
 
-### <a name="app-protection-policy-preview"></a>Política de proteção de aplicativo (visualização)
+### <a name="app-protection-policy-preview"></a>Política de proteção de aplicativos (pré-visualização)
 
-Como seus funcionários usam dispositivos móveis para tarefas pessoais e de trabalho, talvez você queira ter a capacidade de proteger os dados da empresa acessados usando dispositivos mesmo no caso em que eles não são gerenciados por você.
-Você pode usar [as políticas de proteção de aplicativo do Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da sua empresa independentemente de qualquer solução de MDM (gerenciamento de dispositivo móvel).
+Uma vez que os seus colaboradores utilizam dispositivos móveis para tarefas pessoais e de trabalho, é possível que pretenda ter a capacidade de proteger os dados da empresa acedidos através de dispositivos, mesmo no caso de estes não serem geridos por si.
+Pode utilizar políticas de proteção de [aplicações Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da sua empresa independentemente de qualquer solução de gestão de dispositivos móveis (MDM).
 
-Com a política de proteção de aplicativo, você pode limitar o acesso a aplicativos cliente que relataram ao Azure AD que receberam [políticas de proteção de aplicativo do Intune](https://docs.microsoft.com/intune/app-protection-policy). Por exemplo, você pode restringir o acesso ao Exchange Online para o aplicativo do Outlook que tem uma política de proteção de aplicativo do Intune. Uma política de acesso condicional que requer a política de proteção de aplicativo também é conhecida como [política de acesso condicional com base na proteção do aplicativo](app-protection-based-conditional-access.md). 
+Com a política de proteção de aplicações, pode limitar o acesso a aplicações de clientes que reportaram à Azure AD ter recebido políticas de proteção de [aplicações Intune](https://docs.microsoft.com/intune/app-protection-policy). Por exemplo, pode restringir o acesso ao Exchange Online à aplicação Outlook que tem uma política de proteção de aplicações Intune. Uma política de acesso condicional que requer a política de proteção de aplicações também é conhecida como [política de acesso condicional baseada na proteção de aplicações.](concept-conditional-access-session.md#application-enforced-restrictions) 
 
-Seu dispositivo deve ser registrado no Azure AD antes que um aplicativo possa ser marcado como protegido pela política.
+O seu dispositivo deve ser registado em Azure AD antes que uma aplicação possa ser marcada como protegida pela política.
 
-Para obter uma lista de aplicativos cliente protegidos por política com suporte, consulte [requisito de política de proteção de aplicativo](technical-reference.md#app-protection-policy-requirement).
+Para obter uma lista de aplicações de clientes protegidas por políticas suportadas, consulte a exigência da política de proteção de [aplicações](concept-conditional-access-session.md#application-enforced-restrictions).
 
 ### <a name="terms-of-use"></a>Termos de utilização
 
-Você pode exigir que um usuário em seu locatário concorde com os termos de uso antes de receber acesso a um recurso. Como administrador, você pode configurar e personalizar os termos de uso carregando um documento PDF. Se um usuário estiver no escopo desse controle, o acesso a um aplicativo só será concedido se os termos de uso tiverem sido acordados.
+Pode exigir que um utilizador do seu inquilino consinta os termos de utilização antes de ter acesso a um recurso. Como administrador, pode configurar e personalizar termos de utilização através do upload de um documento PDF. Se um utilizador se der ao âmbito deste controlo, o acesso a uma aplicação só é concedido se os termos de utilização tiverem sido acordados.
 
-## <a name="custom-controls-preview"></a>Controles personalizados (versão prévia)
+## <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização)
 
-Os controles personalizados são uma funcionalidade da edição P1 Azure Active Directory Premium. Ao usar controles personalizados, os usuários são redirecionados para um serviço compatível para atender a requisitos adicionais fora do Azure Active Directory. Para atender a esse controle, o navegador de um usuário é redirecionado para o serviço externo, executa todas as atividades necessárias de autenticação ou validação e, em seguida, é Redirecionado de volta para o Azure Active Directory. Azure Active Directory verifica a resposta e, se o usuário foi autenticado ou validado com êxito, o usuário continua no fluxo de acesso condicional.
+Os controlos personalizados são uma capacidade da edição Azure Ative Directory Premium P1. Ao utilizar controlos personalizados, os seus utilizadores são redirecionados para um serviço compatível para satisfazer outros requisitos fora do Diretório Ativo do Azure. Para satisfazer este controlo, o navegador de um utilizador é redirecionado para o serviço externo, realiza quaisquer atividades de autenticação ou validação necessárias, sendo depois redirecionado para o Diretório Ativo azure. O Diretório Ativo azure verifica a resposta e, se o utilizador foi autenticado ou validado com sucesso, o utilizador continua no fluxo de Acesso Condicional.
 
-Esses controles permitem o uso de determinados serviços externos ou personalizados como controles de acesso condicional e geralmente estendem os recursos de acesso condicional.
+Estes controlos permitem a utilização de certos serviços externos ou personalizados como controlos de Acesso Condicional e, em geral, alargar as capacidades de Acesso Condicional.
 
-Os provedores que atualmente oferecem um serviço compatível incluem:
+Os fornecedores que atualmente oferecem um serviço compatível incluem:
 
-- [Segurança Duo](https://duo.com/docs/azure-ca)
-- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Segurança duo](https://duo.com/docs/azure-ca)
+- [Cartão de Dados de Confiar](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [GSMA](https://mobileconnect.io/azure/)
-- [Identidade de ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
+- [Identidade ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - [RSA](https://community.rsa.com/docs/DOC-81278)
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
-- [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
-- [VIP da Symantec](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
+- [Forte de Prata](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
+- [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Thales (Gemalto)](https://resources.eu.safenetid.com/help/AzureMFA/Azure_Help/Index.htm)
-- [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
+- [Rio Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
-Para obter mais informações sobre esses serviços, entre em contato diretamente com os provedores.
+Para obter mais informações sobre esses serviços, contacte diretamente os prestadores.
 
-### <a name="creating-custom-controls"></a>Criando controles personalizados
+### <a name="creating-custom-controls"></a>Criação de controlos personalizados
 
-Para criar um controle personalizado, primeiro você deve entrar em contato com o provedor que deseja utilizar. Cada provedor que não é da Microsoft tem seu próprio processo e requisitos para inscrever-se, assinar ou se tornar uma parte do serviço e indicar que você deseja integrar com o acesso condicional. Nesse ponto, o provedor fornecerá um bloco de dados no formato JSON. Esses dados permitem que o provedor e o acesso condicional funcionem juntos para seu locatário, cria o novo controle e define como o acesso condicional pode informar se os usuários executaram com êxito a verificação com o provedor.
+Para criar um controlo personalizado, deve contactar primeiro o fornecedor que pretende utilizar. Cada fornecedor não Microsoft tem o seu próprio processo e requisitos para se inscrever, subscrever ou tornar-se parte do serviço, e indicar que pretende integrar-se com o Acesso Condicional. Nessa altura, o fornecedor fornecer-lhe-á um bloco de dados no formato JSON. Estes dados permitem ao fornecedor e ao Acesso Condicional trabalhar em conjunto para o seu inquilino, cria o novo controlo e define como o Acesso Condicional pode dizer se os seus utilizadores realizaram com sucesso a verificação com o fornecedor.
 
-Os controles personalizados não podem ser usados com a automação da proteção de identidade que requer autenticação multifator ou para elevar funções no PIM (Privileged Identity Manager).
+Os controlos personalizados não podem ser utilizados com a automatização da Proteção de Identidade que exija a autenticação de vários fatores ou para elevar as funções no Gestor de Identidade Privilegiado (PIM).
 
-Copie os dados JSON e cole-os na caixa de texto relacionada. Não faça nenhuma alteração no JSON, a menos que você entenda explicitamente a alteração que está fazendo. Fazer qualquer alteração pode interromper a conexão entre o provedor e a Microsoft e, potencialmente, bloquear você e seus usuários de suas contas.
+Copie os dados da JSON e cole-os na caixa de texto relacionada. Não faça alterações na JSON a menos que compreenda explicitamente a mudança que está a fazer. Fazer qualquer alteração pode quebrar a ligação entre o fornecedor e a Microsoft e potencialmente bloqueá-lo e aos seus utilizadores fora das suas contas.
 
-A opção para criar um controle personalizado está na seção **gerenciar** da página de **acesso condicional** .
+A opção de criar um controlo personalizado está na secção **Gerir** a página **de Acesso Condicional.**
 
 ![Controlo](./media/controls/82.png)
 
-Clicar em **novo controle personalizado**abre uma folha com uma caixa de texto para os dados JSON do seu controle.  
+Clicando em **Novo controlo personalizado,** abre uma lâmina com uma caixa de texto para os dados JSON do seu controlo.  
 
 ![Controlo](./media/controls/81.png)
 
-### <a name="deleting-custom-controls"></a>Excluindo controles personalizados
+### <a name="deleting-custom-controls"></a>Apagar controlos personalizados
 
-Para excluir um controle personalizado, primeiro você deve verificar se ele não está sendo usado em nenhuma política de acesso condicional. Após a conclusão:
+Para eliminar um controlo personalizado, tem primeiro de garantir que não está a ser utilizado em nenhuma política de Acesso Condicional. Uma vez concluído:
 
-1. Ir para a lista de controles personalizados
-1. Clique em...  
+1. Ir para a lista de controlos personalizados
+1. Clique...  
 1. Selecione **Eliminar**.
 
-### <a name="editing-custom-controls"></a>Editando controles personalizados
+### <a name="editing-custom-controls"></a>Edição de controlos personalizados
 
-Para editar um controle personalizado, você deve excluir o controle atual e criar um novo controle com as informações atualizadas.
+Para editar um controlo personalizado, deve eliminar o controlo atual e criar um novo controlo com as informações atualizadas.
 
-## <a name="session-controls"></a>Controles de sessão
+## <a name="session-controls"></a>Controlos de sessão
 
-Controles de sessão permitem uma experiência limitada em um aplicativo de nuvem. Os controles de sessão são impostos por aplicativos de nuvem e dependem de informações adicionais fornecidas pelo Azure AD para o aplicativo sobre a sessão.
+Os controlos de sessão permitem uma experiência limitada dentro de uma aplicação na nuvem. Os controlos da sessão são aplicados por aplicações na nuvem e contam com informações adicionais fornecidas pela Azure AD à app sobre a sessão.
 
 ![Controlo](./media/controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Usar restrições impostas do aplicativo
+### <a name="use-app-enforced-restrictions"></a>Use restrições impostas por aplicações
 
-Você pode usar esse controle para exigir que o Azure AD passe informações do dispositivo para os aplicativos de nuvem selecionados. As informações do dispositivo permitem que os aplicativos de nuvem saibam se uma conexão é iniciada de um dispositivo em conformidade ou ingressado no domínio. Esse controle só dá suporte ao SharePoint Online e ao Exchange Online como aplicativos de nuvem selecionados. Quando selecionado, o aplicativo de nuvem usa as informações do dispositivo para fornecer aos usuários, dependendo do estado do dispositivo, com uma experiência limitada ou completa.
+Pode utilizar este controlo para exigir que o Azure AD passe informações do dispositivo para as aplicações em nuvem selecionadas. A informação do dispositivo permite que as aplicações em nuvem saibam se uma ligação é iniciada a partir de um dispositivo compatível ou unido. Este controlo apenas suporta o SharePoint Online e o Exchange Online como aplicações em nuvem selecionadas. Quando selecionada, a aplicação cloud utiliza as informações do dispositivo para fornecer aos utilizadores, dependendo do estado do dispositivo, com uma experiência limitada ou completa.
 
 Para saber mais, consulte:
 
-- [Habilitando o acesso limitado com o SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-- [Habilitando o acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
+- [Permitindo acesso limitado com O SharePoint Online](https://aka.ms/spolimitedaccessdocs)
+- [Permitir o acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se você quiser saber como configurar uma política de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md).
-- Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+- Se quiser saber configurar uma política de Acesso Condicional, consulte [RequireM para aplicações específicas com Acesso Condicional de Diretório Ativo Azure](app-based-mfa.md).
+- Se estiver pronto para configurar as políticas de Acesso Condicional para o seu ambiente, consulte as [melhores práticas de Acesso Condicional no Diretório Ativo Azure](best-practices.md).

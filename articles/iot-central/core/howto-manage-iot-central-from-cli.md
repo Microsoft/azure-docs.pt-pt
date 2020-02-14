@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: cf0414531d363ab5401e8c9574943a40ecf2d449
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: c44b7cd045547d01d1a31f949a42087e78e88b21
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137824"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198842"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gerir a IoT Central do Azure CLI
 
@@ -28,6 +28,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se preferir executar o Azure CLI na sua máquina local, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli). Quando executar o Azure CLI localmente, utilize o comando **de login az** para iniciar sessão no Azure antes de experimentar os comandos neste artigo.
+
+> [!TIP]
+> Se precisar de executar os seus comandos CLI numa subscrição Azure diferente, consulte [Alterar a subscrição ativa](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 

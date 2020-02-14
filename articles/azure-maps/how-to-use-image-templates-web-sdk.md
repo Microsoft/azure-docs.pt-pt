@@ -1,6 +1,6 @@
 ---
-title: Modelos de imagem no SDK da Web do Azure Maps | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a usar modelos de imagem com marcadores de HTML e várias camadas no SDK da Web do Microsoft Azure Maps.
+title: Modelos de imagem no Azure Maps Web SDK  Microsoft Azure Maps
+description: Neste artigo, você aprenderá a usar modelos de imagem com marcadores HTML e várias camadas no Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,34 +9,34 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: cb182a5db77a517b11fb1863665f8c54d58b254a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f3b1141ea3c3c8e33b8a2ae12c22b6962a90d32b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911577"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198229"
 ---
 # <a name="how-to-use-image-templates"></a>Como utilizar modelos de imagem
 
-As imagens podem ser usadas com marcadores de HTML e várias camadas no SDK da Web do Azure Maps:
+As imagens podem ser usadas com marcadores HTML e várias camadas dentro da web SDK do Azure Maps:
 
- - As camadas de símbolo podem renderizar pontos no mapa com um ícone de imagem. Os símbolos também podem ser renderizados ao longo de um caminho de linhas.
- - Camadas de polígono podem ser renderizadas com uma imagem de padrão de preenchimento. 
- - Marcadores de HTML podem renderizar pontos usando imagens e outros elementos HTML.
+ - As camadas de símbolo podem render pontos no mapa com um ícone de imagem. Os símbolos também podem ser renderizados ao longo de um caminho de linhas.
+ - Camadas de polígono podem ser renderizadas com uma imagem de padrão de enchimento. 
+ - Os marcadores HTML podem renderizar pontos utilizando imagens e outros elementos HTML.
 
-Para garantir um bom desempenho com camadas, essas imagens precisam ser carregadas no recurso mapear imagem Sprite antes da renderização. O [íconeoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) da SymbolLayer sobrecarrega algumas imagens de marcador em algumas cores na imagem de mapa Sprite por padrão. Essas mesmas imagens de marcador e mais estão disponíveis como modelos SVG e podem ser usadas para criar imagens com escalas personalizadas, bem como uma cor primária e secundária do cliente. No total, há 42 modelos de imagem fornecidos; 27 ícones de símbolo e 15 padrões de preenchimento de polígono.
+Para garantir um bom desempenho com camadas, carregue as imagens no recurso sprite de imagem do mapa antes da renderização. As [IconOptions,](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)da SymbolLayer, precarregam um par de imagens marcadoras num punhado de cores no sprite de imagem do mapa, por padrão. Estas imagens de marcador e muito mais estão disponíveis como modelos SVG. Podem ser usados para criar imagens com escamas personalizadas, ou usadas como cor primária e secundária do cliente. No total são fornecidos 42 modelos de imagem: 27 ícones de símbolo e 15 padrões de preenchimento de polígono.
 
-Os modelos de imagem podem ser adicionados à imagem do mapa recursos de Sprite usando a função `map.imageSprite.createFromTemplate`. Essa função permite que até cinco parâmetros sejam passados;
+Os modelos de imagem podem ser adicionados aos recursos de sprite de imagem do mapa utilizando a função `map.imageSprite.createFromTemplate`. Esta função permite a sua aprovação até cinco parâmetros;
 
 ```javascript
 createFromTemplate(id: string, templateName: string, color?: string, secondaryColor?: string, scale?: number): Promise<void>
 ```
 
-em que o `id` é um identificador exclusivo que você cria, que é atribuído à imagem quando ele é adicionado à imagem de mapas Sprite. Use esse identificador nas camadas para especificar qual recurso de imagem renderizar. O `templateName` especifica qual modelo de imagem usar. A opção `color` define a cor primária da imagem e as opções de `secondaryColor` definem a cor secundária da imagem. A opção `scale` dimensiona o modelo de imagem antes de aplicá-lo à imagem Sprite. Quando a imagem é aplicada à imagem Sprite, ela é convertida em um PNG. Para garantir a renderização nítida, é melhor dimensionar o modelo de imagem para cima antes de adicioná-lo ao Sprite do que redimensioná-lo em uma camada.
+O `id` é um identificador único que se cria. O `id` é atribuído à imagem quando é adicionado ao sprite de imagem dos mapas. Utilize este identificador nas camadas para especificar qual o recurso de imagem a renderizar. O `templateName` especifica qual modelo de imagem usar. A opção `color` define a cor primária da imagem e as opções `secondaryColor` define a cor secundária da imagem. A opção `scale` escala o modelo de imagem antes de o aplicar no sprite de imagem. Quando a imagem é aplicada ao sprite de imagem, é convertida num PNG. Para garantir a renderização nítida, é melhor escalar o modelo de imagem antes de adicioná-lo ao sprite, do que escaloná-lo em uma camada.
 
-Essa função carrega a imagem de forma assíncrona na imagem Sprite e, portanto, retorna uma promessa que você pode aguardar até que essa função seja concluída.
+Esta função carrega assincronicamente a imagem no sprite de imagem. Assim, devolve uma Promessa de que pode esperar que esta função esteja concluída.
 
-O código a seguir mostra como criar uma imagem de um dos modelos internos e usá-lo com uma camada de símbolo.
+O código seguinte mostra como criar uma imagem a partir de um dos modelos incorporados, e usá-la com uma camada de símbolo.
 
 ```javascript
 map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#fff').then(function () {
@@ -50,163 +50,163 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 });
 ```
 
-## <a name="use-an-image-template-with-a-symbol-layer"></a>Usar um modelo de imagem com uma camada de símbolo
+## <a name="use-an-image-template-with-a-symbol-layer"></a>Use um modelo de imagem com uma camada de símbolo
 
-Depois que um modelo de imagem é carregado na imagem de mapa Sprite, ele pode ser renderizado como um símbolo em uma camada de símbolo referenciando a ID de recurso de imagem na opção `image` da `iconOptions`.
+Uma vez que um modelo de imagem é carregado no sprite de imagem do mapa, pode ser renderizado como um símbolo numa camada de símbolo, referindo o ID do recurso de imagem na opção `image` do `iconOptions`.
 
-O exemplo a seguir renderiza uma camada de símbolo usando o modelo de imagem `marker-flat` com uma cor primária azul-petróleo e uma cor secundária branca. 
+A amostra seguinte torna uma camada de símbolo usando o modelo de imagem `marker-flat` com uma cor primária teal e uma cor secundária branca. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de símbolo com o modelo de ícone interno" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a camada de símbolo de caneta <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>com o modelo de ícone interno</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de símbolo com modelo de ícone incorporado" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Veja a camada de símbolo da caneta <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>com o modelo de ícone incorporado</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="use-an-image-template-along-a-lines-path"></a>Usar um modelo de imagem ao longo de um caminho de linhas
+## <a name="use-an-image-template-along-a-lines-path"></a>Use um modelo de imagem ao longo de um caminho de linhas
 
-Depois que um modelo de imagem é carregado na imagem de mapa Sprite, ele pode ser renderizado ao longo do caminho de uma linha adicionando uma LineString a uma fonte de dados e usando uma camada de símbolo com uma opção `lineSpacing`e referenciando a ID do recurso de imagem na `image` opção de th `iconOptions`. 
+Uma vez que um modelo de imagem é carregado no sprite de imagem do mapa, pode ser renderizado ao longo do caminho de uma linha adicionando um LineString a uma fonte de dados e usando uma camada de símbolo com uma opção `lineSpacing`e fazendo referência ao ID do recurso de imagem na opção `image` de th `iconOptions`. 
 
-O exemplo a seguir renderiza uma linha rosa no mapa e usa uma camada de símbolo usando o modelo de imagem `car` com uma cor primária azul-Anil e uma cor secundária branca. 
-
-<br/>
-
-<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de linha com modelo de ícone interno" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Veja a camada de linha de caneta <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>com o modelo de ícone interno</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-> [!TIP]
-> Se o modelo de imagem estiver apontando para cima, defina a opção de ícone de `rotation` da camada de símbolo como 90 se desejar que ela aponte para a mesma direção que a linha.
-
-## <a name="use-an-image-template-with-a-polygon-layer"></a>Usar um modelo de imagem com uma camada de polígono
-
-Depois que um modelo de imagem é carregado na imagem de mapa Sprite, ele pode ser renderizado como um padrão de preenchimento em uma camada de polígono referenciando a ID de recurso de imagem na opção `fillPattern` da camada.
-
-O exemplo a seguir renderiza uma camada de polígono usando o modelo de imagem `dot` com uma cor primária vermelha e uma cor secundária transparente.  
+A amostra seguinte torna uma linha cor-de-rosa no mapa e usa uma camada de símbolo usando o modelo de imagem `car` com uma cor primária azul dodger e uma cor secundária branca. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Preencher polígono com o modelo de ícone interno" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte o <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>polígono preenchimento da caneta com o modelo de ícone interno</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de linha com modelo de ícone incorporado" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Veja a camada de Pen <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>Line com o modelo de ícone incorporado</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> Definir a cor secundária dos padrões de preenchimento torna mais fácil ver o mapa subjacente ainda fornecerá o padrão primário. 
+> Se o modelo de imagem apontar para cima, delineie a opção de ícone `rotation` da camada de símbolo para 90 se quiser que aponte na mesma direção que a linha.
 
-## <a name="use-an-image-template-with-an-html-marker"></a>Usar um modelo de imagem com um marcador HTML
+## <a name="use-an-image-template-with-a-polygon-layer"></a>Use um modelo de imagem com uma camada de polígono
 
-Um modelo de imagem pode ser recuperado usando a função `altas.getImageTemplate` e usado como o conteúdo de um marcador HTML. O modelo pode ser passado para a opção `htmlContent` do marcador e, em seguida, personalizado usando as opções `color`, `secondaryColor`e `text`.
+Uma vez que um modelo de imagem é carregado no sprite de imagem do mapa, pode ser renderizado como um padrão de preenchimento em uma camada de polígono, referenciando o ID do recurso de imagem na opção `fillPattern` da camada.
 
-O exemplo a seguir usa o modelo de `marker-arrow` com uma cor primária vermelha, uma cor secundária rosa e um valor de texto de "00".
+A amostra seguinte torna uma camada de polígono usando o modelo de imagem `dot` com uma cor primária vermelha e uma cor secundária transparente.  
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Marcador HTML com modelo de ícone interno" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte o <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcador HTML de caneta com o modelo de ícone interno</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Encha o polígono com o modelo de ícone incorporado" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte o <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>polígono</a> pen fill com o modelo de ícone incorporado pelo Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+> [!TIP]
+> Definir a cor secundária dos padrões de enchimento torna mais fácil ver que o mapa subjacente ainda irá fornecer o padrão primário. 
+
+## <a name="use-an-image-template-with-an-html-marker"></a>Use um modelo de imagem com um marcador HTML
+
+Um modelo de imagem pode ser recuperado utilizando a função `altas.getImageTemplate` e usado como o conteúdo de um marcador HTML. O modelo pode ser passado para a opção `htmlContent` do marcador e, em seguida, personalizado usando as opções `color`, `secondaryColor`e `text`.
+
+A amostra seguinte usa o modelo de `marker-arrow` com uma cor primária vermelha, uma cor secundária cor-de-rosa e um valor de texto de "00".
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Marcador HTML com modelo de ícone incorporado" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte o marcador Pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>HTML com o modelo de ícone incorporado</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="create-custom-reusable-templates"></a>Criar modelos reutilizáveis personalizados
 
-Se seu aplicativo usar o mesmo ícone com ícones diferentes ou se você estiver criando um módulo que adiciona modelos de imagem adicionais, você poderá adicionar e recuperar facilmente esses ícones do SDK Web do Azure Maps usando as seguintes funções estáticas no namespace `atlas`.
+Se a sua aplicação utilizar o mesmo ícone com ícones diferentes ou se estiver a criar um módulo que adiciona modelos de imagem adicionais, pode facilmente adicionar e recuperar estes ícones do Web SDK do Azure Maps. Utilize as seguintes funções estáticas no espaço de `atlas` nome.
 
-| Nome | Tipo de retorno | Descrição | 
+| Nome | Tipo de devolução | Descrição | 
 |-|-|-|
-| `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adiciona um modelo de imagem SVG personalizado ao namespace do Atlas. |
-|  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera um modelo SVG por nome. |
-| `getAllImageTemplateNames()` | string[] |  Recupera um modelo SVG por nome. |
+| `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adiciona um modelo de imagem SVG personalizado ao espaço de nome do atlas. |
+|  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera um modelo SVG pelo nome. |
+| `getAllImageTemplateNames()` | string[] |  Recupera um modelo SVG pelo nome. |
 
-Os modelos de imagem SVG dão suporte aos seguintes valores de espaço reservado:
+Os modelos de imagem SVG suportam os seguintes valores do espaço reservado:
 
 | Marcador de posição | Descrição |
 |-|-|
 | `{color}` | A cor primária. | 
 | `{secondaryColor}` | A cor secundária. | 
-| `{scale}` | A imagem SVG é convertida em uma imagem png quando adicionada à imagem de mapa Sprite. Esse espaço reservado pode ser usado para dimensionar um modelo antes que ele seja convertido para garantir que ele seja processado claramente. | 
-| `{text}` | O local para renderizar o texto quando usado com um marcador HTML. |
+| `{scale}` | A imagem SVG é convertida para uma imagem de png quando adicionada ao sprite de imagem do mapa. Este espaço reservado pode ser utilizado para escalar um modelo antes de ser convertido para garantir que se torna claramente. | 
+| `{text}` | A localização para renderizar texto quando utilizada com um marcador HTML. |
 
-O exemplo a seguir mostra como pegar um modelo SVG e adicioná-lo ao SDK da Web do Azure Maps como um modelo de ícone reutilizável. 
+O exemplo seguinte mostra como pegar num modelo SVG, e adicioná-lo ao Web SDK do Azure Maps como um modelo de ícone reutilizável. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Adicionar modelo de ícone personalizado ao namespace do Atlas" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a caneta <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>Adicionar modelo de ícone personalizado ao namespace do Atlas</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Adicione o modelo de ícone personalizado ao espaço de nome do atlas" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte o modelo de ícone personalizado Pen <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>Add para atlas espaço</a> de nome por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="list-of-image-templates"></a>Lista de modelos de imagem
 
-A tabela a seguir lista todos os modelos de imagem disponíveis atualmente no SDK da Web do Azure Maps com o nome do modelo acima de cada imagem. Por padrão, a cor primária é azul e a cor secundária é branca. Para facilitar a visualização da cor secundária em um plano de fundo branco, as imagens a seguir têm a cor secundária definida como preto.
+Esta tabela lista todos os modelos de imagem atualmente disponíveis dentro do Web SDK do Azure Maps. O nome do modelo está acima de cada imagem. Por padrão, a cor primária é azul e a cor secundária é branca. Para tornar a cor secundária mais fácil de ver em um fundo branco, as seguintes imagens têm a cor secundária definida para preto.
 
 **Modelos de ícone de símbolo**
 
 |||||
 |:-:|:-:|:-:|:-:|
-| Marker | marcador-espesso | marcador-círculo | marcador-simples |
-|![ícone de marcador](./media/image-templates/marker.png)|![marcador-espesso, ícone](./media/image-templates/marker-thick.png)|![marcador-ícone de círculo](./media/image-templates/marker-circle.png)|![marcador-ícone simples](./media/image-templates/marker-flat.png)|
+| marcador | marcador-grosso | marcador-círculo | marcador plano |
+|![ícone do marcador](./media/image-templates/marker.png)|![ícone de marcador grosso](./media/image-templates/marker-thick.png)|![ícone do círculo do marcador](./media/image-templates/marker-circle.png)|![ícone plana marcador](./media/image-templates/marker-flat.png)|
 ||||
-| marcador-quadrado | marcador-quadrado-cluster | marcador-seta | marcador-bola-PIN | 
-|![marcador-ícone quadrado](./media/image-templates/marker-square.png)|![marcador-ícone de cluster quadrado](./media/image-templates/marker-square-cluster.png)|![marcador-ícone de seta](./media/image-templates/marker-arrow.png)|![marcador-ícone de pino de bola](./media/image-templates/marker-ball-pin.png)|
+| marcador-quadrado | marcador-quadrado-cluster | seta marcador | marcador-bola-pin | 
+|![ícone marcador-quadrado](./media/image-templates/marker-square.png)|![ícone de aglomerado de marcadorquadrado](./media/image-templates/marker-square-cluster.png)|![ícone de seta de marcação](./media/image-templates/marker-arrow.png)|![ícone marcador-bola-pin](./media/image-templates/marker-ball-pin.png)|
 ||||
-| marcador-quadrado arredondado | marcador-quadrado-arredondado-cluster | flag | Flag-triângulo |
-| ![marcador-ícone arredondado quadrado](./media/image-templates/marker-square-rounded.png) | ![marcador-quadrado-arredondado-ícone de cluster](./media/image-templates/marker-square-rounded-cluster.png) | ![ícone de sinalizador](./media/image-templates/flag.png) | ![ícone sinalizador-triângulo](./media/image-templates/flag-triangle.png) |
+| marcador-quadrado-arredondado | marcador-quadrado-aglomerado arredondado | bandeira | triângulo de bandeira |
+| ![ícone arredondado marcador-quadrado](./media/image-templates/marker-square-rounded.png) | ![ícone de aglomerado arredondado-quadrado de marcador](./media/image-templates/marker-square-rounded-cluster.png) | ![ícone de bandeira](./media/image-templates/flag.png) | ![ícone do triângulo da bandeira](./media/image-templates/flag-triangle.png) |
 ||||
-| triângulo | triângulo espesso | triângulo – seta para cima | triângulo – seta para a esquerda |
-| ![ícone de triângulo](./media/image-templates/triangle.png) | ![ícone de triângulo espesso](./media/image-templates/triangle-thick.png) | ![triângulo – ícone de seta para cima](./media/image-templates/triangle-arrow-up.png) | ![triângulo – ícone de seta para a esquerda](./media/image-templates/triangle-arrow-left.png) |
+| triângulo | triângulo-grosso | triângulo-seta-up | triângulo-seta-esquerda |
+| ![ícone triângulo](./media/image-templates/triangle.png) | ![ícone triângulo-grosso](./media/image-templates/triangle-thick.png) | ![ícone triângulo-seta-up](./media/image-templates/triangle-arrow-up.png) | ![ícone de seta-triângulo-esquerda](./media/image-templates/triangle-arrow-left.png) |
 ||||
-| hexágono | hexágono-espesso | hexágono-arredondado | hexágono-arredondado-espesso |
-| ![ícone de hexágono](./media/image-templates/hexagon.png) | ![ícone de hexágono-espesso](./media/image-templates/hexagon-thick.png) | ![hexágono – ícone arredondado](./media/image-templates/hexagon-rounded.png) | ![hexágono-ícone arredondado espesso](./media/image-templates/hexagon-rounded-thick.png) |
+| hexágono | hexágono-grosso | hexágono arredondado | hexágono-arredondado-grosso |
+| ![ícone hexagon](./media/image-templates/hexagon.png) | ![ícone hexagono-grosso](./media/image-templates/hexagon-thick.png) | ![ícone arredondado hexagon](./media/image-templates/hexagon-rounded.png) | ![ícone hexagono-arredondado-grosso](./media/image-templates/hexagon-rounded-thick.png) |
 ||||
-| pin | pino arredondado | quadrado arredondado | arredondado-quadrado espesso |
-| ![ícone afixar](./media/image-templates/pin.png) | ![ícone de arredondamento de PIN](./media/image-templates/pin-round.png) | ![ícone de quadrado arredondado](./media/image-templates/rounded-square.png) | ![ícone arredondado-quadrado espesso](./media/image-templates/rounded-square-thick.png) |
+| pin | pin-round | quadrado arredondado | arredondado-grosso |
+| ![ícone pin](./media/image-templates/pin.png) | ![ícone pin-round](./media/image-templates/pin-round.png) | ![ícone arredondado-quadrado](./media/image-templates/rounded-square.png) | ![ícone arredondado quadrado-grosso](./media/image-templates/rounded-square-thick.png) |
 ||||
-| seta para cima | seta para cima – fina | carro ||
-| ![ícone de seta para cima](./media/image-templates/arrow-up.png) | ![seta para cima – ícone fino](./media/image-templates/arrow-up-thin.png) | ![ícone de carro](./media/image-templates/car.png) | |
+| seta-up | seta-up-fino | carro ||
+| ![ícone seta-up](./media/image-templates/arrow-up.png) | ![seta-up-fino ícone](./media/image-templates/arrow-up-thin.png) | ![ícone do carro](./media/image-templates/car.png) | |
 
 **Modelos de padrão de preenchimento de polígono**
 
 |||||
 |:-:|:-:|:-:|:-:|
-| verificador | verificador-girado | indicam | círculos-espaçados |
-| ![ícone do verificador](./media/image-templates/checker.png) | ![verificador-ícone girado](./media/image-templates/checker-rotated.png) | ![ícone de círculos](./media/image-templates/circles.png) | ![círculos – ícone com espaçamento](./media/image-templates/circles-spaced.png) |
+| verificador | rotativa de verificador | círculos | círculos espaçados |
+| ![ícone de verificador](./media/image-templates/checker.png) | ![Ícone rotativo de verificador](./media/image-templates/checker-rotated.png) | ![ícone círculos](./media/image-templates/circles.png) | ![ícone espaçado círculos](./media/image-templates/circles-spaced.png) |
 |||||
-| diagonal-linhas para cima | diagonal-linhas para baixo | diagonal-listras-verticalmente | diagonal-listras-verticalmente |
-| ![diagonal – ícone de linhas para cima](./media/image-templates/diagonal-lines-up.png) | ![diagonal – ícone de linhas para baixo](./media/image-templates/diagonal-lines-down.png) | ![diagonal – ícone de listras](./media/image-templates/diagonal-stripes-up.png) | ![diagonal-listras-ícone para baixo](./media/image-templates/diagonal-stripes-down.png) |
+| diagonal-line-up | diagonal-linhas-down | diagonal-listras-up | diagonal-listras-down |
+| ![ícone diagonal-line-up](./media/image-templates/diagonal-lines-up.png) | ![ícone diagonal-lines-down](./media/image-templates/diagonal-lines-down.png) | ![ícone diagonal-listras-up](./media/image-templates/diagonal-stripes-up.png) | ![ícone diagonal-listras-down](./media/image-templates/diagonal-stripes-down.png) |
 |||||
-| linhas de grade | girado – linhas de grade | girado-grade-listras | x-preenchimento |
-| ![ícone de linhas de grade](./media/image-templates/grid-lines.png) | ![girado – ícone de linhas de grade](./media/image-templates/rotated-grid-lines.png) | ![girar-ícone de listras de grade](./media/image-templates/rotated-grid-stripes.png) | ![ícone de preenchimento x](./media/image-templates/x-fill.png) |
+| linhas de grelha | linhas rotativas de grelha | roted-grid-listras | x-fill |
+| ![ícone de linhas de grelha](./media/image-templates/grid-lines.png) | ![ícone de linhas de grelha rotativa](./media/image-templates/rotated-grid-lines.png) | ![ícone de listras de grelha rotativa](./media/image-templates/rotated-grid-stripes.png) | ![ícone de x-fill](./media/image-templates/x-fill.png) |
 |||||
-| ziguezague-ziguezague | ziguezague-ziguezague-vertical | pontilha |  |
-| ![ícone de ziguezague-ziguezague](./media/image-templates/zig-zag.png) | ![ziguezague-ziguezague-ícone vertical](./media/image-templates/zig-zag-vertical.png) | ![ícone de pontos](./media/image-templates/dots.png) | |
+| zig-zag | zig-zag-vertical | pontos |  |
+| ![ícone zig-zag](./media/image-templates/zig-zag.png) | ![ícone zig-zag-vertical](./media/image-templates/zig-zag-vertical.png) | ![ícone de pontos](./media/image-templates/dots.png) | |
 
-## <a name="try-it-now-tool"></a>Ferramenta experimentar agora
+## <a name="try-it-now-tool"></a>Experimente agora ferramenta
 
-Com a ferramenta a seguir, você pode renderizar os diferentes modelos de imagem internos de várias maneiras e personalizar as cores primárias e secundárias e a escala.
+Com a seguinte ferramenta, pode render os diferentes modelos de imagem incorporados de várias maneiras e personalizar as cores e escala primárias e secundárias.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Opções de modelo de ícone" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte as <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Opções de modelo de ícone</a> de caneta por mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+Consulte as <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>opções</a> do modelo de ícone pen por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as classes e os métodos usados neste artigo:
+Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
 > [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [namespace do Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-maps-typescript-latest#functions
+> [atlas espaço de nome](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-maps-typescript-latest#functions
 )
 
-Consulte os artigos a seguir para obter mais exemplos de código em que modelos de imagem podem ser usados:
+Consulte os seguintes artigos para obter mais amostras de código onde os modelos de imagem podem ser utilizados:
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de símbolo](map-add-pin.md)
+> [Adicione uma camada de símbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de linha](map-add-line-layer.md)
+> [Adicione uma camada de linha](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de polígono](map-add-shape.md)
+> [Adicione uma camada de polígono](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar makes HTML](map-add-bubble-layer.md)
+> [Adicionar fabricantes html](map-add-bubble-layer.md)

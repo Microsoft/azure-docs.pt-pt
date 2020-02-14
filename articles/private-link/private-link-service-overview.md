@@ -1,109 +1,124 @@
 ---
-title: O que é o serviço de vínculo privado do Azure?
-description: Saiba mais sobre o serviço de vínculo privado do Azure.
+title: O que é o serviço Azure Private Link?
+description: Saiba mais sobre o serviço Azure Private Link.
 services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647378"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191074"
 ---
-# <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
+# <a name="what-is-azure-private-link-service"></a>O que é o serviço Azure Private Link?
 
-O serviço de vínculo privado do Azure é a referência para seu próprio serviço que é alimentado pelo link privado do Azure. Seu serviço que está sendo executado por trás [do Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) pode ser habilitado para acesso de link privado para que os consumidores de seu serviço possam acessá-lo de forma privada em seu próprio VNets. Seus clientes podem criar um ponto de extremidade privado dentro de sua VNet e mapeá-lo para esse serviço. Este artigo explica os conceitos relacionados ao lado do provedor de serviço. 
+O serviço Azure Private Link é a referência ao seu próprio serviço que é alimentado pela Azure Private Link. O seu serviço que está a funcionar atrás do [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) pode ser ativado para o acesso ao Private Link para que os consumidores do seu serviço possam aceder-lhe de forma privada a partir dos seus próprios VNets. Os seus clientes podem criar um ponto final privado dentro do seu VNet e mapeá-lo para este serviço. Este artigo explica conceitos relacionados com o lado do prestador de serviços. 
 
-## <a name="workflow"></a>Fluxo de Trabalho
+## <a name="workflow"></a>Fluxo de trabalho
 
-![Fluxo de trabalho do serviço de vínculo privado](media/private-link-service-overview/private-link-service-workflow.png)
+![Fluxo de trabalho de serviço private link](media/private-link-service-overview/private-link-service-workflow.png)
 
-### <a name="create-your-private-link-service"></a>Criar seu serviço de vínculo privado
+### <a name="create-your-private-link-service"></a>Crie o seu Serviço de Ligação Privada
 
-- Configure seu aplicativo para executar por trás de um balanceador de carga padrão em sua rede virtual. Se você já tiver seu aplicativo configurado por trás de um balanceador de carga padrão, poderá ignorar esta etapa.   
-- Crie um serviço de vínculo privado referenciando o balanceador de carga acima. No processo de seleção do balanceador de carga, escolha a configuração de IP de front-end onde você deseja receber o tráfego. Escolha uma sub-rede para endereços IP de NAT para o serviço de link privado. É recomendável ter pelo menos oito endereços IP de NAT disponíveis na sub-rede. Todo o tráfego do consumidor parecerá originar esse pool de endereços IP privados para o provedor de serviços. Escolha as propriedades/configurações apropriadas para o serviço de link privado.    
+- Configure a sua aplicação para correr atrás de um equilibrador de carga padrão na sua rede virtual. Se já tem a sua aplicação configurada atrás de um equilibrador de carga padrão, pode saltar este passo.   
+- Crie um Serviço de Ligação Privada que refira o equilibrador de carga acima. No processo de seleção do equilíbrio de carga, escolha a configuração IP frontal onde pretende receber o tráfego. Escolha uma sub-rede para endereços IP NAT para o Serviço de Ligação Privada. Recomenda-se que tenha pelo menos oito endereços IP NAT disponíveis na sub-rede. Todo o tráfego de consumidores parece ter origem neste conjunto de endereços IP privados para o prestador de serviços. Escolha as propriedades/configurações apropriadas para o Serviço de Ligação Privada.    
 
     > [!NOTE]
-    > O serviço de vínculo privado do Azure só tem suporte em Standard Load Balancer. 
+    > O Azure Private Link Service só é suportado no Standard Load Balancer. 
     
-### <a name="share-your-service"></a>Compartilhar seu serviço
+### <a name="share-your-service"></a>Partilhe o seu serviço
 
-Depois de criar um serviço de vínculo privado, o Azure gerará um moniker nomeado globalmente exclusivo chamado "alias" com base no nome que você fornecer para o serviço. Você pode compartilhar o alias ou o URI de recurso do seu serviço com seus clientes offline. Os consumidores podem iniciar uma conexão de link privado usando o alias ou o URI de recurso.
+Depois de criar um serviço Private Link, o Azure gerará um nome exclusivo globalmente chamado "pseudónimo" com base no nome que fornece para o seu serviço. Pode partilhar o pseudónimo ou o recurso URI do seu serviço com os seus clientes offline. Os consumidores podem iniciar uma ligação de Private Link utilizando o pseudónimo ou o recurso URI.
  
-### <a name="manage-your-connection-requests"></a>Gerenciar suas solicitações de conexão
+### <a name="manage-your-connection-requests"></a>Gerencie os seus pedidos de ligação
 
-Depois que um consumidor inicia uma conexão, o provedor de serviços pode aceitar ou rejeitar a solicitação de conexão. Todas as solicitações de conexão serão listadas na propriedade **privateendpointconnections** no serviço de link privado.
+Após o início de uma ligação por parte do consumidor, o prestador de serviços pode aceitar ou rejeitar o pedido de ligação. Todos os pedidos de ligação serão listados no âmbito da propriedade **privateendpointconnections** no serviço Private Link.
  
-### <a name="delete-your-service"></a>Excluir seu serviço
+### <a name="delete-your-service"></a>Apague o seu serviço
 
-Se o serviço de vínculo privado não estiver mais em uso, você poderá excluí-lo. No entanto, antes de excluir o serviço, verifique se não há nenhuma conexão de ponto de extremidade privada associada a ele. Você pode rejeitar todas as conexões e excluir o serviço.
+Se o serviço Private Link já não estiver a ser utilizado, pode eliminá-lo. No entanto, antes de eliminar o serviço, certifique-se de que não existem ligações de ponto final privados associadas ao mesmo. Pode rejeitar todas as ligações e apagar o serviço.
 
 ## <a name="properties"></a>Propriedades
 
-Um serviço de vínculo privado especifica as seguintes propriedades: 
+Um serviço de Link Privado especifica as seguintes propriedades: 
 
 |Propriedade |Explicação  |
 |---------|---------|
-|Estado de provisionamento (provisioningState)  |Uma propriedade somente leitura que lista o estado de provisionamento atual para o serviço de vínculo privado. Os Estados de provisionamento aplicáveis são: "excluindo; Falha ao Foi Atualizando ". Quando o estado de provisionamento for "êxito", você terá provisionado com êxito o serviço de vínculo privado.        |
-|Alias (alias)     | Alias é uma cadeia de caracteres somente leitura globalmente exclusiva para seu serviço. Ele ajuda a mascarar os dados do cliente para seu serviço e, ao mesmo tempo, cria um nome de fácil compartilhamento para seu serviço. Quando você cria um serviço de vínculo privado, o Azure gera o alias para o serviço que você pode compartilhar com seus clientes. Seus clientes podem usar esse alias para solicitar uma conexão ao seu serviço.          |
-|Visibilidade (visibilidade)     | Visibility é a propriedade que controla as configurações de exposição para seu serviço de vínculo privado. Os provedores de serviços podem optar por limitar a exposição a seu serviço a assinaturas com permissões de RBAC (controle de acesso baseado em função), um conjunto restrito de assinaturas ou todas as assinaturas do Azure.          |
-|Aprovação automática (autoaprovação)    |   A aprovação automática controla o acesso automatizado ao serviço de vínculo privado. As assinaturas especificadas na lista aprovação automática são aprovadas automaticamente quando uma conexão é solicitada de pontos de extremidade privados nessas assinaturas.          |
-|Load Balancer configuração de IP de front-end (loadBalancerFrontendIpConfigurations)    |    O serviço de vínculo privado está vinculado ao endereço IP de front-end de um Standard Load Balancer. Todo o tráfego destinado ao serviço alcançará o front-end do SLB. Você pode configurar regras SLB para direcionar esse tráfego para os pools de back-end apropriados onde seus aplicativos estão em execução. As configurações de IP de front-end do balanceador de carga são diferentes das configurações de IP NAT.      |
-|Configuração de IP de NAT (ipConfigurations)    |    Essa propriedade refere-se à configuração de IP NAT (conversão de endereços de rede) para o serviço de link privado. O IP de NAT pode ser escolhido de qualquer sub-rede em uma rede virtual do provedor de serviços. O serviço de vínculo privado executa NAT-ing no tráfego do link privado. Isso garante que não haja nenhum conflito de IP entre a origem (lado do consumidor) e o espaço de endereço de destino (provedor de serviço). No lado de destino (lado do provedor de serviço), o endereço IP de NAT aparecerá como IP de origem para todos os pacotes recebidos pelo seu serviço e IP de destino para todos os pacotes enviados pelo seu serviço.       |
-|Conexões de ponto de extremidade privado (privateEndpointConnections)     |  Essa propriedade lista os pontos de extremidade privados que se conectam ao serviço de vínculo privado. Vários pontos de extremidade privados podem se conectar ao mesmo serviço de vínculo privado e o provedor de serviços pode controlar o estado de pontos de extremidade privados individuais.        |
+|Estado de provisionamento (Estado de provisionamento)  |Uma propriedade apenas para leitura que lista o estado de provisionamento atual para o serviço private link. Os estados de provisionamento aplicáveis são: "A pagando; Falhou; Conseguiu; Atualização". Quando o estado de provisionamento for "Bem sucedido", você disponibilizou com sucesso o seu serviço de Link Privado.        |
+|Pseudónimo (pseudónimo)     | Alias é uma corda exclusiva para leitura globalmente única para o seu serviço. Ajuda-o a mascarar os dados do cliente para o seu serviço e, ao mesmo tempo, cria um nome fácil de partilhar para o seu serviço. Ao criar um serviço Private Link, o Azure gera o pseudónimo para o seu serviço que pode partilhar com os seus clientes. Os seus clientes podem utilizar este pseudónimo para solicitar uma ligação ao seu serviço.          |
+|Visibilidade (visibilidade)     | Visibilidade é a propriedade que controla as definições de exposição para o seu serviço Private Link. Os prestadores de serviços podem optar por limitar a exposição ao seu serviço a subscrições com permissões de controlo de acesso (RBAC) baseadas em papéis, um conjunto restrito de subscrições ou todas as subscrições do Azure.          |
+|Aprovação automática (autoAprovação)    |   A homologação automática controla o acesso automatizado ao serviço Private Link. As assinaturas especificadas na lista de homologação são aprovadas automaticamente quando uma ligação é solicitada a partir de pontos finais privados nessas assinaturas.          |
+|Configuração IP frontend do balanceor de carga (loadBalancerFrontendIpConfiguras)    |    O serviço Private Link está ligado ao endereço IP frontal de um Balancer de Carga Padrão. Todo o tráfego destinado ao serviço chegará à frente do SLB. Pode configurar as regras do SLB para direcionar este tráfego para piscinas de backend apropriadas onde as suas aplicações estão em execução. As configurações ip frontend do balanceor de carga são diferentes das configurações IP na NAT.      |
+|Configuração IP NAT (ipConfigurations)    |    Esta propriedade refere-se à configuração IP NAT (Tradução de Endereços de Rede) para o serviço de Link Privado. O IP NAT pode ser escolhido a partir de qualquer subnet na rede virtual de um prestador de serviços. O serviço Private Link executa o lado de destino NAT-ing no tráfego de Private Link. Isto garante que não existe um conflito de IP entre o espaço de endereço de origem (do lado do consumidor) e o destino (prestador de serviços). Do lado do destino (lado do prestador de serviços), o endereço IP NAT aparecerá como FONTE IP para todos os pacotes recebidos pelo seu serviço e IP de destino para todos os pacotes enviados pelo seu serviço.       |
+|Ligações de ponto final privado (privateEndpointConnections)     |  Esta propriedade lista os pontos finais privados que ligam ao serviço Private Link. Vários pontos finais privados podem ligar-se ao mesmo serviço private link e o prestador de serviços pode controlar o Estado para pontos finais individuais.        |
+|TCP Proxy V2 (EnableProxyProtocol)     |  Este imóvel permite ao prestador de serviços utilizar o tcp proxy v2 para obter informações de ligação sobre o consumidor de serviços. O Prestador de Serviços é responsável pela criação de configs recetores para poder analisar o cabeçalho do protocolo proxy v2.        |
 |||
 
 
 ### <a name="details"></a>Detalhes
 
-- O serviço de vínculo privado pode ser acessado de pontos de extremidade privados aprovados na mesma região. O ponto de extremidade privado pode ser alcançado da mesma rede virtual, VNets emparelhada de modo regional, VNets emparelhada globalmente e local usando conexões VPN privadas ou ExpressRoute. 
+- O serviço private link pode ser acedido a partir de pontos finais privados aprovados na mesma região. O ponto final privado pode ser alcançado a partir da mesma rede virtual, VNets com preços regionais, VNets globalmente espreitados e em instalações usando ligações privadas VPN ou ExpressRoute. 
  
-- Ao criar um serviço de vínculo privado, uma interface de rede é criada para o ciclo de vida do recurso. Essa interface não é gerenciável pelo cliente.
+- Ao criar um Serviço de Link Privado, é criada uma interface de rede para o ciclo de vida do recurso. Esta interface não é gerível pelo cliente.
  
-- O serviço de vínculo privado deve ser implantado na mesma região que a rede virtual e a Standard Load Balancer.  
+- O Serviço de Ligação Privada deve ser implantado na mesma região que a rede virtual e o Standard Load Balancer.  
  
-- Um único serviço de vínculo privado pode ser acessado de vários pontos de extremidade privados que pertencem a diferentes VNets, assinaturas e/ou locatários Active Directory. A conexão é estabelecida por meio de um fluxo de trabalho de conexão. 
+- Um único Serviço de Link Privado pode ser acedido a partir de vários Pontos Finais Privados pertencentes a diferentes VNets, subscrições e/ou inquilinos de Diretório Ativo. A ligação é estabelecida através de um fluxo de trabalho de ligação. 
  
-- Vários serviços de vínculo privado podem ser criados no mesmo Standard Load Balancer usando configurações de IP de front-end diferentes. Há limites para o número de serviços de vínculo privado que você pode criar por Standard Load Balancer e por assinatura. Para obter detalhes, consulte [limites do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Vários serviços de Link Privado podem ser criados no mesmo Balancer de Carga Padrão utilizando diferentes configurações IP front-end. Existem limites para o número de serviços de Link Privado que pode criar por Standard Load Balancer e por subscrição. Para mais detalhes, consulte [os limites de Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
  
-- O serviço de vínculo privado pode ter mais de uma configuração de IP NAT vinculada a ela. A escolha de mais de uma configuração de IP NAT pode ajudar os provedores de serviços a dimensionar. Hoje, os provedores de serviços podem atribuir até oito endereços IP de NAT por serviço de vínculo privado. Com cada endereço IP de NAT, você pode atribuir mais portas para suas conexões TCP e, portanto, escalar horizontalmente. Depois de adicionar vários endereços IP NAT a um serviço de vínculo privado, você não pode excluir os endereços IP de NAT. Isso é feito para garantir que as conexões ativas não sejam afetadas durante a exclusão dos endereços IP de NAT.
+- O serviço Private Link pode ter mais de uma configuração IP NAT ligada a ele. Escolher mais do que uma configuração IP NAT pode ajudar os prestadores de serviços a escalar. Hoje em dia, os prestadores de serviços podem atribuir até oito endereços IP NAT por serviço private link. Com cada endereço IP NAT, pode atribuir mais portas para as suas ligações TCP e, assim, escalar para fora. Depois de adicionar vários endereços IP NAT a um serviço de Link Privado, não pode eliminar os endereços IP NAT. Isto é feito para garantir que as ligações ativas não sejam afetadas ao mesmo tempo que se apagando os endereços IP NAT.
 
 
 ## <a name="alias"></a>Alias
 
-**Alias** é um nome globalmente exclusivo para seu serviço. Ele ajuda a mascarar os dados do cliente para seu serviço e, ao mesmo tempo, cria um nome de fácil compartilhamento para seu serviço. Quando você cria um serviço de vínculo privado, o Azure gera um alias para o serviço que você pode compartilhar com seus clientes. Seus clientes podem usar esse alias para solicitar uma conexão ao seu serviço.
+**Alias** é um nome globalmente único para o seu serviço. Ajuda-o a mascarar os dados do cliente para o seu serviço e, ao mesmo tempo, cria um nome fácil de partilhar para o seu serviço. Ao criar um serviço Private Link, o Azure gera um pseudónimo para o seu serviço que pode partilhar com os seus clientes. Os seus clientes podem utilizar este pseudónimo para solicitar uma ligação ao seu serviço.
 
-O alias é composto por três partes: *prefixo*. *GUID*. *Sufixo*
+O pseudónimo é composto por três partes: *Prefixo*. *GUIA.* *Sufixo*
 
-- Prefixo é o nome do serviço. Você pode escolher seu próprio prefixo. Depois que "alias" for criado, você não poderá alterá-lo; portanto, selecione o prefixo adequadamente.  
-- O GUID será fornecido pela plataforma. Isso ajuda a tornar o nome globalmente exclusivo. 
-- O sufixo é acrescentado pelo Azure: *Region*. Azure. privatelinkservice 
+- Prefixo é o nome do serviço. Pode escolher o seu próprio prefixo. Depois de criado o "Alias", não pode mudá-lo, por isso selecione o prefixo adequadamente.  
+- O GUID será fornecido pela plataforma. Isto ajuda a tornar o nome globalmente único. 
+- Sufixo é anexado por Azure: *região*.azure.privatelinkservice 
 
-Alias completo: *prefixo*. {GUID}. *Region*. Azure. privatelinkservice  
+Pseudónimo completo: *Prefixo*. {GUID}. *região*.azure.privatelinkservice  
 
-## <a name="control-service-exposure"></a>Controlar a exposição do serviço
+## <a name="control-service-exposure"></a>Exposição ao serviço de controlo
 
-O serviço de vínculo privado fornece opções para controlar a exposição de seu serviço por meio da configuração de "visibilidade". Você pode tornar o serviço particular para consumo de diferentes VNets que você possui (somente permissões RBAC), restringir a exposição a um conjunto limitado de assinaturas em que você confia ou torná-lo público para que todas as assinaturas do Azure possam solicitar conexões no link privado serviço. Suas configurações de visibilidade decidem se um consumidor pode se conectar ao seu serviço ou não. 
+O serviço Private Link oferece-lhe opções para controlar a exposição do seu serviço através da definição de "Visibilidade". Você pode tornar o serviço privado para consumo de diferentes VNets que você possui (apenas permissões RBAC), restringir a exposição a um conjunto limitado de subscrições em que você confia, ou torná-lo público para que todas as subscrições Azure possam solicitar conexões no Private Link serviço. As suas definições de visibilidade decidem se um consumidor pode ou não ligar-se ao seu serviço. 
 
-## <a name="control-service-access"></a>Acesso ao serviço de controle
+## <a name="control-service-access"></a>Acesso ao serviço de controlo
 
-Os consumidores que têm exposição (controlada pela configuração de visibilidade) para o serviço de vínculo privado podem criar um ponto de extremidade privado em seu VNets e solicitar uma conexão com o serviço de vínculo privado. A conexão de ponto de extremidade particular será criada em um estado "pendente" no objeto de serviço de link privado. O provedor de serviços é responsável por agir na solicitação de conexão. Você pode aprovar a conexão, rejeitar a conexão ou excluir a conexão. Somente as conexões aprovadas podem enviar tráfego para o serviço de link privado.
+Os consumidores que tenham exposição (controlada por definição de visibilidade) ao seu serviço Private Link podem criar um ponto final privado nos seus VNets e solicitar uma ligação ao seu serviço de Link Privado. A ligação de ponto final privado será criada num estado "Pendente" no objeto de serviço private link. O prestador de serviços é responsável por agir sobre o pedido de ligação. Pode aprovar a ligação, rejeitar a ligação ou apagar a ligação. Apenas as ligações que são aprovadas podem enviar tráfego para o serviço Private Link.
 
-A ação de aprovar as conexões pode ser automatizada usando a propriedade aprovação automática no serviço de vínculo privado. A aprovação automática é uma capacidade para os provedores de serviços aprovarem um conjunto de assinaturas para acesso automatizado ao serviço. Os clientes precisarão compartilhar suas assinaturas offline para que os provedores de serviços adicionem à lista de aprovação automática. A aprovação automática é um subconjunto da matriz de visibilidade. A visibilidade controla as configurações de exposição, enquanto a aprovação automática controla as configurações de aprovação do seu serviço. Se um cliente solicitar uma conexão de uma assinatura na lista aprovação automática, a conexão será aprovada automaticamente e a conexão será estabelecida. Os provedores de serviço não precisam mais aprovar manualmente a solicitação. Por outro lado, se um cliente solicitar uma conexão de uma assinatura na matriz de visibilidade e não na matriz de aprovação automática, a solicitação atingirá o provedor de serviços, mas o provedor de serviços precisará aprovar as conexões manualmente.
+A ação de aprovação das ligações pode ser automatizada utilizando a propriedade de aprovação automática no serviço Private Link. A Aprovação Automática é uma capacidade para os prestadores de serviços pré-aprovarem um conjunto de subscrições para acesso automatizado ao seu serviço. Os clientes terão de partilhar as suas subscrições offline para os prestadores de serviços adicionarem à lista de aprovação automática. A homologação automática é um subconjunto da matriz de visibilidade. A visibilidade controla as definições de exposição, enquanto a aprovação automática controla as definições de aprovação para o seu serviço. Se um cliente solicitar uma ligação a partir de uma subscrição na lista de homologação, a ligação é automaticamente aprovada e a ligação é estabelecida. Os prestadores de serviços já não precisam de aprovar manualmente o pedido. Por outro lado, se um cliente solicitar uma ligação a partir de uma subscrição no conjunto de visibilidade e não no matriz de aprovação automática, o pedido chegará ao prestador de serviços, mas o prestador de serviços tem de aprovar manualmente as ligações.
+
+## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Obtenção de informações de ligação utilizando O Proxy TCP v2
+
+Ao utilizar o serviço de ligação privada, o endereço IP fonte dos pacotes provenientes de ponto final privado é o endereço de rede traduzido (NAT) do lado do prestador de serviços utilizando o IP NAT atribuído a partir da rede virtual do fornecedor. Assim, as aplicações recebem o endereço IP NAT atribuído em vez do endereço IP de origem real dos consumidores de serviços. Se a sua aplicação necessitar de endereço IP de origem real do lado do consumidor, pode ativar o protocolo Proxy no seu serviço e obter a informação do cabeçalho do protocolo proxy. Além do endereço IP de origem, o cabeçalho do protocolo proxy também transporta o LinkID do ponto final privado. A combinação de endereço IP de origem e LinkID pode ajudar os prestadores de serviços a identificar exclusivamente os seus consumidores. Para mais informações sobre o Protocolo proxy, visite aqui. 
+
+Esta informação é codificada utilizando um vetor personalizado de valor de tipo (TLV) da seguinte forma:
+
+Detalhes personalizados da TLV:
+
+|Campo |Comprimento (Octets)  |Descrição  |
+|---------|---------|----------|
+|Tipo  |1        |PP2_TYPE_AZURE (0xEE)|
+|Comprimento  |2      |Comprimento do valor|
+|Valor  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|  |4        |UINT32 (4 bytes) que representam o LINKID do ponto final privado. Codificado em formato endiano.|
+
 
 ## <a name="limitations"></a>Limitações
 
-A seguir estão as limitações conhecidas ao usar o serviço de link privado:
-- Com suporte apenas em Standard Load Balancer 
-- Dá suporte apenas ao tráfego IPv4
-- Dá suporte apenas ao tráfego TCP
-- Não há suporte para criar e gerenciar a experiência do portal do Azure
-- As informações de conexão dos clientes usando o protocolo proxy não estão disponíveis para o provedor de serviços
+Seguem-se as limitações conhecidas ao utilizar o serviço Private Link:
+- Suportado apenas no Equilíbrio de Carga Padrão 
+- Suporta apenas o tráfego IPv4
+- Suporta apenas o tráfego da TCP
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Criar um serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)
-- [Criar um serviço de vínculo privado usando CLI do Azure](create-private-link-service-cli.md)
+- [Criar um serviço de ligação privada usando o Azure PowerShell](create-private-link-service-powershell.md)
+- [Criar um serviço de ligação privada utilizando o Azure CLI](create-private-link-service-cli.md)

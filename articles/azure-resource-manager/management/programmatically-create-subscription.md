@@ -1,51 +1,51 @@
 ---
-title: Criar programaticamente assinaturas do Azure
-description: Saiba como criar assinaturas adicionais do Azure programaticamente.
-author: amberb
+title: Criar programáticamente subscrições do Azure
+description: Saiba como criar subscrições adicionais do Azure programáticamente.
+author: amberbhargava
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: banders
-ms.openlocfilehash: 2fad9d727e78b470635c91a1bf9aaac11e57f4c7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 47d4454c47967d07898492176438e547b1e561b6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981228"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198688"
 ---
-# <a name="programmatically-create-azure-subscriptions-preview"></a>Criar programaticamente assinaturas do Azure (versão prévia)
+# <a name="programmatically-create-azure-subscriptions-preview"></a>Criar programáticamente subscrições do Azure (pré-visualização)
 
-Os clientes do Azure com uma conta de cobrança [Enterprise Agreement (ea)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement (MCA](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) ) ou [Microsoft Partner Agreement (MPa)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) podem criar assinaturas programaticamente. Neste artigo, você aprenderá a criar assinaturas programaticamente usando Azure Resource Manager.
+Os clientes Azure com um [Acordo Empresarial (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) ou [Microsoft Partner Agreement (MPA)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) contas de faturação podem criar subscrições programáticamente. Neste artigo, aprende-se a criar subscrições programáticamente utilizando o Gestor de Recursos Do Azure.
 
-Quando você cria uma assinatura do Azure programaticamente, essa assinatura é regida pelo contrato sob o qual você adquiriu os serviços do Azure da Microsoft ou de um revendedor autorizado. Para saber mais, confira [Microsoft Azure informações legais](https://azure.microsoft.com/support/legal/).
+Quando cria uma subscrição Azure programáticamente, essa subscrição rege-se pelo acordo ao abrigo do qual obteve serviços Azure da Microsoft ou de um revendedor autorizado. Para saber mais, consulte a [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## <a name="create-subscriptions-for-an-ea-billing-account"></a>Criar assinaturas para uma conta de cobrança de EA
+## <a name="create-subscriptions-for-an-ea-billing-account"></a>Criar subscrições para uma conta de faturação eA
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter uma função de proprietário em uma conta de registro para criar uma assinatura. Há duas maneiras de obter a função:
+Você deve ter um papel proprietário em uma Conta de Inscrição para criar uma subscrição. Há duas maneiras de conseguir o papel:
 
-* O administrador corporativo do seu registro pode [torná-lo um proprietário de conta](https://ea.azure.com/helpdocs/addNewAccount) (entrada necessária) que torna o proprietário da conta de registro.
+* O Administrador Da Empresa da sua inscrição pode [fazer-lhe um Proprietário](https://ea.azure.com/helpdocs/addNewAccount) de Conta (inscreva-se obrigatório) o que o torna proprietário da Conta de Inscrição.
 
-* Um proprietário existente da conta de registro pode [conceder a você acesso](grant-access-to-create-subscription.md). Da mesma forma, se você quiser usar uma entidade de serviço para criar uma assinatura de EA, deverá [conceder a essa entidade de serviço a capacidade de criar assinaturas](grant-access-to-create-subscription.md).
+* Um proprietário existente da Conta de Inscrição pode [conceder-lhe acesso](grant-access-to-create-subscription.md). Da mesma forma, se pretender utilizar um diretor de serviço para criar uma subscrição EA, deve conceder a esse serviço principal a capacidade de [criar subscrições.](grant-access-to-create-subscription.md)
 
-### <a name="find-accounts-you-have-access-to"></a>Localizar contas às quais você tem acesso
+### <a name="find-accounts-you-have-access-to"></a>Encontre contas a que tem acesso
 
-Depois que você for adicionado a uma conta de registro associada a um proprietário de conta, o Azure usará a relação de conta para registro para determinar onde cobrar os encargos de assinatura. Todas as assinaturas criadas na conta são cobradas no registro de EA em que a conta está. Para criar assinaturas, você deve passar valores sobre a conta de registro e as entidades de usuário para o proprietário da assinatura.
+Depois de ser adicionado a uma Conta de Inscrição associada a um Proprietário de Conta, o Azure usa a relação conta-a-inscrição para determinar onde cobrar os encargos de subscrição. Todas as subscrições criadas na conta são faturadas para a inscrição da EA em que a conta se encontra. Para criar subscrições, tem de passar em valores sobre a conta de inscrição e os diretores de utilizador para possuir a subscrição.
 
-Para executar os comandos a seguir, você deve estar conectado ao *diretório base*do proprietário da conta, que é o diretório no qual as assinaturas são criadas por padrão.
+Para executar os seguintes comandos, deve ser registado no *diretório*do Proprietário da Conta , que é o diretório em que as subscrições são criadas por padrão.
 
 ### <a name="resttabrest"></a>[REST](#tab/rest)
 
-Solicitação para listar todas as contas de registro às quais você tem acesso:
+Pedido para listar todas as contas de inscrição a que tem acesso:
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
 ```
 
-A resposta da API lista todas as contas de registro às quais você tem acesso:
+A resposta da API lista todas as contas de inscrição a que tem acesso:
 
 ```json
 {
@@ -70,36 +70,36 @@ A resposta da API lista todas as contas de registro às quais você tem acesso:
 }
 ```
 
-Use a propriedade `principalName` para identificar a conta para a qual você deseja que as assinaturas sejam cobradas. Copie o `name` dessa conta. Por exemplo, se você quisesse criar assinaturas na conta de registro SignUpEngineering@contoso.com, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Esse identificador é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima etapa como `enrollmentAccountObjectId`.
+Utilize a propriedade `principalName` para identificar a conta a que pretende que as subscrições sejam faturadas. Copie o `name` dessa conta. Por exemplo, se quisesse criar subscrições na conta de inscrição SignUpEngineering@contoso.com, copiaria ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Este identificador é o objeto de identificação da conta de inscrição. Refla este valor em algum lugar para que possa usá-lo no próximo passo como `enrollmentAccountObjectId`.
 
 ### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Abra [Azure cloud Shell](https://shell.azure.com/) e selecione PowerShell.
+Abra a [Cloud Shell Azure](https://shell.azure.com/) e selecione PowerShell.
 
-Use o cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) para listar todas as contas de registro às quais você tem acesso.
+Utilize o cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) para listar todas as contas de inscrição a que tem acesso.
 
 ```azurepowershell-interactive
 Get-AzEnrollmentAccount
 ```
 
-O Azure responde com uma lista de contas de registro às quais você tem acesso:
+O Azure responde com uma lista de contas de inscrição a que tem acesso:
 
 ```azurepowershell
 ObjectId                               | PrincipalName
 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
-Use a propriedade `principalName` para identificar a conta para a qual você deseja que as assinaturas sejam cobradas. Copie o `ObjectId` dessa conta. Por exemplo, se você quisesse criar assinaturas na conta de registro SignUpEngineering@contoso.com, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cole essa ID de objeto em algum lugar para que você possa usá-la na próxima etapa como a `enrollmentAccountObjectId`.
+Utilize a propriedade `principalName` para identificar a conta a que pretende que as subscrições sejam faturadas. Copie o `ObjectId` dessa conta. Por exemplo, se quisesse criar subscrições na conta de inscrição SignUpEngineering@contoso.com, copiaria ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Repasse esta identificação do objeto em algum lugar para que possa usá-lo no próximo passo como o `enrollmentAccountObjectId`.
 
 ### <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Use o comando [AZ billing Enrollment-Account List](https://aka.ms/EASubCreationPublicPreviewCLI) para listar todas as contas de registro às quais você tem acesso.
+Utilize o comando da [lista de listas de inscrição az](https://aka.ms/EASubCreationPublicPreviewCLI) para listar todas as contas de inscrição a que tem acesso.
 
 ```azurecli-interactive
 az billing enrollment-account list
 ```
 
-O Azure responde com uma lista de contas de registro às quais você tem acesso:
+O Azure responde com uma lista de contas de inscrição a que tem acesso:
 
 ```json
 [
@@ -118,17 +118,17 @@ O Azure responde com uma lista de contas de registro às quais você tem acesso:
 ]
 ```
 
-Use a propriedade `principalName` para identificar a conta para a qual você deseja que as assinaturas sejam cobradas. Copie o `name` dessa conta. Por exemplo, se você quisesse criar assinaturas na conta de registro SignUpEngineering@contoso.com, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Esse identificador é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima etapa como `enrollmentAccountObjectId`.
+Utilize a propriedade `principalName` para identificar a conta a que pretende que as subscrições sejam faturadas. Copie o `name` dessa conta. Por exemplo, se quisesse criar subscrições na conta de inscrição SignUpEngineering@contoso.com, copiaria ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Este identificador é o objeto de identificação da conta de inscrição. Refla este valor em algum lugar para que possa usá-lo no próximo passo como `enrollmentAccountObjectId`.
 
 ---
 
-### <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Criar assinaturas em uma conta de Registro específica
+### <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Criar subscrições sob uma conta de inscrição específica
 
-O exemplo a seguir cria uma assinatura chamada *assinatura da equipe de desenvolvimento* na conta de registro selecionada na etapa anterior. A oferta de assinatura é *MS-AZR-0017P* (regular Microsoft Enterprise Agreement). Opcionalmente, ele também adiciona dois usuários como proprietários de RBAC para a assinatura.
+O exemplo seguinte cria uma subscrição chamada *Dev Team Subscription* na conta de inscrição selecionada na etapa anterior. A oferta de subscrição é *MS-AZR-0017P* (acordo regular da Microsoft Enterprise Agreement). Também opcionalmente adiciona dois utilizadores como Proprietários RBAC para a subscrição.
 
 ### <a name="resttabrest"></a>[REST](#tab/rest)
 
-Faça o pedido a seguir ao substituir `<enrollmentAccountObjectId>` por `name`, copiado do primeiro passo (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se você quiser especificar proprietários, saiba [como obter IDs de objeto de usuário](grant-access-to-create-subscription.md#userObjectId).
+Faça o pedido a seguir ao substituir `<enrollmentAccountObjectId>` por `name`, copiado do primeiro passo (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se quiser especificar os proprietários, aprenda [a obter iDs](grant-access-to-create-subscription.md#userObjectId)de objetos de utilizador .
 
 ```json
 POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
@@ -147,82 +147,82 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| Nome do Elemento  | Obrigatório | Tipo   | Descrição                                                                                               |
+| Nome do elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Não      | String | O nome de exibição da assinatura. Se não for especificado, ele será definido como o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `offerType`   | Sim      | String | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal de ea](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `owners`      | Não       | String | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
+| `displayName` | Não      | Cadeia | O nome de exibição da subscrição. Se não for especificado, está definido para o nome da oferta, como "Microsoft Azure Enterprise".                                 |
+| `offerType`   | Sim      | Cadeia | A oferta da subscrição. As duas opções para a EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ativada utilizando o portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
+| `owners`      | Não       | Cadeia | O Id do Objeto de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado.  |
 
-Na resposta, você obtém um objeto `subscriptionOperation` para monitoramento. Quando a criação da assinatura for concluída, o objeto `subscriptionOperation` retornará um objeto `subscriptionLink`, que tem a ID da assinatura.
+Na resposta, recebe-se um `subscriptionOperation` objeto para monitorização. Quando a criação de subscrição estiver concluída, o `subscriptionOperation` objeto devolveria um objeto `subscriptionLink`, que tem o ID de subscrição.
 
 ### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Primeiro, instale este módulo de visualização executando `Install-Module Az.Subscription -AllowPrerelease`. Para verificar se `-AllowPrerelease` funciona, instale uma versão recente do PowerShellGet do [módulo obter powershellget](/powershell/scripting/gallery/installing-psget).
+Em primeiro lugar, instale este módulo de pré-visualização executando `Install-Module Az.Subscription -AllowPrerelease`. Para garantir `-AllowPrerelease` funciona, instale uma versão recente do PowerShellGet do [Módulo Get PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Execute o comando [New-AzSubscription](/powershell/module/az.subscription) abaixo, substituindo `<enrollmentAccountObjectId>` pelo `ObjectId` coletado na primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se você quiser especificar proprietários, saiba [como obter IDs de objeto de usuário](grant-access-to-create-subscription.md#userObjectId).
+Executar o comando [New-AzSubscription](/powershell/module/az.subscription) abaixo, substituindo `<enrollmentAccountObjectId>` pelo `ObjectId` recolhido sinuoso no primeiro passo (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se quiser especificar os proprietários, aprenda [a obter iDs](grant-access-to-create-subscription.md#userObjectId)de objetos de utilizador .
 
 ```azurepowershell-interactive
 New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
-| Nome do Elemento  | Obrigatório | Tipo   | Descrição                                                                                               |
+| Nome do elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `Name` | Não      | String | O nome de exibição da assinatura. Se não for especificado, ele será definido como o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `OfferType`   | Sim      | String | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal de ea](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Sim       | String | A ID de objeto da conta de registro na qual a assinatura é criada e cobrada. Esse valor é um GUID que você obtém de `Get-AzEnrollmentAccount`. |
-| `OwnerObjectId`      | Não       | String | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
-| `OwnerSignInName`    | Não       | String | O endereço de email de qualquer usuário que você deseja adicionar como um proprietário do RBAC na assinatura quando ele é criado. Você pode usar esse parâmetro em vez de `OwnerObjectId`.|
-| `OwnerApplicationId` | Não       | String | A ID do aplicativo de qualquer entidade de serviço que você deseja adicionar como um proprietário do RBAC na assinatura quando ela é criada. Você pode usar esse parâmetro em vez de `OwnerObjectId`. Ao usar esse parâmetro, a entidade de serviço deve ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+| `Name` | Não      | Cadeia | O nome de exibição da subscrição. Se não for especificado, está definido para o nome da oferta, como "Microsoft Azure Enterprise".                                 |
+| `OfferType`   | Sim      | Cadeia | A oferta da subscrição. As duas opções para a EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ativada utilizando o portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
+| `EnrollmentAccountObjectId`      | Sim       | Cadeia | O Id do Objeto da conta de inscrição a que a subscrição é criada e faturada. Este valor é um GUID que obtém de `Get-AzEnrollmentAccount`. |
+| `OwnerObjectId`      | Não       | Cadeia | O Id do Objeto de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado.  |
+| `OwnerSignInName`    | Não       | Cadeia | O endereço de e-mail de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro em vez de `OwnerObjectId`.|
+| `OwnerApplicationId` | Não       | Cadeia | O ID de aplicação de qualquer diretor de serviço que gostaria de adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro em vez de `OwnerObjectId`. Ao utilizar este parâmetro, o diretor de serviço deve ter [lido o acesso ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Para ver uma lista completa de todos os parâmetros, consulte [New-AzSubscription](/powershell/module/az.subscription).
 
 ### <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Primeiro, instale essa extensão de visualização executando `az extension add --name subscription`.
+Em primeiro lugar, instale esta extensão de pré-visualização executando `az extension add --name subscription`.
 
-Execute o comando [AZ Account Create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) abaixo, substituindo `<enrollmentAccountObjectId>` pelo `name` que você copiou na primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se você quiser especificar proprietários, saiba [como obter IDs de objeto de usuário](grant-access-to-create-subscription.md#userObjectId).
+Executar a [conta az criar](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) comando abaixo, substituindo `<enrollmentAccountObjectId>` pelo `name` copiou no primeiro passo (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se quiser especificar os proprietários, aprenda [a obter iDs](grant-access-to-create-subscription.md#userObjectId)de objetos de utilizador .
 
 ```azurecli-interactive
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| Nome do Elemento  | Obrigatório | Tipo   | Descrição                                                                                               |
+| Nome do elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `display-name` | Não      | String | O nome de exibição da assinatura. Se não for especificado, ele será definido como o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `offer-type`   | Sim      | String | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal de ea](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | Sim       | String | A ID de objeto da conta de registro na qual a assinatura é criada e cobrada. Esse valor é um GUID que você obtém de `az billing enrollment-account list`. |
-| `owner-object-id`      | Não       | String | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
-| `owner-upn`    | Não       | String | O endereço de email de qualquer usuário que você deseja adicionar como um proprietário do RBAC na assinatura quando ele é criado. Você pode usar esse parâmetro em vez de `owner-object-id`.|
-| `owner-spn` | Não       | String | A ID do aplicativo de qualquer entidade de serviço que você deseja adicionar como um proprietário do RBAC na assinatura quando ela é criada. Você pode usar esse parâmetro em vez de `owner-object-id`. Ao usar esse parâmetro, a entidade de serviço deve ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+| `display-name` | Não      | Cadeia | O nome de exibição da subscrição. Se não for especificado, está definido para o nome da oferta, como "Microsoft Azure Enterprise".                                 |
+| `offer-type`   | Sim      | Cadeia | A oferta da subscrição. As duas opções para a EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ativada utilizando o portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
+| `enrollment-account-object-id`      | Sim       | Cadeia | O Id do Objeto da conta de inscrição a que a subscrição é criada e faturada. Este valor é um GUID que obtém de `az billing enrollment-account list`. |
+| `owner-object-id`      | Não       | Cadeia | O Id do Objeto de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado.  |
+| `owner-upn`    | Não       | Cadeia | O endereço de e-mail de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro em vez de `owner-object-id`.|
+| `owner-spn` | Não       | Cadeia | O ID de aplicação de qualquer diretor de serviço que gostaria de adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro em vez de `owner-object-id`. Ao utilizar este parâmetro, o diretor de serviço deve ter [lido o acesso ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-Para ver uma lista completa de todos os parâmetros, consulte [AZ Account Create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
+Para ver uma lista completa de todos os parâmetros, consulte a [az account criar](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
 ---
 
-### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitações da API de criação de assinatura do Azure Enterprise
+### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitações da criação de subscrição da Azure Enterprise API
 
-- Somente as assinaturas do Azure Enterprise podem ser criadas usando essa API.
-- Há um limite de 200 assinaturas por conta de registro. Depois disso, mais assinaturas para a conta só podem ser criadas no portal do Azure. Se você quiser criar mais assinaturas por meio da API, crie outra conta de registro.
-- Os usuários que não são proprietários da conta, mas foram adicionados a uma conta de registro via RBAC, não podem criar assinaturas no portal do Azure.
-- Você não pode selecionar o locatário para a assinatura a ser criada. A assinatura é sempre criada no locatário inicial do proprietário da conta. Para mover a assinatura para um locatário diferente, consulte [alterar o locatário da assinatura](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+- Apenas as subscrições da Azure Enterprise podem ser criadas usando esta API.
+- Há um limite de 200 assinaturas por conta de inscrição. Depois disso, mais subscrições para a conta só podem ser criadas no portal Azure. Se quiser criar mais subscrições através da API, crie outra conta de inscrição.
+- Os utilizadores que não são Proprietários de Conta, mas foram adicionados a uma conta de inscrição via RBAC, não podem criar subscrições no portal Azure.
+- Não é possível selecionar o inquilino para a subscrição ser criada. A subscrição é sempre criada no arrendatário da Conta Proprietário. Para mover a subscrição para um inquilino diferente, consulte [alterar o inquilino de subscrição.](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 
-## <a name="create-subscriptions-for-an-mca-account"></a>Criar assinaturas para uma conta MCA
+## <a name="create-subscriptions-for-an-mca-account"></a>Criar subscrições para uma conta MCA
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter uma função de proprietário, colaborador ou criador de assinatura do Azure em uma seção de fatura ou função de proprietário ou colaborador em um perfil de cobrança ou uma conta de cobrança para criar assinaturas. Para obter mais informações, veja [Tarefas e funções da faturação da subscrição](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Deve ter um papel de criador de subscrição do proprietário, colaborador ou Azure numa secção de faturaou ou papel de proprietário ou colaborador num perfil de faturação ou numa conta de faturação para criar subscrições. Para obter mais informações, veja [Tarefas e funções da faturação da subscrição](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-O exemplo mostrado abaixo usa APIs REST. Atualmente, o PowerShell e a CLI do Azure não são suportados.
+O exemplo abaixo indicado utiliza as APIs REST. Atualmente, o PowerShell e a CLI do Azure não são suportados.
 
-### <a name="find-billing-accounts-that-you-have-access-to"></a>Localizar contas de cobrança às quais você tem acesso
+### <a name="find-billing-accounts-that-you-have-access-to"></a>Encontre contas de faturação a que tem acesso
 
-Faça a solicitação abaixo para listar todas as contas de cobrança.
+Faça o pedido abaixo para listar todas as contas de faturação.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
 ```
-A resposta da API lista as contas de cobrança às quais você tem acesso.
+A resposta da API lista as contas de faturação a que tem acesso.
 
 ```json
 {
@@ -259,18 +259,18 @@ A resposta da API lista as contas de cobrança às quais você tem acesso.
 }
 
 ```
-Use a propriedade `displayName` para identificar a conta de cobrança para a qual você deseja criar assinaturas. Verifique se o agreeementType da conta é *MicrosoftCustomerAgreement*. Copie o `name` da conta.  Por exemplo, se você quiser criar uma assinatura para a conta de cobrança `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole este valor algures para que possa utilizá-lo no próximo passo.
+Utilize a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o acordoTipo da conta é *o MicrosoftCustomerAgreement*. Copie o `name` da conta.  Por exemplo, se quiser criar uma subscrição para a conta de faturação `Contoso`, copiaria `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole este valor algures para que possa utilizá-lo no próximo passo.
 
-### <a name="find-invoice-sections-to-create-subscriptions"></a>Localizar seções de fatura para criar assinaturas
+### <a name="find-invoice-sections-to-create-subscriptions"></a>Encontre secções de faturas para criar subscrições
 
-Os encargos de sua assinatura aparecem em uma seção da fatura de um perfil de cobrança. Use a API a seguir para obter a lista de seções de fatura e perfis de cobrança nos quais você tem permissão para criar assinaturas do Azure.
+As tarifas para a sua subscrição aparecem numa secção da fatura de um perfil de faturação. Utilize a Seguinte API para obter a lista de secções de faturação e perfis de faturação em que tem permissão para criar subscrições do Azure.
 
 Faça o pedido a seguir ao substituir `<billingAccountName>` por `name`, copiado do primeiro passo (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```).
 
 ```json
 POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/listInvoiceSectionsWithCreateSubscriptionPermission?api-version=2019-10-01-preview
 ```
-A resposta da API lista todas as seções de fatura e seus perfis de cobrança nos quais você tem acesso para criar assinaturas:
+A resposta da API lista todas as secções de faturação e os seus perfis de faturação nos quais tem acesso para criar subscrições:
 
 ```json
 {
@@ -307,13 +307,13 @@ A resposta da API lista todas as seções de fatura e seus perfis de cobrança n
 
 ```
 
-Use a propriedade `invoiceSectionDisplayName` para identificar a seção de fatura para a qual você deseja criar assinaturas. Copie o `invoiceSectionId`, `billingProfileId` e um dos `skuId` da seção fatura. Por exemplo, se você quiser criar uma assinatura do tipo `Microsoft Azure plan` para `Development` seção fatura, você copiará `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX`, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-xxxx-xxx-xxx` e `0001`. Cole esses valores em algum lugar para que você possa usá-los na próxima etapa.
+Utilize a propriedade `invoiceSectionDisplayName` para identificar a secção de faturas para a qual pretende criar subscrições. Copie o `invoiceSectionId`, `billingProfileId` e um dos `skuId` para a secção de faturas. Por exemplo, se quiser criar uma subscrição de `Microsoft Azure plan` tipo para `Development` secção de faturas, copiaria `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX`, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-xxxx-xxx-xxx` e `0001`. Cola estes valores em algum lugar para que possa usá-los no próximo passo.
 
-### <a name="create-a-subscription-for-an-invoice-section"></a>Criar uma assinatura para uma seção de fatura
+### <a name="create-a-subscription-for-an-invoice-section"></a>Criar uma subscrição para uma secção de faturas
 
-O exemplo a seguir cria uma assinatura denominada *assinatura da equipe de desenvolvimento* do tipo *Microsoft Azure plano* para a seção de fatura de *desenvolvimento* . A assinatura será cobrada no perfil de cobrança de *finanças da Contoso* e aparecerá na seção de *desenvolvimento* de sua fatura.
+O exemplo seguinte cria uma subscrição chamada *Dev Team subscrição* do tipo *Microsoft Azure Plan* para a secção de faturas de *desenvolvimento.* A subscrição será faturada para o perfil de faturação *das finanças contoso* e aparecerá na secção *desenvolvimento* da sua fatura.
 
-Faça a solicitação a seguir, substituindo `<invoiceSectionId>` pelo `invoiceSectionId` copiado da segunda etapa (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX```). Você precisará passar o `billingProfileId` e `skuId` copiados da segunda etapa nos parâmetros de solicitação da API. Se você quiser especificar proprietários, saiba [como obter IDs de objeto de usuário](grant-access-to-create-subscription.md#userObjectId).
+Faça o seguinte pedido, substituindo `<invoiceSectionId>` pelo `invoiceSectionId` copiado do segundo passo (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX```). Teria de passar o `billingProfileId` e `skuId` copiado do segundo passo nos parâmetros de pedido da API. Se quiser especificar os proprietários, aprenda [a obter iDs](grant-access-to-create-subscription.md#userObjectId)de objetos de utilizador .
 
 ```json
 POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview
@@ -337,33 +337,33 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 ```
 
-| Nome do Elemento  | Obrigatório | Tipo   | Descrição                                                                                               |
+| Nome do elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Sim      | String | O nome de exibição da assinatura.|
-| `billingProfileId`   | Sim      | String | A ID do perfil de cobrança que será cobrado pelos encargos da assinatura.  |
-| `skuId` | Sim      | String | A ID do SKU que determina o tipo de plano do Azure. |
-| `owners`      | Não       | String | A ID de objeto de qualquer usuário ou entidade de serviço que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
-| `costCenter` | Não      | String | O centro de custo associado à assinatura. Ele aparece no arquivo CSV de uso. |
-| `managementGroupId` | Não      | String | A ID do grupo de gerenciamento ao qual a assinatura será adicionada. Para obter a lista de grupos de gerenciamento, consulte [API de lista de grupos de gerenciamento](/rest/api/resources/managementgroups/list). Use a ID de um grupo de gerenciamento da API. |
+| `displayName` | Sim      | Cadeia | O nome de exibição da subscrição.|
+| `billingProfileId`   | Sim      | Cadeia | A identificação do perfil de faturação que será cobrado para as acusações da subscrição.  |
+| `skuId` | Sim      | Cadeia | O sku ID que determina o tipo de plano Azure. |
+| `owners`      | Não       | Cadeia | O Id do Objeto de qualquer utilizador ou diretor de serviço que gostaria de adicionar como Proprietário RBAC na subscrição quando for criado.  |
+| `costCenter` | Não      | Cadeia | O centro de custos associado à subscrição. Aparece no ficheiro csv de uso. |
+| `managementGroupId` | Não      | Cadeia | A identificação do grupo de gestão a que a subscrição será adicionada. Para obter a lista de grupos de gestão, consulte Grupos de [Gestão - Lista API](/rest/api/resources/managementgroups/list). Utilize a identificação de um grupo de gestão da API. |
 
-Na resposta, você obtém um objeto `subscriptionCreationResult` para monitoramento. Quando a criação da assinatura for concluída, o objeto `subscriptionCreationResult` retornará um objeto `subscriptionLink`, que tem a ID da assinatura.
+Na resposta, recebe-se um `subscriptionCreationResult` objeto para monitorização. Quando a criação de subscrição estiver concluída, o `subscriptionCreationResult` objeto devolveria um objeto `subscriptionLink`, que tem o ID de subscrição.
 
-## <a name="create-subscriptions-for-an-mpa-billing-account"></a>Criar assinaturas para uma conta de cobrança do MPA
+## <a name="create-subscriptions-for-an-mpa-billing-account"></a>Criar subscrições para uma conta de faturação de MPA
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter uma função de administrador global ou agente de administrador na conta do provedor de soluções de nuvem da sua organização para criar uma assinatura para sua conta de cobrança. Para obter mais informações, consulte [Partner Center – atribuir funções e permissões de usuários](https://docs.microsoft.com/partner-center/permissions-overview).
+Você deve ter um papel global de Administrador ou Agente De Administrador na conta de fornecedor de soluções cloud da sua organização para criar subscrição para a sua conta de faturação. Para mais informações, consulte [Partner Center - Atribuir aos utilizadores funções e permissões](https://docs.microsoft.com/partner-center/permissions-overview).
 
-O exemplo mostrado abaixo usa APIs REST. Atualmente, o PowerShell e a CLI do Azure não são suportados.
+O exemplo abaixo indicado utiliza as APIs REST. Atualmente, o PowerShell e a CLI do Azure não são suportados.
 
-### <a name="find-the-billing-accounts-that-you-have-access-to"></a>Localizar as contas de cobrança às quais você tem acesso
+### <a name="find-the-billing-accounts-that-you-have-access-to"></a>Encontre as contas de faturação a que tem acesso
 
-Faça a solicitação abaixo para listar todas as contas de cobrança às quais você tem acesso.
+Faça o pedido abaixo para listar todas as contas de faturação a que tem acesso.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
 ```
-A resposta da API lista as contas de cobrança.
+A resposta da API lista as contas de faturação.
 
 ```json
 {
@@ -400,16 +400,16 @@ A resposta da API lista as contas de cobrança.
 }
 
 ```
-Use a propriedade `displayName` para identificar a conta de cobrança para a qual você deseja criar assinaturas. Verifique se o agreeementType da conta é *MicrosoftPartnerAgreement*. Copie o `name` para a conta. Por exemplo, se você quiser criar uma assinatura para a conta de cobrança `Contoso`, copie `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole este valor algures para que possa utilizá-lo no próximo passo.
+Utilize a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o acordoTipo da conta é *o MicrosoftPartnerAgreement*. Copie o `name` para a conta. Por exemplo, se quiser criar uma subscrição para a conta de faturação `Contoso`, copiaria `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole este valor algures para que possa utilizá-lo no próximo passo.
 
-### <a name="find-customers-that-have-azure-plans"></a>Encontre clientes que têm planos do Azure
+### <a name="find-customers-that-have-azure-plans"></a>Encontre clientes que tenham planos Azure
 
-Faça a solicitação a seguir, substituindo `<billingAccountName>` pela `name` copiada da primeira etapa (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```) para listar todos os clientes na conta de cobrança para quem você pode criar assinaturas do Azure.
+Faça o seguinte pedido, substituindo `<billingAccountName>` pelo `name` copiado do primeiro passo (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```) para listar todos os clientes na conta de faturação para quem pode criar subscrições Azure.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/customers?api-version=2019-10-01-preview
 ```
-A resposta da API lista os clientes na conta de cobrança com planos do Azure. Você pode criar assinaturas para esses clientes.
+A resposta da API lista os clientes na conta de faturação com planos Azure. Pode criar subscrições para estes clientes.
 
 ```json
 {
@@ -438,18 +438,18 @@ A resposta da API lista os clientes na conta de cobrança com planos do Azure. V
 
 ```
 
-Use a propriedade `displayName` para identificar o cliente para o qual você deseja criar assinaturas. Copie o `id` para o cliente. Por exemplo, se você quiser criar uma assinatura para `Fabrikam toys`, copie `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Cole esse valor em algum lugar para usá-lo nas etapas subsequentes.
+Utilize a propriedade `displayName` para identificar o cliente para o qual pretende criar subscrições. Copie o `id` para o cliente. Por exemplo, se quiser criar uma subscrição para `Fabrikam toys`, copiará `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Colar este valor em algum lugar para usá-lo nos passos seguintes.
 
-### <a name="optional-for-indirect-providers-get-the-resellers-for-a-customer"></a>Opcional para provedores indiretos: obter os revendedores para um cliente
+### <a name="optional-for-indirect-providers-get-the-resellers-for-a-customer"></a>Opcional para fornecedores indiretos: Obtenha os revendedores para um cliente
 
-Se você for um provedor indireto no modelo de duas camadas do CSP, poderá especificar um revendedor ao criar assinaturas para os clientes.
+Se for um fornecedor indireto no modelo de dois níveis cSP, pode especificar um revendedor enquanto cria subscrições para clientes.
 
-Faça a solicitação a seguir, substituindo `<customerId>` pelo `id` copiado da segunda etapa (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) para listar todos os revendedores disponíveis para um cliente.
+Faça o seguinte pedido, substituindo `<customerId>` pelo `id` copiado do segundo passo (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) para listar todos os revendedores disponíveis para um cliente.
 
 ```json
 GET https://management.azure.com<customerId>?$expand=resellers&api-version=2019-10-01-preview
 ```
-A resposta da API lista os revendedores do cliente:
+A resposta da API lista os revendedores para o cliente:
 
 ```json
 {
@@ -483,13 +483,13 @@ A resposta da API lista os revendedores do cliente:
 }]
 }
 ```
-Use a propriedade `description` para identificar o revendedor que será associado à assinatura. Copie o `resellerId` para o revendedor. Por exemplo, se você quiser associar `Wingtip`, copie `3xxxxx`. Cole este valor algures para que possa utilizá-lo no próximo passo.
+Utilize a propriedade `description` para identificar o revendedor que estará associado à subscrição. Copie o `resellerId` para o revendedor. Por exemplo, se quiser associar `Wingtip`, copiará `3xxxxx`. Cole este valor algures para que possa utilizá-lo no próximo passo.
 
-### <a name="create-a-subscription-for-a-customer"></a>Criar uma assinatura para um cliente
+### <a name="create-a-subscription-for-a-customer"></a>Criar uma subscrição para um cliente
 
-O exemplo a seguir cria uma assinatura chamada *assinatura da equipe de desenvolvimento* para a *Fabrikam Toys* e associa o revendedor *Wingtip* à assinatura. T
+O exemplo seguinte cria uma subscrição chamada *subscrição de Dev Team* para *brinquedos Fabrikam* e revendedor de *Wingtip* associado à subscrição. T
 
-Faça a solicitação a seguir, substituindo `<customerId>` pelo `id` copiado da segunda etapa (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Passe o *revendedorid* opcional copiado da segunda etapa nos parâmetros de solicitação da API.
+Faça o seguinte pedido, substituindo `<customerId>` pelo `id` copiado do segundo passo (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Passe o *revendedor opcionalId* copiado a partir do segundo passo nos parâmetros de pedido da API.
 
 ```json
 POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview
@@ -502,16 +502,16 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 }'
 ```
 
-| Nome do Elemento  | Obrigatório | Tipo   | Descrição                                                                                               |
+| Nome do elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Sim      | String | O nome de exibição da assinatura.|
-| `skuId` | Sim      | String | A ID de SKU do plano do Azure. Use *0001* para assinaturas do tipo Microsoft Azure plano |
-| `resellerId`      | Não       | String | A ID de MPN do revendedor que será associada à assinatura.  |
+| `displayName` | Sim      | Cadeia | O nome de exibição da subscrição.|
+| `skuId` | Sim      | Cadeia | A identificação do plano Azure. Use *0001* para subscrições do tipo Microsoft Azure Plan |
+| `resellerId`      | Não       | Cadeia | A identificação mpn do revendedor que estará associado à subscrição.  |
 
-Na resposta, você obtém um objeto `subscriptionCreationResult` para monitoramento. Quando a criação da assinatura for concluída, o objeto `subscriptionCreationResult` retornará um objeto `subscriptionLink`, que tem a ID da assinatura.
+Na resposta, recebe-se um `subscriptionCreationResult` objeto para monitorização. Quando a criação de subscrição estiver concluída, o `subscriptionCreationResult` objeto devolveria um objeto `subscriptionLink`, que tem o ID de subscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter um exemplo de como criar uma assinatura do EA (Enterprise Agreement) usando o .NET, consulte [código de exemplo no GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-* Agora que você criou uma assinatura, pode conceder essa capacidade a outros usuários e entidades de serviço. Para obter mais informações, consulte [conceder acesso para criar assinaturas do Azure Enterprise (versão prévia)](grant-access-to-create-subscription.md).
-* Para saber mais sobre como gerenciar um grande número de assinaturas usando grupos de gerenciamento, consulte [organizar seus recursos com grupos de gerenciamento do Azure](../../governance/management-groups/overview.md)
+* Por exemplo, na criação de uma subscrição do Acordo Empresarial (EA) utilizando .NET, consulte [o código da amostra no GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
+* Agora que criou uma subscrição, pode conceder essa capacidade a outros utilizadores e diretores de serviço. Para mais informações, consulte o Acesso ao Grant para criar subscrições da [Azure Enterprise (pré-visualização)](grant-access-to-create-subscription.md).
+* Para saber mais sobre a gestão de um grande número de subscrições usando grupos de gestão, consulte Organizar os seus recursos com grupos de [gestão Azure](../../governance/management-groups/overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Implantar hosts dedicados do Azure usando o Azure PowerShell
-description: Implante VMs em hosts dedicados usando Azure PowerShell.
+title: Implementar anfitriões dedicados azure usando o Azure PowerShell
+description: Implemente VMs para anfitriões dedicados usando o Azure PowerShell.
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -12,33 +12,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 5cd82635f3aec2cca251e122aadf96f70d377c8a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833841"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190525"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implantar VMs em hosts dedicados usando o Azure PowerShell
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementar VMs para anfitriões dedicados usando o Azure PowerShell
 
-Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
+Este artigo guia-o através de como criar um [anfitrião dedicado](dedicated-hosts.md) azure para hospedar as suas máquinas virtuais (VMs). 
 
-Verifique se você instalou Azure PowerShell versão 2.8.0 ou posterior e se está conectado a uma conta do Azure no com `Connect-AzAccount`. 
+Certifique-se de que instalou a versão 2.8.0 do Azure PowerShell ou mais tarde, e está inscrito numa conta Azure com `Connect-AzAccount`. 
 
 ## <a name="limitations"></a>Limitações
 
-- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-- Há suporte para a série de VMs a seguir: DSv3 e ESv3. 
+- Os conjuntos de escala de máquinas virtuais não são atualmente suportados em anfitriões dedicados.
+- As seguintes séries VM são suportadas: DSv3, ESv3 e FSv2. 
 
 ## <a name="create-a-host-group"></a>Criar um grupo de anfitriões
 
-Um **grupo de hosts** é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
-- Alcance entre várias zonas de disponibilidade. Nesse caso, é necessário ter um grupo de hosts em cada uma das zonas que você deseja usar.
-- Alcance entre vários domínios de falha que são mapeados para racks físicos. 
+Um **grupo de anfitriões** é um recurso que representa uma coleção de anfitriões dedicados. Cria-se um grupo de acolhimento numa região e numa zona de disponibilidade e adiciona-lhe anfitriões. Ao planear uma alta disponibilidade, existem opções adicionais. Pode utilizar uma ou ambas as seguintes opções com os seus anfitriões dedicados: 
+- Atravesse várias zonas de disponibilidade. Neste caso, é-lhe exigido que tenha um grupo de acolhimento em cada uma das zonas que deseja utilizar.
+- Atravesse vários domínios de falha que são mapeados em prateleiras físicas. 
  
-Em ambos os casos, você precisa fornecer a contagem de domínios de falha para seu grupo de hosts. Se você não quiser abranger domínios de falha em seu grupo, use uma contagem de domínio de falha de 1. 
+Em qualquer dos casos, é necessário fornecer a contagem de domínio de avaria para o seu grupo anfitrião. Se não quiser abranger domínios de avaria no seu grupo, utilize uma contagem de domínio de falha de 1. 
 
-Você também pode optar por usar zonas de disponibilidade e domínios de falha. Este exemplo cria um grupo de hosts na zona 1, com 2 domínios de falha. 
+Também pode decidir utilizar ambas as zonas de disponibilidade e domínios de avaria. Este exemplo cria um grupo de anfitriões na zona 1, com 2 domínios de falha. 
 
 
 ```powershell
@@ -54,14 +54,14 @@ $hostGroup = New-AzHostGroup `
    -Zone 1
 ```
 
-## <a name="create-a-host"></a>Criar um host
+## <a name="create-a-host"></a>Criar um hospedeiro
 
-Agora, vamos criar um host dedicado no grupo de hosts. Além de um nome para o host, você deve fornecer a SKU para o host. O SKU do host captura a série de VMs com suporte, bem como a geração de hardware para seu host dedicado.  Durante a visualização, ofereceremos suporte aos seguintes valores de SKU do host: DSv3_Type1 e ESv3_Type1.
+Agora vamos criar um anfitrião dedicado no grupo anfitrião. Além de um nome para o anfitrião, é necessário fornecer o SKU para o anfitrião. Host SKU captura a série VM suportada, bem como a geração de hardware para o seu anfitrião dedicado.
 
 
-Para obter mais informações sobre os preços e as SKUs do host, consulte [preços do host dedicado do Azure](https://aka.ms/ADHPricing).
+Para obter mais informações sobre o anfitrião SKUs e preços, consulte [o preço do Anfitrião Dedicado Azure.](https://aka.ms/ADHPricing)
 
-Se você definir uma contagem de domínios de falha para seu grupo de hosts, será solicitado que você especifique o domínio de falha para o host. Neste exemplo, definimos o domínio de falha para o host como 1.
+Se definir uma contagem de domínio de avaria para o seu grupo anfitrião, será-lhe pedido que especifique o domínio de avaria para o seu anfitrião. Neste exemplo, definimos o domínio de avaria para o anfitrião para 1.
 
 
 ```powershell
@@ -76,9 +76,9 @@ $dHost = New-AzHost `
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Crie uma máquina virtual no host dedicado. 
+Crie uma máquina virtual no hospedeiro dedicado. 
 
-Se você especificou uma zona de disponibilidade ao criar o grupo de hosts, será necessário usar a mesma zona ao criar a máquina virtual. Para este exemplo, como nosso grupo de hosts está na zona 1, precisamos criar a VM na zona 1.  
+Se especificou uma zona de disponibilidade ao criar o seu grupo de anfitriões, é-lhe exigido que utilize a mesma zona ao criar a máquina virtual. Para este exemplo, como o nosso grupo anfitrião está na zona 1, precisamos criar o VM na zona 1.  
 
 
 ```powershell
@@ -95,11 +95,11 @@ New-AzVM `
 ```
 
 > [!WARNING]
-> Se você criar uma máquina virtual em um host que não tem recursos suficientes, a máquina virtual será criada em um estado de falha. 
+> Se criar uma máquina virtual num hospedeiro que não tenha recursos suficientes, a máquina virtual será criada num estado FALHADO. 
 
-## <a name="check-the-status-of-the-host"></a>Verificar o status do host
+## <a name="check-the-status-of-the-host"></a>Verifique o estado do anfitrião
 
-Você pode verificar o status de integridade do host e quantas máquinas virtuais você ainda pode implantar no host usando [GetAzHost](/powershell/module/az.compute/get-azhost) com o parâmetro `-InstanceView`.
+Pode verificar o estado de saúde do hospedeiro e quantas máquinas virtuais ainda pode implementar para o hospedeiro utilizando o [GetAzHost](/powershell/module/az.compute/get-azhost) com o parâmetro `-InstanceView`.
 
 ```
 Get-AzHost `
@@ -109,7 +109,7 @@ Get-AzHost `
    -InstanceView
 ```
 
-A saída terá uma aparência semelhante a esta:
+A saída será semelhante a esta:
 
 ```
 ResourceGroupName      : myDHResourceGroup
@@ -172,27 +172,27 @@ Tags                   : {}
 
 ## <a name="clean-up"></a>Limpeza
 
-Você está sendo cobrado por seus hosts dedicados, mesmo quando não há máquinas virtuais implantadas. Você deve excluir os hosts que não está usando no momento para economizar custos.  
+Está a ser cobrado pelos seus anfitriões dedicados mesmo quando não são implementadas máquinas virtuais. Deve eliminar quaisquer anfitriões que não esteja a utilizar para poupar custos.  
 
-Você só pode excluir um host quando não houver mais máquinas virtuais usando-o. Exclua as VMs usando [Remove-AzVM](/powershell/module/az.compute/remove-azvm).
+Só é possível eliminar um hospedeiro quando já não existem máquinas virtuais que o utilizem. Elimine os VMs utilizando [remove-AzVM](/powershell/module/az.compute/remove-azvm).
 
 ```powershell
 Remove-AzVM -ResourceGroupName $rgName -Name myVM
 ```
 
-Depois de excluir as VMs, você pode excluir o host usando [Remove-AzHost](/powershell/module/az.compute/remove-azhost).
+Depois de eliminar os VMs, pode eliminar o hospedeiro utilizando [o Remove-AzHost](/powershell/module/az.compute/remove-azhost).
 
 ```powershell
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-Depois de excluir todos os hosts, você poderá excluir o grupo de hosts usando [Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
+Uma vez eliminado todos os seus anfitriões, pode eliminar o grupo anfitrião utilizando [o Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
 
 ```powershell
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-Você também pode excluir o grupo de recursos inteiro em um único comando usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Isso excluirá todos os recursos criados no grupo, incluindo todas as VMs, hosts e grupos de hosts.
+Também pode eliminar todo o grupo de recursos num único comando utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Isto eliminará todos os recursos criados no grupo, incluindo todos os VMs, anfitriões e grupos de acolhimento.
  
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $rgName
@@ -201,6 +201,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Há um modelo de exemplo, encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter máxima resiliência em uma região.
+- Há um modelo de amostra, encontrado [aqui,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)que usa tanto zonas como domínios de falha para a máxima resiliência numa região.
 
-- Você também pode implantar hosts dedicados usando o [portal do Azure](dedicated-hosts-portal.md).
+- Também pode instalar anfitriões dedicados utilizando o [portal Azure.](dedicated-hosts-portal.md)

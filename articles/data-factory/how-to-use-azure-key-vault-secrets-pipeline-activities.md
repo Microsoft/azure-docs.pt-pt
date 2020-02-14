@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 9ca2ea6a45bdf37f15f2ab4fd9c685f11f6d7f64
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 09051ad3633ddc720cb34d3d145ccf649fa9cb08
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031497"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200117"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Utilizar segredos do Azure Key Vault em atividades de pipeline
 
@@ -55,7 +55,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como funciona
     |Autenticação     |MSI         |
     |Recurso        |https://vault.azure.net       |
 
-    ![Atividade da Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
+    ![Atividade web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
 
     > [!IMPORTANT]
     > Você deve adicionar **?api-version=7.0** ao fim do seu URI secreto.  
@@ -63,7 +63,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como funciona
     > [!CAUTION]
     > Desdefinir a opção Saída Segura como verdadeira para evitar que o valor secreto seja registado em texto simples.  Quaisquer outras atividades que consumam este valor devem ter a sua opção De Entrada Segura definida como verdadeira.
 
-5. Para utilizar o valor noutra atividade, utilize a seguinte expressão de código **@activity("web"). output.value**.
+5. Para utilizar o valor noutra atividade, utilize a seguinte expressão de código **@activity('Web1').output.value**.
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

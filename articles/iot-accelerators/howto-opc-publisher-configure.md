@@ -4,16 +4,16 @@ description: Este artigo descreve como configurar o OPC Publisher para especific
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1e6f50eea559662bb0ba60e10b41c3db50db2939
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 0ebbf0d41c05f71c571d9665903ba4ba44f71bd0
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720219"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198808"
 ---
 # <a name="configure-opc-publisher"></a>Configurar o Publicador OPC
 
@@ -378,6 +378,6 @@ A sintaxe do ficheiro de configuração é a seguinte:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a configurar a Editora OPC, o próximo passo sugerido é aprender a executar a [Editora OPC](howto-opc-publisher-run.md).

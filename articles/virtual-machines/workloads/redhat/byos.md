@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: b0ef6030b1b460d118a255ede3c46719616fe3b0
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a54e1c9cbc9a80139d71a89f86ac51ecf5ce9902
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133839"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190508"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure
 
@@ -175,7 +175,7 @@ Este é um script de exemplo. Você deve substituir o grupo de recursos, o local
 
 Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images pode ser protegido através da utilização da [Encriptação do Disco Azure](../../linux/disk-encryption-overview.md). No entanto, a subscrição **deve** ser registada antes de permitir a encriptação.  Os detalhes sobre o registo de uma Imagem Dourada RHEL BYOS estão disponíveis no site da Red Hat. Ver [Como registar e subscrever um sistema no Portal do Cliente da Cartovermelho utilizando o Red Hat Subscription-Manager;](https://access.redhat.com/solutions/253273) se tiver uma subscrição ativa do Red Hat, também pode ler [As Teclas](https://access.redhat.com/articles/1378093)de Ativação do Portal do Cliente do Chapéu Vermelho .
 
-A encriptação do disco azure não é suportada em [imagens personalizadas do Chapéu Vermelho](/linux/redhat-create-upload-vhd). Requisitos e pré-requisitos adicionais da ADE estão documentados na encriptação do [disco Azure para VMs Linux](../../linux/disk-encryption-overview.md#additional-vm-requirements).
+A encriptação do disco azure não é suportada em [imagens personalizadas do Chapéu Vermelho](../../linux/redhat-create-upload-vhd.md). Requisitos e pré-requisitos adicionais da ADE estão documentados na encriptação do [disco Azure para VMs Linux](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
 Os passos para a aplicação da encriptação do disco Azure estão disponíveis em cenários de encriptação do [disco Azure em VMs Linux](../../linux/disk-encryption-linux.md) e artigos relacionados.
 

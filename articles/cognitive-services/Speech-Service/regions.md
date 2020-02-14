@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: f1379202fc59e9cca7a3543be201f8ebff276bef
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: f1f425a6e3c66a72c7632cfea16d78ea6cc0d319
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168365"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201157"
 ---
 # <a name="speech-service-supported-regions"></a>Serviço de fala apoiado regiões
 
@@ -38,7 +38,7 @@ O serviço de Fala está disponível nestas regiões para reconhecimento da **fa
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-Se utilizar o [SDK](speech-sdk.md)da fala, as regiões são especificadas pelo **Identificador** regional (por exemplo, como parâmetro para `SpeechConfig.FromSubscription`). Certifique-se de que a região está a corresponder à região da sua subscrição.
+Se utilizar o [SDK](speech-sdk.md)da fala, as regiões são especificadas pelo **identificador** regional (por exemplo, como parâmetro para `SpeechConfig.FromSubscription`). Certifique-se de que a região está a corresponder à região da sua subscrição.
 
 ### <a name="intent-recognition"></a>Reconhecimento de intenção
 

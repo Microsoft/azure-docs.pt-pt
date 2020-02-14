@@ -1,6 +1,6 @@
 ---
-title: Escolher o tipo de preço certo | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre os tipos de preço oferecidos pelo Microsoft Azure Maps.
+title: Escolha o nível de preços certos / Microsoft Azure Maps
+description: Neste artigo, você vai aprender sobre os níveis de preços oferecidos pelo Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 01/15/2020
@@ -8,60 +8,60 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 8764e9161f952118ca7ae28343dcd16477cf1eee
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 2950c0e0fdd6839b905386c90665d95563a0a3f2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155762"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190275"
 ---
-# <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha o tipo de preço certo no Azure Maps
+# <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha o nível de preços certos no Azure Maps
 
-O mapas do Azure oferece dois tipos de preço, S0 e S1. A finalidade deste artigo é ajudá-lo a escolher o tipo de preço certo para suas necessidades. Para ajudar a escolher o tipo de preço certo, faça as duas perguntas a seguir.
+O mapas do Azure oferece dois tipos de preço, S0 e S1. O objetivo deste artigo é ajudá-lo a escolher o nível de preços certo para as suas necessidades. Para escolher o nível de preços certo, pergunte a si mesmo as duas perguntas seguintes.
 
-## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Quais recursos geoespaciais eu planejo usar?
-O tipo de preço S0 é ideal para você se as APIs geoespaciais principais atenderem aos seus requisitos de serviço. Se você quiser recursos mais avançados para seu aplicativo, considere a possibilidade de optar pelo tipo de preço S1. Exemplo de recursos avançados: imagens híbridas, como obter intervalo de rotas e geocodificação de lote. A tabela de **capacidades de tipo de preço** pode ajudá-lo a escolher um tipo de preço mais adequado para seu aplicativo.
+## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Quantos utilizadores simultâneos pretendo apoiar? 
+Os níveis de preços S0 e S1 lidam com diferentes quantidades de dados. O nível de preços S0 lida com até **50 consultas por segundo**. Enquanto o nível S1 lida com mais de **50 consultas por segundo**.
 
-## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>A quantos usuários simultâneos eu planejo oferecer suporte? 
-Os tipos de preço S0 e S1 lidam com diferentes quantidades de taxa de transferência de dados. O tipo de preço S0 lida com até **50 consultas por segundo**, enquanto a camada S1 lida com **mais de 50 consultas por segundo**.
+## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Que capacidades geoespaciais planeio usar?
+O nível de preços S0 é adequado para si, se as APIs geoespaciais fundamentais cumprirem os seus requisitos de serviço. Se quiser capacidades mais avançadas para a sua aplicação, considere optar pelo nível de preços S1. As capacidades avançadas incluem: Imagens aéreas mais híbridas, obtenção de alcance de rota e geocodificação de lotes. Reveja a tabela de capacidades de **nível** de preços para selecionar o nível de preços mais adequado para a sua aplicação.
 
-### <a name="pricing-tier-capabilities"></a>Recursos de tipo de preço
+### <a name="pricing-tier-capabilities"></a>Capacidades de nível de preços
 
 | Capacidade                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Renderização de mapa                              | ✓                   | ✓       |
 | Imagens satélite                       |                     | ✓        |
-| Search                                  | ✓                    | ✓        |
-| Pesquisa do Batch                            |                     | ✓        |
+| Pesquisa                                  | ✓                    | ✓        |
+| Pesquisa de lote                            |                     | ✓        |
 | Encaminhar                                   | ✓                    |✓        |
-| Encaminhamento do Batch                            |                    | ✓        |
+| Encaminhamento de lote                            |                    | ✓        |
 | Encaminhamento da Matriz                          |                     | ✓        |
-| Intervalo de Rotas (Isócronos)                |                     | ✓        |
+| Faixa de rota (Isochrones)                |                     | ✓        |
 | Trânsito                                |✓                    |✓        |
 | Fuso Horário                               |✓                    |✓        |
 | Localização geográfica (versão prévia)                    |✓                   |✓        |
-| Operações Geográficas                        |                    |✓        |
-| Perímetro geográfico                                |                    |✓        |
+| Operações Espaciais                        |                    |✓        |
+| Geofencing                                |                    |✓        |
 | Dados do Azure Maps (versão prévia)                |                     | ✓        |
 | Mobilidade (visualização)                       |                     | ✓        |
 | Clima (visualização)                        |✓                    |✓        |
 
-Vale a pena considerar esses pontos de dados adicionais:
+Considere estes pontos adicionais:
 * Que tipo de empresa você tem?
 * Quão crítico é seu aplicativo?
 
-### <a name="pricing-tier-targeted-customers"></a>Clientes com direcionamento de tipo de preço
+### <a name="pricing-tier-targeted-customers"></a>Preços de nível de preços clientes direcionados
 
-Consulte a tabela **clientes do tipo de preço direcionados** para obter uma noção melhor dos tipos de preço S0 e S1. Para obter mais informações, consulte [preços do Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
+Consulte a tabela de clientes orientada para o **nível** de preços para obter uma melhor noção dos níveis de preços S0 e S1. Para mais informações, consulte [os preços do Azure Maps.](https://azure.microsoft.com/pricing/details/azure-maps/) 
 
-| Escalão de preço  |     Clientes de destino                                                                |
+| Escalão de preço  |     Clientes direcionados                                                                |
 |-----------------|:-----------------------------------------------------------------------------------------|
 | S0            |    <p>O tipo de preço S0 funciona para aplicativos em todos os estágios de produção: desde desenvolvimento de prova de conceito e teste antecipado para produção e implantação de aplicativos. No entanto, essa camada foi projetada para desenvolvimento de pequena escala ou para clientes com poucos usuários simultâneos, ou ambos. <p>|
-| S1            |    <p>O tipo de preço S1 é para os clientes que precisam de suporte para empresas de grande escala, aplicativos críticos de missão ou grandes volumes de usuários simultâneos. Ele também é para os clientes que precisam de serviços geoespaciais avançados.</p>|
+| S1            |    <p>O nível de preços S1 destina-se a clientes com aplicações empresariais em larga escala, aplicações críticas de missão ou elevados volumes de utilizadores simultâneos. É também para os clientes que necessitam de serviços geoespaciais avançados.</p>|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre como exibir e alterar os tipos de preço:
+Saiba mais sobre como visualizar e alterar os níveis de preços:
 
 > [!div class="nextstepaction"] 
-> [Gerenciar um tipo de preço](how-to-manage-pricing-tier.md)
+> [Gerir um nível de preços](how-to-manage-pricing-tier.md)

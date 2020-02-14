@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: b7d99c3bf61de17f9cebba834234cc8ea52f30d6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 701e42caba5325df34bdbb2381389708b9b5a03f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131883"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198859"
 ---
 # <a name="install-azure-farmbeats"></a>Instalar o Azure FarmBeats
 
@@ -64,7 +64,7 @@ Atualmente, o Azure FarmBeats é suportado em ambientes públicos de nuvem nas s
 - E.U.A.Oeste 2
 - Europa do Norte
 - Europa Ocidental
-- Ásia Leste
+- Ásia Oriental
 - Sudeste Asiático
 
 ### <a name="time-taken"></a>Tempo tomado
@@ -83,7 +83,9 @@ Você precisará das seguintes permissões no inquilino Azure para instalar Azur
 - Assinatura - Proprietário
 - Grupo de Recursos no qual farmBeats está sendo instalado - Proprietário
 
-As duas primeiras permissões são necessárias para criar a etapa de [aplicação da AAD.](#create-an-aad-application) Se necessário, pode obter alguém com as permissões adequadas para criar a aplicação AAD. A pessoa que instala farmBeats tem de ser proprietária do Grupo de Recursos no qual o FarmBeats está a ser instalado.
+As duas primeiras permissões são necessárias para criar a etapa de [aplicação da AAD.](#create-an-aad-application) Se necessário, pode obter alguém com as permissões adequadas para criar a aplicação AAD.
+
+A pessoa que gere a instalação FarmBeats do mercado tem de ser proprietária do Grupo de Recursos no qual o FarmBeats está a ser instalado. Para os proprietários de subscrições, isto acontece automaticamente quando o Grupo de Recursos é criado. Para outros, por favor, crie o Grupo de Recursos e peça ao proprietário da Subscrição que o torne proprietário do Grupo de Recursos.
 
 Pode verificar as suas permissões de acesso no portal Azure seguindo as instruções sobre o controlo de acesso baseado em [funções](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
@@ -120,7 +122,15 @@ Execute os seguintes passos numa instância Cloud Shell utilizando o ambiente Po
         ./create_aad_script.ps1
     ```
 
-4. O script AAD demora cerca de 2 minutos a executar e a saída saem valores no ecrã, bem como a um ficheiro json no mesmo diretório. Se tivesses mais alguém a executar o guião, pede-lhes que partilhem esta produção contigo.
+4. O script pede as seguintes três inputs:
+
+    - FarmBeats Nome do site: Este é o prefixo de URL único para a sua aplicação web FarmBeats. No caso de o prefixo já estar tomado, o script irá errar. Uma vez instalado, a sua implementação FarmBeats estará acessível a partir de https://\<farmBeats-website-name>.azurewebsites.net e as APIs swagger estarão em https://\<FarmBeats-website-name>-api.azurewebsites.net
+
+    - ID de login Azure: Forneça id de login Azure para o utilizador que pretende ser adicionado como administrador do FarmBeats. Este utilizador pode então conceder acesso à aplicação web FarmBeats a outros utilizadores. O ID de login é geralmente do formulário john.doe@domain.com. A Azure UPN também é apoiada.
+
+    - ID de subscrição: Este é o ID da subscrição em que pretende instalar O Azure FarmBeats
+
+5. O script AAD demora cerca de 2 minutos a executar e a saída saem valores no ecrã, bem como a um ficheiro json no mesmo diretório. Se tivesses mais alguém a executar o guião, pede-lhes que partilhem esta produção contigo.
 
 ### <a name="create-sentinel-account"></a>Criar conta Sentinel
 

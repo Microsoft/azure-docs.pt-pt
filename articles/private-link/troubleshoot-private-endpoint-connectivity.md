@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1c3fc4ebaffe2347a9c46b626b94042d1c9cfe11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: df4ec6ddbba029eb29d2440717697968f8c79302
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031858"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191071"
 ---
-# <a name="troubleshoot-private-endpoint-connectivity-problems"></a>Problemas de resolução de problemas de conectividade private endpoint
+# <a name="troubleshoot-private-endpoint-connectivity-problems"></a>Resolver problemas de conectividade do Ponto Final Privado
 
 Este guia fornece orientação passo a passo para validar e diagnosticar a sua configuração de conectividade de ponto final privado. 
 
@@ -100,7 +100,7 @@ Veja os passos listados abaixo para se certificar de que todas as configuraçõe
        ![Regras de saída do NSG](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
 5. Se a ligação tiver validado resultados, o problema da conectividade pode estar relacionado com outros aspetos, como segredos, fichas, senhas na camada de aplicação.
-   - Neste caso, reveja a configuração do recurso Private Link associado ao ponto final privado. Consulte o guia de resolução de [problemas do Link Privado](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting). 
+   - Neste caso, reveja a configuração do recurso Private Link associado ao ponto final privado. Consulte o guia de resolução de [problemas do Link Privado](troubleshoot-private-link-connectivity.md). 
 
 6. Contacte a equipa [de Suporte Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se o seu problema ainda estiver por resolver e o problema de conectividade ainda existir. 
 
@@ -108,4 +108,4 @@ Veja os passos listados abaixo para se certificar de que todas as configuraçõe
 
  * [Criar um Ponto Final Privado na subnet atualizada (portal Azure)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
 
- * [Guia de resolução de problemas de link privado](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting)
+ * [Guia de resolução de problemas de link privado](troubleshoot-private-link-connectivity.md)
