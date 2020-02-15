@@ -1,6 +1,6 @@
 ---
-title: Mostrar o tráfego em um mapa | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá como exibir dados de tráfego em um mapa usando o SDK da Web do Microsoft Azure Maps.
+title: Mostrar tráfego num mapa Microsoft Azure Maps
+description: Neste artigo você vai aprender, como exibir dados de tráfego em um mapa usando o Microsoft Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,24 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8107b16a3db76fb0e248f1681463b73cc4ee21cf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910884"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208425"
 ---
-# <a name="show-traffic-on-the-map"></a>Mostrar o tráfego no mapa
+# <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 
-Há dois tipos de dados de tráfego disponíveis no Azure Maps:
+Existem dois tipos de dados de tráfego disponíveis no Azure Maps:
 
-- Dados de incidentes – consistem em dados de ponto e de linha para coisas como construção, fechamentos de estrada e acidentes.
-- Dados de fluxo-fornece métricas sobre o fluxo de tráfego nas estradas. Os dados de fluxo de tráfego geralmente são usados para colorir as estradas com base na quantidade de tráfego que está diminuindo o fluxo em relação ao limite de velocidade ou a alguma outra métrica. Os dados de fluxo de tráfego no Azure Maps têm três métricas diferentes de medida:
-    - `relative`-é relativo à velocidade do fluxo livre da estrada.
-    - `absolute`-é a velocidade absoluta de todos os veículos em trânsito.
-    - `relative-delay`-exibe áreas que são mais lentas do que o atraso médio esperado.
+- Os dados relativos aos incidentes - consistem em dados de pontoe de linha para coisas como construção, encerramento de estradas e acidentes.
+- Dados de fluxo - fornece métricas sobre o fluxo de tráfego nas estradas. Muitas vezes, os dados do fluxo de tráfego são usados para colorir as estradas. As cores baseiam-se na quantidade de tráfego que está a abrandar o fluxo, em relação ao limite de velocidade, ou noutra métrica. Os dados do fluxo de tráfego no Azure Maps têm três métricas diferentes de medição:
+    - `relative` - é relativamente à velocidade de fluxo livre da estrada.
+    - `absolute` - é a velocidade absoluta de todos os veículos na estrada.
+    - `relative-delay` - exibe áreas mais lentas do que o atraso esperado médio.
 
-O código a seguir mostra como exibir dados de tráfego no mapa.
+O código que se segue mostra como exibir dados de tráfego no mapa.
 
 ```javascript
 //Show traffic on the map using the traffic options.
@@ -36,40 +36,40 @@ map.setTraffic({
 });
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Abaixo está a amostra completa de código de execução da funcionalidade acima referida.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Mostrar o tráfego em um mapa' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Mostrar tráfego em um mapa</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Mostrar tráfego em um mapa' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja o tráfego pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>show em um mapa</a> de Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="traffic-overlay-options"></a>Opções de sobreposição de tráfego
 
-A ferramenta a seguir permite alternar entre as diferentes configurações de sobreposição de tráfego para ver como a renderização é alterada. 
+A seguinte ferramenta permite alternar entre as diferentes definições de sobreposição de tráfego para ver como a renderização muda. 
 
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="Opções de sobreposição de tráfego" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opções de sobreposição de tráfego</a> de caneta pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>opções</a> de sobreposição de tráfego de canetas por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as classes e os métodos usados neste artigo:
+Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
 > [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Trafficoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)
+> [Opções de Tráfego](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)
 
-Aprimore suas experiências de usuário:
-
-> [!div class="nextstepaction"]
-> [Mapear interação com eventos de mouse](map-events.md)
+Melhore as experiências do utilizador:
 
 > [!div class="nextstepaction"]
-> [Criando um mapa acessível](map-accessibility.md)
+> [Interação do mapa com eventos de rato](map-events.md)
 
 > [!div class="nextstepaction"]
-> [Página de exemplo de código](https://aka.ms/AzureMapsSamples)
+> [Construção de um mapa acessível](map-accessibility.md)
+
+> [!div class="nextstepaction"]
+> [Página de amostra de código](https://aka.ms/AzureMapsSamples)

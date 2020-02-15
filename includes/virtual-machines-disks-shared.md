@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1bdb4e40d7e173dcb2368f2f0cf645581647f6ee
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 09e5a6c5eee21e5432c4cf96a63fd2337307954a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202206"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211440"
 ---
 Os discos partilhados azure (pré-visualização) são uma nova funcionalidade para discos geridos pelo Azure que permite ligar simultaneamente um disco gerido pelo Azure a múltiplas máquinas virtuais (VMs). A fixação de um disco gerido a vários VMs permite-lhe implementar aplicações agrupadas novas ou migratórias existentes para o Azure.
 
@@ -55,7 +55,7 @@ Os clusters Linux podem alavancar gestores de clusters como [o Pacemaker](https:
 
 O diagrama seguinte ilustra uma aplicação de base de dados agrupada de 2 nós que aproveita o SCSI PR para permitir a falha de um nó para o outro.
 
-![disco partilhado-atualizado-dois-nó-cluster-diagrama.png](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
+![Dois aglomerados de nós. Uma aplicação em execução no cluster está a manipular o acesso ao disco](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 O fluxo é o seguinte:
 
@@ -68,7 +68,7 @@ O fluxo é o seguinte:
 
 O diagrama seguinte ilustra outra carga de trabalho agrupada comum composta por múltiplos nós de leitura de dados do disco para executar processos paralelos, como a formação de modelos de aprendizagem automática.
 
-![disco partilhado-atualizado-máquina-learning-trainer-model.png](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
+![Quatro cluster VM do nó, cada nó regista a intenção de escrever, a aplicação requer reserva exclusiva para lidar corretamente com resultados de escrita](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 O fluxo é o seguinte:
 

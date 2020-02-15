@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 810f2b376e9983743617dae77d74d596a7fbe663
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 88e3077fb64446f5fa70c1785ad3df1d3746de33
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084191"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209329"
 ---
-# <a name="what-is-azure-private-link-preview"></a>O que é a Ligação Privada do Azure? (Pré-visualização)
+# <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Armazenamento Azure, Azure Cosmos DB e SQL Database) e o Azure acolheu serviços de clientes/parceiros sobre um [Ponto Final Privado](private-endpoint-overview.md) na sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Também pode criar o seu próprio [Serviço de Link Privado](private-link-service-overview.md) na sua rede virtual (VNet) e entregá-lo em privado aos seus clientes. A experiência de configuração e consumo utilizando o Azure Private Link é consistente em todos os serviços de parceiros azure PaaS, propriedade do cliente e parceiros partilhados.
 
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ A Azure Private Link oferece os seguintes benefícios:
 |  |  Base de Dados SQL do Azure         | Todas as regiões públicas      |   Pré-visualização      |
 ||Azure SQL Data Warehouse| Todas as regiões públicas |Pré-visualização|
 ||Azure Cosmos DB| Centro-Oeste dos EUA, WestUS, Centro Norte dos EUA |Pré-visualização|
-|  |  Banco de dados do Azure para PostgreSQL-servidor único         | Todas as regiões públicas      |   Pré-visualização      |
+|  |  Base de Dados Azure para PostgreSQL - Servidor único         | Todas as regiões públicas      |   Pré-visualização      |
 |  |  Base de Dados do Azure para MySQL         | Todas as regiões públicas      |   Pré-visualização      |
 |  |  Azure Database for MariaDB         | Todas as regiões públicas      |   Pré-visualização      |
 |  |  Azure Key Vault         | Todas as regiões públicas      |   Pré-visualização      |

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: ba1ad7c533ea1dc9e88c8337373e607db653ac24
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 42b7ceb86e360f192c55fc1090f291f5b7fe7ac5
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048551"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252030"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Encriptação de dados para Base de Dados Azure para MySQL utilizando o portal Azure
 
@@ -19,13 +19,13 @@ Aprenda a usar o portal Azure para configurar e gerir a encriptação de dados p
 
 ## <a name="prerequisites-for-azure-cli"></a>Pré-requisitos para o Azure CLI
 
-* Você deve ter uma assinatura do Azure e ser um administrador nessa assinatura.
+* Você deve ter uma assinatura Azure e ser um administrador nessa subscrição.
 * No Cofre de Chaves Azure, crie um cofre chave e uma chave para usar para uma chave gerida pelo cliente.
 * O cofre-chave deve ter as seguintes propriedades para usar como chave gerida pelo cliente:
   * [Eliminação suave](../key-vault/key-vault-ovw-soft-delete.md)
 
     ```azurecli-interactive
-    az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+    az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
   * [Purga protegida](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
@@ -35,9 +35,9 @@ Aprenda a usar o portal Azure para configurar e gerir a encriptação de dados p
     ```
 
 * A chave deve ter os seguintes atributos a utilizar como chave gerida pelo cliente:
-  * Nenhuma data de validade
-  * Não desabilitado
-  * Capaz de executar operações Get, wrap Key, não encapsular chave
+  * Sem data de validade
+  * Não incapacitado
+  * Capaz de realizar obter, embrulhar chave, desembrulhar operações chave
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Detete as permissões certas para operações-chave
 

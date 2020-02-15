@@ -2,13 +2,13 @@
 title: Sintaxe de modelo e expressões
 description: Descreve a sintaxe declarativa da JSON para os modelos do Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 42649d4b04b03de32b82335fce68401192de75a3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 02/13/2020
+ms.openlocfilehash: 7bca3125f80225d2180734f483194a63e39d9cf5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120594"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207405"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos de Gestor de Recursos Azure
 
@@ -16,11 +16,9 @@ A sintaxe básica do modelo é JSON. No entanto, pode utilizar expressões para 
 
 Uma expressão de modelo não pode exceder 24.576 caracteres.
 
-As expressões suportam json ('nulo') e as propriedades suportam um valor literal de nulo. Em ambos os casos, os modelos do Gestor de Recursos tratam-no como se a propriedade não estivesse presente.
-
 ## <a name="use-functions"></a>Utilizar funções
 
-O exemplo seguinte mostra uma expressão no valor padrão de um parâmetro:
+O Azure Resource Manager fornece [funções](template-functions.md) que pode utilizar num modelo. O exemplo seguinte mostra uma expressão que utiliza uma função no valor padrão de um parâmetro:
 
 ```json
 "parameters": {
@@ -40,6 +38,12 @@ Para passar um valor de cadeia como parâmetro para uma função, utilize aspas 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
+
+A maioria das funções funciona da mesma forma, quer seja implantada num grupo de recursos, subscrição, grupo de gestão ou inquilino. As seguintes funções têm restrições baseadas no âmbito:
+
+* [recursosGroup](template-functions-resource.md#resourcegroup) - só pode ser utilizado em implantações para um grupo de recursos.
+* [recursosId](template-functions-resource.md#resourceid) - pode ser usado em qualquer âmbito, mas os parâmetros válidos mudam dependendo do âmbito.
+* [subscrição](template-functions-resource.md#subscription) - só pode ser utilizada em implantações para um grupo de recursos ou subscrição.
 
 ## <a name="escape-characters"></a>Personagens de fuga
 
@@ -65,6 +69,15 @@ Para escapar a citações duplas numa expressão, como adicionar um objeto JSON 
 "tags": {
     "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
 },
+```
+
+## <a name="null-values"></a>Valores nulos
+
+Para fixar um imóvel a nu, pode utilizar **nulo** ou **[json('null')]** . A [função json](template-functions-array.md#json) devolve um objeto vazio quando fornece `null` como parâmetro. Em ambos os casos, os modelos do Gestor de Recursos tratam-no como se a propriedade não estivesse presente.
+
+```json
+"stringValue": null,
+"objectValue": "[json('null')]"
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

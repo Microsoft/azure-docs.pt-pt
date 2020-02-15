@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: a2a65c6fcca4a037408c6b7e780708623aebed2b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114404"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212239"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -75,9 +75,9 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
 * Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
-* Austrália Sudeste
-* Ásia Leste
-* Ásia Sudeste
+* Sudeste da Austrália
+* Ásia Oriental
+* Sudeste Asiático
 * Coreia do Sul Central
 * Índia Central
 * Sul da Índia
@@ -106,9 +106,9 @@ O espaço de trabalho log Analytics deve existir nas seguintes regiões:
 * Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
-* Austrália Sudeste
-* Ásia Leste
-* Ásia Sudeste
+* Sudeste da Austrália
+* Ásia Oriental
+* Sudeste Asiático
 * Coreia do Sul Central
 * Índia Central
 * Leste do Japão
@@ -182,7 +182,7 @@ Selecione as seguintes opções, como mostrado na imagem:
 
 1. Selecione *on* for **Status**
 2. Selecione *versão 2* para **versão Flow Logs**. A versão 2 contém estatísticas de sessões de fluxo (Bytes e Pacotes)
-3. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo. Se quiser armazenar os dados para sempre, detete o valor para *0*. Incorre nas taxas de armazenamento azure para a conta de armazenamento. Certifique-se de que o seu armazenamento não tem "Data Lake Storage Gen2 Hierarchical Namespace Enabled" definido como verdadeiro. Além disso, os registos de fluxo NSG não podem ser armazenados numa Conta de Armazenamento com uma Firewall. 
+3. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo. Se quiser armazenar os dados para sempre, detete o valor para *0*. Incorre nas taxas de armazenamento azure para a conta de armazenamento. Certifique-se de que o seu armazenamento não tem "Data Lake Storage Gen2 Hierarchical Namespace Enabled" definido como verdadeiro.
 4. Detete **a Retenção** no número de dias para os dias que pretende armazenar.
 > [!IMPORTANT]
 > Atualmente, existe um problema em que os registos de fluxo do grupo de segurança de [rede (NSG)](network-watcher-nsg-flow-logging-overview.md) para O Observador de Rede não são automaticamente eliminados do armazenamento blob com base em definições de política de retenção. Se tiver uma política de retenção não nula existente, recomendamos que apague periodicamente as bolhas de armazenamento que já passaram do seu período de retenção para evitar quaisquer encargos incorridos. Para obter mais informações sobre como eliminar o blog de armazenamento de registo de fluxo NSG, consulte [Delete NSG flow log storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).

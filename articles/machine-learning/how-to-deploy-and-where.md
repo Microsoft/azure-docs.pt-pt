@@ -1,7 +1,7 @@
 ---
-title: Como e onde implantar modelos
+title: Como e onde implementar modelos
 titleSuffix: Azure Machine Learning
-description: Saiba como e onde implantar seus modelos de Azure Machine Learning, incluindo instâncias de contêiner do Azure, serviço kubernetes do Azure, Azure IoT Edge e matrizes de portão programáveis por campo.
+description: Saiba como e onde implementar os seus modelos de Machine Learning Azure, incluindo Instâncias de Contentores Azure, Serviço Azure Kubernetes, Borda Azure IoT e matrizes de porta programáveis em campo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,24 +11,24 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fa73cb690fafb67f75abafab1b0dd27ffa0b8e32
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083232"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210504"
 ---
-# <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
+# <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com Aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Saiba como implantar o modelo de aprendizado de máquina como um serviço Web na nuvem do Azure ou para Azure IoT Edge dispositivos.
+Aprenda a implementar o seu modelo de machine learning como um serviço web na nuvem Azure ou nos dispositivos Azure IoT Edge.
 
 O fluxo de trabalho é semelhante independentemente de [onde implementa](#target) o seu modelo:
 
 1. Registe o modelo.
 1. Preparem-se para partir. (Especificar ativos, utilização, alvo de cálculo.)
 1. Implante o modelo para o alvo da computação.
-1. Teste o modelo implantado, também chamado de serviço Web.
+1. Teste o modelo implantado, também chamado de serviço web.
 
 Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho de implantação, consulte [Gerir, implementar e monitorizar modelos com o Azure Machine Learning.](concept-model-management-and-deployment.md)
 
@@ -42,7 +42,7 @@ Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho
 
 ## <a name="connect-to-your-workspace"></a>Ligue-se ao seu espaço de trabalho
 
-O código a seguir mostra como se conectar a um espaço de trabalho Azure Machine Learning usando informações armazenadas em cache para o ambiente de desenvolvimento local:
+O seguinte código mostra como se conectar a um espaço de trabalho de Aprendizagem automática Azure utilizando informações em cache para o ambiente de desenvolvimento local:
 
 + **Usando o SDK**
 
@@ -59,27 +59,27 @@ O código a seguir mostra como se conectar a um espaço de trabalho Azure Machin
 
 + **Usando o Código VS**
 
-   Ao usar VS Code, você seleciona o espaço de trabalho usando uma interface gráfica. Para mais informações, consulte [A implementação e gestão](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) de modelos na documentação de extensão do Código VS.
+   Quando utilizar o Código VS, selecione o espaço de trabalho utilizando uma interface gráfica. Para mais informações, consulte [A implementação e gestão](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) de modelos na documentação de extensão do Código VS.
 
 ## <a id="registermodel"></a>Registe o seu modelo
 
-Um modelo registado é um recipiente lógico para um ou mais ficheiros que compõem o seu modelo. Por exemplo, se você tiver um modelo armazenado em vários arquivos, poderá registrá-los como um único modelo no espaço de trabalho. Depois de registrar os arquivos, você pode baixar ou implantar o modelo registrado e receber todos os arquivos que você registrou.
+Um modelo registado é um recipiente lógico para um ou mais ficheiros que compõem o seu modelo. Por exemplo, se tiver um modelo que esteja armazenado em vários ficheiros, pode registá-los como um único modelo no espaço de trabalho. Depois de registar os ficheiros, pode então descarregar ou implementar o modelo registado e receber todos os ficheiros que registou.
 
 > [!TIP]
-> Ao registrar um modelo, você fornece o caminho de um local de nuvem (de uma execução de treinamento) ou um diretório local. Esse caminho é apenas para localizar os arquivos para upload como parte do processo de registro. Ele não precisa corresponder ao caminho usado no script de entrada. Para mais informações, consulte [localizar ficheiros do modelo no seu script de entrada](#locate-model-files-in-your-entry-script).
+> Ao registar um modelo, fornece o caminho de uma localização em nuvem (de um treino) ou de um diretório local. Este caminho é apenas para localizar os ficheiros para upload como parte do processo de registo. Não precisa de corresponder ao caminho usado no guião de entrada. Para mais informações, consulte [localizar ficheiros do modelo no seu script de entrada](#locate-model-files-in-your-entry-script).
 
-Os modelos de aprendizado de máquina são registrados em seu espaço de trabalho do Azure Machine Learning. O modelo pode vir de Azure Machine Learning ou de outro lugar. Os exemplos a seguir demonstram como registrar um modelo.
+Os modelos de aprendizagem automática estão registados no seu espaço de trabalho Azure Machine Learning. O modelo pode vir de Azure Machine Learning ou de outro lugar. Os exemplos que se seguem demonstram como registar um modelo.
 
-### <a name="register-a-model-from-an-experiment-run"></a>Registrar um modelo de uma execução de experimento
+### <a name="register-a-model-from-an-experiment-run"></a>Registe um modelo de uma experiência
 
-Os trechos de código nesta seção demonstram como registrar um modelo de uma execução de treinamento:
+Os fragmentos de código nesta secção demonstram como registar um modelo a partir de uma execução de formação:
 
 > [!IMPORTANT]
 > Para utilizar estes snippets, precisa de ter realizado previamente um treino e precisa de ter acesso ao `Run` objeto (exemplo SDK) ou ao valor de ID de execução (exemplo CLI). Para obter mais informações sobre modelos de formação, consulte Configurar metas de [cálculo para formação](how-to-set-up-training-targets.md)de modelos .
 
 + **Usando o SDK**
 
-  Quando utiliza o SDK para treinar um modelo, pode receber um objeto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) ou um objeto [AutoMLRun,](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) dependendo da forma como treinou o modelo. Cada objeto pode ser usado para registrar um modelo criado por uma execução de experimento.
+  Quando utiliza o SDK para treinar um modelo, pode receber um objeto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) ou um objeto [AutoMLRun,](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) dependendo da forma como treinou o modelo. Cada objeto pode ser usado para registar um modelo criado por uma experiência executada.
 
   + Registe um modelo de um objeto `azureml.core.Run`:
  
@@ -88,7 +88,7 @@ Os trechos de código nesta seção demonstram como registrar um modelo de uma e
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    O parâmetro `model_path` refere-se à localização da nuvem do modelo. Neste exemplo, o caminho de um único arquivo é usado. Para incluir vários ficheiros no registo do modelo, detete `model_path` no caminho de uma pasta que contenha os ficheiros. Para mais informações, consulte a documentação [Run.register_model.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)
+    O parâmetro `model_path` refere-se à localização da nuvem do modelo. Neste exemplo, o caminho de um único ficheiro é utilizado. Para incluir vários ficheiros no registo do modelo, detete `model_path` no caminho de uma pasta que contenha os ficheiros. Para mais informações, consulte a documentação [Run.register_model.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)
 
   + Registe um modelo de um objeto `azureml.train.automl.run.AutoMLRun`:
 
@@ -111,15 +111,15 @@ Os trechos de código nesta seção demonstram como registrar um modelo de uma e
 
   [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
 
-  O parâmetro `--asset-path` refere-se à localização da nuvem do modelo. Neste exemplo, o caminho de um único arquivo é usado. Para incluir vários ficheiros no registo do modelo, detete `--asset-path` no caminho de uma pasta que contenha os ficheiros.
+  O parâmetro `--asset-path` refere-se à localização da nuvem do modelo. Neste exemplo, o caminho de um único ficheiro é utilizado. Para incluir vários ficheiros no registo do modelo, detete `--asset-path` no caminho de uma pasta que contenha os ficheiros.
 
 + **Usando o Código VS**
 
   Registe os modelos utilizando quaisquer ficheiros ou pastas de modelo utilizando a extensão do [Código VS.](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model)
 
-### <a name="register-a-model-from-a-local-file"></a>Registrar um modelo de um arquivo local
+### <a name="register-a-model-from-a-local-file"></a>Registe um modelo a partir de um ficheiro local
 
-Você pode registrar um modelo fornecendo o caminho local do modelo. Você pode fornecer o caminho de uma pasta ou de um único arquivo. Você pode usar esse método para registrar modelos treinados com Azure Machine Learning e, em seguida, baixados. Você também pode usar esse método para registrar modelos treinados fora do Azure Machine Learning.
+Pode registar um modelo fornecendo o percurso local do modelo. Pode fornecer o caminho de uma pasta ou de um único ficheiro. Pode utilizar este método para registar modelos treinados com O Machine Learning E depois descarregados. Também pode utilizar este método para registar modelos treinados fora do Azure Machine Learning.
 
 [!INCLUDE [trusted models](../../includes/machine-learning-service-trusted-model.md)]
 
@@ -159,16 +159,16 @@ Para obter mais informações sobre o trabalho com modelos treinados fora do Azu
 
 <a name="target"></a>
 
-## <a name="choose-a-compute-target"></a>Escolher um destino de computação
+## <a name="choose-a-compute-target"></a>Escolha um alvo de computação
 
-Você pode usar os seguintes destinos de computação ou recursos de computação para hospedar a implantação do serviço Web:
+Pode utilizar os seguintes alvos de cálculo, ou calcular recursos, para acolher a sua implementação do serviço web:
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
-## <a name="single-versus-multi-model-endpoints"></a>Pontos de extremidade únicos versus vários modelos
-O Azure ML dá suporte à implantação de modelos únicos ou múltiplos por trás de um único ponto de extremidade.
+## <a name="single-versus-multi-model-endpoints"></a>Pontos finais simples versus multi-modelo
+O Azure ML suporta a implementação de modelos únicos ou múltiplos atrás de um único ponto final.
 
-Os pontos de extremidade de vários modelos usam um contêiner compartilhado para hospedar vários modelos. Isso ajuda a reduzir os custos de sobrecarga, a melhorar a utilização e permite encadear módulos em conjuntos. Os modelos que você especificar em seu script de implantação são montados e disponibilizados no disco do contêiner de serviço – você pode carregá-los na memória sob demanda e pontuar com base no modelo específico que está sendo solicitado no momento da pontuação.
+Os pontos finais multi-modelo utilizam um recipiente partilhado para acolher vários modelos. Isto ajuda a reduzir os custos gerais, melhora a utilização e permite-lhe acorrentar módulos em conjuntos. Os modelos que especifica no seu script de implementação são montados e disponibilizados no disco do recipiente de serviço - pode carregá-los na memória a pedido e pontuar com base no modelo específico que está a ser solicitado no momento da pontuação.
 
 Para um exemplo E2E que mostra como usar vários modelos por trás de um único ponto final contentorizado, consulte [este exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
@@ -176,12 +176,12 @@ Para um exemplo E2E que mostra como usar vários modelos por trás de um único 
 
 Para implementar o modelo, precisa do seguinte:
 
-* **Script de entrada e dependências**de código fonte . Esse script aceita solicitações, pontua as solicitações usando o modelo e retorna os resultados.
+* **Script de entrada e dependências**de código fonte . Este script aceita pedidos, marca os pedidos utilizando o modelo e devolve os resultados.
 
     > [!IMPORTANT]
-    > * O script de entrada é específico do seu modelo. Ele deve entender o formato dos dados de solicitação de entrada, o formato dos dados esperados pelo seu modelo e o formato dos dados retornados aos clientes.
+    > * O script de entrada é específico do seu modelo. Deve compreender o formato dos dados de pedido de entrada, o formato dos dados esperados pelo seu modelo e o formato dos dados devolvidos aos clientes.
     >
-    >   Se os dados da solicitação estiverem em um formato que não pode ser usado pelo seu modelo, o script poderá transformá-lo em um formato aceitável. Ele também pode transformar a resposta antes de retorná-la ao cliente.
+    >   Se os dados do pedido estiverem num formato que não seja utilizável pelo seu modelo, o script pode transformá-lo num formato aceitável. Também pode transformar a resposta antes de a devolver ao cliente.
     >
     > * Os serviços web e as implementações do IoT Edge não são capazes de aceder a datastores ou conjuntos de dados do espaço de trabalho. Se o seu serviço implementado necessitar de aceder a dados armazenados fora da implementação, como dados numa conta de armazenamento Azure, deve desenvolver uma solução de código personalizada utilizando o SDK relevante. Por exemplo, o [SDK](https://github.com/Azure/azure-storage-python)de Armazenamento Azure para Python .
     >
@@ -195,27 +195,27 @@ Estes itens são encapsulado numa configuração de *inferência* e numa configu
 
 ### <a id="script"></a>1. Defina o seu roteiro de entrada e dependências
 
-O script de entrada recebe dados submetidos a um serviço web implantado e passa-os para o modelo. Em seguida, leva a resposta devolvida pelo modelo e devolve-a ao cliente. *O guião é específico do seu modelo.* Ele deve entender os dados esperados e retornados pelo modelo.
+O script de entrada recebe dados submetidos a um serviço web implantado e passa-os para o modelo. Em seguida, leva a resposta devolvida pelo modelo e devolve-a ao cliente. *O guião é específico do seu modelo.* Deve compreender os dados que o modelo espera e devolve.
 
 O script contém duas funções que carregam e executam o modelo:
 
-* `init()`: Normalmente, esta função coloca o modelo num objeto global. Essa função é executada apenas uma vez, quando o contêiner do Docker para o serviço Web é iniciado.
+* `init()`: Normalmente, esta função coloca o modelo num objeto global. Esta função é executada apenas uma vez, quando o recipiente Docker para o seu serviço web é iniciado.
 
 * `run(input_data)`: Esta função utiliza o modelo para prever um valor com base nos dados de entrada. As inputs e saídas da corrida normalmente usam jSON para serialização e desserialização. Também pode trabalhar com dados binários brutos. Pode transformar os dados antes de enviá-los para o modelo ou antes de os devolver ao cliente.
 
-#### <a name="locate-model-files-in-your-entry-script"></a>Localizar arquivos de modelo em seu script de entrada
+#### <a name="locate-model-files-in-your-entry-script"></a>Localizar ficheiros de modelos no seu script de entrada
 
-Há duas maneiras de localizar modelos em seu script de entrada:
+Existem duas formas de localizar modelos no seu script de entrada:
 * `AZUREML_MODEL_DIR`: Uma variável ambiental que contenha o caminho para a localização do modelo.
 * `Model.get_model_path`: Uma API que devolve o caminho para o ficheiro modelo utilizando o nome do modelo registado.
 
 ##### <a name="azureml_model_dir"></a>AZUREML_MODEL_DIR
 
-AZUREML_MODEL_DIR é uma variável ambiental criada durante a implantação do serviço. Você pode usar essa variável de ambiente para localizar o local dos modelos implantados.
+AZUREML_MODEL_DIR é uma variável ambiental criada durante a implantação do serviço. Pode utilizar esta variável ambiental para encontrar a localização dos modelos implantados.
 
 O quadro seguinte descreve o valor da AZUREML_MODEL_DIR dependendo do número de modelos implantados:
 
-| Implementação | Valor da variável de ambiente |
+| Implementação | Valor variável ambiental |
 | ----- | ----- |
 | Modelo único | O caminho para a pasta que contém o modelo. |
 | Vários modelos | O caminho para a pasta que contém todos os modelos. Os modelos estão localizados pelo nome e pela versão nesta pasta (`$MODEL_NAME/$VERSION`) |
@@ -241,9 +241,9 @@ model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 
 
 ##### <a name="get_model_path"></a>get_model_path
 
-Ao registrar um modelo, você fornece um nome de modelo que é usado para gerenciar o modelo no registro. Utiliza este nome com o método [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do ficheiro ou ficheiros do modelo no sistema de ficheiros local. Se você registrar uma pasta ou uma coleção de arquivos, essa API retornará o caminho do diretório que contém esses arquivos.
+Ao registar um modelo, fornece um nome modelo que é usado para gerir o modelo no registo. Utiliza este nome com o método [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do ficheiro ou ficheiros do modelo no sistema de ficheiros local. Se registar uma pasta ou uma recolha de ficheiros, esta API devolve o caminho do diretório que contém esses ficheiros.
 
-Ao registrar um modelo, você lhe dá um nome. O nome corresponde ao local em que o modelo é colocado, seja localmente ou durante a implantação do serviço.
+Quando registas um modelo, dás-lhe um nome. O nome corresponde ao local onde o modelo é colocado, quer localmente quer durante a implantação do serviço.
 
 > [!IMPORTANT]
 > Se usou machine learning automatizado para treinar um modelo, um valor `model_id` é usado como nome modelo. Para um exemplo de registo e implementação de um modelo treinado com machine learning automatizado, consulte [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features) no GitHub.
@@ -256,11 +256,11 @@ model_path = Model.get_model_path('sklearn_mnist')
 
 <a id="schema"></a>
 
-#### <a name="optional-automatic-schema-generation"></a>Adicional Geração de esquema automática
+#### <a name="optional-automatic-schema-generation"></a>(Opcional) Geração automática de esquemas
 
-Para gerar automaticamente um esquema para o serviço Web, forneça um exemplo de entrada e/ou saída no construtor para um dos objetos de tipo definidos. O tipo e o exemplo são usados para criar automaticamente o esquema. O Azure Machine Learning cria então uma especificação [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) para o serviço web durante a implantação.
+Para gerar automaticamente um esquema para o seu serviço web, forneça uma amostra da entrada e/ou saída no construtor para um dos objetos do tipo definido. O tipo e a amostra são utilizados para criar automaticamente o esquema. O Azure Machine Learning cria então uma especificação [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) para o serviço web durante a implantação.
 
-Atualmente, esses tipos têm suporte:
+Estes tipos são atualmente suportados:
 
 * `pandas`
 * `numpy`
@@ -271,7 +271,7 @@ Para utilizar a geração de esquemas, inclua o pacote `inference-schema` no seu
 
 ##### <a name="example-dependencies-file"></a>Arquivo de dependências de exemplo
 
-O YAML a seguir é um exemplo de um arquivo de dependências Conda para inferência. Por favor, note que deve indicar incumprimentos em azureml com verion >= 1.0.45 como dependência de pip, porque contém a funcionalidade necessária para hospedar o modelo como um serviço web.
+O Seguinte YAML é um exemplo de um ficheiro de dependências da Conda para inferência. Por favor, note que deve indicar incumprimentos em azureml com verion >= 1.0.45 como dependência de pip, porque contém a funcionalidade necessária para hospedar o modelo como um serviço web.
 
 ```YAML
 name: project_environment
@@ -285,7 +285,7 @@ dependencies:
 ```
 
 > [!IMPORTANT]
-> Se sua dependência estiver disponível por meio de Conda e PIP (de PyPi), a Microsoft recomenda usar a versão Conda, já que os pacotes Conda normalmente são fornecidos com binários pré-criados que tornam a instalação mais confiável.
+> Se a sua dependência estiver disponível através da Conda e pip (da PyPi), a Microsoft recomenda a utilização da versão Conda, uma vez que os pacotes Conda normalmente vêm com binários pré-construídos que tornam a instalação mais fiável.
 >
 > Para mais informações, consulte [Understanding Conda e Pip.](https://www.anaconda.com/understanding-conda-and-pip/)
 >
@@ -293,11 +293,11 @@ dependencies:
 
 Se quiser utilizar a geração automática de esquemas, o seu script de entrada deve importar os pacotes `inference-schema`.
 
-Defina os formatos de amostra de entrada e saída nas variáveis `input_sample` e `output_sample`, que representam os formatos de pedido e resposta para o serviço web. Utilize estas amostras nos decoradores da função de entrada e saída na função `run()`. O exemplo a seguir scikit-Learn usa a geração de esquema.
+Defina os formatos de amostra de entrada e saída nas variáveis `input_sample` e `output_sample`, que representam os formatos de pedido e resposta para o serviço web. Utilize estas amostras nos decoradores da função de entrada e saída na função `run()`. O exemplo de scikit-learn que se segue utiliza a geração schema.
 
-##### <a name="example-entry-script"></a>Exemplo de script de entrada
+##### <a name="example-entry-script"></a>Roteiro de entrada de exemplo
 
-O exemplo a seguir demonstra como aceitar e retornar dados JSON:
+O exemplo que se segue demonstra como aceitar e devolver dados da JSON:
 
 ```python
 #Example: scikit-learn and Swagger
@@ -338,7 +338,7 @@ def run(data):
         return error
 ```
 
-O exemplo seguinte demonstra como definir os dados de entrada como um dicionário `<key: value>` utilizando um DataFrame. Esse método tem suporte para o consumo do serviço Web implantado do Power BI. ([Saiba mais sobre como consumir o serviço web a partir do Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
+O exemplo seguinte demonstra como definir os dados de entrada como um dicionário `<key: value>` utilizando um DataFrame. Este método é suportado para consumir o serviço web implantado a partir do Power BI. ([Saiba mais sobre como consumir o serviço web a partir do Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
 ```python
 import json
@@ -387,7 +387,7 @@ def run(data):
         return error
 ```
 
-Para obter mais exemplos, consulte os seguintes scripts:
+Para mais exemplos, consulte os seguintes scripts:
 
 * [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
 * [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
@@ -431,9 +431,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> A aula de `AMLRequest` está no espaço de `azureml.contrib` nome. As entidades neste namespace são alteradas com frequência enquanto trabalhamos para melhorar o serviço. Qualquer coisa neste namespace deve ser considerada uma versão prévia que não tem suporte total da Microsoft.
+> A aula de `AMLRequest` está no espaço de `azureml.contrib` nome. As entidades neste espaço de nome mudam frequentemente à medida que trabalhamos para melhorar o serviço. Qualquer coisa neste espaço de nome deve ser considerada uma pré-visualização que não seja totalmente suportada pela Microsoft.
 >
-> Se precisar testar isso em seu ambiente de desenvolvimento local, você poderá instalar os componentes usando o seguinte comando:
+> Se precisar de testar isto no seu ambiente de desenvolvimento local, pode instalar os componentes utilizando o seguinte comando:
 >
 > ```shell
 > pip install azureml-contrib-services
@@ -441,11 +441,11 @@ def run(request):
 
 <a id="cors"></a>
 
-#### <a name="cross-origin-resource-sharing-cors"></a>CORS (compartilhamento de recursos entre origens)
+#### <a name="cross-origin-resource-sharing-cors"></a>Partilha de recursos de origem cruzada (CORS)
 
-O compartilhamento de recursos entre origens é uma maneira de permitir que recursos em uma página da Web sejam solicitados de outro domínio. O CORS funciona por meio de cabeçalhos HTTP enviados com a solicitação do cliente e retornado com a resposta do serviço. Para obter mais informações sobre cors e cabeçalhos válidos, consulte a [partilha de recursos de origem cruzada](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) na Wikipédia.
+A partilha de recursos de origem cruzada é uma forma de permitir que os recursos numa página web sejam solicitados a partir de outro domínio. O CORS trabalha através de cabeçalhos HTTP enviados com o pedido do cliente e devolvidos com a resposta de serviço. Para obter mais informações sobre cors e cabeçalhos válidos, consulte a [partilha de recursos de origem cruzada](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) na Wikipédia.
 
-Para configurar a implementação do seu modelo para suportar o CORS, utilize a classe `AMLResponse` no seu script de entrada. Essa classe permite que você defina os cabeçalhos no objeto de resposta.
+Para configurar a implementação do seu modelo para suportar o CORS, utilize a classe `AMLResponse` no seu script de entrada. Esta aula permite-lhe definir os cabeçalhos no objeto de resposta.
 
 O exemplo que se segue define o cabeçalho `Access-Control-Allow-Origin` para a resposta do script de entrada:
 
@@ -477,9 +477,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> A aula de `AMLResponse` está no espaço de `azureml.contrib` nome. As entidades neste namespace são alteradas com frequência enquanto trabalhamos para melhorar o serviço. Qualquer coisa neste namespace deve ser considerada uma versão prévia que não tem suporte total da Microsoft.
+> A aula de `AMLResponse` está no espaço de `azureml.contrib` nome. As entidades neste espaço de nome mudam frequentemente à medida que trabalhamos para melhorar o serviço. Qualquer coisa neste espaço de nome deve ser considerada uma pré-visualização que não seja totalmente suportada pela Microsoft.
 >
-> Se precisar testar isso em seu ambiente de desenvolvimento local, você poderá instalar os componentes usando o seguinte comando:
+> Se precisar de testar isto no seu ambiente de desenvolvimento local, pode instalar os componentes utilizando o seguinte comando:
 >
 > ```shell
 > pip install azureml-contrib-services
@@ -487,9 +487,9 @@ def run(request):
 
 ### <a name="2-define-your-inference-environment"></a>2. Defina o seu ambiente de inferência
 
-A configuração de inferência descreve como configurar o modelo para fazer previsões. Essa configuração não faz parte do seu script de entrada. Ele faz referência ao seu script de entrada e é usado para localizar todos os recursos exigidos pela implantação. Ele é usado posteriormente, quando você implanta o modelo.
+A configuração de inferência descreve como configurar o modelo para fazer previsões. Esta configuração não faz parte do teu guião de entrada. Refere o seu script de entrada e é usado para localizar todos os recursos necessários pela implementação. É usado mais tarde, quando se implanta o modelo.
 
-A configuração de inferência usa ambientes Azure Machine Learning para definir as dependências de software necessárias para sua implantação. Os ambientes permitem que você crie, gerencie e reutilize as dependências de software necessárias para treinamento e implantação. O exemplo a seguir demonstra como carregar um ambiente do seu espaço de trabalho e usá-lo com a configuração de inferência:
+A configuração de inferência utiliza ambientes de Aprendizagem automática Azure para definir as dependências de software necessárias para a sua implementação. Os ambientes permitem-lhe criar, gerir e reutilizar as dependências de software necessárias para a formação e implementação. O exemplo que se segue demonstra carregar um ambiente do seu espaço de trabalho e depois usá-lo com a configuração de inferência:
 
 ```python
 from azureml.core.environment import Environment
@@ -502,7 +502,7 @@ inference_config = InferenceConfig(entry_script="x/y/score.py",
 
 Para obter mais informações sobre ambientes, consulte [Criar e gerir ambientes para formação e implantação.](how-to-use-environments.md)
 
-Você também pode especificar diretamente as dependências sem usar um ambiente. O exemplo a seguir demonstra como criar uma configuração de inferência que carrega as dependências de software de um arquivo Conda:
+Também pode especificar diretamente as dependências sem usar um ambiente. O exemplo que se segue demonstra como criar uma configuração de inferência que carrega dependências de software a partir de um ficheiro Conda:
 
 Para obter mais informações sobre ambientes, consulte [Criar e gerir ambientes para formação e implantação.](how-to-use-environments.md)
 
@@ -510,33 +510,33 @@ Para obter mais informações sobre a configuração da inferência, consulte a 
 
 Para obter informações sobre a utilização de uma imagem personalizada do Docker com uma configuração de inferência, consulte [como implementar um modelo utilizando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
-### <a name="cli-example-of-inferenceconfig"></a>Exemplo de CLI de InferenceConfig
+### <a name="cli-example-of-inferenceconfig"></a>Exemplo cli de InferenceConfig
 
 [!INCLUDE [inference config](../../includes/machine-learning-service-inference-config.md)]
 
-O comando a seguir demonstra como implantar um modelo usando a CLI:
+O seguinte comando demonstra como implementar um modelo utilizando o CLI:
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
 
-Neste exemplo, a configuração especifica as seguintes configurações:
+Neste exemplo, a configuração especifica as seguintes definições:
 
-* Se o modelo requer Python.
+* Que o modelo requer Python.
 * O [script de entrada](#script), que é usado para lidar com pedidos web enviados para o serviço implantado.
-* O arquivo Conda que descreve os pacotes do python necessários para a inferência.
+* O ficheiro Da Conda que descreve os pacotes Python necessários para a inferência.
 
 Para obter informações sobre a utilização de uma imagem personalizada do Docker com uma configuração de inferência, consulte [como implementar um modelo utilizando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
-### <a name="3-define-your-deployment-configuration"></a>3. definir sua configuração de implantação
+### <a name="3-define-your-deployment-configuration"></a>3. Defina a sua configuração de implementação
 
-Antes de implantar seu modelo, você deve definir a configuração de implantação. *A configuração de implementação é específica para o alvo da computação que irá acolher o serviço web.* Por exemplo, ao implantar um modelo localmente, você deve especificar a porta onde o serviço aceita solicitações. A configuração de implantação não faz parte do script de entrada. Ele é usado para definir as características do destino de computação que hospedará o modelo e o script de entrada.
+Antes de implementar o seu modelo, deve definir a configuração de implementação. *A configuração de implementação é específica para o alvo da computação que irá acolher o serviço web.* Por exemplo, quando implementa um modelo localmente, deve especificar a porta onde o serviço aceita pedidos. A configuração de implementação não faz parte do seu script de entrada. É usado para definir as características do alvo computacional que irá acolher o modelo e o script de entrada.
 
-Talvez você também precise criar o recurso de computação, se, por exemplo, você ainda não tiver uma instância do AKS (serviço kubernetes do Azure) associada ao seu espaço de trabalho.
+Você também pode precisar de criar o recurso computacional, se, por exemplo, você não tiver já uma instância azure Kubernetes Service (AKS) associada ao seu espaço de trabalho.
 
-A tabela a seguir fornece um exemplo de criação de uma configuração de implantação para cada destino de computação:
+A tabela seguinte fornece um exemplo de criação de uma configuração de implementação para cada alvo do cálculo:
 
-| Destino de computação | Exemplo de configuração de implantação |
+| Destino de computação | Exemplo de configuração de implementação |
 | ----- | ----- |
 | Localização | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
@@ -548,17 +548,17 @@ As aulas para os serviços web locais, Azure Container e AKS podem ser importada
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-## <a name="deploy-to-target"></a>Implantar no destino
+## <a name="deploy-to-target"></a>Desdobre para o alvo
 
-A implantação usa a configuração de implantação de configuração de inferência para implantar os modelos. O processo de implantação é semelhante, independentemente do destino de computação. A implantação em AKS é um pouco diferente, pois você deve fornecer uma referência ao cluster AKS.
+A implementação utiliza a configuração de configuração de inferência para implementar os modelos. O processo de implantação é semelhante independentemente do objetivo do cálculo. A implantação para AKS é ligeiramente diferente porque deve fornecer uma referência ao cluster AKS.
 
-### <a name="securing-deployments-with-ssl"></a>Protegendo implantações com SSL
+### <a name="securing-deployments-with-ssl"></a>Assegurar implementações com sLL
 
 Para obter mais informações sobre como garantir uma implementação de serviço web, consulte [Use SSL para garantir um serviço web](how-to-secure-web-service.md#enable).
 
 ### <a id="local"></a>Implantação local
 
-Para implantar um modelo localmente, você precisa ter o Docker instalado no computador local.
+Para implementar um modelo localmente, precisa de ter o Docker instalado na sua máquina local.
 
 #### <a name="using-the-sdk"></a>Utilizar o SDK
 
@@ -573,9 +573,9 @@ print(service.state)
 
 Para mais informações, consulte a documentação para [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
-#### <a name="using-the-cli"></a>Usando a CLI
+#### <a name="using-the-cli"></a>Usando o CLI
 
-Para implantar um modelo usando a CLI, use o comando a seguir. Substitua `mymodel:1` pelo nome e versão do modelo registado:
+Para implantar um modelo utilizando o CLI, utilize o seguinte comando. Substitua `mymodel:1` pelo nome e versão do modelo registado:
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
@@ -584,6 +584,20 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
 Para mais informações, consulte o [modelo az ml implementar](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) documentação.
+
+### <a name="understanding-service-state"></a>Compreender o estado de serviço
+
+Durante a implementação do modelo, pode ver a alteração do estado de serviço enquanto se desdobra totalmente.
+
+A tabela seguinte descreve os diferentes estados de serviço:
+
+| Estado de serviço web | Descrição | Estado final?
+| ----- | ----- | ----- |
+| Transição | O serviço está em fase de implantação. | Não |
+| Estado de funcionamento incorreto | O serviço foi acionado, mas está inacessível.  | Não |
+| Inescalável | O serviço não pode ser implementado neste momento por falta de recursos. | Não |
+| Falhou | O serviço falhou na sua implantação devido a um erro ou a um acidente. | Sim |
+| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
 
 ### <a id="notebookvm"></a>Serviço web de instância computacional (dev/teste)
 
@@ -597,23 +611,23 @@ Consulte [a implantação para as instâncias](how-to-deploy-azure-container-ins
 
 Consulte [o Serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
-### <a name="ab-testing-controlled-rollout"></a>Teste A/B (distribuição controlada)
+### <a name="ab-testing-controlled-rollout"></a>Ensaio a/B (lançamento controlado)
 Consulte o [lançamento controlado dos modelos ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) para obter mais informações.
 
 ## <a name="consume-web-services"></a>Consumir os serviços web
 
-Cada serviço Web implantado fornece um ponto de extremidade REST, para que você possa criar aplicativos cliente em qualquer linguagem de programação.
-Se você habilitou a autenticação baseada em chave para seu serviço, precisará fornecer uma chave de serviço como um token no cabeçalho da solicitação.
-Se você habilitou a autenticação baseada em token para seu serviço, será necessário fornecer um Azure Machine Learning JWT (token Web JSON) como um token de portador no cabeçalho da solicitação. 
+Cada serviço web implantado fornece um ponto final REST, para que possa criar aplicações de clientes em qualquer idioma de programação.
+Se tiver ativado a autenticação baseada na chave para o seu serviço, precisa de fornecer uma chave de serviço como um símbolo no seu cabeçalho de pedido.
+Se tiver ativado a autenticação baseada em token para o seu serviço, precisa de fornecer um Web Token Web De aprendizagem automática Azure (JWT) como um símbolo portador no seu cabeçalho de pedido. 
 
 A principal diferença é que **as teclas são estáticas e podem ser regeneradas manualmente,** e **as fichas precisam de ser refrescadas após a expiração**. O auth baseado em chaves é suportado para a Instância de Contentores Azure e o Serviço Azure Kubernetes implantado sipróprio si, e o auth baseado em token **só** está disponível para implementações do Serviço Azure Kubernetes. Consulte o [como fazer](how-to-setup-authentication.md#web-service-authentication) na autenticação para obter mais informações e amostras específicas de código.
 
 > [!TIP]
-> Você pode recuperar o documento JSON do esquema depois de implantar o serviço. Utilize a [propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) a partir do serviço web implantado (por exemplo, `service.swagger_uri`) para levar o URI ao ficheiro Swagger do serviço web local.
+> Pode recuperar o documento schema JSON depois de implementar o serviço. Utilize a [propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) a partir do serviço web implantado (por exemplo, `service.swagger_uri`) para levar o URI ao ficheiro Swagger do serviço web local.
 
-### <a name="request-response-consumption"></a>Consumo de solicitação-resposta
+### <a name="request-response-consumption"></a>Consumo de pedido-resposta
 
-Aqui está um exemplo de como invocar seu serviço no Python:
+Aqui está um exemplo de como invocar o seu serviço em Python:
 ```python
 import requests
 import json
@@ -641,11 +655,11 @@ print(response.json())
 
 Para mais informações, consulte [Criar aplicações de clientes para consumir serviços web.](how-to-consume-web-service.md)
 
-### <a name="web-service-schema-openapi-specification"></a>Esquema de serviço Web (especificação OpenAPI)
+### <a name="web-service-schema-openapi-specification"></a>Esquema de serviço web (especificação OpenAPI)
 
 Se usou a geração de esquemas automáticos com a sua implementação, pode obter o endereço da especificação OpenAPI para o serviço utilizando a [propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). (Por exemplo, `print(service.swagger_uri)`.) Utilize um pedido GET ou abra o URI num browser para recuperar a especificação.
 
-O documento JSON a seguir é um exemplo de um esquema (especificação de OpenAPI) gerado para uma implantação:
+O seguinte documento JSON é um exemplo de um esquema (especificação OpenAPI) gerado para uma implantação:
 
 ```json
 {
@@ -784,21 +798,21 @@ Para mais informações, consulte [a especificação OpenAPI](https://swagger.io
 Para um utilitário que possa criar bibliotecas de clientes a partir da especificação, consulte [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
 
 ### <a id="azuremlcompute"></a>Inferência do lote
-Azure Machine Learning destinos de computação são criados e gerenciados pelo Azure Machine Learning. Eles podem ser usados para previsão de lote de pipelines de Azure Machine Learning.
+Os alvos da Azure Machine Learning Compute são criados e geridos pela Azure Machine Learning. Podem ser utilizados para a previsão de lotes a partir de oleodutos Azure Machine Learning.
 
 Para uma passagem de inferência de lote com A Computação de Aprendizagem automática Azure, consulte [como executar as previsões](tutorial-pipeline-batch-scoring-classification.md)do lote .
 
 ### <a id="iotedge"></a>Inferência ioT edge
-O suporte para a implantação no Edge está em versão prévia. Para mais informações, consulte [a Deploy Azure Machine Learning como um módulo IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
+O suporte para a implantação para a borda está em pré-visualização. Para mais informações, consulte [a Deploy Azure Machine Learning como um módulo IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
 
 
 ## <a id="update"></a>Atualizar os serviços web
 
 [!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
-## <a name="continuously-deploy-models"></a>Implantar modelos continuamente
+## <a name="continuously-deploy-models"></a>Implementar continuamente modelos
 
-Pode implantar continuamente modelos utilizando a extensão de Machine Learning para [O Azure DevOps](https://azure.microsoft.com/services/devops/). Você pode usar a extensão Machine Learning do Azure DevOps para disparar um pipeline de implantação quando um novo modelo de aprendizado de máquina for registrado em um espaço de trabalho do Azure Machine Learning.
+Pode implantar continuamente modelos utilizando a extensão de Machine Learning para [O Azure DevOps](https://azure.microsoft.com/services/devops/). Pode utilizar a extensão machine learning para o Azure DevOps para acionar um pipeline de implantação quando um novo modelo de machine learning está registado num espaço de trabalho de Machine Learning Azure.
 
 1. Inscreva-se na [Azure Pipelines,](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)o que torna possível a integração contínua e entrega da sua aplicação a qualquer plataforma ou nuvem. (Note que os gasodutos Azure não são os mesmos que [os gasodutos de Machine Learning](concept-ml-pipelines.md#compare).)
 
@@ -806,31 +820,31 @@ Pode implantar continuamente modelos utilizando a extensão de Machine Learning 
 
 1. Instale a [extensão de Machine Learning para os gasodutos Azure](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
 
-1. Use conexões de serviço para configurar uma conexão de entidade de serviço com seu espaço de trabalho Azure Machine Learning para que você possa acessar seus artefatos. Vá às definições do projeto, selecione ligações de **serviço,** e, em seguida, selecione **Azure Resource Manager:**
+1. Utilize ligações de serviço para configurar uma ligação principal de serviço ao seu espaço de trabalho Azure Machine Learning para que possa aceder aos seus artefactos. Vá às definições do projeto, selecione ligações de **serviço,** e, em seguida, selecione **Azure Resource Manager:**
 
     [![Selecionar Gestor de Recursos Azure](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 
 1. Na lista de **nível scope,** selecione **AzureMLWorkspace,** e, em seguida, introduza o resto dos valores:
 
-    ![Selecionar AzureMLWorkspace](./media/how-to-deploy-and-where/resource-manager-connection.png)
+    ![Selecione AzureMLWorkspace](./media/how-to-deploy-and-where/resource-manager-connection.png)
 
-1. Para implantar continuamente o seu modelo de aprendizagem automática utilizando pipelines Azure, sob gasodutos, selecione **a libertação**. Adicione um novo artefacto e, em seguida, selecione o artefacto **do Modelo AzureML** e a ligação de serviço que criou anteriormente. Selecione o modelo e a versão para disparar uma implantação:
+1. Para implantar continuamente o seu modelo de aprendizagem automática utilizando pipelines Azure, sob gasodutos, selecione **a libertação**. Adicione um novo artefacto e, em seguida, selecione o artefacto **do Modelo AzureML** e a ligação de serviço que criou anteriormente. Selecione o modelo e a versão para desencadear uma implementação:
 
     [modelo AzureML ![Selecione](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
-1. Habilite o gatilho de modelo em seu artefato de modelo. Quando você ativa o gatilho, toda vez que a versão especificada (ou seja, a versão mais recente) desse modelo é registrada em seu espaço de trabalho, um pipeline de versão do Azure DevOps é disparado.
+1. Ative o gatilho do modelo no seu artefacto modelo. Quando liga o gatilho, sempre que a versão especificada (ou seja, a versão mais recente) desse modelo está registada no seu espaço de trabalho, é acionado um pipeline de libertação DoAzure DevOps.
 
     [![Ativar o gatilho do modelo](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
-Para obter mais exemplos e projetos de exemplo, consulte estes repositórios de exemplo no GitHub:
+Para mais projetos de amostra e exemplos, consulte estes repos de amostra no GitHub:
 
 * [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
-## <a name="download-a-model"></a>Baixar um modelo
-Se você quiser baixar seu modelo para usá-lo em seu próprio ambiente de execução, poderá fazer isso com os seguintes comandos SDK/CLI:
+## <a name="download-a-model"></a>Descarregue um modelo
+Se quiser descarregar o seu modelo para o utilizar no seu próprio ambiente de execução, pode fazê-lo com os seguintes comandos SDK/CLI:
 
-SDK
+SDK:
 ```python
 model_path = Model(ws,'mymodel').download()
 ```
@@ -840,11 +854,11 @@ CLI:
 az ml model download --model-id mymodel:1 --target-dir model_folder
 ```
 
-## <a name="preview-no-code-model-deployment"></a>Apresentação Implantação de modelo sem código
+## <a name="preview-no-code-model-deployment"></a>(Pré-visualização) Implementação do modelo sem código
 
-No momento, a implantação de modelo sem código está em versão prévia e dá suporte às seguintes estruturas de Machine Learning:
+A implementação do modelo sem código encontra-se atualmente em pré-visualização e suporta os seguintes quadros de aprendizagem automática:
 
-### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel Format
+### <a name="tensorflow-savedmodel-format"></a>Formato Tensorflow SavedModel
 Os modelos tensorflow precisam de ser registados no **formato SavedModel** para funcionarem sem implementação do modelo sem código.
 
 Consulte [este link](https://www.tensorflow.org/guide/saved_model) para obter informações sobre como criar um SavedModel.
@@ -865,9 +879,9 @@ service = Model.deploy(ws, service_name, [model])
 
 ### <a name="onnx-models"></a>Modelos ONNX
 
-O registro e a implantação do modelo de ONNX têm suporte para qualquer grafo de inferência ONNX. Atualmente, não há suporte para as etapas de pré-processamento e postprocess.
+O registo e implementação do modelo ONNX é suportado para qualquer gráfico de inferência ONNX. Não são atualmente suportadas etapas de pré-processo e pós-processo.
 
-Aqui está um exemplo de como registrar e implantar um modelo MNIST ONNX:
+Aqui está um exemplo de como registar e implementar um modelo MNIST ONNX:
 
 ```python
 from azureml.core import Model
@@ -883,11 +897,11 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-### <a name="scikit-learn-models"></a>Scikit-modelos de aprendizado
+### <a name="scikit-learn-models"></a>Modelos de aprendizagem de scikit
 
-Não há suporte para implantação de modelo de código para todos os tipos de modelo scikit-Learn internos.
+Nenhuma implementação de modelo de código é suportada para todos os tipos de modelos de aprendizagem de scikit incorporados.
 
-Aqui está um exemplo de como registrar e implantar um modelo sklearn sem código extra:
+Aqui está um exemplo de como registar e implementar um modelo sklearn sem código extra:
 
 ```python
 from azureml.core import Model
@@ -906,7 +920,7 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Observação: essas dependências estão incluídas no contêiner de inferência de sklearn predefinido:
+NOTA: Estas dependências estão incluídas no recipiente de inferência sklearn pré-construído:
 
 ```yaml
     - azureml-defaults
@@ -915,34 +929,34 @@ Observação: essas dependências estão incluídas no contêiner de inferência
     - numpy
 ```
 
-## <a name="package-models"></a>Modelos de pacote
+## <a name="package-models"></a>Modelos de pacotes
 
-Em alguns casos, é melhor criar uma imagem Do Docker sem implementar o modelo (se, por exemplo, planeia ser implantado para o [Azure App Service).](how-to-deploy-app-service.md) Ou talvez você queira baixar a imagem e executá-la em uma instalação local do Docker. Talvez você queira até mesmo baixar os arquivos usados para criar a imagem, inspecioná-los, modificá-los e criar a imagem manualmente.
+Em alguns casos, é melhor criar uma imagem Do Docker sem implementar o modelo (se, por exemplo, planeia ser implantado para o [Azure App Service).](how-to-deploy-app-service.md) Ou talvez queira descarregar a imagem e executá-la numa instalação local do Docker. Pode até querer descarregar os ficheiros utilizados para construir a imagem, inspecioná-los, modificá-los e construir a imagem manualmente.
 
-O empacotamento de modelo permite que você faça essas coisas. Ele empacota todos os ativos necessários para hospedar um modelo como um serviço Web e permite que você baixe uma imagem do Docker totalmente criada ou os arquivos necessários para criar um. Há duas maneiras de usar o empacotamento de modelo:
+A embalagem do modelo permite-lhe fazer estas coisas. Embala todos os ativos necessários para hospedar um modelo como um serviço web e permite-lhe descarregar uma imagem do Docker totalmente construída ou os ficheiros necessários para construir um. Existem duas formas de utilizar a embalagem modelo:
 
 **Faça o download de um modelo embalado:** Descarregue uma imagem do Docker que contenha o modelo e outros ficheiros necessários para a hospedar como um serviço web.
 
-**Gerar um Dockerfile:** Descarregue o Dockerfile, modelo, script de entrada e outros bens necessários para construir uma imagem do Docker. Você pode inspecionar os arquivos ou fazer alterações antes de criar a imagem localmente.
+**Gerar um Dockerfile:** Descarregue o Dockerfile, modelo, script de entrada e outros bens necessários para construir uma imagem do Docker. Em seguida, pode inspecionar os ficheiros ou fazer alterações antes de construir a imagem localmente.
 
 Ambos os pacotes podem ser usados para obter uma imagem local do Docker.
 
 > [!TIP]
-> A criação de um pacote é semelhante à implantação de um modelo. Você usa um modelo registrado e uma configuração de inferência.
+> A criação de um pacote é semelhante à implementação de um modelo. Utiliza um modelo registado e uma configuração de inferência.
 
 > [!IMPORTANT]
 > Para descarregar uma imagem totalmente construída ou construir uma imagem localmente, precisa de ter o [Docker](https://www.docker.com) instalado no seu ambiente de desenvolvimento.
 
-### <a name="download-a-packaged-model"></a>Baixar um modelo empacotado
+### <a name="download-a-packaged-model"></a>Descarregue um modelo embalado
 
-O exemplo a seguir cria uma imagem, que é registrada no registro de contêiner do Azure para seu espaço de trabalho:
+O exemplo seguinte constrói uma imagem, que está registada no registo de contentores Azure para o seu espaço de trabalho:
 
 ```python
 package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-Depois de criar um pacote, pode usar `package.pull()` para puxar a imagem para o seu ambiente local do Docker. A saída desse comando exibirá o nome da imagem. Por exemplo: 
+Depois de criar um pacote, pode usar `package.pull()` para puxar a imagem para o seu ambiente local do Docker. A saída deste comando mostrará o nome da imagem. Por exemplo: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -953,17 +967,17 @@ REPOSITORY                               TAG                 IMAGE ID           
 myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
 ```
 
-Para iniciar um contêiner local com base nessa imagem, use o comando a seguir para iniciar um contêiner nomeado do Shell ou da linha de comando. Substitua o valor `<imageid>` pelo ID de imagem devolvido pelo comando `docker images`.
+Para iniciar um contentor local com base nesta imagem, utilize o seguinte comando para iniciar um recipiente nomeado a partir da concha ou linha de comando. Substitua o valor `<imageid>` pelo ID de imagem devolvido pelo comando `docker images`.
 
 ```bash
 docker run -p 6789:5001 --name mycontainer <imageid>
 ```
 
-Este comando inicia a versão mais recente da imagem chamada `myimage`. Ele mapeia a porta local 6789 para a porta no contêiner em que o serviço Web está escutando (5001). Atribui também o nome `mycontainer` ao recipiente, o que facilita a paragem do recipiente. Após o início do recipiente, pode submeter pedidos para `http://localhost:6789/score`.
+Este comando inicia a versão mais recente da imagem chamada `myimage`. Mapeia a porta local 6789 para a porta do contentor em que o serviço web está a ouvir (5001). Atribui também o nome `mycontainer` ao recipiente, o que facilita a paragem do recipiente. Após o início do recipiente, pode submeter pedidos para `http://localhost:6789/score`.
 
 ### <a name="generate-a-dockerfile-and-dependencies"></a>Gerar um Dockerfile e dependências
 
-O exemplo a seguir mostra como baixar o Dockerfile, o modelo e outros ativos necessários para criar uma imagem localmente. O parâmetro `generate_dockerfile=True` indica que quer os ficheiros, não uma imagem totalmente construída.
+O exemplo que se segue mostra como descarregar o Dockerfile, modelo e outros ativos necessários para construir uma imagem localmente. O parâmetro `generate_dockerfile=True` indica que quer os ficheiros, não uma imagem totalmente construída.
 
 ```python
 package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
@@ -977,15 +991,15 @@ print("Username:", acr.username)
 print("Password:", acr.password)
 ```
 
-Este código descarrega os ficheiros necessários para construir a imagem para o diretório `imagefiles`. O Dockerfile incluído nos arquivos salvos faz referência a uma imagem base armazenada em um registro de contêiner do Azure. Ao criar a imagem na instalação local do Docker, você precisa usar o endereço, o nome de usuário e a senha para se autenticar no registro. Use as etapas a seguir para criar a imagem usando uma instalação local do Docker:
+Este código descarrega os ficheiros necessários para construir a imagem para o diretório `imagefiles`. O Dockerfile incluído nos ficheiros guardados refere uma imagem base armazenada num registo de contentores Azure. Quando constrói a imagem na instalação local do Docker, tem de utilizar o endereço, o nome do utilizador e a palavra-passe para autenticar o registo. Utilize os seguintes passos para construir a imagem utilizando uma instalação local do Docker:
 
-1. Em uma sessão de linha de comando ou Shell, use o comando a seguir para autenticar o Docker com o registro de contêiner do Azure. Substitua `<address>`, `<username>`e `<password>` pelos valores recuperados por `package.get_container_registry()`.
+1. A partir de uma sessão de shell ou linha de comando, utilize o seguinte comando para autenticar o Docker com o registo de contentores Azure. Substitua `<address>`, `<username>`e `<password>` pelos valores recuperados por `package.get_container_registry()`.
 
     ```bash
     docker login <address> -u <username> -p <password>
     ```
 
-2. Para criar a imagem, use o comando a seguir. Substitua `<imagefiles>` pelo percurso do diretório onde `package.save()` guardou os ficheiros.
+2. Para construir a imagem, use o seguinte comando. Substitua `<imagefiles>` pelo percurso do diretório onde `package.save()` guardou os ficheiros.
 
     ```bash
     docker build --tag myimage <imagefiles>
@@ -1001,17 +1015,17 @@ REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
 myimage         latest              739f22498d64        3 minutes ago       1.43GB
 ```
 
-Para iniciar um novo contêiner com base nessa imagem, use o seguinte comando:
+Para iniciar um novo recipiente com base nesta imagem, utilize o seguinte comando:
 
 ```bash
 docker run -p 6789:5001 --name mycontainer myimage:latest
 ```
 
-Este comando inicia a versão mais recente da imagem chamada `myimage`. Ele mapeia a porta local 6789 para a porta no contêiner em que o serviço Web está escutando (5001). Atribui também o nome `mycontainer` ao recipiente, o que facilita a paragem do recipiente. Após o início do recipiente, pode submeter pedidos para `http://localhost:6789/score`.
+Este comando inicia a versão mais recente da imagem chamada `myimage`. Mapeia a porta local 6789 para a porta do contentor em que o serviço web está a ouvir (5001). Atribui também o nome `mycontainer` ao recipiente, o que facilita a paragem do recipiente. Após o início do recipiente, pode submeter pedidos para `http://localhost:6789/score`.
 
-### <a name="example-client-to-test-the-local-container"></a>Exemplo de cliente para testar o contêiner local
+### <a name="example-client-to-test-the-local-container"></a>Cliente exemplo para testar o contentor local
 
-O código a seguir é um exemplo de um cliente Python que pode ser usado com o contêiner:
+O seguinte código é um exemplo de um cliente Python que pode ser usado com o recipiente:
 
 ```python
 import requests
@@ -1040,9 +1054,9 @@ print(resp.text)
 
 Por exemplo, clientes de outras linguagens de programação, consulte [os modelos Consumir implantados como serviços web.](how-to-consume-web-service.md)
 
-### <a name="stop-the-docker-container"></a>Parar o contêiner do Docker
+### <a name="stop-the-docker-container"></a>Pare o recipiente docker
 
-Para parar o contêiner, use o seguinte comando de um shell ou linha de comando diferente:
+Para parar o recipiente, utilize o seguinte comando de uma camada ou linha de comando diferente:
 
 ```bash
 docker kill mycontainer

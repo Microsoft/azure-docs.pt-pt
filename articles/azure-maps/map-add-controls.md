@@ -1,25 +1,25 @@
 ---
-title: Adicionar controles a um mapa | Mapas do Microsoft Azure
-description: Como adicionar controle de zoom, controle de densidade, controle de rotação e um seletor de estilo a um mapa em mapas de Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+title: Adicione controlos a um mapa  Microsoft Azure Maps
+description: Como adicionar controlo de zoom, controlo de pitch, controlo rotativo e um picker de estilo para um mapa no Microsoft Azure Maps.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e2ad8eb181685d3ac3de8b1e0ed7ef8ddfa4e224
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e386c136e7d0258d00c22c627dfa5047ba803169
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933288"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209771"
 ---
-# <a name="add-controls-to-a-map"></a>Adicionar controles a um mapa
+# <a name="add-controls-to-a-map"></a>Adicione controlos a um mapa
 
-Este artigo mostra como adicionar controles a um mapa. Você também vai aprender a criar um mapa com todos os controlos e um apanhador de [estilo](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+Este artigo mostra-lhe como adicionar controlos a um mapa. Você também vai aprender a criar um mapa com todos os controlos e um apanhador de [estilo](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
-## <a name="add-zoom-control"></a>Adicionar controle de zoom
+## <a name="add-zoom-control"></a>Adicionar controlo de zoom
 
 Um controlo de zoom adiciona botões para ampliar o mapa para dentro e para fora. A amostra de código seguinte cria uma instância da classe [ZoomControl,](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) e adiciona-a no canto inferior direito do mapa.
 
@@ -30,16 +30,16 @@ map.controls.add(new atlas.control.ZoomControl(), {
 });
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Abaixo está a amostra completa de código de execução da funcionalidade acima referida.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicionando um controle de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>adicionando um controle de zoom</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionar um controlo de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adicionando um controlo de zoom</a> por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="add-pitch-control"></a>Adicionar controle de densidade
+## <a name="add-pitch-control"></a>Adicionar controlo de pitch
 
-Um controle de densidade Adiciona botões para inclinar a inclinação para mapear em relação ao horizonte. A amostra de código seguinte cria uma instância da classe [PitchControl.](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) Adiciona o PitchControl ao canto superior direito do mapa.
+Um controlo de arremesso adiciona botões para inclinar o tom para mapear em relação ao horizonte. A amostra de código seguinte cria uma instância da classe [PitchControl.](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) Adiciona o PitchControl ao canto superior direito do mapa.
 
 ```javascript
 //Construct a pitch control and add it to the map.
@@ -48,16 +48,16 @@ map.controls.add(new atlas.control.PitchControl(), {
 });
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Abaixo está a amostra completa de código de execução da funcionalidade acima referida.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicionando um controle de timbre' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>adicionando um controle de pitch</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionar um controlo de pitch' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Caneta <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adicionando um controlo</a> de pitch por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="add-compass-control"></a>Adicionar controle de bússola
+## <a name="add-compass-control"></a>Adicionar controlo de bússola
 
-Um controle Compass adiciona um botão para girar o mapa. O exemplo de código a seguir cria uma instância da classe de [controle Compass](/javascript/api/azure-maps-control/atlas.control.compasscontrol) e a adiciona ao canto inferior esquerdo do mapa.
+Um controlo de bússola adiciona um botão para rodar o mapa. A amostra de código seguinte cria uma instância da classe [Decontrolo](/javascript/api/azure-maps-control/atlas.control.compasscontrol) da Bússola e adiciona-a ao canto inferior esquerdo do mapa.
 
 ```javascript
 //Construct a compass control and add it to the map.
@@ -66,42 +66,42 @@ map.controls.add(new atlas.control.Compass(), {
 });
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Abaixo está a amostra completa de código de execução da funcionalidade acima referida.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicionando um controle de rotação' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>adicionando um controle de giro</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionar um controlo rotativo' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adicionando um controlo rotativo</a> por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="a-map-with-all-controls"></a>Um mapa com todos os controles
+## <a name="a-map-with-all-controls"></a>Um mapa com todos os controlos
 
-O exemplo de código a seguir adiciona os controles de seletor de estilo, zoom, densidade e bússola ao canto inferior direito do mapa. Observe como eles são automaticamente empilhados. A ordem dos objetos de controle no script determina a ordem na qual eles aparecem no mapa. Para alterar a ordem dos controles no mapa, você pode alterar sua ordem no script.
+A amostra de código seguinte adiciona os controlos de picker de estilo, zoom, pitch e bússola ao canto inferior direito do mapa. Reparem como se empilham automaticamente. A ordem dos objetos de controlo no guião dita a ordem em que aparecem no mapa. Para alterar a ordem dos controlos no mapa, pode alterar a ordem no script.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Um mapa com todos os controles' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>a um mapa com todos os controles</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Um mapa com todos os controlos' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja o mapa pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A com todos os controlos do</a> Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-O controle do seletor de estilo é definido pela classe [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) . Para obter mais informações sobre como usar o controle de seletor de estilo, consulte [escolher um estilo de mapa](choose-map-style.md).
+O controlo do picker de estilo é definido pela classe [StyleControl.](/javascript/api/azure-maps-control/atlas.control.stylecontrol) Para obter mais informações sobre a utilização do controlo do picker de estilo, consulte [escolha um estilo](choose-map-style.md)de mapa .
 
-## <a name="customize-controls"></a>Personalizar controles
+## <a name="customize-controls"></a>Personalizar controlos
 
-Aqui está uma ferramenta para testar as várias opções para personalizar os controles.
+Aqui está uma ferramenta para testar as várias opções para personalizar os controlos.
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opções de controle de navegação" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte as <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Opções de controle de navegação</a> por caneta pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opções de controlo de navegação" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte as <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>opções</a> de controlo de navegação por Caneta saque a Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Se você quiser criar controles de navegação personalizados, crie uma classe que se estenda da classe `atlas.Control` ou crie um elemento HTML e posicione-o acima do div do mapa. Mande este controlo de UI ligar para os mapas `setCamera` função para mover o mapa. 
+Se quiser criar controlos de navegação personalizados, crie uma classe que se estenda à classe `atlas.Control` ou crie um elemento HTML e o posicione acima do div do mapa. Mande este controlo de UI ligar para os mapas `setCamera` função para mover o mapa. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as classes e os métodos usados neste artigo:
+Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Controle de bússola](/javascript/api/azure-maps-control/atlas.control.compasscontrol)
+> [Controlo da Bússola](/javascript/api/azure-maps-control/atlas.control.compasscontrol)
 
 > [!div class="nextstepaction"]
 > [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) 
@@ -112,20 +112,20 @@ Saiba mais sobre as classes e os métodos usados neste artigo:
 > [!div class="nextstepaction"]
 > [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) 
 
-Consulte os artigos a seguir para obter o código completo:
+Consulte os seguintes artigos para obter o código completo:
 
 > [!div class="nextstepaction"]
-> [Adicionar um PIN](./map-add-pin.md)
+> [Adicione um pino](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar um pop-up](./map-add-popup.md)
+> [Adicione um popup](./map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de linha](map-add-line-layer.md)
+> [Adicione uma camada de linha](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de polígono](map-add-shape.md)
+> [Adicione uma camada de polígono](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de bolha](map-add-bubble-layer.md)
+> [Adicione uma camada de bolha](map-add-bubble-layer.md)
 

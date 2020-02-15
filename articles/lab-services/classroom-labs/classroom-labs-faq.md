@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 551167cda28a2bb6007e66c1b4b458a0a7b2e396
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: a0361203f4a8a2e57d179b39ba6da2fb62f68720
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718024"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252064"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios da sala de aula em Azure Lab Services – perguntas frequentes (FAQ)
 Obtenha respostas para algumas das perguntas mais comuns sobre os laboratórios de sala de aula em Azure Lab Services. 
@@ -31,7 +31,7 @@ A cota que você definiu para um laboratório é para cada aluno toda a duraçã
 ## <a name="schedules"></a>Agendas
 
 ### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Todas as VMs no laboratório são iniciadas automaticamente quando uma agenda é definida? 
-Não. Nem todas as VMs. Somente as VMs que são atribuídas aos usuários em um agendamento. As VMs que não estão atribuídas a um usuário não são iniciadas automaticamente. É por design. 
+Não. Nem todas as VMs. Somente as VMs que são atribuídas aos usuários em um agendamento. Os VMs que não são atribuídos a um utilizador não são automaticamente iniciados. É por design. 
 
 ## <a name="lab-accounts"></a>Contas de laboratório
 
@@ -47,22 +47,28 @@ As portas são: 49152 – 65535. Os laboratórios de sala de aula ficam atrás d
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Qual intervalo de endereços IP públicos devo abrir nas configurações de firewall da minha organização para se conectar às máquinas virtuais do laboratório via RDP/SSH?
 Consulte [as gamas e etiquetas de serviço Azure IP — Public Cloud,](https://www.microsoft.com/download/details.aspx?id=56519)que fornece a gama pública de endereços IP para centros de dados em Azure. Você pode abrir os endereços IP para as regiões nas quais suas contas de laboratório estão.
 
+## <a name="virtual-machine-images"></a>Imagens de máquinas virtuais
+
+### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Como criador de laboratório, por que não posso permitir opções de imagem adicionais nas imagens de máquinas virtuais quando se cria um novo laboratório?
+
+Quando um administrador te adiciona como criador de laboratório a uma conta de laboratório, é-te dada permissão para criar laboratórios. Mas não tem permissão para editar quaisquer configurações dentro da conta do laboratório, incluindo a lista de imagens de máquinas virtuais ativadas. Para permitir imagens adicionais, contacte o administrador da sua conta de laboratório para o fazer por si, ou peça ao administrador que o adicione como colaborador na conta do laboratório. O papel do Colaborador irá dar-lhe as permissões para editar a lista de imagens de máquinavirtual na conta de laboratório.
+
 ## <a name="users"></a>Utilizadores
 
 ### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Quantos usuários podem estar em um laboratório de sala de aula?
 Você pode adicionar até 400 usuários a um laboratório de sala de aula. 
 
-## <a name="blog-post"></a>Postagem no blog
+## <a name="blog-post"></a>Post de blog
 Subscreva o [blog Azure Lab Services.](https://azure.microsoft.com/blog/tag/azure-lab-services/)
 
 ## <a name="update-notifications"></a>Notificações de atualização
 Subscreva [as atualizações dos Serviços](https://azure.microsoft.com/updates/?product=lab-services) labiais para se manter informado sobre novas funcionalidades nos Serviços labiais.
 
 ## <a name="general"></a>Geral
-### <a name="what-if-my-question-isnt-answered-here"></a>E se minha pergunta não for respondida aqui?
-Se sua pergunta não estiver listada aqui, informe-nos, para que possamos ajudá-lo a encontrar uma resposta.
+### <a name="what-if-my-question-isnt-answered-here"></a>E se a minha pergunta não for respondida aqui?
+Se a sua pergunta não estiver listada aqui, avise-nos, para que possamos ajudá-lo a encontrar uma resposta.
 
-- Poste uma pergunta no final das perguntas frequentes. 
+- Poste uma pergunta no final desta FAQ. 
 - Para chegar a um público mais vasto, publique uma pergunta sobre o [Azure Lab Services — Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
 - Para pedidos de funcionalidades, envie os seus pedidos e ideias para os [Serviços do Laboratório Azure — Voz do Utilizador](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

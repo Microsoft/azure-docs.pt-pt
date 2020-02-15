@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: f95d7613926cf332a498cca84563dbc0ebcbbe9b
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086881"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211439"
 ---
 ## <a name="general-entity-types"></a>Tipos de entidades gerais:
 
@@ -22,7 +22,7 @@ ms.locfileid: "77086881"
 Reconhecer nomes de pessoas em texto.
 
 Idiomas:
-* Antevisão do público: `English`
+* Pré-visualização pública: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish``Swedish` e `Turkish`
 
 | Nome do subtipo | Descrição                                                      | Disponível a partir da versão modelo |
 |--------------|------------------------------------------------------------------|---------------------------------------|
@@ -44,12 +44,12 @@ Marcos naturais e humanos, estruturas, características geográficas e entidades
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish``Swedish` e `Turkish`
 
 | Nome do subtipo              | Descrição                                                                              | Disponível a partir da versão modelo |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
 | N/D                       | locais, por exemplo, `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
-| Entidade Geopolítica (GPE) | Cidades, países, estados, por exemplo, `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
+| Entidade Geopolítica (GPE) - Apenas em inglês| Cidades, países, estados, por exemplo, `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organização  
 
@@ -57,7 +57,7 @@ Organizações reconhecidas, corporações, agências e outros grupos de pessoas
 
 Idiomas: 
 
-* Antevisão do público: `English`
+* Pré-visualização pública: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish``Swedish` e `Turkish`
 
 | Nome do subtipo | Descrição                                                                                             | Disponível a partir da versão modelo |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
@@ -156,7 +156,7 @@ Entidades de data e hora.
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Antevisão do público: `Chinese-Simplified`, `English`, `French`, `German` e `Spanish`
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|
@@ -176,7 +176,7 @@ Números e quantidades numéricas.
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Antevisão do público: `Chinese-Simplified`, `English`, `French`, `German` e `Spanish`
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|

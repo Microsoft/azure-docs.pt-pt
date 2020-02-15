@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e5ea4bba693a6785dae4075da7b13154593bb4c
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 83144738124b223e305b6c0d3ad1065f5dae408e
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087362"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212603"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -121,6 +121,8 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 
 ## <a name="change-log"></a>Registo de Alterações
 
+- 02/13/2020: Alteração dos [VMs Azure alta disponibilidade para SAP NetWeaver em RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) e [VMs Azure alta disponibilidade para SAP NetWeaver em RHEL com Ficheiros Azure NetApp](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) para alinhar os prazos dos recursos de cluster com as recomendações de timeout do Chapéu Vermelho
+- 02/11/2020: Lançamento do [SAP HANA sobre migração de grandes instâncias azure para máquinas virtuais azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)
 - 02/07/2020: Alteração da [conectividade de ponto final público para VMs utilizando O ILB padrão Azure em cenários SAP HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) para atualizar a amostra de imagens NSG
 - 02/03/2020: Alteração da [elevada disponibilidade para SAP NW em VMs Azure em SLES para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse) e [Alta disponibilidade para SAP NW em VMs Azure em SLES com APLICAÇÕES ANF para](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) remover o aviso sobre a utilização do traço nos nomes de acolhimento de nós de cluster em SLES
 - 01/28/2020: Alteração [da elevada disponibilidade do SAP HANA em VMs Azure na RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) para alinhar os prazos dos recursos do cluster SAP HANA com as recomendações de timeout do Chapéu Vermelho

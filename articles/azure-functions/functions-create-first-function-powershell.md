@@ -1,43 +1,43 @@
 ---
-title: Criar sua primeira função do PowerShell no Azure
-description: Saiba como criar sua primeira função do PowerShell no Azure usando Visual Studio Code.
+title: Crie a sua primeira função PowerShell em Azure
+description: Aprenda a criar a sua primeira função PowerShell em Azure usando o Visual Studio Code.
 author: joeyaiello
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: b1a1caf985e9693e261684c1edb21184071ebfc8
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e9aeb7234f5b840d790f6358bab2426462cc7986
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845914"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210230"
 ---
-# <a name="create-your-first-powershell-function-in-azure"></a>Criar sua primeira função do PowerShell no Azure
+# <a name="create-your-first-powershell-function-in-azure"></a>Crie a sua primeira função PowerShell em Azure
 
-Este artigo de início rápido orienta como criar sua primeira função do PowerShell sem [servidor](https://azure.com/serverless) usando o Visual Studio Code.
+Este artigo de arranque rápido ajuda-o a criar a sua primeira função PowerShell [sem servidor](https://azure.com/serverless) usando o Código do Estúdio Visual.
 
-![Azure Functions código em um projeto Visual Studio Code](./media/functions-create-first-function-powershell/powershell-project-first-function.png)
+![Código de Funções Azure em um projeto de Código de Estúdio Visual](./media/functions-create-first-function-powershell/powershell-project-first-function.png)
 
-Use a [Extensão das Funções do Azure para o Visual Studio Code] para criar uma função do PowerShell localmente e, em seguida, implantá-la em um novo aplicativo de funções no Azure. A extensão está atualmente em pré-visualização. Para obter mais informações, veja a página de extensão [Extensão das Funções do Azure para o Visual Studio Code].
+Utiliza a [Extensão das Funções do Azure para o Visual Studio Code] de Estúdio Visual para criar uma função PowerShell localmente e depois implanta-a numa nova aplicação de funções no Azure. A extensão está atualmente em pré-visualização. Para obter mais informações, veja a página de extensão [Extensão das Funções do Azure para o Visual Studio Code].
 
-As etapas a seguir são compatíveis com sistemas operacionais macOS, Windows e Linux.
+Os seguintes passos são suportados nos sistemas operativos macOS, Windows e Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
-* Instalar o [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
+* Instalar [powerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 * Instale o [Visual Studio Code](https://code.visualstudio.com/) numa das [plataformas suportadas](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
-* Instale [a extensão do PowerShell para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
+* Instale [a extensão PowerShell para O Código](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)do Estúdio Visual .
 
-* Instale o [SDK do .NET Core 2.2 +](https://www.microsoft.com/net/download) (exigido pelo Azure Functions Core Tools e disponível em todas as plataformas com suporte).
+* Instale [.NET Core SDK 2.2+](https://www.microsoft.com/net/download) (exigido pelas Ferramentas Core funções do Azure e disponível em todas as plataformas suportadas).
 
-* Instale a versão 2. x do [Azure Functions Core Tools](functions-run-local.md#v2).
+* Instale a versão 2.x das [Ferramentas Core funções do Azure](functions-run-local.md#v2).
 
-* Você também precisa de uma assinatura ativa do Azure.
+* Também precisa de uma subscrição azure ativa.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,35 +45,35 @@ Para concluir este guia de início rápido:
 
 ## <a name="create-a-function-app-project"></a>Criar um projeto de aplicação de função
 
-O modelo do projeto das Funções do Azure no Visual Studio Code cria um projeto que pode ser publicado numa aplicação de funções no Azure. Um aplicativo de funções permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
+O modelo do projeto das Funções do Azure no Visual Studio Code cria um projeto que pode ser publicado numa aplicação de funções no Azure. Uma aplicação de função permite-lhe agrupar funções como uma unidade lógica para uma gestão mais fácil, implementação, escalae e partilha de recursos.
 
 1. No Visual Studio Code, selecione o logótipo do Azure para apresentar a área **Azure: Funções** e, em seguida, selecione o ícone Criar Novo Projeto.
 
     ![Criar um projeto de aplicação de função](./media/functions-create-first-function-powershell/create-function-app-project.png)
 
-1. Escolha um local para seu espaço de trabalho de projeto do Functions e escolha **selecionar**.
+1. Escolha um local para o espaço de trabalho do projeto Funções e escolha **Select**.
 
     > [!NOTE]
     > Este artigo foi criado para ser concluído fora de uma área de trabalho. Neste caso, não selecione uma pasta de projeto que faz parte de uma área de trabalho.
 
-1. Selecione o **PowerShell** como o idioma para seu projeto de aplicativo de funções e, em seguida, **Azure Functions v2**.
+1. Selecione o **Powershell** como o idioma para o seu projeto de aplicação de funções e, em seguida, **funções Azure v2**.
 
-1. Escolha **gatilho http** como o modelo para sua primeira função, use `HTTPTrigger` como o nome da função e escolha um nível de autorização de **função**.
+1. Escolha **http Trigger** como modelo para a sua primeira função, use `HTTPTrigger` como nome de função e escolha um nível de **funcionamento**de autorização .
 
     > [!NOTE]
-    > O nível de autorização de **função** requer um valor de [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade de função no Azure. Isso torna mais difícil para apenas qualquer pessoa chamar sua função.
+    > O nível de autorização **de função** requer um valor chave de [função](functions-bindings-http-webhook-trigger.md#authorization-keys) ao ligar para o ponto final da função em Azure. Isto torna mais difícil para qualquer um ligar para a sua função.
 
 1. Quando lhe for pedido, escolha **Adicionar à área de trabalho**.
 
-Visual Studio Code cria o projeto de aplicativo de funções do PowerShell em um novo espaço de trabalho. Este projeto contém os arquivos de configuração [host. JSON](functions-host-json.md) e [local. Settings. JSON](functions-run-local.md#local-settings-file) , que se aplicam a todas as funções no projeto. Este [projeto do PowerShell](functions-reference-powershell.md#folder-structure) é o mesmo que um aplicativo de funções em execução no Azure.
+O Visual Studio Code cria o projeto da aplicação de funções PowerShell num novo espaço de trabalho. Este projeto contém os ficheiros de configuração [host.json](functions-host-json.md) e [local.settings.json,](functions-run-local.md#local-settings-file) que se aplicam a todas as funções no projeto. Este [projeto PowerShell](functions-reference-powershell.md#folder-structure) é o mesmo que uma aplicação de função em funcionamento no Azure.
 
 [!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## <a name="test"></a>Executar a função no Azure
+## <a name="test"></a>Executar a função em Azure
 
-Para verificar se a função publicada é executada no Azure, execute o seguinte comando do PowerShell, substituindo o parâmetro `Uri` pela URL da função HTTPTrigger da etapa anterior. Como antes, acrescente a cadeia de caracteres de consulta `&name=<yourname>` à URL, como no exemplo a seguir:
+Para verificar se a sua função publicada funciona em Azure, execute o seguinte comando PowerShell, substituindo o parâmetro `Uri` pelo URL da função HTTPTrigger do passo anterior. Como antes, anexar a cadeia de consulta `&name=<yourname>` ao URL, como no seguinte exemplo:
 
 ```powershell
 PS > Invoke-WebRequest -Method Get -Uri "https://glengatest-vscode-powershell.azurewebsites.net/api/HttpTrigger?code=nrY05eZutfPqLo0som...&name=PowerShell"
@@ -98,7 +98,7 @@ RawContentLength  : 16
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você usou Visual Studio Code para criar um aplicativo de funções do PowerShell com uma função simples disparada por HTTP. Você também pode querer saber mais sobre como [depurar uma função do PowerShell localmente](functions-debug-powershell-local.md) usando o Azure Functions Core Tools. Confira o [Guia do desenvolvedor do Azure Functions PowerShell](functions-reference-powershell.md).
+Usou o Código do Estúdio Visual para criar uma aplicação de função PowerShell com uma função simples desencadeada por HTTP. Também pode querer saber mais sobre [depurar uma função PowerShell localmente](functions-debug-powershell-local.md) usando as Ferramentas Core funções Azure. Confira o guia de desenvolvimento de [funções Azure PowerShell](functions-reference-powershell.md).
 
 > [!div class="nextstepaction"]
 > [Ativar a integração do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)

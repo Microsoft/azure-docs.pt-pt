@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118812"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206128"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Apoio à língua e à região para a API de Texto tradutor
 
@@ -141,7 +141,7 @@ O método transliterado suporta as seguintes línguas. No "To/From", "<->" indic
 | Sérvio (Latim) | `sr-Latn` | `Latn` latino | --> | `Cyrl` cirílico|
 | Tamil | `ta` | `Taml` Tamil | --> | `Latn` latino |
 | Télego | `te` | `Telu` de Telugu | --> | `Latn` latino |
-| Tailandês | `th` | `Thai` tailandeses | <--> | `Latn` latino |
+| Tailandês | `th` | `Thai` tailandeses | --> | `Latn` latino |
 
 ## <a name="dictionary"></a>Dicionário
 

@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1d4153ac5e02d28d054034f33859332158d5a555
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 552c6b5176babfc1a66f74f1bb6daa9370744b8f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162366"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210436"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 
 > [!NOTE]
 > Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, contacte AskAzureDBforMySQL@service.microsoft.com.
 
-A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Azure para MySQL permite-lhe trazer a sua chave qwn (BYOK) para a proteção de dados em repouso. Permite ainda que as organizações implementem a separação de deveres na gestão de chaves e dados. Com a encriptação gerida pelo cliente, é responsável e, em pleno controlo, pelo ciclo de vida de uma chave, permissões de utilização chave e auditoria de operações em chaves.
+A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Azure para mySQL permite-lhe trazer a sua própria chave (BYOK) para a proteção de dados em repouso. Permite ainda que as organizações implementem a separação de deveres na gestão de chaves e dados. Com a encriptação gerida pelo cliente, é responsável e, em pleno controlo, pelo ciclo de vida de uma chave, permissões de utilização chave e auditoria de operações em chaves.
 
 A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Azure para mySQL, é definida ao nível do servidor. Para um determinado servidor, uma chave gerida pelo cliente, chamada chave de encriptação (KEK), é usada para encriptar a chave de encriptação de dados (DEK) utilizada pelo serviço. O KEK é uma chave assimétrica armazenada numa instância [azure key vault](../key-vault/key-Vault-secure-your-key-Vault.md) gerida pelo cliente e gerida pelo cliente. A chave de encriptação (KEK) e a chave de encriptação de dados (DEK) são descritas mais detalhadamente mais tarde neste artigo.
 

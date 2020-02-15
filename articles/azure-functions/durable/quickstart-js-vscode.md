@@ -5,22 +5,22 @@ author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: b0a1d1a9305f6de2a072ee1ded310d8de174436b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 431bd45763cbe24e44d47342b32c5c452a27b0f6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845722"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210298"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Crie a sua primeira função durável no JavaScript
 
-*Durable Functions* é uma extensão de [Azure Functions](../functions-overview.md) que permite que você escreva funções com estado em um ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si.
+*Funções Duráveis* é uma extensão das [Funções Azure](../functions-overview.md) que permite escrever funções imponentes num ambiente sem servidores. A extensão gere o estado, os pontos de verificação e os reinícios por si.
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 Neste artigo, aprende-se a usar a extensão visual do Código de Código Azure para criar e testar localmente uma função durável "hello world".  Esta função irá orquestrar e acorrentar chamadas em conjunto para outras funções. Em seguida, publique o código de função no Azure.
 
-![Executando a função durável no Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+![Funcionamento da função durável em Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,9 +42,9 @@ Para concluir este tutorial:
 
 Nesta secção, você usa o Código de Estúdio Visual para criar um projeto local de Funções Azure. 
 
-1. Em Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comandos, procure e selecione `Azure Functions: Create new project...`.
+1. Em Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comando, procure e selecione `Azure Functions: Create new project...`.
 
-1. Escolha um local de diretório para o espaço de trabalho do projeto e escolha **selecionar**.
+1. Escolha um local de diretório para o seu espaço de trabalho do projeto e escolha **Select**.
 
     > [!NOTE]
     > Essas etapas foram projetadas para serem concluídas fora de um espaço de trabalho. Neste caso, não selecione uma pasta de projeto que faz parte de uma área de trabalho.
@@ -54,10 +54,10 @@ Nesta secção, você usa o Código de Estúdio Visual para criar um projeto loc
     | Mensagem | Valor | Descrição |
     | ------ | ----- | ----------- |
     | Selecione um idioma para o seu projeto de aplicação de funções | Javascript | Crie um projeto local de Funções Node.js. |
-    | selecionar uma versão | Funções Azure v2 | Só se vê esta opção quando as Ferramentas Core ainda não estão instaladas. Neste caso, as Ferramentas Core são instaladas na primeira vez que executa a aplicação. |
+    | Selecione uma versão | Funções Azure v2 | Só se vê esta opção quando as Ferramentas Core ainda não estão instaladas. Neste caso, as Ferramentas Core são instaladas na primeira vez que executa a aplicação. |
     | Selecione um modelo para a primeira função do seu projeto | Acionador HTTP | Crie uma função ativada em HTTP na nova aplicação de funções. |
     | Fornecer um nome de função | HttpTrigger | Pressione Introduza para utilizar o nome predefinido. |
-    | Nível de autorização | Função | O nível de autorização `function` requer que forneça uma chave de acesso ao ligar para o ponto final http da sua função. Isto torna mais difícil o acesso a um ponto final não seguro. Para saber mais, consulte [as chaves de autorização.](../functions-bindings-http-webhook.md#authorization-keys)  |
+    | Nível de autorização | Função | O nível de autorização `function` requer que forneça uma chave de acesso ao ligar para o ponto final http da sua função. Isto torna mais difícil o acesso a um ponto final não seguro. Para saber mais, consulte [as chaves de autorização.](../functions-bindings-http-webhook-trigger.md#authorization-keys)  |
     | Selecione como pretende abrir o seu projeto | Adicione ao espaço de trabalho | Cria a aplicação de funções no espaço de trabalho atual. |
 
 O Visual Studio Code instala as Ferramentas Core funções Do Azure, se necessário. Também cria um projeto de aplicação de funções num novo espaço de trabalho. Este projeto contém os ficheiros de configuração [host.json](../functions-host-json.md) e [local.settings.json.](../functions-run-local.md#local-settings-file) Também cria uma pasta HttpExample que contém o ficheiro de [definição function.json](../functions-reference-node.md#folder-structure) e o [ficheiro index.js](../functions-reference-node.md#exporting-a-function), um ficheiro Node.js que contém o código de função.
@@ -84,13 +84,13 @@ Primeiro, crie uma função ativada http que inicie uma orquestração de funç�
 
     ![Escolha o modelo de arranque http](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Deixe o nome predefinido, como `DurableFunctionsHttpStart` e prima ** **Enter**, em seguida, selecione **anónimo** autenticação.
+3. Deixe o nome padrão como `DurableFunctionsHttpStart` e prima *****Enter*** e, em seguida, selecione a autenticação **Anónima.**
 
     ![Escolher autenticação anónima](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
 Criamos agora um ponto de entrada na nossa Função Durável. Vamos adicionar um orquestrador.
 
-### <a name="orchestrator"></a>Orchestrator
+### <a name="orchestrator"></a>Orquestrador
 
 Vamos criar um orquestrador para coordenar as funções de atividade.
 
@@ -139,11 +139,11 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
 5. Utilizando uma ferramenta como [o Carteiro](https://www.getpostman.com/) ou [cURL,](https://curl.haxx.se/)envie um pedido HTTP POST para o ponto final do URL.
 
-   A resposta é o resultado inicial da função HTTP que nos permite saber que a orquestração durável foi iniciada com êxito. Ainda não é o resultado final da orquestração. A resposta inclui algumas URLs úteis. Por enquanto, vamos consultar o status da orquestração.
+   A resposta é o resultado inicial da função HTTP, informando-nos de que a orquestração durável começou com sucesso. Ainda não é o resultado final da orquestração. A resposta inclui alguns URLs úteis. Por enquanto, vamos consultar o estado da orquestração.
 
 6. Copie o valor de URL para `statusQueryGetUri` e cole-o na barra de endereços do navegador e execute o pedido. Em alternativa, também pode continuar a utilizar o Carteiro para emitir o pedido GET.
 
-   A solicitação consultará a instância de orquestração do status. Deve obter uma resposta eventual, o que nos mostra que a instância já terminou, e inclui as saídas ou resultados da função durável. Parece que: 
+   O pedido irá consultar a instância de orquestração para o estatuto. Deve obter uma resposta eventual, o que nos mostra que a instância já terminou, e inclui as saídas ou resultados da função durável. Parece que: 
 
     ```json
     {
@@ -175,11 +175,11 @@ Depois de verificar que a função é executada corretamente no computador local
 
         http://<functionappname>.azurewebsites.net/orchestrators/<functionname>
 
-2. Cole este novo URL do pedido HTTP na barra de endereço do browser. Você deve obter a mesma resposta de status que antes de usar o aplicativo publicado.
+2. Cole este novo URL do pedido HTTP na barra de endereço do browser. Deve obter a mesma resposta de estado que antes ao utilizar a aplicação publicada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Usou o Código do Estúdio Visual para criar e publicar uma aplicação de função durável JavaScript.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre padrões comuns de função durável](durable-functions-overview.md#application-patterns)
+> [Conheça os padrões comuns de função durável](durable-functions-overview.md#application-patterns)

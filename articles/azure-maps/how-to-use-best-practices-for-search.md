@@ -1,19 +1,19 @@
 ---
 title: Pesquisar de forma eficiente utilizando o Serviço de Pesquisa do Azure Maps  Microsoft Azure Maps
 description: Saiba como aplicar as melhores práticas para o Serviço de Pesquisa utilizando o Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e29b3d70c576955637424208aeb0f980669b67bb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82e0339e02fa2fb27e7b2ca24f65934e3ce4fe23
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899164"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209805"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Boas práticas para o Serviço de Pesquisa de Mapas Azure
 
@@ -460,17 +460,17 @@ PHP:
 urlencode(query)
 ```
 
-Rubi
+Ruby:
 ```Ruby
 CGI::escape(query) 
 ```
 
-Swift
+Swift:
 ```Swift
 query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) 
 ```
 
-Vá
+Vai:
 ```Go
 import ("net/url") 
 url.QueryEscape(query)
@@ -483,7 +483,7 @@ Numa pesquisa de POI, pode solicitar resultados de POI pelo nome. Por exemplo, p
 
 Recomendamos vivamente que utilize o parâmetro `countrySet` para especificar países onde a sua aplicação necessita de cobertura. O comportamento padrão é procurar em todo o mundo. Esta ampla pesquisa pode devolver resultados desnecessários, e a pesquisa pode demorar muito tempo.
 
-### <a name="brand-search"></a>Pesquisa de marca
+### <a name="brand-search"></a>Pesquisa de marcas
 
 Para melhorar a relevância dos resultados e a informação na resposta, uma resposta de pesquisa poi inclui informações da marca. Pode utilizar esta informação para analisar ainda mais a resposta.
 
@@ -741,7 +741,7 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
 ```
 
 
-### <a name="airport-search"></a>Pesquisa de aeroportos
+### <a name="airport-search"></a>Pesquisa no aeroporto
 
 Ao utilizar a API PoI de Pesquisa, pode procurar aeroportos utilizando o seu código oficial. Por exemplo, você pode usar *o SEA* para encontrar o Aeroporto Internacional de Seattle-Tacoma: 
 
@@ -749,13 +749,13 @@ Ao utilizar a API PoI de Pesquisa, pode procurar aeroportos utilizando o seu có
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=SEA 
 ```
 
-### <a name="nearby-search"></a>Pesquisa próxima
+### <a name="nearby-search"></a>Pesquisa nas proximidades
 
 Para recuperar os resultados do POI em torno de um local específico, pode tentar utilizar a [API de pesquisa nas proximidades](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby). O ponto final devolve apenas resultados de POI. Não aceita um parâmetro de consulta de pesquisa. 
 
 Para limitar os resultados, recomendamos que estabeleça o raio.
 
-## <a name="understanding-the-responses"></a>Noções básicas sobre as respostas
+## <a name="understanding-the-responses"></a>Compreender as respostas
 
 Vamos encontrar um endereço em Seattle fazendo um pedido de pesquisa de endereços para o Serviço de Pesquisa do Azure Maps. No URL de pedido seguinte, definimos o parâmetro `countrySet` para `US` procurar o endereço nos EUA.
 
@@ -951,7 +951,7 @@ O parâmetro `Score` para cada objeto de resposta indica como a pontuação corr
 }
 ```
 
-### <a name="geometry"></a>Geometry
+### <a name="geometry"></a>Geometria
 
 Um tipo de resposta de *geometria* pode incluir o ID de geometria que é devolvido no objeto `dataSources` sob `geometry` e `id`. Por exemplo, pode utilizar o [serviço Search Polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) para solicitar os dados de geometria num formato GeoJSON. Ao utilizar este formato, pode obter um contorno de cidade ou aeroporto para um conjunto de entidades. Em seguida, pode utilizar estes dados de fronteira para [configurar uma geovete](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) ou pesquisa de [POIs dentro da geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
 

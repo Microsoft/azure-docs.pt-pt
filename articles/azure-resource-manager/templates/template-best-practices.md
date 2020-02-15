@@ -1,58 +1,58 @@
 ---
-title: Melhores práticas para modelos
-description: Descreve as abordagens recomendadas para a criação de modelos de Azure Resource Manager. Oferece sugestões para evitar problemas comuns ao usar modelos.
+title: Melhores práticas de modelos
+description: Descreve abordagens recomendadas para a autoria de modelos do Gestor de Recursos Azure. Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b87f66f194b9e1daf8fa6a546c02aa4e86caabc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484249"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207490"
 ---
-# <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas do modelo de Azure Resource Manager
+# <a name="azure-resource-manager-template-best-practices"></a>Modelo de Gestor de Recursos Azure melhores práticas
 
-Este artigo fornece recomendações sobre como construir seu modelo do Resource Manager. Essas recomendações ajudam a evitar problemas comuns ao usar um modelo para implantar uma solução.
+Este artigo dá recomendações sobre como construir o seu modelo de Gestor de Recursos. Estas recomendações ajudam-no a evitar problemas comuns ao usar um modelo para implementar uma solução.
 
-Para obter recomendações sobre como controlar suas assinaturas do Azure, consulte [Azure Enterprise Scaffold: governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Para recomendações sobre como governar as suas subscrições do Azure, consulte [o andaime da empresa Azure: Prescritiva de governação por subscrição](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
-Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [desenvolver modelos de Azure Resource Manager para consistência de nuvem](templates-cloud-consistency.md).
+Para recomendações sobre como construir modelos que funcionem em todos os ambientes de nuvem Azure, consulte desenvolver modelos de [Gestor de Recursos Azure para consistência na nuvem](templates-cloud-consistency.md).
 
 ## <a name="template-limits"></a>Limites de modelo
 
-Limite o tamanho do modelo para 4 MB e cada arquivo de parâmetro para 64 KB. O limite de 4 MB se aplica ao estado final do modelo depois que ele é expandido com definições de recursos iterativos e valores para variáveis e parâmetros. 
+Limite o tamanho do seu modelo a 4 MB, e cada ficheiro de parâmetro saque a 64 KB. O limite de 4 MB aplica-se ao estado final do modelo depois de ter sido expandido com definições de recursos iterativos, e valores para variáveis e parâmetros. 
 
-Você também está limitado a:
+Também está limitado a:
 
-* parâmetros de 256
+* 256 parâmetros
 * 256 variáveis
-* 800 recursos (incluindo a contagem de cópia)
+* 800 recursos (incluindo a contagem de cópias)
 * 64 valores de saída
 * 24.576 caracteres em uma expressão de modelo
 
-Você pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [usando modelos vinculados ao implantar recursos do Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para obter mais informações, consulte [objetos como parâmetros](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Pode exceder alguns limites de modelo usando um modelo aninhado. Para mais informações, consulte [A utilização de modelos ligados ao utilizar recursos Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar vários valores num objeto. Para mais informações, consulte [objetos como parâmetros](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 ## <a name="resource-group"></a>Grupo de recursos
 
-Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
+Quando se desloque recursos a um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados na localização do grupo de recursos.
 
-Se a região do grupo de recursos estiver temporariamente indisponível, você não poderá atualizar recursos no grupo de recursos porque os metadados não estão disponíveis. Os recursos em outras regiões ainda funcionarão conforme o esperado, mas você não poderá atualizá-los. Para minimizar o risco, localize o grupo de recursos e os recursos na mesma região.
+Se a região do grupo de recursos estiver temporariamente indisponível, não pode atualizar os recursos no grupo de recursos porque os metadados não estão disponíveis. Os recursos noutras regiões continuarão a funcionar como esperado, mas não é possível atualizá-los. Para minimizar o risco, localize o seu grupo de recursos e recursos na mesma região.
 
 ## <a name="parameters"></a>Parâmetros
 
-As informações contidas nesta seção podem ser úteis quando você trabalha com [parâmetros](template-parameters.md).
+A informação nesta secção pode ser útil quando trabalha com [parâmetros](template-parameters.md).
 
 ### <a name="general-recommendations-for-parameters"></a>Recomendações gerais para parâmetros
 
-* Minimize o uso de parâmetros. Em vez disso, use variáveis ou valores literais para propriedades que não precisam ser especificadas durante a implantação.
+* Minimize o uso de parâmetros. Em vez disso, utilize variáveis ou valores literais para propriedades que não precisam de ser especificadas durante a implementação.
 
-* Use o camel case para nomes de parâmetro.
+* Use a caixa de camelo para nomes de parâmetros.
 
-* Use parâmetros para configurações que variam de acordo com o ambiente, como SKU, tamanho ou capacidade.
+* Utilize parâmetros para configurações que variam de acordo com o ambiente, como SKU, tamanho ou capacidade.
 
-* Use parâmetros para nomes de recursos que você deseja especificar para facilitar a identificação.
+* Utilize parâmetros para nomes de recursos que pretende especificar para uma identificação fácil.
 
-* Forneça uma descrição de cada parâmetro nos metadados:
+* Forneça uma descrição de todos os parâmetros dos metadados:
 
    ```json
    "parameters": {
@@ -65,7 +65,7 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
    }
    ```
 
-* Defina valores padrão para parâmetros que não são confidenciais. Ao especificar um valor padrão, é mais fácil implantar o modelo e os usuários de seu modelo veem um exemplo de um valor apropriado. Qualquer valor padrão para um parâmetro deve ser válido para todos os usuários na configuração de implantação padrão. 
+* Defina valores predefinidos para parâmetros que não sejam sensíveis. Ao especificar um valor predefinido, é mais fácil implementar o modelo, e os utilizadores do seu modelo vêem um exemplo de um valor apropriado. Qualquer valor predefinido para um parâmetro deve ser válido para todos os utilizadores na configuração de implementação predefinida. 
    
    ```json
    "parameters": {
@@ -79,7 +79,7 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
    }
    ```
 
-* Para especificar um parâmetro opcional, não use uma cadeia de caracteres vazia como um valor padrão. Em vez disso, use um valor literal ou uma expressão de linguagem para construir um valor.
+* Para especificar um parâmetro opcional, não utilize uma corda vazia como valor predefinido. Em vez disso, use um valor literal ou uma expressão linguística para construir um valor.
 
    ```json
    "storageAccountName": {
@@ -91,17 +91,17 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
    },
    ```
 
-* Não use um parâmetro para a versão de API para um tipo de recurso. As propriedades e os valores do recurso podem variar por número de versão. O IntelliSense em um editor de código não pode determinar o esquema correto quando a versão da API está definida como um parâmetro. Em vez disso, codifique a versão da API no modelo.
+* Não utilize um parâmetro para a versão API para um tipo de recurso. As propriedades e valores dos recursos podem variar em função do número da versão. O IntelliSense num editor de código não consegue determinar o esquema correto quando a versão API está definida para um parâmetro. Em vez disso, código rígido a versão API no modelo.
 
-* Use `allowedValues` com moderação. Use-o somente quando você tiver certeza de que alguns valores não estão incluídos nas opções permitidas. Se você usar `allowedValues` muito amplamente, poderá bloquear implantações válidas não mantendo sua lista atualizada.
+* Use `allowedValues` com moderação. Utilize-o apenas quando tiver de se certificar de que alguns valores não estão incluídos nas opções permitidas. Se utilizar `allowedValues` demasiado amplamente, poderá bloquear implementações válidas não mantendo a sua lista atualizada.
 
-* Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomenclatura adicionando o sufixo **detemplate** ao parâmetro de modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Durante a implantação, você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**.
+* Quando um nome de parâmetro no seu modelo corresponde a um parâmetro no comando de implementação powerShell, o Gestor de Recursos resolve este conflito de nomeação adicionando o modelo de pós-fixação **FromTemplate.** Por exemplo, se incluir um parâmetro chamado **ResourceGroupName** no seu modelo, entra em conflito com o parâmetro **ResourceGroupName** no cmdlet [new-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) Durante a implementação, é-lhe solicitado que forneça um valor para **o ResourceGroupNameFromFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Recomendações de segurança para parâmetros
 
-* Sempre use parâmetros para nomes de usuário e senhas (ou segredos).
+* Utilize sempre parâmetros para nomes de utilizadores e palavras-passe (ou segredos).
 
-* Use `securestring` para todas as senhas e segredos. Se você passar dados confidenciais em um objeto JSON, use o tipo de `secureObject`. Parâmetros de modelo com tipos de objetos seguros ou de cadeia de caracteres segura não podem ser lidos após a implantação de recursos. 
+* Use `securestring` para todas as palavras-passe e segredos. Se passar dados sensíveis num objeto JSON, utilize o tipo `secureObject`. Os parâmetros do modelo com cordas seguras ou tipos de objetos seguros não podem ser lidos após a implementação do recurso. 
    
    ```json
    "parameters": {
@@ -114,13 +114,13 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
    }
    ```
 
-* Não forneça valores padrão para nomes de usuário, senhas ou qualquer valor que exija um tipo de `secureString`.
+* Não forneça valores predefinidos para nomes de utilizadores, palavras-passe ou qualquer valor que exija um `secureString` tipo.
 
-* Não forneça valores padrão para propriedades que aumentem a área da superfície de ataque do aplicativo.
+* Não forneça valores predefinidos para propriedades que aumentem a área de superfície de ataque da aplicação.
 
-### <a name="location-recommendations-for-parameters"></a>Recomendações de local para parâmetros
+### <a name="location-recommendations-for-parameters"></a>Recomendações de localização para parâmetros
 
-* Use um parâmetro para especificar o local dos recursos e defina o valor padrão como `resourceGroup().location`. Fornecer um parâmetro Location permite que os usuários do modelo especifiquem um local para o qual eles têm permissão para implantar.
+* Utilize um parâmetro para especificar a localização dos recursos e defina o valor predefinido para `resourceGroup().location`. O fornecimento de um parâmetro de localização permite aos utilizadores do modelo especificar uma localização para a qual têm permissão para implantar.
 
    ```json
    "parameters": {
@@ -134,51 +134,51 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
    },
    ```
 
-* Não especifique `allowedValues` para o parâmetro Location. Os locais especificados podem não estar disponíveis em todas as nuvens.
+* Não especifique `allowedValues` para o parâmetro de localização. Os locais que especifica podem não estar disponíveis em todas as nuvens.
 
-* Use o valor do parâmetro Location para recursos que provavelmente estejam no mesmo local. Essa abordagem minimiza o número de vezes que os usuários são solicitados a fornecer informações de local.
+* Utilize o valor do parâmetro de localização para recursos que possam estar no mesmo local. Esta abordagem minimiza o número de vezes que os utilizadores são convidados a fornecer informações de localização.
 
-* Para recursos que não estão disponíveis em todos os locais, use um parâmetro separado ou especifique um valor de local literal.
+* Para recursos que não estejam disponíveis em todos os locais, use um parâmetro separado ou especifique um valor de localização literal.
 
 ## <a name="variables"></a>Variáveis
 
-As informações a seguir podem ser úteis quando você trabalha com [variáveis](template-variables.md):
+As seguintes informações podem ser úteis quando se trabalha com [variáveis:](template-variables.md)
 
-* Use o camel case para nomes de variáveis.
+* Use a caixa de camelo para nomes variáveis.
 
-* Use variáveis para valores que você precisa usar mais de uma vez em um modelo. Se um valor for usado apenas uma vez, um valor embutido em código tornará seu modelo mais fácil de ler.
+* Utilize variáveis para valores que precisa de usar mais do que uma vez num modelo. Se um valor for utilizado apenas uma vez, um valor codificado facilita a leitura do seu modelo.
 
-* Use variáveis para valores que você constrói de uma organização complexa de funções de modelo. Seu modelo é mais fácil de ler quando a expressão complexa só aparece em variáveis.
+* Utilize variáveis para valores que constrói a partir de um arranjo complexo de funções de modelo. O seu modelo é mais fácil de ler quando a expressão complexa só aparece em variáveis.
 
-* Não use variáveis para `apiVersion` em um recurso. A versão da API determina o esquema do recurso. Geralmente, você não pode alterar a versão sem alterar as propriedades do recurso.
+* Não use variáveis para `apiVersion` num recurso. A versão API determina o esquema do recurso. Muitas vezes, não se pode alterar a versão sem alterar as propriedades para o recurso.
 
-* Você não pode usar a função de [referência](template-functions-resource.md#reference) na seção **variáveis** do modelo. A função de **referência** deriva seu valor do estado de tempo de execução do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que precisam da função de **referência** diretamente na seção de **recursos** ou **saídas** do modelo.
+* Não pode utilizar a função de [referência](template-functions-resource.md#reference) na secção **variáveis** do modelo. A função **de referência** obtém o seu valor a partir do estado de funcionamento do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que necessitem da função de **referência** diretamente na secção de **recursos** ou **saídas** do modelo.
 
-* Inclua variáveis para nomes de recursos que devem ser exclusivos.
+* Inclua variáveis para nomes de recursos que devem ser únicos.
 
-* Use um [loop de cópia em variáveis](create-multiple-instances.md#variable-iteration) para criar um padrão repetido de objetos JSON.
+* Utilize um ciclo de [cópia em variáveis](copy-variables.md) para criar um padrão repetido de objetos JSON.
 
-* Remova as variáveis não utilizadas.
+* Remova variáveis não utilizadas.
 
 ## <a name="resource-dependencies"></a>Dependências de recursos
 
-Ao decidir quais [dependências](define-resource-dependency.md) definir, use as seguintes diretrizes:
+Ao decidir quais [as dependências](define-resource-dependency.md) a definir, utilize as seguintes orientações:
 
-* Use a função de **referência** e passe o nome do recurso para definir uma dependência implícita entre os recursos que precisam compartilhar uma propriedade. Não adicione um elemento de `dependsOn` explícito quando você já tiver definido uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias.
+* Utilize a função **de referência** e passe no nome do recurso para definir uma dependência implícita entre os recursos que precisam de partilhar um imóvel. Não adicione um elemento `dependsOn` explícito quando já definiu uma dependência implícita. Esta abordagem reduz o risco de ter dependências desnecessárias.
 
-* Defina um recurso filho como dependente de seu recurso pai.
+* Desloque um recurso para crianças como dependente do seu recurso principal.
 
-* Os recursos com o [elemento Condition](conditional-resource-deployment.md) definido como false são removidos automaticamente da ordem de dependência. Defina as dependências como se o recurso sempre for implantado.
+* Os recursos com o [elemento de condição](conditional-resource-deployment.md) definido para falso são automaticamente removidos da ordem de dependência. Detete as dependências como se o recurso estivesse sempre implantado.
 
-* Deixe as dependências em cascata sem defini-las explicitamente. Por exemplo, sua máquina virtual depende de um adaptador de rede virtual e a interface de rede virtual depende de uma rede virtual e de endereços IP públicos. Portanto, a máquina virtual é implantada após todos os três recursos, mas não defina explicitamente a máquina virtual como dependente de todos os três recursos. Essa abordagem esclarece a ordem de dependência e facilita a alteração do modelo posteriormente.
+* Deixe as dependências cascatarem sem as definir explicitamente. Por exemplo, a sua máquina virtual depende de uma interface de rede virtual, e a interface de rede virtual depende de uma rede virtual e endereços IP públicos. Portanto, a máquina virtual é implantada após os três recursos, mas não configura explicitamente a máquina virtual como dependente dos três recursos. Esta abordagem clarifica a ordem de dependência e facilita a mudança do modelo mais tarde.
 
-* Se um valor puder ser determinado antes da implantação, tente implantar o recurso sem uma dependência. Por exemplo, se um valor de configuração precisar do nome de outro recurso, talvez você não precise de uma dependência. Essa orientação nem sempre funciona porque alguns recursos verificam a existência do outro recurso. Se você receber um erro, adicione uma dependência.
+* Se um valor puder ser determinado antes da implantação, tente implementar o recurso sem dependência. Por exemplo, se um valor de configuração precisar do nome de outro recurso, pode não precisar de uma dependência. Esta orientação nem sempre funciona porque alguns recursos verificam a existência do outro recurso. Se receber um erro, adicione uma dependência.
 
 ## <a name="resources"></a>Recursos
 
-As informações a seguir podem ser úteis quando você trabalha com [recursos](template-syntax.md#resources):
+As seguintes informações podem ser úteis quando trabalha com [recursos:](template-syntax.md#resources)
 
-* Para ajudar outros colaboradores a entender a finalidade do recurso, especifique **comentários** para cada recurso no modelo:
+* Para ajudar outros contribuintes a compreender o propósito do recurso, especifique **comentários** para cada recurso no modelo:
    
    ```json
    "resources": [
@@ -193,7 +193,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    ]
    ```
 
-* Se você usar um *ponto de extremidade público* em seu modelo (como um ponto de extremidade público do armazenamento de BLOBs do Azure), *não codifique* o namespace. Use a função de **referência** para recuperar dinamicamente o namespace. Você pode usar essa abordagem para implantar o modelo em diferentes ambientes de namespace público sem alterar manualmente o ponto de extremidade no modelo. Defina a versão da API para a mesma versão que você está usando para a conta de armazenamento em seu modelo:
+* Se utilizar um *ponto final público* no seu modelo (como um ponto final de armazenamento Azure Blob), não código *sinuoso* o espaço de nome. Utilize a função **de referência** para recuperar dinamicamente o espaço de nome. Pode utilizar esta abordagem para implementar o modelo para diferentes ambientes de espaço de nome público sem alterar manualmente o ponto final do modelo. Delineie a versão API para a mesma versão que está a usar para a conta de armazenamento no seu modelo:
    
    ```json
    "diagnosticsProfile": {
@@ -204,7 +204,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    }
    ```
    
-   Se a conta de armazenamento for implantada no mesmo modelo que você está criando e o nome da conta de armazenamento não for compartilhado com outro recurso no modelo, você não precisará especificar o namespace do provedor ou o apiVersion quando fizer referência ao recurso. O exemplo a seguir mostra a sintaxe simplificada:
+   Se a conta de armazenamento for implantada no mesmo modelo que está a criar e o nome da conta de armazenamento não for partilhado com outro recurso no modelo, não precisa especificar o espaço de nome do fornecedor ou a apiVersão quando refere o recurso. O exemplo que se segue mostra a sintaxe simplificada:
    
    ```json
    "diagnosticsProfile": {
@@ -215,7 +215,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    }
    ```
      
-   Você também pode fazer referência a uma conta de armazenamento existente que esteja em um grupo de recursos diferente:
+   Também pode fazer referência a uma conta de armazenamento existente que se encontra num grupo de recursos diferente:
 
    ```json
    "diagnosticsProfile": {
@@ -226,17 +226,17 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    }
    ```
 
-* Atribua endereços IP públicos a uma máquina virtual somente quando um aplicativo o exigir. Para se conectar a uma VM (máquina virtual) para depuração, ou para fins administrativos ou de gerenciamento, use regras NAT de entrada, um gateway de rede virtual ou um Jumpbox.
+* Atribuir endereços IP públicos a uma máquina virtual apenas quando uma aplicação o exigir. Para ligar a uma máquina virtual (VM) para depuração, ou para fins de gestão ou administrativas, utilize regras nat de entrada, um gateway de rede virtual ou uma caixa de salto.
    
-     Para obter mais informações sobre como se conectar a máquinas virtuais, consulte:
+     Para obter mais informações sobre a ligação a máquinas virtuais, consulte:
    
-   * [Executar VMs para uma arquitetura de N camadas no Azure](../../guidance/guidance-compute-n-tier-vm.md)
-   * [Configurar o acesso do WinRM para VMs no Azure Resource Manager](../../virtual-machines/windows/winrm.md)
-   * [Permitir acesso externo à sua VM usando o portal do Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Permitir acesso externo à sua VM usando o PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Permitir acesso externo à sua VM Linux usando CLI do Azure](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Executar VMs para uma arquitetura n-tier em Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Configurar acesso WinRM para VMs em Gestor de Recursos Azure](../../virtual-machines/windows/winrm.md)
+   * [Permitir o acesso externo ao seu VM utilizando o portal Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
+   * [Permitir o acesso externo ao seu VM utilizando o PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
+   * [Permitir o acesso externo ao seu Linux VM utilizando o Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Como a função **uniquestring** gera uma cadeia de caracteres com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
+* A propriedade **domainNameLabel** para endereços IP públicos deve ser única. O valor **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Como a função **string única** gera uma cadeia com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** está limitado a 50 caracteres:
 
    ```json
    "parameters": {
@@ -253,7 +253,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    }
    ```
 
-* Quando você adiciona uma senha a uma extensão de script personalizado, use a propriedade **commandToExecute** na propriedade **protectedSettings** :
+* Quando adicionar uma palavra-passe a uma extensão de script personalizada, utilize a propriedade **commandToExecute** na propriedade **ProtectedSettings:**
    
    ```json
    "properties": {
@@ -273,11 +273,11 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    ```
    
    > [!NOTE]
-   > Para garantir que os segredos sejam criptografados quando forem passados como parâmetros para VMs e extensões, use a propriedade **protectedSettings** das extensões relevantes.
+   > Para garantir que os segredos são encriptados quando são passados como parâmetros para VMs e extensões, utilize a propriedade **protectedSettings** das extensões relevantes.
    > 
    > 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações sobre a estrutura do arquivo de modelo do Resource Manager, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
-* Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [desenvolver modelos de Azure Resource Manager para consistência de nuvem](templates-cloud-consistency.md).
+* Para obter informações sobre a estrutura do ficheiro de modelo do Gestor de Recursos, consulte [Compreender a estrutura e a sintaxe dos modelos](template-syntax.md)do Gestor de Recursos Azure .
+* Para recomendações sobre como construir modelos que funcionem em todos os ambientes de nuvem Azure, consulte desenvolver modelos de [Gestor de Recursos Azure para consistência na nuvem](templates-cloud-consistency.md).

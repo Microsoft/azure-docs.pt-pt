@@ -1,6 +1,6 @@
 ---
-title: Atividade do Azure Functions no Azure Data Factory
-description: Saiba como usar a atividade do Azure function para executar uma função do Azure em um pipeline Data Factory
+title: Atividade de função azure na fábrica de dados azure
+description: Saiba como utilizar a atividade da Função Azure para executar uma Função Azure num oleoduto de Fábrica de Dados
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,64 +11,64 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 781c5a579fa0cd0383e95b79df1f81f74008111c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679963"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207030"
 ---
-# <a name="azure-function-activity-in-azure-data-factory"></a>Atividade do Azure Functions no Azure Data Factory
+# <a name="azure-function-activity-in-azure-data-factory"></a>Atividade da Função Azure na Fábrica de Dados Azure
 
-A atividade de funções do Azure permite que você execute [Azure Functions](../azure-functions/functions-overview.md) em um pipeline de data Factory. Para executar uma função do Azure, você precisa criar uma conexão de serviço vinculado e uma atividade que especifica a função do Azure que você planeja executar.
+A atividade da Função Azure permite-lhe executar [funções Azure](../azure-functions/functions-overview.md) num oleoduto de Fábrica de Dados. Para executar uma Função Azure, é necessário criar uma ligação de serviço ligada e uma atividade que especifique a Função Azure que pretende executar.
 
-Para uma introdução e uma demonstração de oito minutos desse recurso, Assista ao vídeo a seguir:
+Para uma introdução de oito minutos e demonstração desta funcionalidade, veja o seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
 
-## <a name="azure-function-linked-service"></a>Serviço vinculado de funções do Azure
+## <a name="azure-function-linked-service"></a>Serviço ligado à Função Azure
 
-O tipo de retorno da função do Azure deve ser um `JObject`válido. (Tenha em mente que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *não* é um `JObject`.) Qualquer tipo de retorno diferente de `JObject` falha e gera o conteúdo de resposta de erro do usuário *não é um JObject válido*.
+O tipo de devolução da função Azure tem de ser um `JObject`válido . (Tenha em mente que [jArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *não* é um `JObject`.) Qualquer tipo de devolução que não seja `JObject` falha e eleva o Conteúdo de Resposta de erro do utilizador *não é um JObject válido*.
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |
-| tipo   | A propriedade Type deve ser definida como: **AzureFunction** | sim |
-| URL do aplicativo de funções | URL para o Aplicativo de funções do Azure. O formato é `https://<accountname>.azurewebsites.net`. Essa URL é o valor na seção de **URL** ao exibir sua Aplicativo de funções no portal do Azure  | sim |
-| chave de função | Chave de acesso para a função do Azure. Clique na seção **gerenciar** para a respectiva função e copie a **chave de função** ou a chave de **host**. Saiba mais aqui: [Azure Functions gatilhos e associações http](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | sim |
+| tipo   | A propriedade tipo deve ser definida para: **AzureFunction** | sim |
+| url de aplicativo de função | URL para a App função Azure. O formato é `https://<accountname>.azurewebsites.net`. Este URL é o valor da secção **URL** ao visualizar a sua App de Funções no portal Azure  | sim |
+| chave de função | Chave de acesso para a Função Azure. Clique na secção **Gerir** para a respetiva função e copie a Chave de **Função** ou a **tecla anfitrião**. Saiba mais aqui: [Azure Functions HTTP gatilhos e encadernações](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | sim |
 |   |   |   |
 
-## <a name="azure-function-activity"></a>Atividade da função do Azure
+## <a name="azure-function-activity"></a>Atividade da Função Azure
 
 | **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| nome  | Nome da atividade no pipeline  | Cadeia | sim |
-| tipo  | O tipo de atividade é ' AzureFunctionActivity ' | Cadeia | sim |
-| serviço vinculado | O serviço vinculado da função do Azure para o Aplicativo de funções do Azure correspondente  | Referência de serviço vinculado | sim |
-| Nome da função  | Nome da função no Aplicativo de funções do Azure que esta atividade chama | Cadeia | sim |
-| método  | Método de API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST", "PUT"   | sim |
-| cabeçalho  | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: "headers": {"Accept-Language": "en-US", "Content-Type": "Application/JSON"} | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não |
-| conteúdo  | corpo enviado junto com a solicitação para o método de API de função  | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) ou objeto.   | Necessário para os métodos PUT/POST |
+| nome  | Nome da atividade no oleoduto  | Cadeia | sim |
+| tipo  | Tipo de atividade é 'AzureFunctionActivity' | Cadeia | sim |
+| serviço ligado | O serviço ligado à função Azure para a app de função azure correspondente  | Referência de serviço vinculado | sim |
+| Nome da função  | Nome da função na App função Azure que esta atividade chama | Cadeia | sim |
+| método  | Método DE API REST para a chamada de função | Tipos suportados por cordas: "GET", "POST", "PUT"   | sim |
+| cabeçalho  | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: "cabeçalhos": { "Aceitar-Linguagem": "en-us", "Content-Type": "application/json" } | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não |
+| corpo  | corpo que é enviado juntamente com o pedido para o método api função  | Corda (ou expressão com resultadoTipo de corda) ou objeto.   | Necessário para métodos PUT/POST |
 |   |   |   | |
 
-Consulte o esquema da carga de solicitação na seção  [esquema de carga de solicitação](control-flow-web-activity.md#request-payload-schema) .
+Consulte o esquema da carga útil do pedido em Solicitar esquema de [carga útil](control-flow-web-activity.md#request-payload-schema) secção.
 
-## <a name="routing-and-queries"></a>Roteamento e consultas
+## <a name="routing-and-queries"></a>Encaminhamento e consultas
 
-A atividade de funções do Azure dá suporte ao **Roteamento**. Por exemplo, se a função do Azure tiver o ponto de extremidade `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, o `functionName` a ser usado na atividade do Azure function será `<functionName>/<value>`. Você pode parametrizar essa função para fornecer as `functionName` desejadas em tempo de execução.
+A Atividade de Função Azure suporta **o encaminhamento**. Por exemplo, se a sua Função Azure tiver o ponto final `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, então o `functionName` a utilizar na Atividade de Função Azure é `<functionName>/<value>`. Pode parametrizar esta função para fornecer o `functionName` desejado no tempo de funcionamento.
 
-A atividade de funções do Azure também dá suporte a **consultas**. Uma consulta deve ser incluída como parte do `functionName`. Por exemplo, quando o nome da função é `HttpTriggerCSharp` e a consulta que você deseja incluir é `name=hello`, você pode construir o `functionName` na atividade de função do Azure como `HttpTriggerCSharp?name=hello`. Essa função pode ser parametrizada para que o valor possa ser determinado em tempo de execução.
+A Atividade de Função Azure também suporta **consultas.** Uma consulta tem de ser incluída como parte do `functionName`. Por exemplo, quando o nome da função é `HttpTriggerCSharp` e a consulta que pretende incluir é `name=hello`, então pode construir o `functionName` na Atividade de Função Azure como `HttpTriggerCSharp?name=hello`. Esta função pode ser parametrizada para que o valor possa ser determinado no tempo de funcionamento.
 
-## <a name="timeout-and-long-running-functions"></a>Funções de tempo limite e execução longa
+## <a name="timeout-and-long-running-functions"></a>Funções de timeout e de longa duração
 
-Azure Functions o tempo limite após 230 segundos, independentemente da configuração de `functionTimeout` que você definiu nas configurações. Para obter mais informações, consulte [este artigo](../azure-functions/functions-versions.md#timeout). Para contornar esse comportamento, siga um padrão assíncrono ou use Durable Functions. A vantagem do Durable Functions é que eles oferecem seu próprio mecanismo de controle de estado, portanto, você não precisará implementar o seu.
+Funções Azure horários após 230 segundos, independentemente da configuração `functionTimeout` configurada nas definições. Para obter mais informações, consulte [este artigo](../azure-functions/functions-versions.md#timeout). Para contornar este comportamento, siga um padrão de asincronização ou use Funções Duráveis. O benefício das Funções Duráveis é que eles oferecem o seu próprio mecanismo de rastreio do Estado, por isso não terás de implementar o teu próprio.
 
-Saiba mais sobre Durable Functions neste [artigo](../azure-functions/durable/durable-functions-overview.md). Você pode configurar uma atividade do Azure function para chamar a função durável, que retornará uma resposta com um URI diferente, como [Este exemplo](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Como `statusQueryGetUri` retorna o status HTTP 202 enquanto a função está em execução, você pode sondar o status da função usando uma atividade da Web. Basta configurar uma atividade da Web com o campo `url` definido como `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Quando a função durável for concluída, a saída da função será a saída da atividade da Web.
+Saiba mais sobre as Funções Duráveis [neste artigo.](../azure-functions/durable/durable-functions-overview.md) Pode configurar uma Atividade de Função Azure para chamar a Função Durável, que devolverá uma resposta com um URI diferente, como [este exemplo.](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery) Uma vez `statusQueryGetUri` devolve o status HTTP 202 enquanto a função está em execução, pode sondar o estado da função utilizando uma Atividade Web. Basta configurar uma Atividade Web com o campo `url` definido para `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Quando a Função Durável estiver concluída, a saída da função será a saída da Atividade Web.
 
 
 ## <a name="sample"></a>Sample
 
-Você pode encontrar um exemplo de um Data Factory que usa uma função do Azure para extrair o conteúdo de um arquivo tar [aqui](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
+Pode encontrar aqui uma amostra de uma Fábrica de Dados que utiliza uma Função Azure para extrair o conteúdo de um [ficheiro](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)de alcatrão .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as atividades em Data Factory em [pipelines e atividades no Azure data Factory](concepts-pipelines-activities.md).
+Saiba mais sobre atividades na Data Factory em [Pipelines e atividades na Azure Data Factory.](concepts-pipelines-activities.md)

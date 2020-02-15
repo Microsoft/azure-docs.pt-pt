@@ -3,12 +3,12 @@ title: Implementar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Mostra também como utilizar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: c53d274303a203a427a36f8f729f6b43cee44e40
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 50db0b4d46ff4e367411829aa75fa017a168372f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120625"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207660"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos e recursos de recursos ao nível da subscrição
 
@@ -135,7 +135,7 @@ O seguinte modelo cria um grupo de recursos vazios.
 }
 ```
 
-Utilize o [elemento de cópia](create-multiple-instances.md) com grupos de recursos para criar mais do que um grupo de recursos.
+Utilize o [elemento de cópia](copy-resources.md) com grupos de recursos para criar mais do que um grupo de recursos.
 
 ```json
 {
@@ -170,7 +170,7 @@ Utilize o [elemento de cópia](create-multiple-instances.md) com grupos de recur
 }
 ```
 
-Para obter informações sobre a iteração de recursos, consulte [Implementar mais do que uma instância de um recurso ou propriedade em Modelos](./create-multiple-instances.md)de Gestor de Recursos Azure , e [Tutorial: Criar múltiplas instâncias](./template-tutorial-create-multiple-instances.md)de recursos com modelos de Gestor de Recursos .
+Para obter informações sobre a iteração de recursos, consulte [Implementar mais do que uma instância de um recurso nos modelos](./copy-resources.md)do Gestor de Recursos Azure , e [Tutorial: Criar múltiplas instâncias](./template-tutorial-create-multiple-instances.md)de recursos com modelos de Gestor de Recursos .
 
 ## <a name="resource-group-and-resources"></a>Grupo de recursos e recursos
 

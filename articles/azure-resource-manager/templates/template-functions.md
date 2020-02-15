@@ -1,20 +1,22 @@
 ---
-title: Funções do modelo
-description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
+title: Funções de modelos
+description: Descreve as funções a utilizar num modelo do Gestor de Recursos Azure para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implementação.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: aef813595df96449d5dd59ad1e95e77c4c198d0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: a9d10ad4899f35acd45069cb3d351a60632fed3a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483976"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207047"
 ---
-# <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager funções de modelo
+# <a name="azure-resource-manager-template-functions"></a>Funções de modelo do Gestor de Recursos Azure
 
-Este artigo descreve todas as funções que você pode usar em um modelo de Azure Resource Manager. Para obter informações sobre como usar funções em seu modelo, consulte [sintaxe do modelo](template-expressions.md).
+Este artigo descreve todas as funções que pode utilizar num modelo de Gestor de Recursos Azure. Para obter informações sobre a utilização de funções no seu modelo, consulte a [sintaxe](template-expressions.md)do modelo .
 
-Para criar suas próprias funções, consulte [funções definidas pelo usuário](template-syntax.md#functions).
+Para criar as suas próprias funções, consulte [funções definidas pelo Utilizador](template-syntax.md#functions).
+
+A maioria das funções funciona da mesma forma quando implantada num grupo de recursos, subscrição, grupo de gestão ou inquilino. Algumas funções não podem ser usadas em todos os âmbitos. Estão anotados nas listas abaixo.
 
 <a id="array" aria-hidden="true" />
 <a id="coalesce" aria-hidden="true" />
@@ -35,25 +37,26 @@ Para criar suas próprias funções, consulte [funções definidas pelo usuário
 <a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Funções de matriz e objeto
-O Gerenciador de recursos fornece várias funções para trabalhar com matrizes e objetos.
 
-* [array](template-functions-array.md#array)
-* [COALESCE](template-functions-array.md#coalesce)
+O Gestor de Recursos fornece várias funções para trabalhar com matrizes e objetos.
+
+* [matriz](template-functions-array.md#array)
+* [coalesce](template-functions-array.md#coalesce)
 * [concat](template-functions-array.md#concat)
-* [contains](template-functions-array.md#contains)
-* [createArray](template-functions-array.md#createarray)
-* [empty](template-functions-array.md#empty)
-* [first](template-functions-array.md#first)
-* [intersection](template-functions-array.md#intersection)
+* [contém](template-functions-array.md#contains)
+* [criar Array](template-functions-array.md#createarray)
+* [vazio](template-functions-array.md#empty)
+* [primeiro](template-functions-array.md#first)
+* [cruzamento](template-functions-array.md#intersection)
 * [json](template-functions-array.md#json)
-* [last](template-functions-array.md#last)
-* [Comprimento](template-functions-array.md#length)
+* [última](template-functions-array.md#last)
+* [comprimento](template-functions-array.md#length)
 * [min](template-functions-array.md#min)
-* [max](template-functions-array.md#max)
-* [range](template-functions-array.md#range)
-* [skip](template-functions-array.md#skip)
-* [take](template-functions-array.md#take)
-* [union](template-functions-array.md#union)
+* [máximo](template-functions-array.md#max)
+* [alcance](template-functions-array.md#range)
+* [saltar](template-functions-array.md#skip)
+* [tomar](template-functions-array.md#take)
+* [união](template-functions-array.md#union)
 
 <a id="equals" aria-hidden="true" />
 <a id="less" aria-hidden="true" />
@@ -62,12 +65,13 @@ O Gerenciador de recursos fornece várias funções para trabalhar com matrizes 
 <a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>Funções de comparação
-O Gerenciador de recursos fornece várias funções para fazer comparações em seus modelos.
 
-* [equals](template-functions-comparison.md#equals)
-* [less](template-functions-comparison.md#less)
+O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos.
+
+* [iguais](template-functions-comparison.md#equals)
+* [menos](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
-* [greater](template-functions-comparison.md#greater)
+* [maior](template-functions-comparison.md#greater)
 * [greaterOrEquals](template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" aria-hidden="true" />
@@ -75,12 +79,13 @@ O Gerenciador de recursos fornece várias funções para fazer comparações em 
 <a id="variables" aria-hidden="true" />
 
 ## <a name="deployment-value-functions"></a>Funções de valor de implantação
-O Gerenciador de recursos fornece as seguintes funções para obter valores de seções do modelo e valores relacionados à implantação:
 
-* [deployment](template-functions-deployment.md#deployment)
+O Gestor de Recursos fornece as seguintes funções para obter valores a partir de secções do modelo e valores relacionados com a implementação:
+
+* [implantação](template-functions-deployment.md#deployment)
 * [ambiente](template-functions-deployment.md#environment)
 * [parameters](template-functions-deployment.md#parameters)
-* [variables](template-functions-deployment.md#variables)
+* [variáveis](template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -89,12 +94,13 @@ O Gerenciador de recursos fornece as seguintes funções para obter valores de s
 <a id="or" aria-hidden="true" />
 
 ## <a name="logical-functions"></a>Funções lógicas
-O Gerenciador de recursos fornece as seguintes funções para trabalhar com condições lógicas:
+
+O Gestor de Recursos fornece as seguintes funções para trabalhar com condições lógicas:
 
 * [e](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
-* [if](template-functions-logical.md#if)
-* [not](template-functions-logical.md#not)
+* [se](template-functions-logical.md#if)
+* [não](template-functions-logical.md#not)
 * [ou](template-functions-logical.md#or)
 
 <a id="add" aria-hidden="true" />
@@ -109,17 +115,18 @@ O Gerenciador de recursos fornece as seguintes funções para trabalhar com cond
 <a id="sub" aria-hidden="true" />
 
 ## <a name="numeric-functions"></a>Funções numéricas
-O Gerenciador de recursos fornece as seguintes funções para trabalhar com números inteiros:
 
-* [add](template-functions-numeric.md#add)
+O Gestor de Recursos fornece as seguintes funções para trabalhar com os inteiros:
+
+* [adicionar](template-functions-numeric.md#add)
 * [copyIndex](template-functions-numeric.md#copyindex)
 * [div](template-functions-numeric.md#div)
-* [float](template-functions-numeric.md#float)
+* [flutuar](template-functions-numeric.md#float)
 * [int](template-functions-numeric.md#int)
 * [min](template-functions-numeric.md#min)
-* [max](template-functions-numeric.md#max)
+* [máximo](template-functions-numeric.md#max)
 * [mod](template-functions-numeric.md#mod)
-* [Mul](template-functions-numeric.md#mul)
+* [mul](template-functions-numeric.md#mul)
 * [sub](template-functions-numeric.md#sub)
 
 <a id="extensionResourceId" aria-hidden="true" />
@@ -134,20 +141,21 @@ O Gerenciador de recursos fornece as seguintes funções para trabalhar com núm
 <a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Funções de recursos
+
 O Resource Manager proporciona as seguintes funções para obter valores do recurso:
 
-* [extensionResourceId](template-functions-resource.md#extensionresourceid)
+* [extensãoResourceId](template-functions-resource.md#extensionresourceid)
 * [listAccountSas](template-functions-resource.md#list)
-* [listKeys](template-functions-resource.md#listkeys)
-* [listSecrets](template-functions-resource.md#list)
-* [lista *](template-functions-resource.md#list)
-* [Fornecedores](template-functions-resource.md#providers)
-* [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup)
-* [resourceId](template-functions-resource.md#resourceid)
-* [subscrição](template-functions-resource.md#subscription)
-* [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
-* [tenantResourceId](template-functions-resource.md#tenantresourceid)
+* [listaKeys](template-functions-resource.md#listkeys)
+* [listaSegredos](template-functions-resource.md#list)
+* [lista*](template-functions-resource.md#list)
+* [fornecedores](template-functions-resource.md#providers)
+* [referência](template-functions-resource.md#reference)
+* [recursosGroup](template-functions-resource.md#resourcegroup) - só pode ser utilizado em implantações para um grupo de recursos.
+* [recursosId](template-functions-resource.md#resourceid) - pode ser usado em qualquer âmbito, mas os parâmetros válidos mudam dependendo do âmbito.
+* [subscrição](template-functions-resource.md#subscription) - só pode ser utilizada em implantações para um grupo de recursos ou subscrição.
+* [subscriçãoResourceId](template-functions-resource.md#subscriptionresourceid)
+* [inquilinoResourceId](template-functions-resource.md#tenantresourceid)
 
 <a id="base64" aria-hidden="true" />
 <a id="base64tojson" aria-hidden="true" />
@@ -181,37 +189,38 @@ O Resource Manager proporciona as seguintes funções para obter valores do recu
 <a id="uricomponenttostring" aria-hidden="true" />
 
 ## <a name="string-functions"></a>Funções de cadeia
-O Gerenciador de recursos fornece as seguintes funções para trabalhar com cadeias de caracteres:
+
+O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 
 * [base64](template-functions-string.md#base64)
 * [base64ToJson](template-functions-string.md#base64tojson)
-* [base64ToString](template-functions-string.md#base64tostring)
+* [base64Tostring](template-functions-string.md#base64tostring)
 * [concat](template-functions-string.md#concat)
-* [contains](template-functions-string.md#contains)
+* [contém](template-functions-string.md#contains)
 * [dataUri](template-functions-string.md#datauri)
-* [dataUriToString](template-functions-string.md#datauritostring)
-* [empty](template-functions-string.md#empty)
-* [endsWith](template-functions-string.md#endswith)
-* [first](template-functions-string.md#first)
-* [format](template-functions-string.md#format)
-* [guid](template-functions-string.md#guid)
-* [indexOf](template-functions-string.md#indexof)
-* [last](template-functions-string.md#last)
-* [lastIndexOf](template-functions-string.md#lastindexof)
-* [Comprimento](template-functions-string.md#length)
+* [datauritostring](template-functions-string.md#datauritostring)
+* [vazio](template-functions-string.md#empty)
+* [terminaCom](template-functions-string.md#endswith)
+* [primeiro](template-functions-string.md#first)
+* [formato](template-functions-string.md#format)
+* [guia](template-functions-string.md#guid)
+* [indexof](template-functions-string.md#indexof)
+* [última](template-functions-string.md#last)
+* [últimoIndexOf](template-functions-string.md#lastindexof)
+* [comprimento](template-functions-string.md#length)
 * [newGuid](template-functions-string.md#newguid)
 * [padLeft](template-functions-string.md#padleft)
-* [replace](template-functions-string.md#replace)
-* [skip](template-functions-string.md#skip)
+* [substituir](template-functions-string.md#replace)
+* [saltar](template-functions-string.md#skip)
 * [dividir](template-functions-string.md#split)
-* [startsWith](template-functions-string.md#startswith)
-* [string](template-functions-string.md#string)
+* [começaCom](template-functions-string.md#startswith)
+* [cadeia](template-functions-string.md#string)
 * [substring](template-functions-string.md#substring)
-* [take](template-functions-string.md#take)
+* [tomar](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
 * [toUpper](template-functions-string.md#toupper)
-* [trim](template-functions-string.md#trim)
-* [uniqueString](template-functions-string.md#uniquestring)
+* [aparar](template-functions-string.md#trim)
+* [único String](template-functions-string.md#uniquestring)
 * [uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
@@ -219,7 +228,7 @@ O Gerenciador de recursos fornece as seguintes funções para trabalhar com cade
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](template-syntax.md)
-* Para mesclar vários modelos, consulte [usando modelos vinculados com Azure Resource Manager](linked-templates.md)
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](create-multiple-instances.md)
-* Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com Azure Resource Manager modelo](deploy-powershell.md)
+* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure Authoring](template-syntax.md)
+* Para fundir vários modelos, consulte [Usar modelos ligados com o Gestor de Recursos Azure](linked-templates.md)
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).
+* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo de Gestor](deploy-powershell.md) de Recursos Azure

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68de948261ec8bad429daafcb27e63ca5f7efb7a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 65b343c79c60bc74f1a140411ff1a4a27119d225
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207311"
+ms.locfileid: "77251690"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutorial: Integração azure Ative Directory SSO com jamf Pro
 
@@ -151,16 +151,16 @@ Nesta secção, concedes ao B.Simon acesso ao Jamf Pro.
 
   b. Selecione a caixa de verificação de **autenticação de sinal único ativada.**
 
-    c. Selecione **Azure** como opção do menu de entrega do Fornecedor de **Identidade.**
+  c. Selecione **Azure** como opção do menu de entrega do Fornecedor de **Identidade.**
 
-    d. Copie o valor de **ID da ENTIDADE** e cole-o no campo **Identificador (ID** da Entidade) na secção **de Configuração SAML Básica** no portal Azure.
+  d. Copie o valor de **ID da ENTIDADE** e cole-o no campo **Identificador (ID** da Entidade) na secção **de Configuração SAML Básica** no portal Azure.
 
-    > [!NOTE]
-    > Utilize o valor no campo `<SUBDOMAIN>` para completar o URL de início de sessão e responder URL na secção **de Configuração SAML Básica** no portal Azure.
+> [!NOTE]
+> Utilize o valor no campo `<SUBDOMAIN>` para completar o URL de início de sessão e responder URL na secção **de Configuração SAML Básica** no portal Azure.
 
-    e. Selecione URL de **Metadados** do menu de entrega de dados do fornecedor de **identidade.** No campo que aparece, colhe o valor de url de **metadados da Federação** de Aplicações que copiou do portal Azure.
+  e. Selecione URL de **Metadados** do menu de entrega de dados do fornecedor de **identidade.** No campo que aparece, colhe o valor de url de **metadados da Federação** de Aplicações que copiou do portal Azure.
 
-    f. (Opcional) Editar o valor de validade do símbolo ou selecionar "Desativar a expiração do token SAML".
+  f. (Opcional) Editar o valor de validade do símbolo ou selecionar "Desativar a expiração do token SAML".
 
 7. Na mesma página, desloque-se até à secção **de Mapeamento** do Utilizador. Em seguida, dê os seguintes passos.
 

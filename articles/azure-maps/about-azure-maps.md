@@ -1,20 +1,20 @@
 ---
 title: Visão geral  Microsoft Azure Maps
 description: Saiba mais sobre os serviços e funcionalidades do Microsoft Azure Maps e como usá-los em seus aplicativos.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 02/11/2020
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e01bfec9edbe1e868a3e3244e3cb6d1e1a46561d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 07a78dc81d121874db5e59ad267ea8eb08a69c91
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190342"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210145"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 

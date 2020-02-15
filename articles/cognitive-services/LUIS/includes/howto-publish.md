@@ -6,18 +6,18 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.subservice: luis
+ms.date: 02/14/2020
+ms.subservice: language-understanding
 ms.topic: include
-ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: 47913f86edcf83825254775705e38310f3c2c6b4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c10065707aa3bdf27cb20ab9c03d1cd22e6db050
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325898"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279697"
 ---
-Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem de publicar a aplicação no ponto final. 
+Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem de publicar a aplicação no ponto final.
 
 1. Selecione **Publicar** no painel de navegação superior direito.
 
@@ -27,8 +27,8 @@ Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem
 
     ![Publicação no ponto final do LUIS](../media/howto-publish/publish-app-popup.png)
 
-3. A publicação será concluída quando você vir a barra de status na parte superior da página confirmando êxito.
+3. A publicação fica completa quando vê a barra de estado no topo da página confirmando o sucesso.
 
     ![Publicação no ponto final do LUIS](../media/howto-publish/publish-endpoint-success.png)
 
-4. Selecione o link **acessar suas URLs de ponto de extremidade** na notificação para ir para a página **recursos do Azure** . As URLs de ponto de extremidade são listadas como a **consulta de exemplo**.
+4. Selecione o link **Access your endpoint URLs** na notificação para ir à página **de Recursos Azure.** Os URLs de ponto final estão listados como a Consulta de **Exemplo**.

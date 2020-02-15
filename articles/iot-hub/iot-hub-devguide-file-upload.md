@@ -1,6 +1,6 @@
 ---
-title: Compreender o carregamento de ficheiros do IoT Hub do Azure | Documentos da Microsoft
-description: Guia do desenvolvedor – utilize a funcionalidade de carregamento de ficheiros do IoT Hub para gerir a carregar ficheiros a partir de um dispositivo para um contentor de BLOBs de armazenamento do Azure.
+title: Compreenda o upload de ficheiros Azure IoT Hub  Microsoft Docs
+description: Guia de desenvolvimento - utilize a funcionalidade de upload de ficheiros do IoT Hub para gerir o upload de ficheiros de um dispositivo para um recipiente de armazenamento Azure.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -8,40 +8,40 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 35e10c0f9babca7719ff496e7068ad1564670fee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080425"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209159"
 ---
-# <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o IoT Hub
+# <a name="upload-files-with-iot-hub"></a>Upload de ficheiros com IoT Hub
 
-Conforme detalhado no [pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) artigo, um dispositivo pode iniciar o carregamento de ficheiros ao enviar uma notificação através de um ponto de final voltado para o dispositivo ( **/devices/ {deviceId} / ficheiros**). Quando um dispositivo notifica o IoT Hub que um carregamento estiver concluído, o IoT Hub envia uma mensagem de notificação de carregamento de ficheiros através da **/messages/servicebound/filenotifications** voltado para o serviço de ponto de extremidade.
+Conforme detalhado no artigo de [pontos finais do IoT Hub,](iot-hub-devguide-endpoints.md) um dispositivo pode iniciar um upload de ficheiro enviando uma notificação através de um ponto final virado para dispositivos **(/dispositivos/{deviceId}/ficheiros**). Quando um dispositivo notifica o IoT Hub de que um upload está completo, o IoT Hub envia uma mensagem de notificação de envio de ficheiros através do ponto final virado para o serviço **/mensagens/notificações de serviço/notificações de ficheiros.**
 
-Em vez de mensagens de agente através do IoT Hub em si, o IoT Hub em vez disso, atua como um dispatcher para uma conta de armazenamento do Azure associada. Um dispositivo de solicita um token de armazenamento do IoT Hub que é específico para o ficheiro que dispositivo pretende carregar. O dispositivo utiliza o URI de SAS para carregar o ficheiro para o armazenamento e, quando o carregamento estiver concluído o dispositivo envia uma notificação de conclusão para o IoT Hub. IoT Hub verifica o carregamento de ficheiros estiver concluído e, em seguida, adiciona uma mensagem de notificação de carregamento de ficheiro para o ponto de final de notificação de ficheiro voltado para o serviço.
+Em vez de intermediar mensagens através do próprio IoT Hub, o IoT Hub funciona como despachante para uma conta de Armazenamento Azure associada. Um dispositivo solicita um token de armazenamento do IoT Hub que é específico do ficheiro que o dispositivo pretende carregar. O dispositivo utiliza o SAS URI para fazer o upload do ficheiro para armazenamento, e quando o upload estiver concluído, o dispositivo envia uma notificação de conclusão para o IoT Hub. O IoT Hub verifica que o upload do ficheiro está completo e, em seguida, adiciona uma mensagem de notificação de envio de ficheiros ao ponto final de notificação de ficheiro virado para o serviço.
 
-Antes de carregar um ficheiro para o IoT Hub a partir de um dispositivo, tem de configurar o seu hub pela [associar um armazenamento do Azure](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub) conta ao mesmo.
+Antes de enviar um ficheiro para o IoT Hub a partir de um dispositivo, tem de configurar o seu hub [associando-lhe uma conta de Armazenamento Azure.](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub)
 
-O dispositivo pode então [inicializar um carregamento](iot-hub-devguide-file-upload.md#initialize-a-file-upload) e, em seguida [notificar o IoT hub](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) quando o carregamento estiver concluído. Opcionalmente, quando um dispositivo notifica o IoT Hub que o carregamento estiver concluído, o serviço pode gerar um [mensagem de notificação](iot-hub-devguide-file-upload.md#file-upload-notifications).
+O seu dispositivo pode então [inicializar um upload](iot-hub-devguide-file-upload.md#initialize-a-file-upload) e, em seguida, notificar o [hub IoT](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) quando o upload estiver concluído. Opcionalmente, quando um dispositivo notifica o IoT Hub de que o upload está completo, o serviço pode gerar uma [mensagem de notificação](iot-hub-devguide-file-upload.md#file-upload-notifications).
 
 ### <a name="when-to-use"></a>Quando utilizar
 
-Utilize o carregamento de ficheiros para enviar ficheiros de multimédia e lotes de telemetria grandes carregados por dispositivos ligados intermitentemente ou comprimido para poupar largura de banda.
+Utilize o upload de ficheiros para enviar ficheiros de mídia e grandes lotes de telemetria carregados por dispositivos intermitentemente ligados ou comprimidos para salvar a largura de banda.
 
-Consulte a [documentação de orientação do dispositivo-para-cloud comunicação](iot-hub-devguide-d2c-guidance.md) se estiver em dúvida entre o uso de propriedades comunicadas, mensagens do dispositivo para a cloud ou carregamento de ficheiros.
+Consulte a orientação de [comunicação Dispositivo-nuvem,](iot-hub-devguide-d2c-guidance.md) em caso de dúvida entre a utilização de propriedades reportadas, mensagens dispositivo-nuvem ou upload de ficheiros.
 
-## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associar uma conta de armazenamento do Azure com o IoT Hub
+## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associar uma conta de Armazenamento Azure com o IoT Hub
 
-Para utilizar a funcionalidade de carregamento de ficheiros, primeiro tem de associar uma conta de armazenamento do Azure para o IoT Hub. Pode concluir esta tarefa através do portal do Azure, ou por meio de programação através de [fornecedor de recursos do IoT Hub REST APIs](/rest/api/iothub/iothubresource). Assim que tiver associado uma conta de armazenamento do Azure a seu IoT Hub, o serviço devolve um URI de SAS para um dispositivo quando o dispositivo é iniciado um pedido de carregamento do ficheiro.
+Para utilizar a funcionalidade de upload de ficheiros, tem primeiro de ligar uma conta de Armazenamento Azure ao IoT Hub. Pode completar esta tarefa através do portal Azure, ou programáticamente através do fornecedor de [recursos Do IoT Hub REST APIs](/rest/api/iothub/iothubresource). Depois de associar uma conta de Armazenamento Azure ao seu Hub IoT, o serviço devolve um SAS URI a um dispositivo quando o dispositivo inicia um pedido de upload de ficheiros.
 
-O [carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub](iot-hub-csharp-csharp-file-upload.md) guias de procedimentos fornecem instruções completas do processo de carregamento de ficheiros. Estes guias de procedimentos mostram-lhe como utilizar o portal do Azure para associar uma conta de armazenamento com um hub IoT.
+Os [ficheiros Upload do seu dispositivo para a nuvem com guias IoT Hub](iot-hub-csharp-csharp-file-upload.md) fornecem uma passagem completa do processo de upload de ficheiros. Estes guias de como-fazer mostram-lhe como usar o portal Azure para associar uma conta de armazenamento com um hub IoT.
 
 > [!NOTE]
-> O [do Azure IoT SDKs](iot-hub-devguide-sdks.md) processam automaticamente ao obter o URI de SAS, carregar o ficheiro e notificar o IoT Hub de um carregamento concluído.
+> Os [SDKs Azure IoT](iot-hub-devguide-sdks.md) lidam automaticamente com a recuperação do SAS URI, fazendo o upload do ficheiro e notificando o IoT Hub de um upload concluído.
 
-## <a name="initialize-a-file-upload"></a>Inicializar o carregamento do ficheiro
-IoT Hub tem um ponto de extremidade especificamente para os dispositivos para pedir um URI de SAS para o armazenamento para carregar um ficheiro. Para iniciar o processo de carregamento de ficheiros, o dispositivo envia um pedido POST para `{iot hub}.azure-devices.net/devices/{deviceId}/files` com o corpo JSON seguinte:
+## <a name="initialize-a-file-upload"></a>Inicializar um upload de ficheiro
+O IoT Hub tem um ponto final especificamente para os dispositivos solicitarem um SAS URI para armazenamento para fazer o upload de um ficheiro. Para iniciar o processo de upload de ficheiros, o dispositivo envia um pedido post para `{iot hub}.azure-devices.net/devices/{deviceId}/files` com o seguinte corpo JSON:
 
 ```json
 {
@@ -49,7 +49,7 @@ IoT Hub tem um ponto de extremidade especificamente para os dispositivos para pe
 }
 ```
 
-IoT Hub devolve os dados seguintes, que o dispositivo utiliza para carregar o ficheiro:
+O IoT Hub devolve os seguintes dados, que o dispositivo utiliza para fazer o upload do ficheiro:
 
 ```json
 {
@@ -61,20 +61,20 @@ IoT Hub devolve os dados seguintes, que o dispositivo utiliza para carregar o fi
 }
 ```
 
-### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>Preterido: inicializar o carregamento de um ficheiro com um GET
+### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>Precated: inicializar um upload de ficheiro com um GET
 
 > [!NOTE]
-> Esta secção descreve as funcionalidades preteridas para como receber um URI de SAS do IoT Hub. Utilize o método POST descrito anteriormente.
+> Esta secção descreve a funcionalidade depreciada para como receber um SAS URI do IoT Hub. Utilize o método POST descrito anteriormente.
 
-IoT Hub tem dois pontos de extremidade REST para oferecer suporte a carregamento de ficheiros, uma para obter o URI de SAS para armazenamento e outro para notificar o hub IoT de um carregamento concluído. O dispositivo é iniciado o processo de carregamento de ficheiro ao enviar um GET para o hub IoT em `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. Devolve o hub IoT:
+O IoT Hub tem dois pontos finais REST para suportar o upload de ficheiros, um para obter o SAS URI para armazenamento e o outro para notificar o centro IoT de um upload concluído. O dispositivo inicia o processo de upload de ficheiros enviando um GET para o hub IoT em `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. O hub ioT retorna:
 
-* Um URI de SAS específico para o ficheiro a ser carregado.
+* Um SAS URI específico do ficheiro a ser carregado.
 
-* Um ID de correlação para ser utilizado quando o carregamento estiver concluído.
+* Uma identificação de correlação a ser utilizada uma vez que o upload esteja concluído.
 
-## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notificar o IoT Hub de carregamento do ficheiro concluído
+## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notifique o IoT Hub de um upload de ficheiro completo
 
-O dispositivo carrega o ficheiro para o armazenamento com os SDKs de armazenamento do Azure. Quando o carregamento estiver concluído, o dispositivo envia um pedido POST para `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` com o corpo JSON seguinte:
+O dispositivo envia o ficheiro para armazenamento utilizando os SDKs de Armazenamento Azure. Quando o upload estiver concluído, o dispositivo envia um pedido post para `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` com o seguinte corpo JSON:
 
 ```json
 {
@@ -85,28 +85,28 @@ O dispositivo carrega o ficheiro para o armazenamento com os SDKs de armazenamen
 }
 ```
 
-O valor de `isSuccess` é um valor booleano que indica se o ficheiro foi carregado com êxito. O código de estado `statusCode` é o estado para o carregamento do ficheiro para o armazenamento e o `statusDescription` corresponde ao `statusCode`.
+O valor da `isSuccess` é um Boolean que indica se o ficheiro foi carregado com sucesso. O código de estado para `statusCode` é o estado do upload do ficheiro para armazenamento, e o `statusDescription` corresponde ao `statusCode`.
 
 ## <a name="reference-topics"></a>Tópicos de referência:
 
-Os seguintes tópicos de referência fornecem mais informações sobre como carregar ficheiros a partir de um dispositivo.
+Os seguintes tópicos de referência fornecem-lhe mais informações sobre o upload de ficheiros a partir de um dispositivo.
 
-## <a name="file-upload-notifications"></a>Notificações de carregamento do ficheiro
+## <a name="file-upload-notifications"></a>Notificações de upload de ficheiros
 
-Opcionalmente, quando um dispositivo notifica o IoT Hub que um carregamento estiver concluído, o IoT Hub gera uma mensagem de notificação. Essa mensagem contém a localização de armazenamento e o nome do ficheiro.
+Opcionalmente, quando um dispositivo notifica o IoT Hub de que um upload está completo, o IoT Hub gera uma mensagem de notificação. Esta mensagem contém o nome e a localização de armazenamento do ficheiro.
 
-Conforme explicado [pontos de extremidade](iot-hub-devguide-endpoints.md), IoT Hub entregar notificações de carregamento de ficheiros através de um ponto de extremidade de serviço com acesso à ( **/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de receção de notificações de carregamento de ficheiro são iguais aos mensagens cloud para o dispositivo e têm a mesma [ciclo de vida de mensagem](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensagem obtida a partir do ponto de final de notificação de carregamento do ficheiro é um registo JSON com as seguintes propriedades:
+Como explicado em [Endpoints,](iot-hub-devguide-endpoints.md)o IoT Hub entrega notificações de upload de ficheiros através de um ponto final virado para o serviço **(/mensagens/notificações de**envio de ficheiros / serviços/ notificações de upload de ficheiros) como mensagens. A semântica recebida para notificações de upload de ficheiros é a mesma que para mensagens cloud-to-device e tem o mesmo ciclo de vida de [mensagem](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensagem obtida a partir do ponto final de notificação de envio de ficheiros é um registo JSON com as seguintes propriedades:
 
 | Propriedade | Descrição |
 | --- | --- |
-| EnqueuedTimeUtc |Timestamp indicando quando a notificação foi criada. |
-| DeviceId |**DeviceId** do dispositivo que carregou o ficheiro. |
-| BlobUri |URI do arquivo carregado. |
-| BlobName |Nome do arquivo carregado. |
-| LastUpdatedTime |Timestamp indicando quando o última atualização do arquivo. |
-| BlobSizeInBytes |Tamanho do arquivo carregado. |
+| EnqueuedTimeUtc |Carimbo de tempo indicando quando a notificação foi criada. |
+| DeviceId |**DispositivoId** do dispositivo que carregou o ficheiro. |
+| BlobUri |URI do ficheiro carregado. |
+| BlobName |Nome do ficheiro enviado. |
+| LastUpdatedTime |Carimbo de tempo indicando quando o ficheiro foi atualizado pela última vez. |
+| BlobSizeInBytes |Tamanho do ficheiro carregado. |
 
-**Exemplo**. Este exemplo mostra a mensagem de notificação de carregar o corpo de um ficheiro.
+**Exemplo.** Este exemplo mostra o corpo de uma mensagem de notificação de upload de ficheiros.
 
 ```json
 {
@@ -119,45 +119,47 @@ Conforme explicado [pontos de extremidade](iot-hub-devguide-endpoints.md), IoT H
 }
 ```
 
-## <a name="file-upload-notification-configuration-options"></a>Opções de configuração de notificação de carregamento de ficheiro
+## <a name="file-upload-notification-configuration-options"></a>Opções de configuração de notificação de upload de ficheiros
 
-Cada hub IoT tem as seguintes opções de configuração para o ficheiro a carregar notificações:
+Cada hub IoT tem as seguintes opções de configuração para notificações de upload de ficheiros:
 
-| Propriedade | Descrição | Intervalo e predefinido |
+| Propriedade | Descrição | Alcance e padrão |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Controla se as notificações de carregamento de ficheiros são escritas para o ponto de final de notificações do ficheiro. |Bool. predefinição: VERDADEIRO. |
-| **fileNotifications.ttlAsIso8601** |TTL predefinido para as notificações de carregamento do ficheiro. |ISO_8601 intervalo de até 48 horas (no mínimo 1 minuto). predefinição: 1 hora. |
-| **fileNotifications.lockDuration** |Duração do bloqueio para a fila de notificações de carregamento do ficheiro. |5 e 300 segundos (mínimo 5 segundos). predefinição: 60 segundos. |
-| **fileNotifications.maxDeliveryCount** |Contagem máxima de entrega para o ficheiro de carregar a fila de notificação. |1 a 100. predefinição: 100. |
+| **ativarNotificas FileUpload** |Controla se as notificações de upload de ficheiros estão escritas no ponto final das notificações do ficheiro. |Bool, bool. Padrão: Verdadeiro. |
+| **ficheiroNotificas.ttlAsIso8601** |TTL padrão para notificações de upload de ficheiros. |intervalo ISO_8601 até 48H (mínimo 1 minuto). Padrão: 1 hora. |
+| **ficheiroSNotificações.lockDura** |Bloqueie a duração da fila de notificações de upload de ficheiros. |5 a 300 segundos (mínimo 5 segundos). Predefinição: 60 segundos. |
+| **ficheiroSNotificações.maxDeliveryCount** |Contagem máxima de entrega para a fila de notificação de upload de ficheiros. |1 a 100. Padrão: 100. |
 
-## <a name="additional-reference-material"></a>Material de referência adicionais
+Pode definir estas propriedades no seu hub IoT utilizando o portal Azure, Azure CLI ou PowerShell. Para saber como, consulte os tópicos sob upload de [ficheiros Configure](iot-hub-configure-file-upload.md).
 
-Outros tópicos de referência no Guia do programador do IoT Hub incluem:
+## <a name="additional-reference-material"></a>Material de referência adicional
 
-* [Pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) descreve vários IoT hub pontos de extremidade para operações de gestão e de tempo de execução.
+Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
-* [Quotas e limitação](iot-hub-devguide-quotas-throttling.md) descreve as quotas e limitação comportamentos que se aplicam ao serviço IoT Hub.
+* [Os pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) descrevem os vários pontos finais do hub IoT para operações de execução e gestão.
 
-* [Azure SDKs de dispositivo e de serviços de IoT](iot-hub-devguide-sdks.md) indica o idioma de vários SDKs, pode utilizar ao desenvolver aplicações de dispositivos e de serviços que interagem com o IoT Hub.
+* [O estrangulamento e](iot-hub-devguide-quotas-throttling.md) as quotas descrevem as quotas e comportamentos de estrangulamento que se aplicam ao serviço IoT Hub.
 
-* [Linguagem de consulta do IoT Hub](iot-hub-devguide-query-language.md) descreve a linguagem de consulta, pode usar para recuperar informações a partir do IoT Hub sobre os seus dispositivos duplos e trabalhos.
+* O [dispositivo e o serviço Azure IoT](iot-hub-devguide-sdks.md) listam os vários SDKs linguísticos que pode utilizar quando desenvolve aplicações de dispositivos e serviços que interagem com o IoT Hub.
 
-* [Suporte para MQTT do IoT Hub](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
+* A linguagem de [consulta ioT Hub](iot-hub-devguide-query-language.md) descreve a linguagem de consulta que você pode usar para obter informações do IoT Hub sobre os seus gémeos e empregos do seu dispositivo.
 
-## <a name="next-steps"></a>Passos Seguintes
+* [O suporte IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-Agora que aprendeu como carregar ficheiros a partir de dispositivos através do IoT Hub, poderá estar interessado nos seguintes tópicos de guia de programadores de IoT Hub:
+## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir identidades de dispositivos no IoT Hub](iot-hub-devguide-identity-registry.md)
+Agora que aprendeu a carregar ficheiros a partir de dispositivos que usam o IoT Hub, pode estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
+
+* [Gerir identidades do dispositivo no IoT Hub](iot-hub-devguide-identity-registry.md)
 
 * [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md)
 
-* [Utilizar dispositivos duplos para sincronizar o estado e configurações](iot-hub-devguide-device-twins.md)
+* [Use gémeos dispositivos para sincronizar estado e configurações](iot-hub-devguide-device-twins.md)
 
-* [Invocar um método direto num dispositivo](iot-hub-devguide-direct-methods.md)
+* [Invoque um método direto num dispositivo](iot-hub-devguide-direct-methods.md)
 
 * [Programar tarefas em vários dispositivos](iot-hub-devguide-jobs.md)
 
-Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial seguinte do IoT Hub:
+Para experimentar alguns dos conceitos descritos neste artigo, consulte o seguinte tutorial IoT Hub:
 
-* [Como carregar ficheiros a partir de dispositivos para a cloud com o IoT Hub](iot-hub-csharp-csharp-file-upload.md)
+* [Como carregar ficheiros de dispositivos para a nuvem com ioT Hub](iot-hub-csharp-csharp-file-upload.md)

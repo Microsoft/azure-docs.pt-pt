@@ -1,108 +1,131 @@
 ---
-title: Otimização de implantação e desempenho
+title: Escala para desempenho
 titleSuffix: Azure Cognitive Search
-description: Aprenda técnicas e práticas recomendadas para ajustar o desempenho de Pesquisa Cognitiva do Azure e configurar a escala ideal.
+description: Aprenda técnicas e boas práticas para afinar o desempenho da Pesquisa Cognitiva Azure e configurar a escala ideal.
 manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 4ff6779843546bd41423c140ef40de6a7e24b026
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/14/2020
+ms.openlocfilehash: 7c2857de0613be400f83544e1dabe079b7497bbd
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113260"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212375"
 ---
-# <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-cognitive-search"></a>Estratégias de implantação e práticas recomendadas para otimizar o desempenho no Azure Pesquisa Cognitiva
+# <a name="scale-for-performance-on-azure-cognitive-search"></a>Escala para desempenho na Pesquisa Cognitiva Azure
 
-Este artigo descreve as práticas recomendadas para cenários avançados com requisitos sofisticados de escalabilidade e disponibilidade. 
+Este artigo descreve as melhores práticas para cenários avançados com requisitos sofisticados de escalabilidade e disponibilidade.
 
-## <a name="develop-baseline-numbers"></a>Desenvolver números de linha de base
-Ao otimizar o desempenho da pesquisa, você deve se concentrar em reduzir o tempo de execução da consulta. Para fazer isso, você precisa saber a aparência de um carregamento de consulta típico. As diretrizes a seguir podem ajudá-lo a chegar em números de consulta de linha de base.
+## <a name="start-with-baseline-numbers"></a>Comece com números de base
 
-1. Escolha uma latência de destino (ou a quantidade máxima de tempo) que uma solicitação de pesquisa típica deve levar para ser concluída.
-2. Crie e teste uma carga de trabalho real em relação ao seu serviço de pesquisa com um conjunto de espaço real para medir essas taxas de latência.
-3. Comece com um número baixo de consultas por segundo (QPS) e aumente gradualmente o número executado no teste até que a latência de consulta fique abaixo da latência de destino definida. Esse é um parâmetro de comparação importante para ajudá-lo a planejar a escala à medida que seu aplicativo cresce de acordo com o uso.
-4. Sempre que possível, reutilize conexões HTTP. Se você estiver usando o SDK do .NET Pesquisa Cognitiva do Azure, isso significa que você deve reutilizar uma instância do ou [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) e, se estiver usando a API REST, deverá reutilizar um único HttpClient.
-5. Varie a substância de solicitações de consulta para que a pesquisa ocorra em diferentes partes do índice. A variação é importante porque, se você executar continuamente as mesmas solicitações de pesquisa, o cache de dados começará a fazer com que o desempenho seja melhor do que pode com um conjunto de consultas mais distintas.
-6. Varie a estrutura das solicitações de consulta para que você obtenha diferentes tipos de consultas. Nem todas as consultas de pesquisa são executadas no mesmo nível. Por exemplo, uma pesquisa de documento ou sugestão de pesquisa é normalmente mais rápida do que uma consulta com um número significativo de facetas e filtros. A composição de teste deve incluir várias consultas, em aproximadamente as mesmas proporções que você esperaria na produção.  
+Antes de realizar um esforço de implantação maior, certifique-se de saber como é uma carga típica de consulta. As seguintes diretrizes podem ajudá-lo a chegar aos números de consulta de base.
 
-Ao criar essas cargas de trabalho de teste, há algumas características do Azure Pesquisa Cognitiva para ter em mente:
+1. Escolha uma latência-alvo (ou quantidade máxima de tempo) que um pedido típico de pesquisa deve levar a concluir.
 
-+ É possível sobrecarregar seu serviço enviando por push muitas consultas de pesquisa de uma só vez. Quando isso acontecer, você verá códigos de resposta HTTP 503. Para evitar um 503 durante o teste, comece com vários intervalos de solicitações de pesquisa para ver as diferenças nas taxas de latência à medida que você adiciona mais solicitações de pesquisa.
+1. Crie e teste uma carga de trabalho real contra o seu serviço de pesquisa com um conjunto de dados realista para medir estas taxas de latência.
 
-+ O Azure Pesquisa Cognitiva não executa tarefas de indexação em segundo plano. Se o seu serviço tratar as cargas de trabalho de consulta e indexação simultaneamente, leve isso em conta introduzindo trabalhos de indexação em seus testes de consulta ou explorando as opções para executar trabalhos de indexação fora do horário de pico.
+1. Comece com um número reduzido de consultas por segundo (QPS) e, em seguida, aumente gradualmente o número executado no teste até que a latência da consulta caia abaixo do alvo predefinido. Esta é uma referência importante para ajudá-lo a planear a escala à medida que a sua aplicação cresce em uso.
 
-> [!NOTE]
-> O [teste de carga do Visual Studio](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release) é uma maneira realmente boa de executar testes de benchmark, pois ele permite que você execute solicitações HTTP, pois você precisaria para executar consultas no Azure pesquisa cognitiva e permite a paralelização de solicitações.
-> 
-> 
+1. Sempre que possível, reutilizar as ligações HTTP. Se estiver a utilizar o SDK de Pesquisa Cognitiva Azure.NET, isto significa que deve reutilizar uma instância ou instância [do SearchIndexClient,](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) e se estiver a utilizar a API REST, deve reutilizar um único HttpClient.
 
-## <a name="scaling-for-high-query-volume-and-throttled-requests"></a>Dimensionamento para alto volume de consulta e solicitações limitadas
-Quando você estiver recebendo muitas solicitações limitadas ou exceder suas taxas de latência de destino de uma carga de consulta maior, você pode procurar diminuir as taxas de latência de uma das duas maneiras:
+1. Varie a substância dos pedidos de consulta para que a pesquisa ocorra em diferentes partes do seu índice. A variação é importante porque se executar continuamente os mesmos pedidos de pesquisa, o cache de dados começará a fazer o desempenho parecer melhor do que poderia com um conjunto de consulta mais díspare.
 
-1. **Aumentar réplicas:**  Uma réplica é como uma cópia dos seus dados, permitindo que Pesquisa Cognitiva do Azure carreguem solicitações de balanceamento em relação a várias cópias.  Todos os balanceamentos de carga e replicação de dados entre réplicas são gerenciados pelo Azure Pesquisa Cognitiva e você pode alterar o número de réplicas alocadas para o serviço a qualquer momento.  Você pode alocar até 12 réplicas em um serviço de pesquisa padrão e 3 réplicas em um serviço de pesquisa básico. As réplicas podem ser ajustadas do [portal do Azure](search-create-service-portal.md) ou do [PowerShell](search-manage-powershell.md).
-2. **Aumentar a camada de pesquisa:**  O Pesquisa Cognitiva do Azure vem em [várias camadas](https://azure.microsoft.com/pricing/details/search/) e cada uma dessas camadas oferece níveis diferentes de desempenho.  Em alguns casos, você pode ter tantas consultas que a camada em que você está em não pode fornecer taxas de latência suficientemente baixas, mesmo quando as réplicas são maximizadas. Nesse caso, convém considerar o aproveitamento de uma das camadas de pesquisa mais altas, como a camada do Azure Pesquisa Cognitiva S3, que é adequada para cenários com um grande número de documentos e cargas de trabalho de consulta extremamente altas.
+1. Varie a estrutura dos pedidos de consulta para que obtenha diferentes tipos de consultas. Nem todas as consultas de pesquisa realizam no mesmo nível. Por exemplo, uma sugestão de pesquisa de documentos ou de pesquisa é tipicamente mais rápida do que uma consulta com um número significativo de facetas e filtros. A composição do teste deve incluir várias consultas, aproximadamente nas mesmas proporções que seria de esperar na produção.  
 
-## <a name="scaling-for-slow-individual-queries"></a>Dimensionamento para consultas individuais lentas
-Outro motivo para taxas de alta latência é uma única consulta demorando muito para ser concluída. Nesse caso, a adição de réplicas não ajudará. Duas opções possíveis que podem ajudar incluem o seguinte:
+Ao criar estas cargas de trabalho de teste, existem algumas características da Pesquisa Cognitiva Azure a ter em mente:
 
-1. **Aumentar partições** Uma partição é um mecanismo para dividir seus dados em recursos extras. A adição de uma segunda partição divide os dados em dois, uma terceira partição o divide em três e assim por diante. Um efeito colateral positivo é que as consultas mais lentas às vezes são executadas mais rapidamente devido à computação paralela. Observamos a paralelização em consultas de baixa seletividade, como consultas que correspondem a muitos documentos ou facetas que fornecem contagens em um grande número de documentos. Como uma computação significativa é necessária para pontuar a relevância dos documentos ou para contar os números de documentos, adicionar partições extras ajuda as consultas a serem concluídas com mais rapidez.  
++ É possível sobrecarregar o seu serviço empurrando demasiadas consultas de pesquisa de uma só vez. Quando isto acontecer, verá códigos de resposta HTTP 503. Para evitar um 503 durante os testes, comece com várias gamas de pedidos de pesquisa para ver as diferenças nas taxas de latência à medida que adiciona mais pedidos de pesquisa.
+
++ A Pesquisa Cognitiva Azure não executa tarefas de indexação em segundo plano. Se o seu serviço lidar com consultas e indexar as cargas de trabalho em simultâneo, tenha isso em conta, introduzindo empregos indexantes nos seus testes de consulta, ou explorando opções para executar trabalhos de indexação durante as horas de ponta.
+
+> [!Tip]
+> Pode simular uma carga de consulta realista utilizando ferramentas de teste de carga. Experimente [os testes de carga com o Azure DevOps](https://docs.microsoft.com/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) ou utilize uma [destas alternativas](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+
+## <a name="scale-for-high-query-volume"></a>Escala para volume de consulta elevado
+
+Um serviço é sobrecarregado quando as consultas demoram muito tempo ou quando o serviço começa a deixar cair pedidos. Se isso acontecer, pode resolver o problema de duas formas:
+
++ **Adicionar réplicas**  
+
+  Cada réplica é uma cópia dos seus dados, permitindo ao serviço carregar pedidos de saldo contra várias cópias.  Todo o equilíbrio de carga e replicação de dados é gerido pela Azure Cognitive Search e pode alterar o número de réplicas atribuídas ao seu serviço a qualquer momento. Pode alocar até 12 réplicas num serviço de pesquisa Standard e 3 réplicas num serviço de pesquisa Basic. As réplicas podem ser ajustadas quer a partir do [portal Azure](search-create-service-portal.md) quer [da PowerShell](search-manage-powershell.md).
+
++ **Criar um novo serviço a um nível superior**  
+
+  A Pesquisa Cognitiva Azure vem em [vários níveis](https://azure.microsoft.com/pricing/details/search/) e cada um oferece diferentes níveis de desempenho. Em alguns casos, você pode ter tantas consultas que o nível em que você está não pode fornecer reviravolta suficiente, mesmo quando as réplicas estão no limite. Neste caso, considere passar para um nível de desempenho mais elevado, como o nível Standard S3, projetado para cenários com um grande número de documentos e cargas de trabalho de consulta extremamente elevadas.
+
+## <a name="scale-for-slow-individual-queries"></a>Escala para consultas individuais lentas
+
+Outra razão para altas taxas de latência é uma única consulta que demora muito tempo a ser completada. Neste caso, adicionar réplicas não vai ajudar. Duas opções possíveis que podem ajudar incluem as seguintes:
+
++ **Aumentar divisórias**
+
+  Uma partição divide dados através de recursos de computação extra. Duas divisórias dividem dados ao meio, uma terceira divisória divide-os em terços, e assim por diante. Um efeito colateral positivo é que as consultas mais lentas às vezes funcionam mais rapidamente devido à computação paralela. Temos notado paralelização em consultas de baixa seletividade, tais como consultas que correspondem a muitos documentos, ou facetas que fornecem contagens sobre um grande número de documentos. Uma vez que é necessário calcular significativamente a relevância dos documentos, ou contar os números de documentos, adicionar divisórias extra ajuda as consultas a completar-se mais rapidamente.  
    
-   Pode haver no máximo 12 partições no serviço de pesquisa padrão e uma partição no serviço de pesquisa básico.  As partições podem ser ajustadas do [portal do Azure](search-create-service-portal.md) ou do [PowerShell](search-manage-powershell.md).
+  Pode haver um máximo de 12 divisórias no serviço de pesquisa Standard e 1 partição no serviço de pesquisa Basic. As divisórias podem ser ajustadas quer a partir do [portal Azure](search-create-service-portal.md) quer [da PowerShell](search-manage-powershell.md).
 
-2. **Limitar campos de cardinalidade alta:** Um campo de alta cardinalidade consiste em um campo de facetable ou filtrável que tem um número significativo de valores exclusivos e, como resultado, consome recursos significativos ao calcular os resultados. Por exemplo, definir uma ID do produto ou um campo de descrição como facetable/filtrável conta como alta cardinalidade porque a maioria dos valores de documento para documento são exclusivos. Sempre que possível, limite o número de campos de cardinalidade alta.
++ **Limite campos de cardinalidade**
 
-3. **Aumentar a camada de pesquisa:**  Mover para uma camada mais alta de Pesquisa Cognitiva do Azure pode ser outra maneira de melhorar o desempenho de consultas lentas. Cada camada mais alta fornece CPUs mais rápidas e mais memória, as quais têm um impacto positivo no desempenho da consulta.
+  Um campo de alta cardinalidade consiste num campo facetável ou filtravel que tem um número significativo de valores únicos e, como resultado, consome recursos significativos quando a computação resulta. Por exemplo, definir um campo de identificação ou descrição do produto como facetable/filterable contaria como cardeal elevado porque a maioria dos valores de documento para documento são únicos. Sempre que possível, limite o número de campos de alto cardeal.
 
-## <a name="scaling-for-availability"></a>Dimensionamento para disponibilidade
-As réplicas não apenas ajudam a reduzir a latência de consulta, mas também podem permitir alta disponibilidade. Com uma única réplica, você deve esperar tempo de inatividade periódico devido à reinicialização do servidor após as atualizações de software ou para outros eventos de manutenção que ocorrerão.  Como resultado, é importante considerar se seu aplicativo requer alta disponibilidade de pesquisas (consultas), bem como gravações (eventos de indexação). O Azure Pesquisa Cognitiva oferece opções de SLA em todas as ofertas de pesquisa pagas com os seguintes atributos:
++ **Aumentar o Nível de Pesquisa**  
 
-* 2 réplicas para alta disponibilidade de cargas de trabalho somente leitura (consultas)
-* 3 ou mais réplicas para alta disponibilidade de cargas de trabalho de leitura/gravação (consultas e indexação)
+  Subir para um nível de pesquisa cognitiva azure mais alto pode ser outra forma de melhorar o desempenho de consultas lentas. Cada nível superior proporciona CPUs mais rápido e mais memória, ambos com um impacto positivo no desempenho da consulta.
 
-Para obter mais detalhes sobre isso, visite o [contrato de nível de serviço de pesquisa cognitiva do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+## <a name="scale-for-availability"></a>Escala para disponibilidade
 
-Como as réplicas são cópias de seus dados, ter várias réplicas permite que o Azure Pesquisa Cognitiva faça reinicializações e manutenção do computador em uma réplica, permitindo que a execução da consulta continue em outras réplicas. Por outro lado, se você tirar as réplicas de longe, incorrerá em degradação do desempenho da consulta, supondo que essas réplicas fossem um recurso subutilizado.
+As réplicas não só ajudam a reduzir a latência de consultas, como também podem permitir uma alta disponibilidade. Com uma única réplica, deve esperar tempo de paragem periódica devido a reboots de servidorapós atualizações de software ou para outros eventos de manutenção que ocorram. Como resultado, é importante considerar se a sua aplicação requer uma elevada disponibilidade de pesquisas (consultas) bem como escritos (eventos de indexação). A Azure Cognitive Search oferece opções de SLA em todas as ofertas de pesquisa pagas com os seguintes atributos:
 
-## <a name="scaling-for-geo-distributed-workloads-and-geo-redundancy"></a>Dimensionamento para cargas de trabalho distribuídas geograficamente e redundância geográfica
-Para cargas de trabalho distribuídas geograficamente, os usuários que estão localizados longe da data center hospedando o Pesquisa Cognitiva do Azure terão taxas de latência mais altas. Uma mitigação é provisionar vários serviços de pesquisa em regiões com mais proximidade com esses usuários. Atualmente, o Azure Pesquisa Cognitiva não fornece um método automatizado de replicação geográfica de índices de Pesquisa Cognitiva do Azure entre regiões, mas há algumas técnicas que podem ser usadas para tornar esse processo simples de implementar e gerenciar. Elas são descritas nas próximas seções.
++ Duas réplicas para elevada disponibilidade de cargas de trabalho apenas para leitura (consultas)
 
-O objetivo de um conjunto de serviços de pesquisa distribuído geograficamente é ter dois ou mais índices disponíveis em duas ou mais regiões em que um usuário é encaminhado para o serviço de Pesquisa Cognitiva do Azure que fornece a menor latência, como visto neste exemplo:
++ Três ou mais réplicas para elevada disponibilidade de cargas de trabalho de leitura (consultas e indexação)
 
-   ![Guia cruzada de serviços por região][1]
+Para mais detalhes sobre este problema, visite o Acordo de [Nível de Nível de Serviço de Pesquisa Cognitiva Azure.](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 
-### <a name="keeping-data-in-sync-across-multiple-azure-cognitive-search-services"></a>Manter os dados sincronizados entre vários serviços de Pesquisa Cognitiva do Azure
-Há duas opções para manter seus serviços de pesquisa distribuídos em sincronia, que consistem em usar o [indexador pesquisa cognitiva do Azure](search-indexer-overview.md) ou a API de envio (também conhecida como [API REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/)).  
+Uma vez que as réplicas são cópias dos seus dados, ter múltiplas réplicas permite que a Pesquisa Cognitiva Azure faça reboots de máquinas e manutenção contra uma réplica, enquanto a execução de consulta continua noutras réplicas. Por outro lado, se tirarréplicas, incorrerá na degradação do desempenho da consulta, assumindo que essas réplicas eram um recurso subutilizado.
 
-### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Usar indexadores para atualizar o conteúdo em vários serviços
+## <a name="scale-for-geo-distributed-workloads-and-geo-redundancy"></a>Escala para cargas de trabalho geodistribuídas e georedundância
 
-Se você já estiver usando o indexador em um serviço, poderá configurar um segundo indexador em um segundo serviço para usar o mesmo objeto de fonte de dados, obtendo dados do mesmo local. Cada serviço em cada região tem seu próprio indexador e um índice de destino (o índice de pesquisa não é compartilhado, o que significa que os dados estão duplicados), mas cada indexador faz referência à mesma fonte de dados.
+Para cargas de trabalho geodistribuídas, os utilizadores que estão localizados longe do centro de dados do anfitrião terão taxas de latência mais elevadas. Uma mitigação é a prestação de múltiplos serviços de pesquisa em regiões com maior proximidade a estes utilizadores.
 
-Aqui está um Visual de alto nível da aparência dessa arquitetura.
+A Azure Cognitive Search não fornece atualmente um método automatizado de geo-replicação dos índices de pesquisa cognitiva azure em todas as regiões, mas existem algumas técnicas que podem ser usadas que podem tornar este processo simples de implementar e gerir. Estes estão delineados nas próximas secções.
 
-   ![Fonte de dados única com indexador distribuído e combinações de serviço][2]
+O objetivo de um conjunto geo-distribuído de serviços de pesquisa é ter dois ou mais índices disponíveis em duas ou mais regiões, onde um utilizador é encaminhado para o serviço de Pesquisa Cognitiva Azure que proporciona a menor latência como visto neste exemplo:
 
-### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Usar APIs REST para enviar atualizações de conteúdo por push em vários serviços
-Se você estiver usando a API REST do Azure Pesquisa Cognitiva para [enviar conteúdo por push em seu índice de pesquisa cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/update-index), você poderá manter seus vários serviços de pesquisa sincronizados enviando alterações a todos os serviços de pesquisa sempre que uma atualização for necessária. Em seu código, certifique-se de lidar com casos em que uma atualização para um serviço de pesquisa falha, mas é bem-sucedida para outros serviços de pesquisa.
+   ![Separadores cruzados de serviços por região][1]
 
-## <a name="leverage-azure-traffic-manager"></a>Aproveite o Gerenciador de tráfego do Azure
-O [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) permite que você encaminhe solicitações para vários sites geograficamente localizados que são então apoiados por vários serviços de pesquisa. Uma vantagem do Gerenciador de tráfego é que ele pode investigar o Pesquisa Cognitiva do Azure para garantir que ele esteja disponível e rotear os usuários para serviços de pesquisa alternativos em caso de tempo de inatividade. Além disso, se você estiver roteando solicitações de pesquisa por meio de sites do Azure, o Gerenciador de tráfego do Azure permite balancear a carga de casos em que o site está ativo, mas não o Azure Pesquisa Cognitiva. Aqui está um exemplo de qual a arquitetura que aproveita o Gerenciador de tráfego.
+### <a name="keep-data-synchronized-across-multiple-services"></a>Mantenha os dados sincronizados em vários serviços
 
-   ![Entre guias de serviços por região, com o Gerenciador de tráfego central][3]
+Existem duas opções para manter os seus serviços de pesquisa distribuídos em sincronização, que consistem em utilizar o Indexante de [Pesquisa Cognitiva Azure](search-indexer-overview.md) ou a API Push (também referida como API de [Pesquisa Cognitiva Azure).](https://docs.microsoft.com/rest/api/searchservice/)  
+
+### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Utilize indexadores para atualizar conteúdos em vários serviços
+
+Se já estiver a utilizar o indexador num só serviço, pode configurar um segundo indexante num segundo serviço para utilizar o mesmo objeto de origem de dados, retirando dados da mesma localização. Cada serviço em cada região tem o seu próprio indexador e um índice-alvo (o seu índice de pesquisa não é partilhado, o que significa que os dados são duplicados), mas cada indexante refere a mesma fonte de dados.
+
+Aqui está um visual de alto nível de como seria essa arquitetura.
+
+   ![Fonte de dados única com indexador distribuído e combinações de serviços][2]
+
+### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Use APIs REST para impulsionar atualizações de conteúdo em vários serviços
+
+Se estiver a utilizar a API de pesquisa cognitiva Azure para pressionar o conteúdo no seu índice de [Pesquisa Cognitiva Azure,](https://docs.microsoft.com/rest/api/searchservice/update-index)pode manter os seus vários serviços de pesquisa sincronizados, empurrando alterações para todos os serviços de pesquisa sempre que for necessária uma atualização. No seu código, certifique-se de lidar com casos em que uma atualização de um serviço de pesquisa falha, mas que tenha sucesso para outros serviços de pesquisa.
+
+## <a name="leverage-azure-traffic-manager"></a>Alavancar o Gestor de Tráfego Azure
+
+[O Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) permite-lhe encaminhar pedidos para vários sites geolocalizados que são depois apoiados por vários serviços de pesquisa. Uma das vantagens do Gestor de Tráfego é que pode sondar a Pesquisa Cognitiva Azure para garantir que está disponível e encaminhar os utilizadores para serviços de pesquisa alternativos em caso de tempo de inatividade. Além disso, se estiver a encaminhar pedidos de pesquisa através de Web Sites Azure, o Gestor de Tráfego do Azure permite-lhe carregar casos de equilíbrio onde o Website está em cima, mas não a Pesquisa Cognitiva Azure. Aqui está um exemplo do que a arquitetura que aproveita o Traffic Manager.
+
+   ![Separador transversal de serviços por região, com gerente central de tráfego][3]
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre os tipos de preço e limites de serviços para cada um, confira [limites de serviço no Azure pesquisa cognitiva](search-limits-quotas-capacity.md).
 
-Visite [planejamento de capacidade](search-capacity-planning.md) para saber mais sobre combinações de partição e réplica.
+Para saber mais sobre os níveis de preços e os limites de serviços para cada um, consulte [os limites de serviço.](search-limits-quotas-capacity.md) Consulte o [Plano de Capacidade](search-capacity-planning.md) para saber mais sobre divisórias e combinações de réplicas.
 
-Para obter mais informações sobre o desempenho e ver algumas demonstrações de como implementar as otimizações discutidas neste artigo, Assista ao vídeo a seguir:
+Para uma discussão sobre o desempenho e demonstrações das técnicas discutidas neste artigo, veja o seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
-> 
 > 
 
 <!--Image references-->

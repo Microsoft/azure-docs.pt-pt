@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185477"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212194"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir número de telefone reclama transformações em Azure AD B2C
 
@@ -32,7 +32,8 @@ Esta alegação valida o formato do número de telefone. Se estiver num formato 
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | A reivindicação do tipo de corda que se converte. |
+| inputClaim | telefoneNumberString | string |  A reclamação de cordas para o número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país. Se for fornecida a reclamação de entrada `country`, o número de telefone encontra-se em formato local (sem o código do país). |
+| inputClaim | país | string | [Opcional] A reclamação de cadeias para o código de país do número de telefone no formato ISO3166 (o código de dois letras ISO-3166). |
 | OutputClaim | outputClaim | phoneNumber | O resultado desta transformação de reivindicações. |
 
 A transformação de reclamações **ConvertStringToPhoneNumberClaim** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md) ou controlo de [ecrã](display-controls.md). Os metadados de perfil técnico autoafirmados do **UserMessageIfClaimsTransformationInvalidNumber** controlam a mensagem de erro que é apresentada ao utilizador.
@@ -44,7 +45,8 @@ Pode utilizar esta transformação de reclamações para garantir que a reclama�
 ```XML
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="inputClaim" />
+    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
+    <InputClaim ClaimTypeReferenceId="countryCode" TransformationClaimType="country" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
@@ -63,11 +65,19 @@ O perfil técnico autoafirmado que chama o perfil técnico de validação que co
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example-1"></a>Exemplo 1
 
 - Créditos de entrada:
-  - **inputClaim:** +1 (123) 456-7890
+  - **telefoneNumberString**: 045 456-7890
+  - **país**: DK
 - Alegações de saída:
+  - **saídaSReclamação:** +450546148120
+
+### <a name="example-2"></a>Exemplo 2
+
+- Créditos de entrada:
+  - **telefoneNumberString:** +1 (123) 456-7890
+- Alegações de saída: 
   - **saídaSReclamação:** +11234567890
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberandCountryCodeFromNumberstring

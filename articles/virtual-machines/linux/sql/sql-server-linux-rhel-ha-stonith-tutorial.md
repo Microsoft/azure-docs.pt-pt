@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 01/27/2020
-ms.openlocfilehash: 3f5f51c944cab84c00e29b2f72433a726ed70d33
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0eaff1685cea88d352f1a22f382b7af2ed0ed6cb
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024352"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252217"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configure grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
 
@@ -90,7 +90,7 @@ Deve obter os seguintes resultados assim que o comando terminar:
 ## <a name="create-rhel-vms-inside-the-availability-set"></a>Criar VMs RHEL dentro do conjunto de disponibilidade
 
 > [!WARNING]
-> Se escolher uma imagem RHEL Pay-As-You-Go (PAYG) e configurar a Alta Disponibilidade (HA), poderá ser obrigado a registar a sua subscrição. Isto pode fazer com que pague duas vezes pela subscrição, uma vez que será cobrado pela subscrição do Microsoft Azure RHEL para o VM, e uma subscrição da Red Hat. Para mais informações, consulte https://access.redhat.com/solutions/2458541.
+> Se escolher uma imagem RHEL Pay-As-You-Go (PAYG) e configurar a Alta Disponibilidade (HA), poderá ser obrigado a registar a sua subscrição. Isto pode fazer com que pague duas vezes pela subscrição, uma vez que será cobrado pela subscrição do Microsoft Azure RHEL para o VM, e uma subscrição da Red Hat. Para obter mais informações, consulte https://access.redhat.com/solutions/2458541.
 >
 > Para evitar ser "faturado duplo", use uma imagem RHEL HA ao criar o VM Azure. As imagens oferecidas como imagens RHEL-HA também são imagens PAYG com ha repo pré-habilitado.
 
@@ -196,7 +196,7 @@ Se a ligação for bem sucedida, deverá ver a seguinte saída representando o t
 
 Digite `exit` para sair da sessão sSH.
 
-## <a name="enable-high-availability"></a>Ativar a Elevada Disponibilidade
+## <a name="enable-high-availability"></a>Ativar alta disponibilidade
 
 > [!IMPORTANT]
 > Para completar esta parte do tutorial, deve ter uma subscrição para rHEL e o Add-on de Alta Disponibilidade. Se estiver a utilizar uma imagem recomendada na secção anterior, não tem de registar outra subscrição.
@@ -786,7 +786,7 @@ Seguiremos o guia para criar os recursos do grupo de [disponibilidade no cluster
 
 ### <a name="create-the-ag-cluster-resource"></a>Criar o recurso de cluster AG
 
-1. Utilize o seguinte comando para criar o `ag_cluster` de recursos no grupo disponível `ag1`.
+1. Utilize o seguinte comando para criar o recurso `ag_cluster` no grupo de disponibilidade `ag1`.
 
     ```bash
     sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true

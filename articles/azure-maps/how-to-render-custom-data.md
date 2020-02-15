@@ -1,20 +1,20 @@
 ---
 title: Render dados personalizados num mapa de rasters / Microsoft Azure Maps
 description: Neste artigo, você aprenderá a renderizar dados personalizados num mapa de raster usando o Serviço de imagem estática do Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 049762382bb1a67da21f5b95fdf28319672bfca6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 78068a8deda68434daaeb18cc994099d74d9ccdf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198212"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209958"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Render dados personalizados num mapa de raster
 

@@ -1,20 +1,20 @@
 ---
 title: Solicitar dados de trânsito em tempo real  Microsoft Azure Maps
 description: Solicite dados em tempo real utilizando o Serviço de Mobilidade Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 053e6c84f69e8b3d3fed0a90a8b632aa4eb311cb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 9710366bdb7d8e86c8abb54b29b8dde3cc315692
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198161"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209907"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Solicite dados em tempo real utilizando o Serviço de Mobilidade Do Azure Maps
 

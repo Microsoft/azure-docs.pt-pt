@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169844"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252081"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é um exemplo de computação de aprendizagem automática Azure?
 
@@ -141,11 +141,11 @@ Os casos computacionais podem ser usados como um [alvo computacional](concept-co
 
 ## <a name="notebookvm"></a>O que aconteceu com o Notebook VM?
 
-Os casos de computação estão a substituir o VM do Caderno.  Em regiões onde os casos de cálculo ainda não estão disponíveis, pode continuar a utilizar VMs portátil com funcionalidade completa e criar novos VMs portátil.
+Os casos de computação estão a substituir o VM do Caderno.  
 
 Quaisquer ficheiros portátil armazenados na partilha de ficheiros do espaço de trabalho e dados nas lojas de dados do espaço de trabalho estarão acessíveis a partir de uma instância de cálculo. No entanto, quaisquer pacotes personalizados previamente instalados num VM de caderno terão de ser reinstalados na instância do cálculo. As limitações de quota aplicáveis à criação de clusters computacionais aplicar-se-ão também à criação de instâncias computadas. 
 
-Nas regiões onde existem instâncias de cálculo, não podem ser criados novos VMs portátil. No entanto, ainda pode aceder e utilizar VMs portátil que criou, com funcionalidade completa. Os casos de computação podem ser criados no mesmo espaço de trabalho que os VMs de caderno existentes. 
+Não podem ser criados novos VMs portátil. No entanto, ainda pode aceder e utilizar VMs portátil que criou, com funcionalidade completa. Os casos de computação podem ser criados no mesmo espaço de trabalho que os VMs de caderno existentes. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

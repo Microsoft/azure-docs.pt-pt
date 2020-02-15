@@ -1,22 +1,14 @@
 ---
 title: Conversas multi-turn - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Utilize instruções e contexto para gerir as múltiplas voltas, conhecidas como multi-turn, para o seu bot de uma pergunta para outra. Multi-turn é a capacidade de ter uma conversa de trás para a frente onde o contexto da pergunta anterior influencia a próxima pergunta e resposta.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.author: diberry
-ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/13/2020
+ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843265"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210419"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 
@@ -31,6 +23,9 @@ Para ver como funciona a multi-volta, veja o seguinte vídeo de demonstração:
 Algumas perguntas não podem ser respondidas de uma só vez. Ao conceber as conversas da sua aplicação de cliente (chat bot), um utilizador pode fazer uma pergunta que precisa de ser filtrada ou refinada para determinar a resposta correta. Faz com que isto flua através das questões possíveis apresentando ao utilizador *instruções de acompanhamento*.
 
 Quando um utilizador faz uma pergunta, o QnA Maker devolve a resposta _e_ quaisquer solicitações de seguimento. Esta resposta permite-lhe apresentar as perguntas de acompanhamento como escolhas.
+
+> [!CAUTION]
+> As solicitações de várias voltas não são extraídas de documentos de FAQ. Se necessitar de extração em várias voltas, remova os pontos de interrogação que designam os pares QnA como PERGUNTAS.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Exemplo de conversa multi-turn com chat bot
 

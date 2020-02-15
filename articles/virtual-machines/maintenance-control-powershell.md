@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 58bdbdfcb82806dfa0b2779967bddf1242a8b702
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 7e4586a5fba91fbc7432aa352b9608be728e8654
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115696"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251945"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Visualização: controlar atualizações com controle de manutenção e Azure PowerShell
 
@@ -216,6 +216,7 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
+O LastUpdateTime será o momento em que a atualização foi completada, iniciada por si ou pela plataforma no caso de não ter sido utilizada a janela de auto-manutenção. Se nunca houve uma atualização aplicada através do controlo de manutenção, mostrará o valor predefinido.
 
 ### <a name="isolated-vm"></a>VM isolado
 

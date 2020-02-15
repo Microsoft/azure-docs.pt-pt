@@ -1,79 +1,83 @@
 ---
 title: Restaurar VMs VMware com o Azure Backup Server
-description: Use Servidor de Backup do Azure (MABS) para restaurar VMs VMware em execução em um servidor VMware vCenter/ESXi.
+description: Utilize o Servidor de Backup Azure (MABS) para restaurar os VMware VMs em execução num servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: 7c93c3100d8756fd9faf8cf02152a870bd0c106c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171912"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212370"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurar máquinas virtuais VMware
 
-Este artigo explica como usar o MABS (servidor de Backup do Microsoft Azure) para restaurar os pontos de recuperação de VM do VMware. Para obter uma visão geral sobre como usar o MABS para recuperar dados, consulte [recuperar dados protegidos](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). No Console do Administrador MABS, há duas maneiras de localizar dados recuperáveis-pesquisa ou navegação. Ao recuperar dados, você pode ou não querer restaurar dados ou uma VM para o mesmo local. Por esse motivo, o MABS dá suporte a três opções de recuperação para backups de VM VMware:
+Este artigo explica como usar o Microsoft Azure Backup Server (MABS) para restaurar os pontos de recuperação VMware VM. Para uma visão geral sobre a utilização de MABS para recuperar dados, consulte [Recuperar dados protegidos](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). Na Consola de Administrador MABS, existem duas formas de encontrar dados recuperáveis - pesquisar ou navegar. Ao recuperar dados, pode ou não querer restaurar os dados ou um VM para o mesmo local. Por esta razão, o MABS suporta três opções de recuperação para backups VMware VM:
 
-* **OLR (recuperação de local original)** – use OLR para restaurar uma VM protegida para seu local original. Você poderá restaurar uma VM para seu local original somente se nenhum disco tiver sido adicionado ou excluído, desde que o backup ocorreu. Se discos tiverem sido adicionados ou excluídos, você deverá usar a recuperação de local alternativo.
+* **Recuperação original da localização (OLR)** - Utilize o OLR para restaurar um VM protegido à sua localização original. Só é possível restaurar um VM na sua localização original se não forem adicionados ou eliminados discos, uma vez que ocorreu a cópia de segurança. Se os discos tiverem sido adicionados ou eliminados, deve utilizar uma recuperação alternativa de localização.
 
-* **Recuperação de local alternativo (ALR)** -quando a VM original está ausente ou você não deseja perturbar a VM original, recupere a VM em um local alternativo. Para recuperar uma VM em um local alternativo, você deve fornecer o local de um host ESXi, um pool de recursos, uma pasta e o armazenamento e o caminho do armazenamento de repositório. Para ajudar a diferenciar a VM restaurada da VM original, MABS acrescenta "-Recovered" ao nome da VM.
+* **Recuperação alternativa de localização (ALR)** - Quando o VM original estiver em falta, ou não quiser perturbar o VM original, recupere o VM para um local alternativo. Para recuperar um VM para um local alternativo, deve fornecer a localização de um hospedeiro ESXi, piscina de recursos, pasta e a loja de dados de armazenamento e caminho. Para ajudar a diferenciar o VM restaurado do VM original, o MABS anexa "-Recuperado" ao nome do VM.
 
-* **ILR (recuperação de local de arquivo individual)** – se a VM protegida for uma VM do Windows Server, os arquivos/pastas individuais dentro da VM poderão ser recuperados usando o recurso ILR do mAbs. Para recuperar arquivos individuais, consulte o procedimento mais adiante neste artigo.
+* Recuperação individual da localização do **ficheiro (ILR)** - Se o VM protegido for um VM do Servidor do Windows, ficheiros/pastas individuais dentro do VM podem ser recuperados utilizando a capacidade ILR do MABS. Para recuperar ficheiros individuais, consulte o procedimento mais tarde neste artigo.
 
 ## <a name="restore-a-recovery-point"></a>Restaurar um ponto de recuperação
 
-1. No Console do Administrador MABS, clique em modo de exibição de recuperação.
+1. Na Consola de Administrador MABS, clique na visualização recovery.
 
-2. Usando o painel procurar, procure ou filtre para localizar a VM que você deseja recuperar. Depois de selecionar uma VM ou pasta, os pontos de recuperação para o painel exibem os pontos de recuperação disponíveis.
-
-    ![Pontos de recuperação disponíveis](./media/restore-azure-backup-server-vmware/recovery-points.png)
-
-3. No campo **pontos de recuperação para** , use os menus de calendário e suspenso para selecionar uma data em que um ponto de recuperação foi tirado. As datas do calendário em negrito têm pontos de recuperação disponíveis.
-
-4. Na faixa de ferramentas da ferramenta, clique em **recuperar** para abrir o **Assistente de recuperação**.
-
-    ![Assistente de recuperação, examinar a seleção de recuperação](./media/restore-azure-backup-server-vmware/recovery-wizard.png)
-
-5. Clique em **Avançar** para ir para a tela **especificar opções de recuperação** .
-
-6. Na tela **especificar opções de recuperação** , se você quiser habilitar a limitação de largura de banda de rede, clique em **Modificar**. Para deixar a limitação de rede desabilitada, clique em **Avançar**. Nenhuma outra opção nesta tela do assistente está disponível para VMs VMware. Se você optar por modificar o acelerador de largura de banda de rede, na caixa de diálogo limitação, selecione **habilitar limitação de uso de largura de banda** para ativá-la. Uma vez habilitado, defina as **configurações** e a **agenda de trabalho**.
-
-7. Na tela **Selecionar tipo de recuperação** , escolha se deseja recuperar na instância original ou em um novo local e clique em **Avançar**.
-
-     * Se você escolher **recuperar na instância original**, não precisará fazer mais nenhuma opção no assistente. Os dados da instância original são usados.
-
-     * Se você escolher **recuperar como máquina virtual em qualquer host**, na tela **especificar destino** , forneça as informações para **host ESXi, pool de recursos, pasta** e **caminho**.
-
-      ![Selecionar tipo de recuperação](./media/restore-azure-backup-server-vmware/recovery-type.png)
-
-8. Na tela **Resumo** , examine as configurações e clique em **recuperar** para iniciar o processo de recuperação. A tela **status da recuperação** mostra a progressão da operação de recuperação.
-
-## <a name="restore-an-individual-file-from-a-vm"></a>Restaurar um arquivo individual de uma VM
-
-Você pode restaurar arquivos individuais de um ponto de recuperação de VM protegido. Esse recurso só está disponível para VMs do Windows Server. A restauração de arquivos individuais é semelhante à restauração de toda a VM, exceto que você navega para o VMDK e localiza os arquivos desejados antes de iniciar o processo de recuperação. Para recuperar um arquivo individual ou selecionar arquivos de uma VM do Windows Server:
-
-1. No Console do Administrador MABS, clique em modo de exibição de **recuperação** .
-
-2. Usando o painel **procurar** , procure ou filtre para localizar a VM que você deseja recuperar. Depois de selecionar uma VM ou pasta, os pontos de recuperação para o painel exibem os pontos de recuperação disponíveis.
+2. Utilizando o painel de navegação, navegue ou filtro para encontrar o VM que pretende recuperar. Uma vez selecionada uma VM ou pasta, os pontos de recuperação para o painel mostram os pontos de recuperação disponíveis.
 
     ![Pontos de recuperação disponíveis](./media/restore-azure-backup-server-vmware/recovery-points.png)
 
-3. No painel **pontos de recuperação para:** , use o calendário para selecionar a data que contém os pontos de recuperação desejados. Dependendo de como a política de backup foi configurada, as datas podem ter mais de um ponto de recuperação. Depois de selecionar o dia em que o ponto de recuperação foi feito, verifique se você escolheu o **tempo de recuperação**correto. Se a data selecionada tiver vários pontos de recuperação, escolha o ponto de recuperação selecionando-o no menu suspenso tempo de recuperação. Depois de escolher o ponto de recuperação, a lista de itens recuperáveis aparece no painel **caminho:** .
+3. Nos **pontos** de recuperação para campo, utilize os menus de calendário e drop-down para selecionar uma data em que foi tomado um ponto de recuperação. As datas de calendário em negrito têm pontos de recuperação disponíveis.
 
-4. Para localizar os arquivos que você deseja recuperar, no painel **caminho** , clique duas vezes no item na coluna **Item recuperável** para abri-lo. Selecione o arquivo, os arquivos ou as pastas que você deseja recuperar. Para selecionar vários itens, pressione a tecla **Ctrl** enquanto seleciona cada item. Use o painel **caminho** para pesquisar a lista de arquivos ou pastas que aparecem na coluna **Item recuperável** . A **lista de pesquisa abaixo** não pesquisa em subpastas. Para pesquisar em subpastas, clique duas vezes na pasta. Use o botão para **cima** para mover de uma pasta filho para a pasta pai. Você pode selecionar vários itens (arquivos e pastas), mas eles devem estar na mesma pasta pai. Não é possível recuperar itens de várias pastas no mesmo trabalho de recuperação.
+4. Na fita da ferramenta, clique em **Recuperar** para abrir o **Assistente de Recuperação**.
 
-5. Quando você tiver selecionado os itens para recuperação, na faixa de Console do Administrador da ferramenta, clique em **recuperar** para abrir o **Assistente de recuperação**. No assistente de recuperação, a tela **revisar seleção de recuperação** mostra os itens selecionados a serem recuperados.
-    ![revisar a seleção de recuperação](./media/restore-azure-backup-server-vmware/review-recovery.png)
+    ![Assistente de recuperação, seleção de recuperação de revisão](./media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-6. Na tela **especificar opções de recuperação** , se você quiser habilitar a limitação de largura de banda de rede, clique em **Modificar**. Para deixar a limitação de rede desabilitada, clique em **Avançar**. Nenhuma outra opção nesta tela do assistente está disponível para VMs VMware. Se você optar por modificar o acelerador de largura de banda de rede, na caixa de diálogo limitação, selecione **habilitar limitação de uso de largura de banda** para ativá-la. Uma vez habilitado, defina as **configurações** e a **agenda de trabalho**.
-7. Na tela **Selecionar tipo de recuperação** , clique em **Avançar**. Você só pode recuperar seus arquivos ou pastas em uma pasta de rede.
-8. Na tela **especificar destino** , clique em **procurar** para localizar um local de rede para seus arquivos ou pastas. MABS cria uma pasta na qual todos os itens recuperados são copiados. O nome da pasta tem o prefixo MABS_day-mês-ano. Quando você seleciona um local para os arquivos ou a pasta recuperados, os detalhes desse local (destino, caminho de destino e espaço disponível) são fornecidos.
+5. Clique em **seguida** para avançar para o ecrã Deteção de Opções de **Recuperação.**
 
-       ![Specify location to recover files](./media/restore-azure-backup-server-vmware/specify-destination.png)
+6. No ecrã **'Selecionar Opções** de Recuperação', se pretender ativar o estrangulamento da largura de banda da rede, clique em **Modificar**. Para deixar a rede a estrangular desativada, clique em **Next**. Não existem outras opções neste ecrã de assistentes disponíveis para VMware VMs. Se optar por modificar o acelerador de largura de banda da rede, no diálogo do acelerador, **selecione Ativar** o estrangulamento de utilização da largura de banda da rede para o ligar. Uma vez ativado, configure as **Definições** e **a Agenda de Trabalho**.
 
-9. Na tela **especificar opções de recuperação** , escolha qual configuração de segurança aplicar. Você pode optar por modificar a limitação do uso de largura de banda da rede, mas a limitação está desabilitada por padrão. Além disso, a recuperação e a **notificação** de **San** não estão habilitadas.
-10. Na tela **Resumo** , examine as configurações e clique em **recuperar** para iniciar o processo de recuperação. A tela **status da recuperação** mostra a progressão da operação de recuperação.
+7. No ecrã **Select Recovery Type,** escolha se deve recuperar para a instância original, ou para um novo local, e clique em **Seguinte**.
+
+     * Se escolher **recuperar para a instância original,** não precisa de fazer mais escolhas no assistente. Os dados relativos à instância original são utilizados.
+
+     * Se escolher **recuperar como máquina virtual em qualquer anfitrião**, em seguida, no ecrã **'Destino Especificado',** forneça as informações para **o anfitrião ESXi, Pool de Recursos, Pasta** e **Caminho**.
+
+      ![Selecionar Tipo de Recuperação](./media/restore-azure-backup-server-vmware/recovery-type.png)
+
+8. No ecrã **Resumo,** reveja as definições e clique em **Recuperar** para iniciar o processo de recuperação. O ecrã do estado de **recuperação** mostra a progressão da operação de recuperação.
+
+## <a name="restore-an-individual-file-from-a-vm"></a>Restaurar um ficheiro individual a partir de um VM
+
+Pode restaurar ficheiros individuais a partir de um ponto de recuperação vm protegido. Esta funcionalidade só está disponível para VMs do Windows Server. Restaurar ficheiros individuais é semelhante ao restauro de todo o VM, exceto que você navega no VMDK e encontra o arquivo(s) que deseja, antes de iniciar o processo de recuperação. Para recuperar um ficheiro individual ou selecionar ficheiros a partir de um VM do Servidor do Windows:
+
+>[!NOTE]
+>Restaurar um ficheiro individual de um VM está disponível apenas para Windows VM e Pontos de Recuperação de Discos.
+
+1. Na Consola de Administrador MABS, clique na **visualização recovery.**
+
+2. Utilizando o painel **de navegação,** navegue ou filtro para encontrar o VM que pretende recuperar. Uma vez selecionada uma VM ou pasta, os pontos de recuperação para o painel mostram os pontos de recuperação disponíveis.
+
+    ![Pontos de recuperação disponíveis](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
+
+3. Nos **Pontos de Recuperação para:** painel, utilize o calendário para selecionar a data que contém os pontos de recuperação desejados. Dependendo da configuração da política de backup, as datas podem ter mais do que um ponto de recuperação. Depois de ter selecionado o dia em que o ponto de recuperação foi tomado, certifique-se de ter escolhido o tempo de **recuperação**correto. Se a data selecionada tiver vários pontos de recuperação, escolha o seu ponto de recuperação selecionando-o no menu de paragem do tempo de recuperação. Uma vez escolhido o ponto de recuperação, a lista de itens recuperáveis aparece no **Caminho:** pane.
+
+4. Para encontrar os ficheiros que pretende recuperar, no painel **Path,** clique duas vezes no item na coluna de **itens Recuperável** para o abrir. Selecione o ficheiro, ficheiros ou pastas que pretende recuperar. Para selecionar vários itens, prima a tecla **CTRL** enquanto seleciona cada item. Utilize o painel **Caminho** para pesquisar a lista de ficheiros ou pastas que aparecem na coluna **Recoveryable Item.** **A lista de pesquisas abaixo** não procura em subpastas. Para pesquisar por subpastas, clique duas vezes na pasta. Utilize o botão **Up** para passar de uma pasta infantil para a pasta dos pais. Pode selecionar vários itens (ficheiros e pastas), mas devem estar na mesma pasta-mãe. Não é possível recuperar itens de várias pastas no mesmo trabalho de recuperação.
+
+    ![Seleção de Recuperação de Avaliação](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
+
+5. Quando tiver selecionado o (s) item(s) para recuperação, na fita de ferramenta siconsolado administrador, clique em **Recuperar** para abrir o **Assistente de Recuperação**. No Assistente de Recuperação, o ecrã de Seleção de **Recuperação** de Revisão mostra os itens selecionados a serem recuperados.
+
+6. No ecrã **'Selecionar Opções** de Recuperação', se pretender ativar o estrangulamento da largura de banda da rede, clique em **Modificar**. Para deixar a rede a estrangular desativada, clique em **Next**. Não existem outras opções neste ecrã de assistentes disponíveis para VMware VMs. Se optar por modificar o acelerador de largura de banda da rede, no diálogo do acelerador, **selecione Ativar** o estrangulamento de utilização da largura de banda da rede para o ligar. Uma vez ativado, configure as **Definições** e **a Agenda de Trabalho**.
+7. No ecrã **Select Recovery Type,** clique em **Seguinte**. Só pode recuperar os seus ficheiros ou pastas para uma pasta de rede.
+8. No ecrã **'Especificar Destino',** clique em **Navegar** para encontrar uma localização de rede para os seus ficheiros ou pastas. O MABS cria uma pasta onde todos os itens recuperados são copiados. O nome da pasta tem o prefixo, MABS_day mês.ano. Quando seleciona um local para os ficheiros ou pastas recuperados, são fornecidos os detalhes para esse local (Destino, destino e espaço disponível).
+
+    ![Especificar a localização para recuperar ficheiros](./media/restore-azure-backup-server-vmware/specify-destination.png)
+
+9. No ecrã **'Especificar Opções de Recuperação',** escolha qual a definição de segurança a aplicar. Pode optar por modificar o estrangulamento da largura de banda da rede, mas o estrangulamento é desativado por defeito. Além disso, a Recuperação e **Notificação** **san** não estão ativadas.
+10. No ecrã **Resumo,** reveja as definições e clique em **Recuperar** para iniciar o processo de recuperação. O ecrã do estado de **recuperação** mostra a progressão da operação de recuperação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para solucionar problemas ao usar Servidor de Backup do Azure, consulte o [Guia de solução de problemas para servidor de backup do Azure](./backup-azure-mabs-troubleshoot.md).
+Para problemas de resolução de problemas ao utilizar o Servidor de Backup Azure, reveja o guia de resolução de [problemas para o Servidor](./backup-azure-mabs-troubleshoot.md)de Backup Azure .

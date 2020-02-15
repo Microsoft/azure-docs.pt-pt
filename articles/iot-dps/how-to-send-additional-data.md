@@ -1,27 +1,27 @@
 ---
-title: Como transferir dados adicionais entre o dispositivo e o serviço de provisionamento de dispositivos do Azure
-description: Este documento descreve como transferir dados adicionais entre o serviço de provisionamento de dispositivos e dispositivos (DPS)
+title: Como transferir uma carga útil entre o dispositivo e o Serviço de Provisionamento de Dispositivos Azure
+description: Este documento descreve como transferir uma carga útil entre o dispositivo e o Serviço de Provisionamento de Dispositivos (DPS)
 author: menchi
 ms.author: menchi
-ms.date: 10/29/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e9482f7069616d61efb98f66590ce33cfe3cf350
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3eec39e975b1e782eafe16205623c625f462a865
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974858"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209414"
 ---
-# <a name="how-to-transfer-additional-data-between-device-and-dps"></a>Como transferir dados adicionais entre o dispositivo e o DPS
-Por vezes, o DPS precisa de mais dados dos dispositivos para poder aprovisioná-los corretamente ao Hub IoT certo, sendo que tem de ser o dispositivo a fornecer esses dados. Vice-versa, o DPS pode retornar dados para o dispositivo para facilitar as lógicas do lado do cliente. 
+# <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Como transferir uma carga útil entre o dispositivo e o DPS
+Por vezes, o DPS necessita de mais dados dos dispositivos para os fornecer corretamente ao IoT Hub certo, e que os dados precisam de ser fornecidos pelo dispositivo. Vice-versa, o DPS pode devolver dados ao dispositivo para facilitar as lógicas do lado do cliente. 
 
 ## <a name="when-to-use-it"></a>Quando utilizar
-Esse recurso pode ser usado como um aprimoramento para a [alocação personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Por exemplo, você deseja alocar seus dispositivos com base no modelo de dispositivo sem intervenção humana. Nesse caso, você usará a [alocação personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Você pode configurar o dispositivo para relatar as informações do modelo como parte da [chamada do dispositivo de registro](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). O DPS passará as informações do dispositivo para o webhook de alocação personalizada. E sua função pode decidir a qual Hub IoT este dispositivo será usado quando receber informações de modelo do dispositivo. Da mesma forma, se o webhook quiser devolver alguns dados ao dispositivo, irá transmiti-los de volta como uma cadeia na resposta do webhook.  
+Esta funcionalidade pode ser usada como um melhoramento para [a atribuição personalizada.](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies) Por exemplo, pretende alocar os seus dispositivos com base no modelo do dispositivo sem intervenção humana. Neste caso, utilizará a [atribuição personalizada.](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies) Pode configurar o dispositivo para reportar as informações do modelo como parte da chamada do [dispositivo de registo](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). O DPS passará a carga útil do dispositivo para o webhook de alocação personalizada. E a sua função pode decidir a que Hub IoT irá para quando receber informações do modelo do dispositivo. Da mesma forma, se o webhook desejar devolver alguns dados ao dispositivo, passará os dados de volta como uma cadeia na resposta webhook.  
 
-## <a name="device-sends-data-to-dps"></a>O dispositivo envia dados para o DPS
-Quando o dispositivo estiver enviando uma [chamada de dispositivo de registro](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) para o DPS, a chamada de registro poderá ser aprimorada para usar outros campos no corpo. O corpo é semelhante ao seguinte: 
+## <a name="device-sends-data-payload-to-dps"></a>Dispositivo envia carga útil de dados para DPS
+Quando o seu dispositivo está a enviar uma chamada de dispositivo de [registo](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) para DPS, a chamada de registo pode ser melhorada para tomar outros campos do corpo. O corpo parece o seguinte: 
    ```
    { 
        “registrationId”: “mydevice”, 
@@ -31,12 +31,12 @@ Quando o dispositivo estiver enviando uma [chamada de dispositivo de registro](h
            “storageRootKey”: “things” 
        }, 
        “interfaces”: “TODO: get how interfaces are reported by devices from PnP folks.”, 
-       “data”: “your additional data goes here. It can be nested JSON.” 
+       “payload”: “your additional data goes here. It can be nested JSON.” 
     } 
    ```
 
-## <a name="dps-returns-data-to-the-device"></a>O DPS retorna dados para o dispositivo
-Se o webhook da diretiva de alocação personalizada quiser retornar alguns dados para o dispositivo, ele passará os dados de volta como uma cadeia de caracteres na resposta do webhook. A alteração está na seção returnData abaixo. 
+## <a name="dps-returns-data-to-the-device"></a>DPS devolve dados ao dispositivo
+Se a política de alocação personalizada pretender devolver alguns dados ao dispositivo, passará os dados de volta como uma cadeia na resposta do webhook. A alteração está na secção de carga útil abaixo. 
    ```
    { 
        "iotHubHostName": "sample-iot-hub-1.azure-devices.net", 
@@ -50,12 +50,12 @@ Se o webhook da diretiva de alocação personalizada quiser retornar alguns dado
                     } 
                 } 
             }, 
-        "returnData": "whatever is returned by the webhook" 
+        "payload": "whatever is returned by the webhook" 
     } 
    ```
 
-## <a name="sdk-support"></a>Suporte de SKDs
-Esse recurso está disponível em SDKs do C# [cliente](https://docs.microsoft.com/azure/iot-dps/)C,, Java e node. js.  
+## <a name="sdk-support"></a>Suporte SDK
+Esta funcionalidade está disponível em C, C#JAVA e Node.js cliente [SDKs](https://docs.microsoft.com/azure/iot-dps/).  
 
 ## <a name="next-steps"></a>Passos seguintes
-* Desenvolver usando o [SDK do Azure IOT]( https://github.com/Azure/azure-iot-sdks) para o Hub IOT do Azure e o serviço de provisionamento de dispositivos no Hub IOT do Azure
+* Desenvolver a utilização do [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) para o Azure IoT Hub e o Serviço de Provisionamento de Dispositivos Azure IoT Hub

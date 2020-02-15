@@ -1,7 +1,7 @@
 ---
-title: Configurar o nome de domínio personalizado para a instância do gerenciamento de API do Azure
+title: Configure o nome de domínio personalizado para a instância de Gestão API azure
 titleSuffix: Azure API Management
-description: Este tópico descreve como configurar um nome de domínio personalizado para sua instância do gerenciamento de API do Azure.
+description: Este tópico descreve como configurar um nome de domínio personalizado para a sua instância de Gestão API Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,88 +12,88 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72075d4eff336af625bbf6d62f1276d2997bfed4
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967350"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251214"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
-Quando você cria uma instância de serviço de gerenciamento de API do Azure, o Azure atribui um subdomínio de `azure-api.net` (por exemplo, `apim-service-name.azure-api.net`). No entanto, você pode expor seus pontos de extremidade de gerenciamento de API usando seu próprio nome de domínio personalizado, como **contoso.com**. Este tutorial mostra como mapear um nome DNS personalizado existente para pontos de extremidade expostos por uma instância de gerenciamento de API.
+Quando se cria uma instância de serviço de Gestão API Azur, o Azure atribui-lhe um subdomínio de `azure-api.net` (por exemplo, `apim-service-name.azure-api.net`). No entanto, pode expor os seus pontos finais de Gestão API utilizando o seu próprio nome de domínio personalizado, como **contoso.com**. Este tutorial mostra-lhe como mapear um nome DNS personalizado existente para pontos finais expostos por uma instância de Gestão API.
 
 > [!IMPORTANT]
-> O gerenciamento de API aceita somente solicitações com valores de [cabeçalho de host](https://tools.ietf.org/html/rfc2616#section-14.23) que correspondem ao nome de domínio padrão ou a qualquer um dos nomes de domínio personalizados configurados.
+> A API Management aceita apenas pedidos com valores de cabeçalho do [anfitrião](https://tools.ietf.org/html/rfc2616#section-14.23) que correspondam ao nome de domínio padrão ou qualquer um dos nomes de domínio personalizado configurados.
 
 > [!WARNING]
-> Os clientes que desejam usar a fixação de certificado para melhorar a segurança de seus aplicativos devem usar um nome de domínio personalizado > e um certificado que eles gerenciam, não o certificado padrão. Os clientes que fixarem o certificado padrão receberão uma dependência rígida das propriedades do certificado que eles não controlam, o que não é uma prática recomendada.
+> Os clientes que desejem utilizar o certificado para melhorar a segurança das suas aplicações devem utilizar um nome de domínio e certificado personalizados que gerem, e não o certificado predefinido. Os clientes que fixarem o certificado padrão receberão uma dependência rígida das propriedades do certificado que eles não controlam, o que não é uma prática recomendada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar as etapas descritas neste artigo, você deve ter:
+Para realizar os passos descritos neste artigo, deve ter:
 
 -   Uma subscrição ativa do Azure.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
--   Uma instância de gerenciamento de API. Para obter mais informações, consulte [criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
--   Um nome de domínio personalizado que pertence a você ou à sua organização. Este tópico não fornece instruções sobre como adquirir um nome de domínio personalizado.
--   Um registro CNAME hospedado em um servidor DNS que mapeia o nome de domínio personalizado para o nome de domínio padrão da sua instância de gerenciamento de API. Este tópico não fornece instruções sobre como hospedar um registro CNAME.
--   Você deve ter um certificado válido com uma chave pública e privada (. PFX). A entidade ou o nome alternativo da entidade (SAN) deve corresponder ao nome de domínio (isso permite que a instância do gerenciamento de API exponha URLs com segurança por SSL).
+-   Uma instância de Gestão API. Para mais informações, consulte Criar uma instância de [Gestão API Azure.](get-started-create-service-instance.md)
+-   Um nome de domínio personalizado que é propriedade de si ou da sua organização. Este tópico não fornece instruções sobre como obter um nome de domínio personalizado.
+-   Um disco CNAME hospedado num servidor DNS que mapeia o nome de domínio personalizado para o nome de domínio padrão da sua instância de Gestão API. Este tópico não fornece instruções sobre como hospedar um registo CNAME.
+-   Deve ter um certificado válido com chave pública e privada (. PFX). O nome alternativo sujeito ou sujeito (SAN) tem de corresponder ao nome de domínio (isto permite que a instância de Gestão API exponha os URLs de forma segura sobre o SSL).
 
-## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Usar o portal do Azure para definir um nome de domínio personalizado
+## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Use o portal Azure para definir um nome de domínio personalizado
 
-1. Navegue até sua instância de gerenciamento de API no [portal do Azure](https://portal.azure.com/).
-1. Selecione **domínios personalizados**.
+1. Navegue para a sua instância de Gestão API no [portal Azure.](https://portal.azure.com/)
+1. Selecione **domínios Personalizados**.
 
-    Há vários pontos de extremidade aos quais você pode atribuir um nome de domínio personalizado. Atualmente, os seguintes pontos de extremidade estão disponíveis:
+    Existem vários pontos finais para os quais pode atribuir um nome de domínio personalizado. Atualmente, estão disponíveis os seguintes pontos finais:
 
     - **Gateway** (o padrão é: `<apim-service-name>.azure-api.net`),
     - **Portal** (o padrão é: `<apim-service-name>.portal.azure-api.net`),
-    - **Gerenciamento** (o padrão é: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (o padrão é: `<apim-service-name>.scm.azure-api.net`).
+    - **Gestão** (o padrão é: `<apim-service-name>.management.azure-api.net`),
+    - **SCM** (predefinido é: `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > Somente o ponto de extremidade do **Gateway** está disponível para configuração na camada de consumo.
-    > Você pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizam o **Gateway** (essa URL é usada para chamar a API exposta por meio do gerenciamento de API) e do **portal** (a URL do portal do desenvolvedor).
-    > Os pontos de extremidade de **Gerenciamento** e **SCM** são usados internamente apenas pelos proprietários da instância do gerenciamento de API e, portanto, são atribuídos com menos frequência um nome de domínio personalizado.
-    > A camada **Premium** dá suporte à configuração de vários nomes de host para o ponto de extremidade do **Gateway** .
+    > Apenas o ponto final **do Gateway** está disponível para configuração no nível de Consumo.
+    > Pode atualizar todos os pontos finais ou alguns deles. Normalmente, os clientes atualizam **gateway** (este URL é usado para chamar a API exposta através da API Management) e **Portal** (o URL portal do desenvolvedor).
+    > Os pontos finais **de gestão** e **SCM** são utilizados internamente pelos proprietários da instância de Gestão API e, portanto, são atribuídos com menos frequência um nome de domínio personalizado.
+    > O nível **Premium** suporta a definição de vários nomes de anfitriões para o ponto final do **Gateway.**
 
-1. Selecione o ponto de extremidade que você deseja atualizar.
-1. Na janela à direita, clique em **personalizado**.
+1. Selecione o ponto final que pretende atualizar.
+1. Na janela à direita, clique em **Costume.**
 
-    - No **nome de domínio personalizado**, especifique o nome que você deseja usar. Por exemplo, `api.contoso.com`.
-    - No **certificado**, selecione um certificado de Key Vault. Você também pode carregar um válido. Arquivo PFX e forneça sua **senha**, se o certificado estiver protegido com uma senha.
+    - No nome de **domínio Personalizado,** especifique o nome que pretende utilizar. Por exemplo, `api.contoso.com`.
+    - No **Certificado,** selecione um certificado da Key Vault. Também pode fazer o upload de um válido . Ficheiro PFX e forneça a sua **Palavra-passe,** se o certificado estiver protegido com uma palavra-passe.
 
     > [!NOTE]
-    > Os nomes de domínio curinga, por exemplo, `*.contoso.com` têm suporte em todas as camadas, exceto na camada de consumo.
+    > Os nomes de domínio wildcard, por exemplo, `*.contoso.com` são suportados em todos os níveis, exceto no nível de Consumo.
 
     > [!TIP]
-    > É recomendável usar Azure Key Vault para gerenciar certificados e defini-los para rotação automática.
-    > Se você usar Azure Key Vault para gerenciar o certificado SSL de domínio personalizado, verifique se o certificado foi inserido no Key Vault [como um _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), não como um _segredo_.
+    > Recomendamos a utilização do Cofre de Chaves Azure para gerir certificados e defini-los para autorotate.
+    > Se utilizar o Cofre de Chaves Azure para gerir o certificado SSL de domínio personalizado, certifique-se de que o certificado está inserido no Cofre chave [como _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), e não como _segredo_.
     >
-    > Para buscar um certificado SSL, o gerenciamento de API deve ter a lista uma permissão obter segredos no Azure Key Vault que contém o certificado. Ao usar portal do Azure todas as etapas de configuração necessárias serão concluídas automaticamente. Ao usar as ferramentas de linha de comando ou a API de gerenciamento, essas permissões devem ser concedidas manualmente. Isso é feito em duas etapas. Primeiro, use a página identidades gerenciadas na instância de gerenciamento de API para garantir que a identidade gerenciada esteja habilitada e anote a ID da entidade de segurança mostrada nessa página. Em segundo lugar, dê à lista de permissões e obtenha permissões de segredos para essa ID de entidade de segurança no Azure Key Vault que contém o certificado.
+    > Para obter um certificado SSL, a API Management deve ter a lista e obter permissões de segredos no Cofre chave Azure contendo o certificado. Ao utilizar o portal Azure, todos os passos de configuração necessários serão concluídos automaticamente. Ao utilizar ferramentas de linha de comando ou API de gestão, estas permissões devem ser concedidas manualmente. Isto é feito em dois passos. Em primeiro lugar, utilize a página de identidades geridas na sua instância de Gestão API para se certificar de que a Identidade Gerida está ativada e tomar nota do id principal mostrado nessa página. Segundo, dê uma lista de permissões e obtenha permissões de segredos para esta identificação principal no Cofre chave Azure contendo o certificado.
     >
-    > Se o certificado for definido para rotação automática, o gerenciamento de API selecionará a versão mais recente automaticamente sem nenhum tempo de inatividade para o serviço (se sua camada de gerenciamento de API tiver SLA-i. e. em todas as camadas, exceto a camada de desenvolvedor).
+    > Se o certificado estiver definido para autorotate, a API Management irá recolher automaticamente a versão mais recente sem qualquer tempo de inatividade no serviço (se o seu nível de Gestão API tiver SLA - ou seja, em todos os níveis, exceto o nível de Desenvolvimento).
 
 1. Clique em Aplicar.
 
     > [!NOTE]
-    > O processo de atribuição do certificado pode levar 15 minutos ou mais, dependendo do tamanho da implantação. A SKU do desenvolvedor tem tempo de inatividade, os SKUs básico e superior não têm tempo de inatividade.
+    > O processo de atribuição do certificado pode demorar 15 minutos ou mais dependendo da dimensão da implantação. O desenvolvedor SKU tem tempo de inatividade, As SKUs básicas e mais altas não têm tempo de inatividade.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
 ## <a name="dns-configuration"></a>Configuração do DNS
 
-Ao configurar o DNS para seu nome de domínio personalizado, você tem duas opções:
+Ao configurar dNS para o seu nome de domínio personalizado, tem duas opções:
 
--   Configure um registro CNAME que aponte para o ponto de extremidade do seu nome de domínio personalizado configurado.
--   Configure um registro A que aponta para seu endereço IP do gateway de gerenciamento de API.
+-   Configure um registo CNAME que aponta para o ponto final do seu nome de domínio personalizado configurado.
+-   Configure um registo A que aponte para o seu endereço IP de gateway de gestão aPI.
 
 > [!NOTE]
-> Embora o endereço IP da instância de gerenciamento de API seja estático, ele pode ser alterado em alguns cenários. Por isso, é recomendável usar CNAME ao configurar o domínio personalizado. Leve isso em consideração ao escolher o método de configuração de DNS. Leia mais nas [perguntas frequentes sobre gerenciamento de API](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Embora o endereço IP da instância de Managment da API seja estático, pode mudar em alguns cenários. Por isso, recomenda-se a utilização de CNAME ao configurar o domínio personalizado. Tome isso em consideração ao escolher o método de configuração DNS. Leia mais na [API Management FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Atualizar e dimensionar seu serviço](upgrade-and-scale.md)
+[Atualizar e escalar o seu serviço](upgrade-and-scale.md)

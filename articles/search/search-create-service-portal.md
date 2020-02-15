@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.openlocfilehash: bd4798ba4faa1808ecafb6d09eee09ba734c293d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121702"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209363"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço de Pesquisa Cognitiva Azure no portal
 
-A Azure Cognitive Search é um recurso autónomo usado para ligar uma experiência de pesquisa em aplicações personalizadas. Embora o Azure Cognitive Search se integre facilmente com outros serviços Azure, também pode utilizá-lo como componente autónomo, ou integrá-lo com aplicações em servidores de rede, ou com software a funcionar noutras plataformas cloud.
+A Azure Cognitive Search é um recurso autónomo usado para ligar uma experiência de pesquisa a aplicações personalizadas. A Azure Cognitive Search integra-se facilmente com outros serviços Azure, com aplicações em servidores de rede, ou com software a funcionar noutras plataformas da nuvem.
 
 Neste artigo, aprenda a criar um recurso no [portal Azure.](https://portal.azure.com/)
 
@@ -45,18 +45,18 @@ Se tiver mais de uma subscrição, escolha uma para o seu serviço de pesquisa.
 
 ## <a name="set-a-resource-group"></a>Definir um grupo de recursos
 
-É necessário um grupo de recursos e é útil para gerir todos os recursos, incluindo custos. Um grupo de recursos pode consistir num serviço, ou em vários serviços utilizados em conjunto. Por exemplo, se estiver a usar a Pesquisa Cognitiva Azure para indexar uma base de dados Azure Cosmos DB, poderá fazer de ambos os serviços parte do mesmo grupo de recursos para fins de gestão. 
+Um grupo de recursos é um recipiente que detém recursos relacionados para a sua solução Azure. É necessário para o serviço de pesquisa. Também é útil para gerir todos os recursos, incluindo os custos. Um grupo de recursos pode consistir num serviço, ou em vários serviços utilizados em conjunto. Por exemplo, se estiver a usar a Pesquisa Cognitiva Azure para indexar uma base de dados Azure Cosmos DB, poderá fazer de ambos os serviços parte do mesmo grupo de recursos para fins de gestão. 
 
 Se não estiver a combinar recursos num único grupo, ou se os grupos de recursos existentes estiverem cheios de recursos utilizados em soluções não relacionadas, crie um novo grupo de recursos apenas para o seu recurso de Pesquisa Cognitiva Azure. 
 
 ![Criar um novo grupo de recursos](./media/search-create-service-portal/new-resource-group.png "Criar um novo grupo de recursos")
 
-Com o tempo, pode rastrear os custos atuais e projetados (como mostrado na imagem) ou rolar para baixo para ver os encargos para recursos individuais. A imagem que se segue mostra o tipo de informação de custoque pode eventualmente esperar ver quando combina vários recursos num só grupo.
+Com o tempo, pode rastrear os custos atuais e projetados ou pode ver os encargos com recursos individuais. A imagem que se segue mostra o tipo de informação de custos que pode esperar ver quando combina vários recursos num só grupo.
 
 ![Gerir custos ao nível do grupo de recursos](./media/search-create-service-portal/resource-group-cost-management.png "Gerir custos ao nível do grupo de recursos")
 
 > [!TIP]
-> Os grupos de recursos simplificam a limpeza porque eliminar um grupo também elimina os serviços dentro dele. Para projetos de protótipo que utilizam múltiplos serviços, colocá-los a todos no mesmo grupo de recursos facilita a limpeza depois de o projeto terminar.
+> Os grupos de recursos simplificam a limpeza porque eliminar um grupo elimina todos os serviços que lhe são atribuídos. Para projetos de protótipo que utilizam múltiplos serviços, colocá-los a todos no mesmo grupo de recursos facilita a limpeza depois de o projeto terminar.
 
 ## <a name="name-the-service"></a>Nomeie o serviço
 
@@ -65,10 +65,10 @@ Em detalhes, forneça um nome de serviço no campo **URL.** O nome faz parte do 
 Requisitos do nome do serviço:
 
 * Tem de ser exclusivo no espaço de nomes search.windows.net
-* Ter 2 e 60 carateres
-* Utilize letras minúsculas, números ou hífenes ("-")
-* Evite hífenes ("-") nos primeiro 2 carateres ou como último caráter único
-* Sem hífenes consecutivos ("-") em qualquer parte
+* Deve ter entre 2 e 60 caracteres de comprimento
+* Deve utilizar letras minúsculas, dígitos ou traços ("-")
+* Não utilize traços ("-") nos primeiros 2 caracteres ou como último personagem único
+* Você pode não usar traços consecutivos ("--") em qualquer lugar
 
 > [!TIP]
 > Se pensa que vai utilizar vários serviços, recomendamos que inclua a região (ou localização) no nome do serviço como convenção de nomeação. Os serviços dentro da mesma região podem trocar dados gratuitamente, por isso, se a Pesquisa Cognitiva Azure estiver no Oeste dos EUA, e tiver outros serviços também nos EUA Ocidentais, um nome como `mysearchservice-westus` pode poupar-lhe uma viagem à página de propriedades ao decidir como combinar ou anexar recursos.
@@ -79,7 +79,7 @@ Como serviço Azure, a Azure Cognitive Search pode ser hospedada em datacenters 
 
 Pode minimizar ou evitar taxas de largura de banda, escolhendo o mesmo local para vários serviços. Por exemplo, se estiver a indexar dados fornecidos por outro serviço Azure (armazenamento Azure, Azure Cosmos DB, Base de Dados Azure SQL), criar o seu serviço de Pesquisa Cognitiva Azure na mesma região evita taxas de largura de banda (não existem encargos para dados de saída quando os serviços estão na mesma região).
 
-Além disso, se estiver a usar o enriquecimento de IA, crie o seu serviço na mesma região que os Serviços Cognitivos. *A co-localização dos Serviços cognitivos de pesquisa e cognitivo seletiva azure na mesma região é um requisito para o enriquecimento de IA.*
+Se estiver a usar o enriquecimento de IA, crie o seu serviço de pesquisa na mesma região que os Serviços Cognitivos. *A co-localização dos Serviços cognitivos de pesquisa e cognitivo seletiva azure na mesma região é um requisito para o enriquecimento de IA.*
 
 > [!Note]
 > A Índia Central está atualmente indisponível para novos serviços. Para serviços já na Índia Central, você pode escalar sem restrições, e seu serviço é totalmente suportado nessa região. A restrição nesta região é temporária e limitada apenas a novos serviços. Removeremos esta nota quando a restrição deixar de se aplicar.
@@ -90,7 +90,7 @@ A Pesquisa [Cognitiva Azure é atualmente oferecida em vários níveis](https://
 
 Basic e Standard são as escolhas mais comuns para cargas de trabalho de produção, mas a maioria dos clientes começa com o serviço Free. As principais diferenças entre os níveis são o tamanho e a velocidade da divisória, e limites no número de objetos que pode criar.
 
-Lembre-se que um nível de preços não pode ser alterado uma vez que o serviço é criado. Se precisar de um escalão superior ou inferior mais tarde, terá de voltar a criar o serviço.
+Lembre-se, um nível de preços não pode ser alterado uma vez que o serviço é criado. Se precisar de um nível mais alto ou inferior, terá de recriar o serviço.
 
 ## <a name="create-your-service"></a>Criar o serviço
 
@@ -98,7 +98,7 @@ Depois de fornecer as inputs necessárias, vá em frente e crie o serviço.
 
 ![Reveja e crie o serviço](./media/search-create-service-portal/new-service3.png "Reveja e crie o serviço")
 
-O seu serviço é implementado dentro de minutos, que pode monitorizar através de notificações do Azure. Considere fixar o serviço no seu painel de instrumentos para facilitar o acesso no futuro.
+O seu serviço está implantado dentro de minutos. Pode monitorizar o progresso através de notificações do Azure. Considere fixar o serviço no seu painel de instrumentos para facilitar o acesso no futuro.
 
 ![Monitore e pin o serviço](./media/search-create-service-portal/monitor-notifications.png "Monitore e pin o serviço")
 

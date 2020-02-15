@@ -1,6 +1,6 @@
 ---
-title: Controles de acesso à rede
-description: Visão geral dos controles de acesso à rede para o banco de dados SQL do Azure e data warehouse para gerenciar o acesso e configurar um banco de dados único ou em pool.
+title: Controlos de Acesso à Rede
+description: Visão geral dos controlos de acesso à rede para a Base de Dados Azure SQL e o Data Warehouse para gerir o acesso e configurar uma única ou poolada base de dados.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,51 +12,51 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 44fcaa0a4292ac86c7371c27f29faf0e7246e9d5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 16ba90aab52c00f77af590f854217cd989df53b3
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894782"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251911"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acesso à rede do banco de dados SQL do Azure e do data warehouse
+# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlos de acesso à rede Azure SQL e Data Warehouse
 
 > [!NOTE]
-> Este artigo aplica-se ao SQL Server do Azure e ao banco de dados SQL e SQL Data Warehouse bancos que são criados no SQL Server do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+> Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Este artigo não *se aplica* a **instância gerenciada do banco de dados SQL do Azure**. para obter mais informações sobre a configuração de rede, consulte [conectando-se a um instância gerenciada](sql-database-managed-instance-connect-app.md) .
+> Este artigo *não* se aplica à instância gerida pela Base de **Dados Azure SQL**. para obter mais informações sobre a configuração de rede, consulte [a ligação a uma Instância Gerida](sql-database-managed-instance-connect-app.md) .
 
-Quando você cria uma nova SQL Server [do Azure do portal do Azure](sql-database-single-database-get-started.md), o resultado é um ponto de extremidade público no formato *yourservername.Database.Windows.net*. Por design, todo o acesso ao ponto de extremidade público é negado. Você pode usar os seguintes controles de acesso à rede para permitir seletivamente o acesso ao banco de dados SQl por meio do ponto de extremidade público
-- Permitir serviços do Azure:-quando definido como ativado, outros recursos dentro do limite do Azure, por exemplo, uma máquina virtual do Azure, podem acessar o banco de dados SQL
+Quando cria um novo Servidor Azure SQL [a partir do portal Azure,](sql-database-single-database-get-started.md)o resultado é um ponto final público no formato *yourservername.database.windows.net*. Por design, todo o acesso ao ponto final público é negado. Em seguida, pode utilizar os seguintes controlos de acesso à rede para permitir seletivamente o acesso à Base de Dados SQL através do ponto final público
+- Permitir serviços Azure: - Quando definido para ON, outros recursos dentro do limite Azure, por exemplo uma máquina virtual Azure, podem aceder à Base de Dados SQL
 
-- Regras de firewall de IP:-Use esse recurso para permitir explicitamente conexões de um endereço IP específico, por exemplo, de computadores locais.
+- Regras de firewall IP: - Utilize esta função para permitir explicitamente ligações a partir de um endereço IP específico, por exemplo, a partir de máquinas no local.
 
-- Regras de firewall de rede virtual:-Use esse recurso para permitir o tráfego de uma rede virtual específica dentro do limite do Azure
+- Regras de firewall da Rede Virtual: - Utilize esta funcionalidade para permitir o tráfego de uma rede virtual específica dentro do limite Azure
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
-## <a name="allow-azure-services"></a>Permitir serviços do Azure 
-Durante a criação de uma nova SQL Server do Azure [do portal do Azure](sql-database-single-database-get-started.md), essa configuração é deixada desmarcada.
+## <a name="allow-azure-services"></a>Permitir serviços Azure 
+Durante a criação de um novo Servidor Azure SQL [a partir do portal Azure,](sql-database-single-database-get-started.md)esta definição não é controlada.
 
- ![Captura de tela da nova criação do servidor][1]
+ ![Screenshot de novo servidor criar][1]
 
-Você também pode alterar essa configuração por meio do painel Firewall depois que a SQL Server do Azure for criada da seguinte maneira.
+Também pode alterar esta definição através do painel de firewall depois de o Servidor Azure SQL ser criado da seguinte forma.
   
- ![Captura de tela de gerenciar o Firewall do servidor][2]
+ ![Screenshot da firewall do servidor de gestão][2]
 
-Quando definido como **no** Azure SQL Server permite a comunicação de todos os recursos dentro do limite do Azure, que pode ou não fazer parte de sua assinatura.
+Quando definido para **ON** Azure SQL Server permite comunicações de todos os recursos dentro do limite Azure, que podem ou não fazer parte da sua subscrição.
 
-Em muitos casos, a configuração **on** é mais permissiva do que a maioria dos clientes desejam. Eles podem querer definir essa configuração como **off** e substituí-la por regras de firewall IP mais restritivas ou regras de firewall de rede virtual. Isso afeta os seguintes recursos que são executados em VMs no Azure que não fazem parte de sua VNet e, portanto, se conectam ao banco de dados SQL por meio de um endereço IP do Azure.
+Em muitos casos, a definição **de ON** é mais permissiva do que a maioria dos clientes quer. Podem querer definir esta definição para **OFF** e substituí-la por regras de firewall IP mais restritivas ou regras de firewall da Rede Virtual. Fazê-lo afeta as seguintes funcionalidades que funcionam em VMs em Azure que não fazem parte do seu VNet e, portanto, ligam-se à Base de Dados Sql através de um endereço IP Azure.
 
-### <a name="import-export-service"></a>Importar serviço de exportação
-O serviço de exportação de importação não funciona **permitir que os serviços do Azure acessem o servidor** definido como desativado. No entanto, você pode contornar o problema [executando manualmente SqlPackage. exe de uma VM do Azure ou executando a exportação](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) diretamente em seu código usando a API DACFx.
+### <a name="import-export-service"></a>Serviço de Exportação de Importação
+O Serviço de Exportação de Importação não funciona **Permitir que os serviços azure acedam ao servidor** definido para OFF. No entanto, pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) diretamente no seu código utilizando a API DACFx.
 
 ### <a name="data-sync"></a>Sincronização de Dados
-Para usar o recurso de sincronização de dados com a opção **permitir que os serviços do Azure acessem o servidor** definido como desativado, você precisa criar entradas de regra de firewall individuais para [adicionar endereços IP](sql-database-server-level-firewall-rule.md) da **marca de serviço do SQL** para a região que hospeda o banco de dados de **Hub** .
-Adicione essas regras de firewall no nível de servidor aos servidores lógicos que hospedam bancos de dados de **Hub** e **membro** (que podem estar em regiões diferentes)
+Para utilizar a funcionalidade de sincronização de dados com **os serviços Allow Azure para aceder ao servidor** definido para OFF, é necessário criar entradas individuais de regras de firewall para adicionar [endereços IP](sql-database-server-level-firewall-rule.md) a partir da etiqueta de serviço **Sql** para a região que acolhe a base de dados **Hub.**
+Adicione estas regras de firewall ao nível do servidor aos servidores lógicos que hospedam bases de dados **hub** e **membros** (que podem estar em diferentes regiões)
 
-Use o seguinte script do PowerShell para gerar os endereços IP correspondentes à marca de serviço do SQL para a região oeste dos EUA
+Utilize o seguinte script PowerShell para gerar os endereços IP correspondentes à etiqueta de serviço Sql para a região dos EUA Ocidentais
 ```powershell
 PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
 PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
@@ -72,9 +72,9 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> Get-AzNetworkServiceTag retorna o intervalo global para a marca de serviço do SQL, apesar de especificar o parâmetro de local. Certifique-se de filtrá-lo para a região que hospeda o banco de dados de Hub usado pelo seu grupo de sincronização
+> Get-AzNetworkServiceTag devolve a gama global de etiqueta de serviço Sql, apesar de especificar o parâmetro de localização. Certifique-se de filtrar para a região que acolhe a base de dados hub utilizada pelo seu grupo de sincronização
 
-Observe que a saída do script do PowerShell está na notação CIDR (roteamento entre domínios sem classificação) e isso precisa ser convertido em um formato de endereço IP inicial e final usando [Get-IPrangeStartEnd. ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) como este
+Note que a saída do script PowerShell está na notação de Encaminhamento Inter-Domínio Sem Classe (CIDR) e esta precisa de ser convertida para um formato de endereço IP inicial e final usando [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) como este
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
 start        end
@@ -82,7 +82,7 @@ start        end
 52.229.17.64 52.229.17.127
 ```
 
-Execute as seguintes etapas adicionais para converter todos os endereços IP do CIDR para o formato de endereço IP inicial e final.
+Faça os seguintes passos adicionais para converter todos os endereços IP do CIDR para iniciar e terminar o formato de endereço IP.
 
 ```powershell
 PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
@@ -92,56 +92,56 @@ start          end
 13.86.216.128  13.86.216.191
 13.86.216.192  13.86.216.223
 ```
-Agora você pode adicioná-las como regras de firewall distintas e, em seguida, definir **permitir que os serviços do Azure acessem o servidor** como desativado.
+Agora pode adicioná-las como regras de firewall distintas e, em seguida, definir os serviços de Permitir que os **serviços do Azure acedam ao servidor** para OFF.
 
 
-## <a name="ip-firewall-rules"></a>Regras de firewall de IP
-O firewall baseado em IP é um recurso do Azure SQL Server que impede todo o acesso ao seu servidor de banco de dados até que você adicione explicitamente os [endereços IP](sql-database-server-level-firewall-rule.md) dos computadores cliente.
+## <a name="ip-firewall-rules"></a>Regras de firewall IP
+Firewall baseado em IP é uma funcionalidade do Servidor Azure SQL que impede todo o acesso ao seu servidor de base de dados até adicionar explicitamente [endereços IP](sql-database-server-level-firewall-rule.md) das máquinas clientes.
 
 
-## <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
+## <a name="virtual-network-firewall-rules"></a>Regras de firewall da Rede Virtual
 
-Além das regras de IP, o firewall de SQL Server do Azure permite que você defina *regras de rede virtual*.  
-Para saber mais, consulte [pontos de extremidade de serviço de rede virtual e regras para o banco de dados SQL do Azure](sql-database-vnet-service-endpoint-rule-overview.md) ou assista a este vídeo:
+Além das regras IP, a firewall do Servidor Azure SQL permite-lhe definir *regras de rede virtuais*.  
+Para saber mais, consulte pontos finais e regras do serviço de Rede Virtual para a Base de [Dados Azure SQL](sql-database-vnet-service-endpoint-rule-overview.md) ou veja este vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
- ### <a name="azure-networking-terminology"></a>Terminologia de rede do Azure  
-Esteja atento aos seguintes termos de rede do Azure ao explorar as regras de firewall de rede virtual
+ ### <a name="azure-networking-terminology"></a>Terminologia azure networking  
+Esteja atento aos seguintes termos de Networking Azure enquanto explora as regras de firewall da Rede Virtual
 
-**Rede virtual:** Você pode ter redes virtuais associadas à sua assinatura do Azure 
+**Rede virtual:** Pode ter redes virtuais associadas à sua subscrição Azure 
 
-**Sub-rede:** Uma rede virtual contém **sub-redes**. Todas as VMs (máquinas virtuais) do Azure que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computação. Os nós de computação que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure sua segurança para permitir o acesso.
+**Subnet:** Uma rede virtual contém **subredes.** Quaisquer máquinas virtuais Azure (VMs) que tenha sacado a subredes. Uma subnet pode conter vários VMs ou outros nódosos de computação. Os nódosos computacionais que estão fora da sua rede virtual não podem aceder à sua rede virtual a menos que configure a sua segurança para permitir o acesso.
 
-**Ponto de extremidade de serviço de rede virtual:** Um [ponto de extremidade de serviço de rede virtual] [VM-Virtual-Network-Service-Endpoint-Overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo do **Microsoft. SQL**, que se refere ao serviço do Azure chamado banco de dados SQL.
+Ponto final do serviço de **rede virtual:** Um ponto final de [serviço de Rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md) é uma subnet cujos valores de propriedade incluem um ou mais nomes formais do tipo de serviço Azure. Neste artigo estamos interessados no nome tipo **microsoft.Sql**, que se refere ao serviço Azure chamado SQL Database.
 
-**Regra de rede virtual:** Uma regra de rede virtual para o servidor do banco de dados SQL é uma sub-rede listada na lista de controle de acesso (ACL) do seu servidor do banco de dados SQL. Para estar na ACL do seu banco de dados SQL, a sub-rede deve conter o nome do tipo **Microsoft. SQL** . Uma regra de rede virtual instrui o servidor do banco de dados SQL a aceitar comunicações de cada nó que está na sub-rede.
+**Regra da rede virtual:** Uma regra de rede virtual para o seu servidor de base de dados SQL é uma sub-rede listada na lista de controlo de acesso (ACL) do seu servidor de base de dados SQL. Para estar na ACL para a sua Base de Dados SQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql.** Uma regra de rede virtual diz ao seu servidor de Base de Dados SQL para aceitar comunicações de todos os nós que estão na subnet.
 
 
-## <a name="ip-vs-virtual-network-firewall-rules"></a>IP versus regras de firewall de rede virtual
+## <a name="ip-vs-virtual-network-firewall-rules"></a>Regras de firewall IP vs. Rede Virtual
 
-O Firewall do Azure SQL Server permite que você especifique os intervalos de endereços IP dos quais as comunicações são aceitas no banco de dados SQL. Essa abordagem é adequada para endereços IP estáveis que estão fora da rede privada do Azure. No entanto, as máquinas virtuais (VMs) na rede privada do Azure são configuradas com endereços IP *dinâmicos* . Os endereços IP dinâmicos podem mudar quando sua VM é reiniciada e, por sua vez, invalidar a regra de firewall baseada em IP. Seria ilusório especificar um endereço IP dinâmico em uma regra de firewall em um ambiente de produção.
+A firewall do Servidor Azure SQL permite especificar intervalos de endereçoip a partir dos quais as comunicações são aceites na Base de Dados SQL. Esta abordagem é boa para endereços IP estáveis que estão fora da rede privada Azure. No entanto, as máquinas virtuais (VMs) dentro da rede privada Azure estão configuradas com endereços IP *dinâmicos.* Os endereços IP dinâmicos podem alterar-se quando o seu VM é reiniciado e, por sua vez, invalidar a regra de firewall baseada em IP. Seria uma loucura especificar um endereço IP dinâmico numa regra de firewall, num ambiente de produção.
 
-Você pode contornar essa limitação obtendo um endereço IP *estático* para sua VM. Para obter detalhes, consulte [configurar endereços IP privados para uma máquina virtual usando o portal do Azure] [VM-configure-Private-IP-addresses-for-a-virtual-machine-using-the-Azure-portal-321w]. No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e é dispendiosa quando feita em escala. 
+Pode contornar esta limitação obtendo um endereço IP *estático* para o seu VM. Para mais detalhes, consulte os [endereços IP privados para uma máquina virtual utilizando o portal Azure](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e é dispendiosa quando feita em escala. 
 
-As regras de rede virtual são uma alternativa mais fácil de estabelecer e gerenciar o acesso de uma sub-rede específica que contém suas VMs.
+As regras de rede virtual são alternativas mais fáceis de estabelecer e gerir o acesso a partir de uma subnet específica que contém os seus VMs.
 
 > [!NOTE]
-> Você ainda não pode ter o banco de dados SQL em uma sub-rede. Se o servidor do banco de dados SQL do Azure era um nó em uma sub-rede em sua rede virtual, todos os nós na rede virtual podem se comunicar com o banco de dados SQL. Nesse caso, suas VMs podem se comunicar com o banco de dados SQL sem a necessidade de nenhuma regra de rede virtual ou regras de IP.
+> Ainda não é possível ter base de dados SQL numa sub-rede. Se o seu servidor de base de dados Azure SQL fosse um nó numa subnet na sua rede virtual, todos os nós dentro da rede virtual poderiam comunicar com a sua Base de Dados SQL. Neste caso, os seus VMs poderiam comunicar com a Base de Dados SQL sem precisar de quaisquer regras de rede virtual ou regras ip.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter um guia de início rápido sobre como criar uma regra de firewall de IP no nível de servidor, consulte [criar um banco de dados SQL do Azure](sql-database-single-database-get-started.md).
+- Para um início rápido na criação de uma regra de firewall IP ao nível do servidor, consulte Criar uma base de [dados Azure SQL](sql-database-single-database-get-started.md).
 
-- Para obter um início rápido sobre como criar uma regra de firewall de vnet no nível de servidor, consulte [pontos de extremidade de serviço de rede virtual e regras para o banco de dados SQL do Azure](sql-database-vnet-service-endpoint-rule-overview.md).
+- Para um início rápido na criação de uma regra de firewall Vnet ao nível do servidor, consulte pontos finais de serviço de rede virtual e regras para a Base de [Dados Azure SQL](sql-database-vnet-service-endpoint-rule-overview.md).
 
-- Para obter ajuda com a conexão com um banco de dados SQL do Azure de software livre ou aplicativos de terceiros, consulte [exemplos de código de início rápido do cliente para banco de dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Para obter ajuda na ligação a uma base de dados Azure SQL a partir de aplicações de código aberto ou de terceiros, consulte amostras de código de arranque rápido do Cliente para a Base de [Dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 
-- Para obter informações sobre portas adicionais que talvez precisem ser abertas, consulte a seção **banco de dados SQL: fora versus dentro** de [portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Para obter informações sobre portas adicionais que poderá necessitar de abrir, consulte a Base de **Dados SQL: Fora vs secção interna** de Portas para além de [1433 para ADO.NET base de dados 4.5 e SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-- Para obter uma visão geral da conectividade do banco de dados SQL do Azure, consulte [arquitetura de conectividade do SQL do Azure](sql-database-connectivity-architecture.md)
+- Para uma visão geral da Conectividade azure SQL Database, consulte [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
 
-- Para obter uma visão geral da segurança do banco de dados SQL do Azure, consulte [protegendo seu banco de dados](sql-database-security-overview.md)
+- Para obter uma visão geral da segurança da Base de Dados Azure SQL, consulte [A segurança da sua base de dados](sql-database-security-overview.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/new-server2.png

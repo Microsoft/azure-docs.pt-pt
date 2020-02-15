@@ -3,12 +3,12 @@ title: Funções do modelo - recursos
 description: Descreve as funções para utilizar num modelo do Azure Resource Manager para recuperar valores sobre os recursos.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120536"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207013"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -124,7 +124,7 @@ A sintaxe dessa função varia de acordo com o nome das operações de lista. Ca
 
 ### <a name="valid-uses"></a>Usos válidos
 
-As funções de lista só podem ser usadas nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou implantação. Quando usado com [iteração de propriedade,](create-multiple-instances.md#property-iteration)você pode usar as funções da lista para `input` porque a expressão é atribuída à propriedade do recurso. Não pode usá-los com `count` porque a contagem deve ser determinada antes que a função da lista seja resolvida.
+As funções de lista só podem ser usadas nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou implantação. Quando usado com [iteração de propriedade,](copy-properties.md)você pode usar as funções da lista para `input` porque a expressão é atribuída à propriedade do recurso. Não pode usá-los com `count` porque a contagem deve ser determinada antes que a função da lista seja resolvida.
 
 ### <a name="implementations"></a>Implementações
 
@@ -496,7 +496,7 @@ Use `'Full'` quando precisa de valores de recursos que não fazem parte do esque
 
 ### <a name="valid-uses"></a>Usos válidos
 
-A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação. Quando utilizado com [iteração de propriedade,](create-multiple-instances.md#property-iteration)pode utilizar a função de referência para `input` porque a expressão é atribuída à propriedade do recurso. Não pode usá-lo com `count` porque a contagem deve ser determinada antes de a função de referência ser resolvida.
+A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação. Quando utilizado com [iteração de propriedade,](copy-properties.md)pode utilizar a função de referência para `input` porque a expressão é atribuída à propriedade do recurso. Não pode usá-lo com `count` porque a contagem deve ser determinada antes de a função de referência ser resolvida.
 
 Não pode utilizar a função de referência nas saídas de um [modelo aninhado](linked-templates.md#nested-template) para devolver um recurso que implementou no modelo aninhado. Em vez disso, use um [modelo ligado](linked-templates.md#linked-template).
 
@@ -758,7 +758,7 @@ Devolve o identificador exclusivo de um recurso. Utilize esta função quando o 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |a cadeia de caracteres (formato de GUID) |Valor predefinido é a subscrição atual. Especifica este valor quando precisar de recuperar um recurso noutra subscrição. |
+| subscriptionId |Não |a cadeia de caracteres (formato de GUID) |Valor predefinido é a subscrição atual. Especifica este valor quando precisar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao ser implantado no âmbito de um grupo de recursos ou subscrição. |
 | resourceGroupName |Não |string |Valor predefinido é o grupo de recursos atual. Especifica este valor quando precisar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao ser implantado no âmbito de um grupo de recursos. |
 | resourceType |Sim |string |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
 | resourceName1 |Sim |string |Nome do recurso. |
@@ -1064,6 +1064,6 @@ Você usa essa função para obter a ID de recurso para um recurso que é implan
 
 * Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure da Autoria](template-syntax.md).
 * Para fundir vários modelos, consulte [Utilizar modelos ligados com](linked-templates.md)o Gestor de Recursos Azure .
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](create-multiple-instances.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).
 * Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo de Gestor](deploy-powershell.md)de Recursos Azure .
 

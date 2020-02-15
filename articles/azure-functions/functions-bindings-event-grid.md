@@ -1,24 +1,25 @@
 ---
-title: Gatilho de grade de eventos para Azure Functions
+title: Ligações da Grelha de Eventos Azure para funções azure
 description: Entenda como lidar com eventos de grade de eventos no Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 09/04/2018
+ms.date: 02/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 812875be47cabdd23e6307403bb95d8d6ff174ec
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.custom: fasttrack-edit
+ms.openlocfilehash: df851a79ef3fbb7473e100619f58b7f35bce1d45
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77167512"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212017"
 ---
-# <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de grade de eventos para Azure Functions
+# <a name="azure-event-grid-bindings-for-azure-functions"></a>Ligações da Grelha de Eventos Azure para funções azure
 
 Este artigo explica como lidar com eventos da Grelha de [Eventos](../event-grid/overview.md) em Funções Azure. Para mais detalhes sobre como lidar com as mensagens da Grelha de Eventos num ponto final http, leia [Receber eventos num ponto final http](../event-grid/receive-events.md).
 
 Event Grid é um serviço Azure que envia pedidos http para notificá-lo sobre eventos que acontecem em *editores*. Um Publicador é o serviço ou recurso que origina o evento. Por exemplo, uma conta de armazenamento de blob Azure é uma editora, e [um upload ou eliminação blob é um evento](../storage/blobs/storage-blob-event-overview.md). Alguns [serviços azure têm apoio integrado para a publicação de eventos à Event Grid.](../event-grid/overview.md#event-sources)
 
-Os *manipuladores de eventos* recebem e processam eventos. A Azure Functions é um dos vários [serviços Azure que têm suporte integrado para lidar com eventos da Rede de Eventos.](../event-grid/overview.md#event-handlers) Neste artigo, você aprenderá a usar um gatilho de grade de eventos para invocar uma função quando um evento for recebido da grade de eventos.
+Os *manipuladores de eventos* recebem e processam eventos. A Azure Functions é um dos vários [serviços Azure que têm suporte integrado para lidar com eventos da Rede de Eventos.](../event-grid/overview.md#event-handlers) Neste artigo, aprende-se a usar um gatilho da Grelha de Eventos para invocar uma função quando um evento é recebido da Grelha de Eventos, e a utilizar a ligação de saída para enviar eventos para um tópico personalizado da Grelha de [Eventos](../event-grid/post-to-custom-topic.md).
 
 Se preferir, pode utilizar um gatilho HTTP para lidar com eventos da Grelha de Eventos; ver [Receber eventos para um ponto final HTTP](../event-grid/receive-events.md). Atualmente, não é possível utilizar um gatilho da Grelha de Eventos para uma aplicação De Funções Azure quando o evento é entregue no [esquema CloudEvents](../event-grid/cloudevents-schema.md#azure-functions). Em vez disso, use um gatilho HTTP.
 
@@ -26,7 +27,7 @@ Se preferir, pode utilizar um gatilho HTTP para lidar com eventos da Grelha de E
 
 ## <a name="packages---functions-2x-and-higher"></a>Pacotes - Funções 2.x e superiores
 
-O gatilho da Grelha de Eventos é fornecido no pacote [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet, versão 2.x. O código fonte para a embalagem está no repositório GitHub de extensão de [funções azure-funções.](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x)
+As encadernações da Grelha de Eventos são fornecidas no pacote [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet, versão 2.x. O código fonte para a embalagem está no repositório GitHub de extensão de [funções azure-funções.](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x)
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -36,7 +37,11 @@ O gatilho da Grelha de Eventos é fornecido no pacote [Microsoft.Azure.WebJobs.E
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="example"></a>Exemplo
+## <a name="trigger"></a>Acionador
+
+Utilize o gatilho de função para responder a um evento enviado a um tópico da Grelha de Eventos.
+
+## <a name="trigger---example"></a>Acionador - exemplo
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -66,7 +71,7 @@ namespace Company.Function
 }
 ```
 
-Para mais informações, consulte Pacotes, [Atributos,](#attributes) [Configuração](#configuration)e [Utilização.](#usage)
+Para mais informações, consulte Pacotes, [Atributos,](#trigger---attributes) [Configuração](#trigger---configuration)e [Utilização.](#trigger---usage)
 
 ### <a name="version-1x"></a>Versão 1.x
 
@@ -127,7 +132,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-Para mais informações, consulte Pacotes, [Atributos,](#attributes) [Configuração](#configuration)e [Utilização.](#usage)
+Para mais informações, consulte Pacotes, [Atributos,](#trigger---attributes) [Configuração](#trigger---configuration)e [Utilização.](#trigger---usage)
 
 ### <a name="version-1x"></a>Versão 1.x
 
@@ -284,7 +289,7 @@ Na biblioteca de tempo de funcionamento das [funções java,](/java/api/overview
 
 ---
 
-## <a name="attributes"></a>Atributos
+## <a name="trigger---attributes"></a>Acionador - atributos
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -316,11 +321,11 @@ Os atributos não são suportados pela Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-A anotação [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) permite-lhe configurar declarativamente uma ligação da Grelha de Eventos, fornecendo valores de configuração. Consulte o [exemplo](#example) e as secções de [configuração](#configuration) para obter mais detalhes.
+A anotação [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) permite-lhe configurar declarativamente uma ligação da Grelha de Eventos, fornecendo valores de configuração. Consulte o [exemplo](#trigger---example) e as secções de [configuração](#trigger---configuration) para obter mais detalhes.
 
 ---
 
-## <a name="configuration"></a>Configuração
+## <a name="trigger---configuration"></a>Acionador - configuração
 
 A tabela que se segue explica as propriedades de configuração de ligação que definiu no ficheiro *função.json.* Não existem parâmetros ou propriedades de construtores para definir no atributo `EventGridTrigger`.
 
@@ -330,7 +335,7 @@ A tabela que se segue explica as propriedades de configuração de ligação que
 | **direção** | Obrigatório - deve ser definido para `in`. |
 | **nome** | Obrigatório – o nome da variável usada no código de função para o parâmetro que recebe os dados do evento. |
 
-## <a name="usage"></a>Utilização
+## <a name="trigger---usage"></a>Acionador - utilização
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -370,11 +375,11 @@ A instância Da Grelha de Eventos está disponível através do parâmetro confi
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-A instância de eventos da Grelha de Eventos está disponível através do parâmetro associado ao atributo `EventGridTrigger`, dactilografado como `EventSchema`. Veja o [exemplo](#example) para mais detalhes.
+A instância de eventos da Grelha de Eventos está disponível através do parâmetro associado ao atributo `EventGridTrigger`, dactilografado como `EventSchema`. Veja o [exemplo](#trigger---example) para mais detalhes.
 
 ---
 
-## <a name="event-schema"></a>Esquema de eventos
+## <a name="trigger---event-schema"></a>Gatilho - esquema de evento
 
 Os dados de um evento de grade de eventos são recebidos como um objeto JSON no corpo de uma solicitação HTTP. O JSON é semelhante ao seguinte exemplo:
 
@@ -412,7 +417,7 @@ Para obter explicações sobre as propriedades comuns e específicas do evento, 
 
 O tipo `EventGridEvent` define apenas as propriedades de alto nível; a propriedade `Data` é uma `JObject`.
 
-## <a name="create-a-subscription"></a>Criar uma subscrição
+## <a name="trigger---create-a-subscription"></a>Trigger - criar uma subscrição
 
 Para começar a receber solicitações HTTP da grade de eventos, crie uma assinatura da grade de eventos que especifica a URL do ponto de extremidade que invoca a função.
 
@@ -486,7 +491,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_exten
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Esta é uma API administradora, por isso requer a [chave principal](functions-bindings-http-webhook.md#authorization-keys)da sua app de funções. Não confunda a chave do sistema (para invocar uma função de gatilho de grade de eventos) com a chave mestra (para executar tarefas administrativas no aplicativo de funções). Ao assinar um tópico da grade de eventos, certifique-se de usar a chave do sistema.
+Esta é uma API administradora, por isso requer a [chave principal](functions-bindings-http-webhook-trigger.md#authorization-keys)da sua app de funções. Não confunda a chave do sistema (para invocar uma função de gatilho de grade de eventos) com a chave mestra (para executar tarefas administrativas no aplicativo de funções). Ao assinar um tópico da grade de eventos, certifique-se de usar a chave do sistema.
 
 Veja um exemplo da resposta que fornece a chave do sistema:
 
@@ -508,11 +513,11 @@ Pode obter a chave principal para a sua aplicação de função a partir do sepa
 > [!IMPORTANT]
 > A chave mestra fornece acesso de administrador ao seu aplicativo de funções. Não compartilhe essa chave com terceiros ou distribua-a em aplicativos cliente nativos.
 
-Para mais informações, consulte [as chaves de autorização](functions-bindings-http-webhook.md#authorization-keys) no artigo de referência do gatilho HTTP.
+Para mais informações, consulte [as chaves de autorização](functions-bindings-http-webhook-trigger.md#authorization-keys) no artigo de referência do gatilho HTTP.
 
 Como alternativa, você pode enviar um HTTP PUT para especificar o valor da chave por conta própria.
 
-## <a name="local-testing-with-viewer-web-app"></a>Teste local com o aplicativo Web do Visualizador
+## <a name="trigger---local-testing-with-viewer-web-app"></a>Trigger - teste local com aplicação web do espectador
 
 Para testar um gatilho de grade de eventos localmente, você precisa obter solicitações HTTP da grade de eventos entregues de sua origem na nuvem para seu computador local. Uma maneira de fazer isso é capturando solicitações online e reenviá-las manualmente no computador local:
 
@@ -584,6 +589,239 @@ As capturas de tela a seguir mostram os cabeçalhos e o corpo da solicitação n
 A função de gatilho de grade de eventos é executada e mostra logs semelhantes ao exemplo a seguir:
 
 ![Logs de função de gatilho de grade de eventos de exemplo](media/functions-bindings-event-grid/eg-output.png)
+
+## <a name="output"></a>Saída
+
+Utilize a ligação de saída da Rede de Eventos para escrever eventos para um tópico personalizado. Deve ter uma chave de acesso válida [para o tópico personalizado](../event-grid/security-authentication.md#custom-topic-publishing).
+
+> [!NOTE]
+> A ligação de saída da Rede de Eventos não suporta assinaturas de acesso partilhado (tokens SAS). Deve usar a chave de acesso do tópico.
+
+Certifique-se de que as referências de pacote saem em vigor antes de tentar implementar uma ligação de saída.
+
+> [!IMPORTANT]
+> A ligação de saída da Rede de Eventos só está disponível para funções 2.x e superiores.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+O exemplo seguinte mostra uma [ C# função](functions-dotnet-class-library.md) que escreve uma mensagem para um tópico personalizado da Rede de Eventos, utilizando o valor de retorno do método como saída:
+
+```csharp
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
+public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+{
+    return new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
+```
+
+O exemplo que se segue mostra como usar a interface `IAsyncCollector` para enviar um lote de mensagens.
+
+```csharp
+[FunctionName("EventGridAsyncOutput")]
+public static async Task Run(
+    [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
+    [EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]IAsyncCollector<EventGridEvent> outputEvents,
+    ILogger log)
+{
+    for (var i = 0; i < 3; i++)
+    {
+        var myEvent = new EventGridEvent("message-id-" + i, "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+        await outputEvents.AddAsync(myEvent);
+    }
+}
+```
+
+# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+
+O exemplo seguinte mostra os dados de ligação de saída da Rede de Eventos no ficheiro *fun.json.*
+
+```json
+{
+    "type": "eventGrid",
+    "name": "outputEvent",
+    "topicEndpointUri": "MyEventGridTopicUriSetting",
+    "topicKeySetting": "MyEventGridTopicKeySetting",
+    "direction": "out"
+}
+```
+
+Aqui está C# o código script que cria um evento:
+
+```cs
+#r "Microsoft.Azure.EventGrid"
+using System;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, out EventGridEvent outputEvent, ILogger log)
+{
+    outputEvent = new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
+```
+
+Aqui está C# o código script que cria vários eventos:
+
+```cs
+#r "Microsoft.Azure.EventGrid"
+using System;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent, ILogger log)
+{
+    outputEvent.Add(new EventGridEvent("message-id-1", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
+    outputEvent.Add(new EventGridEvent("message-id-2", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+O exemplo seguinte mostra os dados de ligação de saída da Rede de Eventos no ficheiro *fun.json.*
+
+```json
+{
+    "type": "eventGrid",
+    "name": "outputEvent",
+    "topicEndpointUri": "MyEventGridTopicUriSetting",
+    "topicKeySetting": "MyEventGridTopicKeySetting",
+    "direction": "out"
+}
+```
+
+Aqui está o código JavaScript que cria um único evento:
+
+```javascript
+module.exports = async function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    context.bindings.outputEvent = {
+        id: 'message-id',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    };
+    context.done();
+};
+```
+
+Aqui está o código JavaScript que cria vários eventos:
+
+```javascript
+module.exports = function(context) {
+    var timeStamp = new Date().toISOString();
+
+    context.bindings.outputEvent = [];
+
+    context.bindings.outputEvent.push({
+        id: 'message-id-1',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    });
+    context.bindings.outputEvent.push({
+        id: 'message-id-2',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    });
+    context.done();
+};
+```
+
+# <a name="pythontabpython"></a>[python](#tab/python)
+
+A ligação de saída da Rede de Eventos não está disponível para python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A ligação de saída da Rede de Eventos não está disponível para java.
+
+---
+
+## <a name="output---attributes-and-annotations"></a>Saída-atributos e anotações
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Para [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize o atributo [EventGridAttribute.](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs)
+
+O construtor do atributo tem o nome de uma definição de app que contém o nome do tópico personalizado, e o nome de uma definição de app que contém a chave do tópico. Para obter mais informações sobre estas definições, consulte [Saída - configuração](#output---configuration). Aqui está um exemplo de atributo `EventGrid`:
+
+```csharp
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+{
+    ...
+}
+```
+
+Para um exemplo completo, consulte [A Saída - C# exemplo](#output).
+
+# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+
+Os atributos C# não são suportados pelo Script.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Os atributos não são suportados pelo JavaScript.
+
+# <a name="pythontabpython"></a>[python](#tab/python)
+
+A ligação de saída da Rede de Eventos não está disponível para python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A ligação de saída da Rede de Eventos não está disponível para java.
+
+---
+
+## <a name="output---configuration"></a>Saída - configuração
+
+A tabela seguinte explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no atributo `EventGrid`.
+
+|propriedade de Function | Propriedade de atributo |Descrição|
+|---------|---------|----------------------|
+|**tipo** | n/d | Deve ser definido para "eventGrid". |
+|**direção** | n/d | Tem de ser definido para "Sair". Este parâmetro é definido automaticamente quando cria a ligação no portal Azure. |
+|**nome** | n/d | O nome variável usado no código de função que representa o evento. |
+|**topicEndpointUri** |**TopicEndpointUri** | O nome de uma definição de aplicação que contém o URI para o tópico personalizado, como `MyTopicEndpointUri`. |
+|**tópicoKeySetting** |**Definição de tópicos** | O nome de uma definição de aplicação que contém uma chave de acesso para o tópico personalizado. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Certifique-se de que define o valor da propriedade de configuração `TopicEndpointUri` para o nome de uma definição de aplicação que contém o URI do tópico personalizado. Não especifique o URI do tópico personalizado diretamente nesta propriedade.
+
+## <a name="output---usage"></a>Saída - utilização
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Envie mensagens utilizando um parâmetro de método como `out EventGridEvent paramName`. Para escrever várias mensagens, pode utilizar `ICollector<EventGridEvent>` ou `IAsyncCollector<EventGridEvent>` no lugar de `out EventGridEvent`.
+
+# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+
+Envie mensagens utilizando um parâmetro de método como `out EventGridEvent paramName`. No C# script, `paramName` é o valor especificado na propriedade `name` da *função.json*. Para escrever várias mensagens, pode utilizar `ICollector<EventGridEvent>` ou `IAsyncCollector<EventGridEvent>` no lugar de `out EventGridEvent`.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Aceda ao evento de saída utilizando `context.bindings.<name>` onde `<name>` é o valor especificado na propriedade `name` *função.json*.
+
+# <a name="pythontabpython"></a>[python](#tab/python)
+
+A ligação de saída da Rede de Eventos não está disponível para python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A ligação de saída da Rede de Eventos não está disponível para java.
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

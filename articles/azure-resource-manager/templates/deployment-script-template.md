@@ -1,54 +1,54 @@
 ---
-title: Usar scripts de implantação em modelos | Microsoft Docs
-description: Use scripts de implantação em modelos de Azure Resource Manager.
+title: Use scripts de implantação em modelos / Microsoft Docs
+description: utilizar scripts de implementação em modelos de Gestor de Recursos Azure.
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: jgao
-ms.openlocfilehash: f18c9c6efb17f84446b9fee3d2df2c0977bed0c4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a67f360aa08f306d6462342d96f59e06a4d3b501
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757308"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251860"
 ---
-# <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (visualização)
+# <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
-Saiba como usar scripts de implantação em modelos de recursos do Azure. Com um novo tipo de recurso chamado `Microsoft.Resources/deploymentScripts`, os usuários podem executar scripts de implantação em implantações de modelo e examinar os resultados da execução. Esses scripts podem ser usados para executar etapas personalizadas, como:
+Aprenda a usar scripts de implementação em modelos de Recursos Azure. Com um novo tipo de recurso chamado `Microsoft.Resources/deploymentScripts`, os utilizadores podem executar scripts de implementação em implementações de modelos e rever os resultados da execução. Estes scripts podem ser usados para executar passos personalizados tais como:
 
-- Adicionar usuários a um diretório
-- criar um registro de aplicativo
-- executar operações do plano de dados, por exemplo, copiar BLOBs ou banco de dados de semente
-- Pesquisar e validar uma chave de licença
-- criar um certificado autoassinado
-- criar um objeto no Azure AD
-- Pesquisar blocos de endereços IP do sistema personalizado
+- adicionar utilizadores a um diretório
+- criar um registo de aplicativos
+- executar operações de aviões de dados, por exemplo, copiar bolhas ou bases de dados de sementes
+- olhar para cima e validar uma chave de licença
+- criar um certificado auto-assinado
+- criar um objeto em Azure AD
+- procure blocos ip address do sistema personalizado
 
 Os benefícios do script de implantação:
 
-- Fácil de codificar, usar e depurar. Você pode desenvolver scripts de implantação em seus ambientes de desenvolvimento favoritos. Os scripts podem ser inseridos em modelos ou em arquivos de script externos.
-- Você pode especificar a linguagem de script e a plataforma. Atualmente, há suporte apenas para Azure PowerShell scripts de implantação no ambiente Linux.
-- Permitir a especificação das identidades que são usadas para executar os scripts. Atualmente, há suporte apenas para [a identidade gerenciada atribuída pelo usuário do Azure](../../active-directory/managed-identities-azure-resources/overview.md) .
+- Fácil de codificar, usar e depurar. Você pode desenvolver scripts de implantação em seus ambientes de desenvolvimento favoritos. Os scripts podem ser incorporados em modelos ou em ficheiros de script externos.
+- Pode especificar o idioma e a plataforma do script. Atualmente, apenas são suportados scripts de implantação Azure PowerShell no ambiente Linux.
+- Deixe especificar as identidades que são usadas para executar os scripts. Atualmente, apenas a identidade gerida atribuída ao [utilizador Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) é suportada.
 - Permita passar argumentos de linha de comando para o script.
-- Pode especificar saídas de script e passá-las de volta para a implantação.
+- Pode especificar as saídas do script e passá-las de volta para a implementação.
 
 > [!NOTE]
-> O script de implantação está atualmente em visualização. Para usá-lo, você deve [se inscrever para a versão prévia](https://aka.ms/armtemplatepreviews).
+> O script de implantação está atualmente em pré-visualização. Para usá-lo, deve [inscrever-se para a pré-visualização](https://aka.ms/armtemplatepreviews).
 
 > [!IMPORTANT]
-> Dois recursos de script de implantação, uma conta de armazenamento e uma instância de contêiner, são criados no mesmo grupo de recursos para execução de script e solução de problemas. Esses recursos geralmente são excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que os recursos sejam excluídos. Para saber mais, consulte [limpar recursos de script de implantação](#clean-up-deployment-script-resources).
+> Dois recursos de script de implementação, uma conta de armazenamento e uma instância de contentores, são criados no mesmo grupo de recursos para execução de scripts e resolução de problemas. Estes recursos são geralmente eliminados pelo serviço de script quando a execução do script de implementação fica em estado terminal. Você é cobrado pelos recursos até que os recursos sejam eliminados. Para saber mais, consulte [os recursos do script de implementação](#clean-up-deployment-script-resources)de limpeza.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Uma identidade gerenciada atribuída pelo usuário com a função do colaborador no nível da assinatura**. Essa identidade é usada para executar scripts de implantação. Para criar um, consulte [criar uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), ou [usando CLI do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), ou [usando Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Você precisa da ID de identidade ao implantar o modelo. O formato da identidade é:
+- Uma identidade gerida atribuída ao **utilizador com o papel do contribuinte ao nível da subscrição**. Esta identidade é usada para executar scripts de implantação. Para criar uma, consulte Criar uma identidade gerida atribuída pelo [utilizador utilizando o portal Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), ou utilizando o [Azure CLI,](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)ou utilizando o [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Use o seguinte script do PowerShell para obter a ID fornecendo o nome do grupo de recursos e o nome da identidade.
+  Utilize o seguinte script PowerShell para obter o ID fornecendo o nome do grupo de recursos e o nome de identidade.
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
@@ -57,11 +57,11 @@ Os benefícios do script de implantação:
   $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
   ```
 
-- **Azure PowerShell versão 2.7.0, 2.8.0 ou 3.0.0**. Você não precisa dessas versões para implantar modelos. Mas essas versões são necessárias para testar os scripts de implantação localmente. Consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Você pode usar uma imagem pré-configurada do Docker.  Consulte [Configurar ambiente de desenvolvimento](#configure-development-environment).
+- **Versão Azure PowerShell 2.7.0, 2.8.0 ou 3.0.0**. Você não precisa destas versões para implementar modelos. Mas estas versões são necessárias para testar scripts de implantação localmente. Consulte [A instalação do módulo PowerShell Azure](/powershell/azure/install-az-ps). Podes usar uma imagem do Docker reconfigurada.  Ver Ambiente de [desenvolvimento configure](#configure-development-environment).
 
-## <a name="resource-schema"></a>Esquema de recursos
+## <a name="sample-template"></a>Modelo de exemplo
 
-O JSON a seguir é um exemplo.  O esquema de modelo mais recente pode ser encontrado [aqui](/azure/templates/microsoft.resources/deploymentscripts).
+O seguinte json é um exemplo.  O mais recente esquema de modelo pode ser encontrado [aqui.](/azure/templates/microsoft.resources/deploymentscripts)
 
 ```json
 {
@@ -87,7 +87,7 @@ O JSON a seguir é um exemplo.  O esquema de modelo mais recente pode ser encont
       $DeploymentScriptOutputs = @{}
       $DeploymentScriptOutputs['text'] = $output
     ",
-    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json",
+    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
     "supportingScriptUris":[],
     "timeout": "PT30M",
     "cleanupPreference": "OnSuccess",
@@ -97,34 +97,34 @@ O JSON a seguir é um exemplo.  O esquema de modelo mais recente pode ser encont
 ```
 
 > [!NOTE]
-> O exemplo é para fins de demonstração.  **scriptContent** e **primaryScriptUris** não podem coexistir em um modelo.
+> O exemplo é para fins de demonstração.  **scriptContent** e **primaryScriptUris** não podem coexistir num modelo.
 
 Detalhes do valor da propriedade:
 
-- **Identidade**: o serviço de script de implantação usa uma identidade gerenciada atribuída pelo usuário para executar os scripts. Atualmente, somente a identidade gerenciada atribuída pelo usuário tem suporte.
-- **tipo**: especifique o tipo de script. Atualmente, há suporte apenas para Azure PowerShell script. O valor é **AzurePowerShell**.
-- **forceUpdateTag**: a alteração desse valor entre implantações de modelo força o script de implantação a ser executado novamente. Use a função newGuid () ou utcNow () que precisa ser definida como o defaultValue de um parâmetro. Para saber mais, veja [Executar script mais de uma vez](#run-script-more-than-once).
-- **azPowerShellVersion**: Especifique a versão do módulo Azure PowerShell a ser usada. O script de implantação atualmente dá suporte à versão 2.7.0, 2.8.0 e 3.0.0.
-- **argumentos**: Especifique os valores de parâmetro. Os valores são separados por espaços.
-- **scriptContent**: especifique o conteúdo do script. Para executar um script externo, use `primaryScriptUri` em vez disso. Para obter exemplos, consulte [usar script embutido](#use-inline-scripts) e [usar script externo](#use-external-scripts).
-- **primaryScriptUri**: especifique uma URL publicamente acessível para o script primário do PowerShell com a extensão de arquivo do PowerShell com suporte.
-- **supportingScriptUris**: especifique uma matriz de URLs acessíveis publicamente para dar suporte a arquivos do PowerShell que serão chamados em `ScriptContent` ou `PrimaryScriptUri`.
-- **tempo limite**: especifique o tempo de execução máximo permitido do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**.
-- **cleanupPreference**. Especifique a preferência de limpeza dos recursos de implantação quando a execução do script chegar em um estado de terminal. A configuração padrão é **sempre**, o que significa excluir os recursos, apesar do estado do terminal (êxito, falha, cancelado). Para saber mais, confira [limpar recursos de script de implantação](#clean-up-deployment-script-resources).
-- **retentionInterval**: especifique o intervalo para o qual o serviço retém os recursos de script de implantação após a execução do script de implantação atingir um estado de terminal. Os recursos de script de implantação serão excluídos quando essa duração expirar. A duração é baseada no [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**, que significa sete dias. Essa propriedade é usada quando cleanupPreference está definido como *Ontermination*. A propriedade *Onexpiretion* não está habilitada no momento. Para saber mais, confira [limpar recursos de script de implantação](#clean-up-deployment-script-resources).
+- **Identidade**: O serviço de script de implementação utiliza uma identidade gerida atribuída pelo utilizador para executar os scripts. Atualmente, apenas a identidade gerida atribuída ao utilizador é suportada.
+- **tipo:** Especificar o tipo de script. Atualmente, apenas o script Azure PowerShell é suporte. O valor é **AzurePowerShell.**
+- **forceUpdateTag**: Alterar este valor entre as implementações do modelo obriga o script de implantação a reexecutar. Utilize a função newGuid() ou utcNow() que precisa de ser definida como o valor padrão de um parâmetro. Para saber mais, consulte [o guião run mais de uma vez](#run-script-more-than-once).
+- **azPowerShellVersion**: Especifique a versão do módulo PowerShell Azure a utilizar. O script de implementação suporta atualmente a versão 2.7.0, 2.8.0 e 3.0.0.
+- **argumentos**: Especificar os valores dos parâmetros. Os valores são separados por espaços.
+- **scriptConteúdo**: Especifique o conteúdo do script. Para executar um guião externo, use `primaryScriptUri` em vez disso. Por exemplo, consulte [Utilize o script inline](#use-inline-scripts) e [use script externo](#use-external-scripts).
+- **primaryScriptUri**: Especifique um Url acessível ao público para o script de powershell primário com extensão de ficheiro PowerShell suportada.
+- **suporteScriptUris**: Especifique um conjunto de Urls acessíveis ao público para suportar ficheiros powershell que serão chamados em `ScriptContent` ou `PrimaryScriptUri`.
+- **prazo**: Especificar o tempo máximo de execução do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D**.
+- **limpezaPreferência**. Especifique a preferência de limpar os recursos de implantação quando a execução do script estiver em estado terminal. A definição predefinida é **sempre**, o que significa apagar os recursos apesar do estado terminal (Bem sucedido, falhado, cancelado). Para saber mais, consulte [a Limpeza dos recursos do script de implementação.](#clean-up-deployment-script-resources)
+- intervalo de **retençãoIntervalo**: Especifique o intervalo para o qual o serviço mantém os recursos do script de implantação após a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão eliminados quando esta duração expirar. A duração baseia-se no [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D,** o que significa sete dias. Esta propriedade é utilizada quando a limpezaA preferência está definida para *OnExpiration*. A propriedade *OnExpiration* não está ativada atualmente. Para saber mais, consulte [a Limpeza dos recursos do script de implementação.](#clean-up-deployment-script-resources)
 
-## <a name="use-inline-scripts"></a>Usar scripts embutidos
+## <a name="use-inline-scripts"></a>Utilizar scripts inline
 
-O modelo a seguir tem um recurso definido com o tipo de `Microsoft.Resources/deploymentScripts`.
+O modelo seguinte tem um recurso definido com o tipo `Microsoft.Resources/deploymentScripts`.
 
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json?range=1-54)]
 
 > [!NOTE]
-> Como os scripts de implantação embutidos são colocados entre aspas duplas, as cadeias de caracteres dentro dos scripts de implantação precisam ser colocadas entre aspas simples em vez disso. O caractere de escape para o **&#92;** PowerShell é. Você também pode considerar o uso da substituição de cadeia de caracteres, como mostrado no exemplo de JSON anterior. Consulte o valor padrão do parâmetro Name.
+> Como os scripts de implementação em linha são fechados em citações duplas, as cordas dentro dos scripts de implementação precisam de ser fechadas em cotações únicas. O personagem de **&#92;** fuga para a PowerShell é. Também pode considerar a substituição de cordas como é mostrada na amostra JSON anterior. Consulte o valor padrão do parâmetro de nome.
 
-O script usa um parâmetro e a saída do valor do parâmetro. **DeploymentScriptOutputs** é usado para armazenar saídas.  Na seção de saídas, a linha de **valor** mostra como acessar os valores armazenados. `Write-Output` é usado para fins de depuração. Para saber como acessar o arquivo de saída, consulte [depurar scripts de implantação](#debug-deployment-scripts).  Para obter as descrições de propriedade, consulte [esquema de recursos](#resource-schema).
+O guião leva um parâmetro e produz o valor do parâmetro. **ImplementaçãoScriptOutputs** é usado para armazenar saídas.  Na secção de saídas, a linha de **valor** mostra como aceder aos valores armazenados. `Write-Output` é usado para depurar. Para aprender a aceder ao ficheiro de saída, consulte scripts de [implementação de Debug](#debug-deployment-scripts).  Para obter as descrições da propriedade, consulte [o modelo de amostra](#sample-template).
 
-Para executar o script, selecione **Experimente-** o para abrir o Cloud Shell e cole o código a seguir no painel Shell.
+Para executar o script, selecione **Experimente-o** para abrir a casca cloud e, em seguida, colá-lo o seguinte código no painel de conchas.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -140,11 +140,11 @@ Write-Host "Press [ENTER] to continue ..."
 
 O resultado tem o seguinte aspeto:
 
-![Saída do script de implantação do modelo do Resource Manager Olá, mundo](./media/deployment-script-template/resource-manager-template-deployment-script-helloworld-output.png)
+![Script de implementação de modelo de gestor de recursos olá saída mundial](./media/deployment-script-template/resource-manager-template-deployment-script-helloworld-output.png)
 
-## <a name="use-external-scripts"></a>Usar scripts externos
+## <a name="use-external-scripts"></a>Utilize scripts externos
 
-Além dos scripts embutidos, você também pode usar arquivos de script externos. Atualmente, somente scripts do PowerShell com a extensão de arquivo **ps1** têm suporte. Para usar arquivos de script externo, substitua `scriptContent` por `primaryScriptUri`. Por exemplo:
+Além de scripts inline, também pode utilizar ficheiros de script externos. Atualmente, apenas os scripts PowerShell com a extensão do ficheiro **PS1** são suportados. Para utilizar ficheiros de script externos, substitua `scriptContent` por `primaryScriptUri`. Por exemplo:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -152,11 +152,11 @@ Além dos scripts embutidos, você também pode usar arquivos de script externos
 
 Para ver um exemplo, selecione [aqui](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-Os arquivos de script externo devem estar acessíveis.  Para proteger os arquivos de script armazenados nas contas de armazenamento do Azure, consulte [tutorial: artefatos seguros em implantações de modelo Azure Resource Manager](./template-tutorial-secure-artifacts.md).
+Os ficheiros de script externos devem estar acessíveis.  Para proteger os seus ficheiros de script que são armazenados em contas de armazenamento Azure, consulte [Tutorial: Proteja os artefactos nas implementações](./template-tutorial-secure-artifacts.md)do modelo do Gestor de Recursos Azure .
 
-## <a name="use-supporting-scripts"></a>Usar scripts de suporte
+## <a name="use-supporting-scripts"></a>Use scripts de suporte
 
-Você pode separar as lógicas complicadas em um ou mais arquivos de script de suporte. A propriedade `supportingScriptURI` permite que você forneça uma matriz de URIs para os arquivos de script de suporte, se necessário:
+Pode separar lógicas complicadas em um ou mais ficheiros de scripts de suporte. A propriedade `supportingScriptURI` permite fornecer uma variedade de URIs aos ficheiros de script de suporte, se necessário:
 
 ```json
 "scriptContent": "
@@ -170,33 +170,33 @@ Você pode separar as lógicas complicadas em um ou mais arquivos de script de s
 ],
 ```
 
-Os arquivos de script de suporte podem ser chamados de scripts embutidos e arquivos de script primários.
+Os ficheiros de script de suporte podem ser chamados a partir de scripts inline e ficheiros de script primários.
 
-Os arquivos de suporte são copiados para azscripts/azscriptinput no tempo de execução. Use o caminho relativo para fazer referência aos arquivos de suporte de scripts embutidos e arquivos de script primários.
+Os ficheiros de suporte são copiados para azscripts/azscriptinput no tempo de execução. Utilize o caminho relativo para fazer referência aos ficheiros de suporte a partir de scripts inline e ficheiros de script primários.
 
 ## <a name="work-with-outputs-from-deployment-scripts"></a>Trabalhar com saídas de scripts de implantação
 
-O modelo a seguir mostra como passar valores entre dois recursos de deploymentScripts:
+O seguinte modelo mostra como passar valores entre dois recursos de implementaçãoScripts:
 
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic.json?range=1-84)]
 
-No primeiro recurso, você define uma variável chamada **$DeploymentScriptOutputs**e a usa para armazenar os valores de saída. Para acessar o valor de saída de outro recurso dentro do modelo, use:
+No primeiro recurso, define-se uma variável chamada **$DeploymentScriptOutputs**, e usa-a para armazenar os valores de saída. Para aceder ao valor de saída de outro recurso dentro do modelo, utilize:
 
 ```json
 reference('<ResourceName>').output.text
 ```
 
-## <a name="debug-deployment-scripts"></a>Depurar scripts de implantação
+## <a name="debug-deployment-scripts"></a>Scripts de implementação de depurados
 
-O serviço de script cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) e uma instância de [contêiner](../../container-instances/container-instances-overview.md) para a execução do script. Ambos os recursos têm o sufixo **azscripts** nos nomes dos recursos.
+O serviço de script cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) e uma instância de [contentores](../../container-instances/container-instances-overview.md) para a execução do script. Ambos os recursos têm os **azscripts** sufixos nos nomes de recursos.
 
-![Nomes de recursos de script de implantação de modelo do Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
+![Nomes de script de script de implementação de modelo de gestor de recursos de gestor de recursos de recursos](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
-O script do usuário, os resultados da execução e o arquivo stdout são armazenados nos compartilhamentos de arquivos da conta de armazenamento. Há uma pasta chamada **azscripts**. Na pasta, há mais duas pastas para a entrada e os arquivos de saída: **azscriptinput** e **azscriptoutput**.
+O script do utilizador, os resultados da execução e o ficheiro stdout são armazenados nas partilhas de ficheiros da conta de armazenamento. Há uma pasta chamada **azscripts**. Na pasta, existem mais duas pastas para a entrada e os ficheiros de saída: **azscriptinção** e **saída azscript**.
 
-A pasta de saída contém um **ExecutionResult. JSON** e o arquivo de saída de script. Você pode ver a mensagem de erro de execução de script em **ExecutionResult. JSON**. O arquivo de saída é criado somente quando o script é executado com êxito. A pasta de entrada contém um arquivo de script do System PowerShell e os arquivos de script de implantação do usuário. Você pode substituir o arquivo de script de implantação do usuário por um revisado e executar novamente o script de implantação da instância de contêiner do Azure.
+A pasta de saída contém um **resultado de execução.json** e o ficheiro de saída do script. Pode ver a mensagem de erro de execução do script em **execução resulte.json**. O ficheiro de saída só é criado quando o script é executado com sucesso. A pasta de entrada contém um ficheiro de script PowerShell do sistema e os ficheiros de script de implementação do utilizador. Pode substituir o ficheiro de script de implementação do utilizador por um revisto e reexecutar o script de implementação a partir da instância do contentor Azure.
 
-Você pode obter as informações de implantação de recurso de script de implantação no nível do grupo de recursos e no nível da assinatura usando a API REST:
+Você pode obter a informação de implementação de recursos de script de implementação a nível do grupo de recursos e o nível de subscrição usando a API REST:
 
 ```rest
 /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2019-10-01-preview
@@ -206,7 +206,7 @@ Você pode obter as informações de implantação de recurso de script de impla
 /subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2019-10-01-preview
 ```
 
-O exemplo a seguir usa [ARMClient](https://github.com/projectkudu/ARMClient):
+O exemplo que se segue utiliza o [ARMClient:](https://github.com/projectkudu/ARMClient)
 
 ```azurepowershell
 armclient login
@@ -217,96 +217,96 @@ O resultado é semelhante a:
 
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-status.json?range=1-48)]
 
-A saída mostra o estado de implantação e as IDs de recurso de script de implantação.
+A saída mostra o estado de implantação e os IDs de recursos de script de implantação.
 
-A API REST a seguir retorna o log:
+O seguinte REST API devolve o registo:
 
 ```rest
 /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2019-10-01-preview
 ```
 
-Ele só funciona antes de os recursos de script de implantação serem excluídos.
+Só funciona antes de os recursos do script de implantação serem eliminados.
 
-Para ver o recurso deploymentScripts no portal, selecione **Mostrar tipos ocultos**:
+Para ver o recurso de implementação Scripts no portal, selecione **Tipos ocultos**:
 
-![Script de implantação de modelo do Resource Manager, Mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
+![Script de implementação de modelo de gestor de recursos, mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
-## <a name="clean-up-deployment-script-resources"></a>Limpar recursos de script de implantação
+## <a name="clean-up-deployment-script-resources"></a>Limpar os recursos do script de implementação
 
-O script de implantação cria uma conta de armazenamento e uma instância de contêiner que são usadas para executar scripts de implantação e armazenar informações de depuração. Esses dois recursos são criados no mesmo grupo de recursos que os recursos provisionados e serão excluídos pelo serviço de script quando o script expirar. Você pode controlar o ciclo de vida desses recursos.  Até que eles sejam excluídos, você será cobrado por ambos os recursos. Para obter as informações de preço, consulte [preços de instâncias de contêiner](https://azure.microsoft.com/pricing/details/container-instances/) e preços de [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+O script de implementação cria uma conta de armazenamento e uma instância de contentorque que são usadas para executar scripts de implementação e armazenar informações de depuração. Estes dois recursos são criados no mesmo grupo de recursos que os recursos provisionados, e serão eliminados pelo serviço de script quando o script expirar. Pode controlar o ciclo de vida destes recursos.  Até que sejam apagados, é cobrado por ambos os recursos. Para obter informações sobre os preços dos preços, consulte os preços dos casos de [contentores](https://azure.microsoft.com/pricing/details/container-instances/) e os preços de [armazenamento do Azure.](https://azure.microsoft.com/pricing/details/storage/)
 
-O ciclo de vida desses recursos é controlado pelas seguintes propriedades no modelo:
+O ciclo de vida destes recursos é controlado pelas seguintes propriedades no modelo:
 
-- **cleanupPreference**: limpar a preferência quando a execução do script chegar em um estado de terminal.  Os valores com suporte são:
+- **limpezaPreferência**: Limpe a preferência quando a execução do script estiver em estado terminal.  Os valores suportados são:
 
-  - **Sempre**: exclua os recursos depois que a execução do script chegar em um estado de terminal. Como o recurso deploymentScripts ainda pode estar presente depois que os recursos são limpos, o script do sistema copiaria os resultados da execução do script, por exemplo, stdout, Outputs, valor de retorno, etc. para DB antes de os recursos serem excluídos.
-  - **OnSuccess**: exclua os recursos somente quando a execução do script for bem-sucedida. Você ainda pode acessar os recursos para localizar as informações de depuração.
-  - **Onexpiretion**: exclua os recursos somente quando a configuração **retentionInterval** estiver expirada. Esta propriedade está desabilitada no momento.
+  - **Sempre:** Apagar os recursos assim que a execução do guião entrar em estado terminal. Uma vez que o recurso de implementação Scripts ainda pode estar presente após a limpeza dos recursos, o script do sistema copiaria os resultados da execução do script, por exemplo, stdout, saídas, valor de retorno, etc. para DB antes de os recursos serem eliminados.
+  - **OnSuccess**: Elimine os recursos apenas quando a execução do script for bem sucedida. Ainda pode aceder aos recursos para encontrar a informação de depuração.
+  - **OnExpiração**: Elimine os recursos apenas quando a definição de intervalo de **retenção** estiver expirada. Esta propriedade está atualmente desativada.
 
-- **retentionInterval**: especifique o intervalo de tempo que um recurso de script será retido e depois o qual será expirado e excluído.
+- intervalo de **retençãoIntervalo**: Especifique o intervalo de tempo de que um recurso de script será retido e após o qual será expirado e eliminado.
 
 > [!NOTE]
-> Não é recomendável usar os recursos de script de implantação para outras finalidades.
+> Não é aconselhável utilizar os recursos do script de implantação para outros fins.
 
-## <a name="run-script-more-than-once"></a>Executar script mais de uma vez
+## <a name="run-script-more-than-once"></a>Executar o script mais de uma vez
 
-A execução do script de implantação é uma operação idempotente. Se nenhuma das propriedades de recurso deploymentScripts (incluindo o script embutido) for alterada, o script não será executado quando você reimplantar o modelo. O serviço de script de implantação compara os nomes de recursos no modelo com os recursos existentes no mesmo grupo de recursos. Há duas opções se você quiser executar o mesmo script de implantação várias vezes:
+A execução do guião de implantação é uma operação idempotente. Se nenhuma das propriedades de recursos dos Scripts de implementação (incluindo o script inline) for alterada, o script não será executado quando reimplantar o modelo. O serviço de script de implementação compara os nomes de recursos no modelo com os recursos existentes no mesmo grupo de recursos. Existem duas opções se quiser executar o mesmo script de implementação várias vezes:
 
-- Altere o nome do recurso deploymentScripts. Por exemplo, use a função de modelo [UtcNow](./template-functions-string.md#utcnow) como o nome do recurso ou como parte do nome do recurso. Alterar o nome do recurso cria um novo recurso deploymentScripts. É bom manter um histórico da execução do script.
+- Altere o nome do seu recurso de implantaçãoScripts. Por exemplo, utilize a função do modelo [utcNow](./template-functions-string.md#utcnow) como nome de recurso ou como parte do nome do recurso. Mudar o nome do recurso cria um novo recurso de implementação Scripts. É bom para manter um histórico de execução de guião.
 
     > [!NOTE]
-    > A função utcNow só pode ser usada no valor padrão para um parâmetro.
+    > A função utcNow só pode ser utilizada no valor padrão para um parâmetro.
 
-- Especifique um valor diferente na Propriedade do modelo de `forceUpdateTag`.  Por exemplo, use utcNow como o valor.
+- Especifique um valor diferente na propriedade do modelo `forceUpdateTag`.  Por exemplo, use utcNow como valor.
 
 > [!NOTE]
-> Grave os scripts de implantação idempotentes. Isso garante que, se eles forem executados novamente acidentalmente, não causarão alterações no sistema. Por exemplo, se o script de implantação for usado para criar um recurso do Azure, verifique se o recurso não existe antes de criá-lo, para que o script seja bem sucedido ou você não crie o recurso novamente.
+> Escreva os scripts de implantação que são idempotentes. Isto garante que, se voltarem a funcionar acidentalmente, não provocará alterações no sistema. Por exemplo, se o script de implementação for usado para criar um recurso Azure, verifique se o recurso não existe antes de o criar, para que o script tenha sucesso ou não volte a criar o recurso.
 
 ## <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
 
-Atualmente, o script de implantação dá suporte à Azure PowerShell versão 2.7.0, 2.8.0 e 3.0.0.  Se você tiver um computador com Windows, poderá instalar uma das versões de Azure PowerShell com suporte e começar a desenvolver e testar os scripts de implantação.  Se você não tiver um computador Windows ou se não tiver uma dessas versões Azure PowerShell instaladas, poderá usar uma imagem de contêiner pré-configurada do Docker. O procedimento a seguir mostra como configurar a imagem do Docker no Windows. Para Linux e Mac, você pode encontrar as informações na Internet.
+Atualmente, o script de implementação suporta a versão 2.7.0, 2.8.0 e 3.0.0.  Se tiver um computador Windows, pode instalar uma das versões Suportadas Azure PowerShell e começar a desenvolver e testar scripts de implementação.  Se não tiver um computador Windows ou se não tiver uma destas versões Azure PowerShell instaladas, pode utilizar uma imagem de recipiente de estivação pré-configurada. O procedimento seguinte mostra como configurar a imagem do estivador no Windows. Para Linux e Mac, você pode encontrar a informação na Internet.
 
-1. Instale o [Docker desktop](https://www.docker.com/products/docker-desktop) em seu computador de desenvolvimento.
-1. Abra o Docker desktop.
-1. Selecione o ícone de área de trabalho do Docker em barras de tarefas e, em seguida, selecione **configurações**.
-1. Selecione **unidades compartilhadas**, selecione uma unidade local que você deseja disponibilizar para seus contêineres e, em seguida, selecione **aplicar**
+1. Instale [o Docker Desktop](https://www.docker.com/products/docker-desktop) no seu computador de desenvolvimento.
+1. Open Docker Desktop.
+1. Selecione o ícone do Docker Desktop a partir de barras de tarefas e, em seguida, selecione **Definições**.
+1. Selecione **Unidades Partilhadas,** selecione uma unidade local que deseja estar disponível para os seus recipientes e, em seguida, selecione **Aplicar**
 
-    ![Unidade do Docker do script de implantação do modelo do Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-setting-drive.png)
+    ![Unidade de script de implementação de script de gestor de recursos](./media/deployment-script-template/resource-manager-deployment-script-docker-setting-drive.png)
 
-1. Insira suas credenciais do Windows no prompt.
-1. Abra uma janela de terminal, um prompt de comando ou o Windows PowerShell (não use o ISE do PowerShell).
-1. Efetuar pull da imagem de contêiner do script de implantação para o computador local:
+1. Introduza as credenciais das janelas no momento.
+1. Abra uma janela de terminal, seja o Comando Prompt ou o Windows PowerShell (não utilize o PowerShell ISE).
+1. Puxe a imagem do recipiente do script de implementação para o computador local:
 
     ```command
     docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
     ```
 
-    O exemplo usa a versão 2.7.0.
+    O exemplo utiliza a versão 2.7.0.
 
-1. Execute a imagem do Docker localmente.
+1. Execute a imagem do estivador localmente.
 
     ```command
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
     ```
 
-    Substitua **&lt;letra do driver de host >** e **&lt;nome do diretório de host >** com uma pasta existente na unidade compartilhada.  Ele mapeia a pasta para a pasta **/Data** no contêiner. Para obter exemplos, para mapear D:\docker:
+    Substitua **&lt;carta do condutor anfitrião>** e&lt;o nome do **diretório anfitrião>** com uma pasta existente na unidade partilhada.  Mapeia a pasta para a pasta **/dados** no recipiente. Por exemplo, para mapear D:\docker:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
     ```
 
-    **-isso** significa manter a imagem de contêiner ativa.
+    **- significa** manter a imagem do recipiente viva.
 
-1. Selecione **compartilhá-lo** quando receber um prompt.
-1. Execute um script do PowerShell, conforme mostrado na captura de tela a seguir (Considerando que você tem um arquivo HelloWorld. ps1 na pasta d:\docker)
+1. Selecione **Partilhe-o** quando receber um pedido.
+1. Execute um script PowerShell como mostrado na seguinte imagem (dado que tem um ficheiro helloworld.ps1 na pasta d:\docker.)
 
-    ![Gerenciador de script de implantação do modelo do Resource Manager cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+    ![Modelo de design de gestor de recursos script de implementação cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-Depois que o script do PowerShell é testado com êxito, você pode usá-lo como um script de implantação.
+Depois do script PowerShell ser testado com sucesso, pode usá-lo como um script de implementação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a usar os scripts de implantação. Para percorrer um tutorial de script de implantação:
+Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implantação:
 
 > [!div class="nextstepaction"]
-> [Tutorial: usar scripts de implantação em modelos de Azure Resource Manager](./template-tutorial-deployment-script.md)
+> [Tutorial: Use scripts de implementação em modelos de Gestor de Recursos Azure](./template-tutorial-deployment-script.md)

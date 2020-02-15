@@ -9,12 +9,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 7011bf068a96fe9da035ec08a1f6ef7f80a0b240
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161958"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212892"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Começar com a auditoria da base de dados SQL
 
@@ -90,7 +90,7 @@ Para configurar registos de auditoria de escrita numa conta de armazenamento, se
 
    ![conta de armazenamento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-Para configurar uma conta de armazenamento sob uma rede virtual ou firewall, precisará de um [administrador de Diretório Ativo](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) no servidor, permitir que os **serviços da Microsoft fidedignos acedam a esta conta** de armazenamento na conta de armazenamento. Além disso, precisa de ter a permissão 'Microsoft.Authorization/roleAssignments/write' na conta de armazenamento selecionada.
+Para configurar uma conta de armazenamento sob uma rede virtual ou firewall, precisará de um [administrador de Diretório Ativo](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) no servidor, permitir que os **serviços da Microsoft fidedignos acedam a esta conta** de armazenamento na conta de armazenamento. Além disso, precisa de ter a permissão 'Microsoft.Authorization/roleAssignments/write' na conta de armazenamento selecionada.
 
 Recomendamos que seja Administrador de Acesso ao [Utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) para que conceda à identidade gerida a função 'contribuinte de dados blob de armazenamento'. Para saber mais sobre permissões e controlo de acesso baseado em papéis, veja O [](../role-based-access-control/role-assignments-portal.md) [que é o controlo de acesso baseado em papéis (RBAC) para recursos Azure?](../role-based-access-control/overview.md)
 

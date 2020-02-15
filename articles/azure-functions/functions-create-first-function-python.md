@@ -4,12 +4,12 @@ description: Crie e implemente o código Python sem servidor estoirar para a nuv
 ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16d4d5627ea297d825092009511915f5b6e734b6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157895"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212439"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função Python em Azure que responda aos pedidos do HTTP
 
@@ -97,7 +97,7 @@ Nas Funções Azure, um projeto de função é um recipiente para uma ou mais fu
     cd LocalFunctionProj
     ```
     
-1. Adicione uma função ao seu projeto utilizando o seguinte comando, onde o argumento `--name` é o nome único da sua função e o `--template` argumento especifica o gatilho da função. `func new` criar uma subpasta que contenha um ficheiro de código adequado ao idioma escolhido do projeto e um ficheiro de configuração chamado *função.json*.
+1. Adicione uma função ao seu projeto utilizando o seguinte comando, onde o argumento `--name` especifica o nome único da sua função (HttpExample neste caso) e o `--template` argumento especifica o gatilho da função (gatilho HTTP). Este comando `func new` cria uma subpasta que combina com o nome de função que contém um ficheiro de código adequado ao idioma escolhido do projeto e um ficheiro de configuração chamado *função.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -167,7 +167,7 @@ Para o gatilho HTTP, a função recebe dados de pedido na variável `req` confor
 }
 ```
 
-Cada encadernação requer uma direção, um tipo e um nome único. O gatilho HTTP tem uma ligação de entrada de tipo [`httpTrigger`](functions-bindings-http-webhook.md#trigger) e ligação de saída do tipo [`http`](functions-bindings-http-webhook.md#output).
+Cada encadernação requer uma direção, um tipo e um nome único. O gatilho HTTP tem uma ligação de entrada de tipo [`httpTrigger`](functions-bindings-http-webhook-trigger.md) e ligação de saída do tipo [`http`](functions-bindings-http-webhook-output.md).
 
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função

@@ -1,96 +1,96 @@
 ---
-title: Perguntas frequentes de execução de contêineres internos
-description: Encontre respostas para as perguntas frequentes sobre os contêineres internos do Linux no serviço Azure App.
-keywords: serviço de aplicativo do Azure, aplicativo Web, perguntas frequentes, Linux, OSS, aplicativo Web para contêineres, vários contêineres, multirecipiente
+title: Executar contentores embutidos FAQ
+description: Encontre respostas às perguntas frequentes sobre os contentores Linux embutidos no Azure App Service.
+keywords: serviço de aplicações azure, web app, faq, linux, oss, web app para recipientes, multi-contentores, multicontentor
 author: msangapu-msft
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c2dc98d683d822628dc9ea1b4ead02279ea10ea5
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687601"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251809"
 ---
-# <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o serviço Azure App no Linux
+# <a name="azure-app-service-on-linux-faq"></a>Serviço de Aplicações Azure no Linux FAQ
 
-Com o lançamento do serviço de aplicativo no Linux, estamos trabalhando para adicionar recursos e fazer melhorias em nossa plataforma. Este artigo fornece respostas a perguntas que nossos clientes têm feito recentemente.
+Com o lançamento do App Service no Linux, estamos a trabalhar na adição de funcionalidades e na melhoria da nossa plataforma. Este artigo fornece respostas a perguntas que os nossos clientes nos têm feito recentemente.
 
-Se você tiver uma pergunta, comente sobre este artigo.
+Se tiver alguma pergunta, comente sobre este artigo.
 
-## <a name="built-in-images"></a>Imagens internas
+## <a name="built-in-images"></a>Imagens incorporadas
 
-**Quero bifurcar os contêineres internos do Docker que a plataforma fornece. Onde posso encontrar esses arquivos?**
+**Quero bifurcar os contentores docker embutidos que a plataforma fornece. Onde posso encontrar os ficheiros?**
 
-Você pode encontrar todos os arquivos do Docker no [GitHub](https://github.com/azure-app-service). Você pode encontrar todos os contêineres do Docker no [Hub do Docker](https://hub.docker.com/u/appsvc/).
+Podes encontrar todos os ficheiros do Docker no [GitHub.](https://github.com/azure-app-service) Pode encontrar todos os contentores do Docker no [Docker Hub.](https://hub.docker.com/u/appsvc/)
 
 <a id="#startup-file"></a>
 
-**Quais são os valores esperados para a seção arquivo de inicialização quando configuro a pilha de tempo de execução?**
+**Quais são os valores esperados para a secção 'Ficheiro de Arranque' quando configurar a pilha de tempo de execução?**
 
-| Sobreposta           | Valor esperado                                                                         |
+| Pilha           | Valor Esperado                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | o comando para iniciar seu aplicativo JAR (por exemplo, `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | o local de um script para executar as configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
-| Node.js         | o arquivo de configuração PM2 ou o arquivo de script                                |
-| .Net Core       | o nome da DLL compilada como `dotnet <myapp>.dll`                                 |
-| Ruby            | o script Ruby com o qual você deseja inicializar seu aplicativo                     |
+| Java SE         | o comando para iniciar a sua aplicação JAR (por exemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
+| Tomcat | a localização de um script para executar quaisquer configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | o ficheiro de configuração PM2 ou o seu ficheiro script                                |
+| .Núcleo De Rede       | o nome DLL compilado como `dotnet <myapp>.dll`                                 |
+| Ruby            | o script Ruby que você quer inicializar a sua app com                     |
 
-Esses comandos ou scripts são executados depois que o contêiner interno do Docker é iniciado, mas antes do código do aplicativo ser iniciado.
+Estes comandos ou scripts são executados após o início do recipiente Docker incorporado, mas antes do seu código de aplicação ser iniciado.
 
 ## <a name="management"></a>Gestão
 
-**O que acontece quando eu pressiono o botão reiniciar na portal do Azure?**
+**O que acontece quando carregar no botão de reinício no portal Azure?**
 
-Essa ação é igual à reinicialização do Docker.
+Esta ação é a mesma que um Docker reinicia.
 
-**Posso usar Secure Shell (SSH) para se conectar à VM (máquina virtual) do contêiner de aplicativo?**
+**Posso usar a Secure Shell (SSH) para ligar à máquina virtual do contentor de aplicações (VM)?**
 
-Sim, você pode fazer isso por meio do site SCM (gerenciamento de controle do código-fonte).
+Sim, pode fazê-lo através do site de gestão de controlo de fontes (SCM).
 
 > [!NOTE]
 > Também pode ligar ao contentor de aplicações diretamente a partir do seu computador de desenvolvimento local através de SSH, SFTP ou do Visual Studio Code (para aplicações Node.js de depuração em direto). Para obter mais informações, veja [Depuração remota e SSH no Serviço de Aplicações no Linux](https://azure.github.io/AppService/2018/05/07/New-SSH-Experience-and-Remote-Debugging-for-Linux-Web-Apps.html).
 >
 
-**Como posso criar um plano do serviço de aplicativo do Linux por meio de um SDK ou um modelo de Azure Resource Manager?**
+**Como posso criar um plano de serviço de aplicações Linux através de um modelo SDK ou de Um Gestor de Recursos Azure?**
 
-Você deve definir o campo **reservado** do serviço de aplicativo como *true*.
+Deve definir o campo **reservado** do serviço de aplicações como *verdadeiro*.
 
 ## <a name="continuous-integration-and-deployment"></a>Integração e implementação contínua
 
-**Meu aplicativo Web ainda usa uma imagem de contêiner do Docker antiga depois de atualizar a imagem no Hub do Docker. Você dá suporte à integração e à implantação contínuas de contêineres personalizados?**
+**A minha aplicação ainda usa uma imagem antiga do contentor do Docker depois de ter atualizado a imagem no Docker Hub. Apoia a integração contínua e a implantação de recipientes personalizados?**
 
-Sim, para configurar a integração/implantação contínua para o registro de contêiner do Azure ou DockerHub, seguindo [a implantação contínua com aplicativo Web para contêineres](./app-service-linux-ci-cd.md). Para registros privados, você pode atualizar o contêiner interrompendo e, em seguida, iniciando seu aplicativo Web. Ou você pode alterar ou adicionar uma configuração de aplicativo fictícia para forçar uma atualização do seu contêiner.
+Sim, para configurar a integração/implantação contínua para o Registo de Contentores Azure ou DockerHub, seguindo a [implantação contínua com web app para recipientes](./app-service-linux-ci-cd.md). Para registos privados, pode refrescar o recipiente parando e, em seguida, iniciando a sua aplicação web. Ou pode alterar ou adicionar uma definição de aplicação de boneco para forçar uma atualização do seu recipiente.
 
-**Há suporte para ambientes de preparo?**
+**Apoia ambientes de encenação?**
 
 Sim.
 
-**Posso usar *WebDeploy/MSDeploy* para implantar meu aplicativo Web?**
+**Posso usar *webDeploy/MSDeploy* para implementar a minha aplicação web?**
 
-Sim, você precisa definir uma configuração de aplicativo chamada `WEBSITE_WEBDEPLOY_USE_SCM` como *false*.
+Sim, você precisa definir uma definição de aplicativo chamada `WEBSITE_WEBDEPLOY_USE_SCM` a *falso*.
 
-**A implantação do git do meu aplicativo falha ao usar o aplicativo Web do Linux. Como posso contornar o problema?**
+**A implementação da git da minha aplicação falha ao usar a aplicação web linux. Como posso resolver o assunto?**
 
-Se a implantação do git falhar em seu aplicativo Web do Linux, escolha uma das seguintes opções para implantar o código do aplicativo:
+Se a implementação da Git falhar na sua aplicação web Linux, escolha uma das seguintes opções para implementar o seu código de aplicação:
 
-- Usar o recurso entrega contínua (versão prévia): você pode armazenar o código-fonte do aplicativo em um repositório Git do Azure DevOps ou repositório GitHub para usar a entrega contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua para o aplicativo Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Utilize a função De entrega contínua (pré-visualização): Pode armazenar o código fonte da sua aplicação num repo DevOps Git ou GitHub para utilizar a Azure Continuous Delivery. Para mais informações, consulte Como configurar a Entrega Contínua para a [aplicação web linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Usar a [API de implantação de zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar essa API, use [SSH em seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e vá para a pasta em que você deseja implantar seu código. Execute o seguinte código:
+- Utilize o [ZIP implementar API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Para utilizar este API, [SSH na sua aplicação web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e ir para a pasta onde pretende implementar o seu código. Execute o seguinte código:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
-   Se você receber um erro informando que o comando `curl` não foi encontrado, certifique-se de instalar a ondulação usando `apt-get install curl` antes de executar o comando `curl` anterior.
+   Se tiver um erro de que o comando `curl` não seja encontrado, certifique-se de que instala o caracol utilizando `apt-get install curl` antes de executar o comando `curl` anterior.
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-**Desejo usar o Web Sockets no meu aplicativo node. js, configurações especiais ou definições a serem definidas?**
+**Quero usar tomadas web na minha aplicação Node.js, quaisquer configurações especiais ou configurações para definir?**
 
-Sim, desabilite `perMessageDeflate` no seu código node. js do lado do servidor. Por exemplo, se você estiver usando socket.io, use o seguinte código:
+Sim, desative `perMessageDeflate` no seu código Node.js do lado do servidor. Por exemplo, se estiver a utilizar socket.io, utilize o seguinte código:
 
 ```nodejs
 const io = require('socket.io')(server,{
@@ -98,99 +98,99 @@ const io = require('socket.io')(server,{
 });
 ```
 
-**Há suporte para aplicativos .NET Core não compilados?**
+**Suporta aplicações não compiladas .NET Core?**
 
 Sim.
 
-**Há suporte para o Composer como um Gerenciador de dependência para aplicativos PHP?**
+**Apoia o Compositor como gestor de dependência para aplicações PHP?**
 
-Sim, durante uma implantação do git, o kudu deve detectar que você está implantando um aplicativo PHP (graças à presença de um arquivo Composer. Lock) e o kudu irá disparar uma instalação do Composer.
+Sim, durante uma implantação git, Kudu deve detetar que você está implementando uma aplicação PHP (graças à presença de um ficheiro compositor.lock), e Kudu irá então desencadear uma instalação de compositor.
 
 ## <a name="custom-containers"></a>Personalizar contentores
 
-**Estou usando meu próprio contêiner personalizado. Quero que a plataforma monte um compartilhamento SMB no diretório `/home/`.**
+**Estou a usar o meu próprio contentor personalizado. Quero que a plataforma monte uma quota SMB para o diretório `/home/`.**
 
-Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração não for **especificada** ou definida como *true*, o diretório `/home/` **será compartilhado** entre instâncias de escala e os arquivos gravados **persistirão** entre as reinicializações. Definir explicitamente `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como *false* desabilitará a montagem.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` definição **for não especificada** ou definida como *verdadeira,* o `/home/` diretório **será partilhado** em instâncias de escala, e os ficheiros escritos **persistirão** em reinícios. A definição explícita de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a *falso* irá desativar o suporte.
 
-**Meu contêiner personalizado leva muito tempo para ser iniciado e a plataforma reinicia o contêiner antes de concluir a inicialização.**
+**O meu recipiente personalizado demora muito tempo a começar, e a plataforma reinicia o contentor antes de terminar de arrancar.**
 
-Você pode configurar a quantidade de tempo que a plataforma aguardará antes de reiniciar o contêiner. Para fazer isso, defina a configuração do aplicativo `WEBSITES_CONTAINER_START_TIME_LIMIT` como o valor desejado. O valor padrão é 230 segundos e o valor máximo é 1800 segundos.
+Pode configurar o tempo que a plataforma irá esperar antes de reiniciar o seu recipiente. Para isso, defina a definição de aplicações `WEBSITES_CONTAINER_START_TIME_LIMIT` para o valor que pretende. O valor padrão é de 230 segundos, e o valor máximo é de 1800 segundos.
 
-**Qual é o formato da URL do servidor de registro particular?**
+**Qual é o formato para o URL do servidor de registo privado?**
 
-Forneça a URL completa do registro, incluindo `http://` ou `https://`.
+Forneça o URL completo do registo, incluindo `http://` ou `https://`.
 
-**Qual é o formato do nome da imagem na opção de registro particular?**
+**Qual é o formato para o nome de imagem na opção de registo privado?**
 
-Adicione o nome completo da imagem, incluindo a URL particular do registro (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam uma porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name`, use a [ferramenta de linha de comando`az`](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Adicione o nome de imagem completo, incluindo o URL de registo privado (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que utilizam uma porta personalizada [não podem ser introduzidos através do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name`, utilize a [ferramenta`az` linha de comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
-**Posso expor mais de uma porta em minha imagem de contêiner personalizada?**
+**Posso expor mais do que uma porta na minha imagem de recipiente personalizada?**
 
-Não há suporte para expor mais de uma porta.
+Não apoiamos a exposição de mais de um porto.
 
-**Posso colocar meu próprio armazenamento?**
+**Posso trazer o meu próprio armazém?**
 
-Sim, [traga seu próprio armazenamento](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) para visualização.
+Sim, [traga o seu próprio armazenamento](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) está em pré-visualização.
 
-**Por que não consigo procurar meu sistema de arquivos do contêiner personalizado ou executar processos do site do SCM?**
+**Por que não posso navegar no sistema de ficheiros do meu contentor personalizado ou processos de execução a partir do site SCM?**
 
-O site do SCM é executado em um contêiner separado. Não é possível verificar o sistema de arquivos ou os processos em execução do contêiner do aplicativo.
+O local SCM funciona num recipiente separado. Não é possível verificar o sistema de ficheiros ou os processos de execução do contentor da aplicação.
 
-**Meu contêiner personalizado escuta uma porta diferente da porta 80. Como posso configurar meu aplicativo para rotear solicitações para essa porta?**
+**O meu contentor personalizado ouve uma porta que não seja a porta 80. Como posso configurar a minha aplicação para encaminhar pedidos para aquela porta?**
 
-Temos a detecção automática de porta. Você também pode especificar uma configuração de aplicativo chamada *WEBSITES_PORT* e dar a ela o valor do número da porta esperada. Anteriormente, a plataforma usava a configuração do aplicativo de *porta* . Estamos planejando substituir essa configuração de aplicativo e usar *WEBSITES_PORT* exclusivamente.
+Temos deteção automática de portas. Também pode especificar uma definição de aplicação chamada *WEBSITES_PORT* e dar-lhe o valor do número de porta esperado. Anteriormente, a plataforma usava a definição de aplicações *PORT.* Estamos a planear depreciar esta definição de aplicações e *usáWEBSITES_PORT* exclusivamente.
 
-**Preciso implementar HTTPS em meu contêiner personalizado?**
+**Preciso implementar HTTPS no meu recipiente personalizado?**
 
-Não, a plataforma manipula a terminação HTTPS nos front-ends compartilhados.
+Não, a plataforma trata da rescisão HTTPS nas extremidades dianteiras partilhadas.
 
-## <a name="multi-container-with-docker-compose"></a>Vários contêineres com Docker Compose
+## <a name="multi-container-with-docker-compose"></a>Multi-contentor com Docker Compose
 
-**Como fazer configurar o ACR (registro de contêiner do Azure) para usar com vários contêineres?**
+**Como configurar o Registo de Contentores Azure (ACR) para utilizar com multi-contentores?**
 
-Para usar o ACR com vários contêineres, **todas as imagens de contêiner** precisam ser hospedadas no mesmo servidor de registro do ACR. Quando estiverem no mesmo servidor do registro, você precisará criar configurações do aplicativo e, em seguida, atualizar o arquivo de configuração Docker Compose para incluir o nome da imagem ACR.
+Para utilizar o ACR com multi-contentores, **todas as imagens** de contentores devem ser alojadas no mesmo servidor de registo ACR. Uma vez que estejam no mesmo servidor de registo, terá de criar definições de aplicação e, em seguida, atualizar o ficheiro de configuração Docker Compose para incluir o nome de imagem ACR.
 
-Crie as seguintes configurações de aplicativo:
+Criar as seguintes definições de aplicação:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (URL completa, ex: `https://<server-name>.azurecr.io`)
-- DOCKER_REGISTRY_SERVER_PASSWORD (habilitar o acesso de administrador em configurações de ACR)
+- DOCKER_REGISTRY_SERVER_URL (URL completo, ex: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_PASSWORD (permitir o acesso à administração nas definições de ACR)
 
-No arquivo de configuração, referencie sua imagem ACR como o exemplo a seguir:
+Dentro do ficheiro de configuração, consulte a sua imagem ACR como o seguinte exemplo:
 
 ```yaml
 image: <server-name>.azurecr.io/<image-name>:<tag>
 ```
 
-**Como fazer saber qual contêiner é acessível pela Internet?**
+**Como sei qual é o recipiente acessível à Internet?**
 
-- Somente um contêiner pode ser aberto para acesso
-- Somente a porta 80 e 8080 está acessível (portas expostas)
+- Apenas um recipiente pode estar aberto para acesso
+- Apenas o porto 80 e 8080 está acessível (portas expostas)
 
-Aqui estão as regras para determinar qual contêiner está acessível-na ordem de precedência:
+Aqui estão as regras para determinar qual o recipiente acessível - por ordem de precedência:
 
-- Configuração de aplicativo `WEBSITES_WEB_CONTAINER_NAME` definida como o nome do contêiner
-- O primeiro contêiner para definir a porta 80 ou 8080
-- Se nenhuma das opções acima for verdadeira, o primeiro contêiner definido no arquivo estará acessível (exposto)
+- Definição de aplicação `WEBSITES_WEB_CONTAINER_NAME` definida para o nome do recipiente
+- O primeiro recipiente a definir o porto 80 ou 8080
+- Se nenhum dos acima for verdadeiro, o primeiro recipiente definido no ficheiro será acessível (exposto)
 
 ## <a name="pricing-and-sla"></a>Preços e SLA
 
-**Qual é o preço, agora que o serviço está disponível para o público geral?**
+**Qual é o preço, agora que o serviço está geralmente disponível?**
 
-Você é cobrado pelo preço normal do serviço de Azure App pelo número de horas em que seu aplicativo é executado.
+É-lhe cobrado o preço normal do Serviço de Aplicações Azure pelo número de horas que a sua aplicação executa.
 
-## <a name="other-questions"></a>Outras perguntas
+## <a name="other-questions"></a>Outras questões
 
-**Quais são os caracteres com suporte em nomes de configurações do aplicativo?**
+**Quais são os caracteres suportados nos nomes das definições de aplicações?**
 
-Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublinhado (_) para configurações do aplicativo.
+Só pode utilizar letras (A-Z, a-z), números (0-9) e o caráter de sublinhado (_) para as definições de aplicação.
 
-**Onde posso solicitar novos recursos?**
+**Onde posso pedir novas funcionalidades?**
 
-Você pode enviar sua ideia no [Fórum de comentários de aplicativos Web](https://aka.ms/webapps-uservoice). Adicione "[Linux]" ao título da sua ideia.
+Pode submeter a sua ideia no fórum de feedback de [Aplicações Web](https://aka.ms/webapps-uservoice). Adicione "[Linux]" ao título da sua ideia.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o serviço Azure App no Linux?](app-service-linux-intro.md)
+- [O que é o Serviço de Aplicações Azure no Linux?](app-service-linux-intro.md)
 - [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Implantação contínua com Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md)
+- [Implantação contínua com aplicação web para contentores](./app-service-linux-ci-cd.md)

@@ -1,89 +1,89 @@
 ---
-title: Integre com identidades gerenciadas do Azure
-description: Saiba como usar identidades gerenciadas do Azure para autenticar com e obter acesso à configuração de Azure App
+title: Integrar com identidades geridas do Azure
+description: Saiba como usar identidades geridas pelo Azure para autenticar e ter acesso à Configuração de Aplicações Azure
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.topic: conceptual
 ms.date: 12/29/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7461f378a4f95a43971f5893fe70739511e942ff
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: f85f63af94beb5c0d99632be69368c0c7c727b7b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732006"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212217"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>Integre com identidades gerenciadas do Azure
+# <a name="integrate-with-azure-managed-identities"></a>Integrar com identidades geridas azure
 
-Azure Active Directory [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ajudam a simplificar o gerenciamento de segredos para seu aplicativo de nuvem. Com uma identidade gerenciada, seu código pode usar a entidade de serviço que foi criada para o serviço do Azure em que ele é executado. Você usa uma identidade gerenciada em vez de uma credencial separada armazenada em Azure Key Vault ou em uma cadeia de conexão local. 
+[As identidades geridas pelo](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Azure Ative Directory ajudam a simplificar a gestão de segredos para a sua aplicação na nuvem. Com uma identidade gerida, o seu código pode utilizar o principal de serviço que foi criado para o serviço Azure em que funciona. Você usa uma identidade gerida em vez de uma credencial separada armazenada no Cofre de Chaves Azure ou uma cadeia de ligação local. 
 
-A configuração de Azure App e suas bibliotecas de cliente .NET Core, .NET Framework e Java Spring têm suporte de identidade gerenciada incorporadas a elas. Embora você não precise usá-lo, a identidade gerenciada elimina a necessidade de um token de acesso que contenha segredos. Seu código pode acessar o repositório de configuração de aplicativo usando apenas o ponto de extremidade de serviço. Você pode inserir essa URL em seu código diretamente sem a preocupação de expor qualquer segredo.
+A Configuração da Aplicação Azure e o seu Núcleo .NET, .NET Framework e as bibliotecas de clientes da Java Spring têm gerido o suporte de identidade incorporado neles. Embora não seja obrigado a usá-lo, a identidade gerida elimina a necessidade de um sinal de acesso que contenha segredos. O seu código pode aceder à loja de configuração de aplicações utilizando apenas o ponto final do serviço. Pode incorporar este URL no seu código diretamente sem a preocupação de expor qualquer segredo.
 
-Este tutorial mostra como você pode aproveitar a identidade gerenciada para acessar a configuração do aplicativo. Ele se baseia no aplicativo Web introduzido nos guias de início rápido. Antes de continuar, conclua a [criação de um aplicativo ASP.NET Core com a configuração de aplicativo](./quickstart-aspnet-core-app.md) primeiro.
+Este tutorial mostra como pode tirar partido da identidade gerida para aceder à Configuração da App. Baseia-se na aplicação web introduzida nos quickstarts. Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuração](./quickstart-aspnet-core-app.md) de aplicações primeiro.
 
-Este tutorial também mostra como você pode usar a identidade gerenciada em conjunto com as referências de Key Vault da configuração de aplicativo. Com uma única identidade gerenciada, você pode acessar diretamente os segredos de Key Vault e os valores de configuração da configuração do aplicativo. Se você quiser explorar esse recurso, conclua o [uso de Key Vault referências com ASP.NET Core](./use-key-vault-references-dotnet-core.md) primeiro.
+Este tutorial também mostra como pode usar a identidade gerida em conjunto com as referências chave vault da Configuração da App. Com uma única identidade gerida, pode aceder perfeitamente aos dois segredos do Key Vault e valores de configuração da Configuração da App. Se desejar explorar esta capacidade, termine as referências do cofre de [chaves de utilização com ASP.NET Core](./use-key-vault-references-dotnet-core.md) primeiro.
 
-Você pode usar qualquer editor de código para executar as etapas neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, MacOS e Linux.
+Pode usar qualquer editor de código para fazer os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Conceder um acesso de identidade gerenciada à configuração do aplicativo.
-> * Configure seu aplicativo para usar uma identidade gerenciada quando você se conectar à configuração do aplicativo.
-> * Opcionalmente, configure seu aplicativo para usar uma identidade gerenciada quando você se conectar a Key Vault por meio de uma referência de Key Vault de configuração de aplicativo.
+> * Conceda um acesso de identidade gerido à Configuração de Aplicações.
+> * Configure a sua aplicação para utilizar uma identidade gerida quando se ligar à Configuração de Aplicações.
+> * Opcionalmente, configure a sua aplicação para utilizar uma identidade gerida quando se ligar ao Key Vault através de uma referência de teclado de configuração de aplicações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, tem de ter:
 
-* [SDK do .NET Core](https://www.microsoft.com/net/download/windows).
-* [Azure cloud shell configurado](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+* [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* [Concha de nuvem azure configurada](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="add-a-managed-identity"></a>Adicionar uma identidade gerenciada
+## <a name="add-a-managed-identity"></a>Adicione uma identidade gerida
 
-Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo e, em seguida, habilite o recurso.
+Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e, em seguida, ativar a funcionalidade.
 
-1. Crie uma instância dos serviços de aplicativos na [portal do Azure](https://portal.azure.com) normalmente. Vá para ele no Portal.
+1. Crie uma instância de Serviços de Aplicações no [portal Azure](https://portal.azure.com) como normalmente faz. Vai para ele no portal.
 
-1. Role para baixo até o grupo **configurações** no painel esquerdo e selecione **identidade**.
+1. Desloque-se até ao grupo **Definições** no painel esquerdo e selecione **Identidade**.
 
-1. Na guia **atribuído pelo sistema** , alterne **o status** para **ativado** e selecione **salvar**.
+1. No separador designado pelo **Sistema,** mude o **Estado** para **ligar** e selecione **Guardar**.
 
-1. Responda **Sim** quando solicitado a habilitar a identidade gerenciada atribuída ao sistema.
+1. Resposta **Sim** quando solicitado para ativar o sistema atribuído identidade gerida.
 
-    ![Definir identidade gerenciada no serviço de aplicativo](./media/set-managed-identity-app-service.png)
+    ![Definir identidade gerida no Serviço de Aplicações](./media/set-managed-identity-app-service.png)
 
-## <a name="grant-access-to-app-configuration"></a>Conceder acesso à configuração do aplicativo
+## <a name="grant-access-to-app-configuration"></a>Conceder acesso à configuração de aplicações
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **todos os recursos** e selecione o repositório de configuração de aplicativo que você criou no guia de início rápido.
+1. No [portal Azure,](https://portal.azure.com)selecione **Todos os recursos** e selecione a loja de Configuração de Aplicações que criou no arranque rápido.
 
 1. Selecione **Controlo de acesso (IAM)** .
 
-1. Na guia **verificar acesso** , selecione **Adicionar** na interface do usuário do cartão **Adicionar atribuição de função** .
+1. No separador **'Ver acesso',** selecione **Adicionar** no 'Adicionar placa de atribuição de **funções** UI'.
 
-1. Em **função**, selecione **leitor de dados de configuração de aplicativo**. Em **atribuir acesso ao**, selecione **serviço de aplicativo** em **identidade gerenciada atribuída pelo sistema**.
+1. Em **funções,** selecione **App Configuration Data Reader**. Sob **acesso de atribuição a**, selecione **Serviço de Aplicações** ao abrigo **do Sistema de identidade gerida atribuída**.
 
-1. Em **assinatura**, selecione sua assinatura do Azure. Selecione o recurso de serviço de aplicativo para seu aplicativo.
+1. Em **Subscrição,** selecione a sua subscrição Azure. Selecione o recurso do Serviço de Aplicações para a sua aplicação.
 
 1. Selecione **Guardar**.
 
-    ![Adicionar uma identidade gerenciada](./media/add-managed-identity.png)
+    ![Adicione uma identidade gerida](./media/add-managed-identity.png)
 
-1. Opcional: se você quiser conceder acesso a Key Vault também, siga as instruções em [fornecer autenticação de Key Vault com uma identidade gerenciada](https://docs.microsoft.com/azure/key-vault/managed-identity).
+1. Opcional: Se deseja também conceder acesso ao Cofre chave, siga as instruções de [autenticação do Cofre-Chave com uma identidade gerida](https://docs.microsoft.com/azure/key-vault/managed-identity).
 
 ## <a name="use-a-managed-identity"></a>Utilizar uma identidade gerida
 
-1. Adicione uma referência ao pacote *Azure. Identity* :
+1. Adicione uma referência ao pacote *Azure.Identity:*
 
     ```cli
     dotnet add package Azure.Identity --version 1.1.0
     ```
 
-1. Localize o ponto de extremidade para seu repositório de configuração de aplicativo. Essa URL é listada na guia **chaves de acesso** para a loja no portal do Azure.
+1. Encontre o ponto final da sua loja de configuração de aplicações. Este URL está listado no separador **de teclas Access** para a loja no portal Azure.
 
-1. Abra *appSettings. JSON*e adicione o script a seguir. Substitua *\<service_endpoint >* , incluindo os colchetes, pela URL para o repositório de configurações do aplicativo. 
+1. Abra *as definições.json*e adicione o seguinte script. Substitua *\<service_endpoint>* incluindo os suportes, com o URL na sua loja de Configuração de Aplicações. 
 
     ```json
     "AppConfig": {
@@ -91,19 +91,18 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
     }
     ```
 
-1. Abra *Program.cs*e adicione uma referência aos namespaces `Azure.Identity` e `Microsoft.Azure.Services.AppAuthentication`:
+1. Abrir *Program.cs,* e adicionar uma referência aos espaços de `Azure.Identity` e `Microsoft.Azure.Services.AppAuthentication` nomes:
 
     ```csharp-interactive
     using Azure.Identity;
-    using Microsoft.Azure.Services.AppAuthentication;
     ```
 
-1. Se você quiser acessar apenas os valores armazenados diretamente na configuração do aplicativo, atualize o método `CreateWebHostBuilder` substituindo o método `config.AddAzureAppConfiguration()`.
+1. Se desejar aceder apenas a valores armazenados diretamente na Configuração de Aplicações, atualize o método `CreateWebHostBuilder` substituindo o método `config.AddAzureAppConfiguration()`.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3,0.  Selecione a sintaxe correta com base em seu ambiente.
+    > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
-    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
+    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -117,7 +116,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
                 .UseStartup<Startup>();
     ```
 
-    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3. x](#tab/core3x)
+    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -133,9 +132,9 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
     ```
     ---
 
-1. Para usar valores de configuração de aplicativo e referências de Key Vault, atualize *Program.cs* , conforme mostrado abaixo. Esse código cria um novo `KeyVaultClient` usando um `AzureServiceTokenProvider` e passa essa referência para uma chamada para o método `UseAzureKeyVault`.
+1. Para utilizar tanto os valores de Configuração de Aplicações como as referências do Key Vault, *atualize Program.cs* conforme mostrado abaixo. Este código cria um novo `KeyVaultClient` utilizando um `AzureServiceTokenProvider` e passa esta referência a uma chamada para o método `UseAzureKeyVault`.
 
-    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
+    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
             public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -151,7 +150,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
                     .UseStartup<Startup>();
     ```
 
-    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3. x](#tab/core3x)
+    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -169,20 +168,20 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
     ```
     ---
 
-    Agora você pode acessar Key Vault referências, assim como qualquer outra chave de configuração de aplicativo. O provedor de configuração usará o `KeyVaultClient` que você configurou para autenticar para Key Vault e recuperar o valor.
+    Agora pode aceder a referências do Key Vault, tal como qualquer outra tecla de configuração de aplicações. O provedor da config utilizará o `KeyVaultClient` que configurapara autenticar o Cofre chave e recuperar o valor.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-from-local-git"></a>Implementar a partir do Git local
 
-A maneira mais fácil de habilitar a implantação do git local para seu aplicativo com o servidor de compilação kudu é usar [Azure cloud Shell](https://shell.azure.com).
+A maneira mais fácil de permitir a implementação local de Git para a sua aplicação com o servidor de construção Kudu é utilizar [o Azure Cloud Shell](https://shell.azure.com).
 
 ### <a name="configure-a-deployment-user"></a>Configurar um utilizador de implementação
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="enable-local-git-with-kudu"></a>Habilitar git local com kudu
-Se você não tiver um repositório git local para seu aplicativo, será necessário inicializar um. Para inicializar um repositório git local, execute os seguintes comandos no diretório do projeto do aplicativo:
+### <a name="enable-local-git-with-kudu"></a>Ativar git local com Kudu
+Se não tiver um repositório local para a sua aplicação, terá de inicializar um. Para inicializar um repositório git local, execute os seguintes comandos do diretório de projetoda sua aplicação:
 
 ```cmd
 git init
@@ -190,13 +189,13 @@ git add .
 git commit -m "Initial version"
 ```
 
-Para habilitar a implantação do git local para seu aplicativo com o servidor de compilação kudu, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) em Cloud Shell.
+Para permitir a implementação local de Git para a sua aplicação com o servidor de construção Kudu, faça [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) na Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-Esse comando fornece algo semelhante à seguinte saída:
+Este comando dá-lhe algo semelhante à seguinte saída:
 
 ```json
 {
@@ -204,37 +203,37 @@ Esse comando fornece algo semelhante à seguinte saída:
 }
 ```
 
-### <a name="deploy-your-project"></a>Implantar seu projeto
+### <a name="deploy-your-project"></a>Implementar o seu projeto
 
-Na _janela do terminal local_, adicione um remoto do Azure ao repositório git local. Substitua _\<url >_ pela URL do git remoto que você obteve ao habilitar o [git local com kudu](#enable-local-git-with-kudu).
+Na janela do _terminal local,_ adicione um telecomando Azure ao seu repositório git local. Substitua _\<url>_ com o URL do comando Git que obteve do [Enable local Git com Kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
 ```
 
-Envie para o remoto do Azure para implementar a sua aplicação com o comando seguinte. Quando for solicitada uma senha, insira a senha que você criou em [configurar um usuário de implantação](#configure-a-deployment-user). Não use a senha usada para entrar no portal do Azure.
+Envie para o remoto do Azure para implementar a sua aplicação com o comando seguinte. Quando for solicitado uma palavra-passe, introduza a palavra-passe criada no [Configure um utilizador](#configure-a-deployment-user)de implementação . Não utilize a palavra-passe que usa para iniciar sessão no portal Azure.
 
 ```bash
 git push azure master
 ```
 
-Você pode ver a automação específica do tempo de execução na saída, como o MSBuild para ASP.NET, `npm install` para node. js e `pip install` para Python.
+Você pode ver automatização específica de tempo de execução na saída, como MSBuild para ASP.NET, `npm install` para Node.js e `pip install` para Python.
 
 ### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
 
-Navegue até seu aplicativo Web usando um navegador para verificar se o conteúdo está implantado.
+Navegue na sua aplicação web utilizando um browser para verificar se o conteúdo está implementado.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-![Aplicativo em execução no serviço de aplicativo](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
+![App funcionando no Serviço de Aplicações](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
-## <a name="use-managed-identity-in-other-languages"></a>Usar identidade gerenciada em outros idiomas
+## <a name="use-managed-identity-in-other-languages"></a>Use a identidade gerida noutras línguas
 
-Provedores de configuração de aplicativo para .NET Framework e Spring de Java também têm suporte interno para identidade gerenciada. Você pode usar o ponto de extremidade de URL do repositório em vez de sua cadeia de conexão completa ao configurar um desses provedores. 
+Os fornecedores de configuração de aplicações para .NET Framework e Java Spring também têm suporte integrado para a identidade gerida. Pode utilizar o ponto final do URL da sua loja em vez da sua cadeia de ligação completa quando configurar um destes fornecedores. 
 
-Por exemplo, você pode atualizar o aplicativo de console .NET Framework criado no guia de início rápido para especificar as seguintes configurações no arquivo *app. config* :
+Por exemplo, pode atualizar a aplicação de consola .NET Framework criada no quickstart para especificar as seguintes definições no ficheiro *App.config:*
 
 ```xml
     <configSections>
@@ -259,7 +258,7 @@ Por exemplo, você pode atualizar o aplicativo de console .NET Framework criado 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, você adicionou uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo e melhorar o gerenciamento de credenciais para seu aplicativo. Para saber mais sobre como usar a configuração de aplicativo, prossiga para os exemplos de CLI do Azure.
+Neste tutorial, adicionou uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações e melhorar a gestão da credencial para a sua aplicação. Para saber mais sobre como utilizar a Configuração da App, continue com as amostras do Azure CLI.
 
 > [!div class="nextstepaction"]
 > [Amostras de CLI](./cli-samples.md)

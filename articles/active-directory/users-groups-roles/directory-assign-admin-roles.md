@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b142d3561e7d05b9afaeab9768b6b50a33ef28ce
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 7595ef1b8742c2ba18a262d5afc5eea1b4d7a15c
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158167"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251622"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de funções de administrador no Diretório Ativo do Azure
 
@@ -246,7 +246,7 @@ Os utilizadores desta função podem ler configurações e informações adminis
 > Estas funcionalidades estão atualmente em desenvolvimento.
 >
 
-### <a name="group-administratorgroup-administrator-permissions"></a>[Administrador de Grupo](#group-administrator-permissions)
+### <a name="groups-administratorgroups-administrator-permissions"></a>[Administrador de Grupos](#groups-administrator-permissions)
 
 Os utilizadores desta função podem criar/gerir grupos e suas configurações como políticas de nomeação e expiração. É importante entender que atribuir um utilizador a esta função lhes dá a capacidade de gerir todos os grupos do inquilino em várias cargas de trabalho como Teams, SharePoint, Yammer para além do Outlook. Também o utilizador será capaz de gerir as configurações dos vários grupos em vários portais de administração como o Microsoft Admin Center, portal Azure, bem como os específicos da carga de trabalho, como Teams e SharePoint Admin Centers.
 
@@ -1081,7 +1081,7 @@ Pode ler tudo o que um Administrador Global pode, mas não editar nada.
 | microsoft.office365.usageReports/allEntities/read | Leia os relatórios de utilização do Office 365. |
 | microsoft.office365.webPortal/allEntities/standard/read   | Leia as propriedades padrão em todos os recursos em microsoft.office365.webPortal. |
 
-### <a name="group-administrator-permissions"></a>Permissões do Administrador do Grupo
+### <a name="groups-administrator-permissions"></a>Permissões de administrador de grupos
 Pode gerir todos os aspetos de grupos e configurações de grupo, como políticas de nomeação e expiração.
 
 | **Ações** | **Descrição** |
@@ -1701,7 +1701,7 @@ Administrador de Política B2C IEF | Administrador de Política B2C IEF | 3edaf6
 Administrador de faturação | Administrador de faturação | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrador de aplicação em nuvem | Administrador de aplicação em nuvem | 158c047a-c907-4556-b7ef-446551a6b5f7
 Administrador de dispositivos de nuvem | Administrador de dispositivos de nuvem | 7698a772-787b-4ac8-901f-60d6b08affd2
-Company Administrator | Administrador global | 62e90394-69f5-4237-9190-012177145e10
+Administrador de Empresa | Administrador global | 62e90394-69f5-4237-9190-012177145e10
 Administrador de conformidade | Administrador de conformidade | 17315797-102d-40b4-93e0-432062caca18
 Administrador de dados de conformidade | Administrador de dados de conformidade | e6d1a23a-da11-4be4-9570-befc86d067a7
 Administrador de Acesso Condicional | Administrador de Acesso Condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
@@ -1718,7 +1718,7 @@ Escritores de Diretório | Escritores de diretórios | 9360feb5-f418-4baa-8175-e
 Administrador de Serviço de Intercâmbio | Administrador de intercâmbio | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrador de Fornecedor de Identidade Externa | Administrador de Fornecedor de Identidade Externa | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Leitor Global | Leitor global | f2ef992c-3afb-46b9-b7cf-a126ee74c451
-Administrador de Grupo | Administrador do grupo | fdd7a751-b60b-444a-984c-02652fe8fa1c 
+Administrador de Grupos | Administrador de grupos | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Convidado convidado | Convidado convidado | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador de Helpdesk | Administrador de helpdesk | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administrador de Serviços do Intune | Administrador insinado | 3a2c62db-5318-420d-8d74-23affee5d9d5

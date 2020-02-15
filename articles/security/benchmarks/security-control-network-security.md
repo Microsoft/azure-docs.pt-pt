@@ -1,6 +1,6 @@
 ---
-title: Controle de segurança do Azure-segurança de rede
-description: Segurança de rede de controle de segurança
+title: Controlo de Segurança Azure - Segurança da Rede
+description: Segurança da Rede de Controlo de Segurança
 author: msmbaldwin
 manager: rkarlin
 ms.service: security
@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 7916bbb28602d64e0916fce7badf16a65c242227
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934336"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251877"
 ---
-# <a name="security-control-network-security"></a>Controle de segurança: segurança de rede
+# <a name="security-control-network-security"></a>Controlo de Segurança: Segurança da Rede
 
-As recomendações de segurança de rede concentram-se na especificação de quais protocolos de rede, portas TCP/UDP e serviços conectados à rede têm acesso permitido ou negado aos serviços do Azure.
+As recomendações de segurança da rede concentram-se em especificar quais os protocolos de rede, portas TCP/UDP e serviços ligados à rede são permitidos ou negados aos serviços Azure.
 
-## <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1,1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua rede virtual
+## <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteja os recursos utilizando grupos de segurança de rede ou firewall azure na sua Rede Virtual
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 1.1 | 9,2, 9,4, 14,1-14.3 | Cliente |
+| 1.1 | 9.2, 9.4, 14.1-14.3 | Cliente |
 
-Verifique se todas as implantações de sub-rede da rede virtual têm um grupo de segurança de rede aplicado com controles de acesso à rede específicos às portas e fontes confiáveis do seu aplicativo. Use os serviços do Azure com o link privado habilitado, implante o serviço dentro de sua vnet ou conecte-se de forma privada usando pontos de extremidade privados. Para requisitos específicos de serviço, consulte a recomendação de segurança para esse serviço específico.
+Certifique-se de que todas as implementações de subredes da Rede Virtual têm um Grupo de Segurança da Rede aplicado com controlos de acesso à rede específicos das portas e fontes fidedignas da sua aplicação. Utilize serviços Azure com Link Privado ativado, implemente o serviço dentro do vnet ou ligue-se em privado usando pontos finais privados. Para obter requisitos específicos de serviço, consulte a recomendação de segurança para esse serviço específico.
 
-Como alternativa, se você tiver um caso de uso específico, os requisitos poderão ser atendidos com a implementação do firewall do Azure.
+Em alternativa, se tiver um caso de utilização específico, os requisitos podem ser cumpridos implementando o Azure Firewall.
 
-Informações gerais sobre o link privado:
+Informações Gerais sobre Ligação Privada:
 
 https://docs.microsoft.com/azure/private-link/private-link-overview
 
-Como criar uma rede virtual:
+Como criar uma Rede Virtual:
 
 https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
@@ -41,190 +41,190 @@ Como criar um NSG com uma configuração de segurança:
 
 https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
-Como implantar e configurar o Firewall do Azure:
+Como implantar e configurar firewall Azure:
 
 https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-## <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1,2: monitorar e registrar a configuração e o tráfego de Vnets, sub-redes e NICs
+## <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Monitore e registe a configuração e tráfego de Vnets, Subnets e NICs
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 1.2 | 9,3, 12,2 | Cliente |
+| 1.2 | 9.3, 12.2 | Cliente |
 
-Use a central de segurança do Azure e siga as recomendações de proteção de rede para ajudar a proteger seus recursos de rede no Azure. Habilite logs de fluxo NSG e envie logs para uma conta de armazenamento para auditoria de tráfego.
+Utilize o Azure Security Center e siga as recomendações de proteção da rede para ajudar a proteger os seus recursos de rede em Azure. Ative os registos de fluxo do NSG e envie registos numa Conta de Armazenamento para auditoria de tráfego.
 
-Como habilitar os logs de fluxo do NSG:
+Como ativar os registos de fluxo nsg:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Entenda a segurança de rede fornecida pela central de segurança do Azure:
+Compreender a Segurança da Rede fornecida pelo Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-## <a name="13-protect-critical-web-applications"></a>1,3: proteger aplicativos Web críticos
+## <a name="13-protect-critical-web-applications"></a>1.3: Proteger aplicações web críticas
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 1.3 | 9.5 | Cliente |
 
-Implante o WAF (firewall do aplicativo Web) do Azure na frente de aplicativos Web críticos para inspeção adicional do tráfego de entrada. Habilite a configuração de diagnóstico para WAF e ingerir logs em uma conta de armazenamento, Hub de eventos ou espaço de trabalho de Log Analytics.
+Implemente o Firewall de Aplicação Web Azure (WAF) em frente a aplicações web críticas para uma inspeção adicional do tráfego de entrada. Ative a definição de diagnóstico para WAF e ingere os registos numa Conta de Armazenamento, Hub de Eventos ou log analytics workspace.
 
 Como implantar o Azure WAF:
 
 https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag
 
-## <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: negar comunicações com endereços IP mal-intencionados conhecidos
+## <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Negar comunicações com endereços IP maliciosos conhecidos
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 1.4 | 12,3 | Cliente |
+| 1.4 | 12.3 | Cliente |
 
-Habilite a proteção padrão de DDoS em suas redes virtuais do Azure para proteger contra ataques de DDoS. Use a inteligência de ameaças integrada da central de segurança do Azure para negar comunicações com endereços IP mal-intencionados conhecidos.
+Ative a proteção Padrão DDoS nas suas Redes Virtuais Azure para se proteger contra ataques DDoS. Utilize o Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP maliciosos conhecidos.
 
-Implante o Firewall do Azure em cada um dos limites de rede da organização com inteligência contra ameaças habilitada e configurada para &quot;alerta e negação de&quot; para tráfego de rede mal-intencionado.
+Implemente o Azure Firewall em cada uma das fronteiras da rede da organização com a Threat Intelligence habilitada e configurada para &quot;Alert e negar&quot; para tráfego de rede malicioso.
 
-Use o acesso à rede just in time da central de segurança do Azure para configurar o NSGs para limitar a exposição de pontos de extremidade a endereços IP aprovados por um período limitado.
+Utilize o Azure Security Center Just In Time Network acesso para configurar NSGs para limitar a exposição de pontos finais a endereços IP aprovados por um período limitado.
 
-Use a proteção de rede adaptável da central de segurança do Azure para recomendar configurações de NSG que limitam portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
+Utilize o Azure Security Center Adaptive Network Hardening para recomendar configurações de NSG que limitem portas e IPs de origem com base na inteligência real de tráfego e ameaças.
 
-Como configurar a proteção contra DDoS:
+Como configurar a proteção DDoS:
 
 https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-Como implantar o Firewall do Azure:
+Como implantar o Firewall Azure:
 
 https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-Entenda a inteligência de ameaças integrada da central de segurança do Azure:
+Compreender o Azure Security Center Integrated Threat Intelligence:
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Entender a proteção de rede adaptável da central de segurança do Azure:
+Compreender o Centro de Segurança Azure Adaptive Network Endureing:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-Entenda o controle de acesso à rede just in time da central de segurança do Azure:
+Compreender o Azure Security Center just in Time Network Access Control:
 
 https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
-## <a name="15-record-network-packets-and-flow-logs"></a>1,5: gravar pacotes de rede e logs de fluxo
+## <a name="15-record-network-packets-and-flow-logs"></a>1.5: Pacotes de rede de registos e registos de fluxo
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 1.5 | 12,5, 15,8 | Cliente |
+| 1.5 | 12.5, 15.8 | Cliente |
 
-Registre os logs de fluxo do NSG em uma conta de armazenamento para gerar registros de fluxo. Se necessário para investigar a atividade anômala, habilite a captura de pacotes do observador de rede.
+Registre os registos de fluxo nsg numa conta de armazenamento para gerar registos de fluxo. Se necessário para investigar atividades anómalas, ative a captura de pacotes do Observador da Rede.
 
-Como habilitar os logs de fluxo do NSG:
+Como ativar os registos de fluxo nsg:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Como habilitar o observador de rede:
+Como ativar o Observador da Rede:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
-## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: implantar os sistemas de detecção de intrusão/prevenção de invasão baseado em rede (IDS/IPS)
+## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implantar sistemas de deteção/prevenção de intrusões baseados em rede (IDS/IPS)
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 1.6 | 12,6, 12,7 | Cliente |
+| 1.6 | 12.6, 12.7 | Cliente |
 
-Implante o Firewall do Azure em cada um dos limites de rede da organização com inteligência contra ameaças habilitada e configurada para &quot;alerta e negação de&quot; para tráfego de rede mal-intencionado.
+Implemente o Azure Firewall em cada uma das fronteiras da rede da organização com a Threat Intelligence habilitada e configurada para &quot;Alert e negar&quot; para tráfego de rede malicioso.
 
-Como implantar o Firewall do Azure: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
+Como implementar o Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-Como configurar alertas com o Firewall do Azure: https://docs.microsoft.com/azure/firewall/threat-intel
+Como configurar alertas com firewall Azure: https://docs.microsoft.com/azure/firewall/threat-intel
 
-## <a name="17-manage-traffic-to-web-applications"></a>1,7: gerenciar o tráfego para aplicativos Web
+## <a name="17-manage-traffic-to-web-applications"></a>1.7: Gerir o tráfego para aplicações web
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 1.7 | 12,9, 12,10 | Cliente |
+| 1.7 | 12.9, 12.10 | Cliente |
 
-Implante Aplicativo Azure gateway para aplicativos Web com HTTPS/SSL habilitado para certificados confiáveis.
+Implemente o Portal de Aplicações Azure para aplicações web com HTTPS/SSL habilitados para certificados fidedignos.
 
-Como implantar o gateway de aplicativo:
+Como implementar o Gateway da Aplicação:
 
 https://docs.microsoft.com/azure/application-gateway/quick-create-portal
 
-Como configurar o gateway de aplicativo para usar HTTPS:
+Como configurar o Gateway de Aplicação para utilizar HTTPS:
 
 https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
 
-Entenda o balanceamento de carga de camada 7 com gateways de aplicativo Web do Azure:
+Compreenda o equilíbrio de carga da camada 7 com os gateways de aplicação web Azure:
 
 https://docs.microsoft.com/azure/application-gateway/overview
 
-## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: minimizar a complexidade e a sobrecarga administrativa das regras de segurança de rede
+## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimizar a complexidade e a sobrecarga administrativa das regras de segurança da rede
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 1.8 | 1.5 | Cliente |
 
-Use marcas de serviço de rede virtual para definir controles de acesso de rede em grupos de segurança de rede ou no firewall do Azure. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Ao especificar o nome da marca de serviço (por exemplo, ApiManagement) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados.
+Utilize etiquetas de serviço de rede virtual para definir controlos de acesso à rede em Grupos de Segurança da Rede ou firewall Azure. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Especificando o nome da etiqueta de serviço (por exemplo, ApiManagement) no campo de origem ou destino adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gere os prefixos de endereço sacados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam.
 
-Entender e usar marcas de serviço:
+Compreender e utilizar etiquetas de serviço:
 
 https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
-## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: manter configurações de segurança padrão para dispositivos de rede
+## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Manter configurações de segurança padrão para dispositivos de rede
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 1.9 | 11,1 | Cliente |
+| 1.9 | 11.1 | Cliente |
 
-Defina e implemente configurações de segurança padrão para recursos de rede com Azure Policy.
+Defina e implemente configurações de segurança padrão para recursos de rede com a Política Azure.
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico às novas assinaturas e ajustar o controle e o gerenciamento, por meio da versão.
+Também pode utilizar plantas Azure para simplificar as implementações azure em larga escala, embalagendo artefactos ambientais chave, tais como modelos de Gestor de Recursos Azure, controlos RBAC e políticas, numa única definição de planta. Pode aplicar o projeto a novas subscrições e a finas condições de controlo e gestão através da versão.
 
-Como configurar e gerenciar Azure Policy:
+Como configurar e gerir a Política Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Policy exemplos de rede:
+Amostras da Política Azure para networking:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
-Como criar um Azure Blueprint:
+Como criar um Projeto Azure:
 
 https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
-## <a name="110-document-traffic-configuration-rules"></a>1,10: regras de configuração de tráfego do documento
+## <a name="110-document-traffic-configuration-rules"></a>1.10: Regras de configuração do tráfego documental
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 1.1 | 11,2 | Cliente |
+| 1.1 | 11.2 | Cliente |
 
-Use marcas para NSGs e outros recursos relacionados à segurança de rede e ao fluxo de tráfego. Para regras NSG individuais, use o campo Descrição do &quot;&quot; para especificar a necessidade de negócios e/ou duração (etc.) para qualquer regra que permita o tráfego de/para uma rede.
+Utilize etiquetas para NSGs e outros recursos relacionados com a segurança da rede e fluxo de tráfego. Para regras nsg individuais, utilize o campo &quot;Descrição&quot; para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
 
-Como criar e usar marcas:
+Como criar e utilizar Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-Como criar uma rede virtual:
+Como criar uma Rede Virtual:
 
 https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
-Como criar um NSG com uma configuração de segurança:
+Como criar um NSG com um Config de Segurança:
 
 https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
-## <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: usar ferramentas automatizadas para monitorar as configurações de recursos de rede e detectar alterações
+## <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Utilize ferramentas automatizadas para monitorizar as configurações de recursos de rede e detetar alterações
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 1,11 | 11,3 | Cliente |
+| 1.11 | 11.3 | Cliente |
 
-Use Azure Policy para validar a configuração (e/ou corrigir) dos recursos de rede.
+Utilize a Política Azure para validar (e/ou remediar) a configuração para os recursos de rede.
 
-Como configurar e gerenciar Azure Policy:
+Como configurar e gerir a Política Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Policy exemplos de rede:
+Amostras da Política Azure para networking:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte o próximo controle de segurança: [registro em log e monitoramento](security-control-logging-monitoring.md)
+- Consulte o próximo controlo de segurança: [Registo e Monitorização](security-control-logging-monitoring.md)

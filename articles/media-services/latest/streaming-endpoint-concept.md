@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 14fee047e1f62ae7f7d3484d89779e1512e4bab7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198722"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206111"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos Finais de Streaming (Origem) nos Serviços De Mídia Azure
 
@@ -147,17 +147,20 @@ Também precisa de considerar como funciona o streaming adaptativo. Cada fragmen
 
 ### <a name="enable-azure-cdn-integration"></a>Permitir a integração do CDN azure
 
+> [!IMPORTANT]
+> Não é possível permitir a CDN para julgamento ou contas de estudante sinuoso Azure.
+>
+> A integração do CDN é ativada em todos os centros de dados azure, exceto governo federal e regiões da China.
+
 Depois de um Streaming Endpoint ser aprovisionado com CDN ativado, há um tempo de espera definido nos Serviços de Media antes que a atualização do DNS seja feita para mapear o ponto final de streaming para o ponto final da CDN.
 
 Se mais tarde pretender desativar/ativar o CDN, o seu ponto final de streaming deve estar no estado **de paragem.** Pode levar até duas horas para que a integração do CDN Azure seja ativada e que as alterações sejam ativas em todos os POPs da CDN. No entanto, pode iniciar o seu ponto final de streaming e transmitir sem interrupções do ponto final de streaming e uma vez concluída a integração, o fluxo é entregue a partir do CDN. Durante o período de provisionamento, o seu ponto final de streaming estará no estado **de partida** e poderá observar um desempenho degradado.
 
 Quando o ponto final de streaming Standard é criado, é configurado por padrão com standard Verizon. Pode configurar fornecedores Premium Verizon ou Standard Akamai utilizando APIs REST.
 
-A integração da CDN é ativada em todos os centros de dados azure, exceto as regiões da China e do Governo Federal.
-
 A integração da Azure Media Services com o Azure CDN é implementada no **Azure CDN da Verizon** para pontos finais de streaming padrão. Os pontos finais de streaming premium podem ser configurados utilizando todos os níveis e fornecedores de **preços Do CDN do Azure.** 
 
-> [!IMPORTANT]
+> [!NOTE]
 > Para mais detalhes sobre o Azure CDN, consulte a visão geral do [CDN](../../cdn/cdn-overview.md).
 
 ### <a name="determine-if-dns-change-was-made"></a>Determine se a alteração do DNS foi feita

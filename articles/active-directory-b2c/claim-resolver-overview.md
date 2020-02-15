@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e3a80628e5729813e1d405e58ecb623925b63076
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1734b063530f9e8a8f0429111c4c39d628bfad4e
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193384"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251775"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre pedidos de reclamação em políticas personalizadas do Diretório Ativo Azure B2C
 
@@ -123,16 +123,16 @@ Pode utilizar reclamações com os seguintes elementos:
 |[Perfil](relyingparty.md#technicalprofile) técnico do Partido Da Base| `OutputClaim`| 2 |
 
 Configurações: 
-1. Os metadados `IncludeClaimResolvingInClaimsHandling` devem ser definidos para `true`
-1. Os pedidos de entrada ou de saída atribuem `AlwaysUseDefaultValue` devem ser definidos para `true`
+1. Os metadados `IncludeClaimResolvingInClaimsHandling` devem ser definidos para `true`.
+1. Os pedidos de entrada ou de saída atribuem `AlwaysUseDefaultValue` devem ser definidos para `true`.
 
-## <a name="how-to-use-claim-resolvers"></a>Como usar os resolvers de reclamação
+## <a name="claim-resolvers-samples"></a>Reclamar amostras resolveria
 
 ### <a name="restful-technical-profile"></a>Perfil técnico RESTful
 
 Num perfil técnico [RESTful,](restful-technical-profile.md) pode querer enviar a linguagem do utilizador, nome de política, âmbito e ID do cliente. Com base nestas afirmações, a API REST pode executar uma lógica de negócio personalizada, e se necessário levantar uma mensagem de erro localizada.
 
-O exemplo a seguir mostra um perfil técnico RESTful:
+O exemplo seguinte mostra um perfil técnico RESTful com este cenário:
 
 ```XML
 <TechnicalProfile Id="REST">
@@ -142,12 +142,13 @@ O exemplo a seguir mostra um perfil técnico RESTful:
     <Item Key="ServiceUrl">https://your-app.azurewebsites.net/api/identity</Item>
     <Item Key="AuthenticationType">None</Item>
     <Item Key="SendClaimsIn">Body</Item>
+    <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
   </Metadata>
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" />
-    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" />
-    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" />
+    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
 </TechnicalProfile>
@@ -159,9 +160,9 @@ Utilizando resolver pedidos de reclamação, pode pré-povoar o nome de sessão 
 
 ### <a name="dynamic-ui-customization"></a>Personalização dinâmica da UI
 
-O Azure AD B2C permite-lhe passar parâmetros de cadeia de consulta para os pontos finais da definição de conteúdo HTML, de modo a que possa renderizar dinamicamente o conteúdo da página. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro personalizado que passa da sua aplicação web ou móvel. Para mais informações, consulte [Dynamicly configure o UI utilizando políticas personalizadas no Diretório Ativo Azure B2C](custom-policy-ui-customization-dynamic.md). Também pode localizar a sua página HTML com base num parâmetro de idioma, ou pode alterar o conteúdo com base no ID do cliente.
+O Azure AD B2C permite-lhe passar parâmetros de cadeia de consulta para os pontos finais da definição de conteúdo HTML para tornar dinamicamente o conteúdo da página. Por exemplo, isto permite modificar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro personalizado que passa da sua aplicação web ou móvel. Para mais informações, consulte [Dynamicly configure o UI utilizando políticas personalizadas no Diretório Ativo Azure B2C](custom-policy-ui-customization-dynamic.md). Também pode localizar a sua página HTML com base num parâmetro de idioma, ou pode alterar o conteúdo com base no ID do cliente.
 
-O exemplo seguinte passa na cadeia de consulta um parâmetro chamado **campaignId** com um valor de `hawaii`, um código **de linguagem** de `en-US`, e **app** que representa o ID do cliente:
+O exemplo seguinte passa no parâmetro de corda de consulta nomeado **campaignId** com um valor de `hawaii`, um código **de linguagem** de `en-US`, e **app** que representa o ID do cliente:
 
 ```XML
 <UserJourneyBehaviors>
@@ -177,6 +178,17 @@ Como resultado, o Azure AD B2C envia os parâmetros acima para a página de cont
 
 ```
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
+```
+
+### <a name="content-definition"></a>Definição de conteúdo
+
+Numa `LoadUri`[de Definição](contentdefinitions.md) de Conteúdo, pode enviar pedidos de reclamação para retirar conteúdo de diferentes locais, com base nos parâmetros utilizados. 
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
+  ...
+</ContentDefinition>
 ```
 
 ### <a name="application-insights-technical-profile"></a>Perfil técnico de Insights de Aplicação
@@ -195,4 +207,29 @@ Com o Azure Application Insights e alegações resolver ias pode obter informaç
     <InputClaim ClaimTypeReferenceId="AppId" PartnerClaimType="{property:App}" DefaultValue="{OIDC:ClientId}" />
   </InputClaims>
 </TechnicalProfile>
+```
+
+### <a name="relying-party-policy"></a>Política partidária de base
+
+Num perfil técnico de política [do partido Relying,](relyingparty.md) pode querer enviar o ID do inquilino, ou identificação de correlação para a aplicação do partido que confia dentro do JWT. 
+
+```XML
+<RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+        <OutputClaim ClaimTypeReferenceId="email" />
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+        <OutputClaim ClaimTypeReferenceId="correlationId" AlwaysUseDefaultValue="true" DefaultValue="{Context:CorrelationId}" />
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="sub" />
+    </TechnicalProfile>
+  </RelyingParty>
 ```

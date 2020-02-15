@@ -1,112 +1,112 @@
 ---
-title: Tipos de preço-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve as opções de computação e armazenamento no banco de dados do Azure para PostgreSQL-servidor único.
+title: Níveis de preços - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve as opções de cálculo e armazenamento na Base de Dados Azure para PostgreSQL - Servidor Único.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: f7e5d3e681c86d5ecb014f95d838e6d3d51e1c48
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 2b5d5bfff3ff97efb351497c48a404beada2036a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768372"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209346"
 ---
-# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Tipos de preço no banco de dados do Azure para PostgreSQL-servidor único
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Níveis de preços na Base de Dados Azure para PostgreSQL - Servidor Único
 
-Você pode criar um servidor de banco de dados do Azure para PostgreSQL em um dos três tipos de preço diferentes: básico, Uso Geral e otimizado para memória. Os tipos de preço são diferenciados pela quantidade de computação em vCores que pode ser provisionada, memória por vCore e a tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são provisionados no nível do servidor PostgreSQL. Um servidor pode ter um ou vários bancos de dados.
+Pode criar uma Base de Dados Azure para servidor PostgreSQL num dos três diferentes níveis de preços: Básico, Propósito Geral e Memória Otimizada. Os níveis de preços são diferenciados pela quantidade de computação em vCores que pode ser provisionado, memória por vCore, e a tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são aprovisionados ao nível do servidor PostgreSQL. Um servidor pode ter uma ou muitas bases de dados.
 
-|    | **Básica** | **Uso Geral** | **Otimizado para memória** |
+|    | **Básica** | **Propósito Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
-| Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
+| Geração computacional | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Memória por vCore | 2 GB | 5 GB | 10 GB |
+| Memória por vCore | 2GB | 5 GB | 10 GB |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
-| Tipo de armazenamento | Armazenamento standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Período de retenção do backup do banco de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
+| Tipo de armazenamento | Armazenamento Padrão Azure | Armazenamento Azure Premium | Armazenamento Azure Premium |
+| Período de retenção de backup de base de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
-Para escolher um tipo de preço, use a tabela a seguir como um ponto de partida.
+Para escolher um nível de preços, utilize a tabela seguinte como ponto de partida.
 
 | Escalão de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
-| Basic | Cargas de trabalho que exigem desempenho de e/s e computação leve. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos usados com pouca frequência de pequena escala. |
-| Fins Gerais | A maioria das cargas de trabalho comerciais que exigem computação e memória balanceadas com taxa de transferência de e/s escalonável. Os exemplos incluem servidores para hospedar aplicativos Web e móveis e outros aplicativos empresariais.|
-| Memória Otimizada | Cargas de trabalho de banco de dados de alto desempenho que exigem desempenho na memória para processamento mais rápido de transações e simultaneidade mais alta. Os exemplos incluem servidores para o processamento de dados em tempo real e aplicativos analíticos ou transacionais de alto desempenho.|
+| Básica | Cargas de trabalho que requerem computação leve e desempenho em I/S. Exemplos incluem servidores usados para desenvolvimento ou teste ou aplicações de pequena escala pouco utilizadas. |
+| Fins Gerais | A maioria das cargas de trabalho empresariais que requerem computação equilibrada e memória com uma potência de I/S escalável. Exemplos incluem servidores para hospedar aplicações web e móveis e outras aplicações empresariais.|
+| Memória Otimizada | Cargas de trabalho de base de dados de alto desempenho que requerem desempenho na memória para um processamento mais rápido de transações e uma maior conmoedação. Exemplos incluem servidores para processamento de dados em tempo real e aplicações transalíticas ou analíticas de alto desempenho.|
 
-Depois de criar um servidor, o número de vCores, a geração de hardware e o tipo de preço (exceto para e do básico) podem ser alterados ou reduzidos em segundos. Você também pode ajustar de forma independente a quantidade de armazenamento e o período de retenção de backup para cima ou para baixo, sem tempo de inatividade do aplicativo. Você não pode alterar o tipo de armazenamento de backup depois que um servidor é criado. Para obter mais informações, consulte a seção [Scale Resources](#scale-resources) .
+Depois de criar um servidor, o número de vCores, geração de hardware e nível de preços (exceto de e para o Basic) pode ser alterado para cima ou para baixo em segundos. Também pode ajustar a quantidade de armazenamento para cima e o período de retenção de reserva para cima ou para baixo sem tempo de inatividade de aplicação. Não é possível alterar o tipo de armazenamento de cópia de segurança depois de um servidor ser criado. Para mais informações, consulte a secção de [recursos da Escala.](#scale-resources)
 
-## <a name="compute-generations-and-vcores"></a>Gerações de computação e vCores
+## <a name="compute-generations-and-vcores"></a>Gerações computadas e vCores
 
-Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. Leste da China 1, Norte da China 1, US DoD Central e US DoD Leste utilizam CPUs lógicas Gen 4 baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz. Todas as outras regiões utilizam CPUs lógicas de Gen 5 baseadas em processadores Intel E5-2673 V4 (Broadwell) de 2,3 GHz.
+Os recursos computacionais são fornecidos como vCores, que representam o CPU lógico do hardware subjacente. China East 1, China North 1, US DoD Central e US DoD East utilizam cpUs lógicos Gen 4 que são baseados em processadores Intel E5-2673 v3 (Haswell) 2.4-GHz. Todas as outras regiões utilizam cpUs lógicos da Gen 5 que se baseiam em processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz.
 
 ## <a name="storage"></a>Armazenamento
 
-O armazenamento que você provisiona é a quantidade de capacidade de armazenamento disponível para o servidor do banco de dados do Azure para PostgreSQL. O armazenamento é usado para os arquivos de banco de dados, arquivos temporários, logs de transações e logs do servidor PostgreSQL. A quantidade total de armazenamento que você provisiona também define a capacidade de e/s disponível para o servidor.
+O armazenamento que você disponibiliza é a quantidade de capacidade de armazenamento disponível na sua Base de Dados Azure para o servidor PostgreSQL. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores PostgreSQL. A quantidade total de armazenamento que disponibiliza também define a capacidade de I/S disponível para o seu servidor.
 
-|    | **Básica** | **Uso Geral** | **Otimizado para memória** |
+|    | **Básica** | **Propósito Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
-| Tipo de armazenamento | Armazenamento standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
+| Tipo de armazenamento | Armazenamento Padrão Azure | Armazenamento Azure Premium | Armazenamento Azure Premium |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
 | Tamanho do incremento de armazenamento | 1 GB | 1 GB | 1 GB |
-| IOPS | Variável |3 IOPS/GB<br/>IOPS mín. 100<br/>IOPS máx. 20.000 | 3 IOPS/GB<br/>IOPS mín. 100<br/>IOPS máx. 20.000 |
+| IOPS | Variável |3 IOPS/GB<br/>Min 100 IOPS<br/>Máximo 20.000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Máximo 20.000 IOPS |
 
 > [!NOTE]
-> Há suporte para o armazenamento de até 16TB e 20.000 IOPS nas seguintes regiões: leste dos EUA, leste dos EUA 2, EUA Central, oeste dos EUA, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, leste da Austrália, Austrália Leste do Sul.
+> O armazenamento até 16TB e 20.000 IOPS é apoiado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Eua Ocidental, Norte dos EUA, Centro-Sul dos EUA, Norte da Europa, Europa Ocidental, Reino Unido Sul, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central Coreia do Sul, Austrália Leste, Austrália Sudeste.
 >
-> Todas as outras regiões dão suporte a até 4 TB de armazenamento e 6000 IOPS.
+> Todas as outras regiões suportam até 4TB de armazenamento e 6000 IOPS.
 >
 
-Você pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema aumente o armazenamento automaticamente com base no consumo de armazenamento de sua carga de trabalho. 
+Pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor, e permitir que o sistema cresça o armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho. 
 
 >[!NOTE]
-> O armazenamento só pode ser escalado verticalmente, não inativo.
+> O armazenamento só pode ser dimensionado, não para baixo.
 
-A camada básica não fornece uma garantia de IOPS. Nos tipos de preço Uso Geral e com otimização de memória, a escala de IOPS com o tamanho de armazenamento provisionado em uma proporção de 3:1.
+O nível básico não fornece uma garantia iops. Nos níveis de preços otimizados para fins gerais e memória, a escala IOPS com o tamanho de armazenamento provisionado numa relação de 3:1.
 
-Você pode monitorar o consumo de e/s no portal do Azure ou usando comandos CLI do Azure. As métricas relevantes para monitorar são o [limite de armazenamento, a porcentagem de armazenamento, o armazenamento usado e a porcentagem de e/s](concepts-monitoring.md).
+Pode monitorizar o seu consumo de I/S no portal Azure ou utilizando comandos Azure CLI. As métricas relevantes para monitorizar são o limite de [armazenamento, a percentagem de armazenamento, o armazenamento utilizado, e a OI por cento](concepts-monitoring.md).
 
-### <a name="reaching-the-storage-limit"></a>Alcançando o limite de armazenamento
+### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 
 Os servidores com menos de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 512 MB ou 5% do tamanho de armazenamento aprovisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
 
-Por exemplo, se você tiver provisionado 110 GB de armazenamento e a utilização real passar de 105 GB, o servidor será marcado como somente leitura. Como alternativa, se você tiver provisionado 5 GB de armazenamento, o servidor será marcado como somente leitura quando o armazenamento livre atingir menos de 512 MB.
+Por exemplo, se tiver aprovisionado 110 GB de armazenamento, e a utilização real ultrapassar os 105 GB, o servidor é marcado apenas para leitura. Em alternativa, se tiver aprovisionado 5 GB de armazenamento, o servidor é marcado apenas quando o armazenamento gratuito atinge menos de 512 MB.
 
-Quando o servidor é definido como somente leitura, todas as sessões existentes são desconectadas e as transações não confirmadas são revertidas. Todas as operações de gravação e confirmações de transação subsequentes falham. Todas as consultas de leitura subsequentes funcionarão sem interrupção.  
+Quando o servidor está definido para apenas leitura, todas as sessões existentes são desligadas e as transações não comprometidas são reroladas. Quaisquer operações de escrita subsequentes e transações falhadas. Todas as consultas de leitura subsequentes funcionarão ininterruptamente.  
 
-Você pode aumentar a quantidade de armazenamento provisionado para o servidor ou iniciar uma nova sessão no modo de leitura/gravação e remover os dados para recuperar o armazenamento gratuito. A execução de `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` define a sessão atual para o modo de leitura. Para evitar dados corrompidos, não execute nenhuma operação de gravação quando o servidor ainda estiver no status somente leitura.
+Pode aumentar a quantidade de armazenamento aprovisionado para o seu servidor ou iniciar uma nova sessão no modo de leitura e deixar cair dados para recuperar o armazenamento gratuito. Correr `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` define a sessão atual para ler o modo de escrita. Para evitar a corrupção de dados, não efetue quaisquer operações de escrita quando o servidor ainda estiver em estado de leitura.
 
-Recomendamos que você ative o aumento automático do armazenamento ou configure um alerta para notificá-lo quando o armazenamento do servidor estiver se aproximando do limite para que você possa evitar entrar no estado somente leitura. Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-on-metric.md).
+Recomendamos que ligue o armazenamento de modo a crescer automaticamente ou que instale um alerta para o notificar quando o armazenamento do servidor se aproxima do limiar para evitar entrar no estado de leitura. Para mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-on-metric.md).
 
-### <a name="storage-auto-grow"></a>Crescimento automático do armazenamento
+### <a name="storage-auto-grow"></a>Armazenamento de automóveis
 
-O crescimento automático de armazenamento impede que o servidor fique sem armazenamento e se torne somente leitura. Se o crescimento automático do armazenamento estiver habilitado, o armazenamento aumentará automaticamente sem afetar a carga de trabalho. Para servidores com menos de 100 GB de armazenamento provisionado, o tamanho do armazenamento provisionado aumenta em 5 GB assim que o armazenamento livre está abaixo do maior que 1 GB ou 10% do armazenamento provisionado. Para servidores com mais de 100 GB de armazenamento provisionado, o tamanho de armazenamento provisionado aumenta em 5% quando o espaço livre de armazenamento está abaixo de 5% do tamanho de armazenamento provisionado. Os limites de armazenamento máximos especificados acima se aplicam.
+O armazenamento de forma automática impede que o servidor fique sem armazenamento e se torne apenas para leitura. Se o armazenamento automático crescer, o armazenamento cresce automaticamente sem afetar a carga de trabalho. Para servidores com armazenamento aprovisionado inferior a 100 GB, o tamanho de armazenamento provisionado é aumentado em 5 GB assim que o armazenamento gratuito é inferior ao maior de 1 GB ou 10% do armazenamento provisionado. Para servidores com mais de 100 GB de armazenamento provisionado, o tamanho do armazenamento provisionado é aumentado em 5% quando o espaço de armazenamento gratuito é inferior a 5% do tamanho de armazenamento provisionado. Aplicam-se os limites máximos de armazenamento acima referidos.
 
-Por exemplo, se você tiver provisionado 1000 GB de armazenamento e a utilização real passar de 950 GB, o tamanho do armazenamento do servidor será aumentado para 1050 GB. Como alternativa, se você tiver provisionado 10 GB de armazenamento, o tamanho do armazenamento será aumentado para 15 GB quando menos de 1 GB de armazenamento for gratuito.
+Por exemplo, se tiver aprovisionado 1000 GB de armazenamento, e a utilização real ultrapassar os 950 GB, o tamanho do armazenamento do servidor é aumentado para 1050 GB. Em alternativa, se tiver previsto 10 GB de armazenamento, o tamanho do armazenamento aumenta para 15 GB quando menos de 1 GB de armazenamento é gratuito.
 
-Lembre-se de que o armazenamento pode ser escalado verticalmente, não inativo.
+Lembre-se que o armazenamento só pode ser dimensionado para cima, não para baixo.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
-O serviço automaticamente faz backups de seu servidor. O período de retenção mínimo para backups é de sete dias. Você pode definir um período de retenção de até 35 dias. A retenção pode ser ajustada a qualquer momento durante o tempo de vida do servidor. Você pode escolher entre backups localmente redundantes e com redundância geográfica. Os backups com redundância geográfica também são armazenados na [região emparelhada geograficamente](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) da região em que o servidor é criado. Essa redundância fornece um nível de proteção em caso de desastre. Você também pode obter a capacidade de restaurar o servidor para qualquer outra região do Azure na qual o serviço esteja disponível com backups com redundância geográfica. Não é possível alterar entre as duas opções de armazenamento de backup depois que o servidor é criado.
+O serviço recebe automaticamente cópias de segurança do seu servidor. O período mínimo de retenção para cópias de segurança é de sete dias. Pode definir um período de retenção de até 35 dias. A retenção pode ser ajustada em qualquer ponto durante a vida útil do servidor. Pode escolher entre backups locais redundantes e geo-redundantes. Os backups geo-redundantes também são armazenados na [região geo-emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) da região onde o seu servidor é criado. Esta redundância proporciona um nível de proteção em caso de catástrofe. Também ganha a capacidade de restaurar o seu servidor em qualquer outra região do Azure em que o serviço esteja disponível com backups georedundantes. Não é possível alterar entre as duas opções de armazenamento de reserva após a criação do servidor.
 
 ## <a name="scale-resources"></a>Dimensionar recursos
 
-Depois de criar o servidor, você pode alterar independentemente o vCores, a geração de hardware, o tipo de preço (exceto para e do básico), a quantidade de armazenamento e o período de retenção de backup. Você não pode alterar o tipo de armazenamento de backup depois que um servidor é criado. O número de vCores pode ser aumentado ou reduzido verticalmente. O período de retenção de backup pode ser reduzido ou reduzido de 7 a 35 dias. O tamanho do armazenamento só pode ser aumentado. O dimensionamento dos recursos pode ser feito por meio do portal ou CLI do Azure. Para obter um exemplo de dimensionamento usando CLI do Azure, consulte [monitorar e dimensionar um banco de dados do Azure para o servidor PostgreSQL usando CLI do Azure](scripts/sample-scale-server-up-or-down.md).
+Depois de criar o seu servidor, pode alterar de forma independente os vCores, a geração de hardware, o nível de preços (exceto de e para o Basic), a quantidade de armazenamento e o período de retenção de backup. Não é possível alterar o tipo de armazenamento de cópia de segurança depois de um servidor ser criado. O número de vCores pode ser dimensionado para cima ou para baixo. O período de retenção de reserva pode ser dimensionado para cima ou para baixo de 7 a 35 dias. O tamanho do armazenamento só pode ser aumentado. A escala dos recursos pode ser feita através do portal ou do Azure CLI. Para um exemplo de escala utilizando o Azure CLI, consulte [monitor e escalone uma Base de Dados Azure para servidor PostgreSQL utilizando o Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
 > [!NOTE] 
-> O tamanho do armazenamento só pode ser aumentado. Não é possível voltar para um tamanho de armazenamento menor após o aumento.
+> O tamanho do armazenamento só pode ser aumentado. Não pode voltar a um tamanho de armazenamento menor após o aumento.
 
-Quando você altera o número de vCores, a geração de hardware ou o tipo de preço, uma cópia do servidor original é criada com a nova alocação de computação. Depois de o novo servidor estar a funcionar em pleno, as ligações são passadas para o novo servidor. Durante o período em que o sistema muda para o novo servidor, não se pode estabelecer nenhuma nova ligação e todas as transações não confirmadas são revertidas. Esta janela varia mas, na maioria dos casos, é inferior a um minuto.
+Quando altera o número de vCores, a geração de hardware, ou o nível de preços, é criada uma cópia do servidor original com a nova alocação de cálculo. Depois de o novo servidor estar a funcionar em pleno, as ligações são passadas para o novo servidor. Durante o período em que o sistema muda para o novo servidor, não se pode estabelecer nenhuma nova ligação e todas as transações não confirmadas são revertidas. Esta janela varia mas, na maioria dos casos, é inferior a um minuto.
 
-O dimensionamento do armazenamento e a alteração do período de retenção do backup são operações reais online. Não há nenhum tempo de inatividade e seu aplicativo não é afetado. Conforme o IOPS é dimensionado com o tamanho do armazenamento provisionado, você pode aumentar o IOPS disponível para o servidor ao escalar verticalmente o armazenamento.
+O armazenamento de escala e a alteração do período de retenção de cópias de segurança são verdadeiras operações online. Não há tempo de descanso, e a sua candidatura não foi afetada. À medida que a escala IOPS com o tamanho do armazenamento provisionado, pode aumentar o IOPS disponível para o seu servidor, aumentando o armazenamento.
 
 ## <a name="pricing"></a>Preços
 
-Para obter as informações de preços mais atualizadas, consulte a página de [preços](https://azure.microsoft.com/pricing/details/PostgreSQL/)do serviço. Para ver o custo da configuração desejada, o [portal do Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal na guia tipo de **preço** com base nas opções selecionadas. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. No site da [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) , selecione **Adicionar itens**, expanda a categoria **bancos** de dados e escolha **banco de dados do Azure para PostgreSQL** para personalizar as opções.
+Para obter as informações mais atualizadas sobre preços, consulte a página de [preços](https://azure.microsoft.com/pricing/details/PostgreSQL/)do serviço . Para ver o custo da configuração que deseja, o [portal Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal no separador **de nível** de preços com base nas opções que selecionar. Se não tiver uma subscrição Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da calculadora de [preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens,** expandir a categoria Bases de **Dados** e escolher a Base de **Dados Azure para postgreSQL** para personalizar as opções.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [criar um servidor PostgreSQL no portal](tutorial-design-database-using-azure-portal.md).
-- Saiba mais sobre [os limites de serviço](concepts-limits.md). 
-- Saiba como [escalar horizontalmente com réplicas de leitura](howto-read-replicas-portal.md).
+- Aprenda a [criar um servidor PostgreSQL no portal](tutorial-design-database-using-azure-portal.md).
+- Conheça [os limites](concepts-limits.md)de serviço. 
+- Aprenda a [escalar com réplicas de leitura.](howto-read-replicas-portal.md)

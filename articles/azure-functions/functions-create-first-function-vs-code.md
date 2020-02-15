@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 26313c68305f4d7e6411d31fa12366442ce4bd38
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: cf71f051b014c6ce56290acda5c4b931c23934e2
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964180"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208953"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Quickstart: Criar um projeto de funções Azure usando o Código de Estúdio Visual
 
@@ -60,7 +60,7 @@ Nesta secção, você usa o Código de Estúdio Visual para criar um projeto loc
 
     ![Escolha Criar um novo projeto](media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Escolha um local de diretório para o espaço de trabalho do projeto e escolha **selecionar**.
+1. Escolha um local de diretório para o seu espaço de trabalho do projeto e escolha **Select**.
 
     > [!NOTE]
     > Essas etapas foram projetadas para serem concluídas fora de um espaço de trabalho. Neste caso, não selecione uma pasta de projeto que faz parte de uma área de trabalho.
@@ -93,7 +93,7 @@ Nesta secção, você usa o Código de Estúdio Visual para criar um projeto loc
     + **Forneça um espaço de nome**: Type `My.Functions`. 
     ::: zone-end
 
-    + **Nível de autorização**: Escolha `Anonymous`, que permite a qualquer pessoa ligar para o seu ponto final de função. Para saber mais sobre o nível de autorização, consulte [as teclas de autorização.](functions-bindings-http-webhook.md#authorization-keys)
+    + **Nível de autorização**: Escolha `Anonymous`, que permite a qualquer pessoa ligar para o seu ponto final de função. Para saber mais sobre o nível de autorização, consulte [as teclas de autorização.](functions-bindings-http-webhook-trigger.md#authorization-keys)
 
     + **Selecione como pretende abrir o seu projeto**: Escolha `Add to workspace`.
 

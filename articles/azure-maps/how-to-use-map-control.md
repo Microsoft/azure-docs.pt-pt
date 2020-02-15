@@ -1,44 +1,44 @@
 ---
-title: Introdução ao controle de mapa da Web | Mapas do Microsoft Azure
-description: Saiba como usar a biblioteca JavaScript do lado do cliente do controle de mapeamento do Microsoft Azure Maps para renderizar mapas e a funcionalidade do Azure Maps incorporada em seu aplicativo Web ou móvel.
-author: walsehgal
-ms.author: v-musehg
+title: Começar com o controlo do mapa web / Microsoft Azure Maps
+description: Saiba como utilizar a biblioteca Javascript do lado do cliente do Microsoft Azure Maps para renderizar mapas e incorporar a funcionalidade Do Azure Maps na sua aplicação web ou móvel.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 90cd752ddd46999627de538abe3ca6b1926005aa
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6701d777fb9aa16d3012baba082415bf9858e46f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264135"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209822"
 ---
-# <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Maps
+# <a name="use-the-azure-maps-map-control"></a>Utilize o controlo do mapa do Mapa do Mapa do Mapas Azure
 
-O Controle de Mapeamento biblioteca JavaScript do lado do cliente permite renderizar mapas e a funcionalidade do Azure Maps incorporada em seu aplicativo Web ou móvel.
+A biblioteca Javascript lado do cliente do Map Control permite-lhe renderizar mapas e incorporar a funcionalidade Do Azure Maps na sua aplicação web ou móvel.
 
-## <a name="create-a-new-map-in-a-web-page"></a>Criar um novo mapa em uma página da Web
+## <a name="create-a-new-map-in-a-web-page"></a>Crie um novo mapa numa página web
 
-Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento biblioteca JavaScript do lado do cliente.
+Pode incorporar um mapa numa página web utilizando a biblioteca Javascript do lado do cliente do Map Control.
 
-1. Crie um novo arquivo HTML.
+1. Crie um novo ficheiro HTML.
 
-2. Carregue no SDK da Web do Azure Maps. Você pode escolher uma das duas opções;
+2. Carregue no Azure Maps Web SDK. Você pode escolher uma das duas opções;
 
-a. Use a versão CDN hospedada globalmente do SDK da Web do Azure Maps adicionando os pontos de extremidade de URL à folha de estilo e às referências de script no elemento `<head>` do arquivo:
+a. Utilize a versão CDN globalmente hospedada do Azure Maps Web SDK adicionando os pontos finais url à folha de estilo e referências de script no elemento `<head>` do ficheiro:
 
 ```HTML
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 ```
 
-b. Carregue o código-fonte do SDK da Web do Azure Maps localmente usando o pacote [Azure-Maps-Control](https://www.npmjs.com/package/azure-maps-control) NPM e hospede-o com seu aplicativo. Esse pacote também inclui definições de TypeScript.
+b. Carregue o código fonte Azure Maps Web SDK localmente utilizando o pacote NPM [de controlo de mapas azuis](https://www.npmjs.com/package/azure-maps-control) e apresente-o com a sua aplicação. Este pacote também inclui definições de TypeScript.
 
-> **NPM instalar Azure-Maps-Control**
+> **npm instalar azure-maps-control**
 
-Em seguida, adicione referências à folha de estilos do Azure Maps e às referências de origem do script para o elemento `<head>` do arquivo:
+Em seguida, adicione referências à folha de estilo do Azure Maps e referências de origem de script ao elemento `<head>` do ficheiro:
 
 ```HTML
     <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
@@ -51,7 +51,7 @@ Em seguida, adicione referências à folha de estilos do Azure Maps e às refer�
     > import * as atlas from 'azure-maps-control';
     > ```
 
-3. Para renderizar o mapa para que ele preencha o corpo completo da página, adicione o seguinte elemento `<style>` ao elemento `<head>`.
+3. Para renderizar o mapa de modo a preencher todo o corpo da página, adicione o seguinte elemento `<style>` ao elemento `<head>`.
 
 ```HTML
     <style>
@@ -66,7 +66,7 @@ Em seguida, adicione referências à folha de estilos do Azure Maps e às refer�
     </style>
 ```
 
-4. No corpo da página, adicione um elemento `<div>` e dê a ele um `id` de **myMap**.
+4. No corpo da página, adicione um elemento `<div>` e dê-lhe um `id` do **myMap**.
 
 ```HTML
     <body>
@@ -74,11 +74,11 @@ Em seguida, adicione referências à folha de estilos do Azure Maps e às refer�
     </body>
 ```
 
-5. Para inicializar o controle de mapa, defina uma nova marca de script no corpo HTML. Passe o `id` do `<div>` de mapa ou um `HTMLElement` (por exemplo, `document.getElementById('myMap')`) como o primeiro parâmetro ao criar uma instância da classe `Map`. Use suas próprias credenciais de chave de conta do Azure Maps ou Azure Active Directory (AAD) para autenticar o mapa usando [as opções de autenticação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
+5. Para inicializar o controle de mapa, defina uma nova marca de script no corpo HTML. Passe no `id` do mapa `<div>` ou um `HTMLElement` (por exemplo, `document.getElementById('myMap')`) como o primeiro parâmetro ao criar uma instância da classe `Map`. Utilize a sua própria chave de conta Azure Maps ou credenciais de Diretório Ativo Azure (AAD) para autenticar o mapa utilizando opções de [autenticação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
 
-Se você precisar criar uma conta ou encontrar sua chave, siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
+Se precisar de criar uma conta ou encontrar a sua chave, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e obter a chave [primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
 
-A opção **Language** especifica o idioma a ser usado para os rótulos e controles de mapa. Para obter mais informações sobre os idiomas com suporte, consulte [idiomas com suporte](supported-languages.md). Se você estiver usando uma chave de assinatura para autenticação, use o seguinte:
+A opção **linguística** especifica o idioma a utilizar para etiquetas e controlos de mapas. Para mais informações sobre línguas apoiadas, consulte [as línguas apoiadas.](supported-languages.md) Se estiver a utilizar uma chave de subscrição para autenticação, utilize o seguinte:
 
 ```HTML
     <script type="text/javascript">
@@ -112,9 +112,9 @@ Se você estiver usando o Azure Active Directory (AAD) para autenticação, use 
     </script>
 ```
 
-Uma lista de exemplos que mostram como integrar Azure Active Directory (AAD) com mapas do Azure pode ser encontrada [aqui](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
+Uma lista de amostras que mostram como integrar o Azure Ative Directory (AAD) com o Azure Maps pode ser consultada [aqui](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
     
-Para obter mais informações, consulte o documento [autenticação com o Azure Maps](azure-maps-authentication.md) e também os [exemplos de autenticação](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)do Azure AD do Azure Maps.
+Para mais informações, consulte a Autenticação com o documento [Azure Maps](azure-maps-authentication.md) e também as amostras de [autenticação aditiva Azure Maps Azure](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
 
 6. opcionalmente, você pode achar interessante adicionar os seguintes elementos meta tag ao início da sua página:
 
@@ -176,13 +176,13 @@ Para obter mais informações, consulte o documento [autenticação com o Azure 
     </html>
  ```
 
-8. Abra o arquivo no navegador da Web e exiba o mapa renderizado. Ele deve ser semelhante à imagem abaixo:
+8. Abra o ficheiro no seu navegador web e veja o mapa renderizado. Ele deve ser semelhante à imagem abaixo:
 
 ![Imagem do mapa mostrando resultado renderizado](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map"></a>Localizando o mapa
+## <a name="localizing-the-map"></a>Localização do mapa
 
-O mapas do Azure fornece duas maneiras diferentes de definir o idioma e a exibição regional para o mapa renderizado. A primeira opção é adicionar essas informações ao namespace global `atlas`, o que resultará em todas as instâncias de controle de mapa em seu aplicativo padronizando essas configurações. O seguinte define o idioma como francês ("fr-FR") e a exibição regional como "auto":
+O mapas do Azure fornece duas maneiras diferentes de definir o idioma e a exibição regional para o mapa renderizado. A primeira opção é adicionar esta informação ao espaço de nome solado global `atlas`, o que resultará em todas as instâncias de controlo de mapas na sua aplicação que não se adequem a estas definições. O seguinte define a língua para francês ("fr-FR") e a visão regional para "Auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -206,19 +206,19 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!Note]
-> Com o SDK da Web, é possível carregar várias instâncias de mapa na mesma página com diferentes configurações de idioma e região. Além disso, essas configurações podem ser atualizadas depois que o mapa é carregado usando a função `setStyle` do mapa. 
+> Com o Web SDK é possível carregar várias instâncias de mapas na mesma página com diferentes configurações de idioma e região. Além disso, estas definições podem ser atualizadas após as cargas do mapa utilizando a função `setStyle` do mapa. 
 
-Aqui está um exemplo de mapas do Azure com o idioma definido como "fr-FR" e a exibição regional definida como "auto".
+Aqui está um exemplo de Azure Maps com a linguagem definida para "fr-FR" e a vista regional definida para "Auto".
 
-![Imagem do mapa mostrando rótulos em francês](./media/how-to-use-map-control/websdk-localization.png)
+![Imagem de mapa mostrando rótulos em francês](./media/how-to-use-map-control/websdk-localization.png)
 
-Uma lista completa de idiomas com suporte e exibições regionais está documentada [aqui](supported-languages.md).
+Uma lista completa de línguas apoiadas e pontos de vista regionais é documentada [aqui.](supported-languages.md)
 
-## <a name="azure-government-cloud-support"></a>Suporte de nuvem do Azure governamental
+## <a name="azure-government-cloud-support"></a>Apoio à nuvem do Governo de Azure
 
-O SDK da Web do Azure Maps dá suporte à nuvem do Azure governamental. Todas as URLs de JavaScript e CSS usadas para acessar o SDK da Web do Azure Maps permanecem as mesmas. As tarefas a seguir precisarão ser feitas para se conectar à versão de nuvem do Azure governamental da plataforma do Azure Maps.
+O Azure Maps Web SDK suporta a nuvem do Governo Azure. Todas as URLs de JavaScript e CSS usadas para acessar o SDK da Web do Azure Maps permanecem as mesmas. As tarefas a seguir precisarão ser feitas para se conectar à versão de nuvem do Azure governamental da plataforma do Azure Maps.
 
-Ao usar o controle de mapa interativo, adicione a seguinte linha de código antes de criar uma instância da classe `Map`. 
+Ao utilizar o controlo interativo do mapa, adicione a seguinte linha de código antes de criar uma instância da classe `Map`. 
 
 ```javascript
 atlas.setDomain('atlas.azure.us');
@@ -226,25 +226,25 @@ atlas.setDomain('atlas.azure.us');
 
 Certifique-se de usar os detalhes de autenticação do Azure Maps da plataforma de nuvem do Azure governamental ao autenticar o mapa e os serviços.
 
-Ao usar o módulo de serviços, o domínio para os serviços precisa ser definido ao criar uma instância de um ponto de extremidade de URL de API. Por exemplo, o código a seguir cria uma instância da classe `SearchURL` e aponta o domínio para a nuvem do Azure governamental.
+Ao utilizar o módulo de serviços, o domínio dos serviços tem de ser definido ao criar uma instância de um ponto final de URL DaPi. Por exemplo, o seguinte código cria uma instância da classe `SearchURL` e aponta o domínio para a nuvem do Governo Azure.
 
 ```javascript
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Se acessar diretamente os serviços REST do Azure Maps, altere o domínio da URL para `atlas.azure.us`. Por exemplo, se estiver usando o serviço de API de pesquisa, altere o domínio da URL de `https://atlas.microsoft.com/search/` para `https://atlas.azure.us/search/`.
+Se aceder diretamente aos serviços De REPOUSO Do Azure Maps, altere o domínio URL para `atlas.azure.us`. Por exemplo, se utilizar o serviço Depesquisa API, mude o domínio URL de `https://atlas.microsoft.com/search/` para `https://atlas.azure.us/search/`.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como criar e interagir com um mapa:
+Aprenda a criar e interagir com um mapa:
 
 > [!div class="nextstepaction"]
 > [Criar um mapa](map-create.md)
 
-Saiba como estilizar um mapa:
+Saiba como modelar um mapa:
 
 > [!div class="nextstepaction"]
-> [Escolher um estilo de mapa](choose-map-style.md)
+> [Escolha um estilo de mapa](choose-map-style.md)
 
 Para adicionar mais dados ao seu mapa:
 
@@ -254,7 +254,7 @@ Para adicionar mais dados ao seu mapa:
 > [!div class="nextstepaction"]
 > [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
 
-Para obter uma lista de exemplos que mostram como integrar o Azure Active Directory (AAD) com o Azure Maps, consulte:
+Para obter uma lista de amostras que mostrem como integrar o Azure Ative Directory (AAD) com o Azure Maps, consulte:
 
 > [!div class="nextstepaction"]
-> [Exemplos de autenticação do Azure AD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Amostras de autenticação da AD Azure](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
