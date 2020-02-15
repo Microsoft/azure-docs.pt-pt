@@ -6,21 +6,21 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.subservice: luis
+ms.date: 02/14/2020
+ms.subservice: language-understanding
 ms.topic: include
-ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 3064211fe44a416a6288b86c977ed7e2337a7ccd
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8fd7f23235dbd94ee8d20aa693ec5b659cb6d64d
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451676"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279487"
 ---
-O gerenciamento de contribuições de colaboradores depende do status atual do aplicativo.
+A gestão das contribuições dos colaboradores depende do estado atual da app.
 
-**Para [criar aplicativos migrados de recursos](../luis-migration-authoring.md)** : os _colaboradores_ são gerenciados no portal do Azure para o recurso de criação, usando a página de **controle de acesso (iam)** . Adicione um usuário, usando o endereço de email da colaboração e a função de _colaborador_ . 
+**Para a autoria de aplicações [migradas](../luis-migration-authoring.md)** por recursos : _os contribuintes_ são geridos no portal Azure para o recurso de autoria, utilizando a página de Controlo de **Acesso (IAM).** Adicione um utilizador, utilizando o endereço de e-mail do colaborador e a função _do colaborador._
 
-**Para aplicativos que ainda não foram migrados**: todos os _colaboradores_ são gerenciados no portal do Luis de cada página de **colaboradores de gerenciar >** de cada aplicativo. Nesta página, [adicione o endereço de email de um usuário](../luis-how-to-collaborate.md). Isso fornece acesso de criação somente a este aplicativo. 
+**Para aplicações que ainda não migraram**: todos os _colaboradores_ são geridos no portal LUIS a partir da página **Manage &> Colaboradores** de cada aplicação. Nesta página, [adicione o endereço de e-mail de um utilizador](../luis-how-to-collaborate.md). Isto fornece apenas acesso de autoria a esta aplicação.
 
 
