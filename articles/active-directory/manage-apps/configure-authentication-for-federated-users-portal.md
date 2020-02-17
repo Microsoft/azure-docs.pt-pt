@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159170"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367874"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configure Azure Ative Diretório assina comportamento para uma aplicação usando uma política home realm discovery
 
@@ -100,9 +100,7 @@ As políticas só têm efeito para uma aplicação específica quando estão ane
 
 Apenas uma política de RHD pode estar ativa num diretor de serviço a qualquer momento.  
 
-Pode utilizar diretamente o Microsoft Azure Ative Directory Graph API, ou os cmdlets PowerShell do Diretório Ativo Azure para criar e gerir a política de RHD.
-
-A API graph que manipula a política é descrita no artigo [de operações sobre política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) sobre a MSDN.
+Pode utilizar os cmdlets PowerShell do Diretório Ativo Azure para criar e gerir a política de RHD.
 
 Segue-se um exemplo de definição de política de RHD:
     
@@ -209,7 +207,7 @@ Para aplicar a política de HRD depois de a ter criado, pode atribuí-la a vári
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Passo 2: Localizar o principal de serviço para atribuir a apólice  
 Precisa do **ObjectID** dos diretores de serviço a que pretende atribuir a apólice. Existem várias formas de encontrar o **ObjectID** dos principais de serviço.    
 
-Pode utilizar o portal, ou pode consultar o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Você também pode ir à [Ferramenta do Explorador de Gráficos](https://developer.microsoft.com/graph/graph-explorer) e iniciar sessão na sua conta Azure AD para ver todos os diretores de serviço da sua organização. 
+Pode utilizar o portal, ou pode consultar o [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Você também pode ir à [Ferramenta do Explorador de Gráficos](https://developer.microsoft.com/graph/graph-explorer) e iniciar sessão na sua conta Azure AD para ver todos os diretores de serviço da sua organização. 
 
 Como está a utilizar o PowerShell, pode utilizar o seguinte cmdlet para listar os diretores de serviço e as suas identificações.
 

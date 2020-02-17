@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: obter a intenção com as APIs REST-LUIS'
+title: 'Quickstart: Tenha intenção com APIs REST - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido da API REST, use um aplicativo LUIS público disponível para determinar a intenção de um usuário de texto de conversação.
+description: Neste rest API quickstart, utilize uma aplicação PÚBLICA LUIS disponível para determinar a intenção de um utilizador a partir de texto de conversação.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/18/2019
+ms.date: 02/14/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 81e3003db9baa4c5df646241d77e01840bcdf21d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3f8013804a2c3f4864719861eea1510c9d849d3
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503774"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368382"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Início rápido: obter a intenção com as APIs REST
+# <a name="quickstart-change-model-with-rest-apis"></a>Quickstart: Alterar modelo com APIs REST
 
-Neste guia de início rápido, adicione o exemplo declarações a um aplicativo de agente de viagem e treine o aplicativo. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
+Neste arranque rápido, adicione declarações de exemplo a uma aplicação do Travel Agent e treine a app. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
 
 ::: zone pivot="programming-language-csharp"
 

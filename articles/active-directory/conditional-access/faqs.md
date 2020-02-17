@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baa44481c4641f69ead5335298316c837062d2c0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6842338bd27e4bea3436f0b249380ab773d60de6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186057"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368083"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>FaQs de acesso condicional do Diretório Ativo Azure
 
@@ -40,7 +40,7 @@ Uma política de acesso condicional define requisitos para aceder a um serviço.
 
 As políticas de Acesso Condicional aplicam-se a todas as contas dos utilizadores. Isto inclui contas de utilizador que são usadas como contas de serviço. Muitas vezes, uma conta de serviço que funciona sem supervisão não satisfaz os requisitos de uma política de Acesso Condicional. Por exemplo, pode ser necessária a autenticação de vários fatores. As contas de serviço podem ser excluídas de uma política utilizando as definições de gestão da política de Acesso Condicional. 
 
-## <a name="are-graph-apis-available-for-configuring-conditional-access-policies"></a>As APIs do Gráfico estão disponíveis para configurar as políticas de acesso condicional?
+## <a name="are-microsoft-graph-apis-available-for-configuring-conditional-access-policies"></a>As APIs do Microsoft Graph estão disponíveis para configurar as políticas de acesso condicional?
 
 Atualmente, não. 
 

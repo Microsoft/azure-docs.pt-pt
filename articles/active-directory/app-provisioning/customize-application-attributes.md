@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 842e5c4771fcac0b8011dda1df11c646bf8f070c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bfc5c24b1ba3d623e148e0da5b38a869d056996a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207201"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367818"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalização de mapeamento de atributos para aplicações SaaS no Diretório Ativo Azure
 
@@ -112,7 +112,7 @@ Aplicações e sistemas que suportam a personalização da lista de atributos in
 - Salesforce
 - ServiceNow
 - Workday
-- Diretório Ativo Azure ([AD Graph API atributos padrão](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados são suportados)
+- Diretório Ativo Azure ([Microsoft Graph REST API v1.0 referência](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) e extensões de diretório personalizados são suportados)
 - Aplicativos que suportam [O SCIM 2.0,](https://tools.ietf.org/html/rfc7643)onde os atributos definidos no [esquema central](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
 
 > [!NOTE]
@@ -133,7 +133,7 @@ Ao editar a lista de atributos suportados, são fornecidas as seguintes propried
 - **Multi-valor?** - Se o atributo suporta vários valores.
 - **Caso exato?** - Se os valores dos atributos são avaliados de forma sensível aos casos.
 - **Expressão API** - Não utilize, a menos que seja instruído pela documentação para um conector de provisionamento específico (como o Dia de Trabalho).
-- **Atributo** de objeto referenciado - Se for um atributo tipo de referência, então este menu permite selecionar a tabela e atribuir na aplicação-alvo que contém o valor associado ao atributo. Por exemplo, se tiver um atributo chamado "Departamento" cujo valor armazenado referencia um objeto numa tabela separada de "Departamentos", selecionaria "Departments.Name". As tabelas de referência e os principais campos de IDENTIFICAção suportados para uma determinada aplicação estão pré-configurados e atualmente não podem ser editados usando o portal Azure, mas podem ser editados usando a [API graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Atributo** de objeto referenciado - Se for um atributo tipo de referência, então este menu permite selecionar a tabela e atribuir na aplicação-alvo que contém o valor associado ao atributo. Por exemplo, se tiver um atributo chamado "Departamento" cujo valor armazenado referencia um objeto numa tabela separada de "Departamentos", selecionaria "Departments.Name". As tabelas de referência e os principais campos de ID suportados para uma determinada aplicação estão pré-configurados e atualmente não podem ser editados usando o portal Azure, mas podem ser editados usando a [API do Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Fornecimento de um atributo de extensão personalizado a uma aplicação compatível com o SCIM
 O SCIM RFC define um esquema de utilizador e grupo principal, ao mesmo tempo que permite que as extensões ao esquema satisfaçam as necessidades da sua aplicação. Para adicionar um atributo personalizado a uma aplicação SCIM:

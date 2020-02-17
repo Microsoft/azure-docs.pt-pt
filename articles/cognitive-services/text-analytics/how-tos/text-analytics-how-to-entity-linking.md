@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 607b65d6a6893901ce23cd48c277c14209128866
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137977"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367648"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o Reconhecimento de EntidadeS Nomeadas em Análise de Texto
 
@@ -28,7 +28,9 @@ A ligação da entidade é a capacidade de identificar e desambigar a identidade
 
 ### <a name="named-entity-recognition-ner"></a>Reconhecimento de Entidades Nomeada (NER)
 
-Denominada Reconhecimento de Entidades (NER) é a capacidade de identificar diferentes entidades em texto e categorizá-las em classes ou tipos pré-definidos. Por exemplo: pessoas, lugares e organizações.
+Denominada Reconhecimento de Entidades (NER) é a capacidade de identificar diferentes entidades em texto e categorizá-las em classes ou tipos pré-definidos, tais como: pessoa, localização, evento, produto e organização.  
+
+A partir da versão 3, esta funcionalidade da API text analytics também pode identificar tipos de informação pessoais e sensíveis, tais como: número de telefone, Número de Segurança Social, endereço de e-mail e número de conta bancária.  Identificar estas entidades pode ajudar na classificação de documentos sensíveis e na redação de informações pessoais.
 
 ## <a name="named-entity-recognition-versions-and-features"></a>Versões e funcionalidades de Reconhecimento de Entidades nomeadas
 

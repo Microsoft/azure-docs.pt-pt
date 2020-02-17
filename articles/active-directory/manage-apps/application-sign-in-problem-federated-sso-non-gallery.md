@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70a85a81996766b862cd6fbc3b605636385e0fda
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8cd951f0b4d2f4887630e29cbd3b0ae429b9f6f7
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159187"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367871"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas de inscrição numa aplicação não-galeria configurada para inscrição única federada
 
@@ -164,7 +164,7 @@ O fornecedor de aplicações deve validar que suporta a implementação do Azure
 
 ## <a name="misconfigured-application"></a>Aplicação mal configurada
 
-*Erro AADSTS650056: Aplicação mal configurada. Isto pode dever-se a uma das seguintes: O cliente não enumerou nenhuma permissão para o 'AAD Graph' nas permissões solicitadas no registo de candidatura do cliente. Ou, o administrador não consentiu no inquilino. Ou, Verifique o identificador de aplicação no pedido para garantir que corresponde ao identificador de aplicação de cliente configurado. Contacte o seu administrador para corrigir a configuração ou consentimento em nome do inquilino.*
+*Erro AADSTS650056: Aplicação mal configurada. Isto pode dever-se a uma das seguintes: O cliente não enumerou quaisquer permissões nas permissões solicitadas no registo de candidatura do cliente. Ou, o administrador não consentiu no inquilino. Ou, Verifique o identificador de aplicação no pedido para garantir que corresponde ao identificador de aplicação de cliente configurado. Contacte o seu administrador para corrigir a configuração ou consentimento em nome do inquilino.*
 
 **Possível causa**
 
