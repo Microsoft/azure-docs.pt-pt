@@ -1,48 +1,48 @@
 ---
-title: Preparar e personalizar uma imagem VHD mestre – Azure
-description: Como preparar, personalizar e carregar uma imagem mestra de área de trabalho virtual do Windows no Azure.
+title: Prepare e personalize uma imagem Master VHD - Azure
+description: Como preparar, personalizar e carregar uma imagem master do Windows Virtual Desktop para o Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 23763123ce8e92b6bb15b2b33a196ed1a1d75c9f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013152"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368792"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
-Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Essas instruções são para uma configuração específica da área de trabalho virtual do Windows que pode ser usada com os processos existentes da sua organização.
+Este artigo diz-lhe como preparar uma imagem de disco rígido virtual (VHD) para o upload para o Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Estas instruções são para uma configuração específica do Windows Virtual Desktop que pode ser usada com os processos existentes da sua organização.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-O Windows 10 Enterprise Multi-Session está disponível na Galeria de imagens do Azure. Há duas opções para personalizar essa imagem.
+A multi-sessão do Windows 10 Enterprise está disponível na Galeria de Imagem Azure. Existem duas opções para personalizar esta imagem.
 
-A primeira opção é provisionar uma VM (máquina virtual) no Azure seguindo as instruções em [criar uma VM com base em uma imagem gerenciada](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)e, em seguida, pular para a [preparação e instalação de software](set-up-customize-master-image.md#software-preparation-and-installation).
+A primeira opção é fornecer uma máquina virtual (VM) em Azure seguindo as instruções em [Create a VM a partir de uma imagem gerida,](../virtual-machines/windows/create-vm-generalized-managed.md)e depois saltar para a frente para [a preparação e instalação](set-up-customize-master-image.md#software-preparation-and-installation)do Software.
 
-A segunda opção é criar a imagem localmente baixando a imagem, Provisionando uma VM do Hyper-V e personalizando-a para atender às suas necessidades, que abordamos na seção a seguir.
+A segunda opção é criar a imagem localmente, baixando a imagem, disponibilizando um VM Hyper-V, e personalizando-a de acordo com as suas necessidades, que cobrimos na seguinte secção.
 
 ### <a name="local-image-creation"></a>Criação de imagem local
 
-Depois de baixar a imagem em um local local, abra o **Gerenciador do Hyper-V** para criar uma VM com o VHD que você copiou. As instruções a seguir são uma versão simples, mas você pode encontrar instruções mais detalhadas em [criar uma máquina virtual no Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+Assim que descarregar a imagem para um local local, abra o **Hyper-V Manager** para criar um VM com o VHD que copiou. As seguintes instruções são uma versão simples, mas pode encontrar instruções mais detalhadas em [Criar uma máquina virtual em Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/).
 
-Para criar uma VM com o VHD copiado:
+Para criar um VM com o VHD copiado:
 
-1. Abra o **Assistente de nova máquina virtual**.
+1. Abra o **Novo Assistente de Máquina Virtual.**
 
-2. Na página especificar geração, selecione **geração 1**.
+2. Na página 'Geração Especificação', selecione **Geração 1**.
 
-    ![Uma captura de tela da página especificar geração. A opção "geração 1" está selecionada.](media/a41174fd41302a181e46385e1e701975.png)
+    ![Uma imagem da página 'Geração Especificação'. A opção "Geração 1" é selecionada.](media/a41174fd41302a181e46385e1e701975.png)
 
-3. Em tipo de ponto de verificação, desabilite os pontos de verificação desmarcando a caixa de seleção.
+3. No ponto de verificação, desative os pontos de verificação desligando a caixa de verificação.
 
-    ![Uma captura de tela da seção tipo de ponto de verificação da página pontos de verificação.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    ![Uma imagem da secção Tipo checkpoint da página Checkpoints.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
-Você também pode executar o seguinte cmdlet no PowerShell para desabilitar pontos de verificação.
+Também pode executar o seguinte cmdlet no PowerShell para desativar os pontos de verificação.
 
 ```powershell
 Set-VM -Name <VMNAME> -CheckpointType Disabled
@@ -50,11 +50,11 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 ### <a name="fixed-disk"></a>Disco fixo
 
-Se você criar uma VM de um VHD existente, ele criará um disco dinâmico por padrão. Ele pode ser alterado para um disco fixo selecionando **Editar disco...** conforme mostrado na imagem a seguir. Para obter instruções mais detalhadas, consulte [preparar um VHD do Windows ou VHDX para carregar no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+Se criar um VM a partir de um VHD existente, cria um disco dinâmico por padrão. Pode ser alterado para um disco fixo selecionando edit **disk...** como mostrado na imagem seguinte. Para obter instruções mais detalhadas, consulte [Prepare um VHD do Windows ou VHDX para fazer o upload para O Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![Uma captura de tela da opção Editar disco.](media/35772414b5a0f81f06f54065561d1414.png)
+![Uma imagem da opção Edit Disk.](media/35772414b5a0f81f06f54065561d1414.png)
 
-Você também pode executar o seguinte cmdlet do PowerShell para alterar o disco para um disco fixo.
+Também pode executar o seguinte cmdlet PowerShell para mudar o disco para um disco fixo.
 
 ```powershell
 Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.vhd -VHDType Fixed
@@ -62,105 +62,105 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Preparação e instalação de software
 
-Esta seção aborda como preparar e instalar o FSLogix e o Windows Defender, bem como algumas opções de configuração básicas para aplicativos e o registro da imagem. 
+Esta secção abrange como preparar e instalar o FSLogix e o Windows Defender, bem como algumas opções básicas de configuração para apps e registo da sua imagem. 
 
-Se você estiver instalando o Office 365 ProPlus e o OneDrive em sua VM, vá para [instalar o Office em uma imagem VHD mestre](install-office-on-wvd-master-image.md) e siga as instruções para instalar os aplicativos. Depois de terminar, retorne a este artigo.
+Se estiver a instalar o Office 365 ProPlus e o OneDrive no seu VM, dirija-se ao [Office de instalação numa imagem Master VHD](install-office-on-wvd-master-image.md) e siga as instruções para instalar as aplicações. Depois de terminar, volte a este artigo.
 
-Se os usuários precisarem acessar determinados aplicativos LOB, recomendamos que você os instale depois de concluir as instruções desta seção.
+Se os seus utilizadores precisarem de aceder a determinadas aplicações LOB, recomendamos que as instale depois de completar as instruções desta secção.
 
-### <a name="set-up-user-profile-container-fslogix"></a>Configurar o contêiner de perfil de usuário (FSLogix)
+### <a name="set-up-user-profile-container-fslogix"></a>Configurar o recipiente de perfil do utilizador (FSLogix)
 
-Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner FSLogix com este guia de [início rápido](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial).
+Para incluir o recipiente FSLogix como parte da imagem, siga as instruções em Criar um recipiente de perfil para uma piscina hospedeira utilizando uma partilha de [ficheiros](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Pode testar a funcionalidade do recipiente FSLogix com [este arranque rápido](/fslogix/configure-cloud-cache-tutorial/).
 
-### <a name="configure-windows-defender"></a>Configurar o Windows Defender
+### <a name="configure-windows-defender"></a>Configure O Defensor do Windows
 
-Se o Windows Defender estiver configurado na VM, verifique se ele está configurado para não verificar todo o conteúdo dos arquivos VHD e VHDX durante o anexo.
+Se o Windows Defender estiver configurado no VM, certifique-se de que está configurado para não digitalizar todo o conteúdo dos ficheiros VHD e VHDX durante o anexo.
 
-Essa configuração remove apenas a verificação de arquivos VHD e VHDX durante o anexo, mas não afeta a verificação em tempo real.
+Esta configuração remove apenas a digitalização de ficheiros VHD e VHDX durante o anexo, mas não afetará a digitalização em tempo real.
 
-Para obter instruções mais detalhadas sobre como configurar o Windows Defender no Windows Server, consulte [configurar exclusões do Windows Defender antivírus no Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+Para obter instruções mais detalhadas sobre como configurar o Windows Defender no Windows Server, consulte as [exclusões do Antivírus Do Windows No Windows Server](/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus/).
 
-Para saber mais sobre como configurar o Windows Defender para excluir determinados arquivos da verificação, consulte [configurar e validar exclusões com base na extensão do arquivo e no local da pasta](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
+Para saber mais sobre como configurar o Windows Defender para excluir certos ficheiros da digitalização, consulte [configurar e validar exclusões com base na extensão](/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus/)do ficheiro e na localização da pasta .
 
-### <a name="disable-automatic-updates"></a>Desabilitar Atualizações Automáticas
+### <a name="disable-automatic-updates"></a>Desativar atualizações automáticas
 
-Para desabilitar Atualizações Automáticas via Política de Grupo local:
+Para desativar as atualizações automáticas através da Política de Grupo local:
 
-1. Abra **Editor de Política de Grupo Local\\Modelos Administrativos\\componentes do Windows\\** Windows Update.
-2. Clique com o botão direito do mouse em **Configurar atualização automática** e defina-a como **desabilitada**.
+1. Open **Local Group Policy Editor\\Modelos Administrativos\\componentes do Windows\\Atualização do Windows**.
+2. Clique na **configuração automática** e desative-a para **desativar**.
 
-Você também pode executar o comando a seguir em um prompt de comando para desabilitar o Atualizações Automáticas.
+Também pode executar o seguinte comando numa solicitação de comando para desativar atualizações automáticas.
 
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
-### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>Especificar o layout inicial para PCs com Windows 10 (opcional)
+### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>Especificar o layout de início para PCs do Windows 10 (opcional)
 
-Execute este comando para especificar um layout inicial para PCs com Windows 10.
+Execute este comando para especificar um layout iniciar para computadores Windows 10.
 
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-### <a name="set-up-time-zone-redirection"></a>Configurar o redirecionamento de fuso horário
+### <a name="set-up-time-zone-redirection"></a>Configurar a redirecção do fuso horário
 
-O redirecionamento de fuso horário pode ser imposto no nível de Política de Grupo, já que todas as VMs em um pool de hosts fazem parte do mesmo grupo de segurança.
+A reorientação do fuso horário pode ser aplicada a nível de Política de Grupo, uma vez que todos os VMs numa piscina de acolhimento fazem parte do mesmo grupo de segurança.
 
 Para redirecionar fusos horários:
 
-1. No Active Directory Server, abra o **console de gerenciamento de política de grupo**.
-2. Expanda seu domínio e Política de Grupo objetos.
-3. Clique com o botão direito do mouse no **objeto política de grupo** que você criou para as configurações da política de grupo e selecione **Editar**.
-4. Na **Editor de gerenciamento de política de grupo**, navegue até **configuração do computador** > **políticas** > **modelos administrativos** > **componentes do Windows** > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota > ** **dispositivo e redirecionamento de recursos**.
-5. Habilite a configuração **permitir redirecionamento de fuso horário** .
+1. No servidor De Diretório Ativo, abra a Consola de **Gestão**de Políticas do Grupo .
+2. Expanda o seu domínio e objetos de política de grupo.
+3. Clique no **Objeto** de Política de Grupo que criou para as definições de política do grupo e **selecione Editar**.
+4. No Editor de **Gestão**de Políticas do Grupo, navegue para as **políticas** de **configuração** de computador >  > **modelos administrativos** > componentes do Windows > **serviços** de ambiente de **trabalho remotos** > dispositivo > de **sessão de ambiente** de trabalho remoto e **redirecionamento**de recursos.
+5. Ativar a regulação de **redirecionamento do fuso horário.**
 
-Você também pode executar esse comando na imagem mestra para redirecionar os fusos horários:
+Também pode executar este comando na imagem principal para redirecionar fusos horários:
 
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
 ```
 
-### <a name="disable-storage-sense"></a>Desabilitar o sensor de armazenamento
+### <a name="disable-storage-sense"></a>Desativar o sentido de armazenamento
 
-Para o host de sessão de área de trabalho virtual do Windows que usa o Windows 10 Enterprise ou Windows 10 Enterprise Multi-Session, é recomendável desabilitar o sensor de armazenamento. Você pode desabilitar o sensor de armazenamento no menu configurações, em **armazenamento**, conforme mostrado na seguinte captura de tela:
+Para o anfitrião da sessão de desktop virtual do Windows que utiliza a multi-sessão do Windows 10 Enterprise ou do Windows 10 Enterprise, recomendamos que seja desativado o Storage Sense. Pode desativar o Sentido de Armazenamento no menu Definições em **Armazenamento,** como mostra a seguinte imagem:
 
-![Uma captura de tela do menu armazenamento em configurações. A opção "sensor de armazenamento" está desativada.](media/storagesense.png)
+![Uma imagem do menu de armazenamento em Definições. A opção "Sentido de Armazenamento" está desligada.](media/storagesense.png)
 
-Você também pode alterar a configuração com o registro executando o seguinte comando:
+Também pode alterar a definição com o registo executando o seguinte comando:
 
 ```batch
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
 ```
 
-### <a name="include-additional-language-support"></a>Incluir suporte a idiomas adicionais
+### <a name="include-additional-language-support"></a>Incluir suporte linguístico adicional
 
-Este artigo não aborda como configurar o suporte a idiomas e regionais. Para obter mais informações, veja os artigos seguintes:
+Este artigo não cobre como configurar a linguagem e o apoio regional. Para obter mais informações, veja os artigos seguintes:
 
-- [Adicionar idiomas a imagens do Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/add-language-packs-to-windows)
-- [Recursos sob demanda](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)
-- [Recursos de linguagem e região sob demanda (FOD)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-language-fod)
+- [Adicione idiomas às imagens do Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
+- [Características a pedido](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
+- [Características linguísticas e região a pedido (FOD)](/windows-hardware/manufacture/desktop/features-on-demand-language-fod/)
 
-### <a name="other-applications-and-registry-configuration"></a>Outros aplicativos e configuração do registro
+### <a name="other-applications-and-registry-configuration"></a>Outras aplicações e configuração do registo
 
-Esta seção aborda a configuração do aplicativo e do sistema operacional. Todas as configurações nesta seção são feitas por meio de entradas do registro que podem ser executadas por ferramentas de linha de comando e regedit.
+Esta secção cobre a configuração da aplicação e do sistema operativo. Toda a configuração nesta secção é feita através de entradas de registo que podem ser executadas por ferramentas de linha de comando e regedit.
 
 >[!NOTE]
->Você pode implementar as práticas recomendadas na configuração com objetos de Política de Grupo (GPOs) ou importações de registro. O administrador pode escolher uma das opções com base nos requisitos de sua organização.
+>Pode implementar as melhores práticas na configuração com objetos de política de grupo (GPOs) ou importações de registo. O administrador pode escolher qualquer opção com base nos requisitos da sua organização.
 
-Para coleta de Hub de comentários de dados de telemetria no Windows 10 Enterprise Multi-Session, execute este comando:
+Para obter a recolha de dados de telemetria no Windows 10 Enterprise multi-sessão, execute este comando:
 
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
 ```
 
-Execute o seguinte comando para corrigir falhas do Watson:
+Executar o seguinte comando para corrigir acidentes de Watson:
 
 ```batch
 remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
 ```
 
-Insira os seguintes comandos no editor do registro para corrigir o suporte à resolução de 5K. Você deve executar os comandos para poder habilitar a pilha lado a lado.
+Insira os seguintes comandos no editor de registo para fixar suporte de resolução de 5k. Tem de executar os comandos antes de poder ativar a pilha lado a lado.
 
 ```batch
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
@@ -172,38 +172,38 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxYResolution /t REG_DWORD /d 2880 /f
 ```
 
-## <a name="prepare-the-image-for-upload-to-azure"></a>Preparar a imagem para carregar no Azure
+## <a name="prepare-the-image-for-upload-to-azure"></a>Prepare a imagem para o upload para Azure
 
-Depois de concluir a configuração e instalar todos os aplicativos, siga as instruções em [preparar um VHD do Windows ou VHDX para carregar no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) para preparar a imagem.
+Depois de terminar a configuração e instalar todas as aplicações, siga as instruções em [Preparar um Windows VHD ou VHDX para fazer o upload para o Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) para preparar a imagem.
 
-Depois de preparar a imagem para upload, verifique se a VM permanece no estado desligado ou desalocado.
+Depois de preparar a imagem para upload, certifique-se de que o VM permanece no estado de folga ou de negócio.
 
-## <a name="upload-master-image-to-a-storage-account-in-azure"></a>Carregar imagem mestra em uma conta de armazenamento no Azure
+## <a name="upload-master-image-to-a-storage-account-in-azure"></a>Faça upload da imagem principal para uma conta de armazenamento em Azure
 
-Esta seção se aplica somente quando a imagem mestra foi criada localmente.
+Esta secção só se aplica quando a imagem principal foi criada localmente.
 
-As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta de armazenamento do Azure. Se você ainda não tiver uma conta de armazenamento do Azure, siga as instruções neste [artigo](/azure/javascript/tutorial-vscode-static-website-node-03) para criar uma.
+As seguintes instruções dirão como enviar a sua imagem principal para uma conta de armazenamento Azure. Se ainda não tem uma conta de armazenamento Azure, siga as instruções [deste artigo](/azure/javascript/tutorial-vscode-static-website-node-03) para criar uma.
 
-1. Converta a imagem de VM (VHD) para fixa se você ainda não tiver feito isso. Se você não converter a imagem em Fixed, não será possível criar a imagem com êxito.
+1. Converta a imagem VM (VHD) para Fixed se ainda não o fez. Se não converter a imagem para Fixed, não pode criar a imagem com sucesso.
 
-2. Carregue o VHD em um contêiner de BLOB em sua conta de armazenamento. Você pode carregar rapidamente com a [ferramenta de Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta de Gerenciador de Armazenamento, consulte [Este artigo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Faça upload do VHD para um recipiente de bolhas na sua conta de armazenamento. Pode fazer o upload rapidamente com a [ferramenta Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta Storage Explorer, consulte [este artigo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-    ![Uma captura de tela da janela de pesquisa da ferramenta de Gerenciador de Armazenamento do Microsoft Azure. A caixa de seleção "carregar arquivos. VHD ou vhdx como BLOBs de página (recomendado)" está marcada.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    ![Uma imagem da janela de pesquisa da Ferramenta de Armazenamento Microsoft Azure. A caixa de verificação "Upload .vhd ou vhdx as page blobs (recomendado)" é selecionada.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
-3. Em seguida, vá para o portal do Azure no navegador e pesquise "imagens". Sua pesquisa deve levá-lo para a página **criar imagem** , conforme mostrado na seguinte captura de tela:
+3. Em seguida, vá ao portal Azure no seu navegador e procure "Imagens". A sua pesquisa deve levá-lo à página **de imagem Criar,** como mostra a seguinte imagem:
 
-    ![Uma captura de tela da página Criar imagem do portal do Azure, preenchida com valores de exemplo para a imagem.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    ![Uma imagem da página de imagem Create do portal Azure, repleta de valores de exemplo para a imagem.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
-4. Depois de criar a imagem, você deverá ver uma notificação como a da captura de tela a seguir:
+4. Uma vez criada a imagem, deve ver uma notificação como a da seguinte imagem:
 
-    ![Uma captura de tela da notificação "imagem criada com êxito".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    ![Uma imagem da notificação "imagem criada com sucesso".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você tem uma imagem, você pode criar ou atualizar pools de hosts. Para saber mais sobre como criar e atualizar pools de hosts, consulte os seguintes artigos:
+Agora que tem uma imagem, pode criar ou atualizar piscinas de anfitriões. Para saber mais sobre como criar e atualizar piscinas de anfitriões, consulte os seguintes artigos:
 
-- [Criar um pool de hosts com um modelo de Azure Resource Manager](create-host-pools-arm-template.md)
-- [Tutorial: criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Criar um pool de hosts com o PowerShell](create-host-pools-powershell.md)
-- [Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md)
-- [Configurar o método de balanceamento de carga de área de trabalho virtual do Windows](configure-host-pool-load-balancing.md)
+- [Crie uma piscina de anfitriões com um modelo de Gestor de Recursos Azure](create-host-pools-arm-template.md)
+- [Tutorial: Crie uma piscina de anfitriões com o Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Crie uma piscina de anfitriões com powerShell](create-host-pools-powershell.md)
+- [Crie um recipiente de perfil para uma piscina anfitriã usando uma partilha de ficheiros](create-host-pools-user-profile.md)
+- [Configure o método de equilíbrio de carga virtual do Windows](configure-host-pool-load-balancing.md)

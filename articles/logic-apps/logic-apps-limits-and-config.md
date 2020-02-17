@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 348c393a623f0059eec011faf823f9b5131508f3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f0c38590b667894dd65d212124ef1d26c7918ff7
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122122"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366415"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicações lógicas do Azure
 
@@ -89,7 +89,7 @@ Aqui estão os limites para uma única aplicação lógica executada:
 | Itens de matriz foreach | 100 000 | Este limite descreve o maior número de itens matrizques que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, pode utilizar a ação de [consulta](logic-apps-perform-data-operations.md#filter-array-action). |
 | Foreach concurrency | 20 é o limite de incumprimento quando o controlo da moeda é desligado. Pode alterar o padrão para um valor entre 1 e 50 inclusive. | Este limite é o maior número de iterações em loop "para cada" que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite de incumprimento para um valor entre 1 e 50 inclusive, consulte [alterar o limite de moeda "para cada"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou executar [ciclos "para cada" circuitos sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 | Itens SplitOn | -100.000 sem simultaneidade de gatilho <p><p>-100 com simultaneidade de gatilho | Para os gatilhos que devolvem uma matriz, pode especificar uma expressão que utiliza uma propriedade 'SplitOn' que [divide ou debatcha itens de matriz em várias instâncias](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) de fluxo de trabalho para processamento, em vez de usar um loop "Foreach". Esta expressão refere a matriz a utilizar para criar e executar uma instância de fluxo de trabalho para cada item de matriz. <p><p>**Nota:** Quando a moeda é ligada, o limite SplitOn é reduzido a 100 itens. |
-| Até iterações | 5\.000 | |
+| Até iterações | - Padrão: 60 <p><p>- Máximo: 5.000 | |
 ||||
 
 <a name="throughput-limits"></a>

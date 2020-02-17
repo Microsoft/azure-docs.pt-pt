@@ -1,77 +1,77 @@
 ---
-title: Personalizar propriedades RDP com o PowerShell – Azure
-description: Como personalizar as propriedades de RDP para a área de trabalho virtual do Windows com cmdlets do PowerShell.
+title: Personalize propriedades RDP com PowerShell - Azure
+description: Como personalizar propriedades RDP para Windows Virtual Desktop com cmdlets PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 43110036c685cd17ba912766dd8ec19aa274e7c1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b811b9afe0abcd81fe81d47ef0e1566d3042c8ae
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459529"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367385"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizar propriedades de protocolo RDP para um pool de hosts
+# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões
 
-Personalizar as propriedades de protocolo RDP (RDP) de um pool de hosts, como experiência de vários monitores e redirecionamento de áudio, permite que você forneça uma experiência ideal para seus usuários com base em suas necessidades. Você pode personalizar as propriedades de RDP na área de trabalho virtual do Windows usando o parâmetro **-CustomRdpProperty** no cmdlet **set-RdsHostPool** .
+Personalizar as propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) de um pool anfitrião, como experiência de multimonitor e reorientação de áudio, permite-lhe oferecer uma experiência ideal para os seus utilizadores com base nas suas necessidades. Pode personalizar propriedades RDP no Windows Virtual Desktop utilizando o parâmetro **-CustomRdpProperty** no **set-RdsHostPool** cmdlet.
 
-Consulte [configurações de arquivo RDP com suporte](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa das propriedades com suporte e seus valores padrão.
+Consulte as definições de [ficheiroRD Suportadas](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa de propriedades suportadas e os seus valores predefinidos.
 
-Primeiro, [Baixe e importe o módulo do PowerShell de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usar em sua sessão do PowerShell, se ainda não tiver feito isso. Depois disso, execute o seguinte cmdlet para entrar em sua conta:
+Primeiro, [descarregue e importe o módulo Windows Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview/) para utilizar na sua sessão PowerShell se ainda não o fez. Depois disso, execute o seguinte cmdlet para iniciar sessão na sua conta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-## <a name="default-rdp-properties"></a>Propriedades padrão de RDP
+## <a name="default-rdp-properties"></a>Propriedades de RDP padrão
 
-Por padrão, os arquivos RDP publicados contêm as seguintes propriedades:
+Por predefinição, os ficheiros RDP publicados contêm as seguintes propriedades:
 
 |Propriedades de RDP | Computadores de secretária | RemoteApps |
 |---|---| --- |
-| Modo de vários monitores | Ativado | N/A |
-| Redirecionamentos de unidade habilitados | Unidades, área de transferência, impressoras, portas COM, dispositivos USB e cartões inteligentes| Unidades, área de transferência e impressoras |
-| Modo de áudio remoto | Reproduzir localmente | Reproduzir localmente |
+| Modo multi-monitor | Ativado | N/D |
+| Redirecionamentos de acionamento ativados | Unidades, clipboard, impressoras, portas COM, dispositivos USB e smartcards| Unidades, clipboard e impressoras |
+| Modo de áudio remoto | Jogar localmente | Jogar localmente |
 
-Todas as propriedades personalizadas que você definir para o pool de hosts substituirão esses padrões.
+Quaisquer propriedades personalizadas que defina para a piscina anfitriã anularão estes incumprimentos.
 
-## <a name="add-or-edit-a-single-custom-rdp-property"></a>Adicionar ou editar uma única propriedade RDP personalizada
+## <a name="add-or-edit-a-single-custom-rdp-property"></a>Adicione ou edite uma única propriedade personalizada rdp
 
-Para adicionar ou editar uma única propriedade RDP personalizada, execute o seguinte cmdlet do PowerShell:
+Para adicionar ou editar uma única propriedade personalizada de RDP, executar o seguinte cmdlet PowerShell:
 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
 
-![Uma captura de tela do cmdlet Get-RDSRemoteApp do PowerShell com Name e FriendlyName realçado.](media/singlecustomrdpproperty.png)
+![Uma imagem de PowerShell cmdlet Get-RDSRemoteApp com nome e nome amigável destacados.](media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Adicionar ou editar várias propriedades personalizadas de RDP
 
-Para adicionar ou editar várias propriedades de RDP personalizadas, execute os seguintes cmdlets do PowerShell fornecendo as propriedades de RDP personalizadas como uma cadeia de caracteres separada por ponto-e-vírgula:
+Para adicionar ou editar várias propriedades personalizadas de RDP, execute os seguintes cmdlets PowerShell, fornecendo as propriedades de RDP personalizadas como uma cadeia separada pelo ponto-ponto:
 
 ```powershell
 $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
 
-![Uma captura de tela do cmdlet Get-RDSRemoteApp do PowerShell com Name e FriendlyName realçado.](media/multiplecustomrdpproperty.png)
+![Uma imagem de PowerShell cmdlet Get-RDSRemoteApp com nome e nome amigável destacados.](media/multiplecustomrdpproperty.png)
 
-## <a name="reset-all-custom-rdp-properties"></a>Redefinir todas as propriedades de RDP personalizadas
+## <a name="reset-all-custom-rdp-properties"></a>Redefinir todas as propriedades personalizadas de RDP
 
-Você pode redefinir propriedades individuais de RDP personalizadas para seus valores padrão seguindo as instruções em [Adicionar ou editar uma única propriedade RDP personalizada](#add-or-edit-a-single-custom-rdp-property), ou você pode redefinir todas as propriedades RDP personalizadas para um pool de hosts executando o seguinte cmdlet do PowerShell:
+Pode redefinir propriedades de RDP personalizadas individuais para os seus valores padrão seguindo as instruções em [Adicionar ou editar uma única propriedade RDP personalizada,](#add-or-edit-a-single-custom-rdp-property)ou pode redefinir todas as propriedades de RDP personalizadas para uma piscina hospedeira executando o seguinte cmdlet PowerShell:
 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
 
-![Uma captura de tela do cmdlet Get-RDSRemoteApp do PowerShell com Name e FriendlyName realçado.](media/resetcustomrdpproperty.png)
+![Uma imagem de PowerShell cmdlet Get-RDSRemoteApp com nome e nome amigável destacados.](media/resetcustomrdpproperty.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você personalizou as propriedades de RDP para um determinado pool de hosts, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-los como parte de uma sessão de usuário. Esses próximos dois como tos informarão como se conectar a uma sessão usando o cliente de sua escolha:
+Agora que personalizou as propriedades rdp para uma determinada piscina de anfitriões, pode iniciar sessão com um cliente do Windows Virtual Desktop para testá-las como parte de uma sessão de utilizador. Estes próximos dois How-tos dir-lhe-ão como se conectar a uma sessão usando o cliente da sua escolha:
 
-- [Conectar-se ao cliente de desktop do Windows](connect-windows-7-and-10.md)
-- [Conectar-se ao cliente Web](connect-web.md)
+- [Conecte-se com o cliente do Windows Desktop](connect-windows-7-and-10.md)
+- [Conecte-se com o cliente web](connect-web.md)

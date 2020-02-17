@@ -1,60 +1,60 @@
 ---
-title: Configurar alertas de serviço para a área de trabalho virtual do Windows-Azure
-description: Como configurar a integridade do serviço do Azure para receber notificações de serviço para a área de trabalho virtual do Windows.
+title: Configurar alertas de serviço para Windows Virtual Desktop - Azure
+description: Como configurar a Azure Service Health para receber notificações de serviço para o Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
-ms.openlocfilehash: b5fa5fc13c8ce0c98c04d2451f3a50e89b986c16
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8c062c1ce8e938ac426a10c41161eb7e28f3dcba
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676436"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368763"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Tutorial: configurar alertas de serviço
+# <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configurar alertas de serviço
 
-Você pode usar a integridade do serviço do Azure para monitorar problemas de serviço e comunicados de integridade da área de trabalho virtual do Windows. A integridade do serviço do Azure pode notificá-lo com diferentes tipos de alertas (por exemplo, email ou SMS), ajudá-lo a entender o efeito de um problema e mantê-lo atualizado à medida que o problema for resolvido. A integridade do serviço do Azure também pode ajudá-lo a reduzir o tempo de inatividade e a se preparar para a manutenção planejada e as alterações que podem afetar a disponibilidade de seus recursos.
+Pode utilizar a Azure Service Health para monitorizar problemas de serviço e aconselhamento de saúde para o Windows Virtual Desktop. A Azure Service Health pode notificá-lo com diferentes tipos de alertas (por exemplo, e-mail ou SMS), ajudá-lo a entender o efeito de um problema, e mantê-lo atualizado à medida que o problema resolve. A Azure Service Health também pode ajudá-lo a mitigar o tempo de inatividade, e preparar-se para a manutenção planeada e alterações que possam afetar a disponibilidade dos seus recursos.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar e configurar alertas de serviço.
+> * Crie e configure alertas de serviço.
 
-Para saber mais sobre a integridade do serviço do Azure, consulte a [documentação de integridade do Azure](https://docs.microsoft.com/azure/service-health/).
+Para saber mais sobre a Azure Service Health, consulte a Documentação de [Saúde Azure.](https://docs.microsoft.com/azure/service-health/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Tutorial: criar um locatário na área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
-- [Tutorial: criar entidades de serviço e atribuições de função com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
-- [Tutorial: criar um pool de hosts com o Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
+- [Tutorial: Criar um inquilino no Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+- [Tutorial: Criar diretores de serviço e atribuições de papéis com a PowerShell](create-service-principal-role-powershell.md)
+- [Tutorial: Crie uma piscina de anfitriões com o Azure Marketplace](create-host-pools-azure-marketplace.md)
 
 ## <a name="create-service-alerts"></a>Criar alertas de serviço
 
-Esta seção mostra como configurar a integridade do serviço do Azure e como configurar notificações, que podem ser acessadas no portal do Azure. Você pode configurar diferentes tipos de alertas e agendá-los para notificá-los oportunamente.
+Esta secção mostra-lhe como configurar a Azure Service Health e como configurar notificações, às quais pode aceder no portal Azure. Pode configurar diferentes tipos de alertas e agende-os para o notificar em tempo útil.
 
 ### <a name="recommended-service-alerts"></a>Alertas de serviço recomendados
 
-Recomendamos que você crie alertas de serviço para os seguintes tipos de eventos de integridade:
+Recomendamos que crie alertas de serviço para os seguintes tipos de eventos de saúde:
 
-- **Problema de serviço:** Receba notificações sobre problemas importantes que afetam a conectividade de seus usuários com o serviço ou com a capacidade de gerenciar seu locatário da área de trabalho virtual do Windows.
-- **Consultoria de integridade:** Receba notificações que exigem sua atenção. Veja a seguir alguns exemplos desse tipo de notificação:
-    - VMs (máquinas virtuais) não configuradas com segurança como a porta aberta 3389
-    - Substituição de funcionalidade
+- **Problema de serviço:** Receba notificações sobre grandes problemas que impactam a conectividade dos seus utilizadores com o serviço ou com a capacidade de gerir o seu inquilino do Windows Virtual Desktop.
+- **Aconselhamento em saúde:** Receba notificações que requerem a sua atenção. Seguem-se alguns exemplos deste tipo de notificação:
+    - Máquinas Virtuais (VMs) não configuradas de forma segura como porta aberta 3389
+    - Depreciação da funcionalidade
 
 ### <a name="configure-service-alerts"></a>Configurar alertas de serviço
 
 Para configurar alertas de serviço:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione **integridade do serviço.**
-3. Use as instruções em [criar alertas do log de atividades em notificações de serviço](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) para configurar seus alertas e notificações.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Selecione **Service Health.**
+3. Utilize as instruções em Criar alertas de registo de [atividade sonantes em notificações](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) de serviço para configurar os seus alertas e notificações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a configurar e usar a integridade de serviço do Azure para monitorar problemas de serviço e consultorias de integridade para a área de trabalho virtual do Windows. Para saber mais sobre como entrar na área de trabalho virtual do Windows, prossiga para o How-tos da área de trabalho virtual do Windows.
+Neste tutorial, aprendeu a configurar e utilizar a Azure Service Health para monitorizar problemas de serviço e aconselhamento de saúde para o Windows Virtual Desktop. Para saber como iniciar sessão no Windows Virtual Desktop, continue a ligar ao Windows Virtual Desktop How-tos.
 
 > [!div class="nextstepaction"]
-> [Conectar-se ao cliente do Área de Trabalho Remota no Windows 7 e no Windows 10](./connect-windows-7-and-10.md)
+> [Ligue-se ao cliente do Ambiente de Trabalho Remoto no Windows 7 e Windows 10](./connect-windows-7-and-10.md)

@@ -2,35 +2,44 @@
 title: Alterar o cartão de crédito do Azure
 description: Descreve como alterar o cartão de crédito utilizado para pagar a subscrição do Azure.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 6ae55e0075883de08af516b71089f00353975b34
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 10d475b9c0c33dfd17c3d87beed00154511e1ab6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75992845"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188425"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito do Azure
 
 Este documento aplica-se aos clientes que se inscreveram no Azure online com um cartão de crédito.
 
-No portal do Azure, pode adicionar um novo cartão de crédito, atualizar um cartão de crédito existente ou eliminar um cartão de crédito que não utiliza. Tem de ser um [Administrador de Conta](billing-subscription-transfer.md#whoisaa) para fazer estas alterações.
+No portal do Azure, pode alterar o método de pagamento predefinido para um novo cartão de crédito, atualizar os dados do seu cartão de crédito e eliminar os cartões de crédito que não utiliza. Tem de ser um [Administrador de Conta](billing-subscription-transfer.md#whoisaa) para fazer estas alterações.
 
-Se tiver um [Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement), os métodos de pagamento estão associados aos perfis de faturação. Saiba como [alterar o método de pagamento predefinido de um perfil de faturação](#change-payment-method-for-a-billing-profile). Apenas o utilizador que se inscreveu no Azure pode atualizar o método de pagamento.
+Os métodos de pagamento suportados para o Microsoft Azure são cartões de crédito e cheque/transferência bancária. Para ter aprovação para pagar por cheque/transferência bancária, veja [Pagamento das suas subscrições do Azure por fatura](pay-by-invoice.md).
 
-**Quer mudar para o pagamento por fatura (cheque/transferência bancária)?** Veja [Pagamento das subscrições através de fatura](pay-by-invoice.md).
+Se tiver um Contrato de Cliente Microsoft, os métodos de pagamento estão associados aos perfis de faturação. Saiba como [verificar o acesso a um Contrato de Cliente Microsoft](#check-the-type-of-your-account). Se tiver um MCA, avance para [Gerir cartões de crédito para um Contrato de Cliente Microsoft](#manage-credit-cards-for-a-microsoft-customer-agreement).
 
 <a id="addcard"></a>
 
-## <a name="add-a-new-credit-card-to-an-azure-subscription"></a>Adicionar um novo cartão de crédito a uma subscrição do Azure
+## <a name="manage-credit-cards-for-an-azure-subscription"></a>Gerir cartões de crédito para uma subscrição do Azure
+
+As secções seguintes aplicam-se aos clientes que tenham uma conta de faturação do Programa Microsoft Online Services. Saiba como [verificar o tipo de conta de faturação](#check-the-type-of-your-account). Se o seu tipo de conta de faturação for o Programa Microsoft Online Services, os métodos de pagamento estão associados a subscrições individuais do Azure.
+
+### <a name="change-credit-card-for-a-subscription"></a>Alterar o cartão de crédito para uma subscrição
+
+Pode alterar o crédito predefinido da sua subscrição do Azure para um novo cartão de crédito ou um cartão de crédito previamente guardado no portal do Azure. Tem de ser o Administrador de Conta para alterar o cartão de crédito. Se mais de uma das subscrições tiver o mesmo método de pagamento ativo, a alteração do método de pagamento ativo em qualquer uma dessas subscrições também atualizará o método de pagamento ativo nas outras subscrições.
+
+
+Para alterar o cartão de crédito predefinido da sua subscrição para um novo, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
 1. Procure **Cost Management + Faturação**.
@@ -53,7 +62,23 @@ Se tiver um [Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-cust
 
 Se obtiver um erro depois de adicionar o cartão de crédito, veja [Cartão de crédito recusado na inscrição do Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
 
-## <a name="update-existing-credit-card"></a>Atualizar cartão de crédito existente
+Também pode alterar o cartão de crédito predefinido da sua subscrição para um que já esteja guardado na sua conta, seguindo estes passos:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
+1. Procure **Cost Management + Faturação**.
+
+    ![Captura de ecrã a mostrar a pesquisa](./media/change-credit-card/search.png)
+
+1. Selecione a subscrição à qual quer adicionar o cartão de crédito.
+1. Selecione **Métodos de pagamento**.
+
+    ![Captura de ecrã que mostra a opção Gerir métodos de pagamento selecionada.](./media/change-credit-card/payment-methods-blade-x.png)
+
+1. Selecione a caixa junto ao cartão que quer definir como o método de pagamento ativo.
+1. Clique em **Definir como ativo**.
+    ![Captura de ecrã que mostra o cartão de crédito selecionado e definido como ativo](./media/change-credit-card/sub-change-active-x.png).
+
+### <a name="edit-credit-card-details"></a>Editar detalhes do cartão de crédito
 
 Se o cartão de crédito for renovado e o número continuar o mesmo, atualize os detalhes do cartão de crédito existente, como a data de validade. Se o número do cartão de crédito for alterado porque o cartão foi perdido, roubado ou expirou, siga os passos em [Adicionar um cartão de crédito como um método de pagamento](#addcard). Não precisa de atualizar o CVV.
 
@@ -73,25 +98,7 @@ Se o cartão de crédito for renovado e o número continuar o mesmo, atualize os
 1. Atualize os detalhes do cartão de crédito.
 1. Selecione **Guardar**.
 
-## <a name="use-a-different-credit-card"></a>Utilizar um cartão de crédito diferente
-
-Se mais de uma das subscrições tiver o mesmo método de pagamento ativo, a alteração do método de pagamento ativo em qualquer uma dessas subscrições também atualizará o método de pagamento ativo nas outras subscrições.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
-1. Procure **Cost Management + Faturação**.
-
-    ![Captura de ecrã a mostrar a pesquisa](./media/change-credit-card/search.png)
-
-1. Selecione a subscrição à qual quer adicionar o cartão de crédito.
-1. Selecione **Métodos de pagamento**.
-
-    ![Captura de ecrã que mostra a opção Gerir métodos de pagamento selecionada.](./media/change-credit-card/payment-methods-blade-x.png)
-
-1. Selecione a caixa junto ao cartão que quer definir como o método de pagamento ativo.
-1. Clique em **Definir como ativo**.
-    ![Captura de ecrã que mostra o cartão de crédito selecionado e definido como ativo](./media/change-credit-card/sub-change-active-x.png).
-
-## <a name="remove-a-credit-card-from-the-account"></a>Remover o cartão de crédito da conta
+### <a name="delete-a-credit-card-from-the-account"></a>Eliminar um cartão de crédito da conta
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
 1. Selecione **Cost Management + Faturação** no lado esquerdo da página.
@@ -107,28 +114,52 @@ Se mais de uma das subscrições tiver o mesmo método de pagamento ativo, a alt
 
 Se o cartão de crédito for o método de pagamento ativo para qualquer uma das suas subscrições da Microsoft, não o poderá remover da conta do Azure. Altere o método de pagamento ativo para todas as subscrições associadas a este cartão de crédito e tente novamente
 
-## <a name="change-payment-method-for-a-billing-profile"></a>Alterar o método de pagamento de um perfil de faturação
+## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Gerir cartões de crédito para um Contrato de Cliente Microsoft
 
-Para alterar o método de pagamento de um perfil de faturação, tem de ser a pessoa que se inscreveu no Azure.
+As secções seguintes aplicam-se aos clientes que tenham um Contrato de Cliente Microsoft e que se inscreveram no Azure online com um cartão de crédito. [Saiba como verificar se tem um Contrato de Cliente Microsoft](#check-the-type-of-your-account).
 
-Se quiser mudar o método de pagamento predefinido para cheque/transferência bancária, saiba como [mudar um perfil de faturação para cheque/transferência bancária](pay-by-invoice.md).
+### <a name="change-default-credit-card"></a>Alterar o cartão de crédito predefinido 
+Se tiver um Contrato de Cliente Microsoft, o seu cartão de crédito está associado a um perfil de faturação. Para alterar o método de pagamento de um perfil de faturação, tem de ser a pessoa que se inscreveu no Azure e criou a conta de faturação.
+
+Se quiser alterar o método de pagamento predefinido do seu perfil de faturação para cheque/transferência bancária, veja [Pagamento das suas subscrições do Azure por fatura](pay-by-invoice.md).
+
+Para alterar o seu cartão de crédito, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 1. No menu esquerdo, clique em **Perfis de faturação**.
-
-    ![captura de ecrã que mostra o perfil de faturação no menu](./media/change-credit-card/billing-profile.png)
-
 1. Selecione um perfil de faturação.
 1. No menu esquerdo, selecione **Métodos de pagamento**.
 
-   ![Captura de ecrã que mostra os métodos de pagamento no menu](./media/change-credit-card/billing-profile-payment-methods.png)
+   ![Captura de ecrã que mostra os métodos de pagamento no menu](./media/change-credit-card/payment-methods-tab-mca.png)
 
-1. Acima do método de pagamento predefinido, clique em **Alterar**.
+1. Na secção **Método de pagamento predefinido**, clique em **Alterar**.
 
-    ![Captura de ecrã que mostra o botão Alterar](./media/change-credit-card/customer-led-switch-credit-card.png)
+    ![Captura de ecrã que mostra o botão Alterar](./media/change-credit-card/change-payment-method-mca.png)
 
-1. Selecione um cartão existente ou adicione um novo.
+1. No novo painel à direita, selecione um cartão existente na lista pendente ou adicione um novo, clicando na ligação "Adicionar novo método de pagamento" azul.
+
+### <a name="edit-or-delete-a-credit-card"></a>Editar ou eliminar um cartão de crédito
+
+Pode editar os dados do cartão de crédito (como atualizar a data de validade) e eliminar cartões de crédito da sua conta no portal do Azure. Só é possível eliminar um cartão de crédito se não estiver associado a uma subscrição do Azure ou perfil de faturação. Se estiver associado a uma subscrição do Azure desativada, tem de aguardar até que a subscrição seja eliminada (30-90 dias após o cancelamento) para eliminar o cartão de crédito.
+
+Para editar ou eliminar um cartão de crédito, siga estes passos:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
+1. No menu esquerdo, clique em **Perfis de faturação**.
+1. Selecione um perfil de faturação.
+1. No menu esquerdo, selecione **Métodos de pagamento**.
+
+   ![Captura de ecrã que mostra os métodos de pagamento no menu](./media/change-credit-card/payment-methods-tab-mca.png)
+
+1. Na secção **Os seus cartões de crédito**, localize o cartão de crédito que pretende editar ou eliminar.
+1. Selecione as reticências (`...`) no fim da linha.
+
+    ![Captura de ecrã que mostra as reticências](./media/change-credit-card/edit-delete-credit-card-mca.png)
+
+1. Para editar os dados do seu cartão de crédito, selecione **Editar** no menu de contexto.
+1. Para eliminar o seu cartão de crédito, selecione **Eliminar** no menu de contexto.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Não suportamos cartões virtuais ou pré-pagos. Se ocorrerem erros ao adicionar ou atualizar um cartão de crédito válido, tente abrir o browser em modo privado.
@@ -160,8 +191,8 @@ Se [pagar por fatura](pay-by-invoice.md), envie o pagamento para a localização
 
 Para adicionar ou atualizar o NIF, atualize o seu perfil no [Centro de Contas do Azure](https://account.azure.com/Profile) e, em seguida, selecione **Registo fiscal**. O NIF é utilizado para cálculos de isenção fiscal e é apresentado na sua fatura.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
-[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
+## <a name="check-the-type-of-your-account"></a>Verificar o tipo de conta
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 

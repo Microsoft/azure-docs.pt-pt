@@ -1,52 +1,52 @@
 ---
-title: Conectar-se à área de trabalho virtual do Windows do Android – Azure
-description: Como se conectar à área de trabalho virtual do Windows usando o cliente Android.
+title: Connect to Windows Virtual Desktop from Android - Azure
+description: Como ligar ao Windows Virtual Desktop utilizando o cliente Android.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: de875ca9db9716e59c3c6efc0d7fb34e31f0c1d2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605856"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367538"
 ---
 # <a name="connect-with-the-android-client"></a>Ligar ao cliente Android
 
-> Aplica-se a: Android 4,1 e posterior, Chromebooks com ChromeOS 53 e posterior.
+> Aplica-se a: Android 4.1 e mais tarde, Chromebooks com ChromeOS 53 e mais tarde.
 
 >[!NOTE]
-> A capacidade de acessar recursos da área de trabalho virtual do Windows a partir do cliente Android está disponível no momento na versão prévia.
+> A capacidade de aceder aos recursos do Windows Virtual Desktop do cliente Android encontra-se atualmente disponível na pré-visualização.
 
-Você pode acessar os recursos da área de trabalho virtual do Windows em seu dispositivo Android com nosso cliente baixável. Você também pode usar o cliente Android em dispositivos Chromebook que dão suporte ao Google Play Store. Este guia lhe dirá como configurar o cliente Android.
+Pode aceder aos recursos do Windows Virtual Desktop a partir do seu dispositivo Android com o nosso cliente descarregável. Também pode utilizar o cliente Android em dispositivos Chromebook que suportam a Google Play Store. Este guia dir-lhe-á como configurar o cliente Android.
 
-## <a name="install-the-android-client"></a>Instalar o cliente Android
+## <a name="install-the-android-client"></a>Instale o cliente Android
 
-Para começar, [Baixe](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android) e instale o cliente em seu dispositivo Android.
+Para começar, [faça o download](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android) e instale o cliente no seu dispositivo Android.
 
-## <a name="subscribe-to-a-feed"></a>Assinar um feed
+## <a name="subscribe-to-a-feed"></a>Subscreva um feed
 
-Assine o feed fornecido pelo administrador para obter a lista de recursos gerenciados que você pode acessar em seu dispositivo Android.
+Subscreva o feed fornecido pelo seu administrador para obter a lista de recursos geridos a que pode aceder no seu dispositivo Android.
 
-Para assinar um feed:
+Para subscrever um feed:
 
-1. No centro de conexões, toque em **+** e, em seguida, toque em **feed de recursos remoto**.
-2. Insira a URL do feed no campo **URL do feed** . A URL do feed pode ser uma URL ou um endereço de email.
-   - Se você usar uma URL, use a que o administrador lhe forneceu, normalmente <https://rdweb.wvd.microsoft.com>.
-   - Para usar o email, insira seu endereço de email. O cliente pesquisará uma URL associada ao seu endereço de email se o administrador configurou o servidor dessa maneira.
-3. Toque **em Avançar**.
-4. Forneça suas credenciais quando solicitado.
-   - Para **nome de usuário**, dê ao nome de usuário permissão para acessar recursos.
-   - Para **senha**, forneça a senha associada ao nome de usuário.
-   - Você também poderá ser solicitado a fornecer fatores adicionais se o administrador configurou a autenticação dessa maneira.
+1. No Centro de Ligação, toque **+** , e, em seguida, toque no **Feed de Recursos Remotos**.
+2. Introduza o URL de alimentação no campo **URL** feed. O URL de alimentação pode ser um URL ou um endereço de e-mail.
+   - Se utilizar um URL, use o que o seu administrador lhe deu, normalmente <https://rdweb.wvd.microsoft.com>.
+   - Para utilizar o seu email, insira o seu endereço de e-mail. O cliente procurará um URL associado ao seu endereço de e-mail se o seu administrador configurar o servidor dessa forma.
+3. Toque **EM NEXT**.
+4. Forneça as suas credenciais quando solicitado.
+   - Para **o nome do utilizador,** dê ao utilizador o nome do utilizador com permissão para aceder aos recursos.
+   - Para **palavra-passe,** forneça a palavra-passe associada ao nome do utilizador.
+   - Também pode ser solicitado a fornecer fatores adicionais se a sua administração configurar a autenticação dessa forma.
 
-Após a assinatura, a central de conexões deve exibir os recursos remotos.
+Após a subscrição, o Centro de Ligação deve exibir os recursos remotos.
 
-Após a assinatura de um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
+Uma vez subscrito um feed, o conteúdo do feed irá atualizar-se automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo seu administrador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como usar o cliente Android, confira [introdução ao cliente Android](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-android).
+Para saber mais sobre como usar o cliente Android, confira [Get started com o cliente Android](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/).

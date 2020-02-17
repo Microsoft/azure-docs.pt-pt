@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 021d00b9fb02f2f5ea2560038741efec11b8cbc0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 16d8faa1f20227241d1a582dd4d80e0123f7a31e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169193"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368488"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar acesso aos recursos do Event Hubs utilizando o Diretório Ativo Azure
 O Azure Event Hubs apoia a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos de recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um diretor de segurança, que pode ser um utilizador, ou um diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -54,9 +54,13 @@ A lista seguinte descreve os níveis a que pode aceder aos recursos do Event Hub
 - **Subscrição**: A atribuição de funções aplica-se a todos os recursos do Event Hubs em todos os grupos de recursos na subscrição.
 
 > [!NOTE]
-> Tenha em mente que as atribuições de funções RBAC podem demorar até cinco minutos para se propagar. 
+> - Tenha em mente que as atribuições de funções RBAC podem demorar até cinco minutos para se propagar. 
+> - Este conteúdo aplica-se tanto aos Centros de Eventos como aos Centros de Eventos para a Apache Kafka. Para obter mais informações sobre os Hubs de Eventos para suporte a Kafka, consulte Os Hubs de [Eventos para Kafka - segurança e autenticação.](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication)
+
 
 Para obter mais informações sobre como os papéis incorporados são definidos, consulte [compreender definições](../role-based-access-control/role-definitions.md#management-and-data-operations)de papéis . Para obter informações sobre a criação de funções RBAC personalizadas, consulte [Criar papéis personalizados para o Controlo de Acesso baseado em papel Azure](../role-based-access-control/custom-roles.md).
+
+
 
 ## <a name="samples"></a>Amostras
 - [Microsoft.Azure.EventHubs amostras](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
@@ -65,6 +69,8 @@ Para obter mais informações sobre como os papéis incorporados são definidos,
 - [Amostras de Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Esta amostra foi atualizada para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.**
+- [Centros de eventos para amostras Kafka - OAuth.](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth) 
+
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba como atribuir uma função embutida no RBAC a um diretor de segurança, consulte o acesso authenticado aos recursos do Event Hubs utilizando o [Diretório Ativo Azure.](authenticate-application.md)

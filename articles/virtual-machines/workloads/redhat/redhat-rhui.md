@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: e4213e67d9d752f3fc6450236b41e8bbf61f9957
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: dc4762cbda5ad2877d2d69953d2514dea17c8b46
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169312"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368895"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização do Red Hat a pedido Red Hat Enterprise para VMs do Linux no Azure
  [A Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de nuvem, como o Azure, espelham conteúdos repositórios hospedados em Red Hat, criem repositórios personalizados com conteúdo específico do Azure e disponibilizem-no aos VMs de utilizador final.
@@ -27,6 +27,10 @@ Informações adicionais sobre imagens RHEL em Azure, incluindo políticas de pu
 
 As informações sobre as políticas de suporte do Chapéu Vermelho para todas as versões do RHEL podem ser encontradas na página [red hat enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)
 
+> [!IMPORTANT]
+> RHUI destina-se apenas a imagens pay-as-you-go (PAYGO). Para imagens personalizadas e douradas, também conhecidas como bring-your-your-own-subscrição (BYOS), o sistema precisa de ser ligado ao RHSM ou satélite para receber atualizações. Consulte o [artigo do Red Hat](https://access.redhat.com/solutions/253273) para mais detalhes.
+
+
 ## <a name="important-information-about-azure-rhui"></a>Informações importantes sobre o Azure RHUI
 
 * Azure RHUI é a infraestrutura de atualização que suporta todos os VMs RHEL PAYG criados em Azure. Isto não o impede de registar os seus VMs PAYG RHEL com O Gestor de Assinaturaou Satélite ou outra fonte de atualizações, mas fazê-lo com um VM PAYG resultará em faturação dupla indireta. Consulte o seguinte ponto para mais detalhes.
@@ -35,6 +39,7 @@ As informações sobre as políticas de suporte do Chapéu Vermelho para todas a
 * As imagens RHEL SAP PAYG em Azure (RHEL for SAP, RHEL for SAP HANA e RHEL for SAP Business Applications) estão ligadas a canais RHUI dedicados que permanecem na versão rheL específica, conforme necessário para a certificação SAP.
 
 * O acesso ao RHUI hospedado no Azure está limitado aos VMs dentro das gamas IP do centro de [dados Azure.](https://www.microsoft.com/download/details.aspx?id=41653) Se estiver a utilização do proxy todo o tráfego de VM por meio de uma infraestrutura de rede no local, poderá ter de configurar rotas definidas pelo utilizador para as VMs de PAYG RHEL acessar o RHUI do Azure. Se for esse o caso, as rotas definidas pelo utilizador terão de ser adicionadas para _todos os_ endereços IP rHUI.
+
 
 ## <a name="image-update-behavior"></a>Comportamento de atualização de imagem
 

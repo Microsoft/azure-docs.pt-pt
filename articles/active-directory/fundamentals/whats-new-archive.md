@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4e2e25189b35f7d17ef42536aa7cd86ac92ec82
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5ff7cda6a593b1517ad711a56f73d29a14345baf
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185856"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368014"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para O que há de novo no Diretório Ativo Azure?
 
@@ -1698,7 +1698,7 @@ Esta atualização permite-lhe ver que políticas são avaliadas quando um utili
 **Categoria de serviço:** Reportagem  
 **Capacidade do produto:** Monitorização e Reportagem
  
-Com a introdução do campo de **Aplicação de Clientes** nos registos de atividade sessão, os clientes podem agora ver utilizadores que estão a utilizar autenticações antigas. Os clientes poderão aceder a esta informação utilizando a API do Gráfico De SmS de Sign-ins ou através dos registos de atividade de entrada no portal Azure AD onde poderá utilizar o controlo da **App do Cliente** para filtrar as autenticações antigas. Consulte a documentação para obter mais detalhes.
+Com a introdução do campo de **Aplicação de Clientes** nos registos de atividade sessão, os clientes podem agora ver utilizadores que estão a utilizar autenticações antigas. Os clientes poderão aceder a esta informação utilizando a API do Microsoft Graph API ou através dos registos de atividade sessão de entrada no portal Azure AD, onde poderá utilizar o controlo da **App do Cliente** para filtrar as autenticações antigas. Consulte a documentação para obter mais detalhes.
 
 ---
 
@@ -2092,7 +2092,7 @@ Revisão de acesso de grupos e aplicações está agora geralmente disponível c
 **Categoria de serviço:** Reportagem  
 **Capacidade do produto:** Monitorização e Reportagem
  
-Registos de atividade do AD do Azure, nomeadamente, inícios de sessão e registos de auditoria, estão agora disponíveis através do MS Graph. Podemos ter expostos dois pontos finais por meio do MS Graph para aceder a estes registos. Consulte [os nossos documentos](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) para acesso programático a APIs de reporte de AD Azure para começar. 
+Os registos da Atividade Azure AD, que incluem registos de inscrições e auditoria, já estão disponíveis através da API do Microsoft Graph. Expusemos dois pontos finais através da API do Microsoft Graph para aceder a estes registos. Consulte [os nossos documentos](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) para acesso programático a APIs de reporte de AD Azure para começar. 
 
 ---
  
@@ -2596,7 +2596,7 @@ Para obter mais informações sobre como utilizar estes relatórios, consulte o 
 **Categoria de serviço:** Reportagem  
 **Capacidade do produto:** Monitorização e Reportagem
 
-À medida que faz parte de comentários de clientes para ativar as funções de não-administrador, para ter acesso a atividade do Azure AD, ativámos a capacidade para utilizadores que estão na função "Leitor de relatório" para acesso inícios de sessão e a atividade de auditoria no portal do Azure, bem como com nossa Graph APIs. 
+Como parte do feedback dos clientes para permitir que as funções de não administração tenham acesso aos registos de atividade da Azure AD, permitimos que os utilizadores que estão na função "Report Reader" acedam à atividade de Sign-ins e Audit dentro do portal Azure, bem como usando o Microsoft Graph API. 
 
 Para mais informações, como utilizar estes relatórios, consulte o [relatório do Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
 

@@ -1,7 +1,7 @@
 ---
-title: Usar recursos de acessibilidade no designer
+title: Utilize funcionalidades de acessibilidade no designer (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre os atalhos de teclado e os recursos de acessibilidade do leitor de tela disponíveis no designer.
+description: Conheça os atalhos de teclado e as funcionalidades de acessibilidade do leitor de ecrã disponíveis no designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,74 +9,74 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d5c8047fea8e9081de08b582c537711714ea463
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314237"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366192"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Usar um teclado para usar o designer de Azure Machine Learning
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Utilize um teclado para utilizar o designer de machine learning Azure (pré-visualização)
 
-Saiba como usar um teclado e um leitor de tela para usar Azure Machine Learning designer. Para obter uma lista de atalhos de teclado que funcionam em qualquer lugar na portal do Azure, consulte [atalhos de teclado no portal do Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
+Aprenda a usar um leitor de teclado e ecrã para utilizar o designer de Machine Learning Azure. Para uma lista de atalhos de teclado que funcionam em todo o lado no portal Azure, consulte [atalhos de teclado no portal Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
-Este fluxo de trabalho foi testado com [o Narrator e o](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) [Jaws](https://www.freedomscientific.com/products/software/jaws/), mas ele deve funcionar com outros leitores de tela padrão.
+Este fluxo de trabalho foi testado com [o Narrador](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) e o [JAWS,](https://www.freedomscientific.com/products/software/jaws/)mas deve funcionar com outros leitores de ecrã padrão.
 
-## <a name="navigate-the-pipeline-graph"></a>Navegar pelo grafo de pipeline
+## <a name="navigate-the-pipeline-graph"></a>Navegue no gráfico do oleoduto
 
-O grafo de pipeline é organizado como uma lista de listas. A lista de módulos de nível superior contém todo o módulo no pipeline. Cada item na lista de módulos contém uma lista de conexões que descreve todas as suas conexões. 
+O gráfico do oleoduto é organizado como uma lista aninhada. A lista externa é uma lista de módulos, que descreve todos os módulos do gráfico do pipeline. A lista interna é uma lista de ligação, que descreve todas as ligações de um módulo específico.  
 
-1. Na lista módulo, use a tecla de direção para alternar os módulos.
-1. Use Tab para abrir a lista de conexões do módulo de destino.
-1. Use a tecla de direção para alternar entre as portas de conexão do módulo.
-1. Use "G" para ir para o módulo de destino.
+1. Na lista de módulos, utilize a tecla seta para mudar os módulos.
+1. Utilize o separador para abrir a lista de ligação para o módulo alvo.
+1. Utilize a tecla seta para alternar entre as portas de ligação para o módulo.
+1. Utilize "G" para ir ao módulo alvo.
 
-## <a name="edit-the-pipeline-graph"></a>Editar o grafo do pipeline
+## <a name="edit-the-pipeline-graph"></a>Editar o gráfico do pipeline
 
-### <a name="add-a-module-to-the-graph"></a>Adicionar um módulo ao grafo
+### <a name="add-a-module-to-the-graph"></a>Adicione um módulo ao gráfico
 
-1. Use Ctrl + F6 para alternar o foco da tela para a árvore de módulos.
-1. Localize o módulo desejado na árvore de módulo usando o controle TreeView padrão.
+1. Utilize ctrl+F6 para mudar o foco da tela para a árvore do módulo.
+1. Encontre o módulo desejado na árvore do módulo utilizando o controlo padrão da visão da árvore.
 
 ### <a name="edit-a-module"></a>Editar um módulo
 
-Para conectar um módulo a outro módulo:
+Para ligar um módulo a outro módulo:
 
-1. Use Ctrl + Shift + H ao direcionar para um módulo na lista de módulos para abrir o auxiliar de conexão.
-1. Edite as portas de conexão do módulo.
+1. Utilize ctrl + Shift + H ao direcionar um módulo na lista de módulos para abrir o ajudante de ligação.
+1. Editar as portas de ligação para o módulo.
 
 Para ajustar as propriedades do módulo:
 
-1. Use Ctrl + Shift + E ao direcionar um módulo para abrir as propriedades do módulo.
-1. Edite as propriedades do módulo.
+1. Utilize ctrl + Shift + E ao direcionar um módulo para abrir as propriedades do módulo.
+1. Editar as propriedades do módulo.
 
 ## <a name="navigation-shortcuts"></a>Atalhos de navegação
 
-| Teclas | Descrição |
+| Tecla | Descrição |
 |-|-|
-| Ctrl + F6 | Alternar o foco entre a árvore de tela e o módulo |
-| CTRL + F1   | Abrir o cartão de informações ao se concentrar em um nó na árvore de módulo |
-| Ctrl + Shift + H | Abrir o auxiliar de conexão quando o foco estiver em um nó |
-| Ctrl + Shift + E | Abrir propriedades do módulo quando o foco estiver em um nó |
-| Ctrl + G | Mover o foco para o primeiro nó com falha se a execução do pipeline falhar |
+| Ctrl + F6 | Foco de alternância entre tela e árvore de módulo |
+| Ctrl + F1   | Abra o cartão de informações quando se concentrar num nó na árvore do módulo |
+| Ctrl + Turno + H | Abra o ajudante de ligação quando o foco estiver num nó |
+| Ctrl + Turno + E | Abrir propriedades do módulo quando o foco está em um nó |
+| Ctrl + G | Mova o foco para o primeiro nó falhado se o gasoduto falhar |
 
 ## <a name="action-shortcuts"></a>Atalhos de ação
 
-Use os atalhos a seguir com a chave de acesso. Para obter mais informações sobre chaves de acesso, consulte https://en.wikipedia.org/wiki/Access_key.
+Utilize os seguintes atalhos com a chave de acesso. Para obter mais informações sobre as teclas de acesso, consulte https://en.wikipedia.org/wiki/Access_key.
 
-| Teclas | Ação |
+| Tecla | Ação |
 |-|-|
-| Tecla de acesso + R | Executar |
-| Tecla de acesso + P | Publicar |
-| Tecla de acesso + C | Clone |
-| Tecla de acesso + D | Implementar |
-| Tecla de acesso + I | Criar/atualizar pipeline de inferência |
-| Tecla de acesso + B | Criar/atualizar pipeline de inferência de lote |
-| Tecla de acesso + K | Abra a lista suspensa "criar pipeline de inferência" |
-| Tecla de acesso + U | Abrir o menu suspenso "atualizar o pipeline de inferência" |
-| Tecla de acesso + M | Abrir mais (...) DropDown |
+| Chave de acesso + R | Executar |
+| Chave de acesso + P | Publicar |
+| Chave de acesso + C | Clone |
+| Chave de acesso + D | Implementação |
+| Chave de acesso + I | Criar/atualizar o gasoduto de inferência |
+| Chave de acesso + B | Criar/atualizar o gasoduto de inferência do lote |
+| Chave de acesso + K | Open "Create inference pipeline" dropdown |
+| Chave de acesso + U | Abrir "Update inference pipeline" dropdown |
+| Chave de acesso + M | Abrir mais(...) dropdown |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar o alto contraste ou a alteração de tema](../azure-portal/azure-portal-change-theme-high-contrast.md)
-- [Ferramentas relacionadas à acessibilidade na Microsoft](https://www.microsoft.com/accessibility)
+- [Ferramentas relacionadas com a acessibilidade na Microsoft](https://www.microsoft.com/accessibility)

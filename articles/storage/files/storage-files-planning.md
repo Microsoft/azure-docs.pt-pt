@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 203bf584711fbfcfd0baeee8f5e4c7f70d96823b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 9b71c4a5c0f245d9da97dc8f096d15c5386bf919
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157227"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368612"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -177,8 +177,6 @@ Esta secção aplica-se apenas às ações de ficheiros padrão. Todas as açõe
 As ações de ficheiros standard com limite de capacidade de 100 TiB estão disponíveis globalmente em todas as regiões do Azure -
 
 - LRS: Todas as regiões, exceto a África do Sul Norte e África do Sul Oeste.
-   - Leste dos EUA e Europa Ocidental: Todas as novas contas são apoiadas. Um pequeno número de contas existentes não concluiu o processo de atualização. Pode verificar se as suas contas de armazenamento existentes completaram o processo de atualização [tentando ativar grandes partilhas](storage-files-how-to-create-large-file-share.md)de ficheiros .
-
 - ZRS: Todas as regiões, exceto japão Leste, Norte da Europa, África do Sul Norte.
 - GRS/GZRS: Não suportado.
 

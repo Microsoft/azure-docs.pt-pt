@@ -1,5 +1,5 @@
 ---
-title: Exemplos do código de colaboração B2B e do PowerShell – Azure AD
+title: Código de colaboração B2B e amostras PowerShell - Azure AD
 description: Exemplos do PowerShell e de código para a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3a43ce4c560e89d88594d173aae7b2ad2db99ee
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03a7a9c0c9ed308944b57e7659fefa81178af78b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273099"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368142"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Exemplos do PowerShell e de código para a colaboração do Azure Active Directory B2B
 
@@ -56,7 +56,7 @@ Este cmdlet envia um convite para os endereços de e-mail em convites.csv. As fu
 - Envio de mensagens para os utilizadores no campo CC ou supressão de mensagens de e-mail
 
 ## <a name="code-sample"></a>Exemplo de código
-Aqui mostramos como chamar a API de convite, no modo "só de aplicação", para obter o URL de resgate do recurso para o qual está a convidar o utilizador B2B. O objetivo é enviar um e-mail de convite personalizado. O e-mail pode ser composto com um cliente HTTP, para que possa personalizar o aspeto e enviar através da Graph API.
+Aqui mostramos como chamar a API de convite, no modo "só de aplicação", para obter o URL de resgate do recurso para o qual está a convidar o utilizador B2B. O objetivo é enviar um e-mail de convite personalizado. O e-mail pode ser composto por um cliente HTTP, para que possa personalizar a sua aparência e enviá-lo através da API do Microsoft Graph.
 
 ```csharp
 namespace SampleInviteApp
@@ -70,12 +70,12 @@ namespace SampleInviteApp
     class Program
     {
         /// <summary>
-        /// Microsoft graph resource.
+        /// Microsoft Graph resource.
         /// </summary>
         static readonly string GraphResource = "https://graph.microsoft.com";
  
         /// <summary>
-        /// Microsoft graph invite endpoint.
+        /// Microsoft Graph invite endpoint.
         /// </summary>
         static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
  
@@ -173,14 +173,14 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Get the access token for our application to talk to microsoft graph.
+        /// Get the access token for our application to talk to Microsoft Graph.
         /// </summary>
-        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
+        /// <returns>Returns the access token for our application to talk to Microsoft Graph.</returns>
         private static string GetAccessToken()
         {
             string accessToken = null;
  
-            // Get the access token for our application to talk to microsoft graph.
+            // Get the access token for our application to talk to Microsoft Graph.
             try
             {
                 AuthenticationContext testAuthContext =

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 6bdac3f06834ccb5454efa0d77bec5a5a6c5b5bf
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 543514683ff96449bfe0e5a21c525834f61f3027
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515110"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367124"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
 
@@ -20,15 +20,15 @@ Este artigo responderá a perguntas frequentes e abordará as práticas recomend
  
 ## <a name="what-is-windows-10-enterprise-multi-session"></a>O que é o Windows 10 Enterprise Multi-Session? 
 
-O Windows 10 Enterprise Multi-Session, anteriormente conhecido como Windows 10 Enterprise para áreas de trabalho virtuais (EVD), é um novo Host da Sessão da Área de Trabalho Remota que permite várias sessões interativas simultâneas, que anteriormente apenas o Windows Server poderia fazer. Esse recurso oferece aos usuários uma experiência familiar do Windows 10, enquanto pode se beneficiar das vantagens de custo de várias sessões e usar o licenciamento do Windows por usuário existente em vez de CALs (licenças de acesso para cliente) do RDS. Para obter mais informações sobre licenças e preços, consulte [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+O Windows 10 Enterprise Multi-Session, anteriormente conhecido como Windows 10 Enterprise para áreas de trabalho virtuais (EVD), é um novo Host da Sessão da Área de Trabalho Remota que permite várias sessões interativas simultâneas, que anteriormente apenas o Windows Server poderia fazer. Esse recurso oferece aos usuários uma experiência familiar do Windows 10, enquanto pode se beneficiar das vantagens de custo de várias sessões e usar o licenciamento do Windows por usuário existente em vez de CALs (licenças de acesso para cliente) do RDS. Para obter mais informações sobre licenças e preços, consulte os preços do [Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
 ## <a name="how-many-users-can-simultaneously-have-an-interactive-session-on-windows-10-enterprise-multi-session"></a>Quantos usuários podem simultaneamente ter uma sessão interativa no Windows 10 Enterprise Multi-Session?
 
-Quantas sessões interativas podem estar ativas ao mesmo tempo dependem dos recursos de hardware do seu sistema (vCPU, memória, disco e vGPU), como os usuários usam seus aplicativos enquanto estiverem conectados a uma sessão e a sua carga de trabalho do sistema. Sugerimos que você valide o desempenho do sistema para entender quantos usuários você pode ter no Windows 10 Enterprise Multi-Session. Para saber mais, confira [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+Quantas sessões interativas podem estar ativas ao mesmo tempo dependem dos recursos de hardware do seu sistema (vCPU, memória, disco e vGPU), como os usuários usam seus aplicativos enquanto estiverem conectados a uma sessão e a sua carga de trabalho do sistema. Sugerimos que você valide o desempenho do sistema para entender quantos usuários você pode ter no Windows 10 Enterprise Multi-Session. Para saber mais, consulte os preços do [Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
 ## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>Por que meu aplicativo relata o Windows 10 Enterprise Multi-Session como um sistema operacional de servidor?
 
-O Windows 10 Enterprise Multi-Session é uma edição virtual do Windows 10 Enterprise. Uma das diferenças é que esse sistema operacional (SO) relata o [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem) como tendo um valor de 3, o mesmo valor que o Windows Server. Essa propriedade mantém o sistema operacional compatível com as ferramentas de gerenciamento de RDSH existentes, aplicativos de regestão de várias sessões de RDSH e, principalmente, otimizações de desempenho do sistema de nível inferior para ambientes de RDSH. Alguns instaladores de aplicativo podem bloquear a instalação em várias sessões do Windows 10, dependendo se detectarem o ProductType está definido como cliente. Se seu aplicativo não for instalado, entre em contato com o fornecedor do aplicativo para obter uma versão atualizada. 
+O Windows 10 Enterprise Multi-Session é uma edição virtual do Windows 10 Enterprise. Uma das diferenças é que este sistema operativo (OS) reporta o [ProductType](/windows/desktop/cimwin32prov/win32-operatingsystem/) como tendo um valor de 3, o mesmo valor que o Windows Server. Essa propriedade mantém o sistema operacional compatível com as ferramentas de gerenciamento de RDSH existentes, aplicativos de regestão de várias sessões de RDSH e, principalmente, otimizações de desempenho do sistema de nível inferior para ambientes de RDSH. Alguns instaladores de aplicativo podem bloquear a instalação em várias sessões do Windows 10, dependendo se detectarem o ProductType está definido como cliente. Se seu aplicativo não for instalado, entre em contato com o fornecedor do aplicativo para obter uma versão atualizada. 
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>Posso executar o Windows 10 Enterprise com várias sessões no local?
 
@@ -48,7 +48,7 @@ Você pode usar qualquer ferramenta de configuração com suporte, mas é recome
  
 ## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>O ingresso no Windows 10 Enterprise Multi-Session Azure Active Directory (AD) pode ser ingressado?
 
-O Windows 10 Enterprise Multi-Session tem suporte no momento para ser ingressado no Azure AD híbrido. Depois que o Windows 10 Enterprise Multi-Session estiver ingressado no domínio, use o objeto Política de Grupo existente para habilitar o registro do Azure AD. Para obter mais informações, consulte [planejar sua implementação de junção de Azure Active Directory híbrida](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan).
+O Windows 10 Enterprise Multi-Session tem suporte no momento para ser ingressado no Azure AD híbrido. Depois que o Windows 10 Enterprise Multi-Session estiver ingressado no domínio, use o objeto Política de Grupo existente para habilitar o registro do Azure AD. Para mais informações, consulte [Planize o seu diretório ativo híbrido Azure a aderir à implementação](../active-directory/devices/hybrid-azuread-join-plan.md).
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Onde posso encontrar a imagem de várias sessões do Windows 10 Enterprise?
 
@@ -66,16 +66,16 @@ O Windows 10 Enterprise Multi-Session, versões 1809 e posteriores têm suporte 
 
 Recomendamos que você use contêineres de perfil FSLogix ao configurar o Windows 10 Enterprise em ambientes não persistentes ou outros cenários que precisam de um perfil armazenado centralmente. O FSLogix garante que o perfil do usuário esteja disponível e atualizado para cada sessão de usuário. Também recomendamos que você use seu contêiner de perfil do FSLogix para armazenar um perfil de usuário em qualquer compartilhamento SMB com as permissões apropriadas, mas você pode armazenar perfis de usuário no armazenamento de blobs de páginas do Azure, se necessário. Os usuários da área de trabalho virtual do Windows podem usar o FSLogix sem custo adicional.
  
-Para obter mais informações sobre como configurar um contêiner de perfil do FSLogix, consulte [Configurar o contêiner do perfil FSLogix](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).  
+Para obter mais informações sobre como configurar um recipiente de perfil FSLogix, consulte [Configurar o recipiente de perfil FSLogix](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).  
 
 ## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>Qual licença preciso para acessar várias sessões do Windows 10 Enterprise?
 
-Para obter uma lista completa das licenças aplicáveis, consulte [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+Para obter uma lista completa das licenças aplicáveis, consulte os preços do [Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
  
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a área de trabalho virtual do Windows e a várias sessões do Windows 10 Enterprise:
 
-- Leia nossa [documentação da versão prévia da área de trabalho virtual do Windows](overview.md)
-- Visite nossa [área de trabalho virtual do Windows TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
-- Configurar sua implantação de área de trabalho virtual do Windows com os [tutoriais de área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md)
+- Leia a documentação de [pré-visualização virtual do Windows](overview.md)
+- Visite o nosso [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
+- Configurar a implementação do seu Ambiente de Trabalho Virtual windows com os [tutoriais do Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

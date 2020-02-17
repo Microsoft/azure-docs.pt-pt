@@ -1,6 +1,6 @@
 ---
-title: Solucionar erros com Runbooks de automação do Azure
-description: Saiba como solucionar e resolver problemas que podem ser encontrados com runbooks de automação do Azure.
+title: Erros de resolução de problemas com os Runbooks de Automação Azure
+description: Saiba como resolver problemas e resolver problemas que poderá encontrar com os livros de execução da Azure Automation.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,20 +8,20 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 65006b8357db44c3e1b8f8d9e819615b5dd9db6e
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031753"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365204"
 ---
-# <a name="troubleshoot-errors-with-runbooks"></a>Solucionar erros com runbooks
+# <a name="troubleshoot-errors-with-runbooks"></a>Erros de resolução de problemas com livros de execução
 
 Quando tiver erros na execução de livros de execução na Automatização Azure, pode utilizar os seguintes passos para ajudar a diagnosticar os problemas.
 
 1. **Certifique-se de que o seu script de rés-do-livro executa com sucesso na sua máquina local:**  Consulte os [Docs PowerShell](/powershell/scripting/overview) ou [Python](https://docs.python.org/3/) para obter módulos de referência e aprendizagem linguísticas.
 
-   Executar o script localmente pode descobrir e resolver erros comuns, como:
+   Executar o seu guião localmente pode descobrir e resolver erros comuns, tais como:
 
    - **Módulos Em Falta**
    - **Erros de Sintaxe**
@@ -29,9 +29,9 @@ Quando tiver erros na execução de livros de execução na Automatização Azur
 
 2. Investigue [os fluxos](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) de erros do livro de **execução** para mensagens específicas e compare-os com os erros abaixo.
 
-3. **Certifique-se de que os seus Nós e espaço de trabalho de Automação dispõem dos módulos necessários:** Se o seu livro de recortes importar quaisquer módulos, certifique-se de que estão disponíveis na sua Conta de Automação utilizando os passos listados nos [Módulos de Importação](../shared-resources/modules.md#import-modules). Atualize os seus módulos para a versão mais recente seguindo as instruções dos [módulos Update Azure em Automação Azure](..//automation-update-azure-modules.md). Para obter mais informações sobre resolução de [problemas, consulte Os Módulos de Resolução de Problemas](shared-resources.md#modules).
+3. **Certifique-se de que os seus Nós e espaço de trabalho de Automação dispõem dos módulos necessários:** Se o seu livro de recortes importar quaisquer módulos, certifique-se de que estão disponíveis na sua conta Automation utilizando os passos listados nos [Módulos de Importação](../shared-resources/modules.md#import-modules). Atualize os seus módulos para a versão mais recente seguindo as instruções dos [módulos Update Azure em Automação Azure](..//automation-update-azure-modules.md). Para obter mais informações sobre resolução de [problemas, consulte Os Módulos de Resolução de Problemas](shared-resources.md#modules).
 
-Se o runbook for suspenso ou falhar inesperadamente:
+Se o seu Livro de Execução estiver suspenso ou inesperadamente falhado:
 
 * [Verificar o Status de Trabalho](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) define os estatutos do livro de execução e algumas possíveis causas.
 * [Adicione uma saída adicional](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) ao livro de execução para identificar o que acontece antes da suspensão do livro de execução.
@@ -41,7 +41,7 @@ Se o runbook for suspenso ou falhar inesperadamente:
 
 ### <a name="issue"></a>Problema
 
-Você recebe o seguinte erro ao executar um runbook:
+Recebe o seguinte erro ao executar um livro de execução:
 
 ```error
 Run Login-AzureRMAccount to login.
@@ -51,25 +51,25 @@ Run Login-AzureRMAccount to login.
 
 Este erro pode ocorrer quando não estiver a utilizar uma conta 'Executar Como' ou a Conta Executar Como a conta tiver expirado. Ver Gerir a Execução de [Automação Azure Como contas](https://docs.microsoft.com/azure/automation/manage-runas-account).
 
-Esse erro tem duas causas principais:
+Este erro tem duas causas primárias:
 
-* Versões diferentes dos módulos do AzureRM.
+* Versões diferentes dos módulos AzureRM.
 * Estás a tentar aceder a recursos numa subscrição separada.
 
 ### <a name="resolution"></a>Resolução
 
-Se você receber esse erro depois de atualizar um módulo AzureRM, deverá atualizar todos os seus módulos AzureRM para a mesma versão.
+Se receber este erro depois de atualizar um módulo AzureRM, deverá atualizar todos os seus módulos AzureRM para a mesma versão.
 
 Se estiver a tentar aceder a recursos noutra subscrição, pode seguir os passos abaixo para configurar permissões.
 
 1. Vá à Execução de Automação Como conta e copie o ID da aplicação e a impressão digital.
   ID de aplicação de cópia de ![e](../media/troubleshoot-runbooks/collect-app-id.png) de impressão digital
-1. Vá para o controle de acesso da assinatura em que a conta de automação não está hospedada e adicione uma nova atribuição de função.
+1. Vá ao Controlo de Acesso da subscrição onde a conta de Automação NÃO é hospedada, e adicione uma nova atribuição de funções.
   ![Controlo de acesso](../media/troubleshoot-runbooks/access-control.png)
-1. Adicione a ID do aplicativo coletada na etapa anterior. Selecione permissões de colaborador.
+1. Adicione o ID de aplicação recolhido no passo anterior. Selecione permissões do Contribuinte.
    ![Adicionar](../media/troubleshoot-runbooks/add-role-assignment.png) de atribuição de papéis
-1. Copie o nome da assinatura para a próxima etapa.
-1. Agora você pode usar o seguinte código de runbook para testar as permissões de sua conta de automação para a outra assinatura.
+1. Copie o nome da subscrição para o próximo passo.
+1. Agora pode utilizar o seguinte código de livro para testar as permissões da sua conta Automation para a outra subscrição.
 
     Substitua o "\<CertificateThumbprint\>" pelo valor que copiou no passo #1 e pelo valor "\<SubscriptionName\>" que copiou no passo #4.
 
@@ -100,19 +100,19 @@ The subscription named <subscription name> cannot be found.
 
 ### <a name="error"></a>Erro
 
-Esse erro pode ocorrer se:
+Este erro pode ocorrer se:
 
-* O nome da assinatura não é válido
+* O nome da subscrição não é válido
 
-* O usuário Azure Active Directory que está tentando obter os detalhes da assinatura não está configurado como um administrador da assinatura.
+* O utilizador do Diretório Ativo Azure que está a tentar obter os detalhes da subscrição não está configurado como administrador da subscrição.
 
 ### <a name="resolution"></a>Resolução
 
-Execute as seguintes etapas para determinar se você autenticou para o Azure e tem acesso à assinatura que está tentando selecionar:
+Tome os seguintes passos para determinar se autenticou ao Azure e tem acesso à subscrição que está a tentar selecionar:
 
-1. Para garantir que ele funcione de forma autônoma, teste seu script fora da automação do Azure.
+1. Para se certificar de que funciona sozinho, teste o seu script fora da Automação Azure.
 2. Certifique-se de que executa o `Add-AzureAccount` cmdlet antes de executar o `Select-AzureSubscription` cmdlet.
-3. Adicione `Disable-AzureRmContextAutosave –Scope Process` ao início do seu livro de corridas. Esse cmdlet garante que todas as credenciais se apliquem somente à execução do runbook atual.
+3. Adicione `Disable-AzureRmContextAutosave –Scope Process` ao início do seu livro de corridas. Este cmdlet garante que quaisquer credenciais se aplicam apenas à execução do atual livro de execução.
 4. Se ainda vir esta mensagem de erro, modifique o seu código adicionando o parâmetro **AzureRmContext** seguindo o `Add-AzureAccount` cmdlet e, em seguida, execute o código.
 
    ```powershell
@@ -130,7 +130,7 @@ Execute as seguintes etapas para determinar se você autenticou para o Azure e t
 
 ### <a name="issue"></a>Problema
 
-Você recebe o seguinte erro ao autenticar no Azure com seu nome de usuário e senha do Azure:
+Recebe o seguinte erro ao autenticar o Azure com o seu nome de utilizador EI e senha:
 
 ```error
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
@@ -138,7 +138,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 ### <a name="cause"></a>Causa
 
-Se você tiver a autenticação multifator em sua conta do Azure, não poderá usar um Azure Active Directory usuário para autenticar no Azure. Em vez disso, você precisa usar um certificado ou uma entidade de serviço para autenticar no Azure.
+Se tiver a autenticação multifactor na sua conta Azure, não pode utilizar um utilizador do Azure Ative Directory para autenticar o Azure. Em vez disso, precisa de usar um certificado ou um diretor de serviço para autenticar o Azure.
 
 ### <a name="resolution"></a>Resolução
 
@@ -148,7 +148,7 @@ Para utilizar um certificado com o modelo de implantação clássico do Azure cm
 
 ### <a name="issue"></a>Problema
 
-Você vê em seu erro em seus fluxos de trabalho para um runbook com a seguinte mensagem:
+Veja no seu erro nos fluxos de trabalho um livro com a seguinte mensagem:
 
 ```error
 Connect-AzureRMAccount : Method 'get_SerializationSettings' in type
@@ -164,7 +164,7 @@ At line:16 char:1
 
 ### <a name="cause"></a>Causa
 
-Esse erro é causado pelo uso de cmdlets AzureRM e AZ em um runbook. Ocorre quando se importa `Az` antes de importar `AzureRM`.
+Este erro é causado pela utilização de cmdlets AzureRM e Az num livro de execução. Ocorre quando se importa `Az` antes de importar `AzureRM`.
 
 ### <a name="resolution"></a>Resolução
 
@@ -174,7 +174,7 @@ Os cmdlets Az e AzureRM não podem ser importados e usados no mesmo livro de cor
 
 ### <a name="issue"></a>Problema
 
-O runbook falha com um erro semelhante ao exemplo a seguir:
+O seu livro de execução falha com um erro semelhante ao seguinte exemplo:
 
 ```error
 Exception: A task was canceled.
@@ -182,27 +182,27 @@ Exception: A task was canceled.
 
 ### <a name="cause"></a>Causa
 
-Esse erro pode ser causado pelo uso de módulos do Azure desatualizados.
+Este erro pode ser causado pela utilização de módulos Azure desatualizados.
 
 ### <a name="resolution"></a>Resolução
 
-Esse erro pode ser resolvido atualizando seus módulos do Azure para a versão mais recente.
+Este erro pode ser resolvido atualizando os seus módulos Azure para a versão mais recente.
 
-Na sua Conta de Automação, clique em **Módulos**, e clique em **módulos Update Azure**. A atualização leva aproximadamente 15 minutos, uma vez concluída, execute novamente o runbook que estava falhando. Para saber mais sobre a atualização dos seus módulos, consulte [módulos Update Azure em Automação Azure](../automation-update-azure-modules.md).
+Na sua conta De automação, clique em **Módulos**, e clique em **módulos Update Azure**. A atualização demora cerca de 15 minutos, uma vez completa a reerunha do livro de execução que estava a falhar. Para saber mais sobre a atualização dos seus módulos, consulte [módulos Update Azure em Automação Azure](../automation-update-azure-modules.md).
 
 ## <a name="runbook-auth-failure"></a>Cenário: Os livros de corridas falham ao lidar com várias subscrições
 
 ### <a name="issue"></a>Problema
 
-Ao executar runbooks, o runbook falha ao gerenciar recursos do Azure.
+Ao executar livros de execução, o livro de execução não consegue gerir os recursos do Azure.
 
 ### <a name="cause"></a>Causa
 
-O runbook não está usando o contexto correto ao executar.
+O livro de execução não está a usar o contexto correto quando corre.
 
 ### <a name="resolution"></a>Resolução
 
-Ao trabalhar com várias assinaturas, o contexto da assinatura pode ser perdido ao invocar runbooks. Para garantir que o contexto de subscrição é passado para os livros de execução, adicione o parâmetro `AzureRmContext` ao cmdlet e passe-lhe o contexto. Recomenda-se também utilizar o `Disable-AzureRmContextAutosave` cmdlet com o âmbito do **Processo** para garantir que as credenciais que utiliza são utilizadas apenas para o livro de execução atual.
+Ao trabalhar com várias subscrições, o contexto de subscrição pode perder-se ao invocar livros de execução. Para garantir que o contexto de subscrição é passado para os livros de execução, adicione o parâmetro `AzureRmContext` ao cmdlet e passe-lhe o contexto. Recomenda-se também utilizar o `Disable-AzureRmContextAutosave` cmdlet com o âmbito do **Processo** para garantir que as credenciais que utiliza são utilizadas apenas para o livro de execução atual.
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -235,7 +235,7 @@ Para mais informações, consulte [Trabalhar com várias subscrições.](../auto
 
 ### <a name="issue"></a>Problema
 
-O runbook falha com um erro semelhante ao exemplo a seguir:
+O seu livro de execução falha com um erro semelhante ao seguinte exemplo:
 
 ```error
 The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
@@ -245,16 +245,16 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 Este erro pode acontecer devido às seguintes razões:
 
-* O módulo que contém o cmdlet não é importado para a Conta de Automação.
+* O módulo que contém o cmdlet não é importado para a conta de Automação.
 * O módulo que contém o cmdlet é importado, mas está desatualizado.
 
 ### <a name="resolution"></a>Resolução
 
-Esse erro pode ser resolvido com a conclusão de uma das seguintes tarefas:
+Este erro pode ser resolvido completando uma das seguintes tarefas:
 
-Se o módulo for um módulo Azure, consulte [como atualizar os módulos Azure PowerShell na Automação Azure](../automation-update-azure-modules.md) para aprender a atualizar os seus módulos na sua Conta de Automação.
+Se o módulo for um módulo Azure, consulte [como atualizar os módulos Azure PowerShell na Automação Azure](../automation-update-azure-modules.md) para aprender a atualizar os seus módulos na sua conta Automation.
 
-Se for um módulo separado, certifique-se de que o módulo em importado na sua conta de automação.
+Se for um módulo separado, certifique-se de que o módulo importado na sua conta Deautomação.
 
 ## <a name="job-attempted-3-times"></a>Cenário: O início do trabalho do livro de corridas foi tentado três vezes, mas não começou de cada vez
 
@@ -272,25 +272,25 @@ Este erro ocorre devido a um dos seguintes problemas.
 
 * Limite de memória. Um trabalho pode falhar se estiver a usar mais de 400 MB de memória. Os limites documentados da memória atribuída a uma caixa de areia encontram-se nos [limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)do serviço Automation . 
 
-* Soquetes de rede. As caixas de areia azure estão limitadas a 1000 tomadas de rede simultâneas. Consulte [os limites do serviço automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+* Tomadas de rede. As caixas de areia azure estão limitadas a 1000 tomadas de rede simultâneas. Consulte [os limites do serviço automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
-* Módulo incompatível. As dependências dos módulos podem não estar corretas. Neste caso, o seu livro de recortes normalmente devolve uma mensagem "Comando não encontrado" ou "Não pode ligar parâmetros".
+* Módulo Incompatível. As dependências dos módulos podem não estar corretas. Neste caso, o seu livro de recortes normalmente devolve uma mensagem "Comando não encontrado" ou "Não pode ligar parâmetros".
 
 * Sem Autenticação com Diretório Ativo para Sandbox. O seu livro de corridas tentou chamar um executável ou subprocessque que funciona numa caixa de areia Azure. Não é suportado configurar livros de execução para autenticar com a AD Azure utilizando a Biblioteca de Autenticação de Diretórios Ativos Azure (ADAL).
 
-* Demasiados dados de exceção. O runbook tentou gravar muitos dados de exceção no fluxo de saída.
+* Demasiados dados de exceção. O seu livro de execução tentou escrever demasiados dados de exceção ao fluxo de saída.
 
 ### <a name="resolution"></a>Resolução
 
-* Limite de memória, tomadas de rede. As formas sugeridas de trabalhar dentro dos limites de memória são dividir a carga de trabalho entre vários livros de execução, processar menos dados na memória, evitar escrever saídas desnecessárias dos seus livros de execução, e considerar quantos pontos de verificação estão escritos no seu fluxo de trabalho PowerShell livros de execução. Utilize o método claro, como `$myVar.clear`, para limpar variáveis e utilizar `[GC]::Collect` para executar a recolha de lixo imediatamente. Essas ações reduzem a superfície de memória do runbook durante o tempo de execução.
+* Limite de memória, tomadas de rede. As formas sugeridas de trabalhar dentro dos limites de memória são dividir a carga de trabalho entre vários livros de execução, processar menos dados na memória, evitar escrever saídas desnecessárias dos seus livros de execução, e considerar quantos pontos de verificação estão escritos no seu fluxo de trabalho PowerShell livros de execução. Utilize o método claro, como `$myVar.clear`, para limpar variáveis e utilizar `[GC]::Collect` para executar a recolha de lixo imediatamente. Estas ações reduzem a pegada de memória do seu livro de execução durante o tempo de execução.
 
-* Módulo incompatível. Atualize os seus módulos Azure seguindo os passos em Como atualizar os [módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
+* Módulo Incompatível. Atualize os seus módulos Azure seguindo os passos em Como atualizar os [módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
 
-* Sem Autenticação com ADAL para Caixa de Areia. Ao autenticar a Azure AD com um livro de execução, certifique-se de que o módulo Azure AD está disponível na sua Conta de Automação. Certifique-se de conceder a Executar Como conta as permissões necessárias para executar as tarefas que o livro de execução automatiza.
+* Sem Autenticação com ADAL para Caixa de Areia. Ao autenticar a Azure AD com um livro de execução, certifique-se de que o módulo Azure AD está disponível na sua conta Automation. Certifique-se de conceder a Executar Como conta as permissões necessárias para executar as tarefas que o livro de execução automatiza.
 
   Se o seu livro de execução não puder chamar um executável ou subprocesso a funcionar numa caixa de areia Azure, utilize o livro de execução num Trabalhador híbrido do livro de [corridas](../automation-hrw-run-runbooks.md). Os trabalhadores híbridos não se limitam pelos limites de memória e rede que as caixas de areia Azure têm.
 
-* Demasiados dados de exceção. Há um limite de 1MB no fluxo de saída do trabalho. Certifique-se de que o seu livro de execução encerra chamadas para um executável ou subprocesso num bloco de tentativa/captura. Se as operações lançarem uma exceção, faça com que o código escreva a mensagem da exceção para uma variável de Automação. Esta técnica impede que a mensagem seja escrita no fluxo de saída de trabalho.
+* Demasiados dados de exceção. Há um limite de 1MB no fluxo de saída de emprego. Certifique-se de que o seu livro de execução encerra chamadas para um executável ou subprocesso num bloco de tentativa/captura. Se as operações lançarem uma exceção, faça com que o código escreva a mensagem da exceção para uma variável de Automação. Esta técnica impede que a mensagem seja escrita no fluxo de saída de trabalho.
 
 ## <a name="sign-in-failed"></a>Cenário: Sessão na Conta Azure falhou
 
@@ -308,14 +308,14 @@ No certificate was found in the certificate store with thumbprint
 
 ### <a name="cause"></a>Causa
 
-Esse erro ocorrerá se o nome do ativo de credencial não for válido. Esse erro também pode ocorrer se o nome de usuário e a senha que você usou para configurar o ativo de credencial de automação não forem válidos.
+Este erro ocorre se o nome do ativo credencial não for válido. Este erro também pode ocorrer se o nome de utilizador e a palavra-passe que usou para configurar o ativo credencial automation não forem válidos.
 
 ### <a name="resolution"></a>Resolução
 
-Para determinar o que está errado, execute as seguintes etapas:
+Para determinar o que está errado, tome os seguintes passos:
 
-1. Certifique-se de que você não tem nenhum caractere especial. Estes caracteres incluem **o**\@personagem no nome de ativo credencial automation que está a usar para ligar ao Azure.
-2. Verifique se você pode usar o nome de usuário e a senha que estão armazenados na credencial de automação do Azure em seu editor de ISE do PowerShell local. Você pode verificar se o nome de usuário e a senha estão corretos executando os seguintes cmdlets no ISE do PowerShell:
+1. Certifique-se de que não tem personagens especiais. Estes caracteres incluem **o**\@personagem no nome de ativo credencial automation que está a usar para ligar ao Azure.
+2. Verifique se pode utilizar o nome de utilizador e a palavra-passe que armazenado na credencial Azure Automation no seu editor local da PowerShell ISE. Pode verificar se o nome de utilizador e a palavra-passe estão corretos executando os seguintes cmdlets no PowerShell ISE:
 
    ```powershell
    $Cred = Get-Credential
@@ -325,9 +325,9 @@ Para determinar o que está errado, execute as seguintes etapas:
    Connect-AzureRmAccount –Credential $Cred
    ```
 
-3. Se a autenticação falhar localmente, isso significa que você não configurou suas credenciais de Azure Active Directory corretamente. Consulte a [Autenticação para o Azure utilizando](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) o post de blog do Azure Ative Directory para configurar corretamente a conta Azure Ative Directory.
+3. Se a sua autenticação falhar localmente, significa que não configura as suas credenciais de Diretório Ativo Azure corretamente. Consulte a [Autenticação para o Azure utilizando](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) o post de blog do Azure Ative Directory para configurar corretamente a conta Azure Ative Directory.
 
-4. Se parecer um erro transitório, tente adicionar lógica de repetição à sua rotina de autenticação para tornar a autenticação mais robusta.
+4. Se parecer um erro transitório, tente adicionar lógica de novo à sua rotina de autenticação para tornar a autenticação mais robusta.
 
    ```powershell
    # Get the connection "AzureRunAsConnection"
@@ -367,7 +367,7 @@ Existe um problema conhecido em que o Start-AzureRmAutomationRunbook não lida c
 
 ### <a name="resolution"></a>Resolução
 
-Para resolver este problema, recomenda-se que implemente uma lógica de sondagem e utilize o [cmdlet Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para recuperar a saída. Um exemplo dessa lógica é definido no exemplo a seguir.
+Para resolver este problema, recomenda-se que implemente uma lógica de sondagem e utilize o [cmdlet Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para recuperar a saída. Uma amostra desta lógica é definida no seguinte exemplo.
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -395,7 +395,7 @@ $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRec
 
 ### <a name="issue"></a>Problema
 
-O runbook falha com o erro:
+O seu livro de execução falha com o erro:
 
 ```error
 Cannot bind parameter <ParameterName>.
@@ -405,21 +405,21 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 ### <a name="cause"></a>Causa
 
-Se o runbook for um fluxo de trabalho do PowerShell, ele armazenará objetos complexos em um formato desserializado para persistir o estado do runbook se o fluxo de trabalho for suspenso.
+Se o seu livro de execução for um PowerShell Workflow, armazena objetos complexos num formato desserializado para persistir o seu estado de releiro se o fluxo de trabalho for suspenso.
 
 ### <a name="resolution"></a>Resolução
 
-Qualquer uma das três soluções a seguir corrige esse problema:
+Qualquer uma das três soluções seguintes resolve este problema:
 
-* Se você estiver canalizando objetos complexos de um cmdlet para outro, empacote esses cmdlets em um InlineScript.
-* Passe o nome ou o valor que você precisa do objeto complexo em vez de passar o objeto inteiro.
-* Use um runbook do PowerShell em vez de um runbook de fluxo de trabalho do PowerShell.
+* Se estiver a canalizar objetos complexos de um cmdlet para outro, enrole estes cmdlets num InlineScript.
+* Passe o nome ou valor que precisa do objeto complexo em vez de passar todo o objeto.
+* Utilize um livro de execução PowerShell em vez de um livro de execução powerShell Workflow.
 
 ## <a name="quota-exceeded"></a>Cenário: Trabalho de releiro falha porque quota atribuída excedeu
 
 ### <a name="issue"></a>Problema
 
-O trabalho de runbook falha com o erro:
+O seu trabalho no livro de recortes falha com o erro:
 
 ```error
 The quota for the monthly total job run time has been reached for this subscription
@@ -427,14 +427,14 @@ The quota for the monthly total job run time has been reached for this subscript
 
 ### <a name="cause"></a>Causa
 
-Esse erro ocorre quando a execução do trabalho excede a cota livre de 500 minutos para sua conta. Essa cota se aplica a todos os tipos de tarefas de execução de trabalho. Algumas dessas tarefas podem estar testando um trabalho, iniciando um trabalho no portal, executando um trabalho usando WebHooks ou agendando um trabalho para ser executado usando o portal do Azure ou em seu datacenter. Para saber mais sobre os preços da Automação, consulte [os preços da Automação.](https://azure.microsoft.com/pricing/details/automation/)
+Este erro ocorre quando a execução do trabalho excede a quota gratuita de 500 minutos para a sua conta. Esta quota aplica-se a todos os tipos de tarefas de execução de postos de trabalho. Algumas destas tarefas podem estar a testar um trabalho, a iniciar um trabalho a partir do portal, a executar um trabalho utilizando webhooks, ou a agendar um trabalho para executar utilizando o portal Azure ou no seu datacenter. Para saber mais sobre os preços da Automação, consulte [os preços da Automação.](https://azure.microsoft.com/pricing/details/automation/)
 
 ### <a name="resolution"></a>Resolução
 
-Se você quiser usar mais de 500 minutos de processamento por mês, você precisará alterar sua assinatura da camada gratuita para a camada básica. Você pode atualizar para a camada básica executando as seguintes etapas:
+Se pretender utilizar mais de 500 minutos de processamento por mês, terá de alterar a sua subscrição do nível Free para o nível Basic. Pode atualizar para o nível Básico tomando os seguintes passos:
 
-1. Entre em sua assinatura do Azure.
-2. Selecione a Conta de Automação para atualizar.
+1. Inscreva-se na sua assinatura Azure.
+2. Selecione a conta Automation para atualizar.
 3. Clique em **Definições,** em **seguida, preços.**
 4. Clique em **Ativar** na página inferior para atualizar a sua conta para o nível **Básico.**
 
@@ -442,7 +442,7 @@ Se você quiser usar mais de 500 minutos de processamento por mês, você precis
 
 ### <a name="issue"></a>Problema
 
-O trabalho de runbook falha com o erro:
+O seu trabalho no livro de recortes falha com o erro:
 
 ```error
 <cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program.
@@ -450,28 +450,28 @@ O trabalho de runbook falha com o erro:
 
 ### <a name="cause"></a>Causa
 
-Esse erro é causado quando o mecanismo do PowerShell não consegue localizar o cmdlet que você está usando em seu runbook. Esse erro pode ocorrer porque o módulo que contém o cmdlet está ausente na conta, há um conflito de nome com um nome de runbook ou o cmdlet também existe em outro módulo e a automação não pode resolver o nome.
+Este erro é causado quando o motor PowerShell não encontra o cmdlet que está a usar no seu livro de execução. Este erro pode dever-se ao facto de o módulo que contém o cmdlet estar ausente da conta, há um conflito de nomes com um nome de livro de corridas, ou o cmdlet também existe noutro módulo e a Automação não consegue resolver o nome.
 
 ### <a name="resolution"></a>Resolução
 
-Qualquer uma das soluções a seguir corrige o problema:
+Qualquer uma das seguintes soluções resolve o problema:
 
-* Verifique se você inseriu o nome do cmdlet corretamente.
-* Certifique-se de que o cmdlet existe na sua Conta de Automação e que não existem conflitos. Para verificar se o cmdlet está presente, abra um livro de execução no modo de edição e procure o cmdlet que pretende encontrar na biblioteca ou executar `Get-Command <CommandName>`. Depois de validar que o cmdlet está disponível para a conta e que não há nenhum conflito de nome com outros cmdlets ou runbooks, adicione-o à tela e verifique se você está usando um conjunto de parâmetros válido em seu runbook.
-* Se você tiver um conflito de nome e o cmdlet estiver disponível em dois módulos diferentes, você poderá resolver esse problema usando o nome totalmente qualificado para o cmdlet. Por exemplo, pode utilizar o **Nome do Módulo\CmdletName**.
-* Se você estiver executando o runbook local em um grupo de trabalho híbrido, verifique se o módulo e o cmdlet estão instalados no computador que hospeda o Hybrid Worker.
+* Verifique se inseriu corretamente o nome cmdlet.
+* Certifique-se de que o cmdlet existe na sua conta Deautomação e que não existem conflitos. Para verificar se o cmdlet está presente, abra um livro de execução no modo de edição e procure o cmdlet que pretende encontrar na biblioteca ou executar `Get-Command <CommandName>`. Depois de ter validado que o cmdlet está disponível para a conta, e que não existem conflitos de nomecom outros cmdlets ou livros de execução, adicione-o à tela e certifique-se de que está a utilizar um parâmetro válido definido no seu livro de execução.
+* Se tiver um conflito de nomes e o cmdlet estiver disponível em dois módulos diferentes, pode resolver este problema utilizando o nome totalmente qualificado para o cmdlet. Por exemplo, pode utilizar o **Nome do Módulo\CmdletName**.
+* Se estiver a executar o livro de corridas no local num grupo de trabalhadores híbridos, certifique-se de que o módulo e o cmdlet estão instalados na máquina que acolhe o trabalhador híbrido.
 
 ## <a name="long-running-runbook"></a>Cenário: Um livro de corridas de longa duração não está concluído
 
 ### <a name="issue"></a>Problema
 
-O teu livro mostra-se em estado **de parada** depois de correr 3 horas. Você também pode receber o erro:
+O teu livro mostra-se em estado **de parada** depois de correr 3 horas. Também pode receber o erro:
 
 ```error
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-Esse comportamento é por design em áreas restritas do Azure devido ao monitoramento "justa share" de processos na automação do Azure. Se ele for executado por mais de três horas, Fair share interromperá automaticamente um runbook. O status de um runbook que passa pelo limite de tempo de compartilhamento justo difere por tipo de runbook. Os livros powerShell e Python estão definidos para um estado **de paragem.** Os livros de fluxo de trabalho PowerShell estão definidos para **falhar**.
+Este comportamento é por design em caixas de areia Azure devido à monitorização "Fair Share" dos processos dentro da Automação Azure. Se executar mais de três horas, a Fair Share para automaticamente um livro de execução. O estatuto de um livro de execução que ultrapassa o prazo de partilha justa difere por tipo de livro de execução. Os livros powerShell e Python estão definidos para um estado **de paragem.** Os livros de fluxo de trabalho PowerShell estão definidos para **falhar**.
 
 ### <a name="cause"></a>Causa
 
@@ -483,9 +483,9 @@ Uma solução recomendada é executar o livro de corridas num Trabalhador híbri
 
 Os Trabalhadores Híbridos não estão limitados pelo limite de 3 horas de runbook [da Fair Share](../automation-runbook-execution.md#fair-share) que as caixas de areia Azure têm. Os livros de corridas executados em Trabalhadores híbridos de runbook devem ser desenvolvidos para apoiar comportamentos de reinício se houver problemas inesperados de infraestrutura local.
 
-Outra opção é otimizar o livro de corridas criando [livros infantis.](../automation-child-runbooks.md) Se o seu runbook faz o loop pela mesma função em vários recursos, como uma operação de banco de dados em vários bancos, você pode mover essa função para um runbook filho. Cada um desses runbooks filho é executado em paralelo em processos separados. Esse comportamento diminui a quantidade total de tempo para o runbook pai ser concluído.
+Outra opção é otimizar o livro de corridas criando [livros infantis.](../automation-child-runbooks.md) Se o seu livro de recortes passar pela mesma função em vários recursos, como uma operação de base de dados em várias bases de dados, pode mover essa função para um livro de corridas para crianças. Cada um destes livros infantis executa em paralelo em processos separados. Este comportamento diminui a quantidade total de tempo para o livro de execução dos pais completar.
 
-Os cmdlets do PowerShell que habilitam o cenário de runbook filho são:
+Os cmdlets PowerShell que permitem o cenário do livro de crianças são:
 
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) - Este cmdlet permite-lhe iniciar um livro de execução e passar parâmetros para o livro de execução
 
@@ -495,7 +495,7 @@ Os cmdlets do PowerShell que habilitam o cenário de runbook filho são:
 
 ### <a name="issue"></a>Problema
 
-Ao tentar invocar um webhook para um runbook de automação do Azure, você receberá o seguinte erro:
+Quando tenta invocar um webhook para um livro de execução da Automação Azure, recebe o seguinte erro:
 
 ```error
 400 Bad Request : This webhook has expired or is disabled
@@ -503,11 +503,11 @@ Ao tentar invocar um webhook para um runbook de automação do Azure, você rece
 
 ### <a name="cause"></a>Causa
 
-O webhook que você está tentando chamar está desabilitado ou expirou.
+O gancho que está a tentar ligar está desativado ou expirado.
 
 ### <a name="resolution"></a>Resolução
 
-Se o webhook estiver desabilitado, você poderá reabilitar o webhook por meio do portal do Azure. Quando um webhook expira, o webhook precisa ser excluído e recriado. Só pode [renovar um webhook](../automation-webhooks.md#renew-webhook) se ainda não tiver expirado.
+Se o webhook estiver desativado, pode voltar a ativar o webhook através do portal Azure. quando um webhook é expirado, o webhook precisa de ser eliminado e recriado. Só pode [renovar um webhook](../automation-webhooks.md#renew-webhook) se ainda não tiver expirado.
 
 ## <a name="429"></a>Cenário: 429: A taxa de pedido é atualmente demasiado grande...
 
@@ -525,16 +525,16 @@ Este erro pode ocorrer ao recuperar a saída de trabalho de um livro de execuç�
 
 ### <a name="resolution"></a>Resolução
 
-Há duas maneiras de resolver esse erro:
+Há duas formas de resolver este erro:
 
-* Edite o runbook e reduza o número de fluxos de trabalho emitidos por ele.
-* Reduza o número de fluxos a serem recuperados ao executar o cmdlet. Para acompanhar este comportamento, pode especificar o parâmetro `-Stream Output` para a `Get-AzureRmAutomationJobOutput` cmdlet para recuperar apenas os fluxos de saída. 
+* Editar o livro de execução e reduzir o número de fluxos de trabalho que emite.
+* Reduza o número de correntes a recuperar ao executar o cmdlet. Para acompanhar este comportamento, pode especificar o parâmetro `-Stream Output` para a `Get-AzureRmAutomationJobOutput` cmdlet para recuperar apenas os fluxos de saída. 
 
 ## <a name="cannot-invoke-method"></a>Cenário: Trabalho da PowerShell falha com erro: Não pode invocar método
 
 ### <a name="issue"></a>Problema
 
-Você recebe a seguinte mensagem de erro ao iniciar um trabalho do PowerShell em um runbook em execução no Azure:
+Recebe a seguinte mensagem de erro ao iniciar um PowerShell Job num livro de corridas em funcionamento em Azure:
 
 ```error
 Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
@@ -546,10 +546,10 @@ Este erro pode ocorrer quando iniciar um trabalho powerShell num livro de execu�
 
 ### <a name="resolution"></a>Resolução
 
-Há duas maneiras de resolver esse erro:
+Há duas formas de resolver este erro:
 
 * Em vez de usar `Start-Job`, use `Start-AzureRmAutomationRunbook` para iniciar um livro de corridas
-* Se o runbook tiver essa mensagem de erro, execute-a em um Hybrid Runbook Worker
+* Se o seu livro tiver esta mensagem de erro, execute-a num Trabalhador híbrido do livro de corridas
 
 Para saber mais sobre este comportamento e outros comportamentos dos Runbooks de Automação Azure, consulte o [comportamento do Livro](../automation-runbook-execution.md#runbook-behavior)de Corridas.
 
@@ -569,53 +569,77 @@ A conta de nxautomationuser para o agente Log Analytics para Linux não está co
 
 * Verifique a configuração da conta nxautomationuser no ficheiro sudoers. Ver [runbooks running em um trabalhador de runbook híbrido](../automation-hrw-run-runbooks.md)
 
+## <a name="scenario-cmdlet-failing-in-pnp-powershell-runbook-on-azure-automation"></a>Cenário: Falha da Cmdlet no livro de execução PnP PowerShell sobre automação Azure
+
+### <a name="issue"></a>Problema
+
+Quando um livro de execução escreve um objeto gerado por PnP PowerShell diretamente para a saída da Automação Azure, a saída de cmdlet não pode voltar para a Automação.
+
+### <a name="cause"></a>Causa
+
+Esta questão é mais comumquando quando a Azure Automation processa os livros de execução que invocam cmdlets PnP PowerShell, por exemplo, **add-pnplistitem,** sem pegar os objetos de retorno.
+
+### <a name="resolution"></a>Resolução
+
+Edite os seus scripts para atribuir quaisquer valores de retorno a variáveis para que os cmdlets não tentem escrever objetos inteiros à saída padrão. Um script pode redirecionar o fluxo de saída para um cmdlet como mostrado abaixo.
+
+```azurecli
+  $null = add-pnplistitem
+```
+Se o seu script analisar a saída cmdlet, o script deve armazenar a saída numa variável e manipular a variável em vez de simplesmente transmitir a saída.
+
+```azurecli
+$SomeVariable = add-pnplistitem ....
+if ($SomeVariable.someproperty -eq ....
+```
+
 ## <a name="other"></a>O meu problema não está na lista acima.
 
-As seções a seguir listam outros erros comuns, além da documentação de suporte para ajudá-lo a resolver o problema.
+As secções abaixo listam outros erros comuns, além de documentação de suporte para ajudá-lo a resolver o seu problema.
 
-## <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>A função de trabalho de runbook híbrida não executa trabalhos ou não está a responder
+### <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>A função de trabalho de runbook híbrida não executa trabalhos ou não está a responder
 
 Se estiver a gerir trabalhos usando um trabalhador híbrido em vez de na Azure Automation, poderá ter de [resolver problemas com o próprio trabalhador híbrido.](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker)
 
-## <a name="runbook-fails-with-no-permission-or-some-variation"></a>O runbook falha com "Sem permissão" ou uma variante desta mensagem
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>O runbook falha com "Sem permissão" ou uma variante desta mensagem
 
 Executar Como contas podem não ter as mesmas permissões contra os recursos do Azure que a sua conta corrente. Certifique-se de que a sua conta Run As tem [permissões para aceder a quaisquer recursos utilizados](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) no seu script.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Os runbooks estavam a funcionar, mas pararam repentinamente
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Os runbooks estavam a funcionar, mas pararam repentinamente
 
 * Se os livros de execução estivessem anteriormente a executar mas parados, certifique-se de que a [conta Run As](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) não expirou.
 * Se estiver a utilizar webhooks para iniciar os livros de execução, certifique-se de que um [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) não expirou.
 
-## <a name="issues-passing-parameters-into-webhooks"></a>Problemas que passam parâmetros em webhooks
+### <a name="issues-passing-parameters-into-webhooks"></a>Problemas que passam parâmetros em webhooks
 
 Para obter ajuda com a passagem de parâmetros em webhooks, consulte [Iniciar um livro de corridas a partir de um webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="issues-using-az-modules"></a>Problemas usando módulos Az
+### <a name="issues-using-az-modules"></a>Problemas usando módulos Az
 
-A utilização de módulos do Azure e do AzureRM na mesma Conta de Automatização não é suportada. Para mais informações, consulte [os módulos Az em livros](https://docs.microsoft.com/azure/automation/az-modules) de corridas para obter mais detalhes.
+A utilização de módulos Az e módulos AzureRM na mesma conta Automation não é suportada. Para mais informações, consulte [os módulos Az em livros](https://docs.microsoft.com/azure/automation/az-modules) de corridas para obter mais detalhes.
 
-## <a name="inconsistent-behavior-in-runbooks"></a>Comportamento inconsistente nos runbooks
+### <a name="inconsistent-behavior-in-runbooks"></a>Comportamento inconsistente nos runbooks
 
 Siga a orientação na execução do Livro de [Corridas](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) para evitar problemas com empregos simultâneos, recursos criados várias vezes, ou outra lógica sensível ao tempo em livros de corridas.
 
-## <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook falha com o erro Sem permissão, Proibido (403), ou alguma variação
+### <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook falha com o erro Sem permissão, Proibido (403), ou alguma variação
 
 Executar Como contas podem não ter as mesmas permissões contra os recursos do Azure que a sua conta corrente. Certifique-se de que a sua conta Run As tem [permissões para aceder a quaisquer recursos utilizados](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) no seu script.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Os runbooks estavam a funcionar, mas pararam repentinamente
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Os runbooks estavam a funcionar, mas pararam repentinamente
 
 * Se os livros de execução estivessem anteriormente a executar mas parados, certifique-se de que a conta Run As não expirou. Ver [renovação de certificação.](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal)
 * Se estiver a utilizar webhooks para iniciar os livros de execução, certifique-se de que o webhook [não expirou](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
-## <a name="passing-parameters-into-webhooks"></a>Transmitir parâmetros para os webhooks
+### <a name="passing-parameters-into-webhooks"></a>Transmitir parâmetros para os webhooks
 
 Para obter ajuda com a passagem de parâmetros em webhooks, consulte [Iniciar um livro de corridas a partir de um webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="using-az-modules"></a>Utilizar os módulos do Az
+### <a name="using-az-modules"></a>Utilizar os módulos do Az
 
-A utilização de módulos do Azure e do AzureRM na mesma Conta de Automatização não é suportada. Consulte [os módulos Az em livros de execução.](https://docs.microsoft.com/azure/automation/az-modules)
+A utilização de módulos Az e módulos AzureRM na mesma conta Automation não é suportada. Consulte [os módulos Az em livros de execução.](https://docs.microsoft.com/azure/automation/az-modules)
 
-## <a name="using-self-signed-certificates"></a>Utilização de certificados auto-assinados
+### <a name="using-self-signed-certificates"></a>Utilização de certificados auto-assinados
 
 Para utilizar certificados auto-assinados, consulte [Criar um novo certificado](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 
@@ -626,8 +650,8 @@ Para utilizar certificados auto-assinados, consulte [Criar um novo certificado](
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+* Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

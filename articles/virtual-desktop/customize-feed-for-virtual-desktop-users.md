@@ -1,68 +1,68 @@
 ---
-title: Personalizar feed para usuários da área de trabalho virtual do Windows-Azure
-description: Como personalizar o feed para usuários da área de trabalho virtual do Windows com cmdlets do PowerShell.
+title: Personalize o feed para utilizadores do Windows Virtual Desktop - Azure
+description: Como personalizar o feed para utilizadores do Windows Virtual Desktop com cmdlets PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 49b678bea820f3cbead7479bb414ca9f35a29fa4
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 32abddad600edf0f62efef48aea402b6d4f09c10
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163625"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368873"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalizar o feed para utilizadores do Windows Virtual Desktop
 
-Você pode personalizar o feed para que os recursos do RemoteApp e da área de trabalho remota apareçam de maneira reconhecível para seus usuários.
+Pode personalizar o feed para que os recursos remotos e de ambiente de trabalho remoto apareçam de forma reconhecível para os seus utilizadores.
 
-Primeiro, [Baixe e importe o módulo do PowerShell de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usar em sua sessão do PowerShell, se ainda não tiver feito isso. Depois disso, execute o seguinte cmdlet para entrar em sua conta:
+Primeiro, [descarregue e importe o módulo Windows Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview/) para utilizar na sua sessão PowerShell se ainda não o fez. Depois disso, execute o seguinte cmdlet para iniciar sessão na sua conta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-## <a name="customize-the-display-name-for-a-remoteapp"></a>Personalizar o nome de exibição para um RemoteApp
+## <a name="customize-the-display-name-for-a-remoteapp"></a>Personalize o nome do ecrã para um RemoteApp
 
-Você pode alterar o nome de exibição de um RemoteApp publicado definindo o nome amigável. Por padrão, o nome amigável é igual ao nome do programa RemoteApp.
+Pode alterar o nome do ecrã para um RemoteApp publicado, definindo o nome amigável. Por padrão, o nome amigável é o mesmo que o nome do programa RemoteApp.
 
-Para recuperar uma lista de RemoteApps publicados para um grupo de aplicativos, execute o seguinte cmdlet do PowerShell:
+Para recuperar uma lista de RemoteApps publicados para um grupo de aplicações, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Uma captura de tela do cmdlet Get-RDSRemoteApp do PowerShell com Name e FriendlyName realçado.](media/get-rdsremoteapp.png)
+![Uma imagem de PowerShell cmdlet Get-RDSRemoteApp com nome e nome amigável destacados.](media/get-rdsremoteapp.png)
 
-Para atribuir um nome amigável a um RemoteApp, execute o seguinte cmdlet do PowerShell:
+Para atribuir um nome amigável a um RemoteApp, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
 ```
-![Uma captura de tela do cmdlet do PowerShell Set-RDSRemoteApp com nome e novo FriendlyName realçado.](media/set-rdsremoteapp.png)
+![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável destacado.](media/set-rdsremoteapp.png)
 
-## <a name="customize-the-display-name-for-a-remote-desktop"></a>Personalizar o nome de exibição para um Área de Trabalho Remota
+## <a name="customize-the-display-name-for-a-remote-desktop"></a>Personalize o nome do ecrã para um ambiente de trabalho remoto
 
-Você pode alterar o nome de exibição de uma área de trabalho remota publicada definindo um nome amigável. Se você criou manualmente um pool de hosts e um grupo de aplicativos da área de trabalho por meio do PowerShell, o nome amigável padrão é "área de trabalho da sessão". Se você criou um pool de hosts e um grupo de aplicativos de área de trabalho por meio do modelo de Azure Resource Manager do GitHub ou da oferta do Azure Marketplace, o nome amigável padrão é o mesmo que o nome do pool de hosts.
+Pode alterar o nome do ecrã para um ambiente de trabalho remoto publicado, definindo um nome amigável. Se criou manualmente um grupo de aplicativos de hospedagem e desktop através do PowerShell, o nome amigável padrão é "Session Desktop". Se criou um grupo de aplicativos de piscina e desktop através do modelo GitHub Azure Resource Manager ou da oferta do Azure Marketplace, o nome amigável padrão é o mesmo que o nome da piscina anfitriã.
 
-Para recuperar o recurso de área de trabalho remota, execute o seguinte cmdlet do PowerShell:
+Para recuperar o recurso remoto de ambiente de trabalho, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Uma captura de tela do cmdlet Get-RDSRemoteApp do PowerShell com Name e FriendlyName realçado.](media/get-rdsremotedesktop.png)
+![Uma imagem de PowerShell cmdlet Get-RDSRemoteApp com nome e nome amigável destacados.](media/get-rdsremotedesktop.png)
 
-Para atribuir um nome amigável ao recurso de área de trabalho remota, execute o seguinte cmdlet do PowerShell:
+Para atribuir um nome amigável ao recurso de ambiente de trabalho remoto, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
-![Uma captura de tela do cmdlet do PowerShell Set-RDSRemoteApp com nome e novo FriendlyName realçado.](media/set-rdsremotedesktop.png)
+![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável destacado.](media/set-rdsremotedesktop.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que você personalizou o feed para os usuários, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-lo. Para fazer isso, vá para o How-tos da área de trabalho virtual do Windows:
+Agora que personalizou o feed para os utilizadores, pode iniciar sessão num cliente do Windows Virtual Desktop para o testar. Para tal, continue a ligar ao Windows Virtual Desktop How-tos:
     
- * [Conecte-se do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
- * [Conectar-se de um navegador da Web](connect-web.md) 
+ * [Ligue-se a partir do Windows 10 ou do Windows 7](connect-windows-7-and-10.md)
+ * [Conecte-se a partir de um navegador web](connect-web.md) 

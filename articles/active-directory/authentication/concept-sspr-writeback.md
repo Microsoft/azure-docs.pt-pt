@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92048d2fce4a098da1e707ec8f7d75479d563f1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161584"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368169"
 ---
 # <a name="what-is-password-writeback"></a>O que é o Write-back de senha?
 
@@ -158,13 +158,13 @@ As senhas são gravadas novamente em todas as seguintes situações:
 As palavras-passe *não* são redigidas em nenhuma das seguintes situações:
 
 * **Operações não suportadas de utilizador final**
-   * Qualquer usuário final que redefine sua própria senha usando o PowerShell versão 1, versão 2 ou o Azure AD API do Graph
+   * Qualquer utilizador final que reajuste a sua própria palavra-passe utilizando a versão 1, a versão 2 ou a Microsoft Graph API
 * **Operações de administrador não apoiados**
-   * Qualquer redefinição de senha do usuário final iniciada pelo administrador do PowerShell versão 1, versão 2 ou do Azure AD API do Graph
+   * Qualquer palavra-passe de utilizador final iniciado pelo administrador a partir da versão 1, versão 2 da PowerShell ou da Microsoft Graph API
    * Qualquer palavra-passe de utilizador final iniciado por administrador do centro de administração da [Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
-> Use a caixa de seleção "o usuário deve alterar a senha no próximo logon" no local Active Directory ferramentas administrativas como Active Directory usuários e computadores ou o Centro Administrativo do Active Directory tem suporte como um recurso de visualização do Azure AD Connect. Para mais informações, consulte o artigo, Implemente a sincronização de hash de [palavra-passe com a sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon).
+> Use a caixa de seleção "o usuário deve alterar a senha no próximo logon" no local Active Directory ferramentas administrativas como Active Directory usuários e computadores ou o Centro Administrativo do Active Directory tem suporte como um recurso de visualização do Azure AD Connect. Para mais informações, consulte o artigo, Implemente a sincronização de hash de [palavra-passe com a sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

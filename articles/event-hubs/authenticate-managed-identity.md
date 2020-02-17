@@ -9,20 +9,20 @@ manager: ''
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: dd95bde74b77686c0971c41a8c3f262f73107b61
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c5418f8c5e759ad0e5c388e0925fa724fe148797
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169229"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368525"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerida com o Diretório Ativo Azure para aceder aos Recursos hubs do Evento
-O Azure Event Hubs apoia a autenticação azure Ative Directory (Azure AD) com [identidades geridas para os recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md) Identidades geridas para recursos Azure podem autorizar o acesso aos recursos do Event Hubs utilizando credenciais de AD Azure de aplicações em execução em Máquinas Virtuais Azure (VMs), aplicações de função, conjuntos de escala de máquina virtual e outros serviços. Usando identidades gerenciadas para recursos do Azure junto com a autenticação do Azure AD, você pode evitar o armazenamento de credenciais com seus aplicativos que são executados na nuvem.
+O Azure Event Hubs apoia a autenticação azure Ative Directory (Azure AD) com [identidades geridas para os recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md) Identidades geridas para recursos Azure podem autorizar o acesso aos recursos do Event Hubs utilizando credenciais de AD Azure de aplicações em execução em Máquinas Virtuais Azure (VMs), aplicações de função, conjuntos de escala de máquina virtual e outros serviços. Ao utilizar identidades geridas para recursos Azure juntamente com a autenticação da AD Azure, pode evitar armazenar credenciais com as suas aplicações que funcionam na nuvem.
 
 Este artigo mostra como autorizar o acesso a um centro de eventos utilizando uma identidade gerida a partir de um Azure VM.
 
-## <a name="enable-managed-identities-on-a-vm"></a>Habilitar identidades gerenciadas em uma VM
-Antes de poder utilizar identidades geridas para a Azure Resources para autorizar os recursos do Event Hubs a partir do seu VM, tem primeiro de ativar identidades geridas para os Recursos Azure no VM. Para saber como habilitar identidades gerenciadas para recursos do Azure, consulte um destes artigos:
+## <a name="enable-managed-identities-on-a-vm"></a>Ativar identidades geridas num VM
+Antes de poder utilizar identidades geridas para a Azure Resources para autorizar os recursos do Event Hubs a partir do seu VM, tem primeiro de ativar identidades geridas para os Recursos Azure no VM. Para aprender a ativar identidades geridas para os Recursos Azure, consulte um destes artigos:
 
 - [Portal do Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
@@ -137,6 +137,9 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 ```
 ---
 
+## <a name="event-hubs-for-kafka"></a>Hubs de Eventos para Kafka
+Pode utilizar aplicações Apache Kafka para enviar mensagens e receber mensagens de Azure Event Hubs utilizando a identidade gerida OAuth. Consulte a seguinte amostra no GitHub: [Event Hubs para Kafka - envie e receba mensagens usando a identidade gerida OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
+
 ## <a name="samples"></a>Amostras
 - [Microsoft.Azure.EventHubs amostras](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
@@ -144,6 +147,7 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 - [Amostras de Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Esta amostra foi atualizada para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.**
+- [Hubs de eventos para Kafka - envie e receba mensagens usando identidade gerida OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 
 
 ## <a name="next-steps"></a>Passos seguintes

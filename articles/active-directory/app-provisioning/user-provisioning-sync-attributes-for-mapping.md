@@ -15,18 +15,18 @@ ms.date: 05/13/2019
 ms.author: mimart
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f49fce985484e85bcba2883a66ec0b1e6d032a8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 12d8e60d3bfeb2e72d52b30dffcec4ad6e6c3f08
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066047"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368181"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sincronizar um atributo do seu Diretório Ativo no local para a AD Azure para o fornecimento a uma aplicação
 
 Ao personalizar mapeamentos de atributos para o fornecimento de utilizadores, pode descobrir que o atributo que pretende mapear não aparece na lista de **atributos Fonte.** Este artigo mostra-lhe como adicionar o atributo em falta sincronizando-o do seu Diretório Ativo (AD) no local para o Azure Ative Directory (Azure AD).
 
-A Azure AD deve conter todos os dados necessários para criar um perfil de utilizador ao fornecer contas de utilizador de Azure AD para uma aplicação SaaS. Em alguns casos, para disponibilizar os dados poderá necessitar de atributos sincronizados desde o seu AD no local até à AD Azure. O Azure AD Connect sincroniza automaticamente certos atributos ao Azure AD, mas nem todos os atributos. Além disso, alguns atributos (como o SAMAccountName) que são sincronizados por padrão podem não ser expostos através da API do Gráfico AD Azure. Nestes casos, pode utilizar a função de extensão do diretório Azure AD Connect para sincronizar o atributo ao Azure AD. Desta forma, o atributo será visível para a API do Gráfico AD Azure e para o serviço de provisionamento de AD Azure.
+A Azure AD deve conter todos os dados necessários para criar um perfil de utilizador ao fornecer contas de utilizador de Azure AD para uma aplicação SaaS. Em alguns casos, para disponibilizar os dados poderá necessitar de atributos sincronizados desde o seu AD no local até à AD Azure. O Azure AD Connect sincroniza automaticamente certos atributos ao Azure AD, mas nem todos os atributos. Além disso, alguns atributos (como o SAMAccountName) que são sincronizados por padrão podem não ser expostos usando o Microsoft Graph API. Nestes casos, pode utilizar a função de extensão do diretório Azure AD Connect para sincronizar o atributo ao Azure AD. Desta forma, o atributo será visível para o Microsoft Graph API e o serviço de provisionamento de AD Azure.
 
 Se os dados necessários para o fornecimento estiverem no Diretório Ativo, mas não estiverem disponíveis para o fornecimento devido às razões acima descritas, siga estes passos.
  

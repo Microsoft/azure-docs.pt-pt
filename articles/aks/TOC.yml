@@ -174,6 +174,8 @@
           href: internal-lb.md
         - name: Utilizar um Balanceador de Carga Standard
           href: load-balancer-standard.md
+        - name: Utilizar uma rota definida pelo utilizador para a saída
+          href: egress-outboundtype.md
         - name: Utilizar um endereço IP estático
           href: static-ip.md
         - name: Entrada

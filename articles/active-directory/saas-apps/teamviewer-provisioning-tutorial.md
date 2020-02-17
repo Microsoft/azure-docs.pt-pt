@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0602757fad0eb4424e10fb0c1cf0272826ed0024
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: dc33cf9249a5b804ef46e75ff1822eaa5c6f9d6a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150702"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366427"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: Configure TeamViewer para fornecimento automático de utilizadores
 
@@ -87,7 +87,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **TeamViewer**.
 
@@ -101,7 +101,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
     ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. Na secção **credenciais de administrador,** insere as credenciais de administrador do TeamViewer e o seu nome de utilizador. Clique em **Ligação** de Teste para garantir que o Azure AD pode ligar-se ao TeamViewer. Se a ligação falhar, certifique-se de que a sua conta TeamViewer tem permissões de Administrador e tente novamente.
+5. Sob a secção **de Credenciais de Administrador,** introduza `ttps://webapi.teamviewer.com/scim/v2` no campo **URL do Tentant** e introduza o símbolo do script criado anteriormente no **Token Secreto**. Clique em **Ligação** de Teste para garantir que o Azure AD pode ligar-se ao TeamViewer. Se a ligação falhar, certifique-se de que a sua conta TeamViewer tem permissões de Administrador e tente novamente.
 
     ![provisionamento](./media/teamViewer-provisioning-tutorial/provisioning.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Visão geral da arquitetura-Azure Active Directory | Microsoft Docs
-description: Saiba o que é um locatário Azure Active Directory e como gerenciar o Azure usando Azure Active Directory.
+title: Descrição geral da arquitetura - Azure Active Directory | Documentos da Microsoft
+description: Saiba é que um inquilino do Azure Active Directory e como gerir o Azure com o Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -13,22 +13,22 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0511f008a3d5bc39a0fb2d9406d33b72dbede6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 854fb4649f8c1113f20abe5807dd0ce473ba6ee3
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532949"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368061"
 ---
-# <a name="what-is-the-azure-active-directory-architecture"></a>O que é a arquitetura de Azure Active Directory?
+# <a name="what-is-the-azure-active-directory-architecture"></a>O que é a arquitetura do Azure Active Directory?
 
 O Azure Active Directory (Azure AD) permite-lhe gerir de forma segura o acesso dos seus utilizadores aos serviços e recursos do Azure. Incluído com o Azure AD está um conjunto completo de capacidades de gestão de identidades. Para obter informações sobre as funcionalidades do Azure AD, veja [What is Azure Active Directory?](active-directory-whatis.md) (O que é o Azure Active Directory?)
 
-Com o Azure AD, pode criar e gerir utilizadores e grupos e ativar permissões para permitir e recusar o acesso a recursos empresariais. Para obter informações sobre a gestão de identidades, veja [The fundamentals of Azure identity management](active-directory-whatis.md) (Noções Básicas da gestão de identidades do Azure).
+Com o Azure AD, pode criar e gerir utilizadores e grupos e ativar permissões para permitir e recusar o acesso a recursos empresariais. Para obter informações sobre a gestão de identidades, veja [The fundamentals of Azure identity management](active-directory-whatis.md) (Noções básicas da gestão de identidades do Azure).
 
 ## <a name="azure-ad-architecture"></a>Arquitetura do Azure AD
 
-A arquitetura distribuída geograficamente do Azure AD combina monitoramento extensivo, redirecionamento automatizado, failover e recursos de recuperação, que fornecem disponibilidade e desempenho em toda a empresa para os clientes.
+A arquitetura geograficamente distribuída do Azure AD combina alargadas de monitorização, redirecionamento automatizado, ativação pós-falha e recursos de recuperação, o que fornecem toda a empresa de disponibilidade e desempenho aos clientes.
 
 Este artigo cobre os elementos da arquitetura seguintes:
 
@@ -39,11 +39,11 @@ Este artigo cobre os elementos da arquitetura seguintes:
 
 ### <a name="service-architecture-design"></a>Design da arquitetura do serviço
 
-A maneira mais comum de criar um sistema de dados sofisticado e acessível é por meio de blocos de construção independentes ou unidades de escala. Para a camada de dados do Azure AD, as unidades de escala são chamadas de *partições*.
+A forma mais comum de construir um sistema acessível e utilizável, rico em dados, é através de blocos de construção independentes ou unidades de escala. Para o nível de dados Azure AD, as unidades de escala são chamadas *divisórias*.
 
-A camada de dados tem vários serviços front-end que proporcionam a capacidade de leitura/escrita. O diagrama a seguir mostra como os componentes de uma partição de diretório único são entregues em data centers distribuídos geograficamente.
+A camada de dados tem vários serviços front-end que proporcionam a capacidade de leitura/escrita. O diagrama abaixo mostra como os componentes de uma partição de um único diretório são entregues em todos os centros de dados distribuídos geograficamente.
 
-  ![Diagrama de partição de diretório único](./media/active-directory-architecture/active-directory-architecture.png)
+  ![Diagrama de partição de um diretório único](./media/active-directory-architecture/active-directory-architecture.png)
 
 Os componentes da arquitetura do Azure AD incluem uma réplica primária e réplicas secundárias.
 
@@ -53,21 +53,21 @@ A *réplica primária* recebe todas as *escritas* da partição a que pertence. 
 
 #### <a name="secondary-replicas"></a>Réplicas secundárias
 
-Todas as *leituras* de diretório são atendidas a partir de *réplicas secundárias*, que estão em data centers fisicamente localizados em geografias diferentes. Existem muitas réplicas secundárias, uma vez que os dados são replicados de forma assíncrona. As leituras de diretório, como solicitações de autenticação, são atendidas de data centers próximos aos clientes. As réplicas secundárias são responsáveis pela escalabilidade das leituras.
+Todas as *leituras* de diretóriosão servida a partir de *réplicas secundárias,* que estão em datacenters que estão fisicamente localizados em diferentes geografias. Existem muitas réplicas secundárias, uma vez que os dados são replicados de forma assíncrona. O diretório lê-se, como pedidos de autenticação, que são servidos a partir de datacenters que estão próximos dos clientes. As réplicas secundárias são responsáveis pela escalabilidade das leituras.
 
 ### <a name="scalability"></a>Escalabilidade
 
 A escalabilidade é a capacidade de um serviço se expandir para satisfazer o aumento da procura pelo desempenho. A escalabilidade das escritas é obtida ao particionar os dados. A escalabilidade das leituras é obtida ao replicar dados de uma partição para várias réplicas secundárias distribuídas em todo o mundo.
 
-As solicitações de aplicativos de diretório são roteadas para o datacenter do qual estão fisicamente mais próximas. As escritas são redirecionadas, de forma transparente, para a réplica primária, de modo a proporcionar consistência de leitura/escrita. As réplicas secundárias ampliam significativamente a escala das partições, porque, regra geral, na maior parte do tempo, os diretórios estão a servir leituras.
+Pedidos de aplicações de diretório são encaminhados para o Centro de dados que estão fisicamente mais perto. As escritas são redirecionadas, de forma transparente, para a réplica primária, de modo a proporcionar consistência de leitura/escrita. As réplicas secundárias ampliam significativamente a escala das partições, porque, regra geral, na maior parte do tempo, os diretórios estão a servir leituras.
 
-As aplicações de diretório ligam-se aos datacenters mais próximos. Essa conexão melhora o desempenho e, portanto, o dimensionamento é possível. Uma vez que as partições de diretório podem ter muitas réplicas secundárias, estas podem ser colocadas mais perto dos clientes dos diretórios. Apenas os componentes do serviço de diretório internos que sejam de escrita intensiva segmentam diretamente a réplica primária ativa.
+As aplicações de diretório ligam-se aos datacenters mais próximos. Esta ligação melhora o desempenho e dimensionamento, por conseguinte, é possível. Uma vez que as partições de diretório podem ter muitas réplicas secundárias, estas podem ser colocadas mais perto dos clientes dos diretórios. Apenas os componentes do serviço de diretório internos que sejam de escrita intensiva segmentam diretamente a réplica primária ativa.
 
 ### <a name="continuous-availability"></a>Disponibilidade contínua
 
-A disponibilidade (ou tempo de atividade) define a capacidade de um sistema de funcionar sem interrupções. A chave para a alta disponibilidade do AD do Azure é que os serviços podem rapidamente alternar o tráfego entre vários data centers distribuídos geograficamente. Cada datacenter é independente, o que permite modos de falha não correlacionados. Por meio desse design de alta disponibilidade, o Azure AD não requer nenhum tempo de inatividade para atividades de manutenção.
+A disponibilidade (ou tempo de atividade) define a capacidade de um sistema de funcionar sem interrupções. A chave para a alta disponibilidade da Azure AD é que os serviços podem rapidamente deslocar o tráfego através de vários centros de dados distribuídos geograficamente. Cada datacenter é independente, o que permite modos de falha descorrelacionados. Através deste design de alta disponibilidade, a Azure AD não necessita de tempo de paragem para atividades de manutenção.
 
-O design de partição do Azure AD é simplificado em comparação ao design do Enterprise AD, usando um design de mestre único que inclui um processo de failover de réplica primária orquestrado e determinístico com cuidado.
+O design de partições do Azure AD é simplificado quando comparado com o AD empresarial, com um design de mestre único que inclui um processo de ativação pós-falha de réplicas primárias determinístico e cuidadosamente orquestrado.
 
 #### <a name="fault-tolerance"></a>Tolerância a falhas
 
@@ -77,49 +77,49 @@ As operações de leitura (que superam em muito as escritas) só vão para as r�
 
 #### <a name="data-durability"></a>Durabilidade dos dados
 
-Uma gravação é permanentemente confirmada em pelo menos dois data centers antes de ser confirmada. Isso ocorre primeiro confirmando a gravação no primário e, em seguida, replicando imediatamente a gravação em pelo menos um outro datacenter. Essa ação de gravação garante que uma perda catastrófica potencial do datacenter que hospeda o primário não resulte em perda de dados.
+Uma escrita é duramente comprometida com pelo menos dois datacenters antes de ser reconhecida. Isto acontece primeiro comprometendo a escrita na primária, e depois replicando imediatamente a escrita para pelo menos um outro datacenter. Esta ação de escrita garante que uma potencial perda catastrófica do datacenter que acolhe o primário não resulta em perda de dados.
 
-O Azure AD mantém um [RTO (objetivo de tempo de recuperação)](https://en.wikipedia.org/wiki/Recovery_time_objective) zero para não perder dados em failovers. Isto inclui:
+A Azure AD mantém um Objetivo de Tempo de Recuperação zero [(RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) para não perder dados sobre falhas. Isto inclui:
 
-* Emissão de token e leituras de diretório
-* Permitindo apenas cerca de cinco minutos de RTO para gravações de diretório
+* Emissão de tokens e leituras de diretório
+* Permitir que apenas cerca de 5 minutos RTO para escritas de diretório
 
 ### <a name="datacenters"></a>Datacenters
 
-As réplicas do Azure AD são armazenadas nos datacenters localizados em todo o mundo. Para obter mais informações, consulte [infraestrutura global do Azure](https://azure.microsoft.com/global-infrastructure/).
+As réplicas do Azure AD são armazenadas nos datacenters localizados em todo o mundo. Para mais informações, consulte [a infraestrutura global azure.](https://azure.microsoft.com/global-infrastructure/)
 
-O Azure AD opera em data centers com as seguintes características:
+A Azure AD opera em centros de dados com as seguintes características:
 
-* A autenticação, o Graph e outros serviços do AD residem por trás do serviço de gateway. O Gateway gere o balanceamento de carga destes serviços. O failover será feito automaticamente se quaisquer servidores não íntegros forem detectados usando investigações de integridade transacionais. Com base nessas investigações de integridade, o gateway roteia dinamicamente o tráfego para os data centers íntegros.
-* Para *leituras*, o diretório tem réplicas secundárias e serviços front-end correspondentes em uma configuração ativo-ativo operando em vários datacenters. No caso de uma falha de um datacenter inteiro, o tráfego será automaticamente roteado para um datacenter diferente.
- \* Para *gravações*, o diretório fará failover da réplica primária (Mestre) em datacenters via planejado (o novo primário é sincronizado com o primário antigo) ou procedimentos de failover de emergência. A durabilidade dos dados é obtida com a replicação de qualquer confirmação para pelo menos dois data centers.
+* Autenticação, Graph e outros serviços do AD residem por trás do serviço de Gateway. O Gateway gere o balanceamento de carga destes serviços. Ele irá efetuar a ativação pós-falha automaticamente se todos os servidores de mau estado de funcionamento forem detetados utilizar sondas de estado de funcionamento transacionais. Com base nestas sondas de saúde, o Gateway rotas dinamicamente o tráfego para centros de dados saudáveis.
+* Para *leituras,* o diretório tem réplicas secundárias e serviços frontais correspondentes numa configuração ativa que opera em vários datacenters. Em caso de falha de todo um datacenter, o tráfego será automaticamente encaminhado para um centro de dados diferente.
+ *Para *as escritas,* o diretório falhará sobre a réplica primária (mestre) através de datacenters planeados (a nova primária é sincronizada com procedimentos primários antigos) ou procedimentos de falha de emergência. A durabilidade dos dados é conseguida replicando qualquer compromisso para pelo menos dois datacenters.
 
-#### <a name="data-consistency"></a>Consistência de dados
+#### <a name="data-consistency"></a>Consistência dos dados
 
-O modelo de diretório é uma das consistências eventuals. Um problema típico com sistemas distribuídos de replicação assíncrona é que os dados retornados de uma réplica "particular" podem não estar atualizados. 
+O modelo de diretório é um dos consistência eventual. Um problema comum com sistemas de replicação assíncrona distribuídos é que os dados retornados de uma "determinada" réplica podem não ser atualizados. 
 
 O Azure AD proporciona consistência de leitura/escrita às aplicações que segmentam réplicas secundárias ao encaminhar as respetivas escritas para a réplica primária e ao enviá-las de forma síncrona novamente para a réplica secundária.
 
-As escritas de aplicações que utilizem a Graph API do Azure AD não mantêm afinidade com réplicas de diretórios para consistência de leitura/escrita. O serviço do Azure AD Graph mantém uma sessão lógica, que tem afinidade com uma réplica secundária usada para leituras; a afinidade é capturada em um "token de réplica" que o serviço de grafo armazena em cache usando um cache distribuído no datacenter de réplica secundária. Este token é, depois, utilizado para operações subsequentes na mesma sessão lógica. Para continuar usando a mesma sessão lógica, as solicitações subsequentes devem ser roteadas para o mesmo datacenter do Azure AD. Não é possível continuar uma sessão lógica se as solicitações do cliente de diretório estiverem sendo roteadas para vários datacenters do Azure AD; Se isso acontecer, o cliente terá várias sessões lógicas que têm consistência de leitura/gravação independente.
+Os escritos da aplicação utilizando o Microsoft Graph API do Azure AD são abstraídos de manter a afinidade a uma réplica de diretório para a consistência da escrita de leitura. O serviço Microsoft Graph API mantém uma sessão lógica, que tem afinidade com uma réplica secundária usada para leituras; A afinidade é capturada num "símbolo de réplica" que os caches de serviço usam uma cache distribuída no centro de dados de réplica secundária. Este token é, depois, utilizado para operações subsequentes na mesma sessão lógica. Para continuar a utilizar a mesma sessão lógica, os pedidos subsequentes devem ser encaminhados para o mesmo centro de dados Azure AD. Não é possível continuar uma sessão lógica se os pedidos do cliente de diretório estão a ser encaminhados para vários datacenters da AD Azure; se isso acontecer, então o cliente tem múltiplas sessões lógicas que têm consistências de leitura-escrita independentes.
 
  >[!NOTE]
  >As escritas são replicadas imediatamente na réplica secundária para a qual as leituras da sessão lógica foram emitidas.
 
-#### <a name="backup-protection"></a>Proteção de backup
+#### <a name="backup-protection"></a>Proteção de reserva
 
-O diretório implementa eliminações de forma recuperável, em vez de eliminações definitivas, para utilizadores e inquilinos para recuperação fácil em caso de eliminações acidentais por parte de um cliente. Se o administrador de locatários excluir acidentalmente os usuários, eles poderão facilmente desfazer e restaurar os usuários excluídos.
+O diretório implementa eliminações de forma recuperável, em vez de eliminações definitivas, para utilizadores e inquilinos para recuperação fácil em caso de eliminações acidentais por parte de um cliente. Se o administrador de inquilinos acidental elimina os utilizadores, pode facilmente anular e restaurar os utilizadores eliminados.
 
-O Azure AD implementa cópias de segurança diárias de todos os dados, pelo que consegue restaurar com autoridade dados, em caso de eliminações lógicas ou danos nos dados. A camada de dados emprega códigos de correção de erros, para que ele possa verificar se há erros e corrigir automaticamente os tipos específicos de erros de disco.
+O Azure AD implementa cópias de segurança diárias de todos os dados, pelo que consegue restaurar com autoridade dados, em caso de eliminações lógicas ou danos nos dados. A camada de dados emprega erro corrigir códigos, para que possa verificar a existência de erros e corrigir automaticamente determinados tipos de erros no disco.
 
 #### <a name="metrics-and-monitors"></a>Métricas e monitores
 
-A execução de um serviço de elevada disponibilidade requer capacidades de métricas e monitorização de topo. O Azure AD analisa e comunica, de forma contínua, as métricas-chave de estado de funcionamento e os critérios de sucesso relativos a cada um dos seus serviços. Também há desenvolvimento contínuo e ajuste de métricas e monitoramento e alertas para cada cenário, em cada serviço do Azure AD e em todos os serviços.
+A execução de um serviço de elevada disponibilidade requer capacidades de métricas e monitorização de topo. O Azure AD analisa e comunica, de forma contínua, as métricas-chave de estado de funcionamento e os critérios de sucesso relativos a cada um dos seus serviços. Também há desenvolvimento contínuo e otimização de métricas e monitorização e alertas para cada cenário, dentro de cada serviço do Azure AD e em todos os serviços.
 
-Se qualquer serviço do AD do Azure não estiver funcionando conforme o esperado, a ação será executada imediatamente para restaurar a funcionalidade o mais rápido possível. A métrica mais importante que o Azure AD rastreia é a rapidez com que os problemas do site dinâmico podem ser detectados e atenuados para os clientes. Investimos significativamente na monitorização e nos alertas para minimizar o tempo de deteção (TTD de Destino: <5 minutos) e a prontidão operacional para minimizar o tempo para mitigar (TTM de Destino: <30 minutos).
+Se a qualquer serviço do Azure AD não está a funcionar conforme esperado, ação imediatamente é executada para restaurar as funcionalidades mais rapidamente possível. As faixas de métrica do Azure AD mais importantes é o site de quão rapidamente em direto problemas podem ser detetados e mitigados para os clientes. Investimos significativamente na monitorização e nos alertas para minimizar o tempo de deteção (TTD de Destino: <5 minutos) e a prontidão operacional para minimizar o tempo para mitigar (TTM de Destino: <30 minutos).
 
 #### <a name="secure-operations"></a>Operações seguras
 
-Usando controles operacionais, como a MFA (autenticação multifator) para qualquer operação, bem como a auditoria de todas as operações. Além disso, usar um sistema de elevação just-in-time para conceder o acesso temporário necessário para qualquer tarefa operacional sob demanda em uma base contínua. Para obter mais informações, veja [A Cloud de Confiança](https://azure.microsoft.com/support/trust-center).
+Utilizar controlos operacionais, como a autenticação multifator (MFA) para qualquer operação, bem como auditoria de todas as operações. Além disso, a utilizar um sistema de elevação just-in-time para conceder acesso temporário necessário qualquer operacional tarefas a pedido de forma contínua. Para obter mais informações, veja [A Cloud de Confiança](https://azure.microsoft.com/support/trust-center).
 
 ## <a name="next-steps"></a>Passos seguintes
 

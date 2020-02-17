@@ -1,46 +1,46 @@
 ---
-title: Conectar-se à área de trabalho virtual do Windows do macOS – Azure
-description: Como se conectar à área de trabalho virtual do Windows usando o cliente macOS.
+title: Ligue ao Windows Virtual Desktop a partir do macOS - Azure
+description: Como ligar ao Windows Virtual Desktop utilizando o cliente macOS.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: a46be5dea8286194ccd2558b2e6e301e2624a5f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8995899a0bc6d8d023a7ad08d886fc879fab390
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460203"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367500"
 ---
 # <a name="connect-with-the-macos-client"></a>Ligar ao cliente de macOS
 
-> Aplica-se a: macOS 10,12 ou posterior
+> Aplica-se a: macOS 10.12 ou posterior
 
-Você pode acessar os recursos da área de trabalho virtual do Windows de seus dispositivos macOS com nosso cliente baixável. Este guia lhe dirá como configurar o cliente do.
+Pode aceder aos recursos do Windows Virtual Desktop a partir dos seus dispositivos macOS com o nosso cliente descarregado. Este guia dir-lhe-á como configurar o cliente.
 
 ## <a name="install-the-client"></a>Instalar o cliente
 
-Para começar, [baixe](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) e instale o cliente em seu dispositivo MacOS.
+Para começar, [faça o download](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) e instale o cliente no seu dispositivo macOS.
 
-## <a name="subscribe-to-a-feed"></a>Assinar um feed
+## <a name="subscribe-to-a-feed"></a>Subscreva um feed
 
-Assine o feed o administrador lhe deu para obter a lista de recursos gerenciados disponíveis para você em seu dispositivo macOS.
+Subscreva o feed que o seu administrador lhe deu para obter a lista de recursos geridos disponíveis no seu dispositivo macOS.
 
-Para assinar um feed:
+Para subscrever um feed:
 
-1. Selecione **Adicionar feed** na página principal para se conectar ao serviço e recuperar seus recursos.
-2. Insira a URL do feed. Pode ser uma URL ou endereço de email:
-   - Se você usar uma URL, use aquela que o administrador lhe forneceu. Normalmente, a URL é <https://rdweb.wvd.microsoft.com>.
-   - Para usar o email, insira seu endereço de email. Isso instrui o cliente a procurar uma URL associada ao seu endereço de email se o administrador configurou o servidor dessa maneira.
-3. Selecione **assinar**.
-4. Entre com sua conta de usuário quando solicitado.
+1. Selecione **Adicionar Feed** na página principal para ligar ao serviço e recuperar os seus recursos.
+2. Introduza o URL de Alimentação. Este pode ser um URL ou endereço de e-mail:
+   - Se usar um URL, use o que o seu administrador lhe deu. Normalmente, o URL é <https://rdweb.wvd.microsoft.com>.
+   - Para utilizar o seu email, insira o seu endereço de e-mail. Isto diz ao cliente para procurar um URL associado ao seu endereço de e-mail se o seu administrador configurar o servidor dessa forma.
+3. **Selecione Subscrever**.
+4. Inscreva-se na sua conta de utilizador quando solicitado.
 
-Depois de entrar, você deverá ver uma lista de recursos disponíveis.
+Depois de se inscrever, deve ver uma lista de recursos disponíveis.
 
-Depois que você se inscreveu em um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
+Depois de subscrever um feed, o conteúdo do feed irá atualizar-se automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo seu administrador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o cliente macOS, confira a documentação [introdução ao cliente MacOS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) .
+Para saber mais sobre o cliente macOS, confira o Get iniciado com a documentação [do cliente macOS.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/)

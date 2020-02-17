@@ -3,19 +3,17 @@ title: Gerir Reservas do Azure
 description: Saiba como pode gerir as Reservas do Azure.
 ms.service: cost-management-billing
 author: bandersmsft
-manager: yashesvi
+ms.reviewer: yashesvi
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/06/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82bf250a7902cfe4b905991809fd4bbe5dea102a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75994054"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188506"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir Reservas para recursos do Azure
 
@@ -128,7 +126,7 @@ Para atualizar a definição de otimização da reserva:
 
 ## <a name="optimize-reservation-use"></a>Otimizar a utilização da reserva
 
-As poupanças das reservas do Azure só resultam de uma utilização de recursos sustentada. Ao fazer uma compra de reservas, paga um custo inicial para aquilo que é, essencialmente, uma utilização de recursos 100% possível num período de um ou três anos. Tente maximizar a reserva para obter o máximo de utilização e poupanças possível. As secções a seguir explicam como monitorizar uma reserva e otimizar a utilização.
+As poupanças das reservas do Azure só resultam de uma utilização de recursos sustentada. Ao fazer uma compra de reservas, paga por aquilo que é, essencialmente, uma utilização de recursos 100% possível num período de um ou três anos. Tente maximizar a reserva para obter o máximo de utilização e poupanças possível. As secções a seguir explicam como monitorizar uma reserva e otimizar a utilização.
 
 ### <a name="view-reservation-use-in-the-azure-portal"></a>Ver a utilização da reserva no portal do Azure
 

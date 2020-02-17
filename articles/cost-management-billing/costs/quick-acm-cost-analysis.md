@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: f053b30d344e5372617a5bf98c087056c4fe2911
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e77f6ca587a6dcd001b06fac22d974b22d6fee4e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76294155"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188655"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custos
 
@@ -61,6 +61,13 @@ A vista da análise de custos inicial inclui as seguintes áreas.
 **Gráficos dinâmicos (em anel)** : apresentam gráficos dinâmicos, ao dividir o total de custos por um conjunto comum de propriedades padrão. Mostram desde os custos mais elevados até aos mais baixos do mês atual. Pode alterar os gráficos dinâmicos a qualquer momento ao selecionar um gráfico diferente. Os custos são categorizados por serviço (categoria do medidor), localização (região) e âmbito subordinado por predefinição. Por exemplo, as contas de inscrição são incluídas nas contas de faturação, os grupos de recursos são incluídos nas subscrições e os recursos são incluídos nos grupos de recursos.
 
 ![Vista inicial da análise de custos no portal do Azure](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+
+### <a name="understand-forecast"></a>Compreender a previsão
+
+A previsão de custos mostra uma projeção dos seus custos estimados para o período de tempo selecionado. O modelo baseia-se num modelo de regressão de série temporal. Requer pelo menos 10 dias de dados de utilização e custos recentes para prever os custos de forma precisa. Durante um determinado período de tempo, o modelo de previsão requer partes iguais dos dados de preparação para o período previsto. Por exemplo, uma projeção de três meses requer, pelo menos, três meses de dados de utilização e custos recentes. 
+
+O modelo utiliza um máximo de seis meses de dados de preparação para projetar custos para um ano. No mínimo, precisa de sete dias de dados de preparação para alterar a sua previsão. A previsão baseia-se em alterações drásticas, como picos e quedas, nos padrões de custo e utilização. A previsão não gera projeções individuais para cada item nas propriedades **Agrupar por**. Apenas prevê um total dos custos acumulados. Se utilizar várias moedas, o modelo prevê apenas os custos em USD. 
+
 
 ## <a name="customize-cost-views"></a>Personalizar as vistas de custos
 
@@ -113,7 +120,7 @@ Por predefinição, a análise de custos mostra todos os custos de utilização 
 
 ![Alterne entre custo real e custo amortizado para ver as compras de reservas distribuídas durante o período e alocadas aos recursos que utilizaram a reserva](./media/quick-acm-cost-analysis/metric-picker.png)
 
-O custo amortizado divide as compras de reservas em segmentos diários e distribui-as pela duração do período de reserva. Por exemplo, em vez de ver uma compra de 365 $ a 1 de janeiro, verá uma compra de 1 $ todos os dias de 1 de janeiro a 31 de dezembro. Para além da amortização básica, estes custos são também realocados e associados ao utilizar os recursos específicos que utilizaram a reserva. Por exemplo, se esse custo diário de 1 $ fosse dividido entre duas máquinas virtuais, veria dois custos de 0,50 $ por cada um dos dias. Se parte da reserva não for utilizada num dia, verá um custo de 0,50 $ associado à máquina virtual aplicável e o outro custo de 0,50 $ associado ao tipo de custo de `UnusedReservation`. Note que os custos de reservas não utilizadas só podem ser vistos quando estiver a ver o custo amortizado.
+O custo amortizado divide as compras de reservas em segmentos diários e distribui-as pela duração do período de reserva. Por exemplo, em vez de ver uma compra de 365 $ a 1 de janeiro, verá uma compra de 1,00 $ todos os dias de 1 de janeiro a 31 de dezembro. Para além da amortização básica, estes custos são também realocados e associados ao utilizar os recursos específicos que utilizaram a reserva. Por exemplo, se esse custo diário de 1,00 $ fosse dividido entre duas máquinas virtuais, veria dois custos de 0,50 $ por cada um dos dias. Se parte da reserva não for utilizada num dia, verá um custo de 0,50 $ associado à máquina virtual aplicável e o outro custo de 0,50 $ associado ao tipo de custo de `UnusedReservation`. Note que os custos de reservas não utilizadas só podem ser vistos quando estiver a ver o custo amortizado.
 
 Devido à alteração da forma como os custos são apresentados, é importante notar que as vistas de custo real e custo amortizado mostrarão números totais diferentes. Em geral, o custo total dos meses de uma compra de reserva irá diminuir quando estiver a ver custos amortizados e os meses que se seguem a uma compra de reserva irão aumentar. A amortização está disponível apenas para compras de reservas e, atualmente, não se aplica a compras do Azure Marketplace.
 

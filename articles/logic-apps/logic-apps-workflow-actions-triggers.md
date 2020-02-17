@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 336d2ef471e21e3157c7d8c81b3837bb6a962e2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 18e9c9d330ffb8cc4e284fc649cff0840ec2c82c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191300"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366226"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de esquema para tipos de ação e gatilho em aplicativos lógicos do Azure
 
@@ -503,7 +503,7 @@ Esse gatilho é executado com base na agenda de recorrência especificada e forn
 |-------|------|-------------| 
 | <hora *de início com formato-YYYY-MM-DDThh:mms*> | Cadeia | A data e a hora de início neste formato: <p>AAAA-MM-DDThh: mm: SS se você especificar um fuso horário <p>-ou- <p>AAAA-MM-DDThh: mm: ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e especifique um fuso horário como "hora padrão do Pacífico" ou especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Esta hora de início tem um máximo de 49 anos no futuro e deve seguir a especificação de [data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data utc,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem [uma compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, deverá adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente . <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para horários complexos, o gatilho não dispara tão cedo quanto a hora de início. Para mais informações sobre datas e horários de início, consulte [Criar e agendar tarefas regulares.](../connectors/connectors-native-recurrence.md) | 
 | <> *do fuso horário* | Cadeia | Aplica-se apenas quando especifica um tempo de início porque este gatilho não aceita [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que você deseja aplicar. | 
-| < *> de notas de uma hora ou mais de uma hora* | Matriz inteiro ou inteiro | Se especificar "Day" ou "Week" para `frequency`, pode especificar um ou mais inteiros de 0 a 23, separados por vírgulas, como as horas do dia em que pretende executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", obterá 10 A.M., 12 PM e 2 PM como as marcas de hora. | 
+| < *> de notas de uma hora ou mais de uma hora* | Matriz inteiro ou inteiro | Se especificar "Day" ou "Week" para `frequency`, pode especificar um ou mais inteiros de 0 a 23, separados por vírgulas, como as horas do dia em que pretende executar o fluxo de trabalho. <p>Por exemplo, se especificar "10", "12" e "14", terá 10:00, 12:00 e 14 horas como marca a hora. | 
 | < *> de marcas de um ou mais minutos* | Matriz inteiro ou inteiro | Se especificar "Day" ou "Week" para `frequency`, pode especificar um ou mais inteiros de 0 a 59, separados por vírgulas, como os minutos da hora em que pretende executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minutos e usando o exemplo anterior para horas do dia, você recebe 10:30 am, 12:30 pm e 14:30. | 
 | weekDays | String ou string array | Se especificar "Semana" para `frequency`, pode especificar um ou mais dias, separados por vírgulas, quando quiser executar o fluxo de trabalho: "Segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sábado" e "domingo" | 
 | < *> de corridas máximas* | Número inteiro | Por defeito, as instâncias de fluxo de trabalho funcionam ao mesmo tempo (simultaneamente ou paralelamente) até ao limite de [predefinição](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite estabelecendo um novo valor <*count*> ver [Change trigger concurrency](#change-trigger-concurrency). | 
@@ -565,7 +565,7 @@ Para mais informações e exemplos para este gatilho, consulte [Criar e agendar 
 
 <a name="request-trigger"></a>
 
-### <a name="request-trigger"></a>Gatilho de solicitação
+### <a name="request-trigger"></a>Gatilho de pedido
 
 Esse gatilho torna seu aplicativo lógico chamável criando um ponto de extremidade que pode aceitar solicitações de entrada. Para esse gatilho, forneça um esquema JSON que descreve e valida a carga ou as entradas que o gatilho recebe da solicitação de entrada. O esquema também torna as propriedades de gatilho mais fáceis de fazer referência a partir de ações posteriores no fluxo de trabalho.
 
@@ -2304,7 +2304,7 @@ Essa ação de loop contém ações que são executadas até que a condição es
 | <> *tipo de ação* | Cadeia | O tipo de ação que você deseja executar | 
 | <*inputs de ação*> | Vários | As entradas para a ação a ser executada | 
 | *<condição*> | Cadeia | A condição ou expressão a ser avaliada depois que todas as ações no loop terminarem de ser executadas | 
-| <> *de contagem de loop* | Número inteiro | O limite do número máximo de loops que a ação pode executar. O valor de `count` padrão é de 60. | 
+| <> *de contagem de loop* | Número inteiro | O limite do número máximo de loops que a ação pode executar. Para obter mais informações sobre o limite padrão e limite máximo, consulte [Limites e configuração para Aplicações Lógicas Azure](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
 | <> *de tempo de tempo livre* | Cadeia | O limite do tempo mais longo que o loop pode ser executado. O valor `timeout` padrão é `PT1H`, que é o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)necessário . |
 |||| 
 

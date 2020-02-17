@@ -1,25 +1,28 @@
 ---
 title: Começar a utilizar o Azure Cost Management para parceiros
 description: Este artigo explica como os parceiros utilizam as funcionalidades do Azure Cost Management e como ativam o acesso ao Cost Management para os clientes.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76842423"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117585"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
-O Azure Cost Management está disponível de forma nativa para os parceiros que tenham integrado os clientes num Contrato de Cliente Microsoft e tenham [comprado um Plano do Azure](/partner-center/purchase-azure-plan). Este artigo explica como os parceiros utilizam as funcionalidades do [Azure Cost Management](../index.yml) para ver os custos das subscrições no Plano do Azure. Também descreve como os parceiros ativam o acesso ao Cost Management para os clientes. Os clientes podem utilizar as funcionalidades do Cost Management quando estas forem ativadas pelo parceiro CSP.
+O Azure Cost Management está disponível de forma nativa para os parceiros diretos que tenham integrado os clientes num Contrato de Cliente Microsoft e tenham [comprado um Plano do Azure](/partner-center/purchase-azure-plan). Este artigo explica como os parceiros utilizam as funcionalidades do [Azure Cost Management](../index.yml) para ver os custos das subscrições no Plano do Azure. Também descreve como os parceiros ativam o acesso ao Cost Management para os clientes.
+
+No caso dos parceiros diretos e fornecedores indiretos, o administrador global e os agentes de administração do fornecedor indireto podem aceder ao Cost Management no inquilino do parceiro. Os revendedores e clientes podem aceder ao Cost Management no inquilino do cliente e ver os custos das subscrições, onde os custos são calculados e apresentados às taxas de retalho. No entanto, têm de ter acesso RBAC à subscrição no inquilino do cliente para verem os custos. A política de visibilidade dos custos tem de ser ativada pelo fornecedor para o inquilino do cliente.
+
+Os clientes podem utilizar as funcionalidades do Cost Management quando estas forem ativadas pelo parceiro CSP.
 
 Os parceiros CSP utilizam o Cost Management para:
 

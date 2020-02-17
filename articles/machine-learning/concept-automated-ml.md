@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f7a2e78ed2b1de770f7a60f1312e069dc1757cb6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 2869384d4f4072e1e71ab0a69af81edc68e7a5b7
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191193"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366240"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
@@ -211,22 +211,71 @@ As seguintes técnicas são opções adicionais para lidar com dados desequilibr
 
 Com o Azure Machine Learning, pode utilizar ml automatizado para construir um modelo Python e convertê-lo para o formato ONNX. O tempo de funcionação C#ONNX suporta, para que possa C# utilizar o modelo construído automaticamente nas suas apps sem necessidade de recodificação ou qualquer das lestabeleceções de rede que os pontos finais rest introduzem. Experimente um exemplo deste fluxo [neste caderno jupyter.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)
 
-## <a name="automated-ml-across-microsoft"></a>ML automatizado em toda a Microsoft
+## <a name="automated-ml-in-azure-machine-learning"></a>ML automatizado em Aprendizagem automática de máquinas azure
 
-Ml automatizado também está disponível em outras soluções da Microsoft, tais como:
+Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado
 
-|Integrações|Descrição|
-|------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Seleção e formação automática de modelos em aplicações .NET utilizando visual studio e Visual Studio Code com ML.NET ML automatizado.|
-|[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Esforce os seus trabalhos automatizados de treinamento ML em Spark em clusters HDInsight em paralelo.|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invoque modelos de aprendizagem automática diretamente no Power BI.|
-|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Crie novos modelos de machine learning sobre os seus dados em clusters de big data Do SQL Server 2019.|
+* Para clientes experientes em código, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py) 
+
+* Para clientes com experiência limitada/sem código, o estúdio Azure Machine Learning na [https://ml.azure.com](https://ml.azure.com/)  
+
+O seguinte resume as capacidades ml automatizadas de alto nível suportadas em cada experiência.
+
+<a name="parity"></a>
+
+### <a name="experiment-settings"></a>Configurações de experiências 
+
+As seguintes definições permitem configurar a sua experiência ml automatizada. 
+
+| | SDK Python| estúdio
+----|:----:|:----:
+Dados divididos em conjuntos de comboio/validação| ✓|✓
+Suporta tarefas ML: classificação, regressão e previsão| ✓| ✓
+Otimiza com base na métrica primária| ✓| ✓
+Suporta a computação AML como alvo de cálculo | ✓|✓
+Configure horizonte de previsão, lags de destino e janela de rolamento|✓|✓
+Definir critérios de saída |✓|✓ 
+Definir iterações simultâneas| ✓|✓
+Colunas de gotete| ✓|✓
+Algoritmos de bloco|✓|✓
+Validação cruzada |✓|✓
+Apoia a formação em clusters de Databricks Azure| ✓|
+Ver nomes de funcionalidades projetados|✓|
+Resumo da caracterização| ✓|
+Característica de férias|✓|
+Nível de verbosidade para ficheiros de registo| ✓|
+
+### <a name="model-settings"></a>Definições do modelo
+
+Estas definições podem ser aplicadas ao melhor modelo como resultado da sua experiência automatizada em ML.
+
+||SDK Python|estúdio
+----|:----:|:----:
+Melhor registo de modelo| ✓|✓
+Melhor implementação de modelos| ✓| ✓
+Melhor explicabilidade do modelo| ✓|✓
+Ativar modelos de conjunto de votação e stack| ✓|✓
+Mostrar melhor modelo com base em métricanão primária|✓|Ativar/desativar a compatibilidade do modelo ONNX|✓|
+Testar o modelo | ✓| |
+
+### <a name="run-control-settings"></a>Executar definições de controlo
+
+Estas definições permitem-lhe rever e controlar as suas experiências e a sua criança corre. 
+
+||SDK Python| estúdio
+----|:----:|:----:
+Executar mesa de resumo| ✓|✓
+Cancelar corrida| ✓|✓
+Cancelar a corrida infantil| ✓| ✓
+Pegue guarda-costas| ✓|✓
+Pausa corrida| ✓| 
+Retomar a execução| ✓| 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja exemplos e aprenda a construir modelos usando machine learning automatizado:
 
-+ Siga o [Tutorial: Treine automaticamente um modelo de regressão com o Azure Automated Machine Learning](tutorial-auto-train-models.md)
++ Siga o [Tutorial: Treine automaticamente um modelo de regressão com Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configure as definições para a experiência de treino automático:
   + No estúdio Azure Machine Learning, [utilize estes passos.](how-to-create-portal-experiments.md)
@@ -235,3 +284,5 @@ Veja exemplos e aprenda a construir modelos usando machine learning automatizado
 + Aprenda a treinar automaticamente utilizando dados da série time, [use estes passos](how-to-auto-train-forecast.md).
 
 + Experimente [amostras de Caderno Jupyter para aprendizagem automática de máquinas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
+
+* Ml automatizado também está disponível em outras soluções da Microsoft tais como, [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight,](../hdinsight/spark/apache-spark-run-machine-learning-automl.md) [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

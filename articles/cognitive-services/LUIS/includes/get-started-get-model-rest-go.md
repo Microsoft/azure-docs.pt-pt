@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a153416a247ec3a38ec29e95b83fa919e765942b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8d180eeffdbc41db6fa0e636daf7702faad47fcc
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966845"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368423"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
-* Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório do GitHub cognitiva-Services-Language-Understanding.
+* Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
 * A ID do aplicativo LUIS para o aplicativo TravelAgent importado. O ID da aplicação é apresentado no dashboard de aplicações.
 * A ID da versão no aplicativo que recebe o declarações. O ID predefinido é "0.1".
 * Linguagem de programação [Go](https://golang.org/)
@@ -29,8 +29,6 @@ ms.locfileid: "76966845"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## <a name="change-model-programmatically"></a>Alterar modelo programaticamente
-
-Use o Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida por máquina ao aplicativo.
 
 1. Crie um novo ficheiro com o nome `predict.go`. Adicione o seguinte código:
 
@@ -140,7 +138,7 @@ Use o Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de enti
 
 1. Substitua os valores a partir de `YOUR-` pelos seus próprios valores.
 
-    |Proteção das|Finalidade|
+    |Informações|Objetivo|
     |--|--|
     |`YOUR-KEY`|A tua chave de autor de 32 personagens.|
     |`YOUR-ENDPOINT`| O seu ponto final de URL de autoria. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`. Definiu o seu nome de recurso quando criou o recurso.|
@@ -154,7 +152,7 @@ Use o Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de enti
     go build model.go
     ```
 
-1. Execute a aplicação do Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos:
+1. Execute a aplicação Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos:
 
     ```console
     go run model.go
@@ -167,4 +165,4 @@ Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivo
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Práticas recomendadas para um aplicativo](../luis-concept-best-practices.md)
+> [Boas práticas para uma aplicação](../luis-concept-best-practices.md)

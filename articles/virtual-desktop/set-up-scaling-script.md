@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: c201df03bb156bac3f63d03cc4ca35215792f65c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f38fc45411c89351eb9a50a48f22d22905ee34e6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061536"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367246"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando a Automação Azure
 
@@ -35,7 +35,7 @@ A ferramenta de escala utiliza uma combinação de livros de execução Da Power
 Durante o tempo de utilização máxima, o trabalho verifica o número atual de sessões e a capacidade vm do atual anfitrião da sessão de execução para cada piscina anfitriã. Utiliza estas informações para calcular se os VMs hospedeiros da sessão de execução podem suportar as sessões existentes com base no parâmetro *SessionThresholdPerCPU* definido para o ficheiro **createazurelogicapp.ps1.** Se os VMs anfitriãos da sessão não puderem suportar as sessões existentes, o trabalho inicia vMs anfitriões de sessão adicionais na piscina anfitriã.
 
 >[!NOTE]
->*SessionThresholdPerCPU* não restringe o número de sessões no VM. Este parâmetro só determina quando é necessário começar a carregar as ligações. Para restringir o número de sessões, é necessário seguir as instruções [Set-RdsHostPool](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/set-rdshostpool) para configurar o parâmetro *MaxSessionLimit* em conformidade.
+>*SessionThresholdPerCPU* não restringe o número de sessões no VM. Este parâmetro só determina quando é necessário começar a carregar as ligações. Para restringir o número de sessões, é necessário seguir as instruções [Set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) para configurar o parâmetro *MaxSessionLimit* em conformidade.
 
 Durante o tempo de utilização fora do pico, o trabalho determina quais os VMs hospedeiros da sessão devem desligar-se com base no parâmetro *NúmeroDeRDSH mínimo.* O trabalho definirá os VMs hospedeiros da sessão para drenar o modo de drenagem para evitar que novas sessões se liguem aos anfitriões. Se definir o parâmetro *LimitSecondsToForceLogOffUser* para um valor positivo não nulo, o script notificará qualquer pessoa atualmente assinada nos utilizadores para salvar o seu trabalho, aguardar o tempo configurado e, em seguida, forçar os utilizadores a assinar. Uma vez assinadas todas as sessões de utilizador da sessão vM, o script desligará o VM.
 
@@ -126,7 +126,7 @@ Para criar uma conta Run As na sua conta Azure:
 
 Em seguida, é necessário criar uma atribuição de funções para que o AzureRunAsConnection possa interagir com o Windows Virtual Desktop. Certifique-se de usar o PowerShell para iniciar sessão com uma conta que tenha permissões para criar atribuições de papéis.
 
-Primeiro, descarregue e importe o [módulo Windows Virtual Desktop PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para utilizar na sua sessão PowerShell se ainda não o fez. Execute os seguintes cmdlets PowerShell para ligar ao Windows Virtual Desktop e mostrar os seus inquilinos.
+Primeiro, descarregue e importe o [módulo Windows Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview/) para utilizar na sua sessão PowerShell se ainda não o fez. Execute os seguintes cmdlets PowerShell para ligar ao Windows Virtual Desktop e mostrar os seus inquilinos.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

@@ -1,58 +1,58 @@
 ---
-title: Implantar a máquina virtual do Windows 7 Windows Desktop-Azure
-description: Como configurar e implantar uma máquina virtual do Windows 7 na área de trabalho virtual do Windows.
+title: Implementar máquina virtual Windows 7 Windows Ambiente de trabalho virtual - Azure
+description: Como configurar e implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 28111e45d365069f80f10b88c38618dbb2b4651d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f8aebee72105e4f3218e7ae5f867962d0ed8e23d
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896211"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367378"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
 
-O processo para implantar uma VM (máquina virtual) do Windows 7 na área de trabalho virtual do Windows é um pouco diferente do para VMs que executam versões posteriores do Windows. Este guia lhe dirá como implantar o Windows 7.
+O processo de implementação de uma máquina virtual do Windows 7 (VM) no Windows Virtual Desktop é ligeiramente diferente do que para os VMs que executam versões posteriores do Windows. Este guia dir-lhe-á como implementar o Windows 7.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, siga as instruções em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md) para criar um pool de hosts. Depois disso, siga as instruções em [criar pools de hosts no Azure Marketplace](create-host-pools-azure-marketplace.md#optional-assign-additional-users-to-the-desktop-application-group) para atribuir um ou mais usuários ao grupo de aplicativos da área de trabalho.
+Antes de começar, siga as instruções em [Criar uma piscina de anfitriões com](create-host-pools-powershell.md) a PowerShell para criar uma piscina de anfitriões. Depois disso, siga as instruções em [Create host pools no Azure Marketplace](create-host-pools-azure-marketplace.md#optional-assign-additional-users-to-the-desktop-application-group) para atribuir um ou mais utilizadores ao grupo de aplicações de ambiente de trabalho.
 
-## <a name="configure-a-windows-7-virtual-machine"></a>Configurar uma máquina virtual do Windows 7
+## <a name="configure-a-windows-7-virtual-machine"></a>Configure uma máquina virtual do Windows 7
 
-Depois de concluir os pré-requisitos, você estará pronto para configurar sua VM do Windows 7 para implantação na área de trabalho virtual do Windows.
+Depois de ter feito os pré-requisitos, está pronto para configurar o VM do Windows 7 para implementação no Windows Virtual Desktop.
 
-Para configurar uma VM do Windows 7 na área de trabalho virtual do Windows:
+Para configurar um VM Windows 7 no Windows Virtual Desktop:
 
-1. Entre no portal do Azure e pesquise a imagem do Windows 7 Enterprise ou carregue sua própria imagem personalizada do Windows 7 Enterprise (x64).  
-2. Implante uma ou várias máquinas virtuais com o Windows 7 Enterprise como seu sistema operacional de host. Verifique se as máquinas virtuais permitem protocolo RDP (RDP) (a porta TCP/3389).
-3. Conecte-se ao host do Windows 7 Enterprise usando o RDP e autentique com as credenciais que você definiu ao configurar a implantação. 
-4. Adicione a conta usada ao conectar-se ao host com RDP para o grupo "Área de Trabalho Remota usuário". Se você não fizer isso, talvez não consiga se conectar à VM depois de associá-la ao seu domínio de Active Directory.
-5. Vá para Windows Update em sua VM.
-6. Instale todas as atualizações do Windows na categoria importante.
-7. Instale todas as atualizações do Windows na categoria opcional (excluindo os pacotes de idiomas). Isso instala a atualização do protocolo RDP 8,0 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35393)) que você precisa para concluir estas instruções.
-8. Abra o Editor de Política de Grupo Local e navegue até **configuração do computador** > **modelos administrativos** > **componentes do Windows** >  **serviços de área de trabalho remota > host da sessão da área de trabalho remota** ambiente de **sessão remota**.
-9. Habilite a política protocolo RDP 8,0.
-10. Ingresse essa VM em seu domínio de Active Directory.
-11. Reinicie a máquina virtual executando o seguinte comando:
+1. Inscreva-se no portal Azure e procure a imagem do Windows 7 Enterprise ou carregue a sua própria imagem personalizada do Windows 7 Enterprise (x64).  
+2. Implemente uma ou várias máquinas virtuais com o Windows 7 Enterprise como o seu sistema operativo anfitrião. Certifique-se de que as máquinas virtuais permitem o Protocolo de Ambiente de Trabalho Remoto (RDP) (a porta TCP/3389).
+3. Ligue-se ao anfitrião da Empresa Windows 7 utilizando o RDP e autenticar com as credenciais que definiu enquanto configura a sua implementação. 
+4. Adicione a conta que usou durante a ligação ao anfitrião com RDP ao grupo "Remote Desktop User". Se não o fizer, poderá não conseguir ligar-se ao VM depois de se juntar ao seu domínio de Diretório Ativo.
+5. Vá ao Windows Update no seu VM.
+6. Instale todas as Atualizações do Windows na categoria Importante.
+7. Instale todas as Atualizações do Windows na categoria Opcional (excluindo pacotes de idiomas). Isto instala a atualização Do Protocolo de Ambiente de Trabalho Remoto 8.0[(KB2592687)](https://www.microsoft.com/download/details.aspx?id=35393)que necessita para completar estas instruções.
+8. Abra o Editor de Política do Grupo Local e navegue para **modelos administrativos** de **configuração** de computador >  > componentes do Windows > **serviços** de ambiente de **trabalho remotos** > anfitrião de **sessão** remota de secretária > **ambiente de sessão remota**.
+9. Ativar a política do Protocolo de Ambiente de Trabalho Remoto 8.0.
+10. Junte-se a este VM ao seu domínio de Diretório Ativo.
+11. Reiniciar a máquina virtual executando o seguinte comando:
     
      ```cmd
      shutdown /r /t 0
      ```
     
-12. Siga as instruções [aqui](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) para obter um token de registro.
-13. [Baixe o agente de área de trabalho virtual do Windows para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
-14. [Baixe o Gerenciador de agentes de área de trabalho virtual do Windows para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
-15. Abra o instalador do agente de área de trabalho virtual do Windows e siga as instruções. Quando solicitado, forneça a chave de registro que você criou na etapa 12.
-16. Abra o instalador de área de trabalho virtual do Windows e siga as instruções.
-17. Opcionalmente, bloqueie a porta TCP/3389 para remover o acesso direto de protocolo RDP à VM.
+12. Siga as instruções [aqui](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) para obter um sinal de registo.
+13. [Descarregue o Windows Virtual Desktop Agent para o Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
+14. [Descarregue o Gestor de Agente](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)de Ambiente de Trabalho Virtual do Windows para o Windows 7 .
+15. Abra o instalador do Windows Virtual Desktop Agent e siga as instruções. Quando solicitado, dê a chave de registo que criou no passo 12.
+16. Abra o instalador de Ambiente de Trabalho Virtual do Windows e siga as instruções.
+17. Opcionalmente, bloqueie a porta TCP/3389 para remover o acesso direto ao Protocolo de Ambiente de Trabalho Remoto ao VM.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Sua implantação de área de trabalho virtual do Windows agora está pronta para uso. [Baixe a versão mais recente do cliente de área de trabalho virtual do Windows](https://aka.ms/wvd/clients/windows) para começar.
+A implementação do Windows Virtual Desktop está agora pronta a ser utilizada. [Descarregue a versão mais recente do cliente do Windows Virtual Desktop](https://aka.ms/wvd/clients/windows) para começar.
 
-Para obter uma lista de problemas conhecidos e instruções de solução de problemas do Windows 7 na área de trabalho virtual do Windows, consulte nosso artigo de solução de problemas em [solução de problemas de máquinas virtuais do Windows 7 na área de trabalho virtual do Windows](troubleshoot-windows-7-vm.md).
+Para obter uma lista de problemas conhecidos e instruções de resolução de problemas para o Windows 7 no Windows Virtual Desktop, consulte o nosso artigo de resolução de problemas nas [máquinas virtuais Do Windows7 no Windows Virtual Desktop](troubleshoot-windows-7-vm.md).

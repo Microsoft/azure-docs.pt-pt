@@ -1,60 +1,60 @@
 ---
-title: Conectar-se à área de trabalho virtual do Windows Windows 10 ou 7-Azure
-description: Como se conectar à área de trabalho virtual do Windows usando o cliente de área de trabalho do Windows.
+title: Ligue ao Windows Virtual Desktop Windows 10 ou 7 - Azure
+description: Como ligar ao Windows Virtual Desktop utilizando o cliente do Windows Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: helohr
-ms.openlocfilehash: 745b33efe46c82e3b9358c9c5a2ed13292242db1
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 15bda000f0297f6e8e006416672897cb15792b79
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997348"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367490"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ligar ao cliente de Ambiente de Trabalho do Windows
 
 > Aplica-se a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
 
-Você pode acessar os recursos da área de trabalho virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise usando o cliente de área de trabalho do Windows.
+Pode aceder aos recursos do Windows Virtual Desktop em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise utilizando o cliente windows Desktop.
 
 > [!IMPORTANT]
-> A área de trabalho virtual do Windows não dá suporte ao cliente RADC (RemoteApp e área de trabalho) ou ao cliente do Conexão de Área de Trabalho Remota (MSTSC).
+> O Windows Virtual Desktop não suporta o cliente remoteApp e Desktop Connections (RADC) ou o cliente de Ligação remota de ambiente de trabalho (MSTSC).
 
-## <a name="install-the-windows-desktop-client"></a>Instalar o cliente de área de trabalho do Windows
+## <a name="install-the-windows-desktop-client"></a>Instale o cliente do Windows Desktop
 
 Escolha o cliente que corresponde à sua versão do Windows:
 
-- [Windows de 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
-- [Windows de 32 bits](https://go.microsoft.com/fwlink/?linkid=2098960)
-- [ARM64 do Windows](https://go.microsoft.com/fwlink/?linkid=2098961)
+- [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2068602)
+- [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Janelas ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
-Você pode instalar o cliente do para o usuário atual, que não requer direitos de administrador, ou o administrador pode instalar e configurar o cliente para que todos os usuários no dispositivo possam acessá-lo.
+Pode instalar o cliente para o utilizador atual, o que não necessita de direitos de administração, ou a sua administração pode instalar e configurar o cliente para que todos os utilizadores do dispositivo possam aceder ao mesmo.
 
-Uma vez instalado, o cliente pode ser iniciado no menu iniciar pesquisando **área de trabalho remota**.
+Uma vez instalado, o cliente pode ser lançado a partir do menu Iniciar, procurando por Ambiente de **Trabalho Remoto**.
 
-## <a name="subscribe-to-a-feed"></a>Assinar um feed
+## <a name="subscribe-to-a-feed"></a>Subscreva um feed
 
-Obtenha a lista de recursos gerenciados disponíveis para você assinando o feed fornecido pelo administrador. A assinatura disponibiliza os recursos no seu PC local.
+Obtenha a lista de recursos geridos à sua disposição subscrevendo o feed fornecido pela sua administração. A subscrição disponibiliza os recursos no seu PC local.
 
-Para assinar um feed:
+Para subscrever um feed:
 
-1. Abra o cliente de área de trabalho do Windows.
-2. Selecione **assinar** na página principal para se conectar ao serviço e recuperar seus recursos.
-3. Entre com sua conta de usuário quando solicitado.
+1. Abra o cliente do Windows Desktop.
+2. **Selecione Subscrever** na página principal para ligar ao serviço e recuperar os seus recursos.
+3. Inscreva-se na sua conta de utilizador quando solicitado.
 
-Depois de entrar com êxito, você verá uma lista dos recursos que você pode acessar.
+Depois de iniciar sessão com sucesso, deve ver uma lista dos recursos a que pode aceder.
 
-Você pode iniciar recursos por um dos dois métodos.
+Pode lançar recursos por um de dois métodos.
 
-- Na página principal do cliente, clique duas vezes em um recurso para iniciá-lo.
-- Inicie um recurso como faria normalmente com outros aplicativos no menu iniciar.
-  - Você também pode pesquisar os aplicativos na barra de pesquisa.
+- A partir da página principal do cliente, clique duas vezes num recurso para lançá-lo.
+- Lance um recurso como normalmente faria com outras aplicações a partir do Menu Iniciar.
+  - Pode também pesquisar as aplicações na barra de pesquisa.
 
-Após a assinatura de um feed, o conteúdo do feed é atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
+Uma vez subscrito a um feed, o conteúdo do feed é atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo seu administrador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como usar o cliente de área de trabalho do Windows, confira [introdução ao cliente de desktop do Windows](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop).
+Para saber mais sobre como utilizar o cliente do Windows Desktop, confira [Get started com o cliente do Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).

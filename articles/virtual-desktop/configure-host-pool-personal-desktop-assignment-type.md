@@ -1,72 +1,72 @@
 ---
-title: Tipo de atribuição da área de trabalho virtual do Windows para desktop pessoal-Azure
-description: Como configurar o tipo de atribuição para um pool de hosts da área de trabalho virtual pessoal do Windows.
+title: Windows Virtual Desktop tipo de tarefa pessoal desktop - Azure
+description: Como configurar o tipo de atribuição para um pool de anfitriões pessoal do Windows Virtual Desktop.
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0db1ffe46165d91148b6980abbf89d03340e646e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8065be841b18fa0f8706a3bea3739ee2cb013323
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486693"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367597"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurar o tipo de atribuição de pool de hosts de área de trabalho pessoal
+# <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo pessoal de atribuição de piscina de anfitrião do ambiente de trabalho
 
-Você pode configurar o tipo de atribuição de seu pool de hosts de área de trabalho pessoal para ajustar o ambiente de área de trabalho virtual do Windows para atender melhor às suas necessidades. Neste tópico, mostraremos como configurar a atribuição automática ou direta para seus usuários.
+Pode configurar o tipo de atribuição do seu conjunto pessoal de anfitriões para ajustar o ambiente de ambiente de trabalho virtual do Windows para melhor atender às suas necessidades. Neste tópico, vamos mostrar-lhe como configurar a atribuição automática ou direta para os seus utilizadores.
 
 >[!NOTE]
-> As instruções neste artigo se aplicam somente a pools de hosts de área de trabalho pessoais, não pools de hosts em pool, pois os usuários em pools de hosts em pool não são atribuídos a hosts de sessão
+> As instruções deste artigo aplicam-se apenas a piscinas pessoais de anfitriões de ambiente de trabalho, não piscinas de anfitriões reunidas, uma vez que os utilizadores em piscinas de anfitriões não são atribuídos a anfitriões específicos da sessão.
 
-## <a name="configure-automatic-assignment"></a>Configurar atribuição automática
+## <a name="configure-automatic-assignment"></a>Configurar a atribuição automática
 
-Atribuição automática é o tipo de atribuição padrão para novos pools de hosts de área de trabalho pessoal criados no seu ambiente de área de trabalho virtual do Windows. A atribuição automática de usuários não exige um host de sessão específico.
+A atribuição automática é o tipo de atribuição padrão para novos conjuntos pessoais de anfitriões de ambiente de trabalho criados no seu ambiente de ambiente de trabalho virtual Windows. Atribuir automaticamente os utilizadores não requer um anfitrião de sessão específico.
 
-Para atribuir usuários automaticamente, primeiro atribua-os ao pool de hosts de área de trabalho pessoal para que eles possam ver a área de trabalho em seu feed. Quando um usuário atribuído iniciar a área de trabalho no feed, ele solicitará um host de sessão disponível se ainda não tiver se conectado ao pool de hosts, o que concluirá o processo de atribuição.
+Para atribuir automaticamente os utilizadores, atribua-os primeiro ao conjunto de anfitriões pessoal para que possam ver o ambiente de trabalho no seu feed. Quando um utilizador designado lançar o ambiente de trabalho no seu feed, solicitará um anfitrião de sessão disponível se ainda não estiver ligado à piscina anfitriã, que completa o processo de atribuição.
 
-Antes de começar, [Baixe e importe o módulo do PowerShell da área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) , caso ainda não tenha feito isso. 
+Antes de começar, [faça o download e importe o módulo Windows Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview/) se ainda não o fez. 
 
 > [!NOTE]
-> Verifique se você instalou o módulo do PowerShell da área de trabalho virtual do Windows versão 1.0.1534.2001 ou posterior antes de seguir estas instruções.
+> Certifique-se de que instalou a versão 1.0.1534.2001 do módulo PowerShell do Windows Virtual, antes de seguir estas instruções.
 
-Depois disso, execute o seguinte cmdlet para entrar em sua conta:
+Depois disso, execute o seguinte cmdlet para iniciar sessão na sua conta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Para configurar um pool de hosts para atribuir usuários automaticamente a VMs, execute o seguinte cmdlet do PowerShell:
+Para configurar um conjunto de anfitriões para atribuir automaticamente os utilizadores a VMs, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Automatic
 ```
 
-Para atribuir um usuário ao pool de hosts de área de trabalho pessoal, execute o seguinte cmdlet do PowerShell:
+Para atribuir um utilizador à piscina de anfitriões pessoal do ambiente de trabalho, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-## <a name="configure-direct-assignment"></a>Configurar atribuição direta
+## <a name="configure-direct-assignment"></a>Configurar a atribuição direta
 
-Ao contrário da atribuição automática, ao usar a atribuição direta, você deve atribuir o usuário ao pool de hosts da área de trabalho pessoal e a um host de sessão específico antes que eles possam se conectar à área de trabalho pessoal. Se o usuário for atribuído apenas a um pool de hosts sem uma atribuição de host de sessão, ele não poderá acessar recursos.
+Ao contrário da atribuição automática, quando utiliza a atribuição direta, deve atribuir o utilizador ao conjunto de anfitriões pessoal do ambiente de trabalho e a um anfitrião de sessão específico antes de se ligar ao seu ambiente de trabalho pessoal. Se o utilizador for atribuído apenas a uma piscina de anfitriões sem uma atribuição de anfitriões de sessão, não poderá aceder aos recursos.
 
-Para configurar um pool de hosts para exigir atribuição direta de usuários a hosts de sessão, execute o seguinte cmdlet do PowerShell:
+Para configurar um pool de anfitriões para exigir a atribuição direta dos utilizadores aos anfitriões da sessão, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Direct
 ```
 
-Para atribuir um usuário ao pool de hosts de área de trabalho pessoal, execute o seguinte cmdlet do PowerShell:
+Para atribuir um utilizador à piscina de anfitriões pessoal do ambiente de trabalho, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-Para atribuir um usuário a um host de sessão específico, execute o seguinte cmdlet do PowerShell:
+Para atribuir um utilizador a um anfitrião de sessão específico, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
@@ -74,7 +74,7 @@ Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -Assigned
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você configurou o tipo de atribuição de área de trabalho pessoal, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-lo como parte de uma sessão de usuário. Esses próximos dois como tos informarão como se conectar a uma sessão usando o cliente de sua escolha:
+Agora que configurao o tipo de atribuição pessoal de desktop, pode iniciar sessão num cliente do Windows Virtual Desktop para o testar como parte de uma sessão de utilizador. Estes próximos dois How-tos dir-lhe-ão como se conectar a uma sessão usando o cliente da sua escolha:
 
-- [Conectar-se ao cliente de desktop do Windows](connect-windows-7-and-10.md)
-- [Conectar-se ao cliente Web](connect-web.md)
+- [Conecte-se com o cliente do Windows Desktop](connect-windows-7-and-10.md)
+- [Conecte-se com o cliente web](connect-web.md)

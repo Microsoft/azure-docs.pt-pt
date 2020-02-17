@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 94a376c01229de20e6a1264da3f29532becefa8a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190679"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368657"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes partilhas de ficheiros
 
@@ -43,7 +43,7 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
     ![Captura de ecrã que mostra como criar um grupo de recursos no portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. A seguir, introduza um nome para a sua conta de armazenamento. O nome deve ser único em Azure. O nome também deve ter 3 a 24 caracteres de comprimento, e só pode ter números e letras minúsculas.
-1. Selecione uma localização para a sua conta de armazenamento e certifique-se de que é [uma das regiões suportadas para grandes partilhas](storage-files-planning.md#regional-availability)de ficheiros .
+1. Selecione uma localização para a sua conta de armazenamento e certifique-se de que é [uma das réplicas suportadas para grandes partilhas](storage-files-planning.md#regional-availability)de ficheiros .
 1. Delineie a replicação para **armazenamento localmente redundante** ou **armazenamento redundante**da zona .
 1. Deixe estes campos nos seus valores padrão:
 

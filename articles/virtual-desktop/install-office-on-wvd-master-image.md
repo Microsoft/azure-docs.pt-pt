@@ -1,68 +1,68 @@
 ---
-title: Instalar o Office em uma imagem VHD mestre – Azure
-description: Como instalar e personalizar o Office em uma imagem mestra de área de trabalho virtual do Windows para o Azure.
+title: Instalar escritório em uma imagem master VHD - Azure
+description: Como instalar e personalizar o Office numa imagem master do Windows Virtual Desktop para o Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 059748f6f08b1c73d56aa3a127aa785f55eb63ee
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1637cb7621d6071bbce2af66f3a106770139ad4e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539140"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368813"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
 
-Este artigo mostra como instalar o Office 365 ProPlus, o OneDrive e outros aplicativos comuns em uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure. Se os usuários precisarem acessar determinados aplicativos de LOB (linha de negócios), recomendamos que você os instale depois de concluir as instruções neste artigo.
+Este artigo diz-lhe como instalar o Office 365 ProPlus, OneDrive e outras aplicações comuns numa imagem de disco rígido virtual master (VHD) para upload para O Azure. Se os seus utilizadores precisarem de aceder a determinadas aplicações de linha de negócio (LOB), recomendamos que as instale depois de completar as instruções neste artigo.
 
-Este artigo pressupõe que você já criou uma VM (máquina virtual). Caso contrário, consulte [preparar e personalizar uma imagem mestre VHD](set-up-customize-master-image.md#create-a-vm)
+Este artigo assume que já criou uma máquina virtual (VM). Caso contrário, consulte [Preparar e personalizar uma imagem VHD mestre](set-up-customize-master-image.md#create-a-vm)
 
-Este artigo também pressupõe que você tenha acesso elevado na VM, seja provisionado no Azure ou no Gerenciador do Hyper-V. Caso contrário, consulte [elevar o acesso para gerenciar todos os grupos de gerenciamento e assinatura do Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Este artigo também assume que você tem acesso elevado no VM, seja ele provisionado em Azure ou Hyper-V Manager. Caso contrário, consulte o acesso elevado para gerir todos os grupos de [subscrição e gestão do Azure.](../role-based-access-control/elevate-access-global-admin.md)
 
 >[!NOTE]
->Essas instruções são para uma configuração específica da área de trabalho virtual do Windows que pode ser usada com os processos existentes da sua organização.
+>Estas instruções são para uma configuração específica do Windows Virtual Desktop que pode ser usada com os processos existentes da sua organização.
 
-## <a name="install-office-in-shared-computer-activation-mode"></a>Instalar o Office no modo de ativação do computador compartilhado
+## <a name="install-office-in-shared-computer-activation-mode"></a>Instalar o Office no modo de ativação do computador partilhado
 
-A ativação de computador compartilhado permite implantar o Office 365 ProPlus em um computador em sua organização que é acessado por vários usuários. Para obter mais informações sobre a ativação do computador compartilhado, consulte [visão geral da ativação do computador compartilhado para o Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
+A ativação partilhada do computador permite-lhe implementar o Office 365 ProPlus para um computador da sua organização que é acedido por vários utilizadores. Para obter mais informações sobre a ativação de computador partilhado, consulte [a visão geral da ativação do computador partilhado para o Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
 
-Use a [ferramenta de implantação do Office](https://www.microsoft.com/download/details.aspx?id=49117) para instalar o Office. O Windows 10 Enterprise Multi-Session dá suporte apenas às seguintes versões do Office:
-- Office 365 ProPlus
-- Office 365 Business que vem com uma assinatura Microsoft 365 Business
+Utilize a ferramenta de [implantação](https://www.microsoft.com/download/details.aspx?id=49117) do escritório para instalar o Office. A multi-sessão do Windows 10 Enterprise suporta apenas as seguintes versões do Office:
+- Escritório 365 ProPlus
+- Office 365 Business que vem com uma subscrição microsoft 365 Business
 
-A ferramenta de implantação do Office requer um arquivo XML de configuração. Para personalizar o exemplo a seguir, consulte as [Opções de configuração para a ferramenta de implantação do Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
+A Ferramenta de Implantação do Office requer um ficheiro XML de configuração. Para personalizar a seguinte amostra, consulte as Opções de [Configuração para a Ferramenta](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/)de Implementação do Escritório .
 
-Este XML de configuração de exemplo que fornecemos fará o seguinte:
+Esta configuração de amostra XML que fornecemos fará as seguintes coisas:
 
-- Instale o Office do canal mensal e forneça atualizações do canal mensal quando elas forem executadas.
+- Instale o Office a partir do canal mensal e entregue atualizações a partir do canal mensal quando forem executados.
 - Use a arquitetura x64.
-- Desabilite as atualizações automáticas.
-- Remova todas as instalações existentes do Office e migre suas configurações.
-- Habilite a ativação do computador compartilhado.
+- Desative as atualizações automáticas.
+- Remova quaisquer instalações existentes do Office e emigra as suas definições.
+- Ativar a ativação do computador partilhado.
 
 >[!NOTE]
->O recurso de pesquisa de estêncil do Visio pode não funcionar conforme o esperado na área de trabalho virtual do Windows.
+>A funcionalidade de pesquisa de stencil da Visio pode não funcionar como esperado no Windows Virtual Desktop.
 
-Veja o que este XML de configuração de exemplo não fará:
+Aqui está o que esta configuração de amostra XML não vai fazer:
 
-- Instalar o Skype for Business
-- Instale o OneDrive no modo por usuário. Para saber mais, confira [instalar o onedrive no modo por máquina](#install-onedrive-in-per-machine-mode).
+- Instalar skype para negócios
+- Instale o OneDrive no modo por utilizador. Para saber mais, consulte [Instalar o OneDrive no modo por máquina](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->A ativação do computador compartilhado pode ser configurada por meio de objetos de Política de Grupo (GPOs) ou configurações do registro. O GPO está localizado em **configuração do computador\\políticas\\Modelos Administrativos\\Microsoft Office 2016 (máquina)\\configurações de licenciamento**
+>A ativação partilhada do computador pode ser configurada através de objetos de política de grupo (GPOs) ou definições de registo. O GPO está localizado na **Configuração de Computadores\\Políticas\\Modelos Administrativos\\Microsoft Office 2016 (Máquina)\\Definições** de Licenciamento
 
-A ferramenta de implantação do Office contém setup. exe. Para instalar o Office, execute o seguinte comando em uma linha de comando:
+A ferramenta de implantação do escritório contém configuração.exe. Para instalar o Office, execute o seguinte comando numa linha de comando:
 
 ```batch
 Setup.exe /configure configuration.xml
 ```
 
-#### <a name="sample-configurationxml"></a>Exemplo de Configuration. xml
+#### <a name="sample-configurationxml"></a>Configuração da amostra.xml
 
-O exemplo de XML a seguir instalará a versão mensal.
+A amostra XML seguinte instalará o lançamento mensal.
 
 ```xml
 <Configuration>
@@ -86,9 +86,9 @@ O exemplo de XML a seguir instalará a versão mensal.
 ```
 
 >[!NOTE]
->A equipe do Office recomenda usar a instalação de 64 bits para o parâmetro **OfficeClientEdition** .
+>A equipa do Office recomenda a utilização de uma instalação de 64 bits para o parâmetro **OfficeClientEdition.**
 
-Depois de instalar o Office, você pode atualizar o comportamento padrão do Office. Execute os comandos a seguir individualmente ou em um arquivo em lotes para atualizar o comportamento.
+Depois de instalar o Office, pode atualizar o comportamento padrão do Office. Executar os seguintes comandos individualmente ou num ficheiro de lote para atualizar o comportamento.
 
 ```batch
 rem Mount the default user registry hive
@@ -109,56 +109,56 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-## <a name="install-onedrive-in-per-machine-mode"></a>Instalar o OneDrive no modo por máquina
+## <a name="install-onedrive-in-per-machine-mode"></a>Instale o OneDrive no modo por máquina
 
-O OneDrive normalmente é instalado por usuário. Nesse ambiente, ele deve ser instalado por computador.
+O OneDrive é normalmente instalado por utilizador. Neste ambiente, deve ser instalado por máquina.
 
-Veja como instalar o OneDrive no modo por máquina:
+Eis como instalar o OneDrive no modo por máquina:
 
-1. Primeiro, crie um local para preparar o instalador do OneDrive. Uma pasta de disco local ou um local de [\\\\UNC] (file://unc) está bem.
+1. Primeiro, crie um local para encenar o instalador OneDrive. Uma pasta de disco local ou a localização [\\\\unc] (file://unc) está bem.
 
-2. Baixe o OneDriveSetup. exe em seu local de preparação com este link: <https://aka.ms/OneDriveWVD-Installer>
+2. Baixe OneDriveSetup.exe para a sua localização faseada com este link: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Se você instalou o Office com o OneDrive omitindo **\<ID ExcludeApp = "onedrive"/\>** , desinstale todas as instalações existentes do onedrive por usuário em um prompt de comando elevado executando o seguinte comando:
+3. Se instalou o escritório com o OneDrive omitindo **\<Excluir O ID="OneDrive" /\>,** desinstale quaisquer instalações existentes do OneDrive por utilizador a partir de um pedido de comando elevado, executando o seguinte comando:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
-4. Execute este comando em um prompt de comando elevado para definir o valor do registro **AllUsersInstall** :
+4. Executar este comando a partir de um pedido de comando elevado para definir o valor de registo **AllUsersInstall:**
 
     ```batch
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
-5. Execute este comando para instalar o OneDrive no modo por máquina:
+5. Executar este comando para instalar o OneDrive no modo por máquina:
 
     ```batch
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
-6. Execute este comando para configurar o OneDrive para iniciar na entrada para todos os usuários:
+6. Executar este comando para configurar o OneDrive para iniciar o início do início do início do início do início do início do início do início do início do sessão para todos os utilizadores:
 
     ```batch
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
-7. Habilite **Configurar silenciosamente a conta de usuário** executando o comando a seguir.
+7. Ative **silenciosamente a conta** de utilizador executando o seguinte comando.
 
     ```batch
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
-8. Redirecione e mova as pastas conhecidas do Windows para o OneDrive executando o comando a seguir.
+8. Redirecione e mova as pastas conhecidas do Windows para o OneDrive executando o seguinte comando.
 
     ```batch
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## <a name="teams-and-skype"></a>Equipes e Skype
+## <a name="teams-and-skype"></a>Equipas e Skype
 
-A área de trabalho virtual do Windows não dá suporte ao Skype for Business e às equipes.
+O Windows Virtual Desktop não suporta o Skype para negócios e equipas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você adicionou o Office à imagem, você pode continuar a personalizar a imagem do VHD mestre. Consulte [preparar e personalizar uma imagem VHD mestre](set-up-customize-master-image.md).
+Agora que adicionou o Office à imagem, pode continuar a personalizar a sua imagem de Mestre VHD. Consulte [preparar e personalizar uma imagem VHD mestre](set-up-customize-master-image.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6a4b215b2b386754bae2c1bbec171ed4bc558a93
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988204"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048196"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade da faturação das subscrições do Azure da conta MPA
 
@@ -120,7 +120,7 @@ Pode pedir a propriedade da faturação dos tipos de subscrição listados abaix
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* A subscrição Enterprise DevTest será faturada à tarifa pay as you go após a transferência. Qualquer desconto oferecido como parte da oferta do Enterprise DevTest através do EA do cliente não estará disponível para o parceiro do programa CSP.
+\* Uma subscrição Dev/Test tem de ser primeiro convertida numa oferta EA Enterprise através de um pedido de suporte. Uma subscrição Enterprise Dev/Test será cobrada a uma taxa pay as you go após a sua transferência. Qualquer desconto oferecido por meio da oferta Enterprise Dev/Test através do EA do cliente não estará disponível para o parceiro CSP.
 
 ## <a name="additional-information"></a>Informações adicionais
 

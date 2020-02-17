@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 09/25/2019
-  ms.openlocfilehash: 9543ac8a6e7dc30fa44e4bada42ca4786cc53ba0
-  ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+  ms.openlocfilehash: bdda8aca71f09cfe570ffea7e03c63d7c87abbb5
+  ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/11/2019
-  ms.locfileid: "72286569"
+  ms.lasthandoff: 02/14/2020
+  ms.locfileid: "77212589"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -45,14 +45,14 @@ landingContent:
       url: ./concepts/enterprise.md
 - title: Ofertas do Marketplace
   linkLists:
-  - linkListType: concept
-    links:
-    - text: Ofertas de Serviços Geridos no Azure Marketplace
-      url: ./concepts/managed-services-offers.md
   - linkListType: how-to-guide
     links:
     - text: Publicar ofertas de Serviços Geridos
       url: ./how-to/publish-managed-services-offers.md
+  - linkListType: concept
+    links:
+    - text: Ofertas de Serviços Geridos no Azure Marketplace
+      url: ./concepts/managed-services-offers.md
 - title: Exemplos e modelos
   linkLists:
   - linkListType: deploy
@@ -61,6 +61,22 @@ landingContent:
       url: https://github.com/Azure/Azure-Lighthouse-samples/
     - text: Índice de exemplos do Azure Lighthouse
       url: ./samples/index.md
+- title: Trabalhe com os serviços do Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utilize os Registos do Azure Monitor em escala
+      url: ./how-to/monitor-at-scale.md
+    - text: Implemente o Azure Policy em escala
+      url: ./how-to/policy-at-scale.md
+- title: Experiências com o portal do Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ver e gerir clientes
+      url: ./how-to/view-manage-customers.md
+    - text: Ver e gerir fornecedores de serviços
+      url: ./how-to/view-manage-service-providers.md
 - title: Referência – Transferências
   linkLists:
   - linkListType: download
@@ -85,14 +101,6 @@ landingContent:
       url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
     - text: Python
       url: /python/api/azure-mgmt-managedservices
-- title: Experiências com o portal do Azure
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Ver e gerir clientes
-      url: ./how-to/view-manage-customers.md
-    - text: Ver e gerir fornecedores de serviços
-      url: ./how-to/view-manage-service-providers.md
 - title: Participar
   linkLists:
   - linkListType: get-started

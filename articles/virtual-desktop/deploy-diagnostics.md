@@ -1,263 +1,263 @@
 ---
-title: Implantar a ferramenta de diagnóstico para a área de trabalho virtual do Windows-Azure
-description: Como implantar a ferramenta de diagnóstico UX para a área de trabalho virtual do Windows.
+title: Implementar a ferramenta de diagnóstico para Windows Virtual Desktop - Azure
+description: Como implementar a ferramenta DE DIAGNÓSTICO UX para windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452415"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368844"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
-Veja o que a ferramenta de diagnóstico para a área de trabalho virtual do Windows pode fazer por você:
+Eis o que a ferramenta de diagnóstico do Windows Virtual Desktop pode fazer por si:
 
-- Pesquisar atividades de diagnóstico (gerenciamento, conexão ou feed) para um único usuário durante um período de uma semana.
-- Reúna informações de host de sessão para atividades de conexão de seu espaço de trabalho Log Analytics.
-- Examine os detalhes de desempenho da VM (máquina virtual) para um host específico.
-- Veja quais usuários estão conectados ao host da sessão.
-- Enviar mensagem para usuários ativos em um host de sessão específico.
-- Desconectar usuários de um host de sessão.
+- Procure atividades de diagnóstico (gestão, ligação ou alimentação) para um único utilizador durante um período de uma semana.
+- Reúna informações sobre o anfitrião da sessão para atividades de conexão a partir do seu espaço de trabalho Log Analytics.
+- Reveja os detalhes de desempenho da máquina virtual (VM) para um determinado anfitrião.
+- Veja em que utilizadores estão inscritos no anfitrião da sessão.
+- Envie mensagem a utilizadores ativos num anfitrião de sessão específico.
+- Inscreva os utilizadores num anfitrião da sessão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa criar um registro de aplicativo Azure Active Directory e um espaço de trabalho Log Analytics antes de poder implantar o modelo de Azure Resource Manager para a ferramenta. Você ou o administrador precisa dessas permissões para fazer isso:
+Você precisa criar um Registo de App de Diretório Ativo Azure e um espaço de trabalho Log Analytics antes de poder implementar o modelo de Gestor de Recursos Azure para a ferramenta. Você ou o administrador precisam destas permissões para fazer isso:
 
-- Proprietário da assinatura do Azure
-- Permissão para criar recursos em sua assinatura do Azure
-- Permissão para criar um aplicativo do Azure AD
-- Proprietário RDS ou direitos de colaborador
+- Proprietário da assinatura Azure
+- Permissão para criar recursos na sua subscrição Azure
+- Permissão para criar uma aplicação Azure AD
+- Direitos de Proprietário ou Contribuinte RDS
 
-Você também precisa instalar esses dois módulos do PowerShell antes de começar:
+Também precisa de instalar estes dois módulos PowerShell antes de começar:
 
-- [Módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.4.0)
-- [Módulo do AD do Azure](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [Módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Módulo Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
-Verifique se sua ID de assinatura está pronta para quando você entrar.
+Certifique-se de que tem o seu ID de subscrição pronto para quando iniciar a sua inscrição.
 
-Depois de ter tudo em ordem, você pode criar o registro de aplicativo do Azure AD.
+Depois de ter tudo em ordem, pode criar o registo da aplicação Azure AD.
 
-## <a name="create-an-azure-active-directory-app-registration"></a>Criar um registro de aplicativo Azure Active Directory
+## <a name="create-an-azure-active-directory-app-registration"></a>Criar uma inscrição de aplicativo de Diretório Ativo Azure
 
-Esta seção mostrará como usar o PowerShell para criar o aplicativo Azure Active Directory com uma entidade de serviço e obter permissões de API para ele.
+Esta secção irá mostrar-lhe como usar o PowerShell para criar a aplicação Azure Ative Directory com um diretor de serviço e obter permissões API para o mesmo.
 
 >[!NOTE]
->As permissões de API são área de trabalho virtual do Windows, Log Analytics e permissões de API Microsoft Graph são adicionadas ao aplicativo Azure Active Directory.
+>As permissões API são as permissões Windows Virtual Desktop, Log Analytics e Microsoft Graph API são adicionadas à Aplicação de Diretório Ativo Azure.
 
-1. Abra o PowerShell como Administrador.
-2. Entre no Azure com uma conta que tenha permissões de proprietário ou colaborador na assinatura do Azure que você gostaria de usar para a ferramenta de diagnóstico:
+1. Open PowerShell como administrador.
+2. Inscreva-se no Azure com uma conta que tenha permissões do Proprietário ou do Colaborador na subscrição do Azure que gostaria de utilizar para a ferramenta de diagnóstico:
    ```powershell
    Login-AzAccount
    ```
-3. Entre no Azure AD com a mesma conta:
+3. Inscreva-se na Azure AD com a mesma conta:
    ```powershell
    Connect-AzureAD
    ```
-4. Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **CreateADAppRegistrationforDiagnostics. ps1** no PowerShell.
-5.  Quando o script solicitar que você nomeie seu aplicativo, insira um nome de aplicativo exclusivo.
+4. Vá ao [repo do RDS-Templates GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **CreateADAppRegistrationforDiagnostics.ps1** no PowerShell.
+5.  Quando o script lhe pedir para nomear a sua aplicação, insira um nome de aplicação único.
 
 
-Depois que o script for executado com êxito, ele deverá mostrar as seguintes medidas em sua saída:
+Depois de o guião ser executado com sucesso, deve mostrar as seguintes coisas na sua saída:
 
--  Uma mensagem que confirma que seu aplicativo agora tem uma atribuição de função de entidade de serviço.
--  A ID do cliente e a chave secreta do cliente que você precisará para quando implantar a ferramenta de diagnóstico.
+-  Uma mensagem que confirma que a sua aplicação tem agora uma atribuição principal de serviço.
+-  O ID do cliente e a chave secreta do cliente que necessitará quando implementar a ferramenta de diagnóstico.
 
-Agora que você registrou seu aplicativo, é hora de configurar seu espaço de trabalho Log Analytics.
+Agora que registou a sua aplicação, é hora de configurar o seu espaço de trabalho log Analytics.
 
-## <a name="configure-your-log-analytics-workspace"></a>Configurar seu espaço de trabalho Log Analytics
+## <a name="configure-your-log-analytics-workspace"></a>Configure o seu espaço de trabalho log Analytics
 
-Para obter a melhor experiência possível, recomendamos que você configure seu espaço de trabalho Log Analytics com os seguintes contadores de desempenho que permitem derivar instruções da experiência do usuário em uma sessão remota. Para obter uma lista de contadores recomendados com limites sugeridos, consulte [limites do contador de desempenho do Windows](deploy-diagnostics.md#windows-performance-counter-thresholds).
+Para a melhor experiência possível, recomendamos que configure o seu espaço de trabalho Log Analytics com os seguintes contadores de desempenho que lhe permitam obter declarações da experiência do utilizador numa sessão remota. Para obter uma lista de contadores recomendados com limiares sugeridos, consulte [os limiares](deploy-diagnostics.md#windows-performance-counter-thresholds)de contador de desempenho do Windows .
 
-### <a name="create-an-azure-log-analytics-workspace-using-powershell"></a>Criar um espaço de trabalho do Azure Log Analytics usando o PowerShell
+### <a name="create-an-azure-log-analytics-workspace-using-powershell"></a>Criar um espaço de trabalho Azure Log Analytics usando powerShell
 
-Você pode executar um script do PowerShell para criar um Log Analytics espaço de trabalho e configurar os contadores de desempenho do Windows recomendados para monitorar a experiência do usuário e o desempenho do aplicativo.
-
->[!NOTE]
->Se você já tiver um espaço de trabalho Log Analytics existente que você fez sem o script do PowerShell que deseja usar, pule para [validar os resultados do script na portal do Azure](#validate-the-script-results-in-the-azure-portal).
-
-Para executar o script do PowerShell:
-
-1.  Abra o PowerShell como administrador.
-2.  Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **CreateLogAnalyticsWorkspaceforDiagnostics. ps1** no PowerShell.
-3. Insira os seguintes valores para os parâmetros:
-
-    - Para **ResourceGroupName**, insira o nome para o grupo de recursos.
-    - Para **LogAnalyticsWorkspaceName**, insira um nome exclusivo para seu espaço de trabalho log Analytics.
-    - Para **local**, insira a região do Azure que você está usando.
-    - Insira a **ID da assinatura do Azure**, que pode ser encontrada no portal do Azure em **assinaturas**.
-
-4. Insira as credenciais de um usuário com acesso de administrador delegado.
-5. Entre no portal do Azure com as credenciais do mesmo usuário.
-6. Anote ou memorize a ID do LogAnalyticsWorkspace para mais tarde.
-7. Se você configurar o espaço de trabalho Log Analytics com o script do PowerShell, os contadores de desempenho já deverão estar configurados e você poderá pular para [validar os resultados do script na portal do Azure](#validate-the-script-results-in-the-azure-portal). Caso contrário, prossiga para a próxima seção.
-
-### <a name="configure-windows-performance-counters-in-your-existing-log-analytics-workspace"></a>Configurar contadores de desempenho do Windows no espaço de trabalho de Log Analytics existente
-
-Esta seção é para os usuários que desejam usar um espaço de trabalho do Azure Log Analytics existente criado sem o script do PowerShell na seção anterior. Se você não tiver usado o script, deverá configurar os contadores de desempenho do Windows recomendados manualmente.
-
-Veja como configurar manualmente os contadores de desempenho recomendados:
-
-1. Abra seu navegador da Internet e entre no [portal do Azure](https://portal.azure.com/) com sua conta administrativa.
-2. Em seguida, vá para **log Analytics espaços de trabalho** para examinar os contadores de desempenho do Windows configurados.
-3. Na seção **configurações** , selecione **Configurações avançadas**.
-4. Depois disso, navegue até **dados** > **contadores de desempenho do Windows** e adicione os seguintes contadores:
-
-    -   LogicalDisk (\*)\\% de espaço livre
-    -   LogicalDisk (C:)\\comprimento médio da fila de disco
-    -   Memória (\*)\\MBytes disponíveis
-    -   Informações do processador (\*)\\tempo do processador
-    -   Atraso de entrada do usuário por sessão (\*)\\atraso máximo de entrada
-
-Saiba mais sobre os contadores de desempenho em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
+Pode executar um script PowerShell para criar um espaço de trabalho de Log Analytics e configurar os contadores de desempenho recomendados do Windows para monitorizar a experiência do utilizador e o desempenho da aplicação.
 
 >[!NOTE]
->Quaisquer contadores adicionais que você configurar não aparecerão na ferramenta de diagnóstico em si. Para que ele apareça na ferramenta de diagnóstico, você precisa configurar o arquivo de configuração da ferramenta. As instruções sobre como fazer isso com a administração avançada estarão disponíveis no GitHub em uma data posterior.
+>Se já tem um espaço de trabalho de Log Analytics existente que fez sem o script PowerShell que deseja utilizar, salte para a frente para [Validar os resultados do script no portal Azure](#validate-the-script-results-in-the-azure-portal).
 
-## <a name="validate-the-script-results-in-the-azure-portal"></a>Validar os resultados do script no portal do Azure
+Para executar o script PowerShell:
 
-Antes de continuar a implantação da ferramenta de diagnóstico, recomendamos que você verifique se o aplicativo Azure Active Directory tem permissões de API e se o espaço de trabalho Log Analytics tem os contadores de desempenho do Windows pré-configurados.
+1.  Open PowerShell como administrador.
+2.  Vá ao [repo de modelos RDS GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** no PowerShell.
+3. Introduza os seguintes valores para os parâmetros:
 
-### <a name="review-your-app-registration"></a>Examine o registro do aplicativo
+    - Para **ResourceGroupName,** introduza o nome para o grupo de recursos.
+    - Para **logAnalyticsWorkspaceName,** introduza um nome único para o seu espaço de trabalho Log Analytics.
+    - Para **localização,** entre na região de Azure que está a usar.
+    - Introduza o ID de **subscrição Azure,** que pode encontrar no portal Azure em **Subscrições**.
 
-Para certificar-se de que seu registro de aplicativo tenha permissões de API:
+4. Introduza as credenciais de um utilizador com acesso administrativo delegado.
+5. Inscreva-se no portal Azure com as credenciais do mesmo utilizador.
+6. Escreva ou memorize o ID logAnalyticsWorkspace para mais tarde.
+7. Se configurar o espaço de trabalho do Log Analytics com o script PowerShell, então os seus contadores de desempenho já devem estar configurados e pode saltar para a frente para [validar os resultados do script no portal Azure](#validate-the-script-results-in-the-azure-portal). Caso contrário, continue para a próxima secção.
 
-1. Abra um navegador e conecte-se ao [portal do Azure](https://portal.azure.com/) com sua conta administrativa.
-2. Vá para **registros de aplicativo** e procure seu registro de aplicativo Azure AD.
+### <a name="configure-windows-performance-counters-in-your-existing-log-analytics-workspace"></a>Configure os contadores de desempenho do Windows no espaço de trabalho existente no Log Analytics
 
-      ![A página permissões de API.](media/api-permissions-page.png)
+Esta secção destina-se a utilizadores que pretendam utilizar um espaço de trabalho existente no Azure Log Analytics criado sem o script PowerShell na secção anterior. Se não utilizou o script, então deve configurar manualmente os contadores de desempenho recomendados do Windows.
+
+Aqui está como configurar manualmente os contadores de desempenho recomendados:
+
+1. Abra o seu navegador de Internet e inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta administrativa.
+2. Em seguida, vá aos espaços de **trabalho do Log Analytics** para rever os contadores de desempenho configurados do Windows.
+3. Na secção **Definições,** selecione **Definições Avançadas**.
+4. Depois disso, navegue para **Data** > **Windows Performance Counters** e adicione os seguintes contadores:
+
+    -   LogicalDisk,\*\\%Free Space
+    -   LogicalDisk (C:)\\Avg. Comprimento da fila do disco
+    -   Memória,\\\*Mbytes disponíveis
+    -   Informação do Processador(\*)\\Tempo do Processador
+    -   Atraso de entrada de utilizador por sessão(\*)\\atraso de entrada máxima
+
+Saiba mais sobre os contadores de desempenho do [Windows e do Linux no Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
+
+>[!NOTE]
+>Quaisquer contadores adicionais que configurar não aparecerão na própria ferramenta de diagnóstico. Para que apareça na ferramenta de diagnóstico, é necessário configurar o ficheiro config da ferramenta. Instruções para como fazê-lo com administração avançada estarão disponíveis no GitHub mais tarde.
+
+## <a name="validate-the-script-results-in-the-azure-portal"></a>Validar os resultados do script no portal Azure
+
+Antes de continuar a implementar a ferramenta de diagnóstico, recomendamos que verifique se a sua aplicação Azure Ative Directory tem permissões API e que o seu espaço de trabalho log Analytics tem os contadores de desempenho do Windows reconfigurados.
+
+### <a name="review-your-app-registration"></a>Reveja o registo da sua aplicação
+
+Para garantir que o registo da sua aplicação tem permissões API:
+
+1. Abra um navegador e ligue-se ao [portal Azure](https://portal.azure.com/) com a sua conta administrativa.
+2. Vá às **inscrições da App** e procure o registo da sua App AD Azure.
+
+      ![A página de permissões da API.](media/api-permissions-page.png)
 
 
-### <a name="review-your-log-analytics-workspace"></a>Examine seu espaço de trabalho do Log Analytics
+### <a name="review-your-log-analytics-workspace"></a>Reveja o seu espaço de trabalho log Analytics
 
-Para certificar-se de que seu espaço de trabalho Log Analytics tem os contadores de desempenho do Windows pré-configurados:
+Para se certificar de que o seu espaço de trabalho log Analytics tem os contadores de desempenho do Windows reconfigurados:
 
-1. Na [portal do Azure](https://portal.azure.com/), acesse **log Analytics espaços de trabalho** para examinar os contadores de desempenho do Windows configurados.
-2. Em **configurações**, selecione **Configurações avançadas**.
-3. Depois disso, acesse **dados** > **contadores de desempenho do Windows**.
-4. Verifique se os seguintes contadores estão pré-configurados:
+1. No [portal Azure,](https://portal.azure.com/)vá a espaços de **trabalho do Log Analytics** para rever os contadores de desempenho configurados do Windows.
+2. Em **Definições,** selecione **Definições avançadas**.
+3. Depois disso, vá aos Contadores de Desempenho do **Windows** > **Data** .
+4. Certifique-se de que os seguintes contadores estão pré-configurados:
 
-   - LogicalDisk (\*)\\% de espaço livre: exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
-   - LogicalDisk (C:)\\tamanho médio da fila de disco: o comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
-   - Memória (\*)\\MBytes disponíveis: a memória disponível para o sistema em megabytes.
-   - Informações do processador (\*)\\tempo do processador: a porcentagem de tempo decorrido que o processador gasta para executar um thread não ocioso.
-   - Atraso de entrada do usuário por sessão (\*)\\atraso máximo de entrada
+   - O LogicalDisk,\*\\%Free Space: Exibe em percentagem a quantidade de espaço livre do espaço total utilizável no disco.
+   - LogicalDisk(C:)\\Avg. Disk Queue Length: O comprimento do pedido de transferência do disco para a sua unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
+   - Memória,\*\\Mbytes Disponíveis: A memória disponível para o sistema em megabytes.
+   - Informação do Processador(\*)\\Tempo do Processador: a percentagem de tempo decorrido que o processador gasta para executar uma linha não ociosa.
+   - Atraso de entrada de utilizador por sessão(\*)\\atraso de entrada máxima
 
-### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Conectar-se a VMs em seu espaço de trabalho Log Analytics
+### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Ligue-se a VMs no seu espaço de trabalho Log Analytics
 
-Para poder exibir a integridade das VMs, você precisará habilitar a conexão Log Analytics. Siga estas etapas para conectar suas VMs:
+Para poder ver a saúde dos VMs, terá de ativar a ligação Log Analytics. Siga estes passos para ligar os seus VMs:
 
-1. Abra um navegador e entre no [portal do Azure](https://portal.azure.com/) com sua conta administrativa.
-2. Vá para o espaço de trabalho Log Analytics.
-3. No painel esquerdo, em fontes de dados do espaço de trabalho, selecione **máquinas virtuais**.
-4. Selecione o nome da VM à qual você deseja se conectar.
+1. Abra um navegador e inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta administrativa.
+2. Vá ao seu espaço de trabalho de Log Analytics.
+3. No painel esquerdo, sob fontes de dados do Espaço de Trabalho, selecione **máquinas virtuais**.
+4. Selecione o nome do VM a que pretende ligar.
 5. Selecione **Ligar**.
 
 ## <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
-Para implantar o modelo de gerenciamento de recursos do Azure para a ferramenta de diagnóstico:
+Para implementar o modelo de Gestão de Recursos Azure para a ferramenta de diagnóstico:
 
-1.  Vá para a [página do Azure RDS-templates do GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
-2.  Implante o modelo no Azure e siga as instruções no modelo. Verifique se você tem as seguintes informações disponíveis:
+1.  Vá à [página GitHub Azure RDS-Templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
+2.  Desloque o modelo para Azure e siga as instruções no modelo. Certifique-se de que tem as seguintes informações disponíveis:
 
-    -   ID do cliente
-    -   Segredo do cliente
+    -   Cliente-Id
+    -   Segredo de Cliente
     -   O ID da área de trabalho do Log Analytics
 
-3.  Depois que os parâmetros de entrada forem fornecidos, aceite os termos e condições e, em seguida, selecione **comprar**.
+3.  Uma vez fornecidos os parâmetros de entrada, aceite os termos e condições e, em seguida, **selecione Comprar**.
 
-A implantação levará de 2 a 3 minutos. Após a implantação bem-sucedida, vá para o grupo de recursos e verifique se o aplicativo Web e os recursos do plano do serviço de aplicativo estão lá.
+O destacamento levará 2 a 3 minutos. Após a implementação bem sucedida, vá ao grupo de recursos e certifique-se de que os recursos do plano de aplicação web e do plano de aplicações estão lá.
 
-Depois disso, você precisa definir o URI de redirecionamento.
+Depois disso, tens de definir o Redirecionamento URI.
 
-### <a name="set-the-redirect-uri"></a>Definir o URI de redirecionamento
+### <a name="set-the-redirect-uri"></a>Definir o Redirecionamento URI
 
-Para definir o URI de redirecionamento:
+Para definir o Redirecionamento URI:
 
-1.  Na [portal do Azure](https://portal.azure.com/), vá para **serviços de aplicativos** e localize o aplicativo que você criou.
-2.  Vá para a página Visão geral e copie a URL que encontrar.
-3.  Navegue até **registros do aplicativo** e selecione o aplicativo que você deseja implantar.
-4.  No painel esquerdo, em gerenciar seção, selecione **autenticação**.
-5.  Insira o URI de redirecionamento desejado na caixa de texto **URI de redirecionamento** e, em seguida, selecione **salvar** no canto superior esquerdo do menu.
-6. Selecione **Web** no menu suspenso em tipo.
-7. Insira a URL na página Visão geral do aplicativo e adicione **/Security/SignIn-callback** ao final dela. Por exemplo: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+1.  No [portal Azure,](https://portal.azure.com/)vá aos Serviços de **Aplicações** e localize a aplicação que criou.
+2.  Vá à página de visão geral e copie o URL que encontrar lá.
+3.  Navegue para registos de **aplicações** e selecione a aplicação que pretende implementar.
+4.  No painel esquerdo, na secção Gerir, **selecione Autenticação**.
+5.  Introduza o REdirect URI desejado na caixa de texto **Redirecionamento URI** e, em seguida, selecione **Guardar** no canto superior esquerdo do menu.
+6. Selecione **Web** no menu suspenso em Type.
+7. Introduza o URL a partir da página de visão geral da aplicação e adicione **/security/signin-callback** até ao fim da sua. Por exemplo: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![A página URI de redirecionamento](media/redirect-uri-page.png)
+   ![A página URI redirecionamento](media/redirect-uri-page.png)
 
-8. Agora, vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo e navegue até a URL associada a ele. (Por exemplo, se o nome do aplicativo usado no modelo foi `contosoapp45`, a URL associada é <https://contosoapp45.azurewebsites.net>).
-9. Entre usando a conta de usuário do Azure Active Directory apropriada.
+8. Agora, vá aos seus recursos Azure, selecione o recurso Azure App Services com o nome que forneceu no modelo e navegue para o URL associado ao mesmo. (Por exemplo, se o nome da aplicação que usou no modelo fosse `contosoapp45`, então o seu URL associado é <https://contosoapp45.azurewebsites.net>).
+9. Inscreva-se na utilização da conta de utilizador do Diretório Ativo Azure apropriado.
 10.   Selecione **Aceitar**.
 
-## <a name="distribute-the-diagnostics-tool"></a>Distribuir a ferramenta de diagnóstico
+## <a name="distribute-the-diagnostics-tool"></a>Distribua a ferramenta de diagnóstico
 
-Antes de disponibilizar a ferramenta de diagnóstico para seus usuários, verifique se eles têm as seguintes permissões:
+Antes de disponibilizar a ferramenta de diagnóstico aos seus utilizadores, certifique-se de que possuem as seguintes permissões:
 
-- Os usuários precisam de acesso de leitura para o log Analytics. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](/azure/azure-monitor/platform/roles-permissions-security).
--  Os usuários também precisam de acesso de leitura para o locatário da área de trabalho virtual do Windows (função leitor do RDS). Para obter mais informações, consulte [acesso delegado na área de trabalho virtual do Windows](delegated-access-virtual-desktop.md).
+- Os utilizadores precisam de acesso a leitura para análise de registo. Para mais informações, consulte [Começar com funções, permissões e segurança com o Monitor Azure.](/azure/azure-monitor/platform/roles-permissions-security)
+-  Os utilizadores também precisam de ler o acesso para o inquilino do Windows Virtual Desktop (função RDS Reader). Para mais informações, consulte [o acesso delegado no Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-Você também precisa dar aos seus usuários as seguintes informações:
+Também precisa de dar aos seus utilizadores as seguintes informações:
 
-- A URL do aplicativo
-- Os nomes do locatário individual do grupo de locatários que eles podem acessar.
+- Url da aplicação
+- Os nomes do inquilino individual inquilino a que podem aceder.
 
-## <a name="use-the-diagnostics-tool"></a>Usar a ferramenta de diagnóstico
+## <a name="use-the-diagnostics-tool"></a>Utilize a ferramenta de diagnóstico
 
-Depois de entrar na sua conta usando as informações que você recebeu da sua organização, tenha o UPN pronto para o usuário para o qual você deseja consultar atividades. Uma pesquisa fornecerá a você todas as atividades sob o tipo de atividade especificado que ocorreram na última semana.
+Depois de ter assinado a sua conta usando as informações recebidas da sua organização, tenha a UPN pronta para o utilizador que pretende consultar as atividades. Uma pesquisa irá dar-lhe todas as atividades sob o tipo de atividade especificado que aconteceu na última semana.
 
 ### <a name="how-to-read-activity-search-results"></a>Como ler os resultados da pesquisa de atividade
 
-As atividades são classificadas por carimbo de data/hora, com a atividade mais recente primeiro. Se os resultados retornarem um erro, primeiro verifique se é um erro de serviço. Para erros de serviço, crie um tíquete de suporte com as informações de atividade para nos ajudar a depurar o problema. Todos os outros tipos de erro geralmente podem ser resolvidos pelo usuário ou pelo administrador. Para obter uma lista dos cenários de erro mais comuns e como resolvê-los, consulte [identificar e diagnosticar problemas](diagnostics-role-service.md#common-error-scenarios).
+As atividades são classificadas por carimbo temporal, com a última atividade em primeiro lugar. Se os resultados devolverem um erro, verifique primeiro se se trata de um erro de serviço. Para erros de serviço, crie um bilhete de suporte com a informação da atividade para nos ajudar a depurar o problema. Todos os outros tipos de erros podem geralmente ser resolvidos pelo utilizador ou administrador. Para obter uma lista dos cenários de erro mais comuns e como resolvê-los, consulte [identificar e diagnosticar problemas](diagnostics-role-service.md#common-error-scenarios).
 
 >[!NOTE]
->Os erros de serviço são chamados de "erros externos" na documentação vinculada. Isso será alterado quando atualizarmos a referência do PowerShell.
+>Os erros de serviço são chamados de "erros externos" na documentação ligada. Isto será alterado quando atualizarmos a referência PowerShell.
 
-As atividades de conexão podem ter mais de um erro. Você pode expandir o tipo de atividade para ver quaisquer outros erros que o usuário tenha fornecido. Selecione o nome do código de erro para abrir uma caixa de diálogo para ver mais informações sobre ela.
+As atividades de ligação podem ter mais do que um erro. Pode expandir o tipo de atividade para ver quaisquer outros erros que o utilizador tenha deparar. Selecione o nome do código de erro para abrir um diálogo para ver mais informações sobre o mesmo.
 
-### <a name="investigate-the-session-host"></a>Investigar o host da sessão 
+### <a name="investigate-the-session-host"></a>Investigue o anfitrião da sessão 
 
-Nos resultados da pesquisa, localize e selecione o host da sessão sobre o qual você deseja obter informações.
+Nos resultados da pesquisa, encontre e selecione o anfitrião da sessão sobre o qual deseja informações.
 
-Você pode analisar a integridade do host da sessão:
+Pode analisar a sessão de saúde do anfitrião:
 
-- Com base em um limite predefinido, você pode recuperar as informações de integridade do host da sessão que Log Analytics consultas.
-- Quando não houver atividade ou o host da sessão não estiver conectado a Log Analytics, as informações não estarão disponíveis.
+- Com base num limiar predefinido, pode recuperar a sessão de informações de saúde que log Analytics consultas.
+- Quando não há atividade ou o anfitrião da sessão não está ligado ao Log Analytics, a informação não estará disponível.
 
-Você também pode interagir com os usuários no host da sessão:
+Também pode interagir com os utilizadores no anfitrião da sessão:
 
-- Você pode sair ou enviar uma mensagem para usuários conectados.
-- O usuário que você pesquisou originalmente está selecionado por padrão, mas você também pode selecionar usuários adicionais para enviar mensagens ou desconectar vários usuários ao mesmo tempo.
+- Pode assinar ou enviar uma mensagem para os utilizadores.
+- O utilizador que procurou originalmente é selecionado por padrão, mas também pode selecionar utilizadores adicionais para enviar mensagens ou assinar vários utilizadores ao mesmo tempo.
 
-### <a name="windows-performance-counter-thresholds"></a>Limites do contador de desempenho do Windows
+### <a name="windows-performance-counter-thresholds"></a>Limiares de contra-limite de desempenho do Windows
 
-- LogicalDisk (\*)\\% de espaço livre:
+- LogicalDisk(\*)\\%Free Space:
 
-    - Exibe o percentual do total de espaço utilizável no disco lógico que é gratuito.
-    - Limite: menos de 20% está marcado como não íntegro.
+    - Exibe a percentagem do espaço total utilizável no disco lógico que é gratuito.
+    - Limiar: Menos de 20% é marcado como insalubre.
 
-- LogicalDisk (C:)\\comprimento médio da fila de disco:
+- LogicalDisk (C:)\\Avg. Comprimento da fila do disco:
 
-    - Representa as condições do sistema de armazenamento.
-    - Limite: maior que 5 é marcado como não íntegro.
+    - Representa condições do sistema de armazenamento.
+    - Limiar: Mais de 5 é marcado como insalubre.
 
-- Memória (\*)\\MBytes disponíveis:
+- Memória,\*\\Mbytes disponíveis:
 
     - A memória disponível para o sistema.
-    - Limite: menos de 500 megabytes marcados como não íntegros.
+    - Limiar: Menos de 500 megabytes marcados como insalubres.
 
-- Informações do processador (\*)\\tempo do processador:
+- Informação do processador(\*)\\Tempo do Processador:
 
-    - Limite: maior que 80% é marcado como não íntegro.
+    - Limiar: Mais de 80% é marcado como insalubre.
 
-- [Atraso de entrada do usuário por sessão (\*)\\atraso de entrada máximo](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- Atraso de entrada do [utilizador por sessão\*\\atraso](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/)de entrada máxima:
 
-    - Limite: maior que 2000 MS é marcado como não íntegro.
+    - Limiar: Mais de 2000 ms é marcado como insalubre.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como monitorar logs de atividades em [usar diagnósticos com log Analytics](diagnostics-log-analytics.md).
-- Leia sobre cenários de erro comuns e como corrigi-los em [identificar e diagnosticar problemas](diagnostics-role-service.md).
+- Saiba como monitorizar os registos de atividade em [Utilizar diagnósticos com Log Analytics](diagnostics-log-analytics.md).
+- Leia sobre cenários de erro comuns e como corrigi-los em [questões de identificação e diagnóstico](diagnostics-role-service.md).

@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 7800edafca46a2210b9552299605d54c9db07f1f
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: e4f995e888d261e1a1a7cb1e63d0d222c165060f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966605"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368480"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
-* Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório do GitHub cognitiva-Services-Language-Understanding.
+* Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
 * A ID do aplicativo LUIS para o aplicativo TravelAgent importado. O ID da aplicação é apresentado no dashboard de aplicações.
 * A ID da versão no aplicativo que recebe o declarações. O ID predefinido é "0.1".
 * [.NET Core V2.2+](https://dotnet.microsoft.com/download)
@@ -29,8 +29,6 @@ ms.locfileid: "76966605"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## <a name="change-model-programmatically"></a>Alterar modelo programaticamente
-
-Utilize C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida por máquinas à aplicação.
 
 1. Crie uma nova aplicação de consola direcionada ao C# idioma, com um nome de projeto e pasta de `model-with-rest`.
 
@@ -168,7 +166,7 @@ Utilize C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de en
 
 1. Substitua os valores a partir de `YOUR-` pelos seus próprios valores.
 
-    |Proteção das|Finalidade|
+    |Informações|Objetivo|
     |--|--|
     |`YOUR-KEY`|A tua chave de autor de 32 personagens.|
     |`YOUR-ENDPOINT`| O seu ponto final de URL de autoria. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`. Definiu o seu nome de recurso quando criou o recurso.|
@@ -195,4 +193,4 @@ Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivo
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Práticas recomendadas para um aplicativo](../luis-concept-best-practices.md)
+> [Boas práticas para uma aplicação](../luis-concept-best-practices.md)

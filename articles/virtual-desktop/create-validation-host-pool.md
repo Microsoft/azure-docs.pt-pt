@@ -1,53 +1,53 @@
 ---
-title: Atualizações do serviço pool de hosts da área de trabalho virtual do Windows – Azure
-description: Como criar um pool de hosts de validação para monitorar atualizações de serviço antes de distribuir as atualizações para produção.
+title: Atualizações do serviço de piscina do Windows Virtual Desktop - Azure
+description: Como criar um pool de anfitriões de validação para monitorizar as atualizações de serviço antes de lançar atualizações para a produção.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: fd8be170f0f4388ee711881dde16923b9547f21f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 98d1a9c3dd86972990ae896d156be6c6aedfff77
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606917"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367401"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: criar um pool de hosts para validar atualizações de serviço
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um pool de anfitriões para validar atualizações de serviço
 
-Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas em ambientes de locatário da área de trabalho virtual do Windows. Antes de implantar pools de hosts em seu ambiente de produção, é altamente recomendável criar um pool de hosts de validação. As atualizações são aplicadas primeiro aos pools de hosts de validação, permitindo que você monitore as atualizações de serviço antes de distribuí-las para o ambiente de produção. Sem um pool de hosts de validação, você não pode descobrir alterações que introduzam erros, o que pode resultar em tempo de inatividade para os usuários em seu ambiente de produção.
+As piscinas hospedeiras são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de inquilinos do Windows Virtual Desktop. Antes de implementar piscinas hospedeiras para o seu ambiente de produção, recomendamos vivamente que crie um pool de anfitriões de validação. As atualizações são aplicadas primeiro às piscinas de anfitriões de validação, permitindo-lhe monitorizar as atualizações de serviço antes de as lançar para o seu ambiente de produção. Sem um pool de hospedagem de validação, não poderá descobrir alterações que introduzam erros, o que pode resultar em tempo de inatividade para os utilizadores no seu ambiente de produção.
 
-Para garantir que seus aplicativos funcionem com as atualizações mais recentes, o pool de hosts de validação deve ser semelhante aos pools de hosts em seu ambiente de produção o mais recente possível. Os usuários devem se conectar com frequência ao pool de hosts de validação, como no pool de hosts de produção. Se você tiver testes automatizados em seu pool de hosts, deverá incluir testes automatizados no pool de hosts de validação.
+Para garantir que as suas aplicações funcionam com as mais recentes atualizações, o pool anfitrião de validação deve ser o mais semelhante possível às piscinas hospedadas no seu ambiente de produção. Os utilizadores devem ligar-se com a mesma frequência à piscina anfitriã da validação como fazem com a piscina de anfitriões de produção. Se tiver testes automatizados na sua piscina de anfitriões, deverá incluir testes automatizados na piscina de anfitriões de validação.
 
-Você pode depurar problemas no pool de hosts de validação com [o recurso de diagnóstico](diagnostics-role-service.md) ou com os [artigos de solução de problemas de área de trabalho virtual do Windows](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
+Pode desinventar problemas no conjunto de anfitriões de validação com a funcionalidade de diagnóstico ou os [artigos](diagnostics-role-service.md) de resolução de [problemas do Windows Virtual Desktop.](troubleshoot-set-up-overview.md)
 
 >[!NOTE]
-> Recomendamos que você deixe o pool de hosts de validação em vigor para testar todas as atualizações futuras.
+> Recomendamos que deixe o conjunto de anfitriões de validação no lugar para testar todas as atualizações futuras.
 
-Antes de começar, [Baixe e importe o módulo do PowerShell da área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), caso ainda não tenha feito isso. Depois disso, execute o seguinte cmdlet para entrar em sua conta:
+Antes de começar, [faça o download e importe o módulo PowerShell do Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/), se ainda não o fez. Depois disso, execute o seguinte cmdlet para iniciar sessão na sua conta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-## <a name="create-your-host-pool"></a>Criar seu pool de hosts
+## <a name="create-your-host-pool"></a>Crie a sua piscina de anfitrião
 
-Você pode criar um pool de hosts seguindo as instruções em qualquer um destes artigos:
-- [Tutorial: criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Criar um pool de hosts com um modelo de Azure Resource Manager](create-host-pools-arm-template.md)
-- [Criar um pool de hosts com o PowerShell](create-host-pools-powershell.md)
+Pode criar uma piscina de anfitriões seguindo as instruções em qualquer um destes artigos:
+- [Tutorial: Crie uma piscina de anfitriões com o Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Crie uma piscina de anfitriões com um modelo de Gestor de Recursos Azure](create-host-pools-arm-template.md)
+- [Crie uma piscina de anfitriões com powerShell](create-host-pools-powershell.md)
 
-## <a name="define-your-host-pool-as-a-validation-host-pool"></a>Definir o pool de hosts como um pool de hosts de validação
+## <a name="define-your-host-pool-as-a-validation-host-pool"></a>Defina a sua piscina anfitriã como uma piscina de anfitriões de validação
 
-Execute os seguintes cmdlets do PowerShell para definir o novo pool de hosts como um pool de hosts de validação. Substitua os valores entre aspas pelos valores relevantes para sua sessão:
+Execute os seguintes cmdlets PowerShell para definir a nova piscina anfitriã como uma piscina anfitriã de validação. Substitua os valores em cotações pelos valores relevantes para a sua sessão:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
 ```
 
-Execute o seguinte cmdlet do PowerShell para confirmar que a propriedade de validação foi definida. Substitua os valores entre aspas pelos valores relevantes para sua sessão.
+Execute o seguinte cmdlet PowerShell para confirmar que a propriedade de validação foi definida. Substitua os valores em cotações pelos valores relevantes para a sua sessão.
 
 ```powershell
 Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
@@ -69,13 +69,13 @@ Os resultados do cmdlet devem ser semelhantes a esta saída:
     Ring                :
 ```
 
-## <a name="update-schedule"></a>Agenda de atualização
+## <a name="update-schedule"></a>Calendário de atualização
 
-As atualizações de serviço acontecem mensalmente. Se houver problemas importantes, as atualizações críticas serão fornecidas em um ritmo mais frequente.
+As atualizações de serviço acontecem mensalmente. Se houver grandes problemas, as atualizações críticas serão fornecidas a um ritmo mais frequente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você criou um pool de hosts de validação, você pode aprender a implantar e conectar-se a uma ferramenta de gerenciamento para gerenciar recursos da área de trabalho virtual da Microsoft.
+Agora que criou um conjunto de anfitriões de validação, pode aprender a implementar e conectar-se a uma ferramenta de gestão para gerir os recursos do Microsoft Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Tutorial de implantação de uma ferramenta de gerenciamento](./manage-resources-using-ui.md)
+> [Implementar um tutorial de ferramentas de gestão](./manage-resources-using-ui.md)

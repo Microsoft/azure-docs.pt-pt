@@ -2,22 +2,22 @@
 title: Pagar a sua fatura do Microsoft Azure | Microsoft Docs
 description: Descreve como pagar uma fatura no portal do Azure
 keywords: faturação, vencido, saldo, pagar agora,
-author: jureid
-manager: jureid
+author: banders
+manager: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: d486fe72a43465832ca13ac1a62a7f0a9aeaa65e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 214382693d942152d82b7ae5e487969b8ebaeaff
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989712"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188127"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Como pagar a sua fatura do Microsoft Azure
 
@@ -35,21 +35,12 @@ Tem de ser proprietário, contribuidor, leitor ou gestor de faturas de um perfil
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
-1. No painel **Descrição Geral**, clique no separador *Resumo*.
-
-    ![captura de ecrã a mostrar o separador resumo](./media/pay-bill/billing-account-overview.png)
-
-1. Se tiver uma fatura em atraso ou vencida, verá o valor total em dívida.
-1. Clique no botão azul **Pagar agora**.
-
-    ![captura de ecrã que mostra o botão pagar agora](./media/pay-bill/paynow-button-overview.png)
-
-1. No novo painel, clique em **Selecionar um método de pagamento** para escolher um cartão de crédito existente ou adicionar um novo.<!-- screenshot of select payment method link -->
+1. No menu do lado esquerdo, selecione **Faturas** em "Faturação".
+1. Se algumas das suas faturas estiverem em dívida ou vencidas, verá a ligação **Pagar agora** em azul para essa fatura. Selecione **Pagar agora**.
+1. No novo painel, clique em **Selecionar um método de pagamento** para escolher um cartão de crédito existente ou adicionar um novo.
 1. Depois de selecionar o método de pagamento, clique em **Pagar agora**.
 
 O estado da fatura será atualizado para pago no painel das faturas.
-
-<!-- pay now from invoice blade -->
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

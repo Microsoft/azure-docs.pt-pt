@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 02/07/2020
 ms.author: helohr
-ms.openlocfilehash: dc4e4e271ac7108f4c29c82646e9849b9a5cd929
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 730d12625b134f411096b4b49641b79efb1a0d26
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110782"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368755"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Descrição geral da resolução de problemas, comentários e suporte
 
@@ -24,7 +24,7 @@ Visite o [Windows Virtual Desktop Tech Community](https://techcommunity.microsof
 
 ## <a name="escalation-tracks"></a>Faixas de escalada
 
-Utilize a tabela seguinte para identificar e resolver problemas que possa encontrar ao configurar um ambiente de inquilino utilizando o cliente Remote Desktop. Assim que o seu inquilino estiver configurado, pode usar o nosso novo serviço de [Diagnóstico](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) para identificar questões para cenários comuns.
+Utilize a tabela seguinte para identificar e resolver problemas que possa encontrar ao configurar um ambiente de inquilino utilizando o cliente Remote Desktop. Assim que o seu inquilino estiver configurado, pode usar o nosso novo serviço de [Diagnóstico](diagnostics-role-service.md) para identificar questões para cenários comuns.
 
 >[!NOTE]
 > Temos um fórum tech community que pode visitar para discutir os seus problemas com a equipa de produtos e membros ativos da comunidade. Visite o [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para iniciar uma discussão.
@@ -38,7 +38,7 @@ Utilize a tabela seguinte para identificar e resolver problemas que possa encont
 | Sessão de hospedante virtual machine (VM) criação quando modelos de Gestor de Recursos Azure fornecidos com Windows Virtual Desktop não estão sendo usados | [Abra um pedido](https://azure.microsoft.com/support/create-ticket/)de suporte Azure e, em seguida, selecione **Máquina Virtual executando o Windows** para o serviço. <br> <br> Para problemas com os modelos do Gestor de Recursos Azure que são fornecidos com o Windows Virtual Desktop, consulte a criação da secção de inquilinos virtual do Windows Desktop do Tenant e a criação de [pool anfitrião.](troubleshoot-set-up-issues.md) |
 | Gerir o ambiente de anfitriões da sessão de desktop virtual do Windows do portal Azure    | Abra um pedido de [apoio Azure.](https://azure.microsoft.com/support/create-ticket/) <br> <br> Para problemas de gestão ao utilizar serviços de ambiente de trabalho remotos/Windows Virtual Desktop PowerShell, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) ou abra um pedido de suporte [Azure, selecione](https://azure.microsoft.com/support/create-ticket/)o Windows Virtual **Desktop** para o serviço, selecione **Configuração e gestão** para o tipo de problema, e selecione **Problemas configurando o inquilino usando powerShell** para o subtipo de problemas. |
 | Gerir a configuração do Windows Virtual Desktop ligada a piscinas de anfitriões e grupos de aplicações (grupos de aplicações)      | Consulte o [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md), ou abra um pedido de [suporte Azure,](https://azure.microsoft.com/support/create-ticket/)selecione **O Ambiente de Trabalho Virtual do Windows** para o serviço e, em seguida, selecione o tipo de problema apropriado.|
-| Implantação e gestão de recipientes de perfil FSLogix | Consulte o guia de [resolução de problemas para produtos FSLogix](https://docs.microsoft.com/fslogix/fslogix-trouble-shooting-ht) e se isso não resolver o problema, abra um pedido de [suporte Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço, selecione **FSLogix** para o tipo de problema e, em seguida, selecione o subtipo de problema apropriado. |
+| Implantação e gestão de recipientes de perfil FSLogix | Consulte o guia de [resolução de problemas para produtos FSLogix](/fslogix/fslogix-trouble-shooting-ht/) e se isso não resolver o problema, abra um pedido de [suporte Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço, selecione **FSLogix** para o tipo de problema e, em seguida, selecione o subtipo de problema apropriado. |
 | Avaria dos clientes de ambiente supor remoto no início                                                 | Consulte [o Troubleshoot do cliente Remote Desktop](troubleshoot-client.md) e se isso não resolver o problema, abra um pedido de suporte [Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço e, em seguida, selecione clientes **remote Desktop** para o tipo de problema.  <br> <br> Se for um problema de rede, os seus utilizadores precisam de contactar o administrador da rede. |
 | Conectado, mas sem alimentação                                                                 | Problemas utilizando o [Utilizador, mas nada é exibido (sem feed)](troubleshoot-service-connection.md#user-connects-but-nothing-is-displayed-no-feed) das [ligações](troubleshoot-service-connection.md)de serviço de ambiente de trabalho virtual do Windows . <br> <br> Se os seus utilizadores tiverem sido atribuídos a um grupo de aplicações, abra um pedido de [suporte Azure](https://azure.microsoft.com/support/create-ticket/), selecione **O Ambiente de Trabalho Virtual do Windows** para o serviço e, em seguida, selecione Remote Desktop **Clients** para o tipo de problema. |
 | Problemas de descoberta de alimentos devido à rede                                            | Os seus utilizadores precisam de contactar o administrador da rede. |

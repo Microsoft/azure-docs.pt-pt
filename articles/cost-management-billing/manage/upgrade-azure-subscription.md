@@ -3,22 +3,22 @@ title: Atualizar a conta do Azure
 description: Descrição de como pode atualizar a conta do Azure.
 keywords: Atualização pay as you go
 author: bandersmsft
-manager: jureid
+manager: sasrin
 tags: billing
 ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e1e99313454c8352b96b8f11ec35f482521f7b5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: aa9e4c60222f5dd0f2991f2b0085c00a34d1dd7a
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989777"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134554"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Atualizar a conta gratuita do Azure ou a conta Microsoft Azure for Students Starter
 
@@ -30,7 +30,7 @@ Se se inscreveu numa [conta Microsoft Azure for Students Starter](https://azure.
 
 ## <a name="upgrade-your-azure-free-account"></a>Atualizar a conta gratuita do Azure
 
-Ao atualizar a conta gratuita do Azure, o crédito restante será mantido durante os 30 dias completos a partir do momento da inscrição. Por exemplo: se se inscreveu a 1 de novembro e atualizar a 5 de novembro, todos os créditos não utilizados estarão disponíveis até 30 de novembro. Também tem acesso a serviços gratuitos durante 12 meses após a atualização.
+Ao atualizar a conta gratuita do Azure, o crédito restante será mantido durante os 30 dias completos a partir do momento da inscrição. Por exemplo: Se se inscreveu a 1 de novembro e atualizar a 5 de novembro, todos os créditos não utilizados estarão disponíveis até 30 de novembro. Também tem acesso a serviços gratuitos durante 12 meses após a atualização.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Escreva **Subscrições** na caixa de pesquisa.

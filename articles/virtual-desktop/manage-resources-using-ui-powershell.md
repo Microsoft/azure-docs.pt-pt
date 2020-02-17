@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 2a7d10f41e343f21e16b10f4bf7c79670824ec2c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: e55641457e1ed27928e6bf380701b646b672cae8
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115915"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368827"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implementar uma ferramenta de gestão com a PowerShell
 
@@ -36,7 +36,7 @@ Os seguintes navegadores são compatíveis com a ferramenta de gestão:
 Antes de implementar a ferramenta de gestão, vai precisar de um utilizador do Azure Ative Directory (Azure AD) para criar um registo de aplicações e implementar a UI de gestão. Este utilizador deve:
 
 - Tenha permissão para criar recursos na sua subscrição Azure
-- Tenha permissão para criar uma aplicação Azure AD. Siga estes passos para verificar se o utilizador tem as permissões necessárias seguindo as instruções em [permissões requeridas](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Tenha permissão para criar uma aplicação Azure AD. Siga estes passos para verificar se o utilizador tem as permissões necessárias seguindo as instruções em [permissões requeridas](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 Para implementar e configurar com sucesso a ferramenta de gestão, primeiro precisa de descarregar os seguintes scripts PowerShell do [repo DE Modelos RDS gitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) e guardá-los para a mesma pasta na sua máquina local.
 
