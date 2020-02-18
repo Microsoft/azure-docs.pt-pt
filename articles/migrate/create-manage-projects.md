@@ -1,90 +1,90 @@
 ---
-title: Criar e gerenciar projetos de migrações para Azure
-description: Localize, crie, gerencie e exclua projetos em migrações para Azure.
+title: Criar e gerir projetos de migrações do Azure Migrate
+description: Localizar, criar, gerir e apagar projetos em Azure Migrate.
 ms.topic: how-to
-ms.date: 01/01/2020
-ms.openlocfilehash: 548e51cbd215dd9b5e69c68b9bd8fc81625240a2
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.date: 02/17/2020
+ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725887"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425668"
 ---
-# <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de migrações para Azure
+# <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerir projetos de migrações do Azure Migrate
 
-Este artigo descreve como criar, gerenciar e excluir projetos de [migrações para Azure](migrate-services-overview.md)
+Este artigo descreve como criar, gerir e eliminar projetos [de migração Azure.](migrate-services-overview.md)
 
 
 ## <a name="create-a-project-for-the-first-time"></a>Criar um projeto pela primeira vez
 
-Na primeira vez que você configurar as migrações para Azure, crie um projeto e adicione uma ferramenta de avaliação ou migração. [Siga estas instruções](how-to-add-tool-first-time.md) para configurar o pela primeira vez.
+A primeira vez que configura o Azure Migrate, cria um projeto e adiciona uma ferramenta de avaliação ou migração. [Siga estas instruções](how-to-add-tool-first-time.md) para configurar pela primeira vez.
 
 ## <a name="create-additional-projects"></a>Criar projetos adicionais
 
-Se você já tiver um projeto de migrações para Azure e desejar criar um projeto adicional, faça o seguinte:  
+Se já tem um projeto Azure Migrate e pretende criar um projeto adicional, faça o seguinte:  
 
-1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
-2. No painel migrações para Azure > **servidores**, selecione **alterar** no canto superior direito.
+1. No [portal Azure,](https://portal.azure.com)procure **azure migrate.**
+2. No painel de instrumentos Emigração Azure > **Servers,** selecione **a alteração** no canto superior direito.
 
-   ![Alterar projeto de migrações para Azure](./media/create-manage-projects/switch-project.png)
+   ![Projeto Change Azure Migrate](./media/create-manage-projects/switch-project.png)
 
 3. Para criar um novo projeto, selecione **clique aqui**.
 
-   ![Criar um segundo projeto de migrações para Azure](./media/create-manage-projects/create-new-project.png)
+   ![Criar um segundo projeto Azure Migrate](./media/create-manage-projects/create-new-project.png)
 
 
-## <a name="find-a-project"></a>Localizar um projeto
+## <a name="find-a-project"></a>Encontre um projeto
 
-Localize um projeto da seguinte maneira:
+Encontre um projeto da seguinte forma:
 
-1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
-2. No painel migrações para Azure > **servidores**, selecione **alterar** no canto superior direito.
+1. No [portal Azure,](https://portal.azure.com)procure **azure migrate.**
+2. No painel de instrumentos Emigração Azure > **Servers,** selecione **a alteração** no canto superior direito.
 
-    ![Alternar para um projeto atual de migrações para Azure](./media/create-manage-projects/switch-project.png)
+    ![Mude para um projeto existente do Azure Migrate](./media/create-manage-projects/switch-project.png)
 
-3. Selecione a assinatura apropriada e o projeto de migrações para Azure.
-
-
-Se você criou o projeto na [versão anterior](migrate-services-overview.md#azure-migrate-versions) do migrações para Azure, encontre-o da seguinte maneira:
-
-1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
-2. No painel migrações para Azure, se você tiver criado um projeto na versão anterior, um banner referenciando projetos mais antigos será exibido. Selecione a faixa.
-
-    ![Acessar projetos existentes](./media/create-manage-projects/access-existing-projects.png)
-
-3. Examine a lista de projetos antigos.
+3. Selecione a subscrição apropriada e o projeto Azure Migrate.
 
 
-## <a name="delete-a-project"></a>Excluir um projeto
+Se criou o projeto na [versão anterior](migrate-services-overview.md#azure-migrate-versions) do Azure Migrate, encontre-o da seguinte forma:
 
-Exclua da seguinte maneira:
+1. No [portal Azure,](https://portal.azure.com)procure **azure migrate.**
+2. No painel de instrumentos Do Imigração Azure, se criou um projeto na versão anterior, aparece um banner que referencia projetos mais antigos. Selecione o banner.
 
-1. Abra o grupo de recursos do Azure no qual o projeto foi criado.
-2. Na página grupo de recursos, selecione **Mostrar tipos ocultos**.
-3. Selecione o projeto de migração que você deseja excluir e seus recursos associados.
-    - O tipo de recurso é **Microsoft. Migrate/migrateprojects**.
-    - Se o grupo de recursos for usado exclusivamente pelo projeto de migrações para Azure, você poderá excluir o grupo de recursos inteiro.
+    ![Acesso a projetos existentes](./media/create-manage-projects/access-existing-projects.png)
+
+3. Reveja a lista de projetos antigos.
+
+
+## <a name="delete-a-project"></a>Apagar um projeto
+
+Eliminar da seguinte forma:
+
+1. Abra o grupo de recursos Azure no qual o projeto foi criado.
+2. Na página do grupo de recursos, selecione **Tipos ocultos .**
+3. Selecione o projeto de migração que pretende eliminar e os seus recursos associados.
+    - O tipo de recurso é **Microsoft.Migrate/migrateprojects**.
+    - Se o grupo de recursos for exclusivamente utilizado pelo projeto Azure Migrate, pode eliminar todo o grupo de recursos.
 
 
 Tenha em atenção que:
 
-- Quando você exclui, o projeto e os metadados sobre computadores descobertos são excluídos.
-- Se você estiver usando a versão mais antiga do migrações para Azure, abra o grupo de recursos do Azure no qual o projeto foi criado. Selecione o projeto de migração que você deseja excluir (o tipo de recurso é **projeto de migração**).
-- Se você estiver usando a análise de dependência com um espaço de trabalho do Azure Log Analytics:
-    - Se você anexou um espaço de trabalho Log Analytics à ferramenta de avaliação do servidor, o espaço de trabalho não será excluído automaticamente. O mesmo espaço de trabalho Log Analytics pode ser usado para vários cenários.
-    - Se você quiser excluir o espaço de trabalho Log Analytics, faça isso manualmente.
+- Quando apaga, tanto o projeto como os metadados sobre máquinas descobertas são eliminados.
+- Se estiver a usar a versão mais antiga do Azure Migrate, abra o grupo de recursos Azure no qual o projeto foi criado. Selecione o projeto de migração que pretende eliminar (o tipo de recurso é **projeto migração).**
+- Se estiver a utilizar análises de dependência com um espaço de trabalho Azure Log Analytics:
+    - Se tiver anexado um espaço de trabalho de Log Analytics à ferramenta de avaliação do servidor, o espaço de trabalho não é automaticamente eliminado. O mesmo espaço de trabalho log Analytics pode ser usado para vários cenários.
+    - Se pretender eliminar o espaço de trabalho do Log Analytics, faça-o manualmente.
 
-### <a name="delete-a-workspace-manually"></a>Excluir um espaço de trabalho manualmente
+### <a name="delete-a-workspace-manually"></a>Eliminar manualmente um espaço de trabalho
 
-1. Navegue até o espaço de trabalho Log Analytics anexado ao projeto.
+1. Navegue no espaço de trabalho do Log Analytics ligado ao projeto.
 
-    - Se você não tiver excluído o projeto de migrações para Azure, poderá encontrar o link para o espaço de trabalho na avaliação do **Essentials** > **Server**.
-       Espaço de trabalho ![LA](./media/create-manage-projects/loganalytics-workspace.png).
+    - Se ainda não apagou o projeto Azure Migrate, pode encontrar a ligação ao espaço de trabalho na **Essentials** > **Server Assessment**.
+       ![](./media/create-manage-projects/loganalytics-workspace.png)do espaço de trabalho de LA.
        
-    - Se você já tiver excluído o projeto de migrações para Azure, selecione **grupos de recursos** no painel esquerdo da portal do Azure e localize o espaço de trabalho.
+    - Se já apagou o projeto Azure Migrate, selecione **Grupos de Recursos** no painel esquerdo do portal Azure e encontre o espaço de trabalho.
        
-2. [Siga as instruções](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) para excluir o espaço de trabalho.
+2. [Siga as instruções](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) para eliminar o espaço de trabalho.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Adicione ferramentas de [avaliação](how-to-assess.md) ou [migração](how-to-migrate.md) para projetos de migrações para Azure.
+Adicione ferramentas de [avaliação](how-to-assess.md) ou [migração](how-to-migrate.md) aos projetos da Azure Migrate.

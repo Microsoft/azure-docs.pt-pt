@@ -3,27 +3,27 @@ title: referência host.json para funções Azure 2.x
 description: Documentação de referência para o ficheiro host.json funções azure com o tempo de funcionamento v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: cc982d3f810c944a5273cbf0cf9778076d119692
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9b0d078a8c6df21e8000930e72856e92e2d40af7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208829"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425209"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência host.json para funções Azure 2.x e mais tarde 
 
 > [!div class="op_single_selector" title1="Selecione a versão do tempo de funcionamento das Funções Azure que está a utilizar: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2+](functions-host-json.md)
 
-O ficheiro de metadados *host.json* contém opções de configuração global que afetam todas as funções para uma aplicação de função. Este artigo lista as configurações que estão disponíveis a partir da versão 2. x do tempo de execução de Azure Functions.  
+O ficheiro de metadados *host.json* contém opções de configuração global que afetam todas as funções para uma aplicação de função. Este artigo lista as definições disponíveis a partir da versão 2.x do tempo de funcionamento das Funções Azure.  
 
 > [!NOTE]
-> Este artigo é para o Azure Functions 2. x e versões posteriores.  Para uma referência do host.json nas funções 1.x, consulte a [referência host.json para as funções Azure 1.x](functions-host-json-v1.md).
+> Este artigo é para funções Azure 2.x e versões posteriores.  Para uma referência do host.json nas funções 1.x, consulte a [referência host.json para as funções Azure 1.x](functions-host-json-v1.md).
 
-Outras opções de configuração de aplicações de função são geridas nas definições da sua [aplicação](functions-app-settings.md).
+Outras opções de configuração de aplicações de função são geridas nas definições da sua [aplicação](functions-app-settings.md) (para aplicações implementadas) ou no ficheiro [local.settings.json](functions-run-local.md#local-settings-file) (para desenvolvimento local).
 
-Algumas definições host.json só são usadas quando são feitas localmente no ficheiro [local.settings.json.](functions-run-local.md#local-settings-file)
+As configurações em host.json relacionadas com encadernações são aplicadas igualmente a cada função na aplicação de função. 
 
 ## <a name="sample-hostjson-file"></a>Arquivo host.json da amostra
 
@@ -69,11 +69,11 @@ O ficheiro *host.json* da seguinte amostra para a versão 2.x+ tem todas as opç
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 20,
               "evaluationInterval": "01:00:00",
-              "initialSamplingPercentage": 1.0, 
+              "initialSamplingPercentage": 100.0, 
               "samplingPercentageIncreaseTimeout" : "00:00:01",
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
-              "maxSamplingPercentage": 0.1,
+              "maxSamplingPercentage": 100.0,
               "movingAverageRatio": 1.0,
               "excludedTypes" : "Dependency;Event",
               "includedTypes" : "PageView;Trace"
@@ -303,7 +303,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo os I
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugsó|Define o nível de registo de ficheiros ativado.  As opções são `never`, `always`, `debugOnly`. |
-|logLevel|n/d|Objeto que define a categoria de log filtrando funções na aplicação. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Esta definição permite filtrar o registo para funções específicas. Para mais informações, consulte a [filtragem](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) de Registo na documentação do Núcleo de ASP.NET. |
+|logLevel|n/d|Objeto que define a categoria de log filtrando funções na aplicação. Versões 2.x e, posteriormente, siga o layout ASP.NET Core para filtragem da categoria de log. Esta definição permite filtrar o registo para funções específicas. Para mais informações, consulte a [filtragem](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) de Registo na documentação do Núcleo de ASP.NET. |
 |consola|n/d| A definição de registo da [consola.](#console) |
 |applicationInsights|n/d| A definição [de applicationInsights.](#applicationinsights) |
 
@@ -329,7 +329,7 @@ Esta definição é uma criança de [exploração madeireira.](#logging) Control
 
 ## <a name="manageddependency"></a>managedDependência
 
-A dependência gerenciada é um recurso que atualmente só tem suporte com funções baseadas no PowerShell. Permite que as dependências sejam geridas automaticamente pelo serviço. Quando a propriedade `enabled` está definida para `true`, o ficheiro `requirements.psd1` é processado. As dependências são atualizadas quando qualquer versão secundária é lançada. Para mais informações, consulte a [dependência gerida](functions-reference-powershell.md#dependency-management) no artigo powerShell.
+A dependência gerida é uma funcionalidade que atualmente é suportada apenas com funções baseadas na PowerShell. Permite que as dependências sejam geridas automaticamente pelo serviço. Quando a propriedade `enabled` está definida para `true`, o ficheiro `requirements.psd1` é processado. As dependências são atualizadas quando quaisquer versões menores são lançadas. Para mais informações, consulte a [dependência gerida](functions-reference-powershell.md#dependency-management) no artigo powerShell.
 
 ```json
 {

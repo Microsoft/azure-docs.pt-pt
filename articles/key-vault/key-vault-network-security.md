@@ -1,6 +1,6 @@
 ---
-title: Configurar Azure Key Vault firewalls e redes virtuais-Azure Key Vault
-description: Instruções detalhadas para configurar Key Vault firewalls e redes virtuais
+title: Configure Firewalls e redes virtuais do Cofre de Chaves Do Azure - Cofre chave Azure
+description: Instruções passo a passo para configurar firewalls chave vault e redes virtuais
 services: key-vault
 author: amitbapat
 manager: rkarlin
@@ -8,46 +8,46 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 60378632a55fe4578bb376a3a00de5efffc5d275
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 870064406c86e9cef6a45dfbe47c61cdaa9ecab0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976946"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426314"
 ---
-# <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar Azure Key Vault firewalls e redes virtuais
+# <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configure firewalls e redes virtuais do Cofre de Chaves
 
-Este artigo fornece instruções passo a passo para configurar Azure Key Vault firewalls e redes virtuais para restringir o acesso ao cofre de chaves. Os [pontos de extremidade de serviço de rede virtual para Key Vault](key-vault-overview-vnet-service-endpoints.md) permitem restringir o acesso a uma rede virtual especificada e a um conjunto de intervalos de endereços IPv4 (protocolo IP versão 4).
+Este artigo fornece instruções passo a passo para configurar firewalls e redes virtuais do Cofre de Chaves Azure para restringir o acesso ao seu cofre chave. Os [pontos finais](key-vault-overview-vnet-service-endpoints.md) do serviço de rede virtual para o Key Vault permitem-lhe restringir o acesso a uma rede virtual especificada e ao conjunto de gamas de endereços IPv4 (versão 4 do protocolo de internet).
 
 > [!IMPORTANT]
-> Depois que as regras de firewall estiverem em vigor, os usuários só poderão executar Key Vault operações do [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) quando suas solicitações se originarem de redes virtuais permitidas ou intervalos de endereços IPv4. Isso também se aplica ao acesso a Key Vault do portal do Azure. Embora os usuários possam navegar para um cofre de chaves do portal do Azure, eles podem não ser capazes de listar chaves, segredos ou certificados se o computador cliente não estiver na lista de permissões. Isso também afeta o seletor de Key Vault por outros serviços do Azure. Os usuários podem ver a lista de cofres de chaves, mas não as chaves de lista, se as regras de firewall impedirem seu computador cliente.
+> Após a aplicação das regras de firewall, os utilizadores só podem realizar operações de plano de [dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) key Vault quando os seus pedidos têm origem em redes virtuais permitidas ou em intervalos de endereços IPv4. Isto também se aplica ao acesso ao Cofre chave do portal Azure. Embora os utilizadores possam navegar para um cofre chave a partir do portal Azure, eles podem não ser capazes de listar chaves, segredos ou certificados se a sua máquina cliente não estiver na lista permitida. Isto também afeta o Key Vault Picker por outros serviços Azure. Os utilizadores podem ser capazes de ver a lista de cofres chave, mas não listar chaves, se as regras de firewall impedirem a sua máquina de clientes.
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-Veja como configurar Key Vault firewalls e redes virtuais usando o portal do Azure:
+Aqui está como configurar firewalls key vault e redes virtuais usando o portal Azure:
 
-1. Navegue até o cofre de chaves que você deseja proteger.
-2. Selecione **firewalls e redes virtuais**.
-3. Em **permitir acesso de**, selecione **redes selecionadas**.
-4. Para adicionar redes virtuais existentes a firewalls e regras de rede virtual, selecione **+ Adicionar redes virtuais existentes**.
-5. Na nova folha que é aberta, selecione a assinatura, as redes virtuais e as sub-redes que você deseja permitir o acesso a esse cofre de chaves. Se as redes virtuais e sub-redes selecionadas não tiverem pontos de extremidade de serviço habilitados, confirme se você deseja habilitar os pontos de extremidade de serviço e selecione **habilitar**. Pode levar até 15 minutos para entrar em vigor.
-6. Em **redes IP**, adicione intervalos de endereços IPv4 digitando intervalos de endereços IPv4 na [notação CIDR (roteamento entre domínios sem classificação)](https://tools.ietf.org/html/rfc4632) ou endereços IP individuais.
+1. Navegue até ao cofre da chave que pretende proteger.
+2. Selecione **Networking**e, em seguida, selecione o separador **Firewalls e redes virtuais.**
+3. Em **permitir o acesso a partir de**, selecione redes **selecionadas**.
+4. Para adicionar redes virtuais existentes a firewalls e regras de rede virtuais, selecione **+ Adicione as redes virtuais existentes**.
+5. Na nova lâmina que abre, selecione a subscrição, redes virtuais e subredes que pretende permitir o acesso a este cofre chave. Se as redes virtuais e subredes selecionadas não tiverem pontos finais de serviço ativados, confirme que pretende ativar pontos finais de serviço e selecione **Enable**. Pode levar até 15 minutos para fazer efeito.
+6. Em **redes IP**, adicione gamas de endereços IPv4 digitando gamas de endereços IPv4 em [notação CIDR (Encaminhamento inter-domínio sem classe)](https://tools.ietf.org/html/rfc4632) ou endereços IP individuais.
 7. Selecione **Guardar**.
 
-Você também pode adicionar novas redes virtuais e sub-redes e, em seguida, habilitar pontos de extremidade de serviço para as redes virtuais e sub-redes recém-criadas, selecionando **+ Adicionar nova rede virtual**. Em seguida, siga os prompts.
+Também pode adicionar novas redes virtuais e subredes e, em seguida, ativar pontos finais de serviço para as redes virtuais e subnets recém-criadas, selecionando **+ Adicionar nova rede virtual**. Em seguida, siga as instruções.
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure 
 
-Veja como configurar Key Vault firewalls e redes virtuais usando o CLI do Azure
+Aqui está como configurar firewalls key vault e redes virtuais usando o Azure CLI
 
-1. [Instale CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [entre](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+1. [Instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e [inscreva-se](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
-2. Listar regras de rede virtual disponíveis. Se você não tiver definido nenhuma regra para esse cofre de chaves, a lista estará vazia.
+2. Lista de regras de rede virtual disponíveis. Se não estabeleceu nenhuma regra para este cofre, a lista estará vazia.
    ```azurecli
    az keyvault network-rule list --resource-group myresourcegroup --name mykeyvault
    ```
 
-3. Habilite um ponto de extremidade de serviço para Key Vault em uma rede virtual e sub-rede existentes.
+3. Ative um ponto final de serviço para o Key Vault numa rede virtual existente e subnet.
    ```azurecli
    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.KeyVault"
    ```
@@ -58,17 +58,17 @@ Veja como configurar Key Vault firewalls e redes virtuais usando o CLI do Azure
    az keyvault network-rule add --resource-group "demo9311" --name "demo9311premium" --subnet $subnetid
    ```
 
-5. Adicione um intervalo de endereços IP do qual permitir o tráfego.
+5. Adicione um intervalo de endereço IP a partir do qual permitir o tráfego.
    ```azurecli
    az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --ip-address "191.10.18.0/24"
    ```
 
-6. Se esse cofre de chaves deve ser acessível por qualquer serviço confiável, `bypass` defina `AzureServices`como.
+6. Se este cofre-chave for acessível por quaisquer serviços fidedignos, `bypass` `AzureServices`.
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --bypass AzureServices
    ```
 
-7. Ative as regras de rede ao definir a ação padrão como `Deny`.
+7. Ligue as regras da rede definindo a ação predefinida para `Deny`.
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mekeyvault" --default-action Deny
    ```
@@ -77,16 +77,16 @@ Veja como configurar Key Vault firewalls e redes virtuais usando o CLI do Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Veja como configurar Key Vault firewalls e redes virtuais usando o PowerShell:
+Aqui está como configurar firewalls key vault e redes virtuais usando powerShell:
 
-1. Instale a [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)mais recente e [entre](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Instale o mais recente [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), e [inscreva-se](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
-2. Listar regras de rede virtual disponíveis. Se você não tiver definido nenhuma regra para esse cofre de chaves, a lista estará vazia.
+2. Lista de regras de rede virtual disponíveis. Se não estabeleceu nenhuma regra para este cofre, a lista estará vazia.
    ```powershell
    (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
-3. Habilite o ponto de extremidade de serviço para Key Vault em uma rede virtual e sub-rede existentes.
+3. Ative o ponto final de serviço para o Key Vault numa rede virtual existente e subnet.
    ```powershell
    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
@@ -97,27 +97,27 @@ Veja como configurar Key Vault firewalls e redes virtuais usando o PowerShell:
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
-5. Adicione um intervalo de endereços IP do qual permitir o tráfego.
+5. Adicione um intervalo de endereço IP a partir do qual permitir o tráfego.
    ```powershell
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
-6. Se esse cofre de chaves deve ser acessível por qualquer serviço confiável, `bypass` defina `AzureServices`como.
+6. Se este cofre-chave for acessível por quaisquer serviços fidedignos, `bypass` `AzureServices`.
    ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
-7. Ative as regras de rede ao definir a ação padrão como `Deny`.
+7. Ligue as regras da rede definindo a ação predefinida para `Deny`.
    ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
 ## <a name="references"></a>Referências
 
-* Comandos de CLI do Azure: [AZ keyvault Network – Rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Azure PowerShell cmdlets: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
+* Comandos Azure CLI: [regra da rede az keyvault](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Cmdlets Azure PowerShell: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule,](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule) [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Pontos de extremidade de serviço de rede virtual para Key Vault](key-vault-overview-vnet-service-endpoints.md)
+* [Pontos finais do serviço de rede virtual para key vault](key-vault-overview-vnet-service-endpoints.md)
 * [Proteger o seu cofre de chaves](key-vault-secure-your-key-vault.md)

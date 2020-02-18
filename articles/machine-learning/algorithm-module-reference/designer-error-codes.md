@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: cf343773695275bc5600ab59e1cd719374d65700
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: ea132578a08b9f0002084374838c615a01fa820f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152368"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425804"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (pré-visualização)
 
@@ -74,7 +74,7 @@ Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:
 |Mensagens de exceção|
 |------------------------|
 |Uma ou mais entradas são nulas ou estão vazias.|
-|A entrada "{0}" é nula ou vazia.|
+|A entrada "{name}" é nula ou vazia.|
 
 
 ## <a name="error-0004"></a>Erro 0004  
@@ -87,8 +87,8 @@ Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:
 |Mensagens de exceção|
 |------------------------|
 |O parâmetro deve ser maior que o valor de limite.|
-|O valor do parâmetro "{0}" deve ser maior do que {1}.|
-|O parâmetro "{0}" tem valor "{1}" que deve ser maior do que {2}.|
+|O valor do parâmetro "{arg_name}" deve ser superior ao valor de {lower_boundary}.|
+|O parâmetro "{arg_name}" tem valor "{atual_value}" que deve ser superior a {lower_boundary}.|
 
 
 ## <a name="error-0005"></a>Erro 0005  
@@ -101,8 +101,8 @@ Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:
 |Mensagens de exceção|
 |------------------------|
 |O parâmetro deve ser maior ou igual ao valor de limite.|
-|O valor do parâmetro "{arg_name}" deve ser maior ou igual a {target_val}.|
-|O parâmetro "{arg_name}" tem valor "{true_val}" que deve ser maior ou igual a {target_val}.|
+|O valor do parâmetro "{arg_name}" deve ser maior ou igual a {lower_boundary}.|
+|O parâmetro "{arg_name}" tem valor "{value}" que deve ser maior ou igual a {lower_boundary}.|
 
 
 ## <a name="error-0006"></a>Erro 0006  
@@ -115,8 +115,8 @@ Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:
 |Mensagens de exceção|
 |------------------------|
 |Parâmetros incompatíveis. Um dos parâmetros deve ser menor que outro.|
-|O valor do parâmetro "{0}" deve ser inferior ao valor do parâmetro "{1}".|
-|O parâmetro "{0}" tem valor "{1}" que deve ser inferior a {2}.|
+|O valor do parâmetro "{arg_name}" deve ser inferior ao valor do parâmetro "{upper_boundary_parameter_name}".|
+|O parâmetro "{arg_name}" tem o valor "{value}" que deve ser inferior a {upper_boundary_parameter_name}.|
 
 
 ## <a name="error-0007"></a>Erro 0007  
@@ -137,8 +137,9 @@ Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:
 |Mensagens de exceção|
 |------------------------|
 |Parâmetros incompatíveis. Um dos parâmetros deve ser menor ou igual a outro.|
-|O valor do parâmetro "{0}" deve ser inferior ou igual ao valor do parâmetro "{1}".|
-|O parâmetro "{0}" tem valor "{1}" que deve ser inferior ou igual a {2}.|
+|O valor do parâmetro "{arg_name}" deve ser inferior ou igual ao valor do parâmetro "{upper_boundary_parameter_name}".|
+|O parâmetro "{arg_name}" tem valor "{atual_value}" que deve ser inferior ou igual a {upper_boundary}.|
+|O valor do parâmetro "{arg_name}" {atual_value} deve ser inferior ou igual ao valor do parâmetro "{upper_boundary_parameter_name}" {upper_boundary}.|
 
 
 ## <a name="error-0008"></a>Erro 0008  
@@ -154,8 +155,8 @@ Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:
 |------------------------|
 |O valor do parâmetro não está no intervalo especificado.|
 |O valor do parâmetro "{arg_name}" não está ao alcance.|
-|O valor do parâmetro "{arg_name}" deve estar na gama de {a}, {b}].|
-|O valor do parâmetro "{arg_name}" não está ao alcance. {razão}|
+|O valor do parâmetro "{arg_name}" deve estar na gama de {lower_boundary}, {upper_boundary}].|
+|O valor do parâmetro "{arg_name}" não está ao alcance. falha|
 
 
 ## <a name="error-0009"></a>Erro 0009  
@@ -187,7 +188,7 @@ Se o caminho completo para uma bolha tiver sido especificado, verifique se o cam
 |Mensagens de exceção|
 |------------------------|
 |O nome da conta de armazenamento do Azure ou o nome do contêiner está incorreto.|
-|O nome da conta de armazenamento Azure "{0}" ou o nome do contentor "{1}" está incorreto; Esperava-se um nome de contentor do recipiente/bolha de formato.|
+|A denominação de conta de armazenamento Azure "{account_name}" ou o nome do recipiente "{container_name}" está incorreta; Esperava-se um nome de contentor do recipiente/bolha de formato.|
 
 
 ## <a name="error-0010"></a>Erro 0010  
@@ -200,7 +201,7 @@ Se o caminho completo para uma bolha tiver sido especificado, verifique se o cam
 |Mensagens de exceção|
 |------------------------|
 |Colunas com índice correspondente em conjuntos de dados de entrada têm nomes diferentes.|
-|Os nomes das colunas não são os mesmos para {0} de colunas (com base em zero) de conjuntos de dados de entrada ({1} e {2} respectivamente).|
+|Os nomes das colunas não são os mesmos para a coluna {col_index} (com base zero) dos conjuntos de dados de entrada ({dataset1} e {dataset2} respectivamente).|
 
 
 ## <a name="error-0011"></a>Erro 0011  
@@ -219,7 +220,7 @@ Se o caminho completo para uma bolha tiver sido especificado, verifique se o cam
 |Mensagens de exceção|
 |------------------------|
 |O conjunto de colunas especificado não se aplica a nenhuma coluna de conjunto de linhas.|
-|O conjunto de colunas especificado "{0}" não se aplica a nenhuma das colunas de conjunto de dados.|
+|O conjunto de colunas especificado "{column_set}" não se aplica a nenhuma das colunas do conjunto de dados.|
 
 
 ## <a name="error-0012"></a>Erro 0012  
@@ -301,7 +302,7 @@ Para as colunas que você pretende usar para Agrupamento ou categorização, exe
 |Mensagens de exceção|
 |------------------------|
 |Erro ao fazer conexão de banco de dados.|
-|Ligação de base de dados de erro: {0}.|
+|Ligação de base de dados de erro: {connection_str}.|
 
 
 ## <a name="error-0016"></a>Erro 0016  
@@ -384,8 +385,8 @@ Para as colunas que você pretende usar para Agrupamento ou categorização, exe
 |Mensagens de exceção|
 |------------------------|
 |Os valores na coluna não são classificados.|
-|Os valores na coluna "{0}" não estão classificados.|
-|Os valores na coluna "{0}" do conjunto de dados "{1}" não são classificados.|
+|Os valores na coluna "{col_index}" não são classificados.|
+|Os valores na coluna "{col_index}" do conjunto de dados "{dataset}" não estão classificados.|
 
 
 ## <a name="error-0020"></a>Erro 0020  
@@ -398,6 +399,7 @@ Para as colunas que você pretende usar para Agrupamento ou categorização, exe
 |Mensagens de exceção|
 |------------------------|
 |O número de colunas no conjunto de dados de entrada é menor que o mínimo permitido.|
+|O número de colunas no conjunto de dados de entrada "{arg_name}" é inferior ao mínimo permitido.|
 |O número de colunas no conjunto de dados de entrada é inferior ao permitido mínimo de colunas {required_columns_count}|
 |O número de colunas no conjunto de dados de entrada "{arg_name}" é inferior ao mínimo permitido de colunas {required_columns_count}|
 
@@ -450,9 +452,9 @@ Para as colunas que você pretende usar para Agrupamento ou categorização, exe
 |Mensagens de exceção|
 |------------------------|
 |O número de colunas selecionadas no conjunto de dados de entrada não é igual ao número esperado.|
-|O número de colunas selecionadas no conjunto de dados de entrada não é igual a {0}.|
-|O padrão de seleção da coluna "{0}" fornece o número de colunas selecionadas no conjunto de dados de entrada não igual a {1}.|
-|Espera-se que o padrão de seleção da coluna "{0}" forneça {1} colunas selecionadas no conjunto de dados de entrada, mas {2} colunas é/são realmente fornecidas.|
+|O número de colunas selecionadas no conjunto de dados de entrada não é igual a {expected_col_count}.|
+|O padrão de seleção da coluna "{selection_pattern_friendly_name}" fornece o número de colunas selecionadas no conjunto de dados de entrada não igual a {expected_col_count}.|
+|Espera-se que o padrão de seleção da coluna "{selection_pattern_friendly_name}" forneça {expected_col_count} colunas(s) selecionadas no conjunto de dados de entrada, mas é fornecido selected_col_count} colunas..são fornecidas.|
 
 
 ## <a name="error-0023"></a>Erro 0023  
@@ -466,8 +468,8 @@ Esse erro em Azure Machine Learning ocorrerá se a coluna de destino (conforme s
 |Mensagens de exceção|
 |------------------------|
 |O conjunto de dados de entrada tem uma coluna de destino sem suporte.|
-|O conjunto de dados de entrada tem coluna de alvo não suportada "{0}".|
-|O conjunto de dados de entrada tem coluna de alvo não suportada "{0}" para o aluno do tipo {1}.|
+|O conjunto de dados de entrada tem a coluna de destino não suportada "{column_index}".|
+|O conjunto de dados de entrada tem a coluna de destino não suportada "{column_index}" para o aluno do tipo {learner_type}.|
 
 
 ## <a name="error-0024"></a>Erro 0024  
@@ -500,8 +502,8 @@ Também pode acontecer que uma coluna de rótulo esteja presente no conjunto de,
 |Mensagens de exceção|
 |------------------------|
 |Não há nenhuma coluna de pontuação no DataSet.|
-|Não há coluna de pontuação em "{0}".|
-|Não há nenhuma coluna de pontuação em "{0}" que é produzida por um "{1}". Pontuar o conjunto de informações usando o tipo correto de aprendiz.|
+|Não há coluna de pontuação em "{dataset_name}".|
+|Não há nenhuma coluna de pontuação em "{dataset_name}" que seja produzida por um "{learner_type}". Pontuar o conjunto de informações usando o tipo correto de aprendiz.|
 
 
 ## <a name="error-0026"></a>Erro 0026  
@@ -514,7 +516,7 @@ Também pode acontecer que uma coluna de rótulo esteja presente no conjunto de,
 |Mensagens de exceção|
 |------------------------|
 |Os nomes de coluna iguais são especificados em argumentos. Nomes de coluna iguais não são permitidos pelo módulo.|
-|Não são permitidos nomes de colunas iguais nos argumentos "{0}" e "{1}" não são permitidos. Especifique nomes diferentes.|
+|Não são permitidos nomes de colunas iguais nos argumentos "{arg_name_1}" e "{arg_name_2}". Especifique nomes diferentes.|
 
 
 ## <a name="error-0027"></a>Erro 0027  
@@ -533,7 +535,7 @@ Também pode acontecer que uma coluna de rótulo esteja presente no conjunto de,
 |Mensagens de exceção|
 |------------------------|
 |O tamanho dos objetos passados é inconsistente.|
-|O tamanho de "{0}" é inconsistente com o tamanho de "{1}".|
+|O tamanho de "{friendly_name1}" é inconsistente com o tamanho de "{friendly_name2}".|
 
 
 ## <a name="error-0028"></a>Erro 0028  
@@ -571,7 +573,7 @@ Também pode acontecer que uma coluna de rótulo esteja presente no conjunto de,
 |Mensagens de exceção|
 |------------------------|
 |URI inválido passado.|
-|O Uri "{0}" é inválido.|
+|O Uri "{invalid_url}" é inválido.|
 
 
 ## <a name="error-0030"></a>Erro 0030  
@@ -584,7 +586,7 @@ Também pode acontecer que uma coluna de rótulo esteja presente no conjunto de,
 |Mensagens de exceção|
 |------------------------|
 |Não é possível baixar um arquivo.|
-|Erro ao descarregar o ficheiro: {0}.|
+|Erro ao descarregar o ficheiro: {file_url}.|
 
 
 ## <a name="error-0031"></a>Erro 0031  
@@ -597,7 +599,8 @@ Também pode acontecer que uma coluna de rótulo esteja presente no conjunto de,
 |Mensagens de exceção|
 |------------------------|
 |O número de colunas no conjunto de colunas é menor que o necessário.|
-|Devem ser especificadas pelo menos {0} colunas. O número real de colunas especificadas é {1}.|
+|Pelo menos as colunas de {required_columns_count} devem ser especificadas para o argumento de entrada "{arg_name}".|
+|Pelo menos as colunas de {required_columns_count} devem ser especificadas para o argumento de entrada "{arg_name}". O número real de colunas especificadas é {input_columns_count}.|
 
 
 ## <a name="error-0032"></a>Erro 0032  
@@ -610,7 +613,7 @@ Também pode acontecer que uma coluna de rótulo esteja presente no conjunto de,
 |Mensagens de exceção|
 |------------------------|
 |O argumento não é um número.|
-|"{0}" não é um número.|
+|"{arg_name}" não é um número.|
 
 
 ## <a name="error-0033"></a>Erro 0033  
@@ -623,7 +626,7 @@ Também pode acontecer que uma coluna de rótulo esteja presente no conjunto de,
 |Mensagens de exceção|
 |------------------------|
 |O argumento deve ser finito.|
-|"{0}" não é finito.|
+|"{arg_name}" não é finito.|
 
 
 ## <a name="error-0034"></a>Erro 0034  
@@ -663,7 +666,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |Mensagens de exceção|
 |------------------------|
 |Nenhum recurso foi fornecido para um usuário ou item necessário.|
-|Características para {0} necessárias, mas não fornecidas.|
+|Características para {required_feature_name} necessárias, mas não fornecidas.|
 
 
 ## <a name="error-0036"></a>Erro 0036  
@@ -676,7 +679,6 @@ For general information about how the Matchbox recommendation algorithm works, a
 |Mensagens de exceção|
 |------------------------|
 |Definição de recurso duplicada para um usuário ou item.|
-|Duplicar a definição de recurso para {0}.|
 
 
 ## <a name="error-0037"></a>Erro 0037  
@@ -742,9 +744,9 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|
 |------------------------|
 |Conversão não permitida.|
-|Não podia converter coluna de tipo {0} para coluna de tipo {1}.|
-|Não podia converter a coluna "{2}" de tipo {0} para coluna de tipo {1}.|
-|Não podia converter a coluna "{2}" do tipo {0} para coluna "{3}" de tipo {1}.|
+|Não podia converter a coluna do tipo {type1} para coluna do tipo {type2}.|
+|Não consegui converter a coluna "{col_name1}" do tipo {type1} para coluna do tipo {type2}.|
+|Não consegui converter a coluna "{col_name1}" do tipo {type1} para a coluna "{col_name2}" do tipo {type2}.|
 
 
 ## <a name="error-0044"></a>Erro 0044  
@@ -757,8 +759,8 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|
 |------------------------|
 |Não é possível derivar o tipo de elemento da coluna.|
-|Não pode derivar o tipo de elemento para a coluna "{0}" - todos os elementos são referências nulas.|
-|Não pode derivar o tipo de elemento para a coluna "{0}" de dataset "{1}" - todos os elementos são referências nulas.|
+|Não é possível derivar o tipo de elemento para a coluna "{column_name}" -- todos os elementos são referências nulas.|
+|Não é possível obter o tipo de elemento para a coluna "{column_name}" do conjunto de dados "{dataset_name}" -- todos os elementos são referências nulas.|
 
 
 ## <a name="error-0045"></a>Erro 0045  
@@ -771,8 +773,8 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|
 |------------------------|
 |Não é possível criar coluna com tipos de elementos mistos.|
-|Não é possível criar coluna com id "{column_id}" de tipos de elementos mistos:\n\tType de dados[{row_1}, {column_id}] é "{type_1}". Tipo de dados[{row_2}, {column_id}] é "{type_2}".|
-|Não é possível criar coluna com id "{column_id}" dos tipos de elementos mistos:\n\tType em pedaço {chunk_id_1} é "{type_1}". Digite em pedaço {chunk_id_2} é "{type_2}" com tamanho de pedaço: {chunk_size}.|
+|Não é possível criar coluna com id "{column_id}" de tipos de elementos mistos:<br />Tipo de dados[{row_1}, {column_id}] é "{type_1}". <br />Tipo de dados[{row_2}, {column_id}] é "{type_2}".|
+|Não é possível criar coluna com id "{column_id}" de tipos de elementos mistos:<br />Digite em pedaço {chunk_id_1} é "{type_1}". <br />Digite em pedaço {chunk_id_2} é "{type_2}" com tamanho de pedaço: {chunk_size}.|
 
 
 ## <a name="error-0046"></a>Erro 0046  
@@ -785,7 +787,7 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|
 |------------------------|
 |Especifique um diretório de saída válido.|
-|Diretório: {0} não pode ser criado. Especifique um caminho válido.|
+|Diretório: não pode ser criado o {path}. Especifique um caminho válido.|
 
 
 ## <a name="error-0047"></a>Erro 0047  
@@ -824,8 +826,8 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|
 |------------------------|
 |Não é possível abrir um arquivo.|
-|Erro ao abrir o ficheiro: {0}.|
-|Erro ao abrir o ficheiro: {0}. Mensagem de exceção de armazenamento: {1}.|
+|Erro ao abrir o ficheiro: {file_name}.|
+|Erro ao abrir o ficheiro: {file_name}. Mensagem de exceção de armazenamento: {exceção}.|
 
 
 ## <a name="error-0049"></a>Erro 0049  
@@ -910,7 +912,7 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|
 |------------------------|
 |O arquivo ou BLOB já existe.|
-|Arquivo ou Blob "{0}" já existe.|
+|Arquivo ou Blob "{file_path}" já existe.|
 
 
 ## <a name="error-0058"></a>Erro 0058  
@@ -945,7 +947,7 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|
 |------------------------|
 |Um ou mais índices de coluna ou intervalos de índice especificados não puderam ser analisados.|
-|O índice da coluna ou o intervalo "{0}" não podiam ser analisados.|
+|O índice de coluna ou o intervalo "{column_index_or_range}" não puderam ser analisados.|
 
 
 ## <a name="error-0060"></a>Erro 0060  
@@ -958,7 +960,7 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|
 |------------------------|
 |Intervalo de índice de coluna inválido ou fora do intervalo especificado.|
-|O alcance da coluna "{0}" é inválido ou fora de alcance.|
+|A gama de colunas "{column_range}" é inválida ou fora do alcance.|
 
 
 ## <a name="error-0061"></a>Erro 0061  
@@ -1035,7 +1037,7 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|
 |------------------------|
 |Não foi possível carregar o recurso no armazenamento do Azure.|
-|O ficheiro "{0}" não podia ser enviado para o armazenamento do Azure como "{1}".|
+|O ficheiro "{source_path}" não pôde ser enviado para o armazenamento do Azure como "{dest_path}".|
 
 
 ## <a name="error-0067"></a>Erro 0067  
@@ -1079,7 +1081,6 @@ Consulte os artigos a seguir para obter ajuda com consultas de Hive para aprendi
 |Mensagens de exceção|
 |------------------------|
 |O script do hive está incorreto.|
-|O guião da colmeia {0} não está correto.|
 
 
 ## <a name="error-0069"></a>Erro 0069  
@@ -1101,8 +1102,8 @@ Consulte os artigos a seguir para obter ajuda com consultas de Hive para aprendi
 |Mensagens de exceção|
 |------------------------|
 |O script SQL está incorreto.|
-|A consulta SQL "{0}" não está correta.|
-|A consulta SQL "{0}" não está correta:{1}.|
+|A consulta SQL "{sql_query}" não está correta.|
+|A consulta SQL "{sql_query}" não está correta. Mensagem de exceção: {exceção}.|
 
 
 ## <a name="error-0070"></a>Erro 0070  
@@ -1115,7 +1116,7 @@ Consulte os artigos a seguir para obter ajuda com consultas de Hive para aprendi
 |Mensagens de exceção|
 |------------------------|
 |A tabela do Azure não existe.|
-|A mesa azul "{0}" não existe.|
+|A tabela azure "{table_name}" não existe.|
 
 
 ## <a name="error-0072"></a>Erro 0072  
@@ -1140,7 +1141,7 @@ Consulte os artigos a seguir para obter ajuda com consultas de Hive para aprendi
 |Mensagens de exceção|
 |------------------------|
 |Falha ao converter a coluna.|
-|Falhou em converter a coluna para {0}.|
+|Falhou em converter a coluna para {target_type}.|
 
 
 ## <a name="error-0075"></a>Erro 0075  
@@ -1169,7 +1170,7 @@ O tratamento de erros para esse evento foi introduzido em uma versão anterior d
 |Mensagens de exceção|
 |------------------------|
 |Modo de gravação de blob sem suporte.|
-|Modo de escrita blob não suportado: {0}.|
+|Modo de escrita blob não suportado: {blob_write_mode}.|
 
 
 ## <a name="error-0078"></a>Erro 0078  
@@ -1194,7 +1195,7 @@ O tratamento de erros para esse evento foi introduzido em uma versão anterior d
 |Mensagens de exceção|
 |------------------------|
 |O nome do contêiner de armazenamento do Azure está incorreto.|
-|O nome do recipiente de armazenamento Azure "{0}" está incorreto; Esperava-se um nome de contentor do recipiente/bolha de formato.|
+|O nome do recipiente de armazenamento Azure "{container_name}" está incorreto; Esperava-se um nome de contentor do recipiente/bolha de formato.|
 
 
 ## <a name="error-0080"></a>Erro 0080  
@@ -1207,7 +1208,7 @@ O tratamento de erros para esse evento foi introduzido em uma versão anterior d
 |Mensagens de exceção|
 |------------------------|
 |Colunas com todos os valores ausentes não são permitidas.|
-|A coluna {0} tem todos os valores em falta.|
+|Coluna {col_index_or_name} tem todos os valores em falta.|
 
 
 ## <a name="error-0081"></a>Erro 0081  
@@ -1244,9 +1245,9 @@ O tratamento de erros para esse evento foi introduzido em uma versão anterior d
 |Mensagens de exceção|
 |------------------------|
 |O DataSet usado para treinamento é inválido.|
-|{0} contém dados inválidos para treino.|
-|{0} contém dados inválidos para treino. Tipo de aprendizagem: {1}.|
-|{0} contém dados inválidos para treino. Tipo de aprendizagem: {1}. Razão: {2}.|
+|{data_name} contém dados inválidos para treino.|
+|{data_name} contém dados inválidos para treino. Tipo de aprendizagem: {learner_type}.|
+|{data_name} contém dados inválidos para treino. Tipo de aprendizagem: {learner_type}. Razão: {reason}.|
 
 
 ## <a name="error-0084"></a>Erro 0084  
@@ -1271,7 +1272,7 @@ O tratamento de erros para esse evento foi introduzido em uma versão anterior d
 |Mensagens de exceção|
 |------------------------|
 |Erro durante a avaliação do script.|
-|O erro seguinte ocorreu durante a avaliação do script, por favor, veja o registo de saída para obter mais informações:---------- Início da mensagem de erro de {script_language} intérprete ----------{message}---------- Mensagem final de erro de {script_language}  ---------- intérprete|
+|O seguinte erro ocorreu durante a avaliação do script, por favor, consulte o registo de saída para obter mais informações:<br />---------- Início da mensagem de erro do ---------- intérprete {script_language}<br />{mensagem}<br />---------- Mensagem final de erro do ---------- intérprete {script_language}|
 
 
 ## <a name="error-0090"></a>Erro 0090  
@@ -1284,8 +1285,8 @@ O tratamento de erros para esse evento foi introduzido em uma versão anterior d
 |Mensagens de exceção|
 |------------------------|
 |Não foi possível criar a tabela Hive. Para um cluster do HDInsight, verifique se o nome da conta de armazenamento do Azure associado ao cluster é o mesmo que o passado por meio do parâmetro do módulo.|
-|A mesa da Colmeia "{0}" não podia ser criada. Para um cluster do HDInsight, verifique se o nome da conta de armazenamento do Azure associado ao cluster é o mesmo que o passado por meio do parâmetro do módulo.|
-|A mesa da Colmeia "{0}" não podia ser criada. Para um cluster HDInsight, certifique-se de que o nome da conta de armazenamento Azure associado ao cluster é "{1}".|
+|A mesa da Colmeia "{table_name}" não pôde ser criada. Para um cluster do HDInsight, verifique se o nome da conta de armazenamento do Azure associado ao cluster é o mesmo que o passado por meio do parâmetro do módulo.|
+|A mesa da Colmeia "{table_name}" não pôde ser criada. Para um cluster HDInsight, certifique-se de que o nome da conta de armazenamento Azure associado ao cluster é "{cluster_name}".|
 
 
 ## <a name="error-0102"></a>Erro 0102  
@@ -1317,6 +1318,19 @@ O tratamento de erros para esse evento foi introduzido em uma versão anterior d
 |Tipo de parâmetro não suportado '{0}' especificado.|  
 
 
+## <a name="error-0107"></a>Erro 0107  
+ Lançado quando um ficheiro de definição de módulo define um tipo de saída não suportado  
+  
+ Este erro no Azure Machine Learning é produzido quando o tipo de porta de saída num módulo personalizado de definição xml não corresponde a um tipo suportado.  
+  
+**Resolução:** Certifique-se de que a propriedade do tipo de um elemento De saída no ficheiro de definição xml do módulo personalizado é um tipo suportado.  
+  
+|Mensagens de exceção|  
+|------------------------|  
+|Tipo de saída não suportado.|  
+|Tipo de saída não suportado '{output_type}' especificado.|  
+
+
 ## <a name="error-0125"></a>Erro 0125  
  Gerado quando o esquema para vários conjuntos de valores não corresponde.  
 
@@ -1342,7 +1356,7 @@ O tratamento de erros para esse evento foi introduzido em uma versão anterior d
 |Mensagens de exceção|
 |------------------------|
 |O tamanho do pixel da imagem excede o limite permitido.|
-|Tamanho do pixel de imagem no ficheiro '{0}' excede limite permitido: '{1}'.|
+|O tamanho do pixel de imagem no ficheiro '{file_path}' excede o limite permitido: '{size_limit}'.|
 
 
 ## <a name="error-0128"></a>Erro 0128  
@@ -1353,7 +1367,7 @@ O tratamento de erros para esse evento foi introduzido em uma versão anterior d
 |Mensagens de exceção|
 |------------------------|
 |O número de probabilidades condicionais para colunas categóricas excede o limite.|
-|O número de probabilidades condicionais para colunas categóricas excede o limite. Colunas '{0}' e '{1}' são o par problemático.|
+|O número de probabilidades condicionais para colunas categóricas excede o limite. As colunas '{column_name_or_index_1}' e '{column_name_or_index_2}' são o par problemático.|
 
 
 ## <a name="error-0129"></a>Erro 0129  
@@ -1424,7 +1438,7 @@ Resolução:
 |Mensagens de exceção|
 |------------------------|
 |O número de colunas numéricas selecionadas e valores exclusivos nas colunas categóricas e de cadeia de caracteres é muito pequeno.|
-|O número total das colunas numéricas selecionadas e valores únicos nas colunas categóricas e de cordas (atualmente {0}) deve ser pelo menos {1}.|
+|O número total das colunas numéricas selecionadas e valores únicos nas colunas categóricas e de cordas (atualmente {atual_num}) deve ser pelo menos {lower_boundary}.|
 
 
 ## <a name="error-0154"></a>Erro 0154  
@@ -1473,6 +1487,6 @@ Para obter mais ajuda, recomendamos que você poste a mensagem detalhada que aco
 |Mensagens de exceção|
 |------------------------|
 |Exceção de biblioteca.|
-|Exceção da biblioteca: {0}.|
-|Exceção desconhecida da biblioteca: {0}. {1}.|
+|Exceção da biblioteca: {exceção}.|
+|Exceção da biblioteca desconhecida: {exceção}. {customer_support_guidance}.|
 

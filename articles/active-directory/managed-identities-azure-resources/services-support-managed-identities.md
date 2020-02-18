@@ -4,18 +4,18 @@ description: Lista de serviços que suportam identidades geridas para recursos A
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 09/24/2019
+ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b79a27526054f76d9d44e277c401e93214ec3c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a0576a70b1b345d31ffc11c55f7fa5cbd288acd5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018708"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425515"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos Azure
 
@@ -40,7 +40,7 @@ Consulte a seguinte lista para configurar a identidade gerida para máquinas vir
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos de Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Modelos de Gestor de Recursos Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Conjuntos de escala de máquina seleção azul
@@ -55,10 +55,10 @@ Consulte a seguinte lista para configurar a identidade gerida para conjuntos de 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos de Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Modelos de Gestor de Recursos Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
-### <a name="azure-app-service"></a>App Service do Azure
+### <a name="azure-app-service"></a>Serviço de Aplicações do Azure
 
 | Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ Consulte a seguinte lista para configurar a identidade gerida para o Azure App S
 
 - [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
-- [O Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modelo do Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
@@ -95,7 +95,7 @@ Consulte a seguinte lista para configurar a identidade gerida para funções azu
 
 - [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
-- [O Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modelo do Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
@@ -114,7 +114,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as Aplicaçõ
 
 Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Não disponível | Não disponível | Não disponível |
+| Sistema atribuído | Disponível | Disponível | Não disponível | Disponível |
 | Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
 
 Consulte a seguinte lista para configurar a identidade gerida para a Azure Data Factory V2 (em regiões onde disponível):
@@ -164,8 +164,8 @@ Consulte a seguinte lista para configurar a identidade gerida para as tarefas de
 
 Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Não Disponível | Não Disponível | não disponível |
-| Utilizador atribuído | Disponível | Não Disponível | Não Disponível |Não Disponível |
+| Sistema atribuído | Disponível | Não disponível | Não disponível | não disponível |
+| Utilizador atribuído | Disponível | Não disponível | Não disponível |Não disponível |
 
 Consulte a seguinte lista para configurar a identidade gerida para aplicações azure service fabric em todas as regiões:
 - [Modelo do Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
@@ -174,7 +174,7 @@ Consulte a seguinte lista para configurar a identidade gerida para aplicações 
 
 Os seguintes serviços suportam a autenticação da Azure AD, tendo sido testados com serviços de clientes que utilizam identidades geridas para recursos Azure.
 
-### <a name="azure-resource-manager"></a>Gestor de Recursos do Azure
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Consulte a seguinte lista para configurar o acesso ao Gestor de Recursos do Azure:
 
@@ -204,9 +204,9 @@ Consulte a seguinte lista para configurar o acesso ao Gestor de Recursos do Azur
 | Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://datalake.azure.net/` | Disponível |
-| Azure Government |  | Não Disponível |
-| Azure Alemanha |   | Não Disponível |
-| Azure China 21Vianet |  | Não Disponível |
+| Azure Government |  | Não disponível |
+| Azure Alemanha |   | Não disponível |
+| Azure China 21Vianet |  | Não disponível |
 
 ### <a name="azure-sql"></a>SQL do Azure 
 
@@ -217,23 +217,23 @@ Consulte a seguinte lista para configurar o acesso ao Gestor de Recursos do Azur
 | Azure Alemanha | `https://database.cloudapi.de/` | Disponível |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | Disponível |
 
-### <a name="azure-event-hubs"></a>Hubs de Eventos do Azure
+### <a name="azure-event-hubs"></a>Azure Event Hubs
 
 | Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://eventhubs.azure.net` | Disponível |
-| Azure Government |  | Não Disponível |
-| Azure Alemanha |   | Não Disponível |
-| Azure China 21Vianet |  | Não Disponível |
+| Azure Government |  | Não disponível |
+| Azure Alemanha |   | Não disponível |
+| Azure China 21Vianet |  | Não disponível |
 
-### <a name="azure-service-bus"></a>Azure Service Bus
+### <a name="azure-service-bus"></a>Service Bus do Azure
 
 | Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://servicebus.azure.net`  | Disponível |
 | Azure Government |  | Disponível |
-| Azure Alemanha |   | Não Disponível |
-| Azure China 21Vianet |  | Não Disponível |
+| Azure Alemanha |   | Não disponível |
+| Azure China 21Vianet |  | Não disponível |
 
 
 

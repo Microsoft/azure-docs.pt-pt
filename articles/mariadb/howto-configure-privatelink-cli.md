@@ -1,45 +1,45 @@
 ---
-title: Link privado para o método de instalação da CLI do banco de dados do Azure para MariaDB (versão prévia)
-description: Saiba como configurar o link privado para o banco de dados do Azure para MariaDB do CLI do Azure
+title: Link privado para base de dados Azure para método de configuração CLI MariaDB (Pré-visualização)
+description: Saiba como configurar link privado para Base de Dados Azure para MariaDB do Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 2d39afcea056c76b6c9672e1963d7529fbfce549
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 19613ab917d303863a8d90133bcce2e1353289c1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280939"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426212"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB (versão prévia) usando a CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>Criar e gerir link privado para base de dados Azure para MariaDB (Pré-visualização) utilizando o CLI
 
-Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste artigo, você aprenderá a usar o CLI do Azure para criar uma VM em uma rede virtual do Azure e um banco de dados do Azure para MariaDB Server com um ponto de extremidade privado do Azure.
+Um Private Endpoint é o bloco de construção fundamental para ligação privada em Azure. Permite que os recursos azure, como as Máquinas Virtuais (VMs), comuniquem privadamente com recursos de ligação privada. Neste artigo, você aprenderá a usar o Azure CLI para criar um VM em uma Rede Virtual Azure e uma Base de Dados Azure para servidor MariaDB com um ponto final privado Azure.
 
 > [!NOTE]
-> Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para MariaDB dá suporte a tipos de preço Uso Geral e com otimização de memória.
+> Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para MariaDB suporta níveis de preços otimizados para fins gerais e memória.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para percorrer este guia de instruções, você precisa de:
+Para passar por este guia de como guiar, você precisa:
 
-- Um [banco de dados do Azure para o servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md).
+- Uma [Base de Dados Azure para servidor MariaDB.](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você decidir instalar e usar CLI do Azure localmente, este guia de início rápido exigirá que você use CLI do Azure versão 2.0.28 ou posterior. Para localizar sua versão instalada, execute `az --version`. Consulte [instalar CLI do Azure](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
+Se decidir instalar e utilizar o Azure CLI localmente, este quickstart requer que utilize a versão 2.0.28 do Azure CLI ou posterior. Para encontrar a sua versão instalada, execute `az --version`. Consulte [o Azure CLI](/cli/azure/install-azure-cli) para instalar ou atualizar informações.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
-Para poder criar qualquer recurso, você precisa criar um grupo de recursos para hospedar a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *MyResource* Group no local *westeurope* :
+Antes de poder criar qualquer recurso, tem de criar um grupo de recursos para acolher a Rede Virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *myResourceGroup* na localização *da Europa Ocidental:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Criar uma Rede Virtual
-Crie uma rede virtual com [AZ Network vnet Create](/cli/azure/network/vnet). Este exemplo cria uma rede virtual padrão chamada *myVirtualNetwork* com uma sub-rede chamada *mysubnet*:
+Criar uma Rede Virtual com a [z network vnet criar](/cli/azure/network/vnet). Este exemplo cria uma rede virtual padrão chamada *myVirtualNetwork* com uma subnet chamada *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -48,8 +48,8 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 
-## <a name="disable-subnet-private-endpoint-policies"></a>Desabilitar políticas de ponto de extremidade privado de sub-rede 
-O Azure implanta recursos em uma sub-rede em uma rede virtual, portanto, você precisa criar ou atualizar a sub-rede para desabilitar as políticas de rede de ponto de extremidade privadas. Atualize uma configuração de sub-rede chamada *mysubnet* com [AZ Network vnet subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+## <a name="disable-subnet-private-endpoint-policies"></a>Desativar as políticas de ponto final privado de subnet 
+O Azure utiliza recursos para uma subrede dentro de uma rede virtual, pelo que precisa de criar ou atualizar a subrede para desativar as políticas de rede de pontos finais privados. Atualize uma configuração de sub-rede chamada *mySubnet* com [aaz rede vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -59,17 +59,17 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Crie a VM 
-Crie uma VM com AZ VM Create. Quando solicitado, forneça uma senha a ser usada como as credenciais de entrada para a VM. Este exemplo cria uma VM chamada *myVm*: 
+Crie um VM com az vm criar. Quando solicitado, forneça uma palavra-passe para ser usado como credenciais de entrada para o VM. Este exemplo cria um VM chamado *myVm:* 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm \
   --image Win2019Datacenter
 ```
- Anote o endereço IP público da VM. Você usará esse endereço para se conectar à VM da Internet na próxima etapa.
+ Note o endereço IP público do VM. Utilizará este endereço para ligar ao VM a partir da internet no próximo passo.
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Criar um Azure Database for MariaDB Server 
-Crie um banco de dados do Azure para MariaDB com o comando AZ MariaDB Server CREATE. Lembre-se de que o nome do seu servidor MariaDB deve ser exclusivo no Azure, portanto, substitua o valor do espaço reservado entre colchetes com seu próprio valor exclusivo: 
+Crie uma Base de Dados Azure para MariaDB com o servidor az mariadb criar comando. Lembre-se que o nome do seu Servidor MariaDB deve ser único em todo o Azure, por isso substitua o valor do espaço reservado em parênteses pelo seu próprio valor único: 
 
 ```azurecli-interactive
 # Create a logical server in the resource group 
@@ -82,10 +82,10 @@ az mariadb server create \
 --sku-name GP_Gen5_2
 ```
 
-Observe que a ID do servidor MariaDB é semelhante a ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMariaDB/servers/servername.``` você usará a ID do servidor MariaDB na próxima etapa. 
+Note que o ID do Servidor MariaDB é semelhante ao ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMariaDB/servers/servername.``` Utilizará o ID do Servidor MariaDB no próximo passo. 
 
-## <a name="create-the-private-endpoint"></a>Criar o ponto de extremidade privado 
-Crie um ponto de extremidade privado para o servidor MariaDB em sua rede virtual: 
+## <a name="create-the-private-endpoint"></a>Criar o Ponto Final Privado 
+Crie um ponto final privado para o servidor MariaDB na sua Rede Virtual: 
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
@@ -97,8 +97,8 @@ az network private-endpoint create \
     --connection-name myConnection  
  ```
 
-## <a name="configure-the-private-dns-zone"></a>Configurar a zona de DNS privado 
-Crie uma zona de DNS privado para o domínio do servidor MariDB e crie um link de associação com a rede virtual. 
+## <a name="configure-the-private-dns-zone"></a>Configure a Zona Privada dNS 
+Crie uma Zona DNS Privada para o domínio do servidor MariDB e crie uma ligação de associação com a Rede Virtual. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.mariadb.database.azure.com" 
@@ -123,67 +123,68 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
-Conecte-se à VM *myVm* da Internet da seguinte maneira:
+Ligue-se ao *myVm* VM da internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, insira *myVm*.
+1. Na barra de pesquisa do portal, entre no *myVm.*
 
-1. Selecione o botão **Ligar**. Depois de selecionar o botão **conectar** , **Conecte-se à máquina virtual** é aberto.
+1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **ligue-se à máquina virtual.**
 
-1. Selecione **transferir ficheiro RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
+1. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop *(.rdp)* e transfere-o para o computador.
 
-1. Abra o arquivo. rdp * baixado.
+1. Abra o ficheiro *download.rdp.*
 
     1. Se lhe for pedido, selecione **Ligar**.
 
-    1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
+    1. Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
 
         > [!NOTE]
-        > Talvez seja necessário selecionar **mais escolhas** > **usar uma conta diferente**, para especificar as credenciais inseridas quando você criou a VM.
+        > Poderá ter de selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se você receber um aviso de certificado, selecione **Sim** ou **continuar**.
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
 
-1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para a área de trabalho local.  
+1. Assim que o ambiente de trabalho vM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
 
-## <a name="access-the-mariadb-server-privately-from-the-vm"></a>Acessar o servidor MariaDB de forma privada da VM
+## <a name="access-the-mariadb-server-privately-from-the-vm"></a>Aceda ao servidor MariaDB em privado a partir do VM
 
-1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
+1. No Ambiente de Trabalho Remoto do *myVM,* abra a PowerShell.
 
 2. Introduza  `nslookup mydemoserver.privatelink.mariadb.database.azure.com`. 
 
-    Você receberá uma mensagem semelhante a esta:
+    Receberá uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
     Name:    mydemoserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Teste a ligação de ligação privada para o servidor MariaDB utilizando qualquer cliente disponível. No exemplo abaixo usei a [bancada mySQL](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para fazer a operação.
 
-4. In **New connection**, enter or select this information:
+4. Em **nova ligação,** insira ou selecione estas informações:
 
-    | Setting | Value |
+    | Definição | Valor |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mariadb.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MariaDB server creation. |
-    | Password | Enter a password provided during the MariaDB server creation. |
+    | Nome da Ligação| Selecione o nome de ligação à sua escolha.|
+    | Nome de anfitrião | Selecione *mydemoserver.privatelink.mariadb.database.azure.com* |
+    | Nome de utilizador | Introduza o nome de utilizador como *username@servername* que é fornecido durante a criação do servidor MariaDB. |
+    | Palavra-passe | Introduza uma palavra-passe fornecida durante a criação do servidor MariaDB. |
     ||
 
-5. Select **Test Connection** or **OK**.
+5. Selecione **ligação de teste** ou **OK**.
 
-6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
+6. (Opcionalmente) Consulte as bases de dados do menu esquerdo e crie ou consulte informações a partir da base de dados MariaDB
 
-8. Close the remote desktop connection to myVm.
+8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Limpar recursos 
+Quando já não é necessário, pode utilizar o grupo AZ eliminar para remover o grupo de recursos e todos os recursos que tem: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre [o que é o ponto de extremidade privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+Saiba mais sobre [o que é o ponto final privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

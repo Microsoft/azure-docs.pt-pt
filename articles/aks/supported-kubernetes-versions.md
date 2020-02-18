@@ -7,22 +7,22 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 625b44ae3f8a1d5d474d980693d92840b1317f09
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026120"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425770"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões Kubernetes suportadas no Serviço Azure Kubernetes (AKS)
 
-A comunidade do Kubernetes lança versões secundárias a cada três meses. Estas versões incluem novas funcionalidades e melhorias. As versões de patch são mais frequentes (às vezes semanais) e destinam-se apenas a correções de erros críticos numa versão secundária. Estas versões de patch incluem correções para vulnerabilidades de segurança ou grandes bugs com impacto num grande número de clientes e produtos em produção com base em Kubernetes.
+A comunidade kubernetes lança versões menores aproximadamente a cada três meses. Estes lançamentos incluem novas funcionalidades e melhorias. Os lançamentos de patch são mais frequentes (por vezes semanalmente) e destinam-se apenas a correções críticas de bugs numa versão menor. Estas versões de patch incluem correções para vulnerabilidades de segurança ou grandes bugs com impacto num grande número de clientes e produtos em produção com base em Kubernetes.
 
 A AKS pretende certificar e lançar novas versões Kubernetes no prazo de 30 dias após uma versão a montante, sujeita à estabilidade do lançamento.
 
 ## <a name="kubernetes-versions"></a>Versões Kubernetes
 
-Kubernetes usa o esquema de controle de versão de [controle semântico](https://semver.org/) de versão padrão. Isto significa que cada versão de Kubernetes segue este esquema de numeração:
+A Kubernetes utiliza o esquema padrão de [versão semântica.](https://semver.org/) Isto significa que cada versão de Kubernetes segue este esquema de numeração:
 
 ```
 [major].[minor].[patch]
@@ -45,7 +45,7 @@ Os utilizadores devem ter como objetivo executar o mais recente lançamento de p
 A AKS suporta três versões menores de Kubernetes:
 
 * A versão menor atual que é lançada em AKS (N)
-* Duas versões menores anteriores. Cada versão secundária suportada também suporta dois patches estáveis.
+* Duas versões menores anteriores. Cada versão secundária suportada também suporta duas manchas estáveis.
 
 Isto é conhecido como "N-2": (N (Última versão) - 2 (versões menores)).
 
@@ -70,7 +70,7 @@ Quando uma nova versão menor é introduzida, as versões menores mais antigas e
 1.13.f
 ```
 
-E aks liberta 1.16. *Isto significa que a 1.13.* as versões (todas as versões 1.13) serão removidas e fora de suporte.
+E aks liberta 1.16. *Isto significa que a 1.13.* as versões (todas as versões 1.13) serão removidas e estão fora de suporte.
 
 > [!NOTE]
 > Por favor, note que se os clientes estiverem executando uma versão Kubernetes não suportada, eles serão solicitados a fazer upgrade ao solicitar apoio para o cluster. Os clusters que executam lançamentos kubernetes não apoiados não estão abrangidos pelas políticas de [apoio aks.](https://docs.microsoft.com/azure/aks/support-policies)
@@ -99,7 +99,7 @@ New Supported Version List
   * Os clientes têm **30 dias** a partir da data de notificação pública para fazer upgrade para uma versão secundária suportada.
 * Para novas versões de **patch** de Kubernetes
   * Todos os utilizadores são notificados da versão patch que está a ser lançada e para fazer o upgrade para o mais recente lançamento do patch.
-  * Os utilizadores têm **30 dias** para fazer o upgrade para um novo patch suportado. Os utilizadores têm **30 dias** para fazer o upgrade para uma versão de patch suportada antes de o mais antigo ser removido.
+  * Os utilizadores têm **30 dias** para fazer o upgrade para um novo patch suportado antes de o mais antigo ser removido.
 
 A AKS define uma "versão lançada" como as versões geralmente disponíveis, ativadas em todas as medições SLO/Qualidade de Serviço e disponíveis em todas as regiões. O AKS também pode suportar versões de pré-visualização que estejam explicitamente rotuladas e sujeitas a termos e condições de pré-visualização.
 

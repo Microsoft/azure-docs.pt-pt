@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: a2a65c6fcca4a037408c6b7e780708623aebed2b
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212239"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426229"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -75,9 +75,9 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
 * Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
-* Sudeste da Austrália
-* Ásia Oriental
-* Sudeste Asiático
+* Austrália Sudeste
+* Ásia Leste
+* Ásia Sudeste
 * Coreia do Sul Central
 * Índia Central
 * Sul da Índia
@@ -106,9 +106,9 @@ O espaço de trabalho log Analytics deve existir nas seguintes regiões:
 * Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
-* Sudeste da Austrália
-* Ásia Oriental
-* Sudeste Asiático
+* Austrália Sudeste
+* Ásia Leste
+* Ásia Sudeste
 * Coreia do Sul Central
 * Índia Central
 * Leste do Japão
@@ -126,7 +126,7 @@ A sua conta deve ser membro de uma das seguintes [funções azure incorporadas:]
 |Resource Manager   | Proprietário                  |
 |                   | Contribuinte            |
 |                   | Leitor                 |
-|                   | Colaborador de rede    |
+|                   | Colaborador de Rede    |
 
 Se a sua conta não for atribuída a uma das funções incorporadas, deve ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) que seja atribuída às seguintes ações, ao nível da subscrição:
 
@@ -184,9 +184,6 @@ Selecione as seguintes opções, como mostrado na imagem:
 2. Selecione *versão 2* para **versão Flow Logs**. A versão 2 contém estatísticas de sessões de fluxo (Bytes e Pacotes)
 3. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo. Se quiser armazenar os dados para sempre, detete o valor para *0*. Incorre nas taxas de armazenamento azure para a conta de armazenamento. Certifique-se de que o seu armazenamento não tem "Data Lake Storage Gen2 Hierarchical Namespace Enabled" definido como verdadeiro.
 4. Detete **a Retenção** no número de dias para os dias que pretende armazenar.
-> [!IMPORTANT]
-> Atualmente, existe um problema em que os registos de fluxo do grupo de segurança de [rede (NSG)](network-watcher-nsg-flow-logging-overview.md) para O Observador de Rede não são automaticamente eliminados do armazenamento blob com base em definições de política de retenção. Se tiver uma política de retenção não nula existente, recomendamos que apague periodicamente as bolhas de armazenamento que já passaram do seu período de retenção para evitar quaisquer encargos incorridos. Para obter mais informações sobre como eliminar o blog de armazenamento de registo de fluxo NSG, consulte [Delete NSG flow log storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
-
 5. Selecione *para* o **estado de análise**de tráfego .
 6. Selecione intervalo de processamento. Com base na sua escolha, os registos de fluxo serão recolhidos a partir da conta de armazenamento e processados pela Traffic Analytics. Pode escolher o intervalo de processamento de cada 1 hora ou a cada 10 minutos. 
 7. Selecione um espaço de trabalho existente no Log Analytics (OMS) ou selecione **Create New Workspace** para criar um novo. Um espaço de trabalho log Analytics é usado pela Traffic Analytics para armazenar os dados agregados e indexados que são então usados para gerar a análise. Se selecionar um espaço de trabalho existente, deve existir numa das [regiões apoiadas](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se não quiser atualizar um espaço de trabalho existente, ou não tiver um espaço de trabalho numa região apoiada, crie um novo espaço de trabalho. Para mais informações sobre idiomas de consulta, consulte [o upgrade do Azure Log Analytics para uma nova pesquisa](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)de registo .

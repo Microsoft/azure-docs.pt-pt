@@ -1,54 +1,59 @@
 ---
-title: Perguntas comuns sobre o dispositivo de migrações para Azure
-description: Obtenha respostas para perguntas comuns sobre o dispositivo de migrações para Azure
+title: Perguntas comuns sobre o aparelho Azure Migrate
+description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: de9583b7983dda904e06ea258ecb0d202644586b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/17/2020
+ms.openlocfilehash: 3bb066b08447a951665e629da5ebcb75714b9f1e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064704"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425360"
 ---
-# <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
+# <a name="azure-migrate-appliance-common-questions"></a>Aparelho migratório Azure: Questões comuns
 
-Este artigo responde a perguntas comuns sobre o dispositivo migrações para Azure. Se tiver mais dúvidas depois de ler este artigo, publique-as no [fórum Azure Migrate](https://aka.ms/AzureMigrateForum). Se você tiver outras dúvidas, leia estes artigos:
+Este artigo responde a perguntas comuns sobre o aparelho Azure Migrate. Se tiver outras perguntas, reveja estes artigos:
 
 - [Perguntas gerais](resources-faq.md) sobre Azure Migrate.
 - [Perguntas](common-questions-discovery-assessment.md) sobre a descoberta, avaliação e visualização da dependência.
 - [Perguntas](common-questions-server-migration.md) sobre migração de servidores.
+- Responda a perguntas no [fórum Azure Migrate.](https://aka.ms/AzureMigrateForum) 
 
 
-## <a name="what-is-the-azure-migrate-appliance"></a>O que é o dispositivo de migrações para Azure?
+## <a name="what-is-the-azure-migrate-appliance"></a>O que é o aparelho Azure Migrate?
 
-O dispositivo de migrações para Azure é um dispositivo leve usado pela ferramenta migrações para Azure: Server Assessment para descobrir e avaliar servidores locais e usado pela migração do Azure: ferramenta de migração de servidor para migrar sem agente de VMs VMware locais. 
+O aparelho Azure Migrate é um aparelho leve utilizado pela ferramenta De avaliação do servidor Azure Migrate:Server para descobrir e avaliar servidores no local. O aparelho também é utilizado pela ferramenta Migração Azure Migrate:Server, para migração sem agentes de VMware VMware no local. 
 
-O dispositivo é implantado localmente como uma VM ou uma máquina física. O dispositivo descobre máquinas locais e envia continuamente metadados de máquina e dados de desempenho para migrações para Azure. A descoberta de dispositivo é sem agente. Nada é instalado em computadores descobertos. [Saiba mais](migrate-appliance.md) sobre o aparelho.
+- O aparelho é implantado no local como VM ou máquina física.
+- O aparelho descobre máquinas no local e envia continuamente metadados de máquinas e dados de desempenho para o Azure Migrate.
+- A descoberta do aparelho é sem agente. Nada está instalado em máquinas descobertas.
 
-## <a name="how-does-the-appliance-connect-to-azure"></a>Como o dispositivo se conecta ao Azure?
+[Saiba mais](migrate-appliance.md) sobre o aparelho.
 
-A conexão pode ser pela Internet ou usar o Azure ExpressRoute com emparelhamento público/Microsoft.
+## <a name="how-does-the-appliance-connect-to-azure"></a>Como é que o aparelho se liga ao Azure?
 
-## <a name="does-appliance-analysis-impact-performance"></a>A análise do dispositivo afeta o desempenho?
+O aparelho pode ligar-se através da internet ou utilizar o Azure ExpressRoute com o público/microsoft a espreitar.
 
-O dispositivo de migrações para Azure cria perfis de máquinas locais continuamente para medir os dados de desempenho da VM. Essa criação de perfil não tem impacto sobre o desempenho nos hosts Hyper-V/ESXi ou no VMware vCenter Server.
+## <a name="does-appliance-analysis-impact-performance"></a>A análise do aparelho tem impacto no desempenho?
 
-### <a name="can-i-harden-the-appliance-vm"></a>Posso proteger a VM do dispositivo?
+Os perfis do aparelho Azure Migrate no local para medir continuamente os dados de desempenho. Este perfil de perfis quase não tem máquinas de perfil de impacto de desempenho.
 
-Ao criar a VM do dispositivo usando o modelo baixado, você pode adicionar componentes (por exemplo, um antivírus) ao modelo, desde que você deixe as regras de comunicação e firewall necessárias para o dispositivo de migrações para Azure no estado em que se encontram.
+### <a name="can-i-harden-the-appliance-vm"></a>Posso endurecer o vm do aparelho?
+
+Quando criar o VM do aparelho utilizando o modelo descarregado, pode adicionar componentes (por exemplo, um antivírus) ao modelo, desde que deixe no lugar as regras de comunicação e firewall necessárias para o aparelho Migratório Azure.
 
 
-## <a name="what-network-connectivity-is-needed"></a>Qual é a conectividade de rede necessária?
+## <a name="what-network-connectivity-is-needed"></a>Que conectividade de rede é necessária?
 
-Examine o seguinte:
+Reveja as informações sobre a conectividade da rede:
 - Avaliação vMware utilizando o aparelho Migratório Azure: [URL](migrate-appliance.md#url-access) e requisitos de acesso à [porta.](migrate-support-matrix-vmware.md#port-access)
 - Migração sem agente VMware utilizando o aparelho Azure Migrate: [URL](migrate-appliance.md#url-access) e requisitos de acesso à [porta.](migrate-support-matrix-vmware-migration.md#agentless-ports)
 - Avaliação de hiper-V utilizando o aparelho Migratório Azure: [URL](migrate-appliance.md#url-access) e requisitos de acesso à [porta.](migrate-support-matrix-hyper-v.md#port-access)
 
 
-## <a name="what-data-does-the-appliance-collect"></a>Quais dados o dispositivo coleta?
+## <a name="what-data-does-the-appliance-collect"></a>Que dados o aparelho recolhe?
 
-Examine os dados coletados:
+Reveja os dados recolhidos:
 
 - [VMware](migrate-appliance.md#collected-performance-data-vmware) VM dados de desempenho vM e [metadados](migrate-appliance.md#collected-metadata-vmware).
 - Dados de [desempenho](migrate-appliance.md#collected-performance-data-hyper-v) de VM hiper-V e [metadados.](migrate-appliance.md#collected-metadata-hyper-v)
@@ -56,63 +61,63 @@ Examine os dados coletados:
 
 ## <a name="how-is-data-stored"></a>Como são armazenados os dados?
 
-Os dados coletados pelo dispositivo migrações para Azure são armazenados no local do Azure que você escolhe ao criar o projeto de migração. 
+Os dados recolhidos pelo aparelho Azure Migrate são armazenados na localização Azure onde criou o projeto Azure Migrate. 
 
-- Os dados são armazenados com segurança em uma assinatura da Microsoft e são excluídos quando você exclui o projeto de migrações para Azure.
-- Se utilizar a visualização da [dependência,](concepts-dependency-visualization.md)os dados recolhidos são armazenados nos Estados Unidos, num espaço de trabalho log Analytics criado na subscrição do Azure. Esses dados são excluídos quando você exclui o espaço de trabalho Log Analytics em sua assinatura.
+- Os dados são armazenados de forma segura numa subscrição da Microsoft e são eliminados quando elimina o projeto Azure Migrate.
+- Se utilizar a visualização da [dependência,](concepts-dependency-visualization.md)os dados recolhidos são armazenados nos Estados Unidos, num espaço de trabalho log Analytics criado na subscrição do Azure. Estes dados são eliminados quando elimina o espaço de trabalho do Log Analytics na sua subscrição.
 
-## <a name="how-much-data-is-uploaded-in-continuous-profiling"></a>Qual a quantidade de dados carregada na criação de perfil contínua?
+## <a name="how-much-data-is-uploaded-in-continuous-profiling"></a>Quantos dados são carregados em perfis contínuos?
 
-O volume de dados enviados para migrações para Azure depende de vários parâmetros. Para dar uma noção do volume, um projeto de migrações para Azure com 10 computadores (cada um com um disco e uma NIC) envia cerca de 50 MB por dia. Esse valor é aproximado e muda com base no número de pontos de dados para as NICs e os discos. O aumento nos dados enviados é não linear se houver um aumento no número de computadores, NICs ou discos.
+O volume de dados enviados para a Migração Azure depende de vários parâmetros. Para lhe dar uma ideia, um projeto Azure Migrate com 10 máquinas (cada uma com um disco e um NIC) envia cerca de 50 MB por dia. Este valor é aproximado e altera-se, com base no número de pontos de dados para os NICs e discos. O aumento dos dados enviados não é linear se houver um aumento no número de máquinas, NICs ou discos.
 
-## <a name="is-data-encrypted-at-restin-transit"></a>Os dados são criptografados em repouso/em trânsito?
+## <a name="is-data-encrypted-at-restin-transit"></a>Os dados estão encriptados em repouso/em trânsito?
 
 Sim, para ambos.
 
-- Os metadados são enviados com segurança para o serviço de migrações para Azure pela Internet, via HTTPS.
-- Os metadados são armazenados numa base de dados [da Azure Cosmos,](../cosmos-db/database-encryption-at-rest.md) e no [armazenamento do Azure Blob,](../storage/common/storage-service-encryption.md)numa subscrição da Microsoft. Os metadados são criptografados em repouso.
-- Os dados para análise de dependência também são criptografados em trânsito (HTTPS seguro). Ele é armazenado em um espaço de trabalho Log Analytics em sua assinatura. Ele também é criptografado em repouso.
+- Os metadados são enviados de forma segura para o serviço Azure Migrate através da internet, via HTTPS.
+- Os metadados são armazenados numa base de dados [da Azure Cosmos,](../cosmos-db/database-encryption-at-rest.md) e no [armazenamento do Azure Blob,](../storage/common/storage-service-encryption.md)numa subscrição da Microsoft. Os metadados estão encriptados em repouso.
+- Os dados para análise de dependência também são encriptados em trânsito (HTTPS seguro). Está armazenado num espaço de trabalho de Log Analytics na sua subscrição. Também está encriptado em repouso.
 
-## <a name="how-does-the-appliance-connect-to-vcenter-server"></a>Como o dispositivo se conecta ao vCenter Server?
+## <a name="how-does-the-appliance-connect-to-vcenter-server"></a>Como é que o aparelho se liga ao VCenter Server?
 
-1. O dispositivo se conecta ao vCenter Server (porta 443), usando as credenciais fornecidas quando você configura o dispositivo.
-2. O dispositivo usa o VMware PowerCLI para consultar vCenter Server, a fim de coletar metadados sobre as VMs gerenciadas pelo vCenter Server.
-3. O dispositivo coleta dados de configuração sobre VMs (núcleos, memória, discos, NICs) e o histórico de desempenho de cada VM no último mês.
-4. Os metadados coletados são ent para migrações para Azure: avaliação de servidor (pela Internet via HTTPS) para avaliação.
+1. O aparelho liga-se ao VCenter Server (porta 443), utilizando as credenciais fornecidas quando configurao o aparelho.
+2. O aparelho utiliza o VMware PowerCLI para consultar o VCenter Server, para recolher metadados sobre os VMs geridos pelo VCenter Server.
+3. O aparelho recolhe dados de configuração sobre VMs (núcleos, memória, discos, NICs) e o histórico de desempenho de cada VM durante o mês passado.
+4. Os metadados recolhidos são enviados para o Azure Migrate: Server Assessment (através da internet via HTTPS) para avaliação.
 
-## <a name="can-i-connect-the-appliance-to-multiple-vcenter-servers"></a>Posso conectar o dispositivo a vários servidores vCenter?
+## <a name="can-i-connect-the-appliance-to-multiple-vcenter-servers"></a>Posso ligar o aparelho a vários servidores vCenter?
 
-Não. Há um mapeamento de um para um entre um dispositivo e vCenter Server. Para descobrir VMs em várias instâncias de vCenter Server, você precisa implantar vários dispositivos.
+Não. Há um mapeamento de um para um entre um aparelho e o VCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, é necessário implementar vários aparelhos.
 
-### <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantas VMs ou servidores posso descobrir com um dispositivo?
+## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantas VMs ou servidores posso descobrir com um dispositivo?
 
-Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 250 servidores com um único dispositivo. Se tiver mais máquinas no seu ambiente no local, leia sobre a escala [hyper-V,](scale-hyper-v-assessment.md) [VMware](scale-vmware-assessment.md) e avaliação [física.](scale-physical-assessment.md)
+Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 250 servidores físicos com um único aparelho. Se tiver mais máquinas no seu ambiente no local, leia sobre a escala [hyper-V,](scale-hyper-v-assessment.md) [VMware](scale-vmware-assessment.md) e avaliação [física.](scale-physical-assessment.md)
 
-## <a name="can-i-delete-an-appliance"></a>Posso excluir um dispositivo?
+## <a name="can-i-delete-an-appliance"></a>Posso apagar um aparelho?
 
-Atualmente, não há suporte para a exclusão do dispositivo do projeto.
+Atualmente, a apagar um aparelho do projeto não é suportada.
 
-- A única maneira de excluir o dispositivo é excluir o grupo de recursos que contém o projeto de migrações para Azure associado ao dispositivo.
-- No entanto, a exclusão do grupo de recursos também excluirá outros dispositivos registrados, o inventário descoberto, as avaliações e todos os outros componentes do Azure associados ao projeto no grupo de recursos.
+- A única forma de apagar o aparelho é eliminar o grupo de recursos que contém o projeto Azure Migrate associado ao aparelho.
+- No entanto, a eliminação do grupo de recursos também eliminará outros aparelhos registados, o inventário descoberto, avaliações e todos os outros componentes do Azure associados ao projeto no grupo de recursos.
 
 
-## <a name="can-i-use-the-appliance-with-a-different-subscriptionproject"></a>Posso usar o dispositivo com uma assinatura/projeto diferente?
+## <a name="can-i-use-the-appliance-with-a-different-subscriptionproject"></a>Posso usar o aparelho com uma subscrição/projeto diferente?
 
-Depois de usar o dispositivo para iniciar a descoberta, você não pode reconfigurá-la com uma assinatura do Azure diferente ou em um projeto de migração do Azure diferente. Você também não pode descobrir VMs em um vCenter Server diferente. Configure um novo dispositivo para essas tarefas.
+Depois de utilizar o aparelho para iniciar a descoberta, não é possível reconfigurá-lo com uma assinatura Azure diferente, nem usá-lo num projeto azure migrate diferente. Também não é possível descobrir VMs num servidor vCenter diferente. Instale um novo aparelho para estas tarefas.
 
-## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Posso configurar o dispositivo em uma VM do Azure?
-Não tem suporte no momento. 
+## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Posso montar o aparelho num VM Azure?
+Não. Isto não é apoiado atualmente. 
 
-## <a name="can-i-discover-on-an-esxi-host"></a>Posso descobrir em um host ESXi?
-Não é necessário um vCenter Server para descobrir VMs VMware.
+## <a name="can-i-discover-on-an-esxi-host"></a>Posso descobrir num hospedeiro esxi?
+Não. Precisa de um vCenter Server para descobrir VMware VMs.
 
-## <a name="how-do-i-update-the-appliance"></a>Como fazer atualizar o dispositivo?
+## <a name="how-do-i-update-the-appliance"></a>Como atualizo o aparelho?
 
-Por padrão, o dispositivo e seus agentes instalados são atualizados automaticamente. O dispositivo verifica se há atualizações uma vez a cada 24 horas. Se houver falhas durante o processo de atualização, haverá um processo de repetição. As atualizações automáticas somente atualizam os agentes do dispositivo e do dispositivo. O sistema operacional não está atualizado. Use as atualizações da Microsoft para manter o sistema operacional atualizado.
+Por defeito, o aparelho e os seus agentes instalados são atualizados automaticamente. O aparelho verifica as atualizações uma vez a cada 24 horas. Se o processo de atualização falhar, haverá uma nova tentativa. Atualizações automáticas apenas atualizam os agentes do aparelho e do aparelho. O sistema operativo não está atualizado. Utilize as Atualizações do Microsoft para manter o sistema operativo atualizado.
 
-## <a name="can-i-check-agent-health"></a>Posso verificar a integridade do agente?
+## <a name="can-i-check-agent-health"></a>Posso verificar a saúde do agente?
 
-No portal, vá na página de **saúde** do Agente na ferramenta de avaliação do servidor ou migração do servidor. Lá, você pode verificar o status da conexão entre os agentes de descoberta e avaliação no dispositivo e no Azure.
+No portal, vá na página de **saúde** do Agente na ferramenta de avaliação do servidor ou migração do servidor. Aí, pode verificar o estado de ligação entre os agentes de descoberta e avaliação do aparelho e o Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)

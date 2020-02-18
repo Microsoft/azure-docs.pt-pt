@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016498"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426365"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Criar uma aplicação de gestão de resíduos conectada na IoT Central
 
@@ -72,10 +72,10 @@ Para criar uma nova aplicação de gestão de resíduos conectada Azure IoT Cent
 6. Criou agora uma aplicação de gestão de resíduos conectada utilizando o modelo de gestão de **resíduos**Azure IoT Central Connected . 
 
 Parabéns! A sua aplicação recém-criada vem com pré-configuração:
-* Painéis de exemplo de operador
+* Tabliers do operador de amostras
 * Modelos de dispositivos de resíduos pré-definidos pré-definidos
 * Dispositivos de resíduos ligados simulados
-* Regras e trabalhos pré-configurados
+* Regras e empregos pré-configurados
 * Marca de amostra utilizando etiquetagem branca 
 
 É a sua aplicação e pode modificá-la a qualquer momento. Vamos agora explorar a aplicação e fazer algumas personalizações.  
@@ -129,7 +129,7 @@ A aplicação de gestão de **resíduos conectado** saem com um modelo de dispos
 
 Para ver o modelo do dispositivo:
 
-1. Clique nos **modelos** do dispositivo a partir do painel de navegação esquerdo da sua aplicação na IoT Central. 
+1. Clique nos **modelos** do dispositivo a partir do painel esquerdo da sua aplicação na IoT Central. 
 
     ![Modelo de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
@@ -177,7 +177,7 @@ A aplicação de gestão de **resíduos conectado** tem dois dispositivos simula
 
 ### <a name="to-view-the-devices"></a>Para visualizar os dispositivos:
 
-1. Navegue para **dispositivo** a partir do painel de navegação esquerdo IoT Central. 
+1. Navegue para **o dispositivo** a partir do painel esquerdo IoT Central. 
 
    ![Dispositivos](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
@@ -202,7 +202,7 @@ No Azure IoT Central, pode criar regras para monitorizar automaticamente a telem
 A aplicação **connected waste management** tem quatro regras de amostra.
 
 ### <a name="to-view-rules"></a>Para ver regras:
-1. Navegar para **regras** do painel de navegação esquerda IoT Central
+1. Navegar para **regras** do painel esquerdo IoT Central
 
    ![Regras](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
@@ -231,13 +231,13 @@ Deve receber e-mail quando a **condição** configurada for satisfeita.
 > O pedido enviará e-mail sempre que uma condição for satisfeita. **Desative** a regra para deixar de receber e-mail da regra automatizada. 
   
 Para criar uma nova regra: 
-1. Selecione **+Novo** nas **Regras** do painel de navegação à esquerda.
+1. Selecione **+Novo** nas **Regras** do painel esquerdo.
 
 ## <a name="configure-jobs"></a>Configurar empregos
 
 No IoT Central, os trabalhos permitem-lhe ativar atualizações de propriedades de dispositivos ou cloud em vários dispositivos. Além das propriedades, também pode utilizar trabalhos para acionar comandos de dispositivos em vários dispositivos. A IoT Central vai automatizar o fluxo de trabalho para si. 
 
-1. Vá a **Jobs** a partir do painel de navegação esquerdo. 
+1. Vai para **jobs** do painel esquerdo. 
 2. Clique em **+Novo** e configure um ou mais empregos. 
 
 

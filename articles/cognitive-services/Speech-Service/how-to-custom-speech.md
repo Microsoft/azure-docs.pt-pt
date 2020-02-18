@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 0788ff84cd5b0d50e0798d0d72ee84b47cb5f0b1
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 4a2887ef8b264628128872730422fd38d6b0ac0f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368323"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425005"
 ---
 # <a name="what-is-custom-speech"></a>O que é discurso personalizado?
 
@@ -62,7 +62,7 @@ Conteúdos como dados, modelos, testes e pontos finais são organizados em **Pro
 Para criar o seu primeiro projeto, selecione o **discurso Discurso-a-texto/Discurso personalizado,** em seguida, clique em **New Project**. Siga as instruções fornecidas pelo assistente para criar o seu projeto. Depois de ter criado um projeto, deve ver quatro separadores: **Dados,** **Testes,** **Treino**e **Implantação**. Utilize os links fornecidos nos [próximos passos](#next-steps) para aprender a utilizar cada separador.
 
 > [!IMPORTANT]
-> O [portal Custom Speech](https://aka.ms/custom-speech) foi recentemente atualizado! Se criou projetos anteriores com dados, modelos, testes e pontos finais publicados no portal CRIS ou com APIs, é necessário criar um novo projeto no novo portal para se conectar a estas entidades antigas.
+> O [portal Custom Speech](https://aka.ms/custom-speech) foi recentemente atualizado! Se criou dados anteriores, modelos, testes e pontos finais publicados no portal CRIS.ai ou com APIs, é necessário criar um novo projeto no novo portal para se conectar a estas entidades antigas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

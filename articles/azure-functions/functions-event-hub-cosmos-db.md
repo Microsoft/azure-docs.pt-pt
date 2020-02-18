@@ -1,62 +1,64 @@
 ---
-title: 'Tutorial: usar funções Java com Azure Cosmos DB e hubs de eventos'
-description: Este tutorial mostra como consumir eventos de hubs de eventos para fazer atualizações no Azure Cosmos DB usando uma função escrita em Java.
+title: 'Tutorial: Use funções java com Azure Cosmos DB e Centros de Eventos'
+description: Este tutorial mostra-lhe como consumir eventos a partir de Event Hubs para fazer atualizações em Azure Cosmos DB usando uma função escrita em Java.
 author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: cef1d09f3365350240cb2ed879e4d41edec74aef
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6d7b2c60e777266b1cab578b8970c1fa1c6bc50
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849841"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425328"
 ---
-# <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: criar uma função em Java com um gatilho de Hub de eventos e uma Azure Cosmos DB Associação de saída
+# <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Criar uma função em Java com um gatilho do Event Hub e uma ligação de saída Azure Cosmos DB
 
-Este tutorial mostra como usar Azure Functions para criar uma função Java que analisa um fluxo contínuo de dados de temperatura e de pressão. Eventos de Hub de eventos que representam leituras de sensor acionam a função. A função processa os dados do evento e adiciona entradas de status a um Azure Cosmos DB.
+Este tutorial mostra-lhe como usar funções Azure para criar uma função Java que analisa um fluxo contínuo de dados de temperatura e pressão. Eventos de hub de eventos que representam leituras de sensores desencadeiam a função. A função processa os dados do evento, em seguida, adiciona entradas de estado a um Azure Cosmos DB.
 
-Neste tutorial, você vai:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
-> * Crie e configure recursos do Azure usando o CLI do Azure.
-> * Crie e teste funções Java que interagem com esses recursos.
-> * Implante suas funções no Azure e monitore-as com Application Insights.
+> * Crie e configure os recursos Azure utilizando o Azure CLI.
+> * Crie e teste as funções java que interagem com estes recursos.
+> * Desloque as suas funções para o Azure e monitorize-as com insights de aplicação.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você deve ter o seguinte instalado:
+Para completar este tutorial, deve ter o seguinte instalado:
 
-* [Java Developer Kit](https://aka.ms/azure-jdks), versão 8
-* [Apache Maven](https://maven.apache.org), versão 3,0 ou superior
-* [CLI do Azure](/cli/azure/install-azure-cli) se preferir não usar Cloud Shell
-* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) versão 2.6.666 ou superior
+* [Java Development Kit](https://aka.ms/azure-jdks), versão 8
+* [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
+* [Azure CLI](/cli/azure/install-azure-cli) se preferir não usar Cloud Shell
+* [Funções Azure Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) versão 2.6.666 ou superior
 
 > [!IMPORTANT]
-> A variável de ambiente `JAVA_HOME` deve ser definida como o local de instalação do JDK para concluir este tutorial.
+> A variável ambiente `JAVA_HOME` deve ser definida para a localização de instalação do JDK para completar este tutorial.
+
+Se preferir utilizar o código para este tutorial diretamente, consulte o repo da amostra [java-functions-eventhub-cosmosdb.](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-azure-resources"></a>Criar recursos do Azure
 
-Neste tutorial, você precisará desses recursos:
+Neste tutorial, você precisará destes recursos:
 
 * Um grupo de recursos para conter os outros recursos
-* Um namespace de hubs de eventos, um hub de eventos e uma regra de autorização
-* Uma Cosmos DB conta, banco de dados e coleção
-* Um aplicativo de funções e uma conta de armazenamento para hospedá-lo
+* Um espaço de nome de Hubs de Eventos, centro de eventos e regra de autorização
+* Uma conta Cosmos DB, base de dados e recolha
+* Uma aplicação de função e uma conta de armazenamento para hospedar
 
-As seções a seguir mostram como criar esses recursos usando o CLI do Azure.
+As seguintes secções mostram-lhe como criar estes recursos utilizando o Azure CLI.
 
 ### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Se você não estiver usando Cloud Shell, precisará usar o CLI do Azure localmente para acessar sua conta. Use o comando `az login` do prompt bash para iniciar a experiência de logon baseada em navegador. Se você tiver acesso a mais de uma assinatura do Azure, defina o padrão com `az account set --subscription` seguido pela ID da assinatura.
+Se não estiver a usar a Cloud Shell, terá de utilizar o Azure CLI localmente para aceder à sua conta. Utilize o comando `az login` da solicitação bash para lançar a experiência de login baseada no navegador. Se tiver acesso a mais de uma subscrição Azure, detete o padrão com `az account set --subscription` seguido do ID de subscrição.
 
 ### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
-Em seguida, crie algumas variáveis de ambiente para os nomes e o local dos recursos que você criará. Use os comandos a seguir, substituindo os espaços reservados `<value>` por valores de sua escolha. Os valores devem estar em conformidade com as [regras de nomenclatura e restrições para os recursos do Azure](/azure/architecture/best-practices/resource-naming). Para a variável `LOCATION`, use um dos valores produzidos pelo comando `az functionapp list-consumption-locations`.
+Em seguida, crie algumas variáveis ambientais para os nomes e localização dos recursos que irá criar. Utilize os seguintes comandos, substituindo os espaços reservados `<value>` por valores à sua escolha. Os valores devem estar em conformidade com as [regras de nomeação e restrições aos recursos do Azure.](/azure/architecture/best-practices/resource-naming) Para a variável `LOCATION`, utilize um dos valores produzidos pelo comando `az functionapp list-consumption-locations`.
 
 ```azurecli-interactive
 RESOURCE_GROUP=<value>
@@ -69,13 +71,13 @@ FUNCTION_APP=<value>
 LOCATION=<value>
 ```
 
-O restante deste tutorial usa essas variáveis. Lembre-se de que essas variáveis são mantidas somente pela duração da sua CLI do Azure atual ou Cloud Shell sessão. Você precisará executar esses comandos novamente se usar uma janela de terminal local diferente ou sua sessão de Cloud Shell atingir o tempo limite.
+O resto deste tutorial usa estas variáveis. Esteja ciente de que estas variáveis persistem apenas durante a duração da sua atual sessão Azure CLI ou Cloud Shell. Terá de executar estes comandos novamente se utilizar uma janela de terminal local diferente ou se a sua sessão cloud Shell passar.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
-O Azure usa grupos de recursos para coletar todos os recursos relacionados em sua conta. Dessa forma, você pode exibi-los como uma unidade e excluí-los com um único comando quando tiver terminado de usá-los.
+O Azure utiliza grupos de recursos para recolher todos os recursos relacionados na sua conta. Assim, pode vê-los como uma unidade e eliminá-los com um único comando quando terminar com eles.
 
-Use o seguinte comando para criar um grupo de recursos:
+Utilize o seguinte comando para criar um grupo de recursos:
 
 ```azurecli-interactive
 az group create \
@@ -85,7 +87,7 @@ az group create \
 
 ### <a name="create-an-event-hub"></a>Criar um hub de eventos
 
-Em seguida, crie um namespace dos hubs de eventos do Azure, o Hub de eventos e a regra de autorização usando os seguintes comandos:
+Em seguida, crie um espaço de nome sinuoso, centro de eventos e regra de autorização do Azure Event Hubs utilizando os seguintes comandos:
 
 ```azurecli-interactive
 az eventhubs namespace create \
@@ -104,11 +106,11 @@ az eventhubs eventhub authorization-rule create \
     --rights Listen Send
 ```
 
-O namespace de hubs de eventos contém o Hub de eventos real e sua regra de autorização. A regra de autorização permite que suas funções enviem mensagens para o Hub e escutem os eventos correspondentes. Uma função envia mensagens que representam dados de telemetria. Outra função escuta eventos, analisa os dados do evento e armazena os resultados em Azure Cosmos DB.
+O espaço de nome do Event Hubs contém o verdadeiro centro de eventos e a sua regra de autorização. A regra de autorização permite que as suas funções enviem mensagens para o centro e ouçam os eventos correspondentes. Uma função envia mensagens que representam dados de telemetria. Outra função ouve eventos, analisa os dados do evento e armazena os resultados em Azure Cosmos DB.
 
 ### <a name="create-an-azure-cosmos-db"></a>Criar um Azure Cosmos DB
 
-Em seguida, crie uma conta Azure Cosmos DB, um banco de dados e uma coleção usando os seguintes comandos:
+Em seguida, crie uma conta Azure Cosmos DB, base de dados e recolha utilizando os seguintes comandos:
 
 ```azurecli-interactive
 az cosmosdb create \
@@ -126,11 +128,11 @@ az cosmosdb collection create \
     --partition-key-path '/temperatureStatus'
 ```
 
-O valor de `partition-key-path` particiona seus dados com base no valor de `temperatureStatus` de cada item. A chave de partição permite que Cosmos DB aumente o desempenho dividindo os dados em subconjuntos distintos que ele pode acessar de forma independente.
+O `partition-key-path` valoriza as divisórias dos seus dados com base no valor `temperatureStatus` de cada item. A chave de partição permite à Cosmos DB aumentar o desempenho dividindo os seus dados em subconjuntos distintos a que pode aceder de forma independente.
 
-### <a name="create-a-storage-account-and-function-app"></a>Criar uma conta de armazenamento e um aplicativo de funções
+### <a name="create-a-storage-account-and-function-app"></a>Criar uma conta de armazenamento e app de função
 
-Em seguida, crie uma conta de armazenamento do Azure, que é exigida pelo Azure Functions, em seguida, crie o aplicativo de funções. Utilize os seguintes comandos:
+Em seguida, crie uma conta de Armazenamento Azure, que é exigida pelas Funções Azure, e depois crie a aplicação de função. Utilize os seguintes comandos:
 
 ```azurecli-interactive
 az storage account create \
@@ -145,15 +147,15 @@ az functionapp create \
     --runtime java
 ```
 
-Quando o comando `az functionapp create` cria seu aplicativo de funções, ele também cria um recurso de Application Insights com o mesmo nome. O aplicativo de funções é configurado automaticamente com uma configuração chamada `APPINSIGHTS_INSTRUMENTATIONKEY` que o conecta ao Application Insights. Você pode exibir a telemetria do aplicativo depois de implantar suas funções no Azure, conforme descrito posteriormente neste tutorial.
+Quando o comando `az functionapp create` cria a sua aplicação de função, também cria um recurso Deinsights de Aplicação com o mesmo nome. A aplicação de funções é configurada automaticamente com uma definição chamada `APPINSIGHTS_INSTRUMENTATIONKEY` que a liga aos Insights de Aplicação. Pode ver a telemetria de aplicações depois de implementar as suas funções no Azure, como descrito mais tarde neste tutorial.
 
-## <a name="configure-your-function-app"></a>Configurar seu aplicativo de funções
+## <a name="configure-your-function-app"></a>Configure a sua aplicação de função
 
-Seu aplicativo de funções precisará acessar os outros recursos para funcionar corretamente. As seções a seguir mostram como configurar seu aplicativo de funções para que ele possa ser executado no computador local.
+A sua aplicação de funções terá de aceder aos outros recursos para funcionar corretamente. As seguintes secções mostram-lhe como configurar a sua aplicação de funções para que possa funcionar na sua máquina local.
 
-### <a name="retrieve-resource-connection-strings"></a>Recuperar cadeias de conexão de recurso
+### <a name="retrieve-resource-connection-strings"></a>Recuperar cordas de ligação de recursos
 
-Use os comandos a seguir para recuperar as cadeias de conexão de armazenamento, Hub de eventos e Cosmos DB e salvá-las em variáveis de ambiente:
+Utilize os seguintes comandos para recuperar as cordas de armazenamento, centro de eventos e cordas de ligação Cosmos DB e guarde-as em variáveis ambientais:
 
 ```azurecli-interactive
 AZURE_WEB_JOBS_STORAGE=$( \
@@ -181,11 +183,11 @@ COSMOS_DB_CONNECTION_STRING=$( \
 echo $COSMOS_DB_CONNECTION_STRING
 ```
 
-Essas variáveis são definidas como valores recuperados dos comandos CLI do Azure. Cada comando usa uma consulta JMESPath para extrair a cadeia de conexão do conteúdo JSON retornado. As cadeias de conexão também são exibidas usando `echo` para que você possa confirmar que foram recuperadas com êxito.
+Estas variáveis são definidas para valores recuperados dos comandos Azure CLI. Cada comando utiliza uma consulta JMESPath para extrair a cadeia de ligação da carga útil jSON devolvida. As cordas de ligação também são exibidas usando `echo` para que possa confirmar que foram recuperadas com sucesso.
 
-### <a name="update-your-function-app-settings"></a>Atualizar as configurações do aplicativo de funções
+### <a name="update-your-function-app-settings"></a>Atualize as definições da sua aplicação de função
 
-Em seguida, use o seguinte comando para transferir os valores da cadeia de conexão para as configurações do aplicativo em sua conta de Azure Functions:
+Em seguida, utilize o seguinte comando para transferir os valores de cadeia de ligação para as definições de aplicações na sua conta Funções Azure:
 
 ```azurecli-interactive
 az functionapp config appsettings set \
@@ -197,13 +199,13 @@ az functionapp config appsettings set \
         CosmosDBConnectionString=$COSMOS_DB_CONNECTION_STRING
 ```
 
-Os recursos do Azure agora foram criados e configurados para funcionar corretamente juntos.
+Os seus recursos Azure foram agora criados e configurados para trabalhar em conjunto.
 
-## <a name="create-and-test-your-functions"></a>Criar e testar suas funções
+## <a name="create-and-test-your-functions"></a>Crie e teste as suas funções
 
-Em seguida, você criará um projeto no computador local, adicionará o código Java e o testará. Você usará comandos que funcionam com o plug-in do Maven para Azure Functions e o Azure Functions Core Tools. Suas funções serão executadas localmente, mas usarão os recursos baseados em nuvem que você criou. Depois que você conseguir que as funções funcionem localmente, poderá usar o Maven para implantá-las na nuvem e observar seus dados e análises se acumularem.
+Em seguida, você vai criar um projeto na sua máquina local, adicionar código Java, e testá-lo. Utilizará comandos que funcionem com o Plugin funções Azure para Maven e as Ferramentas Core funções Azure. As suas funções serão executadas localmente, mas usarão os recursos baseados na nuvem que criou. Depois de ter as funções a funcionar localmente, pode usar a Maven para as implementar na nuvem e ver os seus dados e análises acumularem-se.
 
-Se você usou Cloud Shell para criar seus recursos, você não estará conectado ao Azure localmente. Nesse caso, use o comando `az login` para iniciar o processo de logon baseado em navegador. Em seguida, se necessário, defina a assinatura padrão com `az account set --subscription` seguido pela ID da assinatura. Por fim, execute os comandos a seguir para recriar algumas variáveis de ambiente em seu computador local. Substitua os espaços reservados `<value>` pelos mesmos valores que você usou anteriormente.
+Se usou a Cloud Shell para criar os seus recursos, então não estará ligado ao Azure localmente. Neste caso, utilize o comando `az login` para lançar o processo de login baseado no navegador. Em seguida, se necessário, detete a subscrição predefinida com `az account set --subscription` seguida do ID de subscrição. Por fim, execute os seguintes comandos para recriar algumas variáveis ambientais na sua máquina local. Substitua os espaços reservados `<value>` com os mesmos valores utilizados anteriormente.
 
 ```bash
 RESOURCE_GROUP=<value>
@@ -212,7 +214,7 @@ FUNCTION_APP=<value>
 
 ### <a name="create-a-local-functions-project"></a>Criar um projeto de funções locais
 
-Use o seguinte comando do Maven para criar um projeto do Functions e adicionar as dependências necessárias.
+Utilize o seguinte comando Maven para criar um projeto de funções e adicionar as dependências necessárias.
 
 ```bash
 mvn archetype:generate --batch-mode \
@@ -224,32 +226,32 @@ mvn archetype:generate --batch-mode \
     -DartifactId=telemetry-functions
 ```
 
-Esse comando gera vários arquivos dentro de uma pasta `telemetry-functions`:
+Este comando gera vários ficheiros dentro de uma pasta `telemetry-functions`:
 
-* Um arquivo de `pom.xml` para uso com o Maven
-* Um arquivo de `local.settings.json` para armazenar configurações de aplicativo para teste local
-* Um arquivo de `host.json` que habilita o pacote de extensão de Azure Functions, necessário para Cosmos DB Associação de saída em sua função de análise de dados
-* Um arquivo de `Function.java` que inclui uma implementação de função padrão
-* Alguns arquivos de teste dos quais este tutorial não precisa
+* Um ficheiro `pom.xml` para uso com Maven
+* Um ficheiro `local.settings.json` para manter as definições de aplicativos para testes locais
+* Um ficheiro `host.json` que permite o Pacote de Extensão de Funções Azure, necessário para a ligação de saída do Cosmos DB na sua função de análise de dados
+* Um ficheiro `Function.java` que inclui uma implementação de função predefinida
+* Alguns ficheiros de teste que este tutorial não precisa
 
-Para evitar erros de compilação, você precisará excluir os arquivos de teste. Execute os seguintes comandos para navegar até a nova pasta de projeto e excluir a pasta de teste:
+Para evitar erros de compilação, terá de eliminar os ficheiros de teste. Executar os seguintes comandos para navegar para a nova pasta do projeto e eliminar a pasta de teste:
 
 ```bash
 cd telemetry-functions
 rm -r src/test
 ```
 
-### <a name="retrieve-your-function-app-settings-for-local-use"></a>Recuperar as configurações do aplicativo de funções para uso local
+### <a name="retrieve-your-function-app-settings-for-local-use"></a>Recupere as definições da sua aplicação de função para uso local
 
-Para testes locais, seu projeto de função precisará das cadeias de conexão que você adicionou ao seu aplicativo de funções no Azure, anteriormente neste tutorial. Use o comando Azure Functions Core Tools a seguir, que recupera todas as configurações do aplicativo de funções armazenadas na nuvem e as adiciona ao arquivo de `local.settings.json`:
+Para testes locais, o seu projeto de função necessitará das cordas de ligação que adicionou à sua aplicação de funções em Azure no início deste tutorial. Utilize o seguinte comando de Ferramentas Core Funções Azure, que recupera todas as definições da aplicação de função armazenadas na nuvem e as adiciona ao seu ficheiro `local.settings.json`:
 
 ```bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
 ```
 
-### <a name="add-java-code"></a>Adicionar código Java
+### <a name="add-java-code"></a>Adicione código Java
 
-Em seguida, abra o arquivo `Function.java` e substitua o conteúdo pelo código a seguir.
+Em seguida, abra o ficheiro `Function.java` e substitua o conteúdo pelo seguinte código.
 
 ```java
 package com.example;
@@ -322,11 +324,11 @@ public class Function {
 }
 ```
 
-Como você pode ver, esse arquivo contém duas funções, `generateSensorData` e `processSensorData`. A função `generateSensorData` simula um sensor que envia as leituras de temperatura e de pressão para o Hub de eventos. Um gatilho de temporizador executa a função a cada 10 segundos e uma associação de saída do hub de eventos envia o valor de retorno para o Hub de eventos.
+Como pode ver, este ficheiro contém duas funções, `generateSensorData` e `processSensorData`. A função `generateSensorData` simula um sensor que envia leituras de temperatura e pressão para o centro do evento. Um gatilho temporizador executa a função a cada 10 segundos, e uma ligação de saída do hub de evento envia o valor de retorno para o centro do evento.
 
-Quando o Hub de eventos recebe a mensagem, ele gera um evento. A função `processSensorData` é executada quando recebe o evento. Em seguida, ele processa os dados do evento e usa uma associação de saída Azure Cosmos DB para enviar os resultados para Azure Cosmos DB.
+Quando o centro do evento recebe a mensagem, gera um evento. A função `processSensorData` funciona quando recebe o evento. Em seguida, processa os dados do evento e usa uma ligação de saída Do Azure Cosmos DB para enviar os resultados para o Azure Cosmos DB.
 
-Os dados usados por essas funções são armazenados usando uma classe chamada `TelemetryItem`, que você precisará implementar. Crie um novo arquivo chamado `TelemetryItem.java` no mesmo local que `Function.java` e adicione o seguinte código:
+Os dados utilizados por estas funções são armazenados utilizando uma classe chamada `TelemetryItem`, que terá de implementar. Crie um novo ficheiro chamado `TelemetryItem.java` no mesmo local que `Function.java` e adicione o seguinte código:
 
 ```java
 package com.example;
@@ -387,16 +389,16 @@ public class TelemetryItem {
 
 ### <a name="run-locally"></a>Executar localmente
 
-Agora você pode criar e executar as funções localmente e ver os dados aparecerem em seu Azure Cosmos DB.
+Agora pode construir e executar as funções localmente e ver dados aparecerem no seu Azure Cosmos DB.
 
-Use os seguintes comandos do Maven para compilar e executar as funções:
+Utilize os seguintes comandos Maven para construir e executar as funções:
 
 ```bash
 mvn clean package
 mvn azure-functions:run
 ```
 
-Após algumas mensagens de compilação e de inicialização, você verá uma saída semelhante ao exemplo a seguir para cada vez que as funções forem executadas:
+Depois de algumas mensagens de construção e arranque, verá a saída semelhante ao seguinte exemplo para cada vez que as funções funcionam:
 
 ```output
 [10/22/19 4:01:30 AM] Executing 'Functions.generateSensorData' (Reason='Timer fired at 2019-10-21T21:01:30.0016769-07:00', Id=c1927c7f-4f70-4a78-83eb-bc077d838410)
@@ -409,33 +411,33 @@ Após algumas mensagens de compilação e de inicialização, você verá uma sa
 [10/22/19 4:01:38 AM] Executed 'Functions.processSensorData' (Succeeded, Id=1cf0382b-0c98-4cc8-9240-ee2a2f71800d)
 ```
 
-Em seguida, você pode ir para a [portal do Azure](https://portal.azure.com) e navegar até sua conta de Azure Cosmos DB. Selecione **Data Explorer**, expanda **TelemetryInfo**e selecione **os itens** para exibir os dados quando eles chegarem.
+Em seguida, pode ir ao [portal Azure](https://portal.azure.com) e navegar para a sua conta Azure Cosmos DB. Selecione **Data Explorer,** expanda **o TelemettryInfo**e, em seguida, selecione **Itens** para ver os seus dados quando chegar.
 
 ![Cosmos DB Data Explorer](media/functions-event-hub-cosmos-db/data-explorer.png)
 
-## <a name="deploy-to-azure-and-view-app-telemetry"></a>Implantar no Azure e exibir telemetria de aplicativo
+## <a name="deploy-to-azure-and-view-app-telemetry"></a>Desloque para Azure e veja a telemetria da aplicação
 
-Por fim, você pode implantar seu aplicativo no Azure e verificar se ele continua funcionando da mesma maneira que fazia localmente.
+Por fim, pode implementar a sua app para o Azure e verificar se continua a funcionar da mesma forma que fez localmente.
 
-Implante seu projeto no Azure usando o seguinte comando:
+Implemente o seu projeto para o Azure utilizando o seguinte comando:
 
 ```bash
 mvn azure-functions:deploy
 ```
 
-Suas funções agora são executadas no Azure e continuam a acumular dados em seu Azure Cosmos DB. Você pode exibir o aplicativo de funções implantado na portal do Azure e exibir a telemetria do aplicativo por meio do recurso Application Insights conectado, conforme mostrado nas seguintes capturas de tela:
+As suas funções funcionam agora em Azure e continuam a acumular dados no seu Azure Cosmos DB. Pode ver a sua aplicação de função implantada no portal Azure e visualizar a telemetria das aplicações através do recurso Desinformação de Aplicações conectado, como mostram as seguintes imagens:
 
-**Live Metrics Stream:**
+**Fluxo de Métricas Ao Vivo:**
 
-![Application Insights Live Metrics Stream](media/functions-event-hub-cosmos-db/application-insights-live-metrics-stream.png)
+![Fluxo de métricas ao vivo insights de aplicação](media/functions-event-hub-cosmos-db/application-insights-live-metrics-stream.png)
 
 **Desempenho:**
 
-![Application Insights folha desempenho](media/functions-event-hub-cosmos-db/application-insights-performance.png)
+![Insights de aplicação Lâmina de desempenho](media/functions-event-hub-cosmos-db/application-insights-performance.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver concluído os recursos do Azure criados neste tutorial, você poderá excluí-los usando o seguinte comando:
+Quando terminar com os recursos Azure que criou neste tutorial, pode eliminá-los usando o seguinte comando:
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP
@@ -443,11 +445,11 @@ az group delete --name $RESOURCE_GROUP
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a criar uma função do Azure que manipula eventos do hub de eventos e atualiza um Cosmos DB. Para obter mais informações, consulte o [Guia do desenvolvedor do Azure Functions Java](/azure/azure-functions/functions-reference-java). Para obter informações sobre as anotações usadas, consulte a referência [com. Microsoft. Azure. Functions. Annotation](/java/api/com.microsoft.azure.functions.annotation) .
+Neste tutorial, aprendeu a criar uma Função Azure que lida com eventos do Event Hub e atualiza um Cosmos DB. Para mais informações, consulte o guia de desenvolvimento das [funções Azure Java](/azure/azure-functions/functions-reference-java). Para obter informações sobre as anotações utilizadas, consulte a referência [com.microsoft.azure.functions.anotation.](/java/api/com.microsoft.azure.functions.annotation)
 
-Este tutorial usou variáveis de ambiente e configurações de aplicativo para armazenar segredos, como cadeias de conexão. Para obter informações sobre como armazenar esses segredos no Azure Key Vault, consulte [usar referências de Key Vault para o serviço de aplicativo e Azure Functions](/azure/app-service/app-service-key-vault-references).
+Este tutorial utilizou variáveis ambientais e configurações de aplicação para armazenar segredos como cordas de ligação. Para obter informações sobre o armazenamento destes segredos no Cofre de Chaves Azure, consulte as referências do Cofre de Chaves para o Serviço de [Aplicações e funções Azure](/azure/app-service/app-service-key-vault-references).
 
-Em seguida, saiba como usar Azure Pipelines CI/CD para implantação automatizada:
+Em seguida, aprenda a utilizar o Ci/CD dos Gasodutos Azure para a implantação automatizada:
 
 > [!div class="nextstepaction"]
-> [Criar e implantar Java para Azure Functions](/azure/devops/pipelines/ecosystems/java-function)
+> [Construir e implantar Java para funções azure](/azure/devops/pipelines/ecosystems/java-function)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/17/2020
 ms.author: tagore
-ms.openlocfilehash: c4cbe2a99de97b2938d494e80d410a44c4143629
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 85fb87e23fa11781587572e836d1439dd813170e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026838"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425039"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Aplicações de resolução de problemas que não suportam TLS 1.2
 Este artigo descreve como permitir os protocolos TLS mais antigos (TLS 1.0 e 1.1), bem como aplicar suites de cifra legacy para suportar os protocolos adicionais no serviço de nuvem Do Windows Server 2019 e funções de trabalhador. 
@@ -27,7 +27,7 @@ Este artigo descreve como permitir os protocolos TLS mais antigos (TLS 1.0 e 1.1
 Entendemos que enquanto estamos a tomar medidas para deprenciar tLS 1.0 e TLS 1.1, os nossos clientes podem precisar de apoiar os protocolos mais antigos e as suites de cifra até que possam planear a sua depreciação.  Embora não recomendemos a reativação destes valores legados, estamos a fornecer orientação para ajudar os clientes. Encorajamos os clientes a avaliar o risco de regressão antes de implementar as alterações descritas neste artigo. 
 
 > [!NOTE]
-> Os lançamentos do Os Family 6 aplicam o TLS 1.2 desativando 1.0/1.0 cifras. 
+> Os lançamentos do Os Family 6 aplicam o TLS 1.2 desativando 1.0/1.1 cifras. 
 
   
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Largando o suporte para TLS 1.0, TLS 1.1 e suites de cifra mais antigas 

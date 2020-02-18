@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/16/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37d895e2514d01bdbe73f42e1ba5ea5e4c46bfa1
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372871"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425611"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autoafirmado numa política personalizada do Diretório Ativo Azure B2C
 
@@ -55,7 +55,7 @@ Num perfil técnico autoafirmado, pode utilizar os elementos **InputClaims** e *
 
 A função de afirmação do visor encontra-se atualmente em **pré-visualização**.
 
-O elemento **DisplayClaims** contém uma lista de reclamações a apresentar no ecrã para recolher dados do utilizador. Para pré-povoar os valores das reclamações de saída, utilize as alegações de entrada que foram previamente descritas. O elemento também pode conter um valor predefinido.
+O elemento **DisplayClaims** contém uma lista de reclamações a apresentar no ecrã para recolher dados do utilizador. Para pré-povoar os valores das reclamações de exibição, utilize as alegações de entrada que foram previamente descritas. O elemento também pode conter um valor predefinido.
 
 A ordem das reclamações no **DisplayClaims** especifica a ordem na qual o Azure AD B2C presta as reclamações no ecrã. Para forçar o utilizador a fornecer um valor para uma reclamação específica, detete o atributo **exigido** do elemento **DisplayClaim** para `true`.
 

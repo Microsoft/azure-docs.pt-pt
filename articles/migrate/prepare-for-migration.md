@@ -1,146 +1,146 @@
 ---
-title: Preparar computadores para migração com as migrações para Azure
-description: Saiba como preparar computadores locais para migração com as migrações para Azure.
+title: Prepare máquinas para migração com Azure Migrate
+description: Aprenda a preparar máquinas no local para migração com a Azure Migrate.
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 02/17/2020
 ms.custom: MVC
-ms.openlocfilehash: c3c10321e8d49ac6ecfe80024d23f24711298651
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: adbe9e4b30bf57e8a2038b970306c126035abbe1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028745"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426253"
 ---
-# <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para o Azure
+# <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Prepare máquinas no local para migração para Azure
 
-Este artigo descreve como preparar computadores locais antes de começar a migrá-los para o Azure com a [migração de servidor de migrações para Azure](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Este artigo descreve como preparar máquinas no local antes de começar a migrar para Azure com [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Neste artigo, irá:
 > [!div class="checklist"]
 > * Verifique as limitações de migração.
-> * Verifique os requisitos do sistema operacional e as limitações de suporte.
-> * Examine o acesso à URL/porta para computadores que você deseja migrar.
-> * Examine as alterações que talvez você precise fazer antes de começar a migração.
-> * Defina as configurações para que as letras das unidades sejam preservadas após a migração.
-> * Prepare as máquinas para que você possa se conectar às VMs do Azure após a migração.
+> * Verifique os requisitos do sistema operativo e limitações de suporte.
+> * Reveja o acesso URL/porta para máquinas que pretende migrar.
+> * Reveja as alterações que poderá ter de fazer antes de começar a migração.
+> * Configure as definições para que as letras de acionamento sejam preservadas após a migração.
+> * Prepare as máquinas para que possa ligar-se aos VMs Azure após a migração.
 
 
-## <a name="verify-migration-limitations"></a>Verificar as limitações de migração
+## <a name="verify-migration-limitations"></a>Verificar limitações de migração
 
-- Você pode avaliar até 35.000 VMs VMware/VMs Hyper-V em um único projeto de migrações para Azure usando a migração de servidor de migrações para Azure. Um projeto pode combinar VMs do VMware e VMs do Hyper-V, até os limites de cada uma.
-- Você pode selecionar até 10 VMs de uma só vez para a migração. Se você precisar replicar mais, replique em grupos de 10.
-- Para a migração sem agente do VMware, você pode executar até 100 replicações simultaneamente.
+- Você pode avaliar até 35.000 VMs VMs/Hyper-V vms em um único projeto Azure Migrate usando migração de servidores migratórios Azure. Um projeto pode combinar vMs vmware e VMs Hiper-V, até os limites para cada um.
+- Pode selecionar até 10 VMs ao mesmo tempo para migração. Se precisar de se replicar mais, reproduza-se em grupos de 10.
+- Para a migração sem agente VMware, pode executar até 100 replicações simultaneamente.
 
-## <a name="verify-operating-system-requirements"></a>Verificar os requisitos do sistema operacional
+## <a name="verify-operating-system-requirements"></a>Verificar os requisitos do sistema operativo
 
-- Verifique se os [sistemas operacionais Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) têm suporte no Azure.
-- Verifique se as [distribuições do Linux](../virtual-machines/linux/endorsed-distros.md) têm suporte no Azure.
-
-
-## <a name="check-whats-supported"></a>Verifique o que tem suporte
-
-- Para VMs VMware, a migração de servidor migrações para Azure dá suporte à [migração baseada em agente ou sem agentes](server-migrate-overview.md). Verifique [os requisitos e o suporte de migração de](migrate-support-matrix-vmware-migration.md)VM VMware.
-- Verifique [os requisitos de migração e o suporte](migrate-support-matrix-hyper-v-migration.md) para o Hyper-V.
-- Verifique [os requisitos de migração e o suporte](migrate-support-matrix-physical-migration.md) para computadores físicos locais ou outros servidores virtualizados. 
+- Verifique se os seus [sistemas operativos Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) são suportados no Azure.
+- Verifique se as suas [distribuições Linux](../virtual-machines/linux/endorsed-distros.md) são suportadas no Azure.
 
 
+## <a name="check-whats-supported"></a>Verifique o que é suportado
+
+- Para VMware VMs, a Migração do Servidor suporta [migração sem agente ou baseada em agentes](server-migrate-overview.md). Verifique [os requisitos de migração vmware vM e suporte](migrate-support-matrix-vmware-migration.md).
+- Verifique os requisitos de [migração e o suporte](migrate-support-matrix-hyper-v-migration.md) para hyper-V.
+- Verifique os requisitos de [migração e suporte](migrate-support-matrix-physical-migration.md) para máquinas físicas no local, ou outros servidores virtualizados. 
 
 
-## <a name="review-urlport-access"></a>Examinar o acesso à URL/porta
 
-Os computadores podem precisar de acesso à Internet durante a migração.
 
-- [Examine as URLs](migrate-appliance.md#url-access) que o dispositivo de migrações para Azure precisa acessar durante a migração sem agente. Examine os requisitos de [acesso à porta](migrate-support-matrix-vmware-migration.md#agentless-ports) .
-- Examine [URLs](migrate-replication-appliance.md#url-access) e [Ports] (migrate-Replication-Appliance. MD # Port-Access) que o dispositivo de replicação usa durante a migração baseada no agente de VM VMware. 
-- [Examinar](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) URLs e portas que os hosts Hyper-V precisam acessar durante a migração. 
-- Examine [URLs](migrate-replication-appliance.md#url-access) e [Ports] (migrate-Replication-Appliance. MD # Port-Access) que o dispositivo de replicação usa durante a migração do servidor físico.
+## <a name="review-urlport-access"></a>Rever URL/acesso à porta
+
+As máquinas podem precisar de acesso à Internet durante a migração.
+
+- [Reveja os URLs](migrate-appliance.md#url-access) a que o aparelho Azure Migrate precisa de aceder durante a migração sem agente. Rever os requisitos de [acesso à porta.](migrate-support-matrix-vmware-migration.md#agentless-ports)
+- Reveja [os URLs](migrate-replication-appliance.md#url-access) e [portas] (migrate-replication-appliance.md#port-access) que o aparelho de replicação utiliza durante a migração baseada em vmware VM. 
+- [Revisão](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) UrLs e portas que os anfitriões hyper-V precisam de aceder durante a migração. 
+- Reveja [os URLs](migrate-replication-appliance.md#url-access) e [portas] (migrate-replication-appliance.md#port-access) que o aparelho de replicação utiliza durante a migração do servidor físico.
 
 
 
 ## <a name="verify-required-changes-before-migration"></a>Verificar as alterações necessárias antes da migração
 
-Algumas VMs podem exigir alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para VMs que executam estes sistemas operacionais:
-- Red Hat Enterprise Linux 6.5 +, 7.0 +
-- CentOS 6.5 +, 7.0 +
+Alguns VMs podem exigir alterações para que possam correr em Azure. A Azure Migrate faz estas alterações automaticamente para os VMs que executam estes sistemas operativos:
+- Red Hat Enterprise Linux 6.5+, 7.0+
+- Centos 6.5+, 7.0+
 - SUSE Linux Enterprise Server 12 SP1+
 - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS
 - Debian 7, 8
 
-Para outros sistemas operacionais, você precisa preparar as máquinas manualmente antes da migração. 
+Para outros sistemas operativos, é necessário preparar as máquinas manualmente antes da migração. 
 
-### <a name="prepare-windows-machines"></a>Preparar computadores Windows
+### <a name="prepare-windows-machines"></a>Preparar máquinas Windows
 
-Se você estiver migrando um computador Windows, faça essas alterações antes da migração. Se você migrar a VM antes de fazer as alterações, a VM poderá não ser inicializada no Azure.
+Se estiver a migrar uma máquina do Windows, então faça estas alterações antes da migração. Se migrar o VM antes de fazer as alterações, o VM pode não arrancar em Azure.
 
-1. [Habilite o console de acesso serial do Azure](../virtual-machines/troubleshooting/serial-console-windows.md) para a VM do Azure. Isso ajuda na solução de problemas. Você não precisa reinicializar a VM. A VM do Azure será inicializada usando a imagem de disco. Isso é equivalente a uma reinicialização para a nova VM. 
-2. Se você estiver migrando computadores que executam o Windows Server 2003, instale o Integration Services convidado do Hyper-V no sistema operacional da VM. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services).
+1. Ative a consola de [acesso em série Azure](../virtual-machines/troubleshooting/serial-console-windows.md) para o Azure VM. Isto ajuda na resolução de problemas. Não precisas de reiniciar o VM. O Azure VM arrancará utilizando a imagem do disco. Isto equivale a um reboot para o novo VM. 
+2. Se estiver a migrar máquinas que executam o Windows Server 2003, instale serviços de integração de hóspedes Hiper-V no sistema operativo VM. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services).
 
-### <a name="prepare-linux-machines"></a>Preparar computadores Linux
+### <a name="prepare-linux-machines"></a>Prepare as máquinas Linux
 
-1. Instale o Integration Services Linux do Hyper-V. A maioria das novas versões das distribuições do Linux inclui isso por padrão.
-2. Recrie a imagem de inicialização do Linux para que ela contenha os drivers do Hyper-V necessários. Isso garante que a VM será inicializada no Azure e só será necessária em algumas distribuições.
-3. [Habilite o log do console serial do Azure](../virtual-machines/troubleshooting/serial-console-linux.md). Isso ajuda na solução de problemas. Você não precisa reinicializar a VM. A VM do Azure será inicializada usando a imagem de disco. Isso é equivalente a uma reinicialização para a nova VM.
-4. Atualize o arquivo do mapa do dispositivo com o nome do dispositivo para associações de volume, para que você use identificadores de dispositivo persistentes.
-5. Atualize as entradas fstab para usar identificadores de volume persistentes.
-6. Remova as regras udev que reservam nomes de interface com base no endereço MAC, etc.
-7. Atualize as interfaces de rede para receber um endereço IP do DHCP.
-8. [Saiba mais](../virtual-machines/linux/create-upload-generic.md) sobre as etapas necessárias para executar uma VM do Linux no Azure e obtenha instruções para algumas das distribuições populares do Linux.
+1. Instale serviços de integração Hyper-V Linux. A maioria das novas versões de distribuições do Linux incluem isto por padrão.
+2. Reconstrua a imagem de init linux para que contenha os necessários condutores hyper-V. Isto garante que o VM irá arrancar em Azure, e só é necessário em algumas distribuições.
+3. [Ativar o registo de consolas em série Azure.](../virtual-machines/troubleshooting/serial-console-linux.md) Isto ajuda na resolução de problemas. Não precisas de reiniciar o VM. O Azure VM arrancará utilizando a imagem do disco. Isto equivale a um reboot para o novo VM.
+4. Atualize o ficheiro do mapa do dispositivo com o nome do dispositivo para associações de volume, de modo a que utilize identificadores de dispositivo sinuosos.
+5. Atualizar as entradas de fstab para utilizar identificadores de volume persistentes.
+6. Remova quaisquer regras udev que reservem nomes de interface com base no endereço MAC, etc.
+7. Atualizar interfaces de rede para receber um endereço IP do DHCP.
+8. [Saiba mais](../virtual-machines/linux/create-upload-generic.md) sobre os passos necessários para executar um Linux VM em Azure, e obtenha instruções para algumas das populares distribuições linux.
 
-## <a name="preserve-drive-letters-after-migration"></a>Preservar as letras da unidade após a migração
+## <a name="preserve-drive-letters-after-migration"></a>Preservar as cartas de condução após a migração
 
-Quando você migra um computador local para Microsoft Azure, as letras de unidade de discos de dados adicionais podem mudar de seus valores anteriores. Por padrão, as VMs do Azure são atribuídas à unidade D para uso como armazenamento temporário. Essa atribuição de unidade faz com que todas as outras atribuições de unidade de armazenamento anexadas sejam incrementadas por uma letra.
+Quando se migra uma máquina no local para o Microsoft Azure, as letras de acionamento de discos de dados adicionais podem mudar em função dos valores anteriores. Por predefinição, os VMs Azure são designados de unidade D para utilização como armazenamento temporário. Esta atribuição de unidade faz com que todas as outras atribuições de unidade de armazenamento anexas incrementem por uma letra.
 
-Por exemplo, se sua instalação local usar um disco de dados atribuído à unidade D para instalações de aplicativos, a atribuição dessa unidade será incrementada para a unidade E depois que você migrar a VM para o Azure. Para evitar essa atribuição automática e garantir que o Azure atribua a próxima letra de unidade gratuita ao seu volume temporário, defina a política de SAN (rede de área de armazenamento) como OnlineAll, da seguinte maneira:
+Por exemplo, se a sua instalação no local utilizar um disco de dados que é atribuído para conduzir D para instalações de aplicação, a atribuição para este incremento de unidade para conduzir E depois de migrar o VM para Azure. Para evitar esta atribuição automática, e para garantir que o Azure atribui a próxima carta de unidade gratuita ao seu volume temporário, delineie a política da rede de área de armazenamento (SAN) para onlineAll, da seguinte forma:
 
-1. No computador local (não no servidor host), abra um prompt de comando com privilégios elevados.
-2. Digite **DiskPart**.
-3. Digite **San**. Se a letra da unidade do sistema operacional convidado não for mantida, **offline todos** ou **compartilhado offline** será retornado.
-4. No prompt do **DiskPart** , digite **política de San = OnlineAll**. Essa configuração garante que os discos sejam colocados online e sejam legíveis e graváveis.
-5. Durante a migração de teste, você pode verificar se as letras da unidade são preservadas.
-
-
-## <a name="check-azure-vm-requirements"></a>Verificar os requisitos de VM do Azure
-
-Os computadores locais que você replica para o Azure devem estar em conformidade com os requisitos de VM do Azure para sistema operacional e arquitetura, discos, configurações de rede e nomenclatura de VM. Verifique os requisitos para [VMs VMware/servidores físicos](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)e [VMs do Hyper-V](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements) antes da migração.
+1. Na máquina no local (não no servidor de anfitriões) abre um pedido de comando elevado.
+2. Digite **peça de disco**.
+3. Tipo **SAN**. Se a letra de unidade do sistema operativo de hóspedes não for mantida, **offline All** ou **Offline Shared** é devolvido.
+4. No aviso **DISKPART,** digite **SAN Policy=OnlineAll**. Esta definição garante que os discos são trazidos online, e são simultaneamente legíveis e relegáveis.
+5. Durante a migração do teste, pode verificar se as letras de unidade estão preservadas.
 
 
-## <a name="prepare-to-connect-after-migration"></a>Preparar para conectar após a migração
+## <a name="check-azure-vm-requirements"></a>Verifique os requisitos da VM Azure
 
-As VMs do Azure são criadas durante a migração para o Azure. Após a migração, você precisa ser capaz de se conectar às novas VMs do Azure. Há várias etapas necessárias para se conectar com êxito.
-
-### <a name="prepare-to-connect-to-windows-azure-vms"></a>Preparar para se conectar a VMs do Windows Azure
-
-Em máquinas locais do Windows, faça o seguinte:
-
-1. Defina as configurações do Windows. Isso inclui a remoção de rotas persistentes estáticas ou do WinHTTP proxy.
-2. Verifique se [esses serviços](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) estão em execução.
-3. Habilite a área de trabalho remota (RDP) para permitir conexões remotas com o computador local. [Saiba como habilitar o](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) RDP com o PowerShell.
-4. Para acessar uma VM do Azure pela Internet após a migração, no firewall do Windows no computador local, permita TCP e UDP no perfil público e defina o RDP como um aplicativo permitido para todos os perfis.
-5. Se você quiser acessar uma VM do Azure por meio de uma VPN site a site após a migração, no firewall do Windows no computador local, permita o RDP para o domínio e os perfis particulares. [Saiba](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) como permitir o tráfego RDP. 
-6. Certifique-se de que não haja nenhuma atualização do Windows pendente na VM local quando você migrar. Se houver, as atualizações poderão iniciar a instalação na VM do Azure após a migração e você não poderá entrar na VM até que as atualizações sejam concluídas.
+As máquinas no local que replica para o Azure devem cumprir os requisitos do Azure VM para sistema operativo e arquitetura, discos, definições de rede e nomeação vm. Verifique os requisitos para [VMware VMs/servidores físicos](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)e [VMs Hiper-V](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements) antes da migração.
 
 
-### <a name="prepare-to-connect-with-linux-azure-vms"></a>Preparar para conectar-se com VMs do Azure do Linux
+## <a name="prepare-to-connect-after-migration"></a>Prepare-se para ligar após a migração
 
-Em computadores Linux locais, faça o seguinte:
+Os VMs azure são criados durante a migração para Azure. Após a migração, você precisa ser capaz de se conectar com os novos VMs Azure. Há uma série de passos necessários para se conectar com sucesso.
 
-1. Verifique se o serviço de Secure Shell está definido para iniciar automaticamente na inicialização do sistema.
+### <a name="prepare-to-connect-to-windows-azure-vms"></a>Prepare-se para ligar aos VMs do Windows Azure
+
+No local, faça o seguinte:
+
+1. Configure as definições do Windows. Estes incluem a remoção de quaisquer rotas estáticas persistentes ou proxy WinHTTP.
+2. Certifique-se de que [estes serviços](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) estão em funcionamento.
+3. Ativar o ambiente de trabalho remoto (RDP) para permitir ligações remotas à máquina no local. [Aprenda](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) a ativar rdp com powerShell.
+4. Para aceder a um Azure VM através da internet após a migração, no Windows Firewall na máquina no local, permitir TCP e UDP no perfil público, e definir rdp como uma aplicação permitida para todos os perfis.
+5. Se pretender aceder a um VM Azur e um VPN local após a migração, no Windows Firewall na máquina no local, permita RDP para os perfis de Domínio e Privado. [Saiba](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) como permitir o tráfego de RDP. 
+6. Certifique-se de que não existem atualizações do Windows pendentes no VM no local quando migrar. Se houver, as atualizações podem começar a instalar-se no VM Azure após a migração, e não poderá assinar no VM até que as atualizações terminem.
+
+
+### <a name="prepare-to-connect-with-linux-azure-vms"></a>Prepare-se para se conectar com Os VMs Linux Azure
+
+Nas máquinas Linux no local, faça o seguinte:
+
+1. Verifique se o serviço Secure Shell está programado para iniciar automaticamente a bota do sistema.
 2. Verifique se as regras de firewall permitem uma ligação SSH.
 
-### <a name="configure-azure-vms-after-migration"></a>Configurar VMs do Azure após a migração
+### <a name="configure-azure-vms-after-migration"></a>Configure VMs Azure após migração
 
-Após a migração, faça o seguinte nas VMs do Azure que são criadas.
+Após a migração, faça o seguinte sobre os VMs Azure que são criados.
 
-1. Para se conectar à VM pela Internet, atribua um endereço IP público à VM. Você não pode usar o mesmo endereço IP público para a VM do Azure que você usou para seu computador local. [Saiba mais](../virtual-network/virtual-network-public-ip-address.md).
-2. Verifique se as regras do NSG (grupo de segurança de rede) na VM permitem conexões de entrada para a porta RDP ou SSH.
-3. Verifique o [diagnóstico de inicialização](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para exibir a VM.
+1. Para ligar ao VM através da internet, atribua um endereço IP público ao VM. Não pode utilizar o mesmo endereço IP público para o VM Azure que usou para a sua máquina no local. [Saiba mais](../virtual-network/virtual-network-public-ip-address.md).
+2. Verifique se as regras do grupo de segurança da rede (NSG) sobre o VM permitem a entrada de ligações à porta RDP ou SSH.
+3. Verifique os [diagnósticos da Bota](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para ver o VM.
 
 > [!NOTE]
-> O serviço de bastiões do Azure oferece acesso RDP privado e SSH para VMs do Azure. [Saiba mais](../bastion/bastion-overview.md) sobre este serviço.
+> O serviço Azure Bastion oferece acesso privado de RDP e SSH aos VMs Azure. [Saiba mais](../bastion/bastion-overview.md) sobre este serviço.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Decida qual método você deseja usar para [migrar VMs VMware](server-migrate-overview.md) para o Azure ou iniciar a migração de [VMs Hyper-V](tutorial-migrate-hyper-v.md) ou [servidores físicos ou VMS virtualizadas/de nuvem](tutorial-migrate-physical-virtual-machines.md).
+Decida qual o método que pretende utilizar para [migrar VMware VMs](server-migrate-overview.md) para O Azure, ou comece a migrar [VMs Hiper-V](tutorial-migrate-hyper-v.md) ou [servidores físicos ou VMs virtualizados/em nuvem](tutorial-migrate-physical-virtual-machines.md).

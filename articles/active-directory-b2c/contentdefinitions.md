@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/16/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c759b7f0467ddb961f44f27c2d2f18ed24d2cfca
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: fd6a24c768056c949c05b9e2444bd49ef743c0ef
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372788"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425634"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -70,7 +70,7 @@ O elemento **Definição** de Conteúdo contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Uma cadeia que contém o URL da página HTML5 para a definição de conteúdo. |
-| RecoveryUri | 0:1 | Uma cadeia que contém o URL da página HTML para exibir um erro relacionado com a definição de conteúdo. |
+| RecoveryUri | 1:1 | Uma cadeia que contém o URL da página HTML para exibir um erro relacionado com a definição de conteúdo. |
 | DataUri | 1:1 | Uma cadeia que contém o URL relativo de um ficheiro HTML que fornece a experiência do utilizador para invocar para o passo. |
 | Metadados | 0:1 | Uma coleção de pares chave/valor que contém os metadados utilizados pela definição de conteúdo. |
 | Referências de Recursos Localizados | 0:1 | Uma coleção de referências de recursos localizados. Utilize este elemento para personalizar a localização de uma interface de utilizador e atribuições de reclamações. |
@@ -86,7 +86,7 @@ O elemento **DataUri** é utilizado para especificar o identificador da página.
 | `unifiedssp` | Apresenta um formulário para iniciar sessão com uma conta local baseada num endereço de e-mail ou num nome de utilizador. Este valor também fornece a funcionalidade "mantenha-me em sessão" e "Esqueci-me da sua palavra-passe?" link. |
 | `unifiedssd` | Apresenta um formulário para iniciar sessão com uma conta local baseada num endereço de e-mail ou num nome de utilizador. |
 | `multifactor` | Verifica os números de telefone utilizando texto ou voz durante o registo ou inscrição. |
-| `selfasserted` | Apresenta um formulário que permite aos utilizadores criar ou atualizar o seu perfil. |
+| `selfasserted` | Apresenta um formulário para recolher dados de um utilizador. Por exemplo, permite que os utilizadores criem ou atualizem o seu perfil. |
 
 ### <a name="select-a-page-layout"></a>Selecione um layout de página
 

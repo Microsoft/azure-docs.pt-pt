@@ -4,15 +4,15 @@ description: Compreender as definições comuns de esquemade alerta para o Monit
 ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
+author: ofirmanor
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: fb8c2c7e25f94c66c8cc8f7768071d508da8d3b5
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: efa6a8807b3db14649a2b4ad38c575cf98aba113
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765665"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425175"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
@@ -151,7 +151,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ### <a name="log-alerts"></a>Alertas de registo
 
 > [!NOTE]
-> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitindo que o esquema comum reverta o assunto do e-mail e/ou o esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta atravesse este limiar. Pode determinar isto verificando a bandeira `IncludedSearchResults`. Quando os resultados da pesquisa não estiverem incluídos, deve utilizar a consulta de pesquisa em conjunto com a [API](https://docs.microsoft.com/rest/api/loganalytics/query/get)log analytics . 
+> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitindo que o esquema comum reverta o assunto do e-mail e/ou o esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta atravesse este limiar. Pode determinar isto verificando a bandeira `IncludeSearchResults`. Quando os resultados da pesquisa não estiverem incluídos, deve utilizar a consulta de pesquisa em conjunto com a [API](https://docs.microsoft.com/rest/api/loganalytics/query/get)log analytics . 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -214,7 +214,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }
@@ -277,7 +277,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }

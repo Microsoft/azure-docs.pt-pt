@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 04f9a067e0b7df1f90d181d42bc4dd562aca56b0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8020abf3f8ab153d0143ff50d837ebcfbf5bdfba
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77027693"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423747"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
 
@@ -40,7 +40,7 @@ Este tutorial utiliza modelos de dispositivos para um dispositivo **Sensor S1** 
 
 Para criar um modelo de dispositivo para um dispositivo **S1 Sensor:**
 
-1. Na navegação à esquerda, selecione **Modelos de Dispositivo**. Em seguida, selecione **+** para começar a adicionar o modelo.
+1. No painel esquerdo, selecione **Modelos de dispositivo**. Em seguida, selecione **+** para começar a adicionar o modelo.
 
 1. Desloque-se para baixo até poder ver o azulejo do dispositivo **Sensor S1.** Selecione o azulejo e, em seguida, selecione **Seguinte: Personalizar**.
 
@@ -48,7 +48,7 @@ Para criar um modelo de dispositivo para um dispositivo **S1 Sensor:**
 
 Para criar um modelo de dispositivo para um dispositivo sensor de**ocupação RS40:**
 
-1. Na navegação à esquerda, selecione **Modelos de Dispositivo**. Em seguida, selecione **+** para começar a adicionar o modelo.
+1. No painel esquerdo, selecione **Modelos de dispositivo**. Em seguida, selecione **+** para começar a adicionar o modelo.
 
 1. Desloque-se para baixo até poder ver o azulejo do dispositivo *** RS40 Ocupação Sensor.** Selecione o azulejo e, em seguida, selecione **Seguinte: Personalizar**.
 
@@ -65,7 +65,7 @@ Neste tutorial cria-se um modelo de dispositivo para um dispositivo de gateway d
 
 Para adicionar um novo modelo de dispositivo de gateway à sua aplicação:
 
-1. Na navegação à esquerda, selecione **Modelos de Dispositivo**. Em seguida, selecione **+** para começar a adicionar o modelo.
+1. No painel esquerdo, selecione **Modelos de dispositivo**. Em seguida, selecione **+** para começar a adicionar o modelo.
 
 1. Na página do **modelo Select,** selecione o azulejo **do Dispositivo IoT** e, em seguida, selecione **Seguinte: Personalizar**.
 
@@ -79,7 +79,7 @@ Para adicionar um novo modelo de dispositivo de gateway à sua aplicação:
 
 1. Selecione **+** para adicionar uma interface.  Escolha a interface padrão de Informação do **Dispositivo.**
 
-### <a name="add-relationships"></a>Adicionar relações
+### <a name="add-relationships"></a>Adicionar relacionamentos
 
 Em seguida, adicione relações aos modelos para os modelos do dispositivo a jusante:
 
@@ -93,9 +93,9 @@ Em seguida, adicione relações aos modelos para os modelos do dispositivo a jus
 
 ![Modelo de dispositivo de gateway de construção inteligente, mostrando relacionamentos](./media/tutorial-define-gateway-device-type/relationships.png)
 
-### <a name="add-cloud-properties"></a>Adicionar propriedades de nuvem
+### <a name="add-cloud-properties"></a>Adicione propriedades da nuvem
 
-Um modelo de dispositivo de gateway pode incluir propriedades na nuvem. As propriedades de nuvem existem somente no aplicativo IoT Central e nunca são enviadas ou recebidas de um dispositivo.
+Um modelo de dispositivo de gateway pode incluir propriedades na nuvem. As propriedades da nuvem só existem na aplicação IoT Central, e nunca são enviadas para, ou recebidas de um dispositivo.
 
 Para adicionar propriedades em nuvem ao modelo de dispositivo de **gateway Smart Building.**
 
@@ -105,17 +105,17 @@ Para adicionar propriedades em nuvem ao modelo de dispositivo de **gateway Smart
 
     | Nome a apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhuma          | Date   |
+    | Data da Última Assistência | Nenhuma          | Data   |
     | Nome do cliente     | Nenhuma          | Cadeia |
 
 2. Selecione **Guardar**.
 
 ### <a name="create-views"></a>Criar vistas
 
-Como um construtor, você pode personalizar o aplicativo para exibir informações relevantes sobre o dispositivo do sensor ambiental para um operador. Suas personalizações permitem que o operador gerencie os dispositivos do sensor ambiental conectados ao aplicativo. Você pode criar dois tipos de modos de exibição para que um operador Use para interagir com dispositivos:
+Como construtor, pode personalizar a aplicação para apresentar informações relevantes sobre o dispositivo de sensor ambiental a um operador. As suas personalizações permitem ao operador gerir os dispositivos de sensores ambientais ligados à aplicação. Pode criar dois tipos de pontos de vista para um operador utilizar para interagir com dispositivos:
 
-* Formulários para exibir e editar propriedades de dispositivo e de nuvem.
-* Painéis para visualizar dispositivos.
+* Formulários para visualizar e editar dispositivo e propriedades em nuvem.
+* Dashboards para visualizar dispositivos.
 
 Para gerar as vistas padrão para o modelo de dispositivo de **gateway Smart Building:**
 
@@ -135,9 +135,9 @@ Para publicar o modelo do dispositivo gateway:
 
 2. Selecione **Publicar**.
 
-3. Na caixa de diálogo **publicar um modelo de dispositivo** , escolha **publicar**.
+3. Na caixa de diálogo **'Modelo** de Publicação', escolha **Publicar**.
 
-Depois que um modelo de dispositivo é publicado, ele fica visível na página **dispositivos** e no operador. Em um modelo de dispositivo publicado, você não pode editar um modelo de capacidade de dispositivo sem criar uma nova versão. No entanto, você pode fazer atualizações nas propriedades de nuvem, personalizações e exibições, em um modelo de dispositivo publicado. Essas atualizações não fazem com que uma nova versão seja criada. Depois de fazer alterações, selecione **publicar** para enviar por push essas alterações para o operador.
+Depois de publicado um modelo de dispositivo, é visível na página **dispositivos** e no operador. Num modelo de dispositivo publicado, não é possível editar um modelo de capacidade de dispositivo sem criar uma nova versão. No entanto, pode fazer atualizações para propriedades na nuvem, personalizações e visualizações, num modelo de dispositivo publicado. Estas atualizações não fazem com que seja criada uma nova versão. Depois de então fazer quaisquer alterações, selecione **Publicar** para empurrar essas alterações para o seu operador.
 
 ## <a name="create-the-simulated-devices"></a>Criar os dispositivos simulados
 
@@ -198,11 +198,11 @@ Selecione um modelo de dispositivo de gateway e uma instância do dispositivo ga
 Neste tutorial, ficou a saber como:
 
 * Crie um novo portal IoT como modelo de dispositivo.
-* Criar propriedades de nuvem.
+* Criar propriedades em nuvem.
 * Criar personalizações.
 * Defina uma visualização para a telemetria do dispositivo.
 * Adicione relacionamentos.
-* Publique seu modelo de dispositivo.
+* Publique o modelo do seu dispositivo.
 
 Em seguida, pode:
 

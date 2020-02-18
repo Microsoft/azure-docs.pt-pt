@@ -1,41 +1,41 @@
 ---
-title: Formato Avro no Azure Data Factory
-description: Este tópico descreve como lidar com o formato Avro no Azure Data Factory.
+title: Formato Avro na Fábrica de Dados Azure
+description: Este tópico descreve como lidar com o formato Avro na Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 9e962a0e76cdc0d51a87df3c33927c34db991fc7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927402"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423784"
 ---
-# <a name="avro-format-in-azure-data-factory"></a>Formato Avro no Azure Data Factory
+# <a name="avro-format-in-azure-data-factory"></a>Formato Avro na Fábrica de Dados Azure
 
-Siga este artigo quando desejar **analisar os arquivos Avro ou gravar os dados no formato Avro**. 
+Siga este artigo quando pretender **analisar os ficheiros Avro ou escrever os dados no formato Avro**. 
 
-O formato Avro tem suporte para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [blob do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [armazenamento de arquivos do Azure](connector-azure-file-storage.md), [sistema de arquivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md).
+O formato Avro é suportado para os seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage,](connector-azure-file-storage.md) [File System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de conjuntos Avro.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Avro.
 
-| Propriedade         | Descrição                                                  | Obrigatório |
+| Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade Type do conjunto de conjuntos deve ser definida como **Avro**. | Sim      |
-| localização         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
-| avroCompressionCodec | O codec de compactação a ser usado ao gravar em arquivos Avro. Ao ler de arquivos Avro, Data Factory determinará automaticamente o codec de compactação com base nos metadados do arquivo.<br>Os tipos com suporte são "**None**" (padrão), "**deflate**", "**encaixar**". | Não       |
+| tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Avro**. | Sim      |
+| localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location`. **Consulte detalhes no artigo do conector -> Secção**de propriedades do conjunto de dados . | Sim      |
+| avroCompressionCodec | O código de compressão para usar ao escrever para ficheiros Avro. Ao ler os ficheiros Avro, a Data Factory determina automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**" (padrão), "**esvaziar**",**snappy**". Nota atualmente A atividade da Cópia não suporta snappy ao ler/escrever ficheiros Avro. | Não       |
 
 > [!NOTE]
-> Não há suporte para o espaço em branco no nome da coluna para arquivos Avro.
+> O espaço branco no nome da coluna não é suportado para ficheiros Avro.
 
-A seguir está um exemplo de conjunto de exemplos de Avro no armazenamento de BLOBs do Azure:
+Abaixo está um exemplo de conjunto de dados Avro no Armazenamento de Blob Azure:
 
 ```json
 {
@@ -61,32 +61,32 @@ A seguir está um exemplo de conjunto de exemplos de Avro no armazenamento de BL
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela fonte e pelo coletor do Avro.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte avro e pia.
 
 ### <a name="avro-as-source"></a>Avro como fonte
 
-As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade de cópia\*.
+As seguintes propriedades são suportadas na atividade de cópia ***\*secção\*fonte.***
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **AvroSource**. | Sim      |
-| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **AvroSource**. | Sim      |
+| storeSettings | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
 
-### <a name="avro-as-sink"></a>Avro como coletor
+### <a name="avro-as-sink"></a>Avro como pia
 
-As propriedades a seguir têm suporte na seção de ***\*do coletor*** de atividade de cópia\*.
+As seguintes propriedades são suportadas na atividade de cópia ***\*pia\**** secção.
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **AvroSink**. | Sim      |
-| storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **AvroSink**. | Sim      |
+| storeSettings | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
 
-## <a name="data-type-support"></a>Suporte ao tipo de dados
+## <a name="data-type-support"></a>Suporte de tipo de dados
 
-Não há suporte para [tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) do Avro (registros, enumerações, matrizes, mapas, uniões e fixos).
+Os tipos de [dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) da Avro não são suportados (registos, enums, matrizes, mapas, sindicatos e fixos).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+- [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade GetMetadata](control-flow-get-metadata-activity.md)
+- [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)

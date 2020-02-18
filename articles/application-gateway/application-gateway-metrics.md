@@ -1,24 +1,24 @@
 ---
-title: Métricas de Azure Monitor para o gateway de aplicativo
-description: Saiba como usar métricas para monitorar o desempenho do gateway de aplicativo
+title: Métricas do Monitor Azure para Gateway de Aplicação
+description: Aprenda a usar métricas para monitorizar o desempenho do gateway da aplicação
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046324"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425261"
 ---
-# <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
+# <a name="metrics-for-application-gateway"></a>Métricas para Gateway de Aplicação
 
-Application Gateway publica pontos de dados, chamados métricas, para [o Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview) para o desempenho do seu Gateway de Aplicação e instâncias de backend. Essas métricas são valores numéricos em um conjunto ordenado de dados de série temporal que descrevem algum aspecto do seu gateway de aplicativo em um determinado momento. Se houver solicitações que fluem pelo gateway de aplicativo, ele medirá e enviará suas métricas em intervalos de 60 segundos. Se não houver nenhuma solicitação fluindo pelo gateway de aplicativo ou nenhum dado para uma métrica, a métrica não será relatada. Para mais informações, consulte [as métricas do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway publica pontos de dados, chamados métricas, para [o Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview) para o desempenho do seu Gateway de Aplicação e instâncias de backend. Estas métricas são valores numéricos num conjunto ordenado de dados da série temporal que descrevem algum aspeto do gateway da sua aplicação num determinado momento. Se houver pedidos que fluem através do Gateway de Aplicação, mede e envia as suas métricas em intervalos de 60 segundos. Se não houver pedidos que fluam através do Gateway de Aplicação ou não existam dados para uma métrica, a métrica não é reportada. Para mais informações, consulte [as métricas do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
 
-## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Métricas com suporte do SKU do gateway de aplicativo v2
+## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Métricas suportadas por Application Gateway V2 SKU
 
 ### <a name="timing-metrics"></a>Métricas de tempo
 
@@ -56,7 +56,7 @@ O Application Gateway fornece várias métricas de tempo incorporadas relacionad
 
 - **Cliente RTT**
 
-  Tempo médio de ida e volta entre clientes e o gateway de aplicativo.
+  Tempo médio de ida e volta entre clientes e Gateway de aplicação.
 
 
 
@@ -68,125 +68,135 @@ Se notar um pico no tempo de resposta do *byte Backend,* mas o tempo de resposta
 
 Da mesma forma, se o tempo total do *gateway da Aplicação* tiver um pico mas o tempo de *resposta do backend é* estável, então pode ser um sinal de estrangulamento de desempenho no Gateway de Aplicação ou um estrangulamento na rede entre o cliente e o Application Gateway. Além disso, se o *cliente RTT* também tem um pico correspondente, então isso indica que a degradação se deve à rede entre cliente e Gateway de Aplicação.
 
-### <a name="application-gateway-metrics"></a>Métricas do gateway de aplicativo
+### <a name="application-gateway-metrics"></a>Métricas de Gateway de aplicação
 
-Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
+Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 - **Bytes recebidos**
 
-   Contagem de bytes recebidos pelo gateway de aplicativo dos clientes
+   Contagem de bytes recebidos pelo Gateway de Aplicação dos clientes
 
 - **Bytes enviados**
 
-   Contagem de bytes enviados pelo gateway de aplicativo para os clientes
+   Contagem de bytes enviados pela Porta de Entrada de Aplicação aos clientes
 
 - **Protocolo TLS cliente**
 
-   Contagem de solicitações TLS e não TLS iniciadas pelo cliente que estabeleceram a conexão com o gateway de aplicativo. Para exibir a distribuição de protocolo TLS, filtre pelo protocolo TLS de dimensão.
+   Contagem de TLS e pedidos não-TLS iniciados pelo cliente que estabeleceu a ligação com o Gateway de Aplicação. Para ver a distribuição do protocolo TLS, filtre pela dimensão do Protocolo TLS.
 
 - **Unidades de capacidade atual**
 
-   Contagem de unidades de capacidade consumidas. As unidades de capacidade medem o custo com base no consumo que é cobrado além do custo fixo. Há três determinantes para unidade de computação de unidade de capacidade, conexões persistentes e taxa de transferência. Cada unidade de capacidade é composta de no máximo: 1 unidade de computação ou 2500 conexões persistentes ou taxa de transferência de 2,22 Mbps.
+   Contagem de unidades de capacidade consumidas. As unidades de capacidade medem o custo baseado no consumo que é cobrado para além do custo fixo. Existem três determinantes para a unidade de capacidade - unidade de computação, ligações persistentes e entrada. Cada unidade de capacidade é composta no máximo por: 1 unidade de cálculo, ou 2500 ligações persistentes, ou 2,22 Mbps de potência.
 
 - **Unidades de computação atuais**
 
-   Contagem de capacidade de processador consumida. Fatores que afetam a unidade de computação são conexões TLS/s, computações de regravação de URL e processamento de regra WAF. 
+   Contagem da capacidade do processador consumida. Os fatores que afetam a unidade computacional são ligações TLS/seg, computações de reescrita de URL e processamento de regras WAF. 
 
 - **Ligações atuais**
 
    O número total de ligações simultâneas ativas dos clientes ao Gateway de Aplicação
+   
+- **Unidades estimadas de capacidade faturada**
+
+  Número de unidades de capacidade que utilizem as quais a faturação é estimada. Isto é calcutado como o maior valor entre *as unidades* de capacidade corrente e *as unidades de capacidade de faturação fixa.*  
 
 - **Pedidos Falhados**
 
-   Contagem de solicitações com falha que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
+   Contagem de pedidos falhados que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
+   
+- **Unidades de Capacidade Facturaveta Fixa** O número mínimo de unidades de capacidade manteve-se aprovisionado de acordo com a definição de *unidades* de escala mínima na configuração do Gateway de Aplicação.
+   
+ - **Novas ligações por segundo**
+
+   O número médio de novas ligações TCP por segundo estabelecidas desde clientes ao Gateway de Aplicação e desde o Gateway de Aplicação aos membros do backend.
 
 
 - **Estado de Resposta**
 
-   Status de resposta HTTP retornado pelo gateway de aplicativo. A distribuição de código de status de resposta pode ser categorizada ainda mais para mostrar as respostas nas categorias 2xx, 3xx, 4xx e 5xx.
+   Estado de resposta HTTP devolvido pelo Application Gateway. A distribuição do código de estado de resposta pode ser ainda categorizada para mostrar respostas nas categorias 2xx, 3xx, 4xx e 5xx.
 
 - **Débito**
 
-   Número de bytes por segundo atendidos pelo gateway de aplicativo
+   Número de bytes por segundo o Gateway de Aplicação serviu
 
 - **Total de Pedidos**
 
-   Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
+   Contagem de pedidos bem sucedidos que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
 
 - **Firewall de aplicação web regras correspondidas**
 
 - **Firewall de aplicação web desencadeou regras**
 
-### <a name="backend-metrics"></a>Métricas de back-end
+### <a name="backend-metrics"></a>Métricas de backend
 
-Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
+Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 - **Estado de resposta backend**
 
-  Contagem de códigos de status de resposta HTTP retornados pelos back-ends. Isso não inclui nenhum código de resposta gerado pelo gateway de aplicativo. A distribuição de código de status de resposta pode ser categorizada ainda mais para mostrar as respostas nas categorias 2xx, 3xx, 4xx e 5xx.
+  Contagem dos códigos de estado de resposta HTTP devolvidos pelos backends. Isto não inclui quaisquer códigos de resposta gerados pelo Gateway da Aplicação. A distribuição do código de estado de resposta pode ser ainda categorizada para mostrar respostas nas categorias 2xx, 3xx, 4xx e 5xx.
 
 - **Contagem saudável do hospedeiro**
 
-  O número de back-ends que são determinados íntegros pela investigação de integridade. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões saudáveis em uma piscina específica de backend.
+  O número de backends que são determinados saudáveis pela sonda de saúde. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões saudáveis em uma piscina específica de backend.
 
 - **Contagem de hospedeiros pouco saudável**
 
-  O número de back-ends que são determinados não íntegros pela investigação de integridade. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões não saudáveis em uma piscina específica de backend.
+  O número de backends que são determinados insalubres pela sonda de saúde. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões não saudáveis em uma piscina específica de backend.
   
 - **Pedidos por minuto por Anfitrião Saudável** O número médio de pedidos recebidos por cada membro saudável numa piscina de backend em um minuto. Deve especificar a piscina de backend utilizando a dimensão *BackendPool HttpSettings.*  
   
 
-## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métricas com suporte do SKU do gateway de aplicativo v1
+## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métricas suportadas por Application Gateway V1 SKU
 
-### <a name="application-gateway-metrics"></a>Métricas do gateway de aplicativo
+### <a name="application-gateway-metrics"></a>Métricas de Gateway de aplicação
 
-Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
+Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 - **Utilização do CPU**
 
-  Exibe a utilização das CPUs alocadas para o gateway de aplicativo.  Em condições normais, o uso de CPU não deve exceder regularmente 90%, uma vez que isso pode causar latência nos websites hospedados por trás do Gateway de Aplicação e perturbar a experiência do cliente. Você pode controlar indiretamente ou melhorar a utilização da CPU modificando a configuração do gateway de aplicativo aumentando a contagem de instâncias ou movendo para um tamanho de SKU maior ou fazendo ambos.
+  Apresenta a utilização dos CPUs atribuídos ao Gateway da Aplicação.  Em condições normais, o uso de CPU não deve exceder regularmente 90%, uma vez que isso pode causar latência nos websites hospedados por trás do Gateway de Aplicação e perturbar a experiência do cliente. Pode controlar ou melhorar indiretamente a utilização do CPU modificando a configuração do Gateway de Aplicação, aumentando a contagem de casos ou movendo-se para um tamanho SKU maior, ou fazendo ambos.
 
 - **Ligações atuais**
 
-  Contagem de conexões atuais estabelecidas com o gateway de aplicativo
+  Contagem das ligações atuais estabelecidas com gateway de aplicação
 
 - **Pedidos Falhados**
 
-  Contagem de solicitações com falha que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
+  Contagem de pedidos falhados que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
 
 - **Estado de Resposta**
 
-  Status de resposta HTTP retornado pelo gateway de aplicativo. A distribuição de código de status de resposta pode ser categorizada ainda mais para mostrar as respostas nas categorias 2xx, 3xx, 4xx e 5xx.
+  Estado de resposta HTTP devolvido pelo Application Gateway. A distribuição do código de estado de resposta pode ser ainda categorizada para mostrar respostas nas categorias 2xx, 3xx, 4xx e 5xx.
 
 - **Débito**
 
-  Número de bytes por segundo atendidos pelo gateway de aplicativo
+  Número de bytes por segundo o Gateway de Aplicação serviu
 
 - **Total de Pedidos**
 
-  Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
+  Contagem de pedidos bem sucedidos que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
 
 - **Firewall de aplicação web regras correspondidas**
 
 - **Firewall de aplicação web desencadeou regras**
 
-### <a name="backend-metrics"></a>Métricas de back-end
+### <a name="backend-metrics"></a>Métricas de backend
 
-Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
+Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 - **Contagem saudável do hospedeiro**
 
-  O número de back-ends que são determinados íntegros pela investigação de integridade. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões saudáveis em uma piscina específica de backend.
+  O número de backends que são determinados saudáveis pela sonda de saúde. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões saudáveis em uma piscina específica de backend.
 
 - **Contagem de hospedeiros pouco saudável**
 
-  O número de back-ends que são determinados não íntegros pela investigação de integridade. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões não saudáveis em uma piscina específica de backend.
+  O número de backends que são determinados insalubres pela sonda de saúde. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões não saudáveis em uma piscina específica de backend.
 
 ## <a name="metrics-visualization"></a>Visualização de métricas
 
 Navegue num gateway de aplicação, sob **monitorização** de **métricas selecionadas.** Para ver os valores disponíveis, selecione a lista pendente **MÉTRICA**.
 
-Na imagem a seguir, você verá um exemplo com três métricas exibidas nos últimos 30 minutos:
+Na seguinte imagem, vê-se um exemplo com três métricas exibidas nos últimos 30 minutos:
 
 [![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
@@ -194,13 +204,13 @@ Para ver uma lista atual de métricas, consulte [métricas suportadas com o Moni
 
 ### <a name="alert-rules-on-metrics"></a>Regras de alerta sobre métricas
 
-Você pode iniciar as regras de alerta com base nas métricas de um recurso. Por exemplo, um alerta pode chamar um webhook ou enviar um email para um administrador se a taxa de transferência do gateway de aplicativo estiver acima, abaixo ou em um limite para um período especificado.
+Pode iniciar regras de alerta com base em métricas para um recurso. Por exemplo, um alerta pode chamar um webhook ou enviar um e-mail a um administrador se a entrada do gateway da aplicação estiver acima, abaixo ou num limiar durante um período determinado.
 
-O exemplo a seguir orienta você pela criação de uma regra de alerta que envia um email para um administrador depois que a taxa de transferência viola um limite:
+O exemplo que se segue leva-o através da criação de uma regra de alerta que envia um e-mail a um administrador após a entrada violar um limiar:
 
-1. **selecione Adicionar alerta métrico** para abrir a página da regra **Adicionar.** Você também pode acessar essa página na página métricas.
+1. **selecione Adicionar alerta métrico** para abrir a página da regra **Adicionar.** Também pode chegar a esta página a partir da página das métricas.
 
-   ![Botão "adicionar alerta de métrica"][6]
+   ![Botão "Adicionar alerta métrico"][6]
 
 2. Na página de **regra Adicionar,** preencha o nome, condição e notifique as secções e selecione **OK**.
 
@@ -210,13 +220,13 @@ O exemplo a seguir orienta você pela criação de uma regra de alerta que envia
 
    * Se selecionar **os proprietários, colaboradores e leitores**de email, o e-mail pode ser dinâmico com base nos utilizadores que tenham acesso a esse recurso. Caso contrário, pode fornecer uma lista separada de utilizadores na caixa **de e-mail adicional** do administrador.
 
-   ![Página Adicionar regra][7]
+   ![Adicionar página de regras][7]
 
-Se o limite for violado, um email semelhante ao da seguinte imagem chegará:
+Se o limiar for violado, chega um e-mail semelhante ao da seguinte imagem:
 
-![Email para o limite violado][8]
+![E-mail para limiar violado][8]
 
-Uma lista de alertas é exibida depois que você cria um alerta de métrica. Ele fornece uma visão geral de todas as regras de alerta.
+Uma lista de alertas aparece depois de criar um alerta métrico. Fornece uma visão geral de todas as regras de alerta.
 
 ![Lista de alertas e regras][9]
 
