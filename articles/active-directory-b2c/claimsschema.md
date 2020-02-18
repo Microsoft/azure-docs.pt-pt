@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185593"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372984"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -51,7 +51,7 @@ O elemento **ClaimType** contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | O título que é exibido aos utilizadores em vários ecrãs. O valor pode ser [localizado.](localization.md) |
-| Tipo de dados | 1:1 | O tipo de reclamação. Podem ser utilizados os tipos de dados de boolean, data, dataTime, int, long, string, stringCollection e phoneNumber. O tipo de dados C# primitivos representa o equivalente ao tipo de dados variáveis. stringCollection representa uma coleção de cordas. Para mais informações consulte [ C# Tipos e variáveis.](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables) A data segue a convenção ISO 8601. |
+| Tipo de dados | 1:1 | O tipo de reclamação. |
 | DefaultPartnerClaimTypes | 0:1 | Os tipos de reclamação por defeito do parceiro para utilizar para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **'Claimclaim'** ou **OutputClaim.** Utilize este elemento para especificar o nome predefinido para um protocolo.  |
 | Máscara | 0:1 | Uma cadeia opcional de caracteres mascarados que podem ser aplicados ao exibir a alegação. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de reclamação que pode ser útil para os utilizadores entenderem o seu propósito. O valor pode ser [localizado.](localization.md) |
@@ -59,13 +59,31 @@ O elemento **ClaimType** contém os seguintes elementos:
 | Restrição | 0:1 | As restrições de valor para esta reclamação, tais como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizado.](localization.md) |
 PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicadoValidaçõesInputput.** Os elementos **Predicados ValidaçãoDereferência** permitem-lhe realizar um processo de validação para garantir que apenas os dados devidamente formados são introduzidos. Para mais informações, consulte [Predicados](predicates.md). |
 
+### <a name="datatype"></a>Tipo de dados
+
+O elemento **DataType** suporta os seguintes valores:
+
+| Tipo | Descrição |
+| ------- | ----------- | 
+|boolean|Representa um valor Boolean (`true` ou `false`).|
+|date| Representa um instante no tempo, tipicamente expresso como uma data de um dia. O valor da data segue a convenção ISO 8601.|
+|DateTime|Representa um instante no tempo, tipicamente expresso como uma data e hora do dia. O valor da data segue a convenção ISO 8601.|
+|duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato é `PnYnMnDTnHnMnS`, onde `P` indica positivo, ou `N` para valor negativo. `nY` é o número de anos seguidos de uma `Y`literal. `nMo` é o número de meses seguido de uma `Mo`literal. `nD` é o número de dias seguidos de uma `D`literal. Exemplos: `P21Y` representa 21 anos. `P1Y2Mo` representa um ano e dois meses. `P1Y2Mo5D` representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S` representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
+|phoneNumber|Representa um número de telefone. |
+|int| Representa o número entre -2.147.483.648 e 2.147.483.647|
+|long| Representa o número entre -9.223.372.036.854.775.808 para 9.223.372.036.854.775.807 |
+|string| Representa o texto como uma sequência de unidades de código UTF-16.|
+|stringCollection|Representa uma coleção de `string`.|
+|userIdentidade| Representa uma identidade de utilizador.|
+|userIdentityCollection|Representa uma coleção de `userIdentity`.|
+
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
 Os Tipos de **Reclamação por Predefinição** podem conter o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Protocolo | 1: n | Lista de protocolos com o nome do tipo de reclamação do parceiro predefinido. |
+| Protocolo | 1:n | Lista de protocolos com o nome do tipo de reclamação do parceiro predefinido. |
 
 O elemento **Protocolo** contém os seguintes atributos:
 
@@ -152,10 +170,10 @@ O elemento **restrição** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Enumeração | 1: n | As opções disponíveis na interface de utilizador para o utilizador selecionar para uma reclamação, como um valor em uma queda. |
+| Enumeração | 1:n | As opções disponíveis na interface de utilizador para o utilizador selecionar para uma reclamação, como um valor em uma queda. |
 | Padrão | 1:1 | A expressão regular a usar. |
 
-### <a name="enumeration"></a>Enumeração
+#### <a name="enumeration"></a>Enumeração
 
 O elemento **Enumeração** contém os seguintes atributos:
 
@@ -214,11 +232,26 @@ O Quadro de Experiência de Identidade torna a reclamação de endereço de e-ma
 
 ![TextBox mostrando mensagem de erro desencadeada pela restrição regex](./media/claimsschema/pattern.png)
 
-## <a name="userinputtype"></a>UserInputType
+### <a name="userinputtype"></a>UserInputType
 
-O Azure AD B2C suporta uma variedade de tipos de entrada do utilizador, tais como uma caixa de texto, palavra-passe e lista de dropdown que podem ser usadas ao introduzir manualmente dados de reclamação para o tipo de reclamação. Deve especificar o **UserInputType** quando recolher informações do utilizador utilizando um [perfil técnico autoafirmado](self-asserted-technical-profile.md).
+O Azure AD B2C suporta uma variedade de tipos de entrada do utilizador, tais como uma caixa de texto, palavra-passe e lista de dropdown que podem ser usadas ao introduzir manualmente dados de reclamação para o tipo de reclamação. Deve especificar o **UserInputType** quando recolher informações do utilizador utilizando um [perfil técnico autoafirmado](self-asserted-technical-profile.md) e controlos de [visualização](display-controls.md).
 
-### <a name="textbox"></a>TextBox
+Os tipos de entrada do utilizador do elemento **UserInputType** disponíveis:
+
+| UserInputType | Tipo de reclamação suportado | Descrição |
+| --------- | -------- | ----------- |
+|Caixa de verificaçãoMultiSelect| `string` |Multi select drop-down box. O valor da reclamação está representado numa cadeia de limites de vírina dos valores selecionados. |
+|DateTimeDropdown | `date`, `dateTime` |Drop-downs para selecionar um dia, mês e ano. |
+|DropdownSingleSelect |`string` |Única caixa de entrega selecionada. O valor da reclamação é o valor selecionado.|
+|EmailBox | `string` |Campo de entrada de e-mail. |
+|Parágrafo | `boolean`, `date`, `dateTime`, `duration``int`, `long`, `string`|Um campo que mostra texto apenas numa etiqueta de parágrafo. |
+|Palavra-passe | `string` |Caixa de texto de senha.|
+|RadioSingleSelect |`string` | Coleção de botões de rádio. O valor da reclamação é o valor selecionado.|
+|Leitura apenas | `boolean`, `date`, `dateTime`, `duration``int`, `long`, `string`| Leia apenas a caixa de texto. |
+|TextBox |`boolean`, `int`, `string` |Caixa de texto de linha única. |
+
+
+#### <a name="textbox"></a>TextBox
 
 O tipo de entrada do utilizador **TextBox** é utilizado para fornecer uma caixa de texto de uma única linha.
 
@@ -233,7 +266,7 @@ O tipo de entrada do utilizador **TextBox** é utilizado para fornecer uma caixa
 </ClaimType>
 ```
 
-### <a name="emailbox"></a>EmailBox
+#### <a name="emailbox"></a>EmailBox
 
 O tipo de entrada do utilizador **EmailBox** é utilizado para fornecer um campo de entrada de e-mail básico.
 
@@ -251,7 +284,7 @@ O tipo de entrada do utilizador **EmailBox** é utilizado para fornecer um campo
 </ClaimType>
 ```
 
-### <a name="password"></a>Palavra-passe
+#### <a name="password"></a>Palavra-passe
 
 O tipo de entrada do utilizador **password** é utilizado para registar uma palavra-passe introduzida pelo utilizador.
 
@@ -266,7 +299,7 @@ O tipo de entrada do utilizador **password** é utilizado para registar uma pala
 </ClaimType>
 ```
 
-### <a name="datetimedropdown"></a>DateTimeDropdown
+#### <a name="datetimedropdown"></a>DateTimeDropdown
 
 O tipo de entrada do utilizador **DateTimeDropdown** é utilizado para fornecer um conjunto de drop-downs para selecionar um dia, mês e ano. Pode utilizar elementos Predicados e Predicados Para controlar os valores mínimos e máximos da data. Para mais informações, consulte a secção de intervalo de **datas** de [Predicados e Predicadas](predicates.md).
 
@@ -281,7 +314,7 @@ O tipo de entrada do utilizador **DateTimeDropdown** é utilizado para fornecer 
 </ClaimType>
 ```
 
-### <a name="radiosingleselect"></a>RadioSingleSelect
+#### <a name="radiosingleselect"></a>RadioSingleSelect
 
 O tipo de entrada do utilizador **RadioSingleSelect** é utilizado para fornecer uma recolha de botões de rádio que permite ao utilizador selecionar uma opção.
 
@@ -300,7 +333,7 @@ O tipo de entrada do utilizador **RadioSingleSelect** é utilizado para fornecer
 </ClaimType>
 ```
 
-### <a name="dropdownsingleselect"></a>DropdownSingleSelect
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 O tipo de entrada do utilizador **DropdownSingleSelect** é utilizado para fornecer uma caixa de drop-down que permite ao utilizador selecionar uma opção.
 
@@ -319,7 +352,7 @@ O tipo de entrada do utilizador **DropdownSingleSelect** é utilizado para forne
 </ClaimType>
 ```
 
-### <a name="checkboxmultiselect"></a>Caixa de verificaçãoMultiSelect
+#### <a name="checkboxmultiselect"></a>Caixa de verificaçãoMultiSelect
 
 O tipo de entrada do utilizador **CheckboxMultiSelect** é utilizado para fornecer uma recolha de caixas de verificação que permite ao utilizador selecionar várias opções.
 
@@ -338,7 +371,7 @@ O tipo de entrada do utilizador **CheckboxMultiSelect** é utilizado para fornec
 </ClaimType>
 ```
 
-### <a name="readonly"></a>Leitura apenas
+#### <a name="readonly"></a>Leitura apenas
 
 O tipo de entrada do utilizador **Readonly** é utilizado para fornecer um campo de leitura apenas para exibir a reclamação e o valor.
 
@@ -354,9 +387,9 @@ O tipo de entrada do utilizador **Readonly** é utilizado para fornecer um campo
 ```
 
 
-### <a name="paragraph"></a>Parágrafo
+#### <a name="paragraph"></a>Parágrafo
 
-O tipo de entrada do **utilizador do parágrafo** é utilizado para fornecer um campo que apresente texto apenas numa etiqueta de parágrafo. Por exemplo, &lt;p&gt;texto&lt;/p&gt;.
+O tipo de entrada do **utilizador do parágrafo** é utilizado para fornecer um campo que apresente texto apenas numa etiqueta de parágrafo.  Por exemplo, &lt;p&gt;texto&lt;/p&gt;. Um tipo de entrada do utilizador **parágrafo** `OutputClaim` de perfil técnico autoafirmado, deve definir o `false` de atributo `Required` (predefinido).
 
 ![Utilização do tipo de reclamação com parágrafo](./media/claimsschema/paragraph.png)
 

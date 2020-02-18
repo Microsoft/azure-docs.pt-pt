@@ -1,34 +1,34 @@
 ---
 title: ContentDefinitions
 titleSuffix: Azure AD B2C
-description: Especifique o elemento ContentDefinitions de uma política personalizada em Azure Active Directory B2C.
+description: Especifique o elemento ContentDefinitions de uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 02/16/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: c759b7f0467ddb961f44f27c2d2f18ed24d2cfca
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157878"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372788"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Pode personalizar o aspeto e a sensação de qualquer [perfil técnico autoafirmado.](self-asserted-technical-profile.md) Azure Active Directory B2C (Azure AD B2C) executa o código no navegador do cliente e usa uma abordagem moderna chamada CORS (compartilhamento de recursos entre origens).
+Pode personalizar o aspeto e a sensação de qualquer [perfil técnico autoafirmado.](self-asserted-technical-profile.md) O Azure Ative Directory B2C (Azure AD B2C) executa código no navegador do seu cliente e utiliza uma abordagem moderna chamada Cross-Origin Resource Sharing (CORS).
 
-Para personalizar a interface do utilizador, especifica um URL no elemento **ContentDefinition** com conteúdo HTML personalizado. No perfil técnico autoafirmado ou **OrquestrationStep,** aponta para esse identificador de definição de conteúdo. A definição de conteúdo pode conter um elemento **LocalizadoResourcesReferences** que especifica uma lista de recursos localizados para carregar. Azure AD B2C mescla os elementos da interface do usuário com o conteúdo HTML que é carregado de sua URL e, em seguida, exibe a página para o usuário.
+Para personalizar a interface do utilizador, especifica um URL no elemento **ContentDefinition** com conteúdo HTML personalizado. No perfil técnico autoafirmado ou **OrquestrationStep,** aponta para esse identificador de definição de conteúdo. A definição de conteúdo pode conter um elemento **LocalizadoResourcesReferences** que especifica uma lista de recursos localizados para carregar. O Azure AD B2C combina elementos de interface de utilizador com o conteúdo HTML que é carregado a partir do seu URL e, em seguida, exibe a página para o utilizador.
 
-O elemento **ContentDefinitions** contém URLs a modelos HTML5 que podem ser usados numa viagem de utilizador. O URI da página HTML5 é usado para uma etapa de interface do usuário especificada. Por exemplo, o início ou inscrição, o reset da palavra-passe ou as páginas de erro. Pode modificar a aparência e sentir substituindo o LoadUri para o ficheiro HTML5. Você pode criar novas definições de conteúdo de acordo com suas necessidades. Este elemento pode conter uma referência de recursos localizados ao identificador de localização especificado no elemento [Localização.](localization.md)
+O elemento **ContentDefinitions** contém URLs a modelos HTML5 que podem ser usados numa viagem de utilizador. O URI da página HTML5 é utilizado para um passo de interface de utilizador especificado. Por exemplo, o início ou inscrição, o reset da palavra-passe ou as páginas de erro. Pode modificar a aparência e sentir substituindo o LoadUri para o ficheiro HTML5. Pode criar novas definições de conteúdo de acordo com as suas necessidades. Este elemento pode conter uma referência de recursos localizados ao identificador de localização especificado no elemento [Localização.](localization.md)
 
-O exemplo a seguir mostra o identificador de definição de conteúdo e a definição de recursos localizados:
+O exemplo que se segue mostra o identificador de definição de conteúdo e a definição de recursos localizados:
 
 ```XML
 <ContentDefinition Id="api.localaccountsignup">
@@ -69,24 +69,24 @@ O elemento **Definição** de Conteúdo contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LoadUri | 1:1 | Uma cadeia de caracteres que contém a URL da página HTML5 para a definição de conteúdo. |
-| RecoveryUri | 0:1 | Uma cadeia de caracteres que contém a URL da página HTML para exibir um erro relacionado à definição de conteúdo. |
-| DataUri | 1:1 | Uma cadeia de caracteres que contém a URL relativa de um arquivo HTML que fornece a experiência do usuário para invocar para a etapa. |
-| Metadados | 0:1 | Uma coleção de pares de chave/valor que contém os metadados utilizados pela definição de conteúdo. |
-| LocalizedResourcesReferences | 0:1 | Uma coleção de referências de recursos localizados. Use este elemento para personalizar a localização de uma interface do usuário e um atributo de declarações. |
+| LoadUri | 1:1 | Uma cadeia que contém o URL da página HTML5 para a definição de conteúdo. |
+| RecoveryUri | 0:1 | Uma cadeia que contém o URL da página HTML para exibir um erro relacionado com a definição de conteúdo. |
+| DataUri | 1:1 | Uma cadeia que contém o URL relativo de um ficheiro HTML que fornece a experiência do utilizador para invocar para o passo. |
+| Metadados | 0:1 | Uma coleção de pares chave/valor que contém os metadados utilizados pela definição de conteúdo. |
+| Referências de Recursos Localizados | 0:1 | Uma coleção de referências de recursos localizados. Utilize este elemento para personalizar a localização de uma interface de utilizador e atribuições de reclamações. |
 
 ### <a name="datauri"></a>DataUri
 
-O elemento **DataUri** é utilizado para especificar o identificador da página. Azure AD B2C usa o identificador de página para carregar e iniciar elementos de interface do usuário e JavaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`. A tabela seguinte lista os identificadores da página que pode utilizar.
+O elemento **DataUri** é utilizado para especificar o identificador da página. O Azure AD B2C utiliza o identificador de página para carregar e iniciar elementos ui e javaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`. A tabela seguinte lista os identificadores da página que pode utilizar.
 
 | Identificador de página | Descrição |
 | ----- | ----------- |
-| `globalexception` | Exibe uma página de erro quando uma exceção ou um erro é encontrado. |
-| `providerselection` | Lista os provedores de identidade que os usuários podem escolher durante a entrada. |
-| `unifiedssp` | Exibe um formulário para entrar com uma conta local com base em um endereço de email ou um nome de usuário. Esse valor também fornece a "funcionalidade de conexão" manter-me "e" esqueceu sua senha? " criar. |
-| `unifiedssd` | Exibe um formulário para entrar com uma conta local com base em um endereço de email ou um nome de usuário. |
-| `multifactor` | Verifica os números de telefone usando o texto ou a voz durante a inscrição ou entrada. |
-| `selfasserted` | Exibe um formulário que permite aos usuários criar ou atualizar seu perfil. |
+| `globalexception` | Apresenta uma página de erro quando uma exceção ou um erro é encontrado. |
+| `providerselection`, `idpselection` | Lista os fornecedores de identidade que os utilizadores podem escolher durante o sessão.  |
+| `unifiedssp` | Apresenta um formulário para iniciar sessão com uma conta local baseada num endereço de e-mail ou num nome de utilizador. Este valor também fornece a funcionalidade "mantenha-me em sessão" e "Esqueci-me da sua palavra-passe?" link. |
+| `unifiedssd` | Apresenta um formulário para iniciar sessão com uma conta local baseada num endereço de e-mail ou num nome de utilizador. |
+| `multifactor` | Verifica os números de telefone utilizando texto ou voz durante o registo ou inscrição. |
+| `selfasserted` | Apresenta um formulário que permite aos utilizadores criar ou atualizar o seu perfil. |
 
 ### <a name="select-a-page-layout"></a>Selecione um layout de página
 
@@ -149,22 +149,22 @@ A definição de conteúdo suporta os seguintes itens de metadados:
 | --------- | -------- | ----------- |
 | DisplayName | Não | Uma cadeia que contém o nome da definição de conteúdo. |
 
-### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
+### <a name="localizedresourcesreferences"></a>Referências de Recursos Localizados
 
 O elemento **LocalizadoResourcesReferences** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1: n | Uma lista de referências de recursos localizadas para a definição de conteúdo. |
+| Referência de Recursos Localizados | 1:n | Uma lista de referências de recursos localizados para a definição de conteúdo. |
 
 O elemento **LocalizadoResourcesReference** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Idioma | Sim | Uma cadeia de caracteres que contém um idioma com suporte para a política por RFC 5646-marcas para identificar idiomas. |
+| Idioma | Sim | Uma cadeia que contém uma linguagem apoiada para a política por RFC 5646 - Tags para identificar idiomas. |
 | LocalizedResourcesReferenceId | Sim | O identificador do elemento **Recursos Localizados.** |
 
-O exemplo a seguir mostra uma definição de conteúdo de inscrição ou entrada com uma referência à localização para inglês, francês e espanhol:
+O exemplo seguinte mostra uma definição de conteúdo de inscrição ou inscrição com referência à localização para inglês, francês e espanhol:
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -186,20 +186,20 @@ Para aprender a adicionar suporte de localização às definições de conteúdo
 
 ## <a name="content-definition-ids"></a>IDs de definição de conteúdo
 
-O atributo ID do elemento **ContentDefinition** especifica o tipo de página que diz respeito à definição de conteúdo. O elemento define o contexto que um modelo HTML5/CSS personalizado irá aplicar. A tabela a seguir descreve o conjunto de IDs de definição de conteúdo que é reconhecido pela estrutura de experiência de identidade e os tipos de página relacionados a eles. Você pode criar suas próprias definições de conteúdo com uma ID arbitrária.
+O atributo ID do elemento **ContentDefinition** especifica o tipo de página que diz respeito à definição de conteúdo. O elemento define o contexto que um modelo personalizado HTML5/CSS vai aplicar. A tabela seguinte descreve o conjunto de IDs de definição de conteúdo que é reconhecido pelo Quadro de Experiência de Identidade, e os tipos de página que se relacionam com eles. Pode criar as suas próprias definições de conteúdo com uma identificação arbitrária.
 
 | ID | Modelo padrão | Descrição |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro** - Exibe uma página de erro quando uma exceção ou um erro é encontrado. |
-| **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção** do fornecedor de identidade - Lista fornecedores de identidade que os utilizadores podem escolher durante o sessão. As opções geralmente são provedores de identidade empresarial, provedores de identidade social, como Facebook e Google +, ou contas locais. |
-| **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Seleção do fornecedor de identidade para inscrição** - Lista fornecedores de identidade que os utilizadores podem escolher durante o seu inscrição. As opções geralmente são provedores de identidade empresarial, provedores de identidade social, como Facebook e Google +, ou contas locais. |
+| **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção** do fornecedor de identidade - Lista fornecedores de identidade que os utilizadores podem escolher durante o sessão. As opções são geralmente fornecedores de identidade empresarial, fornecedores de identidade social como Facebook e Google+, ou contas locais. |
+| **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Seleção do fornecedor de identidade para inscrição** - Lista fornecedores de identidade que os utilizadores podem escolher durante o seu inscrição. As opções são geralmente fornecedores de identidade empresarial, fornecedores de identidade social como Facebook e Google+, ou contas locais. |
 | **api.localaccountpasswordreset** | [autoafirmou.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de palavra-passe esquecida** - Mostra um formulário que os utilizadores devem preencher para iniciar um reset de palavra-passe. |
 | **api.localaccountsignin** | [autoafirmou.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de sessão de conta local** - Exibe um formulário para iniciar sessão com uma conta local baseada num endereço de e-mail ou num nome de utilizador. O formulário pode conter uma caixa de entrada de texto e uma caixa de entrada de senha. |
-| **api.localaccountsignup** | [autoafirmou.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição** de conta local - Exibe um formulário para se inscrever numa conta local baseada num endereço de e-mail ou num nome de utilizador. O formulário pode conter vários controles de entrada, como: uma caixa de entrada de texto, uma caixa de entrada de senha, um botão de opção, caixas suspensas de seleção única e caixas de seleção de várias seleções. |
+| **api.localaccountsignup** | [autoafirmou.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição** de conta local - Exibe um formulário para se inscrever numa conta local baseada num endereço de e-mail ou num nome de utilizador. O formulário pode conter vários controlos de entrada, tais como: uma caixa de entrada de texto, uma caixa de entrada de senha, um botão de rádio, caixas de entrega únicas e caixas de verificação multi-selecionadas. |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Página de autenticação de vários fatores** - Verifica os números de telefone, utilizando texto ou voz, durante o registo ou inscrição. |
-| **api.autoafirmou** | [autoafirmou.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição** na conta social - Apresenta um formulário que os utilizadores devem preencher quando se inscrevem utilizando uma conta existente de um fornecedor de identidade social. Esta página é semelhante à página de inscrição de conta social anterior, com exceção dos campos de entrada de senha. |
-| **api.self-asserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização** de perfis - Apresenta um formulário a que os utilizadores podem aceder à atualização do seu perfil. Esta página é semelhante à página de inscrição de conta social, com exceção dos campos de entrada de senha. |
-| **api.signuporsignina** | [unificado.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | Página de **inscrição ou inscrição unificada** - Trata do processo de inscrição e de inscrição do utilizador. Os usuários podem usar provedores de identidade corporativa, provedores de identidade social, como Facebook ou Google +, ou contas locais. |
+| **api.autoafirmou** | [autoafirmou.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição** na conta social - Apresenta um formulário que os utilizadores devem preencher quando se inscrevem utilizando uma conta existente de um fornecedor de identidade social. Esta página é semelhante à página de inscrição da conta social anterior, com exceção dos campos de entrada de palavras-passe. |
+| **api.self-asserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização** de perfis - Apresenta um formulário a que os utilizadores podem aceder à atualização do seu perfil. Esta página é semelhante à página de inscrição da conta social, com exceção dos campos de entrada de palavras-passe. |
+| **api.signuporsignina** | [unificado.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | Página de **inscrição ou inscrição unificada** - Trata do processo de inscrição e de inscrição do utilizador. Os utilizadores podem utilizar fornecedores de identidade empresarial, fornecedores de identidade social, como facebook ou Google+, ou contas locais. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

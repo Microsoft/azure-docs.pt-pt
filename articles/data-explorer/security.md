@@ -1,67 +1,67 @@
 ---
-title: Proteger clusters de Data Explorer do Azure no Azure
-description: Saiba mais sobre como proteger clusters no Azure Data Explorer.
+title: Clusters Secure Azure Data Explorer em Azure
+description: Saiba como proteger clusters no Azure Data Explorer.
 author: saguiitay
 ms.author: itsagui
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 5f3bceb8398f9837f6f8eaa390def41456daf08d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 786950011f10e25d6bcb72061212c1878e79d45a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271597"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373363"
 ---
-# <a name="secure-azure-data-explorer-clusters-in-azure"></a>Proteger clusters de Data Explorer do Azure no Azure
+# <a name="secure-azure-data-explorer-clusters-in-azure"></a>Clusters Secure Azure Data Explorer em Azure
 
-Este artigo fornece uma introdução à segurança no Azure Data Explorer para ajudá-lo a proteger seus dados e recursos na nuvem e atender às necessidades de segurança de sua empresa. É importante manter seus clusters seguros. A proteção de seus clusters inclui um ou mais recursos do Azure que incluem acesso seguro e armazenamento. Este artigo fornece informações para ajudá-lo a manter seu cluster seguro.
+Este artigo fornece uma introdução à segurança no Azure Data Explorer para ajudá-lo a proteger os seus dados e recursos na nuvem e a atender às necessidades de segurança do seu negócio. É importante manter os seus aglomerados seguros. A fixação dos seus clusters inclui uma ou mais funcionalidades Azure que incluem acesso e armazenamento seguros. Este artigo fornece informações para ajudá-lo a manter o seu cluster seguro.
 
 ## <a name="managed-identities-for-azure-resources"></a>Identidades geridas para os recursos do Azure
 
-Um desafio comum ao criar aplicativos em nuvem é o gerenciamento de credenciais em seu código para autenticação em serviços de nuvem. Manter essas credenciais protegidas é uma tarefa importante. As credenciais não devem ser armazenadas em estações de trabalho de desenvolvedor ou verificadas no controle do código-fonte. O Azure Key Vault oferece uma forma de armazenar credenciais, segredos e outras chaves em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los.
+Um desafio comum ao construir aplicações em nuvem é a gestão de credenciais no seu código para autenticação a serviços na nuvem. Manter essas credenciais protegidas é uma tarefa importante. As credenciais não devem ser armazenadas em postos de trabalho de desenvolvimento ou verificadas no controlo de origem. O Azure Key Vault oferece uma forma de armazenar credenciais, segredos e outras chaves em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los.
 
-O recurso identidades gerenciadas do Azure Active Directory (Azure AD) para recursos do Azure resolve esse problema. Oferece aos serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar essa identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código. Para obter mais informações sobre esse serviço, consulte a página Visão geral [de identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview) .
+O Azure Ative Directory (Azure AD) geriu identidades para recursos Azure que resolve maquetes resolve este problema. Oferece aos serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar essa identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código. Para obter mais informações sobre este serviço, consulte [as identidades geridas para](/azure/active-directory/managed-identities-azure-resources/overview) a página geral dos recursos do Azure.
 
 ## <a name="data-encryption"></a>Encriptação de dados
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) ajuda a proteger e proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Ele fornece criptografia de volume para o sistema operacional e discos de dados das máquinas virtuais do cluster. O Azure Disk Encryption também se integra ao [Azure Key Vault](/azure/key-vault/), que nos permite controlar e gerenciar as chaves e os segredos de criptografia de disco e garantir que todos os dados nos discos de VM sejam criptografados. 
+[A Encriptação do Disco Azure](/azure/security/azure-security-disk-encryption-overview) ajuda a proteger e salvaguardar os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. Fornece encriptação de volume para o SISTEMA e discos de dados das máquinas virtuais do seu cluster. A Encriptação azure Disk também se integra com [o Azure Key Vault,](/azure/key-vault/)que nos permite controlar e gerir as chaves e segredos de encriptação do disco, e garantir que todos os dados nos discos VM estão encriptados. 
 
-### <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves gerenciadas pelo cliente com Azure Key Vault
+### <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves geridas pelo cliente com cofre de chaves Azure
 
-Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter mais controle sobre as chaves de criptografia, você pode fornecer chaves gerenciadas pelo cliente para usar na criptografia de dados. Você pode gerenciar a criptografia de seus dados no nível de armazenamento com suas próprias chaves. Uma chave gerenciada pelo cliente é usada para proteger e controlar o acesso à chave de criptografia raiz, que é usada para criptografar e descriptografar todos os dados. Chaves gerenciadas pelo cliente oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
+Por padrão, os dados são encriptados com chaves geridas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer chaves geridas pelo cliente para usar para encriptação de dados. Pode gerir a encriptação dos seus dados ao nível de armazenamento com as suas próprias chaves. Uma chave gerida pelo cliente é usada para proteger e controlar o acesso à chave de encriptação de raiz, que é usada para encriptar e desencriptar todos os dados. As chaves geridas pelo cliente oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
 
-Use Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar uma API de Azure Key Vault para gerar chaves. O cluster Data Explorer do Azure e o Azure Key Vault devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](/azure/key-vault/key-vault-overview). Para obter uma explicação detalhada sobre chaves gerenciadas pelo cliente, consulte [chaves gerenciadas pelo cliente com Azure Key Vault](/azure/storage/common/storage-service-encryption)
-
-> [!Note]
-> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para recursos do Azure, um recurso do Azure Active Directory (Azure AD). Para configurar chaves gerenciadas pelo cliente no portal do Azure, você precisa configurar uma identidade gerenciada do **SystemAssigned** para o cluster.
-
-#### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Armazenar chaves gerenciadas pelo cliente no Azure Key Vault
-
-Para habilitar chaves gerenciadas pelo cliente em um cluster, use um Azure Key Vault para armazenar suas chaves. Você deve habilitar a **exclusão reversível** e **não limpar** as propriedades no cofre de chaves. O cofre de chaves deve estar localizado na mesma assinatura que o cluster. O Azure Data Explorer usa identidades gerenciadas para recursos do Azure para autenticar no cofre de chaves para operações de criptografia e descriptografia. Identidades gerenciadas não dão suporte a cenários entre diretórios.
-
-#### <a name="rotate-customer-managed-keys"></a>Girar chaves gerenciadas pelo cliente
-
-Você pode girar uma chave gerenciada pelo cliente em Azure Key Vault de acordo com suas políticas de conformidade. Quando a chave é girada, você deve atualizar o cluster para usar o novo URI de chave. A rotação da chave não aciona a nova criptografia dos dados no cluster. 
-
-#### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso a chaves gerenciadas pelo cliente
-
-Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou CLI do Azure. Para obter mais informações, consulte [Azure Key Vault PowerShell](/powershell/module/az.keyvault/) ou [Azure Key Vault CLI](/cli/azure/keyvault). Revogar o acesso bloqueia o acesso a todos os dados no nível de armazenamento do cluster, já que a chave de criptografia é, consequentemente, inacessível pelo Azure Data Explorer.
+Utilize o Cofre de Chaves Azure para armazenar as chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar um Cofre de Chave Azure para gerar chaves. O cluster Azure Data Explorer e o Azure Key Vault devem estar na mesma região, mas podem estar em diferentes subscrições. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](/azure/key-vault/key-vault-overview) Para obter uma explicação detalhada sobre as chaves geridas pelo cliente, consulte [as chaves geridas pelo Cliente com](/azure/storage/common/storage-service-encryption)o Cofre de Chaves Azure . Configure as chaves geridas pelo cliente no [C#](/azure/data-explorer/customer-managed-keys-csharp) seu cluster Azure Data Explorer utilizando ou o modelo do Gestor de [Recursos Azure](/azure/data-explorer/customer-managed-keys-resource-manager)
 
 > [!Note]
-> Quando o Azure Data Explorer identifica que o acesso a uma chave gerenciada pelo cliente é revogado, ele suspende automaticamente o cluster para excluir todos os dados armazenados em cache. Depois que o acesso à chave é retornado, o cluster precisa ser retomado manualmente.
+> As chaves geridas pelo cliente baseiam-se em identidades geridas para os recursos Azure, uma característica do Azure Ative Directory (Azure AD). Para configurar as chaves geridas pelo cliente no portal Azure, é necessário configurar uma identidade gerida pelo **SystemAs para** o seu cluster, conforme detalhado em [identidades geridas pela Configuração para o seu cluster Azure Data Explorer](/azure/data-explorer/managed-identities).
+
+#### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Armazenar chaves geridas pelo cliente no Cofre de Chaves Azure
+
+Para ativar as chaves geridas pelo cliente num cluster, utilize um Cofre de Chave Azure para armazenar as suas chaves. Deve ativar as propriedades **Soft Delete** e **Não purgar** as propriedades no cofre da chave. O cofre-chave deve estar localizado na mesma subscrição que o cluster. O Azure Data Explorer utiliza identidades geridas para os recursos do Azure autenticarem o cofre chave para operações de encriptação e desencriptação. Identidades geridas não suportam cenários transversais.
+
+#### <a name="rotate-customer-managed-keys"></a>Rode as chaves geridas pelo cliente
+
+Pode rodar uma chave gerida pelo cliente no Cofre de Chaves Azure de acordo com as suas políticas de conformidade. Quando a tecla estiver rodada, tem de atualizar o cluster para utilizar a nova tecla URI. Rodar a tecla não despoleta a reencriptação de dados no cluster. 
+
+#### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso às chaves geridas pelo cliente
+
+Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o Azure CLI. Para mais informações, consulte [o Cofre de Chaves Azure PowerShell](/powershell/module/az.keyvault/) ou o Cofre de Chaves [Azure CLI](/cli/azure/keyvault). Revogar o acesso bloqueia o acesso a todos os dados no nível de armazenamento do cluster, uma vez que a chave de encriptação é consequentemente inacessível pelo Azure Data Explorer.
+
+> [!Note]
+> Quando o Azure Data Explorer identificar que o acesso a uma chave gerida pelo cliente é revogado, suspenderá automaticamente o cluster para eliminar quaisquer dados em cache. Uma vez devolvido o acesso à chave, o cluster tem de ser retomado manualmente.
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-Usando o [RBAC (controle de acesso baseado em função)](/azure/role-based-access-control/overview), você pode separar as tarefas dentro de sua equipe e conceder apenas o acesso necessário aos usuários do cluster. Em vez de fornecer a todos permissões irrestritas no cluster, você pode permitir apenas determinadas ações. Você pode configurar o [controle de acesso para os bancos de dados](/azure/data-explorer/manage-database-permissions) no [portal do Azure](/azure/role-based-access-control/role-assignments-portal), usando o [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)ou [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+Utilizando [o controlo de acesso baseado em funções (RBAC),](/azure/role-based-access-control/overview)pode segregar tarefas dentro da sua equipa e conceder apenas o acesso necessário aos utilizadores do cluster. Em vez de dar permissões sem restrições a todos no cluster, só pode permitir certas ações. Pode configurar o controlo de [acesso para as bases](/azure/data-explorer/manage-database-permissions) de dados do portal [Azure,](/azure/role-based-access-control/role-assignments-portal)utilizando o [Azure CLI](/azure/role-based-access-control/role-assignments-cli)ou [o Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configurar identidades gerenciadas para o cluster de Data Explorer do Azure](managed-identities.md)
-* [Proteja seu cluster no portal de data Explorer do Azure](manage-cluster-security.md) habilitando a criptografia em repouso.
-* [Configurar chaves gerenciadas pelo cliente usando o modelo de Azure Resource Manager](customer-managed-keys-resource-manager.md)
-* [Configurar chaves gerenciadas pelo cliente usando oC#](customer-managed-keys-csharp.md)
+* [Proteja o seu cluster no Azure Data Explorer - Portal,](manage-cluster-security.md) permitindo a encriptação em repouso.
+* [Configure identidades geridas para o seu cluster Azure Data Explorer](managed-identities.md)
+* [Configure as chaves geridas pelo cliente utilizando o modelo do Gestor de Recursos Azure](customer-managed-keys-resource-manager.md)
+* [Configure as chaves geridas pelo cliente usandoC#](customer-managed-keys-csharp.md)
 

@@ -1,307 +1,314 @@
 ---
-title: Detecção avançada de ataques de multiestágio no Azure Sentinel
-description: Use a tecnologia Fusion no Azure Sentinel para reduzir o fadiga de alertas e criar incidentes acionáveis que se baseiam na detecção avançada de ataques de multiestágio.
+title: Deteção avançada de ataques multiestágios em Azure Sentinel
+description: Utilize a tecnologia Fusion em Azure Sentinel para reduzir a fadiga de alerta e criar incidentes atores baseados na deteção avançada de ataques multiestágios.
 services: sentinel
 documentationcenter: na
-author: cabailey
-manager: rkarlin
+author: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/24/2019
-ms.author: cabailey
-ms.openlocfilehash: e6ddb1b01b705d2a7857682bd84e9482e064a8db
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.date: 02/12/2020
+ms.author: rkarlin
+ms.openlocfilehash: ada2ad67bc3634d8e6a31d3c8a69fc0c8b08a93a
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240073"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77369700"
 ---
-# <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Detecção avançada de ataques de multiestágio no Azure Sentinel
+# <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Deteção avançada de ataques multiestágios em Azure Sentinel
 
-Usando a tecnologia de fusão baseada no aprendizado de máquina, o Azure Sentinel pode detectar automaticamente ataques de várias etapas combinando comportamentos anormais e atividades suspeitas que são observadas em vários estágios da cadeia de eliminação. Em seguida, o Azure Sentinel gera incidentes que, de outra forma, seriam muito difíceis de detectar. Esses incidentes encerrarãom dois ou mais alertas ou atividades. Por design, esses incidentes são de baixo volume, alta fidelidade e alta gravidade.
+Ao utilizar a tecnologia Fusion baseada na aprendizagem automática, o Azure Sentinel pode detetar automaticamente ataques em vários palcos, combinando comportamentos anómalos e atividades suspeitas que são observadas em várias fases da cadeia de morte. O Azure Sentinel gera então incidentes que, de outra forma, seriam muito difíceis de apanhar. Estes incidentes encerram dois ou mais alertas ou atividades. Por design, estes incidentes são de baixo volume, alta fidelidade e alta gravidade.
 
-Personalizado para seu ambiente, essa detecção não apenas reduz as taxas de falsos positivos, mas também pode detectar ataques com informações limitadas ou ausentes.
+Personalizada para o seu ambiente, esta deteção não só reduz as taxas falsas positivas, como também pode detetar ataques com informações limitadas ou em falta.
 
-Para obter detalhes sobre os alertas para os cenários com suporte, consulte a seção [cenários com suporte para detecção de ataque de multiestágio](#scenarios-supported-for-advanced-multistage-attack-detection) nesta página.
+## <a name="configuration-for-advanced-multistage-attack-detection"></a>Configuração para deteção avançada de ataques multiestágios
 
-## <a name="configuration-for-advanced-multistage-attack-detection"></a>Configuração para detecção avançada de ataque de multiestágio
-
-Essa detecção é habilitada por padrão no Azure Sentinel. Para verificar o status ou para desabilitá-lo, talvez porque você esteja usando uma solução alternativa para criar incidentes com base em vários alertas, use as seguintes instruções:
+Esta deteção é ativada por padrão no Azure Sentinel. Para verificar o estado, ou para desativá-lo talvez porque está a usar uma solução alternativa para criar incidentes com base em múltiplos alertas, utilize as seguintes instruções:
 
 1. Se ainda não o fez, inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. Navegue até a**análise** de**configuração** >  **do Azure Sentinel** > 
+2. Navegue até à Configuração > **Do Sentinel a** **Nata > Analytics**
 
-3. Selecione **regras ativas** e localize **detecção avançada de ataque** de várias etapas na coluna **nome** . Verifique a coluna **status** para confirmar se essa detecção está habilitada ou desabilitada.
+3. Selecione **regras ativas** e localize a **Deteção avançada de ataques multiestágios** na coluna **NAME.** Verifique a coluna **STATUS** para confirmar se esta deteção está ativada ou desativada.
 
-4. Para alterar o status, selecione essa entrada e, na folha **detecção avançada de ataques de multiestágio** , selecione **Editar**.
+4. Para alterar o estado, selecione esta entrada e na lâmina de deteção de **ataques multiestágio avançado,** selecione **Editar**.
 
-5. Na folha **Assistente para criação de regras** , a alteração de status é selecionada automaticamente para você; portanto **, selecione Avançar: Examine**e, em seguida, **salve**. 
+5. Na lâmina do assistente de **criação da Regra,** a alteração de estado é selecionada automaticamente para si, por isso selecione **Next: Review**, e, em seguida, **Guardar**. 
 
-Os modelos de regra não são aplicáveis para a detecção avançada de ataques de multiestágio.
+Os modelos de regras não são aplicáveis para a deteção avançada de ataques multiestágios.
 
-## <a name="scenarios-supported-for-advanced-multistage-attack-detection"></a>Cenários com suporte para detecção avançada de ataques de multiestágio
+## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusão usando Redes Palo Alto e Microsoft Defender ATP
 
-Usando a detecção avançada de ataques de multiestágio, o Azure Sentinel dá suporte aos seguintes cenários que combinam eventos de anomalias de Azure Active Directory Identity Protection e Microsoft Cloud App Security:
+- Pedido de rede ao serviço de anoinização tor seguido de tráfego anómalo sinalizado pela firewall palo Alto Networks
 
-- [Viagem impossível para o local atípicos seguido pela atividade anômala do Office 365](#impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity)
-- [Atividade de entrada para um local não familiar seguido pela atividade anômala do Office 365](#sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity)
-- [Atividade de entrada do dispositivo infectado seguido pela atividade anormal do Office 365](#sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity)
-- [Atividade de entrada do endereço IP anônimo seguido pela atividade anormal do Office 365](#sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity)
-- [Atividade de entrada do usuário com credenciais vazadas, seguidas pela atividade anormal do Office 365](#sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity)
+- PowerShell fez uma ligação de rede suspeita seguida de tráfego anómalo sinalizado pela firewall palo Alto Networks
 
-Você deve ter o [conector de dados Azure ad Identity Protection](connect-azure-ad-identity-protection.md) e os conectores de [Cloud app Security](connect-cloud-app-security.md) configurados.
-
-Nas descrições a seguir, o Azure Sentinel exibirá o valor real de seus dados representados nesta página como variáveis entre colchetes. Por exemplo, o nome de exibição real de uma conta em \<vez do *nome da conta*> e o número real \<em vez de *número*>.
-
-### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Viagem impossível para o local atípicos seguido pela atividade anômala do Office 365
-
-Há sete possíveis incidentes do Azure Sentinel que combinam a viagem impossível a alertas de local atípicos de alertas Azure AD Identity Protection e anormais do Office 365 gerados pelo Microsoft Cloud App Security:
-
-- **Viagem impossível a locais atípicoss que levam ao Office 365 caixa de correio vazamento**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos, seguido por uma regra de encaminhamento de caixa de entrada suspeita foi definida na caixa de entrada de um usuário.
-    
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O nome \<da *conta*de usuário > criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email*do endereço externo >.
-
-- **Viagem impossível a locais atípicoss que levam à atividade administrativa suspeita do aplicativo de nuvem**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos.
-    
-    Em seguida, o \< *nome da conta*de conta \<> executado sobre o *número*> atividades administrativas em uma única sessão.
-
-- **Viagem impossível a locais atípicoss que levam à exclusão em massa de arquivos**
-    
-    Esse alerta é uma indicação de um evento \<de entrada pelo *nome da conta*> para \<o *local*>, um local atípicos. 
-    
-    Em seguida, o \< *nome da conta*de \<conta > *número excluído de*> arquivos exclusivos em uma única sessão.
-
-- **Viagem impossível a locais atípicoss que levam ao download de arquivos em massa**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos. 
-    
-    Em seguida, o \< *nome da conta*de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
-
-- **Viagem impossível a locais atípicoss que levam à representação do Office 365**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos. 
-    
-    Em seguida, o \< *nome da conta*de conta > realizou uma\<quantidade incomum (*número de atividades*>) de atividades de representação em uma única sessão.
-
-- **Viagem impossível a locais atípicoss que levam ao compartilhamento de arquivos em massa**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos. 
-    
-    Em seguida, o \< *nome da conta*de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
-
-- **Viagem impossível a locais atípicoss que levam ao ransomware no aplicativo em nuvem**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos. 
-    
-    Em seguida, o \< *nome da conta*da \<conta > o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
-    
-    Esse padrão de atividade é um indício de um ataque potencial de ransomware.
+- Ligação de saída à IP com histórico de tentativas de acesso não autorizadas seguida de tráfego anómalo sinalizado pela firewall palo Alto Networks
 
 
-### <a name="sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity"></a>Atividade de entrada para um local não familiar seguido pela atividade anômala do Office 365
 
-Há sete possíveis incidentes do Azure Sentinel que combinam a atividade de entrada para alertas de local desconhecidos de Azure AD Identity Protection e alertas anormais do Office 365 gerados pelo Microsoft Cloud App Security.
+## <a name="fusion-using-identity-protection-and-microsoft-cloud-app-security"></a>Fusão usando proteção de identidade e segurança de aplicações da Microsoft Cloud
 
-- **Evento de entrada de um local desconhecido que leva à caixa de correio do Exchange Online vazamento**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> do \< *local*>, um local desconhecido, seguido por uma regra de encaminhamento de caixa de entrada suspeita foi definida na caixa de entrada de um usuário.
-    
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O nome \<da *conta*de usuário > criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email*do endereço externo >. 
+Utilizando a deteção avançada de ataques multiestágios, o Azure Sentinel suporta os seguintes cenários que combinam eventos de anomalia saturado de Proteção de Identidade de Diretório Ativo Azure e Segurança de Aplicações microsoft Cloud:
 
-- **Evento de entrada de um local desconhecido que leva à atividade administrativa do aplicativo de nuvem suspeito**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> do \< *local*>, um local desconhecido. 
-    
-    Em seguida, o \< *nome da conta*de conta \<> executado sobre o *número de*> atividades administrativas em uma única sessão.
+- [Viagem impossível para localização atípica seguida por atividade anómala do Office 365](#impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity)
+- [Atividade de inscrição para localização desconhecida seguida de atividade anómala do Office 365](#sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity)
+- [Atividade de login de dispositivo infetado seguida de atividade anómala do Office 365](#sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity)
+- [Atividade de login a partir de endereço IP anónimo seguido de atividade anómala do Office 365](#sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity)
+- [Atividade de login de utilizador com credenciais vazadas seguida de atividade anómala do Office 365](#sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity)
 
-- **Evento de entrada de um local não familiar que leva à exclusão de arquivos em massa**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> do \< *local*>, um local desconhecido. 
-    
-    Em seguida, o \< *nome da conta*de \<conta > *número excluído de*> arquivos exclusivos em uma única sessão.
+Deve ter configurado o [conector](connect-azure-ad-identity-protection.md) de dados de Proteção de Identidade Azure AD e os conectores [cloud App Security.](connect-cloud-app-security.md)
 
-- **Evento de entrada de um local desconhecido que leva ao download de arquivo em massa**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> do \< *local*>, um local desconhecido. 
-    
-    Em seguida, o \< *nome da conta*de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
+Nas descrições que se seguem, o Azure Sentinel apresentará o valor real dos seus dados que está representado nesta página como variáveis nos parênteses. Por exemplo, o nome real de exibição de uma conta em vez de \<nome de *conta*>, e o número real em vez de \<*número*>.
 
-- **Evento de entrada de um local desconhecido que leva à representação do Office 365**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> do \< *local*>, um local desconhecido.
-    
-    Em seguida, o \< *nome da conta*de conta > \<representado com o *número de*> contas diferentes em uma única sessão.
+### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Viagem impossível para localização atípica seguida por atividade anómala do Office 365
 
-- **Evento de entrada de um local desconhecido que leva ao compartilhamento de arquivos em massa**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> do \< *local*>, um local desconhecido. 
-    
-    Em seguida, o \< *nome da conta*de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
+Existem sete possíveis incidentes do Azure Sentinel que combinam viagens impossíveis a alertas de localização atípicos da Azure AD Identity Protection e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security:
 
-- **Evento de entrada de um local desconhecido que leva ao ransomware no aplicativo de nuvem**
+- **Viagem impossível a locais atípicos que levam à exfiltração da caixa de correio do Office 365**
     
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> do \< *local*>, um local desconhecido. 
+    Este alerta é uma indicação de um evento de entrada \<nome de *conta*> de uma viagem impossível para \<*localização*>, uma localização atípica, seguida de uma regra de encaminhamento suspeita de caixa de entrada foi definida na caixa de entrada de um utilizador.
     
-    Em seguida, o \< *nome da conta*da \<conta > o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
-    
-    Esse padrão de atividade é um indício de um ataque potencial de ransomware.
+    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<nome de *conta*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails de entrada para o endereço externo \<endereço de *e-mail*>.
 
-### <a name="sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity"></a>Atividade de entrada do dispositivo infectado seguido pela atividade anormal do Office 365
+- **Viagem impossível para locais atípicos que conduzem a atividade administrativa de aplicações de nuvem suspeita**
+    
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de uma viagem impossível para \<*localização*>, uma localização atípica.
+    
+    Em seguida, a conta \<nome de *conta*> realizada sobre \<*número*> atividades administrativas numa única sessão.
 
-Há sete possíveis incidentes do Azure sentinela que combinam a atividade de entrada de alertas de dispositivo infectados dos alertas Azure AD Identity Protection e anormal Office 365 gerados pelo Microsoft Cloud App Security:
+- **Viagem impossível para locais atípicos que levam à eliminação de ficheiros em massa**
+    
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> para \<*localização*>, uma localização atípica. 
+    
+    Em seguida, a conta \<nome de *conta*> apagado \<*número de*ficheiros > únicos numa única sessão.
 
-- **Evento de entrada de um dispositivo infectado que leva à caixa de correio do Office 365 vazamento**
+- **Viagem impossível para locais atípicos que levam ao download de ficheiros em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de uma viagem impossível para \<*localização*>, uma localização atípica. 
     
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O nome \<da *conta*de usuário > criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email*do endereço externo >. 
+    Em seguida, a conta \<nome de *conta*> descarregado sobre \<*número de*ficheiros > únicos numa única sessão.
 
-- **Evento de entrada de um dispositivo infectado que leva à atividade administrativa suspeita do aplicativo de nuvem**
+- **Viagem impossível a locais atípicos que levam à personificação do Office 365**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware.
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de uma viagem impossível para \<*localização*>, uma localização atípica. 
     
-    Em seguida, o \< *nome da conta*de conta \<> executado sobre o *número de*> atividades administrativas em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> realizou um valor invulgar (\<*número de atividades*>) de atividades de personificação numa única sessão.
 
-- **Evento de entrada de um dispositivo infectado que leva à exclusão em massa de arquivos**
+- **Viagem impossível para locais atípicos que levam à partilha de ficheiros em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de uma viagem impossível para \<*localização*>, uma localização atípica. 
     
-    Em seguida, o \< *nome da conta*de \<conta > *número excluído de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> partilhada sobre \<*número de*ficheiros > únicos numa única sessão.
 
-- **Evento de entrada de um dispositivo infectado que leva ao download de arquivo em massa**
+- **Viagem impossível a locais atípicos que levam ao ransomware na aplicação cloud**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de uma viagem impossível para \<*localização*>, uma localização atípica. 
     
-    Em seguida, o \< *nome da conta*de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> carregou \<*número de*ficheiros > e apagou um total de \<número *de*ficheiros > 
+    
+    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
 
-- **Evento de entrada de um dispositivo infectado que leva à representação do Office 365**
-    
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
-    
-    Em seguida, o \< *nome da conta*de conta > \<representado com o *número de*> contas diferentes em uma única sessão.
 
-- **Evento de entrada de um dispositivo infectado que leva ao compartilhamento de arquivos em massa**
-    
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
-    
-    Em seguida, o \< *nome da conta*de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
+### <a name="sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity"></a>Atividade de inscrição para localização desconhecida seguida de atividade anómala do Office 365
 
-- **Evento de entrada de um dispositivo infectado que leva ao ransomware no aplicativo de nuvem**
-    
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
-    
-    Em seguida, o \< *nome da conta*da \<conta > o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
-    
-    Esse padrão de atividade é um indício de um ataque potencial de ransomware.
+Existem sete possíveis incidentes do Azure Sentinel que combinam atividade de login para alertas de localização desconhecidos da Azure AD Identity Protection e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security.
 
-### <a name="sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity"></a>Atividade de entrada do endereço IP anônimo seguido pela atividade anormal do Office 365
+- **Evento de entrada a partir de um local desconhecido que leva à exfiltração de caixa de correio Online**
+    
+    Este alerta é uma indicação de um evento de entrada \<nome de *conta*> de \<*localização*>, um local desconhecido, seguido de uma regra de encaminhamento suspeita de caixa de entrada foi definida na caixa de entrada de um utilizador.
+    
+    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<nome de *conta*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails de entrada para o endereço externo \<endereço de *e-mail*>. 
 
-Há sete possíveis incidentes do Azure Sentinel que combinam a atividade de entrada de alertas de endereço IP anônimo de Azure AD Identity Protection e de alertas anormais do Office 365 gerados pelo Microsoft Cloud App Security:
+- **Evento de inscrição a partir de um local desconhecido que conduz a atividade administrativa de aplicações de nuvem suspeita**
+    
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> a partir de \<*localização*>, um local desconhecido. 
+    
+    Em seguida, a conta \<nome de *conta*> realizada ao longo de \<*número de*atividades administrativas numa única sessão.
 
-- **Evento de entrada de um endereço IP anônimo que leva à caixa de correio do Office 365 vazamento**
+- **Evento de inscrição a partir de um local desconhecido que leva à eliminação de ficheiros em massa**
     
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de um endereço IP de proxy \<anônimo >, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> a partir de \<*localização*>, um local desconhecido. 
     
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O nome \<da *conta*de usuário > criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email*do endereço externo >. 
+    Em seguida, a conta \<nome de *conta*> apagado \<*número de*ficheiros > únicos numa única sessão.
 
-- **Evento de entrada de um endereço IP anônimo que leva à atividade administrativa suspeita do aplicativo de nuvem**
+- **Evento de início de sessão a partir de um local desconhecido que leva ao download de ficheiros em massa**
     
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de um endereço IP de endereço \<IP de proxy anônimo >. 
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> a partir de \<*localização*>, um local desconhecido. 
     
-    Em seguida, o \< *nome da conta*de conta \<> executado sobre o *número de*> atividades administrativas em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> descarregado sobre \<*número de*ficheiros > únicos numa única sessão.
 
-- **Evento de entrada de um endereço IP anônimo que leva à exclusão de arquivos em massa**
+- **Evento de inscrição a partir de um local desconhecido que leva à personificação do Office 365**
     
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de um endereço IP de endereço \<IP de proxy anônimo >. 
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> a partir de \<*localização*>, um local desconhecido.
     
-    Em seguida, o \< *nome da conta*de \<conta > *número excluído de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> personificada sobre \<*número de*contas > diferentes numa única sessão.
 
-- **Evento de entrada de um endereço IP anônimo que leva ao download de arquivo em massa**
+- **Evento de início de sessão a partir de um local desconhecido que leva à partilha de ficheiros em massa**
     
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de um endereço IP de endereço \<IP de proxy anônimo >. 
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> a partir de \<*localização*>, um local desconhecido. 
     
-    Em seguida, o \< *nome da conta*de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> partilhada sobre \<*número de*ficheiros > únicos numa única sessão.
 
-- **Evento de entrada de um endereço IP anônimo que leva à representação do Office 365**
+- **Evento de sessão a partir de um local desconhecido que leva ao ransomware na aplicação cloud**
     
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de um endereço IP de endereço \<IP de proxy anônimo >. 
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> a partir de \<*localização*>, um local desconhecido. 
     
-    Em seguida, o \< *nome da conta*de conta > \<representado com o *número de*> contas diferentes em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> carregou \<*número de*ficheiros > e apagou um total de \<número *de*ficheiros > 
+    
+    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
 
-- **Evento de entrada de um endereço IP anônimo que leva ao compartilhamento de arquivos em massa**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de um endereço IP de endereço \<IP de proxy anônimo >. 
-    
-    Em seguida, o \< *nome da conta*de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
+### <a name="sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity"></a>Atividade de login de dispositivo infetado seguida de atividade anómala do Office 365
 
-- **Evento de entrada de um endereço IP anônimo para ransomware no aplicativo de nuvem**
-    
-    Esse alerta é uma indicação de um evento \<de entrada por *nome de conta*> de um endereço IP de endereço \<IP de proxy anônimo >. 
-    
-    Em seguida, o \< *nome da conta*da \<conta > o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
-    
-    Esse padrão de atividade é um indício de um ataque potencial de ransomware.
+Existem sete possíveis incidentes do Azure Sentinel que combinam atividade de login a partir de alertas de dispositivos infetados da Azure AD Identity Protection e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security:
 
-### <a name="sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity"></a>Atividade de entrada do usuário com credenciais vazadas, seguidas pela atividade anormal do Office 365
+- **Evento de entrada a partir de um dispositivo infetado que leva à exfiltração da caixa de correio do Office 365**
+    
+    Este alerta é uma indicação de um evento de entrada \<nome de *conta*> de um dispositivo potencialmente infetado com malware, seguido de uma regra de encaminhamento suspeita de caixa de entrada foi definida na caixa de entrada de um utilizador.
+    
+    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<nome de *conta*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails de entrada para o endereço externo \<endereço de *e-mail*>. 
 
-Há sete possíveis incidentes do Azure Sentinel que combinam a atividade de entrada do usuário com alertas de credenciais vazadas de alertas Azure AD Identity Protection e anormais do Office 365 gerados pelo Microsoft Cloud App Security:
+- **Evento de inscrição a partir de um dispositivo infetado que conduz a atividade administrativa suspeita de aplicações em nuvem**
+    
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> de um dispositivo potencialmente infetado com malware.
+    
+    Em seguida, a conta \<nome de *conta*> realizada ao longo de \<*número de*atividades administrativas numa única sessão.
 
-- **Evento de entrada do usuário com credenciais vazadas que levam à caixa de correio do Office 365 vazamento**
+- **Evento de início de sessão a partir de um dispositivo infetado que conduz à eliminação de ficheiros em massa**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário. 
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> de um dispositivo potencialmente infetado com malware. 
     
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O nome \<da *conta*de usuário > criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email*do endereço externo >. 
+    Em seguida, a conta \<nome de *conta*> apagado \<*número de*ficheiros > únicos numa única sessão.
 
-- **Evento de entrada do usuário com credenciais vazadas que levam à atividade administrativa do aplicativo de nuvem suspeito**
+- **Evento de início de sessão a partir de um dispositivo infetado que leva ao download de ficheiros em massa**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas.
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> de um dispositivo potencialmente infetado com malware. 
     
-    Em seguida, o \< *nome da conta*de conta \<> executado sobre o *número de*> atividades administrativas em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> descarregado sobre \<*número de*ficheiros > únicos numa única sessão.
 
-- **Evento de entrada do usuário com credenciais vazadas levando à exclusão de arquivos em massa**
+- **Evento de inscrição a partir de um dispositivo infetado que leva à personificação do Office 365**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas.
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> de um dispositivo potencialmente infetado com malware. 
     
-    Em seguida, o \< *nome da conta*de \<conta > *número excluído de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> personificada sobre \<*número de*contas > diferentes numa única sessão.
 
-- **Evento de entrada do usuário com credenciais vazadas levando ao download de arquivo em massa**
+- **Evento de início de sessão a partir de um dispositivo infetado que conduz à partilha de ficheiros em massa**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas.
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> de um dispositivo potencialmente infetado com malware. 
     
-    Em seguida, o \< *nome da conta*de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> partilhada sobre \<*número de*ficheiros > únicos numa única sessão.
 
-- **Evento de entrada do usuário com credenciais vazadas que levam à representação do Office 365**
+- **Evento de sessão a partir de um dispositivo infetado que leva ao ransomware na aplicação cloud**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas. 
+    Este alerta é uma indicação de um evento de início de sessão \<nome de *conta*> de um dispositivo potencialmente infetado com malware. 
     
-    Em seguida, o \< *nome da conta*de conta > \<representado com o *número de*> contas diferentes em uma única sessão.
+    Em seguida, a conta \<nome de *conta*> carregou \<*número de*ficheiros > e apagou um total de \<número *de*ficheiros > 
+    
+    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
 
-- **Evento de entrada do usuário com credenciais vazadas que levam ao compartilhamento de arquivos em massa**
-    
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas.
-    
-    Em seguida, o \< *nome da conta*de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
+### <a name="sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity"></a>Atividade de login a partir de endereço IP anónimo seguido de atividade anómala do Office 365
 
-- **Evento de entrada do usuário com credenciais vazadas para ransomware no aplicativo de nuvem**
+Existem sete possíveis incidentes do Azure Sentinel que combinam atividade de entrada a partir de alertas de endereçoip anónimos da Proteção de Identidade Azure AD e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security:
+
+- **Evento de entrada a partir de um endereço IP anónimo que conduz à exfiltração da caixa de correio do Office 365**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas. 
+    Este alerta é uma indicação de um evento de inscrição por \<nome de *conta*> de um endereço IP de procuração anónimo \<*endereço IP*>, seguido de uma regra de reencaminhamento de caixa de entrada suspeita foi definida na caixa de entrada de um utilizador.
     
-    Em seguida, o \< *nome da conta*da \<conta > o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
+    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<nome de *conta*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails de entrada para o endereço externo \<endereço de *e-mail*>. 
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz a atividade administrativa de aplicações de nuvem suspeita**
     
-    Esse padrão de atividade é um indício de um ataque potencial de ransomware.
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de um endereço IP de procuração anónimo \<*endereço IP*>. 
+    
+    Em seguida, a conta \<nome de *conta*> realizada ao longo de \<*número de*atividades administrativas numa única sessão.
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz à eliminação de ficheiros em massa**
+    
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de um endereço IP de procuração anónimo \<*endereço IP*>. 
+    
+    Em seguida, a conta \<nome de *conta*> apagado \<*número de*ficheiros > únicos numa única sessão.
+
+- **Evento de início de sessão a partir de um endereço IP anónimo que leva ao download de ficheiros em massa**
+    
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de um endereço IP de procuração anónimo \<*endereço IP*>. 
+    
+    Em seguida, a conta \<nome de *conta*> descarregado sobre \<*número de*ficheiros > únicos numa única sessão.
+
+- **Evento de inscrição a partir de um endereço IP anónimo que leva à personificação do Office 365**
+    
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de um endereço IP de procuração anónimo \<*endereço IP*>. 
+    
+    Em seguida, a conta \<nome de *conta*> personificada sobre \<*número de*contas > diferentes numa única sessão.
+
+- **Evento de início de sessão a partir de um endereço IP anónimo que conduz à partilha de ficheiros em massa**
+    
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de um endereço IP de procuração anónimo \<*endereço IP*>. 
+    
+    Em seguida, a conta \<nome de *conta*> partilhada sobre \<*número de*ficheiros > únicos numa única sessão.
+
+- **Evento de sessão a partir de um endereço IP anónimo para ransomware na aplicação cloud**
+    
+    Este alerta é uma indicação de um evento de inscrição \<nome de *conta*> de um endereço IP de procuração anónimo \<*endereço IP*>. 
+    
+    Em seguida, a conta \<nome de *conta*> carregou \<*número de*ficheiros > e apagou um total de \<número *de*ficheiros > 
+    
+    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
+
+### <a name="sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity"></a>Atividade de login de utilizador com credenciais vazadas seguida de atividade anómala do Office 365
+
+Existem sete possíveis incidentes do Azure Sentinel que combinam atividade de login do utilizador com alertas de credenciais vazados da Proteção de Identidade Da Azure AD e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security:
+
+- **Evento de entrada de utilizador com credenciais vazadas que levam à exfiltração da caixa de correio do Office 365**
+    
+    Este alerta é uma indicação de que o evento de entrada \<pelo nome de *conta*> usou credenciais vazadas, seguido de uma regra de encaminhamento suspeita da caixa de entrada na caixa de entrada de um utilizador. 
+    
+    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<nome de *conta*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails de entrada para o endereço externo \<endereço de *e-mail*>. 
+
+- **Evento de inscrição de utilizador com credenciais vazadas que conduzem a atividade administrativa de aplicações de nuvem suspeita**
+    
+    Este alerta é uma indicação de que o evento de inscrição \<nome de *conta*> usou credenciais vazadas.
+    
+    Em seguida, a conta \<nome de *conta*> realizada ao longo de \<*número de*atividades administrativas numa única sessão.
+
+- **Evento de início de sessão do Utilizador com credenciais vazadas que conduzem à eliminação de ficheiros em massa**
+    
+    Este alerta é uma indicação de que o evento de inscrição \<nome de *conta*> usou credenciais vazadas.
+    
+    Em seguida, a conta \<nome de *conta*> apagado \<*número de*ficheiros > únicos numa única sessão.
+
+- **Evento de início de sessão do Utilizador com credenciais vazadas que levam ao download de ficheiros em massa**
+    
+    Este alerta é uma indicação de que o evento de inscrição \<nome de *conta*> usou credenciais vazadas.
+    
+    Em seguida, a conta \<nome de *conta*> descarregado sobre \<*número de*ficheiros > únicos numa única sessão.
+
+- **Evento de inscrição de utilizador com credenciais vazadas que conduzem à personificação do Office 365**
+    
+    Este alerta é uma indicação de que o evento de inscrição \<nome de *conta*> usou credenciais vazadas. 
+    
+    Em seguida, a conta \<nome de *conta*> personificada sobre \<*número de*contas > diferentes numa única sessão.
+
+- **Evento de início de sessão do Utilizador com credenciais vazadas que conduzem à partilha de ficheiros em massa**
+    
+    Este alerta é uma indicação de que o evento de inscrição \<nome de *conta*> usou credenciais vazadas.
+    
+    Em seguida, a conta \<nome de *conta*> partilhada sobre \<*número de*ficheiros > únicos numa única sessão.
+
+- **Evento de início de sessão do Utilizador com credenciais vazadas para ransomware na aplicação cloud**
+    
+    Este alerta é uma indicação de que o evento de inscrição \<nome de *conta*> usou credenciais vazadas. 
+    
+    Em seguida, a conta \<nome de *conta*> carregou \<*número de*ficheiros > e apagou um total de \<número *de*ficheiros > 
+    
+    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu mais sobre a detecção avançada de ataques de multiestágio, talvez esteja interessado no início rápido a seguir para saber como obter visibilidade de seus dados e ameaças potenciais: [Introdução ao Azure Sentinel](quickstart-get-visibility.md).
+Agora que aprendeu mais sobre a deteção avançada de ataques multipalco, pode estar interessado no seguinte início rápido para aprender a obter visibilidade nos seus dados e ameaças potenciais: [Comece com O Sentinel.](quickstart-get-visibility.md)
 
-Se você estiver pronto para investigar os incidentes que são criados para você, consulte o seguinte tutorial: [Investigue incidentes com o Azure Sentinel](tutorial-investigate-cases.md).
+Se estiver pronto para investigar os incidentes que são criados para si, consulte o seguinte tutorial: [Investigue incidentes com Azure Sentinel](tutorial-investigate-cases.md).
 

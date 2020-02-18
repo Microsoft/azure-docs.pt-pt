@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/16/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a16fb1184de5b545b3ef527b1a66ffb7b68d1ef4
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 37d895e2514d01bdbe73f42e1ba5ea5e4c46bfa1
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77197923"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372871"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autoafirmado numa política personalizada do Diretório Ativo Azure B2C
 
@@ -189,18 +189,22 @@ Também pode ligar para um perfil técnico REST API com a sua lógica de negóci
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| setting.operatingMode | Não | Para uma página de entrada, esta propriedade controla o comportamento do campo username, como a validação de entrada e mensagens de erro. Valores esperados: `Username` ou `Email`. |
+| definição.operatingMode <sup>1</sup>| Não | Para uma página de entrada, esta propriedade controla o comportamento do campo username, como a validação de entrada e mensagens de erro. Valores esperados: `Username` ou `Email`.  |
 | Permitir Gerações De Reclamações Com Valores Nulos| Não| Permitir gerar uma reclamação com valor nulo. Por exemplo, num caso, o utilizador não seleciona uma caixa de verificação.|
 | ContentDefinitionReferenceId | Sim | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este perfil técnico. |
 | EnforceEmailVerification | Não | Para a inscrição ou edição de perfil, impõe a verificação de e-mail. Valores possíveis: `true` (predefinido) ou `false`. |
 | setting.retryLimit | Não | Controla o número de vezes que um utilizador pode tentar fornecer os dados verificados com um perfil técnico de validação . Por exemplo, um utilizador tenta inscrever-se numa conta que já existe e continua a tentar até que o limite atinja.
-| Alvo de inscrição | Não | O identificador de troca de alvos de inscrição. Quando o utilizador clica no botão de inscrição, o Azure AD B2C executa o identificador de troca especificado. |
+| SignUpTarget <sup>1</sup>| Não | O identificador de troca de alvos de inscrição. Quando o utilizador clica no botão de inscrição, o Azure AD B2C executa o identificador de troca especificado. |
 | setting.showCancelButton | Não | Exibe o botão de cancelamento. Valores possíveis: `true` (padrão) ou `false` |
 | setting.showContinueButton | Não | Exibe o botão de continuação. Valores possíveis: `true` (padrão) ou `false` |
-| setting.showSignupLink | Não | Exibe o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
-| definição.esqueciPasswordLinkLocation| Não| Exibe o link de senha esquecido. Valores possíveis: `AfterInput` (predefinido) o link é apresentado na parte inferior da página ou `None` remove o link de senha esquecido.| 
+| definição.showSignupLink <sup>2</sup>| Não | Exibe o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
+| definição.esqueciPasswordLinkLocation <sup>2</sup>| Não| Exibe o link de senha esquecido. Valores possíveis: `AfterInput` (predefinido) o link é apresentado na parte inferior da página ou `None` remove o link de senha esquecido.| 
 | Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`, ou `false` (predefinido). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
 
-## <a name="cryptographic-keys"></a>Chaves de criptografia
+Notas:
+1. Disponível para definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp`, ou `unifiedssd`.
+1. Disponível para definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp`, ou `unifiedssd`. [Página layout versão](page-layout.md) 1.1.0 ou superior.
+
+## <a name="cryptographic-keys"></a>Chaves criptográficas
 
 O elemento **CryptographicKeys** não é utilizado.

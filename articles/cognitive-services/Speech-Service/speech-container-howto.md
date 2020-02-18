@@ -1,7 +1,7 @@
 ---
 title: Instalar recipientes de fala - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Instale e corra recipientes de fala. A fala a texto transcreve fluxos de áudio para texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Texto-a-fala converte texto de entrada em discurso sintetizado como o humano.
+description: Instale e corra recipientes de fala. O discurso-a-texto transcreve streams de áudio para texto em tempo real que as suas aplicações, ferramentas ou dispositivos podem consumir ou exibir. Texto-a-fala converte texto de entrada em discurso sintetizado como o humano.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme

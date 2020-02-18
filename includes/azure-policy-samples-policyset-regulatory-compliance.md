@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 02/13/2020
 ms.author: dacoulte
-ms.openlocfilehash: 6960a985a5c6a752ced9d176db6eb9368fdf0779
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: d5cf28244fadd6dc0d1d06d5a84a2082a1d1e7e9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192922"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77371869"
 ---
 |Nome |Descrição |Políticas |Versão |
 |---|---|---|---|
@@ -26,4 +26,4 @@ ms.locfileid: "77192922"
 |[Auditoria FedRAMP Altos controlos e implementação de extensões vm específicas para apoiar requisitos de auditoria](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Esta iniciativa inclui políticas de auditoria e implementação de extensão VM que abordam um subconjunto de controlos FedRAMP H. Políticas adicionais serão adicionadas nos próximos lançamentos. Para mais informações, visite https://aka.ms/fedramph-blueprint. |81 |1.0.0-pré-visualização |
 |[Audite controlos HITRUST/HIPAA e implemente extensões vm específicas para apoiar requisitos de auditoria](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |Esta iniciativa inclui políticas que abordam um subconjunto de controlos HITRUST/HIPAA. Políticas adicionais serão adicionadas nos próximos lançamentos. https://aka.ms/hipaa-blueprint |57 |1.0.0 |
 |[Audit Motion Picture Association of America (MPAA) controla e implementa extensões vm específicas para apoiar requisitos de auditoria](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/Media_audit.json) |Esta iniciativa inclui políticas que abordam um subconjunto de controlos de segurança e orientações da Motion Picture Association of America (MPAA). Políticas adicionais serão adicionadas nos próximos lançamentos. Para mais informações, visite https://aka.ms/mpaa-blueprint |45 |1.0.0-pré-visualização |
-|[Nível de impacto do D. 4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/DOD_IL4_audit.json) |Atribui políticas para abordar controlos específicos do Nível 4 (IL4) do Impacto DoD. Saiba mais - https://aka.ms/DoDIL4-blueprint. |81 |1.0.0-pré-visualização |
+|[Impacto DoD Nível 4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/DOD_IL4_audit.json) |Atribui políticas para abordar controlos específicos do Nível 4 (IL4) do Impacto DoD. Saiba mais - https://aka.ms/DoDIL4-blueprint. |81 |1.0.0-pré-visualização |

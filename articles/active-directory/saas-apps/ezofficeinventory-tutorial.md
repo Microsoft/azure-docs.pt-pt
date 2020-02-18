@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o EZOfficeInventory | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o EZOfficeInventory.
+title: 'Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a EZOfficeInventory  Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o EZOfficeInventory.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,191 +11,192 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 02/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc73d7ec81ea0105a5868ec698289bd27526a43b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5bd277eb3588743e7fb864445d4c6fc8397507b4
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893506"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370453"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o EZOfficeInventory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com o EZOfficeInventory
 
-Neste tutorial, você aprenderá a integrar o EZOfficeInventory com o Azure Active Directory (Azure AD). Ao integrar o EZOfficeInventory ao Azure AD, você pode:
+Neste tutorial, você aprenderá a integrar ezOfficeInventário com o Azure Ative Directory (Azure AD). Quando integrar o EZOfficeInventory com o Azure AD, pode:
 
-* Controle no Azure AD quem tem acesso ao EZOfficeInventory.
-* Habilite seus usuários a serem conectados automaticamente ao EZOfficeInventory com suas contas do Azure AD.
-* Gerencie suas contas em um local central-o portal do Azure.
+* Controlo em Azure AD que tem acesso ao EZOfficeInventory.
+* Ative que os seus utilizadores sejam automaticamente inscritos no EZOfficeInventory com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, você precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do EZOfficeInventory.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* A subscrição ativada pelo EZOfficeInventory (SSO) está ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* O EZOfficeInventory dá suporte ao SSO iniciado por **SP**
-
-* O EZOfficeInventory dá suporte ao provisionamento **de usuário just in time**
+* EZOfficeInventory suporta **SP** iniciado SSO
+* EZOfficeInventory suporta o fornecimento de utilizadores **justos no tempo**
+* Assim que configurar o EZOfficeInventory, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
-## <a name="adding-ezofficeinventory-from-the-gallery"></a>Adicionando o EZOfficeInventory da Galeria
+## <a name="adding-ezofficeinventory-from-the-gallery"></a>Adicionar EZOfficeInventory da galeria
 
-Para configurar a integração do EZOfficeInventory ao Azure AD, você precisará adicionar o EZOfficeInventory da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do EZOfficeInventory em Azure AD, precisa adicionar EZOfficeInventory da galeria à sua lista de aplicações saaS geridas.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **EZOfficeInventory** na caixa de pesquisa.
-1. Selecione **EZOfficeInventory** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **galeria,** **digite EZOfficeInventory** na caixa de pesquisa.
+1. Selecione **EZOfficeInventory** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-ezofficeinventory"></a>Configurar e testar o logon único do Azure AD para o EZOfficeInventory
+## <a name="configure-and-test-azure-ad-single-sign-on-for-ezofficeinventory"></a>Configure e teste Azure AD único sign-on para EZOfficeInventory
 
-Configure e teste o SSO do Azure AD com o EZOfficeInventory usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no EZOfficeInventory.
+Configure e teste Azure AD SSO com EZOfficeInventory utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no EZOfficeInventory.
 
-Para configurar e testar o SSO do Azure AD com o EZOfficeInventory, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com o EZOfficeInventory, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-1. **[Configurar o SSO do EZOfficeInventory](#configure-ezofficeinventory-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste do EZOfficeInventory](#create-ezofficeinventory-test-user)** – para ter um equivalente de B. Simon em EZOfficeInventory que esteja vinculado à representação do usuário no Azure AD.
-1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure EZOfficeInventory SSO](#configure-ezofficeinventory-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    1. Crie o utilizador de **[teste EZOfficeInventory](#create-ezofficeinventory-test-user)** - para ter uma contrapartida de B.Simon no EZOfficeInventory que esteja ligada à representação do utilizador da AD Azure.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
 
-Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **EZOfficeInventory** , localize a seção **gerenciar** e selecione **logon único**.
-1. Na página **selecionar um método de logon único** , selecione **SAML**.
-1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **EZOfficeInventory,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. Na página **de método de inscrição, selecione** **SAML**.
+1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar configuração básica de SAML](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
+1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
 
-    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.ezofficeinventory.com/users/sign_in`
+    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.ezofficeinventory.com/users/sign_in`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente do EZOfficeInventory](mailto:support@ezofficeinventory.com) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte a equipa de suporte do [cliente EZOfficeInventory](mailto:support@ezofficeinventory.com) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. O aplicativo EZOfficeInventory espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+1. A aplicação EZOfficeInventory espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
-    ![imagem](common/default-attributes.png)
+    ![image](common/default-attributes.png)
 
-1. Além de acima, o aplicativo EZOfficeInventory espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
+1. Além de acima, a aplicação EZOfficeInventory espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Nome | Atributo de origem|
+    | Nome | Atributo fonte|
     | ---------------| --------------- |
-    | First_name | user.givenname |
-    | Last_name | User. sobrenome |
-    | E-mail | user.mail |
+    | first_name | user.givenname |
+    | last_name | utilizador.sobrenome |
+    | e-mail | user.mail |
 
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
+1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar EZOfficeInventory** , copie as URLs apropriadas com base em seu requisito.
+1. Na secção **'Configurar EZOfficeInventory',** copie os URL(s) adequados com base no seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **usuário** , siga estas etapas:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. No campo **de nome do utilizador,** introduza o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao EZOfficeInventory.
+Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, concedendo acesso ao EZOfficeInventory.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **EZOfficeInventory**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **EZOfficeInventory**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![O link Adicionar usuário](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-## <a name="configure-ezofficeinventory-sso"></a>Configurar o SSO do EZOfficeInventory
+## <a name="configure-ezofficeinventory-sso"></a>Configure EZOfficeInventory SSO
 
-1. Para automatizar a configuração no EZOfficeInventory, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
+1. Para automatizar a configuração dentro do EZOfficeInventory, é necessário instalar a extensão de **navegador Secure-in das Minhas Aplicações** clicando em **instalar a extensão**.
 
-    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
-1. Depois de adicionar a extensão ao navegador, clique em **Configurar o EZOfficeInventory** irá direcioná-lo para o aplicativo EZOfficeInventory. A partir daí, forneça as credenciais de administrador para entrar no EZOfficeInventory. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-5.
+1. Depois de adicionar extensão ao navegador, clique em **Configurar EZOfficeInventory** irá direcioná-lo para a aplicação EZOfficeInventory. A partir daí, forneça as credenciais de administração para assinar no EZOfficeInventory. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-5.
 
-    ![Configuração da instalação](common/setup-sso.png)
+    ![Configuração de configuração de configuração](common/setup-sso.png)
 
-1. Se você quiser configurar o EZOfficeInventory manualmente, abra uma nova janela do navegador da Web e entre no site da empresa do EZOfficeInventory como administrador e execute as seguintes etapas:
+1. Se pretender configurar manualmente o EZOfficeInventory, abra uma nova janela do navegador web e inscreva-se no site da empresa EZOfficeInventory como administrador e execute os seguintes passos:
 
-1. No canto superior direito da página, clique em **perfil** e, em seguida, navegue até **configurações** > **Complementos**.
+1. No canto superior direito da página, clique no **Perfil** e, em seguida, navegue para **Definições** > **Add Ons**.
 
-    ![Configuração do EZOfficeInventory](./media/ezofficeinventory-tutorial/configure01.png)
+    ![Configuração EZOfficeInventário](./media/ezofficeinventory-tutorial/configure01.png)
 
-1. Role para baixo até a seção **integração SAML** , execute as seguintes etapas:
+1. Desça até à secção de **Integração SAML,** execute os seguintes passos:
 
-    ![Configuração do EZOfficeInventory](./media/ezofficeinventory-tutorial/configure02.png)
+    ![Configuração EZOfficeInventário](./media/ezofficeinventory-tutorial/configure02.png)
 
-    a. Marque a opção **habilitado** .
+    a. Verifique a opção **Ativada.**
 
-    b. Na caixa de texto **URL do provedor de identidade** , Cole o valor da URL de **logon** copiado do portal do Azure.
+    b. Na caixa de texto URL do Fornecedor de **Identidade,** colá o valor URL do **Login,** que copiou do portal Azure.
 
-    c. Abra o certificado codificado em base64 no bloco de notas, copie seu conteúdo e cole-o na caixa de texto **certificado do provedor de identidade** .
+    c. Abra o certificado codificado Base64 no bloco de notas, copie o seu conteúdo e cole-o na caixa de texto do Certificado de Fornecedor de **Identidade.**
 
-    d. Na caixa de texto **texto do botão de logon** , digite o texto do botão de logon.
+    d. Na caixa de texto do **botão login,** introduza o texto do botão de início de sessão.
 
-    e. Na caixa de texto **nome** , digite **first_name**.
+    e. Na caixa de texto **First Name,** **introduza first_name**.
 
-    f. Na caixa de texto **sobrenome** , digite **last_name**.
+    f. Na caixa de texto **De Apelido,** introduza **last_name**.
 
-    g. Na caixa de texto **email** , insira o **email**.
+    g. Na caixa de texto **por e-mail,** insira o **e-mail**.
 
-    h. Selecione sua função de acordo com seu requisito da **função EZOfficeInventory por padrão** .
+    h. Selecione a sua função de acordo com o seu requisito a partir da **função EZOfficeInventory Por** opção por defeito.
 
     i. Clique em **Atualizar**.
 
-### <a name="create-ezofficeinventory-test-user"></a>Criar usuário de teste do EZOfficeInventory
+### <a name="create-ezofficeinventory-test-user"></a>Criar o utilizador de teste EZOfficeInventory
 
-Nesta seção, um usuário chamado Brenda Simon é criado em EZOfficeInventory. O EZOfficeInventory dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no EZOfficeInventory, um novo será criado após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado no EZOfficeInventory. O EZOfficeInventory suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no EZOfficeInventory, um novo é criado após a autenticação.
 
-## <a name="test-sso"></a>Testar SSO
+## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar no bloco do EZOfficeInventory no painel de acesso, você deverá ser conectado automaticamente ao EZOfficeInventory para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo EZOfficeInventory no Painel de Acesso, deverá ser automaticamente inscrito no EZOfficeInventory para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o EZOfficeInventory com o Azure AD](https://aad.portal.azure.com/)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Experimente ezOfficeInventário com Azure AD](https://aad.portal.azure.com/)

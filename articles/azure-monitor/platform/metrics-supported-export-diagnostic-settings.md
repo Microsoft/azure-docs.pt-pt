@@ -1234,15 +1234,15 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% bytes comprometidos em uso  |  % Bytes Comprometidos em Uso  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% de tempo dPC  |  % Tempo dPC  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% Inodes Grátis  |  % Inodes livres  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% espaço livre  |  % De espaço livre  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% espaço livre  |  % De espaço livre  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% espaço livre  |  % Espaço Livre  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% espaço livre  |  % Espaço Livre  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% tempo de inatividade  |  % Tempo de inatividade  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% de tempo de interrupção  |  % tempo de interrupção  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% IO Tempo de espera  |  % Io Tempo de Espera  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% bom tempo  |  % Bom Tempo  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% tempo privilegiado  |  % Tempo Privilegiado  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% tempo do processador  |  % Tempo do processador  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% tempo do processador  |  % Tempo do processador  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% tempo do processador  |  % de tempo do processador  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% tempo do processador  |  % de tempo do processador  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% Inodes usados  |  % Inodos Usados  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% memória usada  |  % Memória Usada  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_% Espaço Usado  |  % De espaço utilizado  |  Contagem  |  Média | 
@@ -1251,23 +1251,23 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Available MBytes  |  MBytes disponíveis  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  memória Average_Available MBytes  |  MBytes de memória disponíveis  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Available Troca de MBytes  |  Troca de MBytes disponíveis  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disco seg/leitura  |  Avg. Disk sec/Read  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disco seg/leitura  |  Avg. Disk sec/Read  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disco seg/transferência  |  Avg. Disco sec/Transferência  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disco seg/escritas  |  Avg. Disk sec/Write  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disco seg/escritas  |  Avg. Disk sec/Write  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de Disco seg/Leitura  |  Avg. Disk sec/Read  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de Disco seg/Leitura  |  Avg. Disk sec/Read  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de seg de Disco/Transferência  |  Avg. Disco sec/Transferência  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de Disco seg/Escrita  |  Avg. Disk sec/Write  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de Disco seg/Escrita  |  Avg. Disk sec/Write  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Bytes recebido/seg  |  Bytes recebidos/seg  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Bytes Enviado/seg  |  Bytes enviados/seg  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Bytes Total/seg  |  Bytes Total/seg  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  comprimento da fila do disco de Average_Current  |  Comprimento da fila do disco atual  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Ler Bytes/seg  |  Bytes Lidos de Disco/seg  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  leituras Average_Disk/seg  |  Leituras de disco/seg  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  leituras Average_Disk/seg  |  Leituras de disco/seg  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  leituras Average_Disk/seg  |  Leituras de Disco/seg  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  leituras Average_Disk/seg  |  Leituras de Disco/seg  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  transferências Average_Disk/seg  |  As transferências de disco/seg  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  transferências Average_Disk/seg  |  As transferências de disco/seg  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Escrever Bytes/seg  |  Bytes Escritos em Disco/seg  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Escreve/seg  |  Escritas de disco/seg  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Escreve/seg  |  Escritas de disco/seg  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Escreve/seg  |  Escritas em disco/seg  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Escreve/seg  |  Escritas em disco/seg  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Free Megabytes  |  Megabytes livres  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Free Megabytes  |  Megabytes livres  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  memória física Average_Free  |  Memória Física Gratuita  |  Contagem  |  Média | 
@@ -1291,7 +1291,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  pacotes de Average_Total transmitidos  |  Pacotes totais transmitidos  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Total Erros Rx  |  Total de Erros Rx  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  erros Average_Total Tx  |  Total de erros Tx  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Uptime  |  Tempo de atividade  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Uptime  |  Período de atividade  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Used MBytes Swap Space  |  Espaço de troca de MBytes usado  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Used Memory kBytes  |  KBytes de memória usada  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Used Memória MBytes  |  MBytes de memória usada  |  Contagem  |  Média | 
@@ -1499,7 +1499,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.StorageCache/caches  |  StorageTargetTotalReadThroughput  |  ArmazenamentoTarget Total Read Throughput  |  BytesPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.StorageCache/caches  |  StorageTargetTotalWriteThroughput  |  StorageTarget Total Write Throughput  |  BytesPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.StorageCache/caches  |  StorageTargetWriteIOPS  |  ArmazenamentoTarget Escrever IOPS  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  Tempo de atividade  |  Tempo de atividade  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.StorageCache/caches  |  Período de atividade  |  Período de atividade  |  Contagem  |  Média | 
 | **Sim**  | Não |  microsoft.storagesync/storageSyncServices  |  ServerSyncSessionResult  |  Resultado da sessão de sincronização  |  Contagem  |  Média | 
 | **Sim**  | Não |  microsoft.storagesync/storageSyncServices  |  StorageSyncBatchTransferredFileBytes  |  Bytes sincronizados  |  Bytes  |  Total | 
 | **Sim**  | Não |  microsoft.storagesync/storageSyncServices  |  StorageSyncRecalledNetworkBytesByApplication  |  Tamanho de recolha de nível de nuvem por aplicação  |  Bytes  |  Total | 

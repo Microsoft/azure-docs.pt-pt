@@ -1,38 +1,28 @@
 ---
 title: Melhores práticas - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Utilize estas melhores práticas para melhorar a sua base de dados de conhecimento e fornecer os melhores resultados para os utilizadores finais do seu bot de aplicação/bate-papo.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 2fd85e43fb2aa53299b4e37eca5163b7da8fc6ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/15/2020
+ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843808"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370094"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 
-O [ciclo de vida de desenvolvimento de base de dados de conhecimento](../Concepts/development-lifecycle-knowledge-base.md) orienta-o sobre como gerir a sua BDC do início ao fim. Utilize estas boas práticas para melhorar a sua base de conhecimento e fornecer melhores resultados à aplicação do seu cliente ou aos utilizadores finais do chat bot.
+O ciclo de vida de desenvolvimento da base de [conhecimento](../Concepts/development-lifecycle-knowledge-base.md) guia-o sobre como gerir o seu KB do início ao fim. Utilize estas boas práticas para melhorar a sua base de conhecimento e fornecer melhores resultados à aplicação do seu cliente ou aos utilizadores finais do chat bot.
 
 ## <a name="extraction"></a>Extração
 
-O serviço QnA Maker está continuamente a melhorar os algoritmos que extrair QnAs de conteúdo e expandir a lista de ficheiro suportados e formatos HTML. Siga os [diretrizes](../Concepts/content-types.md) para extração de dados com base no seu tipo de documento.
+O serviço QnA Maker está continuamente a melhorar os algoritmos que extrair QnAs de conteúdo e expandir a lista de ficheiro suportados e formatos HTML. Siga as [diretrizes](../Concepts/content-types.md) para a extração de dados com base no seu tipo de documento.
 
 Em geral, as páginas de FAQ devem ser autónomo e não combinada com outras informações. Os manuais de produto devem ter títulos claros e preferencialmente, uma página de índice.
 
 ### <a name="configuring-multi-turn"></a>Configurar multi-turn
 
 [Crie a sua base](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure) de conhecimento com extração multi-volta ativada. Se a sua base de conhecimento fizer ou deve apoiar a hierarquia da questão, esta hierarquia pode ser extraída do documento ou criada após a extração do documento.
-
-<!--is this a global setting that can only be configured at kb creation time? -->
 
 ## <a name="creating-good-questions-and-answers"></a>Criar boas perguntas e respostas
 
@@ -57,7 +47,7 @@ As melhores respostas são respostas simples, mas não muito simples. Não utili
 |O atendimento ao cliente está disponível via telefone, Skype e mensagem de texto 24 horas por dia.|* Informações de contacto para vendas.<br> * Locais de escritório e loja e horas para uma visita presencial.<br> * Acessórios para um portátil Surface.|
 
 ## <a name="chit-chat"></a>Chit-bate-papo
-Adicionar chit-bate-papo ao seu bot, para tornar o seu bot mais conversacionais e apelativas, com esforço reduzido. Pode facilmente adicionar conjuntos de dados de chit-chat a partir de personalidades pré-definidas ao criar o seu KB, e alterá-los a qualquer momento. Saiba como [adicionar chit-bate-papo para sua BDC](../How-To/chit-chat-knowledge-base.md).
+Adicionar chit-bate-papo ao seu bot, para tornar o seu bot mais conversacionais e apelativas, com esforço reduzido. Pode facilmente adicionar conjuntos de dados de chit-chat a partir de personalidades pré-definidas ao criar o seu KB, e alterá-los a qualquer momento. Aprenda a [adicionar chit-chat ao seu KB](../How-To/chit-chat-knowledge-base.md).
 
 O chit-chat é suportado em [muitas línguas.](../how-to/chit-chat-knowledge-base.md#language-support)
 
@@ -67,7 +57,7 @@ O Chit-chat é suportado para várias personalidades predefinidas:
 |Personalidade |Ficheiro de dataset do fabricante qna |
 |---------|-----|
 |Profissional |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
-|AmigáveI |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Amigável |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
 |Espirituoso |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
 |Cuidar |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
 |Entusiasta |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
@@ -104,13 +94,13 @@ Certifique-se de que está fazendo o melhor uso dos recursos de classificação 
 
 ### <a name="choosing-a-threshold"></a>Escolher um limiar
 
-A [pontuação de confiança](confidence-score.md) padrão que é usada como um limiar é de 50, no entanto pode [alterar o limiar](confidence-score.md#set-threshold) para o seu KB com base nas suas necessidades. Uma vez que cada KB é diferente, deve testar e escolha o limiar de que é melhor adequado para seu KB.
+A [pontuação de confiança](confidence-score.md) padrão que é usada como um limiar é 0, no entanto pode [alterar o limiar](confidence-score.md#set-threshold) para o seu KB com base nas suas necessidades. Uma vez que cada KB é diferente, deve testar e escolha o limiar de que é melhor adequado para seu KB.
 
 ### <a name="choosing-ranker-type"></a>Escolher o tipo Ranker
-Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar apenas as perguntas, para gerar uma resposta, use o `RankerType=QuestionOnly` no corpo da POSTAgem da solicitação GenerateAnswer.
+Por padrão, o QnA Maker procura através de perguntas e respostas. Se quiser pesquisar apenas através de perguntas, para gerar uma resposta, utilize o `RankerType=QuestionOnly` no corpo POST do pedido GenerateAnswer.
 
 ### <a name="add-alternate-questions"></a>Adicionar perguntas alternativas
-[Alternate perguntas](../How-To/edit-knowledge-base.md) melhorar a probabilidade de uma correspondência com uma consulta de utilizador. Perguntas alternativas são úteis quando existem múltiplas formas em que pode ser solicitada a mesma pergunta. Isto pode incluir alterações na estrutura da sentença e estilo do word.
+[Perguntas alternativas](../How-To/edit-knowledge-base.md) melhoram a probabilidade de um jogo com uma consulta do utilizador. Perguntas alternativas são úteis quando existem múltiplas formas em que pode ser solicitada a mesma pergunta. Isto pode incluir alterações na estrutura da sentença e estilo do word.
 
 |Consulta original|Consultas alternativas|Alterar|
 |--|--|--|
@@ -121,7 +111,7 @@ Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Use etiquetas de metadados para filtrar perguntas e respostas
 
-[Os metadados](../How-To/edit-knowledge-base.md) adicionam a capacidade de uma aplicação do cliente saber que não deve aceitar todas as respostas, mas sim reduzir os resultados de uma consulta de utilizador com base em etiquetas de metadados. A resposta da base de dados de conhecimento pode ser diferente consoante a marca de metadados, mesmo que a consulta é o mesmo. Por exemplo, *"onde está localizado de estacionamento"* pode ter uma resposta diferente se a localização do ramo restaurante for diferente, ou seja, os metadados são *localização: Seattle* versus *localização: Redmond*.
+[Os metadados](../How-To/edit-knowledge-base.md) adicionam a capacidade de uma aplicação do cliente saber que não deve aceitar todas as respostas, mas sim reduzir os resultados de uma consulta de utilizador com base em etiquetas de metadados. A resposta da base de dados de conhecimento pode ser diferente consoante a marca de metadados, mesmo que a consulta é o mesmo. Por exemplo, *"onde está localizado o estacionamento"* pode ter uma resposta diferente se a localização do ramo do restaurante for diferente - isto é, os metadados são *Localização: Seattle* versus *Localização: Redmond*.
 
 ### <a name="use-synonyms"></a>Utilizar sinónimos
 Embora exista algum apoio para sinónimos na língua inglesa, use alterações de palavras insensíveis através da [API alterações](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos a palavras-chave que tomam formadiferente. Os sinónimos são adicionados ao nível de serviço qnA Maker e partilhados por todas as bases de conhecimento do serviço.
@@ -137,13 +127,13 @@ Por exemplo, pode ter dois QnAs separados com as seguintes perguntas:
 
 |QnAs|
 |--|
-|onde está o estacionamento *localização*|
+|onde é o *local* de estacionamento|
 |onde está a *localização* do multibanco|
 
-Uma vez que estes dois QnAs são dizer com palavras muito semelhantes, essa semelhança poderia causar pontuações muito semelhantes para muitas consultas de utilizador que estão a dizer, como *"em que é o `<x>` localização"* . Em vez disso, tente diferenciar claramente com consultas como *"onde está o estacionamento"* e *"onde está o multibanco",* evitando palavras como "localização" que poderia estar em muitas questões no seu KB.
+Uma vez que estes dois QnAs são formulados com palavras muito semelhantes, esta semelhança pode causar pontuações muito semelhantes para muitas consultas de utilizadores que são ditas como *"onde está a localização `<x>`".* Em vez disso, tente diferenciar claramente com consultas como *"onde está o estacionamento"* e *"onde está o multibanco",* evitando palavras como "localização" que poderia estar em muitas questões no seu KB.
 
 ## <a name="collaborate"></a>Colaboração
-A ferramenta QnA Maker permite que os usuários [colaborar](../How-to/collaborate-knowledge-base.md) numa base de dados de conhecimento. Os utilizadores precisam de acesso para o grupo de recursos do Azure QnA Maker para acessar as bases de dados de conhecimento. Algumas organizações poderão querer terceirizar a edição de base de dados de conhecimento e a manutenção e continuará a poder proteger o acesso aos seus recursos do Azure. Esse modelo de aprovador de editor é feito ao configurar dois idêntico [serviços do QnA Maker](../How-to/set-up-qnamaker-service-azure.md) em diferentes subscrições e selecionando um para o ciclo de teste de edição. Assim que o teste estiver concluído, o conteúdo de base de dados é transferido com um [importação-exportação](../Tutorials/migrate-knowledge-base.md) processos para o serviço QnA Maker do aprovador que finalmente publicar a base de dados de conhecimento e atualizar o ponto final.
+O QnA Maker permite que os utilizadores [colaborem](../How-to/collaborate-knowledge-base.md) numa base de conhecimento. Os utilizadores precisam de acesso para o grupo de recursos do Azure QnA Maker para acessar as bases de dados de conhecimento. Algumas organizações poderão querer terceirizar a edição de base de dados de conhecimento e a manutenção e continuará a poder proteger o acesso aos seus recursos do Azure. Este modelo de aprovação de editores é feito através da criação de dois [serviços idênticos da QnA Maker](../How-to/set-up-qnamaker-service-azure.md) em diferentes subscrições e selecionando um para o ciclo de testes de edição. Uma vez terminados os testes, os conteúdos da base de conhecimentos são transferidos com um processo [de importação-exportação](../Tutorials/migrate-knowledge-base.md) para o serviço QnA Maker do aprovador que irá finalmente publicar a base de conhecimentos e atualizar o ponto final.
 
 
 
@@ -154,4 +144,4 @@ A ferramenta QnA Maker permite que os usuários [colaborar](../How-to/collaborat
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Editar uma base de dados de conhecimento](../How-to/edit-knowledge-base.md)
+> [Editar uma base de conhecimento](../How-to/edit-knowledge-base.md)

@@ -1,6 +1,6 @@
 ---
-title: Redefinição de senha de autoatendimento para Windows-Azure Active Directory
-description: Como habilitar a redefinição de senha de autoatendimento usando a senha esquecida na tela de logon do Windows
+title: Reset de senha de autosserviço para Windows - Diretório Ativo Azure
+description: Como permitir o reset da palavra-passe de self-service utilizando a palavra-passe esquecida no ecrã de login do Windows
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,53 +11,55 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847291"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370070"
 ---
-# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como habilitar a redefinição de senha na tela de logon do Windows
+# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como: Ativar a reposição da palavra-passe a partir do ecrã de login do Windows
 
-Para computadores que executam o Windows 7, 8, 8,1 e 10, você pode permitir que os usuários redefinam sua senha na tela de logon do Windows. Os usuários não precisam mais localizar um dispositivo com um navegador da Web para acessar o [portal do SSPR](https://aka.ms/sspr).
+Para máquinas que executam o Windows 7, 8, 8.1 e 10, pode permitir que os utilizadores reiniciem a sua palavra-passe no ecrã de login do Windows. Os utilizadores já não têm de encontrar um dispositivo com um navegador web para aceder ao [portal SSPR.](https://aka.ms/sspr)
 
-![Exemplo de telas de logon do Windows 7 e 10 com o link SSPR mostrado](./media/howto-sspr-windows/windows-reset-password.png)
+![Exemplo Windows 7 e 10 ecrãs de login com link SSPR mostrado](./media/howto-sspr-windows/windows-reset-password.png)
 
 ## <a name="general-limitations"></a>Limitações gerais
 
-- Atualmente, a redefinição de senha não tem suporte de uma Área de Trabalho Remota ou de sessões avançadas do Hyper-V.
-- Esse recurso não funciona para redes com autenticação de rede 802.1 x implantada e a opção "executar imediatamente antes do logon do usuário". Para redes com autenticação de rede 802.1 x implantada, é recomendável usar a autenticação do computador para habilitar esse recurso.
-- Os computadores ingressados no Azure AD híbrido devem ter a linha de visão de conectividade de rede para um controlador de domínio para usar a nova senha e atualizar as credenciais armazenadas em cache.
-- Se estiver usando uma imagem, antes de executar o Sysprep, verifique se o cache da Web foi limpo para o administrador interno antes de executar a etapa CopyProfile. Mais informações sobre essa etapa podem ser encontradas no artigo de suporte [desempenho ruim ao usar o perfil de usuário padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
-- As configurações a seguir são conhecidas por interferir na capacidade de usar e redefinir senhas em dispositivos Windows 10
-    - Se Ctrl + Alt + Del for exigido pela política em versões do Windows 10 antes do v1809, a **redefinição da senha** não funcionará.
-    - Se as notificações da tela de bloqueio estiverem desativadas, a opção **Redefinir senha** não funcionará.
-    - HideFastUserSwitching é definido como Enabled ou 1
-    - DontDisplayLastUserName é definido como Enabled ou 1
-    - Nobloqueio de tela está definido como habilitado ou 1
+- O reset da palavra-passe não é suportado atualmente a partir de um Ambiente de Trabalho Remoto ou de sessões melhoradas em Hyper-V.
+- Alguns fornecedores de credenciais de terceiros são conhecidos por causar problemas com esta funcionalidade.
+- Desativar a UAC através da modificação da chave de [registo EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) é conhecida por causar problemas.
+- Esta funcionalidade não funciona para redes com autenticação de rede 802.1x implementada e a opção "Execute imediatamente antes do início do utilizador". Para redes com autenticação de rede 802.1x implementada, recomenda-se utilizar a autenticação da máquina para ativar esta funcionalidade.
+- As máquinas híbridas Azure AD devem ter linha de conectividade de rede para um controlador de domínio para usar a nova palavra-passe e atualizar credenciais em cache.
+- Se utilizar uma imagem, antes de executar a sysprep certifique-se de que a cache web é limpa para o Administrador incorporado antes de executar o passo CopyProfile. Mais informações sobre este passo podem ser encontradas no artigo de suporte [Desempenho pobre ao utilizar o perfil de utilizador padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
+- As seguintes definições são conhecidas por interferirem na capacidade de utilização e redefinição de palavras-passe nos dispositivos Windows 10
+    - Se ctrl+Alt+Del for exigido por política em versões do Windows 10 antes do v1809, a **palavra-passe Reset** não funcionará.
+    - Se as notificações do ecrã de bloqueio forem desligadas, **a palavra-passe de reset** não funcionará.
+    - HideFastUserSwitching está definido para ativado ou 1
+    - DontDisplayLastUserName está definido para ativado ou 1
+    - NoLockScreen está definido para ativado ou 1
     - EnableLostMode está definido no dispositivo
-    - O Explorer. exe é substituído por um shell personalizado
-- A combinação das três configurações específicas a seguir pode fazer com que esse recurso não funcione.
-    - Logon interativo: não exigir CTRL + ALT + DEL = Disabled
-    - DisableLockScreenAppNotifications = 1 ou habilitado
-    - IsContentDeliveryPolicyEnforced = 1 ou true
+    - Explorer.exe é substituído por uma concha personalizada
+- A combinação das seguintes três definições específicas pode fazer com que esta função não funcione.
+    - Logon interativo: Não requerer CTRL+ALT+DEL = Desativado
+    - DesactivarNotificações de AppsDoScreen = 1 ou Ativado
+    - IsContentDeliveryPolicyEnforced = 1 ou True
 
-## <a name="windows-10-password-reset"></a>Redefinição de senha do Windows 10
+## <a name="windows-10-password-reset"></a>Reset de palavra-passe do Windows 10
 
 ### <a name="windows-10-prerequisites"></a>Pré-requisitos do Windows 10
 
-- Um administrador deve habilitar a redefinição de senha de autoatendimento do Azure AD no portal do Azure.
-- **Os usuários devem se registrar no SSPR antes de usar esse recurso**
-- Requisitos de proxy de rede
-   - Dispositivos com o Windows 10 
-       - Porta 443 para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
-       - Dispositivos Windows 10 dão suporte apenas à configuração de proxy no nível de computador
-- Execute pelo menos o Windows 10, versão de abril de 2018 atualização (v1803) e os dispositivos devem ser:
+- Um administrador deve ativar a reposição da palavra-passe de autosserviço Azure AD a partir do portal Azure.
+- **Os utilizadores devem registar-se para o SSPR antes de utilizarem esta funcionalidade**
+- Requisitos de procuração de rede
+   - Dispositivos Windows 10 
+       - Porto 443 para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
+       - Os dispositivos Windows 10 suportam apenas a configuração de proxy ao nível da máquina
+- Executar pelo menos o Windows 10, versão abril 2018 Update (v1803), e os dispositivos devem ser:
     - Ingressado no Azure AD
     - Ingressado no Azure AD híbrido
 
-### <a name="enable-for-windows-10-using-intune"></a>Habilitar para Windows 10 usando o Intune
+### <a name="enable-for-windows-10-using-intune"></a>Ativar para windows 10 usando Intune
 
 Implementar a alteração da configuração para ativar a reposição de palavra-passe no ecrã de início de sessão com o Intune é o método mais flexível. O Intune permite implementar a alteração de configuração num grupo específico de máquinas que definir. Este método exige a inscrição do dispositivo no Intune.
 
@@ -79,81 +81,81 @@ Implementar a alteração da configuração para ativar a reposição de palavra
       - Clique em **OK**
    - Clique em **OK**
 1. Clique em **Criar**.
-1. Essa política pode ser atribuída a usuários, dispositivos ou grupos específicos. Mais informações podem ser encontradas no artigo [atribuir perfis de usuário e de dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. Esta política pode ser atribuída a utilizadores, dispositivos ou grupos específicos. Mais informações podem ser encontradas no artigo Atribuir perfis de [utilizador e dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 
-### <a name="enable-for-windows-10-using-the-registry"></a>Habilitar para Windows 10 usando o registro
+### <a name="enable-for-windows-10-using-the-registry"></a>Ativar para windows 10 utilizando o Registo
 
-1. Entrar no computador Windows usando credenciais administrativas
+1. Inscreva-se no PC do Windows usando credenciais administrativas
 1. Execute **regedit** como administrador
 1. Defina a chave de registo seguinte
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
 
-#### <a name="troubleshooting-windows-10-password-reset"></a>Solucionando problemas de redefinição de senha do Windows 10
+#### <a name="troubleshooting-windows-10-password-reset"></a>Resolução de problemas da palavra-passe do Windows 10
 
 O registo de auditoria do Azure AD irá incluir informações sobre o endereço IP e ClientType onde ocorreu a reposição de palavra-passe.
 
-![Exemplo de redefinição de senha do Windows 7 no log de auditoria do Azure AD](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Exemplo: Reset de palavra-passe do Windows 7 no registo de auditoria da AD Azure](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Quando os usuários redefinem sua senha na tela de logon de um dispositivo Windows 10, uma conta temporária de baixo privilégio chamada `defaultuser1` é criada. Essa conta é usada para manter o processo de redefinição de senha seguro. A conta em si tem uma senha gerada aleatoriamente, não aparece para entrar no dispositivo e será removida automaticamente depois que o usuário redefinir sua senha. Vários perfis de `defaultuser` podem existir, mas podem ser ignorados com segurança.
+Quando os utilizadores reiniciam a sua palavra-passe a partir do ecrã de login de um dispositivo Windows 10, é criada uma conta temporária de baixo privilégio chamada `defaultuser1`. Esta conta é utilizada para manter o processo de reset da palavra-passe seguro. A conta em si tem uma senha gerada aleatoriamente, não aparece para iniciar sessão do dispositivo e será automaticamente removida após o utilizador redefinir a sua palavra-passe. Vários perfis `defaultuser` podem existir, mas podem ser ignorados com segurança.
 
-## <a name="windows-7-8-and-81-password-reset"></a>Redefinição de senha do Windows 7, 8 e 8,1
+## <a name="windows-7-8-and-81-password-reset"></a>Reset de senha do Windows 7, 8 e 8.1
 
-### <a name="windows-7-8-and-81-prerequisites"></a>Pré-requisitos do Windows 7, 8 e 8,1
+### <a name="windows-7-8-and-81-prerequisites"></a>Pré-requisitos do Windows 7, 8 e 8.1
 
-- Um administrador deve habilitar a redefinição de senha de autoatendimento do Azure AD no portal do Azure.
-- **Os usuários devem se registrar no SSPR antes de usar esse recurso**
-- Requisitos de proxy de rede
-   - Dispositivos Windows 7, 8 e 8,1
-       - Porta 443 para `passwordreset.microsoftonline.com`
-- Sistema operacional Windows 7 ou Windows 8.1 corrigido.
-- TLS 1,2 habilitado usando as diretrizes encontradas nas [configurações do registro de TLS (segurança da camada de transporte)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12).
-- Se mais de um provedor de credenciais de terceiros estiver habilitado em seu computador, os usuários verão mais de um perfil de usuário na tela de logon.
+- Um administrador deve ativar a reposição da palavra-passe de autosserviço Azure AD a partir do portal Azure.
+- **Os utilizadores devem registar-se para o SSPR antes de utilizarem esta funcionalidade**
+- Requisitos de procuração de rede
+   - Dispositivos Windows 7, 8 e 8.1
+       - Porto 443 a `passwordreset.microsoftonline.com`
+- Sistema operativo Remendado do Windows 7 ou Windows 8.1.
+- TLS 1.2 ativado utilizando as orientações encontradas nas definições de registo de Segurança da Camada de [Transporte (TLS).](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12)
+- Se mais de um terceiro fornecedor de credenciais estiver ativado na sua máquina, os utilizadores verão mais de um perfil de utilizador no ecrã de login.
 
 > [!WARNING]
-> O TLS 1,2 deve ser habilitado, não apenas definido como negociação automática
+> TLS 1.2 deve ser ativado, não apenas definido para negociar automaticamente
 
-### <a name="install"></a>Instalação
+### <a name="install"></a>Instalar
 
-1. Baixe o instalador apropriado para a versão do Windows que você deseja habilitar.
-   - O software está disponível no centro de download da Microsoft em [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
-1. Entre no computador onde você deseja instalar e execute o instalador.
-1. Após a instalação, é altamente recomendável reinicializar.
-1. Após a reinicialização, na tela de logon, escolha um usuário e clique em "esqueceu a senha?" para iniciar o fluxo de trabalho de redefinição de senha.
-1. Conclua o fluxo de trabalho seguindo as etapas na tela para redefinir sua senha.
+1. Descarregue o instalador apropriado para a versão do Windows que gostaria de ativar.
+   - O software está disponível no centro de descarregamento da Microsoft em [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+1. Inscreva-se na máquina onde pretende instalar e execute o instalador.
+1. Após a instalação, é altamente recomendado um reboot.
+1. Após o reboot, no ecrã de login escolha um utilizador e clique em "Esqueci-me da palavra-passe?" para iniciar o fluxo de trabalho de reset da palavra-passe.
+1. Complete o fluxo de trabalho seguindo os passos no ecrã para redefinir a sua palavra-passe.
 
-![Exemplo, o Windows 7 clicou em "esqueceu a senha?" Fluxo de SSPR](media/howto-sspr-windows/windows-7-sspr.png)
+![Exemplo do Windows 7 clicou "Esqueci-me da palavra-passe?" Fluxo de SSPR](media/howto-sspr-windows/windows-7-sspr.png)
 
-#### <a name="silent-installation"></a>Instalação automática
+#### <a name="silent-installation"></a>Instalação silenciosa
 
-- Para instalação silenciosa, use o comando "msiexec/i SsprWindowsLogon. PROD. msi/qn"
-- Para desinstalação silenciosa, use o comando "msiexec/x SsprWindowsLogon. PROD. msi/qn"
+- Para a instalação silenciosa, utilize o comando "msiexec /i SsprWindowsLogon.PROD.msi /qn"
+- Para desinstalar silenciosamente, utilize o comando "msiexec /x SsprWindowsLogon.PROD.msi /qn"
 
-#### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Solução de problemas de redefinição de senha do Windows 7, 8 e 8,1
+#### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Resolução de problemas Do Windows 7, 8 e 8.1 reset de senha
 
-Os eventos serão registrados no computador e no Azure AD. Os eventos do AD do Azure incluirão informações sobre o endereço IP e o ClientType em que a redefinição de senha ocorreu.
+Os eventos serão registados tanto na máquina como no Azure AD. Os Eventos AD Azure incluirão informações sobre o endereço IP e o ClientType onde ocorreu o reset da palavra-passe.
 
-![Exemplo de redefinição de senha do Windows 7 no log de auditoria do Azure AD](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Exemplo: Reset de palavra-passe do Windows 7 no registo de auditoria da AD Azure](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Se o registro em log adicional for necessário, uma chave do registro no computador poderá ser alterada para habilitar o log detalhado. Habilite o log detalhado apenas para fins de solução de problemas.
+Se for necessário um registo adicional, pode ser alterada uma chave de registo na máquina para permitir a exploração verbosa. Ative a exploração verbosa apenas para fins de resolução de problemas.
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Para habilitar o log detalhado, crie um `REG_DWORD: “EnableLogging”`e defina-o como 1.
-- Para desabilitar o log detalhado, altere o `REG_DWORD: “EnableLogging”` para 0.
+- Para permitir a exploração madeireira verbosa, crie uma `REG_DWORD: “EnableLogging”`, e coloque-a em 1.
+- Para desativar a exploração madeireira verbosa, mude a `REG_DWORD: “EnableLogging”` para 0.
 
 ## <a name="what-do-users-see"></a>O que os utilizadores veem
 
-Agora que você configurou a redefinição de senha para seus dispositivos Windows, o que muda para o usuário? Como é que podem saber que é permitido repor a palavra-passe no ecrã de início de sessão?
+Agora que configurao reset de palavra-passe para os seus dispositivos Windows, quais as alterações para o utilizador? Como é que podem saber que é permitido repor a palavra-passe no ecrã de início de sessão?
 
-![Exemplo de telas de logon do Windows 7 e 10 com o link SSPR mostrado](./media/howto-sspr-windows/windows-reset-password.png)
+![Exemplo Windows 7 e 10 ecrãs de login com link SSPR mostrado](./media/howto-sspr-windows/windows-reset-password.png)
 
-Quando os usuários tentam entrar, eles agora veem um link **Redefinir senha** ou **esqueceu a senha** que abre a experiência de redefinição de senha de autoatendimento na tela de logon. Com esta funcionalidade, os utilizadores podem repor as palavras-passe sem terem de utilizar outro dispositivo para aceder a um browser.
+Quando os utilizadores tentam iniciar sessão, vêem agora uma **palavra-passe redefinida** ou uma **ligação de palavra-passe esquecida** que abre a experiência de reset de palavra-passe de autosserviço no ecrã de login. Com esta funcionalidade, os utilizadores podem repor as palavras-passe sem terem de utilizar outro dispositivo para aceder a um browser.
 
 Os seus utilizadores podem obter orientações sobre como utilizar esta funcionalidade em [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md) (Repor a palavra-passe da conta escolar ou profissional)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Planejar métodos de autenticação para permitir](concept-authentication-methods.md)
+[Planear métodos de autenticação para permitir](concept-authentication-methods.md)
 
-[Configurar o Windows 10](https://docs.microsoft.com/windows/configuration/)
+[Configure o Windows 10](https://docs.microsoft.com/windows/configuration/)

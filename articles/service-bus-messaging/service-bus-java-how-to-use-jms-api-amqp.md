@@ -1,6 +1,6 @@
 ---
-title: Usar o AMQP com a API do serviço de mensagens Java & barramento de serviço do Azure
-description: Como usar o Java Message Service (JMS) com o barramento de serviço do Azure e o Advanced Message Queuing Protocol (AMQP) 1,0.
+title: Utilize AMQP com java message service API & Azure Service Bus
+description: Como utilizar o Java Message Service (JMS) com o Azure Service Bus e o Protocolo avançado de Fila de Mensagens (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -14,42 +14,42 @@ ms.topic: article
 ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c0c7e8b6066626966e2a72d474306bae4ead14c2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: cd06838abbb69af5684fdea18c42f6a8f95ffe2f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027228"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371266"
 ---
-# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Usar o Java Message Service (JMS) com o barramento de serviço do Azure e o AMQP 1,0
-Este artigo explica como usar os recursos de mensagens do barramento de serviço do Azure (tópicos de filas e publicação/assinatura) de aplicativos Java usando o popular padrão de API JMS (Java Message Service). Há um [artigo complementar](service-bus-amqp-dotnet.md) que explica como fazer o mesmo usando a API .net do barramento de serviço do Azure. Você pode usar esses dois guias juntos para saber mais sobre mensagens de plataforma cruzada usando o AMQP 1,0.
+# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Utilize o Java Message Service (JMS) com o Azure Service Bus e o AMQP 1.0
+Este artigo explica como usar funcionalidades de mensagens Azure Service Bus (filas e tópicos de publicação/subscrição) a partir de aplicações Java utilizando a popular norma API do Java Message Service (JMS). Há um artigo de [acompanhante](service-bus-amqp-dotnet.md) que explica como fazer o mesmo usando o Azure Service Bus .NET API. Pode utilizar estes dois guias em conjunto para aprender sobre mensagens cross-platform usando AMQP 1.0.
 
-O Advanced Message Queuing Protocol (AMQP) 1,0 é um protocolo de mensagens eficiente, confiável e de nível de conexão que você pode usar para criar aplicativos de mensagens robustos e entre plataformas.
+O Protocolo de Fila de Mensagens Avançadas (AMQP) 1.0 é um protocolo de mensagens eficiente, fiável e de nível de fio que pode usar para construir aplicações de mensagens robustas e transplataformas.
 
-O suporte para AMQP 1,0 no barramento de serviço do Azure significa que você pode usar o enfileiramento e publicar/assinar recursos de mensagens orientadas de uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos compostos por componentes criados usando uma combinação de linguagens, estruturas e sistemas operacionais.
+Suporte para AMQP 1.0 em Ônibus de serviço Azure significa que você pode usar as funcionalidades de mensagens intermediadas de fila e subscrição de uma série de plataformas usando um protocolo binário eficiente. Além disso, pode construir aplicações compostas por componentes construídos utilizando uma mistura de línguas, quadros e sistemas operativos.
 
 ## <a name="get-started-with-service-bus"></a>Introdução ao Service Bus
-Este guia pressupõe que você já tem um namespace do barramento de serviço que contém uma fila chamada **basicqueue**. Se você não fizer isso, poderá [criar o namespace e a fila](service-bus-create-namespace-portal.md) usando o [portal do Azure](https://portal.azure.com). Para obter mais informações sobre como criar filas e namespaces do barramento de serviço, consulte Introdução [às filas do barramento de serviço](service-bus-dotnet-get-started-with-queues.md).
+Este guia assume que já tem um espaço de nome service Bus contendo uma fila chamada `basicqueue`. Se não o fizer, pode criar o espaço de [nome e a fila](service-bus-create-namespace-portal.md) utilizando o portal [Azure](https://portal.azure.com). Para obter mais informações sobre como criar espaços de nome sinuosos e filas de ônibus de serviço, consulte [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
-> Filas e tópicos particionados também dão suporte a AMQP. Para obter mais informações, consulte [entidades de mensagens particionadas](service-bus-partitioning.md) e [suporte a AMQP 1,0 para filas e tópicos particionados do barramento de serviço](service-bus-partitioned-queues-and-topics-amqp-overview.md).
+> Filas e tópicos divididos também suportam amqp. Para mais informações, consulte as entidades de [mensagens divididas](service-bus-partitioning.md) e o [suporte amqP 1.0 para filas e tópicos divididos](service-bus-partitioned-queues-and-topics-amqp-overview.md)do Bus de Serviço.
 > 
 > 
 
-## <a name="downloading-the-amqp-10-jms-client-library"></a>Baixando a biblioteca de cliente AMQP 1,0 JMS
-Para obter informações sobre onde baixar a versão mais recente da biblioteca de cliente Apache QPID JMS AMQP 1,0, visite [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+## <a name="downloading-the-amqp-10-jms-client-library"></a>Descarregar a biblioteca de clientes AMQP 1.0 JMS
+Para obter informações sobre onde descarregar a versão mais recente da biblioteca de clientes Apache Qpid JMS AMQP 1.0, visite [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
-Você deve adicionar os quatro arquivos JAR a seguir do arquivo de distribuição apache QPID JMS AMQP 1,0 ao CLASSPATH Java ao compilar e executar aplicativos JMS com o barramento de serviço:
+Deve adicionar os seguintes quatro ficheiros JAR do arquivo de distribuição Apache Qpid JMS AMQP 1.0 ao Java CLASSPATH ao construir e executar aplicações JMS com Bus de Serviço:
 
-* Geronimo-JMS\_1,1\_spec-1.0. jar
-* qpid-JMS-Client-[versão]. jar
+* geronimo-jms\_1,1\_spec-1.0.jar
+* qpid-jms-client-[version].jar
 
 > [!NOTE]
-> As versões e os nomes de JAR JMS podem ter sido alterados. Para obter detalhes, consulte [QPID JMS-AMQP 1,0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
+> Os nomes e versões jMS JAR podem ter mudado. Para mais detalhes, consulte [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 
-## <a name="coding-java-applications"></a>Codificando aplicativos Java
-### <a name="java-naming-and-directory-interface-jndi"></a>Interface de nomenclatura e diretório de Java (JNDI)
-O JMS usa o nome do Java e o JNDI (interface de diretório) para criar uma separação entre nomes lógicos e físicos. Dois tipos de objetos JMS são resolvidos usando JNDI: ConnectionFactory e Destination. O JNDI usa um modelo de provedor no qual você pode conectar diferentes serviços de diretório para lidar com as tarefas de resolução de nomes. A biblioteca Apache QPID JMS AMQP 1,0 vem com um provedor JNDI baseado em arquivo de propriedades simples que é configurado usando um arquivo de propriedades do seguinte formato:
+## <a name="coding-java-applications"></a>Codificar aplicações Java
+### <a name="java-naming-and-directory-interface-jndi"></a>Java Naming and Directy Interface (JNDI)
+O JMS utiliza a Java Naming and Directory Interface (JNDI) para criar uma separação entre nomes lógicos e nomes físicos. Dois tipos de objetos JMS são resolvidos usando O JNDI: ConnectionFactory e Destination. O JNDI utiliza um modelo de fornecedor no qual pode ligar diferentes serviços de diretório saem para lidar com os deveres de resolução de nomes. A biblioteca Apache Qpid JMS AMQP 1.0 vem com um simples fornecedor jndi baseado em ficheiros de propriedade que é configurado usando um ficheiro de propriedades do seguinte formato:
 
 ```TEXT
 # servicebus.properties - sample JNDI configuration
@@ -64,9 +64,9 @@ connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].serv
 queue.QUEUE = queue1
 ```
 
-#### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>Configurar contexto JNDI e configure o ConnectionFactory
+#### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>Configurar o contexto JNDI e configurar a ConnectionFactory
 
-O **ConnectionString** referenciado no disponível nas ' políticas de acesso compartilhado ' no [portal do Azure](https://portal.azure.com) em uma **cadeia de conexão primária**
+O **ConnectionString** referenciado no disponível nas "Políticas de Acesso Partilhado" no [portal Azure](https://portal.azure.com) sob string de **conexão primária**
 ```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
@@ -86,10 +86,10 @@ ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
 Destination queue = (Destination) context.lookup("QUEUE");
 ```
 
-#### <a name="configure-producer-and-consumer-destination-queues"></a>Configurar as filas de destino do produtor e do consumidor
-A entrada usada para definir um destino no arquivo de propriedades QPID do provedor JNDI é do seguinte formato:
+#### <a name="configure-producer-and-consumer-destination-queues"></a>Configure Filas de Destino de Produtor e Consumidor
+A entrada utilizada para definir um destino no ficheiro de propriedades Qpid o fornecedor JNDI é do seguinte formato:
 
-Para criar a fila de destino para o produtor- 
+Para criar a fila de destino para o Produtor - 
 ```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
@@ -103,7 +103,7 @@ Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 MessageProducer producer = session.createProducer(queue);
 ```
 
-Para criar uma fila de destino para o consumidor- 
+Para criar uma fila de destino para o Consumidor - 
 ```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
@@ -117,11 +117,11 @@ Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 MessageConsumer consumer = session.createConsumer(queue);
 ```
 
-### <a name="write-the-jms-application"></a>Escrever o aplicativo JMS
-Não há APIs ou opções especiais necessárias ao usar o JMS com o barramento de serviço. No entanto, há algumas restrições que serão abordadas posteriormente. Assim como acontece com qualquer aplicativo JMS, a primeira coisa necessária é a configuração do ambiente JNDI, para poder resolver um **ConnectionFactory** e destinos.
+### <a name="write-the-jms-application"></a>Escreva o pedido JMS
+Não existem APIs ou opções especiais necessárias ao utilizar JMS com ônibus de serviço. No entanto, existem algumas restrições que serão abordadas mais tarde. Como em qualquer aplicação JMS, a primeira coisa necessária é a configuração do ambiente JNDI, para ser capaz de resolver uma **ConnectionFactory** e destinos.
 
-#### <a name="configure-the-jndi-initialcontext"></a>Configurar o JNDI InitialContext
-O ambiente JNDI é configurado passando uma tabela de hash de informações de configuração para o construtor da classe javax. naming. InitialContext. Os dois elementos necessários na tabela de hash são o nome da classe da fábrica de contexto inicial e a URL do provedor. O código a seguir mostra como configurar o ambiente JNDI para usar o provedor JNDI baseado em arquivo de propriedades QPID com um arquivo de propriedades chamado **ServiceBus. Properties**.
+#### <a name="configure-the-jndi-initialcontext"></a>Configure o Contexto Inicial do JNDI
+O ambiente JNDI é configurado através da passagem de um hashtable de informação de configuração para o construtor da classe javax.naming.InitialContext. Os dois elementos necessários no hashtable são o nome de classe da Fábrica de Contexto Inicial e do URL do Fornecedor. O código seguinte mostra como configurar o ambiente JNDI para usar o ficheiro de propriedades Qpid baseado em JNDI Provider com um ficheiro de propriedades chamado **servicebus.properties**.
 
 ```java
 // set up JNDI context
@@ -133,10 +133,10 @@ hashtable.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInit
 Context context = new InitialContext(hashtable);
 ``` 
 
-### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Um aplicativo JMS simples usando uma fila do barramento de serviço
-O programa de exemplo a seguir envia mensagens JMS para uma fila do barramento de serviço com o nome lógico JNDI da fila e recebe as mensagens de volta.
+### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Uma aplicação JMS simples usando uma fila de ônibus de serviço
+O programa de exemplo seguinte envia Mensagens de Texto JMS para uma fila de ônibus de serviço com o nome lógico JNDI da FILA, e recebe as mensagens de volta.
 
-Você pode acessar todas as informações de código-fonte e de configuração da [fila JMS de exemplos do barramento de serviço do Azure início rápido](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart)
+Todos vocês podem aceder a todas as informações de código de origem e configuração do [Azure Service Bus Samples JMS Queue quickstart](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart)
 
 ```java
 // Copyright (c) Microsoft. All rights reserved.
@@ -298,8 +298,8 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>Executar a aplicação
-Passe a **cadeia de conexão** das políticas de acesso compartilhado para executar o aplicativo.
-Abaixo está a saída do formulário executando o aplicativo:
+Passe a Cadeia de **Ligação** das Políticas de Acesso Partilhado para executar a aplicação.
+Abaixo está a saída do formulário executando a Aplicação:
 
 ```Output
 > mvn clean package
@@ -330,8 +330,8 @@ Closing queue client.
 
 ```
 
-## <a name="amqp-disposition-and-service-bus-operation-mapping"></a>Disposição de AMQP e mapeamento de operação do barramento de serviço
-Veja como uma disposição AMQP é convertida em uma operação do barramento de serviço:
+## <a name="amqp-disposition-and-service-bus-operation-mapping"></a>Disposição AMQP e mapeamento de operação de ônibus de serviço
+Eis como uma disposição AMQP se traduz numa operação de ônibus de serviço:
 
 ```Output
 ACCEPTED = 1; -> Complete()
@@ -341,50 +341,50 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>Tópicos sobre JMS vs. sobre o barramento de serviço
-O uso de tópicos e assinaturas do barramento de serviço do Azure por meio da API JMS (Java Message Service) fornece recursos básicos de envio e recebimento. É uma opção conveniente ao portar aplicativos de outros agentes de mensagem com APIs compatíveis com JMS, mesmo que os tópicos do barramento de serviço sejam diferentes dos tópicos JMS e exijam alguns ajustes. 
+## <a name="jms-topics-vs-service-bus-topics"></a>Tópicos JMS vs. Tópicos de Autocarro de Serviço
+A utilização de tópicos e subscrições de ônibus de serviço Azure através do Java Message Service (JMS) A API fornece capacidades básicas de envio e receção. É uma escolha conveniente quando se analisam aplicações de outros corretores de mensagens com APIs compatíveis com JMS, embora os tópicos do Bus de Serviço sofra dos Tópicos JMS e exijam alguns ajustes. 
 
-Os tópicos do barramento de serviço do Azure roteiam mensagens para assinaturas nomeadas, compartilhadas e duráveis que são gerenciadas por meio da interface de gerenciamento de recursos do Azure, das ferramentas de linha de comando do Azure ou do portal do Azure. Cada assinatura permite até 2000 regras de seleção, cada uma delas pode ter uma condição de filtro e, para filtros SQL, também uma ação de transformação de metadados. Cada correspondência de condição de filtro seleciona a mensagem de entrada a ser copiada na assinatura.  
+Os tópicos do Azure Service Bus direcionam mensagens para subscrições como, partilhadas e duráveis que são geridas através da interface Azure Resource Management, das ferramentas da linha de comando Azure ou através do portal Azure. Cada subscrição permite até 2000 regras de seleção, cada uma das quais pode ter uma condição de filtro e, para filtros SQL, também uma ação de transformação de metadados. Cada partida de condição do filtro seleciona a mensagem de entrada a copiar para a subscrição.  
 
-O recebimento de mensagens de assinaturas é idêntico ao receber mensagens de filas. Cada assinatura tem uma fila de mensagens mortas associada, bem como a capacidade de encaminhar mensagens automaticamente para outra fila ou tópicos. 
+Receber mensagens de subscrições é idêntico a receber mensagens de filas. Cada subscrição tem uma fila de cartas mortas associada e a capacidade de encaminhar automaticamente mensagens para outra fila ou tópicos. 
 
-Os tópicos JMS permitem que os clientes criem dinamicamente assinantes não duráveis e duráveis que permitem, opcionalmente, filtrar mensagens com seletores de mensagem. Essas entidades não compartilhadas não são suportadas pelo barramento de serviço. No entanto, a sintaxe da regra de filtro SQL para o barramento de serviço é muito semelhante à sintaxe do seletor de mensagem suportada por JMS. 
+Os Tópicos JMS permitem que os clientes criem de forma dinâmica assinantes não duráveis e duráveis que permitem opcionalmente filtrar mensagens com selecionadores de mensagens. Estas entidades não partilhadas não são apoiadas pela Service Bus. A sintaxe da regra do filtro SQL para o Bus de Serviço é, no entanto, semelhante à sintaxe do seletor de mensagens suportada pelo JMS. 
 
-O lado do Publicador do tópico JMS é compatível com o barramento de serviço, conforme mostrado neste exemplo, mas assinantes dinâmicos não são. Não há suporte para as seguintes APIs JMS relacionadas à topologia com o barramento de serviço. 
+O lado da editora JMS Topic é compatível com o Service Bus, como mostra esta amostra, mas os subscritores dinâmicos não são. As seguintes APIs relacionadas com topologia não são suportadas com o Service Bus. 
 
-## <a name="unsupported-features-and-restrictions"></a>Recursos e restrições sem suporte
-As restrições a seguir existem ao usar o JMS sobre AMQP 1,0 com o barramento de serviço, a saber:
+## <a name="unsupported-features-and-restrictions"></a>Características e restrições não suportadas
+Existem as seguintes restrições ao utilizar o JMS sobre a AMQP 1.0 com o Service Bus, nomeadamente:
 
-* Somente um **MessageProducer** ou **MessageConsumer** é permitido por **sessão**. Se você precisar criar vários **MessageProducers** ou **MessageConsumers** em um aplicativo, crie uma **sessão** dedicada para cada um deles.
-* Atualmente, não há suporte para assinaturas de tópico volátil.
-* No momento, não há suporte para **MessageSelectors** .
-* Não há suporte para sessões transacionadas e transações distribuídas.
+* Apenas uma **mensagem O produtor** ou **mensagemÉ** permitido por **Sessão**. Se precisar de criar vários **MessageProducers** ou **MessageConsumers** numa aplicação, crie uma **Sessão** dedicada para cada um deles.
+* As subscrições de tópicos voláteis não são atualmente suportadas.
+* **Os selecionadores** de mensagens não são atualmente suportados.
+* As transações distribuídas não são suportadas (mas as sessões transacionadas são suportadas).
 
-Além disso, o barramento de serviço do Azure divide o plano de controle do plano de dados e, portanto, não dá suporte a várias funções de topologia dinâmica de JMS:
+Além disso, o Azure Service Bus divide o plano de controlo do plano de dados e, portanto, não suporta várias das funções dinâmicas de topologia da JMS:
 
-| Método sem suporte          | Substituir                                                                             |
+| Método não suportado          | Substituir                                                                             |
 |-----------------------------|------------------------------------------------------------------------------------------|
-| createDurableSubscriber     | criar uma assinatura de tópico portando o seletor de mensagem                                 |
-| createDurableConsumer       | criar uma assinatura de tópico portando o seletor de mensagem                                 |
-| createSharedConsumer        | Os tópicos do barramento de serviço são sempre compartilháveis, consulte acima                                       |
-| createSharedDurableConsumer | Os tópicos do barramento de serviço são sempre compartilháveis, consulte acima                                       |
-| createTemporaryTopic        | criar um tópico por meio de API de gerenciamento/ferramentas/portal com *AutoDeleteOnIdle* definido para um período de expiração |
-| createTopic                 | criar um tópico por meio de API de gerenciamento/ferramentas/Portal                                           |
-| cancelar a assinatura                 | excluir a API de gerenciamento de tópico/ferramentas/Portal                                             |
-| createbrowser               | Sem suporte. Usar a funcionalidade Peek () da API do barramento de serviço                         |
-| createQueue                 | criar uma fila por meio de API/ferramentas/portal de gerenciamento                                           | 
-| createTemporaryQueue        | criar uma fila por meio de API/ferramentas/portal de gerenciamento com *AutoDeleteOnIdle* definido para um período de expiração |
-| receiveNoWait               | Utilize o método Receive () fornecido pelo SDK do barramento de serviço e especifique um tempo limite muito baixo ou zero |
+| createDurableSubscriber     | criar uma subscrição tópico poroting o seletor de mensagens                                 |
+| createDurableConsumer       | criar uma subscrição tópico poroting o seletor de mensagens                                 |
+| createSharedConsumer        | Os tópicos de ônibus de serviço são sempre compartilháveis, ver acima                                       |
+| createSharedDurableConsumer | Os tópicos de ônibus de serviço são sempre compartilháveis, ver acima                                       |
+| createTemporaryTopic        | criar um tópico através da gestão API/ferramentas/portal com *autoDeleteOnIdle* definido para um período de expiração |
+| createTopic                 | criar um tópico através da gestão API/ferramentas/portal                                           |
+| Cancelar a subscrição                 | eliminar a gestão de tópicos API/ferramentas/portal                                             |
+| createBrowser               | Sem apoio. Utilize a funcionalidade Peek() da API do autocarro de serviço                         |
+| createQueue                 | criar uma fila através da gestão API/ferramentas/portal                                           | 
+| criar Fila Temporária        | criar uma fila através da gestão API/tools/portal com *autoDeleteOnIdle* definido para um período de expiração |
+| receberNoWait               | utilizar o método de receção() fornecido pelo Service Bus SDK e especificar um intervalo de tempo muito baixo ou nulo |
 
 ## <a name="summary"></a>Resumo
-Este guia de instruções mostrou como usar os recursos de mensagens orientadas do barramento de serviço (tópicos de filas e publicação/assinatura) do Java usando a API JMS comum e o AMQP 1,0.
+Este guia de como fazer mostrou como usar funcionalidades de mensagens mediadas service Bus (filas e tópicos de publicação/subscrição) de Java usando a popular API JMS e AMQP 1.0.
 
-Você também pode usar o barramento de serviço AMQP 1,0 de outras linguagens, incluindo .NET, C, Python e PHP. Os componentes criados com essas linguagens diferentes podem trocar mensagens de forma confiável e com total fidelidade usando o suporte do AMQP 1,0 no barramento de serviço.
+Também pode utilizar o Service Bus AMQP 1.0 de outras línguas, incluindo .NET, C, Python e PHP. Os componentes construídos utilizando estas diferentes línguas podem trocar mensagens de forma fiável e com total fidelidade utilizando o suporte AMQP 1.0 no Bus de Serviço.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Suporte do AMQP 1,0 no barramento de serviço do Azure](service-bus-amqp-overview.md)
-* [Como usar o AMQP 1,0 com a API .NET do barramento de serviço](service-bus-dotnet-advanced-message-queuing.md)
-* [Guia do desenvolvedor do AMQP 1,0 do barramento de serviço](service-bus-amqp-dotnet.md)
+* [Suporte AMQP 1.0 em Ônibus de Serviço Azure](service-bus-amqp-overview.md)
+* [Como utilizar a AMQP 1.0 com o Bus de Serviço .NET API](service-bus-dotnet-advanced-message-queuing.md)
+* [Guia de desenvolvedor amqp 1.0 do ônibus de serviço](service-bus-amqp-dotnet.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Centro de Programadores do Java](https://azure.microsoft.com/develop/java/)
 

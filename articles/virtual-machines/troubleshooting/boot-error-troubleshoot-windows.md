@@ -1,6 +1,6 @@
 ---
-title: A reinicialização de máquinas virtuais do Azure está paralisada na reinicialização, no desligamento ou na interrupção dos serviços | Microsoft Docs
-description: Este artigo ajuda você a solucionar problemas de erros de serviço no Azure Máquinas Virtuais do Windows.
+title: A paragem das Máquinas Virtuais Azure está presa nos serviços de reinício, deparagem ou paragem de sistemas de reinício, paragem ou paragem de serviços . Microsoft Docs
+description: Este artigo ajuda-o a resolver erros de serviço em Máquinas Virtuais Do Windows Azure.
 services: virtual-machines-windows
 documentationCenter: ''
 author: v-miegge
@@ -12,100 +12,100 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: db7b26402170236843891799738088b9229e4693
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477411"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371368"
 ---
-# <a name="azure-windows-vm-restart-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>A reinicialização de VM do Windows do Azure está presa em "reinicializando", "desligando" ou "parando serviços"
+# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Paragem do Azure Windows VM está presa em "Restarting", "Shutdown Down" ou "Stop services"
 
-Este artigo fornece etapas para resolver os problemas de mensagens de "reinicialização", "desligamento" ou "interrupção de serviços" que você pode encontrar ao reinicializar uma VM (máquina virtual) do Windows no Microsoft Azure.
+Este artigo fornece medidas para resolver os problemas de "Reiniciar", "Desligar", ou "Serviços de Paragem" que poderá encontrar quando reiniciar uma máquina virtual do Windows (VM) no Microsoft Azure.
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, você pode ver que a captura de tela exibe a mensagem "reiniciando", "desligando" ou "interrompendo serviços".
+Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, poderá ver que a imagem mostra a mensagem "Reiniciar", "Desligar" ou "Serviços de paragem".
 
-![Reiniciando, desligando e interrompendo telas de serviços](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
+![Reiniciando, desligando e parando os ecrãs de serviços](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
 ## <a name="cause"></a>Causa
 
-O Windows usa o processo de desligamento para executar operações de manutenção do sistema e processa alterações como atualizações, funções e recursos. Não é recomendável interromper esse processo crítico até que ele seja concluído. Dependendo do número de atualizações/alterações e do tamanho da VM, o processo pode levar muito tempo. Se o processo for interrompido, é possível que o sistema operacional fique corrompido. Interrompa o processo apenas se ele estiver demorando demais.
+O Windows utiliza o processo de paragem para realizar operações de manutenção do sistema e alterações de processos como atualizações, funções e funcionalidades. Não é aconselhável interromper este processo crítico até que esteja concluído. Dependendo do número de atualizações/alterações e do tamanho do VM, o processo pode demorar muito tempo. Se o processo for interrompido, é possível que o SO se torne corrupto. Só interrompa o processo se estiver a demorar demasiado tempo.
 
 ## <a name="solution"></a>Solução
 
-### <a name="collect-a-process-memory-dump"></a>Coletar um despejo de memória do processo
+### <a name="collect-a-process-memory-dump"></a>Recolher um depósito de memória do Processo
 
-1. Baixe a [ferramenta Procdump](http://download.sysinternals.com/files/Procdump.zip) em um disco de dados novo ou existente, que é anexado a uma VM em funcionamento da mesma região.
+1. Descarregue a [ferramenta Procdump](http://download.sysinternals.com/files/Procdump.zip) num disco de dados novo ou existente, que está ligado a um VM em funcionamento da mesma região.
 
-2. Desanexe o disco que contém os arquivos necessários da VM de trabalho e anexe o disco à VM quebrada. Estamos ligando para esse disco o **disco do utilitário**.
+2. Retire o disco contendo os ficheiros necessários do VM de funcionamento e prenda o disco ao vM partido. Estamos a chamar a este disco o **disco utilitário.**
 
-Use o [console serial](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) para concluir as seguintes etapas:
+Utilize a [Consola em Série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) para completar os seguintes passos:
 
-1. Abra um PowerShell administrativo e verifique o serviço suspenso após a interrupção.
+1. Abra uma Powershell administrativa e verifique o serviço que está suspenso ao parar.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. Em um CMD Administrativo, obtenha o PID do serviço suspenso.
+2. Numa CMD administrativa, obtenha o PID do serviço suspenso.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Obtenha um exemplo de despejo de memória do processo suspenso <STOPPING SERVICE>.
+3. Obtenha uma amostra de despejo de memória do processo suspenso <STOPPING SERVICE>.
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. Agora, encerre o processo suspenso para desbloquear o processo de desligamento.
+4. Agora mate o processo de suspensão para desbloquear o processo de encerramento.
 
    ``
    taskkill /PID <PID> /t /f
    ``
 
-Depois que o sistema operacional for iniciado novamente, se ele for inicializado normalmente, apenas verifique se a consistência do sistema operacional está ok. Se a corrupção for relatada, execute o seguinte comando até que o disco esteja corrompido:
+Uma vez que o Sistema operativo recomece, se estiver a botas normalmente, certifique-se de que a consistência do OS está boa. Se a corrupção for denunciada, o seguinte comando até que o disco esteja livre de corrupção:
 
 ``
 dism /online /cleanup-image /restorehealth
 ``
 
-Se você não conseguir coletar um despejo de memória de processo ou se esse problema for recursivo e precisar de uma análise de causa raiz, continue com a coleta de um despejo de memória do so abaixo, continue para abrir uma solicitação de suporte.
+Se não conseguir recolher um depósito de memória de processo, ou se este problema for recursivo e necessitar de uma análise de causa de raiz, proceda à recolha de um depósito de memória de SO abaixo, a receita para abrir um pedido de suporte.
 
-### <a name="collect-an-os-memory-dump"></a>Coletar um despejo de memória do so
+### <a name="collect-an-os-memory-dump"></a>Recolher um depósito de memória de OS
 
-Se o problema não for resolvido depois de aguardar as alterações serem processadas, você precisará coletar um arquivo de despejo de memória e entrar em contato com o suporte. Para coletar o arquivo de despejo, siga estas etapas:
+Se o problema não for resolvido depois de esperar pelas alterações processando, terá de recolher um ficheiro de despejo de memória e suporte de contacto. Para recolher o ficheiro Dump, siga estes passos:
 
-**Anexar o disco do sistema operacional a uma VM de recuperação**
+**Fixe o disco OS a um VM de recuperação**
 
-1. Tire um instantâneo do disco do sistema operacional da VM afetada como um backup. Para obter mais informações, consulte [instantâneo de um disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Tire uma foto do disco operativo do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
 
-2. [Anexar o disco do SO a uma VM de recuperação](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Fixe o disco OS a um VM](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal)de recuperação .
 
-3. Área de trabalho remota para a VM de recuperação.
+3. Ambiente de trabalho remoto para o VM de recuperação.
 
-4. Se o disco do sistema operacional for criptografado, você deverá desligar a criptografia antes de passar para a próxima etapa. Para obter mais informações, consulte [descriptografar o disco do sistema operacional criptografado na VM que não pode ser inicializada](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. Se o disco OS estiver encriptado, tem de desligar a encriptação antes de passar para o próximo passo. Para obter mais informações, consulte [Desencriptar o disco OS encriptado no VM que não pode arrancar](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
 
-**Localizar arquivo de despejo e enviar um tíquete de suporte**
+**Localize o ficheiro de despejo e envie um bilhete de apoio**
 
-1. Na VM de recuperação, vá para a pasta do Windows no disco do sistema operacional anexado. Se a letra do driver atribuída ao disco do sistema operacional anexado for F, você precisará ir para F:\Windows.
+1. No VM de recuperação, vá para a pasta windows no disco OS anexado. Se a carta de condutor que é atribuída ao disco operativo em anexo for F, tem de ir para F:\Windows.
 
-2. Localize o arquivo Memory. dmp e, em seguida, [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo.
+2. Localize o ficheiro memory.dmp [e,](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) em seguida, envie um bilhete de apoio com o ficheiro de despejo.
 
-Se você não encontrar o arquivo de despejo, mova a próxima etapa para habilitar o log de despejo e o console serial.
+Se não encontrar o ficheiro de despejo, desloque o próximo passo para ativar o registo de despejo e a Consola em Série.
 
-**Habilitar o log de despejo e o console serial**
+**Ativar o registo de despejo e a consola em série**
 
 Para ativar o registo de despejo e consola de série, execute o seguinte script.
 
-1. Abra a sessão de prompt de comando com privilégios elevados (executar como administrador).
+1. Abrir a sessão de solicitação de comando elevado (Executar como administrador).
 
 2. Execute o seguintes script:
 
-   Nesse script, presumimos que a letra da unidade atribuída ao disco do sistema operacional anexado é F. Substitua-a pelo valor apropriado em sua VM.
+   Neste script, assumimos que a letra de unidade atribuída ao disco OS anexado é F. Substitua-a pelo valor adequado no seu VM.
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -129,9 +129,9 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-3. Verifique se há espaço suficiente no disco para alocar a quantidade de memória como RAM, o que depende do tamanho que você está selecionando para essa VM.
+3. Verifique se há espaço suficiente no disco para alocar tanta memória como a RAM, que depende do tamanho que está a selecionar para este VM.
 
-4. Se não houver espaço suficiente ou a VM for grande (G, GS ou série E), você poderá alterar o local em que esse arquivo será criado e referir-se a qualquer outro disco de dados, que é anexado à VM. Para alterar o local, você deve alterar a seguinte chave:
+4. Se não houver espaço suficiente ou o VM for grande (série G, GS ou E), poderá alterar a localização onde este ficheiro será criado e remeter isso para qualquer outro disco de dados, que está ligado ao VM. Para alterar a localização, tem de alterar a seguinte tecla:
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -142,16 +142,16 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Retire o disco OS e, em seguida, recoloque o disco OS ao VM afetado](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
 
-6. Inicie a VM e acesse o console serial.
+6. Inicie o VM e aceda à Consola em Série.
 
-7. Selecione Enviar NMI (interrupção não mascarada) para disparar o despejo de memória.
+7. Selecione Enviar Interrupção Não-Máscara (NMI) para acionar o depósito de memória.
 
-   ![Enviar interrupção não mascarável](./media/boot-error-troubleshooting-windows/send-nonmaskable-interrupt.png)
+   ![Enviar Interrupção Não-Máscara](./media/boot-error-troubleshooting-windows/send-nonmaskable-interrupt.png)
 
-8. Anexe o disco do sistema operacional a uma VM de recuperação novamente, colete o arquivo de despejo.
+8. Fixe o disco OS a um VM de recuperação novamente, colete ficheiro de despejo.
 
-## <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
+## <a name="contact-microsoft-support"></a>Contacte o suporte da Microsoft
 
-Depois de coletar o arquivo de despejo, entre em contato com o suporte da Microsoft para determinar a causa raiz.
+Depois de recolher o ficheiro de despejo, contacte o suporte da Microsoft para determinar a causa principal.

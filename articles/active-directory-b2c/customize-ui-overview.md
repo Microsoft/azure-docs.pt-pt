@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2dcdc67f884d1f566c794ab9e996a74984ab61a4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908951"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373154"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface de utilizador no Diretório Ativo Azure B2C
 
@@ -39,7 +39,7 @@ Utiliza o [portal Azure](tutorial-customize-ui.md) para configurar a personaliza
 
 Se estiver a utilizar [políticas personalizadas](custom-policy-overview.md) para fornecer inscrição ou inscrição, reset de palavra-passe ou edição de perfil na sua aplicação, utilize [ficheiros de política para personalizar o UI](custom-policy-ui-customization.md).
 
-Se precisar de fornecer conteúdo dinâmico com base na decisão do cliente, utilize políticas personalizadas que possam [alterar o conteúdo da página dinamicamente](custom-policy-ui-customization-dynamic.md) dependendo de um parâmetro que é enviado numa cadeia de consulta. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro que passa da sua aplicação web ou móvel.
+Se precisar de fornecer conteúdo dinâmico com base na decisão do cliente, utilize políticas personalizadas que possam [alterar o conteúdo da página dinamicamente](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) dependendo de um parâmetro que é enviado numa cadeia de consulta. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro que passa da sua aplicação web ou móvel.
 
 ### <a name="javascript"></a>Javascript
 
@@ -61,7 +61,7 @@ Em **'Personalizar'** no menu esquerdo, selecione **os layouts da página** e, e
 
 Em seguida, selecione um modelo da lista. Aqui estão exemplos das páginas de inscrição para cada modelo:
 
-| Oceano Azul | Cinza de ardósia | Clássico |
+| Oceano Azul | Cinza de ardósia | Clássica |
 |:-:|:-:|:-:|
 |![Exemplo do modelo Ocean Blue renderizado no sinal de inscrição na página](media/customize-ui-overview/template-ocean-blue.png)|![Exemplo do modelo De Ardósia Cinza renderizado no sinal de inscrição na página](media/customize-ui-overview/template-slate-gray.png)|![Exemplo do modelo clássico renderizado no sinal de inscrição na página](media/customize-ui-overview/template-classic.png)|
 
@@ -150,7 +150,7 @@ A tabela seguinte lista os fragmentos HTML que o Azure AD B2C se funde no elemen
 | Inscrição na conta local | Contém um formulário para inscrição de conta local com base num endereço de e-mail ou num nome de utilizador. O formulário pode conter diferentes controlos de entrada, tais como caixa de entrada de texto, caixa de entrada de palavra-passe, botão de rádio, caixas de entrega seletivas únicas e caixas de verificação multi-selecionadas. |
 | Inscrição na conta social | Pode aparecer ao inscrever-se usando uma conta existente de um fornecedor de identidade social, como o Facebook ou o Google. É usado quando devem ser recolhidas informações adicionais do cliente através de um formulário de inscrição. |
 | Inscrição unificada ou inscrição | Lida com o sign-up e o sign-in de clientes que podem usar fornecedores de identidade social, como facebook, Google ou contas locais. |
-| Autenticação multifator | Os clientes podem verificar os seus números de telefone (utilizando texto ou voz) durante o registo ou o check-in. |
+| Multi-Factor Authentication | Os clientes podem verificar os seus números de telefone (utilizando texto ou voz) durante o registo ou o check-in. |
 | Erro | Fornece informações de erro ao cliente. |
 
 ## <a name="company-branding-preview"></a>Marca da empresa (pré-visualização)
@@ -166,8 +166,8 @@ Para personalizar as páginas de fluxo do utilizador, configura primeiro a marca
 Comece por definir o logotipo do banner, imagem de fundo e cor de fundo dentro **da marca da Empresa.**
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. Na portal do Azure, procure e selecione **Azure ad B2C**.
+1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
+1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Under **Manage**, selecione **marca da Empresa.**
 1. Siga os passos em Adicionar marca à página de entrada de [diretório sinuoso Azure Ative Diretório da sua organização](../active-directory/fundamentals/customize-branding.md).
 

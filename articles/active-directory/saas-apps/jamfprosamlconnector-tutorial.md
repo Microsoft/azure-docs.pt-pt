@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65b343c79c60bc74f1a140411ff1a4a27119d225
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 1d83dbe756e8e6acdb58861ac359801bc13a63c4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251690"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373185"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutorial: Integração azure Ative Directory SSO com jamf Pro
 
@@ -31,7 +31,7 @@ Neste tutorial, você vai aprender a integrar o Jamf Pro com o Azure Ative Direc
 * Inscreva-se automaticamente nos seus utilizadores para o Jamf Pro com as suas contas Azure AD.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o single sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o single sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,10 @@ Para começar, precisa dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste. O Jamf Pro suporta o **SSO iniciado por SP** e **o SSO iniciado pelo IDP.**
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste. 
+
+* O Jamf Pro suporta o **SSO iniciado por SP** e **o SSO iniciado pelo IDP.**
+* Assim que configurar o Jamf Pro, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Controlo de Sessão estende-se a partir de Acesso Condicional. [Saiba como impor o controlo de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="add-jamf-pro-from-the-gallery"></a>Adicione jamf Pro da galeria
 
@@ -147,9 +150,9 @@ Nesta secção, concedes ao B.Simon acesso ao Jamf Pro.
 
     ![A página de inscrição única no Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-  a. Selecione **Editar**.
+    a. Selecione **Editar**.
 
-  b. Selecione a caixa de verificação de **autenticação de sinal único ativada.**
+    b. Selecione a caixa de verificação de **autenticação de sinal único ativada.**
 
   c. Selecione **Azure** como opção do menu de entrega do Fornecedor de **Identidade.**
 
@@ -200,7 +203,7 @@ Para fornecer uma conta de utilizador, tome as seguintes medidas:
 
     ![A opção Criar a Conta Padrão na página Jamf Pro User Accounts & Groups](./media/jamfprosamlconnector-tutorial/user3.png)
 
-6. Na caixa de diálogo **New Account,** tome os seguintes passos.
+6. Na caixa de diálogo **New Account,** execute os seguintes passos:
 
     ![Novas opções de configuração de conta nas definições do sistema Jamf Pro](./media/jamfprosamlconnector-tutorial/user4.png)
 
@@ -228,8 +231,8 @@ Quando selecionar o azulejo Jamf Pro no Painel de Acesso, deve ser automaticamen
 
 - [Tutoriais para integração de aplicações SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Inscrição única para candidaturas no Diretório Ativo do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Inscrição única para candidaturas no Diretório Ativo do Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Experimente o Jamf Pro com a Azure AD](https://aad.portal.azure.com/)

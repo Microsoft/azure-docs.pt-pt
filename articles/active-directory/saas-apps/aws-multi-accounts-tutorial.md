@@ -139,7 +139,7 @@ Nesta secção, permite o acesso único do Azure AD no portal Azure e configura 
 
 6. Na secção **Reivindicações** do Utilizador no diálogo **de Atributos** do Utilizador, configure o atributo token SAML como mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome  | Atributo fonte  | Espaço de Nomes |
+    | Nome  | Atributo fonte  | Espaço de nomes |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Função            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
