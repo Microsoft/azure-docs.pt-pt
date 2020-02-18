@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc6a478bebef0733847ef4744b722ed9e61a6c7f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367955"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425549"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novidades para o Azure Ative Directory no Governo da Microsoft 365
 

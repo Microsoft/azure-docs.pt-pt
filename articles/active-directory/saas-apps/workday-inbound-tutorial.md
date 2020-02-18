@@ -490,7 +490,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 
       * Operador: Regex Match
 
-      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9]]]]
+      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
    * Exemplo: Apenas trabalhadores e não trabalhadores contingentes
 
@@ -633,7 +633,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 
       * Operador: Regex Match
 
-      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9]]]]
+      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
    * Exemplo: Apenas trabalhadores contingentes e não trabalhadores regulares
 

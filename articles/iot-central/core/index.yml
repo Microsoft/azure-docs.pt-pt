@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 10/25/2019
-  ms.openlocfilehash: cddfdbe709849f81f585ad7537556945ec14c990
-  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+  ms.date: 02/18/2020
+  ms.openlocfilehash: f404ecb676b75258cd44fb819dbafc3b2fb6452e
+  ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/05/2020
-  ms.locfileid: "77023434"
+  ms.lasthandoff: 02/18/2020
+  ms.locfileid: "77431184"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:
@@ -23,14 +23,14 @@ landingContent:
     links:
     - text: O que é o Azure IoT Central?
       url: overview-iot-central.md
-    - text: Opções de Solução IoT
-      url: overview-iot-central-tour.md
     - text: Visita guiada à IU
       url: overview-iot-central-tour.md
   - linkListType: architecture
     links:
     - text: Arquitetura do Azure IoT Central
       url: concepts-architecture.md
+    - text: Modelos de aplicação
+      url: concepts-app-templates.md
   - linkListType: quickstart
     links:
     - text: Criar uma nova aplicação
@@ -39,12 +39,12 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Configurar um modelo de dispositivo
-      url: howto-set-up-template.md
     - text: Ligar um dispositivo Plug and Play IoT (pré-visualização)
-      url: tutorial-add-device.md
+      url: tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
     links:
+    - text: Configurar um modelo de dispositivo
+      url: howto-set-up-template.md
     - text: Preparar e ligar um DevKit de IoT MX Chip
       url: howto-connect-devkit.md
     - text: Ligar outras clouds de IoT
@@ -53,8 +53,8 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Utilizar conjuntos de dispositivos
-      url: howto-use-device-sets.md
+    - text: Utilizar grupos de dispositivos
+      url: tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
     - text: Faça a gestão dos seus dispositivos
@@ -68,9 +68,9 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Criar regras de telemetria
-      url: howto-create-telemetry-rules.md
-    - text: Exportar para o Armazenamento de Blobs
-      url: howto-export-data-blob-storage.md
+      url: tutorial-create-telemetry-rules.md
+    - text: Exportar dados
+      url: howto-export-data.md
   - linkListType: how-to-guide
     links:
     - text: Criar regras personalizadas

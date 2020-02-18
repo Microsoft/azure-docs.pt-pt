@@ -8,126 +8,40 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42426e8249f3b6ceb592254833f38ab0df99c83c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8bb65e07a8360c434f73ff826ed21f380b036604
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848970"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373115"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Depois de concluir este artigo, você terá uma política personalizada de inscrição e entrada com sua marca e aparência. Com o Azure Active Directory B2C (Azure AD B2C), você obtém controle quase total do conteúdo HTML e CSS que é apresentado aos usuários. Ao usar uma política personalizada, você configura a personalização da interface do usuário em XML em vez de usar controles na portal do Azure.
+Ao completar os passos deste artigo, cria uma política personalizada de inscrição e inscrição com a sua marca e aparência. Com o Azure Active Directory B2C (Azure AD B2C), você obtém controle quase total do conteúdo HTML e CSS que é apresentado aos usuários. Ao usar uma política personalizada, você configura a personalização da interface do usuário em XML em vez de usar controles na portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua as etapas em introdução [às políticas personalizadas](custom-policy-get-started.md). Você deve ter uma política personalizada de trabalho para inscrever-se e entrar com contas locais.
+Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md) Você deve ter uma política personalizada de trabalho para inscrever-se e entrar com contas locais.
 
-## <a name="page-ui-customization"></a>Personalização da interface do usuário da página
+[!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-Usando o recurso de personalização da interface do usuário da página, você pode personalizar a aparência de qualquer política personalizada. Também pode manter a consistência visual e de marca entre a sua aplicação e o Azure AD B2C.
+## <a name="4-modify-the-extensions-file"></a>4. Modificar o ficheiro de extensões
 
-Veja como funciona: Azure AD B2C executa o código no navegador do cliente e usa uma abordagem moderna chamada [CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/). Primeiro, especifique uma URL na política personalizada com conteúdo HTML personalizado. O Azure AD B2C une os elementos de IU com o conteúdo HTML que é carregado a partir do URL e, em seguida, apresenta a página ao cliente.
+Para configurar a personalização ui, copie a **Definição** de Conteúdo e os seus elementos infantis do ficheiro base para o ficheiro de extensões.
 
-## <a name="create-your-html5-content"></a>Criar seu conteúdo HTML5
+1. Abra o arquivo base da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. Este ficheiro base é um dos ficheiros de política incluídos no pacote de arranque de política personalizada, que deveria ter obtido no pré-requisito, [Começar com políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Procure e copie todo o conteúdo do elemento Definições de **Conteúdo.**
+1. Abra o arquivo de extensão. Por exemplo, *TrustFrameworkExtensions.xml*. Procure o elemento **BuildingBlocks.** Se o elemento não existir, adicione-o.
+1. Colar todo o conteúdo do elemento **ContentDefinitions** que copiou em criança do elemento **BuildingBlocks.**
+1. Procure o elemento **ContentDefinition** que contenha `Id="api.signuporsignin"` no XML que copiou.
+1. Altere o valor do **LoadUri** para o URL do ficheiro HTML que carregou para o armazenamento. Por exemplo, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
-Crie conteúdo HTML com o nome da marca do produto no título.
-
-1. Copie o trecho de código HTML a seguir. Ele é um HTML5 bem formado com um elemento vazio chamado *\<div id = "API"\>\</div\>* localizado dentro das marcas\<do *corpo*\>. Esse elemento indica onde Azure AD B2C conteúdo deve ser inserido.
-
-   ```html
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <title>My Product Brand Name</title>
-   </head>
-   <body>
-       <div id="api"></div>
-   </body>
-   </html>
-   ```
-
-1. Cole o trecho copiado em um editor de texto e, em seguida, salve o arquivo como *Customize-UI. html*.
-
-> [!NOTE]
-> Os elementos de formulário HTML serão removidos devido a restrições de segurança se você usar login.microsoftonline.com. Use b2clogin.com se você quiser usar elementos de formulário HTML em seu conteúdo HTML personalizado. Consulte [usar b2clogin.com](b2clogin.md) para obter outros benefícios.
-
-## <a name="create-an-azure-blob-storage-account"></a>Criar uma conta de armazenamento de Blobs do Azure
-
->[!NOTE]
-> Neste artigo, usamos o armazenamento de BLOBs do Azure para hospedar nosso conteúdo. Você pode optar por hospedar o conteúdo em um servidor Web, mas deve [habilitar o CORS em seu servidor Web](https://enable-cors.org/server.html).
-
-Para hospedar esse conteúdo HTML no armazenamento de BLOBs, execute as seguintes etapas:
-
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. No menu **Hub** , selecione **novo** **armazenamento** de >  > **conta de armazenamento**.
-1. Selecione uma **assinatura** para sua conta de armazenamento.
-1. Crie um **grupo de recursos** ou selecione um existente.
-1. Insira um **nome** exclusivo para sua conta de armazenamento.
-1. Selecione a **localização geográfica** da sua conta de armazenamento.
-1. O **modelo de implantação** pode permanecer no **Resource Manager**.
-1. O **desempenho** pode permanecer **padrão**.
-1. Altere o **tipo de conta** para o armazenamento de **BLOBs**.
-1. A **replicação** pode permanecer **ra-grs**.
-1. A **camada de acesso** pode permanecer **quente**.
-1. Clique em **examinar + criar** para criar a conta de armazenamento.
-    Depois que a implantação for concluída, a página **conta de armazenamento** será aberta automaticamente.
-
-## <a name="create-a-container"></a>Criar um contentor
-
-Para criar um contêiner público no armazenamento de BLOBs, execute as seguintes etapas:
-
-1. Em **serviço blob** no menu à esquerda, selecione **BLOBs**.
-1. Clique em **+ contêiner**.
-1. Para **nome**, insira *raiz*. Isso pode ser um nome de sua escolha, por exemplo, *wingtiptoys*, mas usamos *root* neste exemplo para simplificar.
-1. Para **nível de acesso público**, selecione **blob**e **OK**.
-1. Clique em **raiz** para abrir o novo contêiner.
-1. Clique em **Carregar**.
-1. Clique no ícone de pasta ao lado de **selecionar um arquivo**.
-1. Navegue até e selecione **Customize-UI. html** que você criou anteriormente na seção personalização da interface do usuário da página.
-1. Se você quiser carregar para uma subpasta, expanda **avançado** e insira um nome de pasta em **carregar para a pasta**.
-1. Selecione **Upload**.
-1. Selecione o blob **Customize-UI. html** que você carregou.
-1. À direita da caixa de texto **URL** , selecione o ícone **copiar para área de transferência** para copiar a URL para a área de transferência.
-1. No navegador da Web, navegue até a URL que você copiou para verificar se o blob que você carregou está acessível. Se ele estiver inacessível, por exemplo, se você encontrar um erro de `ResourceNotFound`, verifique se o tipo de acesso do contêiner está definido como **blob**.
-
-## <a name="configure-cors"></a>Configurar o CORS
-
-Configure o armazenamento de BLOB para compartilhamento de recursos entre origens executando as seguintes etapas:
-
-1. No menu, selecione **CORS**.
-1. Para **origens permitidas**, insira `https://your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário.
-1. Para **métodos permitidos**, selecione `GET` e `OPTIONS`.
-1. Para **cabeçalhos permitidos**, insira um asterisco (*).
-1. Para **cabeçalhos expostos**, insira um asterisco (*).
-1. Para **idade máxima**, insira 200.
-1. Clique em **Guardar**.
-
-## <a name="test-cors"></a>Testar CORS
-
-Valide se você está pronto executando as seguintes etapas:
-
-1. Vá para o site do [www.Test-CORS.org](https://www.test-cors.org/) e cole a URL na caixa **URL remota** .
-1. Clique em **Enviar solicitação**.
-    Se você receber um erro, verifique se [as configurações de CORS](#configure-cors) estão corretas. Talvez você também precise limpar o cache do navegador ou abrir uma sessão de navegação em particular pressionando Ctrl + Shift + P.
-
-## <a name="modify-the-extensions-file"></a>Modificar o arquivo de extensões
-
-Para configurar a personalização da interface do usuário, você copia o **ContentDefinition** e seus elementos filho do arquivo base para o arquivo de extensões.
-
-1. Abra o arquivo base da sua política. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Esse é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
-1. Pesquise e copie todo o conteúdo do elemento **ContentDefinitions** .
-1. Abra o arquivo de extensão. Por exemplo, *TrustFrameworkExtensions. xml*. Procure o elemento **BuildingBlocks** . Se o elemento não existir, adicione-o.
-1. Cole todo o conteúdo do elemento **ContentDefinitions** que você copiou como um filho do elemento **BuildingBlocks** .
-1. Procure o elemento **ContentDefinition** que contém `Id="api.signuporsignin"` no XML que você copiou.
-1. Altere o valor de **LoadUri** para a URL do arquivo HTML que você carregou no armazenamento. Por exemplo, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
-
-    Sua política personalizada deve ser parecida com a seguinte:
+    A sua política personalizada deve parecer o seguinte código:
 
     ```xml
     <BuildingBlocks>
@@ -146,66 +60,77 @@ Para configurar a personalização da interface do usuário, você copia o **Con
 
 1. Salve o arquivo de extensões.
 
-## <a name="upload-and-test-your-updated-custom-policy"></a>Carregar e testar sua política personalizada atualizada
+## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Faça upload e teste a sua política personalizada atualizada
 
-### <a name="upload-the-custom-policy"></a>Carregar a política personalizada
+### <a name="51-upload-the-custom-policy"></a>5.1 Faça upload da política personalizada
 
-1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
-1. Procure e selecione **Azure ad B2C**.
-1. Em **políticas**, selecione **estrutura de experiência de identidade**.
-1. Selecione **carregar política personalizada**.
+1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
+1. Procure e **selecione Azure AD B2C**.
+1. No âmbito **das Políticas,** selecione Quadro de **Experiência de Identidade**.
+1. Selecione **a política personalizada de upload**.
 1. Carregue o arquivo de extensões que você alterou anteriormente.
 
-### <a name="test-the-custom-policy-by-using-run-now"></a>Testar a política personalizada usando **executar agora**
+### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Teste a política personalizada usando **Run agora**
 
-1. Selecione a política que você carregou e, em seguida, selecione **executar agora**.
+1. Selecione a política que carregou e, em seguida, selecione **Executar agora**.
 1. Você deve ser capaz de se inscrever usando um endereço de email.
 
-## <a name="reference"></a>Referência
+[!INCLUDE [active-directory-b2c-html-templates](../../includes/active-directory-b2c-html-templates.md)]
 
-### <a name="sample-templates"></a>Modelos de exemplo
-Você pode encontrar modelos de exemplo para personalização da interface do usuário aqui:
+## <a name="configure-dynamic-custom-page-content-uri"></a>Configurar conteúdo de página personalizada dinâmica URI
 
+Ao utilizar políticas personalizadas Azure AD B2C, pode enviar um parâmetro no caminho url, ou uma corda de consulta. Ao transmitir o parâmetro para o ponto final HTML, pode alterar dinamicamente o conteúdo da página. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou de início de sessão do Azure AD B2C, com base num parâmetro que transmite a partir da sua aplicação Web ou móvel. O parâmetro pode ser qualquer [reclamação resolver](claim-resolver-overview.md), como o ID da aplicação, id de idioma ou parâmetro de corda de consulta personalizada, como `campaignId`.
+
+### <a name="sending-query-string-parameters"></a>Envio de parâmetros de cordas de consulta
+
+Para enviar parâmetros de cordas de consulta, na [política do partido que depende,](relyingparty.md)adicione um elemento `ContentDefinitionParameters` como mostrado abaixo.
+
+```XML
+<RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <UserJourneyBehaviors>
+    <ContentDefinitionParameters>
+        <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+        <Parameter Name="lang">{Culture:LanguageName}</Parameter>
+        <Parameter Name="appId">{OIDC:ClientId}</Parameter>
+    </ContentDefinitionParameters>
+    </UserJourneyBehaviors>
+    ...
+</RelyingParty>
 ```
-git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
+
+Na sua definição de conteúdo, altere o valor do `LoadUri` para `https://<app_name>.azurewebsites.net/home/unified`. A sua política personalizada `ContentDefinition` deve parecer o seguinte código:
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://<app_name>.azurewebsites.net/home/unified</LoadUri>
+  ...
+</ContentDefinition>
 ```
 
-A pasta sample_templates/Wingtip contém os seguintes arquivos HTML:
+Quando o Azure AD B2C carrega a página, faz uma chamada para o ponto final do seu servidor web:
 
-| Modelo HTML5 | Descrição |
-|----------------|-------------|
-| *phonefactor.html* | Use esse arquivo como um modelo para uma página de autenticação multifator. |
-| *resetpassword.html* | Use esse arquivo como um modelo para uma página esquecida de senha. |
-| *selfasserted.html* | Use esse arquivo como um modelo para uma página de inscrição de conta social, uma página de inscrição de conta local ou uma página de entrada de conta local. |
-| *unified.html* | Use esse arquivo como um modelo para uma página de inscrição ou entrada unificada. |
-| *updateprofile.html* | Use este arquivo como um modelo para uma página de atualização de perfil. |
+```http
+https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
+```
 
-Aqui estão as etapas sobre como usar o exemplo:
+### <a name="dynamic-page-content-uri"></a>Conteúdo de página dinâmica URI
 
-1. Clone o repositório em seu computador local. Escolha uma pasta de modelo em sample_templates. Você pode usar `wingtip` ou `contoso`.
-1. Carregue todos os arquivos nas pastas `css`, `fonts`e `images` no armazenamento de BLOBs, conforme descrito nas seções anteriores.
-1. Em seguida, abra cada arquivo \*. html na raiz de `wingtip` ou `contoso` (o que você selecionou na primeira etapa) e substitua todas as instâncias de "http://localhost" pelas URLs do CSS, imagens e arquivos de fontes carregados na etapa 2.
-1. Salve os arquivos \*. html e carregue-os no armazenamento de BLOBs.
-1. Agora, modifique o arquivo de extensões conforme mencionado anteriormente em [Modificar o arquivo de extensões](#modify-the-extensions-file).
-1. Se você vir fontes, imagens ou CSS ausentes, verifique suas referências na política de extensões e os arquivos \*. html.
+O conteúdo pode ser retirado de diferentes locais com base nos parâmetros utilizados. No seu ponto final ativado pelo CORS, instale uma estrutura de pasta para hospedar conteúdo. Por exemplo, pode organizar o conteúdo na seguinte estrutura. *Pasta/pasta de raiz por idioma/ficheiros html*. Por exemplo, a sua página personalizada URI pode parecer:
 
-### <a name="content-definition-ids"></a>IDs de definição de conteúdo
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
+  ...
+</ContentDefinition>
+```
 
-Na seção modificar sua política personalizada de inscrição ou entrada, você configurou a definição de conteúdo para `api.idpselections`. O conjunto completo de IDs de definição de conteúdo que são reconhecidos pela estrutura de experiência de identidade Azure AD B2C e suas descrições estão na tabela a seguir:
+Azure AD B2C envia o código ISO de duas letras para a língua, `fr` para francês:
 
-| ID de definição de conteúdo | Descrição |
-|-----------------------|-------------|
-| *api.error* | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. |
-| *api.idpselections* | **Página de seleção do provedor de identidade**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a entrada. Essas opções são provedores de identidade Enterprise, provedores de identidade social, como Facebook e Google +, ou contas locais. |
-| *api.idpselections.signup* | **Seleção do provedor de identidade para inscrição**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição. Essas opções são provedores de identidade Enterprise, provedores de identidade social, como Facebook e Google +, ou contas locais. |
-| *api.localaccountpasswordreset* | **Página esqueci a senha**. Esta página contém um formulário que o usuário deve concluir para iniciar uma redefinição de senha.  |
-| *api.localaccountsignin* | **Página de entrada da conta local**. Esta página contém um formulário de entrada para entrar com uma conta local baseada em um endereço de email ou um nome de usuário. O formulário pode conter uma caixa de entrada de texto e uma caixa de entrada de senha. |
-| *api.localaccountsignup* | **Página de inscrição da conta local**. Esta página contém um formulário de inscrição para se inscrever em uma conta local baseada em um endereço de email ou um nome de usuário. O formulário pode conter vários controles de entrada, como uma caixa de entrada de texto, uma caixa de entrada de senha, um botão de opção, caixas suspensas de seleção única e caixas de seleção de várias seleções. |
-| *api.phonefactor* | **Página de autenticação multifator**. Nessa página, os usuários podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
-| *api.selfasserted* | **Página de inscrição de conta social**. Esta página contém um formulário de inscrição que os usuários devem concluir ao se inscreverem usando uma conta existente de um provedor de identidade social, como Facebook ou Google +. Esta página é semelhante à página de inscrição de conta social anterior, exceto para os campos de entrada de senha. |
-| *api.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que os usuários podem usar para atualizar seu perfil. Esta página é semelhante à página de inscrição de conta social, exceto para os campos de entrada de senha. |
-| *api.signuporsignin* | **Página de inscrição ou entrada unificada**. Esta página manipula a inscrição e a entrada de usuários, que podem usar provedores de identidade corporativa, provedores de identidade social, como Facebook ou Google +, ou contas locais.  |
+```http
+https://contoso.blob.core.windows.net/fr/myHTML/unified.html
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre elementos de interface do usuário que podem ser personalizados, consulte o [Guia de referência para a personalização da interface do usuário para fluxos de usuários](customize-ui-overview.md).
+Para obter mais informações sobre elementos UI que podem ser personalizados, consulte o guia de referência para a personalização de [UI para fluxos de utilizadores](customize-ui-overview.md).

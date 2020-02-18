@@ -2,66 +2,73 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Azure Cosmos DB
+    - name: BD do Cosmos
       tocHref: /azure/data-factory/
       topicHref: /azure/cosmos-db/index
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Azure Cosmos DB
+    - name: BD do Cosmos
       tocHref: /azure/search/
       topicHref: /azure/cosmos-db/index
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Azure Cosmos DB
+    - name: BD do Cosmos
       tocHref: /azure/azure-functions/
       topicHref: /azure/cosmos-db/index
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Azure Cosmos DB
+    - name: BD do Cosmos
       tocHref: /azure/dms/
       topicHref: /azure/cosmos-db/index
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Azure Cosmos DB
+    - name: BD do Cosmos
       tocHref: /azure/hdinsight/
       topicHref: /azure/cosmos-db/index
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Azure Cosmos DB
+    - name: BD do Cosmos
       tocHref: /azure/private-link/
       topicHref: /azure/cosmos-db/index
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Azure Cosmos DB
+    - name: BD do Cosmos
       tocHref: /azure/logic-apps/
       topicHref: /azure/cosmos-db/index
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Azure Cosmos DB
+    - name: BD do Cosmos
       tocHref: /azure/stream-analytics/
       topicHref: /azure/cosmos-db/index
 - name: Azure
   tocHref: /java/
   topicHref: /azure/index
   items:
-    - name: Azure Cosmos DB
+    - name: BD do Cosmos
       tocHref: /java/azure/
       topicHref: /azure/cosmos-db/index
       items:
-        - name: Spring
+        - name: BD do Cosmos
           tocHref: /java/azure/spring-framework/
           topicHref: /azure/cosmos-db/index
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: BD do Cosmos
+      tocHref: /azure/azure-monitor/insights
+      topicHref: /azure/cosmos-db/index
