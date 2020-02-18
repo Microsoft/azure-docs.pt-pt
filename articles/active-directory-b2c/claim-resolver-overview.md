@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1734b063530f9e8a8f0429111c4c39d628bfad4e
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251775"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425651"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre pedidos de reclamação em políticas personalizadas do Diretório Ativo Azure B2C
 
@@ -104,6 +104,18 @@ Qualquer nome de parâmetro incluído como parte de um pedido oIDC ou OAuth2 pod
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | O token de acesso. | N/D |
 
+
+### <a name="saml"></a>SAML
+
+| Afirmação | Descrição | Exemplo |
+| ----- | ----------- | --------|
+| {SAML:AuthnContextClassReferences} | O valor `AuthnContextClassRef` elemento, a partir do pedido SAML. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
+| {SAML:Formato NameidPolicy} | O `Format` atributo, do elemento `NameIDPolicy` do pedido SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML:Emitente} |  O SAML `Issuer` valor do elemento do pedido SAML.| https://contoso.com |
+| {SAML:Permitir Criar} | O valor `AllowCreate` atributo, a partir do elemento `NameIDPolicy` do pedido SAML. | Verdadeiro |
+| {SAML:ForceAuthn} | O valor `ForceAuthN` atributo, a partir do elemento `AuthnRequest` do pedido SAML. | Verdadeiro |
+| {SAML:ProviderName} | O valor `ProviderName` atributo, a partir do elemento `AuthnRequest` do pedido SAML.| Contoso.com |
+
 ## <a name="using-claim-resolvers"></a>Utilização de pedidos de indemnização 
 
 Pode utilizar reclamações com os seguintes elementos: 
@@ -160,7 +172,7 @@ Utilizando resolver pedidos de reclamação, pode pré-povoar o nome de sessão 
 
 ### <a name="dynamic-ui-customization"></a>Personalização dinâmica da UI
 
-O Azure AD B2C permite-lhe passar parâmetros de cadeia de consulta para os pontos finais da definição de conteúdo HTML para tornar dinamicamente o conteúdo da página. Por exemplo, isto permite modificar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro personalizado que passa da sua aplicação web ou móvel. Para mais informações, consulte [Dynamicly configure o UI utilizando políticas personalizadas no Diretório Ativo Azure B2C](custom-policy-ui-customization-dynamic.md). Também pode localizar a sua página HTML com base num parâmetro de idioma, ou pode alterar o conteúdo com base no ID do cliente.
+O Azure AD B2C permite-lhe passar parâmetros de cadeia de consulta para os pontos finais da definição de conteúdo HTML para tornar dinamicamente o conteúdo da página. Por exemplo, isto permite modificar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro personalizado que passa da sua aplicação web ou móvel. Para mais informações, consulte [Dynamicly configure o UI utilizando políticas personalizadas no Diretório Ativo Azure B2C](custom-policy-ui-customization.md). Também pode localizar a sua página HTML com base num parâmetro de idioma, ou pode alterar o conteúdo com base no ID do cliente.
 
 O exemplo seguinte passa no parâmetro de corda de consulta nomeado **campaignId** com um valor de `hawaii`, um código **de linguagem** de `en-US`, e **app** que representa o ID do cliente:
 

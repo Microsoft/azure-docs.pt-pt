@@ -95,8 +95,6 @@
           href: concepts-data-access-security-private-link.md
         - name: Encriptação de Dados
           href: concepts-data-encryption-mysql.md
-        - name: Encriptação de Dados
-          href: concepts-data-encryption-mysql.md
         - name: Autenticação do Azure AD
           href: concepts-azure-ad-authentication.md
     - name: Continuidade do negócio
@@ -222,6 +220,8 @@
           href: howto-troubleshoot-query-performance.md
         - name: Como utilizar as vistas no esquema sys
           href: howto-troubleshoot-sys-schema.md
+        - name: Resolver problemas de encriptação de dados
+          href: howto-data-encryption-troubleshoot.md
     - name: Proteção Avançada Contra Ameaças
       items:
         - name: Portal do Azure

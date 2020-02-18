@@ -485,6 +485,8 @@
           href: expensein-tutorial.md
         - name: Expensify
           href: expensify-tutorial.md
+        - name: Experience Cloud
+          href: experience-cloud-tutorial.md
         - name: Explanation-Based Auditing System
           href: explanation-based-auditing-system-tutorial.md
         - name: Expiration Reminder
@@ -597,8 +599,6 @@
       items:
         - name: HackerOne
           href: hackerone-tutorial.md
-        - name: Halogen Software
-          href: halogen-software-tutorial.md
         - name: Halosys
           href: halosys-tutorial.md
         - name: HappyFox
@@ -651,6 +651,8 @@
           href: hype-tutorial.md
         - name: HyperAnna
           href: hyperanna-tutorial.md
+        - name: Plataforma de Patentes IamIP
+          href: iamip-patent-platform-tutorial.md
         - name: IBM Kenexa Survey Enterprise
           href: kenexasurvey-tutorial.md
         - name: IBM OpenPages
@@ -1177,6 +1179,8 @@
           href: runmyprocess-tutorial.md
     - name: S
       items:
+        - name: Saba TalentSpace
+          href: halogen-software-tutorial.md
         - name: SafeConnect
           href: safeconnect-tutorial.md
         - name: SafetyNet
@@ -1297,7 +1301,7 @@
           href: skyhighnetworks-tutorial.md
         - name: SKYSITE
           href: skysite-tutorial.md
-        - name: Skytap
+        - name: Início de sessão único para Skytap
           href: skytap-tutorial.md
         - name: Skyward Qmlativ
           href: skyward-qmlativ-tutorial.md
