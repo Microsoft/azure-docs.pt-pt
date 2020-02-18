@@ -2,20 +2,20 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/13/2019
+ms.date: 02/14/2019
 ms.author: aahi
-ms.openlocfilehash: efeb8581bd300f393d3447e3303273f5139d86dd
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: b553cd2bed68bc8df7241f4f843b32ec13b1a08a
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77054923"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77372043"
 ---
 <a name="HOLTop"></a>
 
 #### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-[v3 Documentação de referência](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html) | [v3 Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | pacote [v3 (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3 Documentação de referência](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b2/azure.ai.textanalytics.html) | [v3 Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | pacote [v3 (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 #### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
 
@@ -30,11 +30,11 @@ ms.locfileid: "77054923"
 
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
 
-## <a name="setting-up"></a>Configurando
+## <a name="setting-up"></a>Configuração
 
-### <a name="install-the-client-library"></a>Instalar a biblioteca de cliente
+### <a name="install-the-client-library"></a>Instale a biblioteca do cliente
 
-Depois de instalar o Python, você pode instalar a biblioteca de cliente com:
+Depois de instalar a Python, pode instalar a biblioteca do cliente com:
 
 #### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
@@ -50,7 +50,7 @@ pip install --upgrade azure-cognitiveservices-language-textanalytics
 
 ---
 
-### <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
+### <a name="create-a-new-python-application"></a>Criar uma nova aplicação python
 
 Crie um novo arquivo Python e crie variáveis para a chave de assinatura e o ponto de extremidade do Azure do recurso.
 
@@ -66,15 +66,15 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 #### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-O cliente Text Analytics é um objeto `TextAnalyticsClient` que autentica o Azure usando a sua chave. O cliente fornece vários métodos para analisar o texto como um lote. Este guia de início rápido usa uma coleção de funções para enviar rapidamente documentos individuais.
+O cliente Text Analytics é um objeto `TextAnalyticsClient` que autentica o Azure usando a sua chave. O cliente fornece vários métodos para analisar o texto como um lote. 
 
-Quando o texto de processamento do lote é enviado para a API como uma lista de `documents`, que são `dictionary` objetos que contêm uma combinação de `id`, `text`, e `language` atributos dependendo do método utilizado. O atributo `text` armazena o texto a analisar na origem `language`, e o `id` pode ser qualquer valor. Ao processar documentos únicos, apenas é necessária uma entrada `text`, como se pode ver nos exemplos abaixo.  
+Quando o texto de processamento do lote é enviado para a API como uma lista de `documents`, que são `dictionary` objetos que contêm uma combinação de `id`, `text`, e `language` atributos dependendo do método utilizado. O atributo `text` armazena o texto a analisar na origem `language`, e o `id` pode ser qualquer valor. 
 
 O objeto de resposta é uma lista que contém as informações de análise de cada documento. 
 
 #### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
 
-O cliente Text Analytics é um objeto [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) que autentica o Azure usando a sua chave. O cliente fornece vários métodos para analisar o texto, como uma única cadeia de caracteres ou um lote. 
+O cliente Text Analytics é um objeto [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) que autentica o Azure usando a sua chave. O cliente fornece vários métodos para analisar texto, como uma única corda, ou um lote. 
 
 O texto é enviado para a API como uma lista de `documents`, que são `dictionary` objetos que contêm uma combinação de `id`, `text`, e `language` atributos dependendo do método utilizado. O atributo `text` armazena o texto a analisar na origem `language`, e o `id` pode ser qualquer valor. 
 
@@ -84,70 +84,96 @@ O texto é enviado para a API como uma lista de `documents`, que são `dictionar
 
 Esses trechos de código mostram como realizar as seguintes tarefas com a biblioteca de cliente Análise de Texto para Python:
 
+* [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis)
 * [Deteção de linguagem](#language-detection)
 * [Reconhecimento de Entidade Nomeada](#named-entity-recognition-ner) 
 * [Ligação de entidades](#entity-linking)
 * [Extração de frase-chave](#key-phrase-extraction)
 
+## <a name="authenticate-the-client"></a>Autenticar o cliente
+
+#### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
+
+Crie uma função para instantaneamente o objeto `TextAnalyticsClient` com o seu `key` e `endpoint` criado acima. Então crie um novo cliente. 
+
+```python
+from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiKeyCredential
+
+def authenticate_client():
+    ta_credential = TextAnalyticsApiKeyCredential(key)
+    text_analytics_client = TextAnalyticsClient(
+            endpoint=endpoint, credential=ta_credential)
+    return text_analytics_client
+
+client = authenticate_client()
+```
+
+#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+
+[!code-python[imports statements](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]
+
+Crie uma função para instantaneamente o objeto `TextAnalyticsClient` com o seu `key` e `endpoint` criado acima. Então crie um novo cliente. 
+
+[!code-python[version 2 authentication](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=authentication)]
+
+--- 
+
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
 #### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Crie uma nova função chamada `sentiment_analysis_example()` que tome o ponto final e a chave como argumentos, em seguida, chama a função `single_analyze_sentiment()`. O objeto de resposta retornado conterá o rótulo de sentimentos e a pontuação de todo o documento de entrada, bem como uma análise de sentimentos para cada frase.
+Crie uma nova função chamada `sentiment_analysis_example()` que leve o cliente como argumento, e depois chama a função `analyze_sentiment()`. O objeto de resposta retornado conterá o rótulo de sentimentos e a pontuação de todo o documento de entrada, bem como uma análise de sentimentos para cada frase.
 
 
 ```python
-from azure.ai.textanalytics import single_analyze_sentiment
+def sentiment_analysis_example(client):
 
-def sentiment_analysis_example(endpoint, key):
-
-    document = "I had the best day of my life. I wish you were there with me."
-
-    response = single_analyze_sentiment(endpoint=endpoint, credential=key, input_text=document)
+    document = ["I had the best day of my life. I wish you were there with me."]
+    response = client.analyze_sentiment(inputs=document)[0]
     print("Document Sentiment: {}".format(response.sentiment))
     print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
-        response.document_scores.positive,
-        response.document_scores.neutral,
-        response.document_scores.negative,
+        response.sentiment_scores.positive,
+        response.sentiment_scores.neutral,
+        response.sentiment_scores.negative,
     ))
     for idx, sentence in enumerate(response.sentences):
         print("[Offset: {}, Length: {}]".format(sentence.offset, sentence.length))
         print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
         print("Sentence score:\nPositive={0:.3f}\nNeutral={1:.3f}\nNegative={2:.3f}\n".format(
-            sentence.sentence_scores.positive,
-            sentence.sentence_scores.neutral,
-            sentence.sentence_scores.negative,
+            sentence.sentiment_scores.positive,
+            sentence.sentiment_scores.neutral,
+            sentence.sentiment_scores.negative,
         ))
 
             
-sentiment_analysis_example(endpoint, key)
+sentiment_analysis_example(client)
 ```
 
 ### <a name="output"></a>Saída
 
 ```console
 Document Sentiment: positive
-Overall scores: positive=0.999; neutral=0.001; negative=0.000 
+Overall scores: positive=1.000; neutral=0.000; negative=0.000 
 
 [Offset: 0, Length: 30]
 Sentence 1 sentiment: positive
 Sentence score:
-positive=0.999
-neutral=0.001
-negative=0.000
+Positive=1.000
+Neutral=0.000
+Negative=0.000
 
 [Offset: 31, Length: 30]
 Sentence 2 sentiment: neutral
 Sentence score:
-positive=0.212
-neutral=0.771
-negative=0.017
+Positive=0.210
+Neutral=0.770
+Negative=0.020
 ```
 
 #### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
 
-Autenticar um objeto de cliente e chamar a função de [sentimento.](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) Itere pelos resultados e imprima a ID de cada documento e a pontuação de sentimentos. Uma pontuação mais próxima de 0 indica uma observação negativa, enquanto uma pontuação mais próxima de 1 indica uma observação positiva.
+Autenticar um objeto de cliente e chamar a função de [sentimento.](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) Iterar através dos resultados, e imprimir a identificação de cada documento, e pontuação de sentimento. Uma pontuação mais próxima de 0 indica um sentimento negativo, enquanto uma pontuação mais próxima de 1 indica um sentimento positivo.
 
 [!code-python[sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentimentAnalysis)]
 
@@ -166,23 +192,21 @@ Document ID: 4 , Sentiment Score: 1.00
 
 #### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Crie uma nova função chamada `language_detection_example()` que tome o ponto final e a chave como argumentos, em seguida, chama a função `single_detect_languages()`. O objeto de resposta devolvido conterá a linguagem detetada em `detected_languages` se for bem sucedido, e uma `error` se não for.
+Crie uma nova função chamada `language_detection_example()` que leve o cliente como argumento, e depois chama a função `detect_language()`. O objeto de resposta devolvido conterá a linguagem detetada em `primary_language` se for bem sucedido, e uma `error` se não for.
 
 > [!Tip]
-> Em alguns casos, pode ser difícil eliminar a ambiguidade de idiomas com base na entrada. Pode utilizar o parâmetro `country_hint` para especificar um código de país de 2 letras. Por padrão, a API está a usar os "EUA" como país padrãoHint, para remover este comportamento pode redefinir este parâmetro definindo este valor para `country_hint : ""`de cadeias vazias . 
+> Em alguns casos, pode ser difícil desambiguar línguas com base na entrada. Pode utilizar o parâmetro `country_hint` para especificar um código de país de 2 letras. Por padrão, a API está a usar os "EUA" como país padrãoHint, para remover este comportamento pode redefinir este parâmetro definindo este valor para `country_hint : ""`de cadeias vazias . 
 
 ```python
-from azure.ai.textanalytics import single_detect_language
-
-def language_detection_example(endpoint, key):
+def language_detection_example(client):
     try:
-        document = "Ce document est rédigé en Français."
-        response = single_detect_language(endpoint=endpoint, credential=key, input_text= document)
+        document = ["Ce document est rédigé en Français."]
+        response = client.detect_language(inputs = document, country_hint = 'us')[0]
         print("Language: ", response.primary_language.name)
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
-language_detection_example(endpoint, key)
+language_detection_example(client)
 ```
 
 
@@ -194,7 +218,7 @@ Language:  French
 
 #### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
 
-Usando o cliente criado anteriormente, ligue [para detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, itere pelos resultados e imprima a ID de cada documento e o primeiro idioma retornado.
+Usando o cliente criado anteriormente, ligue [para detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, iterar através dos resultados, e imprimir a identificação de cada documento, e a primeira linguagem devolvida.
 
 [!code-python[language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=languageDetection)]
 
@@ -218,26 +242,24 @@ Document ID: 3 , Language: Chinese_Simplified
 > * O NER inclui métodos separados para detetar informações pessoais. 
 > * A ligação de entidades é um pedido separado do NER.
 
-Crie uma nova função chamada `entity_recognition_example` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_entities()` e iterates através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas em `entity` se for bem sucedido, e uma `error` se não for. Para cada entidade detectada, imprima seu tipo e subtipo, se existir.
+Crie uma nova função chamada `entity_recognition_example` que leve o cliente como argumento, depois chama a função `recognize_entities()` e iterates através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas em `entity` se for bem sucedido, e uma `error` se não for. Para cada entidade detetada, imprima a sua categoria e subcategoria se existir.
 
 ```python
-from azure.ai.textanalytics import single_recognize_entities
-
-def entity_recognition_example(endpoint, key):
+def entity_recognition_example(client):
 
     try:
-        document = "I had a wonderful trip to Seattle last week."
-        result = single_recognize_entities(endpoint=endpoint, credential=key, input_text= document)
-        
+        document = ["I had a wonderful trip to Seattle last week."]
+        result = client.recognize_entities(inputs= document)[0]
+
         print("Named Entities:\n")
         for entity in result.entities:
-                print("\tText: \t", entity.text, "\tType: \t", entity.type, "\tSubType: \t", entity.subtype,
+                print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
                       "\n\tOffset: \t", entity.offset, "\tLength: \t", entity.offset, 
                       "\tConfidence Score: \t", round(entity.score, 3), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
-entity_recognition_example(endpoint, key)
+entity_recognition_example(client)
 ```
 
 ### <a name="output"></a>Saída
@@ -245,60 +267,56 @@ entity_recognition_example(endpoint, key)
 ```console
 Named Entities:
 
-    Text:    Seattle    Type:    Location   SubType:     None 
-    Offset:      26     Length:      26     Confidence Score:    0.806 
+    Text:    Seattle    Category:    Location   SubCategory:     GPE 
+    Offset:      26     Length:      26     Confidence Score:    0.92 
 
-    Text:    last week  Type:    DateTime   SubType:     DateRange 
+    Text:    last week  Category:    DateTime   SubCategory:     DateRange 
     Offset:      34     Length:      34     Confidence Score:    0.8 
 ```
 
 ## <a name="using-ner-to-detect-personal-information"></a>Utilização do NER para detetar informações pessoais
 
-Crie uma nova função chamada `entity_pii_example()` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_pii_entities()` e obtém o resultado. Em seguida, itere os resultados e imprima as entidades.
+Crie uma nova função chamada `entity_pii_example()` que leve o cliente como argumento, depois chama a função `recognize_pii_entities()` e obtém o resultado. Em seguida, itere os resultados e imprima as entidades.
 
 ```python
-from azure.ai.textanalytics import single_recognize_pii_entities
+def entity_pii_example(client):
 
-def entity_pii_example(endpoint, key):
-
-        document = "Insurance policy for SSN on file 123-12-1234 is here by approved."
+        document = ["Insurance policy for SSN on file 123-12-1234 is here by approved."]
 
 
-        result = single_recognize_pii_entities(endpoint=endpoint, credential=key, input_text= document)
+        result = client.recognize_pii_entities(inputs= document)[0]
         
         print("Personally Identifiable Information Entities: ")
         for entity in result.entities:
-            print("\tText: ",entity.text,"\tType: ", entity.type,"\tSub-Type: ", entity.subtype)
+            print("\tText: ",entity.text,"\tCategory: ", entity.category,"\tSubCategory: ", entity.subcategory)
             print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
         
-entity_pii_example(endpoint, key)
+entity_pii_example(client)
 ```
 
 ### <a name="output"></a>Saída
 
 ```console
 Personally Identifiable Information Entities: 
-    Text:  123-12-1234  Type:  U.S. Social Security Number (SSN)    Sub-Type:  
+    Text:  123-12-1234  Category:  U.S. Social Security Number (SSN)    SubCategory:  None
         Offset:  33     Length:  11     Score: 0.850 
 ```
 
 
 ## <a name="entity-linking"></a>Ligar à Entidade
 
-Crie uma nova função chamada `entity_linking_example()` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_linked_entities()` e iterates através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas em `entities` se for bem sucedido, e uma `error` se não for. Uma vez que as entidades ligadas são identificadas de forma única, as ocorrências da mesma entidade são agrunadas sob um objeto `entity` como uma lista de objetos `match`.
+Crie uma nova função chamada `entity_linking_example()` que leve o cliente como argumento, depois chama a função `recognize_linked_entities()` e iterates através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas em `entities` se for bem sucedido, e uma `error` se não for. Uma vez que as entidades ligadas são identificadas de forma única, as ocorrências da mesma entidade são agrunadas sob um objeto `entity` como uma lista de objetos `match`.
 
 ```python
-from azure.ai.textanalytics import single_recognize_linked_entities
-
-def entity_linking_example(endpoint, key):
+def entity_linking_example(client):
 
     try:
-        document = """Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
+        document = ["""Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
         to develop and sell BASIC interpreters for the Altair 8800. 
         During his career at Microsoft, Gates held the positions of chairman,
         chief executive officer, president and chief software architect, 
-        while also being the largest individual shareholder until May 2014."""
-        result = single_recognize_linked_entities(endpoint=endpoint, credential=key, input_text= document)
+        while also being the largest individual shareholder until May 2014."""]
+        result = client.recognize_linked_entities(inputs= document)[0]
 
         print("Linked Entities:\n")
         for entity in result.entities:
@@ -312,7 +330,7 @@ def entity_linking_example(endpoint, key):
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
-entity_linking_example(endpoint, key)
+entity_linking_example(client)
 ```
 
 ### <a name="output"></a>Saída
@@ -324,7 +342,7 @@ Linked Entities:
     Data Source:  Wikipedia
     Matches:
         Text: Altair 8800
-        Score: 0.777    Offset:  116    Length: 11
+        Score: 0.777    Offset:  125    Length: 11
 
     Name:  Bill Gates   Id:  Bill Gates     Url:  https://en.wikipedia.org/wiki/Bill_Gates 
     Data Source:  Wikipedia
@@ -333,7 +351,7 @@ Linked Entities:
         Score: 0.555    Offset:  25     Length: 10
 
         Text: Gates
-        Score: 0.555    Offset:  161    Length: 5
+        Score: 0.555    Offset:  179    Length: 5
 
     Name:  Paul Allen   Id:  Paul Allen     Url:  https://en.wikipedia.org/wiki/Paul_Allen 
     Data Source:  Wikipedia
@@ -348,7 +366,7 @@ Linked Entities:
         Score: 0.469    Offset:  0  Length: 9
 
         Text: Microsoft
-        Score: 0.469    Offset:  150    Length: 9
+        Score: 0.469    Offset:  168    Length: 9
 
     Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4 
     Data Source:  Wikipedia
@@ -360,7 +378,8 @@ Linked Entities:
     Data Source:  Wikipedia
     Matches:
         Text: BASIC
-        Score: 0.281    Offset:  89     Length: 5
+        Score: 0.281    Offset:  98     Length: 5
+
 ```
 
 #### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
@@ -368,7 +387,7 @@ Linked Entities:
 > [!NOTE]
 > Na versão 2.1, a ligação da entidade está incluída na resposta NER.
 
-Utilizando o cliente criado anteriormente, ligue para a função [das entidades](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, itere pelos resultados e imprima a ID de cada documento e as entidades contidas nele.
+Utilizando o cliente criado anteriormente, ligue para a função [das entidades](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, iterar através dos resultados, e imprimir a identificação de cada documento, e as entidades contidas nele.
 
 [!code-python[Entity recognition](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=entityRecognition)]
 
@@ -418,17 +437,15 @@ Document ID: 2
 
 #### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Crie uma nova função chamada `key_phrase_extraction_example()` que tome o ponto final e a chave como argumentos, em seguida, chama a função `single_extract_key_phrases()`. O resultado conterá a lista de frases-chave detetadas em `key_phrases` se for bem sucedida, e uma `error` se não for. Imprima as frases-chave detectadas.
+Crie uma nova função chamada `key_phrase_extraction_example()` que leve o cliente como argumento, e depois chama a função `extract_key_phrases()`. O resultado conterá a lista de frases-chave detetadas em `key_phrases` se for bem sucedida, e uma `error` se não for. Imprima as frases-chave detetadas.
 
 ```python
-from azure.ai.textanalytics import single_extract_key_phrases
-
-def key_phrase_extraction_example(endpoint, key):
+def key_phrase_extraction_example(client):
 
     try:
-        document = "My cat might need to see a veterinarian."
+        document = ["My cat might need to see a veterinarian."]
 
-        response = single_extract_key_phrases(endpoint=endpoint, credential=key, input_text= document)
+        response = client.extract_key_phrases(inputs= document)[0]
 
         if not response.is_error:
             print("\tKey Phrases:")
@@ -440,7 +457,7 @@ def key_phrase_extraction_example(endpoint, key):
     except Exception as err:
         print("Encountered exception. {}".format(err))
         
-key_phrase_extraction_example(endpoint, key)
+key_phrase_extraction_example(client)
 ```
 
 
@@ -454,7 +471,7 @@ key_phrase_extraction_example(endpoint, key)
 
 #### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
 
-Utilizando o cliente criado anteriormente, ligue para a função [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, itere pelos resultados e imprima a ID de cada documento e as frases-chave contidas nele.
+Utilizando o cliente criado anteriormente, ligue para a função [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, iterar através dos resultados, e imprimir o ID de cada documento, e as frases-chave contidas nele.
 
 [!code-python[key phrase extraction](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=keyPhrases)]
 

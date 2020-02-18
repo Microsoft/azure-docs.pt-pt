@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 0539f4a8080056f96319a7a75a355782ee80018d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772429"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77372286"
 ---
 Utilize a biblioteca de clientes em tempo de execução (LUIS) para:
 
@@ -29,11 +29,11 @@ Utilize a biblioteca de clientes em tempo de execução (LUIS) para:
 * Recurso de tempo de execução da compreensão linguística: [Criar um no portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
 
-## <a name="setting-up"></a>Configurando
+## <a name="setting-up"></a>Configuração
 
 ### <a name="get-your-language-understanding-luis-runtime-key"></a>Obtenha a sua chave de tempo de execução da linguagem (LUIS)
 
-Obtenha a sua chave de tempo de [execução](../luis-how-to-azure-subscription.md) criando um recurso de tempo de execução LUIS. Mantenha sua chave e o ponto de extremidade da chave para a próxima etapa.
+Obtenha a sua chave de tempo de [execução](../luis-how-to-azure-subscription.md) criando um recurso de tempo de execução LUIS. Mantenha a chave e o ponto final da chave para o próximo passo.
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
@@ -43,7 +43,7 @@ Crie um novo ficheiro javascript no seu editor preferido ou IDE, chamado `luis_p
 
 ### <a name="install-the-npm-library-for-the-luis-runtime"></a>Instale a biblioteca NPM para o tempo de execução do LUIS
 
-No diretório do aplicativo, instale as dependências com o seguinte comando:
+Dentro do diretório de aplicações, instale as dependências com o seguinte comando:
 
 ```console
 npm install @azure/cognitiveservices-luis-runtime @azure/ms-rest-js
@@ -51,9 +51,9 @@ npm install @azure/cognitiveservices-luis-runtime @azure/ms-rest-js
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente de criação de Reconhecimento vocal (LUIS) é um objeto [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) que se autentica no Azure, que contém a sua chave de criação.
+O cliente autor de Linguagem (LUIS) é um objeto [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) que autentica o Azure, que contém a sua chave de autoria.
 
-Depois que o cliente for criado, use esse cliente para acessar a funcionalidade, incluindo:
+Assim que o cliente for criado, utilize este cliente para aceder à funcionalidade, incluindo:
 
 * [Previsão](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-) por `staging` ou `production` slot
 * [Previsão por versão](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getversionprediction-string--string--predictionrequest--models-predictiongetversionpredictionoptionalparams-)
@@ -62,9 +62,9 @@ Depois que o cliente for criado, use esse cliente para acessar a funcionalidade,
 
 Estes fragmentos de código mostram-lhe como fazer o seguinte com a biblioteca de clientes runtime de previsão de previsão de linguagem (LUIS):
 
-* [Previsão por slot](#get-prediction-from-runtime)
+* [Previsão por ranhura](#get-prediction-from-runtime)
 
-## <a name="add-the-dependencies"></a>Adicionar as dependências
+## <a name="add-the-dependencies"></a>Adicione as dependências
 
 A partir do diretório do projeto, abra o ficheiro `luis_prediction.js` no seu editor ou IDE preferido. Adicione as seguintes dependências:
 
@@ -74,7 +74,7 @@ A partir do diretório do projeto, abra o ficheiro `luis_prediction.js` no seu e
 
 1. Crie variáveis para a sua própria informação necessária do LUIS:
 
-    Adicione variáveis para gerir a sua chave de previsão retirada de uma variável ambiental chamada `LUIS_RUNTIME_KEY`. Se você criou a variável de ambiente depois que o aplicativo é iniciado, o editor, IDE ou Shell em execução precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente.
+    Adicione variáveis para gerir a sua chave de previsão retirada de uma variável ambiental chamada `LUIS_RUNTIME_KEY`. Se criou a variável ambiental após o lançamento da aplicação, o editor, IDE ou shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
 
     Crie uma variável para manter o seu nome de recurso `LUIS_RUNTIME_ENDPOINT`.
 
@@ -89,19 +89,19 @@ A partir do diretório do projeto, abra o ficheiro `luis_prediction.js` no seu e
 
     [!code-javascript [LUIS Runtime client is required to access predictions for LUIS apps](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=AuthoringCreateClient)]
 
-## <a name="get-prediction-from-runtime"></a>Obter previsão do tempo de execução
+## <a name="get-prediction-from-runtime"></a>Obtenha previsão do tempo de execução
 
-Adicione o método a seguir para criar a solicitação para o tempo de execução de previsão.
+Adicione o seguinte método para criar o pedido ao tempo de execução da previsão.
 
 A expressão do utilizador faz parte do objeto [de previsãoRequest.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionrequest?view=azure-node-latest)
 
-O método **[luisRuntimeClient.forecast.getSlotPrediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)** necessita de vários parâmetros, tais como o ID da aplicação, o nome da ranhura e o objeto de pedido de previsão para cumprir o pedido. As outras opções, como Verbose, mostram todas as intenções e log são opcionais.
+O método **[luisRuntimeClient.forecast.getSlotPrediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)** necessita de vários parâmetros, tais como o ID da aplicação, o nome da ranhura e o objeto de pedido de previsão para cumprir o pedido. As outras opções, como verbosa, mostrar todas as intenções e registo são opcionais.
 
 [!code-javascript [LUIS prediction request and response in Node.js NPM SDK](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=predict)]
 
 ## <a name="main-code-for-the-prediction"></a>Código principal para a previsão
 
-Use o método Main a seguir para vincular as variáveis e os métodos para obter a previsão.
+Utilize o seguinte método principal para ligar as variáveis e métodos para obter a previsão.
 
 [!code-javascript [Main method and main call](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=Main)]
 

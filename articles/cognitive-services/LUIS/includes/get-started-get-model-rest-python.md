@@ -1,5 +1,5 @@
 ---
-title: Obter modelo com chamada REST emC#
+title: Obtenha modelo com chamada RESTC#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -19,8 +19,8 @@ ms.locfileid: "77368448"
 
 * Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
-* A ID do aplicativo LUIS para o aplicativo TravelAgent importado. O ID da aplicação é apresentado no dashboard de aplicações.
-* A ID da versão no aplicativo que recebe o declarações. O ID predefinido é "0.1".
+* O ID da aplicação LUIS para a app TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
+* A versão ID dentro da aplicação que recebe as palavras. O ID predefinido é "0.1".
 * [Python 3.6](https://www.python.org/downloads/) ou posterior.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -28,7 +28,7 @@ ms.locfileid: "77368448"
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## <a name="change-model-programmatically"></a>Alterar modelo programaticamente
+## <a name="change-model-programmatically"></a>Alterar modelo programáticamente
 
 1. Crie um novo ficheiro com o nome `model.py`. Adicione o seguinte código:
 
@@ -44,7 +44,7 @@ ms.locfileid: "77368448"
 
     As chaves e recursos atribuídos são visíveis no portal LUIS na secção Gerir, na página de **recursos do Azure.** O ID da aplicação está disponível na mesma secção Gerir, na página definições de **aplicações.**
 
-1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, digite o seguinte comando para executar o arquivo:
+1. Com um pedido de comando no mesmo diretório onde criou o ficheiro, introduza o seguinte comando para executar o ficheiro:
 
     ```console
     python model.py
@@ -52,7 +52,7 @@ ms.locfileid: "77368448"
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos.
+Quando terminar este arranque rápido, elimine o ficheiro do sistema de ficheiros.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -157,12 +157,12 @@ Algumas operações de conector fazem chamadas assíncronas ou ouvem pedidos de 
 | Tamanho da mensagem com pedaço | 1 GB | 5 GB | Este limite aplica-se a ações que suportam de forma nativa ou permitem a sua configuração de tempo de execução. <p>Para o ambiente de serviço de integração, o motor Logic Apps suporta este limite, mas os conectores têm os seus próprios limites de chunking até ao limite do motor, por exemplo, ver a [referência aAPI do conector Azure Blob.](https://docs.microsoft.com/connectors/azureblob/) Para obter mais informações, consulte [Manuseie mensagens grandes com pedaços](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||   
 
-#### <a name="character-limits"></a>Limites de caracteres
+#### <a name="character-limits"></a>Limites de carácter
 
 | Nome | Notas |
 |------|-------|
 | Limite de avaliação de expressão | 131.072 caracteres | A `@concat()`, `@base64()`, `@string()` expressões não podem ser maiores do que este limite. |
-| Limite de caracteres da URL de solicitação | 16.384 caracteres |
+| Limite de caracteres URL de pedido | 16.384 caracteres |
 |||
 
 #### <a name="retry-policy"></a>Política de repetição

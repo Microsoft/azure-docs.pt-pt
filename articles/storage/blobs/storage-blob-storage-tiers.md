@@ -117,8 +117,8 @@ A tabela seguinte mostra uma comparação entre o armazenamento de blocos de des
 
 |                                           | **Desempenho premium**   | **Nível quente** | **Nível legal**       | **Nível de arquivo**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
-| **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Offline           |
-| **Disponibilidade** <br> **(leituras RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Offline           |
+| **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Banda           |
+| **Disponibilidade** <br> **(leituras RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Banda           |
 | **Custos de utilização**                         | Custos de armazenamento mais elevados, menor acesso e custo de transação | Custos de armazenamento mais elevados, acessomais baixos e custos de transação | Custos de armazenamento mais baixos, acesso mais elevado e custos de transação | Os custos de armazenamento mais baixos, os custos de acesso mais elevados e os custos de transação |
 | **Tamanho mínimo do objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
 | **Duração mínima do armazenamento**              | N/D                       | N/D          | 30 dias<sup>1</sup> | 180 dias

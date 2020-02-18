@@ -30,7 +30,7 @@ Conceptualmente, kafka e Centros de Eventos são quase idênticos: ambos são tr
 
 | Conceito de Kafka | Conceito de Hubs de eventos|
 | --- | --- |
-| Cluster | Espaço de Nomes |
+| Cluster | Espaço de nomes |
 | Tópico | Hub de Eventos |
 | Partição | Partição|
 | Grupo de Consumidores | Grupo de Consumidores |
