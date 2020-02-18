@@ -10,7 +10,7 @@ ms.author: harelbr
 ms.subservice: alerts
 ms.openlocfilehash: 305ad1da28de899f801b9b8af58628c6c067a5d7
 ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77425141"

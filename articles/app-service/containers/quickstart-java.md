@@ -10,7 +10,7 @@ ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: f8d443677aef6efd08e03139f1d24d0524465e38
 ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77425391"
