@@ -7,32 +7,32 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: 346a44f02667976d95125b72371b6e33715ee4b1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/18/2020
+ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211155"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462531"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorize pedidos de consulta em Pesquisa Cognitiva Azure
 
-Este artigo explica como medir o desempenho e o volume da consulta usando métricas. Também explica como recolher os termos de entrada utilizados em consultas - informações necessárias quando precisa avaliar a utilidade e eficácia do seu corpus de pesquisa.
+Este artigo explica como medir o desempenho e o volume da consulta usando métricas e registo de diagnóstico. Também explica como recolher os termos de entrada utilizados em consultas - informações necessárias quando precisa avaliar a utilidade e eficácia do seu corpus de pesquisa.
 
-Os dados históricos que se alimentam de métricas são preservados durante 30 dias. Para uma retenção mais longa, ou para reportar dados operacionais e cordas de consulta, certifique-se de que permite uma [definição de diagnóstico](search-monitor-logs.md) que especifica uma opção de armazenamento.
+Os dados históricos que se alimentam de métricas são preservados durante 30 dias. Para uma retenção mais longa, ou para reportar dados operacionais e cordas de consulta, certifique-se de que permite uma [definição de diagnóstico](search-monitor-logs.md) que especifique uma opção de armazenamento para eventos e métricas de registo persistentes.
 
-As condições que maximizam a integridade das medições de dados incluem:
+As condições que maximizam a integridade da medição de dados incluem:
 
 + Utilize um serviço de faturação (um serviço criado no nível Básico ou Standard). O serviço gratuito é partilhado por vários subscritores, o que introduz uma certa volatilidade à medida que as cargas mudam.
 
-+ Utilize uma única réplica, se possível, para que os cálculos se limitem a uma máquina. Se utilizar várias réplicas, as métricas de consulta são médias em vários nós, algumas das quais podem ser mais rápidas. Se estiver a afinar o desempenho da consulta, um único nó dá um ambiente mais estável para testes.
++ Utilize uma única réplica e partição, se possível, para criar um ambiente contido e isolado. Se utilizar várias réplicas, as métricas de consulta são médias em vários nós, o que pode reduzir a precisão dos resultados. Da mesma forma, várias divisórias significam que os dados estão divididos, com o potencial de algumas divisórias poderem ter dados diferentes se a indexação também estiver em curso. Ao afinar o desempenho da consulta, um único nó e partição proporciona um ambiente mais estável para testes.
 
 > [!Tip]
 > Com código adicional do lado do cliente e Insights de Aplicação, também pode capturar cliques através de dados para uma visão mais profunda do que atrai o interesse dos seus utilizadores de aplicações. Para mais informações, consulte [a análise do tráfego de pesquisa.](search-traffic-analytics.md)
 
 ## <a name="query-volume-qps"></a>Volume de consulta (QPS)
 
-O volume é medido como Consultas de **Pesquisa por Segundo** (QPS), uma métrica incorporada que pode ser reportada como uma média, contagem, valores mínimos ou máximos de consultas que executam dentro de uma janela de um minuto. Intervalos de um minuto (TimeGrain = "PT1M") para métricas é fixado dentro do sistema.
+O volume é medido como Consultas de **Pesquisa por Segundo** (QPS), uma métrica incorporada que pode ser reportada como uma média, contagem, valores mínimos ou máximos de consultas que executam dentro de uma janela de um minuto. Intervalos de um minuto (TimeGrain = "PT1M") para métricas são fixados dentro do sistema.
 
 É comum as consultas executarem em milissegundos, por isso só as consultas que medem como segundos aparecerão nas métricas.
 
@@ -116,6 +116,45 @@ Para uma exploração mais profunda, o explorador de métricas abertas do menu *
 
 1. Aproxime-se de uma área de interesse na tabela de linhas. Coloque o ponteiro do rato no início da área, clique e segure o botão do rato esquerdo, arraste para o outro lado da área e liberte o botão. O gráfico vai ampliar o intervalo de tempo.
 
+## <a name="identify-strings-used-in-queries"></a>Identificar cordas usadas em consultas
+
+Ao ativar o registo de diagnóstico, o sistema capta pedidos de consulta na tabela **AzureDiagnostics.** Como pré-requisito, já deve ter ativado o [registo de diagnóstico,](search-monitor-logs.md)especificando um espaço de trabalho de análise de registo ou outra opção de armazenamento.
+
+1. Na secção de Monitorização, selecione **Registos** para abrir uma janela de consulta vazia no Log Analytics.
+
+1. Executar a seguinte expressão para pesquisar Operações de pesquisa, devolvendo um conjunto de resultados tabular constituído pelo nome de operação, cadeia de consulta, o índice consultado, e o número de documentos encontrados. As duas últimas declarações excluem cordas de consulta que consistem numa pesquisa vazia ou não especificada, sobre um índice de amostra, que reduz o ruído dos seus resultados.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, Query_s, IndexName_s, Documents_d
+   | where OperationName == "Query.Search"
+   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where IndexName_s != "realestate-us-sample-index"
+   ```
+
+1. Opcionalmente, coloque um filtro de Coluna na *Query_s* para pesquisar uma sintaxe ou corda específica. Por exemplo, pode filtrar por cima *é igual a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+
+   ![Cordas de consulta registadas](./media/search-monitor-usage/log-query-strings.png "Cordas de consulta registadas")
+
+Enquanto esta técnica funciona para a investigação ad hoc, a construção de um relatório permite-lhe consolidar e apresentar as cordas de consulta num layout mais propício à análise.
+
+## <a name="identify-long-running-queries"></a>Identificar consultas de longa duração
+
+Adicione a coluna de duração para obter os números para todas as consultas, e não apenas aquelas que são captadas como métricas. A triagem destes dados mostra quais as consultas que demoram mais tempo a ser completadas.
+
+1. Na secção de Monitorização, selecione **Registos** para consultar informações sobre log.
+
+1. Execute as seguintes consultas para devolver consultas, ordenadas por duração em milissegundos. As consultas mais longas estão no topo.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+   | where OperationName == "Query.Search"
+   | sort by DurationMs
+   ```
+
+   ![Ordenar consultas por duração](./media/search-monitor-usage/azurediagnostics-table-sortby-duration.png "Ordenar consultas por duração")
+
 ## <a name="create-a-metric-alert"></a>Criar um alerta métrico
 
 Um alerta métrico estabelece um limiar no qual receberá uma notificação ou desencadeará uma ação corretiva que definirá antecipadamente. 
@@ -144,31 +183,9 @@ Ao ultrapassar os limites de uma determinada configuração de divisória de ré
 
 Se especificou uma notificação por e-mail, receberá um e-mail do "Microsoft Azure" com uma linha de assunto "Azure: Activated Severity: 3 `<your rule name>`".
 
-## <a name="query-strings-used-in-queries"></a>Cordas de consulta usadas em consultas
+<!-- ## Report query data
 
-Ao ativar o registo de diagnóstico, o sistema capta pedidos de consulta na tabela **AzureDiagnostics.** Como pré-requisito, já deve ter ativado o [registo de diagnóstico,](search-monitor-logs.md)especificando um espaço de trabalho de análise de registo ou outra opção de armazenamento.
-
-1. Na secção de Monitorização, selecione **Registos** para abrir uma janela de consulta vazia no Log Analytics.
-
-1. Executar a seguinte expressão para pesquisar Operações de Pesquisa, devolvendo um conjunto de resultados tabular constituído pelo nome da operação, cadeia de consulta, o índice consultado, e o número de documentos encontrados. As duas últimas declarações excluem cordas de consulta que consistem numa pesquisa vazia ou não especificada, sobre um índice de amostra, que reduz o ruído dos seus resultados.
-
-   ```
-    AzureDiagnostics 
-     | project OperationName, Query_s, IndexName_s, Documents_d 
-     | where OperationName == "Query.Search"
-     | where Query_s != "?api-version=2019-05-06&search=*"
-     | where IndexName_s != "realestate-us-sample-index"
-   ```
-
-1. Opcionalmente, coloque um filtro de Coluna na *Query_s* para pesquisar uma sintaxe ou corda específica. Por exemplo, pode filtrar por cima *é igual a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
-
-   ![Cordas de consulta registadas](./media/search-monitor-usage/log-query-strings.png "Cordas de consulta registadas")
-
-Enquanto esta técnica funciona para a investigação ad hoc, a construção de um relatório permite-lhe consolidar e apresentar as cordas de consulta num layout mais propício à análise.
-
-## <a name="report-query-data"></a>Reportar dados de consulta
-
-Power BI é uma ferramenta de reporte analítico que pode utilizar contra dados de registo armazenados no armazenamento blob ou num espaço de trabalho de Log Analytics.
+Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 2849dc94f1c45dda3da09120adebba6e004eb96b
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/18/2020
+ms.openlocfilehash: 86e869bc08552ea11728c508486a4784eccf4042
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211181"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462373"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recolher e analisar dados de registo para pesquisa cognitiva azure
 
-Os registos de diagnóstico ou operacionais fornecem informações sobre as operações detalhadas da Pesquisa Cognitiva Azure e são úteis para monitorizar os processos de serviço e carga de trabalho. Internamente, existem registos no backend por um curto período de tempo, suficientes para investigação e análise se você arquivar um bilhete de apoio. No entanto, se pretender auto-orientação sobre dados operacionais, deve configurar uma definição de diagnóstico para especificar onde as informações de registo são recolhidas. 
+Os registos de diagnóstico ou operacionais fornecem informações sobre as operações detalhadas da Pesquisa Cognitiva Azure e são úteis para monitorizar os processos de serviço e carga de trabalho. Internamente, existem registos no backend por um curto período de tempo, suficientes para investigação e análise se você arquivar um bilhete de apoio. No entanto, se pretender auto-orientação sobre dados operacionais, deve configurar uma definição de diagnóstico para especificar onde as informações de registo são recolhidas.
 
 A configuração de registos é útil para diagnósticos e preservação do histórico operacional. Depois de ativar a exploração madeireira, pode executar consultas ou construir relatórios para análise estruturada.
 
@@ -25,9 +25,9 @@ A tabela que se segue enumera as opções de recolha e persistência de dados.
 
 | Recurso | Utilizado para |
 |----------|----------|
-| [Enviar para Log Analytics espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Eventos registados e métricas de consulta, com base nos esquemas abaixo. Os eventos estão registados num espaço de trabalho do Log Analytics. Utilizando o Log Analytics, pode executar consultas para devolver informações detalhadas. Para mais informações, consulte [Começar com registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Arquivo com armazenamento Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registados num contentor Blob e armazenados em ficheiros JSON. Os registos podem ser bastante granulares (por hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação em aberto. Utilize um editor da JSON para ver um ficheiro de registo.|
-| [Stream to Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Eventos registados e métricas de consulta, com base nos esquemas documentados neste artigo. Escolha isto como um serviço alternativo de recolha de dados para registos muito grandes. |
+| [Enviar para Log Analytics espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Eventos e métricas são enviados para um espaço de trabalho log Analytics, que pode ser consultado no portal para devolver informações detalhadas. Para uma introdução, consulte [Começar com registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Arquivo com armazenamento Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Os eventos e métricas são arquivados num contentor Blob e armazenados em ficheiros JSON. Os registos podem ser bastante granulares (por hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação em aberto. Utilize um editor da JSON para visualizar um ficheiro de registo bruto ou Power BI para agregar e visualizar dados de registo.|
+| [Stream to Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Eventos e métricas são transmitidos para um serviço Azure Event Hubs. Escolha isto como um serviço alternativo de recolha de dados para registos muito grandes. |
 
 Tanto os registos do Monitor Azure como o armazenamento blob estão disponíveis como um serviço gratuito para que possa experimentá-lo gratuitamente durante a vida útil da sua subscrição Azure. Os Insights de Aplicação são livres de se inscreverem e utilizarem desde que o tamanho dos dados da aplicação esteja abaixo de determinados limites (consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para mais detalhes).
 
@@ -37,38 +37,59 @@ Se estiver a utilizar o Log Analytics ou o Azure Storage, pode criar recursos co
 
 + [Criar um espaço de trabalho de análise de registo](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-+ [Crie uma conta](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) de armazenamento se necessitar de um arquivo de registo.
++ [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 
-## <a name="create-a-log"></a>Criar um tronco
+## <a name="enable-data-collection"></a>Ativar a recolha de dados
 
-As definições de diagnóstico definem a recolha de dados. Uma definição especifica como e o que é recolhido. 
+As definições de diagnóstico especificam como os eventos e métricas registados são recolhidos.
 
-1. Sob **monitorização,** selecione **definições de diagnóstico**.
+1. Em **Monitorização**, selecione **Definições de diagnóstico**.
 
    ![Definições de diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Definições de diagnóstico")
 
 1. Selecione **+ Adicione a definição de diagnóstico**
 
-1. Escolher os dados que pretende exportar: registos, métricas ou ambos. Pode recolher dados numa conta de armazenamento, um espaço de trabalho de análise de registo, ou transmiti-lo para o Event Hub.
-
-   Recomenda-se a análise de registo porque pode consultar o espaço de trabalho no portal.
-
-   Se também estiver a utilizar o armazenamento blob, os contentores e as bolhas serão criados quando os dados de registo forem exportados.
+1. Verifique **o Log Analytics,** selecione o seu espaço de trabalho e selecione **OperationLogs** e **AllMetrics**.
 
    ![Configure a recolha de dados](./media/search-monitor-usage/configure-storage.png "Configure a recolha de dados")
 
 1. Guarde a definição.
 
-1. Teste criando ou apagando objetos (cria eventos de registo) e submetendo consultas (gera métricas). 
+1. Depois de ativada a exploração madeireira, utilize o seu serviço de pesquisa para começar a gerar registos e métricas. Levará algum tempo até que eventos e métricas registados fiquem disponíveis.
 
-No armazenamento blob, os recipientes só são criados quando há uma atividade para log ou medir. Quando os dados são copiados para uma conta de armazenamento, os dados são formatados como JSON e colocados em dois recipientes:
+Para o Log Analytics, serão vários minutos antes de os dados estarem disponíveis, após o que poderá executar consultas kusto para devolver dados. Para mais informações, consulte os pedidos de [consulta do Monitor](search-monitor-logs.md).
 
-* insights-logs-operationlogs: para os registos de tráfego de pesquisa
-* as métricas-insights-pt1m: para métricas
+Para o armazenamento blob, demora uma hora até que os recipientes apareçam no armazenamento blob. Há um blob, por hora, por contentor. Os recipientes só são criados quando existe uma atividade para registar ou medir. Quando os dados são copiados para uma conta de armazenamento, os dados são formatados como JSON e colocados em dois recipientes:
 
-**Demora uma hora até que os contentores apareçam no armazém da Blob. Há uma bolha, por hora, por recipiente.**
++ insights-logs-operationlogs: para os registos de tráfego de pesquisa
++ as métricas-insights-pt1m: para métricas
 
-Os registos são arquivados por cada hora em que a atividade ocorre. O caminho seguinte é um exemplo de um ficheiro de registo criado a 12 de janeiro de 2020 às 9h00. onde cada `/` é uma pasta: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2020/m=01/d=12/h=09/m=00/name=PT1H.json`
+## <a name="query-log-information"></a>Informação de registo de consulta
+
+Nos registos de diagnóstico, duas tabelas contêm registos e métricas para a Pesquisa Cognitiva Azure: **AzureDiagnostics** e **AzureMetrics**.
+
+1. Sob **monitorização,** selecione **Registos**.
+
+1. Introduza **a AzureMetrics** na janela de consulta. Faça esta simples consulta para se familiarizar com os dados recolhidos nesta tabela. Percorra a mesa para ver métricas e valores. Note a contagem de recordes no topo, e se o seu serviço estiver a recolher métricas há algum tempo, é melhor ajustar o intervalo de tempo para obter um conjunto de dados manejável.
+
+   ![Tabela AzureMetrics](./media/search-monitor-usage/azuremetrics-table.png "Tabela AzureMetrics")
+
+1. Introduza a seguinte consulta para devolver um conjunto de resultados tabular.
+
+   ```
+   AzureMetrics
+    | project MetricName, Total, Count, Maximum, Minimum, Average
+   ```
+
+1. Repita os passos anteriores, começando pela **AzureDiagnostics** para devolver todas as colunas para fins informísticos, seguida de uma consulta mais seletiva que extrai informações mais interessantes.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+   | where OperationName == "Query.Search" 
+   ```
+
+   ![Mesa AzureDiagnostics](./media/search-monitor-usage/azurediagnostics-table.png "Mesa AzureDiagnostics")
 
 ## <a name="log-schema"></a>Esquema de registo
 
@@ -123,7 +144,7 @@ Para as consultas de **pesquisa por segunda** métrica, o mínimo é o valor mai
 
 Para consultas de **pesquisa aceleradas Percentagem**, mínimo, máximo, média e total, todas têm o mesmo valor: a percentagem de consultas de pesquisa que foram estranguladas, do número total de consultas de pesquisa durante um minuto.
 
-## <a name="view-log-files"></a>Ver ficheiros de registo
+## <a name="view-raw-log-files"></a>Ver ficheiros de registo crus
 
 O armazenamento de blob é usado para arquivar ficheiros de registo. Pode utilizar qualquer editor da JSON para visualizar o ficheiro de registo. Se não tiver um, recomendamos o [Código do Estúdio Visual.](https://code.visualstudio.com/download)
 

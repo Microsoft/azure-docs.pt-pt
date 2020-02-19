@@ -7,7 +7,6 @@ documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
-ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
 ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
@@ -15,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 6a4fc842113218294b3e2ab449e27cfa94c5cfd3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1c85f0205f568f065a7959a9b33890b2117e45a0
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766529"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462229"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introdução ao Centro de Segurança do Azure para IoT
 
 Unifique a gestão de segurança e permita a deteção e análise de ameaças de ponta a ponta através de cargas de trabalho híbridas em nuvem e da sua solução Azure IoT. 
 
-## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Fixe toda a sua solução IoT desde dispositivos IoT até à nuvem Azure.
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteja toda a sua solução IoT desde dispositivos IoT até à nuvem Azure
 
 Escolha entre a nossa solução sem agente sem emenda ou aproveite a segurança abrangente baseada em agentes, o Azure Security Center for IoT fornece prevenção e análise de ameaças para cada dispositivo, IoT Edge e IoT Hub, através dos seus ativos IoT.
 
@@ -38,7 +37,7 @@ O Azure Security Center for IoT simplifica a proteção da carga de trabalho hí
 
 ### <a name="unified-visibility-and-control"></a>Visibilidade e controlo unificados
 
-Obtenha uma vista unificada da segurança em todas as suas cargas de trabalho no local e na cloud, incluindo na sua solução do Azure IoT. A bordo de novos dispositivos e aplique políticas de segurança em todas as suas cargas de trabalho (dispositivos Leaf, dispositivos Microsoft Edge, IoT Hub) para garantir o cumprimento das normas de segurança e uma postura de segurança melhorada. 
+Obtenha uma visão unificada de segurança em todas as suas instalações e cargas de trabalho em nuvem, incluindo a sua solução Azure IoT. A bordo de novos dispositivos e aplique políticas de segurança em todas as suas cargas de trabalho (dispositivos Leaf, dispositivos Microsoft Edge, IoT Hub) para garantir o cumprimento das normas de segurança e uma postura de segurança melhorada. 
 
 ### <a name="adaptive-threat-prevention"></a>Prevenção de ameaças adaptivas
 
@@ -46,7 +45,7 @@ Utilize o Azure Security Center para ioT para monitorizar continuamente a segura
 
 ### <a name="intelligent-threat-detection-and-response"></a>Deteção e resposta de ameaças inteligentes
 
-Utilize análises avançadas e o Microsoft Intelligent Security Graph para obter uma vantagem sobre ciberataques em evolução. Análise comportamental incorporada e aprendizagem automática identificam ataques e explorações de dia zero. Monitorize ataques e atividades pós-violação na sua solução IoT. Agilize a investigação e remediação do dispositivo com ferramentas interativas e inteligência de ameaça contextual.
+Utilize análises avançadas e o Microsoft Intelligent Security Graph para obter uma vantagem sobre ciberataques em evolução. Análise comportamental incorporada e aprendizagem automática identificam ataques e explorações de dia zero. Monitorize a sua solução IoT para ataques e atividade pós-violação. Agilize a investigação e remediação do dispositivo com ferramentas interativas e inteligência de ameaça contextual.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -56,6 +55,6 @@ Nesta visão geral, você aprendeu sobre as funcionalidades e serviços do Azure
 - [Pré-requisitos de serviço](service-prerequisites.md)
 - [Introdução](getting-started.md)
 - [Defina a sua solução](quickstart-configure-your-solution.md)
-- [FAQ da central de segurança do Azure para IoT](resources-frequently-asked-questions.md)
+- [Centro de Segurança Azure para As FAQ iot](resources-frequently-asked-questions.md)
 - [Centro de Segurança Azure para alertas IoT](concept-security-alerts.md)
 

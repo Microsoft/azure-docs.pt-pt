@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 5846e9516548032595c1ce072d1dae8dcce9d39e
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443606"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462331"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorizar operações e atividades de Pesquisa Cognitiva Azure
 
@@ -52,7 +52,7 @@ Páginas com separados incorporadas no relatório da página overview sobre o us
 
 Se estiver a finalizar decisões sobre [qual o nível a utilizar para cargas](search-sku-tier.md)de trabalho de produção , ou se ajustar [o número de réplicas e divisórias ativas,](search-capacity-planning.md)estas métricas podem ajudá-lo com essas decisões mostrando-lhe a rapidez com que os recursos são consumidos e quão bem a configuração atual lida com a carga existente.
 
-Não estão atualmente disponíveis alertas relacionados com o armazenamento; o consumo de armazenamento não é agregado ou registado na tabela **AzureMetrics** no Monitor Azure. Você precisaria de construir uma solução personalizada que emita notificações relacionadas com recursos, onde o seu código verifica o tamanho do armazenamento e lida com a resposta. Para obter mais informações sobre métricas de armazenamento, consulte [Obter Estatísticas de Serviço](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
+Não estão atualmente disponíveis alertas relacionados com o armazenamento; o consumo de armazenamento não é agregado ou registado na tabela **AzureMetrics** no Monitor Azure. Você precisaria [de construir uma solução personalizada](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) que emita notificações relacionadas com recursos, onde o seu código verifica o tamanho do armazenamento e lida com a resposta. Para obter mais informações sobre métricas de armazenamento, consulte [Obter Estatísticas de Serviço](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
 Para monitorização visual no portal, o separador **Utilização** mostra a disponibilidade de recursos em relação aos [limites](search-limits-quotas-capacity.md) atuais impostos pelo nível de serviço. 
 

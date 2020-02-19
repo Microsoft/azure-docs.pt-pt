@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f6f334ed6b84d4688849b6dfd8cb1f79f8db57bf
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: e5beb60107b3632da336a20f167e1c2f5b53140a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443899"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461271"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configure um aplicativo Windows Java para o Serviço de Aplicações Azure
 
@@ -29,6 +29,7 @@ Pode utilizar o [Plugin da Aplicação Web Azure para a Maven](/java/api/overvie
 Caso contrário, o seu método de implantação dependerá do seu tipo de arquivo:
 
 - Para implementar ficheiros de guerra para o Tomcat, utilize o ponto final `/api/wardeploy/` para publicar o seu ficheiro de arquivo. Para mais informações sobre esta API, consulte [esta documentação.](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file)
+- Para implementar ficheiros .jar para Java SE, utilize o ponto final `/api/zipdeploy/` do site Kudu. Para mais informações sobre esta API, consulte [esta documentação.](https://docs.microsoft.com/azure/app-service/deploy-zip#rest)
 
 Não implante a sua .guerra usando FTP. A ferramenta FTP foi concebida para carregar scripts de arranque, dependências ou outros ficheiros de tempo de execução. Não é a escolha ideal para implementar aplicações web.
 
@@ -287,6 +288,10 @@ Para editar os `server.xml` ou outros ficheiros de configuração da Tomcat, tom
 
 Finalmente, reinicie o seu Serviço de Aplicações. Os seus destacamentos devem ir para `D:\home\site\wwwroot\webapps` como antes.
 
+## <a name="configure-java-se"></a>Configure Java SE
+
+Ao executar um . Aplicação JAR no Java SE no Windows, `server.port` é passada como uma opção de linha de comando à medida que a sua aplicação começa. Pode resolver manualmente a porta HTTP a partir da variável ambiente, `HTTP_PLATFORM_PORT`. O valor desta variável ambiental será a porta HTTP que a sua aplicação deve ouvir. 
+
 ## <a name="java-runtime-statement-of-support"></a>Declaração de apoio em tempo de execução de Java
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões jdk e manutenção
@@ -300,6 +305,8 @@ Os JDKs suportados são automaticamente corrigidos trimestralmente em janeiro, a
 ### <a name="security-updates"></a>Atualizações de segurança
 
 Patches e correções para grandes vulnerabilidades de segurança serão lançados assim que ficarem disponíveis na Azul Systems. Uma vulnerabilidade "importante" é definida por uma pontuação base de 9.0 ou superior no Sistema de Pontuação de [Vulnerabilidade Comum NIST, versão 2](https://nvd.nist.gov/cvss.cfm).
+
+A Tomcat 8.0 chegou ao [Fim da Vida (EOL) a 30 de setembro de 2018](https://tomcat.apache.org/tomcat-80-eol.html). Embora o tempo de execução ainda seja aviável no Serviço de Aplicações Azure, o Azure não aplicará atualizações de segurança ao Tomcat 8.0. Se possível, emigre as suas candidaturas para Tomcat 8.5 ou 9.0. Tanto o Tomcat 8.5 como o 9.0 estão disponíveis no Serviço de Aplicações Azure. Consulte o site oficial da [Tomcat](https://tomcat.apache.org/whichversion.html) para mais informações. 
 
 ### <a name="deprecation-and-retirement"></a>Depreciação e reforma
 

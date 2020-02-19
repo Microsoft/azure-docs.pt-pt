@@ -1,27 +1,22 @@
 ---
-title: Introdução aos aplicativos Xamarin. iOS
+title: Começar com aplicativos Xamarin.iOS
 description: Siga este tutorial para começar a utilizar Mobile Apps para o desenvolvimento do Xamarin.iOS
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: 2bb13393a9f348d85ab9fc964b784ba4d4d6a783
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 6c35189e7c841fa2724f1cfe84afc689d5510676
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668624"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459009"
 ---
 # <a name="create-a-xamarinios-app"></a>Criar uma aplicação Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-> [!NOTE]
-> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
->
-> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
-
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a uma aplicação móvel Xamarin.iOS utilizando um back-end da aplicação móvel do Azure.  Pode criar tanto um novo back-end da aplicação móvel assim como uma simples aplicação Xamarin.iOS de uma *Lista de tarefas* que armazena dados da aplicação no Azure.
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais do Xamarin.iOS referentes à utilização da funcionalidade Mobile Apps no App Service do Azure.
@@ -29,34 +24,34 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
-* Uma conta ativa do Azure. Se não tiver uma conta, inscreva-se para uma versão de avaliação do Azure e obtenha até 10 aplicações móveis gratuitas, que pode continuar a utilizar mesmo após o final do período de avaliação. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio para Mac. Consulte [instalação e instalação para Visual Studio para Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
-* Um Mac com o Xcode 9,0 ou posterior.
+* Uma conta ativa do Azure. Se não tiver uma conta, inscreva-se para uma versão de avaliação do Azure e obtenha até 10 aplicações móveis gratuitas, que pode continuar a utilizar mesmo após o final do período de avaliação. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Estúdio Visual para Mac. Consulte [configuração e instalação para Estúdio Visual para Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Um Mac com Xcode 9.0 ou mais tarde.
   
 ## <a name="create-an-azure-mobile-app-backend"></a>Criar um back-end da Aplicação Móvel do Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Criar uma conexão de banco de dados e configurar o projeto de cliente e servidor
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Criar uma ligação à base de dados e configurar o projeto cliente e servidor
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinios-app"></a>Executar o aplicativo Xamarin. iOS
-1. Abra o projeto Xamarin. iOS.
+## <a name="run-the-xamarinios-app"></a>Executar a app Xamarin.iOS
+1. Abra o projeto Xamarin.iOS.
 
-2. Vá para a [portal do Azure](https://portal.azure.com/) e navegue até o aplicativo móvel que você criou. Na folha `Overview`, procure a URL que é o ponto de extremidade público para seu aplicativo móvel. Exemplo – o sitename para o nome do meu aplicativo "test123" será https://test123.azurewebsites.net.
+2. Vá ao [portal Azure](https://portal.azure.com/) e navegue para a aplicação móvel que criou. Na `Overview` lâmina, procure o URL que é o ponto final público da sua aplicação móvel. Exemplo - o nome de site do meu nome de aplicação "test123" será https://test123.azurewebsites.net.
 
-3. Abra o arquivo `QSTodoService.cs` nesta pasta-xamarin. iOS/ZUMOAPPNAME. O nome do aplicativo é `ZUMOAPPNAME`.
+3. Abra o ficheiro `QSTodoService.cs` nesta pasta - xamarin.iOS/ZUMOAPPNAME. O nome da candidatura é `ZUMOAPPNAME`.
 
-4. Na classe `QSTodoService`, substitua `ZUMOAPPURL` variável pelo ponto de extremidade público acima.
+4. Na aula de `QSTodoService`, substitua `ZUMOAPPURL` variável por ponto final público acima.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 
-    ficará
+    torna-se
     
     `const string applicationURL = @"https://test123.azurewebsites.net";`
     
-5. Pressione a tecla F5 para implantar e executar o aplicativo em um emulador do iPhone.
+5. Pressione a tecla F5 para implementar e executar a aplicação num emulador de iPhone.
 
-6. No aplicativo, digite um texto significativo, como *concluir o tutorial* e, em seguida, clique no botão +.
+6. Na aplicação, digite texto significativo, como *completar o tutorial* e, em seguida, clique no botão +.
 
     ![][10]
 

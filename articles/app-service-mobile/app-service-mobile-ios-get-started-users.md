@@ -1,58 +1,53 @@
 ---
-title: Adicionar autenticação no iOS
-description: Saiba como usar os aplicativos móveis do Azure para autenticar usuários de seu aplicativo iOS por meio de provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
+title: Adicionar Autenticação no iOS
+description: Saiba como usar as Aplicações Móveis Azure para autenticar os utilizadores da sua aplicação iOS através de fornecedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 925894cab00537cb9aeb03ca05c9699bb4bf6a84
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: fd7860053e8c04ca9d5e355a721afd834835a441
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668460"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459028"
 ---
-# <a name="add-authentication-to-your-ios-app"></a>Adicionar autenticação ao seu aplicativo iOS
+# <a name="add-authentication-to-your-ios-app"></a>Adicione a autenticação à sua aplicação iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-> [!NOTE]
-> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
->
-> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+Neste tutorial, adiciona autenticação ao projeto de arranque rápido do [iOS arranque rápido] utilizando um fornecedor de identidade suportado. Este tutorial baseia-se no tutorial de arranque rápido do [iOS arranque rápido] que deve completar primeiro.
 
-Neste tutorial, você adicionará autenticação ao projeto de [início rápido do IOS] usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial de [início rápido do IOS] , que você deve concluir primeiro.
-
-## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar o serviço de aplicativo
+## <a name="register"></a>Registe a sua aplicação para autenticação e configure o Serviço de Aplicações
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
+## <a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
 
-A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo.  Isso permite que o sistema de autenticação Redirecione para seu aplicativo após a conclusão do processo de autenticação.  Neste tutorial, usamos o esquema de URL _AppName_ em todo o.  No entanto, você pode usar qualquer esquema de URL que escolher.  Ele deve ser exclusivo para seu aplicativo móvel.  Para habilitar o redirecionamento no lado do servidor:
+A autenticação segura requer que defina um novo esquema de URL para a sua aplicação.  Isto permite que o sistema de autenticação redirecione para a sua aplicação uma vez concluído o processo de autenticação.  Neste tutorial, usamos o _nome_ de aplicativo do esquema URL em toda a parte.  No entanto, pode utilizar qualquer esquema de URL que escolha.  Deve ser exclusivo da sua aplicação móvel.  Para ativar a reorientação do lado do servidor th:
 
-1. No [portal do Azure], selecione o serviço de aplicativo.
+1. No [Portal do Azure]selecione o seu Serviço de Aplicações.
 
-2. Clique na opção de menu **autenticação/autorização** .
+2. Clique na opção de **menu Autenticação/Autorização.**
 
-3. Clique em **Azure Active Directory** na seção **provedores de autenticação** .
+3. Clique no **Diretório Ativo Azure** na secção Fornecedores de **Autenticação.**
 
-4. Defina o **modo de gerenciamento** como **avançado**.
+4. Desajuste o **modo de Gestão** para **Avançado**.
 
-5. Nas **URLs de redirecionamento externo permitidas**, insira `appname://easyauth.callback`.  O _AppName_ nesta cadeia de caracteres é o esquema de URL para seu aplicativo móvel.  Ele deve seguir a especificação de URL normal para um protocolo (Use somente letras e números e comece com uma letra).  Você deve anotar a cadeia de caracteres que escolher, pois será necessário ajustar o código do aplicativo móvel com o esquema de URL em vários locais.
+5. Nos **URLs de Redirecionamento Externo Permitidos,** introduza `appname://easyauth.callback`.  O _nome de aplicação_ nesta cadeia é o URL Scheme para a sua aplicação móvel.  Deve seguir a especificação normal do URL para um protocolo (utilize apenas letras e números, e comece com uma letra).  Deve tomar nota da corda que escolher, pois terá de ajustar o seu código de aplicação móvel com o URL Scheme em vários locais.
 
 6. Clique em **OK**.
 
 7. Clique em **Guardar**.
 
-## <a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="permissions"></a>Restringir permissões a utilizadores autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é gerada porque o aplicativo tenta acessar o back-end como um usuário não autenticado, mas a tabela *TodoItem* agora requer autenticação.
+No Xcode, prima **Run** para iniciar a aplicação. Uma exceção é levantada porque a aplicação tenta aceder ao backend como um utilizador não autenticado, mas a tabela *TodoItem* agora requer autenticação.
 
-## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
-**Objective-C**:
+## <a name="add-authentication"></a>Adicionar autenticação à app
+**Objetivo C:**
 
-1. No seu Mac, abra *QSTodoListViewController. m* no Xcode e adicione o seguinte método:
+1. No seu Mac, abra *o QSTodoListViewController.m* em Xcode e adicione o seguinte método:
 
     ```Objective-C
     - (void)loginAndGetData
@@ -74,11 +69,11 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
     }
     ```
 
-    Altere o *Google* para *MicrosoftAccount*, *Twitter*, *Facebook*ou *windowsazureactivedirectory* se você não estiver usando o Google como seu provedor de identidade. Se você usar o Facebook, deverá ter a lista de permissões de [domínios do Facebook][1] em seu aplicativo.
+    Mude o *Google* para *a microsoftaccount*, *twitter*, *facebook*ou *windowsazureactivedirecty* se não estiver a usar o Google como seu fornecedor de identidade. Se utilizar o Facebook, terá de [whitelist os domínios do Facebook][1] na sua aplicação.
 
-    Substitua o **urlScheme** por um nome exclusivo para seu aplicativo.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL especificado no campo **URLs de redirecionamento externas permitidas** no portal do Azure. O urlScheme é usado pelo retorno de chamada de autenticação para voltar ao aplicativo após a conclusão da solicitação de autenticação.
+    Substitua o **urlScheme** por um nome único para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo url scheme que especificou no campo **de URLs de Redirecionamento Externo Permitido** no portal Azure. O urlScheme é utilizado pela chamada de autenticação para voltar à sua aplicação depois de o pedido de autenticação estar completo.
 
-2. Substitua `[self refresh]` em `viewDidLoad` no *QSTodoListViewController. m* pelo seguinte código:
+2. Substitua `[self refresh]` em `viewDidLoad` em *QSTodoListViewController.m* com o seguinte código:
 
     ```Objective-C
     [self loginAndGetData];
@@ -107,9 +102,9 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
     }
     ```
 
-   Adicione esse código diretamente antes da `#pragma mark - Core Data stack`de leitura de linha.  Substitua o _AppName_ pelo valor urlScheme que você usou na etapa 1.
+   Adicione este código diretamente antes de a linha de leitura `#pragma mark - Core Data stack`.  Substitua o nome de _aplicação_ pelo valor urlScheme que utilizou no passo 1.
 
-5. Abra o arquivo de `AppName-Info.plist` (substituindo AppName pelo nome do seu aplicativo) e adicione o seguinte código:
+5. Abra o ficheiro `AppName-Info.plist` (substituindo o Nome do App com o nome da sua aplicação) e adicione o seguinte código:
 
     ```XML
     <key>CFBundleURLTypes</key>
@@ -125,15 +120,15 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
     </array>
     ```
 
-    Esse código deve ser colocado dentro do elemento `<dict>`.  Substitua a cadeia de caracteres _AppName_ (dentro da matriz para **CFBundleURLSchemes**) pelo nome do aplicativo que você escolheu na etapa 1.  Você também pode fazer essas alterações no editor do plist – clique no arquivo `AppName-Info.plist` no XCode para abrir o editor do plist.
+    Este código deve ser colocado dentro do elemento `<dict>`.  Substitua a cadeia de _nomes_ de aplicativos (dentro da matriz para **CFBundleURLSchemes)** com o nome da aplicação que escolheu no passo 1.  Também pode efazer estas alterações no editor da lista - clique no ficheiro `AppName-Info.plist` no XCode para abrir o editor da lista.
 
-    Substitua a cadeia de caracteres `com.microsoft.azure.zumo` para **CFBundleURLName** pelo seu identificador Apple Bundle.
+    Substitua a cadeia `com.microsoft.azure.zumo` por **CFBundleURLName** pelo seu identificador apple bundle.
 
-6. Pressione *executar* para iniciar o aplicativo e, em seguida, faça logon. Quando você estiver conectado, você deverá ser capaz de exibir a lista de tarefas pendentes e fazer atualizações.
+6. Pressione *Corra* para iniciar a aplicação e, em seguida, faça login. Quando estiver em sessão, deverá ser capaz de ver a lista Todo e fazer atualizações.
 
-**Swift**:
+**Swift:**
 
-1. No seu Mac, abra *ToDoTableViewController. Swift* no Xcode e adicione o seguinte método:
+1. No seu Mac, abra *o ToDoTableViewController.swift* em Xcode e adicione o seguinte método:
 
     ```swift
     func loginAndGetData() {
@@ -160,17 +155,17 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
     }
     ```
 
-    Altere o *Google* para *MicrosoftAccount*, *Twitter*, *Facebook*ou *windowsazureactivedirectory* se você não estiver usando o Google como seu provedor de identidade. Se você usar o Facebook, deverá ter a lista de permissões de [domínios do Facebook][1] em seu aplicativo.
+    Mude o *Google* para *a microsoftaccount*, *twitter*, *facebook*ou *windowsazureactivedirecty* se não estiver a usar o Google como seu fornecedor de identidade. Se utilizar o Facebook, terá de [whitelist os domínios do Facebook][1] na sua aplicação.
 
-    Substitua o **urlScheme** por um nome exclusivo para seu aplicativo.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL especificado no campo **URLs de redirecionamento externas permitidas** no portal do Azure. O urlScheme é usado pelo retorno de chamada de autenticação para voltar ao aplicativo após a conclusão da solicitação de autenticação.
+    Substitua o **urlScheme** por um nome único para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo url scheme que especificou no campo **de URLs de Redirecionamento Externo Permitido** no portal Azure. O urlScheme é utilizado pela chamada de autenticação para voltar à sua aplicação depois de o pedido de autenticação estar completo.
 
-2. Remova as linhas `self.refreshControl?.beginRefreshing()` e `self.onRefresh(self.refreshControl)` ao final de `viewDidLoad()` em *ToDoTableViewController. Swift*. Adicione uma chamada para `loginAndGetData()` em seu lugar:
+2. Remova as linhas `self.refreshControl?.beginRefreshing()` e `self.onRefresh(self.refreshControl)` no final da `viewDidLoad()` *toDoTableViewController.swift*. Adicione uma chamada para `loginAndGetData()` no seu lugar:
 
     ```swift
     loginAndGetData()
     ```
 
-3. Abra o arquivo `AppDelegate.swift` e adicione a seguinte linha à classe `AppDelegate`:
+3. Abra o ficheiro `AppDelegate.swift` e adicione a seguinte linha à classe `AppDelegate`:
 
     ```swift
     var todoTableViewController: ToDoTableViewController?
@@ -185,9 +180,9 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
     }
     ```
 
-    Substitua o _AppName_ pelo valor urlScheme que você usou na etapa 1.
+    Substitua o nome de _aplicação_ pelo valor urlScheme que utilizou no passo 1.
 
-4. Abra o arquivo de `AppName-Info.plist` (substituindo AppName pelo nome do seu aplicativo) e adicione o seguinte código:
+4. Abra o ficheiro `AppName-Info.plist` (substituindo o Nome do App com o nome da sua aplicação) e adicione o seguinte código:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -203,18 +198,18 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
     </array>
     ```
 
-    Esse código deve ser colocado dentro do elemento `<dict>`.  Substitua a cadeia de caracteres _AppName_ (dentro da matriz para **CFBundleURLSchemes**) pelo nome do aplicativo que você escolheu na etapa 1.  Você também pode fazer essas alterações no editor do plist – clique no arquivo `AppName-Info.plist` no XCode para abrir o editor do plist.
+    Este código deve ser colocado dentro do elemento `<dict>`.  Substitua a cadeia de _nomes_ de aplicativos (dentro da matriz para **CFBundleURLSchemes)** com o nome da aplicação que escolheu no passo 1.  Também pode efazer estas alterações no editor da lista - clique no ficheiro `AppName-Info.plist` no XCode para abrir o editor da lista.
 
-    Substitua a cadeia de caracteres `com.microsoft.azure.zumo` para **CFBundleURLName** pelo seu identificador Apple Bundle.
+    Substitua a cadeia `com.microsoft.azure.zumo` por **CFBundleURLName** pelo seu identificador apple bundle.
 
-5. Pressione *executar* para iniciar o aplicativo e, em seguida, faça logon. Quando você estiver conectado, você deverá ser capaz de exibir a lista de tarefas pendentes e fazer atualizações.
+5. Pressione *Corra* para iniciar a aplicação e, em seguida, faça login. Quando estiver em sessão, deverá ser capaz de ver a lista Todo e fazer atualizações.
 
-A autenticação do serviço de aplicativo usa as maçãs comunicação entre aplicativos.  Para obter mais detalhes sobre este assunto, consulte a [documentação da Apple][2]
+A autenticação do serviço de aplicações utiliza a Comunicação Inter-App Apples.  Para mais detalhes sobre este assunto, consulte a [Documentação][2] da Apple
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
 [Portal do Azure]: https://portal.azure.com
 
-[início rápido do iOS]: app-service-mobile-ios-get-started.md
+[iOS arranque rápido]: app-service-mobile-ios-get-started.md
 

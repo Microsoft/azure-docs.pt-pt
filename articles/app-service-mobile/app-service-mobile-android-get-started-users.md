@@ -1,70 +1,65 @@
 ---
 title: Adicionar autenticação no Android
-description: Saiba como usar o serviço de Azure App para autenticar usuários de seu aplicativo Android com provedores de identidade, como Google, Facebook, Twitter e Microsoft.
+description: Saiba como utilizar o Azure App Service para autenticar os utilizadores da sua aplicação Android com fornecedores de identidade como Google, Facebook, Twitter e Microsoft.
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: f68b4f8477d5b21a7107270370af387a7e88756e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 705ebb5809840155e6bbf3f8eef091eb95f63e63
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668939"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461645"
 ---
-# <a name="add-authentication-to-your-android-app"></a>Adicionar autenticação ao seu aplicativo Android
+# <a name="add-authentication-to-your-android-app"></a>Adicione autenticação à sua aplicação Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-> [!NOTE]
-> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
->
-> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
-
 ## <a name="summary"></a>Resumo
-Neste tutorial, você adiciona autenticação ao projeto de início rápido do ToDoList no Android usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial [introdução aos aplicativos móveis] , que você deve concluir primeiro.
+Neste tutorial, adiciona-se autenticação ao projeto de arranque rápido todo-lista no Android utilizando um fornecedor de identidade suportado. Este tutorial é baseado no Get started com o tutorial de [Começar com aplicativos móveis] que você deve completar primeiro.
 
-## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar Azure App serviço
+## <a name="register"></a>Registe a sua aplicação para autenticação e configure o Serviço de Aplicações Azure
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
+## <a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
 
-A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação Redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos o esquema de URL _AppName_ em todo o. No entanto, você pode usar qualquer esquema de URL que escolher. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
+A autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isto permite que o sistema de autenticação redirecione para a sua aplicação uma vez concluído o processo de autenticação. Neste tutorial, usamos o _nome_ de aplicativo do esquema URL em toda a parte. No entanto, pode utilizar qualquer esquema de URL que escolha. Deve ser exclusivo da sua aplicação móvel. Para ativar a reorientação do lado do servidor:
 
-1. No [portal do Azure], selecione o serviço de aplicativo.
+1. No [Portal do Azure]selecione o seu Serviço de Aplicações.
 
-2. Clique na opção de menu **autenticação/autorização** .
+2. Clique na opção de **menu Autenticação/Autorização.**
 
-3. Nas **URLs de redirecionamento externo permitidas**, insira `appname://easyauth.callback`.  O _AppName_ nesta cadeia de caracteres é o esquema de URL para seu aplicativo móvel.  Ele deve seguir a especificação de URL normal para um protocolo (Use somente letras e números e comece com uma letra).  Você deve anotar a cadeia de caracteres que escolher, pois será necessário ajustar o código do aplicativo móvel com o esquema de URL em vários locais.
+3. Nos **URLs de Redirecionamento Externo Permitidos,** introduza `appname://easyauth.callback`.  O _nome de aplicação_ nesta cadeia é o URL Scheme para a sua aplicação móvel.  Deve seguir a especificação normal do URL para um protocolo (utilize apenas letras e números, e comece com uma letra).  Deve tomar nota da corda que escolher, pois terá de ajustar o seu código de aplicação móvel com o URL Scheme em vários locais.
 
 4. Clique em **OK**.
 
 5. Clique em **Guardar**.
 
-## <a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="permissions"></a>Restringir permissões a utilizadores autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* No Android Studio, abra o projeto que você concluiu com o tutorial introdução [Introdução aos aplicativos móveis]. No menu **executar** , clique em **Executar aplicativo**e verifique se uma exceção sem tratamento com um código de status 401 (não autorizado) é gerada depois que o aplicativo é iniciado.
+* No Android Studio, abra o projeto que completou com o tutorial [Começar com aplicativos móveis] A partir do menu **Executar,** clique na **aplicação Executar**, e verifique se uma exceção não tratada com um código de estado de 401 (Não autorizado) é levantada após o início da aplicação.
 
-     Essa exceção ocorre porque o aplicativo tenta acessar o back-end como um usuário não autenticado, mas a tabela *TodoItem* agora requer autenticação.
+     Esta exceção acontece porque a aplicação tenta aceder à parte de trás como um utilizador não autenticado, mas a tabela *TodoItem* agora requer autenticação.
 
-Em seguida, você atualiza o aplicativo para autenticar usuários antes de solicitar recursos do back-end dos aplicativos móveis.
+Em seguida, atualiza a aplicação para autenticar os utilizadores antes de solicitar recursos das Aplicações Móveis.
 
-## <a name="add-authentication-to-the-app"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication-to-the-app"></a>Adicionar autenticação à app
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
 
 
-## <a name="cache-tokens"></a>Tokens de autenticação de cache no cliente
+## <a name="cache-tokens"></a>Fichas de autenticação cache no cliente
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
+Agora que completou este tutorial básico de autenticação, considere continuar a um dos seguintes tutoriais:
 
-* [Adicione notificações por push ao seu aplicativo Android](app-service-mobile-android-get-started-push.md).
-  Saiba como configurar seu back-end de aplicativos móveis para usar os hubs de notificação do Azure para enviar notificações por push.
-* [Habilite a sincronização offline para seu aplicativo Android](app-service-mobile-android-get-started-offline-data.md).
-  Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de aplicativos móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel&mdash;exibir, adicionar ou modificar dados&mdash;mesmo quando não há conexão de rede.
+* [Adicione notificações push à sua aplicação Android](app-service-mobile-android-get-started-push.md).
+  Saiba como configurar as suas Aplicações Móveis no final para utilizar centros de notificação Azure para enviar notificações push.
+* [Ative a sincronização offline para a sua aplicação Android.](app-service-mobile-android-get-started-offline-data.md)
+  Aprenda a adicionar suporte offline à sua aplicação utilizando uma extremidade de apps móveis. Com sincronização offline, os utilizadores podem interagir com uma aplicação móvel&mdash;visualização, adição ou modificação de dados&mdash;mesmo quando não há ligação de rede.
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -76,5 +71,5 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 
 
 <!-- URLs. -->
-[Introdução aos aplicativos móveis]: app-service-mobile-android-get-started.md
+[Começar com aplicativos móveis]: app-service-mobile-android-get-started.md
 [Portal do Azure]: https://portal.azure.com/

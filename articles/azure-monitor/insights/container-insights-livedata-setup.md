@@ -3,12 +3,12 @@ title: Configurar o Monitor Azure para recipientes Dados Vivos (pré-visualizaç
 description: Este artigo descreve como configurar a visão em tempo real dos troncos de contentores (stdout/stderr) e eventos sem utilizar kubectl com Monitor Azure para recipientes.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 91f035b98a57fd9a37203cc48b3cc5d685967a13
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251792"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459927"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
 
@@ -48,7 +48,7 @@ O portal Azure solicita-lhe que valide as suas credenciais de login para um clus
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Utilização de clusterMonitoringUser com clusters ativados por RBAC
 
-Para eliminar a necessidade de aplicar alterações adicionais de configuração para permitir que o **cluster** de ligação de regras do utilizador kubernetes aceda à funcionalidade De dados ao vivo (pré-visualização) após permitir a autorização [rBAC,](#configure-kubernetes-rbac-authorization) o AKS adicionou uma nova ligação de cluster Kubernetes chamada **clusterMonitoringUser**. Esta ligação de funções de cluster tem todas as permissões necessárias fora da caixa para aceder à API Kubernetes e os pontos finais para utilizar a funcionalidade Dados Ao Vivo (pré-visualização). 
+Para eliminar a necessidade de aplicar alterações adicionais de configuração para permitir que o **cluster** de ligação de funções do utilizador kubernetes aceda à funcionalidade De dados ao vivo (pré-visualização) após permitir a autorização [rBAC,](#configure-kubernetes-rbac-authorization) o AKS adicionou uma nova ligação de cluster Kubernetes chamada **clusterMonitoringUser**. Esta ligação de funções de cluster tem todas as permissões necessárias fora da caixa para aceder à API Kubernetes e os pontos finais para utilizar a funcionalidade Dados Ao Vivo (pré-visualização).
 
 Para utilizar a funcionalidade Live Data (pré-visualização) com este novo utilizador, é necessário ser membro da função [De Colaborador](../../role-based-access-control/built-in-roles.md#contributor) no recurso de cluster AKS. O Monitor Azure para recipientes, quando ativado, está configurado para autenticar utilizando este utilizador por defeito. Se a ligação de função do clusterMonitoringUser não existir num cluster, o **clusterUser** é utilizado para autenticação.
 

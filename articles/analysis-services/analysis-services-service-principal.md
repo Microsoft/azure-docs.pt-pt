@@ -4,21 +4,23 @@ description: Aprenda a criar um principal de serviço para automatizar tarefas a
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/18/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c599abbf274eb4014323ec217c6d54d3c397b159
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251673"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461679"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
 Os principais de serviço são um recurso de aplicações do Azure Active Directory que pode criar no seu inquilino para efetuar operações automáticas de recursos e níveis de serviço. São um tipo único de identidade de *utilizador* com identificação de aplicação e senha ou certificado. Um diretor de serviço tem apenas as permissões necessárias para executar tarefas definidas pelas funções e permissões para as quais é atribuído. 
 
 Nos Serviços de Análise, os principais de serviço são utilizados com a Automação Azure, o modo PowerShell sem supervisão, aplicações personalizadas do cliente e aplicações web para automatizar tarefas comuns. Por exemplo, o fornecimento de servidores, a implementação de modelos, a atualização de dados, a escala para cima/para baixo e a pausa/retoma podem ser todos automatizados utilizando os diretores de serviço. As permissões são atribuídas aos principais de serviço através da adesão a papéis, tal como as contas regulares da Azure AD UPN.
+
+Os Serviços de Análise também apoiam as operações realizadas por identidades geridas utilizando os principais de serviço. Para saber mais, consulte [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) e [serviços Azure que suportam a autenticação Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)  
 
 ## <a name="create-service-principals"></a>Criar principais de serviço
  

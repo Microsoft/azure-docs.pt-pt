@@ -1,62 +1,57 @@
 ---
-title: Introdução à autenticação no Xamarin iOS
-description: Saiba como usar aplicativos móveis para autenticar usuários de seu aplicativo Xamarin iOS com provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
+title: Começar com autenticação no Xamarin iOS
+description: Saiba como usar aplicações móveis para autenticar utilizadores da sua aplicação Xamarin iOS com fornecedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 0f2c78c3d4b18e7c662c4f7345938ddab377229b
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 05e936accbcd5c6fa2760c4f8682d907557f23b5
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668270"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461322"
 ---
-# <a name="add-authentication-to-your-xamarinios-app"></a>Adicionar autenticação à sua aplicação Xamarin.iOS
+# <a name="add-authentication-to-your-xamarinios-app"></a>Adicione a autenticação à sua aplicação Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-> [!NOTE]
-> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
->
-> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+## <a name="overview"></a>Descrição geral
 
-## <a name="overview"></a>Visão geral
+Este tópico mostra como autenticar os utilizadores de uma aplicação móvel do Serviço de Aplicações a partir da sua aplicação cliente. Neste tutorial, adiciona-se autenticação ao projeto de quickstart Xamarin.iOS utilizando um fornecedor de identidade que é apoiado pelo App Service. Depois de ter sido autenticado e autorizado com sucesso pela sua Aplicação Móvel, o valor de ID do utilizador é apresentado e poderá aceder a dados de tabela restritos.
 
-Este tópico mostra como autenticar usuários de um aplicativo móvel do serviço de aplicativo do seu aplicativo cliente. Neste tutorial, você adiciona autenticação ao projeto de início rápido do Xamarin. iOS usando um provedor de identidade com suporte do serviço de aplicativo. Depois de ser autenticado e autorizado com êxito pelo seu aplicativo móvel, o valor da ID de usuário será exibido e você poderá acessar os dados da tabela restrita.
+Primeiro deve completar o tutorial [Crie uma app Xamarin.iOS]. Se não utilizar o projeto de servidor de arranque rápido descarregado, tem de adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre os pacotes de extensão do servidor, consulte [Trabalhar com o servidor de backend .NET SDK para Aplicações Móveis Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Primeiro, você deve concluir o tutorial [criar um aplicativo Xamarin. Ios]. Se você não usar o projeto baixado do servidor de início rápido, deverá adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão de servidor, consulte [trabalhar com o SDK do servidor de back-end do .net para aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
-
-## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registrar seu aplicativo para autenticação e configurar os serviços de aplicativos
+## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registe a sua aplicação para autenticação e configure serviços de aplicações
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
 
-A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação Redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos o esquema de URL _AppName_ em todo o. No entanto, você pode usar qualquer esquema de URL que escolher. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
+A autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isto permite que o sistema de autenticação redirecione para a sua aplicação uma vez concluído o processo de autenticação. Neste tutorial, usamos o _nome_ de aplicativo do esquema URL em toda a parte. No entanto, pode utilizar qualquer esquema de URL que escolha. Deve ser exclusivo da sua aplicação móvel. Para ativar a reorientação do lado do servidor:
 
-1. No [portal do Azure](https://portal.azure.com/), selecione o serviço de aplicativo.
+1. No [portal Azure,](https://portal.azure.com/)selecione o seu Serviço de Aplicações.
 
-2. Clique na opção de menu **autenticação/autorização** .
+2. Clique na opção de **menu Autenticação/Autorização.**
 
-3. Nas **URLs de redirecionamento externo permitidas**, insira `url_scheme_of_your_app://easyauth.callback`.  O **url_scheme_of_your_app** nesta cadeia de caracteres é o esquema de URL para seu aplicativo móvel.  Ele deve seguir a especificação de URL normal para um protocolo (Use somente letras e números e comece com uma letra).  Você deve anotar a cadeia de caracteres que escolher, pois será necessário ajustar o código do aplicativo móvel com o esquema de URL em vários locais.
+3. Nos **URLs de Redirecionamento Externo Permitidos,** introduza `url_scheme_of_your_app://easyauth.callback`.  O **url_scheme_of_your_app** nesta cadeia é o URL Scheme para a sua aplicação móvel.  Deve seguir a especificação normal do URL para um protocolo (utilize apenas letras e números, e comece com uma letra).  Deve tomar nota da corda que escolher, pois terá de ajustar o seu código de aplicação móvel com o URL Scheme em vários locais.
 
 4. Clique em **OK**.
 
 5. Clique em **Guardar**.
 
-## <a name="restrict-permissions-to-authenticated-users"></a>Restringir permissões a usuários autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a>Restringir permissões a utilizadores autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* No Visual Studio ou Xamarin Studio, execute o projeto do cliente em um dispositivo ou emulador. Verifique se uma exceção sem tratamento com um código de status 401 (não autorizado) é gerada depois que o aplicativo é iniciado. A falha é registrada no console do depurador. Portanto, no Visual Studio, você deve ver a falha na janela de saída.
+* No Visual Studio ou no Xamarin Studio, execute o projeto do cliente num dispositivo ou emulador. Verifique se uma exceção não tratada com um código de estado de 401 (Não autorizado) é levantada após o início da aplicação. A falha está ligada à consola do desgraçado. Então, no Estúdio Visual, deve ver a falha na janela de saída.
 
-    Essa falha não autorizada ocorre porque o aplicativo tenta acessar o back-end do aplicativo móvel como um usuário não autenticado. A tabela *TodoItem* agora requer autenticação.
+    Esta falha não autorizada acontece porque a aplicação tenta aceder ao seu backend da Aplicação Móvel como um utilizador não autenticado. A tabela *TodoItem* requer agora a autenticação.
 
-Em seguida, você atualizará o aplicativo cliente para solicitar recursos do back-end do aplicativo móvel com um usuário autenticado.
+Em seguida, irá atualizar a app do cliente para solicitar recursos do backend da Aplicação Móvel com um utilizador autenticado.
 
-## <a name="add-authentication-to-the-app"></a>Adicionar autenticação ao aplicativo
-Nesta seção, você modificará o aplicativo para exibir uma tela de logon antes de exibir os dados. Quando o aplicativo for iniciado, ele não se conectará ao serviço de aplicativo e não exibirá nenhum dado. Após a primeira vez que o usuário executar o gesto de atualização, a tela de logon será exibida; após o logon bem-sucedido, a lista de itens de tarefas será exibida.
+## <a name="add-authentication-to-the-app"></a>Adicionar autenticação à app
+Nesta secção, irá modificar a aplicação para exibir um ecrã de login antes de apresentar dados. Quando a aplicação começar, não se ligará ao seu Serviço de Aplicações e não apresentará quaisquer dados. Após a primeira vez que o utilizador executa o gesto de atualização, aparecerá o ecrã de login; após o login bem sucedido, a lista de itens todo-o-dia será exibida.
 
-1. No projeto cliente, abra o arquivo **QSTodoService.cs** e adicione a instrução using a seguir e `MobileServiceUser` com acessador à classe QSTodoService:
+1. No projeto do cliente, abra o ficheiro **QSTodoService.cs** e adicione o seguinte usando a declaração e `MobileServiceUser` com o acessório para a classe QSTodoService:
 
     ```csharp
     using UIKit;
@@ -84,9 +79,9 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
     ```
 
     > [!NOTE]
-    > Se você estiver usando um provedor de identidade diferente de um Facebook, altere o valor passado para **LoginAsync** acima para um dos seguintes: _MicrosoftAccount_, _Twitter_, _Google_ou _WindowsAzureActiveDirectory_.
+    > Se estiver a utilizar um fornecedor de identidade que não seja um Facebook, altere o valor passado para **O LoginAsync** acima para um dos seguintes: _MicrosoftAccount,_ _Twitter,_ _Google_ou _WindowsAzureActiveDirectory_.
 
-3. Abra **QSTodoListViewController.cs**. Modifique a definição do método de **ViewDidLoad** removendo a chamada para **RefreshAsync ()** próximo ao final:
+3. Aberto **QSTodoListViewController.cs.** Modificar a definição de método de **ViewDidLoad** removendo a chamada para **RefreshAsync()** perto do fim:
 
     ```csharp
     public override async void ViewDidLoad ()
@@ -105,7 +100,7 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
     }
     ```
 
-4. Modifique o método **RefreshAsync** para autenticar se a propriedade de **usuário** for nula. Adicione o seguinte código na parte superior da definição do método:
+4. Modifique o método **RefreshAsync** para autenticar se a propriedade **do Utilizador** for nula. Adicione o seguinte código no topo da definição de método:
 
     ```csharp
     // start of RefreshAsync method
@@ -119,7 +114,7 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
     // rest of RefreshAsync method
     ```
 
-5. Abra **AppDelegate.cs**, adicione o seguinte método:
+5. Abrir **AppDelegate.cs,** adicione o seguinte método:
 
     ```csharp
     public static Func<NSUrl, bool> ResumeWithURL;
@@ -130,12 +125,12 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
     }
     ```
 
-6. Abra o arquivo **info. plist** , navegue até **tipos de URL** na seção **avançado** . Agora, configure o **identificador** e os **esquemas de URL** do tipo de URL e clique em **Adicionar tipo de URL**. Os **esquemas de URL** devem ser os mesmos que o {url_scheme_of_your_app}.
-7. No Visual Studio, conectado ao seu host ou Visual Studio para Mac do Mac, execute o projeto do cliente direcionando um dispositivo ou emulador. Verifique se o aplicativo não exibe dados.
+6. Abra o ficheiro **Info.plist,** navegue para **tipos de URL** na secção **Avançada.** Agora configure o **Identificador** e os **esquemas de URL** do seu tipo URL e clique em **Adicionar Tipo URL**. **Os esquemas de URL** devem ser os mesmos que o seu {url_scheme_of_your_app}.
+7. No Visual Studio, ligado ao seu Mac Host ou Visual Studio para Mac, executa o projeto do cliente direcionado para um dispositivo ou emulador. Verifique se a aplicação não apresenta dados.
 
-    Execute o gesto de atualização puxando a lista de itens para baixo, o que fará com que a tela de logon seja exibida. Depois de inserir credenciais válidas com êxito, o aplicativo exibirá a lista de itens de tarefas pendentes e você poderá fazer atualizações nos dados.
+    Execute o gesto de atualização puxando para baixo a lista de itens, o que fará com que o ecrã de login apareça. Uma vez introduzido com sucesso credenciais válidas, a aplicação apresentará a lista de itens todo-o-dia e poderá fazer atualizações para os dados.
 
 <!-- URLs. -->
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Criar um aplicativo Xamarin. iOS]: app-service-mobile-xamarin-ios-get-started.md
+[Crie uma app Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md

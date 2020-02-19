@@ -1,6 +1,6 @@
 ---
-title: Guia de personalização da solução da central de segurança do Azure para IoT | Microsoft Docs
-description: Este guia de instruções explica como personalizar as configurações em sua central de segurança do Azure para a solução de IoT.
+title: Guia de personalização do Centro de Segurança Azure para a solução IoT Microsoft Docs
+description: Esta forma de orientar explica como personalizar as configurações no seu Centro de Segurança Azure para a solução IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,44 +15,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c189ece9763e484b969b91f9c1ab9120e5665261
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c385be0c21e7a61f66eb274ec293f4aabd4208ba
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71305954"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458890"
 ---
-# <a name="customize-your-azure-security-center-for-iot-solution"></a>Personalizar sua central de segurança do Azure para a solução de IoT 
+# <a name="customize-your-azure-security-center-for-iot-solution"></a>Personalize o seu Centro de Segurança Azure para solução IoT 
 
-Neste guia, saiba como personalizar configurações diferentes na central de segurança do Azure para IoT.  
+Neste guia, aprenda a personalizar diferentes configurações no Azure Security Center para IoT.  
 
 > [!div class="checklist"]
-> * Configurar recomendações de solução 
+> * Configure recomendações de solução 
 > * Alterar definições 
 
 ## <a name="change-settings"></a>Alterar definições
 
-"Gerenciar sua central de segurança do Azure para a configuração de IoT:
+Gerencie o seu Centro de Segurança Azure para a definição de IoT:
 
-No Hub IoT, vá para a folha visão geral de segurança no canto superior esquerdo, consulte "configurações" para definir a central de segurança do Azure para configurações de IoT, faça o seguinte:
+No seu Hub IoT, vá à lâmina de visão geral de segurança no canto superior esquerdo, consulte "configurações" Para configurar o seu Centro de Segurança Azure para configurações ioT, faça o seguinte:
 
-1. Abra o **Hub IOT** no portal do Azure. 
-1. No menu à esquerda em **segurança**, selecione e abra **visão geral**.
-1. Em configurações, selecione a configuração da solução que você deseja alterar.   
-1. Lembre-se de sempre clicar em **salvar** na parte superior de qualquer tela de configuração para salvar as alterações de configuração. 
+1. Abra o seu **IoT Hub** no portal Azure. 
+1. A partir do menu esquerdo em **Security,** selecione e abra **a visão geral**.
+1. Em Definições, selecione a definição de solução que deseja alterar.   
+1. Lembre-se de clicar sempre em **Guardar** na parte superior de qualquer ecrã de definição para evitar as alterações de definição. 
 
-## <a name="configure-solution-recommendations"></a>Configurar recomendações de solução
+## <a name="configure-solution-recommendations"></a>Configure recomendações de solução
 
-Para configurar a central de segurança do Azure para recomendações de solução de IoT, faça o seguinte:
+Para configurar as recomendações do Centro de Segurança Azure para recomendações de soluções IoT, faça o seguinte:
 
-1. Abra o **Hub IOT** no portal do Azure. 
-1. Selecione e abra **visão geral** em **segurança** no menu à esquerda.
-1. Em configurações, selecione **configuração recomendada** no menu à esquerda. 
-1. Desabilitar/habilitar as recomendações de solução relevantes para sua organização e fluxos de trabalho. 
-1. Selecione **salvar** na parte superior da tela para salvar suas seleções. 
+1. Abra o seu **IoT Hub** no portal Azure. 
+1. Selecione e abra **a visão geral** sob **segurança** no menu esquerdo.
+1. Em Definições, selecione **Configuração Recomendada** a partir do menu esquerdo. 
+1. Desative/ative as recomendações de solução relevantes para a sua organização e fluxos de trabalho. 
+1. Selecione **Guardar** na parte superior do ecrã para salvar as suas seleções. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral](overview.md) da central de segurança do Azure para serviços de IOT
-- Saiba como [acessar seus dados de segurança](how-to-security-data-access.md)
-- Saiba mais sobre [a investigação de um dispositivo](how-to-investigate-device.md)
+- Azure Security Center for IoT service [Overview](overview.md)
+- Saiba como aceder aos [seus dados](how-to-security-data-access.md) de segurança
+- Saiba mais sobre [investigar um dispositivo](how-to-investigate-device.md)

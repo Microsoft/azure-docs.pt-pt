@@ -1,6 +1,6 @@
 ---
-title: Configurar um grupo de failover
-description: Saiba como configurar um grupo de failover automático para um banco de dados único do banco de dados SQL do Azure, um pool elástico e uma instância gerenciada usando o portal do Azure, a CLI do AZ e o PowerShell.
+title: Configure um grupo de failover
+description: Aprenda a configurar um grupo de auto-failover para uma base de dados única Azure SQL, piscina elástica e instância gerida usando o portal Azure, o Az CLI e PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,50 +11,50 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3b423a25b6b13ad543ef4a74bc0335ce19f5766d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553074"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461816"
 ---
-# <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurar um grupo de failover para o banco de dados SQL do Azure
+# <a name="configure-a-failover-group-for-azure-sql-database"></a>Configure um grupo de failover para a Base de Dados Azure SQL
 
-Este tópico ensina como configurar um grupo de [failover automático](sql-database-auto-failover-group.md) para um banco de dados individual do banco de dados SQL do Azure, um pool elástico e uma instância gerenciada usando o portal do Azure ou o PowerShell. 
+Este tópico ensina-lhe como configurar um [grupo de auto-failover](sql-database-auto-failover-group.md) para uma base de dados única Azure SQL, piscina elástica e instância gerida usando o portal Azure, ou PowerShell. 
 
-## <a name="single-database"></a>Base de dados única
-Crie o grupo de failover e adicione um único banco de dados a ele usando o portal do Azure ou o PowerShell.
+## <a name="single-database"></a>Base de dados individual
+Crie o grupo failover e adicione-lhe uma única base de dados utilizando o portal Azure, ou PowerShell.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 Considere os seguintes pré-requisitos:
 
-- As configurações de logon e firewall do servidor para o servidor secundário devem corresponder à do servidor primário. 
+- As definições de login do servidor e firewall do servidor secundário devem corresponder às do servidor principal. 
 
-### <a name="create-failover-group"></a>Criar grupo de failover
+### <a name="create-failover-group"></a>Criar grupo failover
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Crie seu grupo de failover e adicione seu banco de dados a ele usando o portal do Azure.
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+Crie o seu grupo failover e adicione-lhe a sua única base de dados utilizando o portal Azure.
 
 
-1. Selecione **SQL do Azure** no menu à esquerda da [portal do Azure](https://portal.azure.com). Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
-1. Selecione o banco de dados individual que você deseja adicionar ao grupo de failover. 
-1. Selecione o nome do servidor em **nome do servidor** para abrir as configurações do servidor.
+1. Selecione **Azure SQL** no menu à esquerda do [portal Azure](https://portal.azure.com). Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
+1. Selecione a única base de dados que pretende adicionar ao grupo failover. 
+1. Selecione o nome do servidor sob **o nome do Servidor** para abrir as definições para o servidor.
 
-   ![Abrir servidor para banco de BD único](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+   ![Servidor aberto para db simples](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 
-1. Selecione **grupos de failover** no painel **configurações** e, em seguida, selecione **Adicionar grupo** para criar um novo grupo de failover. 
+1. Selecione **grupos Failover** sob o painel **Definições** e, em seguida, selecione **Adicionar grupo** para criar um novo grupo de failover. 
 
-    ![Adicionar novo grupo de failover](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![Adicione novo grupo de failover](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
-1. Na página **grupo de failover** , insira ou selecione os valores necessários e, em seguida, selecione **criar**.
+1. Na página do **Grupo Failover,** introduza ou selecione os valores necessários e, em seguida, selecione **Criar**.
 
-   - **Bancos de dados dentro do grupo**: escolha o banco que deseja adicionar ao grupo de failover. Adicionar o banco de dados ao grupo de failover iniciará automaticamente o processo de replicação geográfica. 
+   - **Bases de dados dentro do grupo**: Escolha a base de dados que pretende adicionar ao seu grupo de falhas. A adição da base de dados ao grupo failover iniciará automaticamente o processo de georeplicação. 
         
-    ![Adicionar Banco de BD SQL ao grupo de failover](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Adicione o SQL DB ao grupo failover](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Crie seu grupo de failover e adicione seu banco de dados individual a ele usando o PowerShell. 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Crie o seu grupo de failover e adicione a sua única base de dados utilizando o PowerShell. 
 
    ```powershell-interactive
    $subscriptionId = "<SubscriptionID>"
@@ -105,35 +105,35 @@ Crie seu grupo de failover e adicione seu banco de dados individual a ele usando
 
 ### <a name="test-failover"></a>Ativação pós-falha de teste 
 
-Teste o failover de seu grupo de failover usando o portal do Azure ou o PowerShell. 
+Teste falha do seu grupo failover usando o portal Azure, ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Teste o failover de seu grupo de failover usando o portal do Azure. 
+Teste falha do seu grupo de failover usando o portal Azure. 
 
-1. Selecione **SQL do Azure** no menu à esquerda da [portal do Azure](https://portal.azure.com). Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
-1. Selecione o banco de dados individual que você deseja adicionar ao grupo de failover. 
+1. Selecione **Azure SQL** no menu à esquerda do [portal Azure](https://portal.azure.com). Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
+1. Selecione a única base de dados que pretende adicionar ao grupo failover. 
 
-   ![Abrir servidor para banco de BD único](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+   ![Servidor aberto para db simples](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 
-1. Selecione **grupos de failover** no painel **configurações** e escolha o grupo de failover que você acabou de criar. 
+1. Selecione **grupos Failover** sob o painel **Definições** e, em seguida, escolha o grupo failover que acabou de criar. 
   
-   ![Selecione o grupo de failover no portal](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
+   ![Selecione o grupo failover a partir do portal](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
-1. Examine qual servidor é primário e qual servidor é secundário. 
-1. Selecione **failover** no painel de tarefas para fazer failover do grupo de failover que contém o banco de dados individual. 
-1. Selecione **Sim** no aviso que notifica que as sessões de TDS serão desconectadas. 
+1. Reveja qual o servidor primário e qual o servidor secundário. 
+1. Selecione **Failover** do painel de tarefas para falhar sobre o seu grupo failover contendo a sua única base de dados. 
+1. Selecione **Sim** no aviso que o avisa de que as sessões de TDS serão desligadas. 
 
-   ![Fazer failover do grupo de failover que contém o banco de dados SQL](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
+   ![Fail over your failover group contendo a sua base de dados SQL](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
-1. Examine qual servidor agora é primário e qual servidor é secundário. Se o failover tiver sido bem-sucedido, os dois servidores deverão ter funções trocadas. 
-1. Selecione **failover** novamente para reprovar os servidores de volta para suas funções originalmente. 
+1. Reveja qual servidor é agora primário e qual servidor é secundário. Se o failover for bem sucedido, os dois servidores devem ter trocado de papéis. 
+1. Selecione **Failover** novamente para falhar os servidores de volta às suas funções originais. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Teste o failover de seu grupo de failover usando o PowerShell.  
+Teste falha do seu grupo de failover usando PowerShell.  
 
-Verifique a função da réplica secundária: 
+Verifique o papel da réplica secundária: 
 
    ```powershell-interactive
    # Set variables
@@ -148,7 +148,7 @@ Verifique a função da réplica secundária:
       -ResourceGroupName $resourceGroupName `
       -ServerName $drServerName).ReplicationRole
    ```
-Fazer failover para o servidor secundário: 
+Falhar no servidor secundário: 
 
    ```powershell-interactive
    # Set variables
@@ -165,7 +165,7 @@ Fazer failover para o servidor secundário:
    Write-host "Failed failover group to successfully to" $drServerName 
    ```
 
-Reverter grupo de failover de volta para o servidor primário:
+Reverter o grupo failover de volta ao servidor primário:
 
    ```powershell-interactive
    # Set variables
@@ -185,45 +185,45 @@ Reverter grupo de failover de volta para o servidor primário:
 ---
 
 > [!IMPORTANT]
-> Se você precisar excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível. 
+> Se necessitar de eliminar a base de dados secundária, retire-a do grupo failover antes de a eliminar. Eliminar uma base de dados secundária antes de ser removido do grupo failover pode causar comportamentos imprevisíveis. 
 
 ## <a name="elastic-pool"></a>Conjunto elástico
-Crie o grupo de failover e adicione um pool elástico a ele usando o portal do Azure ou o PowerShell.  
+Crie o grupo failover e adicione-lhe uma piscina elástica utilizando o portal Azure, ou PowerShell.  
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 Considere os seguintes pré-requisitos:
 
-- As configurações de logon e firewall do servidor para o servidor secundário devem corresponder à do servidor primário. 
+- As definições de login do servidor e firewall do servidor secundário devem corresponder às do servidor principal. 
 
-### <a name="create-the-failover-group"></a>Criar o grupo de failover 
+### <a name="create-the-failover-group"></a>Criar o grupo failover 
 
-Crie o grupo de failover para seu pool elástico usando o portal do Azure ou o PowerShell. 
+Crie o grupo failover para a sua piscina elástica utilizando o portal Azure, ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Crie seu grupo de failover e adicione seu pool elástico a ele usando o portal do Azure.
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+Crie o seu grupo de failover e adicione-lhe a sua piscina elástica utilizando o portal Azure.
 
-1. Selecione **SQL do Azure** no menu à esquerda da [portal do Azure](https://portal.azure.com). Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
-1. Selecione o pool elástico que você deseja adicionar ao grupo de failover. 
-1. No painel **visão geral** , selecione o nome do servidor em **nome do servidor** para abrir as configurações do servidor.
+1. Selecione **Azure SQL** no menu à esquerda do [portal Azure](https://portal.azure.com). Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
+1. Selecione a piscina elástica que pretende adicionar ao grupo failover. 
+1. No painel **'Visão Geral',** selecione o nome do servidor sob **o nome do Servidor** para abrir as definições para o servidor.
   
-    ![Abrir servidor para pool elástico](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
+    ![Servidor aberto para piscina elástica](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
 
-1. Selecione **grupos de failover** no painel **configurações** e, em seguida, selecione **Adicionar grupo** para criar um novo grupo de failover. 
+1. Selecione **grupos Failover** sob o painel **Definições** e, em seguida, selecione **Adicionar grupo** para criar um novo grupo de failover. 
 
-    ![Adicionar novo grupo de failover](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![Adicione novo grupo de failover](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
-1. Na página **grupo de failover** , insira ou selecione os valores necessários e, em seguida, selecione **criar**. Crie um novo servidor secundário ou selecione um servidor secundário existente. 
+1. Na página do **Grupo Failover,** introduza ou selecione os valores necessários e, em seguida, selecione **Criar**. Ou cria um novo servidor secundário ou seleciona um servidor secundário existente. 
 
-1. Selecione **bancos de dados dentro do grupo** e escolha o pool elástico que você deseja adicionar ao grupo de failover. Se um pool elástico ainda não existir no servidor secundário, será exibido um aviso solicitando que você crie um pool elástico no servidor secundário. Selecione o aviso e, em seguida, selecione **OK** para criar o pool elástico no servidor secundário. 
+1. Selecione Bases de **Dados dentro do grupo** e, em seguida, escolha a piscina elástica que pretende adicionar ao grupo failover. Se uma piscina elástica ainda não existir no servidor secundário, aparece um aviso que o leva a criar uma piscina elástica no servidor secundário. Selecione o aviso e, em seguida, selecione **OK** para criar a piscina elástica no servidor secundário. 
         
-    ![Adicionar pool elástico ao grupo de failover](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![Adicione piscina elástica ao grupo failover](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
-1. Selecione **selecionar** para aplicar as configurações de pool elástico ao grupo de failover e, em seguida, selecione **criar** para criar seu grupo de failover. Adicionar o pool elástico ao grupo de failover iniciará automaticamente o processo de replicação geográfica. 
+1. Selecione **Selecione para** aplicar as definições elásticas da piscina no grupo failover e, em seguida, selecione **Criar** para criar o seu grupo de failover. A adição da piscina elástica ao grupo failover iniciará automaticamente o processo de georeplicação. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Crie seu grupo de failover e adicione seu pool elástico a ele usando o PowerShell. 
+Crie o seu grupo de failover e adicione-lhe a sua piscina elástica usando o PowerShell. 
 
    ```powershell-interactive
    $subscriptionId = "<SubscriptionID>"
@@ -269,35 +269,35 @@ Crie seu grupo de failover e adicione seu pool elástico a ele usando o PowerShe
 
 ### <a name="test-failover"></a>Ativação pós-falha de teste
 
-Teste o failover de seu pool elástico usando o portal do Azure ou o PowerShell. 
+Teste falha da sua piscina elástica utilizando o portal Azure, ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Falhe o grupo de failover para o servidor secundário e, em seguida, faça o failback usando o portal do Azure. 
+Falhe no seu grupo de failover até ao servidor secundário e, em seguida, falhe usando o portal Azure. 
 
-1. Selecione **SQL do Azure** no menu à esquerda da [portal do Azure](https://portal.azure.com). Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
-1. Selecione o pool elástico que você deseja adicionar ao grupo de failover. 
-1. No painel **visão geral** , selecione o nome do servidor em **nome do servidor** para abrir as configurações do servidor.
+1. Selecione **Azure SQL** no menu à esquerda do [portal Azure](https://portal.azure.com). Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
+1. Selecione a piscina elástica que pretende adicionar ao grupo failover. 
+1. No painel **'Visão Geral',** selecione o nome do servidor sob **o nome do Servidor** para abrir as definições para o servidor.
   
-    ![Abrir servidor para pool elástico](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
-1. Selecione **grupos de failover** no painel **configurações** e escolha o grupo de failover que você criou na seção 2. 
+    ![Servidor aberto para piscina elástica](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
+1. Selecione **os grupos Failover** sob o painel **Definições** e, em seguida, escolha o grupo failover que criou na secção 2. 
   
-   ![Selecione o grupo de failover no portal](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
+   ![Selecione o grupo failover a partir do portal](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
-1. Examine qual servidor é primário e qual servidor é secundário. 
-1. Selecione **failover** no painel de tarefas para fazer failover do grupo de failover que contém o pool elástico. 
-1. Selecione **Sim** no aviso que notifica que as sessões de TDS serão desconectadas. 
+1. Reveja qual o servidor primário e qual o servidor secundário. 
+1. Selecione **Failover** do painel de tarefas para falhar sobre o seu grupo de failover contendo a sua piscina elástica. 
+1. Selecione **Sim** no aviso que o avisa de que as sessões de TDS serão desligadas. 
 
-   ![Fazer failover do grupo de failover que contém o banco de dados SQL](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
+   ![Fail over your failover group contendo a sua base de dados SQL](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
-1. Examine qual servidor é primário, qual servidor é secundário. Se o failover tiver sido bem-sucedido, os dois servidores deverão ter funções trocadas. 
-1. Selecione **failover** novamente para falhar o grupo de failover de volta para as configurações originais. 
+1. Reveja qual o servidor primário, qual servidor é secundário. Se o failover for bem sucedido, os dois servidores devem ter trocado de papéis. 
+1. Selecione **Failover** novamente para falhar o grupo failover de volta às definições originais. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Teste o failover de seu grupo de failover usando o PowerShell.
+Teste falha do seu grupo de failover usando PowerShell.
 
-Verifique a função da réplica secundária: 
+Verifique o papel da réplica secundária: 
 
    ```powershell-interactive
    # Set variables
@@ -313,7 +313,7 @@ Verifique a função da réplica secundária:
       -ServerName $drServerName).ReplicationRole
    ```
 
-Fazer failover para o servidor secundário: 
+Falhar no servidor secundário: 
 
    ```powershell-interactive
    # Set variables
@@ -333,66 +333,66 @@ Fazer failover para o servidor secundário:
 ---
 
 > [!IMPORTANT]
-> Se você precisar excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível. 
+> Se necessitar de eliminar a base de dados secundária, retire-a do grupo failover antes de a eliminar. Eliminar uma base de dados secundária antes de ser removido do grupo failover pode causar comportamentos imprevisíveis. 
 
 ## <a name="managed-instance"></a>Instância gerida
 
-Crie um grupo de failover entre duas instâncias gerenciadas usando o portal do Azure ou o PowerShell. 
+Crie um grupo de failover entre duas instâncias geridas usando o portal Azure, ou PowerShell. 
 
-Você precisará configurar o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou criar um gateway para a rede virtual de cada instância gerenciada, conectar os dois gateways e, em seguida, criar o grupo de failover. 
+Você terá de configurar o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou criar uma porta de entrada para a rede virtual de cada instância gerida, ligar os dois gateways e, em seguida, criar o grupo failover. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Considere os seguintes pré-requisitos:
 
-- A instância gerenciada secundária deve estar vazia.
-- O intervalo de sub-rede para a rede virtual secundária não deve sobrepor o intervalo de sub-rede da rede virtual primária. 
-- O agrupamento e o fuso horário da instância secundária devem corresponder ao da instância primária. 
-- Ao conectar os dois gateways, a **chave compartilhada** deve ser a mesma para ambas as conexões. 
+- O caso gerido secundário deve estar vazio.
+- A gama de sub-redes para a rede virtual secundária não deve sobrepor-se à gama de sub-redes da rede virtual primária. 
+- A colagem e o fuso horário da instância secundária devem coincidir com os da instância primária. 
+- Ao ligar os dois gateways, a **Chave Partilhada** deve ser a mesma para ambas as ligações. 
 
 ### <a name="create-primary-virtual-network-gateway"></a>Criar gateway de rede virtual primária 
 
-Se você não tiver configurado o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md), poderá criar o gateway de rede virtual primária com o portal do Azure ou o PowerShell. 
+Se não configurar o [ExpressRoute,](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)pode criar o portal de rede virtual primário com o portal Azure ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Crie o gateway de rede virtual primária usando o portal do Azure. 
+Crie o portal de rede virtual primária utilizando o portal Azure. 
 
-1. Na [portal do Azure](https://portal.azure.com), vá para o grupo de recursos e selecione o recurso de **rede virtual** para sua instância gerenciada primária. 
-1. Selecione sub- **redes** em **configurações** e, em seguida, selecione para adicionar uma nova **sub-rede de gateway**. Deixe os valores padrão. 
+1. No [portal Azure,](https://portal.azure.com)dirija-se ao seu grupo de recursos e selecione o recurso de **rede Virtual** para a sua instância gerida principalmente. 
+1. Selecione **Subnets** em **Definições** e, em seguida, selecione para adicionar uma nova **sub-rede Gateway**. Deixe os valores padrão. 
 
-   ![Adicionar gateway para instância gerenciada primária](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
+   ![Adicionar porta de entrada para instância gerida primária](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
 
-1. Depois que o gateway de sub-rede for criado, selecione **criar um recurso** no painel de navegação esquerdo e digite `Virtual network gateway` na caixa de pesquisa. Selecione o recurso de **Gateway de rede virtual** publicado pela **Microsoft**. 
+1. Assim que o gateway da sub-rede for criado, selecione **Criar um recurso** a partir do painel de navegação esquerdo e, em seguida, digite `Virtual network gateway` na caixa de pesquisa. Selecione o recurso de gateway da **rede Virtual** publicado pela **Microsoft**. 
 
-   ![Criar um novo gateway de rede virtual](media/sql-database-managed-instance-failover-group-tutorial/create-virtual-network-gateway.png)
+   ![Criar um novo portal de rede virtual](media/sql-database-managed-instance-failover-group-tutorial/create-virtual-network-gateway.png)
 
-1. Preencha os campos obrigatórios para configurar o gateway de sua instância gerenciada primária. 
+1. Preencha os campos necessários para configurar o portal da sua instância principal gerida. 
 
-   A tabela a seguir mostra os valores necessários para o gateway para a instância gerenciada primária:
+   O quadro seguinte mostra os valores necessários para a porta de entrada para a instância gerida primária:
  
     | **Campo** | Valor |
     | --- | --- |
-    | **Subscrição** |  A assinatura na qual a instância gerenciada primária é. |
-    | **Nome** | O nome do seu gateway de rede virtual. | 
-    | **Região** | A região onde sua instância gerenciada secundária é. |
-    | **Tipo de gateway** | Selecione **VPN**. |
-    | **Tipo de VPN** | Selecionar **baseado em rota** |
-    | **SKU**| Mantenha o padrão de `VpnGw1`. |
-    | **Localização**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
-    | **Rede virtual**| Selecione a rede virtual para sua instância gerenciada secundária. |
+    | **Subscrição** |  A subscrição onde é a sua principal instância gerida. |
+    | **Nome** | O nome para o seu portal de rede virtual. | 
+    | **Região** | A região onde o seu caso secundário gerido é. |
+    | **Tipo gateway** | Selecione **VPN**. |
+    | **Tipo VPN** | Selecione **baseado em rota** |
+    | **SKU**| Deixe o padrão de `VpnGw1`. |
+    | **Localização**| O local onde está a sua instância secundária gerida e a rede virtual secundária.   |
+    | **Rede virtual**| Selecione a rede virtual para a sua instância secundária gerida. |
     | **Endereço IP público**| Selecione **Criar novo**. |
-    | **Nome do endereço IP público**| Insira um nome para seu endereço IP. |
+    | **Nome do endereço IP público**| Insira um nome para o seu endereço IP. |
     | &nbsp; | &nbsp; |
 
-1. Deixe os outros valores como padrão e, em seguida, selecione **revisar + criar** para examinar as configurações do seu gateway de rede virtual.
+1. Deixe os outros valores como padrão e, em seguida, selecione **Review + crie** para rever as definições para o seu gateway de rede virtual.
 
-   ![Configurações do gateway primário](media/sql-database-managed-instance-failover-group-tutorial/settings-for-primary-gateway.png)
+   ![Definições primárias de gateway](media/sql-database-managed-instance-failover-group-tutorial/settings-for-primary-gateway.png)
 
-1. Selecione **criar** para criar seu novo gateway de rede virtual. 
+1. Selecione **Criar** para criar o seu novo portal de rede virtual. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Crie o gateway de rede virtual primário usando o PowerShell. 
+Crie o gateway principal da rede virtual utilizando o PowerShell. 
 
    ```powershell-interactive
    $primaryResourceGroupName = "<Primary-Resource-Group>"
@@ -422,34 +422,34 @@ Crie o gateway de rede virtual primário usando o PowerShell.
 
 ---
 
-### <a name="create-secondary-virtual-network-gateway"></a>Criar um gateway de rede virtual secundário
+### <a name="create-secondary-virtual-network-gateway"></a>Criar gateway de rede virtual secundária
 
-Crie o gateway de rede virtual secundário usando o portal do Azure ou o PowerShell. 
+Crie o gateway de rede virtual secundário utilizando o portal Azure, ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Repita as etapas na seção anterior para criar a sub-rede de rede virtual e o gateway para a instância gerenciada secundária. Preencha os campos obrigatórios para configurar o gateway para sua instância gerenciada secundária. 
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+Repita os passos na secção anterior para criar a sub-rede virtual e a porta de entrada para a instância gerida secundária. Preencha os campos necessários para configurar o portal para a sua instância gerida secundária. 
 
-   A tabela a seguir mostra os valores necessários para o gateway para a instância gerenciada secundária:
+   O quadro seguinte mostra os valores necessários para a porta de entrada para a instância gerida secundária:
 
    | **Campo** | Valor |
    | --- | --- |
-   | **Subscrição** |  A assinatura na qual a instância gerenciada secundária é. |
-   | **Nome** | O nome do seu gateway de rede virtual, como `secondary-mi-gateway`. | 
-   | **Região** | A região onde sua instância gerenciada secundária é. |
-   | **Tipo de gateway** | Selecione **VPN**. |
-   | **Tipo de VPN** | Selecionar **baseado em rota** |
-   | **SKU**| Mantenha o padrão de `VpnGw1`. |
-   | **Localização**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
-   | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, como `vnet-sql-mi-secondary`. |
+   | **Subscrição** |  A subscrição onde é a sua instância secundária gerida. |
+   | **Nome** | O nome para o seu portal de rede virtual, como `secondary-mi-gateway`. | 
+   | **Região** | A região onde o seu caso secundário gerido é. |
+   | **Tipo gateway** | Selecione **VPN**. |
+   | **Tipo VPN** | Selecione **baseado em rota** |
+   | **SKU**| Deixe o padrão de `VpnGw1`. |
+   | **Localização**| O local onde está a sua instância secundária gerida e a rede virtual secundária.   |
+   | **Rede virtual**| Selecione a rede virtual que foi criada na secção 2, como `vnet-sql-mi-secondary`. |
    | **Endereço IP público**| Selecione **Criar novo**. |
-   | **Nome do endereço IP público**| Insira um nome para seu endereço IP, como `secondary-gateway-IP`. |
+   | **Nome do endereço IP público**| Introduza um nome para o seu endereço IP, como `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
-   ![Configurações do gateway secundário](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
+   ![Definições secundárias de gateway](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Crie o gateway de rede virtual secundário usando o PowerShell. 
+Crie o gateway de rede virtual secundário utilizando o PowerShell. 
 
    ```powershell-interactive
    $secondaryResourceGroupName = "<Secondary-Resource-Group>"
@@ -481,38 +481,38 @@ Crie o gateway de rede virtual secundário usando o PowerShell.
 ---
 
 
-### <a name="connect-the-gateways"></a>Conectar os gateways 
-Crie conexões entre os dois gateways usando o portal do Azure ou o PowerShell. 
+### <a name="connect-the-gateways"></a>Ligar os gateways 
+Crie ligações entre os dois gateways utilizando o portal Azure, ou PowerShell. 
 
-Duas conexões precisam ser criadas-a conexão do gateway primário para o gateway secundário e, em seguida, a conexão do gateway secundário com o gateway primário. 
+Há que criar duas ligações - a ligação desde a porta principal até à porta de entrada secundária, e depois a ligação desde a porta de entrada secundária até à porta principal. 
 
-A chave compartilhada usada para ambas as conexões deve ser a mesma para cada conexão. 
+A chave partilhada utilizada para ambas as ligações deve ser a mesma para cada ligação. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Crie conexões entre os dois gateways usando o portal do Azure. 
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+Crie ligações entre os dois portais utilizando o portal Azure. 
 
-1. Selecione **criar um recurso** no [portal do Azure](https://portal.azure.com).
-1. Digite `connection` na caixa de pesquisa e pressione ENTER para pesquisar, que leva você para o recurso de **conexão** , publicado pela Microsoft.
-1. Selecione **criar** para criar sua conexão. 
-1. Na guia **noções básicas** , selecione os valores a seguir e, em seguida, selecione **OK**. 
-    1. Selecione `VNet-to-VNet` para o **tipo de conexão**. 
+1. Selecione **Criar um recurso** a partir do portal [Azure](https://portal.azure.com).
+1. Digite `connection` na caixa de pesquisa e, em seguida, prima introduza para pesquisar, o que o leva ao recurso **Connection,** publicado pela Microsoft.
+1. Selecione **Criar** para criar a sua ligação. 
+1. No separador Basics, selecione os **seguintes valores** e, em seguida, selecione **OK**. 
+    1. Selecione `VNet-to-VNet` para o **tipo de ligação**. 
     1. Selecione a subscrição na lista pendente. 
-    1. Selecione o grupo de recursos para sua instância gerenciada na lista suspensa. 
-    1. Selecione o local da instância gerenciada primária na lista suspensa 
-1. Na guia **configurações** , selecione ou insira os seguintes valores e, em seguida, selecione **OK**:
-    1. Escolha o gateway de rede primário para o **primeiro gateway de rede virtual**, como `Primary-Gateway`.  
-    1. Escolha o gateway de rede secundário para o **segundo gateway de rede virtual**, como `Secondary-Gateway`. 
-    1. Marque a caixa de seleção ao lado de **estabelecer conectividade bidirecional**. 
-    1. Deixe o nome da conexão primária padrão ou renomeie-o para um valor de sua escolha. 
-    1. Forneça uma **chave compartilhada (PSK)** para a conexão, como `mi1m2psk`. 
+    1. Selecione o grupo de recursos para a sua instância gerida na queda. 
+    1. Selecione a localização da sua instância gerida principal a partir do drop-down 
+1. No separador **Definições,** selecione ou introduza os seguintes valores e, em seguida, selecione **OK**:
+    1. Escolha o portal principal de rede para o primeiro portal de **rede virtual**, como `Primary-Gateway`.  
+    1. Escolha o gateway de rede secundário para o segundo portal de **rede virtual**, como `Secondary-Gateway`. 
+    1. Selecione a caixa de verificação ao lado de **Estabelecer conectividade bidirecional**. 
+    1. Ou deixe o nome de ligação primária padrão, ou mude o nome para um valor à sua escolha. 
+    1. Forneça uma **chave partilhada (PSK)** para a ligação, como `mi1m2psk`. 
 
-   ![Criar conexão de gateway](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
+   ![Criar ligação gateway](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
-1. Na guia **Resumo** , examine as configurações da conexão bidirecional e, em seguida, selecione **OK** para criar a conexão. 
+1. No separador **Resumo,** reveja as definições para a sua ligação bidirecional e, em seguida, selecione **OK** para criar a sua ligação. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Crie conexões entre os dois gateways usando o PowerShell. 
+Crie ligações entre os dois gateways utilizando o PowerShell. 
 
    ```powershell-interactive
    $vpnSharedKey = "mi1mi2psk"
@@ -543,28 +543,28 @@ Crie conexões entre os dois gateways usando o PowerShell.
 
 ---
 
-### <a name="create-the-failover-group"></a>Criar o grupo de failover 
-Crie o grupo de failover para suas instâncias gerenciadas usando o portal do Azure ou o PowerShell. 
+### <a name="create-the-failover-group"></a>Criar o grupo failover 
+Crie o grupo failover para os seus casos geridos utilizando o portal Azure, ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Crie o grupo de failover para suas instâncias gerenciadas usando portal do Azure. 
+Crie o grupo failover para os seus casos geridos usando o portal Azure. 
 
-1. Selecione **SQL do Azure** no menu à esquerda da [portal do Azure](https://portal.azure.com). Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
-1. Selecione a instância gerenciada primária que você deseja adicionar ao grupo de failover.  
-1. Em **configurações**, navegue até **instância grupos de failover** e, em seguida, escolha **Adicionar grupo** para abrir a página **grupo de failover de instância** . 
+1. Selecione **Azure SQL** no menu à esquerda do [portal Azure](https://portal.azure.com). Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
+1. Selecione a instância gerida primária que pretende adicionar ao grupo failover.  
+1. Em **Definições,** navegue para **Grupos de Failover de Instância** e, em seguida, opte por adicionar **grupo** para abrir a página do **Grupo Failover de Instância.** 
 
-   ![Adicionar um grupo de failover](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)
+   ![Adicione um grupo de failover](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)
 
-1. Na página **grupo de failover de instância** , digite o nome do grupo de failover e escolha a instância gerenciada secundária na lista suspensa. Selecione **criar** para criar seu grupo de failover. 
+1. Na página do **Grupo Failover instance,** digite o nome do seu grupo failover e, em seguida, escolha a instância gerida secundária a partir da queda. Selecione **Criar** para criar o seu grupo failover. 
 
-   ![Criar grupo de failover](media/sql-database-managed-instance-failover-group-tutorial/create-failover-group.png)
+   ![Criar grupo failover](media/sql-database-managed-instance-failover-group-tutorial/create-failover-group.png)
 
-1. Depois que a implantação do grupo de failover for concluída, você será levado de volta à página **grupo de failover** . 
+1. Uma vez concluída a implementação do grupo failover, será saqueado de volta para a página do **grupo Failover.** 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Crie o grupo de failover para suas instâncias gerenciadas usando o PowerShell. 
+Crie o grupo failover para os seus casos geridos usando powerShell. 
 
    ```powershell-interactive
    $primaryResourceGroupName = "<Primary-Resource-Group>"
@@ -586,27 +586,27 @@ Crie o grupo de failover para suas instâncias gerenciadas usando o PowerShell.
 
 ### <a name="test-failover"></a>Ativação pós-falha de teste
 
-Teste o failover de seu grupo de failover usando o portal do Azure ou o PowerShell. 
+Teste falha do seu grupo failover usando o portal Azure, ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Teste o failover de seu grupo de failover usando o portal do Azure. 
+Teste falha do seu grupo de failover usando o portal Azure. 
 
-1. Navegue até sua instância gerenciada dentro do [portal do Azure](https://portal.azure.com) e selecione **grupos de failover de instância** em configurações. 
-1. Examine qual instância gerenciada é a primária e qual instância gerenciada é a secundária. 
-1. Selecione **failover** e, em seguida, selecione **Sim** no aviso sobre as sessões de TDS sendo desconectadas. 
+1. Navegue para a sua instância gerida _secundária_ dentro do [portal Azure](https://portal.azure.com) e selecione **Instance Failover Groups** em definições. 
+1. A revisão da instância gerida é a principal, e que geriu a instância é a secundária. 
+1. Selecione **Failover** e, em seguida, selecione **Sim** no aviso sobre as sessões de TDS estarem desligadas. 
 
-   ![Fazer failover do grupo de failover](media/sql-database-managed-instance-failover-group-tutorial/failover-mi-failover-group.png)
+   ![Falhar sobre o grupo failover](media/sql-database-managed-instance-failover-group-tutorial/failover-mi-failover-group.png)
 
-1. Examine qual instância gerenciada é a primária e qual é a instância secundária. Se o failover tiver sido bem-sucedido, as duas instâncias deverão ter funções alternadas. 
+1. Reveja qual o caso manhoso que é o principal e qual o caso secundário. Se o failover for bem sucedido, as duas instâncias deveriam ter mudado de funções. 
 
-   ![Instâncias gerenciadas têm funções alternadas após o failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
+   ![Casos geridos mudaram de funções após falha](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Selecione **failover** novamente para falhar a instância primária de volta para a função primária. 
+1. Vá para a _nova_ instância secundária gerida e selecione **Failover** mais uma vez para falhar a instância primária de volta ao papel principal. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Teste o failover de seu grupo de failover usando o PowerShell. 
+Teste falha do seu grupo de failover usando PowerShell. 
 
    ```powershell-interactive
    $primaryResourceGroupName = "<Primary-Resource-Group>"
@@ -644,24 +644,24 @@ Teste o failover de seu grupo de failover usando o PowerShell.
 
 ---
 
-## <a name="locate-listener-endpoint"></a>Localizar ponto de extremidade do ouvinte
+## <a name="locate-listener-endpoint"></a>Localizar o ponto final do ouvinte
 
-Quando o grupo de failover estiver configurado, atualize a cadeia de conexão do seu aplicativo para o ponto de extremidade do ouvinte. Isso manterá seu aplicativo conectado ao ouvinte do grupo de failover, em vez do banco de dados primário, do pool elástico ou da instância gerenciada. Dessa forma, você não precisa atualizar manualmente a cadeia de conexão toda vez que a entidade do banco de dados SQL do Azure faz failover e o tráfego é roteado para qualquer entidade que esteja primária no momento. 
+Assim que o grupo failover estiver configurado, atualize a cadeia de ligação para a sua aplicação para o ponto final do ouvinte. Isto manterá a sua aplicação ligada ao ouvinte do grupo failover, em vez da base de dados primária, piscina elástica ou instância gerida. Desta forma, não é necessário atualizar manualmente a cadeia de ligação sempre que a sua entidade de base de dados Azure SQL falha, e o tráfego é encaminhado para qualquer entidade que esteja atualmente primária. 
 
-O ponto de extremidade do ouvinte está na forma de `fog-name.database.windows.net`e fica visível na portal do Azure, ao exibir o grupo de failover:
+O ponto final do ouvinte é na forma de `fog-name.database.windows.net`, e é visível no portal Azure, ao visualizar o grupo failover:
 
-![Cadeia de conexão do grupo de failover](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
+![Cadeia de ligação de grupo failover](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
 ## <a name="remarks"></a>Observações
 
-- A remoção de um grupo de failover para um banco de dados único ou em pool não interrompe a replicação e não exclui o banco de dados replicado. Você precisará parar manualmente a replicação geográfica e excluir o banco de dados do servidor secundário se desejar adicionar um banco de dados individual ou em pool de volta a um grupo de failover depois que ele tiver sido removido. A falha de qualquer coisa pode resultar em um erro semelhante a `The operation cannot be performed due to multiple errors` ao tentar adicionar o banco de dados ao grupo de failover. 
+- A remoção de um grupo de failover para uma única base de dados ou agrupara-se não para a replicação e não elimina a base de dados replicada. Terá de parar manualmente a geo-replicação e eliminar a base de dados do servidor secundário se pretender adicionar uma única base de dados ou agrupar uma base de dados a um grupo de failover depois de ter sido removida. Não fazer nenhuma das coisas pode resultar num erro semelhante ao `The operation cannot be performed due to multiple errors` ao tentar adicionar a base de dados ao grupo failover. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter etapas detalhadas sobre como configurar um grupo de failover, consulte os seguintes tutoriais:
-- [Adicionar um banco de dados individual a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)
-- [Adicionar um pool elástico a um grupo de failover](sql-database-elastic-pool-failover-group-tutorial.md)
-- [Adicionar instâncias gerenciadas a um grupo de failover](sql-database-managed-instance-failover-group-tutorial.md)
+Para etapas detalhadas que configuram um grupo de failover, consulte os seguintes tutoriais:
+- [Adicione uma única base de dados a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)
+- [Adicione uma piscina elástica a um grupo de failover](sql-database-elastic-pool-failover-group-tutorial.md)
+- [Adicione instâncias geridas a um grupo de failover](sql-database-managed-instance-failover-group-tutorial.md)
  
-Para obter uma visão geral das opções de alta disponibilidade do banco de dados SQL do Azure, consulte [replicação geográfica](sql-database-active-geo-replication.md) e [grupos de failover automático](sql-database-auto-failover-group.md). 
+Para uma visão geral das opções de alta disponibilidade da Base de Dados Azure SQL, consulte grupos [de geo-replicação](sql-database-active-geo-replication.md) e [falha automática](sql-database-auto-failover-group.md). 
