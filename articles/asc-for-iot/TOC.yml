@@ -77,6 +77,8 @@
       href: how-to-security-data-access.md
     - name: Investigar um dispositivo
       href: how-to-investigate-device.md
+    - name: Ligar ao Azure Sentinel
+      href: how-to-configure-with-sentinel.md
     - name: Personalizar a sua solução
       href: how-to-customize-solution.md
 - name: Recursos

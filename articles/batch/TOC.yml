@@ -4,7 +4,7 @@
   items:
     - name: O que é o Azure Batch?
       href: batch-technical-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Executar uma tarefa do Batch - CLI
@@ -71,6 +71,8 @@
           href: batch-aad-auth.md
         - name: Azure AD com a Gestão do Batch
           href: batch-aad-auth-management.md
+        - name: Acesso seguro ao Key Vault com o Batch
+          href: credential-access-key-vault.md
     - name: Utilizar pacotes de aplicações
       href: batch-application-packages.md
     - name: Criar e gerir agrupamentos

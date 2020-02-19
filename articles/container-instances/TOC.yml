@@ -81,7 +81,7 @@
           href: container-instances-managed-identity.md
         - name: Utilizar recursos da GPU (pré-visualização)
           href: container-instances-gpu.md
-        - name: Ativar o ponto final SSL
+        - name: Ativar o ponto final SSL no sidecar
           href: container-instances-container-group-ssl.md
     - name: Montar volumes de dados
       items:
