@@ -35,8 +35,14 @@
       href: rule-processing.md
     - name: Etiquetas de serviço
       href: service-tags.md
+    - name: Grupos IP
+      href: ip-groups.md
+    - name: Túnel forçado
+      href: forced-tunneling.md
     - name: Certificações de conformidade
       href: compliance-certifications.md
+    - name: Gestão central
+      href: central-management.md
 - name: Guias de procedimentos
   items:
     - name: Implementar com o Azure PowerShell
@@ -55,6 +61,10 @@
       href: integrate-lb.md
     - name: Regras de aplicações com os FQDNs do SQL
       href: sql-fqdn-filtering.md
+    - name: Intervalos privados SNAT
+      href: snat-private-range.md
+    - name: Criar Grupos IP
+      href: create-ip-group.md
 - name: Referência
   items:
     - name: CLI do Azure

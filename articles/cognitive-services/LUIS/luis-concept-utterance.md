@@ -55,10 +55,10 @@ Siga estes exemplos de declarações:
 
 |Expressões de exemplo|
 |--|
-|Como faço para obter um computador?|
-|Onde obtenho um computador?|
-|Eu quero obter um computador, como posso me aprofundar?|
-|Quando posso ter um computador?| 
+|how do I get a computer?|
+|Where do I get a computer?|
+|I want to get a computer, how do I go about it?|
+|When can I have a computer?| 
 
 O termo principal aqui, "Computer", não é variado. Use alternativas como computador desktop, laptop, estação de trabalho ou até mesmo computador. O LUIS pode inferir de forma inteligente sinônimos do contexto, mas quando você cria declarações para treinamento, é sempre melhor adaptá-los.
 
@@ -144,8 +144,8 @@ O declarações a seguir, a palavra `fair` é um homograph. Ele é têm a mesma,
 
 |Expressão|
 |--|
-|Que tipo de fairs condado de estão acontecendo na área de Seattle neste Verão?|
-|É a classificação atual para a revisão de Seattle justo?|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
 
 Se você quisesse que uma entidade de evento localizasse todos os dados do evento, rotule a palavra `fair` no primeiro expressão, mas não no segundo.
 
