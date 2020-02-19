@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
-ms.openlocfilehash: cce536b97c231c26992c1cd6e7d0797b3452c8e5
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: e4f75e0595eaef6e56b5a6c3d13646fce0d91a24
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156198"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446541"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,8 +38,7 @@ Antes de começar, certifique-se de:
     def translate_speech_to_text():
 
         # Creates an instance of a speech translation config with specified subscription key and service region.
-        # Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
-        # from here: https://aka.ms/speech/sdkregion).   
+        # Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
         translation_config = speechsdk.translation.SpeechTranslationConfig(subscription=speech_key, region=service_region)
 
         # Sets source and target languages.

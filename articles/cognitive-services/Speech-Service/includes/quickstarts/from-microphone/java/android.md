@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 882904ec09014df821c648bb4823d7a0930abba5
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 6348d09351cf627624340083e2c419def38dfc01
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156188"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446781"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +58,7 @@ O texto e a representação gráfica da sua UI devem agora ser assim:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua também a cadeia `YourServiceRegion` pelo "Parâmetro SDK de Fala" da [região](https://aka.ms/speech/sdkregion) associada à sua subscrição. Por exemplo, utilize `westus` para a subscrição de teste gratuito.
+1. Substitua também a cadeia `YourServiceRegion` com o **identificador** [região](https://aka.ms/speech/sdkregion) associado à sua subscrição. Por exemplo, utilize `westus` para a subscrição de teste gratuito.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 

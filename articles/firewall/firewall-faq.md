@@ -1,92 +1,92 @@
 ---
-title: Perguntas frequentes do firewall do Azure
-description: Perguntas frequentes sobre o Firewall do Azure. Um serviço de segurança de rede gerenciado baseado em nuvem que protege os recursos de rede virtual do Azure.
+title: Azure Firewall FAQ
+description: FAQ para Firewall Azure. Um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos da Rede Virtual Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: victorh
-ms.openlocfilehash: 8b55f31f12ab1057ac2e0f625a0285b6518cc44a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 78269461bf01d61bffeed504b0168b4913c6e131
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845766"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442994"
 ---
-# <a name="azure-firewall-faq"></a>Perguntas frequentes do firewall do Azure
+# <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
 ## <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
-O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. É um firewall como um serviço totalmente monitorado com alta disponibilidade interna e escalabilidade de nuvem irrestrita. Pode criar, impor e registar centralmente políticas de conectividade de rede e aplicações entre subscrições e redes virtuais.
+O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. É um firewall-as-a-service totalmente audato com alta disponibilidade incorporada e escalabilidade de nuvem sem restrições. Pode criar, impor e registar centralmente políticas de conectividade de rede e aplicações entre subscrições e redes virtuais.
 
-## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Quais recursos têm suporte no firewall do Azure?
+## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Que capacidades são suportadas no Firewall Azure?
 
-* Firewall com monitorização de estado como serviço
-* Elevada disponibilidade incorporada com escalabilidade da cloud sem restrições
+* Firewall audada como um serviço
+* Elevada disponibilidade incorporada com escalabilidade de nuvens sem restrições
 * Filtragem FQDN
 * Etiquetas FQDN
 * Regras de filtragem de tráfego de rede
 * Suporte SNAT de saída
 * Suporte DNAT de entrada
-* Criar, impor e registrar políticas de conectividade de rede e de aplicativo de forma centralizada nas assinaturas e VNETs do Azure
-* Integração total com o Azure Monitor para fins de registo e análise
+* Centralmente criar, impor e registar aplicações e políticas de conectividade de rede em todas as subscrições do Azure e VNETs
+* Totalmente integrado com o Monitor Azure para exploração madeireira e analítica
 
-## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Qual é o modelo de implantação típico para o Firewall do Azure?
+## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Qual é o modelo típico de implementação do Azure Firewall?
 
-Você pode implantar o Firewall do Azure em qualquer rede virtual, mas os clientes normalmente o implantam em uma rede virtual central e emparelham outras redes virtuais a ele em um modelo de Hub e spoke. Em seguida, você pode definir a rota padrão das redes virtuais emparelhadas para apontar para essa rede virtual de firewall central. O emparelhamento VNet global tem suporte, mas não é recomendado devido a possíveis problemas de desempenho e latência entre regiões. Para obter o melhor desempenho, implante um firewall por região.
+Você pode implementar o Azure Firewall em qualquer rede virtual, mas os clientes normalmente implantam-no numa rede virtual central e peer outras redes virtuais para ele num modelo hub-e-spoke. Em seguida, pode definir a rota padrão a partir das redes virtuais peered para apontar para esta rede virtual de firewall central. O peering Global VNet é suportado, mas não é recomendado devido a potenciais problemas de desempenho e latência em todas as regiões. Para melhor desempenho, implemente uma firewall por região.
 
-A vantagem desse modelo é a capacidade de exercer controle central em vários VNETs spoke em diferentes assinaturas. Também há economia de custos, pois você não precisa implantar um firewall em cada VNet separadamente. As economias de custo devem ser medidas versus o custo de emparelhamento associado com base nos padrões de tráfego do cliente.
+A vantagem deste modelo é a capacidade de exercer centralmente o controlo sobre múltiplos VNETs falados em diferentes subscrições. Existem também poupanças de custos, uma vez que não precisa de implementar uma firewall em cada VNet separadamente. As economias de custos devem ser medidas em relação ao custo associado de peering com base nos padrões de tráfego do cliente.
 
-## <a name="how-can-i-install-the-azure-firewall"></a>Como posso instalar o Firewall do Azure?
+## <a name="how-can-i-install-the-azure-firewall"></a>Como posso instalar o Firewall Azure?
 
-Você pode configurar o Firewall do Azure usando o portal do Azure, o PowerShell, a API REST ou o usando modelos. Consulte [tutorial: implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md) para obter instruções passo a passo.
+Pode configurar o Azure Firewall utilizando o portal Azure, PowerShell, REST API ou utilizando modelos. Consulte [Tutorial: Desloque e configure a Firewall Azure utilizando o portal Azure](tutorial-firewall-deploy-portal.md) para instruções passo a passo.
 
-## <a name="what-are-some-azure-firewall-concepts"></a>Quais são alguns dos conceitos de firewall do Azure?
+## <a name="what-are-some-azure-firewall-concepts"></a>Quais são alguns conceitos de Firewall Azure?
 
-O Firewall do Azure dá suporte a regras e coleções de regras. Uma coleção de regras é um conjunto de regras que compartilham a mesma ordem e prioridade. As coleções de regras são executadas em ordem de prioridade. As coleções de regras de rede têm prioridade mais alta do que as coleções de regras de aplicativo e todas as regras estão sendo encerradas.
+A Azure Firewall suporta regras e coleções de regras. Uma coleção de regras é um conjunto de regras que partilham a mesma ordem e prioridade. As coleções de regras são executadas por ordem da sua prioridade. As coleções de regras de rede são mais prioritárias do que as coleções de regras de aplicação, e todas as regras estão terminando.
 
-Há três tipos de coleções de regras:
+Existem três tipos de coleções de regras:
 
-* *Regras de aplicativo*: Configure FQDNs (nomes de domínio totalmente qualificados) que podem ser acessados de uma sub-rede.
-* *Regras de rede*: Configure regras que contêm endereços de origem, protocolos, portas de destino e endereços de destino.
-* *Regras de NAT*: configurar regras de DNAT para permitir conexões de entrada.
+* *Regras de aplicação*: Configure nomes de domínio totalmente qualificados (FQDNs) que possam ser acedidos a partir de uma subnet.
+* *Regras de rede*: Configure regras que contenham endereços de origem, protocolos, portas de destino e endereços de destino.
+* *Regras NAT*: Configure as regras de ADN para permitir a entrada de ligações.
 
-## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>O Firewall do Azure dá suporte à filtragem de tráfego de entrada?
+## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>A Firewall Azure suporta a filtragem de tráfego de entrada?
 
-O Firewall do Azure dá suporte à filtragem de entrada e saída. A proteção de entrada é normalmente utilizada para protocolos não HTTP/S. Por exemplo, protocolos RDP, SSH e FTP. Para uma melhor proteção HTTP/S de entrada, utilize uma firewall de aplicação web, como [o Firewall de aplicação web Azure no Portal de Aplicações Azure](../web-application-firewall/ag/ag-overview.md).
+A Firewall Azure suporta a filtragem de entrada e saída. A proteção de entrada é normalmente utilizada para protocolos não HTTP/S. Por exemplo, protocolos RDP, SSH e FTP. Para uma melhor proteção HTTP/S de entrada, utilize uma firewall de aplicação web, como [o Firewall de aplicação web Azure no Portal de Aplicações Azure](../web-application-firewall/ag/ag-overview.md).
 
-## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Quais serviços de log e de análise têm suporte no firewall do Azure?
+## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Que serviços de exploração madeireira e analítica são suportados pela Firewall Azure?
 
-O Firewall do Azure é integrado com Azure Monitor para exibir e analisar logs de firewall. Os logs podem ser enviados para Log Analytics, armazenamento do Azure ou hubs de eventos. Eles podem ser analisados em Log Analytics ou em ferramentas diferentes, como Excel e Power BI. Para obter mais informações, consulte [tutorial: monitorar logs de firewall do Azure](tutorial-diagnostics.md).
+O Azure Firewall está integrado com o Monitor Azure para visualização e análise de registos de firewall. Os registos podem ser enviados para Log Analytics, Azure Storage ou Event Hubs. Podem ser analisados em Log Analytics ou por diferentes ferramentas como Excel e Power BI. Para mais informações, consulte [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md).
 
-## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Como o Firewall do Azure funciona de maneira diferente dos serviços existentes, como o NVAs no Marketplace?
+## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Como funciona o Azure Firewall de forma diferente dos serviços existentes, como os NVAs no mercado?
 
-O Firewall do Azure é um serviço de Firewall básico que pode atender a determinados cenários de clientes. Espera-se que você tenha uma combinação de NVAs de terceiros e firewall do Azure. Trabalhar melhor juntos é uma prioridade básica.
+O Azure Firewall é um serviço básico de firewall que pode abordar certos cenários do cliente. Espera-se que tenha uma mistura de NVAs de terceiros e Firewall Azure. Trabalhar melhor juntos é uma prioridade fundamental.
 
-## <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Qual é a diferença entre o WAF do gateway de aplicativo e o Firewall do Azure?
+## <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Qual é a diferença entre application Gateway WAF e Azure Firewall?
 
-O WAF (firewall do aplicativo Web) é um recurso do gateway de aplicativo que fornece proteção de entrada centralizada de seus aplicativos Web contra explorações e vulnerabilidades comuns. O Firewall do Azure fornece proteção de entrada para protocolos não HTTP/S (por exemplo, RDP, SSH, FTP), proteção no nível de rede de saída para todas as portas e protocolos e proteção em nível de aplicativo para HTTP/S de saída.
+O Firewall de aplicação web (WAF) é uma funcionalidade do Application Gateway que fornece proteção centralizada das suas aplicações web a partir de explorações e vulnerabilidades comuns. A Azure Firewall fornece proteção de entrada para protocolos não HTTP/S (por exemplo, RDP, SSH, FTP), proteção de nível de rede de saída para todos os portos e protocolos, e proteção ao nível da aplicação para a saída HTTP/S.
 
-## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Qual é a diferença entre NSGs (grupos de segurança de rede) e o Firewall do Azure?
+## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Qual é a diferença entre grupos de segurança de rede (NSGs) e Firewall Azure?
 
-O serviço de firewall do Azure complementa a funcionalidade do grupo de segurança de rede. Juntos, eles fornecem uma melhor segurança de rede de "defesa aprofundada". Os grupos de segurança de rede fornecem filtragem de tráfego de camada de rede distribuída para limitar o tráfego a recursos em redes virtuais em cada assinatura. O Firewall do Azure é um firewall de rede centralizado e totalmente monitorado como um serviço, que fornece proteção em nível de rede e de aplicativo em diferentes assinaturas e redes virtuais.
+O serviço Azure Firewall complementa a funcionalidade do grupo de segurança da rede. Juntos, proporcionam uma melhor segurança da rede "defesa-em profundidade". Os grupos de segurança da rede fornecem filtragem de tráfego de camadas de rede distribuída para limitar o tráfego aos recursos dentro das redes virtuais em cada subscrição. O Azure Firewall é um firewall de rede totalmente audacionado e centralizado como um serviço, que fornece proteção ao nível da rede e da aplicação em diferentes subscrições e redes virtuais.
 
-## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Há suporte para NSGs (grupos de segurança de rede) na sub-rede do firewall do Azure?
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Os Grupos de Segurança da Rede (NSGs) são suportados na subnet Azure Firewall?
 
-O Firewall do Azure é um serviço gerenciado com várias camadas de proteção, incluindo a proteção da plataforma com NSGs no nível da NIC (não visível).  Os NSGs de nível de sub-rede não são necessários na sub-rede do firewall do Azure e estão desabilitados para garantir que nenhuma interrupção de serviço seja interrompida.
+O Azure Firewall é um serviço gerido com múltiplas camadas de proteção, incluindo a proteção da plataforma com NSGs de nível NIC (não visível).  NsGs de nível de sub-rede não são necessários na subnet Azure Firewall, e são desativados para garantir que não há interrupção do serviço.
 
-## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como fazer configurar o Firewall do Azure com meus pontos de extremidade de serviço?
+## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como configurar o Azure Firewall com os meus pontos finais de serviço?
 
-Para acesso seguro aos serviços de PaaS, recomendamos os pontos de extremidade de serviço. Você pode optar por habilitar os pontos de extremidade de serviço na sub-rede do firewall do Azure e desabilitá-los nas redes virtuais de spoke conectadas. Dessa forma, você se beneficia de ambos os recursos – segurança de ponto de extremidade de serviço e log central para todo o tráfego.
+Para acesso seguro aos serviços PaaS, recomendamos pontos finais de serviço. Pode optar por ativar pontos finais de serviço na subnet Azure Firewall e desativá-los nas redes virtuais de raios ligados. Desta forma, beneficia de ambas as funcionalidades... segurança de ponto final de serviço e registo central para todo o tráfego.
 
-## <a name="what-is-the-pricing-for-azure-firewall"></a>Qual é o preço do firewall do Azure?
+## <a name="what-is-the-pricing-for-azure-firewall"></a>Qual é o preço do Azure Firewall?
 
-Consulte [preços do firewall do Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
+Ver Preços de [Firewall Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
-## <a name="how-can-i-stop-and-start-azure-firewall"></a>Como posso parar e iniciar o Firewall do Azure?
+## <a name="how-can-i-stop-and-start-azure-firewall"></a>Como posso parar e começar o Azure Firewall?
 
-Você pode usar Azure PowerShell *desalocar* e *alocar* métodos.
+Pode utilizar o *Desalocar* e *alocar* métodos azure PowerShell.
 
 Por exemplo:
 
@@ -109,69 +109,69 @@ Set-AzFirewall -AzureFirewall $azfw
 ```
 
 > [!NOTE]
-> Você deve realocar um firewall e um IP público para o grupo de recursos e a assinatura originais.
+> Você deve realocar uma firewall e IP público para o grupo de recursos originais e subscrição.
 
 ## <a name="what-are-the-known-service-limits"></a>Quais são os limites de serviço conhecidos?
 
-Para limites de serviço de firewall do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
+Para os limites de serviço azure Firewall, consulte [os limites de subscrição e serviço do Azure, quotas e restrições.](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
 
-## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>O Firewall do Azure em uma rede virtual do Hub pode avançar e filtrar o tráfego de rede entre duas redes virtuais spoke?
+## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Pode o Azure Firewall numa rede virtual de hub para a frente e filtrar o tráfego da rede entre duas redes virtuais faladas?
 
-Sim, você pode usar o Firewall do Azure em uma rede virtual de Hub para rotear e filtrar o tráfego entre duas redes virtuais spoke. As sub-redes em cada uma das redes virtuais spoke devem ter UDR apontando para o Firewall do Azure como um gateway padrão para que esse cenário funcione corretamente.
+Sim, você pode usar o Azure Firewall numa rede virtual hub para direcionar e filtrar o tráfego entre duas redes virtuais. As subredes em cada uma das redes virtuais faladas devem ter o UDR apontado para o Firewall Azure como uma porta de entrada padrão para que este cenário funcione corretamente.
 
-## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Firewall do Azure pode encaminhar e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou redes virtuais emparelhadas?
+## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Azure Firewall pode avançar e filtrar o tráfego de rede entre subredes na mesma rede virtual ou redes virtuais?
 
-Sim. No entanto, configurar o UDRs para redirecionar o tráfego entre sub-redes na mesma VNET requer atenção adicional. Ao usar o intervalo de endereços da VNET como um prefixo de destino para o UDR é suficiente, isso também roteia todo o tráfego de um computador para outro na mesma sub-rede por meio da instância do firewall do Azure. Para evitar isso, inclua uma rota para a sub-rede no UDR com um tipo de próximo salto de **VNET**. O gerenciamento dessas rotas pode ser complicado e propenso a erros. O método recomendado para segmentação de rede interna é usar grupos de segurança de rede, que não exigem UDRs.
+Sim. No entanto, configurar os UDRs para redirecionar o tráfego entre subredes no mesmo VNET requer atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também faz todo o tráfego de uma máquina para outra na mesma sub-rede através da instância De firewall Azure. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**de lúpulo . Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para segmentação interna da rede é usar grupos de segurança de rede, que não requerem UDRs.
 
-## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>O Firewall do Azure faz a saída de SNAT entre redes privadas?
+## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>O Azure Firewall sai do SNAT entre redes privadas?
 
-O Firewall do Azure não SNAT quando o endereço IP de destino é um intervalo de IP privado por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se sua organização usa um intervalo de endereços IP públicos para redes privadas, o Firewall do Azure SNATs o tráfego para um dos endereços IP privados do firewall em AzureFirewallSubnet.
+O Azure Firewall não snaT quando o endereço IP de destino é uma gama ip privada por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se a sua organização utilizar uma gama pública de endereços IP para redes privadas, o Azure Firewall SNATs snats o tráfego para um dos endereços IP privados firewall em AzureFirewallSubnet. Pode configurar o Azure Firewall para **não** sNAT a sua gama pública de endereços IP. Para mais informações, consulte as gamas de [endereços IP privados Azure Firewall SNAT](snat-private-range.md).
 
-## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Há suporte para túnel/encadeamento forçado para uma solução de virtualização de rede?
+## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>O túnel/acorrentamento forçado a um Aparelho Virtual da Rede é suportado?
 
-O túnel forçado não tem suporte no momento. O Firewall do Azure deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprende uma rota padrão para sua rede local via BGP, você deve substituí-lo por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet.
+O túnel forçado não é suportado atualmente. O Azure Firewall deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a esta com um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta da Internet.
 
-Se sua configuração requer o túnel forçado para uma rede local e você pode determinar os prefixos de IP de destino para seus destinos de Internet, você pode configurar esses intervalos com a rede local como o próximo salto por meio de uma rota definida pelo usuário no AzureFirewallSubnet. Ou, você pode usar o BGP para definir essas rotas.
+Se a sua configuração necessitar de túneis forçados para uma rede no local e puder determinar os prefixos IP-alvo para os seus destinos de Internet, pode configurar estas gamas com a rede no local como o próximo salto através de uma rota definida pelo utilizador no AzureFirewallSubnet. Ou, pode usar o BGP para definir estas rotas.
 
-## <a name="are-there-any-firewall-resource-group-restrictions"></a>Há alguma restrição de grupo de recursos de firewall?
+## <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem restrições ao grupo de recursos de firewall?
 
-Sim. O firewall, a sub-rede, a VNet e o endereço IP público devem estar no mesmo grupo de recursos.
+Sim. A firewall, a subnet, a VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
 
-## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar o DNAT para o tráfego de rede de entrada, também preciso configurar uma regra de rede correspondente para permitir esse tráfego?
+## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar o DNAT para o tráfego de rede de entrada, também preciso de configurar uma regra de rede correspondente para permitir esse tráfego?
 
-Não. As regras de NAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
+Não. As regras do NAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
 
-## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como os curingas funcionam em um FQDN de destino de regra de aplicativo?
+## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como funcionam os wildcards numa regra de aplicação alvo FQDN?
 
-Se você configurar * **. contoso.com**, ele permitirá *anyvalue*. contoso.com, mas não contoso.com (o Apex do domínio). Se você quiser permitir o Apex do domínio, deverá configurá-lo explicitamente como um FQDN de destino.
+Se configurar * **.contoso.com,** permite *qualquer valor*.contoso.com, mas não contoso.com (o ápice de domínio). Se pretender permitir o ápice de domínio, deve configurá-lo explicitamente como um FQDN alvo.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>O que significa o *estado de provisionamento: falha na* média?
+## <a name="what-does-provisioning-state-failed-mean"></a>O que significa *provisionamento: Falhado?*
 
-Sempre que uma alteração de configuração é aplicada, o Firewall do Azure tenta atualizar todas as suas instâncias de back-end subjacentes. Em casos raros, uma dessas instâncias de back-end pode falhar ao atualizar com a nova configuração e o processo de atualização é interrompido com um estado de provisionamento com falha. O Firewall do Azure ainda está operacional, mas a configuração aplicada pode estar em um estado inconsistente, em que algumas instâncias têm a configuração anterior, em que outras têm a regra atualizada definida. Se isso acontecer, tente atualizar sua configuração mais uma vez até que a operação seja bem-sucedida e o firewall esteja em um estado de provisionamento *bem-sucedido* .
+Sempre que é aplicada uma alteração de configuração, o Azure Firewall tenta atualizar todas as suas instâncias de backend subjacentes. Em casos raros, um destes casos de backend pode não atualizar com a nova configuração e o processo de atualização para com um estado de provisionamento falhado. O seu Firewall Azure ainda está operacional, mas a configuração aplicada pode estar num estado inconsistente, onde alguns casos têm a configuração anterior onde outros têm o conjunto de regras atualizado. Se isso acontecer, tente atualizar a sua configuração mais uma vez até que a operação tenha sucesso e a sua Firewall esteja num estado de provisionamento *bem sucedido.*
 
-### <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Como o Firewall do Azure lida com falhas não planejadas e de manutenção planejada?
-O Firewall do Azure consiste em vários nós de back-end em uma configuração ativo-ativo.  Para qualquer manutenção planejada, temos a lógica de descarga de conexão para atualizar nós normalmente.  As atualizações são planejadas fora do horário comercial para cada uma das regiões do Azure para limitar ainda mais o risco de interrupção.  Para problemas não planejados, criamos uma instância de um novo nó para substituir o nó com falha.  A conectividade com o novo nó é normalmente restabelecida dentro de 10 segundos a partir do momento da falha.
+### <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Como é que a Azure Firewall lida com a manutenção planeada e falhas não planeadas?
+O Azure Firewall é composto por vários nódeos traseiros numa configuração ativa.  Para qualquer manutenção planeada, temos a lógica de drenagem de ligação para atualizar graciosamente os nós.  Estão previstas atualizações durante o horário não comercial para cada uma das regiões de Azure para limitar ainda mais o risco de perturbação.  Para questões não planeadas, nós instantaneamente um novo nó para substituir o nó falhado.  A conectividade com o novo nó é normalmente restabelecida em 10 segundos após a hora da falha.
 
-## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Há um limite de caracteres para um nome de firewall?
+## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Existe um limite de carácter para um nome de firewall?
 
 Sim. Há um limite de 50 caracteres para um nome de firewall.
 
-## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Por que o Firewall do Azure precisa de um tamanho de sub-rede/26?
+## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Porque é que o Azure Firewall precisa de uma sub-rede /26?
 
-O Firewall do Azure deve provisionar mais instâncias de máquina virtual conforme ele é dimensionado. Um espaço de endereço/26 garante que o firewall tenha endereços IP suficientes disponíveis para acomodar o dimensionamento.
+O Azure Firewall deve fornecer mais casos de máquinas virtuais à medida que se escala. Um espaço de endereço /26 garante que a firewall dispõe de endereços IP suficientes para acomodar a escala.
 
-## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>O tamanho da sub-rede do firewall precisa ser alterado conforme o serviço é dimensionado?
+## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>O tamanho da subrede de firewall precisa de ser alterado à medida que as escalas de serviço?
 
-Não. O Firewall do Azure não precisa de uma sub-rede maior que/26.
+Não. A Firewall Azure não precisa de uma sub-rede maior que a de 1,26.
 
-## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar a taxa de transferência do meu firewall?
+## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar a minha entrada de firewall?
 
-A capacidade de taxa de transferência inicial do firewall do Azure é de 2,5 a 3 Gbps. Atualmente, o scale out é baseado apenas no uso da CPU. Em alguns casos, um firewall com regras de rede não escalará verticalmente para aumentar a taxa de transferência, pois as regras de rede não afetam significativamente o uso da CPU. Se precisar de uma taxa de transferência maior para o firewall, entre em contato com o suporte para aumentar a capacidade de taxa de transferência inicial do firewall.
+A capacidade inicial de entrada da Azure Firewall é de 2,5 - 3 Gbps. Atualmente, a escala é baseada apenas no uso de CPU. Em alguns casos, uma firewall com regras de rede só não vai aumentar para aumentar a entrada porque as regras da rede não afetam significativamente o uso de CPU. Se precisar de uma entrada mais elevada para a sua firewall, contacte o Suporte para aumentar a capacidade inicial de entrada da sua firewall.
 
-## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Firewall do Azure escalar horizontalmente?
+## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Azure Firewall aumentar a escala?
 
-Atualmente, leva de cinco a sete minutos para que o Firewall do Azure Escale horizontalmente. Se você tiver intermitências que exigem um dimensionamento automático mais rápido, entre em contato com o suporte para aumentar a capacidade de taxa de transferência inicial do firewall.
+Atualmente, leva de cinco a sete minutos para o Azure Firewall escalar. Se tiver rajadas que exijam uma escala automática mais rápida, contacte o Suporte para aumentar a capacidade inicial de entrada da sua firewall.
 
-## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall do Azure permite acesso a Active Directory por padrão?
+## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall Azure permite o acesso ao Diretório Ativo por defeito?
 
-Não. O Firewall do Azure bloqueia o acesso Active Directory por padrão. Para permitir o acesso, configure a marca de serviço AzureActiveDirectory. Para obter mais informações, consulte [marcas de serviço do firewall do Azure](service-tags.md).
+Não. O Azure Firewall bloqueia o acesso ao Diretório Ativo por defeito. Para permitir o acesso, configure a etiqueta de serviço AzureActiveDirectory. Para mais informações, consulte as etiquetas de [serviço Azure Firewall](service-tags.md).

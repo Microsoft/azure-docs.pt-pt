@@ -1,30 +1,32 @@
 ---
-title: Consultar dados usando a biblioteca do Azure Data Explorer Python
-description: Neste artigo, você aprenderá a consultar dados do Azure Data Explorer usando o Python.
+title: Dados de consulta utilizando a biblioteca Python do Explorador de Dados Azure
+description: Neste artigo, aprende-se a consultar dados do Azure Data Explorer utilizando python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ebd65f2dcbb0040b764290627bbfd2901aa9a7d3
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827524"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443980"
 ---
-# <a name="query-data-using-the-azure-data-explorer-python-library"></a>Consultar dados usando a biblioteca do Azure Data Explorer Python
+# <a name="query-data-using-the-azure-data-explorer-python-library"></a>Dados de consulta utilizando a biblioteca Python do Explorador de Dados Azure
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece uma [biblioteca de cliente de dados ao Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Esta biblioteca permite-lhe consultar dados a partir do código. Neste artigo, você se conecta a uma tabela no *cluster de ajuda* que configuramos para ajudar a aprender. Em seguida, pode consultar uma tabela nesse cluster e devolver os resultados.
+Neste artigo, consulta dados através do Azure Data Explorer. O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo.
 
-Este artigo também está disponível como um [bloco de anotações do Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+O Azure Data Explorer fornece uma [biblioteca de cliente de dados ao Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Esta biblioteca permite-lhe consultar dados a partir do código. Ligue-se a uma tabela sobre o aglomerado de *ajuda* que estabelecemos para ajudar a aprendizagem. Pode consultar uma mesa nesse cluster e devolver os resultados.
+
+Este artigo também está disponível como um [Caderno Azure.](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta de e-mail organizacional que seja membro do Azure Active Directory (AAD)
+* [Python 3.4+](https://www.python.org/downloads/)
 
-* [Python](https://www.python.org/downloads/) instalado no seu computador de desenvolvimento
+* Uma conta de e-mail organizacional que seja membro do Azure Active Directory (AAD)
 
 ## <a name="install-the-data-library"></a>Instalar a biblioteca de dados
 
@@ -65,7 +67,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE = "Samples"
 ```
 
-Agora construa a cadeia de ligação. Este exemplo utiliza a autenticação do dispositivo para aceder ao cluster. Você também pode usar o [certificado de aplicativo do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), a chave de aplicativo do [AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)e o [usuário e a senha do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
+Agora construa a cadeia de ligação. Este exemplo utiliza a autenticação do dispositivo para aceder ao cluster. Também pode utilizar o certificado de [aplicação AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24) [a chave de aplicação AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)e [o utilizador e a palavra-passe da AAD.](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
@@ -75,7 +77,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Ligar ao Azure Data Explorer e executar uma consulta
 
-Executar uma consulta contra o cluster e armazenar o resultado num pacote de dados. Quando esse código é executado, ele retorna uma mensagem semelhante à seguinte: *Para entrar, use um navegador da Web para abrir a página https://microsoft.com/devicelogin e insira o código F3W4VWZDM para autenticar*. Siga os passos para iniciar sessão e volte para executar o bloco de código seguinte.
+Executar uma consulta contra o cluster e armazenar o resultado num pacote de dados. Quando este código é executado, devolve uma mensagem semelhante à seguinte: *Para iniciar sessão, utilize um browser para abrir a página https://microsoft.com/devicelogin e introduza o código F3W4VWZDM para autenticar*. Siga os passos para iniciar sessão e volte para executar o bloco de código seguinte.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB)
@@ -98,4 +100,4 @@ Deve ver os dez principais resultados da tabela StormEvents.
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Ingerir dados usando a biblioteca do Azure Data Explorer Python](python-ingest-data.md)
+> [Ingerir dados utilizando a biblioteca Python do Explorador de Dados Azure](python-ingest-data.md)

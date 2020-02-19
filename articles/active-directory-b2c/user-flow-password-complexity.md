@@ -1,7 +1,7 @@
 ---
-title: Configurar requisitos de complexidade de senha
+title: Configurar requisitos de complexidade de senhas
 titleSuffix: Azure AD B2C
-description: Como configurar os requisitos de complexidade para as senhas fornecidas pelos consumidores no Azure Active Directory B2C.
+description: Como configurar os requisitos de complexidade das palavras-passe fornecidas pelos consumidores no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,70 +11,70 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 59ac2f74d4753c1f647bedfa2c402e729e25ee62
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6e629f3c83d847cf20eccbe7a3fb0d3f444dac62
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847813"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430334"
 ---
-# <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurar requisitos de complexidade para senhas no Azure Active Directory B2C
+# <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurar requisitos de complexidade para senhas no Diretório Ativo Azure B2C
 
-O Azure Active Directory B2C (Azure AD B2C) dá suporte à alteração dos requisitos de complexidade para as senhas fornecidas por um usuário final ao criar uma conta. Por padrão, Azure AD B2C usa `Strong` senhas. O Azure AD B2C também dá suporte a opções de configuração para controlar a complexidade das senhas que os clientes podem usar.
+O Azure Ative Directory B2C (Azure AD B2C) suporta a alteração dos requisitos de complexidade das palavras-passe fornecidas por um utilizador final ao criar uma conta. Por predefinição, o Azure AD B2C utiliza palavras-passe `Strong`. O Azure AD B2C também suporta opções de configuração para controlar a complexidade das palavras-passe que os clientes podem usar.
 
-## <a name="password-rule-enforcement"></a>Imposição de regra de senha
+## <a name="password-rule-enforcement"></a>Aplicação da regra da palavra-passe
 
-Durante a inscrição ou a redefinição de senha, um usuário final deve fornecer uma senha que atenda às regras de complexidade. As regras de complexidade de senha são impostas por fluxo de usuário. É possível ter um fluxo de usuário que exija um PIN de quatro dígitos durante a inscrição, enquanto outro fluxo de usuário requer uma cadeia de oito caracteres durante a inscrição. Por exemplo, você pode usar um fluxo de usuário com complexidade de senha diferente para adultos do que para crianças.
+Durante o reset de inscrição ou palavra-passe, um utilizador final deve fornecer uma palavra-passe que cumpra as regras de complexidade. As regras de complexidade da palavra-passe são aplicadas por fluxo de utilizador. É possível que um fluxo de utilizador exija um pino de quatro dígitos durante a inscrição, enquanto outro fluxo de utilizador requer uma cadeia de oito caracteres durante a inscrição. Por exemplo, pode utilizar um fluxo de utilizador com diferente complexidade de senha para adultos do que para crianças.
 
-A complexidade da senha nunca é imposta durante a entrada. Os usuários nunca são solicitados durante a entrada para alterar sua senha porque ele não atende ao requisito de complexidade atual.
+A complexidade da palavra-passe nunca é aplicada durante o iniciar o sessão. Os utilizadores nunca são solicitados durante o sessão para alterar a sua palavra-passe porque não cumpre o requisito de complexidade atual.
 
-A complexidade da senha pode ser configurada nos seguintes tipos de fluxos de usuário:
+A complexidade da palavra-passe pode ser configurada nos seguintes tipos de fluxos de utilizadores:
 
-- Fluxo de usuário de inscrição ou entrada
-- Fluxo de usuário de redefinição de senha
+- Fluxo de utilizador de inscrição ou de entrada
+- Fluxo de utilizador de redefinição de palavra-passe
 
-Se você estiver usando políticas personalizadas, poderá ([Configurar a complexidade de senha em uma política personalizada](custom-policy-password-complexity.md)).
+Se estiver a usar políticas personalizadas, pode[(configurar a complexidade da palavra-passe numa política personalizada).](custom-policy-password-complexity.md)
 
-## <a name="configure-password-complexity"></a>Configurar a complexidade da senha
+## <a name="configure-password-complexity"></a>Configurar a complexidade da palavra-passe
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
-3. Na portal do Azure, procure e selecione **Azure ad B2C**.
-4. Selecione **fluxos de usuário (políticas)** .
-2. Selecione um fluxo de usuário e clique em **Propriedades**.
-3. Em **complexidade da senha**, altere a complexidade da senha desse fluxo de usuário para **simples**, **forte**ou **personalizada**.
+2. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
+3. No portal Azure, procure e selecione **Azure AD B2C**.
+4. Selecione **fluxos de utilizador (políticas)** .
+2. Selecione um fluxo de utilizador e clique em **Propriedades**.
+3. Em termos de complexidade de **password,** altere a complexidade da palavra-passe para este fluxo de utilizador para **Simple**, **Strong**, ou **Custom**.
 
 ### <a name="comparison-chart"></a>Gráfico de comparação
 
 | Complexidade | Descrição |
 | --- | --- |
-| Simples | Uma senha que tenha pelo menos 8 a 64 caracteres. |
-| Segura | Uma senha que tenha pelo menos 8 a 64 caracteres. Ele requer 3 de 4 de letras minúsculas, letras maiúsculas, números ou símbolos. |
-| Personalizados | Essa opção fornece o maior controle sobre as regras de complexidade de senha.  Ele permite configurar um comprimento personalizado.  Ele também permite aceitar senhas somente de número (Pins). |
+| Simples | Uma senha que é de pelo menos 8 a 64 caracteres. |
+| Forte | Uma senha que é de pelo menos 8 a 64 caracteres. Requer 3 em cada 4 minúsculas, maiúsculas, números ou símbolos. |
+| Personalizado | Esta opção fornece o maior controlo sobre as regras de complexidade da palavra-passe.  Permite configurar um comprimento personalizado.  Também permite aceitar senhas só para números (pinos). |
 
 ## <a name="custom-options"></a>Opções personalizadas
 
 ### <a name="character-set"></a>Conjunto de caracteres
 
-Permite que você aceite somente dígitos (Pins) ou o conjunto de caracteres completo.
+Permite-lhe aceitar apenas dígitos (pinos) ou o conjunto completo de caracteres.
 
-- Os **números só** permitem dígitos (0-9) durante a inserção de uma senha.
-- **All** permite qualquer letra, número ou símbolo.
+- **Os números só** permitem dígitos (0-9) ao introduzir uma senha.
+- **Tudo** permite qualquer letra, número ou símbolo.
 
 ### <a name="length"></a>Comprimento
 
-Permite que você controle os requisitos de comprimento da senha.
+Permite-lhe controlar os requisitos de comprimento da palavra-passe.
 
-- O **comprimento mínimo** deve ser pelo menos 4.
-- O **comprimento máximo** deve ser maior ou igual ao tamanho mínimo e, no máximo, pode ser de 64 caracteres.
+- **O comprimento mínimo** deve ser de pelo menos 4.
+- **O comprimento máximo** deve ser maior ou igual ao comprimento mínimo e, no máximo, pode ser de 64 caracteres.
 
-### <a name="character-classes"></a>Classes de caracteres
+### <a name="character-classes"></a>Aulas de personagens
 
-Permite que você controle os diferentes tipos de caracteres usados na senha.
+Permite-lhe controlar os diferentes tipos de caracteres utilizados na palavra-passe.
 
-- **2 de 4: caractere minúsculo, caractere maiúsculo, número (0-9), símbolo** garante que a senha contenha pelo menos dois tipos de caracteres. Por exemplo, um número e um caractere minúsculo.
-- **3 de 4: caractere minúsculo, caractere maiúsculo, número (0-9), símbolo** garante que a senha contenha pelo menos dois tipos de caracteres. Por exemplo, um número, um caractere minúsculo e um caractere maiúsculo.
-- **4 de 4: caractere minúsculo, caractere maiúsculo, número (0-9), símbolo** garante que a senha contenha todos os tipos de caracteres.
+- **2 de 4: Personagem minúsculo, caracteres maiúsculos, Número (0-9), Símbolo** garante que a palavra-passe contém pelo menos dois tipos de caracteres. Por exemplo, um número e um carácter minúsculo.
+- **3 de 4: Personagem minúsculo, caracteres maiúsculos, Número (0-9), Símbolo** garante que a palavra-passe contém pelo menos três tipos de caracteres. Por exemplo, um número, um personagem minúsculo e um personagem maiúsculo.
+- **4 de 4: Personagem minúsculo, caracteres maiúsculos, Número (0-9), Símbolo** garante que a palavra-passe contém tudo para tipos de caracteres.
 
     > [!NOTE]
-    > Exigir **4 de 4** pode resultar na frustração do usuário final. Alguns estudos mostraram que esse requisito não melhora a entropia da senha. Consulte as [diretrizes de senha do NIST](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)
+    > Exigir **4 de 4** pode resultar em frustração do utilizador final. Alguns estudos demonstraram que esta exigência não melhora a entropia da palavra-passe. Ver [Diretrizes de Senha NIST](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)

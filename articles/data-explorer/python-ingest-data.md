@@ -1,32 +1,34 @@
 ---
-title: Ingerir dados usando a biblioteca do Azure Data Explorer Python
-description: Neste artigo, você aprenderá a ingerir (carregar) dados no Azure Data Explorer usando o Python.
+title: Ingerir dados utilizando a biblioteca Python do Explorador de Dados Azure
+description: Neste artigo, aprende-se a ingerir (carregar) dados no Azure Data Explorer utilizando python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: f109f2dd45fe90884d3947b244b3dafffd547725
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 91401031945d0ec3ac22fc8cbcea8ba73580ee50
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68355927"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442008"
 ---
-# <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Ingerir dados usando a biblioteca do Azure Data Explorer Python
+# <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Ingerir dados utilizando a biblioteca Python do Explorador de Dados Azure
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece duas bibliotecas de cliente para o Python: uma [biblioteca de ingestão](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [uma biblioteca de dados](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Estas bibliotecas permitem ingerir (carregar) dados para um cluster e consultar dados a partir do código. Neste artigo, você primeiro cria uma tabela e um mapeamento de dados em um cluster. Em seguida, vai colocar em fila a ingestão para o cluster e validar os resultados.
+Neste artigo, ingere dados utilizando a biblioteca Azure Data Explorer Python. O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece duas bibliotecas de cliente para o Python: uma [biblioteca de ingestão](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [uma biblioteca de dados](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Estas bibliotecas permitem-lhe ingerir, ou carregar, dados num cluster e consultar dados do seu código.
 
-Este artigo também está disponível como um [bloco de anotações do Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+Primeiro, crie uma tabela e mapeamento de dados num cluster. Em seguida, vai colocar em fila a ingestão para o cluster e validar os resultados.
+
+Este artigo também está disponível como um [Caderno Azure.](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* [Um cluster e um banco de dados](create-cluster-database-portal.md)
+* [Python 3.4+](https://www.python.org/downloads/).
 
-* [Python](https://www.python.org/downloads/) instalado no seu computador de desenvolvimento
+* [Um cluster e base de dados.](create-cluster-database-portal.md)
 
 ## <a name="install-the-data-and-ingest-libraries"></a>Instalar as bibliotecas de dados e de ingestão
 
@@ -39,7 +41,7 @@ pip install azure-kusto-ingest
 
 ## <a name="add-import-statements-and-constants"></a>Adicionar declarações e constantes de importação
 
-Importe classes do Azure-Kusto-Data.
+Importações de dados azure-kusto.
 
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
@@ -68,7 +70,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE = "<DatabaseName>"
 ```
 
-Agora construa a cadeia de ligação. Este exemplo utiliza a autenticação do dispositivo para aceder ao cluster. Você também pode usar o [certificado de aplicativo do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), a chave de aplicativo do [AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)e o [usuário e a senha do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
+Agora construa a cadeia de ligação. Este exemplo utiliza a autenticação do dispositivo para aceder ao cluster. Também pode utilizar o certificado de [aplicação AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24) [a chave de aplicação AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)e [o utilizador e a palavra-passe da AAD.](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)
 
 Irá criar a tabela de destino e o mapeamento num passo posterior.
 
@@ -101,9 +103,9 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
     CONTAINER + "/" + FILE_PATH + SAS_TOKEN
 ```
 
-## <a name="create-a-table-on-your-cluster"></a>Criar uma tabela em seu cluster
+## <a name="create-a-table-on-your-cluster"></a>Crie uma mesa no seu cluster
 
-Crie uma tabela que corresponda ao esquema dos dados no ficheiro StormEvents.csv. Quando esse código é executado, ele retorna uma mensagem semelhante à seguinte: *Para entrar, use um navegador da Web para abrir a página https://microsoft.com/devicelogin e insira o código F3W4VWZDM para autenticar*. Siga os passos para iniciar sessão e regresse para executar o próximo bloco de código. Os blocos de código subsequentes que estabelecerem uma ligação têm de iniciar sessão novamente.
+Crie uma tabela que corresponda ao esquema dos dados no ficheiro StormEvents.csv. Quando este código é executado, devolve uma mensagem semelhante à seguinte: *Para iniciar sessão, utilize um browser para abrir a página https://microsoft.com/devicelogin e introduza o código F3W4VWZDM para autenticar*. Siga os passos para iniciar sessão e regresse para executar o próximo bloco de código. Os blocos de código subsequentes que estabelecerem uma ligação têm de iniciar sessão novamente.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)
@@ -116,7 +118,7 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## <a name="define-ingestion-mapping"></a>Definir o mapeamento de ingestão
 
-Mapeie os dados recebidos do CSV para os nomes de coluna e tipos de dados utilizados ao criar a tabela. Isso mapeia os campos de dados de origem para as colunas da tabela de destino
+Mapeie os dados recebidos do CSV para os nomes de coluna e tipos de dados utilizados ao criar a tabela. Isto mapeia campos de dados de origem para colunas de tabelas de destino
 
 ```python
 CREATE_MAPPING_COMMAND = """.create table StormEvents ingestion csv mapping 'StormEvents_CSV_Mapping' '[{"Name":"StartTime","datatype":"datetime","Ordinal":0}, {"Name":"EndTime","datatype":"datetime","Ordinal":1},{"Name":"EpisodeId","datatype":"int","Ordinal":2},{"Name":"EventId","datatype":"int","Ordinal":3},{"Name":"State","datatype":"string","Ordinal":4},{"Name":"EventType","datatype":"string","Ordinal":5},{"Name":"InjuriesDirect","datatype":"int","Ordinal":6},{"Name":"InjuriesIndirect","datatype":"int","Ordinal":7},{"Name":"DeathsDirect","datatype":"int","Ordinal":8},{"Name":"DeathsIndirect","datatype":"int","Ordinal":9},{"Name":"DamageProperty","datatype":"int","Ordinal":10},{"Name":"DamageCrops","datatype":"int","Ordinal":11},{"Name":"Source","datatype":"string","Ordinal":12},{"Name":"BeginLocation","datatype":"string","Ordinal":13},{"Name":"EndLocation","datatype":"string","Ordinal":14},{"Name":"BeginLat","datatype":"real","Ordinal":16},{"Name":"BeginLon","datatype":"real","Ordinal":17},{"Name":"EndLat","datatype":"real","Ordinal":18},{"Name":"EndLon","datatype":"real","Ordinal":19},{"Name":"EpisodeNarrative","datatype":"string","Ordinal":20},{"Name":"EventNarrative","datatype":"string","Ordinal":21},{"Name":"StormSummary","datatype":"dynamic","Ordinal":22}]'"""
@@ -144,7 +146,7 @@ INGESTION_CLIENT.ingest_from_blob(
 print('Done queuing up ingestion with Azure Data Explorer')
 ```
 
-## <a name="query-data-that-was-ingested-into-the-table"></a>Consultar dados que foram ingeridos na tabela
+## <a name="query-data-that-was-ingested-into-the-table"></a>Dados de consulta que foram ingeridos na tabela
 
 Aguarde cinco a dez minutos para que a ingestão colocada em fila agende a ingestão e carregue os dados para o Azure Data Explorer. Em seguida, execute o seguinte código para obter a contagem de registos na tabela StormEvents.
 
@@ -175,7 +177,7 @@ Execute o seguinte comando para ver o estado de todas as operações de ingestã
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou. Caso contrário, execute o seguinte comando na base de dados para limpar a tabela StormEvents.
+Se planeia seguir os nossos outros artigos, guarde os recursos que criou. Caso contrário, execute o seguinte comando na base de dados para limpar a tabela StormEvents.
 
 ```Kusto
 .drop table StormEvents
@@ -183,4 +185,4 @@ Se você planeja seguir nossos outros artigos, mantenha os recursos que você cr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Consultar dados usando Python](python-query-data.md)
+* [Dados de consulta usando Python](python-query-data.md)

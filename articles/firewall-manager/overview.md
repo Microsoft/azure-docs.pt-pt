@@ -1,84 +1,94 @@
 ---
-title: O que é a versão prévia do Gerenciador de firewall do Azure?
-description: Saiba mais sobre os recursos do Gerenciador de firewall do Azure
+title: O que é a Pré-visualização do Gestor de Firewall do Azure?
+description: Conheça as funcionalidades do Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 12/06/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: cf8e6ca3a532dea29a413b1afdfc684ac8f08f17
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0ba2ce30cee3ff7e3a9f71b4f1b0928fa84e775d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869566"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443159"
 ---
-# <a name="what-is-azure-firewall-manager-preview"></a>O que é a versão prévia do Gerenciador de firewall do Azure?
+# <a name="what-is-azure-firewall-manager-preview"></a>O que é a Pré-visualização do Gestor de Firewall do Azure?
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-A Pré-visualização do Azure Firewall Manager é um serviço de gestão de segurança que oferece gestão de políticas de segurança centrais e gestão de rotas para perímetros de segurança com base na cloud. Ele funciona com o [Hub de WAN virtual do Azure](../virtual-wan/virtual-wan-about.md#resources), um recurso gerenciado pela Microsoft que permite criar facilmente arquiteturas de Hub e spoke. Quando as políticas de segurança e roteamento são associadas a esse Hub, ele é conhecido como um *[Hub virtual protegido](secured-virtual-hub.md)* . 
+Azure Firewall Manager Preview é um serviço de gestão de segurança que fornece a política de segurança central e a gestão de rotas para perímetros de segurança baseados na nuvem. 
 
-![Gerenciador de firewall](media/overview/firewallmanagerv3.png)
+O Firewall Manager pode fornecer gestão de segurança para dois tipos de arquitetura de rede:
 
-## <a name="azure-firewall-manager-preview-features"></a>Recursos de visualização do Azure firewall Manager
+- **centro virtual seguro**
 
-A versão prévia do Gerenciador de firewall do Azure oferece os seguintes recursos:
+   Um [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) é um recurso gerido pela Microsoft que permite criar facilmente arquiteturas de hub e faladas. Quando as políticas de segurança e encaminhamento estão associadas a tal hub, é referido como um *[centro virtual seguro.](secured-virtual-hub.md)* 
+- **rede virtual hub**
 
-### <a name="central-azure-firewall-deployment-and-configuration"></a>Implantação e configuração do firewall central do Azure
+   Esta é uma rede virtual azure padrão que você cria e gere. Quando as políticas de segurança são associadas a tal hub, é referida como uma *rede virtual hub*. Neste momento, apenas a Política de Firewall Azure é apoiada. Pode peer-spoke redes virtuais que contêm os seus servidores e serviços de carga de trabalho. Também pode gerir firewalls em redes virtuais autónomas que não são espreitadas por qualquer fala.
 
-Você pode implantar e configurar centralmente várias instâncias do firewall do Azure que abrangem diferentes regiões e assinaturas do Azure. 
+Para uma comparação detalhada de *arquiteturas de rede virtual e hub seguras,* veja quais são as opções de [arquitetura Azure Firewall Manager?](vhubs-and-vnets.md)
+
+![firewall-manager](media/overview/firewallmanagerv5.png)
+
+## <a name="azure-firewall-manager-preview-features"></a>Funcionalidades de pré-visualização do Gestor de Firewall Azure
+
+A Pré-visualização do Azure Firewall Manager oferece as seguintes funcionalidades:
+
+### <a name="central-azure-firewall-deployment-and-configuration"></a>Implementação e configuração central da Firewall Azure
+
+Pode implantar centralmente e configurar várias instâncias do Azure Firewall que abrangem diferentes regiões e subscrições do Azure. 
 
 ### <a name="hierarchical-policies-global-and-local"></a>Políticas hierárquicas (globais e locais)
 
-Você pode usar a visualização do Gerenciador de firewall do Azure para gerenciar centralmente políticas de firewall do Azure em vários hubs virtuais protegidos. Suas equipes de ti central podem criar políticas globais de firewall para impor a política de firewall de toda a organização entre as equipes. As políticas de firewall criadas localmente permitem um modelo de autoatendimento DevOps para melhorar a agilidade.
+Pode utilizar o Azure Firewall Manager Preview para gerir centralmente as políticas de Firewall Do Azure em vários centros virtuais seguros. As suas equipas centrais de TI podem ser autoras de políticas globais de firewall para impor a política de firewall de largura da organização entre as equipas. As políticas de firewall de autoria local permitem um modelo de self-service DevOps para uma melhor agilidade.
 
-### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>Integrado com segurança como serviço de terceiros para segurança avançada
+### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>Integrado com segurança de terceiros como serviço de segurança avançada
 
-Além do firewall do Azure, você pode integrar provedores de SECaaS (segurança como serviço) de terceiros para fornecer proteção adicional de rede para suas conexões de Internet de VNet e filiais.
+Além do Azure Firewall, pode integrar a segurança de terceiros como prestadores de serviços (SECaaS) para fornecer proteção adicional de rede para as suas ligações de Internet VNet e branch.
 
-- Filtragem de tráfego de VNet para a Internet (V2I)
+Esta funcionalidade está disponível apenas com implementações de hub virtual seguras.
 
-   - Filtre o tráfego de rede virtual de saída com seu provedor de segurança de terceiros preferido.
-   - Aproveite a proteção avançada da Internet com reconhecimento de usuário para suas cargas de trabalho de nuvem em execução no Azure.
+- Filtragem de tráfego VNet para Internet (V2I)
+
+   - Filtrar o tráfego de rede virtual de saída com o seu fornecedor de segurança preferido de terceiros.
+   - Aproveite a proteção avançada de internet consciente do utilizador para as suas cargas de trabalho em nuvem em funcionamento no Azure.
 
 - Filtragem de tráfego de ramificação para a Internet (B2I)
 
-   Aproveite sua conectividade do Azure e a distribuição global para adicionar facilmente filtragem de terceiros para cenários de Branch para Internet.
+   Aproveite a sua conectividade Azure e distribuição global para adicionar facilmente filtragem de terceiros para ramificação aos cenários da Internet.
 
-Para obter mais informações sobre provedores de segurança confiáveis, consulte [o que são parceiros de segurança confiáveis do Azure firewall Manager (versão prévia)?](trusted-security-partners.md)
+Para obter mais informações sobre fornecedores de segurança fidedignos, consulte [O que é que o Azure Firewall Manager confia nos parceiros de segurança (pré-visualização)?](trusted-security-partners.md)
 
-### <a name="centralized-route-management"></a>Gerenciamento de rota centralizado
+### <a name="centralized-route-management"></a>Gestão de rotas centralizadas
 
-Encaminhe facilmente o tráfego para o Hub protegido para filtragem e registro sem a necessidade de configurar manualmente as rotas definidas pelo usuário (UDR) em redes virtuais do spoke. Você pode usar provedores de terceiros para a filtragem de tráfego de Branch para a Internet (B2I), lado a lado com o Firewall do Azure para B2V (Branch to VNet), VNet para VNet (V2V) e VNet para a Internet (V2I). Você também pode usar provedores de terceiros para a filtragem de tráfego V2I, contanto que o Firewall do Azure não seja necessário para B2V ou V2V. 
+Encaminhe facilmente o tráfego para o seu centro seguro para filtrar e registar sem a necessidade de configurar manualmente as Rotas Definidas do Utilizador (UDR) em redes virtuais faladas. 
 
-## <a name="region-availability"></a>Disponibilidade regional
+Esta funcionalidade está disponível apenas com implementações de hub virtual seguras.
 
-As seguintes regiões têm suporte para a visualização pública:
+Pode utilizar fornecedores de terceiros para filtragem de tráfego Branch to Internet (B2I), lado a lado com o Azure Firewall para O Ramo para VNet (B2V), VNet para VNet (V2V) e VNet para internet (V2I). Também pode utilizar fornecedores de terceiros para filtragem de tráfego V2I desde que o Firewall Azure não seja necessário para B2V ou V2V. 
 
-- Europa Ocidental, Europa Setentrional, França central, sul da França, Sul do Reino Unido Oeste do Reino Unido
-- Leste da Austrália, Austrália Central, Austrália Central 2, sudeste da Austrália
-- Canadá Central
-- Leste dos EUA, oeste dos EUA, leste dos EUA 2, Sul EUA Central, oeste dos EUA 2, EUA Central, norte EUA Central, Oeste EUA Central
+## <a name="region-availability"></a>Disponibilidade de região
 
-As políticas de firewall do Azure só podem ser criadas nessas regiões, mas podem ser usadas entre regiões. Por exemplo, você pode criar uma política no oeste dos EUA e usá-la no leste dos EUA. 
+As políticas de firewall azure podem ser usadas em todas as regiões. Por exemplo, pode criar uma política nos EUA Ocidentais e usá-la nos EUA Orientais. 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-A versão prévia do Gerenciador de firewall do Azure tem os seguintes problemas conhecidos:
+A Pré-visualização do Gestor de Firewall Azure tem os seguintes problemas conhecidos:
 
 |Problema  |Descrição  |Mitigação  |
 |---------|---------|---------|
-|Não há suporte para VNets central criadas manualmente|Atualmente, o Gerenciador de firewall do Azure dá suporte a redes criadas com hubs virtuais. O uso de sua própria VNet de Hub criada manualmente ainda não tem suporte.|Por enquanto, use o Gerenciador de firewall do Azure com redes de Hub e spoke criadas com hubs virtuais.<br>Correção em andamento.
-|Limitações de filtragem de terceiros|Não há suporte para a filtragem de tráfego V2I com provedores de terceiros com o Firewall do Azure B2V e V2V.|Investigando atualmente.|
-|Divisão de tráfego sem suporte no momento|O Office 365 e a divisão de tráfego de PaaS público do Azure não têm suporte no momento. Dessa forma, a seleção de um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço de parceiro.|Investigando atualmente a divisão de tráfego no Hub.
-|Um hub por região|Você não pode ter mais de um hub por região|Crie várias WANs virtuais em uma região.|
-|As políticas de base devem estar na mesma região que a política local|Crie todas as políticas locais na mesma região que a política de base. Você ainda pode aplicar uma política que foi criada em uma região em um hub protegido de outra região.|Investigando atualmente.|
-|A comunicação entre os hubs não está funcionando com o Hub virtual protegido|Ainda não há suporte para o Hub virtual protegido para comunicação de Hub virtual protegida.|Investigando atualmente.|
-|Todos os hubs virtuais protegidos que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado com os hubs de WAN virtuais hoje.|Crie várias WANs virtuais para permitir que os hubs virtuais protegidos sejam criados em diferentes grupos de recursos.|
+|Limitações de filtragem de terceiros|A filtragem de tráfego V2I com fornecedores de terceiros não é suportada com o Azure Firewall B2V e V2V.|Atualmente a investigar.|
+|Divisão de tráfego não suportado atualmente|O Office 365 e o Azure Public PaaS não são atualmente apoiados. Como tal, a seleção de um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Office 365 através do serviço de parceiros.|Atualmente, está a investigar a divisão de trânsito no centro.
+|Um centro virtual seguro por região|Não se pode ter mais do que um centro virtual seguro por região|Crie múltiplas WANs virtuais numa região.|
+|As políticas de base devem estar na mesma região que a política local|Crie todas as suas políticas locais na mesma região que a política de base. Ainda se pode aplicar uma política criada numa região num centro seguro de outra região.|Atualmente a investigar.|
+|Comunicação inter-hub não funciona ndo com o Secured Virtual Hub|O Centro Virtual Seguro para a comunicação Secured Virtual Hub ainda não é suportado.|Atualmente a investigar.|
+|Todos os Centros Virtuais Seguros que partilham o mesmo WAN virtual devem estar no mesmo grupo de recursos.|Este comportamento está alinhado com os Centros Wan Virtuais hoje.|Crie vários WANs virtuais para permitir a criação de centros virtuais seguros em diferentes grupos de recursos.|
+|Os grupos IP não são suportados na Política de Firewall|Os grupos IP estão em pré-visualização pública e atualmente apenas suportados com regras tradicionais de firewall|Correção em curso
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Examinar a [visão geral da implantação do Azure firewall Manager Preview](deployment-overview.md)
-- Saiba mais sobre os [hubs virtuais protegidos](secured-virtual-hub.md).
+- Rever visão geral de [implementação do Gestor de Firewall do Azure](deployment-overview.md)
+- Saiba mais sobre [centros virtuais seguros.](secured-virtual-hub.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: reconhecer a fala de um arquivo C# de áudio, (.net)-serviço de fala'
+title: 'Quickstart: Reconhecer o discurso C# de um ficheiro áudio, (.NET) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: dapine
-ms.openlocfilehash: 68392bfdb80236a1cf82261332d3bf3b4d09e02b
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 7bac943a4550103a941fbd812381e34ab2de2454
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156494"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446522"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,8 +75,7 @@ Antes de poder inicializar um `SpeechRecognizer` objeto, precisa de criar uma co
 > O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
 ```csharp
-// Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
-// from here: https://aka.ms/speech/sdkregion).
+// Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
@@ -206,7 +205,7 @@ Agora está pronto para construir a sua app e testar o nosso reconhecimento de v
 
 1. Compile o código: A partir da barra de menus do *Estúdio Visual,* escolha **Construir** > **Build Solution**.
 2. Inicie a sua aplicação: A partir da barra de menus, escolha **Debug** > **Começar dedepuração** ou prima **F5**.
-3. Iniciar reconhecimento: o arquivo de áudio é enviado para o serviço de fala, transcrita como texto e renderizado no console do.
+3. Reconhecimento inicial: O seu ficheiro áudio é enviado para o serviço Dafala, transcrito como texto e renderizado na consola.
 
    ```console
    Recognizing first result...

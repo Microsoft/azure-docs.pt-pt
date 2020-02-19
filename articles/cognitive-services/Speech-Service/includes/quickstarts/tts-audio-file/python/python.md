@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 738ce3d52464897df42be49828ca838b9f77d441
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 4af31b281f4b2e7cdd7ed217753df55ce8009fa9
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156444"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446006"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -79,8 +79,7 @@ Ou pode descarregar este tutorial de início rápido como um caderno [Jupyter](h
 
 import azure.cognitiveservices.speech as speechsdk
 
-# Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
-# from here: https://aka.ms/speech/sdkregion).
+# Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 

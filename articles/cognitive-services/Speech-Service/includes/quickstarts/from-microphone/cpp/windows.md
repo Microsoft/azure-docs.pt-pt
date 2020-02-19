@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: reconhecer a fala de um C++ microfone, (Windows)-serviço de fala'
+title: 'Quickstart: Reconhecer o discurso C++ a partir de um microfone, (Windows) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer o Speech in C++ no Windows desktop usando o SDK de fala
+description: Saiba como reconhecer C++ o discurso no Windows Desktop usando o SDK de Discurso
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: cc349c2d5e43946648533d546398e95d4fa98382
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 5cb7cfc0b4d888406f8574ab620667f160bfa118
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156096"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445620"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,13 +31,13 @@ Antes de começar:
 
 1. Abra o ficheiro de origem **helloworld.cpp**.
 
-1. Substitua todo o código pelo trecho a seguir:
+1. Substitua todo o código pelo seguinte corte:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-microphone/helloworld/helloworld.cpp#code)]
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia `YourServiceRegion` pelo "Parâmetro SDK de Fala" da [região](https://aka.ms/speech/sdkregion) associada à sua subscrição (por exemplo, `westus` para a subscrição de teste gratuito).
+1. Substitua a `YourServiceRegion` de cadeia sou da **região** associada à sua subscrição (por exemplo, `westus` para a subscrição de teste gratuito). [](https://aka.ms/speech/sdkregion)
 
 1. Na barra de menus, escolha **File** > **Save All**.
 

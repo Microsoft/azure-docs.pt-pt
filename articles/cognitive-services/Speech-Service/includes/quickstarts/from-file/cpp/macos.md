@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: reconhecer a fala de um arquivo C++ de áudio, (MacOS)-serviço de fala'
+title: 'Quickstart: Reconhecer o discurso C++ de um ficheiro áudio, (macOS) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: erhopf
-ms.openlocfilehash: 67157126aa218a520bc59251a93d0e2f049a240a
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 622087a914b77712df850d4200ac381439f3bd85
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156477"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446844"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Antes de começar, certifique-se de:
 
 1. Neste novo ficheiro, substitua a cadeia `YourSubscriptionKey` pela sua chave de subscrição do serviço de Voz.
 
-1. Substitua a cadeia `YourServiceRegion` pelo "Parâmetro SDK de Fala" da [região](https://aka.ms/speech/sdkregion) associada à sua subscrição (por exemplo, `westus` para a subscrição de teste gratuito).
+1. Substitua a `YourServiceRegion` de cadeia sou da **região** associada à sua subscrição (por exemplo, `westus` para a subscrição de teste gratuito). [](https://aka.ms/speech/sdkregion)
 
 1. Substitua a cadeia `whatstheweatherlike.wav` pelo seu próprio nome de ficheiro.
 

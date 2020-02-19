@@ -1,6 +1,6 @@
 ---
-title: Copiar e transformar dados no armazenamento de BLOBs do Azure
-description: Saiba como copiar dados de e para o armazenamento de BLOBs e transformar dados no armazenamento de BLOBs usando Data Factory.
+title: Copiar e transformar dados no armazenamento da Blob Azure
+description: Aprenda a copiar dados de e para o armazenamento blob, e transforme dados no armazenamento blob utilizando data factory.
 ms.author: jingwang
 author: linda33wj
 manager: shwang
@@ -9,46 +9,46 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/16/2020
-ms.openlocfilehash: f245254c85cbf9223ab5dda60799c6b7ce72f11c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 02/17/2020
+ms.openlocfilehash: f21c99b18102adc9d43c21964e51b7c7b769771e
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120218"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431218"
 ---
-# <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento de BLOBs do Azure usando Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento da Blob Azure utilizando a Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-azure-blob-connector.md)
 > * [Versão atual](connector-azure-blob-storage.md)
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para o armazenamento de BLOBs do Azure e usar o fluxo de dados para transformar dados no armazenamento de BLOBs do Azure. Para saber mais sobre o Azure Data Factory, leia os [artigo introdutório](introduction.md).
+Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para o armazenamento da Blob Azure, e usar o Data Flow para transformar dados no armazenamento do Azure Blob. Para conhecer a Azure Data Factory, leia o [artigo introdutório.](introduction.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector de blob do Azure tem suporte para as seguintes atividades:
+Este conector Azure Blob é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Mapeando fluxo de dados](concepts-data-flow-overview.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Mapeando o fluxo de dados](concepts-data-flow-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade GetMetadata](control-flow-get-metadata-activity.md)
-- [Excluir atividade](delete-activity.md)
+- [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)
+- [Eliminar atividade](delete-activity.md)
 
-Para a atividade de cópia, esse conector de armazenamento de BLOBs dá suporte a:
+Para a atividade da Cópia, este conector de armazenamento Blob suporta:
 
 - Copiar blobs entre contas de armazenamento do Azure para fins gerais e de armazenamento de BLOBs de acesso frequente/esporádico. 
 - Copiar blobs ao utilizar a chave da conta, assinatura de acesso partilhado do serviço, as identidades de serviço principal ou gerenciado para autenticações de recursos do Azure.
 - Copiar blobs de bloco, acrescentar ou blobs de páginas e copiar os dados apenas para blobs de blocos.
-- Copiar blobs, tal como estão ou análise ou gerar blobs com [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
-- [Preserve os metadados do arquivo durante a cópia](#preserve-metadata-during-copy).
+- Copiar bolhas como estão ou analisar ou gerar bolhas com [formatos de ficheiros suportados e codecs](supported-file-formats-and-compression-codecs.md)de compressão .
+- [Preservar metadados](#preserve-metadata-during-copy)de ficheiros durante a cópia .
 
 >[!IMPORTANT]
->Se você habilitar a opção **permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento** nas configurações do firewall do armazenamento do Azure e quiser usar o tempo de execução de integração do Azure para se conectar ao armazenamento de BLOBs, será necessário usar a [autenticação de identidade gerenciada](#managed-identity).
+>Se ativar os **serviços da Microsoft fidedignos** para aceder a esta opção de conta de armazenamento nas definições de firewall do Azure Storage e pretender utilizar o tempo de execução de integração do Azure para se ligar ao seu Armazenamento Blob, deve utilizar a [autenticação](#managed-identity)de identidade gerida .
 
-## <a name="get-started"></a>Começar
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -58,29 +58,29 @@ As secções seguintes fornecem detalhes sobre as propriedades que são utilizad
 
 Conector de Blobs do Azure suporta os seguintes tipos de autenticação, consulte a seção correspondente em detalhes:
 
-- [Autenticação de chave de conta](#account-key-authentication)
-- [Autenticação da assinatura de acesso partilhado](#shared-access-signature-authentication)
+- [Autenticação da chave da conta](#account-key-authentication)
+- [Autenticação de assinatura de acesso partilhado](#shared-access-signature-authentication)
 - [Autenticação do principal de serviço](#service-principal-authentication)
-- [Identidades geridas para a autenticação de recursos do Azure](#managed-identity)
+- [Identidades geridas para autenticação de recursos Azure](#managed-identity)
 
 >[!NOTE]
->Ao usar o polybase para carregar dados em SQL Data Warehouse, se o armazenamento de blob de origem ou de preparo estiver configurado com o ponto de extremidade de rede virtual, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo polybase e usar o Integration Runtime de hospedagem interna com a versão 3,18 ou superior. Consulte a seção [autenticação de identidade gerenciada](#managed-identity) com mais pré-requisitos de configuração.
+>Ao utilizar a PolyBase para carregar dados no SQL Data Warehouse, se a sua fonte ou armazenamento blob estiver configurado com ponto final da Rede Virtual, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase, e utilizar o Tempo de Execução de Integração Auto-hospedado com versão 3.18 ou superior. Consulte a secção de [autenticação](#managed-identity) de identidade gerida com mais pré-requisitos de configuração.
 
 >[!NOTE]
->As atividades HDInsights e Azure Machine Learning só dão suporte à autenticação de chave de conta de armazenamento de BLOBs do Azure
+>As atividades hDInsights e Azure Machine Learning apenas suportam a autenticação da chave de armazenamento Azure Blob.
 
 ### <a name="account-key-authentication"></a>Autenticação de chave de conta
 
 Para utilizar a autenticação de chave de conta de armazenamento, são suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **AzureBlobStorage** (sugerida) ou **AzureStorage** (ver notas abaixo). |Sim |
-| connectionString | Especifique as informações necessárias para ligar ao armazenamento para a propriedade connectionString. <br/> Você também pode colocar a chave de conta em Azure Key Vault e extrair a configuração de `accountKey` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se seu arquivo de dados estiver numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| tipo | A propriedade do tipo deve ser definida para **AzureBlobStorage** (sugerido) ou **AzureStorage** (ver notas abaixo). |Sim |
+| connectionString | Especifique as informações necessárias para ligar ao armazenamento para a propriedade connectionString. <br/> Também pode colocar a chave de conta no Cofre de Chaves Azure e retirar a configuração `accountKey` da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. |Sim |
+| connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se seu arquivo de dados estiver numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!NOTE]
->Não há suporte para o ponto de extremidade do serviço blob secundário ao usar a autenticação de chave de conta. Você pode usar outros tipos de autenticação.
+>O ponto final do serviço de blob secundário não é suportado quando se utiliza a autenticação da chave da conta. Pode utilizar outros tipos de autenticação.
 
 >[!NOTE]
 >Se estivesse usando o serviço de ligado de tipo de "AzureStorage", ainda é suportado como-é, ao passo que lhe é sugeridas para utilizar este novo "AzureBlobStorage" ligado do tipo de serviço no futuro.
@@ -103,7 +103,7 @@ Para utilizar a autenticação de chave de conta de armazenamento, são suportad
 }
 ```
 
-**Exemplo: armazenar chave de conta no Azure Key Vault**
+**Exemplo: chave da conta da loja no Cofre chave Azure**
 
 ```json
 {
@@ -131,10 +131,10 @@ Para utilizar a autenticação de chave de conta de armazenamento, são suportad
 
 ### <a name="shared-access-signature-authentication"></a>Autenticação da assinatura de acesso partilhado
 
-Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Pode usar uma assinatura de acesso partilhado para conceder que um cliente permissões limitadas a objetos na conta de armazenamento para um período de tempo especificado. Não tem de partilhar as chaves de acesso da conta. A assinatura de acesso partilhado é um URI que abrange em seus parâmetros de consulta todas as informações necessárias para acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a assinatura de acesso partilhado, o cliente precisa apenas passar a assinatura de acesso partilhado para o método ou construtor apropriado. Para obter mais informações sobre assinaturas de acesso partilhado, consulte [assinaturas de acesso partilhado: compreender o modelo de assinatura de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Pode usar uma assinatura de acesso partilhado para conceder que um cliente permissões limitadas a objetos na conta de armazenamento para um período de tempo especificado. Não tem de partilhar as chaves de acesso da conta. A assinatura de acesso partilhado é um URI que abrange em seus parâmetros de consulta todas as informações necessárias para acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a assinatura de acesso partilhado, o cliente precisa apenas passar a assinatura de acesso partilhado para o método ou construtor apropriado. Para obter mais informações sobre assinaturas de acesso partilhado, consulte [assinaturas de acesso partilhado: Compreenda o modelo de assinatura](../storage/common/storage-dotnet-shared-access-signature-part-1.md)de acesso partilhado .
 
 > [!NOTE]
->- O Data Factory suporta agora ambos **serviço de assinaturas de acesso partilhado** e **assinaturas de acesso partilhado de conta**. Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../storage/common/storage-sas-overview.md).
+>- Data Factory agora suporta tanto **assinaturas** de acesso partilhado de serviço como **assinaturas de acesso partilhado**de conta. Para obter mais informações sobre assinaturas de acesso partilhado, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md).
 >- Configuração de conjunto de dados posterior, o caminho da pasta é o caminho absoluto a partir de nível de contêiner. Tem de configurar um alinhada ao caminho do URI de SAS.
 
 > [!TIP]
@@ -144,11 +144,11 @@ Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua co
 
 Para utilizar a autenticação da assinatura de acesso partilhado, são suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **AzureBlobStorage** (sugerida) ou **AzureStorage** (ver notas abaixo). |Sim |
-| sasUri | Especifique o URI da assinatura de acesso compartilhado para os recursos de armazenamento, como blob/contêiner. <br/>Marque este campo como uma SecureString para armazená-lo com segurança em Data Factory. Você também pode colocar o token SAS em Azure Key Vault para aproveitar a rotação automática e remover a parte do token. Consulte os exemplos a seguir e [armazene as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode usar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| tipo | A propriedade do tipo deve ser definida para **AzureBlobStorage** (sugerido) ou **AzureStorage** (ver notas abaixo). |Sim |
+| sasUri | Especifique a assinatura de acesso partilhado URI aos recursos de armazenamento, tais como blob/container. <br/>Marque este campo como um SecureString para o armazenar de forma segura na Data Factory. Também pode colocar token SAS no Cofre de Chaves Azure para alavancar a rotação automática e remover a porção simbólica. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. |Sim |
+| connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode usar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!NOTE]
 >Se estivesse usando o serviço de ligado de tipo de "AzureStorage", ainda é suportado como-é, ao passo que lhe é sugeridas para utilizar este novo "AzureBlobStorage" ligado do tipo de serviço no futuro.
@@ -174,7 +174,7 @@ Para utilizar a autenticação da assinatura de acesso partilhado, são suportad
 }
 ```
 
-**Exemplo: armazenar chave de conta no Azure Key Vault**
+**Exemplo: chave da conta da loja no Cofre chave Azure**
 
 ```json
 {
@@ -206,36 +206,36 @@ Para utilizar a autenticação da assinatura de acesso partilhado, são suportad
 Quando cria um URI de assinatura de acesso partilhado, considere os seguintes pontos:
 
 - Definir permissões de leitura/escrita adequadas em objetos com base em como o serviço ligado (leitura, escrita, de leitura/escrita) é utilizado na sua fábrica de dados.
-- Definir **tempo de expiração** adequadamente. Certifique-se de que o acesso a objetos de armazenamento não expira com o período ativo do pipeline.
-- O URI deve ser criado no contêiner/blob correto com base na necessidade. Um URI de assinatura de acesso partilhado para um blob permite que a fábrica de dados para esse determinado blob de acesso. Um URI de assinatura de acesso compartilhado para um contêiner de armazenamento de BLOBs permite que Data Factory iterar por meio de BLOBs nesse contêiner. Para fornecer acesso a mais ou menos objetos mais tarde, ou para atualizar o URI de assinatura de acesso partilhado, lembre-se de atualizar o serviço ligado com o URI de novo.
+- Definir o **tempo de validade** adequadamente. Certifique-se de que o acesso a objetos de armazenamento não expira com o período ativo do pipeline.
+- O URI deve ser criado no recipiente/bolha certo com base na necessidade. Um URI de assinatura de acesso partilhado para um blob permite que a fábrica de dados para esse determinado blob de acesso. Uma assinatura de acesso partilhado URI a um recipiente de armazenamento Blob permite que a Fábrica de Dados iteraatravés de bolhas nesse recipiente. Para fornecer acesso a mais ou menos objetos mais tarde, ou para atualizar o URI de assinatura de acesso partilhado, lembre-se de atualizar o serviço ligado com o URI de novo.
 
 ### <a name="service-principal-authentication"></a>Autenticação do principal de serviço
 
-Para a autenticação principal de serviço de armazenamento do Azure em geral, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory](../storage/common/storage-auth-aad.md).
+Para a autenticação principal do serviço de armazenamento Azure em geral, consulte o [acesso authenticado ao Armazenamento Azure utilizando o Diretório Ativo Azure](../storage/common/storage-auth-aad.md).
 
 Para utilizar autenticação do principal de serviço, siga estes passos:
 
-1. Registe-se uma entidade de aplicação no Azure Active Directory (Azure AD) ao seguir [registar a aplicação com um inquilino do Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
+1. Registe uma entidade de candidatura no Azure Ative Directory (Azure AD) seguindo o registo da sua candidatura junto de [um inquilino da Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
 
     - ID da aplicação
     - Chave da aplicação
     - ID do inquilino
 
-2. Conceda a service principal permissão adequada no armazenamento de Blobs do Azure. Consulte a [gerir direitos de acesso aos dados de armazenamento do Azure com o RBAC](../storage/common/storage-auth-aad-rbac.md) com mais detalhes sobre as funções.
+2. Conceda a service principal permissão adequada no armazenamento de Blobs do Azure. Consulte a Gestão dos direitos de acesso aos dados do [Armazenamento Azure com RBAC](../storage/common/storage-auth-aad-rbac.md) com mais detalhes sobre as funções.
 
-    - **Como origem**, acesso para controlar (IAM), pelo menos a conceder **leitor de dados de Blob de armazenamento** função.
-    - **Como sink**, acesso para controlar (IAM), pelo menos a conceder **contribuinte de dados de Blob de armazenamento** função.
+    - **Como fonte,** no controlo de acesso (IAM), conceda pelo menos o papel de Leitor de **Dados Blob de Armazenamento.**
+    - **Como pia,** no controlo de acesso (IAM), concede pelo menos o papel de Contribuinte de **Dados blob** de armazenamento.
 
 Estas propriedades são suportadas para um serviço ligado do armazenamento de Blobs do Azure:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **AzureBlobStorage**. |Sim |
-| serviceEndpoint | Especifique o ponto de final de serviço de armazenamento de Blobs do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
+| tipo | A propriedade tipo deve ser definida para **AzureBlobStorage**. |Sim |
+| serviceEndpoint | Especifique o ponto final do serviço de armazenamento Azure Blob com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim |
-| servicePrincipalKey | Especifique a chave da aplicação. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como um **SecureString** para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
 | tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se seu arquivo de dados estiver numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se seu arquivo de dados estiver numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!NOTE]
 >Serviço ligado do serviço de autenticação do principal só é suportada pelo tipo de "AzureBlobStorage" mas o serviço ligado de tipo de não anterior "AzureStorage".
@@ -264,29 +264,29 @@ Estas propriedades são suportadas para um serviço ligado do armazenamento de B
 }
 ```
 
-### <a name="managed-identity"></a> Identidades geridas para a autenticação de recursos do Azure
+### <a name="managed-identity"></a>Identidades geridas para autenticação de recursos Azure
 
-Uma fábrica de dados pode ser associada com um [identidade de recursos do Azure gerida](data-factory-service-identity.md), que representa esta fábrica de dados específicos. Você pode usar essa identidade gerenciada diretamente para autenticação de armazenamento de BLOBs semelhante ao uso de sua própria entidade de serviço. Ele permite que esta fábrica designada para aceder e copiar dados de/para o seu armazenamento de Blobs.
+Uma fábrica de dados pode ser associada a uma [identidade gerida para os recursos Azure,](data-factory-service-identity.md)que representa esta fábrica de dados específica. Pode utilizar diretamente esta identidade gerida para autenticação de armazenamento Blob semelhante à utilização do seu próprio diretor de serviço. Ele permite que esta fábrica designada para aceder e copiar dados de/para o seu armazenamento de Blobs.
 
-Consulte [autenticar o acesso ao armazenamento do Azure usando Azure Active Directory](../storage/common/storage-auth-aad.md) para a autenticação de armazenamento do Azure em geral. Para utilizar identidades geridas para a autenticação de recursos do Azure, siga estes passos:
+Consulte o [acesso authenticado ao Armazenamento Azure utilizando o Diretório Ativo Azure](../storage/common/storage-auth-aad.md) para autenticação de armazenamento Azure em geral. Para utilizar identidades geridas para a autenticação de recursos do Azure, siga estes passos:
 
-1. [Recupere data Factory informações de identidade gerenciadas](data-factory-service-identity.md#retrieve-managed-identity) copiando o valor da **ID de objeto de identidade gerenciada** gerado junto com sua fábrica.
+1. [Recuperar informações](data-factory-service-identity.md#retrieve-managed-identity) de identidade geridas pela fábrica de dados através da cópia do valor do ID de objeto de **identidade gerido** gerado juntamente com a sua fábrica.
 
-2. Conceda a permissão adequada de identidade gerida no armazenamento de Blobs do Azure. Consulte a [gerir direitos de acesso aos dados de armazenamento do Azure com o RBAC](../storage/common/storage-auth-aad-rbac.md) com mais detalhes sobre as funções.
+2. Conceda a permissão adequada de identidade gerida no armazenamento de Blobs do Azure. Consulte a Gestão dos direitos de acesso aos dados do [Armazenamento Azure com RBAC](../storage/common/storage-auth-aad-rbac.md) com mais detalhes sobre as funções.
 
-    - **Como origem**, acesso para controlar (IAM), pelo menos a conceder **leitor de dados de Blob de armazenamento** função.
-    - **Como sink**, acesso para controlar (IAM), pelo menos a conceder **contribuinte de dados de Blob de armazenamento** função.
+    - **Como fonte,** no controlo de acesso (IAM), conceda pelo menos o papel de Leitor de **Dados Blob de Armazenamento.**
+    - **Como pia,** no controlo de acesso (IAM), concede pelo menos o papel de Contribuinte de **Dados blob** de armazenamento.
 
 >[!IMPORTANT]
->Se você usar o polybase para carregar dados do blob (como origem ou como preparo) em SQL Data Warehouse, ao usar a autenticação de identidade gerenciada para o blob, certifique-se de também seguir as etapas 1 e 2 nesta [orientação](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) como 1) registrar seu servidor de banco de dados sql com Azure Active Directory (Azure AD) e 2) atribuir a função de colaborador de data blob de armazenamento ao servidor do banco de o restante são tratados por Data Factory. Se o armazenamento de BLOBs estiver configurado com um ponto de extremidade de rede virtual do Azure, para usar o polybase para carregar dados dele, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo polybase.
+>Se utilizar a PolyBase para carregar dados da Blob (como fonte ou como encenação) no SQL Data Warehouse, quando utilizar a autenticação de identidade gerida para a Blob, certifique-se de que também segue os passos 1 e 2 [nesta orientação](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registe o seu servidor de Base de Dados SQL com o Azure Ative Directory (Azure AD) e 2) atribuindo a função de Colaborador de Dados blob de armazenamento ao seu servidor de base de dados SQL; o resto é tratado pela Data Factory. Se o seu armazenamento Blob estiver configurado com um ponto final da Rede Virtual Azure, para utilizar o PolyBase para carregar dados a partir dele, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase.
 
 Estas propriedades são suportadas para um serviço ligado do armazenamento de Blobs do Azure:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **AzureBlobStorage**. |Sim |
-| serviceEndpoint | Especifique o ponto de final de serviço de armazenamento de Blobs do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se seu arquivo de dados estiver numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| tipo | A propriedade tipo deve ser definida para **AzureBlobStorage**. |Sim |
+| serviceEndpoint | Especifique o ponto final do serviço de armazenamento Azure Blob com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
+| connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se seu arquivo de dados estiver numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 > [!NOTE]
 > Serviço ligado de tipo de identidades geridas para recursos do Azure, a autenticação só é suportada pelo "AzureBlobStorage", mas não anterior "AzureStorage" tipo de serviço ligado. 
@@ -311,18 +311,18 @@ Estas propriedades são suportadas para um serviço ligado do armazenamento de B
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. 
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir têm suporte para o blob do Azure em configurações de `location` no conjunto de entrada baseado em formato:
+As seguintes propriedades são suportadas para O Blob Azure em `location` configurações no conjunto de dados baseado em formato:
 
-| Propriedade   | Descrição                                                  | Obrigatório |
+| Propriedade   | Descrição                                                  | Necessário |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A propriedade Type do local no DataSet deve ser definida como **AzureBlobStorageLocation**. | Sim      |
-| contentor  | O contêiner de BLOB.                                          | Sim      |
-| folderPath | O caminho para a pasta sob o contêiner fornecido. Se você quiser usar curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
-| fileName   | O nome do arquivo sob o contêiner especificado + folderPath. Se você quiser usar curinga para filtrar arquivos, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
+| tipo       | A propriedade tipo da localização em conjunto de dados deve ser definida para **AzureBlobStorageLocation**. | Sim      |
+| contentor  | O recipiente de bolhas.                                          | Sim      |
+| folderPath | O caminho para a pasta sob o recipiente dado. Se pretender utilizar o wildcard para filtrar a pasta, ignore esta definição e especifique nas definições de fonte de atividade. | Não       |
+| fileName   | O nome do ficheiro no recipiente dado + pastaPath. Se pretender utilizar ficheiros wildcard para filtrar ficheiros, ignore esta definição e especifique nas definições de fonte de atividade. | Não       |
 
 **Exemplo:**
 
@@ -353,26 +353,27 @@ As propriedades a seguir têm suporte para o blob do Azure em configurações de
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista das propriedades compatíveis com a origem do armazenamento de BLOBs e de sink.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista das propriedades compatíveis com a origem do armazenamento de BLOBs e de sink.
 
 ### <a name="blob-storage-as-a-source-type"></a>Armazenamento de BLOBs como um tipo de origem
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir têm suporte para o blob do Azure em configurações de `storeSettings` na fonte de cópia baseada em formato:
+As seguintes propriedades são suportadas para O Blob Azure sob `storeSettings` configurações na fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Obrigatório                                      |
+| Propriedade                 | Descrição                                                  | Necessário                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| tipo                     | A propriedade Type em `storeSettings` deve ser definida como **AzureBlobStorageReadSettings**. | Sim                                           |
-| recursive                | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção que quando recursiva é definida como true e o sink é um arquivo baseado em arquivo, uma pasta vazia ou uma subpasta não é copiada ou criada no coletor. Valores permitidos são **true** (predefinição) e **falso**. | Não                                            |
-| wildcardFolderPath       | O caminho da pasta com caracteres curinga no contêiner fornecido configurado no conjunto de dados para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único caractere); Use `^` para escapar se o nome real da pasta tiver curinga ou este caractere de escape dentro. <br>Veja mais exemplos nos [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Não                                            |
-| wildcardFileName         | O nome do arquivo com caracteres curinga no contêiner especificado + folderPath/wildcardFolderPath para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único caractere); Use `^` para escapar se o nome real da pasta tiver curinga ou este caractere de escape dentro.  Veja mais exemplos nos [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Sim se `fileName` não for especificado no DataSet |
-| modifiedDatetimeStart    | Filtro de ficheiros baseado no atributo: última modificação. Os ficheiros serão selecionados, se sua hora da última modificação estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser nulo o que significa que nenhum filtro de atributo de ficheiro será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de datetime mas `modifiedDatetimeEnd` má hodnotu NULL, significa que os ficheiros cujo último atributo modificado é maior que ou igual a com o valor de datetime será selecionado.  Quando `modifiedDatetimeEnd` tem o valor de datetime mas `modifiedDatetimeStart` for nulo, significa que os ficheiros cujo último atributo modificado é menor do que o valor de datetime será selecionado. | Não                                            |
+| tipo                     | A propriedade do tipo sob `storeSettings` deve ser definida para **AzureBlobStorageReadSettings**. | Sim                                           |
+| recursive                | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção que quando recursiva é definida como true e o sink é um arquivo baseado em arquivo, uma pasta vazia ou uma subpasta não é copiada ou criada no coletor. Os valores permitidos são **verdadeiros** (predefinidos) e **falsos**. | Não                                            |
+| prefix                   | Prefixo para o nome blob sob o recipiente dado configurado em conjunto de dados para filtrar bolhas de origem. São selecionados blobs cujo nome começa com este prefixo. <br>Só se aplica quando `wildcardFolderPath` e `wildcardFileName` propriedades não são especificadas. | Não                                                          |
+| wildcardFolderPath       | O caminho da pasta com caracteres wildcard sob o recipiente dado configurado no conjunto de dados para filtrar as pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem individual); use `^` para escapar se o seu nome real de pasta tiver wildcard ou este char de fuga dentro. <br>Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Não                                            |
+| wildcardFileName         | O nome do ficheiro com caracteres wildcard no recipiente dado + pastaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem individual); use `^` para escapar se o seu nome real de pasta tiver wildcard ou este char de fuga dentro.  Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Sim, se `fileName` não for especificado no conjunto de dados |
+| modifiedDatetimeStart    | Filtro de ficheiros baseado no atributo: última modificação. Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser nulo o que significa que nenhum filtro de atributo de ficheiro será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem valor de data mas `modifiedDatetimeEnd` é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data serão selecionados.  Quando `modifiedDatetimeEnd` tem valor de data mas `modifiedDatetimeStart` é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data serão selecionados. | Não                                            |
 | modifiedDatetimeEnd      | O mesmo que acima.                                               | Não                                            |
-| maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
+| maxConcurrentConnections | O número das ligações para ligar simultaneamente ao armazém. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | Não                                            |
 
 > [!NOTE]
-> Para o formato de texto parquet/delimitado, a origem da atividade de cópia do tipo **blobry** mencionada na próxima seção ainda tem suporte como está para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
+> Para o formato de texto Parquet/delimitado, a fonte de atividade de cópia do tipo **BlobSource** mencionada na próxima secção ainda é suportada como é para retrocompatibilidade. É-lhe sugerido que utilize este novo modelo para avançar, e a UI de autoria da ADF mudou para gerar estes novos tipos.
 
 **Exemplo:**
 
@@ -419,13 +420,14 @@ As propriedades a seguir têm suporte para o blob do Azure em configurações de
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir têm suporte para o blob do Azure em configurações de `storeSettings` no coletor de cópia com base em formato:
+As seguintes propriedades são suportadas para O Blob Azure em `storeSettings` configurações em sumidouro de cópia baseado em formato:
 
-| Propriedade                 | Descrição                                                  | Obrigatório |
+| Propriedade                 | Descrição                                                  | Necessário |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| tipo                     | A propriedade Type em `storeSettings` deve ser definida como **AzureBlobStorageWriteSettings**. | Sim      |
-| copyBehavior             | Define o comportamento de cópia quando a origem é ficheiros a partir de um arquivo de dados baseados em ficheiros.<br/><br/>Valores permitidos são:<br/><b>-PreserveHierarchy (predefinição)</b>: preserva a hierarquia de ficheiros na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><b>-FlattenHierarchy</b>: todos os ficheiros da pasta de origem estão no primeiro nível de pasta de destino. Os ficheiros de destino têm nomes de geradas automaticamente. <br/><b>-MergeFiles</b>: une todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro ou blob for especificado, o nome de ficheiro intercalada é o nome especificado. Caso contrário, é um nome de ficheiro gerado automaticamente. | Não       |
-| maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
+| tipo                     | A propriedade do tipo sob `storeSettings` deve ser definida para **AzureBlobStorageWriteDefinições**. | Sim      |
+| copyBehavior             | Define o comportamento de cópia quando a origem é ficheiros a partir de um arquivo de dados baseados em ficheiros.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (predefinição)</b>: Preserva a hierarquia dos ficheiros na pasta-alvo. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><b>- Hierarquia flattena</b>: Todos os ficheiros da pasta fonte estão no primeiro nível da pasta-alvo. Os ficheiros de destino têm nomes de geradas automaticamente. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro ou blob for especificado, o nome de ficheiro intercalada é o nome especificado. Caso contrário, é um nome de ficheiro gerado automaticamente. | Não       |
+| blockSizeInMB | Especifique o tamanho do bloco em MB usado para escrever dados para bloquear bolhas. Saiba mais [sobre block blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>O valor permitido é **entre 4 e 100 MB.** <br/>Por predefinição, a ADF determina automaticamente o tamanho do bloco com base no tipo e dados da loja de origem. Para cópias não binárias em Blob, o tamanho do bloco predefinido é de 100 MB de modo a encaixar no máximo 4,95 dados de TB. Pode não ser ideal quando os seus dados não são grandes, especialmente quando utiliza o Tempo de Funcionamento de Integração Auto-hospedado com uma rede deficiente, resultando num tempo de funcionamento ou problema de desempenho. Pode especificar explicitamente um tamanho de bloco, enquanto garantir que o blockSizeInMB*50000 é grande o suficiente para armazenar os dados, caso contrário a execução da atividade de cópia falhará. | Não |
+| maxConcurrentConnections | O número das ligações para ligar simultaneamente ao armazém. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | Não       |
 
 **Exemplo:**
 
@@ -462,16 +464,16 @@ As propriedades a seguir têm suporte para o blob do Azure em configurações de
 ]
 ```
 
-### <a name="folder-and-file-filter-examples"></a>Exemplos de filtro de pasta e arquivo
+### <a name="folder-and-file-filter-examples"></a>Exemplos de filtro de pasta e ficheiro
 
-Esta seção descreve o comportamento resultante do caminho da pasta e o nome do arquivo com filtros curinga.
+Esta secção descreve o comportamento resultante do caminho da pasta e nome de ficheiro com filtros wildcard.
 
-| folderPath | fileName | recursive | Estrutura da pasta de origem e resultado do filtro (arquivos em **negrito** são recuperados)|
+| folderPath | fileName | recursive | Estrutura de pasta de origem e resultado do filtro (os ficheiros em **negrito** são recuperados)|
 |:--- |:--- |:--- |:--- |
-| `container/Folder*` | (vazio, usar padrão) | false | contentor<br/>&nbsp;&nbsp;&nbsp;&nbsp;pastaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `container/Folder*` | (vazio, usar padrão) | true | contentor<br/>&nbsp;&nbsp;&nbsp;&nbsp;pastaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `container/Folder*` | `*.csv` | false | contentor<br/>&nbsp;&nbsp;&nbsp;&nbsp;pastaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `container/Folder*` | `*.csv` | true | contentor<br/>&nbsp;&nbsp;&nbsp;&nbsp;pastaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `container/Folder*` | (vazio, utilização por defeito) | false | contentor<br/>&nbsp;&nbsp;&nbsp; &nbsp;Pasta A<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;    &nbsp; &nbsp;subpasta 1<br/>&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;  File3.csv<br/>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;file4.json<br/>&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Outra PastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;file6.csv |
+| `container/Folder*` | (vazio, utilização por defeito) | true | contentor<br/>&nbsp;&nbsp;&nbsp; &nbsp;Pasta A<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;    &nbsp; &nbsp;subpasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         &nbsp; &nbsp; **File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Outra PastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;file6.csv |
+| `container/Folder*` | `*.csv` | false | contentor<br/>&nbsp;&nbsp;&nbsp; &nbsp;Pasta A<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;    &nbsp; &nbsp;subpasta 1<br/>&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;  File3.csv<br/>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;file4.json<br/>&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Outra PastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;file6.csv |
+| `container/Folder*` | `*.csv` | true | contentor<br/>&nbsp;&nbsp;&nbsp; &nbsp;Pasta A<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;    &nbsp; &nbsp;subpasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;file4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         &nbsp; &nbsp; **File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Outra PastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;file6.csv |
 
 ### <a name="some-recursive-and-copybehavior-examples"></a>Alguns exemplos de recursiva e copyBehavior
 
@@ -479,65 +481,65 @@ Esta secção descreve o comportamento resultante da operação de cópia para d
 
 | recursive | copyBehavior | Estrutura de pastas de origem | Destino resultante |
 |:--- |:--- |:--- |:--- |
-| true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | a pasta de destino Pasta1 é criada com a mesma estrutura de origem:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
-| true |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | O destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
-| true |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | O destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 conteúdo é mesclado num ficheiro com um nome de ficheiro gerado automaticamente. |
-| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | a pasta de destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
-| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | a pasta de destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
-| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | A pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 conteúdo é mesclado num arquivo com um nome de ficheiro gerado automaticamente. nome gerado automaticamente para File1<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5 | a pasta de destino Pasta1 é criada com a mesma estrutura de origem:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5 |
+| true |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5 | O destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome autogerado para File1<br/>&nbsp;&nbsp; &nbsp;&nbsp;nome autogerado para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome autogerado para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome autogerado para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome autogerado para File5 |
+| true |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5 | O destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Ficheiro1 + File2 + File3 + File4 + File5 conteúdos fundidos num só ficheiro com um nome de ficheiro autogerado. |
+| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5 | a pasta de destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5 | a pasta de destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome autogerado para File1<br/>&nbsp;&nbsp; &nbsp;&nbsp;nome autogerado para File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5 | A pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;conteúdo do File1 + File2 são fundidos num só ficheiro com um nome de ficheiro autogerado. nome gerado automaticamente para File1<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
 
 ## <a name="preserve-metadata-during-copy"></a>Preservar metadados durante a cópia
 
-Ao copiar arquivos do Amazon S3/blob do Azure/Azure Data Lake Storage Gen2 para Azure Data Lake Storage Gen2/blob do Azure, você pode optar por preservar os metadados do arquivo junto com os dados. Saiba mais em [preservar metadados](copy-activity-preserve-metadata.md#preserve-metadata).
+Quando copia ficheiros da Amazon S3/Azure Blob/Azure Data Lake Storage Gen2 para O Armazenamento de Lagos Azure Data Gen2/Azure Blob, pode optar por preservar os metadados do ficheiro juntamente com os dados. Saiba mais com [a Preserve metadados.](copy-activity-preserve-metadata.md#preserve-metadata)
 
-## <a name="mapping-data-flow-properties"></a>Mapeando Propriedades de fluxo de dados
+## <a name="mapping-data-flow-properties"></a>Mapeando propriedades de fluxo de dados
 
-Ao transformar dados no fluxo de dados de mapeamento, você pode ler e gravar arquivos do armazenamento de BLOBs do Azure em JSON, Avro, texto delimitado ou formato parquet. Para obter mais informações, consulte [transformação de origem](data-flow-source.md) e transformação de [coletor](data-flow-sink.md) no recurso de fluxo de dados de mapeamento.
+Ao transformar dados no fluxo de dados de mapeamento, pode ler e escrever ficheiros a partir do Armazenamento De Blob Azure em formato JSON, Avro, Texto Delimited ou Parquet. Para obter mais informações, consulte a [transformação](data-flow-source.md) de origem e a transformação do [sumidouro](data-flow-sink.md) na funcionalidade de fluxo de dados de mapeamento.
 
 ### <a name="source-transformation"></a>Transformação de origem
 
-Na transformação origem, você pode ler de um contêiner, pasta ou arquivo individual no armazenamento de BLOBs do Azure. A guia **Opções de origem** permite que você gerencie como os arquivos são lidos. 
+Na transformação da fonte, pode ler-se a partir de um recipiente, pasta ou ficheiro individual no Armazenamento De Blob Azure. O separador **opções Source** permite-lhe gerir a forma como os ficheiros são lidos. 
 
 ![Opções de origem](media/data-flow/sourceOptions1.png "Opções de origem")
 
-**Caminho curinga:** Usar um padrão curinga instruirá o ADF a executar um loop em cada pasta e arquivo correspondentes em uma única transformação de origem. Essa é uma maneira eficaz de processar vários arquivos dentro de um único fluxo. Adicione vários padrões de correspondência de curingas com o sinal de + que aparece ao passar o mouse sobre o padrão de curinga existente.
+**Caminho wildcard:** A utilização de um padrão wildcard instruirá a ADF a passar por cada pasta correspondente e arquivar numa única transformação de Origem. Esta é uma forma eficaz de processar vários ficheiros dentro de um único fluxo. Adicione vários padrões de correspondência wildcard com o sinal + que aparece ao pairar sobre o padrão wildcard existente.
 
-Em seu contêiner de origem, escolha uma série de arquivos que correspondem a um padrão. Somente o contêiner pode ser especificado no DataSet. O caminho curinga, portanto, também deve incluir o caminho da pasta da pasta raiz.
+Do seu recipiente de origem, escolha uma série de ficheiros que correspondam a um padrão. Só o recipiente pode ser especificado no conjunto de dados. O seu caminho wildcard deve, portanto, incluir também o seu caminho de pasta a partir da pasta raiz.
 
-Exemplos de curinga:
+Exemplos wildcard:
 
 * ```*``` representa qualquer conjunto de caracteres
-* ```**``` representa o aninhamento de diretório recursivo
-* ```?``` substitui um caractere
-* ```[]``` corresponde a um ou mais caracteres entre colchetes
+* ```**``` representa a nidificação do diretório recursivo
+* ```?``` substitui um personagem
+* ```[]``` corresponde a um dos mais caracteres nos suportes
 
-* ```/data/sales/**/*.csv``` Obtém todos os arquivos CSV em/data/Sales
-* ```/data/sales/20??/**``` Obtém todos os arquivos no século 20
-* ```/data/sales/2004/*/12/[XY]1?.csv``` Obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
+* ```/data/sales/**/*.csv``` Obtém todos os ficheiros CSV em /data/vendas
+* ```/data/sales/20??/**``` recebe todos os ficheiros no século XX
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Obtém todos os ficheiros csv em 2004 em dezembro, começando com X ou Y pré-fixados por um número de dois dígitos
 
-**Caminho raiz da partição:** Se você tiver pastas particionadas em sua fonte de arquivo com um formato de ```key=value``` (por exemplo, Year = 2019), poderá atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
+**Caminho raiz da partilha:** Se tiver pastas divididas na fonte de ficheiros com um formato ```key=value``` (por exemplo, ano=2019), então pode atribuir o nível superior dessa árvore de pasta de divisória a um nome de coluna no fluxo de dados de fluxo de dados de dados.
 
-Primeiro, defina um curinga para incluir todos os caminhos que são as pastas particionadas mais os arquivos folha que você deseja ler.
+Em primeiro lugar, detete um wildcard para incluir todos os caminhos que são as pastas divididas mais os ficheiros de folhas que pretende ler.
 
-![Configurações do arquivo de origem da partição](media/data-flow/partfile2.png "Configuração do arquivo de partição")
+![Definições de ficheiro de origem de partição](media/data-flow/partfile2.png "Definição de ficheiro de partição")
 
-Use a configuração caminho raiz da partição para definir qual é o nível superior da estrutura de pastas. Ao exibir o conteúdo de seus dados por meio de uma visualização de dados, você verá que o ADF adicionará as partições resolvidas encontradas em cada um dos níveis de pasta.
+Utilize a definição do Caminho da Raiz da Partição para definir qual é o nível superior da estrutura da pasta. Quando visualizar o conteúdo dos seus dados através de uma pré-visualização de dados, verá que a ADF irá adicionar as divisórias resolvidas encontradas em cada um dos níveis das suas pastas.
 
-![Caminho raiz da partição](media/data-flow/partfile1.png "Visualização do caminho raiz da partição")
+![Caminho raiz da partição](media/data-flow/partfile1.png "Pré-visualização do caminho raiz da divisória")
 
-**Lista de arquivos:** Este é um conjunto de arquivos. Crie um arquivo de texto que inclua uma lista de arquivos de caminho relativo a serem processados. Aponte para este arquivo de texto.
+**Lista de ficheiros:** Isto é um conjunto de ficheiros. Crie um ficheiro de texto que inclua uma lista de ficheiros relativos para processar. Aponte para este ficheiro de texto.
 
-**Coluna para armazenar o nome do arquivo:** Armazene o nome do arquivo de origem em uma coluna em seus dados. Insira um novo nome de coluna aqui para armazenar a cadeia de caracteres de nome de arquivo.
+**Coluna para armazenar nome de ficheiro:** Guarde o nome do ficheiro fonte numa coluna nos seus dados. Introduza aqui um novo nome de coluna para armazenar a cadeia de nomes de ficheiros.
 
-**Após a conclusão:** Escolha não fazer nada com o arquivo de origem após a execução do fluxo de dados, exclua o arquivo de origem ou mova o arquivo de origem. Os caminhos para a movimentação são relativos.
+**Após a conclusão:** Opte por não fazer nada com o ficheiro fonte depois de o fluxo de dados ser executado, eliminar o ficheiro fonte ou mover o ficheiro fonte. Os caminhos para a mudança são relativos.
 
-Para mover os arquivos de origem para outro local de pós-processamento, primeiro selecione "mover" para a operação de arquivo. Em seguida, defina o diretório "de". Se você não estiver usando curingas para o caminho, a configuração "de" será a mesma pasta que a pasta de origem.
+Para mover ficheiros de origem para outro local pós-processamento, primeiro selecione "Move" para a operação de ficheiros. Em seguida, definir o diretório "de" de. Se não estiver a utilizar nenhum wildcard para o seu caminho, então a definição "a partir" será a mesma pasta que a sua pasta fonte.
 
-Se você tiver um caminho de origem com curinga, sua sintaxe terá a seguinte aparência:
+Se tiver um caminho de origem com wildcard, a sua sintaxe será assim abaixo:
 
 ```/data/sales/20??/**/*.csv```
 
-Você pode especificar "from" como
+Pode especificar "a partir"
 
 ```/data/sales```
 
@@ -545,61 +547,61 @@ E "para" como
 
 ```/backup/priorSales```
 
-Nesse caso, todos os arquivos que foram originados em/data/Sales são movidos para/backup/priorSales.
+Neste caso, todos os ficheiros que foram obtidos em /data/vendas são transferidos para /backup/priorSales.
 
 > [!NOTE]
-> As operações de arquivo são executadas somente quando você inicia o fluxo de dados de uma execução de pipeline (uma depuração de pipeline ou execução de execução) que usa a atividade executar fluxo de dados em um pipeline. As operações de arquivo *não são* executadas no modo de depuração de fluxo de dados.
+> As operações de ficheiro saem apenas quando inicia o fluxo de dados a partir de uma execução de gasoduto (um depurador de gasoduto ou execução) que utiliza a atividade executar data Flow num pipeline. As operações de *ficheironão* funcionam no modo de depuração do Fluxo de Dados.
 
-**Filtrar por última modificação:** Você pode filtrar quais arquivos são processados especificando um intervalo de datas de quando eles foram modificados pela última vez. Todas as datas-hora estão em UTC. 
+**Filtrar por último modificado:** Pode filtrar quais os ficheiros que processa especificando uma gama de datas de quando foram modificados pela última vez. Todas as datas-data são na UTC. 
 
-### <a name="sink-properties"></a>Propriedades do coletor
+### <a name="sink-properties"></a>Propriedades de pia
 
-Na transformação do coletor, você pode gravar em um contêiner ou pasta no armazenamento de BLOBs do Azure. a guia **configurações** permite que você gerencie como os arquivos são gravados.
+Na transformação da pia, pode escrever para um recipiente ou pasta no Armazenamento De Blob Azure. o separador **Definições** permite-lhe gerir a forma como os ficheiros são escritos.
 
-![opções de coletor](media/data-flow/file-sink-settings.png "opções de coletor")
+![opções de afundar](media/data-flow/file-sink-settings.png "opções de afundar")
 
-**Limpe a pasta:** Determina se a pasta de destino é limpa ou não antes de os dados serem gravados.
+**Limpe a pasta:** Determina se a pasta de destino é ou não desmarcada antes de os dados forem escritos.
 
-**Opção de nome de arquivo:** Determina como os arquivos de destino são nomeados na pasta de destino. As opções de nome de arquivo são:
-   * **Padrão**: permitir que o Spark nomeie arquivos com base em padrões de parte.
-   * **Padrão**: Insira um padrão que enumere os arquivos de saída por partição. Por exemplo, **empréstimos [n]. csv** criará loans1. csv, loans2. csv e assim por diante.
-   * **Por partição**: Insira um nome de arquivo por partição.
-   * **Como dados na coluna**: defina o arquivo de saída para o valor de uma coluna. O caminho é relativo ao contêiner de conjunto de um, não à pasta de destino.
-   * **Saída para um único arquivo**: Combine os arquivos de saída particionados em um único arquivo nomeado. O caminho é relativo à pasta do conjunto de um. Lembre-se de que a operação de mesclagem de te pode falhar com base no tamanho do nó. Essa opção não é recomendada para grandes conjuntos de altos.
+**Opção de nome** de ficheiro: Determina como os ficheiros de destino são nomeados na pasta de destino. As opções de nome do ficheiro são:
+   * **Predefinição**: Permitir que a Spark nomeie ficheiros com base nas predefinições da PARTE.
+   * **Padrão**: Introduza um padrão que enumera os seus ficheiros de saída por divisória. Por exemplo, **os empréstimos[n].csv** criarão empréstimos1.csv, empréstimos2.csv, e assim por diante.
+   * **Por partição**: Introduza um nome de ficheiro por partição.
+   * **Como dados na coluna**: Desloque o ficheiro de saída ao valor de uma coluna. O caminho é relativo ao recipiente dataset, não à pasta de destino.
+   * **Saída para um único ficheiro:** Combine os ficheiros de saída divididos num único ficheiro nomeado. O caminho é relativo à pasta dataset. Por favor, esteja ciente de que a operação de fusão te pode possivelmente falhar com base no tamanho do nó. Esta opção não é recomendada para grandes conjuntos de dados.
 
-**Cotar tudo:** Determina se todos os valores entre aspas devem ser delimitados
+**Cite todos:** Determina se deve encerrar todos os valores em cotações
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
-## <a name="getmetadata-activity-properties"></a>Propriedades da atividade GetMetadata
+## <a name="getmetadata-activity-properties"></a>Obtenha propriedades de atividadede Metadados
 
-Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
+Para saber mais detalhes sobre as propriedades, consulte [a atividade do GetMetadata](control-flow-get-metadata-activity.md) 
 
-## <a name="delete-activity-properties"></a>Excluir propriedades da atividade
+## <a name="delete-activity-properties"></a>Eliminar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](delete-activity.md)
+Para saber detalhes sobre as propriedades, consulte a [atividade de Eliminar](delete-activity.md)
 
-## <a name="legacy-models"></a>Modelos herdados
+## <a name="legacy-models"></a>Modelos legados
 
 >[!NOTE]
->Os modelos a seguir ainda têm suporte como estão para compatibilidade com versões anteriores. É recomendável usar o novo modelo mencionado nas seções acima no futuro e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
+>Os seguintes modelos ainda são suportados como é para retrocompatibilidade. É-lhe sugerido que utilize o novo modelo mencionado nas secções acima, e a UI de autoria da ADF mudou para gerar o novo modelo.
 
-### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
+### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados legado
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida **AzureBlob**. |Sim |
-| folderPath | Caminho para o contentor e a pasta no armazenamento de Blobs. <br/><br/>Há suporte para o filtro curinga no caminho, excluindo o nome do contêiner. Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único caractere); Use `^` para escapar se o nome real da pasta tiver curinga ou este caractere de escape dentro. <br/><br/>Exemplos: myblobcontainer/myblobfolder/, veja mais exemplos nos [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim para a atividade de cópia/Lookup, não para a atividade GetMetadata |
-| fileName | **Filtro de nome ou o caráter universal** para os BLOBs no "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os blobs na pasta. <br/><br/>Para o filtro, permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/>Utilize `^` para se o seu nome de ficheiro real tem carateres universais ou esse caractere de escape dentro de escape.<br/><br/>Quando fileName não é especificado para um conjunto de dados de saída e **preserveHierarchy** não é especificado no coletor de atividade, a atividade de cópia gera automaticamente o nome do blob com o seguinte padrão: "*Data. [ GUID de ID de execução de atividade]. [GUID If FlattenHierarchy]. [Formatar se configurado]. [compactação se configurada]* ", por exemplo," Data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. txt. gz "; Se você copiar da fonte de tabela usando o nome da tabela em vez da consulta, o padrão de nome será " *[nome da tabela]. [ formato]. [compactação se configurada]* ", por exemplo," MyTable. csv ". |Não |
-| modifiedDatetimeStart | Filtro de ficheiros baseado no atributo: última modificação. Os ficheiros serão selecionados, se sua hora da última modificação estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado ao habilitar essa configuração quando você desejar fazer o filtro de arquivo de grandes quantidades de arquivos. <br/><br/> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de os.  Quando `modifiedDatetimeStart` tem o valor de datetime mas `modifiedDatetimeEnd` má hodnotu NULL, significa que os ficheiros cujo último atributo modificado é maior que ou igual a com o valor de datetime será selecionado.  Quando `modifiedDatetimeEnd` tem o valor de datetime mas `modifiedDatetimeStart` for nulo, significa que os ficheiros cujo último atributo modificado é menor do que o valor de datetime será selecionado.| Não |
-| modifiedDatetimeEnd | Filtro de ficheiros baseado no atributo: última modificação. Os ficheiros serão selecionados, se sua hora da última modificação estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado ao habilitar essa configuração quando você desejar fazer o filtro de arquivo de grandes quantidades de arquivos. <br/><br/> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de os.  Quando `modifiedDatetimeStart` tem o valor de datetime mas `modifiedDatetimeEnd` má hodnotu NULL, significa que os ficheiros cujo último atributo modificado é maior que ou igual a com o valor de datetime será selecionado.  Quando `modifiedDatetimeEnd` tem o valor de datetime mas `modifiedDatetimeStart` for nulo, significa que os ficheiros cujo último atributo modificado é menor do que o valor de datetime será selecionado.| Não |
-| format | Se pretender copiar ficheiros como está entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ou gerar arquivos com um formato específico, os seguintes tipos de formato de ficheiro são suportados: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e **ParquetFormat**. Definir o **tipo** propriedade sob **formato** para um dos seguintes valores. Para obter mais informações, consulte a [formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format), e [formato Parquet ](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
-| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Os níveis de suporte são **Optimal** e **Fastest**. |Não |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para **AzureBlob**. |Sim |
+| folderPath | Caminho para o contentor e a pasta no armazenamento de Blobs. <br/><br/>O filtro Wildcard é suportado para o caminho excluindo o nome do recipiente. Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem individual); use `^` para escapar se o seu nome real de pasta tiver wildcard ou este char de fuga dentro. <br/><br/>Exemplos: myblobcontainer/myblobfolder/, veja mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). |Sim para a atividade de cópia/Lookup, não para a atividade GetMetadata |
+| fileName | **Nome ou filtro wildcard** para a bolha(s) sob o "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os blobs na pasta. <br/><br/>Para o filtro, os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem individual).<br/>- Exemplo 1: `"fileName": "*.csv"`<br/>- Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o seu nome de ficheiro real tiver wildcard ou este char de fuga dentro.<br/><br/>Quando o nome do ficheiro não é especificado para um conjunto de dados de saída e preservar a **hierarquia** não é especificada no sumidouro de atividade, a atividade de cópia gera automaticamente o nome blob com o seguinte padrão: "*Dados. atividade executar ID GUID]. [GUID se AHierarquia Achatada]. [formato se configurado]. [compressão se configurado]* ", por exemplo, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; se copiar a partir de fonte tabular usando o nome da mesa em vez de consulta, o padrão de nome é " [nome de*mesa].[ formato]. [compressão se configurado]* ", por exemplo, "MyTable.csv". |Não |
+| modifiedDatetimeStart | Filtro de ficheiros baseado no atributo: última modificação. Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Esteja ciente de que o desempenho global do movimento de dados será impactado, permitindo esta definição quando pretender fazer filtro de ficheiros a partir de grandes quantidades de ficheiros. <br/><br/> As propriedades podem ser NUAs, o que significa que nenhum filtro de atributo de ficheiro será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem valor de data mas `modifiedDatetimeEnd` é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data serão selecionados.  Quando `modifiedDatetimeEnd` tem valor de data mas `modifiedDatetimeStart` é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data serão selecionados.| Não |
+| modifiedDatetimeEnd | Filtro de ficheiros baseado no atributo: última modificação. Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Esteja ciente de que o desempenho global do movimento de dados será impactado, permitindo esta definição quando pretender fazer filtro de ficheiros a partir de grandes quantidades de ficheiros. <br/><br/> As propriedades podem ser NUAs, o que significa que nenhum filtro de atributo de ficheiro será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem valor de data mas `modifiedDatetimeEnd` é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data serão selecionados.  Quando `modifiedDatetimeEnd` tem valor de data mas `modifiedDatetimeStart` é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data serão selecionados.| Não |
+| format | Se pretender copiar ficheiros como está entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ou gerar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat**e **ParquetFormat**. Desloque a propriedade **tipo** em **formato** a um destes valores. Para mais informações, consulte as secções de [formato Texto,](supported-file-formats-and-compression-codecs-legacy.md#text-format) [Formato JSON,](supported-file-formats-and-compression-codecs-legacy.md#json-format) [formato Avro,](supported-file-formats-and-compression-codecs-legacy.md#avro-format) [formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e [formato Parquet.](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) |Não (apenas para o cenário de cópia binária) |
+| compression | Especifica o tipo e o nível de compressão dos dados. Para mais informações, consulte [formatos de ficheiros suportados e codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support)de compressão .<br/>Os tipos suportados são **GZip,** **Deflate,** **BZip2**e **ZipDeflate**.<br/>Os níveis suportados são **Ideais** e **Mais Rápidos.** |Não |
 
 >[!TIP]
->Para copiar todos os blobs numa pasta, especifique **folderPath** apenas.<br>Para copiar um blob único com um determinado nome, especifique **folderPath** com parte da pasta e **fileName** com o nome de ficheiro.<br>Para copiar um subconjunto de blobs numa pasta, especifique **folderPath** com parte da pasta e **fileName** com filtro de carateres universais. 
+>Para copiar todas as bolhas sob uma pasta, especifique apenas **pastaPath.**<br>Para copiar uma única bolha com um nome dado, especifique **a pastaPath** com peça de pasta e nome de **ficheiro** com nome de ficheiro.<br>Para copiar um subconjunto de bolhas sob uma pasta, especifique **a pastaPath** com peça de pasta e nome de **ficheiro** com filtro wildcard. 
 
 **Exemplo:**
 
@@ -631,13 +633,13 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 }
 ```
 
-### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
+### <a name="legacy-copy-activity-source-model"></a>Modelo de fonte de fonte de atividade de cópia legado
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **BlobSource**. |Sim |
-| recursive | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção que quando recursiva é definida como true e o sink é um arquivo baseado em arquivo, uma pasta vazia ou uma subpasta não é copiada ou criada no coletor.<br/>Valores permitidos são **true** (predefinição) e **falso**. | Não |
-| maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não |
+| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **BlobSource**. |Sim |
+| recursive | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção que quando recursiva é definida como true e o sink é um arquivo baseado em arquivo, uma pasta vazia ou uma subpasta não é copiada ou criada no coletor.<br/>Os valores permitidos são **verdadeiros** (predefinidos) e **falsos**. | Não |
+| maxConcurrentConnections | O número das ligações para ligar simultaneamente ao armazém. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | Não |
 
 **Exemplo:**
 
@@ -671,13 +673,13 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 ]
 ```
 
-### <a name="legacy-copy-activity-sink-model"></a>Modelo de coletor de atividade de cópia herdado
+### <a name="legacy-copy-activity-sink-model"></a>Modelo de pia de atividade de cópia legado
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **BlobSink**. |Sim |
-| copyBehavior | Define o comportamento de cópia quando a origem é ficheiros a partir de um arquivo de dados baseados em ficheiros.<br/><br/>Valores permitidos são:<br/><b>-PreserveHierarchy (predefinição)</b>: preserva a hierarquia de ficheiros na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><b>-FlattenHierarchy</b>: todos os ficheiros da pasta de origem estão no primeiro nível de pasta de destino. Os ficheiros de destino têm nomes de geradas automaticamente. <br/><b>-MergeFiles</b>: une todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro ou blob for especificado, o nome de ficheiro intercalada é o nome especificado. Caso contrário, é um nome de ficheiro gerado automaticamente. | Não |
-| maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não |
+| tipo | A propriedade tipo do lavatório de atividade sicopiadora deve ser definida para **BlobSink**. |Sim |
+| copyBehavior | Define o comportamento de cópia quando a origem é ficheiros a partir de um arquivo de dados baseados em ficheiros.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (predefinição)</b>: Preserva a hierarquia dos ficheiros na pasta-alvo. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><b>- Hierarquia flattena</b>: Todos os ficheiros da pasta fonte estão no primeiro nível da pasta-alvo. Os ficheiros de destino têm nomes de geradas automaticamente. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro ou blob for especificado, o nome de ficheiro intercalada é o nome especificado. Caso contrário, é um nome de ficheiro gerado automaticamente. | Não |
+| maxConcurrentConnections | O número das ligações para ligar simultaneamente ao armazém. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | Não |
 
 **Exemplo:**
 
@@ -713,4 +715,4 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

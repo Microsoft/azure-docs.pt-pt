@@ -1,25 +1,28 @@
 ---
-title: 'Tutorial: Implementar e configurar firewall Azure numa rede híbrida utilizando o portal Azure'
-description: Neste tutorial, aprende-se a implementar e configurar o Azure Firewall utilizando o portal Azure.
-services: firewall
+title: 'Tutorial: Proteja a sua rede virtual do hub utilizando a pré-visualização do Azure Firewall Manager'
+description: Neste tutorial, aprende a proteger a sua rede virtual com o Azure Firewall Manager utilizando o portal Azure.
+services: firewall-manager
 author: vhorne
-ms.service: firewall
+ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 01/18/2020
+ms.date: 02/18/2020
 ms.author: victorh
-customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: e9ca891d2d92b6760d37108b66afc54c81ac125c
+ms.openlocfilehash: fa3c83f82e1942ab76ffe039847d642448434d87
 ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442586"
+ms.locfileid: "77444987"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementar e configurar firewall Azure numa rede híbrida utilizando o portal Azure
+# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>Tutorial: Proteja a sua rede virtual do hub utilizando a pré-visualização do Azure Firewall Manager 
+
+[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
 Quando liga a sua rede no local a uma rede virtual Azure para criar uma rede híbrida, a capacidade de controlar o acesso aos recursos da rede Azure é uma parte importante de um plano de segurança global.
 
-Pode utilizar o Azure Firewall para controlar o acesso à rede numa rede híbrida utilizando regras que definem o tráfego de rede permitido e negado.
+Utilizando o Azure Firewall Manager Preview, pode criar uma rede virtual hub para garantir o tráfego de rede híbrida destinado a endereços IP privados, Azure PaaS e internet. Pode utilizar o Azure Firewall Manager para controlar o acesso à rede numa rede híbrida utilizando políticas que definam o tráfego de rede permitido e negado.
+
+O Firewall Manager também suporta uma arquitetura de hub virtual segura. Para uma comparação entre os tipos de arquitetura de rede virtual e hub seguros, veja quais são as opções de [arquitetura Azure Firewall Manager?](vhubs-and-vnets.md)
 
 Para este tutorial, cria três redes virtuais:
 
@@ -27,15 +30,13 @@ Para este tutorial, cria três redes virtuais:
 - **VNet-Spoke** - a rede virtual falada representa a carga de trabalho localizada no Azure.
 - **VNet-Onprem** - A rede virtual no local representa uma rede no local. Numa implementação real, pode ser ligado por uma ligação VPN ou ExpressRoute. Para a simplicidade, este tutorial utiliza uma ligação de gateway VPN, e uma rede virtual localizada no Azure é usada para representar uma rede no local.
 
-![Firewall numa rede híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
+![Rede híbrida](media/tutorial-hybrid-portal/hybrid-network-firewall.png)
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Declarar as variáveis
-> * Criar a rede virtual do firewall hub
-> * Criar a rede virtual falada
-> * Criar a rede virtual no local
+> * Criar uma política de firewall
+> * Criar as redes virtuais
 > * Configurar e implementar a firewall
 > * Criar e ligar os gateways de VPN
 > * Peer the hub e falou redes virtuais
@@ -43,7 +44,6 @@ Neste tutorial, ficará a saber como:
 > * Criar as máquinas virtuais
 > * Testar a firewall
 
-Se pretender utilizar o Azure PowerShell para completar este procedimento, consulte o Deploy e configure o Azure Firewall numa rede híbrida utilizando o [Azure PowerShell](tutorial-hybrid-ps.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +54,7 @@ Uma rede híbrida utiliza o modelo de arquitetura hub-and-spoke para direcionar 
    Além disso, as rotas para as redes virtuais ligadas ao gateway ou nas redes no local propagar-se-ão automaticamente para as tabelas de encaminhamento para as redes virtuais peered utilizando o trânsito de gateway. Para mais informações, consulte o trânsito de [gateway Configure VPN para o peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 - Detete **UseRemoteGateways** quando peer VNet-Spoke to VNet-Hub. Se **o UseRemoteGateways** for definido e **o AllowGatewayTransit** no telecomando também estiver definido, a rede virtual falada utiliza gateways da rede virtual remota para trânsito.
-- Para encaminhar o tráfego de sub-rede falado através da firewall do hub, precisa de uma rota Definida pelo Utilizador (UDR) que aponte para a firewall com o conjunto de opção de propagação da **rota BGP de sativação.** A opção de propagação da **rota BGP para desativar** impede a distribuição da rota para as subredes faladas. Isto impede que as rotas aprendidas entrem em conflito com o seu UDR.
+- Para encaminhar o tráfego de sub-rede falado através da firewall do hub, precisa de uma rota Definida pelo Utilizador (UDR) que aponte para a firewall com a definição de **propagação** da rota de gateway da rede Virtual desativada. Esta opção impede a distribuição da rota para as subredes faladas. Isto impede que as rotas aprendidas entrem em conflito com o seu UDR.
 - Configure um UDR na subnet de gateway do hub que aponta para o endereço IP firewall como o próximo salto para as redes faladas. Não é necessário nenhum UDR na subnet Azure Firewall, uma vez que aprende rotas a partir de BGP.
 
 Veja a secção [Criar Rotas](#create-the-routes) neste tutorial para perceber como estas rotas são criadas.
@@ -62,29 +62,56 @@ Veja a secção [Criar Rotas](#create-the-routes) neste tutorial para perceber c
 >[!NOTE]
 >O Azure Firewall deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a esta com um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta da Internet.
 >
->A Firewall Azure pode ser configurada para suportar túneis forçados. Para mais informações, consulte [o Azure Firewall forçado a fazer túneis.](forced-tunneling.md)
+>A Firewall Azure pode ser configurada para suportar túneis forçados.
+
+<!---For more information, see [Azure Firewall forced tunneling](../firewall/forced-tunneling.md)--->
 
 >[!NOTE]
 >O tráfego entre VNets diretamente espreitados é encaminhado diretamente mesmo que um UDR aponta para O Firewall Azure como a porta de entrada padrão. Para enviar a sub-rede para sub-rede para a firewall neste cenário, um UDR deve conter explicitamente a prefixação da rede de sub-rede alvo em ambas as subredes.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-the-firewall-hub-virtual-network"></a>Criar a rede virtual do firewall hub
-
-Em primeiro lugar, crie o grupo de recursos para conter os recursos para este tutorial:
+## <a name="create-a-firewall-policy"></a>Criar uma Política de Firewall
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Na página inicial do portal Azure, selecione **Grupos de Recursos** > **Adicionar**.
-3. Para nome de **grupo de recursos,** escreva **FW-Hybrid-Test**.
-4. Em **Subscrição**, selecione a sua subscrição.
-5. Para **a Região,** selecione **East US**. Todos os recursos que cria mais tarde devem estar no mesmo local.
-6. Selecione **Rever + Criar**.
-7. Selecione **Criar**.
+2. Na barra de pesquisa do portal Azure, escreva **Firewall Manager** e prima **Enter**.
+3. Na página Do Gestor de Firewall Azure, selecione as políticas de **firewall do View Azure**.
 
-Agora, crie o VNet:
+   ![Política de firewall](media/tutorial-hybrid-portal/firewall-manager-policy.png)
+
+1. Selecione **Criar a Política de Firewall Azure**.
+1. Selecione a sua subscrição e, para o grupo Recursos, selecione **Criar novo** e criar um grupo de recursos chamado **FW-Hybrid-Test**.
+2. Para o nome da política, digite **Pol-Net01**.
+3. Para a Região, selecione **East US**.
+4. Selecione **Next:Rules**.
+5. Selecione **Adicionar uma coleção de regras**.
+6. Para **Nome**, digite **RCNet01**.
+7. Para o tipo de **recolha de regras,** selecione **Rede**.
+8. Para **Prioridade**, tipo **100**.
+9. Em **Ação**, selecione **Permitir**.
+10. De acordo com **as regras,** para **nome,** tipo **AllowWeb**.
+11. Para **endereços de origem**, tipo **192.168.1.0/24**.
+12. Em **Protocolo**, selecione **TCP**.
+13. Para portas de **destino,** tipo **80**.
+14. Para **o Tipo de Destino,** selecione endereço **IP**.
+15. Para **destino**, tipo **10.6.0.0/16**.
+16. Na próxima linha de regras, insira as seguintes informações:
+ 
+    Nome: tipo **AllowRDP**<br>
+    Endereço IP fonte: tipo **192.168.1.0/24**.<br>
+    Protocolo, selecione **TCP**<br>
+    Portos de Destino, tipo **3389**<br>
+    Tipo de destino, selecione **Endereço IP**<br>
+    Para destino, tipo **10.6.0.0/16**
+
+1. Selecione **Adicionar**.
+2. Selecione **Rever + Criar**.
+3. Reveja os detalhes e, em seguida, selecione **Criar**.
+
+## <a name="create-the-firewall-hub-virtual-network"></a>Criar a rede virtual do firewall hub
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é de /26. Para obter mais informações sobre o tamanho da subrede, consulte [O FaQ da Firewall Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é de /26. Para obter mais informações sobre o tamanho da subrede, consulte [O FaQ da Firewall Azure](../firewall/firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 1. A partir da página inicial do portal Azure, selecione **Criar um recurso**.
 2. Em **Rede,** selecione **rede Virtual**.
@@ -123,7 +150,7 @@ Agora, crie o VNet:
 10. Em **Intervalo de endereços**, escreva **192.168.1.0/24**.
 11. Aceite as outras definições predefinidas e, em seguida, selecione **Criar**.
 
-Agora crie uma segunda sub-rede para o portal.
+Depois de a rede virtual ser implantada, crie uma segunda sub-rede para o portal.
 
 1. Na página **VNet-Onprem,** selecione **Subnets**.
 2. **Selecione +Subnet**.
@@ -140,59 +167,27 @@ Este é o endereço IP público utilizado para o gateway no local.
 3. Selecione **o endereço IP público** e, em seguida, selecione **Criar**.
 4. Para o nome, digite **VNet-Onprem-GW-pip**.
 5. Para o grupo de recursos, digite **FW-Hybrid-Test**.
-6. Em **Localização**, selecione a mesma localização que utilizou anteriormente.
+6. Para **localização,** selecione **East US**.
 7. Aceite as outras predefinições e, em seguida, selecione **Criar**.
 
 ## <a name="configure-and-deploy-the-firewall"></a>Configurar e implementar a firewall
 
-Agora, desloque a firewall para a rede virtual do firewall hub.
+Quando as políticas de segurança são associadas a um hub, é referida como uma *rede virtual hub*.
 
-1. A partir da página inicial do portal Azure, selecione **Criar um recurso**.
-2. Na coluna esquerda, selecione **Networking**, e, em seguida, selecione **Firewall**.
-4. Na página **Criar uma firewall**, utilize a seguinte tabela para configurar a firewall:
+Converta a rede virtual **VNet-Hub** numa *rede virtual hub* e fixe-a com o Azure Firewall.
 
-   |Definição  |Valor  |
-   |---------|---------|
-   |Subscrição     |\<a sua subscrição\>|
-   |Grupo de recursos     |**Teste híbrido-FW** |
-   |Nome     |**AzFW01**|
-   |Localização     |Selecionar a mesma localização que utilizou anteriormente|
-   |Escolher uma rede virtual     |**Utilizar existente**:<br> **VNet-hub**|
-   |Endereço IP público     |Criar novos: <br>**Nome** - **fw-pip**. |
+1. Na barra de pesquisa do portal Azure, escreva **Firewall Manager** e prima **Enter**.
+3. Na página Do Gestor de Firewall Azure, sob **a segurança adicionar a redes virtuais,** selecione Ver redes virtuais do **hub**.
+4. Selecione **Converter redes virtuais**.
+5. Selecione **VNet-hub** e, em seguida, selecione **Next: Azure Firewall**.
+6. Para a **Política de Firewall,** selecione **Pol-Net01**.
+7. Selecione **Next " Review + confirme**
+8. Reveja os detalhes e, em seguida, selecione **Confirmar**.
 
-5. Selecione **Rever + criar**.
-6. Reveja o resumo e, em seguida, selecione **Criar** para criar a firewall.
 
    Isto leva alguns minutos para ser implantado.
-7. Após a implementação completa, vá ao grupo de recursos **FW-Hybrid-Test** e selecione a firewall **AzFW01.**
-8. Anote o endereço IP privado. Vai utilizá-lo mais tarde quando criar a rota predefinida.
-
-### <a name="configure-network-rules"></a>Configurar regras de rede
-
-Em primeiro lugar, adicione uma regra de rede para permitir o tráfego web.
-
-1. Na página **AzFW01,** Selecione **Regras**.
-2. Selecione o separador de recolha de **regras da rede.**
-3. Selecione **Adicionar a recolha**de regras de rede .
-4. Para **Nome**, digite **RCNet01**.
-5. Para **Prioridade**, tipo **100**.
-6. Em **Ação**, selecione **Permitir**.
-6. De acordo com **as regras,** para **nome,** tipo **AllowWeb**.
-7. Em **Protocolo**, selecione **TCP**.
-8. Para **endereços de origem**, tipo **192.168.1.0/24**.
-9. Para endereço destino, tipo **10.6.0.0/16**
-10. Para portas de **destino,** tipo **80**.
-
-Adicione agora uma regra para permitir o tráfego de RDP.
-
-Na segunda linha de regras, digite as seguintes informações:
-
-1. **Nome,** tipo **AllowRDP**.
-2. Em **Protocolo**, selecione **TCP**.
-3. Para **endereços de origem**, tipo **192.168.1.0/24**.
-4. Para endereço destino, tipo **10.6.0.0/16**
-5. Para portas de **destino,** tipo **3389**.
-6. Selecione **Adicionar**.
+7. Após a implementação completa, vá ao grupo de recursos **FW-Hybrid-Test** e selecione a firewall.
+9. Note o endereço **IP privado firewall** na página **'Overview'.** Vai utilizá-lo mais tarde quando criar a rota predefinida.
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Criar e ligar os gateways de VPN
 
@@ -206,7 +201,7 @@ Agora crie a porta de entrada VPN para a rede virtual hub. As configurações de
 2. Na caixa de texto de pesquisa, digite **o gateway da rede virtual** e prima **Enter**.
 3. Selecione gateway de **rede Virtual**e selecione **Criar**.
 4. Para **nome**, tipo **GW-hub**.
-5. Para **região,** selecione a mesma região que usou anteriormente.
+5. Para **a Região,** selecione **(EUA) Leste dos EUA**.
 6. Para **o tipo Gateway,** selecione **VPN**.
 7. Para **o tipo VPN,** selecione **baseado na Rota**.
 8. Para **SKU,** selecione **Basic**.
@@ -223,12 +218,12 @@ Agora crie a porta de entrada VPN para a rede virtual no local. As configuraçõ
 2. Na caixa de texto de pesquisa, digite **o gateway da rede virtual** e prima **Enter**.
 3. Selecione gateway de **rede Virtual**e selecione **Criar**.
 4. Para **nome**, digite **GW-Onprem**.
-5. Para **região,** selecione a mesma região que usou anteriormente.
+5. Para **a Região,** selecione **(EUA) Leste dos EUA**.
 6. Para **o tipo Gateway,** selecione **VPN**.
 7. Para **o tipo VPN,** selecione **baseado na Rota**.
 8. Para **SKU,** selecione **Basic**.
 9. Para **a rede Virtual,** selecione **VNet-Onprem**.
-10. Para **o endereço IP público,** selecione Criar **novo**, e digitar **VNet-Onprem-GW-pip** para o nome.
+10. Para **o endereço IP público**, selecione * Utilize o*existente*, e selecione **VNet-Onprem-GW-pip** para o nome.
 11. Aceite as restantes predefinições e, em seguida, selecione **Rever + criar**.
 12. Reveja a configuração e, em seguida, selecione **Criar**.
 
@@ -263,7 +258,7 @@ Crie as instalações para centralar a ligação de rede virtual. Este passo é 
 
 Após cerca de cinco minutos, o estado de ambas as ligações deve estar **ligado**.
 
-![Ligações gateway](media/tutorial-hybrid-portal/gateway-connections.png)
+![Ligações gateway](media/secure-hybrid-network/gateway-connections.png)
 
 ## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Peer the hub e falou redes virtuais
 
@@ -301,7 +296,7 @@ Em seguida, crie duas rotas:
 4. Selecione **Criar**.
 5. Para o nome, escreva **UDR-Hub-Spoke**.
 6. Selecione o **FW-Hybrid-Test** para o grupo de recursos.
-8. Em **Localização**, selecione a mesma localização que utilizou anteriormente.
+8. Para **localização**, selecione **(EUA) East US)** .
 9. Selecione **Criar**.
 10. Depois da tabela de rotas ser criada, selecione-a para abrir a página da tabela de rotas.
 11. Selecione **Rotas** na coluna esquerda.
@@ -316,9 +311,8 @@ Agora associe a rota para a sub-rede.
 
 1. Na página **UDR-Hub-Spoke - Rotas,** selecione **Subnets**.
 2. Selecione **Associado**.
-3. **Selecione Escolha uma rede virtual**.
-4. Selecione **VNet-hub**.
-5. Selecione **GatewaySubnet**.
+4. Em **rede Virtual,** selecione **VNet-hub**.
+5. Em **Subnet,** selecione **GatewaySubnet**.
 6. Selecione **OK**.
 
 Agora crie a rota padrão a partir da subnet falada.
@@ -329,7 +323,7 @@ Agora crie a rota padrão a partir da subnet falada.
 5. Selecione **Criar**.
 6. Para o nome, digite **UDR-DG**.
 7. Selecione o **FW-Hybrid-Test** para o grupo de recursos.
-8. Em **Localização**, selecione a mesma localização que utilizou anteriormente.
+8. Para **localização**, selecione **(EUA) East US)** .
 4. Para propagação da rota de gateway de **rede virtual,** selecione **Desativado**.
 1. Selecione **Criar**.
 2. Depois da tabela de rotas ser criada, selecione-a para abrir a página da tabela de rotas.
@@ -345,9 +339,8 @@ Agora associe a rota para a sub-rede.
 
 1. Na página **UDR-DG - Rotas,** selecione **Subnets**.
 2. Selecione **Associado**.
-3. **Selecione Escolha uma rede virtual**.
-4. Selecione **VNet-spoke**.
-5. Selecione **SN-Workload**.
+4. Em **rede Virtual,** selecione **VNet-spoke**.
+5. Em **Subnet,** selecione **SN-Workload**.
 6. Selecione **OK**.
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
@@ -363,9 +356,10 @@ Crie uma máquina virtual na rede virtual de porta-voz, funcionando o IIS, sem e
 3. Introduza estes valores para a máquina virtual:
     - **Grupo de recursos** - Selecione **FW-Hybrid-Test**.
     - **Nome da máquina virtual**: *VM-Spoke-01*.
-    - **Região** - Mesma região que é usada anteriormente.
+    - **Região** -  *(EUA) Leste dos EUA.*
     - **Nome do utilizador**: *azureuser*.
-    - **Palavra-passe**: *Azure123456!*
+    - **Palavra-passe**: escreva a sua palavra-passe
+
 4. Selecione **Next:Disks**.
 5. Aceite as predefinições e selecione **Seguinte: Networking**.
 6. Selecione **VNet-Spoke** para a rede virtual e a sub-rede é **SN-Workload**.
@@ -401,12 +395,13 @@ Esta é uma máquina virtual que utiliza para ligar utilizando o Remote Desktop 
 3. Introduza estes valores para a máquina virtual:
     - **Grupo de recursos** - Selecione existente e, em seguida, selecione **FW-Hybrid-Test**.
     - **Nome da máquina virtual** - *VM-Onprem*.
-    - **Região** - Mesma região que é usada anteriormente.
+    - **Região** -  *(EUA) Leste dos EUA.*
     - **Nome do utilizador**: *azureuser*.
-    - **Palavra-passe:** *Azure123456!*
+    - **Palavra-passe**: digite a sua palavra-passe.
+
 4. Selecione **Next:Disks**.
 5. Aceite as predefinições e selecione **Next:Networking**.
-6. Selecione **VNet-Onprem** para rede virtual e a sub-rede é **SN-Corp**.
+6. Selecione **VNet-Onprem** para rede virtual e verifique se a sub-rede é **SN-Corp**.
 7. Para **as portas de entrada pública,** selecione Permitir portas **selecionadas,** e, em seguida, selecione **RDP (3389)**
 8. Selecione **Next:Management**.
 9. Para **diagnósticos boot,** selecione **Off**.
@@ -414,7 +409,7 @@ Esta é uma máquina virtual que utiliza para ligar utilizando o Remote Desktop 
 
 ## <a name="test-the-firewall"></a>Testar a firewall
 
-1. Em primeiro lugar, note o endereço IP privado para a máquina virtual **VM-spoke-01.**
+1. Em primeiro lugar, note o endereço IP privado para a máquina virtual VM-Spoke-01 na página geral vM-Spoke-01.
 
 2. No portal do Azure, ligue à máquina virtual **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
@@ -422,7 +417,7 @@ Esta é uma máquina virtual que utiliza para ligar utilizando o Remote Desktop 
    You should get a reply.--->
 3. Abra um navegador web no **VM-Onprem**e navegue para http://\<\>IP privada vM-spoke-01.
 
-   Deve ver a página web **vM-spoke-01:** ![página web VM-Spoke-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
+   Deve ver a página web **vM-spoke-01:** ![página web VM-Spoke-01](media/secure-hybrid-network/vm-spoke-01-web.png)
 
 4. A partir da máquina virtual **VM-Onprem,** abra um ambiente de trabalho remoto para **VM-spoke-01** no endereço IP privado.
 
@@ -436,13 +431,13 @@ Então agora verificou que as regras da firewall estão funcionando:
 
 Em seguida, altere a ação das coleções de regras de rede da firewall para **Negar**, para verificar se as regras de firewall funcionam conforme esperado.
 
-1. Selecione a firewall **AzFW01.**
-2. Selecione **Regras**.
-3. Selecione o separador de recolha de **regras da Rede** e selecione a coleção de regras **RCNet01.**
-4. Para **ação,** selecione **Deny**.
+1. Abra o grupo de recursos **FW-Hybrid-Test** e selecione a política de firewall **Pol-Net01.**
+2. Em **Definições,** selecione **Regras**.
+3. De acordo com **as regras da Rede,** selecione a coleção de regras **RCNet01,** selecione as elipses (...), e selecione **Editar**.
+4. Para **a ação de recolha de regras,** selecione **Deny**.
 5. Selecione **Guardar**.
 
-Feche quaisquer ambientes de trabalho remotos existentes antes de testar as regras alteradas. Agora execute os testes novamente. Desta vez, devem falhar todos.
+Feche os desktops e navegadores remotos existentes no **VM-Onprem** antes de testar as regras alteradas. Depois de a atualização da recolha de regras estar completa, volte a fazer os testes. Desta vez, devem falhar todos.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -450,7 +445,5 @@ Pode manter os recursos da firewall para o próximo tutorial. Se já não precis
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, pode monitorizar os registos do Azure Firewall.
-
 > [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+> [Tutorial: Proteja o seu WAN virtual utilizando a pré-visualização do Azure Firewall Manager](secure-cloud-network.md)

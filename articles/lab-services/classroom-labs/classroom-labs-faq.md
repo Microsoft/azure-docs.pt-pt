@@ -1,5 +1,5 @@
 ---
-title: Laboratórios de sala de aula em Azure Lab Services – perguntas frequentes | Microsoft Docs
+title: Laboratórios de sala de aula em Serviços de Laboratório Azure — FAQ  Microsoft Docs
 description: Este artigo fornece respostas a perguntas frequentes (FAQ) sobre laboratórios de sala de aula em Serviços de Laboratório Azure.
 services: lab-services
 documentationcenter: na
@@ -13,39 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: a0361203f4a8a2e57d179b39ba6da2fb62f68720
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252064"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443504"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios da sala de aula em Azure Lab Services – perguntas frequentes (FAQ)
-Obtenha respostas para algumas das perguntas mais comuns sobre os laboratórios de sala de aula em Azure Lab Services. 
+# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios de sala de aula em Serviços de Laboratório Azure — Perguntas frequentes (FAQ)
+Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios de salas de aula em Serviços de Laboratório Azure. 
 
 ## <a name="quotas"></a>Quotas
 
-### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>A cota por usuário ou por semana ou por toda a duração do laboratório? 
-A cota que você definiu para um laboratório é para cada aluno toda a duração do laboratório. E o [tempo de funcionamento programado dos VMs](how-to-create-schedules.md) não conta com a quota atribuída a um utilizador. A cota é para o tempo fora das horas de agendamento que um aluno gasta nas VMs.  Para obter mais informações sobre quotas, consulte [As quotas definidas para os utilizadores.](how-to-configure-student-usage.md#set-quotas-for-users)
+### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>A quota por utilizador ou por semana ou por toda a duração do laboratório? 
+A quota que definiu para um laboratório é para cada aluno durante toda a duração do laboratório. E o [tempo de funcionamento programado dos VMs](how-to-create-schedules.md) não conta com a quota atribuída a um utilizador. A quota é para o tempo fora do horário horário que um aluno gasta em VMs.  Para obter mais informações sobre quotas, consulte [As quotas definidas para os utilizadores.](how-to-configure-student-usage.md#set-quotas-for-users)
+
+### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se o professor se virar contra um estudante VM, isso afeta a quota do aluno? 
+Não. Não é assim. Quando o professor se volta contra o VM do aluno, não afeta a quota atribuída ao aluno. 
 
 ## <a name="schedules"></a>Agendas
 
-### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Todas as VMs no laboratório são iniciadas automaticamente quando uma agenda é definida? 
-Não. Nem todas as VMs. Somente as VMs que são atribuídas aos usuários em um agendamento. Os VMs que não são atribuídos a um utilizador não são automaticamente iniciados. É por design. 
+### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Todos os VMs do laboratório começam automaticamente quando um horário é definido? 
+Não. Nem todos os VMs. Apenas os VMs que são atribuídos aos utilizadores em horário. Os VMs que não são atribuídos a um utilizador não são automaticamente iniciados. É por desígnio. 
 
 ## <a name="lab-accounts"></a>Contas de laboratório
 
-### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Por que não consigo criar um laboratório devido à indisponibilidade do intervalo de endereços? 
-Os laboratórios de sala de aula podem criar VMs de laboratório dentro de um intervalo de endereços IP especificado ao criar sua conta de laboratório no portal do Azure. Quando um intervalo de endereços é fornecido, cada laboratório criado depois de ser alocado 512 endereços IP para VMs de laboratório. O intervalo de endereços para a conta do laboratório deve ser grande o suficiente para acomodar todos os laboratórios que você pretende criar na conta do laboratório. 
+### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Por que não sou capaz de criar um laboratório por causa da indisponibilidade do endereço? 
+Os laboratórios de sala de aula podem criar VMs de laboratório dentro de um intervalo de endereçoip que especifique ao criar a sua conta de laboratório no portal Azure. Quando uma gama de endereços é fornecida, cada laboratório que é criado depois de ter sido atribuído 512 endereços IP para VMs de laboratório. O intervalo de endereços para a conta de laboratório deve ser grande o suficiente para acomodar todos os laboratórios que pretende criar sob a conta do laboratório. 
 
-Por exemplo, se você tiver um bloco de/19-10.0.0.0/19, esse intervalo de endereços acomoda 8192 endereços IP e 16 laboratórios (8192/512 = 16 laboratórios). Nesse caso, a criação de laboratório falha na criação de 17 laboratórios.
+Por exemplo, se tiver um bloco de /19 - 10.0.0.0.0/19, esta gama de endereços acomoda 8192 endereços IP e 16 laboratórios (8192/512 = 16 laboratórios). Neste caso, a criação de laboratório falha na criação do 17º laboratório.
 
-### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quais intervalos de porta devo abrir na configuração de firewall da minha organização para se conectar a máquinas virtuais de laboratório via RDP/SSH?
+### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Que portas devo abrir na firewall da minha organização para ligar às máquinas virtuais do Laboratório via RDP/SSH?
 
-As portas são: 49152 – 65535. Os laboratórios de sala de aula ficam atrás de um balanceador de carga, portanto, todas as máquinas virtuais em um laboratório têm um único endereço IP e cada máquina virtual no laboratório tem uma porta exclusiva. Os números de porta e o endereço IP público podem ser alterados toda vez que o laboratório for republicado.
+Os portos são: 49152-65535. Os laboratórios da sala de aula sentam-se atrás de um equilibrador de carga. Cada laboratório tem um único endereço IP público e cada máquina virtual no laboratório tem uma porta única. 
 
-### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Qual intervalo de endereços IP públicos devo abrir nas configurações de firewall da minha organização para se conectar às máquinas virtuais do laboratório via RDP/SSH?
-Consulte [as gamas e etiquetas de serviço Azure IP — Public Cloud,](https://www.microsoft.com/download/details.aspx?id=56519)que fornece a gama pública de endereços IP para centros de dados em Azure. Você pode abrir os endereços IP para as regiões nas quais suas contas de laboratório estão.
+Você também pode ver o endereço IP privado de cada máquina virtual no separador de piscina de **máquinavirtual** da página inicial para laboratório no portal Azure. Se publicar um laboratório, o endereço IP público do laboratório não mudará, mas o IP privado e o número de porta de cada máquina virtual no laboratório podem mudar. Pode saber mais no artigo: [Definições de Firewall para Serviços de Laboratório Azure](how-to-configure-firewall-settings.md).
+
+### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Que gama de endereços IP públicos devo abrir nas definições de firewall da minha organização para ligar às máquinas virtuais do Laboratório via RDP/SSH?
+Consulte [as gamas e etiquetas de serviço Azure IP — Public Cloud,](https://www.microsoft.com/download/details.aspx?id=56519)que fornece a gama pública de endereços IP para centros de dados em Azure. Pode abrir os endereços IP para as regiões onde estão as suas contas de laboratório.
 
 ## <a name="virtual-machine-images"></a>Imagens de máquinas virtuais
 
@@ -55,8 +60,8 @@ Quando um administrador te adiciona como criador de laboratório a uma conta de 
 
 ## <a name="users"></a>Utilizadores
 
-### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Quantos usuários podem estar em um laboratório de sala de aula?
-Você pode adicionar até 400 usuários a um laboratório de sala de aula. 
+### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Quantos utilizadores podem estar num laboratório de sala de aula?
+Pode adicionar 400 utilizadores a um laboratório de sala de aula. 
 
 ## <a name="blog-post"></a>Post de blog
 Subscreva o [blog Azure Lab Services.](https://azure.microsoft.com/blog/tag/azure-lab-services/)

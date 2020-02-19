@@ -36,7 +36,7 @@ As encadernações de armazenamento de mesa são fornecidas no [microsoft.Azure.
 
 Utilize o encadernação de entrada de armazenamento da mesa Azure para ler uma tabela numa conta de Armazenamento Azure.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="one-entity"></a>Uma entidade
 
@@ -143,7 +143,7 @@ Para mais informações sobre como utilizar o CloudTable, consulte [Iniciar-se c
 
 Se tentar ligar-se a `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 ### <a name="one-entity"></a>Uma entidade
 
@@ -310,7 +310,7 @@ Para mais informações sobre como utilizar o CloudTable, consulte [Iniciar-se c
 Se tentar ligar-se a `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo seguinte mostra uma ligação de entrada de mesa num ficheiro *function.json* e [código JavaScript](functions-reference-node.md) que utiliza a ligação. A função utiliza um gatilho de fila para ler uma única linha de mesa. 
 
@@ -352,7 +352,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Fila de mesa única 
 
@@ -401,7 +401,7 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O exemplo seguinte mostra uma função ativada http que devolve a contagem total dos itens numa divisória especificada no armazenamento da mesa.
 
@@ -423,7 +423,7 @@ public int run(
 
 ## <a name="input---attributes-and-annotations"></a>Entrada-atributos e anotações
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
  Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize os seguintes atributos para configurar uma ligação de entrada de tabela:
 
@@ -481,19 +481,19 @@ A conta de armazenamento a utilizar é determinada na seguinte ordem:
 * O atributo `StorageAccount` aplicado à classe.
 * A conta de armazenamento padrão para a aplicação de função (definição de aplicação "AzureWebJobsStorage").
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 Os atributos C# não são suportados pelo Script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Na [biblioteca de tempo de funcionamento das funções java,](/java/api/overview/azure/functions/runtime)utilize a anotação `@TableInput` em parâmetros cujo valor viria do armazenamento da mesa.  Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores nuníveis usando `Optional<T>`.
 
@@ -519,7 +519,7 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 ## <a name="input---usage"></a>Introdução - utilização
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 * **Leia uma linha em**
 
@@ -532,7 +532,7 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
   > [!NOTE]
   > `IQueryable` não é suportado nas [funções v2](functions-versions.md)tempo de funcionamento. Uma alternativa é usar um parâmetro de parâmetro [CloudTable para](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) ler a tabela utilizando o SDK de Armazenamento Azure. Se tentar ligar-se a `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 * **Leia uma linha em**
 
@@ -545,15 +545,15 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
   > [!NOTE]
   > `IQueryable` não é suportado nas [funções v2](functions-versions.md)tempo de funcionamento. Uma alternativa é usar um parâmetro de parâmetro [CloudTable para](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) ler a tabela utilizando o SDK de Armazenamento Azure. Se tentar ligar-se a `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Detete as propriedades `filter` e `take`. Não `partitionKey` ou `rowKey`. Aceda à entidade da tabela de entrada (ou entidades) utilizando `context.bindings.<BINDING_NAME>`. Os objetos desserializados têm propriedades `RowKey` e `PartitionKey`.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Os dados da tabela são transmitidos para a função como uma cadeia JSON. Desserialize a mensagem chamando `json.loads` como mostrado no [exemplo](#input)da entrada .
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O atributo [tableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) dá-lhe acesso à linha da mesa que desencadeou a função.
 
@@ -566,7 +566,7 @@ Utilize uma ligação de saída de armazenamento de mesa Azure para escrever ent
 > [!NOTE]
 > Esta ligação de saída não suporta a atualização das entidades existentes. Utilize a operação `TableOperation.Replace` [a partir do Azure Storage SDK](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) para atualizar uma entidade existente.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [ C# função](functions-dotnet-class-library.md) que usa um gatilho HTTP para escrever uma única linha de mesa. 
 
@@ -590,7 +590,7 @@ public class TableStorage
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 O exemplo seguinte mostra uma ligação de saída [ C# ](functions-reference-csharp.md) de tabela num ficheiro *function.json* e código script que utiliza a ligação. A função escreve várias entidades de tabela.
 
@@ -645,7 +645,7 @@ public class Person
 
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo seguinte mostra uma ligação de saída de tabela num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve várias entidades de tabela.
 
@@ -692,7 +692,7 @@ module.exports = function (context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 O exemplo que se segue demonstra como utilizar a ligação de saída de armazenamento da tabela. A ligação `table` é configurada na *função.json* atribuindo valores a `name`, `tableName`, `partitionKey`e `connection`:
 
@@ -751,7 +751,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O exemplo seguinte mostra uma função Java que usa um gatilho HTTP para escrever uma única linha de mesa.
 
@@ -831,7 +831,7 @@ public class AddPersons {
 
 ## <a name="output---attributes-and-annotations"></a>Saída-atributos e anotações
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize o [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
@@ -865,19 +865,19 @@ Para um exemplo completo, consulte [A Saída - C# exemplo](#output).
 
 Pode utilizar o atributo `StorageAccount` para especificar a conta de armazenamento na classe, método ou nível de parâmetro. Para mais informações, consulte [Input - atributos](#input---attributes-and-annotations).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 Os atributos C# não são suportados pelo Script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Na [biblioteca de tempo de funcionamento das funções Java,](/java/api/overview/azure/functions/runtime)utilize a anotação [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) em parâmetros para escrever valores em armazenamento de mesa.
 
@@ -903,23 +903,23 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 ## <a name="output---usage"></a>Saída - utilização
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Aceda à entidade da tabela de saída utilizando um metómetro `ICollector<T> paramName` ou `IAsyncCollector<T> paramName` onde `T` inclui as propriedades `PartitionKey` e `RowKey`. Estas propriedades são frequentemente acompanhadas pela implementação de `ITableEntity` ou herdando `TableEntity`.
 
 Em alternativa, pode utilizar um parâmetro de método `CloudTable` para escrever à mesa utilizando o SDK de Armazenamento Azure. Se tentar ligar-se a `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 Aceda à entidade da tabela de saída utilizando um metómetro `ICollector<T> paramName` ou `IAsyncCollector<T> paramName` onde `T` inclui as propriedades `PartitionKey` e `RowKey`. Estas propriedades são frequentemente acompanhadas pela implementação de `ITableEntity` ou herdando `TableEntity`. O valor `paramName` é especificado na propriedade `name` *função.json*.
 
 Em alternativa, pode utilizar um parâmetro de método `CloudTable` para escrever à mesa utilizando o SDK de Armazenamento Azure. Se tentar ligar-se a `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Aceda ao evento de saída utilizando `context.bindings.<name>` onde `<name>` é o valor especificado na propriedade `name` *função.json*.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Existem duas opções para colocar uma mensagem de linha de armazenamento de tabela a partir de uma função:
 
@@ -927,7 +927,7 @@ Existem duas opções para colocar uma mensagem de linha de armazenamento de tab
 
 - **Imperativo**: Passe um valor para o método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado para `set` é perinendo como uma mensagem do Event Hub.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Existem duas opções para eliminar uma linha de armazenamento de tabela sacar de uma função utilizando a anotação [TableStorageOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet)
 

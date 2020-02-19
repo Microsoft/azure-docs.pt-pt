@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 21a11863bd2bc9882d4336f5c5d2bf1d7b7f49da
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133773"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444099"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural usando serviços de laboratório azure
 Este artigo mostra-lhe como criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural (NLP) usando os Serviços de Laboratório Azure. O processamento de linguagem natural (NLP) é uma forma de inteligência artificial (IA) que permite computadores com capacidades de tradução, reconhecimento de fala e outras capacidades de compreensão linguística.  
@@ -32,7 +32,7 @@ Depois de criar a conta de laboratório, ative as seguintes definições na cont
 
 | Definição de conta de laboratório | Instruções |
 | ----------- | ------------ |  
-| Imagens do mercado | Ative a imagem da Máquina Virtual de Ciência de Dados para linux (Ubuntu) para utilização na sua conta de laboratório.  Consulte os seguintes artigos para obter instruções: [Especifique as imagens](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators)do mercado disponíveis para os criadores de laboratório . | 
+| Imagens do mercado | Ative a imagem da Máquina Virtual de Ciência de Dados para linux (Ubuntu) para utilização na sua conta de laboratório.  Consulte o seguinte artigo para obter instruções: [Especifique as imagens](specify-marketplace-images.md)do mercado disponíveis para os criadores de laboratório . | 
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e aplique as seguintes definições:
 

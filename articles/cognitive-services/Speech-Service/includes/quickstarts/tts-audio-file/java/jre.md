@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: e1ea2a90d8eaf26d514457fbf7d4b08f9204dad3
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 2de8ddbe260fbc68ecddaf00330880116edaf82d
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77155977"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445767"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,8 +47,7 @@ ms.locfileid: "77155977"
                // Replace below with your own subscription key
                String speechSubscriptionKey = "YourSubscriptionKey";
 
-               // Replace below with your own service region (e.g., "westus", use the one of SpeechSDKParameters
-               // from here: https://aka.ms/speech/sdkregion).               
+               // Replace below with your own region identifier from here: https://aka.ms/speech/sdkregion
                String serviceRegion = "YourServiceRegion";
 
                // Replace below with your own filename.
