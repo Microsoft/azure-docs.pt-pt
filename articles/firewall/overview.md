@@ -6,19 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/28/2020
+ms.date: 02/18/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b19d8f26795dadb14f00aadd86ba99ae664b1a76
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6a045a55772d1d9266663571fc2ecc6911aa5125
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76764950"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442893"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
-O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. É uma firewall com total monitoração de estado como um serviço com elevada disponibilidade incorporada e escalabilidade da cloud sem restrições.
+O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. É uma firewall totalmente audabilizada como um serviço com alta disponibilidade incorporada e escalabilidade de nuvens sem restrições.
 
 ![Descrição geral das firewalls](media/overview/firewall-threat.png)
 
@@ -28,22 +28,22 @@ O Azure Firewall oferece as seguintes funcionalidades:
 
 ## <a name="built-in-high-availability"></a>Elevada disponibilidade incorporada
 
-A alta disponibilidade é interna, portanto, nenhum balanceador de carga adicional é necessário e não há nada que você precise configurar.
+A alta disponibilidade está incorporada, por isso não são necessários equilibradores de carga adicionais e não há nada que precises de configurar.
 
 ## <a name="availability-zones"></a>Zonas de Disponibilidade
 
-O Firewall do Azure pode ser configurado durante a implantação para abranger vários Zonas de Disponibilidade para aumentar a disponibilidade. Com As Zonas de Disponibilidade, a sua disponibilidade aumenta para 99,99% de tempo de uptime. Para obter mais informações, consulte o Contrato de Nível de Serviço de firewall do Azure [(SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). O SLA de 99,99% é oferecido quando duas ou mais Zonas de Disponibilidade são selecionadas.
+O Firewall Azure pode ser configurado durante a implementação para abranger várias Zonas de Disponibilidade para maior disponibilidade. Com As Zonas de Disponibilidade, a sua disponibilidade aumenta para 99,99% de tempo de uptime. Para mais informações, consulte o Acordo de Nível de Serviço de Firewall Azure [(SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). O SLA de 99,99% é oferecido quando duas ou mais Zonas de Disponibilidade são selecionadas.
 
 Também pode associar o Azure Firewall a uma zona específica apenas por razões de proximidade, utilizando o padrão de serviço 99.95% SLA.
 
-Não há nenhum custo adicional para um firewall implantado em uma zona de disponibilidade. No entanto, há custos adicionais para transferências de dados de entrada e saída associadas a Zonas de Disponibilidade. Para obter mais informações, consulte [detalhes de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+Não há custos adicionais para uma firewall implantada numa Zona de Disponibilidade. No entanto, existem custos adicionais para transferências de dados de entrada e saída associadas às Zonas de Disponibilidade. Para mais informações, consulte os detalhes dos [preços da Largura de Banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Os Zonas de Disponibilidade de firewall do Azure estão disponíveis em regiões que dão suporte a Zonas de Disponibilidade. Para obter mais informações, consulte [o que são zonas de disponibilidade no Azure?](../availability-zones/az-overview.md#services-support-by-region)
+As Zonas de Disponibilidade de Firewall Azure estão disponíveis em regiões que suportam zonas de disponibilidade. Para mais informações, consulte [O que são Zonas de Disponibilidade em Azure?](../availability-zones/az-overview.md#services-support-by-region)
 
 > [!NOTE]
-> Zonas de Disponibilidade só pode ser configurado durante a implantação. Você não pode configurar um firewall existente para incluir Zonas de Disponibilidade.
+> As Zonas de Disponibilidade só podem ser configuradas durante a implantação. Não é possível configurar uma firewall existente para incluir Zonas de Disponibilidade.
 
-Para obter mais informações sobre Zonas de Disponibilidade, consulte [o que são zonas de disponibilidade no Azure?](../availability-zones/az-overview.md)
+Para mais informações sobre As Zonas de Disponibilidade, consulte [As Zonas de Disponibilidade em Azure?](../availability-zones/az-overview.md)
 
 ## <a name="unrestricted-cloud-scalability"></a>Escalabilidade da cloud sem restrições
 
@@ -51,7 +51,7 @@ O Azure Firewall pode aumentar verticalmente conforme as suas necessidades para 
 
 ## <a name="application-fqdn-filtering-rules"></a>Regras de filtragem de FQDN de aplicação
 
-Você pode limitar o tráfego de HTTP/S de saída ou o tráfego SQL do Azure (versão prévia) a uma lista especificada de FQDN (nomes de domínio totalmente qualificados), incluindo curingas. Esse recurso não requer terminação SSL.
+Pode limitar o tráfego DE saída HTTP/S ou o tráfego Azure SQL (pré-visualização) a uma lista especificada de nomes de domínio totalmente qualificados (FQDN), incluindo cartões selvagens. Esta funcionalidade não requer a rescisão do SSL.
 
 ## <a name="network-traffic-filtering-rules"></a>Regras de filtragem de tráfego de rede
 
@@ -63,36 +63,38 @@ As etiquetas FQDN facilitam a permissão do tráfego de rede bem conhecido do se
 
 ## <a name="service-tags"></a>Etiquetas de serviço
 
-As etiquetas de serviço representam um grupo de prefixos de endereços IP, que ajudam a minimizar a complexidade da criação de regras de segurança. Você não pode criar sua própria marca de serviço nem especificar quais endereços IP estão incluídos em uma marca. A Microsoft gere os prefixos de endereços que as etiquetas abrangem e atualiza-as automaticamente à medida que os endereços são alterados.
+As etiquetas de serviço representam um grupo de prefixos de endereços IP, que ajudam a minimizar a complexidade da criação de regras de segurança. Não pode criar a sua própria etiqueta de serviço, nem especificar quais os endereços IP incluídos dentro de uma etiqueta. A Microsoft gere os prefixos de endereços que as etiquetas abrangem e atualiza-as automaticamente à medida que os endereços são alterados.
 
 ## <a name="threat-intelligence"></a>Informações sobre ameaças
 
-A filtragem com base em informações sobre ameaças pode ser ativada para que a sua firewall alerte e negue tráfego de/para endereços e domínios de IP maliciosos. Os endereços e domínios de IP são obtidos no feed de Informações sobre Ameaças da Microsoft.
+A filtragem baseada em informações de ameaça pode ser ativada para que a sua firewall alerte e negue tráfego de/para endereços e domínios IP maliciosos conhecidos. Os endereços e domínios IP são obtidos a partir do feed da Microsoft Threat Intelligence.
 
 ## <a name="outbound-snat-support"></a>Suporte SNAT de saída
 
-Todos os endereços IP de tráfego de rede virtual de saída são convertidos no IP público do Azure Firewall (Tradução de Endereços de Rede de Origem). Pode identificar e permitir tráfego com origem na sua rede virtual para destinos de Internet remotos. O Firewall do Azure não SNAT quando o IP de destino é um intervalo de IP privado por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se sua organização usa um intervalo de endereços IP públicos para redes privadas, o Firewall do Azure irá SNAT o tráfego para um dos endereços IP privados do firewall em AzureFirewallSubnet.
+Todos os endereços IP de tráfego de rede virtual de saída são convertidos no IP público do Azure Firewall (Tradução de Endereços de Rede de Origem). Pode identificar e permitir tráfego com origem na sua rede virtual para destinos de Internet remotos. O Azure Firewall não snaT quando o IP de destino é uma gama ip privada por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
+
+Se a sua organização utilizar uma gama pública de endereços IP para redes privadas, o Azure Firewall irá snat o tráfego para um dos endereços IP privados firewall em AzureFirewallSubnet. Pode configurar o Azure Firewall para **não** sNAT a sua gama pública de endereços IP. Para mais informações, consulte as gamas de [endereços IP privados Azure Firewall SNAT](snat-private-range.md).
 
 ## <a name="inbound-dnat-support"></a>Suporte DNAT de entrada
 
 O tráfego de rede de entrada para o seu endereço IP público do firewall é traduzido (Tradução de Endereços de Rede de Destino) e filtrado para os endereços IP privados nas suas redes virtuais.
 
-## <a name="multiple-public-ip-addresses"></a>Vários endereços IP públicos
+## <a name="multiple-public-ip-addresses"></a>Múltiplos endereços IP públicos
 
-Você pode associar vários endereços IP públicos (até 100) ao firewall.
+Pode associar vários endereços IP públicos (até 100) com a sua firewall.
 
-Isso habilita os seguintes cenários:
+Isto permite os seguintes cenários:
 
-- **DNAT** – você pode converter várias instâncias de porta padrão em seus servidores de back-end. Por exemplo, se você tiver dois endereços IP públicos, poderá converter a porta TCP 3389 (RDP) para ambos os endereços IP.
-- **SNAT** -portas adicionais estão disponíveis para conexões SNAT de saída, reduzindo o potencial para esgotamento de porta SNAT. Neste momento, o Firewall do Azure seleciona aleatoriamente o endereço IP público de origem a ser usado para uma conexão. Se você tiver alguma filtragem downstream em sua rede, será necessário permitir todos os endereços IP públicos associados ao firewall.
+- **DNAT** - Pode traduzir várias instâncias de porta padrão para os seus servidores de backend. Por exemplo, se tiver dois endereços IP públicos, pode traduzir a porta TCP 3389 (RDP) para ambos os endereços IP.
+- **SNAT** - Portos adicionais estão disponíveis para ligações SNAT de saída, reduzindo o potencial de exaustão da porta SNAT. Neste momento, o Azure Firewall seleciona aleatoriamente o endereço IP público de origem para utilizar para uma ligação. Se tiver alguma filtragem a jusante na sua rede, tem de permitir todos os endereços IP públicos associados à sua firewall.
 
 ## <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 
-Todos os eventos são integrados com o Azure Monitor, permitindo que você arquive logs em uma conta de armazenamento, transmita eventos para o Hub de eventos ou envie-os para Azure Monitor logs.
+Todos os eventos estão integrados com o Monitor Azure, permitindo-lhe arquivar registos numa conta de armazenamento, transmitir eventos para o seu Hub de Eventos ou enviá-los para registos do Monitor Azure.
 
 ## <a name="compliance-certifications"></a>Certificações de conformidade
 
-O Firewall do Azure é o setor de cartão de pagamento (PCI), os controles de organização de serviço (SOC) e o Organização Internacional de Normalização (ISO) em conformidade. Para obter mais informações, consulte [certificações de conformidade do firewall do Azure](compliance-certifications.md).
+O Azure Firewall é a Indústria de Cartões de Pagamento (PCI), os Controlos da Organização de Serviços (SOC) e a Organização Internacional para a Normalização (ISO). Para mais informações, consulte as certificações de [conformidade da Firewall Azure.](compliance-certifications.md)
 
 
 ## <a name="known-issues"></a>Problemas conhecidos
@@ -101,18 +103,18 @@ O Azure Firewall tem os seguintes problemas conhecidos:
 
 |Problema  |Descrição  |Mitigação  |
 |---------|---------|---------|
-As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem de rede para protocolos não TCP/UDP não funcionam com SNAT para o seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Estamos explorando opções para dar suporte a esse cenário em uma versão futura.|
-|Suporte do PowerShell e CLI em falta para ICMP|O Azure PowerShell e a CLI não suportam o ICMP como um protocolo válido nas regras de rede.|Ainda é possível usar o ICMP como um protocolo por meio do portal e da API REST. Estamos trabalhando para adicionar o ICMP no PowerShell e na CLI em breve.|
-|As etiquetas FQDN requerem um protocolo: porta a definir|As regras de aplicativo com marcas de FQDN exigem a definição de protocolo Port:.|Pode utilizar **https** como a porta: valor de protocolo. Estamos trabalhando para tornar esse campo opcional quando marcas de FQDN são usadas.|
-|Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente|Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente.|O suporte a essa funcionalidade está em nosso mapa de estrada. Para mover uma firewall para um grupo de recursos ou uma subscrição diferente, tem de eliminar a instância atual e recriá-la no novo grupo de recursos ou subscrição.|
-|Os alertas de inteligência contra ameaças podem ser mascarados|As regras de rede com o destino 80/443 para filtragem de saída mascaram alertas de inteligência contra ameaças quando configuradas para o modo somente alerta.|Criar filtragem de saída para 80/443 usando regras de aplicativo. Ou então, altere o modo de inteligência contra ameaças para **alertar e negar**.|
-|O Firewall do Azure usa o DNS do Azure somente para resolução de nomes|O Firewall do Azure resolve FQDNs usando apenas o DNS do Azure. Não há suporte para um servidor DNS personalizado. Não há nenhum impacto na resolução de DNS em outras sub-redes.|Estamos trabalhando para relaxar essa limitação.|
-|O Firewall do Azure SNAT/DNAT não funciona para destinos de IP privado|O suporte ao firewall do Azure SNAT/DNAT é limitado à saída/entrada na Internet. O SNAT/DNAT não funciona atualmente para destinos IP privados. Por exemplo, spoke para spoke.|Essa é uma limitação atual.|
-|Não é possível remover a primeira configuração de IP público|Cada endereço IP público do firewall do Azure é atribuído a uma *configuração de IP*.  A primeira configuração de IP é atribuída durante a implantação do firewall e normalmente também contém uma referência à sub-rede do firewall (a menos que seja configurada explicitamente de forma diferente por meio de uma implantação de modelo). Não é possível excluir essa configuração de IP porque ela desalocaria o firewall. Você ainda poderá alterar ou remover o endereço IP público associado a essa configuração de IP se o firewall tiver pelo menos um outro endereço IP público disponível para uso.|Esta ação é propositada.|
-|As zonas de disponibilidade só podem ser configuradas durante a implantação.|As zonas de disponibilidade só podem ser configuradas durante a implantação. Não é possível configurar Zonas de Disponibilidade após a implantação de um firewall.|Esta ação é propositada.|
-|SNAT em conexões de entrada|Além de DNAT, as conexões por meio do endereço IP público do firewall (entrada) são no modo SNAT para um dos IPs privados do firewall. Esse requisito hoje (também para NVAs ativo/ativo) para garantir o roteamento simétrico.|Para preservar a fonte original para HTTP/S, considere o uso de cabeçalhos [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) . Por exemplo, use um serviço como a [porta frontal do Azure](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) ou [aplicativo Azure gateway](../application-gateway/rewrite-http-headers.md) na frente do firewall. Você também pode adicionar WAF como parte da porta frontal do Azure e cadeia ao firewall.
-|Suporte à filtragem de FQDN do SQL somente no modo proxy (porta 1433)|Para o banco de dados SQL do Azure, o Azure SQL Data Warehouse e o Azure SQL Instância Gerenciada:<br><br>Durante a visualização, a filtragem de FQDN do SQL tem suporte somente no modo proxy (porta 1433).<br><br>Para IaaS do Azure SQL:<br><br>Se você estiver usando portas não padrão, poderá especificar essas portas nas regras de aplicativo.|Para SQL no modo de redirecionamento, que é o padrão se estiver se conectando de dentro do Azure, você pode filtrar o acesso usando a marca de serviço do SQL como parte das regras de rede do firewall do Azure.
-|O tráfego de saída na porta TCP 25 não é permitido| As conexões SMTP de saída que usam a porta TCP 25 são bloqueadas. A porta 25 é usada principalmente para entrega de email não autenticado. Esse é o comportamento de plataforma padrão para máquinas virtuais. Para obter mais informações, consulte mais problemas [de conectividade SMTP de saída no Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). No entanto, ao contrário das máquinas virtuais, atualmente, não é possível habilitar essa funcionalidade no firewall do Azure.|Siga o método recomendado para enviar email conforme documentado no artigo solução de problemas de SMTP. Como alternativa, exclua a máquina virtual que precisa de acesso SMTP de saída da rota padrão para o firewall e, em vez disso, configure o acesso de saída diretamente à Internet.
+As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem de rede para protocolos não TCP/UDP não funcionam com SNAT para o seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Estamos a explorar opções para apoiar este cenário num futuro lançamento.|
+|Suporte do PowerShell e CLI em falta para ICMP|O Azure PowerShell e a CLI não suportam o ICMP como um protocolo válido nas regras de rede.|Ainda é possível usar o ICMP como protocolo através do portal e da API REST. Estamos a trabalhar para adicionar iCMP em PowerShell e CLI em breve.|
+|As etiquetas FQDN requerem um protocolo: porta a definir|As regras de aplicação com etiquetas FQDN requerem a definição de porta: protocolo.|Pode utilizar **https** como a porta: valor de protocolo. Estamos a trabalhar para tornar este campo opcional quando as etiquetas FQDN são usadas.|
+|Mover uma firewall para um grupo de recursos diferente ou subscrição não é suportado|Mover uma firewall para um grupo de recursos diferente ou subscrição não é suportado.|O suporte a esta funcionalidade está no nosso roteiro. Para mover uma firewall para um grupo de recursos ou uma subscrição diferente, tem de eliminar a instância atual e recriá-la no novo grupo de recursos ou subscrição.|
+|Alertas de inteligência de ameaça podem ser mascarados|Regras de rede com o destino 80/443 para filtrar máscaras de saída alertas de inteligência ameaça quando configurados para alertar apenas o modo.|Crie filtragem de saída para 80/443 utilizando as regras de aplicação. Ou mudar o modo de inteligência de ameaça para **Alertar e Negar.**|
+|Azure Firewall usa DNS Azure apenas para resolução de nomes|A Firewall Azure resolve os FQDNs usando apenas dNS azure. Um servidor DNS personalizado não é suportado. Não há impacto na resolução do DNS noutras subredes.|Estamos a trabalhar para relaxar esta limitação.|
+|Azure Firewall SNAT/DNAT não funciona para destinos IP privados|O suporte Azure Firewall SNAT/DNAT está limitado à saída/entrada da Internet. O SNAT/DNAT não funciona atualmente para destinos IP privados. Por exemplo, falei com a fala.|Esta é uma limitação atual.|
+|Não pode remover a primeira configuração ip pública|Cada endereço IP público da Firewall Azure é atribuído a uma *configuração IP*.  A primeira configuração IP é atribuída durante a implementação da firewall, e normalmente também contém uma referência à sub-rede de firewall (a menos que configurada explicitamente de forma diferente através de uma implementação do modelo). Não é possível eliminar esta configuração IP porque iria desalocar a firewall. Ainda pode alterar ou remover o endereço IP público associado a esta configuração IP se a firewall tiver pelo menos um outro endereço IP público disponível para usar.|Esta ação é propositada.|
+|As zonas de disponibilidade só podem ser configuradas durante a implantação.|As zonas de disponibilidade só podem ser configuradas durante a implantação. Não é possível configurar zonas de disponibilidade depois de uma firewall ter sido implantada.|Esta ação é propositada.|
+|SNAT em ligações de entrada|Além do DNAT, as ligações através do endereço IP público firewall (entrada) são SNATed para um dos IPs privados firewall. Este requisito hoje (também para NVAs Ativos/Ativos) para garantir o encaminhamento simétrico.|Para preservar a fonte original para HTTP/S, considere usar cabeçalhos [XFF.](https://en.wikipedia.org/wiki/X-Forwarded-For) Por exemplo, utilize um serviço como [a Porta Frontal Azure](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) ou o Portal de [Aplicações Azure](../application-gateway/rewrite-http-headers.md) em frente à firewall. Também pode adicionar WAF como parte da Porta Frontal Azure e corrente à firewall.
+|Suporte de filtragem SQL FQDN apenas em modo proxy (porta 1433)|Para base de dados Azure SQL, Azure SQL Data Warehouse e Azure SQL Managed Instance:<br><br>Durante a pré-visualização, a filtragem SQL FQDN é suportada apenas no modo proxy (porta 1433).<br><br>Para Azure SQL IaaS:<br><br>Se estiver a utilizar portas não standard, pode especificar essas portas nas regras de aplicação.|Para o SQL no modo de redirecionamento, que é o padrão se ligar a partir do Azure, pode, em vez disso, filtrar o acesso utilizando a etiqueta de serviço SQL como parte das regras de rede Azure Firewall.
+|Tráfego de saída na porta 25 da TCP não é permitido| As ligações SMTP de saída que utilizam a porta TCP 25 estão bloqueadas. A porta 25 é usada principalmente para entrega de e-mail não autenticada. Este é o comportamento padrão da plataforma para máquinas virtuais. Para mais informações, consulte mais problemas de [conectividade SMTP em Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). No entanto, ao contrário das máquinas virtuais, não é atualmente possível ativar esta funcionalidade no Azure Firewall.|Siga o método recomendado para enviar e-mail conforme documentado no artigo de resolução de problemas da SMTP. Em alternativa, exclua a máquina virtual que necessita de acesso SMTP de saída da sua rota padrão para a firewall e, em vez disso, configure o acesso de saída diretamente à Internet.
 |FtP ativo não é suportado|O FTP ativo é desativado no Azure Firewall para proteger contra ataques ftp bounce usando o comando FTP PORT.|Em vez disso, pode utilizar ftp passivo. Ainda deve abrir explicitamente as portas TCP 20 e 21 na firewall.
 
 ## <a name="next-steps"></a>Passos seguintes

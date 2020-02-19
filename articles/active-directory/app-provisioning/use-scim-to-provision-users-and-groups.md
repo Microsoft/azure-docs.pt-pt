@@ -1,6 +1,6 @@
 ---
-title: Construa um ponto final do SCIM para o fornecimento de utilizadores a apps da Azure AD
-description: Aprenda a construir um ponto final do SCIM, integre o seu SCIM API com o Diretório Ativo Azure e comece a automatizar utilizadores e grupos nas suas aplicações na nuvem.
+title: Desenvolver um ponto final do SCIM para o fornecimento de utilizadores a apps da Azure AD
+description: O sistema de gestão de identidade de domínio transversal (SCIM) normaliza o fornecimento automático de utilizadores. Aprenda a desenvolver um ponto final do SCIM, integre o seu SCIM API com o Diretório Ativo Azure e comece a automatizar utilizadores e grupos de aprovisionamento nas suas aplicações na nuvem.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 02/18/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d891dfcc2a37489953724ce22e0e0422d512ff
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 30f8111e1d8c9bd76e7b55dd958256f8892b9058
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368212"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442025"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
 
@@ -49,15 +49,53 @@ Automatizar o fornecimento a uma aplicação requer a construção e a integraç
 
 ## <a name="step-1-design-your-user-and-group-schema"></a>Passo 1: Desenhe o seu utilizador e o seu esquema de grupo
 
-Cada aplicação requer diferentes atributos para criar um utilizador ou grupo. Inicie a sua integração identificando os objetos (utilizadores, grupos) e atributos (nome, gestor, título de trabalho, etc.) que a sua aplicação necessita. Em seguida, pode utilizar a tabela abaixo para entender como os atributos que a sua aplicação requer podem mapear para um atributo em Azure AD e no SCIM RFC. Note que pode [personalizar](customize-application-attributes.md) como os atributos são mapeados entre o Azure AD e o seu ponto final SCIM. 
+Cada aplicação requer diferentes atributos para criar um utilizador ou grupo. Inicie a sua integração identificando os objetos (utilizadores, grupos) e atributos (nome, gestor, título de trabalho, etc.) que a sua aplicação necessita. A norma SCIM define um esquema para gerir utilizadores e grupos. O esquema principal do utilizador requer apenas três atributos: **id** (identificador definido pelo prestador de serviços), **id externo** (identificador definido pelo cliente) e **meta** (metaapenas de leitura mantido pelo prestador de serviços). Todos os outros atributos são opcionais. Além do esquema principal do utilizador, a norma SCIM define uma extensão de utilizador empresarial e um modelo para alargar o esquema do utilizador para satisfazer as necessidades da sua aplicação. Se, por exemplo, a sua aplicação necessitar do gestor de um utilizador, pode utilizar o esquema do utilizador da empresa para recolher o gestor do utilizador e o esquema principal para recolher o e-mail do utilizador. Para desenhar o seu esquema, siga os passos abaixo:
+  1. Enumera rindo os atributos que a sua aplicação requer. Pode ser útil decompor os seus requisitos nos atributos necessários para a autenticação (por exemplo, loginName e e-mail), atributos necessários para gerir o ciclo de vida do utilizador (por exemplo, estado/ativo), e outros atributos necessários para que a sua aplicação específica funcione (por exemplo, gestor, etiqueta).
+  2. Verifique se esses atributos já estão definidos no esquema principal do utilizador ou no esquema do utilizador da empresa. Se precisar de quaisquer atributos de que necessita e não estiver coberto no núcleo ou no utilizador da empresa, terá de definir uma extensão ao esquema do utilizador que cubra os atributos de que necessita. No exemplo abaixo, adicionámos uma extensão ao utilizador para permitir o fornecimento de uma "etiqueta" num utilizador. É melhor começar com apenas o núcleo e os schemas de utilizador da empresa e expandir-se para schemas personalizados adicionais mais tarde.  
+  3. Mapeie os atributos SCIM aos atributos do utilizador em Azure AD. Se um dos atributos que definiu no seu ponto final do SCIM não tiver uma contrapartida clara no esquema de utilizador da AD Azure, há uma boa hipótese de os dados não serem armazenados no objeto do utilizador na maioria dos inquilinos. Considere se este atributo pode ser opcional para a criação de um utilizador. Se o atributo for fundamental para a sua candidatura funcionar, guie o administrador do inquilino para estender o seu esquema ou utilize um atributo de extensão, como mostrado abaixo para a propriedade "tags".
 
-Os recursos do utilizador são identificados pelo identificador de esquemas, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, que está incluído nesta especificação do protocolo: https://tools.ietf.org/html/rfc7643.  O mapeamento padrão dos atributos dos utilizadores em AD Azure aos atributos dos recursos do utilizador é fornecido no Quadro 1.  
+### <a name="table-1-outline-the-attributes-that-you-need"></a>Quadro 1: Delineie os atributos de que precisa 
+| Passo 1: Determinar atribui a sua aplicação| Passo 2: Requisitos de aplicações de mapas para padrão SCIM| Passo 3: Mapa SCIM atribui aos atributos Da AD Azure|
+|--|--|--|
+|loginName|userName|userPrincipalName|
+|firstName|name.givenName|givenName|
+|lastName|nome.lastName|lastName|
+|workMail|E-mails[tipo eq "work"].value|Correio|
+|Manager|Manager|Manager|
+|tag|urn:ietf:params:scim:schemas:extensão:2.0:CustomExtension:tag|extensãoAtribuir1|
+|status|ativo|isSoftDeleted (valor computorizado não armazenado no utilizador)|
 
-Os recursos do grupo são identificados pelo identificador de esquemas, `urn:ietf:params:scim:schemas:core:2.0:Group`. O quadro 2 mostra o mapeamento padrão dos atributos dos grupos em Azure AD aos atributos dos recursos do grupo.
+O esquema acima definido seria representado utilizando a carga útil Json abaixo. Note que além dos atributos necessários para a aplicação, a representação jSON inclui os atributos "id", "externalId" e "meta" necessários.
 
-Note que não precisa de suportar tanto utilizadores como grupos ou todos os atributos abaixo mostrados. São uma referência para a forma como os atributos em Azure AD são frequentemente mapeados para propriedades no protocolo SCIM.  
+```json
+{
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "Manager": "123456"
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "tag": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ ```
 
-### <a name="table-1-default-user-attribute-mapping"></a>1 de tabela: Mapeamento do atributo de utilizador de padrão
+### <a name="table-2-default-user-attribute-mapping"></a>Quadro 2: Mapeamento predefinido do utilizador
+Em seguida, pode utilizar a tabela abaixo para entender como os atributos que a sua aplicação requer podem mapear para um atributo em Azure AD e no SCIM RFC. Pode [personalizar](customize-application-attributes.md) como os atributos são mapeados entre o Azure AD e o seu ponto final sCIM. Note que não precisa de suportar tanto utilizadores como grupos ou todos os atributos abaixo mostrados. São uma referência para a forma como os atributos em Azure AD são frequentemente mapeados para propriedades no protocolo SCIM. 
 
 | Utilizador do Active Directory do Azure | "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
@@ -81,7 +119,7 @@ Note que não precisa de suportar tanto utilizadores como grupos ou todos os atr
 | utilizador PrincipalName |userName |
 
 
-### <a name="table-2-default-group-attribute-mapping"></a>Tabela 2: Mapeamento do atributo de grupo de padrão
+### <a name="table-3-default-group-attribute-mapping"></a>Quadro 3: Mapeamento de atributo de grupo padrão
 
 | Grupo do Azure Active Directory | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
@@ -91,6 +129,19 @@ Note que não precisa de suportar tanto utilizadores como grupos ou todos os atr
 | membros |membros |
 | objectId |externalId |
 | proxyAddresses |e-mails de [tipo é igual a "other"]. Valor |
+
+Existem vários pontos finais definidos no RFC SCIM. Pode começar com o ponto final /Utilizador e depois expandir a partir daí. O ponto final /Schemas é útil quando se utilizam atributos personalizados ou se o seu esquema muda frequentemente. Permite que um cliente recupere automaticamente o esquema mais atualizado. O ponto final /Granel é especialmente útil quando se apoiam grupos. O quadro abaixo descreve os vários pontos finais definidos na norma SCIM. O ponto final /Schemas é útil quando se utilizam atributos personalizados ou se o seu esquema muda frequentemente. Permite que um cliente recupere automaticamente o esquema mais atualizado. O ponto final /Granel é especialmente útil quando se apoiam grupos. O quadro abaixo descreve os vários pontos finais definidos na norma SCIM. 
+ 
+### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Quadro 4: Determine os pontos finais que gostaria de desenvolver
+|PONTO FINAL|DESCRIÇÃO|
+|--|--|
+|/Utilizador|Execute operações CRUD num objeto de utilizador.|
+|/Group|Execute operações crud num objeto de grupo.|
+|/ServiceProviderConfig|Fornece detalhes sobre as características da norma SCIM que são suportadas, por exemplo, os recursos que são suportados e o método de autenticação.|
+|/Tipos de Recursos|Especifica metadados sobre cada recurso|
+|/Schemas|O conjunto de atributos suportados por cada cliente e prestador de serviços pode variar. Enquanto um prestador de serviços pode incluir "nome", "título" e "e-mails", enquanto outro prestador de serviços usa "nome", "título" e "números de telefone". O ponto final dos schemas permite a descoberta dos atributos suportados.|
+|/Granel|As operações a granel permitem-lhe efetuar operações numa grande recolha de objetos de recursos numa única operação (por exemplo, atualizar as adesões para um grande grupo).|
+
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Passo 2: Compreender a implementação do Azure AD SCIM
 > [!IMPORTANT]
@@ -671,6 +722,34 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 *HTTP/1.1 204 Sem Conteúdo*
 
+### <a name="security-requirements"></a>Requisitos de segurança
+**Versões de Protocolo TLS**
+
+As únicas versões aceitáveis do protocolo TLS são TLS 1.2 e TLS 1.3. Não são permitidas outras versões de TLS. Nenhuma versão do SSL é permitida. 
+- As teclas RSA devem ter pelo menos 2.048 bits.
+- As teclas ECC devem ser pelo menos 256 bits, geradas com uma curva elíptica aprovada
+
+
+**Comprimentos-chave**
+
+Todos os serviços devem utilizar certificados X.509 gerados com teclas criptográficas de comprimento suficiente, o que significa:
+
+**Suítes Cipher**
+
+Todos os serviços devem ser configurados para utilizar as seguintes suítes cifra, na ordem exata especificada abaixo. Note que se tiver apenas um certificado RSA, as suites de cifra ECDSA não têm qualquer efeito. </br>
+
+TLS 1.2 Cifra Suites barra mínima:
+
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+
 ## <a name="step-3-build-a-scim-endpoint"></a>Passo 3: Construir um ponto final do SCIM
 
 Ao criar um serviço web SCIM que interainter com o Diretório Ativo Do Azure, pode ativar o fornecimento automático de utilizadores para praticamente qualquer aplicação ou loja de identidade.
@@ -885,7 +964,7 @@ Para hospedar o serviço dentro dos Serviços de Informação da Internet, um de
 
 ### <a name="handling-endpoint-authentication"></a>Processar a autenticação de ponto final
 
-Pedidos do Azure Active Directory incluem um token de portador do OAuth 2.0. Qualquer serviço que receba o pedido deve autenticar o emitente como sendo o Azure Ative Directory para o esperado inquilino do Azure Ative Directory, para acesso ao serviço Microsoft Graph API. No símbolo, o emitente é identificado por uma reivindicação do ISS, como "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor da reclamação, https://sts.windows.net, identifica o Azure Ative Directory como emitente, enquanto o segmento de endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, é um identificador único do inquilino do Azure Ative Directory para o qual o símbolo foi emitido. O público para o símbolo será o ID do modelo de aplicação para a aplicação na galeria. O ID do modelo de aplicação para todas as aplicações personalizadas é 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. O ID do modelo de aplicação para cada aplicação na galeria varia. Contacte ProvisioningFeedback@microsoft.com para obter dúvidas sobre o ID do modelo de aplicação para uma aplicação de galeria. Cada um dos pedidos registados num único inquilino pode receber o mesmo pedido de `iss` com pedidos sCIM.
+Pedidos do Azure Active Directory incluem um token de portador do OAuth 2.0.   Qualquer serviço que receba o pedido deve autenticar o emitente como sendo o Azure Ative Directory para o esperado inquilino do Azure Ative Directory, para acesso ao serviço Microsoft Graph API.  No símbolo, o emitente é identificado por uma reivindicação do ISS, como "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor da reclamação, https://sts.windows.net, identifica o Azure Ative Directory como emitente, enquanto o segmento de endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, é um identificador único do inquilino do Azure Ative Directory para o qual o símbolo foi emitido. O público para o símbolo será o ID do modelo de aplicação para a aplicação na galeria. O ID do modelo de aplicação para todas as aplicações personalizadas é 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. O ID do modelo de aplicação para cada aplicação na galeria varia. Contacte ProvisioningFeedback@microsoft.com para obter dúvidas sobre o ID do modelo de aplicação para uma aplicação de galeria. Cada um dos pedidos registados num único inquilino pode receber o mesmo pedido de `iss` com pedidos sCIM.
 
 Os desenvolvedores que utilizam as bibliotecas CLI fornecidas pela Microsoft para a construção de um serviço SCIM podem autenticar pedidos do Azure Ative Directory utilizando o pacote Microsoft.Owin.Security.ActiveDirectory seguindo estas etapas: 
 
@@ -1370,11 +1449,20 @@ Se estiver a construir uma aplicação que será usada por mais de um inquilino,
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorização para provisionamento de conectores na galeria de aplicações
 A especificação SCIM não define um regime específico de autenticação e autorização do SCIM. Baseia-se na utilização das normas industriais existentes. O cliente de fornecimento de adsad Azure suporta dois métodos de autorização para pedidos na galeria. 
 
+|Método de autorização|Profissionais de TI|Contras|Suporte|
+|--|--|--|--|
+|Nome de utilizador e palavra-passe (não recomendado ou suportado pela AD Azure)|Fácil de implementar|Inseguro - [O seu pa$$word não importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Suportado caso a caso para apps de galeria. Não suportado para aplicações não-galeria.|
+|Símbolo de longa duração (apoiado por Azure AD atualmente)|Fichas de longa duração não requerem que um utilizador esteja presente. São fáceis de utilizar os administradores na criação do provisionamento.|Fichas de longa duração podem ser difíceis de partilhar com um administrador sem usar métodos inseguros como e-mail. |Suportado para apps de galeria e não-galeria. |
+|Concessão de código de autorização DaUth (suportada pela Azure AD atualmente)|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo de atualização automatizado que os tokens portadores de longa duração não têm.  Um utilizador real deve estar presente durante a autorização inicial, adicionando um nível de prestação de contas. |Requer que um utilizador esteja presente. Se o utilizador deixar a organização, o token é inválido e a autorização terá de ser concluída novamente.|Suportado para apps de galeria. O suporte para aplicações não-galeria está em andamento.|
+|Subsídio de credenciais de cliente OAuth (não suportado, no nosso roteiro)|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo de atualização automatizado que os tokens portadores de longa duração não têm. Tanto a concessão do código de autorização como as credenciais de cliente criam o mesmo tipo de ficha de acesso, pelo que a mudança entre estes métodos é transparente para a API.  O provisionamento pode ser completamente automatizado, e novos tokens podem ser solicitados silenciosamente sem a interação do utilizador. ||Não suportado para apps de galeria e não-galeria. O apoio está no nosso atraso.|
+
 Fluxo de concessão de código de **autorização OAuth:** O serviço de provisionamento apoia a concessão do código de [autorização.](https://tools.ietf.org/html/rfc6749#page-24) Depois de submeter o seu pedido de publicação da sua app na galeria, a nossa equipa trabalhará consigo para recolher as seguintes informações:
 *  URL de autorização: Um URL do cliente para obter autorização do proprietário do recurso através de redirecionamento do utilizador-agente. O utilizador é redirecionado para este URL para autorizar o acesso. 
 *  URL de troca de token: Um URL do cliente para trocar uma bolsa de autorização para um token de acesso, tipicamente com autenticação do cliente.
 *  ID do cliente: O servidor de autorização emite ao cliente registado um identificador de cliente, que é uma cadeia única que representa as informações de registo fornecidas pelo cliente.  O identificador de cliente não é um segredo; é exposto ao proprietário do recurso e **não deve** ser utilizado sozinho para autenticação do cliente.  
 *  Segredo do cliente: O segredo do cliente é um segredo gerado pelo servidor de autorização. Deve ser um valor único conhecido apenas pelo servidor de autorização. 
+
+Note que o OAuth v1 não é suportado devido à exposição do segredo do cliente. OAuth v2 é apoiado.  
 
 Boas práticas (recomendadas mas não necessárias):
 * Suporte vários URLs redirecionais. Os administradores podem configurar o provisionamento tanto de "portal.azure.com" como de "aad.portal.azure.com". O suporte a vários URLs redirecionados garantirá que os utilizadores podem autorizar o acesso a partir de qualquer um dos portais.

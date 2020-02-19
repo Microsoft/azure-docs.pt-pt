@@ -7,12 +7,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
-ms.openlocfilehash: a77fedd92800a73ef446f1f8241a518e42f977ee
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 62b6fe76fcd55df7f1fe65bd3d8d7d2aa7cc0841
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156092"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446762"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Antes de começar, certifique-se de:
 
 1. Do Visual Studio, abra o ficheiro de origem **helloworld.cpp**.
 
-1. Substitua todo o código pelo trecho a seguir:
+1. Substitua todo o código pelo seguinte corte:
 
     ```cpp
     #include "pch.h"
@@ -56,8 +56,7 @@ Antes de começar, certifique-se de:
         // Set these
         std::string subscriptionKey("YourSubscriptionKey");
 
-        // Replace below with your own service region (e.g., "westus", use the one of SpeechSDKParameters
-        // from here: https://aka.ms/speech/sdkregion).   
+        // Replace below with your own region identifier from here: https://aka.ms/speech/sdkregion
         std::string region("YourServiceRegion");
         
         std::string speechLanguage("en-US");
@@ -205,14 +204,14 @@ Antes de começar, certifique-se de:
 
 1. Na barra de menus, escolha **File** > **Save All**.
 
-## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Compilar e executar o aplicativo para criar uma nova conversa
+## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Construir e executar a aplicação para criar uma nova conversa
 
 1. A partir da barra de menus, selecione **Build** > **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
 1. Escolha **debug** > **Iniciar depuração** (ou prima <kbd>F5)</kbd>para iniciar a aplicação **helloworld.**
 
-1. Assim que vir a mensagem `Started transcribing` aparecer, pode começar a falar. Você verá que as transcrições são exibidas à medida que você fala
-    - Se você compartilhar o código de conversa com os outros e eles ingressarem na conversa, você verá suas transcrições também.
+1. Assim que vir a mensagem `Started transcribing` aparecer, pode começar a falar. Verá as transcrições aparecerem enquanto fala.
+    - Se partilhares o código de conversação com os outros e eles se juntarem à conversa, também verás as transcrições deles.
 
 1. Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> no teclado para impedir a captura de áudio.
 
@@ -221,7 +220,7 @@ Antes de começar, certifique-se de:
     > <br/> <br/>
     > Prima <kbd>F5</kbd> para continuar.
 
-## <a name="build-and-run-the-application-to-join-an-existing-conversation"></a>Compilar e executar o aplicativo para ingressar em uma conversa existente
+## <a name="build-and-run-the-application-to-join-an-existing-conversation"></a>Construa e execute a aplicação para se juntar a uma conversa existente
 
 1. Copie e cole a seguinte função no seu **helloworld.cpp** pouco antes da função `int main()`:
 
@@ -291,8 +290,8 @@ Antes de começar, certifique-se de:
 
 6. Escolha **debug** > **Iniciar depuração** (ou prima <kbd>F5)</kbd>para iniciar a aplicação **helloworld.**
 
-7. Assim que vir a mensagem `Started transcribing` aparecer, pode começar a falar. Você verá que as transcrições aparecem à medida que você fala.
-    - Se você voltar para o navegador, verá que suas transcrições aparecem aqui como você também fala.
+7. Assim que vir a mensagem `Started transcribing` aparecer, pode começar a falar. Verá que as transcrições aparecem enquanto fala.
+    - Se voltar ao seu navegador, deve ver que as suas transcrições aparecem lá enquanto fala.
 
 8.  Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> para parar a captura de áudio e terminar a conversa.
 
@@ -301,7 +300,7 @@ Antes de começar, certifique-se de:
     > <br/> <br/>
     > Prima <kbd>F5</kbd> para continuar.
 
-9. Volte para o navegador e saia da conversa usando o botão sair no canto superior direito.
+9. Volte para o seu navegador e saia da conversa usando o botão de saída no canto superior direito.
 
 ## <a name="next-steps"></a>Passos seguintes
 

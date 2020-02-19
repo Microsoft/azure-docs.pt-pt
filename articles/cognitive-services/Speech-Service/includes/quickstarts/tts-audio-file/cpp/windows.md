@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 8344f83ae032b943479ed313ca2e52bc728d08ab
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: e1bbcd01d37620cce2707313abc59799c3f460b5
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156101"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446619"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,13 +30,12 @@ Antes de começar, certifique-se de:
 
 1. Abra o ficheiro de origem **helloworld.cpp**.
 
-1. Substitua todo o código pelo trecho a seguir:
+1. Substitua todo o código pelo seguinte corte:
 
    ```C++
 
     // Creates an instance of a speech config with specified subscription key and service region.
-    // Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
-    // from here: https://aka.ms/speech/sdkregion).
+    // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
     // Creates a speech synthesizer using file as audio output.

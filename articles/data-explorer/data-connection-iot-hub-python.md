@@ -7,30 +7,36 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 86e966cc3bf98e63edbe90d7649242dcb1ccdf42
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: cfd92546def21972e37781bd8a4b0bfefda9111f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964384"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444218"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Criar uma ligação de dados IoT Hub para o Azure Data Explorer utilizando python (pré-visualização)
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
-> * [Python](data-connection-iot-hub-python.md)
+> * [python](data-connection-iot-hub-python.md)
 > * [Modelo do Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão (carregamento de dados) de Centros de Eventos, Hubs IoT e bolhas escritas para recipientes blob. Neste artigo, cria uma ligação de dados IoT Hub para o Azure Data Explorer utilizando python.
+Neste artigo, cria uma ligação de dados IoT Hub para o Azure Data Explorer utilizando python. O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão, ou carregamento de dados, a partir de Hubs de Eventos, Hubs IoT e bolhas escritas para recipientes blob.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Criar [um cluster e base de dados](create-cluster-database-python.md)
-* Criar [mapeamento](python-ingest-data.md#create-a-table-on-your-cluster) de mesa e coluna
-* Definir bases de [dados e políticas de tabela](database-table-policies-python.md) (opcional)
-* Crie um [Hub IoT com uma política de acesso partilhado configurada](ingest-data-iot-hub.md#create-an-iot-hub).
+* Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+
+* [Python 3.4+](https://www.python.org/downloads/).
+
+* [Um cluster e base de dados.](/create-cluster-database-python.md)
+
+* [Mapeamento de mesa e coluna.](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+
+* [Bases de dados e políticas de mesa](database-table-policies-python.md) (opcional).
+
+* [Um Hub IoT com uma política de acesso partilhado configurada.](ingest-data-iot-hub.md#create-an-iot-hub)
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 
@@ -82,10 +88,10 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 
 |**Definição** | **Valor sugerido** | **Descrição do campo**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | Sua ID de locatário. Também conhecido como ID diretório.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | A ID da assinatura que você usa para a criação de recursos.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | A ID do cliente do aplicativo que pode acessar recursos em seu locatário.|
-| client_secret | *xxxxxxxxxxxxxx* | O segredo do cliente do aplicativo que pode acessar recursos em seu locatário. |
+| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | Sua identificação do inquilino. Também conhecido como ID diretório.|
+| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | O ID de subscrição que utiliza para a criação de recursos.|
+| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | A identificação do cliente da aplicação que pode aceder a recursos no seu inquilino.|
+| client_secret | *xxxxxxxxxxxxxx* | O segredo do cliente da aplicação que pode aceder a recursos no seu inquilino. |
 | resource_group_name | *testrg* | O nome do grupo de recursos que contém o seu cluster.|
 | cluster_name | *mykustocluster* | O nome do seu aglomerado.|
 | database_name | *mykustodatabase* | O nome da base de dados do alvo no seu cluster.|

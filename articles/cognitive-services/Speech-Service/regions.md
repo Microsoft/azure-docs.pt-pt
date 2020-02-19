@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: f1f425a6e3c66a72c7632cfea16d78ea6cc0d319
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201157"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431167"
 ---
 # <a name="speech-service-supported-regions"></a>Serviço de fala apoiado regiões
 
@@ -44,10 +44,10 @@ Se utilizar o [SDK](speech-sdk.md)da fala, as regiões são especificadas pelo *
 
 As regiões disponíveis para reconhecimento de **intenções** através do SDK da fala são as seguintes:
 
-| Região global | Região           | Parâmetro do SDK de voz |
+| Região global | Região           | Identificador de região |
 | ------------- | ---------------- | -------------------- |
-| Ásia          | Ásia Oriental        | `eastasia`           |
-| Ásia          | Sudeste Asiático   | `southeastasia`      |
+| Ásia          | Ásia Leste        | `eastasia`           |
+| Ásia          | Ásia Sudeste   | `southeastasia`      |
 | Austrália     | Leste da Austrália   | `australiaeast`      |
 | Europa        | Europa do Norte     | `northeurope`        |
 | Europa        | Europa Ocidental      | `westeurope`         |
@@ -65,7 +65,7 @@ Trata-se de um subconjunto das regiões editoriais apoiadas pelo serviço de Com
 
 O [SDK de Fala](speech-sdk.md) apoia as capacidades de assistente de **voz** nestas regiões:
 
-| Região         | Parâmetro do SDK de voz |
+| Região         | Identificador de região |
 | -------------- | -------------------- |
 | E.U.A. Oeste        | `westus`             |
 | E.U.A.Oeste 2      | `westus2`            |
@@ -73,7 +73,7 @@ O [SDK de Fala](speech-sdk.md) apoia as capacidades de assistente de **voz** nes
 | E.U.A. Leste 2      | `eastus2`            |
 | Europa Ocidental    | `westeurope`         |
 | Europa do Norte   | `northeurope`        |
-| Sudeste Asiático | `southeastasia`      |
+| Ásia Sudeste | `southeastasia`      |
 
 ## <a name="rest-apis"></a>APIs REST
 

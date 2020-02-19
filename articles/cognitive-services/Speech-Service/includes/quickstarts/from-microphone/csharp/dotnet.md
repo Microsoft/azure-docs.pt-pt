@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: reconhecer a fala de um C# microfone, (.net)-serviço de fala'
+title: 'Quickstart: Reconhecer o discurso C# a partir de um microfone, (.NET) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 4b8f58fbfa9de929139646ad267a433645e2db35
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 9c16e2e1726fcbf1e0b55ee0e9808a607b611ea6
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156659"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446391"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Vamos adicionar um código que funciona como um esqueleto para o nosso projeto. 
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
 
-Antes de poder inicializar um `SpeechRecognizer` objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição (escolha o "Parâmetro SDK de Fala" da [região](https://aka.ms/speech/sdkregion). Insira este código no método `RecognizeSpeechAsync()`.
+Antes de poder inicializar um objeto `SpeechRecognizer`, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição (escolha o **identificador região** da [região](https://aka.ms/speech/sdkregion). Insira este código no método `RecognizeSpeechAsync()`.
 
 > [!NOTE]
 > Esta amostra utiliza o método `FromSubscription()` para construir a `SpeechConfig`. Para obter uma lista completa dos métodos disponíveis, consulte a [Aula de SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).

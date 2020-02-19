@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c2dc98d683d822628dc9ea1b4ead02279ea10ea5
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251809"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443861"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de Aplicações Azure no Linux FAQ
 
@@ -33,7 +33,7 @@ Podes encontrar todos os ficheiros do Docker no [GitHub.](https://github.com/azu
 | Pilha           | Valor Esperado                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
 | Java SE         | o comando para iniciar a sua aplicação JAR (por exemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
-| Tomcat | a localização de um script para executar quaisquer configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
+| Tomcat          | a localização de um script para executar quaisquer configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | o ficheiro de configuração PM2 ou o seu ficheiro script                                |
 | .Núcleo De Rede       | o nome DLL compilado como `dotnet <myapp>.dll`                                 |
 | Ruby            | o script Ruby que você quer inicializar a sua app com                     |

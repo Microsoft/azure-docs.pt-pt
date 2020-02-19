@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 695b87540178fb5c1012a095c2a86937a189ef24
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: dfb133f9aa3dd9b76f8b4ea4c6188cfaf9a67b75
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133752"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444116"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Criar um laboratório para ensinar ciência de dados com cadernos Python e Jupyter
 
@@ -30,7 +30,7 @@ Para montar este laboratório, precisa de uma subscrição azure e uma conta de 
 
 ### <a name="lab-account-settings"></a>Definições de conta de laboratório
 
-Ative as definições descritas na tabela abaixo para a conta de laboratório. Para obter mais informações sobre como ativar imagens de marketplace, consulte especificar imagens de [mercado disponíveis para criadores de laboratório](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators).
+Ative as definições descritas na tabela abaixo para a conta de laboratório. Para obter mais informações sobre como ativar imagens de marketplace, consulte especificar imagens do [Marketplace disponíveis para criadores de laboratório](specify-marketplace-images.md).
 
 | Definição de conta de laboratório | Instruções |
 | ------------------- | ------------ |
@@ -56,7 +56,7 @@ A tarefa restante para a criação da classe é fornecer cadernos locais.  Para 
 
 ## <a name="cost-estimate"></a>Estimativa de custos
 
-Vamos cobrir uma possível estimativa de custos para esta classe.  Usaremos uma turma de 25 alunos.  Há 20 horas de horário de aulas programado.  Além disso, cada aluno recebe uma quota de 10 horas para trabalhos de casa ou tarefas fora da hora de aula programada.  O tamanho da máquina virtual que escolhemos foi pequeno gpu (computação), que é 139 unidades de laboratório.
+Vamos cobrir uma possível estimativa de custos para esta classe.  Usaremos uma turma de 25 alunos.  Há 20 horas de horário de aulas programado.  Além disso, cada aluno recebe uma quota de 10 horas para trabalhos de casa ou tarefas fora da hora de aula programada.  O tamanho virtual da máquina que escolhemos foi pequena GPU (computação), que é 139 unidades de laboratório.
 
 Aqui está um exemplo de uma possível estimativa de custos para esta classe:
 

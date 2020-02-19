@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 17e5f35e83f5cb6e8115a9d344f93abf84e5b38a
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: e8ab3cd262876548b8cbfab55dce0cff0cb3132b
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156047"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445425"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,8 +65,7 @@ namespace helloworld
 Antes de poder inicializar um `SpeechSynthesizer` objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este código no método `SynthesisToAudioFileAsync()`.
 
 ````C#
-// Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
-// from here: https://aka.ms/speech/sdkregion).
+// Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
 // The default language is "en-us".
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ````

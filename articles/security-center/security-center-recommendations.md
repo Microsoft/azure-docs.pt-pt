@@ -1,6 +1,6 @@
 ---
-title: Recomendações de segurança na central de segurança do Azure | Microsoft Docs
-description: Este documento explica como as recomendações na central de segurança do Azure ajudam a proteger os recursos do Azure e a manter a conformidade com as políticas de segurança.
+title: Recomendações de segurança no Centro de Segurança do Azure
+description: Este documento acompanha-o através de como as recomendações no Azure Security Center ajudam a proteger os seus recursos Azure e a manter-se em conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6a01ddbc733ce52c02e9abef2569adbfbd19c6a8
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 4f41f4996f230a373245633b9449e93c403a1dfc
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520739"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430300"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
-Este tópico explica como exibir e entender as recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure.
+Este tópico explica como ver e compreender as recomendações no Azure Security Center para ajudá-lo a proteger os seus recursos Azure.
 
 > [!NOTE]
 > Este documento apresenta o serviço ao utilizar um exemplo de implementação.  Este documento não é um guia passo a passo.
@@ -29,48 +29,48 @@ Este tópico explica como exibir e entender as recomendações na central de seg
 
 ## <a name="what-are-security-recommendations"></a>O que são recomendações de segurança?
 
-As recomendações são ações a serem executadas para proteger seus recursos.
+Recomendações são ações a tomar para garantir os seus recursos.
 
-A central de segurança analisa periodicamente o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades de segurança. Em seguida, ele fornece recomendações sobre como removê-los.
+O Centro de Segurança analisa periodicamente o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Em seguida, fornece-lhe recomendações sobre como removê-las.
 
-Cada recomendação fornece:
+Cada recomendação fornece-lhe:
 
-- Uma breve descrição do que está sendo recomendado.
-- As etapas de correção para executar a fim de implementar a recomendação. <!-- In some cases, Quick Fix remediation is available. -->
-- Quais recursos são necessários para executar a ação recomendada neles.
-- O **impacto de Pontuação segura**, que é o valor que sua pontuação de segurança aumentará se você implementar essa recomendação.
+- Uma breve descrição do que está a ser recomendado.
+- As medidas de reparação a executar para implementar a recomendação. <!-- In some cases, Quick Fix remediation is available. -->
+- Que recursos precisam que faça a ação recomendada neles.
+- O **impacto da pontuação segura**, que é o valor que a sua pontuação segura irá subir se implementar esta recomendação.
 
-## Recomendações de monitor<a name="monitor-recommendations"></a>
+## Monitorizar recomendações<a name="monitor-recommendations"></a>
 
-A central de segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. O bloco **recomendações** em **visão geral** mostra o número total de recomendações identificadas pela central de segurança.
+O Centro de Segurança analisa o estado de segurança dos seus recursos para identificar potenciais vulnerabilidades. O azulejo **de recomendações** em termos de **visão geral** mostra o número total de recomendações identificadas pelo Centro de Segurança.
 
-![Visão geral da central de segurança](./media/security-center-recommendations/asc-overview.png)
+![Visão geral do centro de segurança](./media/security-center-recommendations/asc-overview.png)
 
-1. Selecione o **bloco recomendações** em **visão geral**. A lista de **recomendações** é aberta.
+1. Selecione o **azulejo de recomendações** em **visão geral**. A lista **de recomendações** abre.
 
       ![Ver recomendações](./media/security-center-recommendations/view-recommendations.png)
 
-    Você pode filtrar as recomendações. Para filtrar as recomendações, selecione **Filtrar** na folha **recomendações** . A folha **filtro** é aberta e você seleciona os valores de gravidade e estado que deseja ver.
+    Pode filtrar recomendações. Para filtrar as recomendações, selecione **Filter** na lâmina **de recomendações.** A lâmina **do Filtro** abre-se e seleciona a gravidade e os valores de estado que deseja ver.
 
-   * **Recomendações**: a recomendação.
-   * **Impacto de Pontuação segura**: uma pontuação gerada pela central de segurança usando suas recomendações de segurança e aplicando algoritmos avançados para determinar a crucialidade de cada recomendação. Para obter mais informações, consulte [cálculo de Pontuação segura](security-center-secure-score.md#secure-score-calculation).
-   * **Recurso**: lista os recursos aos quais essa recomendação se aplica.
-   * **Barras de status**: descreve a severidade dessa recomendação específica:
-       * **Alta (vermelho)** : existe uma vulnerabilidade com um recurso significativo (como um aplicativo, uma VM ou um grupo de segurança de rede) e requer atenção.
-       * **Médio (laranja)** : existe uma vulnerabilidade e etapas não críticas ou adicionais são necessárias para eliminá-la ou para concluir um processo.
-       * **Baixa (azul)** : existe uma vulnerabilidade que deve ser resolvida, mas não requer atenção imediata. (Por padrão, as recomendações baixas não são apresentadas, mas você pode filtrar com recomendações baixas se quiser vê-las.) 
-       * **Íntegro (verde)** :
-       * **Não disponível (cinza)** :
+   * **RECOMENDAÇÕES**: A recomendação.
+   * **IMPACTO DE PONTUAÇÃO SEGURA**: Uma pontuação gerada pelo Security Center utilizando as suas recomendações de segurança e aplicando algoritmos avançados para determinar o quão crucial é cada recomendação. Para mais informações, consulte o cálculo da [pontuação secure](security-center-secure-score.md#secure-score-calculation).
+   * **RECURSO**: Lista os recursos a que esta recomendação se aplica.
+   * **BARRAS DE ESTATUTO**: Descreve a gravidade dessa recomendação específica:
+       * **Alta (Vermelha)** : Existe uma vulnerabilidade com um recurso significativo (como uma aplicação, um VM ou um grupo de segurança de rede) e requer atenção.
+       * **Médio (Laranja)** : Existe uma vulnerabilidade e são necessários passos não críticos ou adicionais para eliminá-lo ou concluir um processo.
+       * **Baixa (Azul)** : Existe uma vulnerabilidade que deve ser abordada mas não requer atenção imediata. (Por predefinição, não são apresentadas recomendações baixas, mas pode filtrar recomendações baixas se quiser vê-las.) 
+       * **Saudável (Verde)** :
+       * **Não disponível (cinzento)** :
 
-1. Para exibir os detalhes de cada recomendação, clique na recomendação.
+1. Para ver os detalhes de cada recomendação, clique na recomendação.
 
     ![Detalhes da recomendação](./media/security-center-recommendations/recommendation-details.png)
 
 >[!NOTE] 
-> Consulte [modelos de implantação clássicos e do Resource Manager](../azure-classic-rm.md) para recursos do Azure.
+> Consulte [modelos clássicos e](../azure-classic-rm.md) de implantação de Recursos Manager para recursos Azure.
  
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste documento, você foi apresentado às recomendações de segurança na central de segurança. Para saber como corrigir as recomendações:
+Neste documento, foi apresentado às recomendações de segurança no Centro de Segurança. Para aprender a remediar as recomendações:
 
-* [Corrigir recomendações](security-center-remediate-recommendations.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Remediar recomendações](security-center-remediate-recommendations.md) — Saiba como configurar as políticas de segurança para as suas subscrições e grupos de recursos Do Azure.

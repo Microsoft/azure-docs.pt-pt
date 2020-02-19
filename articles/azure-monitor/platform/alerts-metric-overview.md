@@ -1,152 +1,152 @@
 ---
-title: Entenda como os alertas de métrica funcionam no Azure Monitor.
-description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam em Azure Monitor.
+title: Entenda como os alertas métricos funcionam no Monitor Azure.
+description: Obtenha uma visão geral do que pode fazer com alertas métricos e como funcionam no Monitor Azure.
 author: rboucher
 ms.author: robb
 ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abcf7d100a1c195d4a49c3061bf22710285c2a9f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850062"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444167"
 ---
-# <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entenda como os alertas de métrica funcionam no Azure Monitor
+# <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entenda como os alertas métricos funcionam no Monitor Azure
 
-Os alertas de métrica no Azure Monitor funcionam sobre as métricas multidimensionais. Essas métricas podem ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [logs populares de Azure monitor convertidos em métricas](../../azure-monitor/platform/alerts-metric-logs.md) e Application insights métricas. Os alertas de métricas são avaliados em intervalos regulares para verificar se as condições em uma ou mais séries temporais são verdadeiras e notificá-lo quando as avaliações forem atendidas. Os alertas de métricas são monitorados, ou seja, eles só enviam notificações quando o estado é alterado.
+Alertas métricos no Azure Monitor funcionam em cima de métricas multidimensionais. Estas métricas podem ser métricas de [plataforma,](alerts-metric-near-real-time.md#metrics-and-dimensions-supported) [métricas personalizadas,](../../azure-monitor/platform/metrics-custom-overview.md) [registos populares do Azure Monitor convertidos em métricas](../../azure-monitor/platform/alerts-metric-logs.md) e métricas de Insights de Aplicação. Os alertas métricos avaliam periodicamente para verificar se as condições de uma ou mais séries de tempo métricas são verdadeiras e notificá-lo quando as avaliações são satisfeitas. Os alertas métricos são audais, ou seja, só enviam notificações quando o Estado muda.
 
-## <a name="how-do-metric-alerts-work"></a>Como funcionam os alertas de métrica?
+## <a name="how-do-metric-alerts-work"></a>Como funcionam os alertas métricos?
 
-Você pode definir uma regra de alerta de métrica especificando um recurso de destino a ser monitorado, nome da métrica, tipo de condição (estático ou dinâmico) e a condição (um operador e um limite/sensibilidade) e um grupo de ações a ser disparado quando a regra de alerta for acionada. Os tipos de condição afetam a maneira como os limites são determinados. [Saiba mais sobre o tipo de condição de limites dinâmicos e as opções de sensibilidade](alerts-dynamic-thresholds.md).
+Pode definir uma regra de alerta métrico especificando um recurso-alvo a ser monitorizado, nome métrico, tipo de condição (estático ou dinâmico), e a condição (um operador e um limiar/sensibilidade) e um grupo de ação a ser acionado quando a regra de alerta dispara. Os tipos de condição afetam a forma como os limiares são determinados. Saiba mais sobre o tipo de [condição dos Limiares Dinâmicos e opções](alerts-dynamic-thresholds.md)de sensibilidade.
 
 ### <a name="alert-rule-with-static-condition-type"></a>Regra de alerta com tipo de condição estática
 
-Digamos que você tenha criado uma regra de alerta de métrica de limite estático simples da seguinte maneira:
+Digamos que criou uma regra de alerta métrica de limiar estática simples da seguinte forma:
 
-- Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
-- Métrica: percentual de CPU
-- Tipo de condição: estático
-- Agregação de tempo (estatística que é executada sobre valores de métrica brutos. As agregações de tempo com suporte são mín., máx., média, total, contagem): média
-- Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
-- Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
-- Operador: maior que
-- Limite: 70
+- Recurso-alvo (o recurso Azure que pretende monitorizar): myVM
+- Métrica: CPU percentual
+- Tipo de condição: Estática
+- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. As agregações de tempo suportadas são Min, Max, Avg, Total, Conde): Média
+- Período (A janela de olhar para trás sobre quais os valores métricos são verificados): Ao longo dos últimos 5 minutos
+- Frequência (A frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
+- Operador: Maior do que
+- Limiar: 70
 
-A partir do momento em que a regra de alerta é criada, o monitor é executado a cada 1 minuto e examina os valores de métrica dos últimos 5 minutos e verifica se a média desses valores excede 70. Se a condição for atendida ou não, a CPU percentual média dos últimos 5 minutos excede 70, a regra de alerta acionará uma notificação ativada. Se você tiver configurado um email ou uma ação de gancho da Web no grupo de ações associado à regra de alerta, receberá uma notificação ativada em ambos.
+A partir do momento em que a regra de alerta é criada, o monitor corre a cada 1 min e analisa os valores métricos durante os últimos 5 minutos e verifica se a média desses valores ultrapassa os 70. Se a condição for satisfeita, a percentagem média de CPU nos últimos 5 minutos ultrapassa os 70, a regra de alerta dispara uma notificação ativada. Se tiver configurado um e-mail ou uma ação de web hook no grupo de ação associado à regra de alerta, receberá uma notificação ativada em ambos.
 
-Quando você está usando várias condições em uma regra, a regra "ands" as condições juntas.  Ou seja, o alerta é disparado quando todas as condições no alerta são avaliadas como true e são resolvidas quando uma das condições não é mais verdadeira. E um exemplo desse tipo de alerta seria Alert quando "CPU maior que 90%" e "o comprimento da fila for superior a 300 itens". 
+Quando se está a utilizar múltiplas condições numa regra, a regra "es" as condições em conjunto.  Ou seja, o alerta dispara quando todas as condições do alerta avaliam como verdadeiras e resolvem quando uma das condições já não é verdadeira. E exemplo deste tipo de alerta seria alerta quando "CPU superior a 90%" e "o comprimento da fila é superior a 300 itens". 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regra de alerta com tipo de condição dinâmica
 
-Digamos que você tenha criado uma regra de alerta de métrica de limites dinâmicos simples da seguinte maneira:
+Digamos que criou uma regra simples de alerta métrico Dynamic Thresholds da seguinte forma:
 
-- Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
-- Métrica: percentual de CPU
-- Tipo de condição: dinâmica
-- Agregação de tempo (estatística que é executada sobre valores de métrica brutos. As agregações de tempo com suporte são mín., máx., média, total, contagem): média
-- Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
-- Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
-- Operador: maior que
-- Sensibilidade: média
-- Procurar períodos: 4
-- Número de violações: 4
+- Recurso-alvo (o recurso Azure que pretende monitorizar): myVM
+- Métrica: CPU percentual
+- Tipo de condição: Dinâmico
+- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. As agregações de tempo suportadas são Min, Max, Avg, Total, Conde): Média
+- Período (A janela de olhar para trás sobre quais os valores métricos são verificados): Ao longo dos últimos 5 minutos
+- Frequência (A frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
+- Operador: Maior do que
+- Sensibilidade: Média
+- Olhar para trás períodos: 4
+- Número de Violações: 4
 
-Depois que a regra de alerta for criada, o algoritmo de aprendizado de máquina dos limites dinâmicos obterá dados históricos disponíveis, calculará o limite que melhor se adapta ao padrão de comportamento da série métrica e aprenderá continuamente com base nos novos dados para fazer o limite mais preciso.
+Uma vez criada a regra de alerta, o algoritmo de aprendizagem automática Dynamic Thresholds adquirirá dados históricos que estão disponíveis, calculará o limiar que melhor se adequa ao padrão de comportamento da série métrica e aprenderá continuamente com base em novos dados para fazer o limiar mais preciso.
 
-A partir do momento em que a regra de alerta é criada, o monitor é executado a cada 1 minuto e examina os valores de métrica nos últimos 20 minutos agrupados em 5 minutos e verifica se a média dos valores de período em cada um dos quatro períodos excede o limite esperado. Se a condição for atendida, ou seja, a porcentagem média de CPU nos últimos 20 minutos (quatro períodos de 5 minutos) desviado do comportamento esperado quatro vezes, a regra de alerta acionará uma notificação ativada. Se você tiver configurado um email ou uma ação de gancho da Web no grupo de ações associado à regra de alerta, receberá uma notificação ativada em ambos.
+A partir do momento em que a regra de alerta é criada, o monitor executa a cada 1 min e analisa os valores métricos nos últimos 20 minutos agrupados em períodos de 5 minutos e verifica se a média dos valores do período em cada um dos 4 períodos excede o limiar esperado. Se a condição for satisfeita, a percentagem média de CPU nos últimos 20 minutos (quatro períodos de 5 minutos) desviou-se do comportamento esperado quatro vezes, a regra de alerta dispara uma notificação ativada. Se tiver configurado um e-mail ou uma ação de web hook no grupo de ação associado à regra de alerta, receberá uma notificação ativada em ambos.
 
-### <a name="view-and-resolution-of-fired-alerts"></a>Exibição e resolução de alertas acionados
+### <a name="view-and-resolution-of-fired-alerts"></a>Vista e resolução de alertas disparados
 
-Os exemplos acima de acionamento de regras de alerta também podem ser exibidos no portal do Azure na folha **todos os alertas** .
+Os exemplos acima de disparo de regras de alerta também podem ser vistos no portal Azure na lâmina **All Alerts.**
 
-Digamos que o uso em "myVM" Continue a ultrapassar o limite nas verificações subsequentes, a regra de alerta não será acionada novamente até que as condições sejam resolvidas.
+Digamos que o uso no "myVM" continua acima do limiar em verificações subsequentes, a regra de alerta não voltará a disparar até que as condições sejam resolvidas.
 
-Após algum tempo, o uso em "myVM" volta para o normal (fica abaixo do limite). A regra de alerta monitora a condição mais duas vezes, para enviar uma notificação resolvida. A regra de alerta envia uma mensagem resolvida/desativada quando a condição de alerta não é atendida por três períodos consecutivos para reduzir o ruído no caso de condições de oscilação.
+Após algum tempo, o uso em "myVM" volta ao normal (vai abaixo do limiar). A regra de alerta monitoriza a condição por mais duas vezes, para enviar uma notificação resolvida. A regra do alerta envia uma mensagem resolvida/desativada quando a condição de alerta não é satisfeita por três períodos consecutivos para reduzir o ruído em caso de agitação.
 
-Como a notificação resolvida é enviada por meio de ganchos da Web ou email, o status da instância de alerta (chamada de estado do monitor) em portal do Azure também é definido como resolvido.
+À medida que a notificação resolvida é enviada através de web hooks ou e-mail, o estado da instância de alerta (chamado estado de monitor) no portal Azure também está definido para ser resolvido.
 
 ### <a name="using-dimensions"></a>Usando dimensões
 
-Os alertas de métrica no Azure Monitor também dão suporte ao monitoramento de combinações de valor de várias dimensões com uma regra. Vamos entender por que você pode usar várias combinações de dimensão com a ajuda de um exemplo.
+Os alertas métricos no Monitor Azure também suportam a monitorização de múltiplas dimensões de combinações de valor com uma regra. Vamos entender por que você pode usar múltiplas combinações de dimensão com a ajuda de um exemplo.
 
-Digamos que você tenha um plano do serviço de aplicativo para seu site. Você deseja monitorar o uso da CPU em várias instâncias que executam seu site/aplicativo. Você pode fazer isso usando uma regra de alerta de métrica da seguinte maneira:
+Diga que tem um plano de Serviço de Aplicações para o seu website. Deseja monitorizar o uso do CPU em várias instâncias que executam o seu site/app. Pode fazê-lo usando uma regra de alerta métrico da seguinte forma:
 
-- Recurso de destino: myAppServicePlan
-- Métrica: percentual de CPU
-- Tipo de condição: estático
+- Recurso-alvo: myAppServicePlan
+- Métrica: CPU percentual
+- Tipo de condição: Estática
 - Dimensões
-  - Instância = InstanceName1, InstanceName2
-- Agregação de tempo: média
-- Período: nos últimos 5 minutos
-- Frequência: 1 minuto
+  - Instância = Nome de instância1, nome de exemplo2
+- Agregação do tempo: Média
+- Período: Ao longo dos últimos 5 minutos
+- Frequência: 1 min
 - Operador: GreaterThan
-- Limite: 70
+- Limiar: 70
 
-Assim como antes, essa regra monitora se o uso médio de CPU dos últimos 5 minutos excede 70%. No entanto, com a mesma regra, você pode monitorar duas instâncias executando seu site. Cada instância será monitorada individualmente e você receberá notificações individualmente.
+Como antes, esta regra monitoriza se o uso médio de CPU nos últimos 5 minutos exceder 70%. No entanto, com a mesma regra pode monitorizar duas instâncias que executam o seu website. Cada instância será monitorizada individualmente e receberá notificações individualmente.
 
-Digamos que você tenha um aplicativo Web que está vendo uma demanda maciça e precisará adicionar mais instâncias. A regra acima ainda monitora apenas duas instâncias. No entanto, você pode criar uma regra da seguinte maneira:
+Diga que tem uma aplicação web que está a ver uma procura massiva e que terá de adicionar mais instâncias. A regra acima ainda monitoriza apenas dois casos. No entanto, pode criar uma regra da seguinte forma:
 
-- Recurso de destino: myAppServicePlan
-- Métrica: percentual de CPU
-- Tipo de condição: estático
-- Dimensões
-  - Instância = *
-- Agregação de tempo: média
-- Período: nos últimos 5 minutos
-- Frequência: 1 minuto
-- Operador: GreaterThan
-- Limite: 70
-
-Essa regra monitorará automaticamente todos os valores da instância, ou seja, Você pode monitorar suas instâncias à medida que elas aparecem sem a necessidade de modificar a regra de alerta de métrica novamente.
-
-Ao monitorar várias dimensões, a regra de alertas de limites dinâmicos pode criar limites personalizados para centenas de séries métricas de cada vez. Os limites dinâmicos resultam em menos regras de alerta para gerenciar e salvar o tempo significativo no gerenciamento e na criação de regras de alertas.
-
-Digamos que você tenha um aplicativo Web com muitas instâncias e não saiba qual é o limite mais adequado. As regras acima sempre usarão o limite de 70%. No entanto, você pode criar uma regra da seguinte maneira:
-
-- Recurso de destino: myAppServicePlan
-- Métrica: percentual de CPU
-- Tipo de condição: dinâmica
+- Recurso-alvo: myAppServicePlan
+- Métrica: CPU percentual
+- Tipo de condição: Estática
 - Dimensões
   - Instância = *
-- Agregação de tempo: média
-- Período: nos últimos 5 minutos
-- Frequência: 1 minuto
+- Agregação do tempo: Média
+- Período: Ao longo dos últimos 5 minutos
+- Frequência: 1 min
 - Operador: GreaterThan
-- Sensibilidade: média
-- Procurar períodos: 1
-- Número de violações: 1
+- Limiar: 70
 
-Essa regra monitora se o uso médio de CPU dos últimos 5 minutos excede o comportamento esperado para cada instância. A mesma regra que você pode monitorar instâncias à medida que elas surgem sem a necessidade de modificar a regra de alerta de métrica novamente. Cada instância receberá um limite que se ajusta ao padrão de comportamento da série métrica e será alterada continuamente com base em novos dados para tornar o limite mais preciso. Assim como antes, cada instância será monitorada individualmente e você receberá notificações individualmente.
+Esta regra monitorizará automaticamente todos os valores por exemplo, ou seja, pode monitorizar as suas situações à medida que surgem sem precisar de modificar novamente a sua regra de alerta métrico.
 
-O aumento dos períodos de look-back e o número de violações também pode permitir que os alertas de filtragem apenas Alertem a definição de um desvio significativo. [Saiba mais sobre as opções avançadas de limites dinâmicos](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
+Ao monitorizar várias dimensões, a regra dos alertas Dynamic Thresholds pode criar limiares personalizados para centenas de séries métricas de cada vez. Os Limiares Dinâmicos resultam em menos regras de alerta para gerir e poupar tempo significativo na gestão e criação de regras de alerta.
 
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoramento em escala usando alertas de métrica no Azure Monitor
+Diga que tem uma aplicação web com muitas instâncias e não sabe qual é o limiar mais adequado. As regras acima referidas utilizarão sempre um limiar de 70%. No entanto, pode criar uma regra da seguinte forma:
 
-Até agora, você viu como um único alerta de métrica pode ser usado para monitorar uma ou várias séries temporais relacionadas a um único recurso do Azure. Muitas vezes, talvez você queira que a mesma regra de alerta seja aplicada a muitos recursos. O Azure Monitor também dá suporte ao monitoramento de vários recursos com uma regra de alerta de métrica. No momento, esse recurso tem suporte apenas em máquinas virtuais, bancos de dados do SQL Server, pools elásticos do SQL Server e dispositivos de borda da caixa do data box. Além disso, um único alerta de métrica pode monitorar recursos em uma região do Azure.
+- Recurso-alvo: myAppServicePlan
+- Métrica: CPU percentual
+- Tipo de condição: Dinâmico
+- Dimensões
+  - Instância = *
+- Agregação do tempo: Média
+- Período: Ao longo dos últimos 5 minutos
+- Frequência: 1 min
+- Operador: GreaterThan
+- Sensibilidade: Média
+- Olhar para trás Períodos: 1
+- Número de Violações: 1
 
-Você pode especificar o escopo do monitoramento por um único alerta de métrica de uma das três maneiras:
+Esta regra monitoriza se o uso médio do CPU nos últimos 5 minutos exceder o comportamento esperado para cada instância. A mesma regra pode monitorizar as ocorrências à medida que surgem sem precisar de modificar novamente a sua regra de alerta métrico. Cada instância terá um limiar que se adequa ao padrão de comportamento da série métrica e mudará continuamente com base em novos dados para tornar o limiar mais preciso. Como antes, cada instância será monitorizada individualmente e receberá notificações individualmente.
 
-- como uma lista de máquinas virtuais em uma região do Azure em uma assinatura
-- todas as máquinas virtuais (em uma região do Azure) em um ou mais grupos de recursos em uma assinatura
-- todas as máquinas virtuais (em uma região do Azure) em uma assinatura
+O aumento dos períodos de retrospetiva e o número de violações também podem permitir que os alertas de filtragem alertem apenas para a sua definição de desvio significativo. [Saiba mais sobre as opções avançadas Dynamic Thresholds.](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean)
 
-Criar regras de alerta de métricas que monitoram vários recursos é como [criar qualquer outro alerta de métrica](alerts-metric.md) que monitora um único recurso. Somente a diferença é que você selecionaria todos os recursos que deseja monitorar. Você também pode criar essas regras por meio de [modelos de Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Você receberá notificações individuais para cada máquina virtual.
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitorização em escala utilizando alertas métricos no Monitor Azure
+
+Até agora, viu como um único alerta métrico poderia ser usado para monitorizar uma ou muitas séries métricas relacionadas com um único recurso Azure. Muitas vezes, pode querer que a mesma regra de alerta seja aplicada a muitos recursos. O Azure Monitor também apoia a monitorização de múltiplos recursos (do mesmo tipo) com uma regra de alerta métrico, para os recursos que existem na mesma região do Azure. Esta funcionalidade é atualmente suportada apenas na nuvem pública do Azure e apenas para máquinas virtuais, bases de dados de servidores SQL, piscinas elásticas de servidor SQL e dispositivos de borda de caixa data. Além disso, esta funcionalidade está disponível apenas para métricas de plataforma, e não é suportada para métricas personalizadas.
+
+Pode especificar o âmbito de monitorização por uma única regra de alerta métrico de uma de três formas:
+
+- como uma lista de máquinas virtuais em uma região de Azure dentro de uma assinatura
+- todas as máquinas virtuais (numa região do Azure) em um ou mais grupos de recursos numa subscrição
+- todas as máquinas virtuais (numa região do Azure) numa única subscrição
+
+Criar regras de alerta métrico que monitorizem múltiplos recursos é como [criar qualquer outro alerta métrico](alerts-metric.md) que monitorize um único recurso. A única diferença é que escolheria todos os recursos que pretende monitorizar. Também pode criar estas regras através de modelos de [Gestor de Recursos Azure.](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources) Receberá notificações individuais para cada recurso monitorizado.
 
 ## <a name="typical-latency"></a>Latência típica
 
-Para alertas de métrica, normalmente você será notificado em menos de 5 minutos se definir a frequência da regra de alerta como 1 minuto. Em casos de carga pesada para sistemas de notificação, você poderá ver uma latência mais longa.
+Para alertas métricos, normalmente será notificado em menos de 5 minutos se definir a frequência da regra de alerta para ser de 1 min. Em casos de carga pesada para sistemas de notificação, poderá ver uma latência mais longa.
 
-## <a name="supported-resource-types-for-metric-alerts"></a>Tipos de recursos com suporte para alertas de métrica
+## <a name="supported-resource-types-for-metric-alerts"></a>Tipos de recursos suportados para alertas métricos
 
-Você pode encontrar a lista completa de tipos de recursos com suporte neste [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Pode encontrar a lista completa dos tipos de recursos suportados neste [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba como criar, exibir e gerenciar alertas de métrica no Azure](alerts-metric.md)
-- [Saiba como implantar alertas de métrica usando modelos de Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md)
+- [Saiba como criar, visualizar e gerir alertas métricos em Azure](alerts-metric.md)
+- [Saiba como implementar alertas métricos usando modelos do Gestor de Recursos Do Azure](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Saiba mais sobre grupos de ação](action-groups.md)
-- [Saiba mais sobre o tipo de condição de limites dinâmicos](alerts-dynamic-thresholds.md)
+- [Saiba mais sobre o tipo de condição dos Limiares Dinâmicos](alerts-dynamic-thresholds.md)

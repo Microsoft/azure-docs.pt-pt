@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: cd00fb2df0063bd8bc753f9078194648f6745f1b
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: eb131f3f53e04809ca21efda7367f03a79081bbc
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77155985"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445355"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Antes de começar:
 
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia `YourServiceRegion` pelo "Parâmetro SDK de Fala" da [região](https://aka.ms/speech/sdkregion) associada à sua subscrição (por exemplo, `westus` para a subscrição de teste gratuito).
+1. Substitua a `YourServiceRegion` de cadeia sou da **região** associada à sua subscrição (por exemplo, `westus` para a subscrição de teste gratuito). [](https://aka.ms/speech/sdkregion)
 
 1. Guarde as alterações ao projeto.
 

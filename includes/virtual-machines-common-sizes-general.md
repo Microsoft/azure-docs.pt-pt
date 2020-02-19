@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn;joelpell
 ms.custom: include file
-ms.openlocfilehash: cfb35f6eeae6d74eea8dab96fa336fb6700eb7a7
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3fc20288f4ec80c85bd0109799d5ed45b504d359
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77123164"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430147"
 ---
 Os tamanhos vm de propósito geral fornecem uma relação CPU-memória equilibrada. Ideal para testes e desenvolvimento, bases de dados pequenas a médias e servidores web de tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como o armazenamento de tamanhos neste agrupamento.
 
@@ -159,7 +159,7 @@ Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Suportado
 
-Os tamanhos da série DSv2 funcionam nos processadores Intel® Xeon® 8171M 2.1GHz (Skylake) ou nos processadores Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) ou na Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) com a Intel Turbo Boost Technology 2.0 e o armazenamento premium.
+Os tamanhos da série DSv2 funcionam nos processadores Intel® Xeon® 8171M 2.1GHz (Skylake) ou na Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) ou na Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) com a Intel Turbo Boost Technology 2.0 e utilizam o armazenamento premium.
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Max NICs / Largura de banda de rede esperada (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

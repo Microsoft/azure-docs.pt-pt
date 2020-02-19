@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 73a505ce68ed046eba011d3b36991616f441506e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc15ee42fd7ef8e41b332104b28af808c336789f
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206311"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430413"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação lateral do servidor de discos geridos pelo Azure
 
@@ -56,14 +56,14 @@ Para revogar o acesso às chaves geridas pelo cliente, consulte [o Azure Key Vau
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
-No momento, há suporte apenas para as seguintes regiões:
+Atualmente, apenas as seguintes regiões são apoiadas:
 
-- Disponível como uma oferta GA nas regiões leste dos EUA, oeste dos EUA 2 e EUA Central do Sul.
-- Disponível como uma visualização pública nas regiões EUA Central ocidental, leste dos EUA 2, Canadá central e Europa Setentrional.
+- Disponível como uma oferta de GA nos EUA Orientais, Oeste DOS EUA 2, Centro-Sul dos EUA, Regiões do Sul do Reino Unido.
+- Disponível como uma pré-visualização pública nas regiões do Centro-Oeste dos EUA, Leste dos EUA 2, Canadá Central e Norte da Europa.
 
 ### <a name="restrictions"></a>Restrições
 
-Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
+Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
 - Apenas são suportadas [teclas RSA "macias" e "duras"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2080, sem outras teclas ou tamanhos.
 - Os discos criados a partir de imagens personalizadas que são encriptadas utilizando encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptados utilizando as mesmas chaves geridas pelo cliente e devem estar na mesma subscrição.

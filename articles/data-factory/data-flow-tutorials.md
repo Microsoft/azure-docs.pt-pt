@@ -1,29 +1,29 @@
 ---
 title: Tutoriais de vídeo sobre fluxo de dados de mapeamento
-description: Uma lista de tutoriais em vídeo explicando o mapeamento de conceitos de fluxo de dados
+description: Uma lista de tutoriais de vídeo explicando conceitos de fluxo de dados de mapeamento
 author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 02/06/2020
-ms.openlocfilehash: 00b51c14a24b525d98e9634a4f416177364228cb
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 93b8520c0f65f102c9adf64870b60506d890276d
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069595"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431405"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriais de vídeo sobre fluxo de dados de mapeamento
 
-Veja abaixo uma lista de vídeos de tutorial de fluxo de dados de mapeamento criados pela equipe de Azure Data Factory.
+Abaixo está uma lista de vídeos tutoriais de fluxo de dados de mapeamento criados pela equipa azure Data Factory.
 
-À medida que as atualizações são feitas constantemente no produto, alguns recursos têm uma funcionalidade adicional ou diferente na experiência atual do usuário Azure Data Factory.
+Como as atualizações são constantemente feitas para o produto, algumas funcionalidades têm adicionado ou diferentes funcionalidades na experiência atual do utilizador da Azure Data Factory.
 
-## <a name="getting-started"></a>Introdução
+## <a name="getting-started"></a>Getting Started
 
 [Começar com fluxos de dados de mapeamento na Fábrica de Dados Azure](http://youtu.be/MFw7t_8tuV4)
 
-## <a name="debugging-and-developing-mapping-data-flows"></a>Depurando e desenvolvendo fluxos de dados de mapeamento
+## <a name="debugging-and-developing-mapping-data-flows"></a>Depuração e desenvolvimento de fluxos de dados de mapeamento
 
 [Depuração e teste de mapeamento fluxos](https://www.youtube.com/watch?v=3ANxyvDGfjA)de dados .
 
@@ -33,7 +33,7 @@ Veja abaixo uma lista de vídeos de tutorial de fluxo de dados de mapeamento cri
 
 [Monitorizar e gerir o desempenho do fluxo de dados de mapeamento](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
-## <a name="transformation-overviews"></a>Visões gerais de transformação
+## <a name="transformation-overviews"></a>Vistas gerais de transformação
 
 [Transformação agregada](http://youtu.be/jdL75xIr98I)
 
@@ -69,7 +69,9 @@ Veja abaixo uma lista de vídeos de tutorial de fluxo de dados de mapeamento cri
 
 [Existe A Transformação](http://youtu.be/GS8JVgNBMfs?hd=1)
 
-## <a name="source-and-sink"></a>Origem e coletor
+[Juntas Dinâmicas e Lookups Dinâmicos](https://youtu.be/CMOPPie9bXM)
+
+## <a name="source-and-sink"></a>Fonte e pia
 
 [JSONs de leitura e escrita](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
 
@@ -87,7 +89,7 @@ Veja abaixo uma lista de vídeos de tutorial de fluxo de dados de mapeamento cri
 
 [Padrão de carregamento de armazém de dados](https://www.youtube.com/watch?v=7mLqwtmeQFg)
 
-## <a name="optimizing-mapping-data-flows"></a>Otimizando fluxos de dados de mapeamento
+## <a name="optimizing-mapping-data-flows"></a>Otimização dos fluxos de dados de mapeamento
 
 [Linhagem de dados](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
@@ -99,7 +101,7 @@ Veja abaixo uma lista de vídeos de tutorial de fluxo de dados de mapeamento cri
 
 [Desempenho sQL DB](https://youtu.be/iyZT5CY3V_4)
 
-## <a name="mapping-data-flow-scenarios"></a>Mapeando cenários de fluxo de dados
+## <a name="mapping-data-flow-scenarios"></a>Mapear cenários de fluxo de dados
 
 [Lookups fuzzy](http://youtu.be/7gdwExjHBbw)
 

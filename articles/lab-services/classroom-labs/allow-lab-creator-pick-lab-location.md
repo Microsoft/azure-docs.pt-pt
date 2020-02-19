@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: ea9df341fcc76a38364e590f8541e6a85d7ec466
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 52d5628698d1f945a7f672595ee7ce4739b6d13c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211012"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444371"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Permitir que o criador de laboratório escolha o local para o laboratório nos Serviços de Laboratório Azure
 Na Azure Lab Services, um dono de uma conta de laboratório pode permitir que os criadores de laboratório (educadores) escolham um local para o laboratório que criam. Esta localização pode ser diferente da localização da conta do laboratório. Uma localização é um grupo de regiões de Azure. Por exemplo, a localização dos Estados Unidos é um grupo de regiões como os EUA Orientais, Os EUA Ocidentais, e assim por diante. 
@@ -73,6 +73,8 @@ Mais cedo, o preço baseava-se no tamanho vm que escolheste para o laboratório.
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
-- [Como dono de laboratório, crie e gere a gestão de laboratórios](how-to-manage-classroom-labs.md)
-- [Como proprietário de laboratório, configura risa e publica modelos](how-to-create-manage-template.md)
-- [Como dono de laboratório, configure e controle o uso de um laboratório](how-to-configure-student-usage.md)
+- [Ligue a rede do seu laboratório com uma rede virtual de pares](how-to-connect-peer-virtual-network.md)
+- [Anexar uma galeria de imagens partilhadas a um laboratório](how-to-attach-detach-shared-image-gallery.md)
+- [Adicione um utilizador como proprietário de laboratório](how-to-add-user-lab-owner.md)
+- [Ver configurações de firewall para um laboratório](how-to-configure-firewall-settings.md)
+- [Configure outras definições para um laboratório](how-to-configure-lab-accounts.md)

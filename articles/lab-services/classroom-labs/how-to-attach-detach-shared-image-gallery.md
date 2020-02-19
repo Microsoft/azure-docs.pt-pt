@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 98a21e9fa846d5a91ed1242701484afaa641cddc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1267487e44556a468db26a2ffaaa163dce540571
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718034"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443487"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou separar uma galeria de imagens partilhadas nos Serviços de Laboratório Azure
 Professores/administrador de laboratório podem guardar uma imagem VM modelo numa galeria de [imagens partilhada](../../virtual-machines/windows/shared-image-galleries.md) azure para que seja reutilizada por outros. Como primeiro passo, o administrador do laboratório anexa uma galeria de imagens partilhadas existente à conta do laboratório. Uma vez anexada a galeria de imagens partilhadas, os laboratórios criados na conta de laboratório podem guardar imagens para a galeria de imagens partilhada. Outros professores podem selecionar esta imagem a partir da galeria de imagens partilhadas para criar um modelo para as suas aulas. 
@@ -42,10 +42,10 @@ Após a criação da conta de laboratório, pode fazer as seguintes tarefas:
 - Desaloque uma galeria de imagens partilhada da conta do laboratório
 
 ## <a name="create-and-attach-a-shared-image-gallery"></a>Criar e anexar uma galeria de imagens partilhadas
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** no menu esquerdo. Selecione **Serviços de Laboratório** na secção **DEVOPS.** Se selecionar estrela (`*`) ao lado dos Serviços de **Laboratório,** é adicionado à secção **FAVORITES** no menu esquerdo. A partir da próxima vez, selecione **Serviços** de Laboratório sob **OS FAVORITOS**.
 
-    ![Todos os serviços-> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+    ![Todos os Serviços -> Serviços de Laboratório](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
 3. Selecione a sua conta de laboratório para ver a página da **Conta lab.** 
 4. Selecione galeria de **imagem partilhada** no menu esquerdo e selecione **+ Criar** na barra de ferramentas.  
 
@@ -86,7 +86,7 @@ Apenas uma galeria de imagens partilhada pode ser anexada a um laboratório. Se 
 
 ![Desaque a galeria de imagens partilhadas da conta do laboratório](../media/how-to-use-shared-image-gallery/detach.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber como guardar uma imagem de laboratório na galeria de imagens partilhadas ou usar uma imagem da galeria de imagens partilhadas para criar um VM, veja como usar a galeria de [imagens partilhadas.](how-to-use-shared-image-gallery.md)
 
 Para obter mais informações sobre galerias de imagem partilhadas em geral, consulte a galeria de [imagens partilhadas.](../../virtual-machines/windows/shared-image-galleries.md)

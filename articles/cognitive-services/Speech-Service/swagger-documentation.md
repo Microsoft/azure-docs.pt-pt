@@ -1,7 +1,7 @@
 ---
-title: Documentação do Swagger-serviço de fala
+title: Documentação swagger - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: A documentação do Swagger pode ser usada para gerar SDKs automaticamente para várias linguagens de programação. Todas as operações em nosso serviço têm suporte do Swagger
+description: A documentação Swagger pode ser usada para gerar SDKs de geração automática para uma série de linguagens de programação. Todas as operações ao nosso serviço são apoiadas pela Swagger
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,41 +10,41 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: dd9ac9654f916653af974e816485630423466ae5
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815439"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430810"
 ---
 # <a name="swagger-documentation"></a>Documentação do Swagger
 
-O serviço de fala oferece uma especificação Swagger para interagir com algumas APIs REST usadas para importar dados, criar modelos, testar a precisão do modelo, criar pontos de extremidade personalizados, enfileirar transcrições em lote e gerenciar assinaturas. A maioria das operações disponíveis por meio do portal de Fala Personalizada pode ser concluída programaticamente usando essas APIs.
+O serviço Speech oferece uma especificação Swagger para interagir com um punhado de APIs REST usados para importar dados, criar modelos, testar precisão do modelo, criar pontos finais personalizados, fazer filas de transcrições de lotes e gerir subscrições. A maioria das operações disponíveis através do portal Custom Speech podem ser concluídas programáticamente usando estas APIs.
 
 > [!NOTE]
-> As operações de conversão de texto em texto e de Text para fala têm suporte disponíveis como APIs REST, que, por sua vez, estão documentadas na especificação do Swagger.
+> Tanto as operações discurso-a-texto como as operações de texto-a-fala são suportadas como APIs REST, que por sua vez estão documentadas na especificação Swagger.
 
-## <a name="generating-code-from-the-swagger-specification"></a>Gerando código a partir da especificação do Swagger
+## <a name="generating-code-from-the-swagger-specification"></a>Código gerador a partir da especificação Swagger
 
-A [especificação do Swagger](https://cris.ai/swagger/ui/index) tem opções que permitem que você teste rapidamente vários caminhos. No entanto, às vezes é desejável gerar código para todos os caminhos, criando uma única biblioteca de chamadas nas quais você pode basear soluções futuras. Vamos dar uma olhada no processo para gerar uma biblioteca do Python.
+A [especificação Swagger](https://cris.ai/swagger/ui/index) tem opções que lhe permitem testar rapidamente para vários caminhos. No entanto, às vezes é desejável gerar código para todos os caminhos, criando uma única biblioteca de chamadas em que pode basear soluções futuras. Vamos dar uma olhada no processo para gerar uma biblioteca Python.
 
-Você precisará definir o Swagger para a mesma região que sua assinatura do serviço de fala. Você pode confirmar sua região no portal do Azure em seu recurso de serviço de fala. Para obter uma lista completa das regiões com suporte, consulte [regiões](regions.md).
+Terá de colocar swagger na mesma região que a sua assinatura de serviço speech. Pode confirmar a sua região no portal Azure sob o seu recurso de serviço speech. Para obter uma lista completa de regiões apoiadas, consulte [regiões.](regions.md)
 
 1. Ir para https://editor.swagger.io
-2. Clique em **arquivo**e em **importar**
-3. Insira a URL do Swagger, incluindo a região da sua assinatura do serviço de fala `https://<your-region>.cris.ai/docs/v2.0/swagger`
-4. Clique em **gerar cliente** e selecione Python
-5. Salvar a biblioteca de cliente
+2. Clique em **Ficheiro,** em seguida, clique **em Importar**
+3. Introduza o URL swagger incluindo a região para a sua subscrição de serviço de Discurso `https://<your-region>.cris.ai/docs/v2.0/swagger`
+4. Clique em **Gerar Cliente** e selecione Python
+5. Salve a biblioteca de clientes
 
-Você pode usar a biblioteca do Python gerada com os [exemplos de serviço de fala no GitHub](https://aka.ms/csspeech/samples).
+Você pode usar a biblioteca Python que você gerou com as amostras do [serviço speech no GitHub](https://aka.ms/csspeech/samples).
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Doutorados de referência
 
-* [REST (Swagger): transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
-* [API REST: conversão de fala em texto](rest-speech-to-text.md)
-* [API REST: conversão de texto em fala](rest-text-to-speech.md)
+* [REST (Swagger): Transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
+* [REST API: Discurso-a-texto](rest-speech-to-text.md)
+* [REST API: Texto-a-falar](rest-text-to-speech.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Exemplos de serviço de fala no GitHub](https://aka.ms/csspeech/samples).
-* [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)
+* [Amostras de serviço de fala no GitHub.](https://aka.ms/csspeech/samples)
+* [Obtenha uma chave de subscrição do serviço Speech gratuitamente](get-started.md)

@@ -1,6 +1,6 @@
 ---
-title: Configurar a proteção avançada contra ameaças para o Azure Key Vault | Microsoft Docs
-description: Este artigo explica como configurar a proteção avançada contra ameaças para Azure Key Vault na central de segurança do Azure
+title: Configurar proteção avançada contra ameaças para o Azure Key Vault
+description: Este artigo explica como criar uma proteção avançada contra ameaças para o Cofre chave Azure no Centro de Segurança Azure
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,29 +8,29 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f7f716734875d652de575991a4dc1b7bfe948ae3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 07924201d4208a502aa979dda476c57cf6edd749
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773521"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430555"
 ---
-# <a name="set-up-advanced-threat-protection-for-azure-key-vault-preview"></a>Configurar a proteção avançada contra ameaças para Azure Key Vault (versão prévia)
+# <a name="set-up-advanced-threat-protection-for-azure-key-vault-preview"></a>Configurar proteção avançada contra ameaças para o Cofre chave Azure (pré-visualização)
 
-A proteção avançada contra ameaças para Azure Key Vault fornece uma camada adicional de inteligência de segurança. Essa ferramenta detecta tentativas potencialmente perigosas de acessar ou explorar contas de Key Vault. Usando a proteção de ameaças avançadas nativa na central de segurança do Azure, você pode lidar com ameaças sem ser um especialista em segurança e sem aprender sistemas de monitoramento de segurança adicionais.
+A proteção avançada de ameaças para o Cofre chave azure fornece uma camada adicional de inteligência de segurança. Esta ferramenta deteta tentativas potencialmente nocivas de aceder ou explorar contas key vault. Utilizando a proteção contra ameaças avançadas nativas no Azure Security Center, pode abordar ameaças sem ser um perito em segurança, e sem aprender sistemas adicionais de monitorização de segurança.
 
-Quando a central de segurança detecta a atividade anômala, ela exibe alertas. Ele também envia emails ao administrador da assinatura com detalhes da atividade suspeita e recomendações sobre como investigar e corrigir as ameaças identificadas.
+Quando o Centro de Segurança deteta atividade anómala, apresenta alertas. Também envia um e-mail ao administrador de subscrição com detalhes sobre a atividade suspeita e recomendações para como investigar e remediar as ameaças identificadas.
 
-## <a name="set-up-advanced-threat-protection-from-azure-security-center"></a>Configurar a proteção avançada contra ameaças na central de segurança do Azure
+## <a name="set-up-advanced-threat-protection-from-azure-security-center"></a>Criar proteção avançada contra ameaças do Centro de Segurança Azure
 
-Por padrão, a proteção avançada contra ameaças está habilitada para todas as suas contas de Key Vault quando você assina a camada Standard da central de segurança. Para obter mais informações, consulte [preços](security-center-pricing.md).
+Por predefinição, a proteção de ameaça avançada está ativada para todas as suas contas Key Vault quando subscrever o nível Padrão do Centro de Segurança. Para mais informações, consulte [Preços](security-center-pricing.md).
 
-Para habilitar ou desabilitar a proteção para uma assinatura específica, siga estas etapas.
+Para ativar ou desativar a proteção para uma subscrição específica, siga estes passos.
 
-1. No painel esquerdo na central de segurança, selecione **preços & configurações**.
-1. Selecione a assinatura com as contas de armazenamento para as quais você deseja habilitar ou desabilitar a proteção contra ameaças.
+1. A partir do painel esquerdo no Centro de Segurança, selecione **Preços e configurações**.
+1. Selecione a subscrição com as contas de armazenamento para as quais pretende ativar ou desativar a proteção contra ameaças.
 1. Selecione **Escalão de preço**.
-1. No grupo **selecionar camada de preços por tipo de recurso** , localize a linha **cofres de chaves** e selecione **habilitado** ou **desabilitado**.
+1. Do **nível** de preços Select por grupo de tipo de recurso, encontre a linha **Key Vaults** e selecione **Ativado** ou **Desativado**.
 
     [![habilitação ou desativação de proteção avançada de ameaças para o cofre chave no Centro de Segurança Azure](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png)](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png#lightbox)
 1. Selecione **Guardar**.
@@ -38,8 +38,8 @@ Para habilitar ou desabilitar a proteção para uma assinatura específica, siga
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a habilitar e desabilitar a proteção avançada contra ameaças para Azure Key Vault. 
+Neste artigo, aprendeu a permitir e desativar a proteção avançada de ameaças para o Cofre chave Azure. 
 
-Para obter outros materiais relacionados, consulte o seguinte artigo:
+Para outros materiais relacionados, consulte o seguinte artigo:
 
-- [Detecção de ameaças para as camadas dos serviços do Azure na central de segurança](security-center-alerts-service-layer.md): Este artigo descreve os alertas relacionados à proteção avançada contra ameaças para o Azure Key Vault.
+- [Deteção de ameaças para as camadas de serviços Azure no Centro](security-center-alerts-service-layer.md)de Segurança : Este artigo descreve os alertas relacionados com a proteção avançada de ameaças para o Cofre chave Azure.

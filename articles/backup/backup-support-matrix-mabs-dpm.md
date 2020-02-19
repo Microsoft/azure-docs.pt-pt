@@ -3,12 +3,12 @@ title: MABS e System Center DPM matriz de suporte
 description: Este artigo resume o suporte de backup Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup no local e nos recursos Do VM Do Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 211a7e39dc9cda9e4bd96e3a66924b2195524be7
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111459"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444031"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com O Servidor de Backup Microsoft Azure ou DPM do System Center
 
@@ -70,9 +70,9 @@ A Backup Azure pode fazer backup nas instâncias DPM/MABS que estão a executar 
 
 **Cenário** | **DPM/MABS**
 --- | ---
-**MABS em um VM Azure** | Windows Server 2012 R2.<br/><br/> Centro de Dados windows 2016.<br/><br/> Centro de Dados Windows 2019.<br/><br/> Recomendamos que comece com uma imagem do mercado.<br/><br/> Padrão Mínimo A2 com dois núcleos e 3,5 GB de RAM.
-**DPM em um VM Azure** | System Center 2012 R2 com Atualização 3 ou posterior.<br/><br/> Sistema operativo Windows [conforme exigido pelo System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Recomendamos que comece com uma imagem do mercado.<br/><br/> Padrão Mínimo A2 com dois núcleos e 3,5 GB de RAM.
-**MABS no local** | Sistemas operativos suportados de 64 bits:<br/><br/> MABS v3 e mais tarde: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 e mais tarde: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Todas as versões MABS: Windows Server 2012 R2.<br/><br/>Todas as versões MABS: Windows Storage Server 2012 R2.
+**MABS em um VM Azure** |  Centro de Dados windows 2016.<br/><br/> Centro de Dados Windows 2019.<br/><br/> Recomendamos que comece com uma imagem do mercado.<br/><br/> Standard_A4_v2 mínima com quatro núcleos e RAM de 8 GB.
+**DPM em um VM Azure** | System Center 2012 R2 com Atualização 3 ou posterior.<br/><br/> Sistema operativo Windows [conforme exigido pelo System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Recomendamos que comece com uma imagem do mercado.<br/><br/> Standard_A4_v2 mínima com quatro núcleos e RAM de 8 GB.
+**MABS no local** |  MABS v3 e mais tarde: Windows Server 2016 ou Windows Server 2019
 **DPM no local** | Servidor físico/Hyper-V VM: System Center 2012 SP1 ou mais tarde.<br/><br/> VMware VM: System Center 2012 R2 com Update 5 ou mais tarde.
 
 >[!NOTE]

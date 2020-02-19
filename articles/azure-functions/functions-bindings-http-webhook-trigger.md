@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 5d2ee6c530e2154373508be00edcf1bcdbb59861
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 8dbb4ff0c9f8df6609d8447e84dcfe878a954fff
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210895"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443963"
 ---
 # <a name="azure-functions-http-trigger"></a>Gatilho DE funções azure HTTP
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre as ligações HTTP, consulte a [visão geral
 
 ## <a name="example"></a>Exemplo
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [ C# função](functions-dotnet-class-library.md) que procura um parâmetro `name`, quer na corda de consulta, quer no corpo do pedido HTTP. Note que o valor de retorno é usado para a encadernação de saída, mas não é necessário um atributo de valor de retorno.
 
@@ -53,7 +53,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 O exemplo seguinte mostra uma ligação do gatilho num ficheiro *function.json* e uma [ C# função de script](functions-reference-csharp.md) que utiliza a ligação. A função procura um parâmetro `name` quer na corda de consulta quer no corpo do pedido HTTP.
 
@@ -129,7 +129,7 @@ public class Person {
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo seguinte mostra uma ligação do gatilho num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função procura um parâmetro `name` quer na corda de consulta quer no corpo do pedido HTTP.
 
@@ -178,7 +178,7 @@ module.exports = function(context, req) {
 };
 ```
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 O exemplo seguinte mostra uma ligação do gatilho num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que utiliza a ligação. A função procura um parâmetro `name` quer na corda de consulta quer no corpo do pedido HTTP.
 
@@ -234,7 +234,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 * [Leia o parâmetro da corda de consulta](#read-parameter-from-the-query-string)
 * [Ler corpo de um pedido post](#read-body-from-a-post-request)
@@ -428,7 +428,7 @@ Nas [ C# bibliotecas](functions-dotnet-class-library.md) de classes e em Java, o
 
 Pode definir o nível de autorização e métodos HTTP admissíveis em parâmetros de construção de atributos, tipo webhook e um modelo de rota. Para obter mais informações sobre estas definições, consulte [a configuração](#configuration).
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Este exemplo demonstra como usar o atributo [HttpTrigger.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs)
 
@@ -443,19 +443,19 @@ public static Task<IActionResult> Run(
 
 Para um exemplo completo, consulte o exemplo do [gatilho](#example).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 Os atributos C# não são suportados pelo Script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Este exemplo demonstra como usar o atributo [HttpTrigger.](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java)
 
@@ -489,11 +489,11 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 | **rota** | **Rota** | Define o modelo de rota, controlando a que solicitam URLs a sua função responde. O valor predefinido se nenhum for fornecido é `<functionname>`. Para mais informações, consulte [personalizar o ponto final http](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Suportado apenas para o tempo de execução da versão 1.x._<br/><br/>Configures o gatilho HTTP para funcionar como um recetor [webhook](https://en.wikipedia.org/wiki/Webhook) para o fornecedor especificado. Não deprete a propriedade `methods` se você definir esta propriedade. O tipo webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final de webhook de uso geral sem lógica para um fornecedor específico. Esta definição restringe os pedidos apenas a quem utiliza HTTP POST e com o tipo de conteúdo `application/json`.</li><li><code>github</code>&mdash;A função responde aos [webhooks GitHub](https://developer.github.com/webhooks/). Não utilize a propriedade _authLevel_ com webhooks GitHub. Para mais informações, consulte a secção de webhooks GitHub mais tarde neste artigo.</li><li><code>slack</code>&mdash;A função responde aos [webhooks Slack](https://api.slack.com/outgoing-webhooks). Não utilize a propriedade _authLevel_ com webhooks Slack. Para mais informações, consulte a secção Slack webhooks mais tarde neste artigo.</li></ul>|
 
-## <a name="usage"></a>Utilização
+## <a name="payload"></a>carga útil
 
 O tipo de entrada do gatilho é declarado como `HttpRequest` ou tipo personalizado. Se optar por `HttpRequest`, terá acesso total ao objeto de pedido. Para um tipo personalizado, o tempo de execução tenta analisar o corpo de pedido da JSON para definir as propriedades do objeto.
 
-### <a name="customize-the-http-endpoint"></a>Personalize o ponto final http
+## <a name="customize-the-http-endpoint"></a>Personalize o ponto final http
 
 Por predefinição quando cria uma função para um gatilho HTTP, a função é endereçada com uma rota do formulário:
 
@@ -528,7 +528,7 @@ http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 
 Esta configuração permite que o código de função suporte dois parâmetros no endereço, _categoria_ e _id_.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Pode utilizar qualquer restrição de [rota Web API](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com os seus parâmetros. O C# seguinte código de função utiliza ambos os parâmetros.
 
@@ -544,7 +544,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 Pode utilizar qualquer restrição de [rota Web API](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com os seus parâmetros. O C# seguinte código de função utiliza ambos os parâmetros.
 
@@ -562,7 +562,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 No Nó, o tempo de funcionamento das funções fornece o corpo de pedido do `context` objeto. Para mais informações, consulte o exemplo do [gatilho javaScript](#example).
 
@@ -583,7 +583,7 @@ module.exports = function (context, req) {
 }
 ```
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 O contexto de execução da função é exposto através de um parâmetro declarado como `func.HttpRequest`. Esta instância permite que uma função aceda a parâmetros de rota de dados, valores de cordas de consulta e métodos que lhe permitam devolver respostas HTTP.
 
@@ -603,7 +603,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(message)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O contexto de execução da função é propriedades declaradas no atributo `HttpTrigger`. O atributo permite definir parâmetros de rota, níveis de autorização, verbos HTTP e a instância de pedido de entrada.
 
@@ -644,7 +644,7 @@ Por predefinição, todas as rotas de função são pré-fixadas com *api*. Tamb
 }
 ```
 
-### <a name="using-route-parameters"></a>Utilização de parâmetros de rota
+## <a name="using-route-parameters"></a>Utilização de parâmetros de rota
 
 Os parâmetros de rota que definem o padrão de `route` de uma função estão disponíveis para cada encadernação. Por exemplo, se tiver uma rota definida como `"route": "products/{id}"` então uma ligação de armazenamento de mesa pode usar o valor do parâmetro `{id}` na configuração de encadernação.
 
@@ -661,13 +661,13 @@ A configuração seguinte mostra como o parâmetro `{id}` é passado para o `row
 }
 ```
 
-### <a name="working-with-client-identities"></a>Trabalhar com identidades de clientes
+## <a name="working-with-client-identities"></a>Trabalhar com identidades de clientes
 
 Se a sua aplicação de funções estiver a utilizar a [Autenticação /Autorização](../app-service/overview-authentication-authorization.md)do Serviço app, pode ver informações sobre clientes autenticados a partir do seu código. Esta informação está disponível como [cabeçalhos de pedido injetados pela plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
 Pode também ler esta informação a partir de dados vinculativos. Esta capacidade só está disponível para o tempo de funcionamento das Funções em 2.x e superior. Atualmente, apenas está disponível para línguas .NET.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 As informações relativas aos clientes autenticados estão disponíveis como Diretor de [Sinistros.](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostra o seguinte exemplo:
 
@@ -699,7 +699,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 As informações relativas aos clientes autenticados estão disponíveis como Diretor de [Sinistros.](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostra o seguinte exemplo:
 
@@ -733,21 +733,21 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O utilizador autenticado está disponível através de [cabeçalhos HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 O utilizador autenticado está disponível através de [cabeçalhos HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O utilizador autenticado está disponível através de [cabeçalhos HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 ---
 
-### <a name="authorization-keys"></a>Chaves de autorização
+## <a name="authorization-keys"></a>Chaves de autorização
 
 As funções permitem-lhe utilizar chaves para dificultar o acesso aos pontos finais da função HTTP durante o desenvolvimento.  Um gatilho HTTP padrão pode exigir que tal chave API esteja presente no pedido. 
 
@@ -769,7 +769,7 @@ Cada aplicação de função também tem uma **chave master**especial. Esta chav
 > [!CAUTION]  
 > Devido às permissões elevadas na sua app de funções concedidas pela chave principal, não deve partilhar esta chave com terceiros ou distribuí-la em aplicações de clientes nativos. Tenha cuidado ao escolher o nível de autorização de administração.
 
-### <a name="obtaining-keys"></a>Obtenção de chaves
+## <a name="obtaining-keys"></a>Obtenção de chaves
 
 As chaves são armazenadas como parte da sua aplicação de funções em Azure e são encriptadas em repouso. Para ver as suas teclas, crie novas, ou role chaves para novos valores, navegue para uma das suas funções desencadeadas pelo HTTP no [portal Azure](https://portal.azure.com) e selecione **Manage**.
 
@@ -777,7 +777,7 @@ As chaves são armazenadas como parte da sua aplicação de funções em Azure e
 
 Pode obter chaves de função programáticamente utilizando APIs de [gestão chave](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
-### <a name="api-key-authorization"></a>Autorização chave DaPi
+## <a name="api-key-authorization"></a>Autorização chave DaPi
 
 A maioria dos modelos de gatilho http requerem uma chave API no pedido. Assim, o seu pedido http normalmente se parece com o seguinte URL:
 
@@ -791,7 +791,7 @@ Pode permitir pedidos anónimos, que não requerem chaves. Também pode exigir q
 > Quando o funcionamento funciona localmente, a autorização é desativada independentemente da definição de nível de autorização especificada. Depois de publicar no Azure, a configuração `authLevel` no gatilho é executada. As chaves ainda são necessárias quando se funciona [localmente num recipiente](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally).
 
 
-### <a name="secure-an-http-endpoint-in-production"></a>Assegurar um ponto final http na produção
+## <a name="secure-an-http-endpoint-in-production"></a>Assegurar um ponto final http na produção
 
 Para garantir totalmente os pontos finais da sua função em produção, deve considerar a implementação de uma das seguintes opções de segurança ao nível da aplicação:
 
@@ -803,24 +803,24 @@ Para garantir totalmente os pontos finais da sua função em produção, deve co
 
 Ao utilizar um destes métodos de segurança ao nível da aplicação de função, deverá definir o nível de autorização de função acionado pelo HTTP para `anonymous`.
 
-### <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>Webhooks
 
 > [!NOTE]
 > O modo Webhook só está disponível para a versão 1.x do tempo de execução das funções. Esta alteração foi feita para melhorar o desempenho dos gatilhos HTTP na versão 2.x e superior.
 
 Na versão 1.x, os modelos de webhook fornecem validação adicional para cargas de webhook. Na versão 2.x e superior, o gatilho base HTTP ainda funciona e é a abordagem recomendada para webhooks. 
 
-#### <a name="github-webhooks"></a>Webhooks GitHub
+### <a name="github-webhooks"></a>Webhooks GitHub
 
 Para responder aos webhooks GitHub, crie primeiro a sua função com um Gatilho HTTP e detetete a propriedade **webHookType** para `github`. Em seguida, copie a sua url e a chave API na página **Add webhook** do seu repositório GitHub. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-#### <a name="slack-webhooks"></a>Ganchos de teia slack
+### <a name="slack-webhooks"></a>Ganchos de teia slack
 
 O webhook Slack gera um símbolo para si em vez de o deixar especificar, por isso deve configurar uma chave específica da função com o símbolo de Slack. Ver [Chaves de Autorização](#authorization-keys).
 
-### <a name="webhooks-and-keys"></a>Webhooks e chaves
+## <a name="webhooks-and-keys"></a>Webhooks e chaves
 
 A autorização do webhook é manuseada pelo componente recetor webhook, parte do gatilho HTTP, e o mecanismo varia com base no tipo webhook. Cada mecanismo depende de uma chave. Por predefinição, a tecla de função denominada "padrão" é utilizada. Para utilizar uma tecla diferente, configure o fornecedor de webhook para enviar o nome chave com o pedido de uma das seguintes formas:
 

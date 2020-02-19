@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: reconhecer a fala de um C# microfone, (Unity)-serviço de fala'
+title: 'Quickstart: Reconhecer o discurso C# a partir de um microfone, (Unidade)- Serviço de fala'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 894c9d34f3e9874a51f5939021f908ac4ecaaaa9
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 531e9dbec55c5a6a305b321df7a11067c0ade92a
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156361"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446861"
 ---
 > [!NOTE]
 > O Speech SDK for Unitity suporta windows desktop (x86 e x64) ou Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulador x64, ARM32 e ARM64)
@@ -90,7 +90,7 @@ Para adicionar o código de script da amostra para o projeto Unidade, siga estes
 
 1. Encontre e substitua a `YourSubscriptionKey` de cadeia seleção com a sua chave de subscrição do serviço Speech.
 
-1. Encontre e substitua a cadeia `YourServiceRegion` pelo "Parâmetro SDK de Fala" da [região](https://aka.ms/speech/sdkregion) associado à sua subscrição. Por exemplo, se estiver a utilizar a versão de avaliação gratuita, a região é `westus`.
+1. Encontre e substitua a cadeia `YourServiceRegion` com o **identificador** [região](https://aka.ms/speech/sdkregion) associado à sua subscrição. Por exemplo, se estiver a utilizar a versão de avaliação gratuita, a região é `westus`.
 
 1. Guarde as alterações no guião.
 

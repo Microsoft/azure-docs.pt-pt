@@ -1,34 +1,34 @@
 ---
-title: Como migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia)
-description: Saiba como migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia)
+title: As configurações da Firewall Migrate Azure para a política de Firewall Azure (pré-visualização) utilizando o PowerShell
+description: Saiba como migrar configurações de Firewall Azure para a política de Firewall Azure (pré-visualização)
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: f23c9c030b94fe6f563b4e850a78d2d11db7ec25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516334"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443113"
 ---
-# <a name="how-to-migrate-azure-firewall-configurations-to-azure-firewall-policy-preview"></a>Como migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia)
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>As configurações da Firewall Migrate Azure para a política de Firewall Azure (pré-visualização) utilizando powershell
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Você pode usar um script de Azure PowerShell para migrar as configurações existentes do firewall do Azure para um recurso de política de firewall do Azure. Você pode usar o Gerenciador de firewall do Azure para implantar a política.
+Pode utilizar um script Azure PowerShell para migrar as configurações existentes do Azure Firewall para um recurso de política Azure Firewall. Em seguida, pode utilizar o Azure Firewall Manager para implementar a apólice.
 
-O script `AZFWMigrationScript.ps1` cria um FirewallPolicy com três objetos RuleCollectionGroup para ApplicationRuleCollections, NetworkRuleCollections e NatRuleCollections, respectivamente. 
+O `AZFWMigrationScript.ps1` script cria uma FirewallPolicy com três objetos RuleCollectionGroup para ApplicationRuleCollections, NetworkRuleCollections e NatRuleCollections respectivamente. 
 
-Um RuleCollectionGroup é um novo agrupamento de nível superior para coleções de regras para extensibilidade futura. Usar os padrões acima é recomendado e é feito automaticamente no Portal.
+Um RuleCollectionGroup é um novo agrupamento de alto nível para coleções de regras para futuras extensibilitys. Recomenda-se a utilização dos predefinições acima referidos e é feito automaticamente a partir do Portal.
 
-O início do script define o nome do firewall de origem e o grupo de recursos e o nome e o local da política de destino. Altere esses valores conforme apropriado para sua organização.
+O início do script define o nome e o grupo de recursos da firewall de origem e o nome e localização da política alvo. Altere estes valores conforme apropriado para a sua organização.
 
-## <a name="migration-script"></a>Script de migração
+## <a name="migration-script"></a>Roteiro de migração
 
-Modifique o script a seguir para migrar a configuração do firewall.
+Modifique o seguinte script para migrar a configuração da sua firewall.
 
 ```azurepowershell
 #Input params to be modified as needed
@@ -161,4 +161,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a implantação do Gerenciador de firewall do Azure: [visão geral da implantação do Azure firewall Manager Preview](deployment-overview.md).
+Saiba mais sobre a implementação do Azure Firewall Manager: Visão geral de implementação do [Gestor de Firewall Azure](deployment-overview.md).

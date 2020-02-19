@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6e5571604e6154408f2005ab4804b4270041e4cf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169954"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444354"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,21 +81,21 @@ Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa r
 >
 > Para contas de armazenamento não predefinidas, o parâmetro `storage_account` na [função`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite especificar uma conta de armazenamento personalizada pelo ID de recursos Azure.
 
-## <a name="use-azure-data-lake-storage-gen-2"></a>Usar Azure Data Lake Storage Gen 2
+## <a name="use-azure-data-lake-storage-gen-2"></a>Use azure Data Lake Storage Gen 2
 
-O Azure Data Lake Storage Gen 2 é um conjunto de recursos para Big Data Analytics, criado com base no armazenamento de BLOBs do Azure. Ele pode ser usado para armazenar dados usados para treinar modelos com Azure Machine Learning. 
+Azure Data Lake Storage Gen 2 é um conjunto de capacidades para a análise de big data, construída sumponsuticos. Pode ser usado para armazenar dados usados para treinar modelos com Azure Machine Learning. 
 
-Para usar Data Lake Storage Gen 2 dentro da rede virtual do seu espaço de trabalho Azure Machine Learning, use as seguintes etapas:
+Para utilizar data Lake Storage Gen 2 dentro da rede virtual do seu espaço de trabalho Azure Machine Learning, use os seguintes passos:
 
-1. Crie uma conta Azure Data Lake Storage Gen 2. Para mais informações, consulte Criar uma conta de armazenamento de 12 milhões de dados [azure.](../storage/blobs/data-lake-storage-quickstart-create-account.md)
+1. Crie uma conta azure Data Lake Storage gen 2. Para mais informações, consulte Criar uma conta de armazenamento de 12 milhões de dados [azure.](../storage/blobs/data-lake-storage-quickstart-create-account.md)
 
 1. Utilize os passos 2-4 na secção anterior, utilize uma conta de armazenamento para o seu espaço de [trabalho,](#use-a-storage-account-for-your-workspace)para colocar a conta na rede virtual.
 
-Ao usar Azure Machine Learning com Data Lake Storage Gen 2 dentro de uma rede virtual, use as seguintes diretrizes:
+Ao utilizar o Azure Machine Learning com data Lake Storage Gen 2 dentro de uma rede virtual, utilize as seguintes orientações:
 
-* Se utilizar o __SDK para criar um conjunto__de dados , e o sistema que executa o código não estiver na rede __virtual,__ utilize o parâmetro `validate=False`. Esse parâmetro ignora a validação, o que falhará se o sistema não estiver na mesma rede virtual que a conta de armazenamento. Para mais informações, consulte o método [from_files().](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)
+* Se utilizar o __SDK para criar um conjunto__de dados , e o sistema que executa o código não estiver na rede __virtual,__ utilize o parâmetro `validate=False`. Este parâmetro ignora a validação, o que falha se o sistema não estiver na mesma rede virtual que a conta de armazenamento. Para mais informações, consulte o método [from_files().](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)
 
-* Ao usar Azure Machine Learning instância de computação ou cluster de computação para treinar um modelo usando o conjunto de um, ele deve estar na mesma rede virtual que a conta de armazenamento.
+* Ao utilizar o Azure Machine Learning Compute Instance ou o cluster compute para treinar um modelo utilizando o conjunto de dados, deve estar na mesma rede virtual que a conta de armazenamento.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>Use uma instância chave do cofre com o seu espaço de trabalho
 
@@ -134,13 +134,14 @@ Para utilizar um conjunto de cálculos de machine learning Azure ou um cluster d
 > * Se vai colocar vários casos de computação ou clusters numa rede virtual, poderá precisar de solicitar um aumento de quota para um ou mais dos seus recursos.
 > * Se as Contas de Armazenamento Azure para o espaço de trabalho também estiverem protegidas numa rede virtual, devem estar na mesma rede virtual que a instância ou cluster de computação de Machine Learning Azure. 
 
-A instância ou cluster de computação machine learning atribui automaticamente recursos adicionais de rede no grupo de recursos que contém a rede virtual. Para cada instância ou cluster de cálculo, o serviço atribui os seguintes recursos:
-
-* Um grupo de segurança de rede
-* Um endereço IP público
-* Um equilibrador de carga
-
-Estes recursos estão limitados pelas [quotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) da subscrição.
+> [!TIP]
+> A instância ou cluster de computação machine learning atribui automaticamente recursos adicionais de rede no grupo de recursos que contém a rede virtual. Para cada instância ou cluster de cálculo, o serviço atribui os seguintes recursos:
+> 
+> * Um grupo de segurança de rede
+> * Um endereço IP público
+> * Um equilibrador de carga
+> 
+> Estes recursos estão limitados pelas [quotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) da subscrição.
 
 
 ### <a id="mlcports"></a>Portas necessárias
@@ -500,6 +501,10 @@ Ao utilizar o Firewall Azure, deve configurar uma regra de rede para permitir o 
 Ao adicionar a regra, dereo o __Protocolo__ a qualquer um, e as portas para `*`.
 
 Para obter mais informações sobre a configuração de uma regra de rede, consulte [Implementar e configurar firewall Azure](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+
+## <a name="use-azure-container-registry"></a>Utilizar o Azure Container Registry
+
+Ao utilizar uma rede virtual com o Azure Machine Learning, __não__ coloque o Registo de Contentores Azure para o espaço de trabalho na rede virtual. Esta configuração não é suportada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
