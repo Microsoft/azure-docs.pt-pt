@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/10/2019
-  ms.openlocfilehash: b88d17578156aa391690efa214b46d23a100a4b8
-  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.openlocfilehash: 7090c0814e91b2178dea44eed4d28e6f4e80bd77
+  ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/15/2020
-  ms.locfileid: "75982511"
+  ms.lasthandoff: 02/19/2020
+  ms.locfileid: "77470621"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -106,7 +106,7 @@ additionalContent:
     - title: Grupos de Gestão
       links:
       - text: CLI do Azure
-        url: /cli/azure/ext/managementgroups/?view=azure-cli-latest
+        url: /cli/azure/account/management-group
       - text: Azure PowerShell
         url: /powershell/module/az.resources/#resources
       - text: SDK do Azure para .NET
