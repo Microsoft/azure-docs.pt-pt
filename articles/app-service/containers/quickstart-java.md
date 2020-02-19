@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f8d443677aef6efd08e03139f1d24d0524465e38
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: HT
+ms.openlocfilehash: f07c4d8b440216cb676484ae2f510b2736b7d17c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425391"
+ms.locfileid: "77443912"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Java no Azure App Service no Linux
 
@@ -78,7 +78,6 @@ Enter index to use:
 Define value for runtimeStack(Default: TOMCAT 8.5):
 1. TOMCAT 9.0
 2. TOMCAT 8.5 [*]
-3. WILDFLY 14
 Enter index to use:
 Please confirm webapp properties
 AppName : helloworld-1558400876966
@@ -137,9 +136,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 Este comando pode demorar alguns minutos a ser executado.
 
 ## <a name="next-steps"></a>Passos seguintes
-
-> [!div class="nextstepaction"]
-> [Tutorial: Java Enterprise app com PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure java app](configure-custom-container.md)

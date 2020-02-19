@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/17/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 305ad1da28de899f801b9b8af58628c6c067a5d7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: HT
+ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425141"
+ms.locfileid: "77444014"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -1510,14 +1510,14 @@ az group deployment create \
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Modelo para um alerta métrico que monitoriza múltiplos recursos
 
-As secções anteriores descreveram modelos de gestor de recursos do Azure para criar alertas métricos que monitorizam um único recurso. O Azure Monitor suporta agora a monitorização de múltiplos recursos com uma única regra de alerta métrico. Esta funcionalidade é atualmente suportada apenas na nuvem pública de Azure e apenas para máquinas virtuais, Bases de Dados SQL, Piscinas Elásticas SQL e Dispositivos de Borda databox.
+As secções anteriores descreveram modelos de gestor de recursos do Azure para criar alertas métricos que monitorizam um único recurso. O Azure Monitor apoia agora a monitorização de múltiplos recursos (do mesmo tipo) com uma regra de alerta métrica única, para os recursos que existem na mesma região do Azure. Esta funcionalidade é atualmente suportada apenas na nuvem pública do Azure e apenas para máquinas Virtuais, bases de dados de servidores SQL, piscinas elásticas de servidor SQL e dispositivos de borda databox. Além disso, esta funcionalidade está disponível apenas para métricas de plataforma, e não é suportada para métricas personalizadas.
 
 A regra dos alertas Dynamic Thresholds também pode ajudar a criar limiares personalizados para centenas de séries métricas (mesmo diferentes tipos) de cada vez, o que resulta em menos regras de alerta para gerir.
 
 Esta secção descreverá os modelos do Gestor de Recursos Azure para três cenários para monitorizar múltiplos recursos com uma única regra.
 
 - Monitorização de todas as máquinas virtuais (numa região do Azure) em um ou mais grupos de recursos.
-- Monitorização de todas as máquinas virtuais (numa região do Azure) numa subscrição
+- Monitorização de todas as máquinas virtuais (numa região do Azure) numa subscrição.
 - Monitorização de uma lista de máquinas virtuais (numa região do Azure) numa subscrição.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerta de limiar estático em todas as máquinas virtuais em um ou mais grupos de recursos
