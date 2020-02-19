@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169774"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462007"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -111,6 +111,12 @@ Um parâmetro tem as seguintes propriedades que são utilizadas na definição d
 - `metadata`: Define subpropriedades utilizadas principalmente pelo portal Azure para apresentar informações fáceis de utilizar:
   - `description`: A explicação para que o parâmetro é utilizado. Pode ser usado para fornecer exemplos de valores aceitáveis.
   - `displayName`: O nome amigável mostrado no portal para o parâmetro.
+  - `version`: (Opcional) rastreia detalhes sobre a versão do conteúdo de uma definição de política.
+
+    > [!NOTE]
+    > O serviço De Política Azure utiliza propriedades `version`, `preview`e `deprecated` para transmitir o nível de mudança para uma definição ou iniciativa e estado integrados. O formato de `version` é: `{Major}.{Minor}.{Patch}`. Estados específicos, tais como _depreciados_ ou _pré-visualização,_ são anexados à propriedade `version` ou em outra propriedade como **booleano.**
+
+  - `category`: (Opcional) Determina em que categoria no portal Azure é apresentada a definição de política.
   - `strongType`: (Opcional) Utilizado ao atribuir a definição de política através do portal. Fornece uma lista de conhecimento de contexto. Para mais informações, consulte [strongType](#strongtype).
   - `assignPermissions`: (Opcional) Definido como _verdadeiro_ para que o portal Azure crie atribuições de funções durante a atribuição de políticas. Esta propriedade é útil caso deseje atribuir permissões fora do âmbito de atribuição. Há uma função de atribuição por definição de papel na política (ou por definição de papel em todas as políticas da iniciativa). O valor do parâmetro deve ser um recurso ou âmbito válido.
 - `defaultValue`: (Opcional) Define o valor do parâmetro numa atribuição se não for dado qualquer valor.

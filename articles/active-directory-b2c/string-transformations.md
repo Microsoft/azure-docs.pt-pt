@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 06323ba8f623bc80a355be69ed9571ee32dd69e6
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045351"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461220"
 ---
 # <a name="string-claims-transformations"></a>Transformações de sinistros de cordas
 
@@ -30,15 +30,15 @@ Compare duas reclamações e atire uma exceção se não forem iguais de acordo 
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | O tipo de primeira reivindicação, que deve ser comparado. |
-| InputClaim | inputClaim2 | string | O segundo tipo de reclamação, que deve ser comparado. |
-| InputParameter | stringCom | string | comparação de cordas, um dos valores: Ordinal, OrdinalIgnoreCase. |
+| inputClaim | inputClaim1 | string | O tipo de primeira reivindicação, que deve ser comparado. |
+| inputClaim | inputClaim2 | string | O segundo tipo de reclamação, que deve ser comparado. |
+| EntradaParametro | stringCom | string | comparação de cordas, um dos valores: Ordinal, OrdinalIgnoreCase. |
 
 A transformação de **afirmações assertstringClaimsAreEqual** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md). O **UserMessageIfClaimsTransformationStringsAreNotEqual** autoafirmado de dados de perfil técnico controla a mensagem de erro que é apresentada ao utilizador.
 
 ![AssertstringClaimsAreIgual execução](./media/string-transformations/assert-execution.png)
 
-Pode utilizar esta transformação de sinistros para garantir que dois Tipos de Reclamação têm o mesmo valor. Caso contrário, uma mensagem de erro será lançada. O exemplo seguinte verifica se o **strongAutenticaationEmailAddress** ClaimType é igual ao **email** ClaimType. Caso contrário, é lançada uma mensagem de erro.
+Pode utilizar esta transformação de sinistros para garantir que dois Tipos de Reclamação têm o mesmo valor. Caso contrário, é lançada uma mensagem de erro. O exemplo seguinte verifica se o **strongAutenticaationEmailAddress** ClaimType é igual ao **email** ClaimType. Caso contrário, é lançada uma mensagem de erro.
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -78,7 +78,7 @@ O perfil técnico autoafirmado chama o perfil técnico **login-nonInteractive** 
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
   - **inputClaim1**: someone@contoso.com
   - **inputClaim2**: someone@outlook.com
 - Parâmetros de entrada:
@@ -91,8 +91,8 @@ Altera o caso da reclamação fornecida para maiúsculas inferiores ou superiore
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | O ClaimType a ser alterado. |
-| InputParameter | toCase | string | Um dos seguintes valores: `LOWER` ou `UPPER`. |
+| inputClaim | inputClaim1 | string | O ClaimType a ser alterado. |
+| EntradaParametro | toCase | string | Um dos seguintes valores: `LOWER` ou `UPPER`. |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
 Utilize esta transformação de reclamação para alterar qualquer string ClaimType para uma caixa inferior ou superior.
@@ -113,11 +113,11 @@ Utilize esta transformação de reclamação para alterar qualquer string ClaimT
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
   - **e-mail**: SomeOne@contoso.com
 - Parâmetros de entrada:
     - **toCase**: LOWER
-- Declarações de saída:
+- Alegações de saída:
   - **e-mail**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
@@ -126,7 +126,7 @@ Cria uma reivindicação de cadeia do parâmetro de entrada fornecido na políti
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | valor | string | A corda a ser definida |
+| EntradaParametro | valor | string | A corda a ser definida |
 | OutputClaim | createdClaim | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado, com o valor especificado no parâmetro de entrada. |
 
 Utilize esta transformação de reclamações para definir um valor de Reclamação de cadeia.
@@ -146,7 +146,7 @@ Utilize esta transformação de reclamações para definir um valor de Reclamaç
 
 - Parâmetro de entrada:
     - **valor**: Termos de serviço Contoso...
-- Declarações de saída:
+- Alegações de saída:
     - **criouReclamação**: O ToS ClaimType contém os "termos de serviço Contoso..." valor.
 
 ## <a name="compareclaims"></a>CompareClaims
@@ -155,10 +155,10 @@ Determine se uma reivindicação de corda é igual a outra. O resultado é um no
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | Primeiro tipo de reclamação, que deve ser comparado. |
-| InputClaim | inputClaim2 | string | Segundo tipo de reclamação, que deve ser comparado. |
-| InputParameter | operador | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
-| InputParameter | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
+| inputClaim | inputClaim1 | string | Primeiro tipo de reclamação, que deve ser comparado. |
+| inputClaim | inputClaim2 | string | Segundo tipo de reclamação, que deve ser comparado. |
+| EntradaParametro | operator | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
+| EntradaParametro | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
 | OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
 Utilize esta transformação de sinistros para verificar se uma reclamação é igual a outra reclamação. Por exemplo, a seguinte transformação de reclamações verifica se o valor da reclamação de **e-mail** é igual à reclamação **Verified.Email.**
@@ -181,13 +181,13 @@ Utilize esta transformação de sinistros para verificar se uma reclamação é 
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
   - **inputClaim1**: someone@contoso.com
   - **inputClaim2**: someone@outlook.com
 - Parâmetros de entrada:
     - **operador**: NÃO IGUAL
     - **ignoraCaso:** verdadeiro
-- Declarações de saída:
+- Alegações de saída:
     - **saídaReivindicação**: verdadeiro
 
 ## <a name="compareclaimtovalue"></a>CompareClaimToValue
@@ -196,10 +196,10 @@ Determina se um valor de reclamação é igual ao valor do parâmetro de entrada
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | O tipo de reclamação, que deve ser comparado. |
-| InputParameter | operador | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
-| InputParameter | compareTo | string | comparação de cordas, um dos valores: Ordinal, OrdinalIgnoreCase. |
-| InputParameter | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
+| inputClaim | inputClaim1 | string | O tipo de reclamação, que deve ser comparado. |
+| EntradaParametro | operator | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
+| EntradaParametro | compareTo | string | comparação de cordas, um dos valores: Ordinal, OrdinalIgnoreCase. |
+| EntradaParametro | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
 | OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
 Pode utilizar esta transformação de sinistros para verificar se uma reclamação é igual a um valor que especificou. Por exemplo, a seguinte transformação de sinistros verifica se o valor da reclamação **termosOfUseConsentVersion** é igual a `v1`.
@@ -221,13 +221,13 @@ Pode utilizar esta transformação de sinistros para verificar se uma reclamaç�
 ```
 
 ### <a name="example"></a>Exemplo
-- Declarações de entrada:
+- Créditos de entrada:
     - **inputClaim1**: v1
 - Parâmetros de entrada:
     - **comparação:** V1
     - **operador**: EQUAL
     - **ignoraCaso:** verdadeiro
-- Declarações de saída:
+- Alegações de saída:
     - **saídaReivindicação**: verdadeiro
 
 ## <a name="createrandomstring"></a>CreateRandomString
@@ -236,11 +236,11 @@ Cria uma cadeia aleatória usando o gerador de números aleatórios. Se o gerado
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputParameter | randomGeneratorType | string | Especifica o valor aleatório a gerar, `GUID` (ID único global) ou `INTEGER` (um número). |
-| InputParameter | stringFormat | string | [Opcional] Forforme o valor aleatório. |
-| InputParameter | base64 | boolean | [Opcional] Converta o valor aleatório para base64. Se for aplicado o formato de cadeia, o valor após o formato de cordas é codificado para base64. |
-| InputParameter | número máximo | int | [Opcional] Para `INTEGER` apenas generatorType aleatório. Especifique o número máximo. |
-| InputParameter | semente  | int | [Opcional] Para `INTEGER` apenas generatorType aleatório. Especifique a semente para o valor aleatório. Nota: a mesma semente produz a mesma sequência de números aleatórios. |
+| EntradaParametro | randomGeneratorType | string | Especifica o valor aleatório a gerar, `GUID` (ID único global) ou `INTEGER` (um número). |
+| EntradaParametro | stringFormat | string | [Opcional] Forforme o valor aleatório. |
+| EntradaParametro | base64 | boolean | [Opcional] Converta o valor aleatório para base64. Se for aplicado o formato de cadeia, o valor após o formato de cordas é codificado para base64. |
+| EntradaParametro | número máximo | int | [Opcional] Para `INTEGER` apenas generatorType aleatório. Especifique o número máximo. |
+| EntradaParametro | semente  | int | [Opcional] Para `INTEGER` apenas generatorType aleatório. Especifique a semente para o valor aleatório. Nota: a mesma semente produz a mesma sequência de números aleatórios. |
 | OutputClaim | outputClaim | string | Os Tipos de Reclamação que serão produzidos após esta transformação de sinistros ter sido invocado. O valor aleatório. |
 
 Seguir o exemplo gera uma identificação única global. Esta transformação de sinistros é usada para criar a UPN aleatória (nome principal do utilizador).
@@ -259,7 +259,7 @@ Seguir o exemplo gera uma identificação única global. Esta transformação de
 
 - Parâmetros de entrada:
     - **randomGeneratorType**: GUID
-- Declarações de saída:
+- Alegações de saída:
     - **saídaSReclamação**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 Seguindo o exemplo gera um valor aleatório inteiro entre 0 e 1000. O valor é formatado para OTP_{valor aleatório}.
@@ -285,7 +285,7 @@ Seguindo o exemplo gera um valor aleatório inteiro entre 0 e 1000. O valor é f
     - **número máximo:** 1000
     - **stringFormat**: OTP_{0}
     - **base64:** falso
-- Declarações de saída:
+- Alegações de saída:
     - **saídaReivindicação**: OTP_853
 
 
@@ -295,8 +295,8 @@ Forme uma reclamação de acordo com a cadeia de formato fornecida. Esta transfo
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |string |O ClaimType que funciona como formato de cadeia {0} parâmetro. |
-| InputParameter | stringFormat | string | O formato de cordas, incluindo o parâmetro {0}. |
+| inputClaim | inputClaim |string |O ClaimType que funciona como formato de cadeia {0} parâmetro. |
+| EntradaParametro | stringFormat | string | O formato de cordas, incluindo o parâmetro {0}. |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
 Utilize esta transformação de reclamações para formatar qualquer corda com um parâmetro {0}. O exemplo seguinte cria um **nome principal**do utilizador . Todos os perfis técnicos do fornecedor de identidade social, como `Facebook-OAUTH` chama o **Nome CreateUserPrincipal** para gerar um **nome principal**de utilizador .
@@ -317,11 +317,11 @@ Utilize esta transformação de reclamações para formatar qualquer corda com u
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
 - Parâmetros de entrada:
     - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
-- Declarações de saída:
+- Alegações de saída:
   - **saída :** cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
@@ -330,9 +330,9 @@ Formato duas reclamações de acordo com a cadeia de formato fornecida. Esta tra
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |string | O ClaimType que funciona como formato de cadeia {0} parâmetro. |
-| InputClaim | InputClaim | string | O ClaimType que funciona como formato de cadeia {1} parâmetro. |
-| InputParameter | stringFormat | string | O formato de cordas, incluindo os parâmetros {0} e {1}. |
+| inputClaim | inputClaim |string | O ClaimType que funciona como formato de cadeia {0} parâmetro. |
+| inputClaim | inputClaim | string | O ClaimType que funciona como formato de cadeia {1} parâmetro. |
+| EntradaParametro | stringFormat | string | O formato de cordas, incluindo os parâmetros {0} e {1}. |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
 Utilize esta transformação de sinistros para formatar qualquer cadeia com dois parâmetros, {0} e {1}. O exemplo seguinte cria um nome de **exibição** com o formato especificado:
@@ -354,12 +354,12 @@ Utilize esta transformação de sinistros para formatar qualquer cadeia com dois
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **inputClaim1**: Joe
     - **inputClaim2**: Fernando
 - Parâmetros de entrada:
     - **stringFormat**: {0} {1}
-- Declarações de saída:
+- Alegações de saída:
     - **saídaSClaim**: Joe Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
@@ -425,7 +425,7 @@ A transformação de sinistros define o valor do *sujeito* do tipo de reclamaç�
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de saída:
+- Alegações de saída:
   - **assunto**: Código de verificação de email de conta Contoso
   - **mensagem**: Obrigado por verificar a sua conta! 
   - **codeIntro**: O seu código é 
@@ -438,7 +438,7 @@ Procurando um item de uma coleção de **restrição** de reclamação.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | mapFromClaim | string | A alegação que contém o texto a ser analisado nas **restriçõesReclamações valueClaim** com a coleção **Restrição.**  |
+| inputClaim | mapFromClaim | string | A alegação que contém o texto a ser analisado nas **restriçõesReclamações valueClaim** com a coleção **Restrição.**  |
 | OutputClaim | restrictionValueClaim | string | A alegação que contém a coleção **Restrição.** Após a invocação da transformação de sinistros, o valor desta reclamação contém o valor do item selecionado. |
 
 O exemplo que se segue analisa a descrição da mensagem de erro com base na chave de erro. A **alegação respostaMsg** contém uma recolha de mensagens de erro para apresentar ao utilizador final ou para ser enviada para a parte que depende.
@@ -470,9 +470,9 @@ A transformação de sinistros analisa o texto do item e devolve o seu valor. Se
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **mapFromClaim**: B2C_V1_90001
-- Declarações de saída:
+- Alegações de saída:
     - **restriçõesValueClaim:** Não pode iniciar sessão por ser menor.
 
 ## <a name="lookupvalue"></a>LookupValue
@@ -481,9 +481,9 @@ Procure um valor de reclamação de uma lista de valores com base no valor de ou
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputParameterId | string | A alegação que contém o valor de procura |
-| InputParameter | |string | Coleção de inputParâmetros. |
-| InputParameter | errorOnFailedLookup | boolean | Controlando se um erro é devolvido quando não há procuração correspondente. |
+| inputClaim | inputParameterId | string | A alegação que contém o valor de procura |
+| EntradaParametro | |string | Coleção de inputParâmetros. |
+| EntradaParametro | errorOnFailedLookup | boolean | Controlando se um erro é devolvido quando não há procuração correspondente. |
 | OutputClaim | inputParameterId | string | Os Tipos de Reclamação que serão produzidos após esta transformação de sinistros ter sido invocado. O valor da `Id`correspondente. |
 
 O exemplo seguinte procura o nome de domínio numa das coleções inputParameters. A transformação de sinistros procura o nome de domínio no identificador e devolve o seu valor (um ID de aplicação).
@@ -507,14 +507,14 @@ O exemplo seguinte procura o nome de domínio numa das coleções inputParameter
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **entradaParameterId**: test.com
 - Parâmetros de entrada:
     - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
     - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
     - **test.com**: c7026f88-4299-4cdb-965d-3f16644b8a9
     - **errorOnFailedLookup**: falso
-- Declarações de saída:
+- Alegações de saída:
     - **saídaSReclamação**: c7026f88-4299-4cdb-965d-3f16644b8a9
 
 ## <a name="nullclaim"></a>NullClaim
@@ -523,9 +523,9 @@ Limpe o valor de uma determinada reclamação.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | claim_to_null | string | A alegação do seu valor é NU. |
+| OutputClaim | claim_to_null | string | O valor da reclamação está definido para NULO. |
 
-Utilize esta transformação de reclamação para remover dados desnecessários do saco de propriedade sinistros. Então, o cookie da sessão será menor. O exemplo seguinte remove o valor do tipo de reclamação `TermsOfService`.
+Utilize esta transformação de reclamação para remover dados desnecessários do saco de propriedade sinistros para que o cookie da sessão seja menor. O exemplo seguinte remove o valor do tipo de reclamação `TermsOfService`.
 
 ```XML
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
@@ -535,9 +535,9 @@ Utilize esta transformação de reclamação para remover dados desnecessários 
 </ClaimsTransformation>
 ```
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **saídaReivindicação**: Bem-vindo à App Contoso. Se continuar a navegar e a utilizar este website, está a concordar em cumprir e ficar vinculado pelos seguintes termos e condições...
-- Declarações de saída:
+- Alegações de saída:
     - **saídaReclamação**: NULO
 
 ## <a name="parsedomain"></a>ParseDomain
@@ -546,7 +546,7 @@ Obtém a parte de domínio de um endereço de e-mail.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | emailAddress | string | O ClaimType que contém o endereço de e-mail. |
+| inputClaim | emailAddress | string | O ClaimType que contém o endereço de e-mail. |
 | OutputClaim | domínio | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado - o domínio. |
 
 Utilize esta transformação de reclamações para analisar o nome de domínio após o símbolo @ do utilizador. A transformação de reclamações seguinte demonstra como analisar o nome de domínio a partir de uma reclamação de **e-mail.**
@@ -564,9 +564,9 @@ Utilize esta transformação de reclamações para analisar o nome de domínio a
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
   - **e-mailEndereço**: joe@outlook.com
-- Declarações de saída:
+- Alegações de saída:
     - **domínio**: outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
@@ -575,9 +575,9 @@ Verifica se uma reclamação de cadeia sou `claimToMatch` e `matchTo` parâmetro
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | reivindicaçãoToMatch | string | O tipo de reclamação, que deve ser comparado. |
-| InputParameter | matchTo | string | A expressão regular a condizer. |
-| InputParameter | outputClaimIfMatched | string | O valor a definir se as cordas forem iguais. |
+| inputClaim | reivindicaçãoToMatch | string | O tipo de reclamação, que deve ser comparado. |
+| EntradaParametro | matchTo | string | A expressão regular a condizer. |
+| EntradaParametro | outputClaimIfMatched | string | O valor a definir se as cordas forem iguais. |
 | OutputClaim | outputClaim | string | Se a expressão regular for compatível, esta alegação de saída contém o valor do parâmetro de entrada `outputClaimIfMatched`. Ou nulo, se não corresponder. |
 | OutputClaim | regexCompareResultClaim | boolean | O tipo de resultado de correspondência de expressão regular, que deve ser definido como `true` ou `false` com base no resultado da correspondência. |
 
@@ -601,12 +601,12 @@ Por exemplo, verifica se o número de telefone fornecido é válido, com base no
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **reivindicaçõesToMatch:** "64854114520"
 - Parâmetros de entrada:
     - **matchTo**: "^[0-9]{4,16}$"
     - **outputClaimIfMatched**: "isPhone"
-- Declarações de saída:
+- Alegações de saída:
     - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: verdadeiro
 
@@ -616,11 +616,11 @@ Verifica se uma reclamação de cadeias e `matchTo` parâmetro de entrada são i
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | O tipo de reclamação, que deve ser comparado. |
-| InputParameter | matchTo | string | A corda a ser comparada com `inputClaim`. |
-| InputParameter | stringCom | string | Valores possíveis: `Ordinal` ou `OrdinalIgnoreCase`. |
-| InputParameter | stringMatchMsg | string | Primeiro valor a ser definido se as cordas forem iguais. |
-| InputParameter | stringMatchMsgCode | string | Segundo valor a definir se as cordas forem iguais. |
+| inputClaim | inputClaim | string | O tipo de reclamação, que deve ser comparado. |
+| EntradaParametro | matchTo | string | A corda a ser comparada com `inputClaim`. |
+| EntradaParametro | stringCom | string | Valores possíveis: `Ordinal` ou `OrdinalIgnoreCase`. |
+| EntradaParametro | stringMatchMsg | string | Primeiro valor a ser definido se as cordas forem iguais. |
+| EntradaParametro | stringMatchMsgCode | string | Segundo valor a definir se as cordas forem iguais. |
 | OutputClaim | outputClaim1 | string | Se as cordas forem iguais, esta alegação de saída contém o valor de `stringMatchMsg` parâmetro de entrada. |
 | OutputClaim | outputClaim2 | string | Se as cordas forem iguais, esta alegação de saída contém o valor de `stringMatchMsgCode` parâmetro de entrada. |
 | OutputClaim | stringCompareResultClaim | boolean | O tipo de reclamação de resultado sumido, que deve ser definido como `true` ou `false` com base no resultado da comparação. |
@@ -647,14 +647,14 @@ Pode utilizar esta transformação de reclamações para verificar se uma reclam
 ```
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **inputClaim**: v1
 - Parâmetros de entrada:
     - **matchTo**: V1
     - **stringComcom :** ordinalIgnoreCase
     - **stringMatchMsg**: B2C_V1_90005
     - **stringMatchMsgCode**: O TOS é atualizado para v2
-- Declarações de saída:
+- Alegações de saída:
     - **saídaClaim1**: B2C_V1_90005
     - **saídaClaim2**: O TOS é atualizado para v2
     - **stringCompareResultClaim**: verdadeiro
@@ -665,10 +665,10 @@ Verifica se uma reclamação de cadeia e `matchTo` parâmetro de entrada são ig
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | reivindicaçãoToMatch | string | O tipo de reclamação, que deve ser comparado. |
-| InputParameter | matchTo | string | A corda a ser comparada com a inputClaim. |
-| InputParameter | stringCom | string | Valores possíveis: `Ordinal` ou `OrdinalIgnoreCase`. |
-| InputParameter | outputClaimIfMatched | string | O valor a definir se as cordas forem iguais. |
+| inputClaim | reivindicaçãoToMatch | string | O tipo de reclamação, que deve ser comparado. |
+| EntradaParametro | matchTo | string | A corda a ser comparada com a inputClaim. |
+| EntradaParametro | stringCom | string | Valores possíveis: `Ordinal` ou `OrdinalIgnoreCase`. |
+| EntradaParametro | outputClaimIfMatched | string | O valor a definir se as cordas forem iguais. |
 | OutputClaim | outputClaim | string | Se as cordas forem iguais, esta alegação de saída contém o valor de `outputClaimIfMatched` parâmetro de entrada. Ou nulo, se as cordas não estiverem à altura. |
 | OutputClaim | stringCompareResultClaim | boolean | O tipo de reclamação de resultado sumido, que deve ser definido como `true` ou `false` com base no resultado da comparação. |
 
@@ -693,13 +693,13 @@ Por exemplo, verifica-se as seguintes verificações de transformação de sinis
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **reivindicaçõesToMatch**: Minor
 - Parâmetros de entrada:
     - **matchTo**: Menor
     - **stringComcom :** ordinalIgnoreCase
     - **outputClaimIfMatched**: B2C_V1_90001
-- Declarações de saída:
+- Alegações de saída:
     - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: verdadeiro
 
@@ -710,9 +710,9 @@ Determine se ocorre uma subcadeia especificada dentro da alegação de entrada. 
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | O tipo de reclamação, que deve ser revistado. |
-|InputParameter|Contém|string|O valor para procurar.|
-|InputParameter|ignoreCase|string|Especifica se esta comparação deve ignorar o caso da cadeia que está a ser comparada.|
+| inputClaim | inputClaim | string | O tipo de reclamação, que deve ser revistado. |
+|EntradaParametro|Contém|string|O valor para procurar.|
+|EntradaParametro|ignoreCase|string|Especifica se esta comparação deve ignorar o caso da cadeia que está a ser comparada.|
 | OutputClaim | outputClaim | string | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. Um indicador booleano se o substring ocorrer dentro da alegação de entrada. |
 
 Utilize esta transformação de reclamações para verificar se um tipo de reclamação de cordas contém um substring. Seguindo o exemplo, verifica se o tipo de reclamação de cadeias `roles` contém o valor da **administração**.
@@ -734,12 +734,12 @@ Utilize esta transformação de reclamações para verificar se um tipo de recla
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **inputClaim**: "Administrador, Aprovador, Editor"
 - Parâmetros de entrada:
     - **contém**: "administrador",
     - **ignoraCaso:** verdadeiro
-- Declarações de saída:
+- Alegações de saída:
     - **saídaReivindicação**: verdadeiro 
 
 ## <a name="stringsubstring"></a>StringSubstring
@@ -748,9 +748,9 @@ Extrai partes de um tipo de reclamação de cordas, começando pelo personagem n
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | O tipo de reclamação, que contém a corda. |
-| InputParameter | startIndex | int | A posição de personagem inicial de uma subcorda baseada em zero neste caso. |
-| InputParameter | length | int | O número de caracteres na subcadeia. |
+| inputClaim | inputClaim | string | O tipo de reclamação, que contém a corda. |
+| EntradaParametro | startIndex | int | A posição de personagem inicial de uma subcorda baseada em zero neste caso. |
+| EntradaParametro | length | int | O número de caracteres na subcadeia. |
 | OutputClaim | outputClaim | boolean | Uma cadeia equivalente à subcadeia de comprimento que começa no inícioIndex neste caso, ou Empty se o startIndex for igual ao comprimento desta instância e comprimento é zero. |
 
 Por exemplo, obtenha o prefixo do país do número de telefone.  
@@ -772,12 +772,12 @@ Por exemplo, obtenha o prefixo do país do número de telefone.
 ```
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **inputClaim:** "+1644114520"
 - Parâmetros de entrada:
     - **inícioÍndice**: 0
     - **comprimento**: 2
-- Declarações de saída:
+- Alegações de saída:
     - **saídaSClaim**: "+1"
 
 ## <a name="stringreplace"></a>StringReplace
@@ -786,9 +786,9 @@ Procura uma cadeia de tipo de reclamação por um valor especificado e devolve u
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | O tipo de reclamação, que contém a corda. |
-| InputParameter | oldValue | string | A corda a ser revistada. |
-| InputParameter | newValue | string | A corda para substituir todas as ocorrências de `oldValue` |
+| inputClaim | inputClaim | string | O tipo de reclamação, que contém a corda. |
+| EntradaParametro | oldValue | string | A corda a ser revistada. |
+| EntradaParametro | newValue | string | A corda para substituir todas as ocorrências de `oldValue` |
 | OutputClaim | outputClaim | boolean | Uma cadeia equivalente à cadeia atual, exceto que todos os casos de oldValue são substituídos por newValue. Se o oldValue não for encontrado na instância atual, o método devolve a instância atual inalterada. |
 
 Por exemplo, normalizar um número de telefone, removendo os caracteres `-`  
@@ -810,12 +810,12 @@ Por exemplo, normalizar um número de telefone, removendo os caracteres `-`
 ```
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
     - **inputClaim:** "+164-411-452-054"
 - Parâmetros de entrada:
     - **oldValue**: "-"
     - **comprimento**: ""
-- Declarações de saída:
+- Alegações de saída:
     - **saídaSReclamação:** "+164411452054"
 
 ## <a name="stringjoin"></a>StringJoin
@@ -824,8 +824,8 @@ Concatena os elementos de um tipo de reivindicação de recolha de cordas especi
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | stringCollection | Uma coleção que contém as cordas para concatenar. |
-| InputParameter | delimitador | string | A corda para usar como separador, como vírpara `,`. |
+| inputClaim | inputClaim | stringCollection | Uma coleção que contém as cordas para concatenar. |
+| EntradaParametro | delimitador | string | A corda para usar como separador, como vírpara `,`. |
 | OutputClaim | outputClaim | string | Uma cadeia que consiste nos membros da coleção de cordas `inputClaim`, delimitada pelo parâmetro de entrada `delimiter`. |
   
 O exemplo seguinte pega numa coleção de cordas de funções de utilizador e converte-a numa cadeia de delimitador de vírposta. Pode utilizar este método para armazenar uma coleção de cordas na conta de utilizador da AD Azure. Mais tarde, quando ler a conta do diretório, use o `StringSplit` para converter a corda de limitador da vírce de volta à coleção de cordas.
@@ -846,11 +846,11 @@ O exemplo seguinte pega numa coleção de cordas de funções de utilizador e co
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
   - **inputClaim**: [ "Administrador", "Autor", "Reader" ]
 - Parâmetros de entrada:
   - **delimitador**: ""
-- Declarações de saída:
+- Alegações de saída:
   - **saídaSClaim**: "Administrador, Autor, Leitor"
 
 
@@ -860,8 +860,8 @@ Devolve uma cadeia de cordas que contém as subcordas neste caso que são delimi
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | Um tipo de reivindicação de cordas que contém as cadeias sub para dividir. |
-| InputParameter | delimitador | string | A corda para usar como separador, como vírpara `,`. |
+| inputClaim | inputClaim | string | Um tipo de reivindicação de cordas que contém as cadeias sub para dividir. |
+| EntradaParametro | delimitador | string | A corda para usar como separador, como vírpara `,`. |
 | OutputClaim | outputClaim | stringCollection | Uma coleção de cordas cujos elementos contêm as subcordas desta cadeia que são delimitadas pelo parâmetro de entrada `delimiter`. |
   
 O exemplo seguinte pega numa cadeia de funções de utilizador de comma e converte-a numa coleção de cordas.
@@ -882,9 +882,9 @@ O exemplo seguinte pega numa cadeia de funções de utilizador de comma e conver
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
+- Créditos de entrada:
   - **inputClaim**: "Administrador, Autor, Leitor"
 - Parâmetros de entrada:
   - **delimitador**: ""
-- Declarações de saída:
+- Alegações de saída:
   - **saídasReivindicação**: [ "Administrador", "Autor", "Leitor" ]

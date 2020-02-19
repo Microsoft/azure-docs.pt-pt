@@ -8,18 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: bc90ecb029afe70ed61e94a727c67c53bb968b96
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212549"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462569"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuste a capacidade na Pesquisa Cognitiva Azure
 
-Antes de [fornecer um serviço](search-create-service-portal.md) de pesquisa e bloquear um determinado nível de preços, dedique alguns minutos para entender o papel das réplicas e divisórias num serviço, se precisa de divisórias proporcionalmente maiores ou mais rápidas, e como pode configurar o serviço para a carga esperada.
+Antes de [fornecer um serviço](search-create-service-portal.md) de pesquisa e bloquear um determinado nível de preços, deleve alguns minutos para entender o papel das réplicas e divisórias num serviço e como pode ajustar um serviço para acomodar picos e descidas na procura de recursos.
 
-A capacidade é uma função do [nível que escolhe](search-sku-tier.md) (os níveis determinam características de hardware), e a combinação de réplica e partição necessária para cargas de trabalho projetadas. Este artigo centra-se nas combinações e interações de réplicas e divisórias.
+A capacidade é uma função do [nível que escolhe](search-sku-tier.md) (os níveis determinam características de hardware), e a combinação de réplica e partição necessária para cargas de trabalho projetadas. Dependendo do nível e do tamanho do ajuste, a adição ou redução da capacidade pode demorar entre 15 minutos e várias horas. 
+
+Ao modificar a atribuição de réplicas e divisórias, recomendamos a utilização do portal Azure. O portal impõe limites às combinações permitidas que se mantêm abaixo dos limites máximos de um nível. No entanto, se necessitar de uma abordagem de provisionamento baseada em scripts ou de código, o [Azure PowerShell](search-manage-powershell.md) ou o [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) são soluções alternativas.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e divisórias
 
@@ -28,15 +30,17 @@ A capacidade é uma função do [nível que escolhe](search-sku-tier.md) (os ní
 |*Partições* | Fornece armazenamento de índicee E/S para operações de leitura/escrita (por exemplo, quando se reconstrói ou refresca um índice). Cada partição tem uma parte do índice total. Se alocar três divisórias, o seu índice é dividido em terços. |
 |*Réplicas* | Casos do serviço de pesquisa, usado principalmente para carregar operações de consulta de saldo. Cada réplica é uma cópia de um índice. Se alocar três réplicas, terá três cópias de um índice disponível para pedidos de consulta de manutenção.|
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Como alocar réplicas e divisórias
+## <a name="when-to-add-nodes"></a>Quando adicionar nódosos
 
 Inicialmente, é atribuído um serviço a um nível mínimo de recursos constituído por uma partição e uma réplica. 
 
-Um único serviço deve dispor de recursos suficientes para lidar com todas as cargas de trabalho (indexação e consultas). Nem a carga de trabalho corre em segundo plano. Pode agendar indexação para momentos em que os pedidos de consulta são naturalmente menos frequentes, mas o serviço não dará prioridade a uma tarefa em vez de outra.
-
-Ao modificar a atribuição de réplicas e divisórias, recomendamos a utilização do portal Azure. O portal impõe limites às combinações permitidas que se mantêm abaixo dos limites máximos de um nível. No entanto, se necessitar de uma abordagem de provisionamento baseada em scripts ou de código, o [Azure PowerShell](search-manage-powershell.md) ou o [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) são soluções alternativas.
+Um único serviço deve dispor de recursos suficientes para lidar com todas as cargas de trabalho (indexação e consultas). Nem a carga de trabalho corre em segundo plano. Pode agendar indexação para momentos em que os pedidos de consulta são naturalmente menos frequentes, mas o serviço não dará prioridade a uma tarefa em vez de outra. Além disso, uma certa quantidade de despedimento supressão do desempenho da consulta quando os serviços ou nós são atualizados internamente.
 
 Regra geral, as aplicações de pesquisa tendem a necessitar de mais réplicas do que divisórias, especialmente quando as operações de serviço são tendenciosas para a carga de trabalho de consulta. A secção de [alta disponibilidade](#HA) explica porquê.
+
+Adicionar mais réplicas ou divisórias aumenta o seu custo de funcionamento do serviço. Certifique-se de verificar a [calculadora](https://azure.microsoft.com/pricing/calculator/) de preços para entender as implicações de faturação de adicionar mais nós. O [gráfico abaixo](#chart) pode ajudá-lo a cruzar o número de unidades de pesquisa necessárias para uma configuração específica.
+
+## <a name="how-to-allocate-replicas-and-partitions"></a>Como alocar réplicas e divisórias
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) e selecione o serviço de pesquisa.
 
@@ -114,7 +118,7 @@ Atualmente, não existe um mecanismo incorporado para a recuperação de desastr
 
 ## <a name="estimate-replicas"></a>Estimar réplicas
 
-Num serviço de produção, deve alocar três réplicas para fins sla. Se experimentar um desempenho de consulta lenta, um remédio é adicionar réplicas para que cópias adicionais do índice sejam trazidas on-line para suportar maiores cargas de trabalho de consulta e para carregar o equilíbrio dos pedidos sobre as múltiplas réplicas.
+Num serviço de produção, deve alocar três réplicas para fins sla. Se experimentar um desempenho de consulta lenta, pode adicionar réplicas para que cópias adicionais do índice sejam trazidas on-line para suportar maiores cargas de trabalho de consulta e para carregar o equilíbrio dos pedidos sobre as múltiplas réplicas.
 
 Não fornecemos orientações sobre quantas réplicas são necessárias para acomodar cargas de consulta. O desempenho da consulta depende da complexidade da consulta e das cargas de trabalho concorrentes. Embora adicionar réplicas resulte claramente num melhor desempenho, o resultado não é estritamente linear: adicionar três réplicas não garante o triplo de entrada.
 
@@ -122,7 +126,7 @@ Para obter orientação na estimativa do QPS para a sua solução, consulte [Sca
 
 ## <a name="estimate-partitions"></a>Estimar divisórias
 
-O [nível que escolher](search-sku-tier.md) determina o tamanho e a velocidade da divisória, e cada nível é otimizado em torno de um conjunto de características que se adequam a vários cenários. Se escolher um nível de gama superior, pode precisar de menos divisórias do que se for com o S1.
+O [nível que escolher](search-sku-tier.md) determina o tamanho e a velocidade da divisória, e cada nível é otimizado em torno de um conjunto de características que se adequam a vários cenários. Se escolher um nível de gama superior, pode precisar de menos divisórias do que se for com o S1. Uma das questões que terá de responder através de testes auto-dirigidos é se uma divisória maior e mais cara produz um melhor desempenho do que duas divisórias mais baratas num serviço aprovisionado num nível mais baixo.
 
 As aplicações de pesquisa que requerem uma atualização de dados em tempo real precisarão proporcionalmente de mais divisórias do que réplicas. A adição de divisórias espalha operações de leitura/escrita através de um maior número de recursos computacionais. Também lhe dá mais espaço em disco para armazenar índices e documentos adicionais.
 

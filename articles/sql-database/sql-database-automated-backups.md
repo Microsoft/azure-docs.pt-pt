@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: f460bc3e4809b8a1cbabe1161c888255a7a484db
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16ee8c1e271f0aa3e6565322f9a4a422dd90b8b8
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157521"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461782"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -81,10 +81,14 @@ As cópias de segurança mais antigas do que o período de retenção são autom
 
 A Base de Dados Azure SQL calculará o seu armazenamento total de reserva de retenção como um valor cumulativo. A cada hora, este valor é reportado ao oleoduto de faturação Azure, que é responsável por agregar este uso de hora em hora para calcular o seu consumo no final de cada mês. Após a queda da base de dados, o consumo diminui à medida que os backups envelhecem. Uma vez que os backups tornam-se mais velhos que o período de retenção, a faturação para. 
 
+   > [!IMPORTANT]
+   > As cópias de segurança de uma base de dados são retidas durante o período de retenção especificado, mesmo que a base de dados tenha sido retirada. Embora a queda e recriação de uma base de dados frequentemente possa economizar nos custos de armazenamento e cálculo, pode aumentar os custos de armazenamento de backup, uma vez que conservamos uma cópia de segurança para o período de retenção especificado (que é de 7 dias no mínimo) para cada base de dados abandonada, sempre que a sua queda. 
 
-### <a name="monitoring-consumption"></a>Monitorização do consumo
 
-Cada tipo de cópia de segurança (completa, diferencial e registo) é reportada na lâmina de monitorização da base de dados como uma métrica separada. O diagrama seguinte mostra como monitorizar o consumo de armazenamento de backups.  
+
+### <a name="monitor-consumption"></a>Monitorizar o consumo
+
+Cada tipo de cópia de segurança (completa, diferencial e registo) é reportada na lâmina de monitorização da base de dados como uma métrica separada. O diagrama seguinte mostra como monitorizar o consumo de armazenamento de cópias de segurança para uma única base de dados. Esta funcionalidade não está atualmente disponível para casos geridos.
 
 ![Monitorize o consumo de backup na base de dados do portal Azure](media/sql-database-automated-backup/backup-metrics.png)
 
@@ -105,6 +109,7 @@ O consumo excessivo de armazenamento de reserva dependerá da carga de trabalho 
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
+O preço do armazenamento varia se estiver a usar o modelo DTU ou o modelo vCore. 
 
 ### <a name="dtu-model"></a>Modelo DTU
 
@@ -120,11 +125,14 @@ Vamos supor que a base de dados acumulou 744 GB de armazenamento de reserva e es
 
 Agora, um exemplo mais complexo. Suponha que a base de dados tenha a sua retenção aumentada para 14 dias a meio do mês e isso (hipoteticamente) resulta no armazenamento total de cópia supor que duplica para 1488 GB. O SQL DB reportaria 1 GB de utilização durante horas 1-372 e, em seguida, reportaria o uso como 2 GB durante as horas 373-744. Esta seria agregada para ser uma nota final de 1116 GB/mo. 
 
-Pode utilizar a análise de custos de subscrição do Azure para determinar os gastos correntes no armazenamento de backup.
+### <a name="monitor-costs"></a>Monitorizar os custos
+
+Para compreender os custos de armazenamento de backup, vá à **gestão de custos + faturação** do portal Azure, selecione **Cost Management,** e depois selecione Análise de **Custos**. Selecione a subscrição desejada como **O Âmbito**, e, em seguida, filtrar durante o período de tempo e serviço que lhe interessa. 
+
+Adicione um filtro para **o nome de serviço**e, em seguida, escolha a base de dados **sql** a partir da gota para baixo. Utilize o filtro **de subcategoria do medidor** para escolher o contador de faturação para o seu serviço. Para uma única base de dados ou uma piscina elástica, escolha o armazenamento de **reserva de reserva pitr de piscina única/elástica**. Para um caso gerido, escolha o armazenamento de **backup mi pitr**. **As** subcategorias de armazenamento e **cálculo** podem interessar-lhe também, embora não estejam associadas a custos de armazenamento de backup. 
 
 ![Análise de custos de armazenamento de backup](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-Por exemplo, para compreender os custos de armazenamento de backup por exemplo gerido, por favor vá à sua subscrição no portal Azure e abra a lâmina de Análise de Custos. Selecione o armazenamento de **backup mi pitr** da subcategoria do medidor para ver o custo de reserva atual e a previsão de carga. Também pode incluir outras subcategorias de contadores, tais como **propósito geral de instância gerida - armazenamento** ou **finalidade geral gerida - compute gen5** para comparar o custo de armazenamento de backup com outras categorias de custos.
 
 ## <a name="backup-retention"></a>Retenção da cópia de segurança
 
@@ -169,13 +177,13 @@ Pode alterar o período de retenção de backup PITR padrão utilizando o portal
 
 Para alterar o período de retenção de backup PITR utilizando o portal Azure, navegue para o objeto do servidor cujo período de retenção pretende alterar dentro do portal e, em seguida, selecione a opção adequada com base no objeto do servidor que está a modificar.
 
-#### <a name="single-database--elastic-poolstabsingle-database"></a>[Base de dados única e piscinas elásticas](#tab/single-database)
+#### <a name="single-database--elastic-pools"></a>[Base de dados única e piscinas elásticas](#tab/single-database)
 
 A alteração da retenção de backup PITR para bases de dados Únicas Azure SQL é realizada ao nível do servidor. A alteração feita ao nível do servidor aplica-se às bases de dados desse servidor. Para alterar o PITR para o servidor de base de dados Azure SQL a partir do portal Azure, navegar para a lâmina de visão geral do servidor, clicar em 'Gerir Backups' no menu de navegação e, em seguida, clicar na retenção de Configurar na barra de navegação.
 
 ![Alterar portal PITR Azure](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instancetabmanaged-instance"></a>[Instância gerida](#tab/managed-instance)
+#### <a name="managed-instance"></a>[Instância gerida](#tab/managed-instance)
 
 A alteração da retenção de backup PITR para a instância gerida pela Base de Dados SQL é realizada a nível individual de base de dados. Para alterar a retenção de backup PITR para uma base de dados por exemplo do portal Azure, navegue para a lâmina de visão geral da base de dados individual e clique em configurar a retenção de cópia de segurança na barra de navegação.
 

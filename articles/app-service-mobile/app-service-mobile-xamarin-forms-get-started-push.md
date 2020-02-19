@@ -6,23 +6,18 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 69fe4b98c26ac2f67fc777b754f3bc391e3b71b5
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f23ac2d693492695c398893c103d5a77a0e93129
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023060"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461475"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Adicione notificações push à sua aplicação Xamarin.Forms
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-> [!NOTE]
-> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
->
-> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
-
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Neste tutorial, adiciona notificações push a todos os projetos que resultaram do arranque rápido de [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md). Isto significa que uma notificação push é enviada a todos os clientes de plataformas cruzadas sempre que um registo é inserido.
 

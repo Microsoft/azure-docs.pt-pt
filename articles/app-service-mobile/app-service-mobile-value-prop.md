@@ -5,19 +5,14 @@ ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: d85ac89a4226b545419cea3413a04f4013a073be
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 73fdf7f09ebb5073829f9787917946e8053f8e12
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668712"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461441"
 ---
-# <a name="getting-started"> </a>Sobre Aplicações Móveis no Serviço de Aplicações do Azure
-
-> [!NOTE]
-> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
->
-> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+# <a name="getting-started"> </a>Sobre aplicativos móveis no Serviço de Aplicações Azure
 
 O Serviço de Aplicações do Azure é uma oferta de [plataforma como um serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) completamente gerida para programadores profissionais. O serviço oferece um conjunto avançado de capacidades para cenários Web, móveis e de integração. 
 
@@ -40,7 +35,7 @@ As seguintes funcionalidades são importantes para o desenvolvimento móvel prep
 
     Saiba mais sobre as nossas [funcionalidades de autenticação].
 
-* **Acesso a dados**: as Aplicações Móveis oferecem uma origem de dados OData v3 compatível com dispositivos móveis que está ligada à Base de Dados SQL do Azure ou a um SQL Server no local. Uma vez que este serviço pode ser baseado em Entity Framework, pode integrar facilmente com outros fornecedores de dados NoSQL e SQL, incluindo [Armazenamento de Tabelas do Azure], MongoDB, [Azure Cosmos DB] e fornecedores de API SaaS, como o Office 365 e Salesforce.com.
+* **Acesso a dados**: as Aplicações Móveis oferecem uma origem de dados OData v3 compatível com dispositivos móveis que está ligada à Base de Dados SQL do Azure ou a um SQL Server no local. Uma vez que este serviço pode ser baseado em Entity Framework, pode integrar facilmente com outros fornecedores de dados NoSQL e SQL, incluindo [Armazenamento de Tabelas do Azure], MongoDB, [BD do Cosmos para o Azure] e fornecedores de API SaaS, como o Office 365 e Salesforce.com.
 
 * **Sincronização offline**: os SDKs do cliente facilitam a compilação de aplicações móveis robustas e reativas que funcionam com um conjunto de dados offline. Pode sincronizar este conjunto de dados automaticamente com os dados de back-end, incluindo o suporte de resolução de conflitos.
 
@@ -86,7 +81,7 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicações do 
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [introdução]: app-service-mobile-ios-get-started.md
 [Armazenamento de tabelas do Azure]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
+[BD do Cosmos para o Azure]: ../cosmos-db/sql-api-get-started.md
 [funcionalidades de autenticação]: ./app-service-mobile-auth.md
 [funcionalidades de dados]: ./app-service-mobile-offline-data-sync.md
 [funcionalidades de notificação push]: ../notification-hubs/notification-hubs-push-notification-overview.md

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: bd70cfb58c9d89f1d454537721e22f36b1fd3d3e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 2f5269587d222be9a1628b72c1f3f0dc1b105f3c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429296"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461748"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importar chaves protegidas por HSM para o Cofre-Chave (pré-visualização)
 
@@ -52,13 +52,13 @@ Consulte a tabela seguinte para obter uma lista de pré-requisitos para trazer a
 | Uma subscrição do Azure |Para criar um Cofre chave Azure, precisa de uma subscrição Azure: [Inscreva-se para teste gratuito](https://azure.microsoft.com/pricing/free-trial/) |
 | Um cofre chave (Premium SKU) para importar chaves protegidas por HSM |Para obter mais informações sobre os níveis de serviço e capacidades para o Azure Key Vault, consulte o site de preços do cofre de [chaves Azure.](https://azure.microsoft.com/pricing/details/key-vault/) |
 | Um HSM da lista de HSMs suportados juntamente com a ferramenta BYOK e instruções fornecidas pelo seu fornecedor HSM | Deve ter acesso a um Módulo de Segurança de Hardware e ao conhecimento operacional básico dos seus HSMs. Ver [HSMs suportados](#supported-hsms). |
-| Versão Azure CLI 2.0.82 ou mais recente | Consulte A [instalação do Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) para obter mais informações.|
+| Versão Azure CLI 2.1.0 ou mais recente | Consulte A [instalação do Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) para obter mais informações.|
 
 ## <a name="supported-hsms"></a>HSMs suportados
 
 |Nome do fornecedor HSM|Modelos HSM suportados|Detalhes adicionais|
 |---|---|---|
-|Rio Thales|Família SafeNet Luna HSM 7 com versão 7.3 ou mais recente| [Ferramenta e documentação SafeNet Luna BYOK](https://safenet.gemalto.com/blah-blah)|
+|Rio Thales|Família SafeNet Luna HSM 7 com versão 7.3 ou mais recente| [Ferramenta e documentação SafeNet Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
 
 
 > [!NOTE]

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 02/10/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 392d7d7efcd5b23a7a4575e2d22d21fb4433bb6d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121954"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462586"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Instância gerida Diferenças, limitações e questões conhecidas
 
@@ -65,6 +65,7 @@ Limitações:
 
 - Com um caso gerido, pode fazer o backup de uma base de dados de instância seletiva com até 32 faixas, o que é suficiente para bases de dados até 4 TB se for utilizada uma compressão de reserva.
 - Não é possível executá`BACKUP DATABASE ... WITH COPY_ONLY` numa base de dados encriptada com encriptação transparente de dados (TDE) gerida pelo serviço. O TDE gerido pelo serviço obriga as cópias de segurança a serem encriptadas com uma chave TDE interna. A chave não pode ser exportada, por isso não podes restaurar a reserva. Utilize cópias de segurança automáticas e restauro pontual, ou utilize [tDE (BYOK) gerido pelo cliente.](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) Também pode desativar a encriptação na base de dados.
+- As cópias de segurança manuais para o armazenamento do Blob Azure só são suportadas para [contas BlockBlobStorage](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 - O tamanho máximo da risca de reserva utilizando o comando `BACKUP` numa instância gerida é de 195 GB, que é o tamanho máximo da bolha. Aumente o número de listras no comando de reserva para reduzir o tamanho das listras individuais e permaneça dentro deste limite.
 
     > [!TIP]
@@ -110,7 +111,7 @@ Uma instância gerida não pode aceder a partilhas de ficheiros e pastas do Wind
 
 Consulte O [CERTIFICADO](/sql/t-sql/statements/backup-certificate-transact-sql)DE [CRIAÇÃO](/sql/t-sql/statements/create-certificate-transact-sql) e O CERTIFICADO DE BACKUP . 
  
-**Supor:** Em vez de criar cópia de segurança do certificado e restaurar a cópia de segurança, [obtenha o conteúdo binário do certificado e a chave privada, guarde-o como ficheiro .sql e crie](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)a partir de binário:
+**Suposição:** Em vez de criar cópia de segurança do certificado e restaurar a cópia de segurança, [obtenha o conteúdo binário do certificado e a chave privada, guarde-o como ficheiro .sql e crie](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)a partir de binário:
 
 ```sql
 CREATE CERTIFICATE  
@@ -140,7 +141,7 @@ Uma instância gerida não pode aceder a ficheiros, por isso os fornecedores cri
 
 - Os logins do Windows criados com a sintaxe `CREATE LOGIN ... FROM WINDOWS` não são suportados. Utilize logins e utilizadores de Diretório Ativo Azure.
 - O utilizador da AD Azure que criou a instância tem [privilégios administrativos ilimitados.](sql-database-manage-logins.md#unrestricted-administrative-accounts)
-- Os utilizadores de bases de dados ad-inadministrador do Azure podem ser criados utilizando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CREATE USER ... DE](sql-database-manage-logins.md#non-administrator-users)DE FORNECEDOR ESTOIRO EXTERNO .
+- Os utilizadores de bases de dados ad-inadministrador do Azure podem ser criados utilizando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Ver [CREATE USER ... Do FORNECEDOR EXTERNO.](sql-database-manage-logins.md#non-administrator-users)
 - Os diretores do servidor Azure AD (logins) suportam as funcionalidades SQL dentro de uma instância gerida apenas. As funcionalidades que requerem interação transversal, independentemente de estarem dentro do mesmo inquilino da AD Azure ou de diferentes inquilinos, não são suportadas para utilizadores da AD Azure. Exemplos de tais características são:
 
   - Replicação transacional SQL.
@@ -302,7 +303,7 @@ As seguintes funcionalidades do Agente SQL não são suportadas atualmente:
 - Proxies
 - Agendamento de postos de trabalho numa CPU ociosa
 - Habilitar ou desativar um agente
-- Alerts
+- Alertas
 
 Para obter informações sobre o Agente servidor SQL, consulte [o Agente servidor SQL](/sql/ssms/agent/sql-server-agent).
 
@@ -429,7 +430,7 @@ Para obter mais informações sobre a configuração da replicação transaciona
   - `FROM DISK`/dispositivo `TAPE`/backup não é suportado.
   - Os conjuntos de reserva não são suportados.
 - `WITH` opções não são suportadas, como `DIFFERENTIAL` ou `STATS`.
-- `ASYNC RESTORE`: O restauro continua mesmo que a ligação do cliente se rompa. Se a sua ligação for abandonada, pode verificar a `sys.dm_operation_status` vista para o estado de uma operação de restauro e para uma base de dados CREATE e DROP. Ver [sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 
+- `ASYNC RESTORE`: A restauração continua mesmo que a ligação do cliente se rompa. Se a sua ligação for abandonada, pode verificar a `sys.dm_operation_status` vista para o estado de uma operação de restauro e para uma base de dados CREATE e DROP. Ver [sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 
 
 As seguintes opções de base de dados são definidas ou ultrapassadas e não podem ser alteradas mais tarde: 
 
@@ -459,8 +460,8 @@ Para obter informações sobre as declarações de restauro, consulte [as declar
 O corretor de serviços de instâncias cruzadas não é suportado:
 
 - `sys.routes`: Como pré-requisito, deve selecionar o endereço a partir de sys.routes. O endereço deve ser LOCAL em todas as rotas. Ver [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: Não podes usar `CREATE ROUTE` com `ADDRESS` além de `LOCAL`. Ver [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: Não podes usar `ALTER ROUTE` com `ADDRESS` além de `LOCAL`. Ver [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: Não pode utilizar `CREATE ROUTE` com `ADDRESS` que não seja `LOCAL`. Ver [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
+- `ALTER ROUTE`: Não pode utilizar `ALTER ROUTE` com `ADDRESS` que não seja `LOCAL`. Ver [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Procedimentos, funções e gatilhos armazenados
 
@@ -490,7 +491,7 @@ As seguintes variáveis, funções e pontos de vista retornam resultados diferen
 
 ## <a name="Environment"></a>Restrições ambientais
 
-### <a name="subnet"></a>Subnet
+### <a name="subnet"></a>Subrede
 -  Não é possível colocar outros recursos (por exemplo, máquinas virtuais) na sub-rede onde implementou a sua instância gerida. Implementar estes recursos usando uma subrede diferente.
 - A subnet deve dispor de um número suficiente de [endereços IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements)disponíveis . O mínimo é de 16, enquanto a recomendação é ter pelo menos 32 endereços IP na sub-rede.
 - [Os pontos finais do serviço não podem ser associados à sub-rede da instância gerida](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Certifique-se de que a opção de pontos finais do serviço está desativada quando criar a rede virtual.
@@ -539,15 +540,15 @@ Uma instância gerida coloca informações verbosas em registos de erros. Há mu
 
 Se o grupo failover se estende por instâncias em diferentes subscrições do Azure ou grupos de recursos, a falha manual não pode ser iniciada a partir da instância primária no grupo failover.
 
-**Supor:** Iniciar a falha através do portal a partir da instância geo-secundária.
+**Suposição :** Iniciar a falha através do portal a partir da instância geo-secundária.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>As funções do Agente SQL precisam de permissões de EXECUÇÃ explícitas para logins não-sysadmin
 
 **Data:** Dez 2019
 
-Se os logins não sysadmin a qualquer uma das funções de base de dados fixas do [Agente SQL,](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles)existe uma questão em que devem ser concedidas permissões explícitas de EXECUTa aos procedimentos master stored para que estes logins funcionem. Se este problema for encontrado, a mensagem de erro "A permissão EXECUTE foi negada no objeto <object_name> (Microsoft SQL Server, Error: 229)" será mostrado.
+Se os logins não sysadmin a qualquer uma das funções de base de dados fixas do [Agente SQL,](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles)existe uma questão em que devem ser concedidas permissões explícitas de EXECUTa aos procedimentos master stored para que estes logins funcionem. Se este problema for encontrado, será mostrada a mensagem de erro "A permissão EXECUTE foi negada no objeto <object_name> (Microsoft SQL Server, Error: 229)".
 
-**Supor:** Uma vez adicionados logins a qualquer uma das funções de base de dados fixas do Agente SQL: SQLAgentUserRole, SQLAgentReaderRole ou SQLAgentOperatorRole, para cada um dos logins adicionados a estas funções executam o script T-SQL abaixo para conceder explicitamente permissões EXECUTE aos procedimentos armazenados listados.
+**Suposição de suposição**: Uma vez adicionados logins a qualquer uma das funções de base de dados fixas do Agente SQL: SQLAgentUserRole, SQLAgentReaderRole ou SQLAgentOperatorRole, para cada um dos logins adicionados a estas funções executa o script T-SQL abaixo para conceder explicitamente permissões EXECUTE aos procedimentos armazenados listados.
 
 ```tsql
 USE [master]
@@ -571,7 +572,7 @@ O Agente SQL cria uma nova sessão sempre que o trabalho é iniciado, aumentando
 
 O nível de serviço Business Critical não aplicará corretamente [limites máximos de memória para objetos otimizados](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) pela memória em alguns casos. A instância gerida pode permitir que a carga de trabalho utilize mais memória para operações OLTP em memória, o que pode afetar a disponibilidade e a estabilidade da ocorrência. As consultas oLTP na memória que estão a atingir os limites podem não falhar imediatamente. Esta questão será resolvida em breve. As consultas que usam mais memória OLTP de memória falharão mais cedo se atingirem os [limites](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
 
-**Supor:** [Monitorize o uso de armazenamento OLTP em memória](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) utilizando o Estúdio de Gestão de [Servidores SQL](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para garantir que a carga de trabalho não está a utilizar mais do que a memória disponível. Aumente os limites de memória que dependem do número de vCores, ou otimize a sua carga de trabalho para usar menos memória.
+**Suposições:** [Monitorize o uso de armazenamento OLTP na memória](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) utilizando o Estúdio de Gestão de [Servidores SQL](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para garantir que a carga de trabalho não está a utilizar mais do que a memória disponível. Aumente os limites de memória que dependem do número de vCores, ou otimize a sua carga de trabalho para usar menos memória.
 
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erro errado devolvido ao tentar remover um ficheiro que não está vazio
 
@@ -579,7 +580,7 @@ O nível de serviço Business Critical não aplicará corretamente [limites máx
 
 SQL Server/Managed Instance [não permite que o utilizador deixe cair um ficheiro que não está vazio](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Se tentar remover um ficheiro de dados não vazio utilizando `ALTER DATABASE REMOVE FILE` declaração, o erro `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` não será devolvido imediatamente. A Instância Gerida continuará a tentar retirar o ficheiro e a operação falhará após 30min com `Internal server error`.
 
-**Supor:** Remova o conteúdo do ficheiro utilizando `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` comando. Se este for o único ficheiro no grupo de ficheiros, terá de eliminar os dados da tabela ou partição associada a este grupo de ficheiros antes de encolher o ficheiro e, opcionalmente, carregar esses dados noutra tabela/partição.
+**Seleção**: Retire o conteúdo do ficheiro utilizando `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` comando. Se este for o único ficheiro no grupo de ficheiros, terá de eliminar os dados da tabela ou partição associada a este grupo de ficheiros antes de encolher o ficheiro e, opcionalmente, carregar esses dados noutra tabela/partição.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Alterar nível de serviço e criar operações de instância são bloqueadas por restauro de base de dados em curso
 
@@ -587,7 +588,7 @@ SQL Server/Managed Instance [não permite que o utilizador deixe cair um ficheir
 
 A declaração de `RESTORE` em curso, o processo de migração do Serviço de Migração de Dados e a restauração do tempo integrado bloquearão a atualização do nível de serviço ou redimensionam a instância existente e criarão novas instâncias até que o processo de restabelecimento termine. O processo de restauro bloqueará estas operações nas instâncias geridas e piscinas de exemplo na mesma subnet onde o processo de restauro está em execução. Os casos, por exemplo, as piscinas não são afetados. Criar ou alterar as operações de nível de serviço não falhará ou o tempo de tempo - procederão assim que o processo de restauro estiver concluído ou cancelado.
 
-**Supor:** Aguarde até que o processo de restauro termine ou cancele o processo de restauro se a criação ou a atualização do funcionamento do nível de serviço tiver maior prioridade.
+**Supor:** Aguarde até que o processo de restauro termine ou cancele o processo de restauro se a criação ou atualização da operação de nível de serviço tiver maior prioridade.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>O Governador de Recursos no nível de serviço Business Critical pode ter de ser reconfigurado após o fracasso
 
@@ -595,7 +596,7 @@ A declaração de `RESTORE` em curso, o processo de migração do Serviço de Mi
 
 [A](/sql/relational-databases/resource-governor/resource-governor) funcionalidade Do Governador de Recursos que lhe permite limitar os recursos atribuídos à carga horária do utilizador pode classificar incorretamente alguma carga de trabalho do utilizador após a falha ou alteração do nível de serviço iniciado pelo utilizador (por exemplo, a alteração do tamanho máximo vCore ou do tamanho de armazenamento de instâncias max).
 
-**Supor:** Execute `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente ou como parte do Trabalho do Agente SQL que executa a tarefa SQL quando a instância começa se estiver a utilizar [o Governor de Recursos](/sql/relational-databases/resource-governor/resource-governor).
+**Suposições**: Execute `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente ou como parte do Trabalho do Agente SQL que executa a tarefa SQL quando a instância começa se estiver a utilizar [o Governor de Recursos](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Os diálogos do Corretor de Serviços cross-database devem ser reinicializados após a atualização do nível de serviço
 
@@ -607,7 +608,7 @@ Os diálogos do Corretor de Serviços cross-database deixarão de entregar as me
 
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>A ipersonificação dos tipos de login Azure AD não é suportada
 
-**Data:** Julho de 2019
+**Data:** julho de 2019
 
 A personificação utilizando `EXECUTE AS USER` ou `EXECUTE AS LOGIN` dos seguintes diretores da AAD não é suportada:
 -   Utilizadores de AAD aliased. Neste caso, `15517`.
@@ -615,7 +616,7 @@ A personificação utilizando `EXECUTE AS USER` ou `EXECUTE AS LOGIN` dos seguin
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query parâmetro não suportado em sp_send_db_mail
 
-**Data:** Abril de 2019
+**Data:** abril de 2019
 
 O parâmetro `@query` no procedimento [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) não funciona.
 
@@ -635,7 +636,7 @@ As Ferramentas de Dados do Servidor SQL não suportam totalmente os logins e uti
 
 Quando uma base de dados está a restaurar em Caso Gerido, o serviço de restauro criará primeiro uma base de dados vazia com o nome pretendido para atribuir o nome na instância. Após algum tempo, esta base de dados será retirada e a restauração da base de dados real será iniciada. A base de dados que está em *estado de Restauração* terá um valor GUID aleatório em vez de nome. O nome temporário será alterado para o nome desejado especificado na declaração `RESTORE` assim que o processo de restauro estiver concluído. Na fase inicial, o utilizador pode aceder à base de dados vazia e até criar tabelas ou carregar dados nesta base de dados. Esta base de dados temporária será retirada quando o serviço de restauro começar a segunda fase.
 
-**Supor:** Não aceda à base de dados que está a restaurar até ver que a restauração está concluída.
+**Seleção**: Não aceda à base de dados que está a restaurar até ver que a restauração está concluída.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>Estrutura e conteúdo TEMPDB é recriado
 
@@ -703,7 +704,7 @@ Os módulos CLR colocados numa instância gerida e servidores ligados ou consult
 
 **Supor:** Utilize ligações de contexto num módulo CLR, se possível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre casos geridos, consulte [O que é um caso gerido?](sql-database-managed-instance.md)
 - Para obter uma lista de funcionalidades e comparação, consulte a comparação de funcionalidades de [recurso Azure SQL](sql-database-features.md).

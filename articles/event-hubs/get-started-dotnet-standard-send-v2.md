@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 022af5ce0774ff106a29a2ef0bcf3fe11acfda15
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: d7d697e3ea4b1b683275d53f6e407396f474b37b
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187204"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462025"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Envie eventos e receba eventos de Azure Event Hubs - .NET Core (Azure.Messaging.EventHubs) 
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET Core. 
@@ -31,7 +31,7 @@ Este quickstart mostra como enviar eventos e receber eventos de um centro de eve
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](event-hubs-about.md) antes de fazer este quickstart. 
 
-Para concluir este guia de início rápido, você precisa dos seguintes pré-requisitos:
+Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
 - **Microsoft Visual Studio 2019**. A biblioteca de clientes do Azure Event Hubs C# utiliza novas funcionalidades que foram introduzidas em 8.0.  Ainda pode utilizar a biblioteca com C#versões mais antigas, mas algumas das suas funcionalidades não estarão disponíveis.  Para ativar estas funcionalidades, deve [visar o .NET Core 3.0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) ou [especificar a versão linguística](/dotnet/csharp/language-reference/configure-language-version#override-a-default) que pretende utilizar (8.0 ou superior). Se estiver a usar o Visual Studio, as versões anteriores ao Visual Studio C# 2019 não são compatíveis com as ferramentas necessárias para construir projetos 8.0. O Visual Studio 2019, incluindo a edição gratuita da Comunidade, pode ser descarregado [aqui](https://visualstudio.microsoft.com/vs/)
@@ -83,7 +83,7 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
     private const string eventHubName = "<EVENT HUB NAME>";
     ```
 
-3. Substitua o método `Main` pelo método `async Main` seguinte. Consulte os comentários de código para obter detalhes. 
+3. Substitua o método `Main` pelo método `async Main` seguinte. Consulte os comentários de código para mais detalhes. 
 
     ```csharp
         static async Task Main()
@@ -107,7 +107,7 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
     ```
 5. Construa o projeto e garanta que não há erros.
 6. Executar o programa e esperar pela mensagem de confirmação. 
-7. No portal do Azure, você pode verificar se o Hub de eventos recebeu as mensagens. Mude para a vista **Mensagens** na secção **Métricas.** Atualize a página para atualizar o gráfico. Pode levar alguns segundos para que ele mostre que as mensagens foram recebidas. 
+7. No portal Azure, pode verificar se o centro do evento recebeu as mensagens. Mude para a vista **Mensagens** na secção **Métricas.** Refresque a página para atualizar o gráfico. Pode levar alguns segundos para mostrar que as mensagens foram recebidas. 
 
     [![Verifique se o centro do evento recebeu as mensagens](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
@@ -118,21 +118,21 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
 Esta secção mostra como escrever uma aplicação de consola .NET Core que recebe mensagens de um hub de eventos usando um processador de eventos. O processador de eventos simplifica a receção de eventos a partir de centros de eventos, gerindo pontos de verificação persistentes e recebeções paralelas desses centros de eventos. Um processador de eventos está associado a um evento específico Hub e a um grupo de consumidores. Recebe eventos de várias divisórias no centro do evento, passando-os a um delegado manipulador para processamento usando código que fornece. 
 
 
-### <a name="create-an-azure-storage-and-a-blob-container"></a>Criar um armazenamento do Azure e um contêiner de BLOBs
+### <a name="create-an-azure-storage-and-a-blob-container"></a>Crie um Armazenamento Azure e um recipiente de bolhas
 Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Siga estes passos para criar uma conta de Armazenamento Azure. 
 
 1. [Criar uma conta de Armazenamento Azure](/azure/storage/common/storage-account-create?tabs=azure-portal)
 2. [Criar um recipiente de bolhas](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
 
-    Anote a corda de ligação e o nome do recipiente. Você os usará no código de recebimento. 
+    Anote a corda de ligação e o nome do recipiente. Irá usá-los no código de receção. 
 
 
 ### <a name="create-a-project-for-the-receiver"></a>Criar um projeto para o recetor
 
 1. Na janela Solution Explorer, clique à direita na solução **EventHubQuickStart,** aponte para **Adicionar**e selecione **New Project**. 
 1. Selecione **App consola (.NET Core)** e selecione **Next**. 
-1. **Event EventHubsReceiver** para o **nome do Projeto**, e selecione **Criar**. 
+1. Introduza **eventHubsReceiver** para o nome do **Projeto**, e selecione **Criar**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicionar o pacote NuGet dos Hubs de Eventos
 
@@ -168,7 +168,7 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
         private const string blobStorageConnectionString = "<AZURE STORAGE CONNECTION STRING>";
         private const string blobContainerName = "<BLOB CONTAINER NAME>";
     ```
-3. Substitua o método `Main` pelo método `async Main` seguinte. Consulte os comentários de código para obter detalhes. 
+3. Substitua o método `Main` pelo método `async Main` seguinte. Consulte os comentários de código para mais detalhes. 
 
     ```csharp
         static async Task Main()

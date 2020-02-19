@@ -1,66 +1,61 @@
 ---
-title: Adicionar notificações por push ao iOS
-description: Saiba como usar os aplicativos móveis do Azure para enviar notificações por push para seu aplicativo iOS.
+title: Adicionar Notificações push ao iOS
+description: Saiba como utilizar as Aplicações Móveis Azure para enviar notificações push para a sua aplicação iOS.
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 2864dfca72c91acd10fd6a4ee8038040ba5defc8
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: ad58ee158a2e1842c1b41db281bdd9f04b9b2ca4
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668805"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461509"
 ---
-# <a name="add-push-notifications-to-your-ios-app"></a>Adicionar notificações por push ao seu aplicativo iOS
+# <a name="add-push-notifications-to-your-ios-app"></a>Adicione notificações push à sua aplicação iOS
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-> [!NOTE]
-> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
->
-> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+## <a name="overview"></a>Descrição geral
 
-## <a name="overview"></a>Visão geral
+Neste tutorial, adiciona notificações push ao projeto [iOS quickstart] para que seja enviada uma notificação push para o dispositivo sempre que um registo é inserido.
 
-Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do IOS] para que uma notificação por push seja enviada ao dispositivo toda vez que um registro for inserido.
+Se não utilizar o projeto de servidor quickstart descarregado, necessitará do pacote de extensão de notificação push. Para mais informações, consulte [Trabalhar com o servidor de backend .NET SDK para o guia de aplicações móveis Azure.](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
-Se você não usar o projeto baixado do servidor de início rápido, será necessário o pacote de extensão de notificação por push. Para obter mais informações, consulte [trabalhar com o SDK do servidor de back-end do .net para o guia de aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) .
+O [simulador iOS não suporta notificações push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Você precisa de um dispositivo físico iOS e uma subscrição do [Programa de Desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
 
-O [simulador do IOS não oferece suporte a notificações por push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Você precisa de um dispositivo iOS físico e de uma [associação do programa de desenvolvedor da Apple](https://developer.apple.com/programs/ios/).
-
-## <a name="configure-hub"></a>Configurar o Hub de notificação
+## <a name="configure-hub"></a>Configure Centro de Notificação
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a id="register"></a>Registrar aplicativo para notificações por push
+## <a id="register"></a>Registe a aplicação para notificações push
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-azure-to-send-push-notifications"></a>Configurar o Azure para enviar notificações por push
+## <a name="configure-azure-to-send-push-notifications"></a>Configure Azure para enviar notificações push
 
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a id="update-server"></a>Atualizar back-end para enviar notificações por push
+## <a id="update-server"></a>Atualizar backend para enviar notificações push
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a id="add-push"></a>Adicionar notificações por push ao aplicativo
+## <a id="add-push"></a>Adicione notificações push à app
 
 [!INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
-## <a id="test"></a>Testar notificações por push
+## <a id="test"></a>Notificações push de teste
 
 [!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
-## <a id="more"></a>Cada
+## <a id="more"></a>Mais
 
-* Os modelos oferecem flexibilidade para enviar envios por push de plataforma cruzada e Pushes localizados. [Como usar a biblioteca de cliente do IOS para aplicativos móveis do Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) mostra como registrar modelos.
+* Os modelos dão-lhe flexibilidade para enviar empurrões de plataformas cruzadas e empurrões localizados. [Como utilizar a Biblioteca cliente iOS para aplicações móveis Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) mostra-lhe como registar modelos.
 
 <!-- Anchors.  -->
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[início rápido do iOS]: app-service-mobile-ios-get-started.md
+[iOS quickstart]: app-service-mobile-ios-get-started.md

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f8111e1d8c9bd76e7b55dd958256f8892b9058
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: d7c8bdb7236ed0a3a12bae5050e564afe0b68cde
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442025"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461237"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
 
@@ -1445,6 +1445,16 @@ Uma vez iniciado o ciclo inicial, pode selecionar registos de **provisionamento*
 
 Se estiver a construir uma aplicação que será usada por mais de um inquilino, pode disponibilizá-la na galeria de aplicações da AD Azure. Isto facilitará às organizações a descoberta da aplicação e o fornecimento configurado. Publicar a sua aplicação na galeria Azure AD e disponibilizar o provisionamento a outros é fácil. Confira os degraus [aqui.](../develop/howto-app-gallery-listing.md) A Microsoft trabalhará consigo para integrar a sua aplicação na nossa galeria, testar o seu ponto final e lançar [documentação](../saas-apps/tutorial-list.md) de bordo para os clientes usarem. 
 
+### <a name="gallery-onboarding-checklist"></a>Lista de verificação onboarding de galeria
+Siga a lista de verificação abaixo para garantir que a sua aplicação está a bordo rapidamente e que os clientes têm uma experiência de implementação suave. A informação será recolhida quando embarcar na galeria. 
+> [!div class="checklist"]
+> * [Suporte SCIM 2.0](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (Obrigatório)
+> * Apoio de pelo menos 25 pedidos por segundo por inquilino (Obrigatório)
+> * Apoiar a descoberta do esquema (Recomendado)
+> * Apoiar a concessão do código de autorização da OAuth ou um token de longa duração, como descrito abaixo (Exigido)
+> * Estabeleça um ponto de contacto de engenharia e suporte para apoiar o post gallery do cliente (Obrigatório)
+> * Documente publicamente o seu ponto final do SCIM (Recomendado) 
+
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorização para provisionamento de conectores na galeria de aplicações
 A especificação SCIM não define um regime específico de autenticação e autorização do SCIM. Baseia-se na utilização das normas industriais existentes. O cliente de fornecimento de adsad Azure suporta dois métodos de autorização para pedidos na galeria. 
@@ -1471,6 +1481,17 @@ Boas práticas (recomendadas mas não necessárias):
 Há muito vivido o portador de **oAuth tokens:** Se o seu pedido não apoiar o fluxo de concessão de código de autorização OAuth, também pode gerar um token de porta-outh de longa duração do que o que um administrador pode usar para configurar a integração de provisionamento. O símbolo deve ser perpétuo, ou então o trabalho de provisionamento será [colocado em quarentena](application-provisioning-quarantine-status.md) quando o símbolo expirar. Esta ficha deve estar abaixo de 1KB em tamanho.  
 
 Para obter métodos adicionais de autenticação e autorização, informe-nos no [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
+
+### <a name="gallery-go-to-market-launch-check-list"></a>Lista de verificação de lançamento de galeria go-to-market
+Para ajudar a impulsionar a consciencialização e a procura da nossa integração conjunta, recomendamos que atualize a sua documentação existente e amplifique a integração nos seus canais de marketing.  Abaixo é um conjunto de atividades de lista de verificação que recomendamos que complete para apoiar o lançamento
+
+* **Disponibilidade de vendas e apoio ao cliente.** Certifique-se de que as suas equipas de vendas e suporte estão conscientes e podem falar com as capacidades de integração. Informe a sua equipa de vendas e suporte, forneça-lhes PERGUNTAS DE INFORMAÇÃO e inclua a integração nos seus materiais de vendas. 
+* **Post de blog e/ou comunicado de imprensa.** Crie uma publicação de blogue ou um comunicado de imprensa que descreva a integração conjunta, os benefícios e como começar. [Exemplo: Imprivata e Azure Ative Directory Press Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
+* **Redes sociais.** Aproveite as suas redes sociais como o Twitter, Facebook ou LinkedIn para promover a integração aos seus clientes. Certifique-se de incluir @AzureAD para que possamos retweetar o seu post. [Exemplo: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
+* **Site de marketing.** Crie ou atualize as suas páginas de marketing (por exemplo, página de integração, página de parceiros, página de preços, etc...) para incluir a disponibilidade da integração conjunta. [Exemplo: Página de integração de pingboard](https://pingboard.com/org-chart-for), [página de integração smartsheet,](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad) [página de preços Monday.com](https://monday.com/pricing/) 
+* **Documentação técnica.** Crie um artigo do centro de ajuda ou documentação técnica sobre como os clientes podem começar. [Exemplo: Envoy + Microsoft Azure Ative Directory integração.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
+) 
+* **Comunicação com o cliente.** Alerte os clientes da nova integração através da comunicação do seu cliente (newsletters mensais, campanhas de email, notas de lançamento de produtos). 
 
 ### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Permitir endereços IP utilizados pelo serviço de provisionamento Da Azure Para efazer pedidos sCIM
 

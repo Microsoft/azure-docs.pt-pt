@@ -5,25 +5,24 @@ description: Aprenda a definir vidas para fichas emitidas pela Azure AD.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
-ms.custom: aaddev, annaba, identityplatformtop40
-ms.reviewer: hirsin
-ms.openlocfilehash: 55c7ee6711c6001745053b850c1b4e1859af5dbe
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: aaddev, identityplatformtop40
+ms.reviewer: hirsin, jlu, annaba
+ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699024"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461203"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Toda a vida de fichas configuráveis em Diretório Ativo Azure (Pré-visualização)
 
-Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização.
+Pode especificar a vida útil de um token emitido pela Azure Ative Directory (Azure AD). Você pode definir token lifetimes para todas as aplicações da sua organização, para uma aplicação multi-inquilino (multi-organização) ou para um diretor de serviço específico na sua organização.
 
 > [!IMPORTANT]
 > Depois de ouvir os clientes durante a pré-visualização, implementamos capacidades de gestão de sessões de [autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no Acesso Condicional Azure AD. Pode utilizar esta nova funcionalidade para configurar a atualização das vidas token, definindo o sinal na frequência. Depois de 1 de maio de 2020, não poderá utilizar a política configurável token lifetime para configurar sessão e refrescar fichas. Ainda pode configurar as vidas de acesso ao token após a depreciação.
@@ -33,9 +32,8 @@ Em Azure AD, um objeto político representa um conjunto de regras que são aplic
 Pode designar uma política como a política padrão para a sua organização. A política aplica-se a qualquer aplicação na organização, desde que não seja ultrapassada por uma política com maior prioridade. Também pode atribuir uma apólice a aplicações específicas. A ordem de prioridade varia consocada mente.
 
 > [!NOTE]
-> A política de vida token configurável não é suportada para o SharePoint Online.  Apesar de ter a capacidade de criar esta política através do PowerShell, o SharePoint Online não reconhecerá esta política. Consulte o [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para saber mais sobre a configuração de timeouts de sessão inativos.
->* O tempo de vida padrão para o token de acesso SharePoint Online é de 1 hora. 
->* O tempo inativo padrão máximo do token de atualização SharePoint Online é de 90 dias.
+> A política de vida token configurável só se aplica a clientes móveis e desktop que acedem ao SharePoint Online e oneDrive para recursos empresariais, e não se aplica às sessões do navegador web.
+> Para gerir a vida útil das sessões de navegador web para O SharePoint Online e OneDrive para negócios, utilize a funcionalidade de vida vitalícia da sessão de [Acesso Condicional.](../conditional-access/howto-conditional-access-session-lifetime.md) Consulte o [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para saber mais sobre a configuração de timeouts de sessão inativos.
 
 ## <a name="token-types"></a>Tipos de fichas
 
@@ -89,10 +87,10 @@ Uma política simbólica de vida é um tipo de objeto político que contém regr
 | --- | --- | --- | --- | --- | --- |
 | Acesso Token Lifetime |AccessTokenLifetime<sup>2</sup> |Fichas de acesso, fichas de identificação, fichas SAML2 |1 hora |10 minutos |1 dia |
 | Refrescar tempo inativo token Max |MaxInactiveTime |Fichas de atualização |90 dias |10 minutos |90 dias |
-| Idade token max de atualização de um fator único |MaxAgeSingleFactor |Tokens de atualização (para qualquer utilizador) |Até que revogado |10 minutos |Until-revoked<sup>1</sup> |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Tokens de atualização (para qualquer utilizador) |Até que revogado |10 minutos |Until-revoked<sup>1</sup> |
-| Idade token Max |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não persistentes) |Até que revogado |10 minutos |Until-revoked<sup>1</sup> |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não persistentes) |Até que revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Idade token max de atualização de um fator único |MaxAgeSingleFactor |Tokens de atualização (para qualquer utilizador) |Até que revogado |10 minutos |Até que revogado<sup>1</sup> |
+| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Tokens de atualização (para qualquer utilizador) |Até que revogado |10 minutos |Até que revogado<sup>1</sup> |
+| Idade token Max |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não persistentes) |Até que revogado |10 minutos |Até que revogado<sup>1</sup> |
+| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não persistentes) |Até que revogado |10 minutos |Até que revogado<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento explícito máximo que pode ser definido para estes atributos.
 * <sup>2</sup> Para garantir que o cliente Web da Microsoft Teams funciona, recomenda-se manter o AccessTokenLifetime a mais de 15 minutos para as Equipas Microsoft.
@@ -188,7 +186,7 @@ A redução da idade máxima obriga os utilizadores a autenticar com mais frequ�
 A redução da idade máxima obriga os utilizadores a autenticar com mais frequência. Uma vez que a autenticação de um fator único é considerada menos segura do que a autenticação de vários fatores, recomendamos que este imóvel seja igual ou inferior ao da propriedade Multi-Factor Session Token Max Age.
 
 ### <a name="multi-factor-session-token-max-age"></a>Multi-Factor Session Token Max Age
-**String:** MaxAgeSessionMultiFactor
+**Cadeia:** MaxagesessionMultiFactor
 
 **Afeta:** Fichas de sessão (persistentes e não persistentes)
 
@@ -213,16 +211,16 @@ Nos exemplos, pode aprender a:
 ### <a name="prerequisites"></a>Pré-requisitos
 Nos seguintes exemplos, cria, atualiza, liga e elimina políticas para apps, diretores de serviços e a sua organização em geral. Se você é novo em Azure AD, recomendamos que você aprenda sobre [como obter um inquilino Azure AD](quickstart-create-new-tenant.md) antes de prosseguir com estes exemplos.  
 
-Para começar, execute as seguintes etapas:
+Para começar, faça os seguintes passos:
 
 1. Descarregue o mais recente lançamento do Módulo PowerShell Da [AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
-2. Execute o comando `Connect` para iniciar sessão na sua conta de administração da AD Azure. Execute esse comando toda vez que iniciar uma nova sessão.
+2. Execute o comando `Connect` para iniciar sessão na sua conta de administração da AD Azure. Execute este comando sempre que iniciar uma nova sessão.
 
     ```powershell
     Connect-AzureAD -Confirm
     ```
 
-3. Para ver todas as políticas que foram criadas em sua organização, execute o comando a seguir. Executar este comando após a maioria das operações nos seguintes cenários. Executar o comando também ajuda a obter o ** ** das suas políticas.
+3. Para ver todas as políticas que foram criadas na sua organização, executar o seguinte comando. Executar este comando após a maioria das operações nos seguintes cenários. Executar o comando também ajuda a obter o ** ** das suas políticas.
 
     ```powershell
     Get-AzureADPolicy
@@ -245,7 +243,7 @@ Neste exemplo, cria uma política que permite o sinal dos seus utilizadores com 
         }')
         ```
 
-    2. Para criar a política, execute o seguinte comando:
+    2. Para criar a política, executar o seguinte comando:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
@@ -273,7 +271,7 @@ Neste exemplo, cria-se uma política que exige que os utilizadores autentiquem c
 
     Esta política, para o início de sessão web, define a vida útil do token de acesso/ID e a idade máxima da sessão de um único fator para duas horas.
 
-    1. Para criar a política, execute este comando:
+    1. Para criar a política, executar este comando:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
@@ -285,7 +283,7 @@ Neste exemplo, cria-se uma política que exige que os utilizadores autentiquem c
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribua a política à entidade de serviço. Também precisa de obter o **ObjectId** do seu diretor de serviço.
+2. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o **ObjectId** do seu diretor de serviço.
 
     1. Utilize o [Cmdlet Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) para ver todos os diretores de serviço da sua organização ou um único diretor de serviço.
         ```powershell
@@ -456,7 +454,7 @@ Elimina a política especificada.
 
 </br></br>
 
-### <a name="application-policies"></a>Políticas da aplicação
+### <a name="application-policies"></a>Políticas de aplicação
 Pode utilizar os seguintes cmdlets para as políticas de aplicação.</br></br>
 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/29/2020
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: 78269461bf01d61bffeed504b0168b4913c6e131
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442994"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460472"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -129,7 +129,9 @@ O Azure Firewall não snaT quando o endereço IP de destino é uma gama ip priva
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>O túnel/acorrentamento forçado a um Aparelho Virtual da Rede é suportado?
 
-O túnel forçado não é suportado atualmente. O Azure Firewall deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a esta com um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta da Internet.
+O túnel forçado é apoiado. Para mais informações, consulte O Túnel forçado do [Azure Firewall (pré-visualização)](forced-tunneling.md). 
+
+O Azure Firewall deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a esta com um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta da Internet.
 
 Se a sua configuração necessitar de túneis forçados para uma rede no local e puder determinar os prefixos IP-alvo para os seus destinos de Internet, pode configurar estas gamas com a rede no local como o próximo salto através de uma rota definida pelo utilizador no AzureFirewallSubnet. Ou, pode usar o BGP para definir estas rotas.
 
@@ -166,7 +168,7 @@ Não. A Firewall Azure não precisa de uma sub-rede maior que a de 1,26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar a minha entrada de firewall?
 
-A capacidade inicial de entrada da Azure Firewall é de 2,5 - 3 Gbps. Atualmente, a escala é baseada apenas no uso de CPU. Em alguns casos, uma firewall com regras de rede só não vai aumentar para aumentar a entrada porque as regras da rede não afetam significativamente o uso de CPU. Se precisar de uma entrada mais elevada para a sua firewall, contacte o Suporte para aumentar a capacidade inicial de entrada da sua firewall.
+A capacidade inicial de entrada da Azure Firewall é de 2,5 - 3 Gbps. Atualmente, a escala é baseada na utilização e na entrada de CPU. Em alguns casos, uma firewall com regras de rede só não vai aumentar para aumentar a entrada porque as regras da rede não afetam significativamente o uso de CPU. Se precisar de uma entrada mais elevada para a sua firewall, contacte o Suporte para aumentar a capacidade inicial de entrada da sua firewall.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Azure Firewall aumentar a escala?
 

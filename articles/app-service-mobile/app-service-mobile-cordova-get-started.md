@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Cordova
+title: Criar uma app cordova
 description: Siga este tutorial para começar a utilizar back-ends de aplicações móveis do Azure para desenvolvimento do Apache Cordova
 keywords: cordova,javascript,móvel,cliente
 ms.assetid: 0b08fc12-0a80-42d3-9cc1-9b3f8d3e3a3f
@@ -7,22 +7,17 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: 35670543b9716cad8165d5b5ea48f3888786f0a2
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 99fb4a4b07ecbd4a85abbc62ec52a0f5960654c5
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668884"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461577"
 ---
 # <a name="create-an-apache-cordova-app"></a>Criar uma aplicação Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-> [!NOTE]
-> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
->
-> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
-
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a uma aplicação móvel Apache Cordova utilizando um back-end da aplicação móvel do Azure.  Pode criar tanto um novo back-end da aplicação móvel assim como uma simples aplicação Apache Cordova de uma *Lista de tarefas* que armazena dados da aplicação no Azure.
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais do Apache Cordova referentes à utilização da funcionalidade Aplicações Móveis no App Service do Azure.
@@ -39,7 +34,7 @@ Também pode ignorar o Visual Studio e utilizar diretamente a linha de comandos 
 ## <a name="create-an-azure-mobile-app-backend"></a>Criar um back-end da aplicação móvel do Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Criar uma conexão de banco de dados e configurar o projeto de cliente e servidor
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Criar uma ligação à base de dados e configurar o projeto cliente e servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-apache-cordova-app"></a>Transferir e executar a aplicação Apache Cordova

@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0e612dbecb9f215a90f728afb0f06a65db09764b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 076708cdc32b0547fe34f714798b4a7a963296fe
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162927"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462637"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento azure
 
@@ -66,7 +66,7 @@ O quadro seguinte mostra quais os tipos de contas de armazenamento que suportam 
 |    Armazenamento de    | Europa Ocidental<br /> E.U.A Leste    |    Apenas ficheiros Azure    |
 
 <sup>1</sup> O nível de arquivo não é atualmente suportado para contas ZRS.<br />
-<sup>2</sup> Discos Azure para máquinas virtuais, incluindo discos geridos e não geridos, suportam apenas LRS. Não suportam ZRS ou GZRS. Para obter mais informações sobre discos geridos, consulte [Preços para discos geridos](/pricing/details/managed-disks/)pelo Azure .
+<sup>2</sup> Discos Azure para máquinas virtuais, incluindo discos geridos e não geridos, suportam apenas LRS. Não suportam ZRS ou GZRS. Para obter mais informações sobre discos geridos, consulte [Preços para discos geridos](https://azure.microsoft.com/pricing/details/managed-disks)pelo Azure .
 
 Para obter informações sobre quais as regiões que suportam o ZRS, consulte **o suporte de serviços por região** em [Que São As Zonas de Disponibilidade do Azure?](../../availability-zones/az-overview.md)
 

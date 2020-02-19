@@ -1,74 +1,70 @@
 ---
-title: Controle de versão do SDK do cliente e do servidor
-description: Lista de SDKs de cliente e compatibilidade com versões do SDK do servidor para serviços móveis e aplicativos móveis do Azure.
+title: Versão SDK do cliente e do servidor
+description: Lista de SDKs de clientes e compatibilidade com versões SDK do servidor para Serviços Móveis e Aplicações Móveis Azure.
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 4d0b301dee363c2338cb13a9fc09ee17549467eb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: f24ae0a48b835785a2e000210f3609b82d42d0f6
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668846"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461560"
 ---
-# <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controle de versão de cliente e servidor em aplicativos móveis e serviços móveis
-> [!NOTE]
-> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
->
-> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+# <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Versão de cliente e servidor em Aplicações Móveis e Serviços Móveis
 
-A versão mais recente dos serviços móveis do Azure é o recurso de **aplicativos móveis** do serviço de Azure app.
+A versão mais recente do Azure Mobile Services é a funcionalidade **de Aplicações Móveis** do Azure App Service.
 
-Os SDKs do cliente e do servidor dos aplicativos móveis são originalmente baseados neles nos serviços móveis, mas *não* são compatíveis entre si.
-Ou seja, você deve usar um SDK de cliente de *aplicativos móveis* com um SDK de servidor de *aplicativos móveis* e, da mesma forma, para os *serviços móveis*. Este contrato é imposto por meio de um valor de cabeçalho especial usado pelos SDKs do cliente e do servidor, `ZUMO-API-VERSION`.
+Os SDKs de cliente e servidor de Aplicações Móveis são originalmente baseados nos dos Serviços Móveis, mas *não* são compatíveis uns com os outros.
+Ou seja, deve utilizar um SDK cliente de *Aplicações Móveis* com um servidor de *aplicações móveis* SDK e similarmente para *Serviços Móveis*. Este contrato é aplicado através de um valor especial de cabeçalho usado pelos SDKs do cliente e servidor, `ZUMO-API-VERSION`.
 
-Observação: sempre que este documento se refere a um back-end *dos serviços móveis* , ele não precisa necessariamente ser hospedado nos serviços móveis. Agora é possível migrar um serviço móvel para ser executado no serviço de aplicativo sem nenhuma alteração de código, mas o serviço ainda estaria usando versões do SDK de *serviços móveis* .
+Nota: sempre que este documento se refere a um backend *dos Serviços Móveis,* não precisa necessariamente de ser hospedado em Serviços Móveis. Agora é possível migrar um serviço móvel para funcionar no Serviço de Aplicações sem alterações de código, mas o serviço ainda estaria a utilizar versões SDK de *Serviços Móveis.*
 
-## <a name="header-specification"></a>Especificação de cabeçalho
-A chave `ZUMO-API-VERSION` pode ser especificada no cabeçalho HTTP ou na cadeia de caracteres de consulta. O valor é uma cadeia de caracteres de versão no formato **x. y. z**.
+## <a name="header-specification"></a>Especificação do cabeçalho
+A `ZUMO-API-VERSION` chave pode ser especificada no cabeçalho HTTP ou na corda de consulta. O valor é uma cadeia de versão na forma **x.y.z**.
 
 Por exemplo:
 
 OBTER https://service.azurewebsites.net/tables/TodoItem
 
-CABEÇALHOS: ZUMO-API-VERSION: 2.0.0
+CABEÇADÓS: ZUMO-API-VERSÃO: 2.0.0
 
-POSTAR https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
+POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
-## <a name="opting-out-of-version-checking"></a>Recusando a verificação de versão
-Você pode recusar a verificação de versão definindo um valor de **true** para a configuração do aplicativo **MS_SkipVersionCheck**. Especifique isso em seu Web. config ou na seção Configurações do aplicativo do portal do Azure.
+## <a name="opting-out-of-version-checking"></a>Optando por não verificar versão
+Pode optar por não verificar a versão, definindo um valor **verdadeiro** para a definição de aplicações **MS_SkipVersionCheck**. Especifique isto no seu web.config ou na secção Definições de Aplicação do portal Azure.
 
 > [!NOTE]
-> Há várias alterações de comportamento entre os serviços móveis e os aplicativos móveis, especialmente nas áreas de sincronização offline, autenticação e notificações por push. Você só deve recusar a verificação de versão após o teste completo para garantir que essas alterações comportamentais não interrompam a funcionalidade do aplicativo.
+> Há uma série de mudanças de comportamento entre Serviços Móveis e Aplicações Móveis, particularmente nas áreas de sincronização offline, autenticação e notificações push. Só deve optar por não verificar a versão após testes completos para garantir que estas alterações comportamentais não quebram a funcionalidade da sua aplicação.
 
-## <a name="2.0.0"></a>Cliente e servidor de aplicativos móveis do Azure
-### <a name="MobileAppsClients"></a>SDKs de cliente de *aplicativos* móveis
-A verificação de versão foi introduzida a partir das seguintes versões do SDK do cliente para **aplicativos móveis do Azure**:
+## <a name="2.0.0"></a>Cliente e servidor de Aplicativos Móveis Azure
+### <a name="MobileAppsClients"></a>SDKs clientes de *aplicativos* móveis
+A verificação da versão foi introduzida a partir das seguintes versões do cliente SDK para **Aplicações Móveis Azure:**
 
-| Plataforma de cliente | Versão | Valor do cabeçalho da versão |
+| Plataforma de clientes | Versão | Valor do cabeçalho da versão |
 | --- | --- | --- |
-| Cliente gerenciado (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
+| Cliente gerido (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
 | Android |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) |3.0.0 |
 
 ### <a name="mobile-apps-server-sdks"></a>SDKs do servidor de *aplicativos* móveis
-A verificação de versão está incluída nas seguintes versões do SDK do servidor:
+A verificação da versão está incluída nas seguintes versões SDK do servidor:
 
-| Plataforma de servidor | SDK | Cabeçalho de versão aceito |
+| Plataforma do servidor | SDK | Cabeçalho de versão aceite |
 | --- | --- | --- |
-| .NET |[Microsoft. Azure. Mobile. Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) |2.0.0 |
-| Node.js |[Azure-Mobile-Apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
+| .NET |[Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) |2.0.0 |
+| Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
-### <a name="behavior-of-mobile-apps-backends"></a>Comportamento de back-ends de aplicativos móveis
-| ZUMO-VERSÃO DE API | Valor de MS_SkipVersionCheck | Resposta |
+### <a name="behavior-of-mobile-apps-backends"></a>Comportamento das aplicações móveis backends
+| ZUMO-API-VERSÃO | Valor da MS_SkipVersionCheck | Resposta |
 | --- | --- | --- |
-| x. y. z ou NULL |Verdadeiro |200-OK |
-| Null |False/não especificado |400 – Pedido Incorreto |
-| 1. x. y |False/não especificado |400 – Pedido Incorreto |
-| 2.0.0-2. x. y |False/não especificado |200-OK |
-| 3.0.0-3. x. y |False/não especificado |400 – Pedido Incorreto |
+| x.y.z ou Nulo |Verdadeiro |200 - OK |
+| Null |Falso/não especificado |400 – Pedido Incorreto |
+| 1.x.y |Falso/não especificado |400 – Pedido Incorreto |
+| 2.0.0-2.x.y |Falso/não especificado |200 - OK |
+| 3.0.0-3.x.y |Falso/não especificado |400 – Pedido Incorreto |
 
 [Mobile Services clients]: #MobileServicesClients
 [Mobile Apps clients]: #MobileAppsClients

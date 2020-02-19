@@ -1,6 +1,6 @@
 ---
-title: Registrar dispositivos X. 509 no serviço de provisionamento de dispositivos do Azure usando o Java
-description: Este início rápido utiliza inscrições em grupo e individuais. Neste guia de início rápido, você registrará dispositivos X. 509 no DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure usando o Java.
+title: Inscreva dispositivos X.509 para o Serviço de Provisionamento de Dispositivos Azure utilizando java
+description: Este início rápido utiliza inscrições em grupo e individuais. Neste arranque rápido, irá inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos Hub Azure IoT (DPS) utilizando java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 4be7dc3e93b61f036a4167347a45725eff185f04
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2787a0d5f372562f32c4d8adca3ed195d1befd5
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969716"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461973"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Java
 
@@ -149,7 +149,7 @@ Os passos seguintes mostram como adicionar os detalhes de aprovisionamento do se
     mvn install -DskipTests
     ```
 
-   Este comando transfere o pacote Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) para o seu computador. Este pacote inclui os binários para o SDK do serviço Java, que o código de exemplo precisa de compilar. Se tiver executado a ferramenta _X.509 certificate generator_ na secção anterior, este pacote já estará transferido no seu computador. 
+   Este comando transfere o pacote Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) para o seu computador. Este pacote inclui os binários para o SDK do serviço Java, que o código de exemplo precisa de compilar. Se tiver executado a ferramenta _X.509 certificate generator_ na secção anterior, este pacote já estará transferido no seu computador. 
 
 3. Execute o exemplo, utilizando estes comandos na janela de comando:
 
@@ -202,14 +202,14 @@ Para inscrever um dispositivo X.509 único, modifique o código de exemplo de *i
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se você planeja explorar o exemplo de serviço Java, não limpe os recursos criados neste guia de início rápido. Se você não planeja continuar, use as etapas a seguir para excluir todos os recursos criados por este guia de início rápido.
+Se planeia explorar a amostra de serviço java, não limpe os recursos criados neste arranque rápido. Se não pretende continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 
 1. Feche a janela da saída do exemplo de Java no seu computador.
 1. Feche a janela do _X509 Cert Generator_ no seu computador.
-1. Navegue até o serviço de provisionamento de dispositivos no portal do Azure, selecione **gerenciar registros**e, em seguida, selecione a guia **grupos de registro** . Marque a caixa de seleção ao lado do *nome do grupo* para os dispositivos X. 509 registrados usando este guia de início rápido e pressione o botão **excluir** na parte superior do painel.  
+1. Navegue para o seu serviço de provisionamento de dispositivos no portal Azure, selecione **Gerir as matrículas**e, em seguida, selecione o separador **Grupos de Matrículas.** Selecione a caixa de verificação junto ao NOME DE *GRUPO* para os dispositivos X.509 que inscreveu usando este quickstart e prima o botão **Apagar** na parte superior do painel.  
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste guia de início rápido, você registrou um grupo simulado de dispositivos X. 509 no serviço de provisionamento de dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
+Neste arranque rápido, inscreveu um grupo simulado de dispositivos X.509 no seu serviço de Fornecimento de Dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md) (Tutoriais do Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure)

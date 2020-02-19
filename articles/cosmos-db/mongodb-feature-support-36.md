@@ -1,40 +1,40 @@
 ---
-title: API do Azure Cosmos DB para recursos e sintaxe do MongoDB (versão 3,6) com suporte
-description: Saiba mais sobre a API de Azure Cosmos DB para os recursos e a sintaxe do MongoDB (versão 3,6) com suporte.
+title: API da Azure Cosmos DB para MongoDB (versão 3.6) suportado recursos e sintaxe
+description: Saiba mais sobre a API da Azure Cosmos DB para MongoDB (versão 3.6) suportadas recursos e sintaxe.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a32affab45ab99a89113644bb08c4f2b57d69018
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: cde731f9d9e673446bc4d08117004b028db2a7f9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721018"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462467"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3,6): recursos e sintaxe com suporte
+# <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API da Azure Cosmos DB para MongoDB (versão 3.6): funcionalidades suportadas e sintaxe
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API da Azure Cosmos DB para mongoDB utilizando qualquer um dos [condutores](https://docs.mongodb.org/ecosystem/drivers)de clientes MongoDB de código aberto. A API da Azure Cosmos DB para a MongoDB permite a utilização de condutores de clientes existentes, aderindo ao [protocolo de arame](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)MongoDB.
 
-Ao utilizar a API do Azure Cosmos DB para mongoDB, pode usufruir dos benefícios do MongoDB a que está habituado, com todas as capacidades empresariais que a Cosmos DB fornece: [distribuição global,](distribute-data-globally.md) [sharding automático,](partition-data.md)garantias de disponibilidade e latência, indexação automática de cada campo, encriptação em repouso, backups e muito mais.
+Ao utilizar a API do Azure Cosmos DB para mongoDB, pode usufruir dos benefícios do MongoDB a que está habituado, com todas as capacidades empresariais que a Cosmos DB fornece: [distribuição global,](distribute-data-globally.md) [sharding automático,](partition-data.md)garantias de disponibilidade e latência, encriptação em repouso, backups e muito mais.
 
-## <a name="protocol-support"></a>Suporte de protocolo
+## <a name="protocol-support"></a>Suporte protocole
 
 A API do Azure Cosmos DB para MongoDB é compatível com a versão **3.6** do servidor MongoDB por padrão para novas contas. Os operadores suportados e quaisquer limitações ou exceções são listadas abaixo. Qualquer controlador do cliente que compreenda estes protocolos deverá conseguir ligar à API do Azure Cosmos DB para MongoDB. Note que ao utilizar a API do Azure Cosmos DB para contas MongoDB, a versão 3.6 das contas tem o ponto final no formato `*.mongo.cosmos.azure.com` enquanto a versão 3.2 das contas tem o ponto final no formato `*.documents.azure.com`.
 
-## <a name="query-language-support"></a>Suporte à linguagem de consulta
+## <a name="query-language-support"></a>Apoio à linguagem de consulta
 
-A API do Azure Cosmos DB para MongoDB fornece suporte abrangente para construções de linguagem de consulta do MongoDB. Abaixo pode encontrar a lista detalhada de operações, operadores, estágios, comandos e opções suportadas atualmente.
+A API da Azure Cosmos DB para o MongoDB fornece um apoio abrangente para construções de linguagem de consulta MongoDB. Abaixo pode encontrar a lista detalhada de operações, operadores, estágios, comandos e opções suportadas atualmente.
 
 ## <a name="database-commands"></a>Comandos da base de dados
 
-A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banco de dados:
+A API da Azure Cosmos DB para mongoDB suporta os seguintes comandos de base de dados:
 
 ### <a name="query-and-write-operation-commands"></a>Comandos de operação de consulta e de escrita
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |delete | Sim |
 |find | Sim     |
@@ -51,7 +51,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="authentication-commands"></a>Comandos de autenticação
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |authenticate    |   Sim      |
 |logout    |      Sim   |
@@ -60,7 +60,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="administration-commands"></a>Comandos de administração
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |Coleções cobertas   |   Não      |
 |cloneCollectionAsCapped     |   Não      |
@@ -86,7 +86,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="diagnostics-commands"></a>Comandos de diagnóstico
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |buildInfo       |   Sim      |
 |collStats    |  Sim       |
@@ -112,7 +112,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="aggregation-commands"></a>Comandos de agregação
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |aggregate |   Sim  |
 |count     |   Sim  |
@@ -121,7 +121,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="aggregation-stages"></a>Fases de agregação
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$collStats |Não|
 |$project   |Sim|
@@ -151,7 +151,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="boolean-expressions"></a>Expressões booleanas
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$and| Sim|
 |$or|Sim|
@@ -159,7 +159,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="set-expressions"></a>Expressões de definição
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 | $setEquals | Sim|
 |$setIntersection|Sim|
@@ -171,7 +171,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="comparison-expressions"></a>Expressões de comparação
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$cmp     |  Sim       |
 |$eq|   Sim| 
@@ -185,7 +185,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="arithmetic-expressions"></a>Expressões aritméticas
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$abs |  Sim       |
 | $add |  Sim       |
@@ -205,7 +205,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="string-expressions"></a>Expressões de cadeia
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$concat |  Sim       |
 | $indexOfBytes|  Sim       |
@@ -222,13 +222,13 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="text-search-operator"></a>Operador de pesquisa de texto
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 | $meta | Não|
 
 ### <a name="array-expressions"></a>Expressões de matriz
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$arrayElemAt   |   Sim|
 |$arrayToObject|    Sim|
@@ -247,14 +247,14 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="variable-operators"></a>Operadores variáveis
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$map   |Não|
 |$let   |Sim|
 
 ### <a name="system-variables"></a>Variáveis do sistema
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$$CURRENT| Sim|
 |$$DESCEND|     Sim|
@@ -265,13 +265,13 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="literal-operator"></a>Operador literal
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$literal   |Sim|
 
 ### <a name="date-expressions"></a>Expressões de data
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$dayOfYear |Sim    |
 |$dayOfMonth|   Sim |
@@ -293,7 +293,7 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="conditional-expressions"></a>Expressões condicionais
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 | $cond| Sim|
 | $ifNull| Sim|
@@ -301,13 +301,13 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="data-type-operator"></a>Operador de tipo de dados
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 | $type| Sim|
 
 ### <a name="accumulator-expressions"></a>Expressões de acumuladores
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$sum   |Sim    |
 |$avg   |Sim    |
@@ -322,22 +322,22 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="merge-operator"></a>Operador de fusão
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 | $mergeObjects | Sim|
 
 ## <a name="data-types"></a>Tipos de dados
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |Valor de duplo |Sim    |
-|String |Sim    |
-|Objeto |Sim    |
-|Array  |Sim    |
+|Cadeia |Sim    |
+|Object |Sim    |
+|Matriz  |Sim    |
 |Binary Data    |Sim|   
 |Objectide   |Sim    |
 |Booleano    |Sim    |
-|Date   |Sim    |
+|Data   |Sim    |
 |Null   |Sim    |
 |32 bits Inteiro (int)   |Sim    |
 |Carimbo de data/hora  |Sim    |
@@ -346,15 +346,15 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 |MaxKey |Sim    |
 |Decimal128 |Sim|   
 |Expressão Regular |Sim|
-|JavaScript |Sim|
+|Javascript |Sim|
 |JavaScript (com âmbito)|   Sim |
-|Indefinido  |Sim    |
+|Não definido  |Sim    |
 
 ## <a name="indexes-and-index-properties"></a>Índices e propriedades indexadas
 
 ### <a name="indexes"></a>Índices
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |Índice de Campo Único |Sim    |
 |Índice composto |Sim    |
@@ -366,20 +366,20 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="index-properties"></a>Propriedades indexadas
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |TTL|   Sim |
 |Exclusivo |Sim|
 |Parcial|   Não|
 |Caso Insensível   |Não|
 |Dispersos |Não |
-|Fundo|    Sim |
+|Segundo plano|    Sim |
 
 ## <a name="operators"></a>Operadores
 
 ### <a name="logical-operators"></a>Operadores lógicos
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$or    |   Sim|
 |$and   |   Sim|
@@ -388,14 +388,14 @@ A API do Azure Cosmos DB para MongoDB dá suporte aos seguintes comandos de banc
 
 ### <a name="element-operators"></a>Operadores de elementos
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$exists|   Sim|
 |$type  |   Sim|
 
 ### <a name="evaluation-query-operators"></a>Operadores de consulta de avaliação
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$expr  |   Não|
 |$jsonSchema    |   Não|
@@ -414,7 +414,7 @@ A primeira parte irá utilizar o índice para restringir a pesquisa aos document
 
 ### <a name="array-operators"></a>Operadores de matriz
 
-|Comando  |Suportadas | 
+|Comando  |Suportado | 
 |---------|---------|
 | $all | Sim| 
 | $elemMatch | Sim| 
@@ -422,13 +422,13 @@ A primeira parte irá utilizar o índice para restringir a pesquisa aos document
 
 ### <a name="comment-operator"></a>Operador de comentários
 
-|Comando  |Suportadas | 
+|Comando  |Suportado | 
 |---------|---------|
 $comment |Sim| 
 
 ### <a name="projection-operators"></a>Operadores de projeção
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$elemMatch |Sim|
 |$meta| Não|
@@ -438,7 +438,7 @@ $comment |Sim|
 
 #### <a name="field-update-operators"></a>Operadores de atualização de campo
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$inc   |   Sim|
 |$mul   |   Sim|
@@ -452,7 +452,7 @@ $comment |Sim|
 
 #### <a name="array-update-operators"></a>Operadores de atualização de matriz
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$  |Sim|
 |$[]|   Sim|
@@ -467,7 +467,7 @@ $comment |Sim|
 
 #### <a name="update-modifiers"></a>Modificars de atualização
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |$each  |   Sim|
 |$slice |Sim|
@@ -476,7 +476,7 @@ $comment |Sim|
 
 #### <a name="bitwise-update-operator"></a>Operador de atualização bit a bit
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 | $bit  |   Sim|    
 |$bitsAllSet    |   Não|
@@ -486,7 +486,7 @@ $comment |Sim|
 
 ### <a name="geospatial-operators"></a>Operadores geoespaciais
 
-Operador | Suportadas| 
+Operador | Suportado| 
 --- | --- |
 $geoWithin | Sim |
 $geoIntersects | Sim | 
@@ -502,7 +502,7 @@ $polygon |  Sim |
 
 ## <a name="cursor-methods"></a>Métodos de cursor
 
-|Comando  |Suportadas |
+|Comando  |Suportado |
 |---------|---------|
 |cursor.batchSize() |   Sim|
 |cursor.close() |Sim|
@@ -542,33 +542,33 @@ Ao utilizar a operação `findOneAndUpdate`, são apoiadas operações de triage
 
 ## <a name="unique-indexes"></a>Índices exclusivos
 
-Os índices exclusivos garantem que um campo específico não tem valores duplicados em todos os documentos numa coleção, semelhante ao modo de preservação da exclusividade na chave "_id" predefinida. Você pode criar índices personalizados no Cosmos DB usando o comando createIndex, incluindo a restrição ' Unique '.
+Os índices exclusivos garantem que um campo específico não tem valores duplicados em todos os documentos numa coleção, semelhante ao modo de preservação da exclusividade na chave "_id" predefinida. Pode criar índices personalizados em Cosmos DB utilizando o comando createIndex, incluindo a restrição 'única'.
 
 ## <a name="time-to-live-ttl"></a>TTL
 
-O Cosmos DB dá suporte a TTL (vida útil) com base no carimbo de data/hora do documento. A TTL pode ser ativada para recolhas indo para o [portal Azure.](https://portal.azure.com)
+Cosmos DB suporta um tempo de vida (TTL) com base no carimbo temporal do documento. A TTL pode ser ativada para recolhas indo para o [portal Azure.](https://portal.azure.com)
 
 ## <a name="user-and-role-management"></a>Gestão de funções e utilizadores
 
-Cosmos DB ainda não dá suporte a usuários e funções. No entanto, cosmos DB suporta o controlo de acesso baseado em papéis (RBAC) e leia e leia senhas/teclas que podem ser obtidas através do [portal Azure](https://portal.azure.com) (página De conexão String).
+Cosmos DB ainda não suporta utilizadores e papéis. No entanto, cosmos DB suporta o controlo de acesso baseado em papéis (RBAC) e leia e leia senhas/teclas que podem ser obtidas através do [portal Azure](https://portal.azure.com) (página De conexão String).
 
 ## <a name="replication"></a>Replicação
 
-O Cosmos DB dá suporte à replicação nativa e automática nas camadas mais baixas. Esta lógica é expandida para conseguir também a replicação global de latência baixa. Cosmos DB não oferece suporte a comandos de replicação manual.
+Cosmos DB suporta replicação automática e nativa nas camadas mais baixas. Esta lógica é expandida para conseguir também a replicação global de latência baixa. Cosmos DB não suporta comandos de replicação manual.
 
 ## <a name="write-concern"></a>Preocupação Escrita
 
-Algumas aplicações baseiam-se numa [Preocupação](https://docs.mongodb.com/manual/reference/write-concern/) de Escrita que especifica o número de respostas necessárias durante uma operação de escrita. Devido à forma como o Cosmos DB lida com a replicação em segundo plano, todas as escritas são automaticamente Quórum por predefinição. Qualquer preocupação de gravação especificada pelo código do cliente é ignorada. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
+Algumas aplicações baseiam-se numa [Preocupação](https://docs.mongodb.com/manual/reference/write-concern/) de Escrita que especifica o número de respostas necessárias durante uma operação de escrita. Devido à forma como o Cosmos DB lida com a replicação em segundo plano, todas as escritas são automaticamente Quórum por predefinição. Qualquer preocupação de escrita especificada pelo código do cliente é ignorada. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
 
 ## <a name="sharding"></a>Fragmentação
 
-O Azure Cosmos DB suporta a fragmentação automática do lado do servidor. Ele gerencia a criação, o posicionamento e o balanceamento de fragmentos automaticamente. Azure Cosmos DB não dá suporte a comandos de fragmentação manual, o que significa que você não precisa invocar comandos como addfragment, balancerStart, moveChunk, etc. Você só precisa especificar a chave de fragmentação ao criar os contêineres ou consultar os dados.
+O Azure Cosmos DB suporta a fragmentação automática do lado do servidor. Gere a criação, colocação e equilíbrio automático. O Azure Cosmos DB não suporta comandos manuais de sharding, o que significa que não é preciso invocar comandos como addShard, balancerStart, moveChunk etc. Basta especificar a chave do fragmento enquanto cria os recipientes ou consulta os dados.
 
 ## <a name="sessions"></a>Sessões
 
-O Azure Cosmos DB ainda não dá suporte a comandos de sessões do lado do servidor.
+O Azure Cosmos DB ainda não suporta comandos de sessões laterais do servidor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para mais informações consulte as [funcionalidades da versão Mongo 3.6](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
 - Aprenda a usar o [Studio 3T](mongodb-mongochef.md) com a API da Azure Cosmos DB para MongoDB.

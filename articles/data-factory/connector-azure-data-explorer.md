@@ -1,6 +1,6 @@
 ---
 title: Copiar dados de ou para o Azure Data Explorer
-description: Saiba como copiar dados de ou para o Azure Data Explorer usando uma atividade de cópia em um pipeline de Azure Data Factory.
+description: Saiba como copiar dados de ou para o Azure Data Explorer utilizando uma atividade de cópia num pipeline azure Data Factory.
 services: data-factory
 ms.author: orspodek
 author: linda33wj
@@ -11,78 +11,78 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/26/2019
-ms.openlocfilehash: 4cc315b91b5dbedcb22091149ca37061ff956efa
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 02/18/2020
+ms.openlocfilehash: 4c265cb0cdc665ef52f4dc6e69440e83c22db449
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913432"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460982"
 ---
-# <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Data Explorer usando Azure Data Factory
+# <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Data Explorer utilizando a Azure Data Factory
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de ou para o [Azure data Explorer](../data-explorer/data-explorer-overview.md). Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) , que oferece uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia na Azure Data Factory para copiar dados de ou para o [Azure Data Explorer](../data-explorer/data-explorer-overview.md). Baseia-se no artigo de visão geral da atividade de [cópia,](copy-activity-overview.md) que oferece uma visão geral da atividade de cópia.
 
 >[!TIP]
->Para Azure Data Factory e integração de Data Explorer do Azure em geral, saiba mais em [integrar o azure data Explorer com o Azure data Factory](../data-explorer/data-factory-integration.md).
+>Para a Azure Data Factory e para a integração do Azure Data Explorer em geral, saiba mais com [a Integração azure Data Explorer com a Azure Data Factory.](../data-explorer/data-factory-integration.md)
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector de Data Explorer do Azure tem suporte para as seguintes atividades:
+Este conector Azure Data Explorer é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o Azure Data Explorer. Você também pode copiar dados do Azure Data Explorer para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte da atividade de cópia como fontes ou coletores, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Pode copiar dados de qualquer loja de dados de origem suportada para o Azure Data Explorer. Também pode copiar dados do Azure Data Explorer para qualquer loja de dados de sink suportado. Para obter uma lista de lojas de dados que a atividade de cópia suporta como fontes ou pias, consulte a tabela de [lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
 >[!NOTE]
->A cópia de dados de ou para o Azure Data Explorer por meio de um armazenamento de dados local usando o tempo de execução de integração auto-hospedado tem suporte na versão 3,14 e posterior.
+>Copiar dados de ou para o Azure Data Explorer através de uma loja de dados no local, utilizando o tempo de execução de integração auto-hospedado é suportado na versão 3.14 e posteriormente.
 
-Com o conector de Data Explorer do Azure, você pode fazer o seguinte:
+Com o conector Azure Data Explorer, pode fazer o seguinte:
 
-* Copie dados usando a autenticação de token de aplicativo Azure Active Directory (Azure AD) com uma **entidade de serviço**.
-* Como origem, recupere dados usando uma consulta KQL (Kusto).
-* Como coletor, acrescente dados a uma tabela de destino.
+* Copiar dados utilizando a autenticação token da aplicação Azure Ative Directory (Azure AD) com um diretor de **serviço**.
+* Como fonte, recupere dados utilizando uma consulta KQL (Kusto).
+* Como pia, anexar dados a uma tabela de destino.
 
 ## <a name="getting-started"></a>Introdução
 
 >[!TIP]
->Para obter instruções sobre o conector de Data Explorer do Azure, consulte [copiar dados de/para o azure data Explorer usando Azure data Factory](../data-explorer/data-factory-load-data.md) e [cópia em massa de um banco de dados para o Azure data Explorer](../data-explorer/data-factory-template.md).
+>Para uma passagem pelo conector Azure Data Explorer, consulte [os dados de Cópia de/para o Azure Data Explorer utilizando](../data-explorer/data-factory-load-data.md) a Azure Data Factory e a cópia a granel de uma base de dados para o [Azure Data Explorer](../data-explorer/data-factory-template.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector de Data Explorer do Azure.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector Azure Data Explorer.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-O conector de Data Explorer do Azure usa a autenticação de entidade de serviço. Siga estas etapas para obter uma entidade de serviço e conceder permissões:
+O conector Azure Data Explorer utiliza a autenticação principal do serviço. Siga estes passos para obter um diretor de serviço e para conceder permissões:
 
-1. Registre uma entidade de aplicativo no Azure Active Directory seguindo as etapas em [registrar seu aplicativo com um locatário do Azure ad](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
+1. Registe uma entidade de aplicação no Diretório Ativo Azure seguindo as etapas em Registar a [sua candidatura com um inquilino da AD Azure.](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant) Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
 
     - ID da aplicação
     - Chave da aplicação
     - ID do inquilino
 
-2. Conceda à entidade de serviço as permissões corretas no Azure Data Explorer. Consulte [gerenciar permissões de banco de dados do Azure data Explorer](../data-explorer/manage-database-permissions.md) para obter informações detalhadas sobre funções e permissões e sobre como gerenciar permissões. Em geral, você deve:
+2. Conceda ao diretor de serviço as permissões corretas no Azure Data Explorer. Consulte [a Manage Azure Data Explorer permissões](../data-explorer/manage-database-permissions.md) para obter informações detalhadas sobre papéis e permissões e sobre gestão de permissões. Em geral, deve:
 
-    - **Como fonte**, conceda pelo menos a função de **Visualizador de banco de dados** ao seu banco de dados
-    - **Como coletor**, conceda pelo menos a função de **ingestão de banco de dados** ao seu banco de dados
+    - **Como fonte,** conceda pelo menos o papel de **visualizador** da Base de Dados à sua base de dados
+    - **Como pia,** conceda pelo menos o papel **ingestor** da Base de Dados na sua base de dados
 
 >[!NOTE]
->Quando você usa a interface do usuário do Data Factory para criar, sua conta de logon é usada para listar clusters, bancos de dados e tabelas do Azure Data Explorer. Insira o nome manualmente se você não tiver permissão para essas operações.
+>Quando utiliza a UI da Fábrica de Dados para autor, a sua conta de utilizador de login é utilizada para listar clusters, bases de dados e tabelas do Azure Data Explorer. Introduza manualmente o nome se não tiver permissão para estas operações.
 
-As propriedades a seguir têm suporte para o serviço vinculado do Azure Data Explorer:
+As seguintes propriedades são suportadas para o serviço ligado ao Explorador de Dados Azure:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **Type** deve ser definida como **AzureDataExplorer**. | Sim |
-| endpoint | URL do ponto de extremidade do cluster do Data Explorer do Azure, com o formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sim |
-| base de dados | Nome do banco de dados. | Sim |
-| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Isso é conhecido como "ID de autoridade" na [cadeia de conexão Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recupere-o passando o ponteiro do mouse no canto superior direito do portal do Azure. | Sim |
-| servicePrincipalId | Especifique o ID de cliente. da aplicação Isso é conhecido como "ID do cliente do aplicativo do AAD" na [cadeia de conexão Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sim |
-| servicePrincipalKey | Especifique a chave da aplicação. Isso é conhecido como "chave de aplicativo do AAD" na [cadeia de conexão Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como uma **SecureString** para armazená-lo com segurança no data Factory ou [faça referência a dados seguros armazenados no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| tipo | A propriedade **do tipo** deve ser definida para **AzureDataExplorer**. | Sim |
+| endpoint | URL endpoint do cluster Azure Data Explorer, com o formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sim |
+| database | Nome da base de dados. | Sim |
+| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Isto é conhecido como "Id da Autoridade" na cadeia de [ligação kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recupere-o pairando sobre o ponteiro do rato no canto superior direito do portal Azure. | Sim |
+| servicePrincipalId | Especifique o ID de cliente. da aplicação Isto é conhecido como "Id cliente de aplicação AAD" na cadeia de [ligação Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sim |
+| servicePrincipalKey | Especifique a chave da aplicação. Isto é conhecido como "chave de aplicação AAD" na cadeia de [ligação Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como um **SecureString** para o armazenar de forma segura na Data Factory ou dados [seguros de referência armazenados no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
 
-**Exemplo de propriedades do serviço vinculado:**
+**As propriedades de serviço ligadas exemplo:**
 
 ```json
 {
@@ -105,18 +105,18 @@ As propriedades a seguir têm suporte para o serviço vinculado do Azure Data Ex
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets in Azure data Factory](concepts-datasets-linked-services.md). Esta seção lista as propriedades às quais o conjunto de Data Explorer do Azure oferece suporte.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets na Azure Data Factory](concepts-datasets-linked-services.md). Esta secção lista propriedades que o conjunto de dados do Azure Data Explorer suporta.
 
-Para copiar dados para o Azure Data Explorer, defina a propriedade Type do conjunto como **AzureDataExplorerTable**.
+Para copiar dados para o Azure Data Explorer, detete a propriedade do tipo do conjunto de dados para **o AzureDataExplorerTable**.
 
 São suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **Type** deve ser definida como **AzureDataExplorerTable**. | Sim |
-| table | O nome da tabela à qual o serviço vinculado se refere. | Sim para coletor; Não para origem |
+| tipo | A propriedade **do tipo** deve ser definida para **AzureDataExplorerTable**. | Sim |
+| table | O nome da tabela a que o serviço ligado se refere. | Sim para afundar; Não para a fonte |
 
-**Exemplo de propriedades de DataSet:**
+**As propriedades do conjunto de dados exemplo:**
 
 ```json
 {
@@ -137,21 +137,21 @@ São suportadas as seguintes propriedades:
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte [pipelines e atividades no Azure data Factory](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades que o Azure Data Explorer fontes e coletores dão suporte.
+Para obter uma lista completa de secções e imóveis disponíveis para definir [atividades, consulte Pipelines e atividades na Azure Data Factory.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades que o Azure Data Explorer fornece e afunda suporte.
 
-### <a name="azure-data-explorer-as-source"></a>Data Explorer do Azure como fonte
+### <a name="azure-data-explorer-as-source"></a>Explorador de dados azure como fonte
 
-Para copiar dados do Azure Data Explorer, defina a propriedade **Type** na origem da atividade de cópia para **AzureDataExplorerSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do Azure Data Explorer, delineie a propriedade do **tipo** na fonte de atividade da Cópia para **o AzureDataExplorerSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **Type** da fonte da atividade de cópia deve ser definida como: **AzureDataExplorerSource** | Sim |
-| consulta | Uma solicitação somente leitura fornecida em um [formato KQL](/azure/kusto/query/). Use a consulta KQL personalizada como uma referência. | Sim |
-| queryTimeout | O tempo de espera antes que a solicitação de consulta expire. O valor padrão é 10 min (00:10:00); o valor máximo permitido é de 1 hora (01:00:00). | Não |
-| notruncamento | Indica se o conjunto de resultados retornado deve ser truncado. Por padrão, o resultado é truncado após 500.000 registros ou 64 megabytes (MB). O truncamento é altamente recomendável para garantir o comportamento correto da atividade. |Não |
+| tipo | A propriedade **do tipo** da fonte de atividade de cópia deve ser definida para: **AzureDataExplorerSource** | Sim |
+| consulta | Um pedido de leitura apenas dado em [formato KQL](/azure/kusto/query/). Utilize a consulta kQL personalizada como referência. | Sim |
+| queryTimeout | O tempo de espera antes da consulta pedir tempo saem. O valor predefinido é de 10 min (00:10:00); o valor máximo permitido é de 1 hora (01:00:00). | Não |
+| noTruncation | Indica se trunca o conjunto de resultados devolvidos. Por padrão, o resultado é truncado após 500.000 registos ou 64 megabytes (MB). A truncação é fortemente recomendada para garantir o comportamento correto da atividade. |Não |
 
 >[!NOTE]
->Por padrão, a fonte de Data Explorer do Azure tem um limite de tamanho de 500.000 registros ou 64 MB. Para recuperar todos os registros sem truncamento, você pode especificar `set notruncation;` no início da consulta. Para obter mais informações, consulte [limites de consulta](https://docs.microsoft.com/azure/kusto/concepts/querylimits).
+>Por padrão, a fonte do Azure Data Explorer tem um limite de tamanho de 500.000 registos ou 64 MB. Para recuperar todos os registos sem truncation, pode especificar `set notruncation;` no início da sua consulta. Para mais informações, consulte os [limites](https://docs.microsoft.com/azure/kusto/concepts/querylimits)de consulta .
 
 **Exemplo:**
 
@@ -186,14 +186,15 @@ Para copiar dados do Azure Data Explorer, defina a propriedade **Type** na orige
 ]
 ```
 
-### <a name="azure-data-explorer-as-sink"></a>Data Explorer do Azure como coletor
+### <a name="azure-data-explorer-as-sink"></a>Explorador de dados azure como pia
 
-Para copiar dados para o Azure Data Explorer, defina a propriedade Type no coletor de atividade de cópia como **AzureDataExplorerSink**. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
+Para copiar dados para o Azure Data Explorer, delineie a propriedade do tipo na atividade de cópia afunda-se no **AzureDataExplorerSink**. As seguintes propriedades são suportadas na secção de **sumidouro** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **Type** do coletor da atividade de cópia deve ser definida como: **AzureDataExplorerSink**. | Sim |
-| ingestionMappingName | Nome de um [mapeamento](/azure/kusto/management/mappings#csv-mapping) criado previamente em uma tabela Kusto. Para mapear as colunas da origem para o Azure Data Explorer (que se aplica a [todos os formatos e repositórios de origem com suporte](copy-activity-overview.md#supported-data-stores-and-formats), incluindo os formatos CSV/JSON/Avro), você pode usar o [mapeamento de coluna](copy-activity-schema-and-type-mapping.md) de atividade de cópia (implicitamente por nome ou explicitamente como configurado) e/ou mapeamentos de data Explorer do Azure. | Não |
+| tipo | A propriedade **tipo** do sumidouro da atividade de cópia deve ser definida para: **AzureDataExplorerSink**. | Sim |
+| ingestionMappingName | Nome de um [mapeamento](/azure/kusto/management/mappings#csv-mapping) pré-criado numa mesa de Kusto. Para mapear as colunas da fonte para o Azure Data Explorer (que se aplica a [todas as lojas e formatos de origem suportados,](copy-activity-overview.md#supported-data-stores-and-formats)incluindo os formatos CSV/JSON/Avro), pode utilizar o [mapeamento](copy-activity-schema-and-type-mapping.md) da coluna de atividade de cópia (implicitamente pelo nome ou explicitamente como configurado) e/ou mapeamento do Explorador de Dados Azure. | Não |
+| propriedades adicionais | Um saco de propriedade que pode ser usado para especificar qualquer uma das propriedades de ingestão que ainda não estão sendo definidas pelo Azure Data Explorer Sink. Especificamente, pode ser útil para especificar etiquetas de ingestão. Saiba mais com o Azure Data Explore a [ingestão de dados do c.](https://kusto.azurewebsites.net/docs/management/data-ingestion/index.html) | Não |
 
 **Exemplo:**
 
@@ -208,7 +209,8 @@ Para copiar dados para o Azure Data Explorer, defina a propriedade Type no colet
             },
             "sink": {
                 "type": "AzureDataExplorerSink",
-                "ingestionMappingName": "<optional Azure Data Explorer mapping name>"
+                "ingestionMappingName": "<optional Azure Data Explorer mapping name>",
+                "additionalProperties": {<additional settings for data ingestion>}
             }
         },
         "inputs": [
@@ -227,12 +229,12 @@ Para copiar dados para o Azure Data Explorer, defina a propriedade Type no colet
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter mais informações sobre as propriedades, consulte [atividade de pesquisa](control-flow-lookup-activity.md).
+Para mais informações sobre as propriedades, consulte a [atividade de lookup.](control-flow-lookup-activity.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma lista de armazenamentos de dados que a atividade de cópia no Azure Data Factory dá suporte como fontes e coletores, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+* Para obter uma lista de lojas de dados que a atividade de cópia na Azure Data Factory suporta como fontes e pias, consulte lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
 
-* Saiba mais sobre como [copiar dados de Azure data Factory para o data Explorer do Azure](/azure/data-explorer/data-factory-load-data).
+* Saiba mais sobre como [copiar dados da Azure Data Factory para o Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
