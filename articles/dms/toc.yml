@@ -26,15 +26,17 @@
       href: tutorial-mysql-azure-mysql-online.md
     - name: Migrar o RDS MySQL para a BD do Azure para MySQL online
       href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-    - name: Migrar o PostgreSQL para a BD do Azure para PostgreSQL - Servidor único online
+    - name: Migrar o PostgreSQL para a BD do Azure para PostgreSQL online através do portal
+      href: tutorial-postgresql-azure-postgresql-online-portal.md
+    - name: Migrar o PostgreSQL para a BD do Azure para PostgreSQL online através da CLI
       href: tutorial-postgresql-azure-postgresql-online.md
-    - name: Migrar o PostgreSQL de RDS para a BD do Azure para PostgreSQL - Servidor único online
+    - name: Migrar o RDS PostgreSQL para a BD do Azure para PostgreSQL online
       href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: Migrar a API Mongo do MongoDB para o Azure Cosmos DB offline
       href: tutorial-mongodb-cosmos-db.md
     - name: Migrar a API Mongo do MongoDB para o Azure Cosmos DB online
       href: tutorial-mongodb-cosmos-db-online.md
-    - name: Migrar o Oracle para a Base de Dados do Azure para PostgreSQL - Servidor único online
+    - name: Migrar o Oracle para a BD do Azure para PostgreSQL - Servidor único online
       href: tutorial-oracle-azure-postgresql-online.md
 - name: Guias de procedimentos
   items:
@@ -44,9 +46,9 @@
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: Monitorizar a atividade de migração
       href: how-to-monitor-migration-activity.md
-    - name: Reimplementar pacotes do SSIS para a base de dados individual da Base de Dados SQL do Azure
+    - name: Reimplementar pacotes do SSIS para a base de dados individual da BD SQL do Azure
       href: how-to-migrate-ssis-packages.md
-    - name: Reimplementar pacotes do SSIS para uma instância gerida da Base de Dados SQL do Azure
+    - name: Reimplementar pacotes do SSIS para uma instância gerida da BD SQL do Azure
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Recursos
   expanded: true
@@ -85,13 +87,13 @@
           href: 'https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/'
         - name: Abordar os pré-requisitos e criar uma instância do DMS
           href: 'https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/'
-        - name: Migrar o SQL Server 2008 para a Instância Gerida da Base de Dados SQL do Azure
+        - name: Migrar do SQL Server 2008 para a instância gerida da BD SQL do Azure
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/'
-        - name: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL
+        - name: Migrar o PostgreSQL para a BD do Azure para PostgreSQL
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/'
         - name: Monitorizar uma migração online e executar transferência
           href: 'https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/'
-        - name: Migrar o Oracle para a Base de Dados SQL do Azure
+        - name: Migrar o Oracle para a BD SQL do Azure
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/'
         - name: Migrar o MongoDB para o Azure Cosmos DB
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'

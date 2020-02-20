@@ -1,20 +1,20 @@
 ### YamlMime:Landing
-title: Documentação da pré-visualização do Azure App Configuration
+title: Documentação do Azure App Configuration
 summary: Saiba como utilizar o Azure App Configuration, um serviço gerido que ajuda os programadores a centralizar as respetivas definições de aplicações e de funcionalidades de forma simples e segura.
 metadata:
-  title: Documentação da pré-visualização do Azure App Configuration
+  title: Documentação do Azure App Configuration
   description: Saiba como utilizar o Azure App Configuration, um serviço gerido que ajuda os programadores a centralizar as respetivas definições de aplicações e de funcionalidades de forma simples e segura.
   author: lisaguthrie
   ms.author: lcozzens
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 37f3581866a687cce3f65d17175a334f5bba11d7
-  ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+  ms.openlocfilehash: 15a1d5ddd84a9683a2666ecbd58918b99186278e
+  ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/06/2020
-  ms.locfileid: "77047309"
+  ms.lasthandoff: 02/19/2020
+  ms.locfileid: "77468166"
 landingContent:
 - title: Sobre a Configuração da Aplicação Azure
   linkLists:
@@ -119,7 +119,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest
+      url: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
     - text: Fornecedor de .NET Core
       url: https://go.microsoft.com/fwlink/?linkid=2074664
     - text: Construtor de .NET Framework

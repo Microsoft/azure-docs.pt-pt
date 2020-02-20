@@ -6,7 +6,7 @@
       href: dns-overview.md
     - name: O que é o DNS Privado do Azure?
       href: private-dns-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: DNS público
@@ -113,6 +113,10 @@
           href: dns-sdk.md
         - name: Domínios personalizados para os recursos do Azure
           href: dns-custom-domain.md
+    - name: DNS Privado
+      items:
+        - name: Proteger os registos e as zonas DNS privadas
+          href: dns-protect-private-zones-recordsets.md
     - name: Resolução de problemas
       items:
         - name: Guia de resolução de problemas

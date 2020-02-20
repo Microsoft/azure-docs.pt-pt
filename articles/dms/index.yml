@@ -8,12 +8,12 @@ metadata:
   ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 8ca7f2618c6415dd3dbe22cada35bccb56be50ee
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: f72b43fe60676011819dc3aafe026017af6c62c0
+  ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75437888"
+  ms.lasthandoff: 02/19/2020
+  ms.locfileid: "77471385"
 landingContent:
 - title: Acerca do Azure Database Migration Service
   linkLists:
@@ -55,41 +55,43 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Migrar para a base de dados individual da Base de Dados SQL do Azure - online
+    - text: Migrar para a base de dados individual da BD SQL do Azure - online
       url: tutorial-sql-server-azure-sql-online.md
-    - text: Migrar para a base de dados individual da Base de Dados SQL do Azure - offline
+    - text: Migrar para a base de dados individual da BD SQL do Azure - offline
       url: tutorial-sql-server-to-azure-sql.md
-    - text: Migrar para a instância gerida da Base de Dados SQL do Azure - online
+    - text: Migrar para a instância gerida da BD SQL - online
       url: tutorial-sql-server-managed-instance-online.md
-    - text: Migrar para a instância gerida da Base de Dados SQL do Azure - offline
+    - text: Migrar para a instância gerida da BD SQL - offline
       url: tutorial-sql-server-to-managed-instance.md
-    - text: Migrar o SQL Server de RDS para a Base de Dados SQL individual/instância gerida - online
+    - text: Migrar o RDS SQL Server para a BD SQL individual/instância gerida - online
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
   - linkListType: reference
     links:
-    - text: Problemas conhecidos - Migração online para a base de dados individual da Base de Dados SQL
+    - text: Problemas conhecidos - Migração online para a base de dados individual da BD SQL
       url: known-issues-azure-sql-online.md
-    - text: Problemas conhecidos – Migração online para a instância gerida da Base de Dados SQL
+    - text: Problemas conhecidos - Migração online para a instância gerida da BD SQL
       url: known-issues-azure-sql-db-managed-instance-online.md
-    - text: Topologias de rede para migrações de instância gerida da Base de Dados SQL
+    - text: Topologias de rede para as migrações para a instância gerida da BD SQL
       url: resource-network-topologies.md
-    - text: Funções personalizadas das migrações online do SQL Server para a instância gerida da Base de Dados SQL
+    - text: Funções personalizadas das migrações online do SQL Server para a instância gerida da BD SQL
       url: resource-custom-roles-sql-db-managed-instance.md
   - linkListType: video
     links:
-    - text: Migrar o SQL Server 2008 para a instância gerida da Base de Dados SQL
+    - text: Migrar o SQL Server 2008 para a instância gerida da BD SQL
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
 - title: Migrar bases de dados open-source para o Azure
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Migrar para a Base de Dados do Azure para PostgreSQL - Servidor Único - online
+    - text: Migrar para a BD do Azure para PostgreSQL online através do portal
+      url: tutorial-postgresql-azure-postgresql-online-portal.md
+    - text: Migrar para a BD do Azure para PostgreSQL online através da CLI
       url: tutorial-postgresql-azure-postgresql-online.md
-    - text: Migrar o PostgreSQL de RDS para a Base de Dados do Azure para PostgreSQL - Servidor Único - online
+    - text: Migrar o RDS PostgreSQL para a BD do Azure para PostgreSQL
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-    - text: Migrar para a Base de Dados do Azure para MySQL - online
+    - text: Migrar para a BD do Azure para MySQL - online
       url: tutorial-mysql-azure-mysql-online.md
-    - text: Migrar o MySQL de RDS para a Base de Dados do Azure para MySQL - online
+    - text: Migrar o RDS MySQL para a BD do Azure para MySQL - online
       url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
     - text: Migrar para a API Mongo do Azure Cosmos DB - online
       url: tutorial-mongodb-cosmos-db-online.md
@@ -97,13 +99,13 @@ landingContent:
       url: tutorial-mongodb-cosmos-db.md
   - linkListType: reference
     links:
-    - text: Problemas Conhecidos - Migração online para a Base de Dados do Azure para PostgreSQL - Servidor único
+    - text: Problemas conhecidos - Migração online para a BD do Azure para PostgreSQL - Servidor único
       url: known-issues-azure-postgresql-online.md
-    - text: Problemas conhecidos - Migração online para a Base de Dados do Azure para MySQL
+    - text: Problemas conhecidos - Migração online para a BD do Azure para MySQL
       url: known-issues-azure-mysql-online.md
   - linkListType: video
     links:
-    - text: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL - Servidor único
+    - text: Migrar o PostgreSQL para a BD do Azure para PostgreSQL - Servidor único
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
     - text: Migrar para a API Mongo do Azure Cosmos DB
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
