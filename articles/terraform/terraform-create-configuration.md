@@ -1,39 +1,39 @@
 ---
-title: Início rápido-criar uma configuração do Terraform para o Azure
-description: Introdução ao Terraform no Azure implantando uma Azure Cosmos DB e instâncias de contêiner do Azure.
+title: Quickstart - Criar uma configuração Terraform para o Azure
+description: Inicie com terraforma em Azure implantando um Azure Cosmos DB e Azure Container Instances.
 ms.topic: quickstart
 ms.date: 10/26/2019
-ms.openlocfilehash: 47eec1f238d3fdff99b75953bc6d7e92137cca2d
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 92f66fcfeac69b66eb8cdb0dc58b7a3171d45e10
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159325"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470026"
 ---
-# <a name="quickstart-create-a-terraform-configuration-for-azure"></a>Início rápido: criar uma configuração do Terraform para o Azure
+# <a name="quickstart-create-a-terraform-configuration-for-azure"></a>Quickstart: Criar uma configuração terraforma para o Azure
 
-Neste guia de início rápido, você cria recursos do Azure usando o Terraform. As etapas neste artigo o orientarão na criação dos seguintes recursos:
+Neste arranque rápido, cria-se recursos Azure utilizando a Terraform. Os passos deste artigo passam por você através da criação dos seguintes recursos:
 
 > [!div class="checklist"]
-> * Instância de Azure Cosmos DB
+> * Instância DB Azure Cosmos
 > * Instância de Contentor do Azure
-> * Aplicativo que funciona entre esses dois recursos
+> * App que funciona através destes dois recursos
 
-## <a name="create-first-configuration"></a>Criar primeira configuração
+## <a name="create-first-configuration"></a>Criar a primeira configuração
 
-Nesta seção, você cria a configuração para uma instância de Azure Cosmos DB.
+Nesta secção, cria-se a configuração para uma instância De Db Do Cosmos Azure.
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Abra o Azure Cloud Shell.
+1. Abra a Concha da Nuvem Azure.
 
-1. Inicie o editor de Cloud Shell:
+1. Inicie o editor da Cloud Shell:
 
     ```bash
     code main.tf
     ```
 
-1. A configuração nesta etapa modela alguns recursos do Azure. Esses recursos incluem um grupo de recursos do Azure e uma instância de Azure Cosmos DB. Um inteiro aleatório é usado para criar um nome de instância de Cosmos DB exclusivo. Várias configurações de Cosmos DB também são configuradas. Para obter mais informações, consulte a [referência do cosmos DB Terraform](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html). Copie e cole a seguinte configuração de Terraform no editor:
+1. A configuração neste passo modela um par de recursos Azure. Estes recursos incluem um grupo de recursos Azure e uma instância Azure Cosmos DB. Um inteiro aleatório é usado para criar um nome único cosmos DB exemplo. Várias configurações de Cosmos DB também estão configuradas. Para mais informações, consulte a [referência Cosmos DB Terraform](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html). Copiar e colar a seguinte configuração Terraform no editor:
 
     ```hcl
     resource "azurerm_resource_group" "vote-resource-group" {
@@ -66,43 +66,43 @@ Nesta seção, você cria a configuração para uma instância de Azure Cosmos D
     }
     ```
 
-1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
+1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
 
 ## <a name="run-the-configuration"></a>Executar a configuração
 
-Nesta seção, você usa vários comandos Terraform para executar a configuração.
+Nesta secção, utiliza vários comandos Terraform para executar a configuração.
 
-1. O comando [Terraform init](https://www.terraform.io/docs/commands/init.html) Inicializa o diretório de trabalho. Execute o seguinte comando no Cloud Shell:
+1. O comando [terraforme init](https://www.terraform.io/docs/commands/init.html) inicializa o diretório de trabalho. Executar o seguinte comando em Cloud Shell:
 
     ```bash
     terraform init
     ```
 
-1. O comando de [plano Terraform](https://www.terraform.io/docs/commands/plan.html) pode ser usado para validar a sintaxe de configuração. O parâmetro `-out` direciona os resultados para um arquivo. O arquivo de saída pode ser usado posteriormente para aplicar a configuração. Execute o seguinte comando no Cloud Shell:
+1. O comando do [plano terraforme](https://www.terraform.io/docs/commands/plan.html) pode ser usado para validar a sintaxe de configuração. O parâmetro `-out` direciona os resultados para um ficheiro. O ficheiro de saída pode ser usado mais tarde para aplicar a configuração. Executar o seguinte comando em Cloud Shell:
 
     ```bash
     terraform plan --out plan.out
     ```
 
-1. O comando [Terraform Apply](https://www.terraform.io/docs/commands/apply.html) é usado para aplicar a configuração. O arquivo de saída da etapa anterior foi especificado. Esse comando faz com que os recursos do Azure sejam criados. Execute o seguinte comando no Cloud Shell:
+1. O comando [de aplicação de terraforma](https://www.terraform.io/docs/commands/apply.html) é utilizado para aplicar a configuração. O ficheiro de saída do passo anterior é especificado. Este comando faz com que os recursos do Azure sejam criados. Executar o seguinte comando em Cloud Shell:
 
     ```bash
     terraform apply plan.out
     ```
 
-1. Para verificar os resultados dentro do portal do Azure, navegue até o novo grupo de recursos. A nova instância de Azure Cosmos DB está no novo grupo de recursos.
+1. Para verificar os resultados dentro do portal Azure, navegue para o novo grupo de recursos. A nova instância do Azure Cosmos DB está no novo grupo de recursos.
 
-## <a name="update-configuration"></a>Atualizar configuração
+## <a name="update-configuration"></a>Configuração de atualização
 
-Esta seção mostra como atualizar a configuração para incluir uma instância de contêiner do Azure. O contêiner executa um aplicativo que lê e grava dados no Cosmos DB.
+Esta secção mostra como atualizar a configuração para incluir uma instância de contentores Azure. O contentor executa uma aplicação que lê e escreve dados para o Cosmos DB.
 
-1. Inicie o editor de Cloud Shell:
+1. Inicie o editor da Cloud Shell:
 
     ```bash
     code main.tf
     ```
 
-1. A configuração nesta etapa define duas variáveis de ambiente: `COSMOS_DB_ENDPOINT` e `COSMOS_DB_MASTERKEY`. Essas variáveis mantêm o local e a chave para acessar o banco de dados. Os valores dessas variáveis são obtidos da instância de banco de dados criada na etapa anterior. Esse processo é conhecido como interpolação. Para saber mais sobre a interpolação de Terraform, consulte [sintaxe de interpolação](https://www.terraform.io/docs/configuration/interpolation.html). A configuração também inclui um bloco de saída, que retorna o FQDN (nome de domínio totalmente qualificado) da instância de contêiner. Copie e cole o seguinte código no editor:
+1. A configuração neste passo define duas variáveis ambientais: `COSMOS_DB_ENDPOINT` e `COSMOS_DB_MASTERKEY`. Estas variáveis detêm a localização e a chave para aceder à base de dados. Os valores destas variáveis são obtidos a partir da instância de base de dados criada na etapa anterior. Este processo é conhecido como interpolação. Para saber mais sobre a interpolação da Terraforme, consulte [interpolação Syntax](https://www.terraform.io/docs/configuration/interpolation.html). A configuração também inclui um bloco de saída, que devolve o nome de domínio totalmente qualificado (FQDN) da instância do recipiente. Copiar e colar o seguinte código no editor:
 
     ```hcl
     resource "azurerm_container_group" "vote-aci" {
@@ -138,33 +138,33 @@ Esta seção mostra como atualizar a configuração para incluir uma instância 
     }
     ```
 
-1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
+1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
 
-1. Como você fez na seção anterior, execute o seguinte comando para Visual as alterações a serem feitas:
+1. Tal como fez na secção anterior, execute o seguinte comando para visualizar as alterações a elegiras:
 
     ```bash
     terraform plan --out plan.out
     ```
 
-1. Execute o comando `terraform apply` para aplicar a configuração.
+1. Executar o comando `terraform apply` para aplicar a configuração.
 
     ```bash
     terraform apply plan.out
     ```
 
-1. Anote a instância do contêiner FQDN.
+1. Tome nota da instância do recipiente FQDN.
 
 ## <a name="test-application"></a>Testar aplicação
 
-Para testar o aplicativo, navegue até o FQDN da instância de contêiner. Você deverá ver resultados semelhantes à seguinte saída:
+Para testar a aplicação, navegue para o FQDN da instância do contentor. Deve ver resultados semelhantes aos seguintes resultados:
 
-![Aplicativo de voto do Azure](media/terraform-quickstart/azure-vote.jpg)
+![Pedido de voto do Azure](media/terraform-quickstart/azure-vote.jpg)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo.
+Quando já não for necessário, apague os recursos criados neste artigo.
 
-Execute o comando [Terraform Destroy](https://www.terraform.io/docs/commands/destroy.html) para remover os recursos do Azure criados neste tutorial:
+Executar o [comando de destruição terraforme](https://www.terraform.io/docs/commands/destroy.html) para remover os recursos Azure criados neste tutorial:
 
 ```bash
 terraform destroy -auto-approve
@@ -173,4 +173,4 @@ terraform destroy -auto-approve
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Instale e configure o Terraform para provisionar recursos do Azure](../virtual-machines/linux/terraform-install-configure.md).
+> [Instale e configure a Terraform para fornecer recursos Azure.](terraform-install-configure.md)

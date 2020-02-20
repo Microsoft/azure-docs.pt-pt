@@ -10,44 +10,42 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 4b31b1ee77e6bcafc4981c85f0118d02de00a964
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 765379068b7a02a8d3cca17a34699a1883881793
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108935"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471249"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Quickstart: Controle um dispositivo ligado a um hub IoT (Android)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-O IoT Hub é um serviço Azure que lhe permite gerir os seus dispositivos IoT a partir da nuvem, e ingerir grandes volumes de telemetria do dispositivo para a nuvem para armazenamento ou processamento. Neste guia de início rápido, irá utilizar um *método direto* para controlar um dispositivo simulado ligado ao seu hub IoT. Pode utilizar métodos diretos para alterar remotamente o comportamento de um dispositivo ligado ao seu hub IoT.
-
-O guia de início rápido utiliza duas aplicações Java pré-escritas:
-
-* Uma aplicação simulada do dispositivo que responde a métodos diretos chamados a partir de uma aplicação de serviço back-end. Para receber as chamadas de método direto, esta aplicação liga-se a um ponto final específico do dispositivo no seu hub IoT.
-
-* Uma aplicação de serviço que chama o método direto no dispositivo Android. Para chamar um método direto num dispositivo, esta aplicação liga-se a um ponto final do lado do serviço no seu hub IoT.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Neste arranque rápido, utiliza-se um método direto para controlar um dispositivo simulado ligado ao Hub Azure IoT. O IoT Hub é um serviço Azure que lhe permite gerir os seus dispositivos IoT a partir da nuvem e ingerir grandes volumes de telemetria do dispositivo para a nuvem para armazenamento ou processamento. Pode utilizar métodos diretos para alterar remotamente o comportamento de um dispositivo ligado ao seu hub IoT. Este quickstart utiliza duas aplicações: uma aplicação simulada de dispositivo que responde a métodos diretos chamados a partir de uma aplicação de serviço back-end e uma aplicação de serviço que chama o método direto no dispositivo Android.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Estúdio Android de https://developer.android.com/studio/. Para obter mais informações sobre a instalação do Android Studio, consulte a [instalação do Android.](https://developer.android.com/studio/install)
+* Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* O Android SDK 27 é utilizado pela amostra neste artigo.
+* [Android Studio com Android SDK 27](https://developer.android.com/studio/). Para mais informações, consulte [Instalar o Android Studio.](https://developer.android.com/studio/install)
 
-* Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+* [Git](https://git-scm.com/download/).
 
-   ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
-   ```
+* [Aplicação Android amostra de dispositivo SDK](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample), incluída em [Amostras Azure IoT (Java)](https://github.com/Azure-Samples/azure-iot-samples-java).
 
-* Duas aplicações de amostra são necessárias por este quickstart: a [aplicação Android da amostra SDK dispositivo](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) e a [aplicação Android da amostra SDK](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample)de serviço. Ambas as amostras fazem parte do repositório azure-iot-amostras-java no GitHub. Descarregue ou clone o repositório [azure-iot-amostras-java.](https://github.com/Azure-Samples/azure-iot-samples-java)
+* [Aplicação Android de amostra de serviço SDK,](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample)incluída em Amostras Azure IoT (Java).
 
-* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Porta 8883 aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
+
+Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IoT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -106,6 +104,8 @@ Anote a cadeia de ligação do serviço, que se parece com:
 Irá utilizar este valor mais adiante no guia de início rápido. Esta cadeia de ligação de serviço é diferente da cadeia de ligação do dispositivo que observou no passo anterior.
 
 ## <a name="listen-for-direct-method-calls"></a>Aguardar chamadas de método direto
+
+Ambas as amostras para este arranque rápido fazem parte do repositório azure-iot-amostras-java no GitHub. Descarregue ou clone o repositório [azure-iot-amostras-java.](https://github.com/Azure-Samples/azure-iot-samples-java)
 
 A aplicação de amostras SDK do dispositivo pode ser executada num dispositivo Android físico ou num emulador Android. A amostra liga-se a um ponto final específico do dispositivo no seu hub IoT, envia telemetria simulada e ouve chamadas de métodos diretos do seu hub. Neste guia de início rápido, a chamada de método direto do hub indica ao dispositivo para alterar o intervalo em que envia telemetria. O dispositivo simulado envia um reconhecimento de volta para o seu hub depois de executar o método direto.
 

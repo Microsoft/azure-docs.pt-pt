@@ -10,34 +10,30 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 2c07bbb868f1b1afc19be8d1ce68ca28292affb9
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: e693257efb19f1220e346ebfeff1cb875db82b78
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109020"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471198"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Quickstart: Controle um dispositivo ligado a um hub Azure IoT com Java
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-O IoT Hub é um serviço Azure que lhe permite gerir os seus dispositivos IoT a partir da nuvem, e ingerir grandes volumes de telemetria do dispositivo para a nuvem para armazenamento ou processamento. Neste arranque rápido, utiliza-se um *método direto* para controlar um dispositivo simulado ligado ao seu hub Azure IoT com uma aplicação Java. Pode utilizar métodos diretos para alterar remotamente o comportamento de um dispositivo ligado ao seu hub IoT. 
-
-O guia de início rápido utiliza duas aplicações Java pré-escritas:
-
-* Uma aplicação de dispositivo simulado que responde aos métodos diretos chamados a partir de uma aplicação back-end. Para receber as chamadas de método direto, esta aplicação liga-se a um ponto final específico do dispositivo no seu hub IoT.
-
-* Uma aplicação back-end que chama os métodos diretos no dispositivo simulado. Para chamar um método direto num dispositivo, esta aplicação liga-se a um ponto final do lado do serviço no seu hub IoT.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Neste arranque rápido, utiliza-se um método direto para controlar um dispositivo simulado ligado ao Hub Azure IoT com uma aplicação Java. O IoT Hub é um serviço Azure que lhe permite gerir os seus dispositivos IoT a partir da nuvem e ingerir grandes volumes de telemetria do dispositivo para a nuvem para armazenamento ou processamento. Pode utilizar métodos diretos para alterar remotamente o comportamento de um dispositivo ligado ao seu hub IoT. Este quickstart utiliza duas aplicações Java: uma aplicação simulada do dispositivo que responde a métodos diretos chamados a partir de uma aplicação back-end e uma aplicação de serviço que chama o método direto no dispositivo simulado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Java. Precisa de Java SE 8 na sua máquina de desenvolvimento.
+* Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-Você pode baixar Java SE Development Kit 8 para várias plataformas de suporte de longo prazo java [para Azure e Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob suporte a **longo prazo** para obter downloads para JDK 8.
+* Kit de Desenvolvimento Java SE 8. Em [Java suporte a longo prazo para Azure e Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), sob suporte a longo **prazo**, selecione **Java 8**.
+
+* [Apache Maven 3.](https://maven.apache.org/download.cgi)
+
+* [Um projeto de Java de amostra.](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip)
+
+* Porta 8883 aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 Pode verificar qual a versão atual do Java no seu computador de desenvolvimento através do seguinte comando:
 
@@ -45,23 +41,21 @@ Pode verificar qual a versão atual do Java no seu computador de desenvolvimento
 java -version
 ```
 
-Para criar os exemplos, tem de instalar o Maven 3. Pode transferir o Maven para múltiplas plataformas a partir do [Apache Maven](https://maven.apache.org/download.cgi).
-
 Pode verificar qual a versão atual do Maven no seu computador de desenvolvimento através do seguinte comando:
 
 ```cmd/sh
 mvn --version
 ```
 
-Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
+
+Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IoT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
-
-Se ainda não o fez, transfira o projeto Java de exemplo do https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip e extraia o arquivo ZIP.
-
-Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 

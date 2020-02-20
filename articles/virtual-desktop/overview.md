@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 7b8eed501571bdd3e7372a348ba34d0632ca2cd8
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367279"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471776"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -72,7 +72,7 @@ Planeamos adicionar suporte para os seguintes OSes, por isso certifique-se de qu
 
 A sua infraestrutura necessita das seguintes coisas para suportar o Windows Virtual Desktop:
 
-* Um [Diretório Ativo Azure](/active-directory/)
+* Um [Diretório Ativo Azure](/azure/active-directory/)
 * Um Diretório Ativo do Windows Server em sincronização com o Diretório Ativo do Azure. Pode configurá-lo com um dos seguintes:
   * Azure AD Connect (para organizações híbridas)
   * Serviços de Domínio Azure AD (para organizações híbridas ou na nuvem)

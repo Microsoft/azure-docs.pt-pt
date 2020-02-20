@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8ef24630d255876c45d9cbc072fc989288f2ac5f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837265"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470348"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Criar um Balancer de Carga Padrão para carregar VMs de equilíbrio utilizando o Azure CLI
 
@@ -32,7 +32,7 @@ Este arranque rápido mostra-lhe como criar um Equilibrador de Carga público. P
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -58,7 +58,10 @@ Para criar um endereço IP público zonal na utilização da zona 1:
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
- Use ```--sku basic``` para criar um IP Público Básico. O básico não suporta zonas de disponibilidade. A Microsoft recomenda o Standard SKU para cargas de trabalho de produção.
+Use ```-SKU Basic``` para criar um IP Público Básico. Os IPs públicos básicos não são compatíveis com o equilíbrio de carga **Standard.** A Microsoft recomenda a utilização **do Standard** para cargas de trabalho de produção.
+
+> [!IMPORTANT]
+> O resto deste quickstart assume que o **Standard** SKU é escolhido durante o processo de seleção SKU acima.
 
 ## <a name="create-azure-load-balancer"></a>Criar um equilibrador de carga Azure
 
@@ -81,6 +84,9 @@ Crie um Balanceador de Carga do Azure público com [az network lb create](https:
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
   ```
+
+> [!IMPORTANT]
+> O resto deste quickstart assume que o **Standard** SKU é escolhido durante o processo de seleção SKU acima.
 
 ### <a name="create-the-health-probe"></a>Criar a sonda de estado de funcionamento
 
@@ -116,7 +122,7 @@ Uma regra de balanceador de carga define a configuração de IP de front-end do 
 
 Antes de implementar algumas VMs e testar o balanceador de carga, crie os recursos de rede virtual de apoio.
 
-### <a name="create-a-virtual-network"></a>Criar rede virtual
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Crie uma rede virtual com o nome *myVnet*, com uma sub-rede de nome *mySubnet* em *myResourceGroup*, através de [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
@@ -300,6 +306,6 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
   az group delete --name myResourceGroupSLB
 ```
 ## <a name="next-steps"></a>Passos seguintes
-Neste guia de início rápido, você criou um Standard Load Balancer, as VMs anexadas a ele, configurou a regra de tráfego Load Balancer, a investigação de integridade e testou a Load Balancer. Para saber mais sobre o Azure Load Balancer, continue a colocar [os tutoriais do Azure Load Balancer.](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+Neste arranque rápido, criou um Balancer de Carga Padrão, anexou-lhe VMs, configurou a regra de tráfego do Balancer de Carga, a sonda de saúde e, em seguida, testou o Balancer de Carga. Para saber mais sobre o Azure Load Balancer, continue a colocar [os tutoriais do Azure Load Balancer.](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 
 Saiba mais sobre as zonas de [Balancer de Carga e Disponibilidade.](load-balancer-standard-availability-zones.md)

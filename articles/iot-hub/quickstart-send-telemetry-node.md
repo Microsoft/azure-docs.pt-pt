@@ -10,30 +10,28 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: fb1310a698bd6420b9f9a2406f1e13128725f9eb
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: a1d7585a30a67ebaf743c3f1987040a8413578b4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110171"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470535"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Quickstart: Envie a telemetria de um dispositivo para um hub IoT e leia-a com uma aplicação de back-end (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Neste guia de início rápido, irá enviar telemetria a partir de uma aplicação de dispositivo simulado, através do Hub IoT, para uma aplicação back-end para processamento.
-
-Este guia de início rápido utiliza duas aplicações Node.js pré-escritas: uma para enviar a telemetria e outra para ler a telemetria a partir do hub. Antes de executar estas duas aplicações, tem de criar um hub IoT e registar um dispositivo no hub.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+ Neste arranque rápido, envia-se telemetria de uma aplicação simulada de dispositivo através do Azure IoT Hub para uma aplicação de back-end para processamento. O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Este quickstart usa duas aplicações node.js pré-escritas: uma para enviar a telemetria e outra para ler a telemetria do centro. Antes de executar estas duas aplicações, tem de criar um hub IoT e registar um dispositivo no hub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de amostra que executa neste arranque rápido estão escritas no Node.js. Você precisa do Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento. Se estiver a utilizar o Azure Cloud Shell, não atualize a versão instalada do Node.js. O Azure Cloud Shell já tem a versão mais recente do Node.js.
+* Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
+* [Node.js 10+](https://nodejs.org). Se estiver a utilizar o Azure Cloud Shell, não atualize a versão instalada do Node.js. O Azure Cloud Shell já tem a versão mais recente do Node.js.
+
+* [Um projeto de node.js de amostra.](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip)
+
+* Porta 8883 aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 Pode verificar qual a versão atual do Node.js no seu computador de desenvolvimento através do seguinte comando:
 
@@ -41,15 +39,15 @@ Pode verificar qual a versão atual do Node.js no seu computador de desenvolvime
 node --version
 ```
 
-Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
+
+Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IoT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
-
-Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
-
-Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 

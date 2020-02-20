@@ -10,40 +10,38 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: 6d1a011f2aa446d8d6f9a7a474b174e3005aa1d9
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 6c7428a4f34f0be64423c42efc06667cb18aa025
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110335"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471283"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Quickstart: Envie telemetria IoT a partir de um dispositivo Android
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Neste arranque rápido, envia-se telemetria para um IoT Hub a partir de uma aplicação Android que funciona num dispositivo físico ou simulado.
-
-O quickstart usa uma aplicação Android pré-escrita para enviar a telemetria. A telemetria será lida a partir do Hub IoT usando a Casca de Nuvem Azure. Antes de executar a aplicação, cria um hub IoT e regista um dispositivo com o hub.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Neste arranque rápido, envia-se telemetria para um Hub Azure IoT a partir de uma aplicação Android que funciona num dispositivo físico ou simulado. O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Este quickstart usa uma aplicação Android pré-escrita para enviar a telemetria. A telemetria será lida a partir do Hub IoT usando a Casca de Nuvem Azure. Antes de executar a aplicação, cria um hub IoT e regista um dispositivo com o hub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Estúdio Android de https://developer.android.com/studio/. Para obter mais informações sobre a instalação do Android Studio, consulte a [instalação do Android.](https://developer.android.com/studio/install)
+* Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* O Android SDK 27 é utilizado pela amostra neste artigo.
+* [Android Studio com Android SDK 27](https://developer.android.com/studio/). Para mais informações, consulte a [instalação do Android.](https://developer.android.com/studio/install) O Android SDK 27 é utilizado pela amostra neste artigo.
 
-* Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+* [Uma aplicação Android de amostra.](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) Esta amostra faz parte do repositório [azure-iot-amostras-java.](https://github.com/Azure-Samples/azure-iot-samples-java)
 
-   ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
-   ```
+* Porta 8883 aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-* A [aplicação android](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) de amostra que executa neste quickstart faz parte do repositório azure-iot-amostras-java no GitHub. Descarregue ou clone o repositório [azure-iot-amostras-java.](https://github.com/Azure-Samples/azure-iot-samples-java)
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
+
+Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 

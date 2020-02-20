@@ -10,34 +10,28 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
-ms.openlocfilehash: cc0ff372b4680f02410f1f58304d0be95228c965
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 3a1a37a1517000734a06caa191c353ade5f72def
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108908"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470858"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Quickstart: Use Node.js para controlar um dispositivo ligado a um hub Azure IoT
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-O IoT Hub é um serviço Azure que lhe permite gerir os seus dispositivos IoT a partir da nuvem, e ingerir grandes volumes de telemetria do dispositivo para a nuvem para armazenamento ou processamento. Neste guia de início rápido, irá utilizar um *método direto* para controlar um dispositivo simulado ligado ao seu hub IoT. Pode utilizar métodos diretos para alterar remotamente o comportamento de um dispositivo ligado ao seu hub IoT.
-
-O guia de início rápido utiliza duas aplicações Node.js pré-escritas:
-
-* Uma aplicação de dispositivo simulado que responde aos métodos diretos chamados a partir de uma aplicação back-end. Para receber as chamadas de método direto, esta aplicação liga-se a um ponto final específico do dispositivo no seu hub IoT.
-
-* Uma aplicação back-end que chama os métodos diretos no dispositivo simulado. Para chamar um método direto num dispositivo, esta aplicação liga-se a um ponto final do lado do serviço no seu hub IoT.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Neste arranque rápido, utiliza-se um método direto para controlar um dispositivo simulado ligado ao Hub Azure IoT. O IoT Hub é um serviço Azure que lhe permite gerir os seus dispositivos IoT a partir da nuvem, e ingerir grandes volumes de telemetria do dispositivo para a nuvem para armazenamento ou processamento. Pode utilizar métodos diretos para alterar remotamente o comportamento de um dispositivo ligado ao seu hub IoT. Este quickstart utiliza duas aplicações Node.js: uma aplicação simulada do dispositivo que responde a métodos diretos chamados a partir de uma aplicação back-end e uma aplicação back-end que chama os métodos diretos no dispositivo simulado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
+* Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
+* [Node.js 10+](https://nodejs.org).
+
+* [Um projeto de node.js de amostra.](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip)
+
+* Porta 8883 aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 Pode verificar qual a versão atual do Node.js no seu computador de desenvolvimento através do seguinte comando:
 
@@ -45,15 +39,15 @@ Pode verificar qual a versão atual do Node.js no seu computador de desenvolvime
 node --version
 ```
 
-Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
+
+Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IoT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
-
-Se ainda não o fez, transfira o projeto Node.js de exemplo do https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
-
-Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 

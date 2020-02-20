@@ -10,30 +10,30 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 8be337bf2e244971b6b49c5e86f3635daa30bb71
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 1059e5a1ac215fecf02deec123fdd2973d321b39
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110221"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470586"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Quickstart: Envie telemetria para um hub Azure IoT e leia-o com uma aplicação Java
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-O quickstart mostra como enviar telemetria para um hub Azure IoT e lê-lo com uma aplicação Java. O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Neste guia de início rápido, irá enviar telemetria a partir de uma aplicação de dispositivo simulado, através do Hub IoT, para uma aplicação back-end para processamento.
-
-Este guia de início rápido utiliza duas aplicações Java pré-escritas, uma para enviar a telemetria e outra para ler a telemetria a partir do hub. Antes de executar estas duas aplicações, tem de criar um hub IoT e registar um dispositivo no hub.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Neste arranque rápido, envia-se telemetria para o Azure IoT Hub e lê-se com uma aplicação Java. O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Este quickstart usa duas aplicações java pré-escritas: uma para enviar a telemetria e outra para ler a telemetria do centro. Antes de executar estas duas aplicações, tem de criar um hub IoT e registar um dispositivo no hub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Java. Precisa de Java SE 8 na sua máquina de desenvolvimento.
+* Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-Você pode baixar Java SE Development Kit 8 para várias plataformas de suporte de longo prazo java [para Azure e Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob suporte a **longo prazo** para obter downloads para JDK 8.
+* Kit de Desenvolvimento Java SE 8. Em [Java suporte a longo prazo para Azure e Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), sob suporte a longo **prazo**, selecione **Java 8**.
+
+* [Apache Maven 3.](https://maven.apache.org/download.cgi)
+
+* [Um projeto de Java de amostra.](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip)
+
+* Porta 8883 aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 Pode verificar qual a versão atual do Java no seu computador de desenvolvimento através do seguinte comando:
 
@@ -41,23 +41,21 @@ Pode verificar qual a versão atual do Java no seu computador de desenvolvimento
 java -version
 ```
 
-Para criar os exemplos, tem de instalar o Maven 3. Pode transferir o Maven para múltiplas plataformas a partir do [Apache Maven](https://maven.apache.org/download.cgi).
-
 Pode verificar qual a versão atual do Maven no seu computador de desenvolvimento através do seguinte comando:
 
 ```cmd/sh
 mvn --version
 ```
 
-Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
+
+Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IoT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
-
-Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip e extraia o arquivo ZIP.
-
-Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
