@@ -1,11 +1,14 @@
 - name: Azure
-  tocHref: /
-  topicHref: /index
+  tocHref: /azure/
+  topicHref: /azure/index
   items:
     - name: Virtual Machines
-      tocHref: /active-directory/managed-identities-azure-resources/
-      topicHref: /virtual-machines/index
+      tocHref: /azure/active-directory/managed-identities-azure-resources/
+      topicHref: /azure/virtual-machines/index
       items:
         - name: Linux
-          tocHref: /active-directory/managed-identities-azure-resources/
-          topicHref: /virtual-machines/linux/index
+          tocHref: /azure/active-directory/managed-identities-azure-resources/
+          topicHref: /azure/virtual-machines/linux/index
+    - name: Virtual Machines
+      tocHref: /azure/virtual-machines/
+      topicHref: /azure/virtual-machines/index

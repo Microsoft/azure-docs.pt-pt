@@ -371,11 +371,23 @@
         - name: Hubs de Notificação
           href: functions-bindings-notification-hubs.md
         - name: Armazenamento de filas
-          href: functions-bindings-storage-queue.md
+          items:
+            - name: Descrição geral
+              href: functions-bindings-storage-queue.md
+            - name: Acionador
+              href: functions-bindings-storage-queue-trigger.md
+            - name: Saída
+              href: functions-bindings-storage-queue-output.md
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus
-          href: functions-bindings-service-bus.md
+          items:
+            - name: Descrição geral
+              href: functions-bindings-service-bus.md
+            - name: Acionador
+              href: functions-bindings-service-bus-trigger.md
+            - name: Saída
+              href: functions-bindings-service-bus-output.md
         - name: Serviço SignalR
           href: functions-bindings-signalr-service.md
         - name: Table Storage
