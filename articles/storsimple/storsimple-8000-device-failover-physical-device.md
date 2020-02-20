@@ -1,6 +1,6 @@
 ---
-title: StorSimple a ativação pós-falha, recuperação após desastre para um dispositivo físico da série StorSimple 8000 | Documentos da Microsoft
-description: Saiba como fazer a ativação pós-falha do dispositivo físico da série 8000 do StorSimple para outro dispositivo físico.
+title: Failover, recuperação de desastres para outro dispositivo StorSimple 8000
+description: Aprenda a falhar sobre o seu dispositivo físico da série StorSimple 8000 para outro dispositivo físico.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,76 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e4e890ab5491e46ffe5ea0e1c168d168f9cc729
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60577244"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468614"
 ---
-# <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Ativação pós-falha para um dispositivo físico da série StorSimple 8000
+# <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Falhar num dispositivo físico da série StorSimple 8000
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial descreve os passos necessários para efetuar a ativação pós-falha de um dispositivo físico da série 8000 do StorSimple para outro dispositivo físico do StorSimple se ocorrer um desastre. O StorSimple utiliza a funcionalidade de ativação pós-falha do dispositivo para migrar dados a partir de um dispositivo físico de origem no Centro de dados para outro dispositivo físico. As orientações neste tutorial aplica-se a série StorSimple 8000 dispositivos físicos com versões de software Update 3 e posterior.
+Este tutorial descreve os passos necessários para falhar sobre um dispositivo físico da série StorSimple 8000 para outro dispositivo físico StorSimple se houver um desastre. O StorSimple utiliza a funcionalidade failover do dispositivo para migrar dados de um dispositivo físico de origem no datacenter para outro dispositivo físico. A orientação neste tutorial aplica-se aos dispositivos físicos da série StorSimple 8000 que executam as versões de software Update 3 e posteriormente.
 
-Para saber mais sobre a ativação pós-falha do dispositivo e como ela é usada para recuperar a partir de um desastre, aceda a [ativação pós-falha e recuperação após desastre para dispositivos da série StorSimple 8000](storsimple-8000-device-failover-disaster-recovery.md).
+Para saber mais sobre a falha do dispositivo e como é usado para recuperar de um desastre, vá ao Failover e à recuperação de [desastres para dispositivos da série StorSimple 8000](storsimple-8000-device-failover-disaster-recovery.md).
 
-Para efetuar a ativação pós-falha de um dispositivo físico do StorSimple para uma StorSimple Cloud Appliance, aceda a [a ativação pós-falha para uma StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md). Para efetuar a ativação pós-falha de um dispositivo físico a próprio, aceda a [a ativação pós-falha para o mesmo dispositivo físico StorSimple](storsimple-8000-device-failover-same-device.md).
+Para falhar sobre um dispositivo físico StorSimple para um storSimple Cloud Appliance, vá para [fail over to a StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md). Para falhar sobre um dispositivo físico para si mesmo, vá para [Fail over to the same StorSimple physical device](storsimple-8000-device-failover-same-device.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Certifique-se de que reviu as considerações para a ativação pós-falha do dispositivo. Para obter mais informações, aceda a [considerações comuns para a ativação pós-falha do dispositivo](storsimple-8000-device-failover-disaster-recovery.md).
+- Certifique-se de que reviu as considerações para a falha do dispositivo. Para mais informações, vá a [considerações comuns para a falha](storsimple-8000-device-failover-disaster-recovery.md)do dispositivo .
 
-- Tem de ter um dispositivo físico de StorSimple 8000 series implementado no Centro de dados. O dispositivo tem de executar a atualização 3 ou versão posterior do software. Para obter mais informações, aceda a [implementar no seu dispositivo StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md).
+- Deve ter um dispositivo físico da série StorSimple 8000 implantado no datacenter. O dispositivo deve executar a versão de software Update 3 ou posterior. Para mais informações, vá implementar [o seu dispositivo StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md).
 
 
-## <a name="steps-to-fail-over-to-a-physical-device"></a>Passos para efetuar a ativação pós-falha para um dispositivo físico
+## <a name="steps-to-fail-over-to-a-physical-device"></a>Passos para falhar num dispositivo físico
 
-Execute os seguintes passos para restaurar o seu dispositivo para um dispositivo físico de destino.
+Execute os seguintes passos para restaurar o seu dispositivo num dispositivo físico alvo.
 
-1. Certifique-se de que o contentor de volumes que pretende efetuar a ativação pós-falha tem associados instantâneos de cloud. Para obter mais informações, aceda a [serviço de utilização StorSimple Device Manager para criar cópias de segurança](storsimple-8000-manage-backup-policies-u2.md).
-2. Vá para o StorSimple Device Manager e, em seguida, clique em **dispositivos**. Na **dispositivos** painel, vá para a lista de dispositivos ligados com o seu serviço.
-    ![Selecione o dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png)
-3. Selecione e clique no seu dispositivo de origem. O dispositivo de origem tem os contentores de volumes que pretende efetuar a ativação pós-falha. Aceda a **definições > contentores de volumes**.
-4. Selecione um contentor de volumes que pretende efetuar a ativação pós-falha para outro dispositivo. Clique no contentor de volumes para apresentar a lista de volumes dentro deste contentor. Selecione um volume, o botão direito do mouse e clique em **tirar Offline** para colocar o volume offline. Repita este processo para todos os volumes no contentor de volume.
-5. Repita o passo anterior para todos os contentores de volume para efetuar a ativação pós-falha para outro dispositivo.
-6. Volte para o **dispositivos** painel. Na barra de comandos, clique em **efetuar a ativação pós-falha**.
-    ![Clique em ativação pós-falha](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev2.png)
+1. Verifique se o recipiente de volume que pretende falhar tem imagens de nuvem associadas. Para mais informações, vá ao [serviço StorSimple Device Manager para criar backups](storsimple-8000-manage-backup-policies-u2.md).
+2. Vá ao seu Gestor de Dispositivos StorSimple e, em seguida, clique em **Dispositivos**. Na lâmina **dispositivos,** vá à lista de dispositivos ligados ao seu serviço.
+    ![Selecione](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png) do dispositivo
+3. Selecione e clique no seu dispositivo de origem. O dispositivo de origem tem os recipientes de volume que pretende falhar. Ir a **Definições > Contentores de Volume**.
+4. Selecione um recipiente de volume que gostaria de falhar noutro dispositivo. Clique no recipiente de volume para mostrar a lista de volumes dentro deste recipiente. Selecione um volume, clique à direita e clique em **Take Offline** para desligar o volume. Repita este processo para todos os volumes do recipiente de volume.
+5. Repita o passo anterior para todos os recipientes de volume que gostaria de falhar noutro dispositivo.
+6. Volta para a lâmina dos **Dispositivos.** A partir da barra de comando, clique **em Fail over**.
+    ![Click falha sobre](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev2.png)
     
-7. Na **efetuar a ativação pós-falha** painel, execute os seguintes passos:
+7. Na **lâmina Fail,** execute os seguintes passos:
    
-   1. Clique em **origem**. Os contentores de volumes com volumes associados com instantâneos de cloud são apresentados. Apenas os contentores apresentados são elegíveis para a ativação pós-falha. Na lista de contentores de volumes, selecione os contentores de volumes que pretende efetuar a ativação pós-falha. **São apresentados apenas os contentores de volumes com instantâneos de cloud associados e offline volumes.**
+   1. Clique em **Origem**. Os recipientes de volume com volumes associados a imagens em nuvem são apresentados. Apenas os recipientes apresentados são elegíveis para a falha. Na lista de recipientes de volume, selecione os recipientes de volume que gostaria de falhar. **Apenas são apresentados os recipientes de volume com imagens de nuvem associadas e volumes offline.**
 
        ![Selecionar origem](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev5.png)
-   2. Clique em **destino**. Para os contentores de volumes que selecionou no passo anterior, selecione um dispositivo de destino na lista pendente de dispositivos disponíveis. Apenas os dispositivos que tem capacidade suficiente para acomodar os contentores de volumes de origem são apresentados na lista.
+   2. Clique no **target**. Para os recipientes de volume selecionados na etapa anterior, selecione um dispositivo-alvo a partir da lista de dispositivos disponíveis. Apenas os dispositivos que possuem capacidade suficiente para acomodar recipientes de volume de origem são apresentados na lista.
 
         ![Selecionar o destino](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev6.png)
 
-   3. Por fim, reveja todas as definições de ativação pós-falha sob **resumo**. Depois de rever as definições, selecione a caixa de verificação que indica que os volumes nos contentores de volumes selecionados estão offline. Clique em **OK**.
+   3. Por fim, reveja todas as definições de failover em **Resumo**. Depois de ter revisto as definições, selecione a caixa de verificação indicando que os volumes em recipientes de volume selecionados estão offline. Clique em **OK**.
 
-       ![Reveja as definições de ativação pós-falha](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev8.png)
+       ![Rever definições de failover](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev8.png)
   
-8. StorSimple cria uma tarefa de ativação pós-falha. Clique na notificação da tarefa para monitorizar a tarefa de ativação pós-falha através de **tarefas** painel.
+8. StorSimple cria um trabalho de falha. Clique na notificação de trabalho para monitorizar o trabalho de failover através da lâmina **Jobs.**
 
-    Se o contentor de volumes que efetuar a ativação pós-falha tem volumes locais, em seguida, verá as tarefas de restauro individual para cada volume local (não para volumes em camadas) no contentor. Estes restauro tarefas poderão demorar bastante tempo a concluir. É provável que a tarefa de ativação pós-falha pode ser concluída anteriormente. Estes volumes terão garantias locais apenas depois de concluir as tarefas de restauro.
+    Se o contentor de volume que falhou tiver volumes locais, então verá trabalhos individuais de restauro para cada volume local (não para volumes hierárquicos) no recipiente. Estes trabalhos de restauro podem levar algum tempo a ser concluídos. É provável que o trabalho de failover possa ser concluído mais cedo. Estes volumes só terão garantias locais após a conclusão dos postos de trabalho.
 
-    ![Tarefa de ativação pós-falha do monitor](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev13.png)
+    ![Monitorizar trabalho de failover](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev13.png)
 
-9. Depois de concluída a ativação pós-falha, vá para o **dispositivos** painel.
+9. Depois de concluída a falha, vá à lâmina **do Dispositivo.**
    
-   1. Selecione o dispositivo que foi utilizado como o dispositivo de destino para o processo de ativação pós-falha.
+   1. Selecione o dispositivo que foi usado como dispositivo-alvo para o processo de failover.
 
-       ![Selecione o dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Selecione dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
-   2. Vá para o **contentores de volumes** painel. Todos os contentores de volumes, juntamente com os volumes do dispositivo antigo, deverá ser listados.
+   2. Vá para a lâmina dos contentores de **volume.** Todos os recipientes de volume, juntamente com os volumes do dispositivo antigo, devem ser listados.
 
-       ![Contentores de volumes de destino do Vista](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev16.png)
+       ![Ver recipientes de volume alvo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev16.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Após executar uma ativação pós-falha, poderá ter de [desative ou elimine o dispositivo StorSimple](storsimple-8000-deactivate-and-delete-device.md).
-* Para informações sobre como utilizar o serviço StorSimple Device Manager, aceda a [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Depois de ter realizado uma falha, poderá ter de [desativar ou eliminar o seu dispositivo StorSimple](storsimple-8000-deactivate-and-delete-device.md).
+* Para obter informações sobre como utilizar o serviço StorSimple Device Manager, vá utilizar [o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

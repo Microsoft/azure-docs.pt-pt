@@ -1,24 +1,17 @@
 ---
 title: Analisar a utilização dos recursos do serviço do Azure com a API REST | Microsoft Docs
 description: Saiba como utilizar as APIs REST do Azure para analisar a utilização dos recursos do serviço do Azure.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: ''
-editor: ''
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: eb444f090c1b2047e3d71c1b2ec52699a61bd880
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f421ddc7cd509527053b099c7e4e538ab84b814e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989309"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200576"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Analisar a utilização dos recursos do Azure com a API REST
 
@@ -41,7 +34,7 @@ Authorization: Bearer
 
 O parâmetro `{subscriptionGuid}` é obrigatório e deve conter um ID de subscrição que pode ser lido com as credenciais fornecidas no token da API. O `{reportName}`
 
-Os seguintes cabeçalhos são obrigatórios: 
+Os seguintes cabeçalhos são obrigatórios:
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
@@ -93,7 +86,7 @@ O
 
 ## <a name="filtering-reports"></a>Filtrar relatórios
 
-As secções `filter` e `dimensions` do corpo do pedido ao criar um relatório permitem que se concentre nos custos de tipos de recursos específicos. O corpo do pedido anterior mostra como filtrar por todos os recursos numa região. 
+As secções `filter` e `dimensions` do corpo do pedido ao criar um relatório permitem que se concentre nos custos de tipos de recursos específicos. O corpo do pedido anterior mostra como filtrar por todos os recursos numa região.
 
 ### <a name="get-all-compute-usage"></a>Obter toda a utilização de computação
 
@@ -105,9 +98,9 @@ Utilize a dimensão `ResourceType` para comunicar os custos da máquina virtual 
         "name": "ResourceType",
         "operator": "In",
         "values": [
-                "Microsoft.ClassicCompute/virtualMachines", 
+                "Microsoft.ClassicCompute/virtualMachines",
                 "Microsoft.Compute/virtualMachines"
-        ] 
+        ]
     }
 }
 ```
@@ -123,7 +116,7 @@ Utilize a dimensão `ResourceType` para comunicar os custos da Base de Dados SQL
         "operator": "In",
         "values": [
                 "Microsoft.Sql/servers"
-        ] 
+        ]
     }
 }
 ```

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189006"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469022"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de inquilino (pré-visualização)
 
@@ -81,7 +81,7 @@ Depois de o seu administrador ter ativado o Modelo de Inquilino para a sua organ
    > O Office 365 clientes empresariais na América do Norte são elegíveis para criar um modelo de inquilino (inglês). Se é um Customer Lockbox, Chave de Cliente ou cliente do Office 365 Government, esta funcionalidade não está disponível. Para determinar se é um lockbox de cliente ou cliente chave do cliente, consulte:
    > * [Caixa de bloqueio do cliente](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Chave do cliente](/microsoft-365/compliance/customer-key-overview)
-   > * [Gabinete 365 Governo](/microsoft-365/government)
+   > * [Gabinete 365 Governo](https://www.microsoft.com/microsoft-365/government)
 
 1. Selecione **Optar por receber**.
 
@@ -303,7 +303,7 @@ Em seguida, você precisa reconstruir e executar o projeto a partir da linha de 
 
 Neste tutorial, aprendeu a usar os dados do Office 365 para criar um modelo personalizado de reconhecimento de voz, implantá-lo e usá-lo com o SDK da fala.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Estúdio de Discurso](https://speech.microsoft.com/)
 * [SDK de Voz](speech-sdk.md)

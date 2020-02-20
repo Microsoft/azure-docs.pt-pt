@@ -1,6 +1,6 @@
 ---
-title: Configurar um laboratório para ensinar o gerenciamento de banco de dados para bancos de dados relacionais | Microsoft Docs
-description: Saiba como configurar um laboratório para ensinar o gerenciamento de bancos de dados relacionais.
+title: Criar um laboratório para ensinar gestão de bases de dados para bases de dados relacionais Microsoft Docs
+description: Aprenda a criar um laboratório para ensinar a gestão de bases de dados relacionais.
 services: lab-services
 documentationcenter: na
 author: emaher
@@ -13,66 +13,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 92152652ca264cace12d3f780ebec0f80bb2048a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c375487b30595251753021033c98cf0ca1e8dd7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233769"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469923"
 ---
-# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Configurar um laboratório para ensinar o gerenciamento de bancos de dados relacionais
+# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Criar um laboratório para ensinar gestão de bases de dados para bases de dados relacionais
 
-Este artigo descreve como configurar um laboratório para uma classe de gerenciamento de bancos de dados básico no Azure Lab Services. Os conceitos de bancos de dados são um dos cursos introdutórios ensinados na maioria dos departamentos de ciência da computação na faculdade. O linguagem SQL (SQL) é um padrão internacional. O SQL é a linguagem padrão para gerenciamento de banco de dados de relações, incluindo a adição, o acesso e o gerenciamento de conteúdo em um banco de dados.  Ele é mais observado para seu processamento rápido, confiabilidade comprovada, facilidade e flexibilidade de uso.
+Este artigo descreve como criar um laboratório para uma aula básica de gestão de bases de dados em Serviços de Laboratório Azure. Os conceitos de bases de dados são um dos cursos introdutórios ministrados na maioria dos departamentos de Ciências da Computação na faculdade. A Linguagem De Consulta Estruturada (SQL) é um padrão internacional. O SQL é o idioma padrão para a gestão da base de dados de relações, incluindo a adição, acesso e gestão de conteúdos numa base de dados.  É mais notável pelo seu processamento rápido, fiabilidade comprovada, facilidade e flexibilidade de utilização.
 
-Neste artigo, mostraremos como configurar um modelo de máquina virtual em um laboratório com o servidor de banco de dados MySQL e o servidor SQL Server 2019.  O [MySQL](https://www.mysql.com/) é um RDBMS (sistema de gerenciamento de banco de dados relacional) de software livre disponível gratuitamente.  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) é a versão mais recente do RDBMS da Microsoft.
+Neste artigo, vamos mostrar como configurar um modelo de máquina virtual num laboratório com o MySQL Database Server e o servidor SQL Server 2019.  [MySQL](https://www.mysql.com/) é um sistema de gestão de bases de dados relacional de código aberto (RDBMS) de código aberto disponível livremente.  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) é a versão mais recente do RDBMS da Microsoft.
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
 
-Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).  Você também pode usar uma conta de laboratório existente.
+Para montar este laboratório, precisa de uma subscrição azure e uma conta de laboratório para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Assim que conseguir uma subscrição do Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure. Para obter mais informações sobre a criação de uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório.](tutorial-setup-lab-account.md)  Também pode usar uma conta de laboratório existente.
 
-### <a name="lab-account-settings"></a>Configurações de conta do laboratório
+### <a name="lab-account-settings"></a>Configurações da conta de laboratório
 
-Habilite as configurações descritas na tabela a seguir para a conta do laboratório. Para obter mais informações sobre como habilitar imagens do Marketplace, consulte [especificar imagens do Marketplace disponíveis para criadores de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators).
+Ative as definições descritas na tabela abaixo para a conta de laboratório. Para obter mais informações sobre como ativar imagens de marketplace, consulte [as imagens do Mercado de Especificar disponíveis para criadores de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
 
-| Configuração de conta do laboratório | Instruções |
+| Definição de conta de laboratório | Instruções |
 | ------------------- | ------------ |
-|Imagem do Marketplace| Habilite a imagem ' SQL Server 2019 Standard no Windows Server 2019 ' para uso em sua conta de laboratório.|
+|Imagem de mercado| Ative a imagem 'SQL Server 2019 Standard on Windows Server 2019' para utilização na sua conta de laboratório.|
 
-### <a name="lab-settings"></a>Configurações do laboratório
+### <a name="lab-settings"></a>Configurações de laboratório
 
-Use as configurações na tabela abaixo ao configurar um laboratório de sala de aula.  Para obter mais informações sobre como criar um laboratório de sala de aula, consulte [configurar um tutorial de laboratório de sala de aula](tutorial-setup-classroom-lab.md).
+Utilize as definições na tabela abaixo ao configurar um laboratório de sala de aula.  Para obter mais informações sobre como criar um laboratório de sala de aula, consulte [a criação de um tutorial](tutorial-setup-classroom-lab.md)de laboratório de sala de aula.
 
-| Configurações do laboratório | Valor/instruções |
+| Configurações de laboratório | Valor/instruções |
 | ------------ | ------------------ |
-|Tamanho da máquina virtual| Média. Esse tamanho é mais adequado para bancos de dados relacionais, cache na memória e análise.|
-|Imagem da máquina virtual| SQL Server 2019 Standard no Windows Server 2019|
+|Tamanho da máquina virtual| Média. Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise.|
+|Imagem de máquina virtual| Padrão do SQL Server 2019 no Windows Server 2019|
 
 ## <a name="template-machine-configuration"></a>Configuração da máquina de modelo
 
-Para instalar o MySQL no Windows Server 2019, você pode seguir as etapas mencionadas em [instalar e executar o MySQL Community Server em uma máquina virtual](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Para instalar o MySQL no Windows Server 2019, pode seguir os passos mencionados no [Servidor Comunitário De Instalação e Execução MySQL numa máquina virtual](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
-SQL Server 2019 é pré-instalado na imagem de máquina virtual que escolhemos ao criar o novo laboratório.
+O SQL Server 2019 está pré-instalado na imagem da máquina virtual que escolhemos na criação do novo laboratório.
 
-## <a name="cost-estimate"></a>Estimativa dos custos
+## <a name="cost-estimate"></a>Estimativa de custos
 
-Vamos abordar uma possível estimativa de custo para essa classe.  Usaremos uma classe de 25 alunos.  Há 20 horas de tempo de classe agendada.  Além disso, cada aluno recebe uma cota de 10 horas de casa ou atribuições fora do tempo de classe agendado.  O tamanho da máquina virtual que escolhemos era médio, que é 42 unidades de laboratório.
+Vamos cobrir uma possível estimativa de custos para esta classe.  Usaremos uma turma de 25 alunos.  Há 20 horas de horário de aulas programado.  Além disso, cada aluno recebe uma quota de 10 horas para trabalhos de casa ou tarefas fora da hora de aula programada.  O tamanho da máquina virtual que escolhemos era médio, que é de 42 unidades de laboratório.
 
-Aqui está um exemplo de uma possível estimativa de custo para esta classe:
+Aqui está um exemplo de uma possível estimativa de custos para esta classe:
 
-25 alunos \* (20 horas agendadas + 10 horas de cota) \* US $0,42 USD por hora = 315, 0 USD
+25 estudantes \* (20 horas programadas + 10 horas de quota) \* 0,42 USD por hora = 315,00 USD
 
-Mais detalhes sobre preços, consulte [preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
+Mais detalhes sobre os preços, consulte o [Preço dos Serviços do Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)
 
 ## <a name="conclusion"></a>Conclusão
 
-Este artigo descreveu as etapas necessárias para criar um laboratório para conceitos básicos de gerenciamento de banco de dados usando o MySQL e o SQL Server. Você pode usar uma configuração semelhante para outras classes de bancos de dados.
+Este artigo acompanhou-o através dos passos necessários para criar um laboratório para conceitos básicos de gestão de bases de dados usando tanto o MySQL como o SQL Server. Pode utilizar uma configuração semelhante para outras bases de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-As próximas etapas são comuns à configuração de qualquer laboratório.
+Os próximos passos são comuns à criação de qualquer laboratório.
 
-- [Criar e gerenciar um modelo](how-to-create-manage-template.md)
+- [Criar e gerir um modelo](how-to-create-manage-template.md)
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Definir cota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Definir um agendamento](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Links de registro de email para alunos](how-to-configure-student-usage.md#send-invitations-to-users)
+- [Definir quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Definir um horário](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Links de inscrição de e-mail para estudantes](how-to-configure-student-usage.md#send-invitations-to-users)

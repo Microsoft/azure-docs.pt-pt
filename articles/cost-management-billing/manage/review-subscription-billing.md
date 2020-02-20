@@ -1,25 +1,17 @@
 ---
 title: Analisar os dados de faturação da subscrição do Azure com a API REST | Microsoft Docs
 description: Saiba como utilizar as APIs REST do Azure para analisar os detalhes de faturação da subscrição.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: ''
-editor: ''
-ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 4dc7771862bc922702c5cc321fb3c566212d799a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 4746c5a541118b6018f3b6601b7eb0662503fd3a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990570"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199556"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Analisar a faturação da subscrição com as APIs REST
 

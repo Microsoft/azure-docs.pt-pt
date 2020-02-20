@@ -1,7 +1,7 @@
 ---
-title: Exemplo de script de CLI do Azure – exportar de um repositório de configuração de Azure App
+title: Amostra de script Azure CLI - Exportação de uma Loja de Configuração de Aplicações Azure
 titleSuffix: Azure App Configuration
-description: Fornece informações e scripts de exemplo para exportar de um repositório de configuração Azure App
+description: Fornece informações e scripts de amostra para exportação de uma loja de configuração de aplicações azure
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -15,26 +15,22 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 0cdefaa60c9e7a1aab418042c037ef76b63e7804
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c4fc8f1cd1159f296d37fd67634d1c3171f7d7a9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898667"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468290"
 ---
-# <a name="export-from-an-azure-app-configuration-store"></a>Exportar de um repositório de configuração Azure App
+# <a name="export-from-an-azure-app-configuration-store"></a>Exportação de uma loja de configuração de aplicações Azure
 
-Este script de exemplo exporta valores de chave de um repositório de configuração Azure App.
+Este script de amostra exporta valores-chave de uma loja de configuração de aplicações Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-Você precisa instalar a extensão da CLI de configuração do Azure App primeiro executando o seguinte comando:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -49,14 +45,14 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Esse script usa os comandos a seguir para exportar de um repositório de configuração de aplicativo. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para exportar a partir de uma loja de Configuração de Aplicações. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [AZ AppConfig kV Export](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-export) | Exporta de um recurso de repositório de configuração de aplicativo. |
+| [az appconfig kv exportação](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exportações de um recurso de loja de configuração de aplicações. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados nos [exemplos da CLI de configuração do Azure app](../cli-samples.md).
+Amostras adicionais de script cli configuração de aplicativos podem ser encontradas nas amostras CLI de configuração de [aplicação azure](../cli-samples.md).

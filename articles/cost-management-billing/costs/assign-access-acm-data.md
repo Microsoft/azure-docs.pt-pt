@@ -7,14 +7,14 @@ ms.author: banders
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-ms.reviewer: vitavor
+ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 8ba31d58e57081ca8d2edbe5d6d0c3db3a470cb7
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 84637f74408724fec300a2a5cb49cd9f460ed395
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152062"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201089"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Cost Management
 

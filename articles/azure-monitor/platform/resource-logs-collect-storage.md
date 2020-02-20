@@ -1,6 +1,6 @@
 ---
-title: Arquivar logs de recursos do Azure na conta de armazenamento | Microsoft Docs
-description: Saiba como arquivar os logs de recursos do Azure para retenção de longo prazo em uma conta de armazenamento.
+title: Registos de recursos do Archive Azure para a conta de armazenamento  Microsoft Docs
+description: Saiba como arquivar os seus registos de recursos Azure para retenção a longo prazo numa conta de armazenamento.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,62 +8,62 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f4109359adaaeae0a1ba027ac04439ff60b5a939
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980063"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467186"
 ---
-# <a name="archive-azure-resource-logs-to-storage-account"></a>Arquivar logs de recursos do Azure para a conta de armazenamento
-[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve como coletar logs de plataforma para uma conta de armazenamento do Azure para reter dados para arquivamento.
+# <a name="archive-azure-resource-logs-to-storage-account"></a>Registos de recursos do Archive Azure para conta de armazenamento
+[Os registos da plataforma](platform-logs-overview.md) no Azure, incluindo registos de registos de atividades do Azure e de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem.  Este artigo descreve a recolha de registos de plataformas numa conta de armazenamento Azure para reter dados para arquivamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você precisará [criar uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md) se ainda não tiver uma. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+Precisa criar uma conta de [armazenamento Azure](../../storage/common/storage-account-create.md) se ainda não tiver uma. A conta de armazenamento não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso rBAC adequado a ambas as subscrições.
 
 
 > [!IMPORTANT]
-> Atualmente, não há suporte para contas de Azure Data Lake Storage Gen2 como destino para configurações de diagnóstico, embora elas possam estar listadas como uma opção válida na portal do Azure.
+> As contas do Azure Data Lake Storage Gen2 não são atualmente suportadas como destino para configurações de diagnóstico, mesmo que possam ser listadas como uma opção válida no portal Azure.
 
 
-Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados. Se você estiver arquivando o log de atividades e os logs de recursos juntos, poderá optar por usar a mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
+Não deve utilizar uma conta de armazenamento existente que tenha outros dados não monitorizadores armazenados na si para que possa controlar melhor o acesso aos dados. No entanto, se estiver a arquivar os registos de registos de atividade e de recursos, poderá optar por utilizar a mesma conta de armazenamento para manter todos os dados de monitorização num local central.
 
-## <a name="create-a-diagnostic-setting"></a>Criar uma configuração de diagnóstico
-Envie logs da plataforma para o armazenamento e outros destinos criando uma configuração de diagnóstico para um recurso do Azure. Consulte [criar configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md) para obter detalhes.
-
-
-## <a name="collect-data-from-compute-resources"></a>Coletar dados de recursos de computação
-As configurações de diagnóstico coletarão logs de recursos para recursos de computação do Azure como qualquer outro recurso, mas não seu sistema operacional convidado ou cargas de trabalho. Para coletar esses dados, instale o [agente de diagnóstico do Azure do Windows](diagnostics-extension-overview.md). Consulte [armazenar e exibir dados de diagnóstico no armazenamento do Azure](diagnostics-extension-to-storage.md) para obter detalhes.
+## <a name="create-a-diagnostic-setting"></a>Criar uma definição de diagnóstico
+Envie registos de plataformas para armazenamento e outros destinos criando uma definição de diagnóstico para um recurso Azure. Consulte [a definição de diagnóstico Para recolher registos e métricas em Azure](diagnostic-settings.md) para obter mais detalhes.
 
 
-## <a name="schema-of-platform-logs-in-storage-account"></a>Esquema de logs de plataforma na conta de armazenamento
+## <a name="collect-data-from-compute-resources"></a>Recolher dados de recursos computacionais
+As definições de diagnóstico recolherão registos de recursos para os recursos computacionais do Azure, como qualquer outro recurso, mas não o seu sistema operativo ou cargas de trabalho. Para recolher estes dados, instale o agente de [Diagnóstico si azul](diagnostics-extension-overview.md)e windows. 
 
-Depois de criar a configuração de diagnóstico, um contêiner de armazenamento é criado na conta de armazenamento assim que um evento ocorre em uma das categorias de log habilitadas. Os BLOBs dentro do contêiner usam a seguinte convenção de nomenclatura:
+
+## <a name="schema-of-platform-logs-in-storage-account"></a>Esquema de registos de plataforma na conta de armazenamento
+
+Uma vez criado o ajuste de diagnóstico, um recipiente de armazenamento é criado na conta de armazenamento assim que um evento ocorre em uma das categorias de registo habilitado. As bolhas no interior do contentor utilizam a seguinte convenção de nomeação:
 
 ```
 insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Por exemplo, o blob de um grupo de segurança de rede pode ter um nome semelhante ao seguinte:
+Por exemplo, a bolha para um grupo de segurança de rede pode ter um nome semelhante ao seguinte:
 
 ```
 insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 ```
 
-Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro da hora especificada no URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao ficheiro PT1H.json à medida que ocorrem. O valor de minuto (m = 00) é sempre 00, pois os eventos do log de recursos são divididos em BLOBs individuais por hora.
+Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro da hora especificada no URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao ficheiro PT1H.json à medida que ocorrem. O valor minúsculo (m=00) é sempre 00, uma vez que os eventos de registo de recursos são divididos em bolhas individuais por hora.
 
-No arquivo PT1H. JSON, cada evento é armazenado com o formato a seguir. Isso usará um esquema de nível superior comum, mas será exclusivo para cada serviço do Azure, conforme descrito em esquema de [logs de recursos](diagnostic-logs-schema.md) e esquema de [log de atividades](activity-log-schema.md).
+Dentro do ficheiro PT1H.json, cada evento é armazenado com o seguinte formato. Isto utilizará um esquema de nível superior comum, mas será único para cada serviço Azure, conforme descrito em [esquema de logs de recursos](diagnostic-logs-schema.md) e log [sinuoso](activity-log-schema.md)de atividade.
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
 ```
 
 > [!NOTE]
-> Os logs de plataforma são gravados no armazenamento de BLOB usando [linhas JSON](http://jsonlines.org/), em que cada evento é uma linha e o caractere de linha nova indica um novo evento. Esse formato foi implementado em novembro de 2018. Antes dessa data, os logs foram gravados no armazenamento de blob como uma matriz JSON de registros, conforme descrito em [preparar para a alteração de formato para Azure monitor os logs de plataforma arquivados em uma conta de armazenamento](resource-logs-blob-format.md).
+> Os registos da plataforma são escritos para armazenamento blob usando [linhas JSON](http://jsonlines.org/), onde cada evento é uma linha e o personagem newline indica um novo evento. Este formato foi implementado em novembro de 2018. Antes desta data, os registos foram escritos para o armazenamento blob como um conjunto json de registos descrito son como descrito na Prepare para a alteração do [formato para registos da plataforma Azure Monitor arquivados numa conta](resource-logs-blob-format.md)de armazenamento .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia mais sobre os logs de recursos](platform-logs-overview.md).
-* [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).
-* [Baixe BLOBs para análise](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
-* [Arquive logs de Azure Active Directory com Azure monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
+* [Leia mais sobre registos](platform-logs-overview.md)de recursos .
+* [Crie uma definição de diagnóstico para recolher registos e métricas em Azure](diagnostic-settings.md).
+* [Baixe bolhas para análise](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+* [Registos de Diretório Ativo Archive Azure com Monitor Azure](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).

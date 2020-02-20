@@ -2,21 +2,18 @@
 title: Tarefas de Administrador de Conta no portal do Azure
 description: Descreve como executar operações de pagamento no portal do Azure
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 2f858fa7715145d55cf1c978b9c368e1f6586dce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 5d48f6e02719bbf647cdbf800550d73ce83a018f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132141"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201004"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tarefas de Administrador de Conta no portal do Azure
 
@@ -25,35 +22,35 @@ Este artigo explica como executar as seguintes tarefas no portal do Azure:
 - Remover o limite de gastos da sua subscrição
 - Adicionar créditos à subscrição do Azure no Licenciamento Open
 
-Tem de ser o Administrador de Conta para realizar qualquer uma destas tarefas. 
+Tem de ser o Administrador de Conta para realizar qualquer uma destas tarefas.
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Navegar até aos métodos de pagamento da sua subscrição
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta. 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
 
 1. Procure **Cost Management + Faturação**.
-    
+
     ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **As minhas subscrições**, selecione a subscrição à qual quer adicionar o cartão de crédito. 
-   
+1. Na lista **As minhas subscrições**, selecione a subscrição à qual quer adicionar o cartão de crédito.
+
    ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/account-admin-tasks/cost-management-billing-overview-x.png)
-   
+
    > [!NOTE]
-   > Se não vir algumas das suas subscrições aqui, tal poderá dever-se ao facto de ter alterado o diretório das subscrições em determinado momento. No caso destas subscrições, tem de alterar o diretório para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2. 
+   > Se não vir algumas das suas subscrições aqui, tal poderá dever-se ao facto de ter alterado o diretório das subscrições em determinado momento. No caso destas subscrições, tem de alterar o diretório para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
 
 1. Selecione **Métodos de pagamento**.
 
     ![Captura de ecrã que mostra o painel de métodos de pagamento selecionado.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
-Aqui, pode adicionar um novo cartão de crédito, alterar o método de pagamento ativo, editar detalhes do cartão de crédito e eliminar cartões de crédito. 
+Aqui, pode adicionar um novo cartão de crédito, alterar o método de pagamento ativo, editar detalhes do cartão de crédito e eliminar cartões de crédito.
 
 ### <a name="change-active-payment-method"></a>Alterar o método de pagamento ativo
 
 Pode alterar o método de pagamento ativo adicionando um novo cartão de crédito ou escolhendo um que já esteja guardado. Para alterar o método de pagamento ativo para um novo cartão de crédito:
 
 1. No canto superior esquerdo, selecione “+” para adicionar um cartão de crédito.
-    
+
     ![Captura de ecrã que mostra o sinal de adição](./media/account-admin-tasks/subscription-payment-methods-plus.png)
 
 1. Introduza os detalhes do cartão de crédito no formulário à direita.
@@ -111,7 +108,7 @@ Se quiser ser aprovado para pagar por fatura, veja [como pagar por fatura](pay-b
 
 ### <a name="edit-invoice-payment-address"></a>Editar endereço de pagamento por fatura
 
-Para editar o endereço do seu método de pagamento por fatura, clique em **Fatura** na lista de métodos de pagamento para a sua subscrição. O formulário de endereço será aberto à direita. 
+Para editar o endereço do seu método de pagamento por fatura, clique em **Fatura** na lista de métodos de pagamento para a sua subscrição. O formulário de endereço será aberto à direita.
 
 ## <a name="remove-spending-limit"></a>Remover limite de gastos
 
@@ -124,15 +121,15 @@ O limite de gastos não está disponível para as subscrições com planos de al
 
     ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **As minhas subscrições**, selecione a sua subscrição do Visual Studio Enterprise. 
+1. Na lista **As minhas subscrições**, selecione a sua subscrição do Visual Studio Enterprise.
 
    ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Se não vir algumas das suas subscrições do Visual Studio aqui, tal poderá dever-se ao facto de ter alterado o diretório de uma subscrição em determinado momento. No caso destas subscrições, tem de alterar o diretório para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
-    
+
 1. Na descrição geral de Subscrição, clique na faixa laranja para remover o limite de gastos.
-    
+
     ![Captura de ecrã que mostra a faixa para remover o limite de gastos](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
 
 1. Escolha se pretende remover o limite de gastos indefinidamente ou apenas para o período de faturação atual.
@@ -152,15 +149,15 @@ Se tiver uma subscrição Azure no Licenciamento Open, pode adicionar créditos 
 
     ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **As minhas subscrições**, selecione a sua subscrição Azure no Licenciamento Open. 
+1. Na lista **As minhas subscrições**, selecione a sua subscrição Azure no Licenciamento Open.
 
     ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Se não vir a sua subscrição aqui, tal poderá dever-se ao facto de ter alterado o diretório em determinado momento. Tem de alterar o diretório da subscrição para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
-    
+
 1. Selecione **Histórico de crédito**.
-    
+
     ![Captura de ecrã que mostra o histórico de crédito](./media/account-admin-tasks/aio-credit-history-blade.png)
 
 1. No canto superior esquerdo, selecione "+" para adicionar mais créditos.
@@ -168,7 +165,7 @@ Se tiver uma subscrição Azure no Licenciamento Open, pode adicionar créditos 
     ![Captura de ecrã que mostra o botão Adicionar créditos](./media/account-admin-tasks/aio-credit-history-plus.png)
 
 1. Selecione um tipo de método de pagamento na lista pendente. Pode adicionar uma chave de produto ou comprar créditos com um cartão de crédito.
-    
+
     ![Captura de ecrã que mostra a lista pendente de método de pagamento no painel Adicionar créditos](./media/account-admin-tasks/add-credits-select-payment-method.png)
 
 1. Se escolheu chave de produto:

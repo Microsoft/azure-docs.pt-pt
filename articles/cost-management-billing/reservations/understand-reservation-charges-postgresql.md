@@ -8,17 +8,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2019
-ms.openlocfilehash: 2f1843690861a463c634f523e82facffc72b6743
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/13/2020
+ms.openlocfilehash: e0dc7780ee570ce2d731bedf9ef56be606088a1f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995510"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199301"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Como um desconto de reserva é aplicado ao Servidor único da Base de Dados do Azure para PostgreSQL
 
-Depois de comprar uma capacidade reservada de Servidor único da Base de Dados do Azure para PostgreSQL, o desconto de reserva é automaticamente aplicado aos Servidores únicos da Base de Dados do Azure para PostgreSQL que correspondem aos atributos e à quantidade da reserva. Uma reserva abrange apenas os custos de computação do Servidor único da Base de Dados do Azure para PostgreSQL. É-lhe cobrada uma taxa normal de armazenamento e rede. 
+Depois de comprar uma capacidade reservada de Servidor único da Base de Dados do Azure para PostgreSQL, o desconto de reserva é automaticamente aplicado aos Servidores únicos da Base de Dados do Azure para PostgreSQL que correspondem aos atributos e à quantidade da reserva. Uma reserva abrange apenas os custos de computação do Servidor único da Base de Dados do Azure para PostgreSQL. É-lhe cobrada uma taxa normal de armazenamento e rede.
 
 ## <a name="how-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 

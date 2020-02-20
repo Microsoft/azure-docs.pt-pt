@@ -1,19 +1,18 @@
 ---
 title: Introdução ao portal Azure Enterprise
 description: Este artigo explica como é que os clientes do Contrato Enterprise do Azure (Azure EA) utilizam o portal Azure Enterprise.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 516b3704daee885541cec49b0ee374e050dd4b22
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: e1c6eac81968ef6ecbc12ec52415c2aa9680f3e1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023349"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200834"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao portal Azure Enterprise
 
@@ -235,7 +234,7 @@ Ao transferir contas, tenha em atenção as seguintes informações importantes:
   - De uma conta escolar ou profissional para outra conta escolar ou profissional.
   - De uma conta Microsoft para uma conta escolar ou profissional.
   - De uma conta Microsoft para outra conta Microsoft.
-  
+
     A conta de destino tem de ser uma Conta comercial do Azure válida, para que seja um destino válido para as transferências. Para contas novas, é-lhe pedido que crie uma Conta comercial do Azure ao iniciar sessão no portal Azure Enterprise. Para contas existentes, tem de criar primeiro uma nova subscrição do Azure para a conta ficar elegível.
 
 - Não pode transferir de uma conta escolar ou profissional para uma conta Microsoft.
@@ -285,7 +284,7 @@ Os proprietários da conta podem ver e gerir subscrições. Pode utilizar subscr
 
 Ao criar subscrições diferentes para cada ambiente de aplicação, está a ajudar a proteger cada ambiente.
 
-- Também pode atribuir uma conta de administrador de serviços diferente para cada subscrição. 
+- Também pode atribuir uma conta de administrador de serviços diferente para cada subscrição.
 - Pode associar subscrições a quantos serviços quiser.
 - O proprietário da conta cria subscrições e atribui uma conta de administrador de serviços a cada subscrição na conta.
 
@@ -309,7 +308,7 @@ Para adicionar uma subscrição:
 1. Selecione **Subscrições** e, em seguida, selecione a subscrição que criou.
 1. Selecione **Editar Detalhes da Subscrição**.
 1. Edite o **Nome da Subscrição** e o **Administrador de Serviços** e, em seguida, selecione a marca de verificação.
-  
+
    O nome da subscrição aparece nos relatórios. É o nome do projeto associado à subscrição no portal de desenvolvimento.
 
 As novas subscrições podem demorar até 24 horas até surgirem na lista de subscrições. Depois de ter criado uma subscrição, pode:
@@ -509,14 +508,14 @@ O portal Azure Enterprise oferece dois tipos de subscrições para clientes Ente
 - Microsoft Azure Enterprise, que é ideal para:
   - Todas as utilizações de produção
   - Os melhores preços com base no gasto da infraestrutura
-  
+
   Para obter mais informações, [contacte as vendas do Azure](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Enterprise Dev/Test, que é ideal para:
   - Todas as cargas de trabalho de programador/teste da equipa
   - Cargas de trabalho de programador/teste individuais médias a pesadas
   - Acesso a imagens especiais do MSDN e taxas de serviço preferenciais
-  
+
   Para obter mais informações, veja a [oferta Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>É possível transferir a propriedade da subscrição para outra conta?

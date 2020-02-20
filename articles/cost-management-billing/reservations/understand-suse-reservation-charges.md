@@ -1,23 +1,18 @@
 ---
 title: Desconto de plano de software – Azure | Microsoft Docs
 description: Saiba como os descontos de plano de software são aplicados ao software em máquinas virtuais.
-documentationcenter: ''
 author: yashesvi
-manager: yashar
-editor: ''
+ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/30/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f3d0c123fcbd16f3a4125ad74f0502863b6ce6d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9979ced6d5bd71dd1a42d19c222111a76ed18428
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995263"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200236"
 ---
 # <a name="azure-software-plan-discount"></a>Desconto de plano de software do Azure
 

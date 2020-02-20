@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 668e9ddadf151a86be0d8c09fc91b4c70db12f3a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e2967a6d12fba2d81dad9de31e7476a027a39d1c
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210791"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468835"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Escala elástica uma conta API Da API do Azure Cosmos DB Cassandra
 
@@ -23,7 +23,7 @@ Existem várias opções para explorar a natureza elástica da API do Azure Cosm
 
 A Azure Cosmos DB devolverá erros limitados à taxa de câmbio (429) se os clientes consumirem mais recursos (RU/s) do que o montante que você provisionou. A Cassandra API em Azure Cosmos DB traduz estas exceções a erros sobrecarregados no protocolo nativo de Cassandra. 
 
-Se o seu sistema não for sensível à latência, pode ser suficiente para lidar com a limitação da taxa de entrada utilizando repetições. Consulte a amostra do [código Java](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) para saber como lidar com a limitação da taxa de forma transparente utilizando a [extensão Do BD Azure Cosmos](https://github.com/Azure/azure-cosmos-cassandra-extensions) para a política de [retry de Cassandra](https://docs.datastax.com/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) em Java. Também pode utilizar a [extensão Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) para lidar com a limitação da taxa.
+Se o seu sistema não for sensível à latência, pode ser suficiente para lidar com a limitação da taxa de entrada utilizando repetições. Consulte a amostra do [código Java](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) para saber como lidar com a limitação da taxa de forma transparente utilizando a [extensão Do BD Azure Cosmos](https://github.com/Azure/azure-cosmos-cassandra-extensions) para a política de [retry de Cassandra](https://docs.datastax.com/en/developer/java-driver/4.4/manual/core/retries/) em Java. Também pode utilizar a [extensão Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) para lidar com a limitação da taxa.
 
 ## <a name="manage-scaling"></a>Gerir a escala
 
@@ -62,6 +62,6 @@ Além da forma manual ou programática de fornecimento de entrada, também pode 
 
 A vantagem desta abordagem é que é a forma mais fácil de gerir as necessidades de escala no seu sistema. Garante não aplicar a limitação das taxas **dentro das gamas DERU configuradas**. A desvantagem é que, se as necessidades de escala no seu sistema forem previsíveis, o Autopilot pode ser uma forma menos rentável de lidar com as suas necessidades de escala do que utilizar o plano de controlo sob medida ou as abordagens de nível SDK acima mencionadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Comece por [criar uma conta de API para Cassandra do Azure Cosmos DB, uma base de dados e uma tabela](create-cassandra-api-account-java.md) com uma aplicação Java

@@ -1,25 +1,20 @@
 ---
 title: Cenário de orçamento de gestão de custos e de faturação do Azure | Microsoft Docs
 description: Saiba como utilizar a automatização do Azure para encerrar VMs com base em limiares de orçamento específicos.
-services: billing
-documentationcenter: ''
 author: bandersmsft
-manager: dougeby
-editor: ''
+ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
-ms.workload: billing
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: e183a622910c7690b566537311661789253efbfb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ae17ecc72bb1e6af1b79d4a2952c2f78dce4b5bd
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75992728"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200987"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
 

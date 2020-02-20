@@ -2,21 +2,18 @@
 title: Limite de gastos do Azure | Microsoft Docs
 description: Este artigo descreve como funciona um limite de gastos do Azure e como o pode remover.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: bde3c142fa0f4f69948a9ff1df61d77f06d2b430
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: ef1ed399f2ed3401612543b3dcaf94dfbafb6715
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188308"
+ms.locfileid: "77200559"
 ---
 # <a name="azure-spending-limit"></a>Limite de gastos do Azure
 
@@ -47,21 +44,21 @@ Se tiver uma conta gratuita do Azure, veja [Atualizar a sua subscrição do Azur
 
     ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/spending-limit/search-bar.png)
 
-1. Na lista **As minhas subscrições**, selecione a sua subscrição. Por exemplo, *Visual Studio Enterprise*. 
+1. Na lista **As minhas subscrições**, selecione a sua subscrição. Por exemplo, *Visual Studio Enterprise*.
 
    ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/spending-limit/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Se não vir algumas das suas subscrições do Visual Studio aqui, tal poderá dever-se ao facto de ter alterado o diretório de uma subscrição em determinado momento. No caso destas subscrições, tem de alterar o diretório para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
-    
+
 1. Na descrição geral de Subscrição, clique na faixa laranja para remover o limite de gastos.
-    
+
     ![Captura de ecrã que mostra a faixa para remover o limite de gastos](./media/spending-limit/msdn-remove-spending-limit-banner-x.png)
 
 1. Escolha se pretende remover o limite de gastos indefinidamente ou apenas para o período de faturação atual.
-    
+
       ![Captura de ecrã que mostra o painel para remover o limite de gastos](./media/spending-limit/remove-spending-limit-blade-x.png)
-    
+
       | Opção | Efeito |
       | --- | --- |
       | Remover o limite de gastos indefinidamente | O limite de gastos não volta a ativar automaticamente no início do próximo período de faturação. No entanto, pode voltar a ativá-lo manualmente a qualquer momento. |
@@ -91,13 +88,13 @@ Esta funcionalidade está disponível apenas quando o limite de gastos tiver sid
 
     ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/spending-limit/search-bar.png)
 
-1. Na lista **As minhas subscrições**, selecione a sua subscrição. Por exemplo, *Visual Studio Enterprise*. 
+1. Na lista **As minhas subscrições**, selecione a sua subscrição. Por exemplo, *Visual Studio Enterprise*.
 
    ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/spending-limit/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Se não vir algumas das suas subscrições do Visual Studio aqui, tal poderá dever-se ao facto de ter alterado o diretório de uma subscrição em determinado momento. No caso destas subscrições, tem de alterar o diretório para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
-    
+
 1. Na descrição geral da Subscrição, clique na faixa na parte superior da página para voltar a ativar o limite de gastos.
 
 ## <a name="custom-spending-limit"></a>Limite de gastos personalizado

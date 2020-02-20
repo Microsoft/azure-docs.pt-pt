@@ -1,19 +1,18 @@
 ---
 title: Faturas de inscrição do Azure Enterprise
 description: Este artigo explica como gerir e interpretar a fatura Azure Enterprise.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 2a75972d00733d23df7f4a59b2d5010404df8dc3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: 37af492ae156aa880c55034550d4165ec046e74f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023400"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199760"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição do Azure Enterprise
 
@@ -71,11 +70,11 @@ A data em que recebe a fatura de utilização excedida depende da configuração
   - Quaisquer custos não cobertos pela alocação monetária são devidos como um pagamento de utilização excedida.  
 
 - **Inscrições indiretas com data de início anterior a 1 de maio de 2018**:
-  
+
   Se for um cliente de Contrato Enterprise (EA) indireto com uma data de início anterior a 1 de maio de 2018, estará configurado para um período de faturação trimestral. O parceiro de canal (CP) emite-lhe a fatura diretamente.  
 
 - **Inscrições indiretas com data de início posterior a 1 de maio de 2018**:
-  
+
   Encontra-se num período de faturação mensal.  
 
 ### <a name="increase-your-monetary-commitment"></a>Aumentar a alocação monetária
@@ -617,7 +616,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 - **Exclusions**:
   - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and can't enter into the Azure EA Power BI Pro trial offer.
   - Users participating in the Offer can only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
-  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer. 
+  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer.
   -->
 
 ### <a name="to-access-microsoft-azure-consumption-insights"></a>Para aceder ao Microsoft Azure Consumption Insights:
@@ -630,7 +629,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 1. Quando estiver concluído, é apresentado um novo dashboard, relatório e modelo no painel de navegação. Selecione o dashboard para ver os dados importados.
 
 > [!TIP]
-> 
+>
 > - Para saber mais sobre como gerar a chave de API para a inscrição, veja o ficheiro de ajuda Relatórios da API no [portal Enterprise](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
 > - Para obter mais informações sobre a ligação do Power BI ao consumo Azure, veja [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 

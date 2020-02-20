@@ -1,25 +1,19 @@
 ---
 title: Compreender a sua fatura do Azure | Microsoft Docs
 description: Saiba como ler e compreender a utilização e a faturação da sua subscrição do Azure
-services: ''
-documentationcenter: ''
 author: bandersmsft
-manager: jureid
-editor: ''
+ms.reviewer: jureid
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/02/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: e6858d51eec1bbcb100f71418337d74d19d6db5b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a3bf55bef0f6fc25f98b362b4a22e22471a031f1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75994730"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199063"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreender os termos na sua fatura do Microsoft Azure
 

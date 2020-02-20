@@ -2,21 +2,18 @@
 title: Compreender a utilização de reservas do Azure para os Contratos Enterprise
 description: Saiba como ler a utilização para compreender como se aplica a reserva do Azure para a sua inscrição no Enterprise.
 author: bandersmsft
-manager: yashar
+ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/30/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: af0769ae4e242c86a56ff63d5f7c9ecbe9382b48
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 76d73b57202acabdf42ce0bec6b9b33cde15592f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995419"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199284"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter custos e utilização de reservas do Contrato Enterprise
 

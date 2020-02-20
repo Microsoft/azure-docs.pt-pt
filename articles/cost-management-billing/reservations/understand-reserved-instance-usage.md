@@ -2,21 +2,18 @@
 title: Utilização de reservas do Azure de uma subscrição individual
 description: Saiba como ler a sua utilização para compreender como é aplicada a reserva do Azure para a sua subscrição individual com tarifas pay as you go.
 author: bandersmsft
-manager: yashr
+ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 1404f8626086124aa2c6affcf2d173cef0be7df3
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5867c4ba7fa1447cbd5d40e15237ae50c24c7168
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995367"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199267"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Compreender a utilização de reservas do Azure para a sua subscrição individual com a subscrição de tarifas pay as you go
 

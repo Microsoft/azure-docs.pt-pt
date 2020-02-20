@@ -1,24 +1,20 @@
 ---
 title: Resolver problemas de inscrição no Azure
 description: Resolver um problema quando se tenta inscrever numa conta nova no Centro de Contas do portal do Microsoft Azure.
-services: billing
 author: v-miegge
-manager: dcscontentpm
+ms.reviewer: dcscontentpm
 editor: v-jesits
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/12/2019
+ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: e13a55143e554a55a2902fc2350f6fde6a8afb09
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e6f6866cdcfb53782c7dbb18bb76143eb76755f9
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989296"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200508"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Resolver problemas de inscrição no Azure
 

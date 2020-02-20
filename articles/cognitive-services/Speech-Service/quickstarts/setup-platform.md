@@ -1,57 +1,57 @@
 ---
-title: 'Início rápido: configurar a plataforma de desenvolvimento'
+title: 'Quickstart: Configurar plataforma de dev'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você aprenderá a instalar o SDK de fala para sua combinação de plataforma e linguagem de programação preferida.
+description: Neste arranque rápido, aprenderá a instalar o Speech SDK para a sua plataforma preferida e combinação de linguagem de programação.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/19/2019
-ms.author: erhopf
+ms.date: 02/19/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 751feb2348eb1c64bf52aacd47470db98147c5ce
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9c29fd1c808ead71738dbd4597e5290b9239f691
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74221977"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470059"
 ---
-# <a name="quickstart-setup-development-environment"></a>Início rápido: configurar o ambiente de desenvolvimento
+# <a name="quickstart-setup-development-environment"></a>Quickstart: Ambiente de desenvolvimento de configuração
 
 ::: zone pivot="programming-language-csharp"
-**Escolha seu ambiente de destino**
-#### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+**Escolha o seu ambiente alvo**
+#### <a name="net"></a>[.NET](#tab/dotnet)
 [!INCLUDE [dotnet](../includes/quickstarts/platform/csharp-dotnet-windows.md)]
-#### <a name="net-coretabdotnetcore"></a>[.NET Core](#tab/dotnetcore)
+#### <a name="net-core"></a>[.NET Core](#tab/dotnetcore)
 [!INCLUDE [dotnetcore](../includes/quickstarts/platform/csharp-dotnetcore-windows.md)]
-#### <a name="unitytabunity"></a>[Unity](#tab/unity)
+#### <a name="unity"></a>[Unidade](#tab/unity)
 [!INCLUDE [unity](../includes/quickstarts/platform/csharp-unity.md)]
-#### <a name="uwptabuwp"></a>[UWP](#tab/uwp)
+#### <a name="uwp"></a>[UWP](#tab/uwp)
 [!INCLUDE [uwp](../includes/quickstarts/platform/csharp-uwp.md)]
-#### <a name="xamarintabxaml"></a>[Xamarin](#tab/xaml)
+#### <a name="xamarin"></a>[Xamarin](#tab/xaml)
 [!INCLUDE [xamarin](../includes/quickstarts/platform/csharp-xamarin.md)]
 
 * * *
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-**Escolha seu ambiente de destino**
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+**Escolha o seu ambiente alvo**
+#### <a name="linux"></a>[Linux](#tab/linux)
 [!INCLUDE [linux](../includes/quickstarts/platform/cpp-linux.md)]
-#### <a name="macostabmacos"></a>[macOS](#tab/macos)
+#### <a name="macos"></a>[macOS](#tab/macos)
 [!INCLUDE [macos](../includes/quickstarts/platform/cpp-macos.md)]
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 [!INCLUDE [windows](../includes/quickstarts/platform/cpp-windows.md)]
 * * *
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-**Escolha seu ambiente de destino**
-#### <a name="java-runtimetabjre"></a>[Tempo de execução Java](#tab/jre)
+**Escolha o seu ambiente alvo**
+#### <a name="java-runtime"></a>[Tempo de execução de Java](#tab/jre)
 [!INCLUDE [jre](../includes/quickstarts/platform/java-jre.md)]
-#### <a name="androidtabandroid"></a>[Android](#tab/android)
+#### <a name="android"></a>[Android](#tab/android)
 [!INCLUDE [android](../includes/quickstarts/platform/java-android.md)]
 * * *
 ::: zone-end

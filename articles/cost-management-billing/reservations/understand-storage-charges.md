@@ -4,14 +4,14 @@ description: Saiba como o desconto de capacidade reservada do Armazenamento do M
 author: tamram
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 02/13/2020
 ms.author: tamram
-ms.openlocfilehash: 40fba61b173979fb9362de73a87d6192aac9941d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b6360619b7666ab7836a751491e05e379df32d93
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995315"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199199"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-storage"></a>Compreender como o desconto de reserva é aplicado ao Armazenamento do Microsoft Azure
 

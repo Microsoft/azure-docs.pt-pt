@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: ef87d8d02e6d7800435cab207a88197ef7c94b7c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c18751d315af6da1a4b2f06aaca28c84746b7be5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430997"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470773"
 ---
 # <a name="container-security-in-security-center"></a>Segurança de contentores no Centro de Segurança
 
@@ -41,7 +41,7 @@ Quando os problemas forem encontrados – por Qualys ou Security Center – ser�
 ## <a name="environment-hardening"></a>Endurecimento ambiental
 
 ### <a name="continuous-monitoring-of-your-docker-configuration"></a>Monitorização contínua da sua configuração Docker
-O Azure Security Center identifica contentores não geridos alojados em VMs IaaS Linux, ou outras máquinas Linux que executam contentores Docker. O Centro de Segurança avalia continuamente as configurações destes contentores. Em seguida, compara-os com o [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/)).
+O Azure Security Center identifica contentores não geridos alojados em VMs IaaS Linux, ou outras máquinas Linux que executam contentores Docker. O Centro de Segurança avalia continuamente as configurações destes contentores. Em seguida, compara-os com o [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 
 O Centro de Segurança inclui todo o conjunto de regras do Referencial CIS Docker e alerta-o se os seus contentores não satisfizerem nenhum dos controlos. Quando encontra configurações erradas, o Centro de Segurança gera recomendações de segurança. Utilize a página de **recomendações** para ver recomendações e remediar questões. Você também verá as recomendações no separador **Contentores** que exibem todas as máquinas virtuais implantadas com O Docker. 
 
@@ -71,9 +71,9 @@ Detetamos ameaças ao nível do hospedeiro e do cluster AKS. Para mais detalhes,
 ## <a name="container-security-faq"></a>FAQ de segurança de contentores
 
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>Que tipos de imagens podem digitalizar o Azure Security Center?
-O Centro de Segurança digitaliza imagens baseadas em Linux OS. 
+O Centro de Segurança digitaliza imagens baseadas em Linux OS que fornecem acesso à concha. 
 
-O scanner Qualys não suporta imagens "destros" que apenas contêm a sua aplicação e as suas dependências de tempo de funcionamento.
+O scanner Qualys não suporta imagens super minimalistas como imagens de [riscado Docker,](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas a sua aplicação e as suas dependências de tempo de funcionamento (sem um gestor de pacotes, concha ou S).
 
 ### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Como é que digitalizamos o Azure Security Center uma imagem?
 A imagem é extraída do registo. É então executado numa caixa de areia isolada com o scanner Qualys que extrai uma lista de vulnerabilidades conhecidas.

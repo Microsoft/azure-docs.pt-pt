@@ -1,92 +1,109 @@
 ---
-title: Solução de problemas-personalizador
-titleSuffix: Azure Cognitive Services
-description: Este artigo contém respostas para perguntas frequentes sobre solução de problemas sobre o personalizador.
-author: diberry
-manager: nitinme
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: personalizer
+title: Resolução de problemas - Personalizer
+description: Este artigo contém respostas para perguntas frequentes sobre o Personalizer.
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/18/2020
 ms.author: diberry
-ms.openlocfilehash: 5aeda9abcebda50cf97e1473b458d8f1f9d15970
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: fec403da7f54098dbf197d14f3b16afd30bf5efc
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832166"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469549"
 ---
-# <a name="personalizer-troubleshooting"></a>Solução de problemas do personalizador
+# <a name="personalizer-troubleshooting"></a>Resolução de problemas personalizador
 
-Este artigo contém respostas para perguntas frequentes sobre solução de problemas sobre o personalizador.
+Este artigo contém respostas para perguntas frequentes sobre o Personalizer.
 
 ## <a name="transaction-errors"></a>Erros de transação
 
-### <a name="i-get-an-http-429-too-many-requests-response-from-the-service-what-can-i-do"></a>Recebo uma resposta HTTP 429 (número excessivo de solicitações) do serviço. O que posso fazer?
+<details>
+<summary><b>Recebo uma resposta HTTP 429 (muitos pedidos) do serviço. O que posso fazer?</b></summary>
 
-Se você escolheu uma camada de preço livre quando criou a instância de personalizador, há um limite de cota no número de solicitações de classificação permitidas. Examine sua taxa de chamada de API para a API de classificação (no painel métricas no portal do Azure para o recurso personalizado) e ajuste o tipo de preço (no painel tipo de preço) se o volume de chamada deve aumentar além do limite para o tipo de preço escolhido.
+**Resposta**: Se escolheu um nível de preço gratuito quando criou a instância Personalizer, existe um limite de quota no número de pedidos de Rank que são permitidos. Reveja a sua taxa de chamada API para o Rank API (no painel de métricas no portal Azure para o seu recurso Personalizer) e ajuste o nível de preços (no painel de nível de preços) se se esperar que o seu volume de chamadas aumente para além do limiar para o nível de preços escolhido.
 
-### <a name="im-getting-a-5xx-error-on-rank-or-reward-apis-what-should-i-do"></a>Estou recebendo um erro 5xx em APIs de classificação ou recompensa. O que devo fazer?
+</details>
 
-Esses problemas devem ser transparentes. Se eles continuarem, entre em contato com o suporte selecionando **nova solicitação de suporte** na seção **suporte + solução de problemas** , na portal do Azure para o recurso personalizador.
+<details>
+<summary><b>Estou a ter um erro de 5xx no Rank ou na Reward APIs. O que devo fazer?</b></summary>
+
+**Resposta**: Estas questões devem ser transparentes. Se continuarem, contacte o suporte selecionando **Novo pedido** de suporte na secção Suporte + resolução de **problemas,** no portal Azure para o seu recurso Personalizer.
+
+</details>
+
+## <a name="learning-loop"></a>Ciclo de aprendizagem
+
+<details>
+<summary>
+<b>O ciclo de aprendizagem não parece aprender. Como posso resolver isto?</b></summary>
+
+**Resposta**: O ciclo de aprendizagem precisa de alguns milhares de chamadas de recompensa antes que as chamadas de Rank priorizem eficazmente.
+
+Se não tem a certeza de como o seu ciclo de aprendizagem se está a comportar, faça uma [avaliação offline](concepts-offline-evaluation.md)e aplique a política de aprendizagem corrigida.
+
+</details>
+
+<details>
+<summary><b>Continuo a obter resultados de classificação com todas as mesmas probabilidades para todos os itens. Como sei que o Personalizer está a aprender?</b></summary>
+
+**Resposta**: O Personalizer devolve as mesmas probabilidades num resultado de API de Rank quando acaba de começar e tem um modelo _vazio,_ ou quando reinicia o Personalizer Loop, e o seu modelo ainda se encontra dentro do período de frequência de atualização do **Modelo.**
+
+Quando o novo período de atualização começar, o modelo atualizado é utilizado e verá que as probabilidades mudam.
+
+</details>
+
+<details>
+<summary><b>O ciclo de aprendizagem foi aprendendo, mas parece não aprender mais, e a qualidade dos resultados do Rank não é tão boa. O que devo fazer?</b></summary>
+
+**Resposta:**
+* Certifique-se de que concluiu e aplicou uma avaliação no portal Azure para esse recurso Personalizer (ciclo de aprendizagem).
+* Certifique-se de que todas as recompensas são enviadas, através da API recompensa, e processadas.
+
+</details>
 
 
-## <a name="learning-loop"></a>Loop de aprendizagem
+<details>
+<summary><b>Como sei que o ciclo de aprendizagem está a ser atualizado regularmente e é usado para marcar os meus dados?</b></summary>
 
-<!--
+**Resposta**: Pode encontrar o momento em que o modelo foi atualizado pela última vez na página de Definições de **Modelo e Aprendizagem** do portal Azure. Se vir um carimbo de tempo antigo, é provável que não esteja a enviar as chamadas de Rank and Reward. Se o serviço não tiver dados de entrada, não atualiza a aprendizagem. Se vir que o ciclo de aprendizagem não está a ser atualizado com frequência, pode editar a frequência de **Atualização**do Modelo do loop .
 
-### How do I import a learning policy?
-
-
--->
-
-### <a name="the-learning-loop-doesnt-seem-to-learn-how-do-i-fix-this"></a>O loop de aprendizagem parece não aprender. Como fazer corrigir isso?
-
-O loop de aprendizagem precisa de alguns mil pontos de recompensa para que as chamadas de classificação sejam priorizadas com eficiência.
-
-Se você não tiver certeza sobre como seu loop de aprendizado está sendo usado no momento, execute uma [avaliação offline](concepts-offline-evaluation.md)e aplique a política de aprendizado corrigida.
-
-### <a name="i-keep-getting-rank-results-with-all-the-same-probabilities-for-all-items-how-do-i-know-personalizer-is-learning"></a>Continuo obtendo resultados de classificação com todas as mesmas probabilidades para todos os itens. Como fazer sabe que o personalizador está aprendendo?
-
-O personalizador retorna as mesmas probabilidades em um resultado de API de classificação quando ele acabou de ser iniciado e tem um modelo _vazio_ , ou quando você redefine o loop personalizador, e seu modelo ainda está dentro do período de **frequência de atualização do modelo** .
-
-Quando o novo período de atualização começar, o modelo atualizado será usado e você verá as probabilidades de alteração.
-
-### <a name="the-learning-loop-was-learning-but-seems-to-not-learn-anymore-and-the-quality-of-the-rank-results-isnt-that-good-what-should-i-do"></a>O loop de aprendizagem estava aprendendo, mas parece não saber mais, e a qualidade dos resultados da classificação não é boa. O que devo fazer?
-
-* Verifique se você concluiu e aplicou uma avaliação no portal do Azure para esse recurso personalizado (loop de aprendizagem).
-* Verifique se todas as recompensas foram enviadas, por meio da API de recompensa e processadas.
-
-### <a name="how-do-i-know-that-the-learning-loop-is-getting-updated-regularly-and-is-used-to-score-my-data"></a>Como fazer saber que o loop de aprendizagem está sendo atualizado regularmente e é usado para pontuar meus dados?
-
-Você pode encontrar a hora em que o modelo foi atualizado pela última vez na página de **configurações modelo e aprendizado** da portal do Azure. Se você vir um carimbo de data/hora antigo, é provável que você não esteja enviando as chamadas de classificação e recompensa. Se o serviço não tiver dados de entrada, ele não atualizará o aprendizado. Se você vir que o loop de aprendizagem não está atualizando com frequência suficiente, você poderá editar a **frequência de atualização do modelo**do loop.
-
+</details>
 
 ## <a name="offline-evaluations"></a>Avaliações offline
 
-### <a name="an-offline-evaluations-feature-importance-returns-a-long-list-with-hundreds-or-thousands-of-items-what-happened"></a>A importância de um recurso de uma avaliação offline retorna uma longa lista com centenas ou milhares de itens. O que aconteceu?
+<details>
+<summary><b>A importância da funcionalidade de uma avaliação offline devolve uma longa lista com centenas ou milhares de itens. O que aconteceu?</b></summary>
 
-Isso normalmente ocorre devido a carimbos de data/hora, IDs de usuário ou alguns outros recursos refinados enviados no.
+**Resposta**: Isto deve-se tipicamente a carimbos de tempo, iDs de utilizador ou algumas outras funcionalidades de grãos finos enviadas.
 
-### <a name="i-created-an-offline-evaluation-and-it-succeeded-almost-instantly-why-is-that-i-dont-see-any-results"></a>Criei uma avaliação offline e ela foi bem-sucedida quase instantaneamente. Porquê? Não vejo nenhum resultado?
+</details>
 
-A avaliação offline usa os dados de modelo treinados dos eventos nesse período de tempo. Se você não enviou dados no período de tempo entre a hora de início e de término da avaliação, ele será concluído sem nenhum resultado. Envie uma nova avaliação offline selecionando um intervalo de tempo com eventos que você conhece que foram enviados ao personalizador.
+<details>
+<summary><b>Criei uma avaliação offline e conseguiquase instantaneamente. E porquê? Não vejo resultados?</b></summary>
+
+**Resposta**: A avaliação offline utiliza os dados do modelo treinados dos eventos nesse período de tempo. Se não tiver enviado quaisquer dados no período de tempo entre o início e o fim da avaliação, irá completar sem quaisquer resultados. Envie uma nova avaliação offline selecionando um intervalo de tempo com eventos que sabe terem sido enviados para personalizer.
+
+</details>
+
 
 ## <a name="learning-policy"></a>Política de aprendizagem
 
-### <a name="how-do-i-import-a-learning-policy"></a>Como fazer importar uma política de aprendizado?
+<details>
+<summary><b>Como posso importar uma política de aprendizagem?</b></summary>
 
-Saiba mais sobre [conceitos de política de aprendizado](concept-active-learning.md#understand-learning-policy-settings) e [como aplicar](how-to-learning-policy.md) uma nova política de aprendizado. Se você não quiser selecionar uma política de aprendizado, poderá usar a [avaliação offline](how-to-offline-evaluation.md) para sugerir uma política de aprendizado com base em seus eventos atuais.
+**Resposta**: Saiba mais sobre [conceitos](concept-active-learning.md#understand-learning-policy-settings) de política de aprendizagem e [como aplicar](how-to-learning-policy.md) uma nova política de aprendizagem. Se não quiser selecionar uma política de aprendizagem, pode usar a [avaliação offline](how-to-offline-evaluation.md) para sugerir uma política de aprendizagem, com base nos seus eventos atuais.
 
+</details>
 
 ## <a name="security"></a>Segurança
 
-### <a name="the-api-key-for-my-loop-has-been-compromised-what-can-i-do"></a>A chave de API para meu loop foi comprometida. O que posso fazer?
+<details>
+<summary><b>A chave API para o meu loop foi comprometida. O que posso fazer?</b></summary>
 
-Você pode regenerar uma chave depois de trocar seus clientes para usar a outra chave. Ter duas chaves permite propagar a chave de maneira lenta sem ter que ter qualquer tempo de inatividade. É recomendável fazer isso em um ciclo regular como uma medida de segurança.
+**Resposta:** Pode regenerar uma tecla depois de trocar os seus clientes para utilizar a outra tecla. Ter duas chaves permite-lhe propagar a chave de forma preguiçosa sem ter de ter tempo de descanso. Recomendamos que o faça num ciclo regular como medida de segurança.
 
+</details>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Configurar a frequência de atualização do modelo](how-to-settings.md#model-update-frequency)
+[Configure a frequência de atualização do modelo](how-to-settings.md#model-update-frequency)
