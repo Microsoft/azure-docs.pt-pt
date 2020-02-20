@@ -1,5 +1,5 @@
 - name: Documentação dos Serviços de Multimédia
-  href: index.md
+  href: index.yml
 - name: Descrição geral
   href: media-services-overview.md
   items:
