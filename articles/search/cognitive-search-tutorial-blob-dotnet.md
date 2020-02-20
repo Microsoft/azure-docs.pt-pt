@@ -1,81 +1,81 @@
 ---
-title: 'Tutorial: criar um conconhecimento em C# usando o .net'
+title: 'Tutorial: Criar um C# skillset na utilização de .NET'
 titleSuffix: Azure Cognitive Search
-description: Percorrer código de exemplo mostrando extração de dados, linguagem natural e processamento de ia de imagem em um pipeline de indexação de enriquecimento de Pesquisa Cognitiva do Azure.
+description: Pise no código de exemplo mostrando a extração de dados, a linguagem natural e o processamento de IA de imagem num pipeline de indexação de enriquecimento de pesquisa cognitiva Azure.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: beea911c9bb938458d8bd12e091e6c908ebb1566
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: efd4a9333b5fb02c18b2f6a6d0f8ce58bfb8f220
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185695"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472388"
 ---
-# <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Tutorial: criar um pipeline de enriquecimento de ia usando C# o e o SDK do .net
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Tutorial: Criar um oleoduto C# de enriquecimento de IA utilizando e o .NET SDK
 
-Neste tutorial, você aprende a mecânica do enriquecimento de dados de programação no Azure Pesquisa Cognitiva usando *habilidades cognitivas*. As habilidades são apoiadas por recursos de análise de imagem e NLP (processamento de idioma natural) em serviços cognitivas. Por meio de composição e configuração do consentset, você pode extrair texto e representações de texto de uma imagem ou arquivo de documento digitalizado. Você também pode detectar idioma, entidades, frases-chave e muito mais. O resultado final é um conteúdo adicional extra em um índice de pesquisa, criado por um pipeline de indexação alimentado por ia.
+Neste tutorial, aprende-se a mecânica do enriquecimento de dados de programação na Pesquisa Cognitiva Azure utilizando *habilidades cognitivas.* As competências são apoiadas pelo processamento de linguagem natural (NLP) e pelas capacidades de análise de imagem nos Serviços Cognitivos. Através da composição e configuração do skillset, pode extrair representações de texto e texto de uma imagem ou ficheiro de documento digitalizado. Também pode detetar linguagem, entidades, frases-chave e muito mais. O resultado final é rico em conteúdo adicional num índice de pesquisa, criado por um pipeline de indexação movido a IA.
 
-Neste tutorial, você usa o SDK do .NET para executar as seguintes tarefas:
+Neste tutorial, utiliza o .NET SDK para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar um pipeline de indexação para melhorar os dados de exemplo na rota para um índice
-> * Aplique habilidades internas: reconhecimento óptico de caracteres, fusão de texto, detecção de idioma, divisão de texto, reconhecimento de entidade, extração de frases-chave
+> * Aplicar competências incorporadas: reconhecimento ótico de caracteres, fusão de texto, deteção de linguagem, divisão de texto, reconhecimento de entidades, extração de frases-chave
 > * Saber como encadear competências em conjunto através do mapeamento de entradas para saídas num conjunto de competências
 > * Executar pedidos e rever resultados
 > * Repor o índice e os indexadores para desenvolvimento adicional
 
-A saída é um índice pesquisável de texto completo no Azure Pesquisa Cognitiva. Pode melhorar o índice com outras funcionalidades standard, tais como [sinónimos](search-synonyms.md), [perfis de classificação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analisadores](search-analyzers.md) e [filtros](search-filters.md).
+A saída é um índice pesquisável de texto completo na Pesquisa Cognitiva Azure. Pode melhorar o índice com outras funcionalidades standard, tais como [sinónimos](search-synonyms.md), [perfis de classificação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analisadores](search-analyzers.md) e [filtros](search-filters.md).
 
-Este tutorial é executado no serviço gratuito, mas o número de transações gratuitas é limitado a 20 documentos por dia. Se você quiser executar este tutorial mais de uma vez no mesmo dia, use um conjunto de arquivos menor para que você possa se ajustar a mais execuções.
+Este tutorial funciona no serviço Gratuito, mas o número de transações gratuitas é limitado a 20 documentos por dia. Se quiser executar este tutorial mais de uma vez no mesmo dia, elimine o indexante para repor o contador.
 
 > [!NOTE]
-> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará anexar um recurso de serviços cognitivas cobráveis. As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
+> À medida que expande o âmbito aumentando a frequência do processamento, adicionando mais documentos, ou adicionando mais algoritmos de IA, terá de anexar um recurso de Serviços Cognitivos faturados. As acusações acumulam-se quando se ligam para apis em Serviços Cognitivos, e para extração de imagem como parte da fase de quebra de documentos na Pesquisa Cognitiva Azure. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Os preços de extração de imagem são descritos na página de preços da [Pesquisa Cognitiva Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os serviços, as ferramentas e os dados a seguir são usados neste tutorial. 
+Os seguintes serviços, ferramentas e dados são utilizados neste tutorial. 
 
-+ [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de exemplo. Verifique se a conta de armazenamento está na mesma região que o Azure Pesquisa Cognitiva.
++ [Crie uma conta](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) de armazenamento Azure para armazenar os dados da amostra. Certifique-se de que a conta de armazenamento está na mesma região que a Pesquisa Cognitiva Azure.
 
-+ [Os dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consistem em um pequeno conjunto de arquivos de tipos diferentes. 
++ [Os dados](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) da amostra consistem num pequeno conjunto de ficheiros de diferentes tipos. 
 
-+ [Instale o Visual Studio](https://visualstudio.microsoft.com/) para usar como o IDE.
++ [Instale](https://visualstudio.microsoft.com/) o Estúdio Visual para utilizar como IDE.
 
-+ [Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este tutorial.
++ [Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Você pode usar um serviço gratuito para este tutorial.
 
-## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
+## <a name="get-a-key-and-url"></a>Obtenha uma chave e URL
 
-Para interagir com o serviço de Pesquisa Cognitiva do Azure, você precisará da URL do serviço e de uma chave de acesso. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Pesquisa Cognitiva à sua assinatura, siga estas etapas para obter as informações necessárias:
+Para interagir com o seu serviço de Pesquisa Cognitiva Azure vai precisar do URL de serviço e de uma chave de acesso. Um serviço de pesquisa é criado com ambos, por isso, se você adicionar Pesquisa Cognitiva Azure à sua subscrição, siga estes passos para obter as informações necessárias:
 
-1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
+1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página de **visão geral** do seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **Definições** > **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
 
-   ![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+   ![Obtenha um ponto final http e chave de acesso](media/search-get-started-postman/get-url-key.png "Obtenha um ponto final http e chave de acesso")
 
 Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
-## <a name="prepare-sample-data"></a>Preparar dados de exemplo
+## <a name="prepare-sample-data"></a>Preparar dados da amostra
 
-O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os dados de origem devem originar-se de um tipo de fonte de dados com suporte de um [indexador pesquisa cognitiva do Azure](search-indexer-overview.md). Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
+O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os dados de origem devem ter origem num tipo de fonte de dados suportado de um [indexador](search-indexer-overview.md)de pesquisa cognitiva Azure . Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
 
-1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, clique em **BLOBs**e, em seguida, clique em **+ contêiner**.
+1. [Inscreva-se no portal Azure,](https://portal.azure.com)navegue na sua conta de armazenamento Azure, clique em **Blobs,** e depois clique em **+ Recipiente**.
 
-1. [Crie um contêiner de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Você pode definir o nível de acesso público para qualquer um de seus valores válidos. Este tutorial pressupõe que o nome do contêiner seja "Basic-demo-data-PR".
+1. [Crie um recipiente Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados da amostra. Pode definir o Nível de Acesso Público a qualquer um dos seus valores válidos. Este tutorial assume que o nome do recipiente é "basic-demo-data-pr".
 
-1. Depois que o contêiner for criado, abra-o e selecione **carregar** na barra de comandos para carregar os [dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4).
+1. Depois de criado o recipiente, abra-o e **selecione Upload** na barra de comando para carregar os dados da [amostra](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4).
 
    ![Ficheiros de origem no armazenamento de blobs do Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. Depois de os ficheiros de exemplo serem carregados, obtenha o nome do contentor e uma cadeia de ligação para o seu armazenamento de Blobs. Você pode fazer isso navegando até sua conta de armazenamento no portal do Azure, selecionando **chaves de acesso**e, em seguida, copia o campo de **cadeia de conexão** .
+1. Depois de os ficheiros de exemplo serem carregados, obtenha o nome do contentor e uma cadeia de ligação para o seu armazenamento de Blobs. Pode fazê-lo navegando na sua conta de armazenamento no portal Azure, selecionando **teclas de Acesso**e, em seguida, copiar o campo **De linha de ligação.**
 
    A cadeia de ligação deve ter um URL semelhante ao seguinte exemplo:
 
@@ -87,25 +87,25 @@ Existem outras formas de especificar a cadeia de ligação, por exemplo, fornece
 
 ## <a name="set-up-your-environment"></a>Configurar o ambiente
 
-Comece abrindo o Visual Studio e criando um novo projeto de aplicativo de console que pode ser executado no .NET Core.
+Comece por abrir o Visual Studio e criar um novo projeto de App console que possa funcionar em .NET Core.
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-O [SDK do .net pesquisa cognitiva do Azure](https://aka.ms/search-sdk) consiste em algumas bibliotecas de cliente que permitem gerenciar seus índices, fontes de dados, indexadores e habilidades, bem como carregar e gerenciar documentos e executar consultas, tudo isso sem precisar lidar com os detalhes de http e JSON. Essas bibliotecas de cliente são todas distribuídas como pacotes NuGet.
+O [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk) é composto por algumas bibliotecas de clientes que lhe permitem gerir os seus índices, fontes de dados, indexadores e competências, bem como carregar e gerir documentos e executar consultas, tudo sem ter de lidar com os detalhes de HTTP e JSON. Estas bibliotecas de clientes estão todas distribuídas como pacotes NuGet.
 
-Para este projeto, você precisará instalar a versão 9 do pacote `Microsoft.Azure.Search` NuGet e o mais recente `Microsoft.Extensions.Configuration.Json` pacote NuGet.
+Para este projeto, terá de instalar a versão 9 do pacote nuGet `Microsoft.Azure.Search` e o mais recente pacote NuGet `Microsoft.Extensions.Configuration.Json`.
 
-Instale o `Microsoft.Azure.Search` pacote NuGet usando o console do Gerenciador de pacotes no Visual Studio. Para abrir o console do Gerenciador de pacotes, selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**. Para obter o comando a ser executado, navegue até a [página Microsoft. Azure. Search NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Search), selecione versão 9 e copie o comando Package Manager. No console do Gerenciador de pacotes, execute este comando.
+Instale o pacote nuGet `Microsoft.Azure.Search` utilizando a consola Package Manager no Estúdio Visual. Para abrir a consola do Gestor de **Pacotes,** selecione Ferramentas > **NuGet Package Manager** > **Consola de Gestor de Pacotes**. Para obter o comando executado, navegue para a página de [pacotes Microsoft.Azure.Search NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search), selecione a versão 9 e copie o comando do Gestor de Pacotes. Na consola do Gestor de Pacotes, execute este comando.
 
-Para instalar o `Microsoft.Extensions.Configuration.Json` pacote NuGet no Visual Studio, selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **gerenciar pacotes NuGet para solução...** . Selecione procurar e pesquise o `Microsoft.Extensions.Configuration.Json` pacote NuGet. Depois de encontrá-lo, selecione o pacote, selecione o projeto, confirme se a versão é a versão estável mais recente e, em seguida, selecione instalar.
+Para instalar o pacote nuGet `Microsoft.Extensions.Configuration.Json` no Estúdio Visual, selecione **Tools** > **NuGet Package Manager** > Gerir **pacotes NuGet para solução...** . Selecione Procurar e procurar o pacote nuGet `Microsoft.Extensions.Configuration.Json`. Assim que o encontrar, selecione o pacote, selecione o seu projeto, confirme que a versão é a versão mais recente e estável e, em seguida, selecione Instalar.
 
-## <a name="add-azure-cognitive-search-service-information"></a>Adicionar informações do serviço de Pesquisa Cognitiva do Azure
+## <a name="add-azure-cognitive-search-service-information"></a>Adicione informações do serviço de pesquisa cognitiva Azure
 
-Para se conectar ao serviço de Pesquisa Cognitiva do Azure, você precisará adicionar as informações do serviço de pesquisa ao seu projeto. Clique com o botão direito do mouse em seu projeto na Gerenciador de Soluções e selecione **adicionar** > **novo item...** . Nomeie o arquivo `appsettings.json` e selecione **Adicionar**. 
+Para se ligar ao seu serviço de Pesquisa Cognitiva Azure, terá de adicionar as informações do serviço de pesquisa ao seu projeto. Clique no seu projeto no Solution Explorer e selecione **Adicionar** > **Novo Item...** . Nomeie o ficheiro `appsettings.json` e selecione **Adicionar**. 
 
-Esse arquivo precisará ser incluído no diretório de saída. Para fazer isso, clique com o botão direito do mouse em `appsettings.json` e selecione **Propriedades**. Altere o valor de **copiar para diretório de saída** para **copiar se mais recente**.
+Este ficheiro terá de ser incluído no seu diretório de saída. Para isso, clique à direita na `appsettings.json` e selecione **Propriedades**. Alterar o valor de **Copy para 'Diretório de Saída'** para **Copiar se for mais recente**.
 
-Copie o JSON abaixo em seu novo arquivo JSON.
+Copie o JSON abaixo no seu novo ficheiro JSON.
 
 ```json
 {
@@ -116,15 +116,15 @@ Copie o JSON abaixo em seu novo arquivo JSON.
 }
 ```
 
-Adicione suas informações de conta de armazenamento de BLOB e serviço de pesquisa.
+Adicione o seu serviço de pesquisa e informações de conta de armazenamento blob.
 
-Você pode obter as informações do serviço de pesquisa na página da sua conta de pesquisa no portal do Azure. O nome da conta estará na página principal e as chaves poderão ser encontradas selecionando **chaves**.
+Pode obter os seus dados do serviço de pesquisa na sua página de conta de pesquisa no portal Azure. O nome da conta estará na página principal e as teclas podem ser encontradas selecionando **Teclas**.
 
-Você pode obter a cadeia de conexão de blob navegando até sua conta de armazenamento no portal do Azure, selecionando **chaves de acesso**e copiando o campo **cadeia de conexão** .
+Pode obter a cadeia de ligação blob navegando para a sua conta de armazenamento no portal Azure, selecionando **teclas de Acesso**e, em seguida, copiando o campo **De linha de ligação.**
 
-## <a name="add-namespaces"></a>Adicionar namespaces
+## <a name="add-namespaces"></a>Adicionar espaços de nome
 
-Este tutorial usa vários tipos diferentes de vários namespaces. Para usar esses tipos, adicione o seguinte a `Program.cs`.
+Este tutorial utiliza vários tipos diferentes de vários espaços de nome. Para utilizar estes tipos, adicione o seguinte à `Program.cs`.
 
 ```csharp
 using System;
@@ -136,7 +136,7 @@ using Microsoft.Extensions.Configuration;
 
 ## <a name="create-a-client"></a>Criar um cliente
 
-Crie uma instância da classe `SearchServiceClient`.
+Criar um exemplo da classe `SearchServiceClient`.
 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -144,7 +144,7 @@ IConfigurationRoot configuration = builder.Build();
 SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 ```
 
-`CreateSearchServiceClient` cria um novo `SearchServiceClient` usando valores que são armazenados no arquivo de configuração do aplicativo (appSettings. JSON).
+`CreateSearchServiceClient` cria um novo `SearchServiceClient` utilizando valores que são armazenados no ficheiro config da aplicação (appsettings.json).
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -164,9 +164,9 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 ## <a name="create-a-data-source"></a>Criar uma origem de dados
 
-Crie uma nova instância de `DataSource` chamando `DataSource.AzureBlobStorage`. `DataSource.AzureBlobStorage` requer que você especifique o nome da fonte de dados, a cadeia de conexão e o nome do contêiner de BLOB.
+Crie um novo exemplo `DataSource` chamando `DataSource.AzureBlobStorage`. `DataSource.AzureBlobStorage` requer que especifique o nome da fonte de dados, a cadeia de ligação e o nome do recipiente blob.
 
-Embora não seja usado neste tutorial, uma política de exclusão reversível também é definida, que é usada para identificar BLOBs excluídos com base no valor de uma coluna de exclusão reversível. A política a seguir considera um blob a ser excluído se ele tiver uma propriedade de metadados `IsDeleted` com o valor `true`.
+Embora não seja usado neste tutorial, uma política de eliminação suave também é definida que é usada para identificar bolhas apagadas com base no valor de uma coluna de eliminação suave. A seguinte política considera que uma bolha deve ser eliminada se tiver uma propriedade de metadados `IsDeleted` com o valor `true`.
 
 ```csharp
 DataSource dataSource = DataSource.AzureBlobStorage(
@@ -179,9 +179,9 @@ DataSource dataSource = DataSource.AzureBlobStorage(
     description: "Demo files to demonstrate cognitive search capabilities.");
 ```
 
-Agora que você inicializou o objeto `DataSource`, crie a fonte de dados. `SearchServiceClient` tem uma propriedade `DataSources`. Essa propriedade fornece todos os métodos necessários para criar, listar, atualizar ou excluir fontes de dados do Azure Pesquisa Cognitiva.
+Agora que ininicializou o objeto `DataSource`, crie a fonte de dados. `SearchServiceClient` tem uma propriedade `DataSources`. Esta propriedade fornece todos os métodos necessários para criar, listar, atualizar ou eliminar fontes de dados de Pesquisa Cognitiva Azure.
 
-Para uma solicitação bem-sucedida, o método retornará a fonte de dados que foi criada. Se houver um problema com a solicitação, como um parâmetro inválido, o método gerará uma exceção.
+Para um pedido bem sucedido, o método devolverá a fonte de dados que foi criada. Se houver algum problema com o pedido, como um parâmetro inválido, o método lançará uma exceção.
 
 ```csharp
 try
@@ -194,27 +194,27 @@ catch (Exception e)
 }
 ```
 
-Como essa é sua primeira solicitação, verifique o portal do Azure para confirmar se a fonte de dados foi criada no Azure Pesquisa Cognitiva. Na página do dashboard do serviço de pesquisa, verifique se o mosaico Origens de Dados tem um novo item. Poderá ter de aguardar alguns minutos para a página do portal atualizar.
+Uma vez que este é o seu primeiro pedido, consulte o portal Azure para confirmar que a fonte de dados foi criada na Pesquisa Cognitiva Azure. Na página do dashboard do serviço de pesquisa, verifique se o mosaico Origens de Dados tem um novo item. Poderá ter de aguardar alguns minutos para a página do portal atualizar.
 
-  ![Bloco de fontes de dados no portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Bloco de fontes de dados no portal")
+  ![Fontes de dados azulejos no portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Fontes de dados azulejos no portal")
 
 ## <a name="create-a-skillset"></a>Criar um conjunto de competências
 
-Nesta seção, você define um conjunto de etapas de enriquecimento que deseja aplicar aos seus dados. Cada etapa de enriqueceção é chamada de *habilidade* e o conjunto de etapas de enriquecimento é uma *habilidade*. Este tutorial usa [habilidades cognitivas internas](cognitive-search-predefined-skills.md) para o contratador de habilidades:
+Nesta secção, define um conjunto de passos de enriquecimento que pretende aplicar aos seus dados. Cada passo de enriquecimento é chamado de *habilidade* e o conjunto de passos de enriquecimento um conjunto de *habilidades.* Este tutorial usa [habilidades cognitivas incorporadas](cognitive-search-predefined-skills.md) para o skillset:
 
-+ [Reconhecimento óptico de caracteres](cognitive-search-skill-ocr.md) para reconhecer texto impresso e manuscrito em arquivos de imagem.
++ [Reconhecimento ótico de caracteres](cognitive-search-skill-ocr.md) para reconhecer texto impresso e manuscrito em ficheiros de imagem.
 
-+ [Fusão de texto](cognitive-search-skill-textmerger.md) para consolidar o texto de uma coleção de campos em um único campo.
++ [Fusão](cognitive-search-skill-textmerger.md) de texto para consolidar texto de uma coleção de campos num único campo.
 
 + [Deteção de Idioma](cognitive-search-skill-language-detection.md) para identificar o idioma do conteúdo.
 
-+ [Divida o texto](cognitive-search-skill-textsplit.md) para dividir o conteúdo grande em partes menores antes de chamar a habilidade de extração de frases-chave e a habilidade de reconhecimento de entidade. Extração de frases-chave e reconhecimento de entidade aceitam entradas de 50.000 caracteres ou menos. Alguns dos ficheiros de exemplo precisam de ser divididos para caberem dentro deste limite.
++ [Text Split](cognitive-search-skill-textsplit.md) para quebrar grandes conteúdos em pedaços menores antes de chamar a habilidade de extração de frases-chave e a habilidade de reconhecimento da entidade. A extração de frases-chave e o reconhecimento da entidade aceitam inputs de 50.000 caracteres ou menos. Alguns dos ficheiros de exemplo precisam de ser divididos para caberem dentro deste limite.
 
-+ [Reconhecimento de entidade](cognitive-search-skill-entity-recognition.md) para extrair os nomes de organizações do conteúdo no contêiner de BLOB.
++ [Reconhecimento de entidades](cognitive-search-skill-entity-recognition.md) para extrair os nomes das organizações de conteúdos no recipiente blob.
 
 + [Extração de Expressões-Chave](cognitive-search-skill-keyphrases.md) para solicitar as principais expressões-chaves.
 
-Durante o processamento inicial, o Azure Pesquisa Cognitiva rachadura cada documento para ler o conteúdo de diferentes formatos de arquivo. O texto encontrado proveniente do ficheiro de origem é colocado num campo ```content``` gerado (um para cada documento). Como tal, defina a entrada como ```"/document/content"``` para usar esse texto. 
+Durante o processamento inicial, a Pesquisa Cognitiva Azure quebra cada documento para ler conteúdo a partir de diferentes formatos de ficheiros. O texto encontrado proveniente do ficheiro de origem é colocado num campo ```content``` gerado (um para cada documento). Como tal, detete a entrada para que ```"/document/content"``` utilize este texto. 
 
 As saídas podem ser mapeadas para um índice, utilizadas como entradas para uma competência a jusante ou ambas, como é o caso do código de idioma. No índice, o código de idioma é útil para a filtragem. Como entrada, o código de idioma é utilizado pelas competências de análise de texto para informar sobre as regras linguísticas em torno da separação de palavras.
 
@@ -222,7 +222,7 @@ Para obter mais informações acerca das noções básicas do conjunto de compet
 
 ### <a name="ocr-skill"></a>Habilidade de OCR
 
-A habilidade de **OCR** extrai texto de imagens. Essa habilidade pressupõe que exista um campo de normalized_images. Para gerar esse campo, mais adiante no tutorial, vamos definir a configuração de ```"imageAction"``` na definição do indexador como ```"generateNormalizedImages"```.
+A habilidade **OCR** extrai texto de imagens. Esta habilidade pressupõe que existe um campo normalized_images. Para gerar este campo, mais tarde no tutorial vamos definir a configuração ```"imageAction"``` na definição indexante para ```"generateNormalizedImages"```.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -244,9 +244,9 @@ OcrSkill ocrSkill = new OcrSkill(
     shouldDetectOrientation: true);
 ```
 
-### <a name="merge-skill"></a>Mesclar habilidade
+### <a name="merge-skill"></a>Habilidade de fusão
 
-Nesta seção, você criará uma habilidade de **mesclagem** que mescla o campo de conteúdo do documento com o texto que foi produzido pela habilidade de OCR.
+Nesta secção, criará uma habilidade **de Fusão** que combina o campo de conteúdo de documentos com o texto produzido pela habilidade OCR.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -274,9 +274,9 @@ MergeSkill mergeSkill = new MergeSkill(
     insertPostTag: " ");
 ```
 
-### <a name="language-detection-skill"></a>Habilidade de detecção de idioma
+### <a name="language-detection-skill"></a>Habilidade de deteção de linguagem
 
-A **detecção de idioma** habilidade detecta o idioma do texto de entrada e relata um único código de idioma para cada documento enviado na solicitação. Usaremos a saída da **detecção de idioma** habilidade como parte da entrada para a habilidade de divisão de **texto** .
+A habilidade de **Deteção de Idiomas** deteta a linguagem do texto de entrada e reporta um único código linguístico para cada documento submetido a pedido. Usaremos a saída da habilidade de **deteção** de idiomas como parte da entrada para a habilidade **text split.**
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -296,9 +296,9 @@ LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
     outputs: outputMappings);
 ```
 
-### <a name="text-split-skill"></a>Habilidade de divisão de texto
+### <a name="text-split-skill"></a>Habilidade dividida de texto
 
-A habilidade de **divisão** abaixo dividirá o texto por páginas e limitará o comprimento da página a 4.000 caracteres conforme medido por `String.Length`. O algoritmo tentará dividir o texto em partes que tenham no máximo `maximumPageLength` de tamanho. Nesse caso, o algoritmo fará o melhor para quebrar a frase em um limite de frase, de modo que o tamanho da parte pode ser um pouco menor que `maximumPageLength`.
+A habilidade abaixo **Split** dividirá texto por páginas e limitará o comprimento da página a 4.000 caracteres medido si `String.Length`. O algoritmo tentará dividir o texto em pedaços que são, no máximo, `maximumPageLength` tamanho. Neste caso, o algoritmo fará o seu melhor para quebrar a frase num limite de sentença, pelo que o tamanho do pedaço pode ser ligeiramente inferior a `maximumPageLength`.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -323,11 +323,11 @@ SplitSkill splitSkill = new SplitSkill(
     maximumPageLength: 4000);
 ```
 
-### <a name="entity-recognition-skill"></a>Habilidade de reconhecimento de entidade
+### <a name="entity-recognition-skill"></a>Competência de reconhecimento de entidades
 
-Esta instância de `EntityRecognitionSkill` está definida para reconhecer o tipo de categoria `organization`. A habilidade de **reconhecimento de entidade** também pode reconhecer tipos de categoria `person` e `location`.
+Esta `EntityRecognitionSkill` instância está definida para reconhecer o tipo de categoria `organization`. A habilidade de Reconhecimento de **Entidades** também pode reconhecer os tipos de categorias `person` e `location`.
 
-Observe que o campo "contexto" é definido como ```"/document/pages/*"``` com um asterisco, o que significa que a etapa de enriquecimento é chamada para cada página em ```"/document/pages"```.
+Note que o campo "contexto" está definido para ```"/document/pages/*"``` com um asterisco, o que significa que o passo de enriquecimento é chamado para cada página sob ```"/document/pages"```.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -352,9 +352,9 @@ EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
     defaultLanguageCode: EntityRecognitionSkillLanguage.En);
 ```
 
-### <a name="key-phrase-extraction-skill"></a>Habilidade de extração de frases-chave
+### <a name="key-phrase-extraction-skill"></a>Habilidade de extração de frase chave
 
-Como a instância de `EntityRecognitionSkill` que acabou de ser criada, a habilidade de **extração de frases-chave** é chamada para cada página do documento.
+Tal como o `EntityRecognitionSkill` instância que acabou de ser criada, a habilidade de extração de **frases-chave** é chamada para cada página do documento.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -377,9 +377,9 @@ KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill
     outputs: outputMappings);
 ```
 
-### <a name="build-and-create-the-skillset"></a>Compilar e criar o conconhecimento
+### <a name="build-and-create-the-skillset"></a>Construir e criar a habilidade
 
-Crie o `Skillset` usando as habilidades que você criou.
+Construa o `Skillset` usando as habilidades que criou.
 
 ```csharp
 List<Skill> skills = new List<Skill>();
@@ -396,7 +396,7 @@ Skillset skillset = new Skillset(
     skills: skills);
 ```
 
-Crie o conconhecimento em seu serviço de pesquisa.
+Crie a habilidade no seu serviço de pesquisa.
 
 ```csharp
 try
@@ -422,18 +422,18 @@ Neste exercício, utiliza os seguintes campos e tipos de campo:
 
 ### <a name="create-demoindex-class"></a>Criar classe DemoIndex
 
-Os campos para esse índice são definidos usando uma classe de modelo. Cada propriedade da classe do modelo tem atributos que determinam os comportamentos relacionados com a pesquisa do campo de índice correspondente. 
+Os campos para este índice são definidos usando uma classe modelo. Cada propriedade da classe do modelo tem atributos que determinam os comportamentos relacionados com a pesquisa do campo de índice correspondente. 
 
-Adicionaremos a classe de modelo a um novo C# arquivo. Clique com o botão direito do mouse no projeto e selecione **adicionar** > **novo item...** , selecione "classe" e nomeie o arquivo `DemoIndex.cs`e, em seguida, selecione **Adicionar**.
+Vamos adicionar a classe modelo C# a um novo ficheiro. Clique no seu projeto e selecione **Adicionar** > **Novo Item...** selecione "Class" e nomeie o ficheiro `DemoIndex.cs`, em seguida, selecione **Adicionar**.
 
-Certifique-se de indicar que você deseja usar tipos dos namespaces `Microsoft.Azure.Search` e `Microsoft.Azure.Search.Models`.
+Certifique-se de que pretende utilizar tipos dos espaços de nome `Microsoft.Azure.Search` e `Microsoft.Azure.Search.Models`.
 
 ```csharp
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
 ```
 
-Adicione a definição de classe de modelo abaixo para `DemoIndex.cs` e inclua-a no mesmo namespace em que você criará o índice.
+Adicione a definição de classe de modelo abaixo para `DemoIndex.cs` e inclua-a no mesmo espaço de nome onde irá criar o índice.
 
 ```csharp
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Cognitive Search .NET SDK.
@@ -460,7 +460,7 @@ public class DemoIndex
 }
 ```
 
-Agora que você definiu uma classe de modelo, de volta no `Program.cs` você pode criar uma definição de índice com bastante facilidade. O nome desse índice será "demoindex".
+Agora que definiu uma classe modelo, de volta ao `Program.cs` pode criar uma definição de índice facilmente. O nome deste índice será "demoindex".
 
 ```csharp
 var index = new Index()
@@ -470,7 +470,7 @@ var index = new Index()
 };
 ```
 
-Durante os testes, você pode achar que está tentando criar o índice mais de uma vez. Por isso, verifique se o índice que você está prestes a criar já existe antes de tentar criá-lo.
+Durante os testes poderá descobrir que está a tentar criar o índice mais de uma vez. Por causa disso, verifique se o índice que está prestes a criar já existe antes de tentar criá-lo.
 
 ```csharp
 try
@@ -490,17 +490,17 @@ catch (Exception e)
 }
 ```
 
-Para saber mais sobre como definir um índice, confira [criar índice (API REST do Azure pesquisa cognitiva)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para saber mais sobre a definição de um índice, consulte [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Criar um indexador, mapear campos e executar transformações
 
 Até ao momento, criou uma origem de dados, um conjunto de competências e um índice. Estes três componentes tornam-se parte de um [indexador](search-indexer-overview.md) que une cada uma das peças numa única operação de várias fases. Para as associar num indexador, tem de definir os mapeamentos de campo.
 
-+ Os fieldMappings são processados antes do Configurador de habilidades, mapeando os campos de origem da fonte de dados para os campos de destino em um índice. Se os nomes e tipos de campo forem os mesmos em ambas as extremidades, nenhum mapeamento será necessário.
++ Os mapeamentos de campo são processados antes do skillset, mapeando os campos de origem da fonte de dados para os campos-alvo em um índice. Se os nomes e tipos de campo forem os mesmos em ambas as extremidades, não é necessário mapeamento.
 
-+ Os outputFieldMappings são processados após o contextset, fazendo referência a sourceFieldNames que não existe até que a quebra de documentos ou o enriquecimento os crie. O targetFieldName é um campo em um índice.
++ Os outputFieldMappings são processados após o skillset, referenciando sourceFieldNames que não existem até que a rachadura de documentos ou o enriquecimento os crie. O targetFieldName é um campo num índice.
 
-Além de conectar entradas a saídas, você também pode usar mapeamentos de campo para mesclar estruturas de dados. Para obter mais informações, consulte [como mapear campos aprimorados para um índice pesquisável](cognitive-search-output-field-mapping.md).
+Além de ligar as inputs às saídas, também pode utilizar mapeamentos de campo para aplainar estruturas de dados. Para mais informações, consulte [Como mapear campos enriquecidos para um índice pesquisável](cognitive-search-output-field-mapping.md).
 
 ```csharp
 IDictionary<string, object> config = new Dictionary<string, object>();
@@ -562,22 +562,22 @@ catch (Exception e)
 }
 ```
 
-Espere que a criação do indexador levará um pouco de tempo para ser concluída. Apesar de o conjunto de dados ser pequeno, as competências analíticas realizam um processo de computação intensa. Algumas competências, como a análise de imagem, são de execução longa.
+Espere que criar o indexante levará algum tempo para completar. Apesar de o conjunto de dados ser pequeno, as competências analíticas realizam um processo de computação intensa. Algumas competências, como a análise de imagem, são de execução longa.
 
 > [!TIP]
 > A criação de um indexador invoca o pipeline. Se houver problemas em atingir os dados, com o mapeamento de entradas e saídas ou com a ordem das operações, estes vão surgir nesta fase.
 
-### <a name="explore-creating-the-indexer"></a>Explorar a criação do indexador
+### <a name="explore-creating-the-indexer"></a>Explore a criação do indexador
 
-O código define ```"maxFailedItems"``` como-1, o que instrui o mecanismo de indexação a ignorar erros durante a importação de dados. Esta definição é útil pois existem poucos documentos na origem de dados de demonstração. Para uma origem de dados maior, deve definir o valor com um número maior que 0.
+O código define ```"maxFailedItems"``` a -1, o que instrui o motor de indexação a ignorar erros durante a importação de dados. Esta definição é útil pois existem poucos documentos na origem de dados de demonstração. Para uma origem de dados maior, deve definir o valor com um número maior que 0.
 
-Observe também que a ```"dataToExtract"``` está definida como ```"contentAndMetadata"```. Esta instrução informa o indexador para extrair automaticamente o conteúdo a partir de formatos de ficheiros diferentes, bem como de metadados relativos a cada ficheiro.
+Note também que o ```"dataToExtract"``` está definido para ```"contentAndMetadata"```. Esta instrução informa o indexador para extrair automaticamente o conteúdo a partir de formatos de ficheiros diferentes, bem como de metadados relativos a cada ficheiro.
 
-Quando o conteúdo é extraído, pode definir `imageAction` para extrair texto das imagens existentes na origem de dados. A ```"imageAction"``` definida como ```"generateNormalizedImages"``` configuração, combinada com a habilidade de OCR e a qualificação de mesclagem de texto, diz ao indexador para extrair texto das imagens (por exemplo, a palavra "Stop" de um sinal de parada de tráfego) e inseri-la como parte do campo de conteúdo. Este comportamento aplica-se tanto às imagens incorporadas nos documentos (tal como uma imagem num PDF) como às imagens existentes na origem de dados, por exemplo, um ficheiro JPG.
+Quando o conteúdo é extraído, pode definir `imageAction` para extrair texto das imagens existentes na origem de dados. O ```"imageAction"``` definido para ```"generateNormalizedImages"``` configuração, combinado com a Habilidade De OCR e habilidade de fusão de texto, diz ao indexador para extrair texto das imagens (por exemplo, a palavra "parar" de um sinal de paragem de tráfego), e incorpora-o como parte do campo de conteúdo. Este comportamento aplica-se tanto às imagens incorporadas nos documentos (tal como uma imagem num PDF) como às imagens existentes na origem de dados, por exemplo, um ficheiro JPG.
 
 ## <a name="check-indexer-status"></a>Verificar o estado do indexador
 
-Assim que o indexador é definido, este é executado automaticamente quando submete o pedido. Consoante as competências cognitivas que definiu, a indexação pode demorar mais do que o esperado. Para descobrir se o indexador ainda está em execução, use o método `GetStatus`.
+Assim que o indexador é definido, este é executado automaticamente quando submete o pedido. Consoante as competências cognitivas que definiu, a indexação pode demorar mais do que o esperado. Para saber se o indexante ainda está em funcionamento, utilize o método `GetStatus`.
 
 ```csharp
 try
@@ -606,13 +606,13 @@ catch (Exception e)
 }
 ```
 
-`IndexerExecutionInfo` representa o status atual e o histórico de execução de um indexador.
+`IndexerExecutionInfo` representa o estado atual e o histórico de execução de um indexante.
 
 Os avisos são comuns com algumas combinações de ficheiros de origem e competências e nem sempre indicam um problema. Neste tutorial, os avisos são benignos (por exemplo, os ficheiros JPEG não têm entradas de texto).
  
 ## <a name="query-your-index"></a>Consultar o índice
 
-Depois que a indexação for concluída, você poderá executar consultas que retornam o conteúdo de campos individuais. Por padrão, o Azure Pesquisa Cognitiva retorna os principais resultados de 50. Os dados de exemplo são pequenos, pelo que a predefinição funciona bem. No entanto, ao trabalhar com conjuntos de dados maiores, poderá ter de incluir parâmetros na cadeia de consulta para devolver mais resultados. Para obter instruções, consulte [como paginar resultados no Azure pesquisa cognitiva](search-pagination-page-layout.md).
+Após a classificação estar terminada, pode executar consultas que devolvam o conteúdo de campos individuais. Por padrão, a Pesquisa Cognitiva Azure devolve os 50 melhores resultados. Os dados de exemplo são pequenos, pelo que a predefinição funciona bem. No entanto, ao trabalhar com conjuntos de dados maiores, poderá ter de incluir parâmetros na cadeia de consulta para devolver mais resultados. Para obter instruções, consulte [como página resultados em Pesquisa Cognitiva Azure](search-pagination-page-layout.md).
 
 Como passo de verificação, consulte o índice de todos os campos.
 
@@ -631,7 +631,7 @@ catch (Exception e)
 }
 ```
 
-`CreateSearchIndexClient` cria um novo `SearchIndexClient` usando valores que são armazenados no arquivo de configuração do aplicativo (appSettings. JSON). Observe que a chave de API de consulta do serviço de pesquisa é usada e não a chave de administração.
+`CreateSearchIndexClient` cria um novo `SearchIndexClient` utilizando valores que são armazenados no ficheiro config da aplicação (appsettings.json). Note que a chave API do serviço de pesquisa é utilizada e não a chave de administração.
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -665,35 +665,35 @@ catch (Exception e)
 }
 ```
 
-Repita para campos adicionais: conteúdo, languageCode, prefrases e organizações neste exercício. Pode devolver vários campos através de `$select` com uma lista delimitada por vírgulas.
+Repita para campos adicionais: conteúdo, idiomaCódigo, tecladoS e organizações neste exercício. Pode devolver vários campos através de `$select` com uma lista delimitada por vírgulas.
 
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Repor e executar novamente
 
-Nos estágios experimentais anteriores do desenvolvimento, a abordagem mais prática para iterações de design é excluir os objetos do Pesquisa Cognitiva do Azure e permitir que seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
+Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática para iterações de design é apagar os objetos da Pesquisa Cognitiva Azure e permitir que o seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
 
-Este tutorial se encarrega de verificar indexadores e índices existentes e excluí-los, se eles já existiam, para que você possa executar novamente o código.
+Este tutorial tratou de verificar os indexadores e índices existentes e apagando-os se já existiam para que possa reexecutar o seu código.
 
-Você também pode usar o portal para excluir índices, indexadores e habilidades.
+Também pode usar o portal para eliminar índices, indexadores e habilidades.
 
 À medida que o seu código evoluiu, pode querer refinar uma estratégia de reconstrução. Para obter mais informações, veja [Como reconstruir um índice](search-howto-reindex.md).
 
 ## <a name="takeaways"></a>Conclusões
 
-Este tutorial demonstrou as etapas básicas para criar um pipeline de indexação aprimorado por meio da criação de partes de componente: uma fonte de dados, um DataSet, um índice e um indexador.
+Este tutorial demonstrou os passos básicos para a construção de um gasoduto de indexação enriquecido através da criação de componentes: uma fonte de dados, skillset, indexado e indexante.
 
-As [habilidades internas](cognitive-search-predefined-skills.md) foram introduzidas, juntamente com a definição do conjunto de qualificações e a mecânica de encadear habilidades em entradas e saídas. Você também aprendeu que `outputFieldMappings` na definição do indexador é necessária para rotear valores aprimorados do pipeline para um índice pesquisável em um serviço de Pesquisa Cognitiva do Azure.
+Foram introduzidas [competências incorporadas,](cognitive-search-predefined-skills.md) juntamente com a definição de skillset e a mecânica das habilidades de acorrentar através de inputs e saídas. Também descobriu que `outputFieldMappings` na definição de indexante é necessário para encaminhar valores enriquecidos do oleoduto para um índice pesquisável num serviço de Pesquisa Cognitiva Azure.
 
 Por fim, aprendeu como testar os resultados e repor o sistema para iterações futuras. Aprendeu que a emissão de consultas acerca do índice devolve o resultado criado pelo pipeline de indexação melhorado. Também aprendeu como verificar o estado do indexador e quais os objetos a eliminar antes de executar novamente um pipeline.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A maneira mais rápida de limpar após um tutorial é excluindo o grupo de recursos que contém o serviço de Pesquisa Cognitiva do Azure e o serviço blob do Azure. Assumindo que coloca ambos os serviços no mesmo grupo, elimine o grupo de recursos agora para eliminar definitivamente todo o seu conteúdo, incluindo os serviços e quaisquer conteúdos armazenados criados para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
+A forma mais rápida de limpar depois de um tutorial é apagando o grupo de recursos que contém o serviço de Pesquisa Cognitiva Azure e o serviço Azure Blob. Assumindo que coloca ambos os serviços no mesmo grupo, elimine o grupo de recursos agora para eliminar definitivamente todo o seu conteúdo, incluindo os serviços e quaisquer conteúdos armazenados criados para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu.
 
 > [!div class="nextstepaction"]
-> [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)
+> [Exemplo: Criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md)

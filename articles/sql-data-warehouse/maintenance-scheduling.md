@@ -1,101 +1,101 @@
 ---
-title: Agendamentos de manutenção do Azure
-description: O agendamento de manutenção permite que os clientes planejem os eventos de manutenção agendados necessários que o serviço de SQL Data Warehouse do Azure usa para distribuir novos recursos, atualizações e patches.
+title: Horários de manutenção azure
+description: O agendamento de manutenção permite que os clientes planeiem em torno dos eventos de manutenção programados necessários que o serviço Azure SQL Data Warehouse utiliza para lançar novas funcionalidades, atualizações e patches.
 services: sql-data-warehouse
 author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/07/2019
+ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1cf4cc9cf4d98dfca59e01cc264549af3a4d5cb4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839798"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471793"
 ---
-# <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Usar agendamentos de manutenção para gerenciar atualizações de serviço e manutenção
+# <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utilize horários de manutenção para gerir atualizações de serviços e manutenção
 
-O recurso de agendamento de manutenção integra as notificações de manutenção planejada da integridade do serviço, Resource Health Monitor de verificação e o serviço de agendamento de manutenção do Azure SQL Data Warehouse.
+O cronograma de manutenção integra as Notificações de Manutenção Planeadas para a Saúde do Serviço, o Monitor de Verificação de Saúde de Recursos e o serviço de manutenção do Armazém de Dados Azure SQL.
 
-Você deve usar o agendamento de manutenção para escolher uma janela de tempo quando for conveniente receber novos recursos, atualizações e patches. Você precisará escolher uma janela de manutenção primária e uma secundária em um período de sete dias, cada janela deve estar dentro de intervalos de dias separados.
+Deve utilizar o agendamento de manutenção para escolher uma janela de tempo quando é conveniente receber novas funcionalidades, upgrades e patches. Você precisará escolher uma janela de manutenção primária e secundária dentro de um período de sete dias, cada janela deve estar dentro de intervalos de dia separados.
 
-Por exemplo, você pode agendar uma janela primária de sábado 22:00 para domingo 01:00 e, em seguida, agendar uma janela secundária da quarta-feira 19:00 a 22:00. Se SQL Data Warehouse não puder realizar a manutenção durante a janela de manutenção primária, ela tentará a manutenção novamente durante a janela de manutenção secundária. A manutenção do serviço pode ocorrer durante as janelas primária e secundária. Para garantir a conclusão rápida de todas as operações de manutenção, DW400c e camadas de data warehouse inferiores podem concluir a manutenção fora de uma janela de manutenção designada.
+Por exemplo, pode agendar uma janela primária de sábado das 22:00 às 01:00 de domingo, e depois agendar uma janela secundária de quarta-feira das 19:00 às 22:00. Se o SQL Data Warehouse não conseguir realizar a manutenção durante a janela de manutenção primária, tentará novamente a manutenção durante a janela de manutenção secundária. A manutenção do serviço pode ocorrer ocasionalmente durante as janelas primárias e secundárias. Para garantir a rápida conclusão de todas as operações de manutenção, os níveis de depósito dW400c e de dados mais baixos poderiam completar a manutenção fora de uma janela de manutenção designada.
 
-Todas as instâncias de SQL Data Warehouse do Azure criadas recentemente terão um agendamento de manutenção definido pelo sistema aplicado durante a implantação. O agendamento pode ser editado assim que a implantação for concluída.
+Todas as instâncias recém-criadas do Armazém de Dados Azure SQL terão um calendário de manutenção definido pelo sistema aplicado durante a implantação. A programação pode ser editada assim que a implementação estiver concluída.
 
-Embora uma janela de manutenção possa estar entre três e oito horas, isso não significa que o data warehouse ficará offline durante a duração. A manutenção pode ocorrer a qualquer momento dentro dessa janela e você deve esperar uma única desconexão durante esse período duradoura ~ 5 -6 minutos, pois o serviço implanta o novo código em seu data warehouse. DW400c e Lower podem apresentar várias perdas curtas na conectividade em vários momentos durante a janela de manutenção. Quando a manutenção é iniciada, todas as sessões ativas serão canceladas e as transações não confirmadas serão revertidas. Para minimizar o tempo de inatividade de instância, verifique se o data warehouse não tem transações de execução longa antes do período de manutenção escolhido.
+Embora uma janela de manutenção possa estar entre três a oito horas, isso não significa que o armazém de dados ficará offline durante toda a duração. A manutenção pode ocorrer a qualquer momento dentro dessa janela e deve esperar uma única desconexão durante esse período que dure ~5 -6 minutos à medida que o serviço implementa um novo código para o seu armazém de dados. DW400c e inferior pode sofrer múltiplas perdas breves na conectividade em vários momentos durante a janela de manutenção. Quando a manutenção começar, todas as sessões ativas serão canceladas e as transações não comprometidas serão reativadas. Para minimizar o tempo de inatividade de instâncias, certifique-se de que o seu armazém de dados não tem transações de longa duração antes do período de manutenção escolhido.
 
-Todas as operações de manutenção devem ser concluídas dentro das janelas de manutenção especificadas, a menos que seja necessário implantar uma atualização sensível ao tempo. Se seu data warehouse for pausado durante uma manutenção agendada, ele será atualizado durante a operação de retomada. Você será notificado imediatamente após a conclusão da manutenção do data warehouse.
+Todas as operações de manutenção devem terminar dentro das janelas de manutenção especificadas, a menos que sejamos obrigados a implementar uma atualização sensível ao tempo. Se o seu armazém de dados for interrompido durante uma manutenção programada, este será atualizado durante a operação de retoma. Será notificado imediatamente após a manutenção do armazém de dados estar concluída.
 
-## <a name="alerts-and-monitoring"></a>Alertas e monitoramento
+## <a name="alerts-and-monitoring"></a>Alertas e monitorização
 
-A integração com notificações de integridade do serviço e o monitor de verificação de Resource Health permite que os clientes permaneçam informados sobre a atividade de manutenção iminente. Essa automação aproveita o Azure Monitor. Você pode decidir como deseja ser notificado de eventos de manutenção iminentes. Além disso, você pode escolher quais fluxos automatizados ajudarão você a gerenciar o tempo de inatividade e minimizar o impacto operacional.
-Uma notificação antecipada de 24 horas precede todos os eventos de manutenção que não são para as camadas DWC400c e inferior.
+A integração com notificações de saúde de serviço e o Monitor de Verificação de Saúde de Recursos permite que os clientes se mantenham informados da atividade de manutenção iminente. Esta automatização tira partido do Monitor Azure. Pode decidir como pretende ser notificado de eventos de manutenção iminentes. Além disso, pode escolher quais os fluxos automatizados que o ajudarão a gerir o tempo de inatividade e minimizar o impacto operacional.
+Uma notificação antecipada de 24 horas precede todos os eventos de manutenção que não são para os níveis DWC400c e inferiores.
 
 > [!NOTE]
-> No caso de ser necessário implantar uma atualização crítica de tempo, os tempos de notificação avançados podem ser reduzidos significativamente.
+> No caso de sermos obrigados a implementar uma atualização crítica de tempo, os tempos de notificação avançados podem ser significativamente reduzidos.
 
-Se você recebeu uma notificação antecipada de que a manutenção ocorrerá, mas SQL Data Warehouse não pode realizar a manutenção durante esse tempo, você receberá uma notificação de cancelamento. A manutenção será retomada durante o próximo período de manutenção agendado.
+Se recebeu uma notificação antecipada de que a manutenção terá lugar, mas o SQL Data Warehouse não pode realizar manutenção durante esse período, receberá uma notificação de cancelamento. A manutenção será retomada durante o próximo período de manutenção programado.
 
-Todos os eventos de manutenção ativos aparecem na seção **integridade do serviço – manutenção planejada** . O histórico de integridade do serviço inclui um registro completo de eventos passados. Você pode monitorar a manutenção por meio do painel do portal de verificação de integridade do serviço do Azure durante um evento ativo.
+Todos os eventos de manutenção ativa aparecem na secção **de Manutenção de Serviços - Manutenção Planeada.** A história da Saúde de Serviço inclui um registo completo de eventos passados. Pode monitorizar a manutenção através do portal de verificação de saúde do serviço Azure durante um evento ativo.
 
-### <a name="maintenance-schedule-availability"></a>Disponibilidade do agendamento de manutenção
+### <a name="maintenance-schedule-availability"></a>Disponibilidade de horáriode manutenção
 
-Mesmo se o agendamento de manutenção não estiver disponível na região selecionada, você poderá exibir e editar seu agendamento de manutenção a qualquer momento. Quando o agendamento de manutenção se tornar disponível em sua região, a agenda identificada ficará imediatamente ativa no seu data warehouse.
+Mesmo que o agendamento de manutenção não esteja disponível na sua região selecionada, pode ver e editar o seu horário de manutenção a qualquer momento. Quando o agendamento de manutenção estiver disponível na sua região, o horário identificado tornar-se-á imediatamente ativo no seu armazém de dados.
 
-## <a name="view-a-maintenance-schedule"></a>Exibir um agendamento de manutenção 
+## <a name="view-a-maintenance-schedule"></a>Ver um horário de manutenção 
 
 ### <a name="portal"></a>Portal
 
-Por predefinição, todas as instâncias do Azure SQL Data Warehouse recém-criadas têm uma janela de manutenção primária e secundária de oito horas aplicada durante a implementação. Conforme indicado acima, você pode alterar o Windows assim que a implantação for concluída. Não é realizada qualquer manutenção fora das janelas de manutenção especificadas sem notificação prévia.
+Por predefinição, todas as instâncias do Azure SQL Data Warehouse recém-criadas têm uma janela de manutenção primária e secundária de oito horas aplicada durante a implementação. Como indicado acima, pode alterar as janelas assim que a implementação estiver completa. Não é realizada qualquer manutenção fora das janelas de manutenção especificadas sem notificação prévia.
 
 Para ver a agenda de manutenção que foi aplicada ao seu armazém de dados, conclua os seguintes passos:
 
-1.  Iniciar sessão no [portal do Azure](https://portal.azure.com/).
-2.  Selecione o data warehouse que você deseja exibir. 
-3.  O data warehouse selecionado é aberto na folha visão geral. O agendamento de manutenção que é aplicado ao data warehouse aparece abaixo do **agendamento de manutenção**.
+1.  Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2.  Selecione o armazém de dados que pretende ver. 
+3.  O armazém de dados selecionado abre na lâmina de visão geral. O horário de manutenção que é aplicado ao armazém de dados aparece abaixo do horário de **manutenção.**
 
-![Folha de visão geral](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
+![Lâmina de visão geral](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 
-## <a name="change-a-maintenance-schedule"></a>Alterar um agendamento de manutenção 
+## <a name="change-a-maintenance-schedule"></a>Alterar um horário de manutenção 
 
 ### <a name="portal"></a>Portal
-Uma agenda de manutenção pode ser atualizada ou alterada a qualquer momento. Se a instância selecionada estiver passando por um ciclo de manutenção ativo, as configurações serão salvas. Eles se tornarão ativos durante o próximo período de manutenção identificado. [Saiba mais](https://docs.microsoft.com/azure/service-health/resource-health-overview) sobre como monitorar seu data warehouse durante um evento de manutenção ativo. 
+Um horário de manutenção pode ser atualizado ou alterado a qualquer momento. Se a instância selecionada estiver a passar por um ciclo de manutenção ativa, as definições serão guardadas. Tornar-se-ão ativos durante o próximo período de manutenção identificado. [Saiba mais](https://docs.microsoft.com/azure/service-health/resource-health-overview) sobre a monitorização do seu armazém de dados durante um evento de manutenção ativa. 
 
-### <a name="identifying-the-primary-and-secondary-windows"></a>Identificando as janelas primária e secundária
+### <a name="identifying-the-primary-and-secondary-windows"></a>Identificação das janelas primárias e secundárias
 
-As janelas primária e secundária devem ter intervalos de dias separados. Um exemplo é uma janela principal de terça-feira e um secundário da janela de sábado – domingo.
+As janelas primárias e secundárias devem ter intervalos diurnos separados. Um exemplo é uma janela primária de terça a quinta-feira e uma janela secundária de sábado a domingo.
 
-Para alterar o agendamento de manutenção do seu data warehouse, conclua as seguintes etapas:
-1.  Iniciar sessão no [portal do Azure](https://portal.azure.com/).
-2.  Selecione o data warehouse que você deseja atualizar. A página é aberta na folha visão geral. 
-3.  Abra a página para configurações de agendamento de manutenção selecionando o link de **Resumo agendamento de manutenção (versão prévia)** na folha visão geral. Ou então, selecione a opção **agendamento de manutenção** no menu de recursos do lado esquerdo.  
+Para alterar o horário de manutenção do seu armazém de dados, preencha os seguintes passos:
+1.  Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2.  Selecione o armazém de dados que pretende atualizar. A página abre na lâmina de visão geral. 
+3.  Abra a página para configurações de horáriode manutenção selecionando o link resumo do Horário de **Manutenção** na lâmina de visão geral. Ou, selecione a opção Agenda de **Manutenção** no menu de recursos do lado esquerdo.  
 
-    ![Opções de folha de visão geral](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
+    ![Opções de lâmina de visão geral](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 
-4. Identifique o intervalo de dias preferenciais para sua janela de manutenção primária usando as opções na parte superior da página. Essa seleção determina se a sua janela principal ocorrerá em um dia da semana ou no fim de semana. Sua seleção atualizará os valores suspensos. Durante a visualização, algumas regiões podem ainda não oferecer suporte ao conjunto completo de opções de **dia** disponíveis.
+4. Identifique a gama de dias preferida para a sua janela de manutenção primária utilizando as opções na parte superior da página. Esta seleção determina se a sua janela primária ocorrerá num dia de semana ou durante o fim de semana. A sua seleção atualizará os valores de queda. Durante a pré-visualização, algumas regiões podem ainda não apoiar todo o conjunto de opções disponíveis **do Dia.**
 
-   ![Folha configurações de manutenção](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
+   ![Lâmina de regulação de manutenção](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
-5. Escolha suas janelas de manutenção primárias e secundárias preferenciais usando as caixas de listagem suspensas:
-   - **Day**: dia preferencial para executar a manutenção durante a janela selecionada.
-   - **Hora de início**: hora de início preferencial para a janela de manutenção.
-   - **Janela de tempo**: duração preferida da janela de tempo.
+5. Escolha as suas janelas de manutenção primária e secundária preferidas utilizando as caixas de listas de lançamento:
+   - **Dia**: Dia preferido para realizar a manutenção durante a janela selecionada.
+   - **Início**: Hora de início preferencial para a janela de manutenção.
+   - **Janela de tempo**: Duração preferida da janela de tempo.
 
-   A área de **Resumo da agenda** na parte inferior da folha é atualizada com base nos valores que você selecionou. 
+   A área **de resumo** de Agenda na parte inferior da lâmina é atualizada com base nos valores que selecionou. 
   
-6. Selecione **Guardar**. Uma mensagem é exibida, confirmando se a nova agenda está ativa agora. 
+6. Selecione **Guardar**. Uma mensagem aparece, confirmando que o seu novo horário está agora ativo. 
 
-   Se você estiver salvando uma agenda em uma região que não dá suporte ao agendamento de manutenção, a seguinte mensagem será exibida. Suas configurações são salvas e ficam ativas quando o recurso fica disponível na região selecionada.    
+   Se estiver a guardar um horário numa região que não suporta o agendamento de manutenção, aparece a seguinte mensagem. As suas definições são guardadas e tornam-se ativas quando a funcionalidade estiver disponível na sua região selecionada.    
 
-   ![Mensagem sobre disponibilidade de região](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
+   ![Mensagem sobre a disponibilidade da região](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sobre como criar, exibir e gerenciar alertas usando Azure monitor.
-- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre ações de webhook para regras de alerta de log.
-- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) Criando e gerenciando grupos de ação.
-- [Saiba mais](https://docs.microsoft.com/azure/service-health/service-health-overview) sobre a integridade do serviço do Azure.
+- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sobre a criação, visualização e gestão de alertas utilizando o Monitor Azure.
+- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre as ações do webhook para regras de alerta de log.
+- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) Criação e gestão de Grupos de Ação.
+- [Saiba mais](https://docs.microsoft.com/azure/service-health/service-health-overview) sobre a Azure Service Health.

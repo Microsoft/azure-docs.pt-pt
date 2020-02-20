@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: 6394d7149bd4e80f0a17a59a6259eedf4c806fd4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1e44a7e71858f028b798720c5505eacbfe8c2332
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188166"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472048"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Tarefa Azure DevOps para o Explorador de Dados Azure
 
@@ -42,7 +42,7 @@ Crie as seguintes pastas de amostra *(Funções,* *Políticas,* *Tabelas)* no se
 ![Criar pastas](media/devops/create-folders.png)
 
 > [!TIP]
-> Ao criar o seu próprio fluxo de trabalho, recomendamos que o seu código idempotente. Por exemplo, utilize [a tabela .create-merge](/azure/kusto/management/create-table-command#create-merge-table) em vez de [.create table](/azure/kusto/management/create-table-command), e use [função .create-or-alter](/azure/kusto/management/functions#create-or-alter-function) em vez de [.criar](/azure/kusto/management/functions#create-function) função.
+> Ao criar o seu próprio fluxo de trabalho, recomendamos que o seu código idempotente. Por exemplo, utilize [a tabela .create-merge](/azure/kusto/management/create-table-command#create-merge-table) em vez de [.create table](/azure/kusto/management/create-table-command), e use [função .create-or-alter](/azure/kusto/management/create-alter-function) em vez de [.criar](/azure/kusto/management/create-function) função.
 
 ## <a name="create-a-release-pipeline"></a>Criar um pipeline de versão
 
@@ -61,7 +61,7 @@ Crie as seguintes pastas de amostra *(Funções,* *Políticas,* *Tabelas)* no se
 
 1. Selecione Adicionar um botão **de artefacto.** No **painel Adicionar um** painel de artefactos, selecione o repositório onde o seu código existe, preencha informações relevantes e clique em **Adicionar**. Selecione **Guardar** para salvar o seu oleoduto.
 
-    ![Adicione um artefacto](media/devops/add-artifact.png)
+    ![Adicionar um artefacto](media/devops/add-artifact.png)
 
 1. No separador **Variáveis,** selecione **+ Adicione** para criar uma variável para **ENDPoint URL** que será usada na tarefa. Escreva o **Nome** e o **Valor** do Ponto Final. Selecione **Guardar** para salvar o seu oleoduto. 
 

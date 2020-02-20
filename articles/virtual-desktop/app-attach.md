@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: f6a8e4b9129018686aa5833a2ac260075e5627f9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 5db60160540fc59465e13bd2e68680f49ee0aa2b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367625"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470892"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
@@ -407,7 +407,7 @@ Para instalar os ficheiros de licença, terá de utilizar um script PowerShell q
 
 Aqui está como configurar as licenças para uso offline: 
 
-1. Descarregue o pacote de aplicações, licenças e quadros necessários da Microsoft Store for Business. Precisa dos ficheiros de licença codificados e não codificados. Instruções detalhadas de descarregamento podem ser encontradas [aqui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app/).
+1. Descarregue o pacote de aplicações, licenças e quadros necessários da Microsoft Store for Business. Precisa dos ficheiros de licença codificados e não codificados. Instruções detalhadas de descarregamento podem ser encontradas [aqui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Atualize as seguintes variáveis no script para o passo 3:
       1. `$contentID` é o valor ContentID do ficheiro de licença não codificado (.xml). Pode abrir o ficheiro da licença num editor de texto à sua escolha.
       2. `$licenseBlob` é a cadeia inteira para a bolha de licença no ficheiro de licença codificada (.bin). Pode abrir o ficheiro de licença codificado num editor de texto à sua escolha. 

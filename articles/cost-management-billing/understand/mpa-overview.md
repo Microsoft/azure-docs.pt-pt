@@ -2,20 +2,17 @@
 title: Introdução à conta de faturação do Contrato de Parceiro da Microsoft – Azure CSP
 description: Compreender a conta de faturação do Contrato de Parceiro da Microsoft (CSP)
 author: bandersmsft
-manager: amberbhargava
+ms.reviewer: amberb
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/24/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 13ac51fc4cefa4d66cf9d8310dce80704454bd93
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 45dbf43966b71d7db7ada8be7704f6b3b37aab25
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76122156"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199182"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Introdução à conta de faturação do Contrato de Parceiro da Microsoft
 

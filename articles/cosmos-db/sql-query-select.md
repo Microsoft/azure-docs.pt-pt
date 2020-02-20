@@ -1,21 +1,21 @@
 ---
-title: Cláusula SELECT no Azure Cosmos DB
-description: Saiba mais sobre a cláusula SQL SELECT para Azure Cosmos DB. Use SQL como uma linguagem de consulta JSON Azure Cosmos DB.
+title: Cláusula SELECT em Azure Cosmos DB
+description: Saiba mais sobre a cláusula SQL SELECT para O Azure Cosmos DB. Use o SQL como uma linguagem de consulta Azure Cosmos DB JSON.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326794"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469940"
 ---
-# <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT no Azure Cosmos DB
+# <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT em Azure Cosmos DB
 
-Cada consulta consiste em uma cláusula SELECT e em cláusulas opcional from e [Where](sql-query-where.md) , por padrões [de](sql-query-from.md) SQL ANSI. Normalmente, a origem na cláusula FROM é enumerada e a cláusula WHERE aplica um filtro na origem para recuperar um subconjunto de itens JSON. Em seguida, a cláusula SELECT projeta os valores JSON solicitados na lista de seleção.
+Todas as consultas consistem numa cláusula SELECT e cláusulas opcionais [FROM](sql-query-from.md) e [WHERE,](sql-query-where.md) de acordo com as normas ANSI SQL. Tipicamente, a fonte na cláusula FROM é enumerada, e a cláusula WHERE aplica um filtro na fonte para recuperar um subconjunto de itens JSON. A cláusula SELECT projeta então os valores JSON solicitados na lista selecionada.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -40,29 +40,29 @@ SELECT <select_specification>
   
 - `'*'`  
 
-  Especifica que o valor deve ser recuperado sem fazer nenhuma alteração. Especificamente, se o valor processado for um objeto, todas as propriedades serão recuperadas.  
+  Especifica que o valor deve ser obtido sem fazer quaisquer alterações. Especificamente, se o valor processado é um objeto, serão possível obter todas as propriedades.  
   
 - `<object_property_list>`  
   
-  Especifica a lista de propriedades a serem recuperadas. Cada valor retornado será um objeto com as propriedades especificadas.  
+  Especifica a lista de propriedades a serem obtidas. Cada valor retornado será um objeto com as propriedades especificadas.  
   
 - `VALUE`  
 
-  Especifica que o valor JSON deve ser recuperado em vez do objeto JSON completo. Isso, ao contrário de `<property_list>`, não encapsula o valor projetado em um objeto.  
+  Especifica que o valor JSON deve ser obtido em vez do objeto JSON completo. Isto, ao contrário `<property_list>` não envolve o valor projetado num objeto.  
  
 - `DISTINCT`
   
-  Especifica que duplicatas de propriedades projetadas devem ser removidas.  
+  Especifica que os duplicados de propriedades projetadas devem ser removidos.  
 
 - `<scalar_expression>`  
 
-  Expressão que representa o valor a ser computado. Consulte a seção [expressões escalares](sql-query-scalar-expressions.md) para obter detalhes.  
+  Expressão que representa o valor a ser calculada. Consulte a secção [de expressões Scalar](sql-query-scalar-expressions.md) para obter mais detalhes.  
 
 ## <a name="remarks"></a>Observações
 
-A sintaxe `SELECT *` só será válida se a cláusula FROM tiver declarado exatamente um alias. `SELECT *` fornece uma projeção de identidade, que pode ser útil se nenhuma projeção for necessária. SELECT * só será válida se a cláusula FROM for especificada e introduzida apenas uma única fonte de entrada.  
+A sintaxe `SELECT *` só é válida se a cláusula FROM tiver declarado exatamente um pseudónimo. `SELECT *` fornece uma projeção de identidade, que pode ser útil se não for necessária nenhuma projeção. SELECIONE * só é válido se for especificado cláusula FROM e introduziu apenas uma única origem de entrada.  
   
-Tanto `SELECT <select_list>` quanto `SELECT *` são "baixas sintáticas" e podem ser expressas como alternativa usando instruções SELECT simples, conforme mostrado abaixo.  
+Tanto `SELECT <select_list>` como `SELECT *` são "açúcar sintático" e podem ser expressos alternativamente usando simples declarações SELECT, como mostrado abaixo.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -78,7 +78,7 @@ Tanto `SELECT <select_list>` quanto `SELECT *` são "baixas sintáticas" e podem
   
 ## <a name="examples"></a>Exemplos
 
-O exemplo de consulta SELECT a seguir retorna `address` de `Families` cujos `id` corresponde a `AndersenFamily`:
+O exemplo de consulta SELECT seguinte devolve `address` de `Families` cujos `id` correspondem `AndersenFamily`:
 
 ```sql
     SELECT f.address
@@ -98,8 +98,8 @@ Os resultados são:
     }]
 ```
 
-### <a name="quoted-property-accessor"></a>Acessador de propriedade entre aspas
-Você pode acessar as propriedades usando o operador de propriedade entre aspas []. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais ou tem o mesmo nome que uma palavra-chave SQL ou reservada.
+### <a name="quoted-property-accessor"></a>Acessório de propriedade cotado
+Você pode aceder a propriedades usando o operador de propriedade citado []. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Esta sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais, ou tem o mesmo nome que uma palavra-chave SQL ou palavra reservada.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ Você pode acessar as propriedades usando o operador de propriedade entre aspas 
 
 ### <a name="nested-properties"></a>Propriedades aninhadas
 
-O exemplo a seguir projeta duas propriedades aninhadas, `f.address.state` e `f.address.city`.
+O exemplo seguinte projeta duas propriedades aninhadas, `f.address.state` e `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -127,7 +127,7 @@ Os resultados são:
 ```
 ### <a name="json-expressions"></a>Expressões JSON
 
-A projeção também oferece suporte a expressões JSON, conforme mostrado no exemplo a seguir:
+A projeção também apoia as expressões JSON, como mostra o seguinte exemplo:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -147,7 +147,7 @@ Os resultados são:
     }]
 ```
 
-No exemplo anterior, a cláusula SELECT precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome da variável de argumento implícito `$1`. A consulta a seguir retorna duas variáveis de argumento implícitas: `$1` e `$2`.
+No exemplo anterior, a cláusula SELECT precisa de criar um objeto JSON, e uma vez que a amostra não fornece nenhuma chave, a cláusula utiliza o nome variável de argumento implícito `$1`. A seguinte consulta devolve duas variáveis implícitas de argumentos: `$1` e `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -169,9 +169,53 @@ Os resultados são:
       }
     }]
 ```
+## <a name="reserved-keywords-and-special-characters"></a>Palavras-chave reservadas e caracteres especiais
 
-## <a name="next-steps"></a>Passos seguintes
+Se os seus dados contenham propriedades com os mesmos nomes que as palavras-chave reservadas, tais como "encomenda" ou "Grupo", então as consultas contra estes documentos resultarão em erros de sintaxe. Você deve explicitamente incluir a propriedade em `[]` personagem para executar a consulta com sucesso.
+
+Por exemplo, aqui está um documento com uma propriedade chamada `order` e uma propriedade `price($)` que contém caracteres especiais:
+
+```json
+{
+  "id": "AndersenFamily",
+  "order": [
+     {
+         "orderId": "12345",
+         "productId": "A17849",
+         "price($)": 59.33
+     }
+  ],
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
+
+Se você executar uma consulta que inclui a propriedade `order` ou `price($)`, você receberá um erro de sintaxe.
+
+```sql
+SELECT * FROM c where c.order.orderid = "12345"
+```
+```sql
+SELECT * FROM c where c.order.price($) > 50
+```
+O resultado é:
+
+`
+Syntax error, incorrect syntax near 'order'
+`
+
+Deve reescrever as mesmas consultas que as seguintes:
+
+```sql
+SELECT * FROM c WHERE c["order"].orderId = "12345"
+```
+
+```sql
+SELECT * FROM c WHERE c["order"]["price($)"] > 50
+```
+
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Introdução](sql-query-getting-started.md)
-- [Exemplos do .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Cláusula WHERE](sql-query-where.md)
+- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [ONDE a cláusula](sql-query-where.md)

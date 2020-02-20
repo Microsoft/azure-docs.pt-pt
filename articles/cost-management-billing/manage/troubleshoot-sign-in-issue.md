@@ -1,24 +1,19 @@
 ---
 title: Resolver problemas relativos a início de sessão da subscrição do Azure
 description: Ajuda a resolver os problemas nos quais não pode iniciar sessão no portal do Azure ou no centro de contas do Azure.
-services: azure
 author: v-miegge
-manager: dcscontentpm
-editor: na
+ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/12/2019
+ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 74cf3f197895823bcbd94db0bf3c7bd8065df767
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 40a645fe4b74043d84dc770f15d5e3c3ec907f02
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988139"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199488"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Resolver problemas relativos a início de sessão da subscrição do Azure
 

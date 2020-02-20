@@ -1,33 +1,29 @@
 ---
-title: Exemplo de script CLI do Azure-criar um repositório de configuração de Azure App
+title: Amostra de script Azure CLI - Crie uma loja de configuração de aplicações azure
 titleSuffix: Azure App Configuration
-description: Exemplo de script CLI do Azure-criar um repositório de configuração de Azure App
+description: Amostra de script Azure CLI - Crie uma loja de configuração de aplicações azure
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7cc8454ca8dc8d6313e1cf353292adb47b15ef47
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 11f3aec10aed0dc8bc0c9831d563dca2b0c1a6fb
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898729"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468376"
 ---
-# <a name="create-an-azure-app-configuration-store"></a>Criar um repositório de configuração de Azure App
+# <a name="create-an-azure-app-configuration-store"></a>Criar uma loja de configuração de aplicações Azure
 
-Este script de exemplo cria uma nova instância do Azure App configuração em um novo grupo de recursos com um nome aleatório.
+Este script de amostra cria uma nova instância de Configuração de Aplicações Azure em um novo grupo de recursos com um nome aleatório.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-Você precisa instalar a extensão da CLI de configuração do Azure App primeiro executando o seguinte comando:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -66,16 +62,16 @@ Anote o nome real gerado para o novo grupo de recursos. Irá utilizar esse nome 
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Esse script usa os comandos a seguir para criar um novo grupo de recursos e um repositório de configuração de aplicativo. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um novo grupo de recursos e uma loja de Configuração de Aplicações. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Cria um recurso de repositório de configuração de aplicativo. |
-| [az appconfig credencial](/cli/azure/ext/appconfig/appconfig/credential?view=azure-cli-latest) | Lista as chaves de acesso para uma loja de configuração de aplicações. |
+| [az appconfig criar](/cli/azure/appconfig#az-appconfig-create) | Cria um recurso de loja de configuração de aplicações. |
+| [az appconfig credencial](/cli/azure/appconfig/credential#az-appconfig-credential-list) | Lista as chaves de acesso para uma loja de configuração de aplicações. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados nos [exemplos da CLI de configuração do Azure app](../cli-samples.md).
+Amostras adicionais de script cli configuração de aplicativos podem ser encontradas nas amostras CLI de configuração de [aplicação azure](../cli-samples.md).

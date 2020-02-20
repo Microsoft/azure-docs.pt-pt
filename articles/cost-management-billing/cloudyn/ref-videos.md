@@ -4,17 +4,17 @@ description: Os vídeos de formação da Cloudyn orientam-no para começar a uti
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b6605f160ded47d134588d637cbd7e6a14eb3525
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3344dfb1518eeb495b019138c72d566ce4064017
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76774019"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201106"
 ---
 # <a name="cloudyn-walk-through-training-videos"></a>Vídeos de formação de introdução da Cloudyn
 

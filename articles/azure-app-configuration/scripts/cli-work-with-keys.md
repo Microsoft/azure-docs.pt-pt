@@ -1,7 +1,7 @@
 ---
-title: Exemplo de script CLI do Azure-trabalhar com valores de chave no repositório de configurações de aplicativo
+title: Amostra de script Azure CLI - Trabalhar com valores-chave na Loja de Configuração de Aplicações
 titleSuffix: Azure App Configuration
-description: Fornece informações sobre como trabalhar com valores de chave em um repositório de configuração de Azure App
+description: Fornece informações sobre o trabalho com valores-chave numa loja de configuração de aplicações azure
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -15,26 +15,22 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 366485c8c735af5689e1b2c2e63eb192218f5ce0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433566"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468189"
 ---
-# <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhar com valores de chave em um repositório de configuração de Azure App
+# <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhe com valores-chave numa loja de configuração de aplicações azure
 
-Esse script de exemplo cria um novo valor de chave em um repositório de configuração de Azure App, lista todos os valores de chave existentes, atualiza o valor da chave recém-criada e o exclui por último.
+Este script de amostra cria um novo valor-chave numa loja de configuração de aplicações Azure, lista todos os valores-chave existentes, atualiza o valor da chave recém-criada e, por último, elimina-a.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-Você precisa instalar a extensão da CLI de configuração do Azure App primeiro executando o seguinte comando:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -85,16 +81,16 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Esse script usa os seguintes comandos para operar em valores de chave em um repositório de configuração de aplicativo. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para operar em valores-chave numa loja de Configuração de Aplicações. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Cria ou atualiza um valor de chave. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Lista os valores de chave em um repositório de configuração de aplicativo. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Exclui um valor de chave. |
+| [az appconfig kv conjunto](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Cria ou atualiza um valor-chave. |
+| [az appconfig kv lista](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Lista valores-chave numa loja de configuração de aplicações. |
+| [az appconfig kv excluir](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Elimina um valor-chave. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados nos [exemplos da CLI de configuração do Azure app](../cli-samples.md).
+Amostras adicionais de script cli configuração de aplicativos podem ser encontradas nas amostras CLI de configuração de [aplicação azure](../cli-samples.md).

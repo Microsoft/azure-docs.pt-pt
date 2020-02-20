@@ -1,6 +1,6 @@
 ---
 title: Introdução às filas do Azure Service Bus | Microsoft Docs
-description: Neste tutorial, você cria aplicativos de console .NET Core para enviar mensagens e receber mensagens de uma fila do barramento de serviço.
+description: Neste tutorial, cria aplicações de consola .NET Core para enviar mensagens e receber mensagens de uma fila de ônibus de serviço.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 60428e3c5be4ac994f83f44c4492ebd80ee65da7
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5718106aee0e60d111398efdb839945c2c7a8a06
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760986"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471742"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-Neste tutorial, você cria aplicativos de console .NET Core para enviar mensagens e receber mensagens de uma fila do barramento de serviço.
+Neste tutorial, cria aplicações de consola .NET Core para enviar mensagens e receber mensagens de uma fila de ônibus de serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2019](https://www.visualstudio.com/vs).
+- [Estúdio Visual 2019.](https://www.visualstudio.com/vs)
 - [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
-- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se você não tiver uma fila com a qual trabalhar, siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) para criar uma fila.
+- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os benefícios do [seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Se não tiver uma fila para trabalhar, siga os passos no [portal Use Azure para criar um](service-bus-quickstart-portal.md) artigo de fila de ônibus de serviço para criar uma fila.
 
-  - Leia a visão geral rápida das filas do barramento de serviço.
-  - Crie um namespace do barramento de serviço.
-  - Obter a cadeia de conexão.
-  - Criar uma fila do barramento de serviço.
+  - Leia a visão geral rápida das filas de ônibus de serviço.
+  - Crie um espaço de nome de ônibus de serviço.
+  - Pegue a corda de ligação.
+  - Crie uma fila de ônibus de serviço.
 
 ## <a name="send-messages-to-the-queue"></a>Enviar mensagens para a fila
 
@@ -43,19 +43,19 @@ Para enviar mensagens para a fila, escreva uma aplicação de consola C# com o V
 
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-Inicie o Visual Studio e crie um novo projeto de **aplicativo de console (.NET Core)** para C#o. Este exemplo nomeia o aplicativo *CoreSenderApp*.
+Lançar O Estúdio Visual e criar um novo C#projeto de Consola App **(.NET Core)** para . Este exemplo dá nome à aplicação *CoreSenderApp*.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Adicionar o pacote NuGet do Service Bus
 
 1. Clique com o botão direito do rato no projeto recém-criado e selecione **Gerir Pacotes NuGet**.
-1. Selecione **Procurar**. Pesquise e selecione **[Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** .
-1. Selecione **instalar** para concluir a instalação e feche o Gerenciador de pacotes NuGet.
+1. Selecione **Procurar**. Procure e selecione **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** .
+1. Selecione **Instalar** para completar a instalação e, em seguida, fechar o NuGet Package Manager.
 
     ![Selecionar um pacote NuGet][nuget-pkg]
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>Escrever código e enviar mensagens para a fila
 
-1. No *Program.cs*, adicione as instruções de `using` a seguir na parte superior da definição de namespace, antes da declaração de classe:
+1. Em *Program.cs,* adicione as seguintes declarações `using` no topo da definição de espaço de nome, antes da declaração de classe:
 
     ```csharp
     using System.Text;
@@ -72,9 +72,9 @@ Inicie o Visual Studio e crie um novo projeto de **aplicativo de console (.NET C
     static IQueueClient queueClient;
     ```
 
-    Insira sua cadeia de conexão para o namespace como a variável `ServiceBusConnectionString`. Insira o nome da fila.
+    Introduza a sua cadeia de ligação para o espaço de nome como variável `ServiceBusConnectionString`. Insira o nome da sua fila.
 
-1. Substitua o método `Main()` pelo seguinte método **async** `Main`. Ele chama o método `SendMessagesAsync()` que será adicionado na próxima etapa para enviar mensagens para a fila. 
+1. Substitua o método `Main()` pelo método `Main` **asincronizado** seguinte. Chama ao método `SendMessagesAsync()` que irá adicionar no próximo passo para enviar mensagens para a fila. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -94,7 +94,7 @@ Inicie o Visual Studio e crie um novo projeto de **aplicativo de console (.NET C
         await queueClient.CloseAsync();
     }
     ```
-1. Diretamente após o método `MainAsync()`, adicione o seguinte método `SendMessagesAsync()` que faz o trabalho de enviar o número de mensagens especificado por `numberOfMessagesToSend` (atualmente definido como 10):
+1. Imediatamente após o método `MainAsync()`, adicione o seguinte método `SendMessagesAsync()` que faça o trabalho de envio do número de mensagens especificadas por `numberOfMessagesToSend` (atualmente fixado para 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -121,7 +121,7 @@ Inicie o Visual Studio e crie um novo projeto de **aplicativo de console (.NET C
     }
     ```
 
-Veja como deve ser o seu arquivo *Program.cs* .
+Aqui está como deve ser o seu ficheiro *Program.cs.*
 
 ```csharp
 namespace CoreSenderApp
@@ -183,27 +183,28 @@ namespace CoreSenderApp
 }
 ```
 
-Execute o programa e verifique o portal do Azure.
+Execute o programa e verifique o portal Azure.
 
-Selecione o nome da sua fila na janela **visão geral** do namespace para exibir a fila **Essentials**.
+Selecione o nome da sua fila na janela de **visão geral** do espaço de nome para exibir fila **Essencial**.
 
 ![Mensagens recebidas com contagem e tamanho][queue-message]
 
-O valor de **contagem de mensagens ativas** para a fila agora é **10**. Cada vez que você executar esse aplicativo de remetente sem recuperar as mensagens, esse valor aumentará em 10.
+O valor da **contagem de mensagens Ativas** para a fila é agora **de 10**. Cada vez que executa esta aplicação de remetente sem recuperar as mensagens, este valor aumenta em 10.
 
-O tamanho atual da fila incrementa o valor **atual** no **Essentials** cada vez que o aplicativo adiciona mensagens à fila.
+O tamanho atual da fila aumenta o valor **CURRENT** em **Essentials** cada vez que a aplicação adiciona mensagens à fila.
 
-A próxima seção descreve como recuperar essas mensagens.
+A secção seguinte descreve como recuperar estas mensagens.
 
 ## <a name="receive-messages-from-the-queue"></a>Receber mensagens da fila
 
-Para receber as mensagens enviadas, crie outro aplicativo de aplicativo **de console (.NET Core)** . Instale o pacote NuGet **Microsoft. Azure. ServiceBus** , como você fez para o aplicativo do remetente.
+Para receber as mensagens que enviou, crie outra aplicação de **Consola (.NET Core).** Instale o pacote **Microsoft.Azure.ServiceBus** NuGet, como fez na aplicação de remetente.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Escrever código para receber mensagens da fila
 
-1. No *Program.cs*, adicione as instruções de `using` a seguir na parte superior da definição de namespace, antes da declaração de classe:
+1. Em *Program.cs,* adicione as seguintes declarações `using` no topo da definição de espaço de nome, antes da declaração de classe:
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
@@ -218,20 +219,25 @@ Para receber as mensagens enviadas, crie outro aplicativo de aplicativo **de con
     static IQueueClient queueClient;
     ```
 
-    Insira sua cadeia de conexão para o namespace como a variável `ServiceBusConnectionString`. Insira o nome da fila.
+    Introduza a sua cadeia de ligação para o espaço de nome como variável `ServiceBusConnectionString`. Insira o nome da sua fila.
 
-1. Substitua os conteúdos predefinidos de `Main()` com a seguinte linha de código:
+1. Substitua o método `Main()` pelo código abaixo:
 
     ```csharp
-    public static async Task Main(string[] args)
-    {    
+    static void Main(string[] args)
+    {
+        MainAsync().GetAwaiter().GetResult();
+    }
+
+    static async Task MainAsync()
+    {
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
         Console.WriteLine("======================================================");
         Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
         Console.WriteLine("======================================================");
 
-        // Register the queue message handler and receive messages in a loop
+        // Register QueueClient's MessageHandler and receive messages in a loop
         RegisterOnMessageHandlerAndReceiveMessages();
 
         Console.ReadKey();
@@ -240,7 +246,7 @@ Para receber as mensagens enviadas, crie outro aplicativo de aplicativo **de con
     }
     ```
 
-1. Diretamente após o método `MainAsync()`, adicione o seguinte método, que registra o manipulador de mensagens e recebe as mensagens enviadas pelo aplicativo do remetente:
+1. Imediatamente após o método `MainAsync()`, adicione o seguinte método, que regista o manipulador de mensagens e recebe as mensagens enviadas pela aplicação remetente:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -296,7 +302,7 @@ Para receber as mensagens enviadas, crie outro aplicativo de aplicativo **de con
     }
     ```
 
-Veja como o arquivo *Program.cs* deve ser:
+Aqui está o que o seu ficheiro *Program.cs* deve ser:
 
 ```csharp
 namespace CoreReceiverApp
@@ -382,14 +388,14 @@ namespace CoreReceiverApp
 }
 ```
 
-Execute o programa e consulte novamente o portal. A **contagem de mensagens ativas** e os valores **atuais** agora são **0**.
+Execute o programa e consulte novamente o portal. A **contagem de mensagens Ativas** e os valores **CORRENTE** são agora **0**.
 
 ![Fila após as mensagens terem sido recebidas][queue-message-receive]
 
-Parabéns! Agora você criou uma fila, enviou um conjunto de mensagens para essa fila e recebeu essas mensagens da mesma fila.
+Parabéns! Agora criaste uma fila, enviaste um conjunto de mensagens para aquela fila, e recebeste essas mensagens da mesma fila.
 
 > [!NOTE]
-> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem facilmente a um namespace do barramento de serviço e administrem entidades de mensagens. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos.
+> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem facilmente a um espaço de nome do Bus de Serviço e administram entidades de mensagens. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

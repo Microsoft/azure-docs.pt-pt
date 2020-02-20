@@ -2,22 +2,17 @@
 title: Reativar uma subscrição do Microsoft Azure for Students desativada | Microsoft Docs
 description: Explica por que motivo a sua subscrição do Microsoft Azure for Students está desativada e como pode reativá-la.
 author: amberbhargava
-manager: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/01/2018
+ms.date: 02/12/2020
 ms.author: banders
-ROBOTS: NOINDEX
-ms.openlocfilehash: 111b95ddcff3667fa3f1e7df694af1d38887710f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 66e87b36644f5ed018603c14b311c31d851a1785
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990024"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200936"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que motivo a minha subscrição do Microsoft Azure for Students está desativada e como posso reativá-la?
 

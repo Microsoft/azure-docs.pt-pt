@@ -4,26 +4,26 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/23/2019
 ms.author: glenga
-ms.openlocfilehash: 64a1062a8b73768a334277eafb663a7d2d5dd59a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: b118da6b751bc7a1e29ceef10c91dc5e9e3659c2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838964"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474185"
 ---
-Os atributos de associação são definidos diretamente no arquivo function. JSON. Dependendo do tipo de associação, podem ser necessárias propriedades adicionais. A [configuração de saída de fila](../articles/azure-functions/functions-bindings-storage-queue.md#output---configuration) descreve os campos necessários para uma associação de fila de armazenamento do Azure. A extensão facilita a adição de associações ao arquivo function. JSON. 
+Os atributos de ligação são definidos diretamente no ficheiro função.json. Dependendo do tipo de encadernação, podem ser necessárias propriedades adicionais. A [configuração](../articles/azure-functions/functions-bindings-storage-queue-output.md#configuration) de saída da fila descreve os campos necessários para uma ligação de fila de armazenamento Azure. A extensão facilita a adição de encadernações ao ficheiro função.json. 
 
-Para criar uma associação, clique com o botão direito do mouse (Ctrl + clique em macOS) o arquivo `function.json` na pasta HttpTrigger e escolha **Adicionar associação...** . Siga os prompts para definir as seguintes propriedades de associação para a nova associação:
+Para criar uma ligação, clique à direita (Ctrl+clique no macOS) o ficheiro `function.json` na sua pasta HttpTrigger e escolha **Adicionar a ligação...** . Siga as instruções para definir as seguintes propriedades vinculativas para a nova ligação:
 
-| Mensagem | Value | Descrição |
+| Mensagem | Valor | Descrição |
 | -------- | ----- | ----------- |
-| **Selecionar direção da Associação** | `out` | A associação é uma associação de saída. |
-| **Selecionar associação com direção...** | `Azure Queue Storage` | A associação é uma associação de fila de armazenamento do Azure. |
-| **O nome usado para identificar essa associação em seu código** | `msg` | Nome que identifica o parâmetro de associação referenciado em seu código. |
-| **A fila para a qual a mensagem será enviada** | `outqueue` | O nome da fila na qual a associação é gravada. Quando o *QueueName* não existe, a associação o cria no primeiro uso. |
-| **Selecione configuração em "local. setting. JSON"** | `AzureWebJobsStorage` | O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de armazenamento. A configuração `AzureWebJobsStorage` contém a cadeia de conexão para a conta de armazenamento que você criou com o aplicativo de funções. |
+| **Selecione direção de ligação** | `out` | A ligação é uma ligação de saída. |
+| **Selecione encadernação com direção...** | `Azure Queue Storage` | A encadernação é uma ligação de fila de armazenamento Azure. |
+| **O nome usado para identificar esta ligação no seu código** | `msg` | Nome que identifique o parâmetro de ligação referenciado no seu código. |
+| **A fila para a qual a mensagem será enviada** | `outqueue` | O nome da fila a que o encadernação escreve. Quando o nome da *fila* não existe, a ligação cria-o na primeira utilização. |
+| **Selecione a definição de "local.setting.json"** | `AzureWebJobsStorage` | O nome de uma definição de aplicação que contém a cadeia de ligação para a conta de armazenamento. A definição `AzureWebJobsStorage` contém a cadeia de ligação para a conta de Armazenamento que criou com a aplicação de função. |
 
-Uma associação é adicionada à matriz `bindings` em seu arquivo function. JSON, que agora deve ser semelhante ao exemplo a seguir:
+Uma ligação é adicionada ao conjunto de `bindings` no seu ficheiro função.json, que deve agora parecer o seguinte exemplo:
 
 ```json
 {

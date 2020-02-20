@@ -2,22 +2,17 @@
 title: Obter a propriedade da faturação das subscrições do Azure do Contrato de Parceiro da Microsoft (MPA)
 description: Saiba como pedir a propriedade da faturação das subscrições do Azure de outros utilizadores.
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/13/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 6a4b215b2b386754bae2c1bbec171ed4bc558a93
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 8e272267ffc8dd2946a390470df78b179ebbdf92
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048196"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199658"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade da faturação das subscrições do Azure da conta MPA
 

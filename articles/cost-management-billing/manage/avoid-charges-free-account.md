@@ -2,21 +2,17 @@
 title: Evitar custos com a conta gratuita do Azure
 description: Compreenda porque vê custos para a sua conta gratuita do Azure. Aprenda formas de evitar esses custos.
 author: amberbhargava
-manager: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 632d8ef84fc30ee7e97b8961d74fbb95ced42234
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 557e099b4250d5514920aa6c22399ce225f35d92
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990063"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200953"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evitar custos com a conta gratuita do Azure
 

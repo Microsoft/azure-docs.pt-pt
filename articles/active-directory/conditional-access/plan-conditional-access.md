@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185891"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468442"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como: Planear a sua implantação de Acesso Condicional no Diretório Ativo Azure
 
@@ -31,6 +31,9 @@ Se forem necessárias funcionalidades adicionais, poderá também ter de obter l
 Existem dois tipos de políticas de Acesso Condicional: linha de base e padrão. Uma [política de base](baseline-protection.md) é uma política de acesso condicional predefinida. O objetivo destas políticas é garantir que tem pelo menos o nível de segurança de base habilitado. Políticas de base. As políticas de base estão disponíveis em todas as edições do Azure AD, e fornecem apenas opções de personalização limitadas. Se um cenário requer mais flexibilidade, desative a política de base e implemente os seus requisitos numa política padrão personalizada.
 
 Numa política padrão de Acesso Condicional, pode personalizar todas as definições para ajustar a política aos seus requisitos de negócio. As políticas padrão requerem uma licença Azure AD Premium P1.
+
+>[!NOTE]
+> Recomendamos a utilização da política de Acesso Condicional baseada em dispositivos Azure AD para obter a melhor aplicação após a autenticação inicial do dispositivo. Isto inclui sessões de fecho se o dispositivo cair fora de conformidade e fluxo de código do dispositivo.
 
 ## <a name="draft-policies"></a>Projeto de políticas
 

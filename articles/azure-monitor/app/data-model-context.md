@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 893e1c3a58f4a62a1e0e9b734cc156b3d75d8779
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 861e8fc115165214db5d01cb142a2980ba08bf53
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933072"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467374"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetria: Modelo de dados de Insights de Aplicação
 
@@ -69,7 +69,7 @@ Nome de fonte sintética. Alguma telemetria da aplicação pode representar trá
 Comprimento máximo: 1024
 
 
-## <a name="session-id"></a>ID da sessão
+## <a name="session-id"></a>Id da sessão
 
 ID da sessão - a instância da interação do utilizador com a app. A informação nos campos de contexto da sessão é sempre sobre o utilizador final. Quando a telemetria é enviada de um serviço, o contexto da sessão é sobre o utilizador que iniciou a operação no serviço.
 
@@ -117,7 +117,7 @@ Comprimento máximo: 256
 
 ## <a name="internal-sdk-version"></a>Interna: Versão SDK
 
-Versão SDK. Consulte https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SDK-AUTHORING.md#sdk-version-specification informação.
+Versão SDK. Consulte [este artigo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) para obter informações.
 
 Comprimento máximo: 64
 
@@ -132,5 +132,5 @@ Comprimento máximo: 256
 ## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a estender e filtrar a [telemetria.](../../azure-monitor/app/api-filtering-sampling.md)
-- Consulte [modelo de dados](data-model.md) para tipos de Application insights e modelo de dados.
+- Consulte o modelo de [dados](data-model.md) para tipos de Insights de Aplicação e modelo de dados.
 - Confira a [configuração](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)de recolha de propriedades de contexto padrão.

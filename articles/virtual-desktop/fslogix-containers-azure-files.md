@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: d45fa08383d9f61776a739093d78fc033ad54a6b
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 7b67569ee821fee837f4fa63a1d71e622a0370a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212403"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472473"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -87,7 +87,7 @@ O Windows Virtual Desktop oferece controlo total sobre tamanho, tipo e contagem 
 Para garantir que o ambiente de ambiente de trabalho virtual do Windows segue as melhores práticas:
 
 - A conta de armazenamento do Azure Files deve estar na mesma região que os VMs hospedeiros da sessão.
-- As permissões dos Ficheiros Azure devem corresponder às permissões descritas nos [Requisitos - Contentores](/fslogix/overview#requirements/)de Perfil .
+- As permissões dos Ficheiros Azure devem corresponder às permissões descritas nos [Requisitos - Contentores](/fslogix/overview#requirements)de Perfil .
 - Cada piscina hospedeira deve ser construída com o mesmo tipo e tamanho VM com base na mesma imagem principal.
 - Cada conjunto de acolhimento VM deve estar no mesmo grupo de recursos para ajudar na gestão, escalação e atualização.
 - Para um desempenho ótimo, a solução de armazenamento e o recipiente de perfil FSLogix devem estar na mesma localização do centro de dados.

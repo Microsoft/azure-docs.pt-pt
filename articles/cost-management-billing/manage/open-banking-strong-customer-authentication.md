@@ -2,21 +2,18 @@
 title: Banco Aberto (PSD2) e Autenticação de Clientes Segura (SCA) para os clientes do Azure
 description: Este artigo explica por que razão a autenticação multifator é necessária para realizar certas compras do Azure e como completar a autenticação.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 5f9c5f861e238bf38451863fb2d39cbb8af93225
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 1c4522bed191ef4142cc603bf0e1d22f086111ee
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133566"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200593"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Banco Aberto (PSD2) e Autenticação de Clientes Segura (SCA) para os clientes do Azure
 

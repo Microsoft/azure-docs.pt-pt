@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4c150d874d56e3de495b0682bee979d13304a01d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 77fc6070010791bf96c944114929eba95842c9d4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202219"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471712"
 ---
 Durante a pré-visualização, os discos geridos que tenham discos partilhados estão sujeitos às seguintes limitações:
 
@@ -26,4 +26,4 @@ Durante a pré-visualização, os discos geridos que tenham discos partilhados e
 - Os conjuntos de disponibilidade e os conjuntos de escala de máquinas virtuais só podem ser utilizados com `FaultDomainCount` definido si para 1.
 - O suporte de backup azure e de recuperação do site Azure ainda não está disponível.
 
-Se está interessado em experimentar discos partilhados, [inscreva-se para a nossa pré-visualização](https://aka.ms/shareddisksignup).
+Se está interessado em experimentar discos partilhados, [inscreva-se para a nossa pré-visualização](https://aka.ms/AzureSharedDiskPreviewSignUp).

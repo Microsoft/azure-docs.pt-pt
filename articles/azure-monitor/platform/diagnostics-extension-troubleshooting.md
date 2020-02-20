@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 1f3dd1fa4b70fcdbec7e62c84bbfc1df14d3502e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e2b3ceba7a3673caa38e09f6b4dfa296fd063cfe
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425090"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467918"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Tiroteio de problemas em Azure Diagnostics
 Este artigo descreve informações de resolução de problemas relevantes para a utilização de Diagnósticos Azure. Para obter mais informações sobre diagnósticos Azure, consulte a visão geral do [Azure Diagnostics.](diagnostics-extension-overview.md)
@@ -297,5 +297,5 @@ A experiência do portal nas máquinas virtuais mostra certos contadores de dese
 
 - Se os dados armazenados têm contranomes em inglês. Se os contranomes não estiverem em inglês, o gráfico métrico do portal não será capaz de reconhecê-lo. **Mitigação**: Mude a linguagem da máquina para inglês para as contas do sistema. Para tal, selecione **Painel** de Controlo > **Região** > **Definições** **administrativas** de cópia > . Em seguida, desmarque as contas de **ecrã e sistema de welcome** para que o idioma personalizado não seja aplicado na conta do sistema.
 
-- Se estiver a utilizar wildcards (\*) nos seus nomes de contra-desempenho, o portal não poderá correlacionar o contador configurado e recolhido quando os contadores de desempenho forem enviados para o lavatório de Armazenamento Azure. **Mitigação**: Para se certificar de que pode utilizar wildcards e fazer com que o portal expanda o (\*), encaminhe os seus contadores de desempenho para o [lavatório "Azure Monitor".](diagnostics-extension-schema.md#diagnostics-extension-111)
+- Se estiver a utilizar wildcards (\*) nos seus nomes de contra-desempenho, o portal não poderá correlacionar o contador configurado e recolhido quando os contadores de desempenho forem enviados para o lavatório de Armazenamento Azure. **Mitigação**: Para se certificar de que pode utilizar wildcards e fazer com que o portal expanda o (\*), encaminhe os seus contadores de desempenho para o lavatório Do Monitor Azure.
 

@@ -1,19 +1,18 @@
 ---
 title: Reduzir os custos do SQL Data Warehouse com a capacidade reservada do Azure
 description: Saiba como economizar custos para encargos do SQL Data Warehouse com a capacidade de reserva para poupar dinheiro.
-services: billing
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: b4069c9b18f9591e79d983a1317f00df11cf0611
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c428472d5564393e9f9fcdc3103bb1506dc50936
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995848"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200372"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Economize custos para encargos do SQL Data Warehouse com a capacidade de reserva
 

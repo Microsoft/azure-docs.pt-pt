@@ -1,31 +1,23 @@
 ---
 title: Analisar dados de faturação da inscrição do Azure Enterprise com a API REST | Microsoft Docs
 description: Saiba como utilizar as APIs REST do Azure para analisar as informações de faturação da inscrição do Enterprise.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: ''
-editor: ''
-ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 222b0358f027e0a6687ca0710e3cf5b80f292c4e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 24c4d9b74d68a05a253f05521ee62a0881a90988
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75993469"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199573"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Analisar a faturação da inscrição do Enterprise com as APIs REST
 
 As APIs de Relatórios do Azure ajudam-no a analisar e a gerir os custos do Azure.
 
-Neste artigo, ficará a saber como obter as informações de faturação associadas às contas de faturação, ao departamento ou às contas de inscrição do Contrato Enterprise (EA) através das APIs REST do Azure. 
+Neste artigo, ficará a saber como obter as informações de faturação associadas às contas de faturação, ao departamento ou às contas de inscrição do Contrato Enterprise (EA) através das APIs REST do Azure.
 
 ## <a name="individual-account-billing"></a>Faturação de contas individuais
 
@@ -39,7 +31,7 @@ Authorization: Bearer
 
 O parâmetro `{billingAccountId}` é obrigatório e deve conter o ID da conta.
 
-Os seguintes cabeçalhos são obrigatórios: 
+Os seguintes cabeçalhos são obrigatórios:
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
@@ -80,9 +72,9 @@ O código de estado 200 (OK) é devolvido para uma resposta bem-sucedida, que co
 
 Este exemplo é abreviado; veja [Get usage detail for a billing account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist-legacy) (Obter detalhes de utilização de uma conta) para obter uma descrição completa de cada campo de resposta e como resolver erros.
 
-## <a name="department-billing"></a>Faturação do departamento 
+## <a name="department-billing"></a>Faturação do departamento
 
-Obtenha detalhes de utilização agregados de todas as contas num departamento. 
+Obtenha detalhes de utilização agregados de todas as contas num departamento.
 
 ```http
 GET https://management.azure.com/providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
@@ -92,7 +84,7 @@ Authorization: Bearer
 
 O parâmetro `{departmentId}` é obrigatório e deve conter o ID do departamento na conta de inscrição.
 
-Os seguintes cabeçalhos são obrigatórios: 
+Os seguintes cabeçalhos são obrigatórios:
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
@@ -148,7 +140,7 @@ Authorization: Bearer
 
 O parâmetro `{enrollmentAccountId}` é obrigatório e deve conter o ID da conta de inscrição.
 
-Os seguintes cabeçalhos são obrigatórios: 
+Os seguintes cabeçalhos são obrigatórios:
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
@@ -185,11 +177,11 @@ O exemplo a seguir mostra a saída da API REST para a inscrição Enterprise `12
     }
   ]
 }
-``` 
+```
 
 Este exemplo é abreviado; veja [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy) (Obter detalhes de utilização de uma conta de inscrição) para obter uma descrição completa de cada campo de resposta e como resolver erros.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos seguintes
 - Veja [Descrição geral dos relatórios Enterprise](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
 - Consulte [Enterprise Billing REST API](https://docs.microsoft.com/rest/api/billing/) (API REST de Faturação do Enterprise)   
 - [Introdução à API REST do Azure](https://docs.microsoft.com/rest/api/azure/)   

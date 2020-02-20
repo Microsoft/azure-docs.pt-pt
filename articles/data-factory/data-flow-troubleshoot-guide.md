@@ -1,6 +1,6 @@
 ---
 title: Fluxos de dados de resolução de problemas
-description: Saiba como solucionar problemas de fluxo de dados no Azure Data Factory.
+description: Saiba como resolver problemas de fluxo de dados na Azure Data Factory.
 services: data-factory
 ms.author: makromer
 author: kromerm
@@ -8,16 +8,16 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/04/2020
-ms.openlocfilehash: 901868da8ed859a846a507557d383db760f297c9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: e2e1ddd031041f49107545cd0b3d3de4eaebcd6d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029525"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472133"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Fluxos de dados de resolução de problemas na Fábrica de Dados de Azure
 
-Este artigo explora métodos comuns de solução de problemas para fluxos de dados em Azure Data Factory.
+Este artigo explora métodos comuns de resolução de problemas para fluxos de dados na Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Erros e mensagens comuns
 
@@ -29,8 +29,8 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 ### <a name="error-code-df-executor-systemimplicitcartesian"></a>Código de erro: DF-Executor-SystemImplicitCartesian
 
 - **Mensagem**: O produto cartesiano implícito para a adesão ao INNER não é suportado, utilize o CROSS JOIN em vez disso. As colunas utilizadas em adesão devem criar uma chave única para as linhas.
-- **Causas**: Produto cartesiano implícito para a adesão do INNER entre planos lógicos não é suportado. Se as colunas utilizadas na união criarem a chave única
-- **Recomendação**: Para uniões baseadas em não igualdade, tem de optar pela CROSS JOIN.
+- **Causas**: Produto cartesiano implícito para a adesão do INNER entre planos lógicos não é suportado. Se as colunas utilizadas na união criarem a chave única, são necessárias pelo menos uma coluna de ambos os lados da relação.
+- **Recomendação**: Para uniões baseadas em não igualdade, tem de optar pela CUSTOM CROSS JOIN.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>Código de erro: DF-Executor-SystemInvalidJson
 
@@ -56,15 +56,15 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 - **Causas**: Nenhum nome da coluna foi especificado
 - **Recomendação**: Detete um pseudónimo se utilizar uma função SQL, como min()/max(), etc.
 
-## <a name="general-troubleshooting-guidance"></a>Diretrizes gerais de solução de problemas
+## <a name="general-troubleshooting-guidance"></a>Orientação geral de resolução de problemas
 
-1. Verifique o status das suas conexões de conjunto de conexão. Em cada transformação de origem e coletor, visite o serviço vinculado para cada conjunto de um que você está usando e teste as conexões.
-1. Verifique o status das conexões de arquivo e de tabela do designer de fluxo de dados. Ative a depuração e clique em visualização de dados em suas transformações de origem para garantir que você possa acessar seus dados.
-1. Se tudo estiver correto na visualização de dados, vá para o designer de pipeline e coloque seu fluxo de dados em uma atividade de pipeline. Depure o pipeline para um teste de ponta a ponta.
+1. Verifique o estado das ligações do conjunto de dados. Em cada transformação de Origem e Sink, visite o Serviço Linked para cada conjunto de dados que está a utilizar e testa as ligações.
+1. Verifique o estado do seu ficheiro e ligações de mesa do designer de fluxo de dados. Ligue o Debug e clique na Pré-visualização de dados nas transformações da fonte para garantir que consegue aceder aos seus dados.
+1. Se tudo correr bem a partir da pré-visualização de dados, entre no pipeline designer e coloque o fluxo de dados numa atividade de pipeline. Desperte o gasoduto para um teste de ponta a ponta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais ajuda para solução de problemas, Experimente estes recursos:
+Para obter mais ajuda para resolução de problemas, experimente estes recursos:
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de funcionalidade sinuosos da Fábrica de Dados](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)

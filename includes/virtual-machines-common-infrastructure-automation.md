@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 4259868ff3b3c9ca9f9818532acd7e865e0300d7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 525eba8a5a4e891526eb32a24287ea3887ee6743
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77205733"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474280"
 ---
 Para criar e gerir máquinas virtuais do Azure (VMs) de forma consistente à escala, alguma forma de automatização é normalmente pretende-se. Existem muitas ferramentas e soluções que permitem-lhe automatizar a implementação de toda a infraestrutura do Azure e o ciclo de vida de gestão. Este artigo apresenta algumas das ferramentas de automatização de infraestruturas que pode utilizar no Azure. Essas ferramentas normalmente se adaptam a uma das abordagens seguintes:
 
@@ -48,7 +48,7 @@ Aprenda a:
 
 Aprenda a:
 
-- [Implementar marionetas do Mercado Azure.](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview)
+- [Implementar marionetas do Mercado Azure.](https://azuremarketplace.microsoft.com/marketplace/apps/Puppet.puppet-agent-windows-asm?tab=Overview)
 
 
 ## <a name="cloud-init"></a>Inicialização da cloud
@@ -99,8 +99,8 @@ Aprenda a:
 
 Aprenda a:
 
-- [Instale e configure terraforma com Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
-- [Crie uma infraestrutura Azure com Terraform.](../articles/virtual-machines/linux/terraform-create-complete-vm.md)
+- [Instale e configure terraforma com Azure](../articles/terraform/terraform-install-configure.md).
+- [Crie uma infraestrutura Azure com Terraform.](../articles/terraform/terraform-create-complete-vm.md)
 
 
 ## <a name="azure-automation"></a>Automatização do Azure

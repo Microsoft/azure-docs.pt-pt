@@ -1,16 +1,16 @@
 ---
-title: Tutorial-criar um cluster de VM do Azure com Terraform usando o registro de módulo
+title: Tutorial - Criar um cluster Azure VM com Terraform utilizando o Registo de Módulos
 description: Aprenda a utilizar módulos do Terraform para criar um cluster de máquina virtual do Windows no Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 3ddc80e8f5a81e89e4574ff6524055f12a4a618a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d17a0d7c26cc1a16ab73350fe6e8c28ba4af6ff2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185553"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472213"
 ---
-# <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Tutorial: criar um cluster de VM do Azure com Terraform usando o registro de módulo
+# <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Tutorial: Criar um cluster Azure VM com Terraform utilizando o Registo de Módulos
 
 Este artigo explica como criar um pequeno cluster de VM com o [módulo de computação do Azure](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2) do Terraform. Neste tutorial, ficará a saber como: 
 
@@ -25,9 +25,9 @@ Para obter mais informações sobre o Terraform, veja a [documentação do Terra
 ## <a name="set-up-authentication-with-azure"></a>Configurar autenticação com o Azure
 
 > [!TIP]
-> Se [utilizar variáveis de ambiente do Terraform](/azure/virtual-machines/linux/terraform-install-configure) ou executar este tutorial no [Azure Cloud Shell](/azure/cloud-shell/overview), ignore este passo.
+> Se [utilizar variáveis de ambiente do Terraform](terraform-install-configure.md) ou executar este tutorial no [Azure Cloud Shell](/azure/cloud-shell/overview), ignore este passo.
 
- Reveja [Instalar o Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure) para criar um principal de serviço do Azure. Utilize este principal de serviço para preencher um novo ficheiro `azureProviderAndCreds.tf` num diretório vazio com o código a seguir:
+ Reveja [Instalar o Terraform e configurar o acesso ao Azure](terraform-install-configure.md) para criar um principal de serviço do Azure. Utilize este principal de serviço para preencher um novo ficheiro `azureProviderAndCreds.tf` num diretório vazio com o código a seguir:
 
 ```hcl
 variable subscription_id {}
@@ -100,4 +100,4 @@ Execute `terraform apply` para aprovisionar as VMs no Azure.
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Procurar a lista de módulos do Azure Terraform](https://registry.terraform.io/modules/Azure)
+> [Navegue na lista de módulos Azure Terraform](https://registry.terraform.io/modules/Azure)

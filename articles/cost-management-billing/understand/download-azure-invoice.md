@@ -3,21 +3,18 @@ title: Ver e transferir a fatura do Microsoft Azure
 description: Descreve como ver e transferir a fatura do Microsoft Azure.
 keywords: faturação, transferência da fatura, fatura do azure, utilização do azure
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 691d27acebf238e84265870e8c01976bfc2412b2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75987827"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200270"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Ver e transferir a fatura do Microsoft Azure
 
@@ -87,7 +84,7 @@ Para optar por não receber as faturas por e-mail, siga os passos anteriores e c
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obter as faturas do Contrato de Cliente da Microsoft por e-mail
 
-Se tiver uma conta de faturação do Contrato de Cliente Microsoft, poderá optar por receber a fatura por e-mail. Todos os utilizadores com uma função de proprietário, contribuidor, leitor ou gestor de faturas num perfil de faturação recebem a fatura por e-mail. 
+Se tiver uma conta de faturação do Contrato de Cliente Microsoft, poderá optar por receber a fatura por e-mail. Todos os utilizadores com uma função de proprietário, contribuidor, leitor ou gestor de faturas num perfil de faturação recebem a fatura por e-mail.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -109,11 +106,11 @@ Se tiver uma conta de faturação do Contrato de Cliente Microsoft, poderá opta
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Optar por não receber as faturas por e-mail do Contrato de Cliente Microsoft
 
-Para optar por não receber as faturas por e-mail, siga os passos anteriores e clique em **Optar por não receber**. Todos os utilizadores com uma função de proprietário, contribuidor, leitor ou gestor de faturas num perfil de faturação deixam de receber a fatura por e-mail. 
+Para optar por não receber as faturas por e-mail, siga os passos anteriores e clique em **Optar por não receber**. Todos os utilizadores com uma função de proprietário, contribuidor, leitor ou gestor de faturas num perfil de faturação deixam de receber a fatura por e-mail.
 
 ## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Conceder acesso a outras pessoas às faturas do Contrato de Cliente Microsoft
 
-Pode conceder acesso a outras pessoas para ver, transferir e pagar faturas ao atribuir-lhes a função de gestor de faturas para um perfil de faturação. Se tiver optado por receber a fatura por e-mail, os utilizadores também receberão as faturas por e-mail. 
+Pode conceder acesso a outras pessoas para ver, transferir e pagar faturas ao atribuir-lhes a função de gestor de faturas para um perfil de faturação. Se tiver optado por receber a fatura por e-mail, os utilizadores também receberão as faturas por e-mail.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 

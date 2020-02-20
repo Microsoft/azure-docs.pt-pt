@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/07/2020
-ms.openlocfilehash: 1256575eea7ee80b41a875c6bcd9b281b98aa360
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 02/18/2020
+ms.openlocfilehash: f1707c7f8d6324678c8bf5a470bbded1e58c719e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163853"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470722"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Operações de ficheiros Wasb dedepura no Azure HDInsight
 
@@ -26,19 +26,17 @@ Um registo produzido será semelhante a:
 
 ## <a name="turn-on-wasb-debug-log-for-file-operations"></a>Ligue o registo de depuração wasb para operações de ficheiros
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, onde `CLUSTERNAME` é o nome do seu cluster Spark.
+1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`, onde `CLUSTERNAME` é o nome do seu cluster Spark.
 
-1. Navegue até **Spark2** > **Configs** > **avançadas propriedades spark2-log4j**.
+1. Navegue para **propriedades avançadas de spark2-log4j**.
 
-1. Modificar `log4j.appender.console.Threshold=INFO` para `log4j.appender.console.Threshold=DEBUG`.
+    1. Modificar `log4j.appender.console.Threshold=INFO` para `log4j.appender.console.Threshold=DEBUG`.
+
+    1. Adicione `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
 1. Navegue para propriedades **avançadas de livy2-log4j**.
 
-1. Adicione o seguinte imóvel:
-
-    ```
-    log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG
-    ```
+    Adicione `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
 1. Guarde as alterações.
 
@@ -59,7 +57,7 @@ log4j.appender.adlsFile.layout.ConversionPattern=%p\t%d{ISO8601}\t%r\t%c\t[%t]\t
 
 Procure os registos em `/var/log/adl/adl.log` para os registos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

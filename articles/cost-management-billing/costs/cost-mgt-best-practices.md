@@ -1,21 +1,20 @@
 ---
 title: Otimizar o investimento na cloud com o Azure Cost Management | Microsoft Docs
 description: Este artigo ajuda-o a obter o valor máximo dos seus investimentos na cloud, reduzir os custos e a avaliar onde está a gastar o seu dinheiro.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 47a53136a8f299e5c8654d122d8e319be4ae29db
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6d13bf4b2a3abd3a1552ac656a6a15fed8c7cb60
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988386"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201072"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar o investimento na cloud com o Azure Cost Management
 
@@ -85,20 +84,20 @@ O primeiro passo para maximizar a sua experiência dentro do Cost Management é 
 
 Para saber mais informações sobre as várias opções, visite [Como comprar o Azure](https://azure.microsoft.com/pricing/purchase-options/). Abaixo, identificámos alguns dos modelos de faturação mais comuns.
 
-#### <a name="freehttpsazuremicrosoftcomfree"></a>[Gratuito](https://azure.microsoft.com/free/)
+#### <a name="free"></a>[Gratuito](https://azure.microsoft.com/free/)
 
 - 12 meses de serviços gratuitos populares
 - Crédito de 200 $ para explorar os serviços durante 30 dias
 - Mais de 25 serviços sempre gratuitos
 
-#### <a name="pay-as-you-gohttpsazuremicrosoftcomoffersms-azr-0003p"></a>[Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)
+#### <a name="pay-as-you-go"></a>[Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)
 
 - Sem mínimos nem alocações
 - Preços competitivos
 - Paga apenas o que utilizar
 - Cancelamento a qualquer momento
 
-#### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
+#### <a name="enterprise-agreement"></a>[Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
 - Opções para alocações monetárias prévias
 - Acesso a preços do Azure com redução

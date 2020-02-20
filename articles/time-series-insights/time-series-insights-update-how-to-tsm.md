@@ -1,6 +1,6 @@
 ---
-title: Modelagem de dados em ambientes de visualização – Azure Time Series Insights | Microsoft Docs
-description: Saiba mais sobre a modelagem de dados na visualização Azure Time Series Insights.
+title: Modelação de dados em ambientes de pré-visualização - Azure Time Series Insights  Microsoft Docs
+description: Saiba mais sobre modelação de dados na Pré-visualização de Insights da Série De Tempo Azure.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,168 +8,168 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 591233154ab79b9493d77030727462bae68ea7d5
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152362"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470756"
 ---
-# <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelagem de dados na visualização Azure Time Series Insights
+# <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelação de dados na Pré-visualização de Insights da Série De Tempo azure
 
-Este artigo descreve como trabalhar com o modelo de série temporal na visualização Azure Time Series Insights. Ele detalha vários cenários de dados comuns.
+Este artigo descreve como trabalhar com o Modelo da Série De Tempo na Pré-visualização de Insights da Série De Tempo azure. Detalha vários cenários comuns de dados.
 
 > [!TIP]
-> * Leia sobre o [modelo de série temporal](time-series-insights-update-tsm.md)de visualização.
-> * Saiba mais sobre como navegar na interface do usuário da versão prévia no [Azure Time Series insights Explorer Preview](./time-series-insights-update-explorer.md).
+> * Leia sobre o Modelo de [Série de Tempo](time-series-insights-update-tsm.md)de Pré-visualização .
+> * Saiba mais sobre navegar na Pré-Visualização uI em [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
-## <a name="instances"></a>Instâncias
+## <a name="instances"></a>instâncias
 
-O Azure Time Series Insights Explorer dá suporte a operações de **criação**, **leitura**, **atualização**e **exclusão** no navegador. 
+O explorador de Insights da Série De Tempo Azure suporta as operações de **Criação**de Instâncias, **READ,** **UPDATE**e **DELETE** dentro do navegador. 
 
-Para começar, selecione o modo de exibição de **modelo** na exibição de **análise** do time Series insights Explorer.
+Para começar, selecione a visão do **Modelo** a partir da visão **do** explorador de Insights da Série Tempo.
 
 ### <a name="create-a-single-instance"></a>Criar uma única instância
 
-1. Vá para o painel seletor de modelo de série temporal e selecione **instâncias** no menu. Todas as instâncias associadas ao ambiente de Time Series Insights selecionado serão exibidas.
+1. Vá ao painel seletor do Modelo série de tempo e selecione **Instâncias** do menu. Todas as instâncias associadas ao seu ambiente time series insights selecionados serão exibidas.
 
-    [![criar uma única instância selecionando primeiro as instâncias.](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png#lightbox)
+    [![Criar uma única instância selecionando os casos.](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png#lightbox)
 
 1. Selecione **+ Adicionar**.
 
-    [![adicionar uma instância selecionando o botão + Adicionar.](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png#lightbox)
+    [![Adicione uma instância selecionando o botão + Adicionar.](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png#lightbox)
 
-1. Insira os detalhes da instância, selecione o tipo e a associação de hierarquia e selecione **criar**.
+1. Introduza os detalhes da instância, selecione o tipo e a associação de hierarquias e selecione **Criar**.
 
-### <a name="bulk-upload-one-or-more-instances"></a>Carregar em massa uma ou mais instâncias
+### <a name="bulk-upload-one-or-more-instances"></a>Upload a granel uma ou mais instâncias
 
 > [!TIP]
-> Você pode salvar suas instâncias em sua área de trabalho em JSON. O arquivo JSON baixado pode ser carregado por meio das etapas a seguir.
+> Pode guardar as suas instâncias para o seu ambiente de trabalho em JSON. O ficheiro JSON descarregado pode então ser carregado através dos seguintes passos.
 
-1. Selecione **carregar JSON**.
-1. Selecione o arquivo que contém a carga de instâncias.
+1. **Selecione upload JSON**.
+1. Selecione o ficheiro que contém as instâncias de carga útil.
 
-    [![instâncias de upload em massa por meio de JSON.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png#lightbox)
+    [![carregar em massa as instâncias através da JSON.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png#lightbox)
 
 1. Selecione **Upload**.
 
 ### <a name="edit-a-single-instance"></a>Editar uma única instância
 
-1. Selecione a instância e selecione o ícone **Editar** ou **lápis**. 
-1. Faça as alterações necessárias e selecione **salvar**.
+1. Selecione a instância e selecione o ícone de **edição** ou **lápis**. 
+1. Faça as alterações necessárias e selecione **Guardar**.
 
-    [![editar uma única instância.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
+    [![Editar uma única instância.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
 
-### <a name="delete-an-instance"></a>Excluir uma instância
+### <a name="delete-an-instance"></a>Apagar uma instância
 
-1. Selecione a instância e selecione o ícone **excluir** ou **perder lixeira**.
+1. Selecione a instância e selecione o ícone **de eliminar** ou **resíduos**.
 
-   [![excluir uma instância selecionando excluir.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+   [![Apagar uma instância selecionando Apagar.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
 
-1. Confirme a exclusão selecionando **excluir**.
+1. Confirmar a eliminação selecionando **Apagar**.
 
 > [!NOTE]
-> Uma instância do deve passar uma verificação de validação de campo com êxito para ser excluída.
+> Uma instância deve passar com sucesso um controlo de validação de campo a eliminar.
 
 ## <a name="hierarchies"></a>Hierarquias
 
-O Azure Time Series Insights Explorer dá suporte a operações de **criação**, **leitura**, **atualização**e **exclusão** de hierarquia no navegador. 
+O explorador de Insights da Série De Tempo Azure suporta as operações de **criação**de hierarquias, **READ,** **UPDATE**e **DELETE** dentro do navegador. 
 
-Para começar, selecione o modo de exibição de **modelo** na exibição de **análise** do time Series insights Explorer.
+Para começar, selecione a visão do **Modelo** a partir da visão **do** explorador de Insights da Série Tempo.
 
 ### <a name="create-a-single-hierarchy"></a>Criar uma única hierarquia
 
-1. Vá para o painel seletor de modelo de série temporal e selecione **hierarquias** no menu. Todas as hierarquias associadas ao ambiente de Time Series Insights selecionado serão exibidas.
+1. Vá ao painel seletor do Modelo série de tempo e selecione **Hierarquias** do menu. Todas as hierarquias associadas ao seu ambiente selecionado da Time Series Insights serão exibidas.
 
-    [![criar uma hierarquia por meio do painel.](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png#lightbox)
+    [![Criar uma hierarquia através do painel.](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png#lightbox)
 
 1. Selecione **+ Adicionar**.
 
-    [![hierarquia + adicionar botão.](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png#lightbox)
+    [![Hierarquia + Adicionar botão.](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png#lightbox)
 
-1. Selecione **+ Adicionar nível** no painel direito.
+1. Selecione + Adicione o **nível** no painel direito.
 
-    [![adicionar um nível à hierarquia.](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png)](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png#lightbox)
+    [![Adicionar um nível à hierarquia.](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png)](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png#lightbox)
 
-1. Insira os detalhes da hierarquia e selecione **salvar**.
+1. Introduza os detalhes da hierarquia e selecione **Guardar**.
 
     [![especificar detalhes da hierarquia.](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png)](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png#lightbox)
 
-### <a name="bulk-upload-one-or-more-hierarchies"></a>Carregar em massa uma ou mais hierarquias
+### <a name="bulk-upload-one-or-more-hierarchies"></a>Carregar a granel uma ou mais hierarquias
 
 > [!TIP]
-> Você pode salvar suas hierarquias em sua área de trabalho em JSON. O arquivo JSON baixado pode ser carregado por meio das etapas a seguir.
+> Pode guardar as suas hierarquias para o seu ambiente de trabalho na JSON. O ficheiro JSON descarregado pode então ser carregado através dos seguintes passos.
 
-1. Selecione **carregar JSON**.
-1. Selecione o arquivo que contém a carga da hierarquia.
+1. **Selecione upload JSON**.
+1. Selecione o ficheiro que contém a carga útil da hierarquia.
 1. Selecione **Upload**.
 
-    [![seleções para o upload em massa de hierarquias.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png#lightbox)
+    [![seleções para o carregamento a granel de hierarquias.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Editar uma única hierarquia
 
-1. Selecione a hierarquia e selecione o ícone **Editar** ou **lápis**.
-1. Faça as alterações necessárias e selecione **salvar**.
+1. Selecione a hierarquia e selecione o ícone de **edição** ou **lápis**.
+1. Faça as alterações necessárias e selecione **Guardar**.
 
-    [![seleções para editar uma única hierarquia.](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png#lightbox)
+    [![Seleções para editar uma única hierarquia.](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png#lightbox)
 
-### <a name="delete-a-hierarchy"></a>Excluir uma hierarquia
+### <a name="delete-a-hierarchy"></a>Apagar uma hierarquia
 
-1. Selecione a hierarquia e selecione o ícone **excluir** ou **perder lixeira**. 
+1. Selecione a hierarquia e selecione o ícone **de eliminar** ou **resíduos**. 
 
-    [![excluir uma hierarquia selecionando o botão excluir.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
+    [![Apagar uma hierarquia selecionando o botão Eliminar.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
 
-1. Confirme a exclusão selecionando **excluir**.
+1. Confirmar a eliminação selecionando **Apagar**.
 
 ## <a name="types"></a>Tipos
 
-O Azure Time Series Insights Explorer dá suporte ao tipo **criar**, **ler**, **Atualizar**e **excluir** operações no navegador. 
+O explorador de Insights da Série De Tempo Azure suporta as operações tipo **CREATE,** **READ,** **UPDATE**e **DELETE** dentro do navegador. 
 
-Para começar, selecione o modo de exibição de **modelo** na exibição de **análise** do time Series insights Explorer.
+Para começar, selecione a visão do **Modelo** a partir da visão **do** explorador de Insights da Série Tempo.
 
 ### <a name="create-a-single-type"></a>Criar um único tipo
 
-1. Vá para o painel seletor de modelo de série temporal e selecione **tipos** no menu. Todos os tipos associados ao ambiente de Time Series Insights selecionado serão exibidos.
+1. Vá ao painel seletor do Modelo série de tempo e selecione **Tipos** do menu. Todos os tipos associados ao seu ambiente time series insights selecionados serão apresentados.
 
-    [![painel de tipos de modelo de série temporal.](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
+    [painel de modelos de série seleção ![Time Series.](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
 
-1. Selecione **+ Adicionar** para exibir a janela pop-up **Adicionar um novo tipo** .
-1. Insira Propriedades e variáveis para seu tipo. Depois de inserida, selecione **salvar**. 
+1. Selecione **+ Adicione** para exibir o **novo tipo** popup modal.
+1. Introduza propriedades e variáveis para o seu tipo. Uma vez introduzido, selecione **Guardar**. 
 
-    [![definições de configuração para adicionar um tipo.](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
+    [![configurações de configuração para adicionar um tipo.](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
 
-### <a name="bulk-upload-one-or-more-types"></a>Carregar em massa um ou mais tipos
+### <a name="bulk-upload-one-or-more-types"></a>Carregar a granel um ou mais tipos
 
 > [!TIP]
-> Você pode salvar seus tipos em sua área de trabalho em JSON. O arquivo JSON baixado pode ser carregado por meio das etapas a seguir.
+> Pode guardar os seus tipos para o seu ambiente de trabalho em JSON. O ficheiro JSON descarregado pode então ser carregado através dos seguintes passos.
 
-1. Selecione **carregar JSON**.
-1. Selecione o arquivo que contém a carga do tipo.
+1. **Selecione upload JSON**.
+1. Selecione o ficheiro que contém a carga útil do tipo.
 1. Selecione **Upload**.
 
-    [![opções de carregamento de tipos em massa.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png#lightbox)
+    [![opções de upload de tipos a granel.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Editar um único tipo
 
-1. Selecione o tipo e selecione o ícone **Editar** ou **lápis**.
-1. Faça as alterações necessárias e selecione **salvar**.
+1. Selecione o tipo e selecione o ícone de **edição** ou **lápis**.
+1. Faça as alterações necessárias e selecione **Guardar**.
 
-    [![editar um tipo no painel.](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png#lightbox)
+    [![Editar um tipo no painel.](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png#lightbox)
 
-### <a name="delete-a-type"></a>Excluir um tipo
+### <a name="delete-a-type"></a>Eliminar um tipo
 
-1. Selecione o tipo e selecione o ícone **excluir** ou **perder lixeira**. .
+1. Selecione o tipo e selecione o ícone **de eliminar** ou **resíduos**. .
 
-   [![excluir um tipo selecionando excluir.](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png#lightbox)
+   [![Eliminar um tipo selecionando Apagar.](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png#lightbox)
 
-1. Confirme a exclusão selecionando **excluir**.
+1. Confirmar a eliminação selecionando **Apagar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter mais informações sobre o modelo de série temporal, leia [modelagem de dados](./time-series-insights-update-tsm.md).
+- Para obter mais informações sobre o Modelo da Série Tempo, leia [a modelação de dados.](./time-series-insights-update-tsm.md)
 
-- Para saber mais sobre a versão prévia, leia [Visualizar dados no Gerenciador do Azure Time Series insights Preview](./time-series-insights-update-explorer.md).
+- Para saber mais sobre a pré-visualização, leia visualize os dados no explorador de [pré-visualização](./time-series-insights-update-explorer.md)da Série de Tempo Azure Insights .
 
-- Para saber mais sobre as formas JSON com suporte, leia [formas de JSON com suporte](./time-series-insights-send-events.md#supported-json-shapes).
+- Para aprender sobre formas JSON suportadas, leia [as formas JSON suportadas](./time-series-insights-send-events.md#supported-json-shapes).

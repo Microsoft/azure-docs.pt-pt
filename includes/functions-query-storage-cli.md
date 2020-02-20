@@ -4,30 +4,30 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: ca576290ea511dc54b89ecebef72ca2a42e9169f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4fe159660421113e0f0ac0586ae7e4a22d5bcda7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329569"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474267"
 ---
-### <a name="query-the-storage-queue"></a>Consultar a fila de armazenamento
+### <a name="query-the-storage-queue"></a>Consulta da fila de armazenamento
 
-Você pode usar o comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para exibir as filas de armazenamento em sua conta, como no exemplo a seguir:
+Pode utilizar o comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para visualizar as filas de armazenamento na sua conta, como no seguinte exemplo:
 
 ```azurecli-interactive
 az storage queue list --output tsv
 ```
 
-A saída desse comando inclui uma fila chamada `outqueue`, que é a fila que foi criada quando a função foi executada.
+A saída deste comando inclui uma fila chamada `outqueue`, que é a fila que foi criada quando a função funcionava.
 
-Em seguida, use o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para exibir as mensagens nesta fila, como neste exemplo:
+Em seguida, use o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para ver as mensagens nesta fila, como neste exemplo:
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
 ```
 
-A cadeia de caracteres retornada deve ser igual à mensagem que você enviou para testar a função.
+A corda devolvida deve ser a mesma que a mensagem que enviou para testar a função.
 
 > [!NOTE]  
-> O exemplo anterior decodifica a cadeia de caracteres retornada de Base64. Isso ocorre porque as associações de armazenamento de filas gravam e lêem do armazenamento do Azure como [cadeias de caracteres Base64](../articles/azure-functions/functions-bindings-storage-queue.md#encoding).
+> O exemplo anterior descodifica a corda devolvida da base64. Isto porque as encadernações de armazenamento de fila escrevem e lêem a partir do Armazenamento Azure como [cordas base64](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#encoding).

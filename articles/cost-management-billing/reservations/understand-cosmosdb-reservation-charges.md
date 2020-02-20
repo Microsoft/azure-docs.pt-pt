@@ -1,20 +1,18 @@
 ---
 title: Compreender como se aplica o desconto de reserva ao Azure Cosmos DB | Microsoft Docs
 description: Saiba como se aplica o desconto de reserva ao débito aprovisionado (RU/s) no Azure Cosmos DB.
-services: cosmos-db
 author: bandersmsft
-manager: kfile
+ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.reviewer: sngun
-ms.openlocfilehash: cb20c88577bba614c70fdf5a266d482d06aeca57
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2477e1074ab90d36f92b647dd74513e3fa9ae70f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995562"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200304"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Compreender como se aplica o desconto de reserva ao Azure Cosmos DB
 

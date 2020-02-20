@@ -1,7 +1,6 @@
 ---
 title: Compreender os dados do Azure Cost Management | Microsoft Docs
 description: Este artigo ajuda-o a compreender melhor os dados que estão incluídos no Azure Cost Management e com que frequência são processados, recolhidos, mostrados e fechados.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: a514dc07da3e4fd5928614099eb86ecef311bbb1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 39f2aab72491ffdf2b583879181a247d3653647f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188523"
+ms.locfileid: "77199896"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 

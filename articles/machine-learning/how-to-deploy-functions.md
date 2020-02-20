@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 321f985bd375e6fa4337e060bb15d318ea306ab4
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 29c91cf14413a11804de82eeaf08d628b125d76a
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116748"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471946"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,7 +111,7 @@ print(blob.location)
 Quando `show_output=True`, a saída do processo de construção do Docker é mostrada. Uma vez terminado o processo, a imagem foi criada no Registo de Contentores Azure para o seu espaço de trabalho. Uma vez construída a imagem, a localização no registo do contentor Azure é exibida. A localização devolvida encontra-se no formato `<acrinstance>.azurecr.io/package@sha256:<hash>`.
 
 > [!NOTE]
-> A embalagem para funções suporta atualmente os gatilhos HTTP, os gatilhos blob e os gatilhos de ônibus de serviço. Para obter mais informações sobre os gatilhos, consulte as [encadernações das Funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob?tabs=csharp#trigger---blob-name-patterns).
+> A embalagem para funções suporta atualmente os gatilhos HTTP, os gatilhos blob e os gatilhos de ônibus de serviço. Para obter mais informações sobre os gatilhos, consulte as [encadernações das Funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
 
 > [!IMPORTANT]
 > Guarde as informações de localização, pois é utilizada ao implementar a imagem.
@@ -156,7 +156,7 @@ Quando `show_output=True`, a saída do processo de construção do Docker é mos
     > [!IMPORTANT]
     > As imagens criadas pelo Azure Machine Learning usam o Linux, pelo que deve utilizar o parâmetro `--is-linux`.
 
-1. Crie a conta de armazenamento a ser usada para o armazenamento de trabalhos da Web e obtenha sua cadeia de conexão. Substitua `<webjobStorage>` pelo nome que pretende utilizar.
+1. Crie a conta de armazenamento para usar para o armazenamento de trabalho web e obtenha a sua cadeia de ligação. Substitua `<webjobStorage>` pelo nome que pretende utilizar.
 
     ```azurecli-interactive
     az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
@@ -174,7 +174,7 @@ Quando `show_output=True`, a saída do processo de construção do Docker é mos
     > [!IMPORTANT]
     > Neste ponto, a aplicação de funções foi criada. No entanto, uma vez que não forneceu a cadeia de ligação para o gatilho ou credenciais do registo de contentores Azure que contém a imagem, a aplicação de função não está ativa. Nos próximos passos, fornece a corda de ligação e as informações de autenticação para o registo do recipiente. 
 
-1. Crie a conta de armazenamento a ser usada para o armazenamento do gatilho de BLOB e obtenha a cadeia de conexão. Substitua `<triggerStorage>` pelo nome que pretende utilizar.
+1. Crie a conta de armazenamento para usar para o armazenamento do gatilho blob e obtenha a sua cadeia de ligação. Substitua `<triggerStorage>` pelo nome que pretende utilizar.
 
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
@@ -193,12 +193,12 @@ Quando `show_output=True`, a saída do processo de construção do Docker é mos
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. Para associar a cadeia de conexão do gatilho ao aplicativo de funções, use o comando a seguir. Substitua `<app-name>` pelo nome da aplicação de funções. Substitua `<triggerConnectionString>` com a corda de ligação devolvida anteriormente:
+1. Para associar a cadeia de ligação do gatilho à aplicação de função, utilize o seguinte comando. Substitua `<app-name>` pelo nome da aplicação de funções. Substitua `<triggerConnectionString>` com a corda de ligação devolvida anteriormente:
 
     ```azurecli-interactive
     az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
     ```
-1. Você precisará recuperar a marca associada ao contêiner criado usando o comando a seguir. Substitua `<username>` pelo nome de utilizador devolvido anteriormente do registo do contentor:
+1. Terá de recuperar a etiqueta associada ao recipiente criado utilizando o seguinte comando. Substitua `<username>` pelo nome de utilizador devolvido anteriormente do registo do contentor:
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv

@@ -1,93 +1,93 @@
 ---
-title: Tutorial-criar uma topologia de rede híbrida de Hub e spoke no Azure usando o Terraform
-description: Tutorial ilustrando como criar uma arquitetura de referência de rede híbrida inteira no Azure usando o Terraform
+title: Tutorial - Criar um hub e falou de topologia de rede híbrida em Azure usando terraforma
+description: Tutorial ilustrando como criar toda uma arquitetura híbrida de referência de rede em Azure usando terrafora
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 90a60fc4fe98397c903e3e8a460806d6a2edb908
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6f156dd90b83ceaf5749c8c2acebae35bcb54a92
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159028"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472184"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutorial: criar uma topologia de rede híbrida de Hub e spoke no Azure usando o Terraform
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutorial: Criar um hub e falou de topologia de rede híbrida em Azure usando terraforma
 
-Esta série de tutoriais mostra como usar o Terraform para implementar no Azure uma [topologia de rede de Hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
+Esta série tutorial mostra como usar a Terraform para implementar em Azure um [hub e topologia de rede falada.](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 
 
-Uma topologia de Hub e spoke é uma maneira de isolar cargas de trabalho ao compartilhar serviços comuns. Esses serviços incluem identidade e segurança. O Hub é uma rede virtual (VNet) que atua como um ponto de conexão central para uma rede local. Os spokes são VNets que configuram o peering com o hub. Os serviços compartilhados são implantados no Hub, enquanto as cargas de trabalho individuais são implantadas dentro de redes spoke.
+Um hub e topologia falada é uma forma de isolar as cargas de trabalho enquanto partilha serviços comuns. Estes serviços incluem identidade e segurança. O hub é uma rede virtual (VNet) que funciona como um ponto de ligação central para uma rede no local. Os spokes são VNets que configuram o peering com o hub. Os serviços partilhados são implantados no centro, enquanto as cargas de trabalho individuais são implantadas dentro de redes de fala.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Use a HCL (linguagem HashiCorp) para dispor os recursos de arquitetura de referência de rede híbrida Hub e spoke
-> * Usar o Terraform para criar recursos de dispositivo de rede de Hub
-> * Use Terraform para criar a rede de Hub no Azure para atuar como um ponto comum para todos os recursos
-> * Use Terraform para criar cargas de trabalho individuais como spoke VNets no Azure
-> * Usar o Terraform para estabelecer gateways e conexões entre o local e as redes do Azure
-> * Usar o Terraform para criar emparelhamentos de VNet para redes de spoke
+> * Use hCL (HashiCorp Language) para estabelecer hub e recursos de arquitetura de referência de rede híbrida
+> * Use terrafora para criar recursos de eletrodomésticos de rede hub
+> * Use a Terraform para criar rede de hub em Azure para agir como ponto comum para todos os recursos
+> * Use terrafora para criar cargas de trabalho individuais como VNets falados em Azure
+> * Utilizar a Terraform para estabelecer gateways e ligações entre as instalações e as redes Azure
+> * Use terrafora para criar vNet peerings para redes faladas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Assinatura do Azure**: se você ainda não tiver uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Subscrição Azure**: Se ainda não tiver uma subscrição Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Instalar e configurar o Terraform**: para provisionar VMs e outras infraestruturas no Azure, [Instale e configure o Terraform](/azure/virtual-machines/linux/terraform-install-configure)
+- **Instalar e configurar terrafora:** Para fornecer VMs e outras infraestruturas em Azure, [instalar e configurar terraforma](terraform-install-configure.md)
 
-## <a name="hub-and-spoke-topology-architecture"></a>Arquitetura de topologia hub e spoke
+## <a name="hub-and-spoke-topology-architecture"></a>Hub e arquitetura de topologia falada
 
-Na topologia hub e spoke, o Hub é uma VNet. A VNet atua como um ponto central de conectividade para sua rede local. Os spokes são VNets que partilham com o hub e podem ser utilizados para isolar cargas de trabalho. O tráfego flui entre o datacenter no local e o hub através de uma ligação de gateway ExpressRoute ou de VPN. A imagem a seguir demonstra os componentes em uma topologia hub e spoke:
+No centro e falou topologia, o centro é um VNet. O VNet funciona como um ponto central de conectividade com a sua rede no local. Os spokes são VNets que partilham com o hub e podem ser utilizados para isolar cargas de trabalho. O tráfego flui entre o datacenter no local e o hub através de uma ligação de gateway ExpressRoute ou de VPN. A imagem seguinte demonstra os componentes num hub e a topologia falada:
 
-![Arquitetura de topologia hub e spoke no Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
+![Hub e falou arquitetura de topologia em Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
-## <a name="benefits-of-the-hub-and-spoke-topology"></a>Benefícios da topologia hub e spoke
+## <a name="benefits-of-the-hub-and-spoke-topology"></a>Benefícios do hub e topologia falada
 
-Uma topologia de rede hub e spoke é uma maneira de isolar cargas de trabalho ao compartilhar serviços comuns. Esses serviços incluem identidade e segurança. O Hub é uma VNet que atua como um ponto de conexão central para uma rede local. Os spokes são VNets que configuram o peering com o hub. Os serviços compartilhados são implantados no Hub, enquanto as cargas de trabalho individuais são implantadas dentro de redes spoke. Aqui estão alguns benefícios da topologia de rede hub e spoke:
+Um hub e topologia de rede falada é uma forma de isolar as cargas de trabalho enquanto partilha serviços comuns. Estes serviços incluem identidade e segurança. O hub é um VNet que funciona como um ponto de ligação central para uma rede no local. Os spokes são VNets que configuram o peering com o hub. Os serviços partilhados são implantados no centro, enquanto as cargas de trabalho individuais são implantadas dentro de redes de fala. Aqui estão alguns benefícios do hub e da topologia da rede falada:
 
-- **Economia de custos** centralizando serviços em um único local que pode ser compartilhado por várias cargas de trabalho. Essas cargas de trabalho incluem dispositivos de virtualização de rede e servidores DNS.
+- **Economia de custos** centralizando serviços num único local que pode ser partilhado por várias cargas de trabalho. Estas cargas de trabalho incluem aparelhos virtuais de rede e servidores DNS.
 - **Ultrapassar os limites de subscrição** ao configurar o peering das VNets de subscrições diferentes para o hub central.
 - **Separação das preocupações** entre o TI central (SecOps, InfraOps) e as cargas de trabalho (DevOps).
 
-## <a name="typical-uses-for-the-hub-and-spoke-architecture"></a>Usos típicos para a arquitetura Hub e spoke
+## <a name="typical-uses-for-the-hub-and-spoke-architecture"></a>Usos típicos para o centro e arquitetura falada
 
-Alguns dos usos típicos para uma arquitetura de Hub e spoke incluem:
+Alguns dos usos típicos para um hub e arquitetura falada incluem:
 
-- Muitos clientes têm cargas de trabalho implantadas em ambientes diferentes. Esses ambientes incluem desenvolvimento, teste e produção. Muitas vezes, essas cargas de trabalho precisam compartilhar serviços como DNS, IDS, NTP ou AD DS. Esses serviços compartilhados podem ser colocados na VNet do Hub. Dessa forma, cada ambiente é implantado em um spoke para manter o isolamento.
-- Cargas de trabalho que não exigem conectividade entre si, mas exigem acesso aos serviços compartilhados.
-- Empresas que exigem controle central sobre aspectos de segurança.
-- Empresas que exigem gerenciamento segregado para as cargas de trabalho em cada spoke.
+- Muitos clientes têm cargas de trabalho que são implantadas em diferentes ambientes. Estes ambientes incluem desenvolvimento, testes e produção. Muitas vezes, estas cargas de trabalho precisam de partilhar serviços como DNS, IDS, NTP ou AD DS. Estes serviços partilhados podem ser colocados no centro VNet. Dessa forma, cada ambiente é implantado para um discurso para manter o isolamento.
+- Cargas de trabalho que não requerem conectividade entre si, mas que requerem acesso a serviços partilhados.
+- Empresas que exigem controlo central sobre aspetos de segurança.
+- Empresas que exigem uma gestão segregada para as cargas de trabalho em cada um dos seus discursos.
 
-## <a name="preview-the-demo-components"></a>Visualizar os componentes de demonstração
+## <a name="preview-the-demo-components"></a>Pré-visualizar os componentes da demonstração
 
-Conforme você trabalha em cada tutorial desta série, vários componentes são definidos em scripts Terraform distintos. A arquitetura de demonstração criada e implantada consiste nos seguintes componentes:
+À medida que trabalha através de cada tutorial desta série, vários componentes são definidos em scripts terraformedistintos. A arquitetura de demonstração criada e implantada consiste nos seguintes componentes:
 
-- **Rede no local**. Uma rede de área local privada em execução com uma organização. Para a arquitetura de referência de Hub e spoke, uma VNet no Azure é usada para simular uma rede local.
+- **Rede no local**. Uma rede privada de área local que funciona com uma organização. Para a arquitetura de referência do hub e falou, um VNet em Azure é usado para simular uma rede no local.
 
-- **Dispositivo VPN**. Um dispositivo ou serviço VPN fornece conectividade externa à rede local. O dispositivo VPN pode ser um dispositivo de hardware ou uma solução de software. 
+- **Dispositivo VPN**. Um dispositivo ou serviço VPN fornece conectividade externa à rede no local. O dispositivo VPN pode ser um aparelho de hardware ou uma solução de software. 
 
-- **VNet do Hub**. O Hub é o ponto central de conectividade com sua rede local e um local para hospedar serviços. Esses serviços podem ser consumidos pelas diferentes cargas de trabalho hospedadas no VNets do spoke.
+- **VNet do Hub**. O centro é o ponto central de conectividade com a sua rede no local e um local para hospedar serviços. Estes serviços podem ser consumidos pelas diferentes cargas de trabalho alojadas nos VNets falados.
 
-- **Sub-rede do gateway**. Os gateways de VNet são mantidos na mesma sub-rede.
+- **Sub-rede do gateway**. Os portões VNet são mantidos na mesma sub-rede.
 
 - **VNets Spoke**. Os spokes podem ser utilizados para isolar cargas de trabalho nas suas próprias VNets, geridas separadamente dos outros spokes. Cada carga de trabalho pode incluir várias camadas com várias sub-redes ligadas através de balanceadores de carga do Azure. 
 
-- **VNet peering**. Dois VNets podem ser conectados usando uma conexão de emparelhamento. As ligações de peering são ligações não transitivas de baixa latência entre as VNets. Depois de emparelhado, o tráfego do VNets troca usando o backbone do Azure, sem precisar de um roteador. Em uma topologia de rede hub e spoke, o emparelhamento VNet é usado para conectar o hub a cada spoke. Você pode emparelhar VNets na mesma região ou em regiões diferentes.
+- **VNet peering**. Dois VNets podem ser ligados usando uma ligação de observação. As ligações de peering são ligações não transitivas de baixa latência entre as VNets. Uma vez espreitados, os VNets trocam o tráfego utilizando a espinha dorsal Azure, sem precisar em router. Num hub e na topologia da rede, o vNet peering é usado para ligar o hub a cada um dos discursos. Você pode peer VNets na mesma região, ou regiões diferentes.
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
-Crie o diretório que contém os arquivos de configuração do Terraform para a demonstração.
+Crie o diretório que detém os seus ficheiros de configuração Terraform para a demonstração.
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
-1. Altere os diretórios para o diretório `clouddrive`.
+1. Mude para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
     ```
 
-1. Crie um diretório denominado `hub-spoke`.
+1. Crie um diretório com o nome `hub-spoke`.
 
     ```bash
     mkdir hub-spoke
@@ -103,7 +103,7 @@ Crie o diretório que contém os arquivos de configuração do Terraform para a 
 
 Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
 
-1. Em Cloud Shell, abra um novo arquivo chamado `main.tf`.
+1. Na Cloud Shell, abra um novo ficheiro chamado `main.tf`.
 
     ```bash
     code main.tf
@@ -117,13 +117,13 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
     }
     ```
 
-1. Salve o arquivo e saia do editor.
+1. Guarde o ficheiro e saia do editor.
 
-## <a name="create-the-variables-file"></a>Criar o arquivo de variáveis
+## <a name="create-the-variables-file"></a>Criar o ficheiro de variáveis
 
-Crie o arquivo de configuração Terraform para variáveis comuns que são usadas em diferentes scripts.
+Crie o ficheiro de configuração Terraform para variáveis comuns que são usadas em diferentes scripts.
 
-1. Em Cloud Shell, abra um novo arquivo chamado `variables.tf`.
+1. Na Cloud Shell, abra um novo ficheiro chamado `variables.tf`.
 
     ```bash
     code variables.tf
@@ -153,9 +153,9 @@ Crie o arquivo de configuração Terraform para variáveis comuns que são usada
     }
     ```
 
-1. Salve o arquivo e saia do editor.
+1. Guarde o ficheiro e saia do editor.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Criar uma rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md)
+> [Criar rede virtual no local com terraforma em Azure](./terraform-hub-spoke-on-prem.md)

@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 2b5bcd0d3bba914b81e305c88a512645c1a1c258
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 57803ec9889cb6a19dae6d6d1070d8381577aff0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108505"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468393"
 ---
 # <a name="import-an-openapi-specification"></a>Importar uma especificação de OpenAPI
 
 Este artigo mostra como importar uma API de back-end de “especificação de OpenAPI” que reside em https://conferenceapi.azurewebsites.net?format=json. Esta API de back-end é fornecida pela Microsoft e alojada no Azure. O artigo também mostra como testar a API APIM.
 
 > [!IMPORTANT]
-> Veja este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) para obter informações importantes e sugestões relacionadas com a importação de OpenAPI.
+> Veja este [documento](https://azure.microsoft.com/blog/announcing-the-preview-of-openapi-specification-v3-support-in-azure-api-management/) para obter informações importantes e sugestões relacionadas com a importação de OpenAPI.
 
 Neste artigo, vai aprender a:
 
@@ -44,7 +44,7 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
 1. Selecione **APIs** em **GESTÃO DE API**.
 2. Selecione **Especificação de OpenAPI** na lista **Adicionar uma API nova**.
 
-    ![Especificação de OpenAPI](./media/import-api-from-oas/oas-api.png)
+    ![Especificação OpenAPI](./media/import-api-from-oas/oas-api.png)
 3. Introduza as definições apropriadas. Pode definir todos os valores da API durante a criação. Em alternativa, pode definir alguns mais tarde ao aceder ao separador **Definições**. <br/> Se premir **tab**, alguns ou todos os campos são preenchidos com as informações do serviço de back-end especificado.
 
     ![Criar uma API](./media/api-management-get-started/create-api.png)
@@ -55,16 +55,16 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
     |**Nome a apresentar**|*API da Conferência de Demonstração*|Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json. <br/>Este nome é apresentado no portal do Programador.|
     |**Nome**|*demo-conference-api*|Fornece um nome exclusivo para a API. <br/>Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json.|
     |**Descrição**|Forneça uma descrição opcional da API.|Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json.|
-    |**Sufixo do URL da API**|*conference*|O sufixo é anexado ao URL base do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.|
+    |**Sufixo do URL da API**|*conferência*|O sufixo é anexado ao URL base do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.|
     |**Esquema do URL**|*HTTPS*|Determina que protocolos podem ser utilizados para aceder à API. |
     |**Produtos**|*Ilimitado*| Publique a API ao associá-la a um produto. Para adicionar opcionalmente esta nova API a um produto, escreva o nome do produto. Este passo pode ser repetido múltiplas vezes para adicionar a API a vários produtos.<br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**. |
 
 4. Selecione **Criar**.
 
 > [!NOTE]
-> As limitações de importação de API estão documentadas em [outro artigo](api-management-api-import-restrictions.md).
+> As limitações de importação da API estão documentadas num [outro artigo.](api-management-api-import-restrictions.md)
 
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Teste a nova API no portal Azure
 
 ![Testar o mapa da API](./media/api-management-get-started/01-import-first-api-01.png)
 
