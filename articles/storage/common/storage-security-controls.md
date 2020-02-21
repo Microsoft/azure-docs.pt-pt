@@ -1,6 +1,6 @@
 ---
-title: Controles de segurança para o armazenamento do Azure
-description: Uma lista de verificação de controles de segurança para avaliar o armazenamento do Azure
+title: Controlos de segurança para armazenamento azure
+description: Uma lista de controlos de segurança para avaliar o armazenamento do Azure
 services: storage
 documentationcenter: ''
 author: msmbaldwin
@@ -9,59 +9,59 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8cb14c19e8816d53c7d9385563f916bee5d4a6af
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 2cc54077456fce1e7e0f47843a762beee8e715f7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886350"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526761"
 ---
-# <a name="security-controls-for-azure-storage"></a>Controles de segurança para o armazenamento do Azure
+# <a name="security-controls-for-azure-storage"></a>Controlos de segurança para armazenamento azure
 
-Este artigo documenta os controles de segurança incorporados ao armazenamento do Azure. 
+Este artigo documenta os controlos de segurança incorporados no Armazenamento Azure. 
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Notas |
+| Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft | Sim |  |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | Consulte [criptografia do serviço de armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
-| Criptografia em nível de coluna (serviços de dados do Azure)| N/A |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Suporte a mecanismos HTTPS/TLS padrão.  Os usuários também podem criptografar dados antes de serem transmitidos para o serviço. |
-| Chamadas de API criptografadas| Sim |  |
+| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim |  |
+| Encriptação do lado do servidor em repouso: chaves geridas pelo cliente (BYOK) | Sim | Consulte a encriptação do serviço de [armazenamento utilizando chaves geridas pelo cliente no Cofre](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)de Chaves Azure .|
+| Encriptação de nível de coluna (Serviços de Dados Azure)| N/D |  |
+| Encriptação em trânsito (como encriptação ExpressRoute, encriptação VNet e encriptação VNet-VNet)| Sim | Suporte mecanismos PADRÃO HTTPS/TLS.  Os utilizadores também podem encriptar dados antes de serem transmitidos ao serviço. |
+| Chamadas api encriptadas| Sim |  |
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Notas |
+| Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte ao ponto de extremidade de serviço| Sim |  |
-| Suporte à injeção de VNet| N/A |  |
-| Isolamento de rede e suporte de firewall| Sim | |
-| Suporte a túnel forçado| N/A |  |
+| Suporte final de serviço| Sim |  |
+| Suporte à injeção VNet| N/D |  |
+| Isolamento da rede e suporte de firewalling| Sim | |
+| Apoio de túnel forçado| N/D |  |
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitorização e exploração madeireira
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Azure Monitor métricas disponíveis agora, logs iniciando a visualização |
-| Registro e auditoria do plano de gerenciamento e controle | Sim | Log de atividades Azure Resource Manager |
-| Log e auditoria do plano de dados| Sim | Logs de diagnóstico de serviço e log de Azure Monitor iniciando a visualização  |
+| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | Métricas do Monitor Azure|
+| Registo e auditoria de planos de controlo e gestão | Sim | Registo de Atividades do Gestor de Recursos Azure |
+| Registo e auditoria de planos de dados| Sim | Registos de Diagnóstico de Serviço.|
 
-## <a name="identity"></a>identidade
+## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Authentication| Sim | Azure Active Directory, chave compartilhada, token de acesso compartilhado. |
-| Autorização| Sim | Suporte à autorização via RBAC, ACLs POSIX e tokens SAS |
+| Autenticação| Sim | Diretório Azure Ative, Chave Partilhada, Ficha de Acesso Partilhado. |
+| Autorização| Sim | Autorização de Apoio via RBAC, POSIX ACLs e SAS Tokens |
 
-## <a name="configuration-management"></a>Gestão de configuração
+## <a name="configuration-management"></a>Gestão da configuração
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Suporte ao controle de versão do provedor de recursos por meio de APIs de Azure Resource Manager |
+| Suporte de gestão de configuração (versão de configuração, etc.)| Sim | Suporte fornecedor de recursos versão através de APIs do Gestor de Recursos Azure |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../../security/fundamentals/security-controls.md).
+- Saiba mais sobre os [controlos de segurança incorporados em todos os serviços do Azure.](../../security/fundamentals/security-controls.md)

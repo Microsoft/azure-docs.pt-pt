@@ -17,12 +17,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: fbef4d84e86c3d35e35a8bbeb04a399ad87a1b89
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 084c15c7ac3ec782dc48a55e65bf4d7aa43b58a1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164087"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484184"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que utilizam a identidade de utilizador delegada no fluxo em nome
 
@@ -267,7 +267,7 @@ A resposta contém um símbolo SAML codificado em UTF8 e Base64url.
 - **SubjectConfirmationData para uma afirmação SAML obtida a partir de uma chamada OBO**: Se a aplicação-alvo requer um valor destinatário em **Dados de Confirmação,** então o valor deve ser um URL de resposta não wildcard na configuração da aplicação de recursos.
 - **O nó DeConfirmação do Sujeito**: O nó não pode conter um atributo **InResponseTo** uma vez que não faz parte de uma resposta SAML. O pedido que recebe o símbolo SAML deve poder aceitar a afirmação saml sem um atributo **InResponseTo.**
 
-- **Consentimento**: O consentimento deve ter sido concedido para receber um símbolo SAML contendo dados do utilizador num fluxo OAuth. Para obter informações sobre permissões e obtenção do consentimento do administrador, consulte [Permissões e consentimento no Ponto final do Diretório Ativo Azure v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
+- **Consentimento**: O consentimento deve ter sido concedido para receber um símbolo SAML contendo dados do utilizador num fluxo OAuth. Para obter informações sobre permissões e obtenção do consentimento do administrador, consulte [Permissões e consentimento no Ponto final do Diretório Ativo Azure v1.0](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
 
 ### <a name="response-with-saml-assertion"></a>Resposta com afirmação SAML
 
@@ -294,7 +294,7 @@ A resposta contém um símbolo SAML codificado em UTF8 e Base64url.
 
 Clientes públicos com URLs de resposta wildcard não podem usar uma `id_token` para fluxos OBO. No entanto, um cliente confidencial ainda pode resgatar fichas de **acesso** adquiridas através do fluxo de subvenção implícito, mesmo que o cliente público tenha um URI de redirecionamento wildcard registado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o protocolo OAuth 2.0 e outra forma de realizar a autenticação serviço-a-serviço que utiliza credenciais de cliente:
 

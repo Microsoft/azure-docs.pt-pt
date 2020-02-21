@@ -1,36 +1,35 @@
 ---
-title: Criar tarefas agendadas com o Microsoft Azure Scheduler – portal do Azure | Microsoft Docs
-description: Saiba como criar, agendar e executar a sua primeira tarefa automatizada com o Microsoft Azure Scheduler no portal do Azure
+title: Criar empregos programados - Portal Azure
+description: Crie, marque e execute o seu primeiro trabalho automatizado no portal Azure usando o Programador Azure
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
-ms.author: deli
-ms.reviewer: klam
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.author: estfan
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.openlocfilehash: 48e03f41fa0a39642330288fc05ef709179b4c62
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 02/29/2020
+ms.openlocfilehash: a9f7169f4b54dfc08612b1d53bfde48154ee2d1d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300980"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524806"
 ---
-# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Criar e agendar a primeira tarefa com o Microsoft Azure Scheduler – portal do Azure
+# <a name="create-and-schedule-your-first-job-by-using-azure-scheduler---azure-portal"></a>Crie e agende o seu primeiro trabalho utilizando o Portal Azure Scheduler - Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
+> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Programador Azure, que está [a ser reformado.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Para continuar a trabalhar com os trabalhos que criou no Scheduler, por [favor, emigre para as Aplicações Lógicas Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) o mais rapidamente possível.
 
-Este tutorial mostra como pode criar e agendar facilmente uma tarefa e, em seguida, monitorizar e gerir essa tarefa. 
+Este tutorial mostra como pode criar e agendar facilmente uma tarefa e, em seguida, monitorizar e gerir essa tarefa.
 
-Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>.
+Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 ## <a name="create-job"></a>Criar tarefa
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).  
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. No menu principal do Azure, selecione **Criar um recurso**. Na caixa de pesquisa, introduza “scheduler”. Na lista de resultados, selecione **Scheduler** e, em seguida, escolha **Criar**.
+1. Na caixa de pesquisa Azure, introduza `scheduler` como filtro. Na lista de resultados, selecione **Scheduler Job Collections,** e selecione **Create**.
 
    ![Criar o recurso do Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
@@ -40,7 +39,7 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
 
    | Propriedade | Valor de exemplo | Descrição |
    |----------|---------------|-------------| 
-   | **Name** | getMicrosoft | O nome da tarefa | 
+   | **Nome** | getMicrosoft | O nome da tarefa | 
    | **Coleção de tarefas** | <*job-collection-name*> | Criar uma coleção de tarefas ou selecionar uma coleção existente | 
    | **Subscrição** | <*Azure-subscription-name*> | O nome para a subscrição do Azure | 
    |||| 
@@ -49,7 +48,7 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
 
    | Propriedade | Valor de exemplo | Descrição |
    |----------|---------------|-------------| 
-   | **ação** | **Http** | O tipo de ação a executar | 
+   | **Ação** | **Http** | O tipo de ação a executar | 
    | **Método** | **Get** | O método a chamar | 
    | **URL** | **https://www.microsoft.com** | O URL de destino | 
    |||| 
@@ -93,7 +92,7 @@ Para obter mais informações sobre estas áreas, selecione uma área:
 
 <a name="properties"></a>
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriedades
 
 Para ver as propriedades só de leitura que descrevem os metadados de gestão da tarefa, selecione **Propriedades**.
 

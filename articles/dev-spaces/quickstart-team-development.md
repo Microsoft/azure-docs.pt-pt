@@ -1,27 +1,27 @@
 ---
-title: Desenvolvimento em equipe no kubernetes
+title: Desenvolvimento de equipa em Kubernetes
 services: azure-dev-spaces
 ms.date: 01/22/2020
 ms.topic: quickstart
-description: Este guia de início rápido mostra como fazer o Team kubernetes Development com contêineres e microservices com Azure Dev Spaces
+description: Este quickstart mostra-lhe como fazer o desenvolvimento da equipa Kubernetes com recipientes e microserviços com espaços Azure Dev
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: d2b31cce6604cef31de6f034566ebd46a4e92750
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1b36cf30574c0c9892a0383bee7e2f914bc9feac
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721596"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482399"
 ---
-# <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Início rápido: desenvolvimento de equipe no kubernetes-Azure Dev Spaces
+# <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Quickstart: Desenvolvimento de equipa em Kubernetes - Espaços Azure Dev
 
 Neste guia, vai aprender a:
 
-- Configure Azure Dev Spaces em um cluster kubernetes gerenciado no Azure.
-- Implante um aplicativo grande com vários microserviços em um espaço de desenvolvimento.
-- Teste um único microserviço em um espaço de desenvolvimento isolado dentro do contexto do aplicativo completo.
+- Instale o Azure Dev Spaces num aglomerado de Kubernetes gerido em Azure.
+- Implemente uma grande aplicação com vários microserviços para um espaço de v.
+- Teste um único microserviço num espaço de v isolado no contexto da aplicação completa.
 
-![Desenvolvimento de equipe Azure Dev Spaces](media/azure-dev-spaces/collaborate-graphic.gif)
+![Desenvolvimento da equipa Azure Dev Spaces](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Neste guia, vai aprender a:
 - A [CLI do Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
 - [Leme 3 instalado.][helm-installed]
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do serviço kubernetes do Azure
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster de serviço Azure Kubernetes
 
 É preciso criar um aglomerado AKS numa [região apoiada.][supported-regions] Os comandos abaixo criam um grupo de recursos chamado *MyResourceGroup* e um cluster AKS chamado *MyAKS*.
 
@@ -38,22 +38,22 @@ az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
-## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces em seu cluster AKS
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Enable Azure Dev Spaces no seu cluster AKS
 
 Utilize o comando `use-dev-spaces` para ativar os Espaços Dev no seu cluster AKS e seguir as instruções. O comando abaixo permite a Dev Spaces no cluster *MyAKS* no grupo *MyResourceGroup* e cria um espaço dev chamado *dev*.
 
 > [!NOTE]
-> O comando `use-dev-spaces` também instalará o Azure Dev Spaces CLI se ainda não estiver instalado. Não é possível instalar a CLI do Azure Dev Spaces no Azure Cloud Shell.
+> O comando `use-dev-spaces` também instalará o Azure Dev Spaces CLI se ainda não estiver instalado. Não é possível instalar o Azure Dev Spaces CLI na Casca de Nuvem Azure.
 
 ```cmd
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
 ```
 
-## <a name="get-sample-application-code"></a>Obter código do aplicativo de exemplo
+## <a name="get-sample-application-code"></a>Obter código de aplicação de amostra
 
 Neste artigo, utiliza a aplicação de partilha de [bicicletas Azure Dev Spaces](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) para demonstrar a utilização dos Espaços Azure Dev.
 
-Clone o aplicativo do GitHub e navegue até seu diretório:
+Clone a aplicação do GitHub e navegue para o seu diretório:
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
@@ -72,21 +72,21 @@ Name                ResourceGroup     DevSpace  HostSuffix
 MyAKS               MyResourceGroup   dev       fedcab0987.eus.azds.io
 ```
 
-## <a name="update-the-helm-chart-with-your-hostsuffix"></a>Atualize o gráfico Helm com seu HostSuffix
+## <a name="update-the-helm-chart-with-your-hostsuffix"></a>Atualize a tabela Helm com o seu HostSuffix
 
-Abra [gráficos/valores.yaml](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml) e substitua todas as instâncias de `<REPLACE_ME_WITH_HOST_SUFFIX>` pelo valor hostSufix que recuperou anteriormente. Salve as alterações e feche o arquivo.
+Abra [gráficos/valores.yaml](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml) e substitua todas as instâncias de `<REPLACE_ME_WITH_HOST_SUFFIX>` pelo valor hostSufix que recuperou anteriormente. Guarde as suas alterações e feche o ficheiro.
 
-## <a name="run-the-sample-application-in-kubernetes"></a>Executar o aplicativo de exemplo no kubernetes
+## <a name="run-the-sample-application-in-kubernetes"></a>Executar a aplicação da amostra em Kubernetes
 
-Os comandos para executar o aplicativo de exemplo no kubernetes fazem parte de um processo existente e não têm dependência de Azure Dev Spaces ferramentas. Nesse caso, Helm é a ferramenta usada para executar esse aplicativo de exemplo, mas outras ferramentas podem ser usadas para executar todo o aplicativo em um namespace dentro de um cluster. Os comandos Helm estão a visar o espaço dev chamado *dev* que criaste anteriormente, mas este espaço de v também é um espaço de nome Kubernetes. Como resultado, os espaços de desenvolvimento podem ser direcionados por outras ferramentas da mesma forma que outros namespaces.
+Os comandos para executar a aplicação da amostra em Kubernetes fazem parte de um processo existente e não têm dependência da ferramenta Azure Dev Spaces. Neste caso, helm é a ferramenta usada para executar esta aplicação de amostra, mas outras ferramentas poderiam ser usadas para executar toda a sua aplicação em um espaço de nome dentro de um cluster. Os comandos Helm estão a visar o espaço dev chamado *dev* que criaste anteriormente, mas este espaço de v também é um espaço de nome Kubernetes. Como resultado, os espaços de dev podem ser direcionados por outras ferramentas que outros espaços de nome.
 
-Você pode usar Azure Dev Spaces para desenvolvimento de equipe depois que um aplicativo é executado em um cluster, independentemente das ferramentas usadas para implantá-lo.
+Pode utilizar o Azure Dev Spaces para o desenvolvimento da equipa depois de uma aplicação estar a funcionar num cluster, independentemente da ferramenta utilizada para a sua implantação.
 
 Utilize o comando `helm install` para configurar e instalar a aplicação da amostra no seu cluster.
 
 ```cmd
 cd charts/
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleappsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 O comando `helm install` pode levar vários minutos para ser concluído. Depois de a aplicação da amostra ser instalada no seu cluster e uma vez que tem Espaços Dev ativados no seu cluster, utilize o comando `azds list-uris` para exibir os URLs para a aplicação da amostra em *dev* que está atualmente selecionada.
@@ -101,9 +101,9 @@ http://dev.gateway.fedcab0987.eus.azds.io/         Available
 
 Navegue para o serviço *bikesharingweb* abrindo o URL público a partir do comando `azds list-uris`. No exemplo acima, o URL público para o serviço *bikesharingweb* é `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Selecione *Aurelia Briggs (cliente)* como utilizador. Verifique se vê o texto *Hi Aurelia Briggs Assine* no topo.
 
-![Aplicativo de exemplo de compartilhamento de bicicletas Azure Dev Spaces](media/quickstart-team-development/bikeshare.png)
+![Aplicação de amostra de partilha de bicicletas Azure Dev Spaces](media/quickstart-team-development/bikeshare.png)
 
-## <a name="create-child-dev-spaces"></a>Criar espaços de desenvolvimento filho
+## <a name="create-child-dev-spaces"></a>Criar espaços de dev para crianças
 
 Utilize o comando `azds space select` para criar dois espaços infantis sob *dev:*
 
@@ -150,7 +150,7 @@ Abra *bikeSharingWeb/componentes/Header.js* com um editor de texto e altere o te
 </span>
 ```
 
-Salve as alterações e feche o arquivo.
+Guarde as suas alterações e feche o ficheiro.
 
 ## <a name="build-and-run-the-updated-bikesharingweb-service-in-the-devazureuser2-dev-space"></a>Construa e corra o serviço atualizado de bikesharingweb no espaço *dev/azureuser2* dev
 
@@ -170,14 +170,14 @@ Service 'bikesharingweb' port 80 (http) is available at http://localhost:54256
 
 Este comando constrói e executa o serviço *bikesharingweb* no espaço *dev/azureuser2* dev. Este serviço funciona para além do serviço *bikesharingweb* em *dev* e é usado apenas para pedidos com o prefixo URL *azureuser2.s.* Para obter mais informações sobre como funciona o encaminhamento entre os espaços de dev dos pais e das crianças, consulte [como funciona o Azure Dev Spaces e está configurado](how-dev-spaces-works.md).
 
-Navegue para o serviço *bikesharingweb* para o espaço *dev/azureuser2 dev,* abrindo o URL público exibido na saída do comando `azds up`. Selecione *Aurelia Briggs (cliente)* como utilizador. Verifique se você vê o texto atualizado no canto superior direito. Talvez seja necessário atualizar a página ou limpar o cache do navegador se você não vir essa alteração imediatamente.
+Navegue para o serviço *bikesharingweb* para o espaço *dev/azureuser2 dev,* abrindo o URL público exibido na saída do comando `azds up`. Selecione *Aurelia Briggs (cliente)* como utilizador. Verifique se vê o texto atualizado no canto superior direito. Poderá ter de atualizar a página ou limpar a cache do seu navegador se não vir imediatamente esta alteração.
 
-![Aplicativo de exemplo de compartilhamento de bicicletas de Azure Dev Spaces atualizado](media/quickstart-team-development/bikeshare-update.png)
+![Aplicação de partilha de bicicletas Azure Dev Spaces atualizada](media/quickstart-team-development/bikeshare-update.png)
 
 > [!NOTE]
-> Quando navega ao seu serviço durante a execução `azds up`, os vestígios de pedido http também são apresentados na saída do comando `azds up`. Esses rastreamentos podem ajudá-lo a solucionar problemas e depurar seu serviço. Pode desativar estes vestígios utilizando `--disable-http-traces` ao ser `azds up`.
+> Quando navega ao seu serviço durante a execução `azds up`, os vestígios de pedido http também são apresentados na saída do comando `azds up`. Estes vestígios podem ajudá-lo a resolver problemas e a depurar o seu serviço. Pode desativar estes vestígios utilizando `--disable-http-traces` ao ser `azds up`.
 
-## <a name="verify-other-dev-spaces-are-unchanged"></a>Verificar se outros espaços de desenvolvimento estão inalterados
+## <a name="verify-other-dev-spaces-are-unchanged"></a>Verifique se outros Espaços Dev estão inalterados
 
 Se o comando `azds up` ainda estiver em funcionamento, prima *Ctrl+c*.
 
@@ -195,15 +195,15 @@ http://dev.gateway.fedcab0987.eus.azds.io/                      Available
 
 Navegue para a versão *dev* da *bikesharingweb* no seu navegador, escolha *Aurelia Briggs (cliente)* como utilizador, e verifique se vê o texto original no canto superior direito. Repita estes passos com o URL *dev/azureuser1.* Note que as alterações só são aplicadas na versão *dev/azureuser2* da *bikesharingweb*. Este isolamento de alterações ao *dev/azureuser2* permite que *o azureuser2* faça alterações sem afetar *o azureuser1*.
 
-Para que estas alterações se reflitam no *dev* e *dev/azureuser1,* deve seguir o fluxo de trabalho existente da sua equipa ou o gasoduto CI/CD existente. Por exemplo, esse fluxo de trabalho pode envolver a confirmação de sua alteração para o seu sistema de controle de versão e a implantação da atualização usando um pipeline de CI/CD ou ferramentas como Helm.
+Para que estas alterações se reflitam no *dev* e *dev/azureuser1,* deve seguir o fluxo de trabalho existente da sua equipa ou o gasoduto CI/CD existente. Por exemplo, este fluxo de trabalho pode envolver comprometer a sua alteração no seu sistema de controlo de versão e implementar a atualização utilizando um pipeline CI/CD ou ferramentas como o Helm.
 
-## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
+## <a name="clean-up-your-azure-resources"></a>Limpe os seus recursos Azure
 
 ```cmd
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como os Espaços de Programador do Azure ajudam a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento de colaboração ao trabalhar com diferentes versões ou ramos do seu código em diferentes espaços.
 

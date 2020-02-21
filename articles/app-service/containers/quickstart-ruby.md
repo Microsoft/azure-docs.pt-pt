@@ -1,24 +1,24 @@
 ---
-title: 'Início rápido: criar um aplicativo Ruby do Linux'
-description: Introdução aos aplicativos do Linux no serviço de Azure App implantando seu primeiro aplicativo Ruby em um contêiner do Linux no serviço de aplicativo.
+title: 'Quickstart: Crie uma aplicação Linux Ruby'
+description: Inicie-se com aplicações Linux no Azure App Service, implementando a sua primeira aplicação Ruby para um contentor Linux no App Service.
 keywords: serviço de aplicações do azure, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 17c81ab71352f57731d9b36138c88c34421e374c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2fcbc40bf78357700e59551b77b7e4d2da1bd82d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689019"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524075"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Criar uma aplicação Ruby on Rails com o Serviço de Aplicações no Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial de início rápido mostra como implantar um aplicativo Ruby on Rails para Azure App serviço no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial de arranque rápido mostra como implementar uma aplicação Ruby on Rails para o Azure App Service em Linux usando a [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 > [!NOTE]
-> A pilha de desenvolvimento Ruby só suporta o Ruby on Rails neste momento. Se você quiser usar uma plataforma diferente, como Sinatra, ou se quiser usar uma [versão do Ruby sem suporte](app-service-linux-intro.md), será necessário [executá-la em um contêiner personalizado](quickstart-docker-go.md).
+> A pilha de desenvolvimento Ruby só suporta o Ruby on Rails neste momento. Se quiser utilizar uma plataforma diferente, como o Sinatra, ou se quiser utilizar uma [versão Ruby não suportada,](app-service-linux-intro.md)tem de a [executar num recipiente personalizado.](quickstart-docker-go.md)
 
 ![Hello-world](./media/quickstart-ruby/hello-world-configured.png)
 
@@ -26,8 +26,8 @@ O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um ser
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Instalar o Ruby 2,6 ou superior</a>
-* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Instale Ruby 2.6 ou superior</a>
+* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Execute a aplicação localmente, para ver que aspeto deveria ter quando a implemente no Azure. Abra uma janela de terminal, mude para o diretório `hello-world` e utilize o comando `rails server` para iniciar o servidor.
 
-O primeiro passo é instalar os gems necessários. Há um `Gemfile` incluído no exemplo, portanto, basta executar o seguinte comando:
+O primeiro passo é instalar os gems necessários. Há um `Gemfile` incluído na amostra, então basta executar o seguinte comando:
 
 ```bash
 bundle install
@@ -69,7 +69,7 @@ Com o seu browser, navegue para `http://localhost:3000` para testar a aplicaçã
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-Navegue até o aplicativo para ver seu aplicativo Web criado recentemente com a imagem interna. Substitua _&lt;nome da aplicação>_ pelo nome da sua aplicação Web.
+Navegue na aplicação para ver a sua aplicação web recém-criada com imagem incorporada. Substitua _&lt;nome da aplicação>_ pelo nome da sua aplicação Web.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -81,7 +81,7 @@ A aplicação Web deve ter o seguinte aspeto:
 
 ## <a name="deploy-your-application"></a>Implementar a sua aplicação
 
-Execute os seguintes comandos para implantar o aplicativo local em seu aplicativo Web do Azure:
+Execute os seguintes comandos para implementar a aplicação local na sua aplicação web Azure:
 
 ```bash
 git remote add azure <Git deployment URL from above>
@@ -107,7 +107,7 @@ To https://<app-name>.scm.azurewebsites.net/<app-name>.git
    a6e73a2..ae34be9  master -> master
 ```
 
-Depois que a implantação for concluída, aguarde cerca de 10 segundos para que o aplicativo Web seja reiniciado e, em seguida, navegue até o aplicativo Web e verifique os resultados.
+Uma vez concluída a implementação, aguarde cerca de 10 segundos para que a aplicação da web reinicie e, em seguida, navegue para a aplicação web e verifique os resultados.
 
 ```bash
 http://<app-name>.azurewebsites.net
@@ -116,7 +116,7 @@ http://<app-name>.azurewebsites.net
 ![aplicação Web atualizada](./media/quickstart-ruby/hello-world-configured.png)
 
 > [!NOTE]
-> Enquanto o aplicativo está sendo reiniciado, você pode observar o código de status HTTP `Error 503 Server unavailable` no navegador ou a `Hey, Ruby developers!` página padrão. Pode levar alguns minutos para o aplicativo reiniciar completamente.
+> Enquanto a aplicação está a reiniciar, poderá observar o código de estado HTTP `Error 503 Server unavailable` no navegador ou a página padrão `Hey, Ruby developers!`. Pode levar alguns minutos para a aplicação reiniciar completamente.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
@@ -124,7 +124,7 @@ http://<app-name>.azurewebsites.net
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Ruby on Rails com postgres](tutorial-ruby-postgres-app.md)
+> [Tutorial: Ruby on Rails with Postgres](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
-> [Configurar aplicativo Ruby](configure-language-ruby.md)
+> [Configure app Ruby](configure-language-ruby.md)

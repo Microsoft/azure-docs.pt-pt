@@ -2,14 +2,14 @@
 title: Disponibilidade de recursos por região
 description: Disponibilidade de recursos de computação e memória para o serviço De casos de contentores Azure em diferentes regiões de Azure.
 ms.topic: article
-ms.date: 01/31/2020
+ms.date: 02/19/2020
 ms.author: danlep
-ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117805"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525308"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores azure nas regiões de Azure
 
@@ -24,9 +24,9 @@ Para obter informações sobre quotas e outros limites nas suas implantações, 
 
 ## <a name="availability---general"></a>Disponibilidade - Geral
 
-As seguintes regiões e recursos estão disponíveis para grupos de contentores com o Linux e contentores [baseados](container-instances-faq.md#what-windows-base-os-images-are-supported) no Windows Server 2016.
+As regiões seguintes e os recursos máximos estão disponíveis para grupos de contentores com o Linux e contentores [baseados](container-instances-faq.md#what-windows-base-os-images-are-supported) no Windows Server 2016.
 
-| Regiões | SO | Máx. da CPU | Memória Max (GB) | Armazenamento (GB) |
+| Regiões | SO | CPU Máxima | Memória Max (GB) | Armazenamento (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Brasil Sul, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Reino Unido Sul, Europa Ocidental, Oeste DOS EUA, OESTE DOS EUA 2 | Linux | 4 | 16 | 50 |
 | Austrália Leste, Japão Leste | Linux | 2 | 8 | 50 |
@@ -37,9 +37,9 @@ As seguintes regiões e recursos estão disponíveis para grupos de contentores 
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidade - Windows Server 2019 LTSC, 1809 implementações (pré-visualização)
 
-As seguintes regiões e recursos estão disponíveis para grupos de contentores com contentores baseados no Windows Server 2019 (pré-visualização).
+As regiões seguintes e os recursos máximos estão disponíveis para grupos de contentores com contentores baseados no Windows Server 2019 (pré-visualização).
 
-| Regiões | SO | Máx. da CPU | Memória Max (GB) | Armazenamento (GB) |
+| Regiões | SO | CPU Máxima | Memória Max (GB) | Armazenamento (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Austrália Leste, Brasil Sul, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste dos EUA, Japão Leste, Norte Central EUA, Norte Da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Reino Unido Sul, Europa Ocidental | Windows | 4 | 16 | 20 |
 | Leste dos EUA 2, Oeste DOS EUA 2 | Windows | 2 | 3.5 | 20 |
@@ -47,13 +47,16 @@ As seguintes regiões e recursos estão disponíveis para grupos de contentores 
 
 ## <a name="availability---virtual-network-deployment"></a>Disponibilidade - Implantação de rede virtual
 
-As seguintes regiões e recursos estão disponíveis para um grupo de contentores implantado numa [rede virtual Azure.](container-instances-vnet.md)
+As seguintes regiões e recursos máximos estão disponíveis para um grupo de contentores implantado numa [rede virtual Azure.](container-instances-vnet.md)
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="availability---gpu-resources-preview"></a>Disponibilidade - Recursos GPU (pré-visualização)
 
-As seguintes regiões e recursos estão disponíveis para um grupo de contentores implantado com [recursos de GPU](container-instances-gpu.md) (pré-visualização).
+As seguintes regiões e recursos máximos estão disponíveis para um grupo de contentores implantado com [recursos de GPU](container-instances-gpu.md) (pré-visualização).
+
+> [!IMPORTANT]
+> Os recursos da GPU só estão disponíveis mediante solicitação. Para solicitar o acesso aos recursos da GPU, por favor envie um pedido de [apoio azure][azure-support].
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
@@ -63,3 +66,6 @@ As seguintes regiões e recursos estão disponíveis para um grupo de contentore
 Informe a equipa se gostaria de ver regiões adicionais ou aumento da disponibilidade de recursos em [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
 Para obter informações sobre a implantação de casos de contentores de resolução de problemas, consulte problemas de implantação de [Problemas com instâncias de contentores Azure](container-instances-troubleshooting.md).
+
+
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

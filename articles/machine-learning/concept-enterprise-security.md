@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 32b3135f805cc6c68d8cd9d6fa2b6f957cd140ad
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444150"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486398"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Aprendizagem automática Azure
 
@@ -112,6 +112,7 @@ Para mais informações, consulte [Como executar experiências e inferêncianuma
 > [!IMPORTANT]
 > Se o seu espaço de trabalho contiver dados sensíveis, recomendamos que coloque a [bandeira hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) enquanto cria o seu espaço de trabalho. Isto controla a quantidade de dados que a Microsoft recolhe para fins de diagnóstico e permite encriptação adicional em ambientes geridos pela Microsoft.
 
+Para obter mais informações sobre como funciona a encriptação em repouso em Azure, consulte a encriptação de [dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
@@ -174,7 +175,7 @@ Para um exemplo de criação de um espaço de trabalho utilizando um registo de 
 
 A Instância de Contentores Azure não suporta encriptação do disco. Se precisar de encriptação de disco, recomendamos a implementação para uma instância de [Serviço Azure Kubernetes.](how-to-deploy-azure-kubernetes-service.md) Neste caso, também pode querer utilizar o suporte do Azure Machine Learning para controlos de acesso baseados em funções para evitar implementações numa Instância de Contentores Azure na sua subscrição.
 
-#### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+#### <a name="azure-kubernetes-service"></a>Serviço Kubernetes do Azure
 
 Pode encriptar um recurso de serviço Azure Kubernetes implantado utilizando chaves geridas pelo cliente a qualquer momento. Para mais informações, consulte Traga as suas próprias chaves com o [Serviço Azure Kubernetes](../aks/azure-disk-customer-managed-keys.md). 
 
@@ -189,7 +190,9 @@ O disco OS para cada nó computacional armazenado no Armazenamento Azure é encr
 
 Cada máquina virtual também tem um disco temporário local para operações de SO. Se quiser, pode usar o disco para encenar dados de treino. O disco é encriptado por padrão para espaços de trabalho com o parâmetro `hbi_workspace` definido para `TRUE`. Este ambiente é de curta duração apenas durante a duração da sua execução, e o suporte de encriptação está limitado apenas a chaves geridas pelo sistema.
 
-Para obter mais informações sobre como funciona a encriptação em repouso em Azure, consulte a encriptação de [dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
+#### <a name="azure-databricks"></a>Azure Databricks
+
+Os tijolos de dados azure podem ser usados em oleodutos Azure Machine Learning. Por padrão, o Sistema de Ficheiros Databricks (DBFS) utilizado pelo Azure Databricks é encriptado utilizando uma chave gerida pela Microsoft. Para configurar os Bricks Azure para utilizar as chaves geridas pelo cliente, consulte [as chaves geridas pelo cliente no DBFS predefinido (raiz)](/azure/databricks/security/customer-managed-keys-dbfs).
 
 ### <a name="encryption-in-transit"></a>Encriptação em trânsito
 
@@ -253,7 +256,7 @@ Os detalhes do pedido de pontuação são armazenados em Insights de Aplicação
 * RequestUrl
 * StatusCode
 * Requestid
-* Duração
+* Duration
 
 > [!IMPORTANT]
 > Algumas ações no espaço de trabalho azure machine learning não registam informações para o registo de atividade. Por exemplo, o início de uma execução de formação e o registo de um modelo não estão registados.
@@ -331,7 +334,7 @@ Aqui estão os detalhes:
 
 [fluxo de trabalho de Inferência ![](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Serviços web Secure Azure Machine Learning com SSL](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implementado como um serviço web](how-to-consume-web-service.md)

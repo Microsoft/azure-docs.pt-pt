@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas ao iniciar e parar VMs-automação do Azure
-description: Este artigo fornece informações sobre como iniciar e parar as VMs na automação do Azure.
+title: Resolução de problemas Starting and Stop VMs - Azure Automation
+description: Este artigo fornece informações sobre a resolução de problemas Starting and Stop VMs in Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,20 +9,20 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966693"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505720"
 ---
-# <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solucionar problemas da solução iniciar/parar VMs fora do horário comercial
+# <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Resolução de problemas dos VMs de arranque/paragem durante a solução de horas de folga
 
-## <a name="deployment-failure"></a>Cenário: a solução iniciar/parar VM não é implantada corretamente
+## <a name="deployment-failure"></a>Cenário: A solução Start/Stop VM não funciona corretamente
 
 ### <a name="issue"></a>Problema
 
-Ao implantar a [solução iniciar/parar VMs fora do horário comercial](../automation-solution-vm-management.md), você receberá um dos seguintes erros:
+Ao implementar os [VMs start/stop durante a solução off hours,](../automation-solution-vm-management.md)recebe um dos seguintes erros:
 
 ```error
 Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
@@ -54,51 +54,51 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 
 ### <a name="cause"></a>Causa
 
-As implantações podem falhar devido a um dos seguintes motivos:
+As implantações podem falhar devido a uma das seguintes razões:
 
-1. Já existe uma conta de automação com o mesmo nome na região selecionada.
-2. Uma política está em vigor que não permite a implantação da solução iniciar/parar VMs.
-3. Os tipos de recurso `Microsoft.OperationsManagement`, `Microsoft.Insights`ou `Microsoft.Automation` não estão registrados.
-4. Seu espaço de trabalho do Log Analytics tem um bloqueio.
-5. Você tem uma versão desatualizada dos módulos do AzureRM ou a solução iniciar/parar.
+1. Já existe uma Conta de Automação com o mesmo nome na região selecionada.
+2. Está em vigor uma política que proíbe a implantação da solução Start/Stop VMs.
+3. Os tipos de `Microsoft.OperationsManagement`, `Microsoft.Insights`ou `Microsoft.Automation` de recursos não estão registados.
+4. O seu espaço de trabalho Log Analytics tem um bloqueio.
+5. Tem uma versão desatualizada dos módulos AzureRM ou a solução Start/Stop.
 
 ### <a name="resolution"></a>Resolução
 
-Examine a lista a seguir para obter as possíveis soluções para o problema ou os locais a serem examinados:
+Reveja a seguinte lista para potenciais soluções para o seu problema ou locais para procurar:
 
-1. As contas de automação precisam ser exclusivas em uma região do Azure, mesmo se estiverem em grupos de recursos diferentes. Verifique suas contas de automação existentes na região de destino.
-2. Uma política existente impede que um recurso necessário para a solução iniciar/parar VM seja implantado. Vá para as atribuições de política no portal do Azure e verifique se você tem uma atribuição de política que não permite a implantação desse recurso. Para saber mais sobre isso, consulte [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
-3. Para implantar a solução iniciar/parar VM, sua assinatura precisa ser registrada nos seguintes namespaces de recursos do Azure:
+1. As contas de automação têm de ser únicas dentro de uma região do Azure, mesmo que estejam em diferentes grupos de recursos. Verifique as suas Contas de Automação existentes na região alvo.
+2. Uma política existente impede que seja implementado um recurso necessário para a solução Start/Stop VM ser implementada. Vá às suas atribuições políticas no portal Azure e verifique se tem uma atribuição de política que não permita a implantação deste recurso. Para saber mais sobre isso, consulte [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
+3. Para implementar a solução Start/Stop VM, a sua subscrição tem de ser registada nos seguintes espaços de nome de recursos Azure:
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   Consulte [resolver erros de registro do provedor de recursos](../../azure-resource-manager/templates/error-register-resource-provider.md) para saber mais sobre erros ao registrar provedores.
-4. Se você tiver um bloqueio em seu espaço de trabalho Log Analytics, vá para seu espaço de trabalho no portal do Azure e remova os bloqueios no recurso.
-5. Se as resoluções acima não resolverem o problema, siga as instruções em [atualizar a solução](../automation-solution-vm-management.md#update-the-solution) para reimplantar a solução de início/parada.
+   Consulte, [Resolva erros no registo do fornecedor](../../azure-resource-manager/templates/error-register-resource-provider.md) de recursos para saber mais sobre erros ao registar fornecedores.
+4. Se tiver um bloqueio no seu espaço de trabalho Log Analytics, vá ao seu espaço de trabalho no portal Azure e remova quaisquer fechaduras no recurso.
+5. Se as resoluções acima não resolverem o seu problema, siga as instruções em ['Atualizar a Solução'](../automation-solution-vm-management.md#update-the-solution) para reutilizar a solução Iniciar/Parar.
 
-## <a name="all-vms-fail-to-startstop"></a>Cenário: falha ao iniciar/parar todas as VMs
+## <a name="all-vms-fail-to-startstop"></a>Cenário: Todos os VMs não conseguem iniciar/parar
 
 ### <a name="issue"></a>Problema
 
-Você configurou a solução iniciar/parar VM, mas ela não inicia ou interrompe todas as VMs configuradas.
+Configurou a solução Start/Stop VM, mas não inicia nem para todos os VMs configurados.
 
 ### <a name="cause"></a>Causa
 
-Esse erro pode ser causado por um dos seguintes motivos:
+Este erro pode ser causado por uma das seguintes razões:
 
-1. Uma agenda não está configurada corretamente
-2. A conta Executar como pode não estar configurada corretamente
-3. Um runbook pode ter se executado em erros
-4. As VMs podem ter sido excluídas
+1. Um horário não está configurado corretamente
+2. A conta RunAs pode não ser configurada corretamente
+3. Um livro de corridas pode ter tido erros
+4. Os VMs podem ter sido excluídos
 
 ### <a name="resolution"></a>Resolução
 
-Examine a lista a seguir para obter as possíveis soluções para o problema ou os locais a serem examinados:
+Reveja a seguinte lista para potenciais soluções para o seu problema ou locais para procurar:
 
-* Verifique se você configurou corretamente uma agenda para a solução iniciar/parar VM. Para saber como configurar uma agenda, consulte o artigo [agendas](../automation-schedules.md) .
+* Verifique se configura bem um horário para a solução Start/Stop VM. Para aprender a configurar um horário, consulte o artigo [Agendas.](../automation-schedules.md)
 
-* Verifique os [fluxos de trabalho](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para procurar quaisquer erros. No portal, acesse sua conta de automação e selecione **trabalhos** em **automação de processo**. Na página **trabalhos** procure trabalhos de um dos seguintes runbooks:
+* Verifique os [fluxos](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) de trabalho para procurar erros. No portal, vá à sua Conta de Automação e selecione **Jobs** no âmbito **da Automatização de Processos.** A partir da página **Jobs** procure empregos de um dos seguintes livros:
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -110,126 +110,126 @@ Examine a lista a seguir para obter as possíveis soluções para o problema ou 
   * ScheduledStartStop_Parent
   * SequencedStartStop_Parent
 
-* Verifique se sua [conta runas](../manage-runas-account.md) tem as permissões adequadas às VMs que você está tentando iniciar ou parar. Para saber como verificar as permissões em um recurso, consulte [início rápido: exibir funções atribuídas a um usuário usando o portal do Azure](../../role-based-access-control/check-access.md). Você precisará fornecer a ID do aplicativo para a entidade de serviço usada pela conta Executar como. Você pode recuperar esse valor acessando sua conta de automação no portal do Azure, selecionando **contas Executar como** em **configurações de conta** e clicando na conta Executar como apropriada.
+* Verifique se a sua [Conta RunAs](../manage-runas-account.md) tem permissões adequadas para os VMs que está a tentar iniciar ou parar. Para saber como verificar as permissões num recurso, consulte [Quickstart: Ver as funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Terá de fornecer o ID de inscrição para o principal de serviço utilizado pela Conta Run As. Pode recuperar este valor indo para a sua Conta de Automação no portal Azure, selecionando **Executar como contas** em **Definições** de Conta e clicando na conta de Execução adequada.
 
-* As VMs podem não ser iniciadas ou interrompidas se estiverem sendo explicitamente excluídas. VMs excluídas em conjunto na variável **External_ExcludeVMNames** na conta de automação na qual a solução é implantada. O exemplo a seguir mostra como você pode consultar esse valor com o PowerShell.
+* Os VMs não podem ser iniciados ou parados se estiverem a ser explicitamente excluídos. VMs excluídos no conjunto da **variável External_ExcludeVMNames** na Conta de Automação para a solução para a a que a solução está implantada. O exemplo que se segue mostra como pode consultar esse valor com a PowerShell.
 
   ```powershell-interactive
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-## <a name="some-vms-fail-to-startstop"></a>Cenário: algumas das minhas VMs falham ao iniciar ou parar
+## <a name="some-vms-fail-to-startstop"></a>Cenário: Alguns dos meus VMs não conseguem começar ou parar
 
 ### <a name="issue"></a>Problema
 
-Você configurou a solução iniciar/parar VM, mas ela não inicia ou interrompe algumas das VMs configuradas.
+Configurou a solução Start/Stop VM, mas não inicia nem detém alguns dos VMs configurados.
 
 ### <a name="cause"></a>Causa
 
-Esse erro pode ser causado por um dos seguintes motivos:
+Este erro pode ser causado por uma das seguintes razões:
 
-1. Se estiver usando o cenário de sequência, uma marca poderá estar ausente ou incorreta
-2. A VM pode ser excluída
-3. A conta Executar como pode não ter permissões suficientes na VM
-4. A VM pode ter algo que a impediu de iniciar ou parar
+1. Se utilizar o cenário de sequência, uma etiqueta pode estar em falta ou incorreta
+2. O VM pode ser excluído
+3. A conta RunAs pode não ter permissões suficientes no VM
+4. O VM pode ter algo que o impediu de começar ou parar
 
 ### <a name="resolution"></a>Resolução
 
-Examine a lista a seguir para obter as possíveis soluções para o problema ou os locais a serem examinados:
+Reveja a seguinte lista para potenciais soluções para o seu problema ou locais para procurar:
 
-* Ao usar o [cenário de sequência](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) da solução iniciar/parar VM durante o expediente, você deve verificar se cada VM que deseja iniciar ou parar tem a marca apropriada. Verifique se as VMs que você deseja iniciar têm a marca de `sequencestart` e as VMs que você deseja interromper têm a marca de `sequencestop`. Ambas as marcas exigem um valor inteiro positivo. Você pode usar uma consulta semelhante ao exemplo a seguir para procurar todas as VMs com as marcas e seus valores.
+* Ao utilizar o cenário de [sequência](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) do VM Iniciar/Parar durante o horário de folga, tem de se certificar de que cada VM que pretende iniciar ou parar tem a etiqueta correta. Certifique-se de que os VMs que deseja começar têm a etiqueta `sequencestart` e os VMs que pretende parar têm a etiqueta `sequencestop`. Ambas as etiquetas requerem um valor inteiro positivo. Pode utilizar uma consulta semelhante ao seguinte exemplo para procurar todos os VMs com as etiquetas e os seus valores.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
   ```
 
-* As VMs podem não ser iniciadas ou interrompidas se estiverem sendo explicitamente excluídas. VMs excluídas em conjunto na variável **External_ExcludeVMNames** na conta de automação na qual a solução é implantada. O exemplo a seguir mostra como você pode consultar esse valor com o PowerShell.
+* Os VMs não podem ser iniciados ou parados se estiverem a ser explicitamente excluídos. VMs excluídos no conjunto da **variável External_ExcludeVMNames** na Conta de Automação para a solução para a a que a solução está implantada. O exemplo que se segue mostra como pode consultar esse valor com a PowerShell.
 
   ```powershell-interactive
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-* Para iniciar e parar VMs, a conta Executar como para a conta de automação deve ter as permissões apropriadas para a VM. Para saber como verificar as permissões em um recurso, consulte [início rápido: exibir funções atribuídas a um usuário usando o portal do Azure](../../role-based-access-control/check-access.md). Você precisará fornecer a ID do aplicativo para a entidade de serviço usada pela conta Executar como. Você pode recuperar esse valor acessando sua conta de automação no portal do Azure, selecionando **contas Executar como** em **configurações de conta** e clicando na conta Executar como apropriada.
+* Para iniciar e parar os VMs, a conta RunAs para a conta Automation deve ter permissões adequadas para o VM. Para saber como verificar as permissões num recurso, consulte [Quickstart: Ver as funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Terá de fornecer o ID de inscrição para o principal de serviço utilizado pela Conta Run As. Pode recuperar este valor indo para a sua Conta de Automação no portal Azure, selecionando **Executar como contas** em **Definições** de Conta e clicando na conta de Execução adequada.
 
-* Se a VM estiver tendo um problema ao iniciar ou desalocar, esse comportamento poderá ser causado por um problema na própria VM. Alguns exemplos ou problemas potenciais são, uma atualização está sendo aplicada ao tentar desligar, um serviço é interrompido e muito mais). Navegue até o recurso da VM e verifique os **logs de atividade** para ver se há erros nos logs. Você também pode tentar fazer logon na VM para ver se há erros nos logs de eventos. Para saber mais sobre como solucionar problemas de sua VM, confira [solução de problemas de máquinas virtuais do Azure](../../virtual-machines/troubleshooting/index.md)
+* Se o VM está com problemas de partida ou de locação, este comportamento pode ser causado por um problema no próprio VM. Alguns exemplos ou potenciais problemas são, uma atualização está sendo aplicada ao tentar desligar, um serviço fica pendurado, e muito mais). Navegue para o seu recurso VM e verifique os **Registos de Atividade** para ver se existem erros nos registos. Também pode tentar iniciar sessão no VM para ver se existem erros nos registos do Evento. Para saber mais sobre a resolução de problemas do seu VM, consulte [máquinas virtuais Desacato Azure](../../virtual-machines/troubleshooting/index.yml)
 
-* Verifique os [fluxos de trabalho](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para procurar quaisquer erros. No portal, acesse sua conta de automação e selecione **trabalhos** em **automação de processo**.
+* Verifique os [fluxos](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) de trabalho para procurar erros. No portal, vá à sua Conta de Automação e selecione **Jobs** no âmbito **da Automatização de Processos.**
 
-## <a name="custom-runbook"></a>Cenário: meu runbook personalizado falha ao iniciar ou parar minhas VMs
+## <a name="custom-runbook"></a>Cenário: O meu livro de corridas personalizado não consegue iniciar ou parar os meus VMs
 
 ### <a name="issue"></a>Problema
 
-Você criou um runbook personalizado ou baixou um do Galeria do PowerShell e ele não está funcionando corretamente.
+Você é autor de um livro personalizado ou descarregou um da PowerShell Gallery e não está funcionando corretamente.
 
 ### <a name="cause"></a>Causa
 
-A causa da falha pode ser uma das muitas coisas. Acesse sua conta de automação no portal do Azure e selecione **trabalhos** em **automação de processo**. Na página **trabalhos** , procure trabalhos do seu runbook para exibir quaisquer falhas de trabalho.
+A causa do fracasso pode ser uma de muitas coisas. Vá à sua Conta de Automação no portal Azure e selecione **Jobs** no âmbito **da Automação de Processos.** Na página **Jobs,** procure empregos no seu livro de corridas para ver quaisquer falhas de emprego.
 
 ### <a name="resolution"></a>Resolução
 
-É recomendável usar a [solução iniciar/parar VMs fora do horário comercial](../automation-solution-vm-management.md) para iniciar e parar VMs na automação do Azure. Essa solução é criada pela Microsoft. Os runbooks personalizados não são suportados pela Microsoft. Você pode encontrar uma solução para seu runbook personalizado visitando o artigo de [solução de problemas de runbook](runbooks.md) . Este artigo fornece diretrizes gerais e solução de problemas para runbooks de todos os tipos. Verifique os [fluxos de trabalho](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para procurar quaisquer erros. No portal, acesse sua conta de automação e selecione **trabalhos** em **automação de processo**.
+É aconselhável utilizar os [VMs start/stop durante](../automation-solution-vm-management.md) a solução de horas de folga para iniciar e parar VMs em Automação Azure. Esta solução é da autoria da Microsoft. Os livros de execução personalizados não são suportados pela Microsoft. Você pode encontrar uma solução para o seu livro de corridas personalizado, visitando o artigo de resolução de [problemas](runbooks.md) do livro de corridas. Este artigo fornece orientação geral e resolução de problemas para livros de todos os tipos. Verifique os [fluxos](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) de trabalho para procurar erros. No portal, vá à sua Conta de Automação e selecione **Jobs** no âmbito **da Automatização de Processos.**
 
-## <a name="dont-start-stop-in-sequence"></a>Cenário: as VMs não iniciam ou param na sequência correta
+## <a name="dont-start-stop-in-sequence"></a>Cenário: VMs não iniciam ou param na sequência correta
 
 ### <a name="issue"></a>Problema
 
-As VMs que você configurou na solução não são iniciadas ou param na sequência correta.
+Os VMs que configuraste na solução não iniciam ou param na sequência correta.
 
 ### <a name="cause"></a>Causa
 
-Isso é causado por marcação incorreta nas VMs.
+Isto é causado por uma marcação incorreta nos VMs.
 
 ### <a name="resolution"></a>Resolução
 
-Execute as etapas a seguir para garantir que a solução esteja configurada corretamente.
+Tome os seguintes passos para garantir que a solução está corretamente configurada.
 
-1. Certifique-se de que todas as VMs sejam iniciadas ou interrompidas tenham uma marca `sequencestart` ou `sequencestop`, dependendo de sua situação. Essas marcas precisam de um inteiro positivo como o valor. As VMs são processadas em ordem crescente com base nesse valor.
-2. Verifique se os grupos de recursos das VMs a serem iniciadas ou interrompidas estão nas variáveis `External_Start_ResourceGroupNames` ou `External_Stop_ResourceGroupNames`, dependendo de sua situação.
-3. Teste as alterações executando o runbook `SequencedStartStop_Parent` com o parâmetro WHATIF definido como true para visualizar as alterações.
+1. Certifique-se de que todos os VMs devem ser iniciados ou parados têm uma etiqueta `sequencestart` ou `sequencestop`, dependendo da sua situação. Estas etiquetas precisam de um inteiro positivo como o valor. Os VMs são processados por ordem ascendente com base neste valor.
+2. Certifique-se de que os grupos de recursos para os VMs serem iniciados ou parados estão nas variáveis `External_Start_ResourceGroupNames` ou `External_Stop_ResourceGroupNames`, dependendo da sua situação.
+3. Teste as suas alterações executando o livro de `SequencedStartStop_Parent` com o parâmetro WHATIF definido para True para pré-visualizar as suas alterações.
 
-Para obter instruções mais detalhadas e adicionais sobre como usar a solução para iniciar e parar VMs em sequência, consulte [iniciar/parar VMs em sequência](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
+Para obter instruções mais detalhadas e adicionais sobre como utilizar a solução para iniciar e parar vMs em sequência, consulte [Os VMs iniciar/parar em sequência](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
 
-## <a name="403"></a>Cenário: falha no trabalho de iniciar/parar VM com o status de 403 Proibido
+## <a name="403"></a>Cenário: Trabalho de Início/Stop VM falha com 403 estatuto proibido
 
 ### <a name="issue"></a>Problema
 
-Você encontra trabalhos que falharam com um erro de `403 forbidden` para os runbooks de solução iniciar/parar VMs durante os horários inativos.
+Encontra empregos que falharam com um erro `403 forbidden` para os VMs de início/paragem durante os solução solução off hours.
 
 ### <a name="cause"></a>Causa
 
-Esse problema pode ser causado por uma conta Executar como configurada incorretamente ou expirada. Também pode ser devido a permissões inadequadas para os recursos da VM pela conta de automação contas Executar como.
+Este problema pode ser causado por uma conta de Execução indevidamente configurada ou expirada. Pode também ser devido a permissões inadequadas aos recursos VM pela Conta de Contas de Automação.
 
 ### <a name="resolution"></a>Resolução
 
-Para verificar se sua conta Executar como está configurada corretamente, acesse sua conta de automação no portal do Azure e selecione **contas Executar como** em **configurações da conta**. Aqui você verá o status de suas contas Executar como, se uma conta Executar como estiver incorretamente configurada ou expirar, o status mostrará isso.
+Para verificar a sua conta Executar Como a conta está devidamente configurada, vá à sua Conta de Automação no portal Azure e selecione **Executar como contas** em **Definições de Conta**. Aqui você verá o estado da sua execução como contas, se uma Conta Run As estiver configurada ou expirada, o estado mostrará isso.
 
-Se sua conta Executar como estiver [configurada incorretamente](../manage-runas-account.md#misconfiguration), você deverá excluir e recriar sua conta Executar como.
+Se a sua conta Executar As is [misconfigurada,](../manage-runas-account.md#misconfiguration)deve eliminar e recriar a sua Conta 'Executar'.
 
-Se o certificado tiver expirado para sua conta Executar como, siga as etapas listadas em [renovação de certificado autoassinado](../manage-runas-account.md#cert-renewal) para renovar o certificado.
+Se o certificado estiver caducada para a sua Conta Run As, siga os passos listados na [renovação do certificado auto-assinado](../manage-runas-account.md#cert-renewal) para renovar o certificado.
 
-O problema pode ser causado por falta de permissões. Para saber como verificar as permissões em um recurso, consulte [início rápido: exibir funções atribuídas a um usuário usando o portal do Azure](../../role-based-access-control/check-access.md). Você precisará fornecer a ID do aplicativo para a entidade de serviço usada pela conta Executar como. Você pode recuperar esse valor acessando sua conta de automação no portal do Azure, selecionando **contas Executar como** em **configurações de conta** e clicando na conta Executar como apropriada.
+O problema pode ser causado por permissões em falta. Para saber como verificar as permissões num recurso, consulte [Quickstart: Ver as funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Terá de fornecer o ID de inscrição para o principal de serviço utilizado pela Conta Run As. Pode recuperar este valor indo para a sua Conta de Automação no portal Azure, selecionando **Executar como contas** em **Definições** de Conta e clicando na conta de Execução adequada.
 
-## <a name="other"></a>Cenário: meu problema não está listado acima
+## <a name="other"></a>Cenário: O meu problema não está listado acima
 
 ### <a name="issue"></a>Problema
 
-Você enfrenta um problema ou resultado inesperado ao usar a solução Iniciar/Parar VMs fora do horário comercial que não está listada nesta página.
+Experimente um problema ou resultado inesperado ao utilizar os VMs Start/Stop durante a solução off-hours que não está listada nesta página.
 
 ### <a name="cause"></a>Causa
 
-Muitas vezes, erros podem ser causados pelo uso de uma versão antiga e desatualizada da solução.
+Muitas vezes os erros podem ser causados através da utilização de uma versão antiga e desatualizada da solução.
 
 > [!NOTE]
-> A solução Iniciar/Parar VMs fora do horário comercial foi testada com os módulos do Azure que são importados para sua conta de automação quando você implanta a solução. Atualmente, a solução não funciona com versões mais recentes do módulo do Azure. Isso afeta apenas a conta de automação que você usa para executar a solução de Iniciar/Parar VMs fora do horário comercial. Você ainda pode usar versões mais recentes do módulo do Azure em suas outras contas de automação, conforme descrito em [como atualizar os módulos de Azure PowerShell na automação do Azure](../automation-update-azure-modules.md)
+> Os VMs Start/Stop durante a solução off-hours foram testados com os módulos Azure que são importados para a sua Conta de Automação quando implementa a solução. A tualmente, a solução não funciona com versões mais recentes do módulo Azure. Isto só afeta a Conta de Automação que utiliza para executar os VMs start/stop durante a solução off-hours. Ainda pode utilizar versões mais recentes do módulo Azure nas suas outras Contas de Automação, conforme descrito em [Como atualizar módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md)
 
 ### <a name="resolution"></a>Resolução
 
-Para resolver muitos erros, é recomendável remover e atualizar a solução. Para saber como atualizar a solução, consulte [atualizar a solução iniciar/parar VMs fora do horário comercial](../automation-solution-vm-management.md#update-the-solution). Além disso, você pode verificar os [fluxos de trabalho](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para procurar quaisquer erros. No portal, acesse sua conta de automação e selecione **trabalhos** em **automação de processo**.
+Para resolver muitos erros, é aconselhável remover e atualizar a solução. Para aprender a atualizar a solução, consulte [Atualizar os VMs iniciar/parar durante a solução fora](../automation-solution-vm-management.md#update-the-solution)de horas . Além disso, pode verificar os [fluxos](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) de trabalho para procurar erros. No portal, vá à sua Conta de Automação e selecione **Jobs** no âmbito **da Automatização de Processos.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+* Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

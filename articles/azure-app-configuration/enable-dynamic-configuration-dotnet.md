@@ -1,82 +1,77 @@
 ---
-title: Tutorial para usar a configuração dinâmica de configuração do Azure App em um aplicativo .NET Framework | Microsoft Docs
-description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração para aplicativos .NET Framework
+title: '.NET Framework Tutorial: configuração dinâmica na configuração da app Azure'
+description: Neste tutorial, aprende-se a atualizar de forma dinâmica os dados de configuração para aplicações .NET Framework utilizando a Configuração de Aplicações Azure.
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7ba3eae4ea5557b4bb1b1be4e2c79eab8f6e7988
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185242"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484881"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: usar a configuração dinâmica em um aplicativo .NET Framework
+# <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Utilize a configuração dinâmica numa aplicação .NET Framework
 
-A biblioteca de cliente .NET de configuração de aplicativo dá suporte à atualização de um conjunto de definições de configuração sob demanda sem causar a reinicialização de um aplicativo. Isso pode ser implementado primeiro obtendo uma instância de `IConfigurationRefresher` das opções do provedor de configuração e, em seguida, chamando `Refresh` nessa instância em qualquer lugar em seu código.
+A biblioteca de clientes da App Configuration .NET suporta atualizar um conjunto de configurações de configuração a pedido sem causar o reinício de uma aplicação. Isto pode ser implementado primeiro obtendo uma instância de `IConfigurationRefresher` a partir das opções para o fornecedor de configuração e, em seguida, chamando `Refresh` em qualquer lugar do seu código.
 
-Para manter as configurações atualizadas e evitar muitas chamadas para o repositório de configuração, um cache é usado para cada configuração. Até que o valor em cache de uma configuração tenha expirado, a operação de atualização não atualizará o valor, mesmo quando o valor tiver sido alterado no repositório de configuração. O tempo de expiração padrão para cada solicitação é de 30 segundos, mas pode ser substituído se necessário.
+Para manter as definições atualizadas e evitar demasiadas chamadas para a loja de configuração, é utilizada uma cache para cada definição. Até que o valor cached de uma definição tenha expirado, a operação de atualização não atualiza o valor, mesmo quando o valor mudou na loja de configuração. O tempo de validade padrão para cada pedido é de 30 segundos, mas pode ser ultrapassado se necessário.
 
-Este tutorial mostra como você pode implementar atualizações de configuração dinâmicas em seu código. Ele se baseia no aplicativo introduzido nos guias de início rápido. Antes de continuar, conclua [a criação de um aplicativo .NET Framework com a configuração de aplicativo](./quickstart-dotnet-app.md) primeiro.
+Este tutorial mostra como pode implementar atualizações dinâmicas de configuração no seu código. Baseia-se na aplicação introduzida nos quickstarts. Antes de continuar, termine [Criar uma aplicação .NET Framework com configuração](./quickstart-dotnet-app.md) de aplicações primeiro.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configure seu aplicativo .NET Framework para atualizar sua configuração em resposta a alterações em um repositório de configuração de aplicativo.
-> * Insira a configuração mais recente em seu aplicativo.
+> * Crie a sua aplicação .NET Framework para atualizar a sua configuração em resposta a alterações numa loja de Configuração de Aplicações.
+> * Injete a última configuração na sua aplicação.
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.1 ou posterior](https://dotnet.microsoft.com/download)
+- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- [Estúdio Visual 2019](https://visualstudio.microsoft.com/vs)
+- [.QUADRO LÍQUIDO 4.7.1 ou posterior](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
+## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicações
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Configuration Explorer** >  **+ criar** para adicionar os seguintes pares de chave-valor:
+6. Selecione O Explorador de **Configuração** >  **+ Criar** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
-    | TestApp: configurações: mensagem | Dados da configuração Azure App |
+    | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure |
 
-    Deixe **rótulo** e **tipo de conteúdo** vazio por enquanto.
+    Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto.
 
-## <a name="create-a-net-framework-console-app"></a>Criar um aplicativo de console .NET Framework
+## <a name="create-a-net-framework-console-app"></a>Criar uma aplicação de consola .NET Framework
 
-1. Inicie o Visual Studio e selecione **arquivo** > **novo** **projeto**de > .
+1. Inicie o Estúdio Visual e selecione **File** > **New** > **Project**.
 
-1. Em **criar um novo projeto**, filtre o tipo de projeto de **console** e clique em **aplicativo de console (.NET Framework)** . Clique em **Seguinte**.
+1. Em **Criar um novo projeto,** filtre no tipo de projeto da **Consola** e clique na App **consola (.NET Framework)** . Clique em **Seguinte**.
 
-1. Em **configurar seu novo projeto**, insira um nome de projeto. Em **estrutura**, selecione **.NET Framework 4.7.1** ou superior. Clique em **Criar**.
+1. Em **Configure o seu novo projeto,** insira um nome de projeto. **No quadro**, selecione **.NET Quadro 4.7.1** ou superior. Clique em **Criar**.
 
-## <a name="reload-data-from-app-configuration"></a>Recarregar dados da configuração do aplicativo
-1. Clique com o botão direito do mouse em seu projeto e selecione **gerenciar pacotes NuGet**. Na guia **procurar** , pesquise e adicione o pacote NuGet *Microsoft. Extensions. Configuration. AzureAppConfiguration* ao seu projeto. Se você não conseguir encontrá-lo, marque a caixa de seleção **incluir pré-lançamento** .
+## <a name="reload-data-from-app-configuration"></a>Recarregar dados da configuração da app
+1. Clique no seu projeto e selecione **Gerir pacotes NuGet**. No separador **Browse,** procure e adicione o pacote *NuGet microsoft.Extensions.Configuration.AzureAppConfiguration* NuGet ao seu projeto. Se não conseguir encontrá-la, selecione a caixa de verificação **de pré-lançamento Incluir.**
 
-1. Abra *Program.cs*e adicione uma referência ao provedor de configuração do aplicativo .NET Core.
+1. Abra *Program.cs*e adicione uma referência ao fornecedor de configuração de aplicações .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-1. Adicione duas variáveis para armazenar objetos relacionados à configuração.
+1. Adicione duas variáveis para armazenar objetos relacionados com a configuração.
 
     ```csharp
     private static IConfiguration _configuration = null;
     private static IConfigurationRefresher _refresher = null;
     ```
 
-1. Atualize o método `Main` para se conectar à configuração do aplicativo com as opções de atualização especificadas.
+1. Atualize o método `Main` para se ligar à Configuração da Aplicação com as opções de atualização especificadas.
 
     ```csharp
     static void Main(string[] args)
@@ -98,12 +93,12 @@ Neste tutorial, ficará a saber como:
         PrintMessage().Wait();
     }
     ```
-    O método `ConfigureRefresh` é usado para especificar as configurações usadas para atualizar os dados de configuração com o repositório de configuração de aplicativo quando uma operação de atualização é disparada. Uma instância de `IConfigurationRefresher` pode ser recuperada chamando `GetRefresher` método nas opções fornecidas ao método `AddAzureAppConfiguration`, e o método `Refresh` nessa instância pode ser usado para disparar uma operação de atualização em qualquer lugar no seu código.
+    O método `ConfigureRefresh` é utilizado para especificar as definições utilizadas para atualizar os dados de configuração com a loja de configuração da aplicação quando é acionada uma operação de atualização. Um caso de `IConfigurationRefresher` pode ser recuperado através da chamada `GetRefresher` método sobre as opções fornecidas ao método `AddAzureAppConfiguration`, e o método `Refresh` neste caso pode ser usado para desencadear uma operação de atualização em qualquer lugar do seu código.
 
     > [!NOTE]
-    > O tempo de expiração de cache padrão para uma definição de configuração é de 30 segundos, mas pode ser substituído chamando o método `SetCacheExpiration` no inicializador de opções passado como um argumento para o método `ConfigureRefresh`.
+    > O tempo de validade da cache padrão para uma definição de configuração é de 30 segundos, mas pode ser ultrapassado chamando o método `SetCacheExpiration` sobre as opções inicializador espávida como um argumento para o método `ConfigureRefresh`.
 
-1. Adicione um método chamado `PrintMessage()` que dispara uma atualização manual dos dados de configuração da configuração do aplicativo.
+1. Adicione um método chamado `PrintMessage()` que desencadeie uma atualização manual dos dados de configuração a partir da Configuração da Aplicação.
 
     ```csharp
     private static async Task PrintMessage()
@@ -118,44 +113,44 @@ Neste tutorial, ficará a saber como:
     }
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
+## <a name="build-and-run-the-app-locally"></a>Construir e executar a app localmente
 
-1. Defina uma variável de ambiente chamada **ConnectionString**e defina-a como a chave de acesso para seu repositório de configuração de aplicativo. Se você usar o prompt de comando do Windows, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Detete uma variável ambiental chamada **ConnectionString**e detetete-a na chave de acesso à sua loja de configuração de aplicações. Se utilizar o pedido de comando do Windows, execute o seguinte comando e reinicie a solicitação de comando para permitir que a alteração faça efeito:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Se você usar o Windows PowerShell, execute o seguinte comando:
+    Se utilizar o Windows PowerShell, execute o seguinte comando:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-1. Reinicie o Visual Studio para permitir que a alteração entre em vigor. 
+1. Reiniciar o Estúdio Visual para permitir que a alteração faça efeito. 
 
-1. Pressione CTRL + F5 para compilar e executar o aplicativo de console.
+1. Prima Ctrl + F5 para construir e executar a aplicação de consola.
 
-    ![Local de inicialização do aplicativo](./media/dotnet-app-run.png)
+    ![App lança local](./media/dotnet-app-run.png)
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
-1. Selecione **Configuration Explorer**e atualize os valores das seguintes chaves:
+1. Selecione O Explorador de **Configuração**e atualize os valores das seguintes teclas:
 
     | Chave | Valor |
     |---|---|
-    | TestApp: configurações: mensagem | Dados da configuração Azure App-atualizado |
+    | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure - Atualizado |
 
-1. De volta ao aplicativo em execução, pressione a tecla Enter para disparar uma atualização e imprimir o valor atualizado no prompt de comando ou na janela do PowerShell.
+1. De volta à aplicação de execução, prima a tecla Enter para desencadear uma atualização e imprima o valor atualizado na janela Command Prompt ou PowerShell.
 
-    ![Local de atualização do aplicativo](./media/dotnet-app-run-refresh.png)
+    ![App refrescar local](./media/dotnet-app-run-refresh.png)
     
     > [!NOTE]
-    > Como o tempo de expiração do cache foi definido como 10 segundos usando o método `SetCacheExpiration` ao especificar a configuração para a operação de atualização, o valor da definição de configuração só será atualizado se pelo menos 10 segundos tiver decorrido desde a última atualização para essa configuração.
+    > Uma vez que o tempo de validade da cache foi definido para 10 segundos utilizando o método `SetCacheExpiration`, especificando a configuração para o funcionamento de atualização, o valor para a configuração da configuração só será atualizado se decorridos pelo menos 10 segundos desde a última atualização para essa definição.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você habilitou seu aplicativo .NET Framework para atualizar dinamicamente as definições de configuração da configuração do aplicativo. Para saber como usar uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo, prossiga para o próximo tutorial.
+Neste tutorial, ativou a sua aplicação .NET Framework para atualizar dinamicamente as definições de configuração a partir da Configuração da Aplicação. Para aprender a usar uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)
+> [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

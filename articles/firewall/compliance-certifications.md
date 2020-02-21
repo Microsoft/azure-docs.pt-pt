@@ -1,53 +1,53 @@
 ---
-title: Certificações de conformidade do firewall do Azure
-description: Uma lista de certificações de conformidade do firewall do Azure para PCI, SOC e ISO
+title: Certificações Azure Firewall
+description: Uma lista de certificações Azure Firewall para PCI, SOC, ISO e ICSA Labs
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 02/19/2020
 ms.author: victorh
-ms.openlocfilehash: f7e235a4212cf14f851c0c58eb087970c8f8d137
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: b1e7dce6f652d8c9e0fcf5974c3e72be9e1e7844
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158185"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482190"
 ---
-# <a name="azure-firewall-compliance-certifications"></a>Certificações de conformidade do firewall do Azure
+# <a name="azure-firewall-certifications"></a>Certificações Azure Firewall
 
-O Firewall do Azure é o setor de cartão de pagamento (PCI), os controles de organização de serviço (SOC), o Organização Internacional de Normalização (ISO) e o HITRUST em conformidade.
+O Azure Firewall é a Indústria de Cartões de Pagamento (PCI), controlos de organização de serviços (SOC), Organização Internacional para a Normalização (ISO), ICSA Labs e conformidade com o HITRUST.
 
-As certificações a seguir são para o Azure global e o Azure governamental.
+As seguintes certificações são para o Governo Global Azure e Azure.
 
-## <a name="global-azure-certifications"></a>Certificações globais do Azure
+## <a name="global-azure-certifications"></a>Certificações Global Azure
 
-As seguintes certificações de firewall do Azure são para o Azure global:
+As seguintes certificações Azure Firewall são para o Azure global:
 
 - 23 NYCRR 500
 - AFM e DNB (Países Baixos)
 - AMF e ACPR (França)
 - APRA (Austrália)
-- PDPA da Argentina
-- Australia IRAP
+- Argentina PDPA
+- Austrália IRAP
 - CDSA
-- CFTC 1,31
-- Atestado CSA STAR
-- Certificação CSA STAR
-- Autoavaliação CSA STAR
-- Leis de privacidade canadenses
-- DPP (REINO UNIDO)
-- ENISA DE IAF DA UE
-- Cláusulas do Modelo da UE
-- Autoridade do Banco Europeu
+- CFTC 1.31
+- Atestado em ESTRELA da CSA
+- Certificação em ESTRELA da CSA
+- Autoavaliação da CSA STAR
+- Leis de Privacidade canadianas
+- DPP (Reino Unido)
+- EU ENISA IAF
+- Cláusulas-modelo da UE
+- Autoridade Bancária Europeia
 - FCA e PRA (Reino Unido)
 - FERPA (EUA)
 - FFIEC (EUA)
 - FINMA (Suíça)
 - FSA (Dinamarca)
 - GLBA (EUA)
-- C5 da Alemanha
-- GxP (FDA 21 CFR parte 11)
+- Alemanha C5
+- GxP (FDA 21 CFR Parte 11)
 - HITRUST
 - ISO 20000-1:2011
 - ISO 22301:2012
@@ -55,59 +55,67 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - ISO 27017:2015
 - ISO 27018:2014
 - ISO 9001:2015
-- Lei de meu número do Japão
+- Japão O meu número ato
 - K-ISMS
-- KNF (Polônia)
-- MAS e ABS (Cingapura)
+- KNF (Polónia)
+- MAS e ABS (Singapura)
 - MPAA (EUA)
 - NBB e FSMA (Bélgica)
-- NEN 7510:2011 (Países Baixos)
+- NEN 7510:2011 (Holanda)
 - NHS IG Toolkit (Reino Unido)
-- Países Baixos BIR 2012
+- Holanda BIR 2012
 - OSFI (Canadá)
 - PCI DSS Nível 1
-- RBI e IRDAi (Índia)
-- SOC 1 tipo 2
-- SOC 2 tipo 2
+- RBI e IRDAI (Índia)
+- SOC 1 Tipo 2
+- SOC 2 Tipo 2
 - SOC 3
 - SOX (EUA)
-- DPA da Espanha
+- Espanha DPA
 - TISAX
 - TruSight
-- UK G-Cloud
+- G-Cloud no Reino Unido
 - WCAG 2.0
 
 
-## <a name="azure-government-certifications"></a>Certificações do Azure governamental
+## <a name="azure-government-certifications"></a>Certificações do Governo Azure
 
-As seguintes certificações de firewall do Azure são para o Azure governamental:
+As seguintes certificações Azure Firewall são para o Governo Azure:
 
 - CJIS
 - CNSSI 1253
-- Atestado CSA STAR
+- Atestado em ESTRELA da CSA
 - DFARS
-- DoD DISA SRG nível 2
-- DoE 10 CFR parte 810
-- EAR
+- Dod DISA SRG Level 2
+- Doe 10 CFR Parte 810
+- ORELHA
 - FIPS 140-2
-- FedRAMP Elevado
+- FedRAMP Alto
 - HITRUST
 - IRS 1075
 - ITAR
 - MARS-E (EUA)
 - NERC
-- Estrutura NIST segurança cibernética
+- Quadro de Cibersegurança nIST
 - NIST SP 800-171
-- SOC 1 tipo 2
-- SOC 2 tipo 2
+- SOC 1 Tipo 2
+- SOC 2 Tipo 2
 - SOC 3
 - SOX (EUA)
 - Secção 508 VPATs
 
+## <a name="icsa-labs-corporate-firewall-certification"></a>Certificação de Firewall Corporativo ICSA Labs
 
-## <a name="next-steps"></a>Passos seguintes
+![Certificação ICSA](media/overview/icsa-cert-firewall-small.png)
 
-Para obter mais informações sobre a conformidade da Microsoft, consulte as informações a seguir.
+O ICSA Labs é um fornecedor líder em testes e certificação de produtos de TI de segurança e saúde, bem como dispositivos ligados à rede. Medem a conformidade, a fiabilidade e o desempenho do produto para a maioria dos principais fornecedores de tecnologia do mundo.
+
+O Azure Firewall é o primeiro serviço de firewall em nuvem a atingir a certificação de firewall corporativa icsa Labs. Para o relatório de certificação Azure Firewall, consulte o Relatório de Testes e Auditoria de [Certificação da ICSA Labs.](https://aka.ms/ICSALabsCertification) Para mais informações, consulte a página do Programa de Certificação de [Firewall icsa Labs.](https://www.icsalabs.com/technology-program/firewalls)
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Para obter mais informações sobre o cumprimento da Microsoft, consulte as seguintes informações.
 
 - [Guia de conformidade da Microsoft](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide)
 - [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Descrição geral da conformidade do Microsoft Azure)

@@ -1,18 +1,18 @@
 ---
 title: Publique aplicações incorporadas no Windows Virtual Desktop - Azure
-description: Como publicar aplicações modernas no Windows Virtual Desktop.
+description: Como publicar aplicações incorporadas no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 37fc089ab68bfb3cd26e1656ba84610fe8a47bc6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e8e8512fa9f6a64fb0db688b7badcb699f6ccaa5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367263"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484626"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publique aplicações incorporadas no Windows Virtual Desktop
 
@@ -45,7 +45,7 @@ O processo que utiliza para publicar o Microsoft Edge é um pouco diferente do p
 New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como configurar feeds para organizar a forma como as aplicações são exibidas para os utilizadores no [Feed Personalizado para utilizadores do Windows Virtual Desktop](customize-feed-for-virtual-desktop-users.md).
 - Saiba mais sobre a funcionalidade anexada da aplicação MSIX na configuração da [aplicação MSIX](app-attach.md).

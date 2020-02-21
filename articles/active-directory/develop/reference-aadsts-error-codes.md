@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7798cb86606c206f027a1014802770a74aba909a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ba5af060a02e8525320f005b5d1c80534c5ca4ea
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160382"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483929"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -133,7 +133,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS50180 | WindowsIntegratedAuthMissing - É necessária a autenticação integrada do Windows. Ativar o inquilino para SSO Totalmente Integrado. |
 | AADSTS50187 | Informações de dispositivoNãoFornecidos - O serviço falhou na autenticação do dispositivo. |
 | AADSTS50196 | LoopDetected - Foi detetado um ciclo de cliente. Verifique a lógica da aplicação para garantir que o cache token é implementado e que as condições de erro são manuseadas corretamente.  A aplicação fez demasiados pedidos em muito curto prazo, indicando que se encontra em estado defeituoso ou que está a solicitar abusivamente fichas. |
-| AADSTS50199 | CmsiInterrupt - a interação do utilizador é necessária para esta autenticação.  Como este é um erro "interaction_required", o cliente deve fazer auth interativo.  Isto ocorre porque um webview do sistema foi usado para solicitar um símbolo para uma aplicação nativa - o utilizador deve ser solicitado a perguntar se esta era realmente a app que pretendia assinar.|
+| AADSTS50199 | CmsiInterrupt - Por razões de segurança, a confirmação do utilizador é necessária para este pedido.  Como este é um erro "interaction_required", o cliente deve fazer auth interativo.  Isto ocorre porque um webview do sistema foi usado para solicitar um símbolo para uma aplicação nativa - o utilizador deve ser solicitado a perguntar se esta era realmente a app que pretendia assinar.|
 | AADSTS51000 | RequeridoFeatureNotEnabled - A funcionalidade está desativada. |
 | AADSTS51001 | DomainHintMustbePresent - A sugestão de domínio deve estar presente com o identificador de segurança no local ou no local UPN. |
 | AADSTS51004 | UserAccountNotInDirectory - A conta de utilizador não existe no diretório. |
@@ -275,6 +275,6 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS1000002 | BindCompleteInterruptError - A ligação concluída com sucesso, mas o utilizador deve ser informado. |
 | AADStS7000112 | Aplicação de Cliento Não AutorizadoDisabled - A aplicação está desativada. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Tem uma pergunta ou não consegue encontrar o que procura? Crie um problema gitHub ou veja [o Suporte e ajude as opções para os desenvolvedores](active-directory-develop-help-support.md) aprenderem sobre outras formas de obter ajuda e suporte.

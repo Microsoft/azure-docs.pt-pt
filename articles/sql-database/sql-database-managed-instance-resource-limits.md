@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 11/27/2019
-ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/18/2020
+ms.openlocfilehash: 6e6d4ea6c96949a60677bcf3bf40a53ec3a251c7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201735"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526863"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Azure SQL Base de dados gerido limites de recursos de instância
 
@@ -96,7 +96,7 @@ A instância gerida tem dois níveis de serviço: [General Purpose](sql-database
 
 No nível de serviço General Purpose, todos os ficheiros de base de dados estão a receber IOPS dedicados e a uma entrada que depende do tamanho do ficheiro. Ficheiros maiores estão a receber mais IOPS e entrada. As características iO dos ficheiros da base de dados são mostradas no quadro seguinte:
 
-| Tamanho dos ficheiros           | 0 - 128 GiB | 128 - 256 GiB | 256 - 512 GiB | 0.5 - 1 Tib    | 1 - 2 Tib    | 2 - 4 TiB | 4 - 8 TiB |
+| Tamanho dos ficheiros | >=0 e <=128 GiB | >128 e <=256 GiB | >256 e <= 512 GiB | >0.5 e <=1 TiB    | >1 e <=2 TiB    | >2 e <=4 TiB | >4 e <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | IOPS por ficheiro       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500   |
 | Entrada por ficheiro | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
@@ -113,7 +113,7 @@ Os casos geridos só podem ser criados em [regiões apoiadas.](https://azure.mic
 
 A instância gerida suporta atualmente a implantação apenas nos seguintes tipos de subscrições:
 
-- [Acordo empresarial (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
+- [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Provedor de Serviço sinuoso (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)

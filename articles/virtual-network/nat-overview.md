@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: allensu
-ms.openlocfilehash: 98d77f43c990dd00dd5e5d616b2fdee44fb8a2f6
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 6c8a341a089ef95d99669f592dbea81922d67682
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431422"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526319"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>O que é a Rede Virtual NAT (Visualização Pública)?
 
@@ -168,7 +168,7 @@ As assinaturas devem ser registadas para permitir a participação na Pré-Visua
 2. ativar o registo
 
     ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
+      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 ## <a name="pricing"></a>Preços
@@ -197,9 +197,7 @@ Queremos saber como podemos melhorar o serviço. Partilhe connosco o seu [feedba
 
 - O NAT é compatível com os recursos padrão de IP público sku, prefixo ip público e equilibrador de carga.   Os recursos básicos (por exemplo, o equilíbrio básico de carga) e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com NAT.
 - A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.
-- NsG na subnet ou NIC não é homenageado por fluxos de saída para pontos finais públicos usando NAT.
 - A exploração de fluxo sanções da NSG não é suportada quando se utiliza NAT.
-- Quando uma rede virtual tem várias subredes, cada subnet pode ter um NAT diferente configurado.
 - O NAT não pode abranger várias redes virtuais.
 
 ## <a name="next-steps"></a>Passos seguintes

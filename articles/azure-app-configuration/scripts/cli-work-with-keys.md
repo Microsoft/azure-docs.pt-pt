@@ -1,36 +1,34 @@
 ---
 title: Amostra de script Azure CLI - Trabalhar com valores-chave na Loja de Configuração de Aplicações
 titleSuffix: Azure App Configuration
-description: Fornece informações sobre o trabalho com valores-chave numa loja de configuração de aplicações azure
+description: Utilize o script Azure CLI para criar, visualizar, atualizar e eliminar valores-chave da loja de configuração de aplicações
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 11/08/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1a4edabe666a554ccd01d110f0f71226221dfc67
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468189"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523658"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhe com valores-chave numa loja de configuração de aplicações azure
 
-Este script de amostra cria um novo valor-chave numa loja de configuração de aplicações Azure, lista todos os valores-chave existentes, atualiza o valor da chave recém-criada e, por último, elimina-a.
+Este script de amostra mostra como:
+* Criar um novo par de valor-chave
+* Enumerar todos os pares de valor-chave existentes
+* Atualizar o valor de uma chave recém-criada
+* Eliminar o novo par de valor-chave
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Este artigo requer a versão 2.0 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -81,13 +79,13 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para operar em valores-chave numa loja de Configuração de Aplicações. Cada comando na tabela liga à documentação específica do comando.
+Esta tabela lista os comandos usados no nosso script de amostra. 
 
 | Comando | Notas |
 |---|---|
-| [az appconfig kv conjunto](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Cria ou atualiza um valor-chave. |
-| [az appconfig kv lista](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Lista valores-chave numa loja de configuração de aplicações. |
-| [az appconfig kv excluir](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Elimina um valor-chave. |
+| [az appconfig kv conjunto](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Criar ou atualizar um par de valor-chave. |
+| [az appconfig kv lista](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Liste os pares de valor-chave numa loja de configuração de aplicações. |
+| [az appconfig kv excluir](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Apague um par de valor-chave. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

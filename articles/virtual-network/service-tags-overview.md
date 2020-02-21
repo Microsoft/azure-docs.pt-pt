@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 270b3f0fe7c654d2bf059784e872b7dbe97a6068
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
-ms.translationtype: MT
+ms.openlocfilehash: c93460797fc1cf953d467e2739d71c5a2a9b74ed
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190479"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486173"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual 
 <a name="network-service-tags"></a>
@@ -52,7 +52,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzureBackup** |Reforço Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das etiquetas **De Armazenamento** e **AzureActiveDirectory.** | Saída | Não | Sim |
 | **AzureBotService** | Serviço Azure Bot. | Saída | Não | Não |
 | **AzureCloud** | Todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=56519). | Saída | Sim | Sim |
-| **AzureCognitiveSearch** | Pesquisa Cognitiva Azure (se utilizar indexadores com uma habilidade). | Ambos | Não | Não |
+| **AzureCognitiveSearch** | Pesquisa Cognitiva Azure. <br/><br/>Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para conceder aos indexantes acesso seguro a fontes de dados. Consulte a documentação de ligação do [indexante](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) para mais detalhes. | Entrada | Não | Não |
 | **Ligadores Azure** | Conectores de aplicativos de lógica Azure para ligações de sonda/back-end. | Entrada | Sim | Sim |
 | **Registo de Contentores Azure** | Registo de contentores azure. | Saída | Sim | Sim |
 | **AzureCosmosDB** | Azure Cosmos DB. | Saída | Sim | Sim |
@@ -135,5 +135,5 @@ Pode descarregar ficheiros JSON que contenham a lista atual de tags de serviço 
 - Pode detetar atualizações de uma publicação para outra, observando valores de *número* de variação aumentados no ficheiro JSON. Cada subsecção (por exemplo, **Storage.WestUS)** tem a sua própria *mudançaNúmero* que é incrementado à medida que as alterações ocorrem. O nível superior da alteração do *ficheiroNumber* é incrementado quando qualquer uma das subsecções é alterada.
 - Por exemplo, como analisar a informação da etiqueta de serviço (por exemplo, obter todas as gamas de endereços para Armazenamento em WestUS), consulte a documentação da Marca de [Serviço Discovery API PowerShell.](https://aka.ms/discoveryapi_powershell)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Aprenda a [criar um grupo](tutorial-filter-network-traffic.md)de segurança de rede .

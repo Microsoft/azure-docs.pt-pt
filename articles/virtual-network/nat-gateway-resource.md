@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/19/2020
 ms.author: allensu
-ms.openlocfilehash: 0cbebf4ab2d865d49a85da2e809bdf24e7258a5f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: MT
+ms.openlocfilehash: a118d560541595e26c80547dd641968c518aa353
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444388"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485017"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Conceber redes virtuais com recursos de gateway NAT (Visualização Pública)
 
@@ -341,7 +341,6 @@ Uma porta SNAT está disponível para reutilização para o mesmo endereço IP d
 - A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.
 - NsG na subnet ou NIC não é homenageado por fluxos de saída para pontos finais públicos usando NAT.
 - A exploração de fluxo sanções da NSG não é suportada quando se utiliza NAT.
-- Quando uma rede virtual tem várias subredes, cada subnet pode ter um NAT diferente configurado.
 - O NAT não pode abranger várias redes virtuais.
 
 ## <a name="preview-participation"></a>Visualização da participação

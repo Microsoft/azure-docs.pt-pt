@@ -3,12 +3,12 @@ title: Desenvolver funções Azure utilizando o Código do Estúdio Visual
 description: Aprenda a desenvolver e testar funções Azure utilizando a extensão de Funções Azure para Código de Estúdio Visual.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 3bc8c9aa5d31f757a34350d9605fdecbe42b8be7
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 41a1a64be4823769f6bf23b251fec94fd68eb0f0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210247"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484796"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver funções Azure utilizando o Código do Estúdio Visual
 
@@ -92,11 +92,11 @@ O modelo do projeto cria um projeto no seu idioma escolhido e instala dependênc
 
 Dependendo da sua língua, estes outros ficheiros são criados:
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 * [HttpExample.cs arquivo de biblioteca de classe](functions-dotnet-class-library.md#functions-class-library-project) que implementa a função.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 * Um ficheiro pacote.json na pasta raiz.
 
@@ -122,7 +122,7 @@ Também pode [adicionar uma nova função ao seu projeto.](#add-a-function-to-yo
 
 Com exceção dos gatilhos HTTP e temporizador, as encadernações são implementadas em pacotes de extensão. Deve instalar as embalagens de extensão para os gatilhos e encadernações que deles necessitem. O processo de instalação de extensões de encadernação depende da linguagem do seu projeto.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Execute o comando de [pacote de dotnet](/dotnet/core/tools/dotnet-add-package) na janela do Terminal para instalar as embalagens de extensão que precisa no seu projeto. O comando seguinte instala a extensão de armazenamento Azure, que implementa encadernações para armazenamento de blob, fila e mesa.
 
@@ -130,7 +130,7 @@ Execute o comando de [pacote de dotnet](/dotnet/core/tools/dotnet-add-package) n
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -142,11 +142,11 @@ Pode adicionar uma nova função a um projeto existente utilizando um dos modelo
 
 Os resultados desta ação dependem da linguagem do seu projeto:
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Um C# novo arquivo de biblioteca de classes (.cs) é adicionado ao seu projeto.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Uma nova pasta é criada no projeto. A pasta contém um novo ficheiro function.json e o novo ficheiro de código JavaScript.
 
@@ -158,7 +158,7 @@ Pode expandir a sua função adicionando encadernações de entrada e saída. O 
 
 Os seguintes exemplos ligam-se a uma fila de armazenamento chamada `outqueue`, onde a cadeia de ligação para a conta de armazenamento é definida na definição de aplicação `MyStorageConnection` em local.settings.json.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Atualize o método de função para adicionar o seguinte parâmetro à definição de método `Run`:
 
@@ -174,9 +174,9 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 O parâmetro `msg` é um tipo `ICollector<T>`, que representa uma coleção de mensagens que são escritas para uma ligação de saída quando a função completa. Adicione uma ou mais mensagens à coleção. Estas mensagens são enviadas para a fila quando a função termina.
 
-Para saber mais, consulte a documentação [de encadernação](functions-bindings-storage-queue.md#output) de saída de armazenamento de fila.
+Para saber mais, consulte a documentação [de encadernação](functions-bindings-storage-queue-output.md) de saída de armazenamento de fila.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 O Visual Studio Code permite-lhe adicionar ligações ao ficheiro function.json seguindo um conjunto conveniente de solicitações. Para criar uma ligação, clique à direita (Ctrl+clique no macOS) o ficheiro **função.json** na sua pasta de função e selecione **Adicionar a ligação:**
 
@@ -212,7 +212,7 @@ No seu código de funcionamento, o `msg` encadernação é acedido a partir do `
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-Para saber mais, consulte a referência de ligação de saída de [armazenamento de fila.](functions-bindings-storage-queue.md#output)
+Para saber mais, consulte a referência de ligação de saída de [armazenamento de fila.](functions-bindings-storage-queue-output.md)
 
 ---
 
@@ -256,7 +256,7 @@ Os seguintes passos publicam o seu projeto numa nova app de funções criada com
     | Selecione um tempo de execução para a sua nova aplicação | A sua linguagem de projeto | O prazo deve corresponder ao projeto que está a publicar. |
     | Selecione um grupo de recursos para novos recursos | Criar novo grupo de recursos | No próximo pedido, digite um nome de grupo de recursos, como `myResourceGroup`, e, em seguida, selecione entrar. Também pode selecionar um grupo de recursos existente. |
     | Selecione uma conta de armazenamento | Criar nova conta de armazenamento | Na próxima solicitação, digite um nome globalmente único para a nova conta de armazenamento utilizada pela sua aplicação de função e, em seguida, selecione Enter. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres de comprimento e podem conter apenas números e letras minúsculas. Também pode selecionar uma conta existente. |
-    | Selecione uma localização para novos recursos | . | Selecione uma localização numa [região](https://azure.microsoft.com/regions/) próxima ou perto de outros serviços a que as suas funções acedem. |
+    | Selecione uma localização para novos recursos | Região | Selecione uma localização numa [região](https://azure.microsoft.com/regions/) próxima ou perto de outros serviços a que as suas funções acedem. |
 
     Uma notificação aparece após a criação da sua aplicação de função e o pacote de implementação é aplicado. Selecione **Ver Output** nesta notificação para visualizar os resultados da criação e implementação, incluindo os recursos Azure que criou.
 
@@ -297,7 +297,7 @@ Para executar o seu projeto Funções localmente, deve cumprir estes requisitos 
 
 * Instale os requisitos específicos para a linguagem escolhida:
 
-    | Idioma | Requisito |
+    | Linguagem | Requisito |
     | -------- | --------- |
     | **C#** | [C#extensão](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI ferramentas](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger para extensão java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
@@ -446,7 +446,7 @@ A extensão Funções Azure fornece uma interface gráfica útil na área para i
 | **Ver comprometer-se no GitHub** | Mostra-lhe o mais recente compromisso numa implementação específica quando a sua aplicação de funções está ligada a um repositório. |
 | **Ver Registos de Implementação** | Mostra-lhe os registos para uma implementação específica da aplicação de funções em Azure. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre as Ferramentas Nucleares das Funções Azure, consulte [Trabalhar com ferramentas nucleares de funções azure](functions-run-local.md).
 

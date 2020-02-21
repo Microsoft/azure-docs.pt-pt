@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o acesso do usuário no Azure Active Directory B2C | Microsoft Docs
-description: Saiba como identificar os pequenos, coletar dados de nascimento e de país/região e obter a aceitação dos termos de uso em seu aplicativo usando Azure AD B2C.
+title: Gerir o acesso ao utilizador no Diretório Ativo Azure B2C  Microsoft Docs
+description: Saiba identificar menores, recolher dados data de nascimento e país/região e obter a aceitação dos termos de utilização na sua aplicação utilizando o Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,111 +10,111 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 90be5b407708f6cca3748dd6d6fa09c28ab7fcdc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fcdbf0d56b79662cccd90380489ede672e6a0a66
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840439"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484116"
 ---
-# <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerenciar o acesso do usuário no Azure Active Directory B2C
+# <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso ao utilizador no Diretório Ativo Azure B2C
 
-Este artigo discute como gerenciar o acesso do usuário aos seus aplicativos usando Azure Active Directory B2C (Azure AD B2C). O gerenciamento de acesso em seu aplicativo inclui:
+Este artigo discute como gerir o acesso dos utilizadores às suas aplicações utilizando o Azure Ative Directory B2C (Azure AD B2C). A gestão de acesso na sua aplicação inclui:
 
-- Identificar menores e controlar o acesso do usuário ao seu aplicativo.
-- Exigindo o consentimento dos menores para os secundários usarem seus aplicativos.
-- Coletando dados de nascimento e de país/região dos usuários.
-- Capturando um contrato de termos de uso e acesso de retenção.
+- Identificar menores e controlar o acesso do utilizador à sua aplicação.
+- Exigindo o consentimento dos pais para que os menores utilizem as suas aplicações.
+- Recolha de dados de nascimento e país/região dos utilizadores.
+- Capturar um acordo de termos de uso e acesso a marcha.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-## <a name="control-minor-access"></a>Controlar acesso secundário
+## <a name="control-minor-access"></a>Controlar o acesso menor
 
-Os aplicativos e as organizações podem decidir bloquear os menores de usar aplicativos e serviços que não são destinados a esse público. Como alternativa, os aplicativos e as organizações podem optar por aceitar menores e, subsequentemente, gerenciar o consentimento dos pais e fornecer experiências permitidas para menores, conforme determinado pelas regras de negócios e permitidas pela regulamentação.
+As aplicações e organizações podem decidir impedir os menores de utilizarem aplicações e serviços que não sejam direcionados para este público. Em alternativa, as candidaturas e organizações podem decidir aceitar menores e, posteriormente, gerir o consentimento dos pais e proporcionar experiências admissíveis para menores, conforme ditaas pelas regras empresariais e permitidas pela regulamentação.
 
-Se um usuário for identificado como um secundário, você poderá definir o fluxo do usuário em Azure AD B2C como uma das três opções:
+Se um utilizador for identificado como menor, pode definir o fluxo de utilizador em Azure AD B2C para uma de três opções:
 
-- **Envie um JWT assinado id_token de volta à aplicação**: O utilizador está registado no diretório e um sinal é devolvido à aplicação. Em seguida, o aplicativo continua aplicando regras de negócio. Por exemplo, o aplicativo pode continuar com um processo de consentimento dos pais. Para usar esse método, escolha receber as declarações **ageGroup** e **consentProvidedForMinor** do aplicativo.
+- **Envie um JWT assinado id_token de volta à aplicação**: O utilizador está registado no diretório e um sinal é devolvido à aplicação. O pedido prossegue então aplicando regras comerciais. Por exemplo, o pedido pode prosseguir com um processo de consentimento parental. Para utilizar este método, opte por receber o **grupo** etário e **consentEProvidedForMinor** reclamações da aplicação.
 
-- **Enviar um token JSON não assinado para o aplicativo**: o Azure ad B2C notifica o aplicativo que o usuário é um secundário e fornece o status do consentimento do usuário. Em seguida, o aplicativo continua aplicando regras de negócio. Um token JSON não conclui uma autenticação bem-sucedida com o aplicativo. O aplicativo deve processar o usuário não autenticado de acordo com as declarações incluídas no token JSON, que pode incluir **nome**, **email**, **ageGroup**e **consentProvidedForMinor**.
+- **Envie um token JSON não assinado para a aplicação**: Azure AD B2C notifica a aplicação de que o utilizador é menor e fornece o estado do consentimento parental do utilizador. O pedido prossegue então aplicando regras comerciais. Um token JSON não completa uma autenticação bem sucedida com a aplicação. A aplicação deve processar o utilizador não autenticado de acordo com as reclamações incluídas no símbolo JSON, que podem incluir **nome**, **e-mail,** **ageGroup,** e **consentProvidedForMinor**.
 
-- **Bloquear o usuário**: se um usuário for um secundário e o consentimento dos pais não tiver sido fornecido, Azure ad B2C poderá notificar o usuário de que eles estão bloqueados. Nenhum token é emitido, o acesso é bloqueado e a conta de usuário não é criada durante uma jornada de registro. Para implementar essa notificação, você fornece uma página de conteúdo HTML/CSS adequada para informar o usuário e apresentar as opções apropriadas. Nenhuma ação adicional é necessária para o aplicativo para novos registros.
+- **Bloqueie o utilizador**: Se um utilizador for menor e o consentimento dos pais não tiver sido fornecido, o Azure AD B2C pode notificar o utilizador de que está bloqueado. Não é emitido nenhum símbolo, o acesso é bloqueado e a conta de utilizador não é criada durante uma viagem de registo. Para implementar esta notificação, fornece uma página de conteúdo HTML/CSS adequada para informar o utilizador e apresentar opções apropriadas. Não são necessárias mais medidas pelo pedido de novos registos.
 
-## <a name="get-parental-consent"></a>Obter consentimento dos pais
+## <a name="get-parental-consent"></a>Obtenha o consentimento dos pais
 
-Dependendo da regulamentação do aplicativo, o consentimento dos pais pode precisar ser concedido por um usuário que é verificado como um adulto. A Azure AD B2C não fornece uma experiência para verificar a idade de um indivíduo e, em seguida, permitir que um adulto verificado conceda a um secundário o consentimento dos pais. Essa experiência deve ser fornecida pelo aplicativo ou por outro provedor de serviços.
+Dependendo da regulação da aplicação, o consentimento dos pais pode ter de ser concedido por um utilizador que seja verificado como adulto. O Azure AD B2C não fornece uma experiência para verificar a idade de um indivíduo e, em seguida, permitir que um adulto verificado conceda o consentimento dos pais a um menor. Esta experiência deve ser fornecida pela aplicação ou por outro prestador de serviços.
 
-Veja a seguir um exemplo de um fluxo de usuário para a coleta de consentimento dos pais:
+Segue-se um exemplo de fluxo de utilizador para recolher o consentimento dos pais:
 
-1. Uma operação de [API do Graph Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog) identifica o usuário como um secundário e retorna os dados do usuário para o aplicativo na forma de um token JSON não assinado.
+1. Uma operação [DaPi](https://docs.microsoft.com/graph/use-the-api) do Microsoft Graph identifica o utilizador como menor e devolve os dados do utilizador à aplicação sob a forma de um símbolo JSON não assinado.
 
-2. O aplicativo processa o token JSON e mostra uma tela para o secundário, notificando-os de que o consentimento dos pais é necessário e solicitando o consentimento de um pai online.
+2. A aplicação processa o símbolo JSON e mostra um ecrã ao menor, notificando-os de que o consentimento dos pais é necessário e solicitando o consentimento de um progenitor online.
 
-3. Azure AD B2C mostra uma jornada de entrada em que o usuário pode entrar normalmente e emite um token para o aplicativo que está definido para incluir **legalAgeGroupClassification = "minorWithParentalConsent"** . O aplicativo coleta o endereço de email do pai e verifica se o pai é um adulto. Para fazer isso, ele usa uma fonte confiável, como um escritório de ID nacional, verificação de licença ou prova de cartão de crédito. Se a verificação for bem-sucedida, o aplicativo solicitará o secundário para entrar usando o fluxo de usuário Azure AD B2C. Se o consentimento for negado (por exemplo, se **legalAgeGroupClassification = "minorWithoutParentalConsent"** ), Azure ad B2C retornará um token JSON (não um logon) para o aplicativo a fim de reiniciar o processo de consentimento. Opcionalmente, é possível personalizar o fluxo do usuário para que um secundário ou um adulto possa obter acesso a uma conta secundária enviando um código de registro para o endereço de email do secundário ou o endereço de email do adulto no registro.
+3. O Azure AD B2C mostra uma viagem de entrada em que o utilizador pode iniciar sessão normalmente e emite um símbolo da aplicação que está definida para incluir **legalAgeGroupClassification = "minorWithParentConsent".** A aplicação recolhe o endereço de e-mail do progenitor e verifica que o progenitor é um adulto. Para tal, utiliza uma fonte de confiança, como um escritório nacional de identificação, verificação de licença ou prova de cartão de crédito. Se a verificação for bem sucedida, a aplicação solicita ao menor que assine o fluxo do utilizador Azure AD B2C. Se o consentimento for negado (por exemplo, se **legalAgeGroupClassification = "minorWithoutParentConsent"** ), Azure AD B2C devolve um símbolo JSON (não um login) ao pedido para reiniciar o processo de consentimento. É opcionalmente possível personalizar o fluxo do utilizador para que um menor ou um adulto possa recuperar o acesso à conta de um menor enviando um código de registo para o endereço de e-mail do menor ou o endereço de e-mail do adulto registado.
 
-4. O aplicativo oferece uma opção para o consentimento de secundário para revogar.
+4. O pedido oferece uma opção ao menor para revogar o consentimento.
 
-5. Quando o secundário ou o adulto revoga o consentimento, o API do Graph do Azure AD pode ser usado para alterar **consentProvidedForMinor** para **negado**. Como alternativa, o aplicativo pode optar por excluir um secundário cujo consentimento foi revogado. Opcionalmente, é possível personalizar o fluxo do usuário para que o secundário autenticado (ou o pai que está usando a conta secundária) possa revogar o consentimento. Azure AD B2C registros **consentProvidedForMinor** como **negado**.
+5. Quando o menor ou o adulto revogam o consentimento, a Microsoft Graph API pode ser usada para alterar o **consentimentoProvidedForMinor** para **negado**. Em alternativa, o pedido pode optar por eliminar um menor cujo consentimento tenha sido revogado. É opcionalmente possível personalizar o fluxo do utilizador para que o menor autenticado (ou pai que está a usar a conta do menor) possa revogar o consentimento. Os registos azure AD B2C **consentProvidedForMinor** foram **negados.**
 
-Para obter mais informações sobre **legalAgeGroupClassification**, **consentProvidedForMinor**e **ageGroup**, consulte [tipo de recurso de usuário](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Para obter mais informações sobre atributos personalizados, consulte [usar atributos personalizados para coletar informações sobre seus consumidores](user-flow-custom-attributes.md). Quando aborda atributos estendidos utilizando a API do Gráfico AD Azure, deve utilizar a versão longa do atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00:00Z*.
+Para obter mais informações sobre **a legalAgeGroupClassification**, **consentProvidedForMinor**, e **ageGroup**, consulte o tipo de [recurso do utilizador](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Para obter mais informações sobre atributos personalizados, consulte [Use atributos personalizados para recolher informações sobre os seus consumidores.](user-flow-custom-attributes.md) Quando aborda atributos estendidos utilizando a API do Microsoft Graph, deve utilizar a versão longa do atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00:00Z*.
 
-## <a name="gather-date-of-birth-and-countryregion-data"></a>Coletar dados de nascimento e país/região
+## <a name="gather-date-of-birth-and-countryregion-data"></a>Recolher data de nascimento e dados de país/região
 
-Os aplicativos podem contar com Azure AD B2C para reunir a data de nascimento (DOB) e informações de país/região de todos os usuários durante o registro. Se essas informações ainda não existirem, o aplicativo poderá solicitá-la do usuário durante a próxima jornada de autenticação (entrada). Os usuários não podem continuar sem fornecer suas informações de DOB e país/região. Azure AD B2C usa as informações para determinar se o indivíduo é considerado um secundário de acordo com os padrões regulatórios desse país/região.
+As aplicações podem contar com o Azure AD B2C para recolher a data de nascimento (DOB) e informações país/região de todos os utilizadores durante o registo. Se estas informações ainda não existirem, a aplicação pode solicitá-la ao utilizador durante a próxima viagem de autenticação (iniciar o sessão). Os utilizadores não podem proceder sem fornecer as suas informações DOB e país/região. O Azure AD B2C utiliza as informações para determinar se o indivíduo é considerado menor de acordo com as normas regulamentares desse país/região.
 
-Um fluxo de usuário personalizado pode coletar informações de DOB e país/região e usar Azure AD B2C transformação de declarações para determinar o **ageGroup** e persistir o resultado (ou manter as informações de DOB e país/região diretamente) no diretório.
+Um fluxo de utilizador personalizado pode recolher informações do DOB e país/região e utilizar a transformação de reivindicações do Azure AD B2C para determinar a **idade Group** e persistir o resultado (ou persistir diretamente a informação do DOB e país/região) no diretório.
 
-As etapas a seguir mostram a lógica que é usada para calcular **ageGroup** da data de nascimento do usuário:
+Os seguintes passos mostram a lógica que é usada para calcular o **ageGroup** a partir da data de nascimento do utilizador:
 
-1. Tente localizar o país pelo código do país na lista. Se o país não for encontrado, volte para o **padrão**.
+1. Tente encontrar o país pelo código do país na lista. Se o país não for encontrado, recue para **o Incumprimento.**
 
-2. Se o nó **MinorConsent** estiver presente no elemento Country:
+2. Se o nó **MinorConsent** estiver presente no elemento do país:
 
-    a. Calcule a data em que o usuário deve ter sido nascido para ser considerado um adulto. Por exemplo, se a data atual for 14 de março de 2015 e **MinorConsent** for 18, a data de nascimento não deverá ser posterior a 14 de março de 2000.
+    a. Calcular a data em que o utilizador deve ter nascido para ser considerado adulto. Por exemplo, se a data atual for 14 de março de 2015, e **minorConsent** for 18, a data de nascimento deve ser o mais tardar em 14 de março de 2000.
 
-    b. Compare a data de nascimento mínima com a data de nascimento real. Se a data de nascimento mínima for anterior à data de nascimento do usuário, o cálculo retornará **menor** como o cálculo do grupo de idade.
+    b. Compare a data mínima de nascimento com a data de nascimento real. Se a data mínima de nascimento for antes da data de nascimento do utilizador, o cálculo devolve **Menor** como cálculo da faixa etária.
 
-3. Se o nó **MinorNoConsentRequired** estiver presente no elemento Country, repita as etapas 2a e 2B usando o valor de **MinorNoConsentRequired**. A saída de 2B retornará **MinorNoConsentRequired** se a data de nascimento mínima for anterior à data de nascimento do usuário.
+3. Se o nó **MinorNoConsentRequired** estiver presente no elemento do país, repita os passos 2a e 2b utilizando o valor de **MinorNoConsentRequired**. A saída de 2b devolve **MinorNoConsentRequired** se a data mínima de nascimento for antes da data de nascimento do utilizador.
 
-4. Se nenhum cálculo retornar true, o cálculo retornará **adulto**.
+4. Se nenhum dos cálculos for verdadeiro, o cálculo devolve **Adulto**.
 
-Se um aplicativo tiver coletado de forma confiável DOB ou dados de país/região por outros métodos, o aplicativo poderá usar o API do Graph para atualizar o registro de usuário com essas informações. Por exemplo:
+Se uma aplicação tiver recolhido dados DOB ou país/região de forma fiável por outros métodos, a aplicação poderá utilizar a API graphia para atualizar o registo do utilizador com esta informação. Por exemplo:
 
-- Se um usuário for conhecido como adulto, atualize o atributo de diretório **ageGroup** com um valor de **adulto**.
-- Se um usuário for conhecido como um secundário, atualize o atributo de diretório **ageGroup** com um valor de **Minor** e defina **consentProvidedForMinor**, conforme apropriado.
+- Se um utilizador for conhecido por ser adulto, atualize o diretório atribui o **ageGroup** com um valor de **Adulto**.
+- Se um utilizador for conhecido por ser menor, atualize o diretório atribui o **ageGroup** com um valor de **Minor** e detetete o **consentimento ProvidedForMinor,** conforme apropriado.
 
-Para obter mais informações sobre como coletar dados do DOB, consulte [usar a retenção de idade em Azure ad B2C](basic-age-gating.md).
+Para obter mais informações sobre a recolha de dados DOB, consulte [A marcha da idade em Azure AD B2C](basic-age-gating.md).
 
-## <a name="capture-terms-of-use-agreement"></a>Capturar contrato de termos de uso
+## <a name="capture-terms-of-use-agreement"></a>Capturar termos de acordo de utilização
 
-Ao desenvolver seu aplicativo, você normalmente captura a aceitação dos termos de uso dos usuários em seus aplicativos sem ou apenas participação secundária do diretório do usuário. No entanto, é possível usar um fluxo de usuário Azure AD B2C para coletar a aceitação de um usuário dos termos de uso, restringir o acesso se a aceitação não for concedida e impor a aceitação de futuras alterações aos termos de uso, com base na data da aceitação mais recente e na data da  versão mais recente dos termos de uso.
+Ao desenvolver a sua aplicação, normalmente captura a aceitação dos termos de utilização dos utilizadores dentro das suas aplicações sem, ou apenas menor, participação do diretório do utilizador. No entanto, é possível utilizar um fluxo de utilizador Azure AD B2C para recolher a aceitação de termos de utilização por parte de um utilizador, restringir o acesso se não for concedida a aceitação, e impor a aceitação de futuras alterações aos termos de utilização, com base na data da última aceitação e data do  versão mais recente dos termos de utilização.
 
-Os **termos de uso** também podem incluir "consentimento para compartilhar dados com terceiros". Dependendo das normas locais e das regras de negócio, você pode reunir a aceitação de ambas as condições do usuário, ou pode permitir que o usuário aceite uma condição e não a outra.
+**Os termos de utilização** também podem incluir "Consentimento para partilhar dados com terceiros". Dependendo dos regulamentos locais e das regras comerciais, pode reunir a aceitação de um utilizador de ambas as condições combinadas, ou pode permitir que o utilizador aceite uma condição e não a outra.
 
-As etapas a seguir descrevem como você pode gerenciar os termos de uso:
+Os seguintes passos descrevem como pode gerir os termos de utilização:
 
-1. Registre a aceitação dos termos de uso e a data de aceitação usando o API do Graph e os atributos estendidos. Você pode fazer isso usando fluxos de usuário internos e personalizados. Recomendamos que crie e utilize os **atributos extension_termsOfUseConsentDateTime** e **extension_termsOfUseConsentVersion.**
+1. Registem a aceitação dos termos de utilização e a data de aceitação utilizando a API do Gráfico e atributos alargados. Pode fazê-lo utilizando fluxos de utilizadores incorporados e personalizados. Recomendamos que crie e utilize os **atributos extension_termsOfUseConsentDateTime** e **extension_termsOfUseConsentVersion.**
 
-2. Crie uma caixa de seleção necessária rotulada "aceitar termos de uso" e registre o resultado durante a inscrição. Você pode fazer isso usando fluxos de usuário internos e personalizados.
+2. Crie uma caixa de verificação necessária com a etiqueta "Aceitar termos de utilização", e grave o resultado durante a inscrição. Pode fazê-lo utilizando fluxos de utilizadores incorporados e personalizados.
 
-3. Azure AD B2C armazena os termos de contrato de uso e a aceitação do usuário. Você pode usar o API do Graph para consultar o status de qualquer usuário lendo o atributo de extensão que é usado para registrar a resposta (por exemplo, ler **termsOfUseTestUpdateDateTime**). Você pode fazer isso usando fluxos de usuário internos e personalizados.
+3. O Azure AD B2C armazena os termos do acordo de utilização e a aceitação do utilizador. Pode utilizar a API do Gráfico para consultar o estado de qualquer utilizador, lendo o atributo de extensão que é usado para registar a resposta (por exemplo, ler **termosOfUseTestUpdateDateTime**). Pode fazê-lo utilizando fluxos de utilizadores incorporados e personalizados.
 
-4. Exija a aceitação dos termos de uso atualizados comparando a data de aceitação à data da versão mais recente dos termos de uso. Você pode comparar as datas somente usando um fluxo de usuário personalizado. Utilize o atributo alargado **extension_termsOfUseConsentDateTime**e compare o valor com a reclamação de **termosOfUseTextUpdateDateTime**. Se a aceitação for antiga, Force uma nova aceitação exibindo uma tela autodeclarada. Caso contrário, bloqueie o acesso usando a lógica de política.
+4. Exigir a aceitação de termos de utilização atualizados comparando a data de aceitação com a data da versão mais recente dos termos de utilização. Só é possível comparar as datas utilizando um fluxo de utilizador personalizado. Utilize o atributo alargado **extension_termsOfUseConsentDateTime**e compare o valor com a reclamação de **termosOfUseTextUpdateDateTime**. Se a aceitação for antiga, force uma nova aceitação exibindo um ecrã autoafirmado. Caso contrário, bloqueie o acesso utilizando a lógica da política.
 
-5. Exigir aceitação dos termos de uso atualizados comparando o número de versão da aceitação ao número de versão aceito mais recente. Você pode comparar os números de versão somente usando um fluxo de usuário personalizado. Utilize o **atributo**alargado extension_termsOfUseConsentDateTime e compare o valor com o pedido de **extension_termsOfUseConsentVersion**. Se a aceitação for antiga, Force uma nova aceitação exibindo uma tela autodeclarada. Caso contrário, bloqueie o acesso usando a lógica de política.
+5. Exigir a aceitação de termos de utilização atualizados comparando o número de versão da aceitação com o número de versão mais recente aceite. Só é possível comparar números de versão utilizando um fluxo de utilizador personalizado. Utilize o **atributo**alargado extension_termsOfUseConsentDateTime e compare o valor com o pedido de **extension_termsOfUseConsentVersion**. Se a aceitação for antiga, force uma nova aceitação exibindo um ecrã autoafirmado. Caso contrário, bloqueie o acesso utilizando a lógica da política.
 
-Você pode capturar a aceitação dos termos de uso nos seguintes cenários:
+Pode capturar termos de aceitação de uso nos seguintes cenários:
 
-- Um novo usuário está se inscrevendo. Os termos de uso são exibidos e o resultado da aceitação é armazenado.
-- Um usuário está entrando em quem aceitou anteriormente os termos de uso mais recentes ou ativos. Os termos de uso não são exibidos.
-- Um usuário está entrando em quem ainda não aceitou os termos de uso mais recentes ou ativos. Os termos de uso são exibidos e o resultado da aceitação é armazenado.
-- Um usuário está entrando em quem já aceitou uma versão mais antiga dos termos de uso, que agora são atualizados para a versão mais recente. Os termos de uso são exibidos e o resultado da aceitação é armazenado.
+- Um novo utilizador está a inscrever-se. Os termos de utilização são apresentados e o resultado de aceitação é armazenado.
+- Um utilizador está a iniciar sessão que tenha aceitado previamente os termos de utilização mais recentes ou ativos. Os termos de utilização não são apresentados.
+- Um utilizador está a iniciar sessão que ainda não aceitou os termos de utilização mais recentes ou ativos. Os termos de utilização são apresentados e o resultado de aceitação é armazenado.
+- Um utilizador está a iniciar sessão que já aceitou uma versão mais antiga dos termos de utilização, que agora são atualizados para a versão mais recente. Os termos de utilização são apresentados e o resultado de aceitação é armazenado.
 
-A imagem a seguir mostra o fluxo de usuário recomendado:
+A imagem seguinte mostra o fluxo recomendado do utilizador:
 
-![Diagrama do fluxograma de fluxo mostrando o fluxo de usuário de aceitação recomendado](./media/manage-user-access/user-flow.png)
+![Diagrama de gráfico de fluxo mostrando o fluxo recomendado do utilizador de aceitação](./media/manage-user-access/user-flow.png)
 
-Veja a seguir um exemplo de um consentimento de termos de uso com base em DateTime em uma declaração:
+Segue-se um exemplo de um consentimento de utilização baseado em DataTime numa reclamação:
 
 ```xml
 <ClaimsTransformations>
@@ -137,7 +137,7 @@ Veja a seguir um exemplo de um consentimento de termos de uso com base em DateTi
 </ClaimsTransformations>
 ```
 
-Veja a seguir um exemplo de um consentimento de termos de uso baseado em versão em uma declaração:
+Segue-se um exemplo de um consentimento de utilização baseado em versão numa reclamação:
 
 ```xml
 <ClaimsTransformations>
@@ -173,7 +173,7 @@ Veja a seguir um exemplo de um consentimento de termos de uso baseado em versão
 </ClaimsTransformations>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber como excluir e exportar dados do usuário, consulte [gerenciar dados do usuário](manage-user-data.md).
-- Para obter um exemplo de política personalizada que implementa um prompt de termos de uso, consulte [uma política personalizada do B2C IEF – inscrever-se e entrar com o prompt ' termos de uso '](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).
+- Para aprender a eliminar e exportar dados dos utilizadores, consulte [Gerir os dados dos utilizadores](manage-user-data.md).
+- Para uma política personalizada que implementa um pedido de utilização, consulte [Uma Política Personalizada B2C IEF - Inscreva-se e inscreva-se com aviso de 'Termos de utilização'.](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou)

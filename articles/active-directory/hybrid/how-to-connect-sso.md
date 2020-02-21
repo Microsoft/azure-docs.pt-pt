@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef8f1ef381c86b6eec62c96ff6dcf87522de040
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367959"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483759"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Ative Directory Seamless Single Sign-On
 
@@ -36,7 +36,7 @@ O SSO sem emenda pode ser combinado com a Sincronização de [Hash password](how
 ![Insígnia única sem emenda](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->O SSO sem emenda precisa que o dispositivo do utilizador seja **apenas unido** ao domínio, mas não é utilizado no [Azure AD Joined](../active-directory-azureadjoin-overview.md) ou [Hybrid Azure AD joined] (.. Dispositivos /active-directory-azureadjoin-overview.md). O SSO pn Azure AD juntou-se e a Hybrid Azure AD juntou-se a obras baseadas no [token de atualização primária] (.. /active-directório/dispositivos/concept-primary-refresh-token.md)
+>O SSO sem emenda necessita que o dispositivo do utilizador seja **apenas unido** ao domínio, mas não é utilizado em dispositivos [adessimos](../devices/concept-azure-ad-join-hybrid.md) [azure](../devices/concept-azure-ad-join.md) ad ou hybrid Azure. SSO on Azure AD juntou-se e Hybrid Azure AD juntou-se a obras com base no [token de atualização primária.](../devices/concept-primary-refresh-token.md)
 
 ## <a name="key-benefits"></a>Principais vantagens
 
@@ -63,12 +63,12 @@ O SSO sem emenda pode ser combinado com a Sincronização de [Hash password](how
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim,\*|Sim|Sim|Sim\*\* \*|N/D
-|Windows 8.1|Sim,\*|N/D|Sim|Sim\*\* \*|N/D
-|Windows 8|Sim,\*|N/D|Sim|Sim\*\* \*|N/D
-|Windows 7|Sim,\*|N/D|Sim|Sim\*\* \*|N/D
-|Windows Server 2012 R2 ou superior|Sim\*\*|N/D|Sim|Sim\*\* \*|N/D
-|Mac OS X|N/D|N/D|Sim\*\* \*|Sim\*\* \*|Sim\*\* \*
+|Windows 10|Sim,\*|Sim|Sim|Sim\*\* \*|N/A
+|Windows 8.1|Sim,\*|N/A|Sim|Sim\*\* \*|N/A
+|Windows 8|Sim,\*|N/A|Sim|Sim\*\* \*|N/A
+|Windows 7|Sim,\*|N/A|Sim|Sim\*\* \*|N/A
+|Windows Server 2012 R2 ou superior|Sim\*\*|N/A|Sim|Sim\*\* \*|N/A
+|Mac OS X|N/A|N/A|Sim\*\* \*|Sim\*\* \*|Sim\*\* \*
 
 
 \*requer versões do Internet Explorer 10 ou superior
@@ -78,9 +78,9 @@ O SSO sem emenda pode ser combinado com a Sincronização de [Hash password](how
 \*\*\*requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
->Para o Windows 10, a recomendação é utilizar o [Azure AD Join](../active-directory-azureadjoin-overview.md) para a melhor experiência de inscrição individual com o Azure AD.
+>Para o Windows 10, a recomendação é utilizar o [Azure AD Join](../devices/concept-azure-ad-join.md) para a melhor experiência de inscrição individual com o Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Prepare-se e execute Azure AD Seamless SSO.
 - Plano de [**Implantação**](https://aka.ms/deploymentplans/sso) - Plano de implantação passo a passo.

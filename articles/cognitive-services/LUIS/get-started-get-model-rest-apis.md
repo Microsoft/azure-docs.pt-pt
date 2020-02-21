@@ -12,43 +12,33 @@ ms.topic: quickstart
 ms.date: 02/14/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: a3f8013804a2c3f4864719861eea1510c9d849d3
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 58f164f1522975faa2e7a7e7d7ed08145a6c5889
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368382"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524653"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>Quickstart: Alterar modelo com APIs REST
 
 Neste arranque rápido, adicione declarações de exemplo a uma aplicação do Travel Agent e treine a app. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
 
 ::: zone pivot="programming-language-csharp"
-
 [!INCLUDE [Get intent with C# and REST](./includes/get-started-get-model-rest-csharp.md)]
-
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-
 [!INCLUDE [Get intent with Java and REST](./includes/get-started-get-model-rest-java.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Get intent with Python and REST](./includes/get-started-get-model-rest-python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-
-[!INCLUDE [Get intent with Node.js and REST](./includes/get-started-get-model-rest-nodejs.md)]
-
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-
 [!INCLUDE [Get intent with Go and REST](./includes/get-started-get-model-rest-go.md)]
+::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Get intent with Node.js and REST](./includes/get-started-get-model-rest-nodejs.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Get intent with Python and REST](./includes/get-started-get-model-rest-python.md)]
 ::: zone-end

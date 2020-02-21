@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 310b3778a43c74db30940368d35c39c99f64a28c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: cfe5ea47ad2cbed7bd2779ee535d7bef447475e5
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049995"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500353"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de mídia do Azure
 
 Estas notas de versão dos serviços de mídia do Azure resumem as alterações de versões anteriores e problemas conhecidos.
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão a ser adicionadas novas funcionalidades aos Serviços de Media v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Queremos ouvir nossos clientes para que possamos nos concentrar na correção de problemas que afetam você. Para relatar um problema ou fazer perguntas, submeta um post no [Fórum Azure Media Services MSDN]da Azure Media Services . 
 
@@ -48,7 +48,7 @@ Para obter informações sobre o histórico da versão DaPI do Media Services RE
 
 ## <a name="september-2019"></a>Setembro de 2019
 
-### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
+### <a name="deprecation-of-media-processors"></a>Depreciação de processadores de mídia
 
 Estamos a nunciando a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. [O Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui estes processadores de mídia legados.
 
@@ -58,7 +58,7 @@ Consulte também [a Migrate do Azure Media Indexer e do Azure Media Indexer 2 pa
 
 ## <a name="august-2019"></a>Agosto de 2019
 
-### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
+### <a name="deprecation-of-media-processors"></a>Depreciação de processadores de mídia
 
 Estamos a anunciar a depreciação dos processadores de media *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME). Para as datas de aposentadoria, consulte este tema de [componentes legados.](legacy-components.md)
 
@@ -74,9 +74,9 @@ O recurso de visualização de hiperlapsação de mídia dos serviços de mídia
 
 ## <a name="october-2018"></a>Outubro de 2018
 
-### <a name="cmaf-support"></a>Suporte do CMAF
+### <a name="cmaf-support"></a>Suporte cmaf
 
-Suporte à criptografia CMAF e ' CBCs ' para os players Apple HLS (iOS 11 +) e MPEG-DASH que dão suporte a CMAF.
+CmAF e suporte de encriptação 'cbcs' para os jogadores apple HLS (iOS 11+) e MPEG-DASH que suportam a CMAF.
 
 ### <a name="web-vtt-thumbnail-sprites"></a>Sprites da miniatura do VTT da Web
 
@@ -470,7 +470,7 @@ Os seguintes cmdlets De Media Services PowerShell estão agora incluídos nas [f
 As seguintes alterações mencionadas nesta seção são atualizações incluídas nas versões de junho de 2013 de serviços de mídia:
 
 * Capacidade de vincular várias contas de armazenamento a uma conta de serviço de mídia. 
-    * StorageAccount
+    * Depósito conta
     * Asset. StorageAccountName e Asset. StorageAccount
 * Capacidade de atualizar o trabalho. prioridade. 
 * Entidades e propriedades relacionadas à notificação: 

@@ -1,40 +1,40 @@
 ---
-title: 'Início rápido: criar e usar o loop de aprendizagem com o SDK-personalizador'
-description: Este guia de início rápido mostra como criar e gerenciar sua base de dados de conhecimento usando o SDK do cliente.
+title: 'Quickstart: Criar e utilizar ciclo de aprendizagem com SDK - Personalizer'
+description: Este quickstart mostra-lhe como criar e gerir a sua base de conhecimento usando o SDK do cliente.
 ms.topic: quickstart
 ms.date: 01/15/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: e09476bc084465cf08087a3200d8b7d663b0685e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 7ebe22227b4323b2e6b1c3fc9ca31e171d1d97cd
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122909"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524874"
 ---
-# <a name="quickstart-personalizer-client-library"></a>Início rápido: biblioteca de cliente do personalizador
+# <a name="quickstart-personalizer-client-library"></a>Quickstart: Personalizer client library
 
-Exiba o conteúdo personalizado neste guia de início rápido do Python com o serviço personalizado.
+Exiba conteúdo personalizado neste quickstart com o serviço Personalizer.
 
-Introdução à biblioteca de cliente do personalizador. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
+Começar com a biblioteca de clientes Personalizer. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
- * API de classificação – seleciona o melhor item, de itens de conteúdo, com base em informações em tempo real que você fornece sobre conteúdo e contexto.
- * Premiar a API-você determina a pontuação de recompensa com base nas suas necessidades de negócios e, em seguida, envia-a para o personalizador com essa API. Essa Pontuação pode ser um valor único, como 1 para bom, e 0 para ruim ou um algoritmo criado com base nas suas necessidades de negócios.
+ * Rank API - Seleciona o melhor item, a partir de itens de conteúdo, com base em informações em tempo real que fornece sobre conteúdo e contexto.
+ * Reward API - Determina a pontuação de recompensa com base nas necessidades do seu negócio e, em seguida, envie-a para personalizer com esta API. Essa pontuação pode ser um único valor, como 1 para o bem, e 0 para o mal, ou um algoritmo que crias com base nas necessidades do teu negócio.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Get intent with Node.js SDK](./includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
-[!INCLUDE [Get intent with Node.js SDK](./includes/quickstart-sdk-nodejs.md)]
-::: zone-end
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os outros recursos associados a ele.
+Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -42,9 +42,9 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
->[Como o personalizador funciona](how-personalizer-works.md)
+>[Como funciona o Personalizer](how-personalizer-works.md)
 
-* [O que é personalizador?](what-is-personalizer.md)
-* [Onde você pode usar o personalizador?](where-can-you-use-personalizer.md)
-* [Resolução de Problemas](troubleshooting.md)
-* O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).
+* [O que é Personalizer?](what-is-personalizer.md)
+* [Onde pode usar o Personalizer?](where-can-you-use-personalizer.md)
+* [Resolução de problemas](troubleshooting.md)
+* O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).

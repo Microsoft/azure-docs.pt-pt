@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 9bb228725d5ad8e3583c73be09c582478f74a1e8
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471895"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484405"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Falhas de atribuição de problemas quando cria, reinicia ou redimensiona VMs em Azure
 
@@ -87,9 +87,9 @@ Tente [reimplantar o VM](https://docs.microsoft.com/azure/virtual-machines/troub
 
 |Série/tamanho VM legado|VM/tamanho recomendado|Mais informações|
 |----------------------|----------------------------|--------------------|
-|Série Av1|[Série Av2](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Série Dv1 ou DSv1 (D1 a D5)|[Série Dv3 ou DSv3](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Série Dv1 ou DSv1 (D11 a D14)|[Série Ev3 ou ESv3](../windows/sizes-memory.md#ev3-series)|
+|Série Av1|[Série Av2](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Série Dv1 ou DSv1 (D1 a D5)|[Série Dv3 ou DSv3](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Série Dv1 ou DSv1 (D11 a D14)|[Série Ev3 ou ESv3](../ev3-esv3-series.md)|
 |D15v2 ou DS15v2|Se estiver a utilizar o modelo de implementação do Gestor de Recursos para tirar partido dos tamanhos de VM maiores, considere mudar-se para D16v3/DS16v3 ou D32v3/DS32v3. Estes são projetados para funcionar no hardware de última geração. Se estiver a utilizar o modelo de implementação do Gestor de Recursos para se certificar de que a sua instância VM está isolada em hardware dedicado a um único cliente, considere mudar-se para os novos tamanhos de VM isolados, E64i_v3 ou E64is_v3, que são projetados para funcionar no hardware de última geração. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Falhas de atribuição de grandes implantações (mais de 500 núcleos)

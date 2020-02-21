@@ -4,15 +4,15 @@ description: Aprenda a instalar e utilizar a Istio para criar uma malha de servi
 author: paulbouwer
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: d886205e88db780a7a09554391bd975f57eebfe7
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 15b73380269c568977b524a63ca709e352485433
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251741"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485221"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e utilizar o Istio no Serviço Azure Kubernetes (AKS)
 
@@ -98,10 +98,7 @@ A abordagem de instalação [helm][helm] para Istio será depreciada no futuro. 
 > Istio deve estar programado para correr em nódeos Linux. Se tiver nós do Windows Server no seu cluster, tem de garantir que as cápsulas Istio só estão programadas para serem executadas nos nós linux. Usaremos [selecionadores][kubernetes-node-selectors] de nós para garantir que as cápsulas estão programadas para os nós corretos.
 
 > [!CAUTION]
-> As [funcionalidades SDS (serviço][istio-feature-sds] de descoberta secreta) e [Istio CNI][istio-feature-cni] Istio estão atualmente em [Alpha,][istio-feature-stages]pelo que o pensamento deve ser dado antes de permitir estes. 
->
-> Note que a funcionalidade De Projeção de Volume de [Token da Conta de Serviço][kubernetes-feature-sa-projected-volume] (um requisito para SDS) está agora **ativada** para todas as versões Kubernetes 1.13 e mais altas no AKS.
-
+> As [funcionalidades SDS (serviço][istio-feature-sds] de descoberta secreta) e [Istio CNI][istio-feature-cni] Istio estão atualmente em [Alpha,][istio-feature-stages]pelo que o pensamento deve ser dado antes de permitir estes. Além disso, a funcionalidade De Projeção de Volume de [Token da Conta de Serviço][kubernetes-feature-sa-projected-volume] (um requisito para SDS) não está ativada nas versões AKS atuais.
 Crie um ficheiro chamado `istio.aks.yaml` com o seguinte conteúdo. Este ficheiro irá conter os detalhes de especificações do plano de [controlo istio][istio-control-plane] para configurar istio.
 
 ```yaml
@@ -390,7 +387,7 @@ Os comandos acima eliminam todos os componentes istio e espaço de nome, mas ain
 
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 A seguinte documentação descreve como pode usar istio para fornecer encaminhamento inteligente para lançar uma libertação canária:
 

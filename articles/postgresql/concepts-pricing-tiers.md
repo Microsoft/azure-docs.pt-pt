@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 2b5d5bfff3ff97efb351497c48a404beada2036a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b5a2d8a812c5b3b0021ad4f74fc705049807cb1b
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209346"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485068"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Níveis de preços na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -21,9 +21,8 @@ Pode criar uma Base de Dados Azure para servidor PostgreSQL num dos três difere
 |:---|:----------|:--------------------|:---------------------|
 | Geração computacional | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Memória por vCore | 2GB | 5 GB | 10 GB |
+| Memória por vCore | 2 GB | 5 GB | 10 GB |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
-| Tipo de armazenamento | Armazenamento Padrão Azure | Armazenamento Azure Premium | Armazenamento Azure Premium |
 | Período de retenção de backup de base de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
 Para escolher um nível de preços, utilize a tabela seguinte como ponto de partida.
@@ -46,7 +45,7 @@ O armazenamento que você disponibiliza é a quantidade de capacidade de armazen
 
 |    | **Básica** | **Propósito Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
-| Tipo de armazenamento | Armazenamento Padrão Azure | Armazenamento Azure Premium | Armazenamento Azure Premium |
+| Tipo de armazenamento | Armazenamento Básico | Armazenamento de propósito geral | Armazenamento de propósito geral |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
 | Tamanho do incremento de armazenamento | 1 GB | 1 GB | 1 GB |
 | IOPS | Variável |3 IOPS/GB<br/>Min 100 IOPS<br/>Máximo 20.000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Máximo 20.000 IOPS |
@@ -105,7 +104,7 @@ O armazenamento de escala e a alteração do período de retenção de cópias d
 
 Para obter as informações mais atualizadas sobre preços, consulte a página de [preços](https://azure.microsoft.com/pricing/details/PostgreSQL/)do serviço . Para ver o custo da configuração que deseja, o [portal Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal no separador **de nível** de preços com base nas opções que selecionar. Se não tiver uma subscrição Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da calculadora de [preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens,** expandir a categoria Bases de **Dados** e escolher a Base de **Dados Azure para postgreSQL** para personalizar as opções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Aprenda a [criar um servidor PostgreSQL no portal](tutorial-design-database-using-azure-portal.md).
 - Conheça [os limites](concepts-limits.md)de serviço. 

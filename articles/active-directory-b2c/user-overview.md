@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f9573f4d226df4eb6068af679f2eb45dc87c7e40
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f34fe324f22be41d8cdff0df67777bc254bbc290
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840065"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484269"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Diretório Ativo Azure B2C
 
@@ -27,7 +27,7 @@ Estão disponíveis os seguintes tipos de contas:
 - Conta de **hóspedes** - Uma conta de hóspedes só pode ser uma conta Microsoft ou um utilizador do Azure Ative Directory que pode ser usado para aceder a aplicações ou gerir inquilinos.
 - **Conta** de consumo - Uma conta de consumo é utilizada por um utilizador das aplicações que registou no Azure AD B2C. As contas dos consumidores podem ser criadas por:
   - O utilizador que passa por um fluxo de utilizador de inscrição numa aplicação Azure AD B2C
-  - Utilização da APi do gráfico azure AD
+  - Usando a API do Microsoft Graph
   - Utilizar o portal do Azure
 
 ## <a name="work-account"></a>Conta de trabalho
@@ -76,12 +76,12 @@ Também pode utilizar a [API](https://docs.microsoft.com/graph/api/invitation-po
 
 ## <a name="consumer-user"></a>Utilizador de consumo
 
-O utilizador pode iniciar sessão em aplicações garantidas pelo Azure AD B2C, mas não pode aceder a recursos Azure, como o portal Azure. O utilizador pode utilizar uma conta local ou contas federadas, como facebook ou Twitter. Uma conta de consumo é criada utilizando um fluxo de utilizador de [inscrição ou de inscrição,](user-flow-overview.md)utilizando a API do Gráfico AD Azure, ou utilizando o portal Azure.
+O utilizador pode iniciar sessão em aplicações garantidas pelo Azure AD B2C, mas não pode aceder a recursos Azure, como o portal Azure. O utilizador pode utilizar uma conta local ou contas federadas, como facebook ou Twitter. Uma conta de consumo é criada utilizando um fluxo de utilizador de [inscrição ou de entrada,](user-flow-overview.md)utilizando a API do Microsoft Graph, ou utilizando o portal Azure.
 
 Pode especificar os dados recolhidos quando uma conta de utilizador é criada utilizando atributos de utilizador personalizados. Para mais informações, consulte [Definir atributos personalizados no Diretório Ativo Azure B2C](user-flow-custom-attributes.md).
 
-Pode utilizar a informação na secção de contas de utilizador do **consumidor Create** da Utilização da API do Gráfico [Azure AD](manage-user-accounts-graph-api.md) para criar uma conta de consumo Azure AD AD B2C. Também pode utilizar a informação na secção de contas de utilizador do **consumidor atualizar** no mesmo artigo para gerir as propriedades da conta.
+Para obter mais informações sobre a gestão das contas de consumo, consulte gerir as contas de [utilizador do AD B2C do Manage Azure com](manage-user-accounts-graph-api.md)o Microsoft Graph .
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrar contas de utilizadores de consumo
 
-Poderá ter a necessidade de migrar as contas de utilizador de consumo existentes de qualquer fornecedor de identidade para o Azure AD B2C. Para mais informações, consulte a [Migração](user-migration.md) do Utilizador ou [os utilizadores migrados com identidades sociais](migrate-social-identities.md).
+Poderá ter a necessidade de migrar as contas de utilizador de consumo existentes de qualquer fornecedor de identidade para o Azure AD B2C. Para mais informações, consulte [os utilizadores migrate para O AD B2C](user-migration.md).

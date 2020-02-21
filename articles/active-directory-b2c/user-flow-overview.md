@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 846819c3a05baf4ef1174d4e086f09893e834b2a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdc7d9fce3ebce4603369262f164ba72b1e39499
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847800"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484320"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos de utilizadores em Diretório Ativo Azure B2C
 
@@ -31,7 +31,7 @@ Um fluxo de utilizador permite controlar comportamentos nas suas aplicações co
 - Personalização da interface do utilizador
 - Informação que o pedido recebe como reclamações num símbolo
 
-Pode criar muitos fluxos de utilizadores de diferentes tipos no seu inquilino e usá-los nas suas aplicações conforme necessário. Os fluxos de usuário podem ser reutilizados em todos os aplicativos. Esta flexibilidade permite-lhe definir e modificar experiências de identidade com alterações mínimas ou sem alterações ao seu código. A sua aplicação aciona um fluxo de utilizador utilizando um pedido de autenticação HTTP padrão que inclui um parâmetro de fluxo do utilizador. Um [token](tokens-overview.md) personalizado é recebido como resposta.
+Pode criar muitos fluxos de utilizadores de diferentes tipos no seu inquilino e usá-los nas suas aplicações conforme necessário. Os fluxos de utilizadores podem ser reutilizados através de aplicações. Esta flexibilidade permite-lhe definir e modificar experiências de identidade com alterações mínimas ou sem alterações ao seu código. A sua aplicação aciona um fluxo de utilizador utilizando um pedido de autenticação HTTP padrão que inclui um parâmetro de fluxo do utilizador. Um [token](tokens-overview.md) personalizado é recebido como resposta.
 
 Os seguintes exemplos mostram o parâmetro de corda de consulta "p" que especifica o fluxo do utilizador a utilizar:
 
@@ -81,10 +81,8 @@ Um endereço de e-mail pode ser exigido como parte de um fluxo de utilizador. Se
 
 O endereço de e-mail não é garantido para ser verificado em nenhum destes casos. Um administrador de inquilino pode desativar a verificação de e-mail nas políticas básicas para contas locais. Mesmo que a verificação do endereço de e-mail esteja ativada, os endereços não são verificados se provêm de um fornecedor de identidade social e não foram alterados.
 
-Apenas as **outras propriedades DeMensagens** e **SignNames** são expostas através da API do Gráfico de Diretório Ativo. O endereço de e-mail na propriedade de detalhes de autenticação forte não está disponível.
+Apenas os **outros Mails** e **propriedades signInNames** são expostos através da API do Microsoft Graph. O endereço de e-mail na propriedade de detalhes de autenticação forte não está disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para criar os fluxos recomendados do utilizador, siga as instruções no [Tutorial: Criar um fluxo de utilizador](tutorial-create-user-flows.md).
-
-

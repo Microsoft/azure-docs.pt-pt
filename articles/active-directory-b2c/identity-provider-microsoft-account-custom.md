@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 02/19/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1489ce6bee2ce25ffb268ef20cc8fa587664619
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848931"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483283"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Microsoft utilizando políticas personalizadas no Diretório Ativo Do Azure B2C
 
@@ -29,15 +29,15 @@ Este artigo mostra-lhe como ativar o início de sessão para utilizadores a part
 - Complete os passos em [Get started com políticas personalizadas no Azure Ative Directory B2C](custom-policy-get-started.md).
 - Se ainda não tem uma conta Microsoft, crie uma em [https://www.live.com/](https://www.live.com/).
 
-## <a name="add-an-application"></a>Adicionar uma aplicação
+## <a name="register-an-application"></a>Registar uma aplicação
 
 Para ativar o início de sessão para utilizadores com uma conta Microsoft, é necessário registar uma aplicação dentro do inquilino Da Azure. O inquilino da Azure AD não é o mesmo que o seu inquilino Azure AD B2C.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
-1. Selecione **novo registro**.
-1. Insira um **nome** para seu aplicativo. Por exemplo, *MSAapp1*.
+1. Selecione **Novo registo**.
+1. Insira um **Nome** para a sua candidatura. Por exemplo, *MSAapp1*.
 1. No âmbito dos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
 1. Em **Redirecione o URI (opcional)** , selecione **Web** e introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` na caixa de texto. Substitua `your-tenant-name` pelo nome de inquilino Azure AD B2C.
 1. Selecione **Registar**
@@ -47,16 +47,29 @@ Para ativar o início de sessão para utilizadores com uma conta Microsoft, é n
 1. Introduza uma **Descrição** para o segredo, por exemplo, *MSA Application Client Secret,* e, em seguida, clique em **Adicionar**.
 1. Grave a palavra-passe da aplicação mostrada na coluna **Valor.** Usa este valor na secção seguinte.
 
+## <a name="configuring-optional-claims"></a>Configurar reclamações opcionais
+
+Se pretender obter as `family_name` e `given_name` reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Ative Directory**.
+1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
+1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
+1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)** .
+1. **Selecione Adicionar reclamação opcional**.
+1. Selecione o tipo de ficha que pretende configurar.
+1. Selecione as reclamações opcionais a adicionar.
+1. Clique em **Adicionar**.
+
 ## <a name="create-a-policy-key"></a>Criar uma chave política
 
 Agora que criou a aplicação no seu inquilino DaD Azure, precisa de guardar o segredo do cliente dessa aplicação no seu inquilino Azure AD B2C.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino.
-1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
-1. Selecione **chaves de política** e, em seguida, selecione **Adicionar**.
-1. Para **Opções**, escolha `Manual`.
+1. Selecione **Teclas de política** e, em seguida, selecione **Adicionar**.
+1. Para **opções,** escolha `Manual`.
 1. Introduza um **nome** para a chave política. Por exemplo, `MSASecret`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 1. Em **Segredo,** insira o segredo do cliente que gravou na secção anterior.
 1. Para **a utilização da chave,** selecione `Signature`.
@@ -94,10 +107,12 @@ Pode definir a AD Azure como um fornecedor de sinistros adicionando o elemento *
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>

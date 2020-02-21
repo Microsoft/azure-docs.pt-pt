@@ -1,29 +1,29 @@
 ---
-title: Analisando JSON e AVRO no Azure Stream Analytics
-description: Este artigo descreve como operar em tipos de dados complexos, como matrizes, JSON, dados formatados em CSV.
+title: Parsing JSON e AVRO em Azure Stream Analytics
+description: Este artigo descreve como operar em tipos de dados complexos como matrizes, Dados formados JSON, CSV.
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: ac06521df38bdc91ca717d888c73cd541576014d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905445"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484592"
 ---
-# <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analisar dados JSON e Avro no Azure Stream Analytics
+# <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Dados da Parse JSON e da Avro no Azure Stream Analytics
 
-Azure Stream Analytics dá suporte ao processamento de eventos em formatos de dados CSV, JSON e Avro. Os dados JSON e Avro podem ser estruturados e conter alguns tipos complexos, como objetos aninhados (registros) e matrizes. 
+O Azure Stream Analytics suporta eventos de processamento em formatos de dados CSV, JSON e Avro. Tanto os dados jSON como a Avro podem ser estruturados e contêm alguns tipos complexos, tais como objetos aninhados (registos) e matrizes. 
 
 >[!NOTE]
 >Os ficheiros AVRO criados pela Event Hub Capture utilizam um formato específico que requer que utilize a função de *desserializer personalizada.* Para mais informações, consulte [A entrada de ler em qualquer formato utilizando desserializers personalizados .NET](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
 
 
 
-## <a name="record-data-types"></a>Tipos de dados de registro
-Os tipos de dados de registro são usados para representar matrizes JSON e Avro quando os formatos correspondentes são usados nos fluxos de dados de entrada. Esses exemplos demonstram um sensor de exemplo, que está lendo eventos de entrada no formato JSON. Aqui está um exemplo de um único evento:
+## <a name="record-data-types"></a>Tipos de dados de gravação
+Os tipos de dados de registo são utilizados para representar as matrizes JSON e Avro quando os formatos correspondentes são utilizados nos fluxos de dados de entrada. Estes exemplos demonstram um sensor de amostra, que está a ler eventos de entrada no formato JSON. Aqui está o exemplo de um único evento:
 
 ```json
 {
@@ -48,8 +48,8 @@ Os tipos de dados de registro são usados para representar matrizes JSON e Avro 
 }
 ```
 
-### <a name="access-nested-fields-in-known-schema"></a>Acessar campos aninhados no esquema conhecido
-Use a notação de ponto (.) para acessar facilmente campos aninhados diretamente da sua consulta. Por exemplo, essa consulta seleciona as coordenadas de latitude e longitude sob a propriedade Location nos dados JSON anteriores. A notação de ponto pode ser usada para navegar por vários níveis, conforme mostrado abaixo.
+### <a name="access-nested-fields-in-known-schema"></a>Campos aninhados de acesso em esquemas conhecidos
+Utilize notação do ponto (.) para aceder facilmente aos campos aninhados diretamente a partir da sua consulta. Por exemplo, esta consulta seleciona as coordenadas Latitude e Longitude sob a propriedade Localização nos dados JSON anteriores. A notação do ponto pode ser usada para navegar em vários níveis, como mostrado abaixo.
 
 ```SQL
 SELECT
@@ -63,13 +63,13 @@ FROM input
 
 O resultado é:
 
-|DispositivoID|Lat|Longo|Temperatura|Versão|
+|DispositivoID|lat|Longo|Temperatura|Versão|
 |-|-|-|-|-|
 |12345|47|122|80|1.2.45|
 
 
-### <a name="select-all-properties"></a>Selecionar todas as propriedades
-Você pode selecionar todas as propriedades de um registro aninhado usando o curinga ' * '. Considere o seguinte exemplo:
+### <a name="select-all-properties"></a>Selecione todas as propriedades
+Pode selecionar todas as propriedades de um registo aninhado usando wildcard '*'. Considere o seguinte exemplo:
 
 ```SQL
 SELECT
@@ -80,16 +80,16 @@ FROM input
 
 O resultado é:
 
-|DispositivoID|Lat|Longo|
+|DispositivoID|lat|Longo|
 |-|-|-|
 |12345|47|122|
 
 
-### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Acessar campos aninhados quando o nome da propriedade for uma variável
+### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Aceder a campos aninhados quando o nome da propriedade é uma variável
 
-Use a função [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) se o nome da propriedade for uma variável. Isto permite construir consultas dinâmicas sem nomes de propriedade de codificação de dureza.
+Utilize a função [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) se o nome da propriedade for uma variável. Isto permite construir consultas dinâmicas sem nomes de propriedade de codificação de dureza.
 
-Por exemplo, imagine que o fluxo de dados da amostra precisa **de ser associado a dados** de referência que contenham limiares para cada sensor do dispositivo. Um trecho desses dados de referência é mostrado abaixo.
+Por exemplo, imagine que o fluxo de dados da amostra precisa **de ser associado a dados** de referência que contenham limiares para cada sensor do dispositivo. Um excerto desses dados de referência é mostrado abaixo.
 
 ```json
 {
@@ -127,9 +127,9 @@ O resultado é:
 |-|-|-|
 |12345|Humidade|Alerta : Sensor acima do limiar|
 
-### <a name="convert-record-fields-into-separate-events"></a>Converter campos de registro em eventos separados
+### <a name="convert-record-fields-into-separate-events"></a>Converter campos de gravação em eventos separados
 
-Para converter campos de registro em eventos separados, use o operador [Apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) junto com a função [getrecordproperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) .
+Para converter campos de gravação em eventos separados, utilize o operador [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) juntamente com a função [GetRecordProperties.](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics)
 
 Com os dados originais da amostra, a seguinte consulta poderia ser usada para extrair propriedades em diferentes eventos.
 
@@ -169,9 +169,41 @@ SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0
 SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
 ```
 
+### <a name="parse-json-record-in-sql-reference-data"></a>Registo parse JSON em dados de referência SQL
+Ao utilizar a Base de Dados Azure SQL como dados de referência no seu trabalho, é possível ter uma coluna que tenha dados no formato JSON. Um exemplo é mostrado abaixo.
+
+|DispositivoID|Dados|
+|-|-|
+|12345|{"key" : "value1"}|
+|54321|{"key" : "value2"}|
+
+Pode analisar o registo JSON na coluna *Data* escrevendo uma função simples definida pelo utilizador JavaScript.
+
+```javascript
+function parseJson(string) {
+return JSON.parse(string);
+}
+```
+
+Em seguida, pode criar um passo na sua consulta stream analytics, como mostrado abaixo para aceder aos campos dos seus registos JSON.
+
+ ```SQL
+ WITH parseJson as
+ (
+ SELECT DeviceID, udf.parseJson(sqlRefInput.Data) as metadata,
+ FROM sqlRefInput
+ )
+ 
+ SELECT metadata.key
+ INTO output
+ FROM streamInput
+ JOIN parseJson 
+ ON streamInput.DeviceID = parseJson.DeviceID
+```
+
 ## <a name="array-data-types"></a>Tipos de dados de matriz
 
-Tipos de dados de matriz são uma coleção ordenada de valores. Algumas operações típicas em valores de matriz são detalhadas abaixo. Esses exemplos usam as funções [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)e [Apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) Operator.
+Os tipos de dados matrizes são uma recolha ordenada de valores. Algumas operações típicas sobre valores de matriz são detalhadas abaixo. Estes exemplos utilizam as funções [GetArrayElement,](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics) [GetArrayElements,](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)e o operador [APPLY.](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics)
 
 Aqui está um exemplo de um único evento. Tanto `CustomSensor03` como `SensorMetadata` são de **tipo matriz:**
 
@@ -199,9 +231,9 @@ Aqui está um exemplo de um único evento. Tanto `CustomSensor03` como `SensorMe
 }
 ```
 
-### <a name="working-with-a-specific-array-element"></a>Trabalhando com um elemento de matriz específico
+### <a name="working-with-a-specific-array-element"></a>Trabalhar com um elemento de matriz específico
 
-Selecione o elemento de matriz em um índice especificado (selecionando o primeiro elemento de matriz):
+Selecione o elemento matriz num índice especificado (selecionando o primeiro elemento matriz):
 
 ```SQL
 SELECT
@@ -215,7 +247,7 @@ O resultado é:
 |-|
 |12|
 
-### <a name="select-array-length"></a>Selecionar comprimento da matriz
+### <a name="select-array-length"></a>Selecione o comprimento da matriz
 
 ```SQL
 SELECT
@@ -231,7 +263,7 @@ O resultado é:
 
 ### <a name="convert-array-elements-into-separate-events"></a>Converter elementos de matriz em eventos separados
 
-Selecione todos os elementos de matriz como eventos individuais. O operador [Apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) junto com a função interna [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) extrai todos os elementos da matriz como eventos individuais:
+Selecione todo o elemento matriz como eventos individuais. O operador [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) juntamente com a função [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) embutida extrai todos os elementos da matriz como eventos individuais:
 
 ```SQL
 SELECT
@@ -291,9 +323,9 @@ LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId A
 
 O resultado é:
 
-|DeviceId|Lat|Longo|smVersion|smManufacturer|
+|DeviceId|lat|Longo|smVersion|smManufacturer|
 |-|-|-|-|-|
 |12345|47|122|1.2.45|ABC|
 
-## <a name="see-also"></a>Veja também
-[Tipos de dados no Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)
+## <a name="see-also"></a>Consulte Também
+[Tipos de dados em Análise de Fluxo de Azure](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)

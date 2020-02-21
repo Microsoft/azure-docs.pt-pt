@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 4dea0feb5d5a1cb42640b1fc05bb185e970ae8af
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c9eb8b3d909313470ee9febdc5b1c37eea834b08
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084492"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484048"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início rápido: conectar usuários e chamar a API de Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -31,7 +31,7 @@ Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são ne
 > **Pré-requisitos**
 > * XCode 10 +
 > * iOS 10+ 
-> * macOS 10.12 +
+> * macOS 10.12+
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
@@ -91,6 +91,14 @@ Numa janela terminal, navegue para a pasta com a amostra de código descarregada
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. Editar **ViewController.swift** e substituir a linha a partir de 'let kAuthority' com o seguinte código snippet:
+>    ```swift
+>    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
+>    ```
+> 1. Editar **ViewController.swift** e substituir a linha a partir de 'let kGraphEndpoint' com o seguinte código snippet:
+>    ```swift
+>    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
+>    ```
 > 1. Abra as configurações do projeto. Na secção **Identidade,** introduza o **Identificador de Pacote** que introduziu no portal.
 > 1. Apenas para iOS, clique à direita **Info.plist** e **selecione Open As** > Código **Fonte**.
 > 1. Apenas para iOS, sob o nó raiz dita, substitua `CFBundleURLSchemes` com o ***Id bundle*** que inseriu no portal.
@@ -117,6 +125,16 @@ Numa janela terminal, navegue para a pasta com a amostra de código descarregada
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. Se estiver a construir uma aplicação para [nuvens nacionais Azure AD,](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints)substitua a linha começando por "let kGraphEndpoint" e 'let kAuthority' por pontos finais corretos. Para acesso global, utilize valores predefinidos:
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.com/"
+>     let kAuthority = "https://login.microsoftonline.com/common"
+>     ```
+> 1. Outros pontos finais estão documentados [aqui.](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints) Por exemplo, para executar o quickstart com a Azure AD Germany, use a seguinte:
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.de/"
+>     let kAuthority = "https://login.microsoftonline.de/common"
+>     ```
 > 1. Abra as configurações do projeto. Na secção **Identidade,** introduza o **Identificador de Pacote** que introduziu no portal.
 > 1. Apenas para iOS, clique à direita **Info.plist** e **selecione Open As** > Código **Fonte**.
 > 1. Apenas para iOS, sob o nó raiz dita, substitua `Enter_the_bundle_Id_Here` pelo ***Id bundle*** que utilizou no portal.

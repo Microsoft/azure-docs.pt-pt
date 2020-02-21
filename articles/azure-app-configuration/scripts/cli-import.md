@@ -1,26 +1,20 @@
 ---
 title: Amostra de script Azure CLI - Importar para uma loja de configuração de aplicações
 titleSuffix: Azure App Configuration
-description: Fornece informações e scripts de amostra para importação para uma loja de configuração de aplicações Azure
+description: Use script Azure CLI - Configuração de importação para configuração de aplicações azure
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: balans
-editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 02/24/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: b0704c6262451cef615355e871ce7f26005b3132
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 71d6aafa82f647b9c6164ee9a06b43ed7e9a66af
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467679"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523628"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Importar para uma loja de configuração de aplicações Azure
 

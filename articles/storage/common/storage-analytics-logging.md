@@ -1,6 +1,6 @@
 ---
-title: Log de Análise de Armazenamento do Azure
-description: Saiba como registrar em log detalhes sobre solicitações feitas no armazenamento do Azure.
+title: Exploração madeireira Azure Storage Analytics
+description: Saiba como registar detalhes sobre pedidos feitos contra o Armazenamento Azure.
 author: normesta
 ms.service: storage
 ms.subservice: common
@@ -8,61 +8,61 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 3b61e8680ef2484b1ad42837711adef171fdde25
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 25c047dc9b2ce08ca39e69c6f106e41c5d9bd0dc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882645"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484898"
 ---
-# <a name="azure-storage-analytics-logging"></a>Registro em log da análise de armazenamento do Azure
+# <a name="azure-storage-analytics-logging"></a>Exploração analítica de armazenamento azure
 
-Análise de Armazenamento registra informações detalhadas sobre solicitações bem-sucedidas e com falha em um serviço de armazenamento. Essas informações podem ser usadas para monitorar solicitações individuais e diagnosticar problemas com um serviço de armazenamento. As solicitações são registradas em uma base de melhor esforço.
+A Análise de Armazenamento regista informações detalhadas sobre os pedidos com êxito e com falha feitos a um serviço de armazenamento. Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. Os pedidos são registados com o melhor esforço.
 
- O log de Análise de Armazenamento não é habilitado por padrão para sua conta de armazenamento. Você pode habilitá-lo no [portal do Azure](https://portal.azure.com/); para obter detalhes, consulte [monitorar uma conta de armazenamento no portal do Azure](/azure/storage/storage-monitor-storage-account). Você também pode habilitar Análise de Armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações obter propriedades do [serviço blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), propriedades do [serviço de fila](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)e [obter propriedades](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) do serviço tabela para habilitar o análise de armazenamento para cada serviço.
+ O registo da Análise de Armazenamento não está ativado, por predefinição, na conta de armazenamento. Pode permitir no [portal Azure;](https://portal.azure.com/) para mais detalhes, consulte Monitor uma conta de [armazenamento no portal Azure](/azure/storage/storage-monitor-storage-account). Também pode ativar o Storage Analytics programaticamente através da API REST ou da biblioteca do cliente. Utilize as propriedades do [serviço Get Blob,](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API) [Obtenha propriedades](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)de serviço de fila e obtenha as operações do Serviço de [Mesa Properties](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) para ativar o Storage Analytics para cada serviço.
 
- As entradas de log serão criadas somente se houver solicitações feitas no ponto de extremidade de serviço. Por exemplo, se uma conta de armazenamento tiver atividade em seu ponto de extremidade de BLOB, mas não em seus pontos de extremidades de tabela ou de fila, somente os logs pertencentes ao serviço blob serão criados.
+ As entradas de registo só são criadas se houver pedidos contra o ponto final do serviço. Por exemplo, se uma conta de armazenamento tiver atividade no seu ponto final blob, mas não nos seus pontos finais de Tabela ou Fila, apenas serão criados registos relativos ao serviço Blob.
 
 > [!NOTE]
->  No momento, o log de Análise de Armazenamento está disponível apenas para os serviços BLOB, fila e tabela. No entanto, não há suporte para a conta de armazenamento Premium.
+>  Atualmente, o registo da Análise de Armazenamento está disponível apenas para os serviços Blobs, Fila e Tabela. No entanto, a conta de armazenamento premium não é suportada.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="requests-logged-in-logging"></a>Solicitações registradas em log
-### <a name="logging-authenticated-requests"></a>Registrando solicitações autenticadas
+## <a name="requests-logged-in-logging"></a>Pedidos registados em exploração madeireira
+### <a name="logging-authenticated-requests"></a>Pedidos autenticados
 
- Os seguintes tipos de solicitações autenticadas são registrados em log:
+ Registam-se os seguintes tipos de pedidos autenticados:
 
-- Solicitações bem-sucedidas
-- Solicitações com falha, incluindo tempo limite, limitação, rede, autorização e outros erros
-- Solicitações que usam uma SAS (assinatura de acesso compartilhado) ou OAuth, incluindo solicitações com falha e bem-sucedidas
-- Solicitações para dados de análise
+- Pedidos bem-sucedidos
+- Pedidos falhados, incluindo timeout, estrangulamento, rede, autorização e outros erros
+- Pedidos que utilizem uma Assinatura de Acesso Partilhado (SAS) ou OAuth, incluindo pedidos falhados e bem sucedidos
+- Pedidos de dados de análise
 
-  As solicitações feitas por Análise de Armazenamento em si, como criação ou exclusão de log, não são registradas. Uma lista completa dos dados registrados em log está documentada na [análise de armazenamento operações registradas e mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e tópicos de [análise de armazenamento formato de log](/rest/api/storageservices/storage-analytics-log-format) .
+  Os pedidos feitos pela própria Storage Analytics, tais como criação de registo ou eliminação, não são registados. Uma lista completa dos dados registados está documentada nos tópicos de [Operações e Mensagens](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) de Estado de Armazenamento Analytics e de Formato de [Registo de Armazenamento.](/rest/api/storageservices/storage-analytics-log-format)
 
-### <a name="logging-anonymous-requests"></a>Registrando solicitações anônimas
+### <a name="logging-anonymous-requests"></a>Registando pedidos anónimos
 
- Os seguintes tipos de solicitações anônimas são registrados:
+ Registam-se os seguintes tipos de pedidos anónimos:
 
-- Solicitações bem-sucedidas
+- Pedidos bem-sucedidos
 - Erros do servidor
-- Erros de tempo limite para o cliente e o servidor
-- Solicitações GET com falha com o código de erro 304 (não modificado)
+- Erros de timeout tanto para clientes como para servidor
+- Pedidos de GET falhados com código de erro 304 (não modificado)
 
-  Todas as outras solicitações anônimas com falha não são registradas. Uma lista completa dos dados registrados em log está documentada na [análise de armazenamento operações registradas e mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e tópicos de [análise de armazenamento formato de log](/rest/api/storageservices/storage-analytics-log-format) .
+  Todos os outros pedidos anónimos falhados não estão registados. Uma lista completa dos dados registados está documentada nos tópicos de [Operações e Mensagens](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) de Estado de Armazenamento Analytics e de Formato de [Registo de Armazenamento.](/rest/api/storageservices/storage-analytics-log-format)
 
-## <a name="how-logs-are-stored"></a>Como os logs são armazenados
+## <a name="how-logs-are-stored"></a>Como os registos são armazenados
 
-Todos os logs são armazenados em blobs de blocos em um contêiner chamado `$logs`, que é criado automaticamente quando Análise de Armazenamento está habilitado para uma conta de armazenamento. O contêiner de `$logs` está localizado no namespace de BLOB da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Esse contêiner não pode ser excluído quando Análise de Armazenamento tiver sido habilitado, embora seu conteúdo possa ser excluído. Se você usar sua ferramenta de navegação de armazenamento para navegar diretamente até o contêiner, verá todos os blobs que contêm os dados de log.
+Todos os registos são armazenados em blocos num recipiente chamado `$logs`, que é automaticamente criado quando o Storage Analytics está ativado para uma conta de armazenamento. O recipiente `$logs` está localizado no espaço de nome blob da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Este recipiente não pode ser eliminado uma vez que o Storage Analytics tenha sido ativado, embora o seu conteúdo possa ser eliminado. Se utilizar a sua ferramenta de navegação de armazenamento para navegar diretamente para o contentor, verá todas as bolhas que contêm os seus dados de registo.
 
 > [!NOTE]
->  O contêiner `$logs` não é exibido quando uma operação de listagem de contêiner é executada, como a operação listar contêineres. Ele deve ser acessado diretamente. Por exemplo, você pode usar a operação listar BLOBs para acessar os BLOBs no contêiner `$logs`.
+>  O recipiente `$logs` não é apresentado quando é executada uma operação de listagem de contentores, como a operação 'List Containers'. Deve ser acedido diretamente. Por exemplo, pode utilizar a operação List Blobs para aceder às bolhas no recipiente `$logs`.
 
-À medida que as solicitações são registradas, Análise de Armazenamento carregar resultados intermediários como blocos. Periodicamente, Análise de Armazenamento confirmará esses blocos e os tornará disponíveis como um blob. Pode levar até uma hora para que os dados de log apareçam nos BLOBs no contêiner de **$logs** , pois a frequência em que o serviço de armazenamento libera os gravadores de log. Registros duplicados podem existir para logs criados na mesma hora. Você pode determinar se um registro é uma duplicata verificando o **RequestId** e o número da **operação** .
+À medida que os pedidos são registados, o Storage Analytics carregará os resultados intermédios como blocos. Periodicamente, o Storage Analytics irá comprometer estes blocos e disponibilizá-los como uma bolha. Pode levar até uma hora para que os dados de registo apareçam nas bolhas **do** $logs contentor, porque a frequência com que o serviço de armazenamento descarrega os escritores de registo. Podem existir registos duplicados para os registos criados na mesma hora. Pode determinar se um registo é duplicado verificando o número **de RequestId** e **Operação.**
 
-Se você tiver um alto volume de dados de log com vários arquivos para cada hora, poderá usar os metadados de BLOB para determinar quais dados o log contém examinando os campos de metadados de BLOB. Isso também é útil porque, às vezes, pode haver um atraso enquanto os dados são gravados nos arquivos de log: os metadados de blob fornecem uma indicação mais precisa do conteúdo do blob do que o nome do blob.
+Se tiver um grande volume de dados de registo com vários ficheiros por hora, então pode utilizar os metadados blob para determinar que dados o registo contém examinando os campos de metadados blob. Isto também é útil porque por vezes pode haver um atraso enquanto os dados são escritos para os ficheiros de registo: os metadados blob dão uma indicação mais precisa do conteúdo blob do que o nome blob.
 
-A maioria das ferramentas de procura de armazenamento permite que você exiba os metadados dos BLOBs; Você também pode ler essas informações usando o PowerShell ou programaticamente. O trecho do PowerShell a seguir é um exemplo de filtragem da lista de blobs de log por nome para especificar uma hora e por metadados para identificar apenas os logs que contêm operações de **gravação** .  
+A maioria das ferramentas de navegação de armazenamento permitem-lhe visualizar os metadados das bolhas; pode também ler esta informação utilizando o PowerShell ou programáticamente. O seguinte corte PowerShell é um exemplo de filtrar a lista de bolhas de log por nome para especificar um tempo, e por metadados para identificar apenas os registos que contêm operações de **escrita.**  
 
  ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
@@ -78,89 +78,89 @@ A maioria das ferramentas de procura de armazenamento permite que você exiba os
  }  
  ```  
 
-Para obter informações sobre como listar BLOBs programaticamente, consulte [enumerando recursos de blob](https://msdn.microsoft.com/library/azure/hh452233.aspx) e [definindo e Recuperando propriedades e metadados para recursos de blob](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
+Para obter informações sobre a listagem de blobs programáticamente, consulte [enumerar os recursos blob](https://msdn.microsoft.com/library/azure/hh452233.aspx) e [definir e recuperar propriedades e metadados para recursos blob](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
 
-### <a name="log-naming-conventions"></a>Convenções de nomenclatura de log
+### <a name="log-naming-conventions"></a>Convenções de log naming
 
- Cada log será gravado no seguinte formato:
+ Cada registo será escrito no seguinte formato:
 
  `<service-name>/YYYY/MM/DD/hhmm/<counter>.log`
 
- A tabela a seguir descreve cada atributo no nome do log:
+ A tabela seguinte descreve cada atributo no nome do registo:
 
 |Atributo|Descrição|
 |---------------|-----------------|
 |`<service-name>`|O nome do serviço de armazenamento. Por exemplo: `blob`, `table`ou `queue`|
-|`YYYY`|O ano de quatro dígitos do log. Por exemplo: `2011`|
-|`MM`|O mês de dois dígitos para o log. Por exemplo: `07`|
-|`DD`|O dia de dois dígitos para o log. Por exemplo: `31`|
-|`hh`|A hora de dois dígitos que indica a hora inicial dos logs, no formato UTC de 24 horas. Por exemplo: `18`|
-|`mm`|O número de dois dígitos que indica o minuto inicial para os logs. **Observação:**  Esse valor não tem suporte na versão atual do Análise de Armazenamento, e seu valor sempre será `00`.|
-|`<counter>`|Um contador baseado em zero com seis dígitos que indica o número de blobs de log gerados para o serviço de armazenamento em um período de hora. Este contador é iniciado na `000000`. Por exemplo: `000001`|
+|`YYYY`|O ano de quatro dígitos para o tronco. Por exemplo: `2011`|
+|`MM`|O mês de dois dígitos para o tronco. Por exemplo: `07`|
+|`DD`|O dia de dois dígitos para o tronco. Por exemplo: `31`|
+|`hh`|A hora de dois dígitos que indica a hora de partida para os registos, em formato UTC 24 horas. Por exemplo: `18`|
+|`mm`|O número de dois dígitos que indica o minuto de partida para os registos. **Nota:**  Este valor não é suportado na versão atual do Storage Analytics, e o seu valor será sempre `00`.|
+|`<counter>`|Um contador de base zero com seis dígitos que indica o número de bolhas de log geradas para o serviço de armazenamento num período de tempo de hora. Este balcão começa em `000000`. Por exemplo: `000001`|
 
- Este é um nome de log de exemplo completo que combina os exemplos acima:
+ Segue-se um nome completo de registo de amostras que combina os exemplos acima:
 
  `blob/2011/07/31/1800/000001.log`
 
- Veja a seguir um exemplo de URI que pode ser usado para acessar o log acima:
+ Segue-se uma amostra URI que pode ser utilizada para aceder ao registo acima:
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- Quando uma solicitação de armazenamento é registrada, o nome do log resultante se correlaciona com a hora em que a operação solicitada foi concluída. Por exemplo, se uma solicitação getBlob tiver sido concluída em 6: às 16h30 em 7/31/2011, o log seria gravado com o seguinte prefixo: `blob/2011/07/31/1800/`
+ Quando um pedido de armazenamento é registado, o nome de registo resultante correlaciona-se com a hora em que a operação solicitada foi concluída. Por exemplo, se um pedido GetBlob fosse concluído às 18:30 do dia 7/31/2011, o registo seria escrito com o seguinte prefixo: `blob/2011/07/31/1800/`
 
-### <a name="log-metadata"></a>Metadados de log
+### <a name="log-metadata"></a>Registar metadados
 
- Todos os blobs de log são armazenados com metadados que podem ser usados para identificar quais dados de log o BLOB contém. A tabela a seguir descreve cada atributo de metadados:
+ Todas as bolhas de log são armazenadas com metadados que podem ser usados para identificar quais os dados de registo que a bolha contém. A tabela seguinte descreve cada atributo dos metadados:
 
 |Atributo|Descrição|
 |---------------|-----------------|
-|`LogType`|Descreve se o log contém informações referentes a operações de leitura, gravação ou exclusão. Esse valor pode incluir um tipo ou uma combinação de todos os três, separados por vírgulas.<br /><br /> Exemplo 1: `write`<br /><br /> Exemplo 2: `read,write`<br /><br /> Exemplo 3: `read,write,delete`|
-|`StartTime`|A hora mais antiga de uma entrada no log, na forma de `YYYY-MM-DDThh:mm:ssZ`. Por exemplo: `2011-07-31T18:21:46Z`|
-|`EndTime`|A hora mais recente de uma entrada no log, na forma de `YYYY-MM-DDThh:mm:ssZ`. Por exemplo: `2011-07-31T18:22:09Z`|
-|`LogVersion`|A versão do formato de log.|
+|`LogType`|Descreve se o registo contém informações relativas a leitura, escrita ou exclusão de operações. Este valor pode incluir um tipo ou uma combinação dos três, separados por vírgulas.<br /><br /> Exemplo 1: `write`<br /><br /> Exemplo 2: `read,write`<br /><br /> Exemplo 3: `read,write,delete`|
+|`StartTime`|O primeiro tempo de uma entrada no diário, sob a forma de `YYYY-MM-DDThh:mm:ssZ`. Por exemplo: `2011-07-31T18:21:46Z`|
+|`EndTime`|A última hora de uma entrada no registo, sob a forma de `YYYY-MM-DDThh:mm:ssZ`. Por exemplo: `2011-07-31T18:22:09Z`|
+|`LogVersion`|A versão do formato de registo.|
 
- A lista a seguir exibe os metadados de exemplo completos usando os exemplos acima:
+ A lista seguinte apresenta metadados completos da amostra utilizando os exemplos acima referidos:
 
 -   `LogType=write`
 -   `StartTime=2011-07-31T18:21:46Z`
 -   `EndTime=2011-07-31T18:22:09Z`
 -   `LogVersion=1.0`
 
-## <a name="enable-storage-logging"></a>Habilitar log de armazenamento
+## <a name="enable-storage-logging"></a>Ativar a exploração de armazenamento
 
-Você pode habilitar o log de armazenamento com o portal do Azure, o PowerShell e os SDKs de armazenamento.
+Pode ativar o armazenamento de registo com o portal Azure, powerShell e SDKs de armazenamento.
 
-### <a name="enable-storage-logging-using-the-azure-portal"></a>Habilitar o log de armazenamento usando o portal do Azure  
+### <a name="enable-storage-logging-using-the-azure-portal"></a>Ativar o armazenamento de exploração através do portal Azure  
 
-No portal do Azure, use a folha **configurações de diagnóstico (clássico)** para controlar o log de armazenamento, acessível na seção **monitoramento (clássico)** da **folha de menu**de uma conta de armazenamento.
+No portal Azure, utilize as definições de **Diagnóstico (clássica)** para controlar o armazenamento de madeira, acessível a partir da secção de **Monitorização (clássica)** da lâmina de **menu**de uma conta de armazenamento .
 
-Você pode especificar os serviços de armazenamento que deseja registrar em log e o período de retenção (em dias) para os dados registrados.  
+Pode especificar os serviços de armazenamento que pretende registar e o período de retenção (em dias) para os dados registados.  
 
-### <a name="enable-storage-logging-using-powershell"></a>Habilitar o log de armazenamento usando o PowerShell  
+### <a name="enable-storage-logging-using-powershell"></a>Ativar o registo de armazenamento utilizando o PowerShell  
 
- Você pode usar o PowerShell em seu computador local para configurar o log de armazenamento em sua conta de armazenamento usando o cmdlet Azure PowerShell **Get-AzureStorageServiceLoggingProperty** para recuperar as configurações atuais e o cmdlet  **Set-AzureStorageServiceLoggingProperty** para alterar as configurações atuais.  
+ Pode utilizar o PowerShell na sua máquina local para configurar o Armazenamento Logging na sua conta de armazenamento utilizando o cmdlet **Get-AzureStorageServiceLoggingProperty** do Azure PowerShell para recuperar as definições atuais e o cmdlet **Set-AzureStorageServiceLoggingProperty** para alterar as definições atuais.  
 
- Os cmdlets que controlam o log de armazenamento usam um parâmetro **LoggingOperations** que é uma cadeia de caracteres que contém uma lista separada por vírgulas de tipos de solicitação para registrar em log. Os três tipos de solicitação possíveis são **leitura**, **gravação**e **exclusão**. Para desativar o registro em log, use o valor **None** para o parâmetro **LoggingOperations** .  
+ Os cmdlets que controlam o armazenamento Logging utilizam um parâmetro **LoggingOperations** que é uma cadeia que contém uma lista separada de tipos de pedidos separados de vírinas para registar. Os três tipos de pedidos possíveis são **lidos,** **escrevem**e **apagam.** Para desligar a exploração madeireira, utilize o valor **nenhum** para o parâmetro **LoggingOperations.**  
 
- O comando a seguir alterna o registro em log para solicitações de leitura, gravação e exclusão no serviço Fila em sua conta de armazenamento padrão com retenção definida como cinco dias:  
+ Os seguintes interruptores de comando na sessão de registo para leitura, escrita e eliminação de pedidos no serviço de fila na sua conta de armazenamento predefinido com retenção definida para cinco dias:  
 
 ```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
- O comando a seguir desativa o registro em log para o serviço tabela em sua conta de armazenamento padrão:  
+ O seguinte comando desliga o registo do serviço de mesa na sua conta de armazenamento por defeito:  
 
 ```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
- Para obter informações sobre como configurar os cmdlets Azure PowerShell para trabalhar com sua assinatura do Azure e como selecionar a conta de armazenamento padrão a ser usada, consulte: [como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+ Para obter informações sobre como configurar os cmdlets Azure PowerShell para trabalhar com a sua subscrição Azure e como selecionar a conta de armazenamento predefinida para usar, consulte: Como instalar e configurar o [Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
-### <a name="enable-storage-logging-programmatically"></a>Habilitar o log de armazenamento de forma programática  
+### <a name="enable-storage-logging-programmatically"></a>Ativar o registo de armazenamento programáticamente  
 
- Além de usar os cmdlets portal do Azure ou Azure PowerShell para controlar o log de armazenamento, você também pode usar uma das APIs de armazenamento do Azure. Por exemplo, se você estiver usando uma linguagem .NET, poderá usar a biblioteca de cliente de armazenamento.  
+ Além de utilizar o portal Azure ou os cmdlets Azure PowerShell para controlar o armazenamento de madeira, também pode utilizar uma das APIs de Armazenamento Azure. Por exemplo, se estiver a usar um idioma .NET pode utilizar a Biblioteca do Cliente de Armazenamento.  
 
- As classes **CloudBlobClient**, **CloudQueueClient**e **CloudTableClient** têm métodos como **setserviceproperties** e **SetServicePropertiesAsync** que usam um objeto **serviceproperties** como um meter. Você pode usar o objeto **serviceproperties** para configurar o log de armazenamento. Por exemplo, o trecho C# a seguir mostra como alterar o que é registrado e o período de retenção para o log de fila:  
+ As classes **CloudBlobClient,** **CloudQueueClient**e **CloudTableClient** têm métodos como **SetServiceProperties** e **SetServicePropertiesAsync** que tomam um objeto **ServiceProperties** como parâmetro. Pode utilizar o objeto **ServiceProperties** para configurar o Registo de Armazenamento. Por exemplo, C# o seguinte corte mostra como alterar o que está registado e o período de retenção para a exploração de filas:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -173,34 +173,37 @@ serviceProperties.Logging.RetentionDays = 2;
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
 
- Para obter mais informações sobre como usar uma linguagem .NET para configurar o log de armazenamento, consulte [referência da biblioteca do cliente de armazenamento](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
+ Para obter mais informações sobre a utilização de um idioma .NET para configurar o armazenamento de registo, consulte a [Referência da Biblioteca do Cliente de Armazenamento](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
 
- Para obter informações gerais sobre como configurar o log de armazenamento usando a API REST, consulte [Habilitando e Configurando análise de armazenamento](https://msdn.microsoft.com/library/azure/hh360996.aspx).  
+ Para obter informações gerais sobre a configuração do registo de armazenamento utilizando a API REST, consulte [a análise de armazenamento de habilitação e configuração](https://msdn.microsoft.com/library/azure/hh360996.aspx).  
 
-## <a name="download-storage-logging-log-data"></a>Baixar dados de log de log de armazenamento
+## <a name="download-storage-logging-log-data"></a>Descarregue dados de registo de registo de armazenamento
 
- Para exibir e analisar os dados de log, baixe os blobs que contêm os dados de log em que você está interessado em um computador local. Muitas ferramentas de navegação de armazenamento permitem que você baixe blobs de sua conta de armazenamento; Você também pode usar a ferramenta de cópia do Azure de linha de comando fornecida pela equipe de armazenamento do Azure [AzCopy](storage-use-azcopy-v10.md) para baixar seus dados de log.  
+ Para visualizar e analisar os seus dados de registo, deve descarregar as bolhas que contêm os dados de registo em que está interessado numa máquina local. Muitas ferramentas de navegação de armazenamento permitem-lhe descarregar bolhas da sua conta de armazenamento; também pode utilizar a equipa de Armazenamento Azure forneceu a Ferramenta De Cópia Azure de linha de comando [AzCopy](storage-use-azcopy-v10.md) para descarregar os seus dados de registo.  
+ 
+>[!NOTE]
+> O `$logs` recipiente não está integrado na Grelha de Eventos, pelo que não receberá notificações quando os ficheiros de registo estiverem escritos. 
 
- Para verificar se você baixou os dados de log nos quais está interessado e para evitar baixar os mesmos dados de log mais de uma vez:  
+ Para se certificar de que descarrega os dados de registo que lhe interessa e para evitar o download dos mesmos dados de registo mais de uma vez:  
 
--   Use a Convenção de nomenclatura de data e hora para BLOBs que contêm dados de log para controlar quais BLOBs você já baixou para análise para evitar baixar novamente os mesmos dados mais de uma vez.  
+-   Utilize a convenção de nomeação de data e hora para as bolhas que contêm dados de registo para rastrear quais as bolhas que já descarregou para análise para evitar o recarregamento dos mesmos dados mais de uma vez.  
 
--   Use os metadados nos BLOBs que contêm dados de log para identificar o período específico para o qual o BLOB contém dados de log para identificar o blob exato que você precisa baixar.  
+-   Utilize os metadados nas bolhas que contêm dados de registo para identificar o período específico para o qual a bolha detém dados de registo para identificar a bolha exata que precisa de descarregar.  
 
-Para começar a usar o AzCopy, consulte Introdução [ao AzCopy](storage-use-azcopy-v10.md) 
+Para começar com a AzCopy, veja [Começar com a AzCopy](storage-use-azcopy-v10.md) 
 
-O exemplo a seguir mostra como você pode baixar os dados de log para o serviço fila para as horas começando às 9h, às 12h, às 9h e às 11 de maio de 2014.
+O exemplo que se segue mostra como pode descarregar os dados de registo do serviço de fila para as horas a partir das 09h, 10 da manhã e das 11 h do dia 20 de maio de 2014.
 
 ```
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Para saber mais sobre como baixar arquivos específicos, consulte [baixar arquivos específicos](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Para saber mais sobre como descarregar ficheiros específicos, consulte [O Download de ficheiros específicos](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
-Depois de baixar os dados de log, você poderá exibir as entradas de log nos arquivos. Esses arquivos de log usam um formato de texto delimitado que muitas ferramentas de leitura de log podem analisar, incluindo o Microsoft Message Analyzer (para obter mais informações, consulte o guia [monitoramento, diagnóstico e solução de problemas armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Ferramentas diferentes têm recursos diferentes para formatação, filtragem, classificação, AD pesquisando o conteúdo dos arquivos de log. Para obter mais informações sobre o formato e o conteúdo do arquivo de log de log de armazenamento, consulte [análise de armazenamento formato de log](/rest/api/storageservices/storage-analytics-log-format) e [análise de armazenamento as operações registradas e as mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
+Quando tiver descarregado os seus dados de registo, pode visualizar as entradas de registo nos ficheiros. Estes ficheiros de registo utilizam um formato de texto delimitado que muitas ferramentas de leitura de registo são capazes de analisar, incluindo o Microsoft Message Analyzer (para mais informações, consulte o guia [Monitoring, Diagnosticng e Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Diferentes ferramentas têm diferentes instalações para formatação, filtragem, triagem, anúncio de pesquisa do conteúdo dos seus ficheiros de registo. Para obter mais informações sobre o formato e conteúdo do ficheiro de registo de registo de registo de armazenamento, consulte o [Formato](/rest/api/storageservices/storage-analytics-log-format) de Registo de Armazenamento Analytics e [o Armazenamento Analytics Operações registadas e Mensagens](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)de Estado .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Formato de log de Análise de Armazenamento](/rest/api/storageservices/storage-analytics-log-format)
-* [Análise de Armazenamento mensagens de status e operações registradas](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
+* [Formato de registo de armazenamento analytics](/rest/api/storageservices/storage-analytics-log-format)
+* [Armazenamento Analytics Operações registadas e Mensagens de Estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Métricas de Análise de Armazenamento (clássico)](storage-analytics-metrics.md)

@@ -1,6 +1,6 @@
 ---
-title: Tamanhos de VM do Linux no Azure
-description: Lista os diferentes tamanhos disponíveis para máquinas virtuais do Linux no Azure.
+title: Tamanhos De Linux VM em Azure
+description: Lista os diferentes tamanhos disponíveis para máquinas virtuais Linux em Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -12,62 +12,57 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2019
+ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: c16ff8fed19340811578ccb39cbac7242b7c5861
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 21351654f01127acb5fe712021ceebb31b020bdc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905737"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484949"
 ---
-# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Linux no Azure
-Este artigo descreve os tamanhos e as opções disponíveis para as máquinas virtuais do Azure que você pode usar para executar seus aplicativos e cargas de trabalho do Linux. Ele também fornece considerações de implantação a serem consideradas quando você pretende usar esses recursos. Este artigo também está disponível para [máquinas virtuais do Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos para máquinas virtuais Linux em Azure
 
+Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtuais Azure que pode usar para executar as suas aplicações e cargas de trabalho do Linux. Também fornece considerações de implantação para estar ciente de quando você está planejando usar estes recursos. Este artigo também está disponível para [máquinas virtuais windows.](../windows/sizes.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
 
-| Tipo                     | Tamanhos           |    Descrição       |
-|--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Fins gerais](sizes-general.md)          | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC  | Relação CPU/memória equilibrada. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. |
-| [Com otimização de computação](sizes-compute.md)        | Fsv2           | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
-| [Com otimização de memória](sizes-memory.md)         | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2  | Alta taxa de memória/CPU. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
-| [Com otimização de armazenamento](sizes-storage.md)        | Lsv2                | Alta taxa de transferência e e/s de disco ideal para Big data, SQL, bancos de dados NoSQL, data warehousing e grandes bancos de dados transacionais.  |
-| [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (visualização), NV, NVv3  | Máquinas virtuais especializadas direcionadas para processamento gráfico pesado e edição de vídeo, bem como treinamento de modelo e inferência (ND) com aprendizado profundo. Disponível com uma ou várias GPUs.       |
-| [Computação de elevado desempenho](sizes-hpc.md) | HB, HC,  H | As nossas máquinas virtuais com CPU mais rápidas e poderosas com interfaces de rede de alto débito (RDMA) opcionais. |
+| Tipo | Tamanhos | Descrição |
+|------|-------|-------------|
+| [Fins gerais](../sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC  | Rácio CPU-memória equilibrado. Ideal para testes e desenvolvimento, bases de dados pequenas a médias e servidores web de tráfego baixo a médio. |
+| [Com otimização de computação](../sizes-compute.md) | Fsv2 | Alta relação CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações. |
+| [Com otimização de memória](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | Alta relação memória-CPU. Ótimo para servidores de base de dados relacionais, caches médios a grandes e análise sintetizada.                 |
+| [Com otimização de armazenamento](../sizes-storage.md) | Lsv2 | Alta entrada de disco e IO ideal para Big Data, SQL, NoSQL bases de dados, armazenamento de dados e grandes bases de dados transacionais.  |
+| [GPU](../sizes-gpu.md) | NC, Ncv2, Ncv3, ND, NDv2 (Pré-visualização), NV, Nvv3, Nvv4 | Máquinas virtuais especializadas direcionadas para renderização gráfica pesada e edição de vídeo, bem como treino de modelos e inferência (ND) com aprendizagem profunda. Disponível com GPUs individuais ou múltiplos. |
+| [Computação de elevado desempenho](../sizes-hpc.md) | HB, HC,  H | As nossas máquinas virtuais CPU mais rápidas e poderosas com interfaces de rede de alta-corrente opcional (RDMA). |
 
-<br>
-
-- Para obter informações sobre os preços de vários tamanhos, consulte [preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
-- Para obter a disponibilidade de tamanhos de VM nas regiões do Azure, consulte [produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
-- Para ver os limites gerais em VMs do Azure, confira [assinatura do Azure e limites de serviço, cotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho de computação entre SKUs do Azure.
-
+- Para obter informações sobre preços dos vários tamanhos, consulte [preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
+- Para disponibilidade de tamanhos VM nas regiões de Azure, consulte [Produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
+- Para ver limites gerais para os VMs Azure, consulte [os limites de subscrição e serviço do Azure, quotas e restrições.](../../azure-subscription-service-limits.md)
+- Saiba mais sobre como as unidades de [computação Azure (ACU)](../acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.
 
 ## <a name="rest-api"></a>API REST
 
-Para obter informações sobre como usar a API REST para consultar tamanhos de VM, consulte o seguinte:
+Para obter informações sobre a utilização da API REST para consultar os tamanhos de VM, consulte o seguinte:
 
-- [Listar tamanhos de máquina virtual disponíveis para redimensionamento](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [Listar tamanhos de máquina virtual disponíveis para uma assinatura](https://docs.microsoft.com/rest/api/compute/resourceskus/list)
-- [Listar tamanhos de máquina virtual disponíveis em um conjunto de disponibilidade](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [Lista disponível tamanhos de máquina virtual para redimensionamento](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
+- [Lista de tamanhos de máquina virtual disponíveis para uma subscrição](https://docs.microsoft.com/rest/api/compute/resourceskus/list)
+- [Lista de tamanhos de máquina virtual disponíveis num conjunto de disponibilidade](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 
-Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho de computação entre SKUs do Azure.
+Saiba mais sobre como as unidades de [computação Azure (ACU)](../acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.
 
 ## <a name="benchmark-scores"></a>Pontuações de referência
 
-Saiba mais sobre o desempenho de computação para VMs do Linux usando as [pontuações de comparação de cocomentário](compute-benchmark-scores.md).
+Saiba mais sobre o desempenho da computação para Os VMs linux usando as pontuações de [referência coreMark](compute-benchmark-scores.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre os diferentes tamanhos de VM que estão disponíveis:
-- [Fins gerais](sizes-general.md)
-- [Com otimização de computação](sizes-compute.md)
-- [Com otimização de memória](sizes-memory.md)
-- [Com otimização de armazenamento](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [Computação de elevado desempenho](sizes-hpc.md)
-- Consulte a página de [geração Anterior](sizes-previous-gen.md) para A Basic and Standard, High Performance A8-A11, D/DSv1 (D1-4 e D11-14 v1), F/Fsv1, G/GS, Lsv1 e NVv2.
+Saiba mais sobre os diferentes tamanhos vm que estão disponíveis:
 
-
-
+- [Fins gerais](../sizes-general.md)
+- [Com otimização de computação](../sizes-compute.md)
+- [Com otimização de memória](../sizes-memory.md)
+- [Com otimização de armazenamento](../sizes-storage.md)
+- [GPU](../sizes-gpu.md)
+- [Computação de elevado desempenho](../sizes-hpc.md)
+- Consulte a página [de geração Anterior](../sizes-previous-gen.md) para A Standard, Dv1 (D1-4 e D11-14 v1) e série A8-A11

@@ -1,55 +1,55 @@
 ---
-title: Introdução ao SDK de trabalhos Web
-description: Introdução ao SDK de trabalhos Web para processamento em segundo plano orientado por eventos. Saiba como acessar dados em serviços do Azure e serviços de terceiros.
+title: Começar com o WebJobs SDK
+description: Introdução ao WebJobs SDK para processamento de fundo orientado por eventos. Saiba como aceder a dados em serviços Azure e serviços de terceiros.
 author: ggailey777
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e2b61b87707a732d3b7c27f97b9ca5fcf82b4bf3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640851"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483058"
 ---
-# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para processamento em segundo plano controlado por eventos
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Inicie-se com o Azure WebJobs SDK para processamento de fundo orientado por eventos
 
-Este artigo mostra como usar o Visual Studio 2019 para criar um projeto Azure WebJobs SDK, executá-lo localmente e, em seguida, implantá-lo no [serviço Azure app](overview.md). A versão 3. x do SDK de trabalhos Web dá suporte a aplicativos de console do .NET Core e do .NET Framework. Para saber mais sobre como trabalhar com o SDK de trabalhos Web, consulte [como usar o SDK do Azure WebJobs para processamento em segundo plano controlado por eventos](webjobs-sdk-how-to.md).
+Este artigo mostra como usar o Visual Studio 2019 para criar um projeto Azure WebJobs SDK, executá-lo localmente e, em seguida, implementá-lo para [o Azure App Service](overview.md). A versão 3.x do WebJobs SDK suporta aplicações de consola .NET Core e .NET Framework. Para saber mais sobre o trabalho com o WebJobs SDK, consulte [como utilizar o Azure WebJobs SDK para processamento de fundo orientado](webjobs-sdk-how-to.md)para eventos .
 
-Este artigo mostra como implantar trabalhos Web como um aplicativo de console do .NET Core. Para implantar trabalhos Web como um aplicativo de console .NET Framework, consulte [webjobs como .NET Framework aplicativos de console](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Se você estiver interessado no SDK de trabalhos Web versão 2. x, que só dá suporte a .NET Framework, consulte [desenvolver e implantar trabalhos Web usando o serviço de Azure app do Visual Studio](webjobs-dotnet-deploy-vs.md).
+Este artigo mostra-lhe como implementar webJobs como uma aplicação de consola .NET Core. Para implementar webJobs como uma aplicação de consola .NET Framework, consulte [webJobs como aplicações de consola .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Se estiver interessado na versão 2.x do WebJobs SDK, que apenas suporta o .NET Framework, consulte [Desenvolver e implementar WebJobs utilizando o Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Instale o Visual Studio 2019](/visualstudio/install/) com a carga de trabalho de **desenvolvimento do Azure** . Se você já tiver o Visual Studio, mas não tiver essa carga de trabalho, adicione a carga de trabalho selecionando **ferramentas > obter ferramentas e recursos**.
+* [Instale o Visual Studio 2019](/visualstudio/install/) com a carga de trabalho de **desenvolvimento do Azure.** Se já tem o Visual Studio mas não tem essa carga de trabalho, adicione a carga de trabalho selecionando **Ferramentas > Obtenha Ferramentas e Funcionalidades**.
 
-* Você deve ter [uma conta do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) para publicar seu projeto do SDK de trabalhos Web no Azure.
+* Deve ter [uma conta Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) para publicar o seu projeto WebJobs SDK para o Azure.
 
 ## <a name="create-a-project"></a>Criar um projeto
 
-1. No Visual Studio, selecione **criar um novo projeto**.
+1. No Estúdio Visual, selecione **Criar um Novo Projeto.**
 
-2. Selecione **aplicativo de console (.NET Core)** .
+2. Selecione **App consola (.NET Core)** .
 
-3. Nomeie o projeto *WebJobsSDKSample*e, em seguida, selecione **criar**.
+3. Nomeie o projeto *WebJobsSDKSample*e, em seguida, **selecione Criar**.
 
    ![Caixa de diálogo Novo Projeto](./media/webjobs-sdk-get-started/new-project.png)
 
-## <a name="webjobs-nuget-packages"></a>Pacotes NuGet de trabalhos Web
+## <a name="webjobs-nuget-packages"></a>Pacotes WebJobs NuGet
 
-1. Instale a última versão estável 3. x do pacote NuGet `Microsoft.Azure.WebJobs.Extensions`, que inclui `Microsoft.Azure.WebJobs`.
+1. Instale a mais recente versão estável 3.x do pacote NuGet `Microsoft.Azure.WebJobs.Extensions`, que inclui `Microsoft.Azure.WebJobs`.
 
-     Este é o comando do **console do Gerenciador de pacotes** para a versão 3.0.2:
+     Aqui está o comando de consola do Gestor de **Pacotes** para a versão 3.0.2:
 
      ```powershell
      Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
      ```
 
-## <a name="create-the-host"></a>Criar o host
+## <a name="create-the-host"></a>Criar o Anfitrião
 
-O host é o contêiner de tempo de execução para funções que escutam funções de gatilhos e chamadas. As etapas a seguir criam um host que implementa [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), que é o host genérico no ASP.NET Core.
+O hospedeiro é o recipiente de tempo de funcionamento para funções que ouvem os gatilhos e as funções de chamadas. Os seguintes passos criam um hospedeiro que implementa [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), que é o Anfitrião Genérico em ASP.NET Core.
 
-1. Em *Program.cs*, adicione uma instrução `using`:
+1. Em *Program.cs,* adicione uma declaração `using`:
 
     ```cs
     using Microsoft.Extensions.Hosting;
@@ -73,27 +73,27 @@ O host é o contêiner de tempo de execução para funções que escutam funçõ
     }
     ```
 
-No ASP.NET Core, as configurações de host são definidas por meio da chamada de métodos na instância de [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) . Para obter mais informações, consulte [host genérico .net](/aspnet/core/fundamentals/host/generic-host). O método de extensão `ConfigureWebJobs` Inicializa o host de trabalhos Web. No `ConfigureWebJobs`, você inicializa extensões de trabalhos Web específicas e define as propriedades dessas extensões.  
+Em ASP.NET Core, as configurações do hospedeiro são definidas através de métodos de chamada na [instância`HostBuilder`.](/dotnet/api/microsoft.extensions.hosting.hostbuilder) Para mais informações, consulte [.NET Generic Host](/aspnet/core/fundamentals/host/generic-host). O método de extensão `ConfigureWebJobs` inicializa o anfitrião WebJobs. Em `ConfigureWebJobs`, ininicia extensões específicas do WebJobs e define propriedades dessas extensões.  
 
-## <a name="enable-console-logging"></a>Habilitar o log do console
+## <a name="enable-console-logging"></a>Ativar o registo de consolas
 
-Nesta seção, você configura o log de console que usa a [estrutura de log de ASP.NET Core](/aspnet/core/fundamentals/logging).
+Nesta secção, configura o registo de consolas que utiliza a [estrutura de registo do Núcleo de ASP.NET](/aspnet/core/fundamentals/logging).
 
-1. Instale a versão estável mais recente do pacote `Microsoft.Extensions.Logging.Console` NuGet, que inclui `Microsoft.Extensions.Logging`.
+1. Instale a versão mais recente estável do pacote NuGet `Microsoft.Extensions.Logging.Console`, que inclui `Microsoft.Extensions.Logging`.
 
-   Aqui está o comando **Package Manager Console** para a versão 2.2.0:
+   Aqui está o comando de consola do Gestor de **Pacotes** para a versão 2.2.0:
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
    ```
 
-1. Em *Program.cs*, adicione uma instrução `using`:
+1. Em *Program.cs,* adicione uma declaração `using`:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
 
-1. Chame o método [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) em [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). O método [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) adiciona o log de console à configuração.
+1. Ligue para o método [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) no [`HostBuilder`. ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) O método [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) adiciona o registo de consolas à configuração.
 
     ```cs
     builder.ConfigureLogging((context, b) =>
@@ -102,7 +102,7 @@ Nesta seção, você configura o log de console que usa a [estrutura de log de A
     });
     ```
 
-    O método `Main` agora tem esta aparência:
+    O método `Main` agora é assim:
 
     ```cs
     static void Main(string[] args)
@@ -124,26 +124,26 @@ Nesta seção, você configura o log de console que usa a [estrutura de log de A
     }
     ```
 
-    Essa atualização faz o seguinte:
+    Esta atualização faz o seguinte:
 
-    * Desabilita o [log do painel](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). O painel é uma ferramenta de monitoramento herdada e o log do Dashboard não é recomendado para cenários de produção de alta taxa de transferência.
-    * Adiciona o provedor de console com [filtragem](webjobs-sdk-how-to.md#log-filtering)padrão.
+    * Desativa [a exploração do painel](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs)de instrumentos. O dashboard é uma ferramenta de monitorização antiga, e a exploração do dashboard não é recomendada para cenários de produção de alta produção.
+    * Adiciona o fornecedor de consolas com [filtragem](webjobs-sdk-how-to.md#log-filtering)padrão .
 
-Agora, você pode adicionar uma função que é disparada pelas mensagens que chegam em uma [fila de armazenamento do Azure](../azure-functions/functions-bindings-storage-queue.md).
+Agora, pode adicionar uma função que é desencadeada por mensagens que chegam numa fila de [Armazenamento Azure](../azure-functions/functions-bindings-storage-queue.md).
 
 ## <a name="install-the-storage-binding-extension"></a>Instalar a extensão de enlace do Armazenamento
 
-A partir da versão 3. x, você deve instalar explicitamente a extensão de associação de armazenamento exigida pelo SDK de trabalhos Web. Nas versões anteriores, as associações de armazenamento foram incluídas no SDK.
+A partir da versão 3.x, deve instalar explicitamente a extensão de encadernação de Armazenamento exigida pelo WebJobs SDK. Em versões anteriores, as encadernações de Armazenamento foram incluídas no SDK.
 
-1. Instale a versão estável mais recente do pacote NuGet [Microsoft. Azure. webjobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) , versão 3. x. 
+1. Instale a versão mais recente estável do [microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet, versão 3.x. 
 
-    Aqui está o comando **Package Manager Console** para a versão 3.0.4:
+    Aqui está o comando de consola do Gestor de **Pacotes** para a versão 3.0.4:
 
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
     ```
 
-2. No método de extensão `ConfigureWebJobs`, chame o método `AddAzureStorage` na instância de [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) para inicializar a extensão de armazenamento. Neste ponto, o método `ConfigureWebJobs` é semelhante ao exemplo a seguir:
+2. No método de extensão `ConfigureWebJobs`, ligue para o método `AddAzureStorage` na [instância`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) para inicializar a extensão de armazenamento. Neste ponto, o método `ConfigureWebJobs` parece ser o seguinte exemplo:
 
     ```cs
     builder.ConfigureWebJobs(b =>
@@ -155,9 +155,9 @@ A partir da versão 3. x, você deve instalar explicitamente a extensão de asso
 
 ## <a name="create-a-function"></a>Criar uma função
 
-1. Clique com o botão direito do mouse no projeto, selecione **adicionar** > **novo item...** , escolha **classe**, nomeie o novo C# arquivo de classe *functions.cs*e selecione **Adicionar**.
+1. Clique no projeto, selecione **Adicionar** > **Novo Item...** escolha **Classe,** nomeie o C# novo ficheiro de classe *Functions.cs*, e selecione **Adicionar**.
 
-1. No Functions.cs, substitua o modelo gerado pelo seguinte código:
+1. Em Functions.cs, substitua o modelo gerado pelo seguinte código:
 
    ```cs
    using Microsoft.Azure.WebJobs;
@@ -175,45 +175,45 @@ A partir da versão 3. x, você deve instalar explicitamente a extensão de asso
    }
    ```
 
-   O atributo `QueueTrigger` informa o tempo de execução para chamar essa função quando uma nova mensagem é gravada em uma fila de armazenamento do Azure chamada `queue`. O conteúdo da mensagem da fila é fornecido para o código do método no parâmetro `message`. O corpo do método é o local em que você processa os dados do gatilho. Neste exemplo, o código apenas registra a mensagem.
+   O atributo `QueueTrigger` diz o tempo de funcionamento para chamar esta função quando uma nova mensagem é escrita numa fila de Armazenamento Azure chamada `queue`. O conteúdo da mensagem de fila é fornecido ao código de método no parâmetro `message`. O corpo do método é onde processa os dados do gatilho. Neste exemplo, o código apenas regista a mensagem.
 
-   O parâmetro `message` não precisa ser uma cadeia de caracteres. Você também pode associar a um objeto JSON, a uma matriz de bytes ou a um objeto [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) . [Consulte uso do gatilho de fila](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Cada tipo de associação (como filas, BLOBs ou tabelas) tem um conjunto diferente de tipos de parâmetros aos quais você pode associar.
+   O parâmetro `message` não tem de ser uma corda. Também pode ligar-se a um objeto JSON, uma matriz de byte ou um objeto [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) Consulte a [utilização do gatilho](../azure-functions/functions-bindings-storage-queue-trigger.md#usage)da fila . Cada tipo de encadernação (como filas, bolhas ou mesas) tem um conjunto diferente de tipos de parâmetros a que se pode ligar.
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-O emulador de armazenamento do Azure que é executado localmente não tem todos os recursos que o SDK de trabalhos Web precisa. Portanto, nesta seção, você cria uma conta de armazenamento no Azure e configura o projeto para usá-la. Se você já tiver uma conta de armazenamento, pule para a etapa 6.
+O emulador de armazenamento Azure que funciona localmente não tem todas as funcionalidades de que o WebJobs SDK necessita. Assim, nesta secção, cria-se uma conta de armazenamento no Azure e configura o projeto para o utilizar. Se já tem uma conta de armazenamento, salte para o passo 6.
 
-1. Abra **Gerenciador de servidores** no Visual Studio e entre no Azure. Clique com o botão direito do mouse no nó **Azure** e selecione **conectar-se a Microsoft Azure assinatura**.
+1. Open **Server Explorer** em estúdio visual e inscreva-se no Azure. Clique no nó **Azure** e, em seguida, selecione Connect para a **Subscrição Microsoft Azure**.
 
    ![Iniciar sessão no Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
-1. No nó **Azure** no **Gerenciador de servidores**, clique com o botão direito do mouse em **armazenamento**e selecione **criar conta de armazenamento**.
+1. Sob o nó **Azure** no **Server Explorer,** **clique**no armazenamento do clique direito, e depois selecione create storage **.**
 
-   ![Menu Criar conta de armazenamento](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
+   ![Criar menu de conta de armazenamento](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
-1. Na caixa de diálogo **criar conta de armazenamento** , insira um nome exclusivo para a conta de armazenamento.
+1. Na caixa de diálogo **'Conta de Armazenamento Criar',** introduza um nome único para a conta de armazenamento.
 
-1. Escolha a mesma **região** em que você criou o aplicativo do serviço de aplicativo ou uma região perto de você.
+1. Escolha a mesma **Região** em que criou a sua app App Service, ou uma região próxima de si.
 
 1. Selecione **Criar**.
 
-   ![Criar conta de armazenamento](./media/webjobs-sdk-get-started/create-storage-account.png)
+   ![Criar conta de Armazenamento](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. No nó **armazenamento** em **Gerenciador de servidores**, selecione a nova conta de armazenamento. Na janela **Propriedades** , selecione as reticências ( **...** ) à direita do campo valor da **cadeia de conexão** .
+1. Sob o nó **de Armazenamento** no **Server Explorer,** selecione a nova conta de Armazenamento. Na janela **Propriedades,** selecione a elipse ( **...** ) à direita do campo de valor de fio de **ligação.**
 
-   ![Reticências da cadeia de conexão](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
+   ![Elipse de corda de ligação](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
-1. Copie a cadeia de conexão e salve esse valor em algum lugar para que você possa copiá-lo novamente de imediato.
+1. Copie a cadeia de ligação e guarde este valor em algum lugar onde possa copiá-la de novo prontamente.
 
-   ![Copiar cadeia de conexão](./media/webjobs-sdk-get-started/copy-key.png)
+   ![Cadeia de ligação de cópia](./media/webjobs-sdk-get-started/copy-key.png)
 
-## <a name="configure-storage-to-run-locally"></a>Configurar o armazenamento para ser executado localmente
+## <a name="configure-storage-to-run-locally"></a>Configure armazenamento para executar localmente
 
-O SDK de trabalhos Web procura a cadeia de conexão de armazenamento nas configurações do aplicativo no Azure. Quando você executa localmente, ele procura esse valor no arquivo de configuração local ou em variáveis de ambiente.
+O WebJobs SDK procura a cadeia de ligação de armazenamento nas Definições de Aplicação em Azure. Quando corre localmente, procura este valor no ficheiro de configuração local ou em variáveis ambientais.
 
-1. Clique com o botão direito do mouse no projeto, selecione **adicionar** > **novo item...** , escolha o **arquivo de configuração JSON JavaScript**, nomeie o arquivo novo arquivo *appSettings. JSON* e selecione **Adicionar**. 
+1. Clique no projeto, selecione **Adicionar** > **Novo Item...** escolha o ficheiro de **configuração JavaScript JSON,** nomeie as novas *aplicações de ficheiros.json* e selecione **Adicionar**. 
 
-1. No novo arquivo, adicione um campo `AzureWebJobsStorage`, como no exemplo a seguir:
+1. No novo ficheiro, adicione um campo `AzureWebJobsStorage`, como no seguinte exemplo:
 
     ```json
     {
@@ -221,19 +221,19 @@ O SDK de trabalhos Web procura a cadeia de conexão de armazenamento nas configu
     }
     ```
 
-1. Substitua *{cadeia de conexão de armazenamento}* pela cadeia de conexão que você copiou anteriormente.
+1. Substitua *a cadeia de ligação de {armazenamento}* com a cadeia de ligação que copiou anteriormente.
 
-1. Selecione o arquivo *appSettings. JSON* em Gerenciador de soluções e, na janela **Propriedades** , defina **copiar para diretório de saída** como **copiar se mais recente**.
+1. Selecione o ficheiro *appsettings.json* no Solution Explorer e na janela **Properties,** coloque **copy to Output Directory** to **Copy se for mais recente**.
 
-Posteriormente, você adicionará a mesma configuração de aplicativo de cadeia de conexão em seu aplicativo no serviço Azure App.
+Mais tarde, irá adicionar a mesma definição de aplicação de cadeiade ligação na sua aplicação no Serviço de Aplicações Azure.
 
-## <a name="test-locally"></a>Testar localmente
+## <a name="test-locally"></a>Teste local
 
-Nesta seção, você criará e executará o projeto localmente e disparará a função criando uma mensagem da fila.
+Nesta secção, você constrói e executa o projeto localmente e despoleta a função criando uma mensagem de fila.
 
-1. Pressione **Ctrl + F5** para executar o projeto.
+1. Prima **Ctrl+F5** para executar o projeto.
 
-   O console mostra que o tempo de execução encontrou sua função e está aguardando que as mensagens da fila o disparem. A saída a seguir é gerada pelo host v3. x:
+   A consola mostra que o tempo de execução encontrou a sua função e está à espera que as mensagens de fila a desencadeiem. A seguinte saída é gerada pelo anfitrião v3.x:
 
    ```console
     info: Microsoft.Azure.WebJobs.Hosting.JobHostService[0]
@@ -249,33 +249,33 @@ Nesta seção, você criará e executará o projeto localmente e disparará a fu
     Content root path: C:\WebJobsSDKSample\WebJobsSDKSample\bin\Debug\netcoreapp2.1\
    ```
 
-1. Feche a janela do console.
+1. Feche a janela da consola.
 
-1. Em **Gerenciador de servidores** no Visual Studio, expanda o nó da sua nova conta de armazenamento e clique com o botão direito do mouse em **filas**.
+1. No **Server Explorer** no Estúdio Visual, expanda o nó para a sua nova conta de armazenamento e, em seguida, clique nas **filas**de clique si .
 
-1. Selecione **criar fila**.
+1. Selecione **Criar fila**.
 
-1. Insira *fila* como o nome da fila e, em seguida, selecione **OK**.
+1. Introduza a *fila* como o nome da fila e, em seguida, selecione **OK**.
 
    ![Criar fila](./media/webjobs-sdk-get-started/create-queue.png)
 
-1. Clique com o botão direito do mouse no nó da nova fila e selecione **Exibir fila**.
+1. Clique no nó direito para a nova fila e, em seguida, selecione **Ver Fila**.
 
-1. Selecione o ícone **Adicionar mensagem** .
+1. Selecione o ícone **adicionar mensagem.**
 
    ![Criar fila](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. Na caixa de diálogo **Adicionar mensagem** , insira *Olá, mundo!* como o **texto da mensagem**e selecione **OK**. Agora há uma mensagem na fila.
+1. No diálogo **Add Message,** *introduza Hello World!* como texto **de mensagem**, e depois selecione **OK**. Há agora uma mensagem na fila.
 
    ![Criar fila](./media/webjobs-sdk-get-started/hello-world-text.png)
 
 1. Execute novamente o projeto.
 
-   Como você usou o atributo `QueueTrigger` na função `ProcessQueueMessage`, o tempo de execução do SDK do WeJobs escuta mensagens da fila quando ela é iniciada. Ele encontra uma nova mensagem de fila na fila chamada *Queue* e chama a função.
+   Como usou o `QueueTrigger` atributo na função `ProcessQueueMessage`, o tempo de funcionamento do WeJobs SDK ouve mensagens de fila quando começa. Encontra uma nova mensagem de fila na fila chamada *fila* e chama a função.
 
-   Devido à [retirada exponencial da sondagem da fila](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), pode levar até 2 minutos para que o tempo de execução localize a mensagem e invoque a função. Esse tempo de espera pode ser reduzido com a execução no [modo de desenvolvimento](webjobs-sdk-how-to.md#host-development-settings).
+   Devido ao recuo exponencial das [sondagens,](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)pode levar até 2 minutos para o tempo de funcionamento encontrar a mensagem e invocar a função. Este tempo de espera pode ser reduzido funcionando no modo de [desenvolvimento](webjobs-sdk-how-to.md#host-development-settings).
 
-   A saída do console tem a seguinte aparência:
+   A saída da consola é assim:
 
    ```console
     info: Function.ProcessQueueMessage[0]
@@ -288,53 +288,53 @@ Nesta seção, você criará e executará o projeto localmente e disparará a fu
           Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=2c319369-d381-43f3-aedf-ff538a4209b8)
    ```
 
-1. Feche a janela do console. 
+1. Feche a janela da consola. 
 
-1. Volte para a janela da fila e atualize-a. A mensagem foi removida, pois foi processada pela função que está sendo executada localmente. 
+1. Volte para a janela da fila e refresque-a. A mensagem desapareceu, uma vez que foi processada pela sua função a funcionar localmente. 
 
-## <a name="add-application-insights-logging"></a>Adicionar log de Application Insights
+## <a name="add-application-insights-logging"></a>Adicionar registo de insights de aplicação
 
-Quando o projeto é executado no Azure, você não pode monitorar a execução da função exibindo a saída do console. A solução de monitoramento que recomendamos é [Application insights](../azure-monitor/app/app-insights-overview.md). Para obter mais informações, consulte [monitorar Azure Functions](../azure-functions/functions-monitoring.md).
+Quando o projeto funciona em Azure, não é possível monitorizar a execução da função visualizando a saída da consola. A solução de monitorização que recomendamos é [A Aplicação Insights](../azure-monitor/app/app-insights-overview.md). Para mais informações, consulte as [Funções Monitor Azure](../azure-functions/functions-monitoring.md).
 
-Nesta seção, você executa as seguintes tarefas para configurar o log de Application Insights antes de implantar no Azure:
+Nesta secção, você faz as seguintes tarefas para configurar a registo de Insights de Aplicação antes de se deslocar para o Azure:
 
-* Verifique se você tem um aplicativo do serviço de aplicativo e uma instância de Application Insights com a qual trabalhar.
-* Configure o aplicativo do serviço de aplicativo para usar a instância de Application Insights e a conta de armazenamento que você criou anteriormente.
-* Configure o projeto para fazer logon no Application Insights.
+* Certifique-se de que tem uma aplicação de Serviço de Aplicações e uma instância de Insights de Aplicação para trabalhar.
+* Configure a aplicação app Service para utilizar a instância Deinsights de Aplicação e a conta de armazenamento que criou anteriormente.
+* Configurar o projeto de login para Application Insights.
 
-### <a name="create-app-service-app-and-application-insights-instance"></a>Criar aplicativo do serviço de aplicativo e instância de Application Insights
+### <a name="create-app-service-app-and-application-insights-instance"></a>Criar app de serviço de aplicações e instância de Insights de Aplicação
 
-1. Se você ainda não tiver um aplicativo do serviço de aplicativo que possa usar, [crie um](app-service-web-get-started-dotnet-framework.md). Ao criar seu aplicativo, você também pode criar um recurso de Application Insights conectado. Quando você faz isso, o `APPINSIGHTS_INSTRUMENTATIONKEY` é definido para você em seu aplicativo.
+1. Se ainda não tem uma aplicação do App Service que pode usar, [crie uma](app-service-web-get-started-dotnet-framework.md). Ao criar a sua aplicação, também pode criar um recurso de Insights de Aplicação conectado. Quando o fizer, o `APPINSIGHTS_INSTRUMENTATIONKEY` está definido para si na sua aplicação.
 
-1. Se você ainda não tiver um recurso Application Insights que possa usar, [crie um](../azure-monitor/app/create-new-resource.md ). Defina o **tipo de aplicativo** como **geral**e ignore as seções a seguir para **copiar a chave de instrumentação**.
+1. Se ainda não tiver um recurso Application Insights que possa utilizar, [crie um](../azure-monitor/app/create-new-resource.md ). Definir **o tipo de aplicação** para **general,** e saltar as secções que seguem **Copiar a chave de instrumentação**.
 
-1. Se você já tiver um recurso Application Insights que deseja usar, [Copie a chave de instrumentação](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
+1. Se já tiver um recurso Application Insights que deseja utilizar, [copie a chave de instrumentação](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Configurar as definições da aplicação 
 
-1. Em **Gerenciador de servidores** no Visual Studio, expanda o nó **serviço de aplicativo** no **Azure**.
+1. No **Server Explorer** em Visual Studio, expanda o nó do Serviço de **Aplicações** sob **o Azure**.
 
-1. Expanda o grupo de recursos no qual seu aplicativo do serviço de aplicativo está e clique com o botão direito do mouse no aplicativo do serviço de aplicativo.
+1. Expanda o grupo de recursos em que a sua aplicação app Service está e, em seguida, clique na sua aplicação App Service.
 
-1. Selecione **exibir configurações**.
+1. Selecione **Definições de visualização**.
 
-1. Na caixa **cadeias de conexão** , adicione a seguinte entrada.
+1. Na caixa de cordas de **ligação,** adicione a seguinte entrada.
 
-   |Nome  |Cadeia de conexão  |Tipo de banco de dados|
+   |Nome  |conexão String  |Tipo de Base de Dados|
    |---------|---------|------|
-   |AzureWebJobsStorage | {a cadeia de conexão de armazenamento que você copiou anteriormente}|Personalizados|
+   |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizar|
 
-1. Se a caixa **configurações do aplicativo** não tiver uma chave de instrumentação Application insights, adicione aquela que você copiou anteriormente. (A chave de instrumentação pode já estar lá, dependendo de como você criou o aplicativo do serviço de aplicativo.)
+1. Se a caixa de Definições de **Aplicação** não tiver uma chave de instrumentação De Insights de Aplicação, adicione a que copiou anteriormente. (A chave de instrumentação pode já estar lá, dependendo da forma como criou a app App Service.)
 
    |Nome  |Valor  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {chave de instrumentação} |
 
-1. Substitua *{chave de instrumentação}* pela chave de instrumentação do Application insights recurso que você está usando.
+1. Substitua *a tecla {instrumentação}* com a chave de instrumentação do recurso Application Insights que está a utilizar.
 
 1. Selecione **Guardar**.
 
-1. Adicione a conexão de Application Insights ao projeto para que você possa executá-lo localmente. No arquivo *appSettings. JSON* , adicione um campo `APPINSIGHTS_INSTRUMENTATIONKEY`, como no exemplo a seguir:
+1. Adicione a ligação De Insights de Aplicação ao projeto para que possa executá-lo localmente. No ficheiro *appsettings.json,* adicione um campo `APPINSIGHTS_INSTRUMENTATIONKEY`, como no seguinte exemplo:
 
     ```json
     {
@@ -343,20 +343,20 @@ Nesta seção, você executa as seguintes tarefas para configurar o log de Appli
     }
     ```
 
-    Substitua *{chave de instrumentação}* pela chave de instrumentação do Application insights recurso que você está usando.
+    Substitua *a tecla {instrumentação}* com a chave de instrumentação do recurso Application Insights que está a utilizar.
 
 1. Guarde as alterações.
 
-### <a name="add-application-insights-logging-provider"></a>Adicionar Application Insights provedor de log
+### <a name="add-application-insights-logging-provider"></a>Adicionar fornecedor de registo de Insights de Aplicação
 
-Para aproveitar o log de [Application insights](../azure-monitor/app/app-insights-overview.md) , atualize seu código de registro para fazer o seguinte:
+Para tirar partido da registo de Informação sobre [a Aplicação](../azure-monitor/app/app-insights-overview.md) Insights, atualize o seu código de registo para fazer o seguinte:
 
-* Adicionar um provedor de log de Application Insights com [filtragem](webjobs-sdk-how-to.md#log-filtering)padrão; todas as informações e os logs de nível superior vão para o console e Application Insights quando você estiver executando localmente.
-* Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) em um bloco de `using` para garantir que a saída do log seja liberada quando o host for encerrado.
+* Adicione um fornecedor de registo de Insights de Aplicação com [filtragem](webjobs-sdk-how-to.md#log-filtering)por defeito; todas as informações e registos de alto nível vão para a consola e para os Insights de Aplicação quando estiveres a executar localmente.
+* Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) num bloco de `using` para garantir que a saída de registo é lavada quando o hospedeiro sair.
 
-1. Instale a última versão estável 3. x do pacote NuGet para o provedor de log de Application Insights: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
+1. Instale a mais recente versão estável 3.x do pacote NuGet para o fornecedor de registo de Insights de Aplicação: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 
-   Este é o comando do **console do Gerenciador de pacotes** para a versão 3.0.2:
+   Aqui está o comando de consola do Gestor de **Pacotes** para a versão 3.0.2:
 
    ```powershell
    Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version 3.0.2
@@ -393,66 +393,66 @@ Para aproveitar o log de [Application insights](../azure-monitor/app/app-insight
     }
     ```
 
-    Isso adiciona o provedor de Application Insights ao registro em log, usando a chave que você adicionou anteriormente às configurações do aplicativo.
+    Isto adiciona o fornecedor de Insights de Aplicação à exploração madeireira, utilizando a chave que adicionou anteriormente às definições da sua aplicação.
 
-## <a name="test-application-insights-logging"></a>Testar log de Application Insights
+## <a name="test-application-insights-logging"></a>Registo de insights de aplicação de teste
 
-Nesta seção, você executará novamente localmente para verificar se os dados de log agora vão Application Insights e também para o console.
+Nesta secção, corre novamente localmente para verificar se os dados de registo vão agora para a Aplicação Insights, bem como para a consola.
 
-1. Use **Gerenciador de servidores** no Visual Studio para criar uma mensagem da fila como você fez [anteriormente](#test-locally), exceto inserir *Hello app insights!* como o texto da mensagem.
+1. Use **server Explorer** no Estúdio Visual para criar uma mensagem de fila como fez [anteriormente](#test-locally), exceto insira Hello App *Insights!* como o texto da mensagem.
 
-1. Execute o projeto.
+1. Executar o projeto.
 
-   O SDK de trabalhos Web processa a mensagem da fila e você vê os logs na janela do console.
+   O WebJobs SDK processa a mensagem da fila e vê os registos na janela da consola.
 
-1. Feche a janela do console.
+1. Feche a janela da consola.
 
-1. Vá para a [portal do Azure](https://portal.azure.com/) para exibir o recurso de Application insights. Procure e selecione **Application insights**.
+1. Vá ao [portal Azure](https://portal.azure.com/) para ver o seu recurso Application Insights. Procure e selecione **Insights de Aplicação**.
 
-1. Escolha sua instância de Application Insights.
+1. Escolha a sua instância de Insights de Aplicação.
 
-1. Selecione **Pesquisar**.
+1. Selecione **Procurar**.
 
-   ![Selecionar pesquisa](./media/webjobs-sdk-get-started/select-search.png)
+   ![Selecione Pesquisar](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Se você não vir o *Hello app insights!* , selecione **Atualizar** periodicamente por vários minutos. (Os logs não aparecem imediatamente, pois leva algum tempo para que o cliente do Application Insights libere os logs que ele processa.)
+1. Se não vir as *Hello App Insights!* mensagem, selecione **Refresh** periodicamente durante vários minutos. (Os registos não aparecem imediatamente, porque demora algum tempo para o cliente da Application Insights descarregar os registos que processa.)
 
-   ![Logs em Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
+   ![Logs em Insights de Aplicação](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
-1. Feche a janela do console.
+1. Feche a janela da consola.
 
-## <a name="deploy-as-a-webjob"></a>Implantar no Azure
+## <a name="deploy-as-a-webjob"></a>Desdobre para Azure
 
-Durante a implantação, você cria uma instância do serviço de aplicativo para executar suas funções. Quando você publica um aplicativo de console do .NET Core no serviço de aplicativo no Azure, ele automaticamente é executado como um WebJob. Para saber mais sobre a publicação, consulte [desenvolver e implantar trabalhos Web usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
+Durante a implementação, cria uma instância de serviço de aplicações para executar as suas funções. Quando publica uma aplicação de consola .NET Core para o App Service em Azure, é executada automaticamente como Um WebJob. Para saber mais sobre a publicação, consulte [Desenvolver e implementar WebJobs usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 [!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
 
-## <a name="trigger-the-function-in-azure"></a>Disparar a função no Azure
+## <a name="trigger-the-function-in-azure"></a>Desencadear a função em Azure
 
-1. Verifique se você não está executando localmente (feche a janela do console se ela ainda estiver aberta). Caso contrário, a instância local pode ser a primeira a processar as mensagens da fila que você criar.
+1. Certifique-se de que não está a funcionar localmente (feche a janela da consola se ainda estiver aberta). Caso contrário, a instância local pode ser a primeira a processar quaisquer mensagens de fila que crie.
 
-1. Na página **fila** no Visual Studio, adicione uma mensagem à fila como antes.
+1. Na página de **fila** no Estúdio Visual, adicione uma mensagem à fila como antes.
 
-1. Atualize a página da **fila** e a nova mensagem desaparece porque ela foi processada pela função em execução no Azure.
+1. Refresque a página **de Fila** e a nova mensagem desaparece porque foi processada pela função em funcionamento em Azure.
 
    > [!TIP]
-   > Quando você está testando no Azure, use o [modo de desenvolvimento](webjobs-sdk-how-to.md#host-development-settings) para garantir que uma função de gatilho de fila seja invocada imediatamente e evite atrasos devido à [retirada exponencial da sondagem de fila](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
+   > Quando estiver a testar em Azure, utilize o modo de [desenvolvimento](webjobs-sdk-how-to.md#host-development-settings) para garantir que uma função de gatilho de fila seja invocada imediatamente e evite atrasos devido ao recuo exponencial das [sondagens](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)em fila .
 
-### <a name="view-logs-in-application-insights"></a>Exibir logs no Application Insights
+### <a name="view-logs-in-application-insights"></a>Ver registos em Insights de Aplicação
 
-1. Abra o [portal do Azure](https://portal.azure.com/)e vá para o recurso de Application insights.
+1. Abra o [portal Azure](https://portal.azure.com/)e vá ao seu recurso Application Insights.
 
-1. Selecione **Pesquisar**.
+1. Selecione **Procurar**.
 
-1. Se você não vir o *Hello Azure!* , selecione **Atualizar** periodicamente por vários minutos.
+1. Se não virem o *Hello Azure!* mensagem, selecione **Refresh** periodicamente durante vários minutos.
 
-   Você vê os logs da função em execução em um WebJob, incluindo o *Olá Azure!* texto que você inseriu na seção anterior.
+   Você vê os registos da função em execução num WebJob, incluindo o *Hello Azure!* texto que inseriu na secção anterior.
 
-## <a name="add-an-input-binding"></a>Adicionar uma associação de entrada
+## <a name="add-an-input-binding"></a>Adicione uma encadernação de entrada
 
-As associações de entrada simplificam o código que lê os dados. Para este exemplo, a mensagem da fila será um nome de BLOB e você usará o nome do blob para localizar e ler um blob no armazenamento do Azure.
+As encadernações de entrada simplificam o código que lê os dados. Para este exemplo, a mensagem de fila será um nome blob e você usará o nome blob para encontrar e ler uma bolha no Armazenamento Azure.
 
-1. No *functions.cs*, substitua o método `ProcessQueueMessage` pelo código a seguir:
+1. Em *Functions.cs,* substitua o método `ProcessQueueMessage` pelo seguinte código:
 
    ```cs
    public static void ProcessQueueMessage(
@@ -464,37 +464,37 @@ As associações de entrada simplificam o código que lê os dados. Para este ex
    }
    ```
 
-   Nesse código, `queueTrigger` é uma [expressão de associação](../azure-functions/functions-bindings-expressions-patterns.md), o que significa que ele é resolvido para um valor diferente em tempo de execução.  Em tempo de execução, ele tem o conteúdo da mensagem da fila.
+   Neste código, `queueTrigger` é uma [expressão vinculativa,](../azure-functions/functions-bindings-expressions-patterns.md)o que significa que se resolve a um valor diferente no prazo de funcionamento.  No tempo de funcionação, tem o conteúdo da mensagem de fila.
 
-1. Adicionar um `using`:
+1. Adicione um `using`:
 
    ```cs
    using System.IO;
    ```
 
-1. Crie um contêiner de BLOB em sua conta de armazenamento.
+1. Crie um recipiente de bolhas na sua conta de armazenamento.
 
-   a. Em **Gerenciador de servidores** no Visual Studio, expanda o nó da sua conta de armazenamento, clique com o botão direito do mouse em **BLOBs**e selecione **criar contêiner de blob**.
+   a. No **Server Explorer** no Estúdio Visual, expanda o nó para a sua conta de armazenamento, clique no clique direito **blobs,** e depois selecione **Create Blob Container**.
 
-   b. Na caixa de diálogo **criar contêiner de blob** , insira o *contêiner* como o nome do contêiner e clique em **OK**.
+   b. No diálogo do **recipiente Create Blob,** introduza o *recipiente* como nome do recipiente **e,** em seguida, clique OK .
 
-1. Carregue o arquivo *Program.cs* no contêiner de BLOB. (Este arquivo é usado aqui como exemplo; você pode carregar qualquer arquivo de texto e criar uma mensagem de fila com o nome do arquivo.)
+1. Faça o upload do ficheiro *Program.cs* para o recipiente de bolhas. (Este ficheiro é utilizado aqui como exemplo; pode carregar qualquer ficheiro de texto e criar uma mensagem de fila com o nome do ficheiro.)
 
-   a. Em **Gerenciador de servidores**, clique duas vezes no nó do contêiner que você criou.
+   a. No **Server Explorer,** clique duas vezes no nó para o recipiente que criou.
 
-   b. Na janela **contêiner** , selecione o botão **carregar** .
+   b. Na janela **do recipiente,** selecione o botão **upload.**
 
-   ![Botão de carregamento de BLOB](./media/webjobs-sdk-get-started/blob-upload-button.png)
+   ![Botão de upload blob](./media/webjobs-sdk-get-started/blob-upload-button.png)
 
-   c. Localize e selecione *Program.cs*e, em seguida, selecione **OK**.
+   c. Encontre e selecione *Program.cs*, e depois selecione **OK**.
 
-1. Crie uma mensagem de fila na fila que você criou anteriormente, com *Program.cs* como o texto da mensagem.
+1. Crie uma mensagem de fila na fila que criou anteriormente, com *Program.cs* como texto da mensagem.
 
-   ![Mensagem da fila Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
+   ![mensagem de fila Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-1. Execute o projeto localmente.
+1. Executar o projeto localmente.
 
-   A mensagem da fila dispara a função, que, em seguida, lê o blob e registra seu comprimento. A saída do console tem a seguinte aparência:
+   A mensagem de fila aciona a função, que depois lê a bolha e regista o seu comprimento. A saída da consola é assim:
 
    ```console
    Found the following functions:
@@ -508,7 +508,7 @@ As associações de entrada simplificam o código que lê os dados. Para este ex
 
 ## <a name="add-an-output-binding"></a>Adicionar um enlace de saída
 
-As associações de saída simplificam o código que grava dados. Este exemplo modifica o anterior, escrevendo uma cópia do blob em vez de registrar seu tamanho. As associações de armazenamento de BLOBs são incluídas no pacote de extensão de armazenamento do Azure que instalamos anteriormente.
+As encadernações de saída simplificam o código que escreve os dados. Este exemplo modifica o anterior escrevendo uma cópia da bolha em vez de registar o seu tamanho. As encadernações de armazenamento blob estão incluídas no pacote de extensão de armazenamento Azure que instalámos anteriormente.
 
 1. Substitua o método `ProcessQueueMessage` pelo código abaixo:
 
@@ -524,23 +524,23 @@ As associações de saída simplificam o código que grava dados. Este exemplo m
    }
    ```
 
-1. Crie outra mensagem de fila com *Program.cs* como o texto da mensagem.
+1. Crie outra mensagem de fila com *Program.cs* como texto da mensagem.
 
-1. Execute o projeto localmente.
+1. Executar o projeto localmente.
 
-   A mensagem da fila dispara a função, que, em seguida, lê o blob, registra seu comprimento e cria um novo BLOB. A saída do console é a mesma, mas quando você acessa a janela do contêiner de BLOB e seleciona **Atualizar**, você vê um novo blob chamado *Copy-Program.cs.*
+   A mensagem de fila aciona a função, que depois lê a bolha, regista o seu comprimento e cria uma nova bolha. A saída da consola é a mesma, mas quando se vai à janela do recipiente blob e seleciona **Refresh,** vê-se uma nova bolha chamada *copy-Program.cs.*
 
-## <a name="republish-the-updates-to-azure"></a>Republicar as atualizações no Azure
+## <a name="republish-the-updates-to-azure"></a>Republique as atualizações para o Azure
 
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
-1. Na caixa de diálogo **publicar** , verifique se o perfil atual está selecionado e escolha **publicar**. Os resultados da publicação são detalhados na janela **saída** .
+1. No diálogo **Publicar,** certifique-se de que o perfil atual é selecionado e, em seguida, escolha **Publicar**. Os resultados da publicação são detalhados na janela **Output.**
  
-1. Verifique a função no Azure novamente carregando um arquivo para o contêiner de BLOB e adicionando uma mensagem à fila que é o nome do arquivo carregado. Você vê a mensagem ser removida da fila e uma cópia do arquivo criado no contêiner de BLOB. 
+1. Verifique a função em Azure, enviando novamente um ficheiro para o recipiente blob e adicionando uma mensagem à fila que é o nome do ficheiro carregado. Vê a mensagem ser removida da fila e uma cópia do ficheiro criado no recipiente de bolhas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Este artigo mostrou como criar, executar e implantar um projeto webjobs SDK 3. x.
+Este artigo mostrou-lhe como criar, executar e implementar um projeto WebJobs SDK 3.x.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o SDK de trabalhos Web](webjobs-sdk-how-to.md)
+> [Saiba mais sobre o WebJobs SDK](webjobs-sdk-how-to.md)

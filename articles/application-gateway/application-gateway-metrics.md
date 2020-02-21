@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425261"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485187"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Gateway de Aplicação
 
@@ -22,7 +22,7 @@ Application Gateway publica pontos de dados, chamados métricas, para [o Monitor
 
 ### <a name="timing-metrics"></a>Métricas de tempo
 
-O Application Gateway fornece várias métricas de tempo incorporadas relacionadas com o pedido e resposta que são todas medidas em milissegundos. 
+Application Gateway fornece várias métricas de tempo incorporadas relacionadas com o pedido e resposta, que são todas medidas em milissegundos. 
 
 ![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
@@ -66,7 +66,7 @@ Por exemplo, Se houver um pico na tendência de tempo de *resposta backend prime
 
 Se notar um pico no tempo de resposta do *byte Backend,* mas o tempo de resposta do *byte backend é* estável, então pode ser deduzido que o pico é devido a um ficheiro maior sendo solicitado.
 
-Da mesma forma, se o tempo total do *gateway da Aplicação* tiver um pico mas o tempo de *resposta do backend é* estável, então pode ser um sinal de estrangulamento de desempenho no Gateway de Aplicação ou um estrangulamento na rede entre o cliente e o Application Gateway. Além disso, se o *cliente RTT* também tem um pico correspondente, então isso indica que a degradação se deve à rede entre cliente e Gateway de Aplicação.
+Da mesma forma, se o tempo total do *gateway da Aplicação* tiver um pico mas o tempo de *resposta do backend é* estável, então pode ser um sinal de estrangulamento de desempenho no Gateway de Aplicação ou um estrangulamento na rede entre o cliente e o Application Gateway. Além disso, se o *cliente RTT* também tem um pico correspondente, então indica que a degradação se deve à rede entre cliente e Gateway de Aplicação.
 
 ### <a name="application-gateway-metrics"></a>Métricas de Gateway de aplicação
 
@@ -86,7 +86,7 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 - **Unidades de capacidade atual**
 
-   Contagem de unidades de capacidade consumidas. As unidades de capacidade medem o custo baseado no consumo que é cobrado para além do custo fixo. Existem três determinantes para a unidade de capacidade - unidade de computação, ligações persistentes e entrada. Cada unidade de capacidade é composta no máximo por: 1 unidade de cálculo, ou 2500 ligações persistentes, ou 2,22 Mbps de potência.
+   Contagem de unidades de capacidade consumidas para carregar equilibram o tráfego. Existem três determinantes para a unidade de capacidade - unidade de computação, ligações persistentes e entrada. Cada unidade de capacidade é composta no máximo por: 1 unidade de cálculo, ou 2500 ligações persistentes, ou 2,22 Mbps de potência.
 
 - **Unidades de computação atuais**
 
@@ -98,13 +98,15 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
    
 - **Unidades estimadas de capacidade faturada**
 
-  Número de unidades de capacidade que utilizem as quais a faturação é estimada. Isto é calcutado como o maior valor entre *as unidades* de capacidade corrente e *as unidades de capacidade de faturação fixa.*  
+  Com o V2 SKU, o modelo de preços é impulsionado pelo consumo. As unidades de capacidade medem o custo baseado no consumo que é cobrado para além do custo fixo. *As unidades estimadas* de capacidade faturada indicam o número de unidades de capacidade que utilizam as quais a faturação é estimada. Isto é calculado como o maior valor entre *as unidades* de capacidade corrente (unidades de capacidade necessárias para carregar o equilíbrio do tráfego) e unidades de *capacidade de faturação fixa* (unidades de capacidade mínima mantidas).
 
 - **Pedidos Falhados**
 
-   Contagem de pedidos falhados que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
+  Contagem de pedidos falhados que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
    
-- **Unidades de Capacidade Facturaveta Fixa** O número mínimo de unidades de capacidade manteve-se aprovisionado de acordo com a definição de *unidades* de escala mínima na configuração do Gateway de Aplicação.
+- **Unidades de Capacidade Facturaveta Fixa**
+
+  O número mínimo de unidades de capacidade mantidas aprovisionadas de acordo com a definição de *unidades* de escala mínima (uma instância traduz-se em 10 unidades de capacidade) na configuração do Gateway de Aplicação.
    
  - **Novas ligações por segundo**
 
@@ -143,7 +145,9 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
   O número de backends que são determinados insalubres pela sonda de saúde. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões não saudáveis em uma piscina específica de backend.
   
-- **Pedidos por minuto por Anfitrião Saudável** O número médio de pedidos recebidos por cada membro saudável numa piscina de backend em um minuto. Deve especificar a piscina de backend utilizando a dimensão *BackendPool HttpSettings.*  
+- **Pedidos por minuto por Anfitrião Saudável**
+
+  O número médio de pedidos recebidos por cada membro saudável numa piscina de backend em um minuto. Deve especificar a piscina de backend utilizando a dimensão *BackendPool HttpSettings.*  
   
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métricas suportadas por Application Gateway V1 SKU
@@ -234,7 +238,7 @@ Para saber mais sobre notificações de alerta, consulte [Receber notificações
 
 Para saber mais sobre webhooks e como pode usá-los com alertas, visite [Configure um webhook em um alerta métrico Azure](../azure-monitor/platform/alerts-webhooks.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Visualizar os registos de contadores e eventos utilizando [registos do Monitor Azure](../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualize o seu log](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) de atividade do Azure com a publicação de blog Power BI.

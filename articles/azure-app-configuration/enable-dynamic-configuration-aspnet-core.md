@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: usar a configuração dinâmica de configuração de aplicativo no ASP.NET Core'
+title: 'Tutorial: Utilize a configuração dinâmica de configuração da configuração dinâmica da configuração da configuração da configuração da configuração da configuração ASP.NET da configuração'
 titleSuffix: Azure App Configuration
-description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração para aplicativos ASP.NET Core
+description: Neste tutorial, aprende-se a atualizar de forma dinâmica os dados de configuração para ASP.NET aplicações Core
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -15,30 +15,30 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 8032a9b206be4a5eb70a1f40fd33667a1dbdfaa7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3c461e543e3b01501ec47589a9eab3d74820491a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714725"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500236"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: usar a configuração dinâmica em um aplicativo ASP.NET Core
+# <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Use a configuração dinâmica numa aplicação ASP.NET Core
 
-ASP.NET Core tem um sistema de configuração conectável que pode ler dados de configuração de uma variedade de fontes. Ele pode lidar com alterações imediatamente sem causar a reinicialização de um aplicativo. ASP.NET Core dá suporte à associação de definições de configuração para classes .NET fortemente tipadas. Injeta-os no seu código utilizando os vários padrões de `IOptions<T>`. Um destes padrões, especificamente `IOptionsSnapshot<T>`, recarrega automaticamente a configuração da aplicação quando os dados subjacentes mudam. Pode injetar `IOptionsSnapshot<T>` em controladores na sua aplicação para aceder à configuração mais recente armazenada na Configuração de Aplicações Azure.
+ASP.NET Core tem um sistema de configuração pluggable que pode ler dados de configuração de várias fontes. Pode lidar com alterações no voo sem causar o reinício de uma aplicação. ASP.NET Core suporta a ligação das definições de configuração para classes .NET fortemente digitadas. Injeta-os no seu código utilizando os vários padrões de `IOptions<T>`. Um destes padrões, especificamente `IOptionsSnapshot<T>`, recarrega automaticamente a configuração da aplicação quando os dados subjacentes mudam. Pode injetar `IOptionsSnapshot<T>` em controladores na sua aplicação para aceder à configuração mais recente armazenada na Configuração de Aplicações Azure.
 
-Você também pode configurar a biblioteca de cliente de configuração de aplicativo ASP.NET Core para atualizar um conjunto de definições de configuração dinamicamente usando um middleware. Desde que o aplicativo Web continue a receber solicitações, as definições de configuração continuarão a ser atualizadas com o repositório de configurações.
+Também pode configurar a configuração da aplicação ASP.NET biblioteca de clientes Core para refrescar um conjunto de configurações de configuração dinamicamente usando um middleware. Enquanto a aplicação da web continuar a receber pedidos, as definições de configuração continuam a ser atualizadas com a loja de configuração.
 
-Para manter as configurações atualizadas e evitar muitas chamadas para o repositório de configuração, um cache é usado para cada configuração. Até que o valor em cache de uma configuração tenha expirado, a operação de atualização não atualizará o valor, mesmo quando o valor tiver sido alterado no repositório de configuração. O tempo de expiração padrão para cada solicitação é de 30 segundos, mas pode ser substituído se necessário.
+Para manter as definições atualizadas e evitar demasiadas chamadas para a loja de configuração, é utilizada uma cache para cada definição. Até que o valor cached de uma definição tenha expirado, a operação de atualização não atualiza o valor, mesmo quando o valor mudou na loja de configuração. O tempo de validade padrão para cada pedido é de 30 segundos, mas pode ser ultrapassado se necessário.
 
-Este tutorial mostra como você pode implementar atualizações de configuração dinâmicas em seu código. Ele se baseia no aplicativo Web introduzido nos guias de início rápido. Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuração](./quickstart-aspnet-core-app.md) de aplicações primeiro.
+Este tutorial mostra como pode implementar atualizações dinâmicas de configuração no seu código. Baseia-se na aplicação web introduzida nos quickstarts. Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuração](./quickstart-aspnet-core-app.md) de aplicações primeiro.
 
-Você pode usar qualquer editor de código para executar as etapas neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção que está disponível nas plataformas Windows, macOS e Linux.
+Pode usar qualquer editor de código para fazer os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção que está disponível nas plataformas Windows, macOS e Linux.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configure seu aplicativo para atualizar sua configuração em resposta a alterações em um repositório de configuração de aplicativo.
-> * Insira a configuração mais recente nos controladores do aplicativo.
+> * Configura riste a sua aplicação para atualizar a sua configuração em resposta a alterações numa loja de Configuração de Aplicações.
+> * Injete a configuração mais recente nos controladores da sua aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,17 +48,17 @@ Para fazer este tutorial, instale o [.NET Core SDK](https://dotnet.microsoft.com
 
 Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuração](./quickstart-aspnet-core-app.md) de aplicações primeiro.
 
-## <a name="reload-data-from-app-configuration"></a>Recarregar dados da configuração do aplicativo
+## <a name="reload-data-from-app-configuration"></a>Recarregar dados da configuração da app
 
 1. Adicione uma referência ao pacote nuGet `Microsoft.Azure.AppConfiguration.AspNetCore` executando o seguinte comando:
 
     ```CLI
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
 1. Abra *Program.cs*e atualize o método `CreateWebHostBuilder` para adicionar o método `config.AddAzureAppConfiguration()`.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -81,7 +81,7 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -105,7 +105,7 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
     ```
     ---
 
-    O método `ConfigureRefresh` é utilizado para especificar as definições utilizadas para atualizar os dados de configuração com a loja de configuração da aplicação quando é acionada uma operação de atualização. Para realmente disparar uma operação de atualização, um middleware de atualização precisa ser configurado para que o aplicativo atualize os dados de configuração quando ocorre alguma alteração.
+    O método `ConfigureRefresh` é utilizado para especificar as definições utilizadas para atualizar os dados de configuração com a loja de configuração da aplicação quando é acionada uma operação de atualização. Para realmente desencadear uma operação de atualização, é necessário configurar um meio-termo atualizado para a aplicação atualizar os dados de configuração quando ocorrer qualquer alteração.
 
 2. Adicione um ficheiro *Settings.cs* que define e implementa uma nova classe `Settings`.
 
@@ -124,7 +124,7 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
 
 3. Abra *Startup.cs*e utilize `IServiceCollection.Configure<T>` no método `ConfigureServices` para ligar os dados de configuração à classe `Settings`.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -134,7 +134,7 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
     }
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -148,7 +148,7 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
 4. Atualize o método `Configure`, adicionando o `UseAzureAppConfiguration` middleware para permitir que as configurações de configuração registadas para a atualização sejam atualizadas enquanto a aplicação web ASP.NET Core continua a receber pedidos.
 
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -165,7 +165,7 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
     }
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -202,12 +202,12 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
     ```
     ---
     
-    O middleware utiliza a configuração de atualização especificada no método `AddAzureAppConfiguration` em `Program.cs` para desencadear uma atualização para cada pedido recebido pela aplicação web ASP.NET Core. Para cada solicitação, uma operação de atualização é disparada e a biblioteca de cliente verifica se o valor em cache para as definições de configuração registradas expirou. Para os valores armazenados em cache que expiraram, os valores para as configurações são atualizados com o repositório de configuração de aplicativo e os valores restantes permanecem inalterados.
+    O middleware utiliza a configuração de atualização especificada no método `AddAzureAppConfiguration` em `Program.cs` para desencadear uma atualização para cada pedido recebido pela aplicação web ASP.NET Core. Para cada pedido, é desencadeada uma operação de atualização e a biblioteca do cliente verifica se o valor em cache para as configurações de configuração registada supram. Para os valores em cache que tenham expirado, os valores das definições são atualizados com a loja de Configuração de Aplicações, e os valores restantes permanecem inalterados.
     
     > [!NOTE]
     > O tempo de validade da cache padrão para uma definição de configuração é de 30 segundos, mas pode ser ultrapassado chamando o método `SetCacheExpiration` sobre as opções inicializador espávida como um argumento para o método `ConfigureRefresh`.
 
-## <a name="use-the-latest-configuration-data"></a>Usar os dados de configuração mais recentes
+## <a name="use-the-latest-configuration-data"></a>Utilize os dados mais recentes da configuração
 
 1. Abra *HomeController.cs* no diretório de Controladores e adicione uma referência ao pacote `Microsoft.Extensions.Options`.
 
@@ -217,7 +217,7 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
 
 2. Atualize a classe `HomeController` para receber `Settings` através da injeção de dependência, e faça uso dos seus valores.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public class HomeController : Controller
@@ -240,7 +240,7 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
     }
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public class HomeController : Controller
@@ -294,44 +294,44 @@ Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuraç�
     </html>
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
+## <a name="build-and-run-the-app-locally"></a>Construir e executar a app localmente
 
-1. Para compilar o aplicativo usando o CLI do .NET Core, execute o seguinte comando no Shell de comando:
+1. Para construir a aplicação utilizando o CLI .NET Core, execute o seguinte comando na concha de comando:
 
         dotnet build
 
-2. Depois que a compilação for concluída com êxito, execute o seguinte comando para executar o aplicativo Web localmente:
+2. Depois de a construção concluída com sucesso, execute o seguinte comando para executar a aplicação web localmente:
 
         dotnet run
 
 3. Abra uma janela do navegador e vá para `http://localhost:5000`, que é o URL padrão para a aplicação web hospedada localmente.
 
-    ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/aspnet-core-app-launch-local-before.png)
+    ![Lançamento de app Quickstart local](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+4. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 5. Selecione O Explorador de **Configuração**e atualize os valores das seguintes teclas:
 
     | Chave | Valor |
     |---|---|
-    | TestApp:Settings:BackgroundColor | verde |
-    | TestApp:Settings:FontColor | lightGray |
-    | TestApp: configurações: mensagem | Dados da configuração do Azure App – agora com atualizações dinâmicas! |
+    | TestApp:Settings:BackgroundColor | green |
+    | TestApp:Settings:FontColor | luzGray |
+    | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure - agora com atualizações ao vivo! |
 
-6. Atualize a página do navegador para ver as novas definições de configuração. Mais de uma atualização da página do navegador pode ser necessária para que as alterações sejam refletidas.
+6. Refresque a página do navegador para ver as novas configurações de configuração. Mais de uma atualização da página do navegador pode ser necessária para que as alterações sejam refletidas.
 
-    ![Local de atualização do aplicativo de início rápido](./media/quickstarts/aspnet-core-app-launch-local-after.png)
+    ![App Quickstart refrescar local](./media/quickstarts/aspnet-core-app-launch-local-after.png)
     
     > [!NOTE]
-    > Como as definições de configuração são armazenadas em cache com um tempo de expiração padrão de 30 segundos, todas as alterações feitas nas configurações no repositório de configuração de aplicativo só serão refletidas no aplicativo Web quando o cache tiver expirado.
+    > Uma vez que as definições de configuração são colocadas em cache com um tempo de validade padrão de 30 segundos, quaisquer alterações feitas nas definições na loja de configuração da aplicação só seriam refletidas na aplicação web quando a cache expirasse.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você habilitou seu aplicativo Web ASP.NET Core para atualizar dinamicamente as definições de configuração da configuração do aplicativo. Para saber como usar uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo, prossiga para o próximo tutorial.
+Neste tutorial, permitiu que o seu ASP.NET aplicação web Core adote as configurações de configuração de forma dinâmica a partir da Configuração da App. Para aprender a usar uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

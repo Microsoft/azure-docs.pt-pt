@@ -1,6 +1,6 @@
 ---
-title: Gerenciar dados do usuário no Azure Active Directory B2C | Microsoft Docs
-description: Saiba como excluir ou exportar dados do usuário no Azure AD B2C.
+title: Gerir os dados dos utilizadores no Diretório Ativo Azure B2C  Microsoft Docs
+description: Saiba como eliminar ou exportar dados de utilizadores em Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,56 +11,52 @@ ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 78726620db119abf617be8a30cf03697b04e382b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 4f79fe2219ee16430c83feab727c034bd7ab4041
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064071"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482212"
 ---
-# <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerenciar dados do usuário no Azure Active Directory B2C
+# <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerir os dados dos utilizadores no Diretório Ativo Azure B2C
 
- Este artigo discute como você pode gerenciar os dados do usuário em Azure Active Directory B2C (Azure AD B2C) usando as operações fornecidas pelo [API do Graph de Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog). O gerenciamento de dados do usuário inclui a exclusão ou a exportação de dados de logs de auditoria.
+ Este artigo discute como pode gerir os dados dos utilizadores no Azure Ative Directory B2C (Azure AD B2C) utilizando as operações fornecidas pela [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api). A gestão dos dados dos utilizadores inclui a desposição ou a exportação de dados a partir de registos de auditoria.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="delete-user-data"></a>Excluir dados do usuário
+## <a name="delete-user-data"></a>Eliminar dados dos utilizadores
 
-Os dados do usuário são armazenados no diretório Azure AD B2C e nos logs de auditoria. Todos os dados de auditoria de usuário são mantidos por 7 dias em Azure AD B2C. Se você quiser excluir os dados do usuário dentro desse período de 7 dias, poderá usar a operação [excluir um usuário](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) . Uma operação de exclusão é necessária para cada um dos locatários Azure AD B2C onde os dados podem residir.
+Os dados dos utilizadores são armazenados no diretório Azure AD B2C e nos registos de auditoria. Todos os dados de auditoria dos utilizadores são conservados durante 7 dias no Azure AD B2C. Se pretender eliminar os dados do utilizador dentro desse período de 7 dias, pode utilizar a operação eliminar uma operação do [utilizador.](https://docs.microsoft.com/graph/api/user-delete) É necessária uma operação DELETE para cada um dos inquilinos Do Azure AD B2C onde os dados possam residir.
 
-Cada usuário no Azure AD B2C é atribuído a uma ID de objeto. A ID de objeto fornece um identificador não ambíguo para você usar para excluir dados do usuário em Azure AD B2C. Dependendo de sua arquitetura, a ID de objeto pode ser um identificador de correlação útil entre outros serviços, como bancos de dados de gerenciamento de relacionamento financeiro, de marketing e de clientes.
+A cada utilizador do Azure AD B2C é atribuído um ID de objeto. O ID do objeto fornece um identificador inequívoco para que possa utilizar para eliminar os dados do utilizador no Azure AD B2C. Dependendo da sua arquitetura, o ID do objeto pode ser um identificador de correlação útil em outros serviços, tais como bases de dados de gestão de relacionamento financeiro, marketing e relacionamento com o cliente.
 
-A maneira mais precisa de obter a ID de objeto para um usuário é obtê-lo como parte de uma jornada de autenticação com Azure AD B2C. Se você receber uma solicitação válida de dados de um usuário usando outros métodos, um processo offline, como uma pesquisa por um agente de suporte do atendimento ao cliente, poderá ser necessário para localizar o usuário e anotar a ID do objeto associado.
+A forma mais precisa de obter o ID do objeto para um utilizador é obtê-lo como parte de uma viagem de autenticação com O Azure AD B2C. Se receber um pedido válido de dados de um utilizador utilizando outros métodos, um processo offline, como uma pesquisa por um agente de suporte ao serviço do cliente, pode ser necessário para encontrar o utilizador e observar o ID do objeto associado.
 
-O exemplo a seguir mostra um possível fluxo de exclusão de dados:
+O exemplo que se segue mostra um possível fluxo de eliminação de dados:
 
-1. O usuário entra e seleciona **Excluir meus dados**.
-2. O aplicativo oferece uma opção para excluir os dados em uma seção de administração do aplicativo.
-3. O aplicativo força uma autenticação a Azure AD B2C. Azure AD B2C fornece um token com a ID de objeto do usuário de volta para o aplicativo.
-4. O token é recebido pelo aplicativo e a ID do objeto é usada para excluir os dados do usuário por meio de uma chamada para o API do Graph do Azure AD. O API do Graph do Azure AD exclui os dados do usuário e retorna um código de status de 200 OK.
-5. O aplicativo orquestra a exclusão de dados do usuário em outros sistemas organizacionais, conforme necessário, usando a ID de objeto ou outros identificadores.
-6. O aplicativo confirma a exclusão de dados e fornece as próximas etapas para o usuário.
+1. O utilizador entra e seleciona **Apagar os meus dados**.
+2. A aplicação oferece uma opção para apagar os dados dentro de uma secção de administração da aplicação.
+3. A aplicação obriga a uma autenticação ao Azure AD B2C. O Azure AD B2C fornece um símbolo com o ID do objeto do utilizador de volta à aplicação.
+4. O símbolo é recebido pela aplicação e o ID do objeto é usado para eliminar os dados do utilizador através de uma chamada para o Microsoft Graph API. O Microsoft Graph API elimina os dados do utilizador e devolve um código de estado de 200 OK.
+5. A aplicação orquestra a eliminação de dados dos utilizadores noutros sistemas organizacionais, conforme necessário, utilizando o ID do objeto ou outros identificadores.
+6. A aplicação confirma a eliminação de dados e fornece os próximos passos ao utilizador.
 
-## <a name="export-customer-data"></a>Exportar dados do cliente
+## <a name="export-customer-data"></a>Exportar dados dos clientes
 
-O processo de exportação de dados do cliente do Azure AD B2C é semelhante ao processo de exclusão.
+O processo de exportação de dados de clientes do Azure AD B2C é semelhante ao processo de eliminação.
 
-Azure AD B2C dados do usuário são limitados a:
+Os dados dos utilizadores do Azure AD B2C limitam-se a:
 
-- **Dados armazenados no Azure Active Directory**: Você pode recuperar dados em um percurso de usuário de autenticação de Azure AD B2C usando a ID de objeto ou qualquer nome de entrada, como um endereço de email ou de nome de usuário.
-- **Relatório de eventos de auditoria específicos do usuário**: Você pode indexar dados usando a ID de objeto.
+- **Dados armazenados no Diretório Ativo Do Azure**: Pode recuperar dados numa viagem de utilizador de autenticação Azure AD B2C utilizando o ID do objeto ou qualquer nome de entrada, como um endereço de e-mail ou nome de utilizador.
+- **Relatório de eventos de auditoria específicos**do utilizador : Pode indexar dados utilizando o ID do objeto.
 
-No exemplo a seguir de um fluxo de dados de exportação, as etapas descritas como sendo executadas pelo aplicativo também podem ser executadas por um processo de back-end ou um usuário com uma função de administrador no diretório:
+No exemplo seguinte de um fluxo de dados de exportação, as etapas descritas como sendo executadas pela aplicação também podem ser executadas por um processo de backend ou um utilizador com uma função de administrador no diretório:
 
-1. O usuário entra no aplicativo. Azure AD B2C impõe a autenticação com a autenticação multifator do Azure, se necessário.
-2. O aplicativo usa as credenciais do usuário para chamar uma operação de API do Graph do Azure AD para recuperar os atributos de usuário. O API do Graph do Azure AD fornece os dados de atributo no formato JSON. Dependendo do esquema, você pode definir o conteúdo do token de ID para incluir todos os dados pessoais de um usuário.
-3. O aplicativo recupera a atividade de auditoria do usuário. O API do Graph do Azure AD fornece os dados de evento para o aplicativo.
-4. O aplicativo agrega os dados e os disponibiliza para o usuário.
+1. O utilizador insere-se na aplicação. O Azure AD B2C impõe a autenticação com a autenticação azure multi-factor, se necessário.
+2. A aplicação utiliza as credenciais do utilizador para ligar para uma operação Microsoft Graph API para recuperar os atributos do utilizador. O Microsoft Graph API fornece os dados de atributos no formato JSON. Dependendo do esquema, pode definir o conteúdo do token ID para incluir todos os dados pessoais sobre um utilizador.
+3. A aplicação recupera a atividade de auditoria do utilizador. A Microsoft Graph API fornece os dados do evento à aplicação.
+4. A aplicação agrega os dados e disponibiliza-os ao utilizador.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber como gerenciar como os usuários acessam seu aplicativo, consulte [gerenciar o acesso do usuário](manage-user-access.md).
-
-
-
-
+Para saber como gerir a forma como os utilizadores acedem à sua aplicação, consulte [Gerir o acesso ao utilizador.](manage-user-access.md)
