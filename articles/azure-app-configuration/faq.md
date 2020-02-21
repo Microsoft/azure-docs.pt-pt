@@ -1,31 +1,26 @@
 ---
-title: Configuração de aplicativos azure FAQ  Microsoft Docs
+title: FAQ de configuração de aplicativo sinuoso
 description: Perguntas frequentes sobre configuração de aplicações do Azure
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 4bcd8f042563fa381832fd629061a822f71e844a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467594"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523497"
 ---
 # <a name="azure-app-configuration-faq"></a>FAQ de configuração de aplicativo sinuoso
 
-Este artigo aborda frequentemente perguntas sobre a Configuração da App Azure.
+Este artigo responde frequentemente a perguntas sobre a Configuração de Aplicações Azure.
 
 ## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>Como é que a configuração da aplicação é diferente do Cofre de Chaves Azure?
 
-A Configuração de Aplicações foi concebida para um conjunto distinto de casos de utilização: ajuda os desenvolvedores a gerir as definições de aplicações e a controlar a disponibilidade de funcionalidades. Tem como objetivo simplificar muitas das tarefas de trabalhar com dados de configuração complexos.
+A Configuração de Aplicações ajuda os desenvolvedores a gerir as definições de aplicações e a controlar a disponibilidade de funcionalidades. Tem como objetivo simplificar muitas das tarefas de trabalhar com dados de configuração complexos.
 
 Suportes de configuração de aplicações:
 
@@ -36,7 +31,7 @@ Suportes de configuração de aplicações:
 - Operações de gestão especializadas
 - Uma interface de utilizador de gestão de funcionalidades
 
-A configuração da aplicação é complementar ao Key Vault, e os dois devem ser usados lado a lado na maioria das implementações de aplicações.
+A configuração da aplicação complementa o Cofre chave, e os dois devem ser usados lado a lado na maioria das implementações de aplicações.
 
 ## <a name="should-i-store-secrets-in-app-configuration"></a>Devo guardar segredos na Configuração de Aplicações?
 
@@ -62,7 +57,7 @@ Há um limite de 10 KB para um único item de valor-chave.
 
 ## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Como devo armazenar configurações para múltiplos ambientes (teste, encenação, produção, e assim por diante)?
 
-Atualmente controla quem pode aceder à Configuração de Aplicações a um nível por loja. Utilize uma loja separada para cada ambiente que exija permissões diferentes. Esta abordagem dá-lhe o melhor isolamento de segurança.
+Controla quem pode aceder à Configuração de Aplicações a um nível por loja. Utilize uma loja separada para cada ambiente que exija permissões diferentes. Esta abordagem proporciona o melhor isolamento de segurança.
 
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quais são as formas recomendadas de usar a Configuração de Aplicações?
 
@@ -70,9 +65,14 @@ Ver [as melhores práticas.](./howto-best-practices.md)
 
 ## <a name="how-much-does-app-configuration-cost"></a>Quanto custa a Configuração de Aplicações?
 
-Existem dois níveis de preços: 1) um nível livre, e 2) um nível padrão.
+Existem dois níveis de preços: 
 
-Se criou uma loja antes da introdução do nível Standard, passou automaticamente para o nível Livre mediante disponibilidade geral. Pode optar por fazer upgrade para o nível Standard, ou permanecer no nível Livre se satisfizer as suas necessidades.
+- Nível livre
+- Nível padrão.
+
+Se criou uma loja antes da introdução do nível Standard, passou automaticamente para o nível Livre mediante disponibilidade geral. Pode optar por fazer upgrade para o nível Standard ou permanecer no nível Livre.
+
+Não se pode desvalorizar uma loja do nível Standard para o nível Livre. Pode criar uma nova loja no free tier e, em seguida, importar dados de configuração para essa loja.
 
 ## <a name="which-app-configuration-tier-should-i-use"></a>Que nível de configuração de aplicativos devo usar?
 

@@ -3,39 +3,39 @@ title: Usar ações do GitHub com a sincronização de configuração do Azure A
 description: Usar ações do GitHub para disparar uma atualização para sua instância de configuração de aplicativo quando as ações definidas forem executadas em um repositório GitHub
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: ce8d42ec7c37b19378b6f4ae0c81548f2eff5c9c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 9d60f1885a85fd7d45090f1cb4905a3d95d9d1d6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190386"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523718"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronize a sua instância do App Configuration com o GitHub Actions
-Azure App configuração usa ações do GitHub para atualizar uma instância de configuração de aplicativo quando disparada por uma ação executada em um repositório GitHub. Você pode aproveitar os fluxos de trabalho do GitHub para atualizar a configuração do aplicativo, permitindo a integração das atualizações de configuração do aplicativo no mesmo fluxo de trabalho usado para atualizar o código do aplicativo.
+A Configuração de Aplicações Azure utiliza as Ações GitHub para desencadear atualizações para uma instância de Configuração de Aplicações baseada em ações realizadas num repositório GitHub. Os fluxos de trabalho gitHub desencadeiam atualizações de configuração, permitindo a integração dessas atualizações no mesmo fluxo de trabalho utilizado para atualizar o código da aplicação.
 
-Um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) gitHub Actions é um processo automatizado definido no seu repositório GitHub. Esse processo informa ao GitHub como criar e implantar seu projeto do GitHub. A Configuração da Aplicação Azure fornece a Ação de Sincronização de Configuração de *Aplicações Azure* para permitir atualizações para uma instância de configuração de aplicações quando são feitas alterações no repositório de origem. 
+Um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) gitHub Actions define um processo automatizado num repositório GitHub. Esse processo informa ao GitHub como criar e implantar seu projeto do GitHub. A Configuração da Aplicação Azure fornece a Ação de Sincronização de Configuração de *Aplicações Azure* para permitir atualizações para uma instância de configuração de aplicações quando são feitas alterações no repositório de origem. 
 
-Um fluxo de trabalho é definido por um ficheiro YAML (.yml) encontrado no caminho `/.github/workflows/` do seu repositório. Essa definição contém as várias etapas e parâmetros que definem o fluxo de trabalho.
+Um ficheiro YAML (.yml) encontrado no caminho `/.github/workflows/` do seu repositório define o seu fluxo de trabalho. Esta definição contém os passos e parâmetros do fluxo de trabalho.
 
-Os eventos do GitHub, como um envio por push para um repositório, podem disparar um fluxo de trabalho de ação do GitHub.  O Azure fornece a ação De sincronização de configuração de *aplicações do Azure* para permitir-lhe desencadear uma atualização de uma instância de configuração de aplicações quando ocorre uma ação específica do GitHub. Isso permite que as equipes aproveitem os principais recursos do GitHub ao enviar, revisar ou ramificar arquivos de configuração de aplicativo da mesma forma que no código do aplicativo.
+Os eventos do GitHub, como um envio por push para um repositório, podem disparar um fluxo de trabalho de ação do GitHub.  A ação De sincronização de configuração de *aplicações Azure* permite-lhe desencadear uma atualização de uma instância de configuração de aplicações quando ocorre uma ação específica do GitHub. Pode ativar atualizações de configuração ao premir, rever ou ramificar ficheiros de configuração de aplicações, tal como faz com o código da aplicação.
 
 A [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) gitHub proporciona uma visão aprofundada dos fluxos e ações de trabalho do GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Habilitar ações do GitHub em seu repositório
-Para começar a usar esta ação GitHub, vá ao seu repositório e selecione o separador **Ações.** Clique em "Novo fluxo de trabalho" e, em seguida, "Instale um fluxo de trabalho por si mesmo". A partir daí, procure no mercado "Azure App Configuration Sync".
+Para começar a utilizar esta ação GitHub, vá ao seu repositório e selecione o separador **Ações.** Clique em **Novo fluxo**de trabalho e, em seguida, instale um fluxo de trabalho **por si mesmo**. Finalmente, procure no mercado "Azure App Configuration Sync".
 > [!div class="mx-imgBorder"]
 > ![Selecione o separador Action](media/find-github-action.png)
 
 > [!div class="mx-imgBorder"]
-> ![Selecione a configuração da aplicação syn Action](media/app-configuration-sync-action.png)
+> ![Selecione a configuração da aplicação Sync Action](media/app-configuration-sync-action.png)
 
 ## <a name="sync-configuration-files-after-a-push"></a>Sincronizar arquivos de configuração após um envio por push
-Esta ação sincroniza ficheiros de configuração de aplicações do Azure quando uma alteração é empurrada para `appsettings.json`. Quando um desenvolvedor faz e empurra uma mudança para `appsettings.json`, a ação de Configuração de Aplicações Atualiza a instância de Configuração da Aplicação com os novos valores.
+Esta ação sincroniza ficheiros de configuração de aplicações do Azure quando uma alteração é empurrada para `appsettings.json`. Quando um desenvolvedor empurra uma mudança para `appsettings.json`, a ação de Configuração de Aplicações atualiza a instância de Configuração da Aplicação com os novos valores.
 
-A primeira secção deste fluxo de trabalho especifica que a ação dispara *num* *impulso* contendo `appsettings.json` ao ramo *principal.* A segunda seção lista os trabalhos executados quando a ação é disparada. A ação verifica os arquivos relevantes e atualiza a instância de configuração do aplicativo usando a cadeia de conexão armazenada como um segredo no repositório.  Para mais informações sobre o uso de segredos em Github, consulte [este artigo](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre a criação e utilização de segredos encriptados.
+A primeira secção deste fluxo de trabalho especifica que a ação dispara *num* *impulso* contendo `appsettings.json` ao ramo *principal.* A segunda seção lista os trabalhos executados quando a ação é disparada. A ação verifica os arquivos relevantes e atualiza a instância de configuração do aplicativo usando a cadeia de conexão armazenada como um segredo no repositório.  Para obter mais informações sobre o uso de segredos no GitHub, consulte o [artigo do GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre a criação e utilização de segredos encriptados.
 
 ```json
 on: 
@@ -62,9 +62,9 @@ jobs:
 ```
 
 ## <a name="use-a-dynamic-label-on-sync"></a>Usar um rótulo dinâmico na sincronização
-A ação anterior simplesmente atualizou a instância de configuração da aplicação sempre que `appsettings.json` é atualizada. Essa ação insere um rótulo dinâmico em cada sincronização, garantindo que cada sincronização possa ser identificada exclusivamente.  Isso permite que as alterações de código sejam mapeadas rapidamente para alterações de configuração.
+A ação anterior atualiza a instância de Configuração da Aplicação sempre que `appsettings.json` é atualizada. Esta ação insere um rótulo dinâmico em cada sincronização, garantindo que cada sincronia pode ser identificada de forma única e permitindo que alterações de código sejam mapeadas para alterações de config.
 
-A primeira secção deste fluxo de trabalho especifica que a ação dispara *num* *impulso* contendo `appsettings.json` ao ramo *principal.* A segunda seção executa um trabalho que cria um rótulo exclusivo para a atualização de configuração com base no hash de confirmação. Em seguida, o trabalho atualiza a instância de configuração do aplicativo com os novos valores e o rótulo exclusivo para essa atualização.
+A primeira secção deste fluxo de trabalho especifica que a ação dispara *num* *impulso* contendo `appsettings.json` ao ramo *principal.* A segunda secção executa um trabalho que cria uma etiqueta única para a atualização de config com base no hash de compromisso. Em seguida, o trabalho atualiza a instância de configuração do aplicativo com os novos valores e o rótulo exclusivo para essa atualização.
 
 ```json
 on: 
@@ -96,9 +96,9 @@ jobs:
 ```
 
 ## <a name="use-strict-sync"></a>Usar a sincronização estrita
-Quando o modo estrito está habilitado, a sincronização garante que a instância de configuração do aplicativo corresponda ao arquivo de configuração para o prefixo e rótulo fornecidos exatamente. Pares de chave-valor com o mesmo prefixo e rótulo que não estão no arquivo de configuração são excluídos. 
+Quando o modo estrito está habilitado, a sincronização garante que a instância de configuração do aplicativo corresponda ao arquivo de configuração para o prefixo e rótulo fornecidos exatamente. Os pares de valor-chave com o mesmo prefixo e etiqueta que não estão no ficheiro de configuração são eliminados. 
  
-Se o modo estrito não estiver habilitado, a sincronização definirá somente valores de chave do arquivo de configuração. Nenhum par chave-valor será excluído. 
+Se o modo rígido não estiver ativado, o sync apenas definirá os valores-chave do ficheiro de configuração. Nenhum par chave-valor será excluído. 
 
 ```json
 on: 
@@ -143,6 +143,7 @@ O comportamento padrão para atributos JSON aninhados é mesclar o objeto inteir
     }
 }
 ```
+
 Se o objeto aninhado se destina restar ao valor empurrado para a instância de Configuração, pode utilizar o valor de *profundidade* para parar o achatamento na profundidade adequada. 
 
 ```json
@@ -170,7 +171,7 @@ jobs:
           depth: 2 
 ```
 
-Dada uma profundidade de 2, o exemplo acima agora retorna o seguinte par de chave: valor:
+Dada uma profundidade de 2, o exemplo acima devolve agora o seguinte par de valor-chave:
 
 | Chave | Valor |
 | --- | --- |
@@ -185,7 +186,7 @@ Os parâmetros de entrada especificam os dados usados pela ação durante o temp
 
 | Nome de entrada | Necessário? | Valor |
 |----|----|----|
-| configurationFile | Sim | Caminho para o arquivo de configuração no repositório, em relação à raiz do repositório.  Os padrões glob têm suporte e podem incluir vários arquivos. |
+| configurationFile | Sim | Caminho relativo para o ficheiro de configuração no repositório.  Os padrões glob têm suporte e podem incluir vários arquivos. |
 | format | Sim | Formato de arquivo do arquivo de configuração.  Os formatos válidos são: JSON, YAML, Properties. |
 | connectionString | Sim | Cadeia de conexão para a instância de configuração do aplicativo. A cadeia de conexão deve ser armazenada como um segredo no repositório do GitHub e somente o nome do segredo deve ser usado no fluxo de trabalho. |
 | separador | Sim | Separador usado ao mesclar o arquivo de configuração para pares de chave-valor.  Os valores válidos são:. , ; : - _ __ / |

@@ -3,12 +3,12 @@ title: referência host.json para funções Azure 2.x
 description: Documentação de referência para o ficheiro host.json funções azure com o tempo de funcionamento v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 9b0d078a8c6df21e8000930e72856e92e2d40af7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: b9c57378df1510179c5a45b6aa669bab804aca5e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425209"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484439"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência host.json para funções Azure 2.x e mais tarde 
 
@@ -184,7 +184,7 @@ Para obter mais informações sobre instantâneos, consulte [as imagens do Debug
 |Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
 | agenteEndpoint | nulo | O ponto final usado para ligar ao serviço Application Insights Snapshot Debugger. Se nulidade, é utilizado um ponto final predefinido. |
-| capturarSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar uma foto. O valor esperado é de uma fração superior a 0 (0 < CaptureSnapshotMemoryWeight < 1). |
+| capturarSnapshotMemoryWeight | 0.5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar uma foto. O valor esperado é de uma fração superior a 0 (0 < CaptureSnapshotMemoryWeight < 1). |
 | falhadoRequestLimit | 3 | O limite do número de pedidos falhados para solicitar instantâneos antes de o processador de telemetria ser desativado.|
 | handleUntrackedExceps | true | Permite ou desativa o rastreio de exceções que não são rastreadas pela telemetria Application Insights. |
 | isEnabled | true | Permite ou desativa a recolha de instantâneos | 
@@ -304,10 +304,10 @@ Controla os comportamentos de registo da aplicação de função, incluindo os I
 |---------|---------|---------|
 |fileLoggingMode|debugsó|Define o nível de registo de ficheiros ativado.  As opções são `never`, `always`, `debugOnly`. |
 |logLevel|n/d|Objeto que define a categoria de log filtrando funções na aplicação. Versões 2.x e, posteriormente, siga o layout ASP.NET Core para filtragem da categoria de log. Esta definição permite filtrar o registo para funções específicas. Para mais informações, consulte a [filtragem](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) de Registo na documentação do Núcleo de ASP.NET. |
-|consola|n/d| A definição de registo da [consola.](#console) |
+|console|n/d| A definição de registo da [consola.](#console) |
 |applicationInsights|n/d| A definição [de applicationInsights.](#applicationinsights) |
 
-## <a name="console"></a>consola
+## <a name="console"></a>console
 
 Esta definição é uma criança de [exploração madeireira.](#logging) Controla o registo da consola quando não está em modo de depuração.
 
@@ -341,7 +341,7 @@ A dependência gerida é uma funcionalidade que atualmente é suportada apenas c
 
 ## <a name="queues"></a>filas
 
-As definições de configuração podem ser encontradas nos [gatilhos e encadernações](functions-bindings-storage-queue.md#host-json)da fila de armazenamento.  
+As definições de configuração podem ser encontradas nos [gatilhos e encadernações](functions-bindings-storage-queue-output.md#host-json)da fila de armazenamento.  
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -349,7 +349,7 @@ A definição de configuração pode ser encontrada nos [gatilhos e encadernaç�
 
 ## <a name="servicebus"></a>serviçoBus
 
-A definição de configuração pode ser encontrada em [gatilhos e encadernações](functions-bindings-service-bus.md#host-json)do Ônibus de serviço .
+A definição de configuração pode ser encontrada em [gatilhos e encadernações](functions-bindings-service-bus-output.md#host-json)do Ônibus de serviço .
 
 ## <a name="singleton"></a>singleton
 
@@ -389,7 +389,7 @@ Um conjunto de [diretórios](functions-reference-csharp.md#watched-directories) 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como atualizar o ficheiro host.json](functions-reference.md#fileupdate)

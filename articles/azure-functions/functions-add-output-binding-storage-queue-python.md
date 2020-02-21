@@ -3,12 +3,12 @@ title: Adicione uma ligação de fila de armazenamento Azure à sua função Pyt
 description: Integre uma fila de armazenamento Azure com uma função Python utilizando uma ligação de saída.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6cea44dca666bbf002de6e2b7dd283f49ac7bd5a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198484"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485170"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicione uma ligação de fila de armazenamento Azure à sua função Python
 
@@ -100,7 +100,7 @@ Para escrever a uma fila de armazenamento azure a partir desta função, adicion
 
 Neste caso, `msg` é dada à função como argumento de saída. Para um tipo `queue`, deve também especificar o nome da fila em `queueName` e fornecer o *nome* da ligação De armazenamento Azure (a partir de *local.settings.json*) em `connection`.
 
-Para obter mais informações sobre os detalhes das ligações, consulte as [Funções Azure acionam e encaderna conceitos](functions-triggers-bindings.md) e [configuração](functions-bindings-storage-queue.md#output---configuration)de saída de fila .
+Para obter mais informações sobre os detalhes das ligações, consulte as [Funções Azure acionam e encaderna conceitos](functions-triggers-bindings.md) e [configuração](functions-bindings-storage-queue-output.md#configuration)de saída de fila .
 
 ## <a name="add-code-to-use-the-output-binding"></a>Adicione código para usar a ligação de saída
 
@@ -176,19 +176,19 @@ Quando a sua função gera uma resposta HTTP para o navegador web, também chama
 
 1. Abra o ficheiro *local.definição.json* do projeto de função e copie o valor da cadeia de ligação. Numa janela de terminais ou comando, execute o seguinte comando para criar uma variável ambiental chamada `AZURE_STORAGE_CONNECTION_STRING`, colando a sua cadeia de ligação específica no lugar de `<connection_string>`. (Esta variável ambiental significa que não precisa de fornecer a cadeia de ligação a cada comando subsequente utilizando o argumento `--connection-string`.)
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -198,19 +198,19 @@ Quando a sua função gera uma resposta HTTP para o navegador web, também chama
     
 1. (Opcional) Utilize o comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para visualizar as filas de armazenamento na sua conta. A saída deste comando deve incluir uma fila chamada `outqueue`, que foi criada quando a função escreveu a sua primeira mensagem para aquela fila.
     
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     az storage queue list --output tsv
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     az storage queue list --output tsv
@@ -219,21 +219,21 @@ Quando a sua função gera uma resposta HTTP para o navegador web, também chama
     ---
 
 
-1. Utilize o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para visualizar as mensagens nesta fila, que deve ser o primeiro nome utilizado ao testar a função anteriormente. O comando recupera a primeira mensagem na fila na [codificação base64,](functions-bindings-storage-queue.md#encoding)pelo que também deve descodificar a mensagem para visualizar como texto.
+1. Utilize o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para visualizar as mensagens nesta fila, que deve ser o primeiro nome utilizado ao testar a função anteriormente. O comando recupera a primeira mensagem na fila na [codificação base64,](functions-bindings-storage-queue-trigger.md#encoding)pelo que também deve descodificar a mensagem para visualizar como texto.
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     Porque precisa de desreferenciar a recolha de mensagens e descodificar a partir do base64, executar powerShell e utilizar o comando PowerShell.
 
@@ -251,13 +251,13 @@ Agora que testou a função localmente e verificou que escreveu uma mensagem par
     
 1. Tal como no quickstart anterior, utilize um navegador ou CURL para testar a função reimplantada.
 
-    # <a name="browsertabbrowser"></a>[Navegador](#tab/browser)
+    # <a name="browser"></a>[Navegador](#tab/browser)
     
     Copie o **url invocado** completo mostrado na saída do comando de publicação numa barra de endereços de navegador, adiando o parâmetro de consulta `&name=Azure`. O navegador deve apresentar uma saída semelhante à que executou a função localmente.
 
     ![A saída da função é executada no Azure num browser](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
-    # <a name="curltabcurl"></a>[caracol](#tab/curl)
+    # <a name="curl"></a>[caracol](#tab/curl)
     
     Corra [o caracol](https://curl.haxx.se/) com a **url Invoca,** aparando o parâmetro `&name=Azure`. A saída do comando deve ser o texto, "Olá Azure".
     

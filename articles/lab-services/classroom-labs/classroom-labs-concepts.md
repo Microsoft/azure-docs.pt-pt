@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 348340516f9332f5492c7ce60c3d164da44a008c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120897"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526234"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos Laboratórios de Sala de Aula
 
@@ -32,7 +32,13 @@ As horas de quota são contadas quando o aluno começa o laboratório vM em si. 
 
 ## <a name="schedules"></a>Agendas
 
-Os horários são as faixas horárias (uma vez ou recorrentes) que um professor pode criar para a aula. Todas as máquinas virtuais do laboratório são automaticamente iniciadas no início do horário e paradas no final do horário. O horário de funcionamento não é utilizado quando está em funcionamento um horário.
+Os horários são as faixas horárias que um professor pode criar para a aula para que os VMs dos alunos estejam disponíveis para a hora das aulas.  Os horários podem ser únicos ou recorrentes.  As horas de quota não são usadas quando um horário está a decorrer.
+
+Existem três tipos de horários: Standard, Start only e Stop only.
+
+- **Padrão.**  Este horário iniciará todos os VMs dos estudantes na hora de início especificada e encerrará todos os VMs dos estudantes no tempo de paragem especificado.
+- **Começar apenas.**   Esta programação iniciará todos os VMs dos estudantes no momento especificado.  Os VMs dos estudantes não serão parados até que um aluno pare o seu VM através do portal Azure Lab Services ou ocorra apenas um horário de paragem.
+- **Pare apenas.**  Este horário irá parar todos os VMs dos estudantes no momento especificado.  
 
 ## <a name="template-virtual-machine"></a>Máquina virtual de modelo
 

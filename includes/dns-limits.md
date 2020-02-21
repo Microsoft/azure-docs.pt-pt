@@ -2,29 +2,33 @@
 author: rothja
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 6/15/2019
-ms.author: victorh
-ms.openlocfilehash: 2e6fa48894339b993410435f982d0948715de4e0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 2/14/2020
+ms.author: rohink
+ms.openlocfilehash: b674f8e31eb61328f60bb24866f73d02653b655f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211005"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495030"
 ---
-**Zonas DNS públicas**
+**Zonas públicas de DNS**
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
-| Zonas DNS público por assinatura |250 <sup>1</sup> |
-| Conjuntos de registros por zona DNS pública |10.000 <sup>1</sup> |
-| Registros por conjunto de registro na zona DNS pública |20 |
-| Número de registros de alias para um único recurso do Azure |20|
-| Zonas de DNS privado por assinatura |1000|
-| Conjuntos de registros por zona DNS privada |25000|
-| Registros por conjunto de registro para zonas DNS privadas |20|
-| Links de rede virtual por zona DNS privada |1000|
-| Links de redes virtuais por zonas DNS privadas com o registro automático habilitado |100|
-| Número de zonas DNS privadas às quais uma rede virtual pode ser vinculada com o registro automático habilitado |1|
-| Número de zonas DNS privadas que uma rede virtual pode obter vinculada |1000|
+| Zonas Públicas dNS por subscrição |250 <sup>1</sup> |
+| Recorde seleções por zona pública de DNS |10.000 <sup>1</sup> |
+| Recordes por recorde estabelecidos na zona pública de DNS |20 |
+| Número de registos da Alias para um único recurso Azure |20|
+| Zonas privadas de DNS por subscrição |1000|
+| Recorde seleções por zona privada de DNS |25000|
+| Recordes por recorde estabelecidos para zonas privadas de DNS |20|
+| Links de rede virtual por zona privada de DNS |1000|
+| Ligações de Redes Virtuais por zonas privadas de DNS com registo automático ativado |100|
+| Número de zonas privadas de DNS a que uma rede virtual pode ficar ligada com registo automático ativado |1|
+| Número de zonas privadas de DNS uma rede virtual pode ficar ligada |1000|
+| Número de consultas de DNS que uma máquina virtual pode enviar para O DNS Azure resolver, por segundo |500 <sup>2</sup> |
+| Número máximo de consultas de DNS em fila (resposta pendente) por máquina virtual |200 <sup>2</sup> |
 
-<sup>1</sup> Se você precisar aumentar esses limites, entre em contato com o suporte do Azure.
+<sup>1</sup> Se precisar de aumentar estes limites, contacte o Suporte Azure.
+
+<sup>2</sup> Estes limites são aplicados a todas as máquinas virtuais individuais e não ao nível da rede virtual. As consultas de DNS que excedem estes limites são retiradas.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: 82ae0cab2d3dd7c65371e7a5bfec506e484fcdd2
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169779"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505573"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -76,7 +76,10 @@ Também pode executar as seguintes tarefas de gestão do espaço de trabalho:
 | Gerir o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    |
 | Upgrade para edição enterprise    | **&check;** | **&check;**  | |     |
 | Criar e gerir recursos computacionais    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Criar uma VM do notebook |   | **&check;** | |     |
+| Criar um VM de caderno |   | **&check;** | |     |
+
+> [!WARNING]
+> A mudança do seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou a mudança da subscrição própria para um novo inquilino, não é suportada. Fazê-lo pode causar erros.
 
 ## <a name='create-workspace'></a>Criar um espaço de trabalho
 
@@ -108,7 +111,7 @@ Quando cria uma nova área de trabalho, este cria automaticamente vários recurs
 > [!NOTE]
 > Além de criar novas versões, também pode utilizar os serviços Azure existentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar com o Azure Machine Learning, veja:
 

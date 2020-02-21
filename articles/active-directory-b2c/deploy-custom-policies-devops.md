@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 21fde69f404ee535bfe0019a91843297b1752a92
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 8649537a2992ba11a2b664a9b36207e06c8b1274
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463144"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498542"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar políticas personalizadas com pipelines Azure
 
@@ -35,6 +35,7 @@ Existem três etapas primárias necessárias para permitir que os oleodutos Azur
 
 * [Inquilino Azure AD B2C,](tutorial-create-tenant.md)e credenciais para um utilizador no diretório com o papel de Administrador de [Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
 * [Políticas personalizadas](custom-policy-get-started.md) enviadas para o seu inquilino
+* [App de gestão](microsoft-graph-get-started.md) registada no seu inquilino com a Política de Permissão API do Microsoft *Graph.ReadWrite.TrustFramework*
 * [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), e acesso a um [projeto azure DevOps Services][devops-create-project]
 
 ## <a name="client-credentials-grant-flow"></a>Fluxo de concessão de credenciais de cliente
@@ -43,47 +44,11 @@ O cenário aqui descrito utiliza chamadas de serviço-a-serviço entre a Azure P
 
 ## <a name="register-an-application-for-management-tasks"></a>Registar um pedido de tarefas de gestão
 
-Comece por criar um registo de aplicação que os seus scripts PowerShell executados pela Azure Pipelines usarão para comunicar com o Azure AD B2C. Se já tem um registo de candidatura que utiliza para tarefas de automação, pode saltar para a secção de [permissões do Grant.](#grant-permissions)
+Como mencionado nos [Pré-requisitos,](#prerequisites)precisa de um registo de inscrição que os seus scripts PowerShell - executados pela Azure Pipelines -- podem usar para aceder aos recursos do seu inquilino.
 
-### <a name="register-application"></a>Inscrição
+Se já tem um registo de aplicação que utiliza para tarefas de automação, certifique-se de que lhe foi concedida a **política** >  > Política do Gráfico da **Microsoft.ReadWrite.TrustFramework** no âmbito das **Permissões API** do registo da aplicação.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="grant-permissions"></a>Conceder permissões
-
-Em seguida, conceda a permissão de aplicação para usar a API do Microsoft Graph para ler e escrever políticas personalizadas no seu inquilino Azure AD B2C.
-
-#### <a name="applications"></a>[Aplicações](#tab/applications/)
-
-1. Na página de visão geral da **aplicação Registada,** selecione **Definições**.
-1. No **acesso a API,** selecione **permissões necessárias**.
-1. **Selecione Adicionar**e, em seguida, **selecione um API**.
-1. Selecione **Microsoft Graph,** em seguida, **selecione**.
-1. Ao abrigo **de Permissões de Aplicação,** selecione Ler e escrever as políticas de enquadramento de confiança da sua **organização.**
-1. Selecione **Selecione,** depois **feito.**
-1. Selecione **permissões de concessão**e, em seguida, selecione **Sim**. Pode levar alguns minutos para as permissões se propagarem completamente.
-
-#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
-
-1. Selecione registos de **aplicações (Pré-visualização)** e, em seguida, selecione a aplicação web que deve ter acesso à Microsoft Graph API. Por exemplo, *managementapp1*.
-1. Em **Gerir,** selecione **permissões API**.
-1. Sob **permissões configuradas,** **selecione Adicionar uma permissão**.
-1. Selecione o separador **MICROSOFT APIs** e, em seguida, selecione **Microsoft Graph**.
-1. Selecione **permissões de pedido**.
-1. Expandir **a Política** e selecionar **Política.ReadWrite.TrustFramework**.
-1. **Selecione Adicionar permissões**. Como foi dirigido, aguarde alguns minutos antes de passar para o próximo passo.
-1. Selecione **Grant administrador consentimento para (o nome do seu inquilino)** .
-1. Selecione a sua conta de administrador atualmente assinada ou inscreva-se com uma conta no seu inquilino Azure AD B2C que tenha sido atribuída pelo menos a função de administrador de *aplicação Cloud.*
-1. Selecione **Aceitar**.
-1. Selecione **Refresh**, e, em seguida, verifique se "Granted for ..." aparece em **status**. Pode levar alguns minutos para as permissões se propagarem.
-
-* * *
-
-### <a name="create-client-secret"></a>Criar o segredo do cliente
-
-Para autenticar com o Azure AD B2C, o seu script PowerShell precisa especificar um segredo de cliente que cria para a aplicação.
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+Para obter instruções sobre o registo de uma aplicação de gestão, consulte [Manage Azure AD B2C com o Microsoft Graph](microsoft-graph-get-started.md).
 
 ## <a name="configure-an-azure-repo"></a>Configure um Azure Repo
 
@@ -200,7 +165,7 @@ Em seguida, adicione uma tarefa para implementar um ficheiro de política.
 
         ```PowerShell
         # After
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/contosob2cpolicies/B2CAssets/TrustFrameworkBase.xml
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
         ```
 
 1. Selecione **Guardar** para salvar o trabalho do Agente.
@@ -242,7 +207,7 @@ Para testar o seu gasoduto de libertação:
 
 Deve ver um banner de notificação que diz que um lançamento foi feito na fila. Para ver o seu estado, selecione o link no banner de notificação ou selecione-o na lista no separador **'Lançamentos'.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre:
 

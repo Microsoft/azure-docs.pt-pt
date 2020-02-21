@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04cc45956fc5aedc4c14dfb138be5db02ddec500
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2361192a612cfd92003b1e3c36e85dbbd9090bb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847059"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482773"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Diretório Ativo Azure B2C: Use atributos personalizados numa política de edição de perfil personalizado
 
@@ -34,7 +34,7 @@ O seu diretório Azure AD B2C vem com um conjunto incorporado de atributos. Exem
 * Um fornecedor de identidade tem um identificador de utilizador único, como **o UserGUID único,** que deve ser guardado.
 * Uma viagem personalizada de utilizador precisa de persistir para um estado de utilizador como a **migraçãoStatus**.
 
-O Azure AD B2C alarga o conjunto de atributos armazenados em cada conta de utilizador. Também pode ler e escrever estes atributos utilizando a [API do Gráfico AD Azure](manage-user-accounts-graph-api.md).
+O Azure AD B2C alarga o conjunto de atributos armazenados em cada conta de utilizador. Também pode ler e escrever estes atributos utilizando o [Microsoft Graph API](manage-user-accounts-graph-api.md).
 
 As propriedades de extensão estendem o esquema dos objetos do utilizador no diretório. Os termos *de extensão propriedade,* *atributo personalizado,* e *reivindicação personalizada* referem-se à mesma coisa no contexto deste artigo. O nome varia consoante o contexto, como aplicação, objeto ou política.
 
@@ -235,7 +235,7 @@ Quando seguiu os passos no [Diretório Ativo Azure B2C: Inicie com políticas pe
 ## <a name="test-the-custom-policy"></a>Testar a política personalizada
 
 1. Abra a lâmina Azure AD B2C e navegue para **o Quadro de Experiência de Identidade** > políticas **personalizadas.**
-1. Selecione a política personalizada que fez o upload. Selecione **executar agora**.
+1. Selecione a política personalizada que fez o upload. Selecione **Executar agora**.
 1. Inscreva-se utilizando um endereço de e-mail.
 
 O símbolo de identificação enviado de volta para a sua aplicação inclui a nova propriedade de extensão como uma reivindicação personalizada precedida por **extension_loyaltyId**. Veja o seguinte exemplo:
@@ -257,7 +257,7 @@ O símbolo de identificação enviado de volta para a sua aplicação inclui a n
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 1. Adicione a nova reivindicação aos fluxos de entrada nas contas sociais alterando os **seguintes Perfis Técnicos**. Contas sociais e federadas usam estes dois **Perfis Técnicos** para iniciar sessão. Escrevem e lêem os dados dos utilizadores utilizando o **SecurityId alternativo** como localizador do objeto do utilizador.
 
@@ -297,7 +297,7 @@ O símbolo de identificação enviado de volta para a sua aplicação inclui a n
 
 ## <a name="reference"></a>Referência
 
-Para obter mais informações sobre propriedades de extensão, consulte o artigo [Diretório de extensões  Conceitos de API de gráfico.](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)
+Para obter mais informações sobre propriedades de extensão, consulte o artigo [Adicione dados personalizados aos recursos usando extensões](https://docs.microsoft.com/graph/extensibility-overview).
 
 > [!NOTE]
 > * Um **Perfil Técnico** é um tipo de elemento, ou função, que define o nome, metadados e protocolo de um ponto final. O **Perfil Técnico** detalha a troca de alegações que o Quadro de Experiência de Identidade realiza. Quando esta função é chamada num passo de orquestração ou de outro **Perfil Técnico,** as **InputClaims** e **OutputClaims** são fornecidas como parâmetros pelo chamador.

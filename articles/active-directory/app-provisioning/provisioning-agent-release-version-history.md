@@ -13,15 +13,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/04/2020
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac9eac2d17fa0a4f1db487d4c7f8beb67de24a9
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 164d156be030aa4a177ea77ed61782780338abb0
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066346"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522378"
 ---
 # <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Agente de provisionamento de ligação Azure AD: histórico de lançamento de versão
 Este artigo lista as versões e funcionalidades do Agente de Provisionamento de Ligação de Diretório Ativo Azure que foram lançados. A equipa da Azure AD atualiza regularmente o Agente de Provisionamento com novas funcionalidades e funcionalidades. O Agente de Provisionamento é atualizado automaticamente quando uma nova versão é lançada. 
@@ -34,7 +34,7 @@ Recomendamos que aatualização automática para os seus agentes garanta que pos
 
 4 de dezembro de 2019: Lançado para download
 
-### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
+### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
 * Inclui suporte para o fornecimento de [nuvem Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md) para sincronizar os dados do utilizador, do contacto e do grupo desde o Diretório Ativo no local até à AD Azure
 
@@ -45,7 +45,7 @@ Recomendamos que aatualização automática para os seus agentes garanta que pos
 
 9 de setembro de 2019: Lançado para atualização automática
 
-### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
+### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
 * Capacidade de configurar rastreios adicionais e exploração de registo para depurar problemas de agente de provisionamento
 * Capacidade de obter apenas os atributos Azure AD que estão configurados no mapeamento para melhorar o desempenho de sincronização
@@ -62,7 +62,7 @@ Recomendamos que aatualização automática para os seus agentes garanta que pos
 
 23 de janeiro de 2019: Lançado para download
 
-### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
+### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
 * Renovado o Agente de Provisionamento e arquitetura de conector para um melhor desempenho, estabilidade e fiabilidade 
 * Simplificada configuração do Agente de Provisionamento utilizando o assistente de instalação orientado pela UI 

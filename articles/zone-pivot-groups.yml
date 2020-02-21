@@ -1,29 +1,5 @@
 ### YamlMime:ZonePivotGroups
 groups:
-- id: programming-languages-set-one
-  title: Linguagens de programação
-  prompt: Escolher uma linguagem de programação
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-nodejs
-    title: Node.js
-  - id: programming-language-go
-    title: Ir
-- id: cogsvcs-text-analytics-features
-  title: Funcionalidades da Análise de Texto
-  prompt: Escolher uma oferta de funcionalidade da Análise de Texto
-  pivots:
-  - id: text-analytics-key-phrase-extraction
-    title: Extração de Expressões-Chave
-  - id: text-analytics-language-detection
-    title: Deteção de Idioma
-  - id: text-analytics-sentiment-analysis
-    title: Análise de Sentimentos
 - id: client-operating-system
   title: Linguagens de programação
   prompt: Escolher um sistema operativo cliente
@@ -34,6 +10,28 @@ groups:
     title: MacOS
   - id: client-operating-system-windows
     title: Windows
+- id: URL-test-interface
+  title: Ferramenta de Teste de URL
+  prompt: Escolher uma das seguintes opções
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: Postman
+- id: programming-languages-set-one
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-two
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -78,12 +76,12 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-nodejs
-    title: Node.js
   - id: programming-language-go
     title: Ir
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
   - id: programming-language-ruby
     title: Ruby
 - id: programming-languages-set-six
@@ -92,10 +90,10 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
-  - id: programming-language-nodejs
-    title: Node.js
 - id: programming-languages-set-seven
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -104,28 +102,6 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
-- id: programming-languages-set-functions
-  title: Linguagens de programação
-  prompt: Escolher uma linguagem de programação
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-powershell
-    title: PowerShell
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-typescript
-    title: TypeScript
-- id: URL-test-interface
-  title: Ferramenta de Teste de URL
-  prompt: Escolher uma das seguintes opções
-  pivots:
-  - id: url-test-tool-curl
-    title: cURL
-  - id: url-test-tool-postman
-    title: Postman
 - id: programming-languages-set-eight
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -151,7 +127,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: javascript
+    title: JavaScript
   - id: programming-language-java
     title: Java
   - id: programming-language-other
@@ -162,13 +138,23 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-nodejs
-    title: Node.js
   - id: programming-language-java
     title: Java
-- id: programming-languages-set-functions01
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: cogsvcs-text-analytics-features
+  title: Funcionalidades da Análise de Texto
+  prompt: Escolher uma oferta de funcionalidade da Análise de Texto
+  pivots:
+  - id: text-analytics-key-phrase-extraction
+    title: Extração de Expressões-Chave
+  - id: text-analytics-language-detection
+    title: Deteção de Idioma
+  - id: text-analytics-sentiment-analysis
+    title: Análise de Sentimentos
+- id: programming-languages-set-functions
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
   pivots:
@@ -182,20 +168,34 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: programming-languages-text-analytics
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-other
+    title: Outras linguagens...
 - id: programming-languages-set-diberry-3core
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
   pivots:
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
-  - id: programming-language-nodejs
-    title: Node.js
 metadata:
-  ms.openlocfilehash: 033752fef517ff3e1903f02fcbaf263cae244c15
-  ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+  ms.openlocfilehash: dcdb8bae9eaeb9ec06f3ceb10d6966e8e040724b
+  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/04/2020
-  ms.locfileid: "76986126"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77526710"

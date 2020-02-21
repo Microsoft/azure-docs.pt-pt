@@ -1,24 +1,24 @@
 ---
-title: Sinal de acesso sem palavras-passe do Azure Ative Directory (pré-visualização)
-description: Saiba mais sobre as opções para iniciar sessão sem palavras no Azure Ative Directory utilizando chaves de segurança FIDO2 ou a aplicação Microsoft Authenticator
+title: Entrada sem palavras-passe do Diretório Ativo Azure (pré-visualização)
+description: Saiba mais sobre as opções de entrada sem palavras no Azure Ative Directory utilizando chaves de segurança FIDO2 ou a aplicação Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 01/30/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d426fb743e6b1ce5d279544f12bcb490d529f9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756798"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505761"
 ---
-# <a name="passwordless-authentication-options"></a>Opções de autenticação sem palavras-passe
+# <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Diretório Ativo Azure
 
 A autenticação multi-factor (MFA) é uma ótima forma de proteger a sua organização, mas os utilizadores muitas vezes ficam frustrados com a camada de segurança adicional para além de terem de se lembrar das suas palavras-passe. Os métodos de autenticação sem palavras-passe são mais convenientes porque a palavra-passe é removida e substituída por algo que tem, além de algo que é ou algo que sabe.
 
@@ -26,19 +26,19 @@ A autenticação multi-factor (MFA) é uma ótima forma de proteger a sua organi
 | --- | --- | --- |
 | Sem palavra-passe | Dispositivo, telefone ou chave de segurança do Windows 10 | Biométrico ou PIN |
 
-Cada organização tem necessidades diferentes quando se trata de autenticação. A Microsoft oferece três opções de autenticação sem palavras-passe:
+Cada organização tem necessidades diferentes quando se trata de autenticação. A Microsoft oferece as seguintes três opções de autenticação sem palavras-passe:
 
-- Windows Hello para Empresas
+- Windows Hello para empresas
 - Aplicação Microsoft Authenticator
-- Chaves de segurança do FIDO2
+- Chaves de segurança FIDO2
 
 ![Autenticação: Segurança versus conveniência](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello para Empresas
+## <a name="windows-hello-for-business"></a>Windows Hello para empresas
 
-O Windows Hello para empresas é ideal para os operadores de informações que têm seu próprio computador Windows designado. O biométrico e o PIN estão diretamente ligados ao PC do utilizador, o que impede o acesso de qualquer outra pessoa que não seja o proprietário. Com a integração de infraestruturas de chaves públicas (PKI) e suporte integrado para um único sign-on (SSO), o Windows Hello for Business fornece um método conveniente para aceder sem problemas aos recursos corporativos no local e na nuvem.
+O Windows Hello for Business é ideal para trabalhadores de informação que tenham o seu próprio PC windows designado. O biométrico e o PIN estão diretamente ligados ao PC do utilizador, o que impede o acesso de qualquer outra pessoa que não seja o proprietário. Com a integração de infraestruturas de chaves públicas (PKI) e suporte integrado para um único sign-on (SSO), o Windows Hello for Business fornece um método conveniente para aceder sem problemas aos recursos corporativos no local e na nuvem.
 
-O [Guia de planejamento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) do Windows Hello para empresas pode ser usado para ajudá-lo a tomar decisões sobre o tipo de implantação do Windows Hello para empresas e as opções que você precisará considerar.
+O guia de [planeamento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) do Windows Hello for Business pode ser usado para ajudá-lo a tomar decisões sobre o tipo de implementação do Windows Hello for Business e as opções que terá de considerar.
 
 ## <a name="microsoft-authenticator-app"></a>Aplicação autenticadora da Microsoft
 
@@ -48,11 +48,11 @@ Permita que o telemóvel do seu empregado se torne um método de autenticação 
 
 A Aplicação Autenticadora transforma qualquer iOS ou telefone Android numa credencial forte e sem palavras-passe. Os utilizadores podem iniciar sessão em qualquer plataforma ou navegador, obtendo uma notificação para o seu telemóvel, correspondendo a um número apresentado no ecrã com o do seu telemóvel e, em seguida, usando o seu biométrico (toque ou rosto) ou PIN para confirmar.
 
-## <a name="fido2-security-keys"></a>Chaves de segurança do FIDO2
+## <a name="fido2-security-keys"></a>Chaves de segurança FIDO2
 
 As chaves de segurança FIDO2 são um método de autenticação sem palavras-passe baseado em padrões imphishable que pode vir em qualquer fator de forma. Fast Identity Online (FIDO) é um padrão aberto para autenticação sem palavras-passe. O FIDO permite que os utilizadores e organizações aproveitem a norma para iniciar sessão nos seus recursos sem um nome de utilizador ou palavra-passe utilizando uma chave de segurança externa ou uma chave de plataforma incorporada num dispositivo.
 
-Para pré-visualização pública, os colaboradores podem usar chaves de segurança para iniciar sessão nos seus dispositivos Windows 10 ligados ao Azure E obter um único sinal sobre os seus recursos de nuvem e no local. Os utilizadores também podem iniciar sessão em navegadores suportados. As chaves de segurança FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou têm cenários ou funcionários que não estejam dispostos ou capazes de usar o seu telefone como um segundo fator.
+Para pré-visualização pública, os colaboradores podem usar chaves de segurança para iniciar sessão nos seus dispositivos Azure AD ou Azure Hybrid adesacadas e obter um único sinal sobre os seus recursos de nuvem e no local. Os utilizadores também podem iniciar sessão em navegadores suportados. As chaves de segurança FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou têm cenários ou funcionários que não estejam dispostos ou capazes de usar o seu telefone como um segundo fator.
 
 ![Inscreva-se no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -69,7 +69,7 @@ Uma chave de segurança **DEVE** implementar as seguintes funcionalidades e exte
 
 Os seguintes fornecedores oferecem chaves de segurança FIDO2 de diferentes fatores de forma que são conhecidos como compatíveis com a experiência sem palavras-passe. Encorajamo-lo a avaliar as propriedades de segurança destas chaves contactando o fornecedor, bem como a FIDO Alliance.
 
-| Fornecedor | Contacte-nos |
+| Fornecedor | Contacto |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitiano | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |

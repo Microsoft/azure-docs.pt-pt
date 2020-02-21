@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c8cf8883c80dad7988793a898dcaf01dd8f860c3
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: aa9cd3f642e3d8047e8b64afb023fffb7bd2c4f6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152640"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484915"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de streaming ao vivo recomendados
 
@@ -53,6 +53,7 @@ Ao transmitir em fluxo através de RTMPS, verifique as definições da firewall 
 - OBS Studio
 - Switcher Studio (iOS)
 - Telestream Wirecast (versão 13.0.2 ou superior devido ao requisito TLS 1.2)
+- Telestream Wirecast S (apenas o RTMP é suportado)
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -146,6 +147,6 @@ Siga os mesmos passos que na verificação do [Evento Ao Vivo,](#pass-through-li
 
 Por fim, envie um e-mail para as suas definições gravadas e parâmetros de arquivo ao vivo para a Azure Media Services no amshelp@microsoft.com como uma notificação de que todos os controlos de auto-verificação passaram. Além disso, inclua as suas informações de contacto para quaisquer seguimentos. Pode contactar a equipa da Azure Media Services com quaisquer dúvidas sobre este processo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Streaming em direto com Media Services v3](live-streaming-overview.md)

@@ -1,124 +1,126 @@
 ---
-title: Runbooks filho na automação do Azure
-description: Descreve os diferentes métodos para iniciar um runbook na automação do Azure de outro runbook e compartilhar informações entre eles.
+title: Livros infantis em Automação Azure
+description: Descreve os diferentes métodos para iniciar um livro de execução na Azure Automation a partir de outro livro de execução e partilhar informações entre eles.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a35ee69e6a167f4907294c88710d0484353d4cb2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6acf66e01c4f7b4bd2735687f542a0dbf472cfb4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367014"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500196"
 ---
-# <a name="child-runbooks-in-azure-automation"></a>Runbooks filho na automação do Azure
+# <a name="child-runbooks-in-azure-automation"></a>Livros infantis em Automação Azure
 
-É uma prática recomendada na automação do Azure escrever runbooks reutilizáveis e modulares com uma função discreta que é por outros runbooks. Um runbook pai geralmente chama um ou mais runbooks filho para executar a funcionalidade necessária. Há duas maneiras de chamar um runbook filho, e cada uma tem diferenças distintas que você deve entender para que você possa determinar qual é a melhor para seus diferentes cenários.
+É uma prática recomendada na Automatização Azure escrever livros reutilizáveis e modulares com uma função discreta que é chamada por outros livros de execução. Um livro de pais frequentemente chama um ou mais livros infantis para executar a funcionalidade necessária. Há duas maneiras de chamar um livro de crianças, e há diferenças distintas que deve entender para que possa determinar qual é o melhor para os seus cenários.
 
-## <a name="invoking-a-child-runbook-using-inline-execution"></a>Invocando um runbook filho usando a execução embutida
+>[!NOTE]
+>Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
-Para invocar um runbook inline a partir de outro runbook, utilize o nome do runbook e forneça valores para seus parâmetros, exatamente da mesma forma que usaria uma atividade ou um cmdlet.  Todos os runbooks na mesma conta de automação estão disponíveis para todas as outras pessoas a serem usadas dessa maneira. O runbook principal aguarda o runbook subordinado seja concluído antes de passar para a próxima linha e qualquer resultado é devolvido diretamente ao principal.
+## <a name="invoking-a-child-runbook-using-inline-execution"></a>Invocando um livro de crianças usando execução inline
 
-Quando invoca um runbook inline, ele é executado na mesma tarefa que o runbook principal. Não há nenhuma indicação no histórico de trabalhos do runbook filho que ele executou. Todas as exceções e qualquer saída de fluxo do runbook filho é associada ao pai. Esse comportamento resulta em menos trabalhos e torna mais fácil controlar e solucionar problemas, já que as exceções geradas pelo runbook filho e qualquer uma de suas saídas de fluxo são associadas ao trabalho pai.
+Para invocar um runbook inline a partir de outro runbook, utilize o nome do runbook e forneça valores para seus parâmetros, exatamente da mesma forma que usaria uma atividade ou um cmdlet.  Todos os livros na mesma conta Automation estão disponíveis para todos os outros para serem usados desta forma. O livro de corridas dos pais aguarda que o livro de corridas da criança esteja completo antes de passar para a linha seguinte, e qualquer saída é devolvida diretamente ao progenitor.
 
-Quando um runbook é publicado, todos os runbooks filho que ele chama já devem estar publicados. Isso ocorre porque a automação do Azure cria uma associação com quaisquer runbooks filho quando um runbook é compilado. Se não forem, o runbook pai parecerá publicar corretamente, mas gerará uma exceção quando ela for iniciada. Se isso acontecer, você poderá republicar o runbook pai para referenciar corretamente os runbooks filho. Você não precisará republicar o runbook pai se qualquer um dos runbooks filho for alterado porque a associação já foi criada.
+Quando invoca um runbook inline, ele é executado na mesma tarefa que o runbook principal. Não há indícios no histórico de trabalho do livro infantil. Quaisquer exceções e quaisquer saídas de fluxo do livro de execução infantil estão associadas ao progenitor. Este comportamento resulta em menos empregos e torna-os mais fáceis de rastrear e de resolver problemas.
 
-Os parâmetros de um runbook filho chamado Inline podem ser qualquer tipo de dados, incluindo objetos complexos. Não há nenhuma [serialização JSON](start-runbooks.md#runbook-parameters) como há quando você inicia o runbook usando o portal do Azure ou com o cmdlet Start-AzureRmAutomationRunbook.
+Quando um livro de execução é publicado, qualquer livro infantil que ele chama já deve ser publicado. A razão é que a Azure Automation constrói uma associação com qualquer livro infantil quando compila um livro de corridas. Se os livros infantis ainda não foram publicados, o livro de execução dos pais parece publicar corretamente, mas gera uma exceção quando é iniciado. Se isso acontecer, pode reeditar o livro de execução dos pais para fazer referência adequada aos livros de gestão de crianças. Não é necessário reeditar o livro de execução dos pais se algum livro de corridas para crianças for alterado porque a associação já foi criada.
 
-### <a name="runbook-types"></a>Tipos de runbook
+Os parâmetros de um livro infantil chamado inline podem ser de qualquer tipo de dados, incluindo objetos complexos. Não existe [serialização JSON](start-runbooks.md#runbook-parameters), como existe quando se inicia o livro de execução utilizando o portal Azure ou com o cmdlet [Start-AzAutomationRunbook.](/powershell/module/Az.Automation/Start-AzAutomationRunbook)
 
-Quais tipos podem chamar uns aos outros:
+### <a name="runbook-types"></a>Tipos de Runbooks
 
-* Um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) e [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) podem chamar uns aos outros embutidos (ambos são baseados no PowerShell).
-* Um [runbook de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e runbooks gráficos de fluxo de trabalho do PowerShell podem chamar uns aos outros (ambos são baseados no fluxo de trabalho do PowerShell
-* Os tipos do PowerShell e os tipos de fluxo de trabalho do PowerShell não podem chamar uns aos outros embutidos e devem usar Start-AzureRmAutomationRunbook.
+Que tipos de livros de execução podem chamar uns aos outros?
 
-Quando a ordem de publicação é importante:
+* Um livro de [execução powerShell](automation-runbook-types.md#powershell-runbooks) e um [livro gráfico](automation-runbook-types.md#graphical-runbooks) podem chamar-se um ao outro inline, uma vez que ambos são baseados em PowerShell.
+* Um livro de execução de fluxo [de trabalho powerShell](automation-runbook-types.md#powershell-workflow-runbooks) e um livro de fluxo de fluxo de fluxo de powershell gráfico podem chamar uns aos outros em linha, uma vez que ambos são baseados em PowerShell Workflow.
+* Os tipos PowerShell e os tipos powerShell Workflow não podem ligar uns aos outros em linha, e devem usar **start-AzAutomationRunbook**.
 
-* A ordem de publicação de runbooks só é importante para o fluxo de trabalho do PowerShell e runbooks gráficos de fluxo de trabalho do PowerShell.
+Quando é que a ordem de publicação importa?
 
-Ao chamar um runbook filho de fluxo de trabalho gráfico ou do PowerShell usando a execução embutida, você usa o nome do runbook.  Ao chamar um runbook filho do PowerShell, você deve iniciar seu nome com *.\\* para especificar que o script está localizado no diretório local.
+A ordem de publicação de livros de execução só importa para powerShell Workflow e livros de fluxo de trabalho de PowerShell gráfico.
+
+Quando o seu livro de recortes chama um livro de corridas para crianças Graphical ou PowerShell Workflow utilizando a execução inline, ele usa o nome do livro de execução. O nome deve começar por ".\\" para especificar que o guião está localizado no diretório local.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir inicia um runbook filho de teste que aceita três parâmetros, um objeto complexo, um inteiro e um booliano. A saída do runbook subordinado é atribuída a uma variável.  Nesse caso, o runbook filho é um runbook de fluxo de trabalho do PowerShell.
+O exemplo seguinte inicia um livro de teste para crianças que aceita um objeto complexo, um valor inteiro e um valor booleano. A saída do runbook subordinado é atribuída a uma variável. Neste caso, o livro de corridas para crianças é um livro de execução powerShell Workflow.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
 $output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 ```
 
-A seguir está o mesmo exemplo usando um runbook do PowerShell como o filho.
+Aqui está o mesmo exemplo usando um livro de execução PowerShell como a criança.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
 $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 ```
 
-## <a name="starting-a-child-runbook-using-cmdlet"></a>Iniciando um runbook filho usando o cmdlet
+## <a name="starting-a-child-runbook-using-a-cmdlet"></a>Iniciar um livro de crianças usando um cmdlet
 
 > [!IMPORTANT]
-> Se você estiver invocando um runbook filho com o cmdlet `Start-AzureRmAutomationRunbook` com a opção `-Wait` e os resultados do runbook filho for um objeto, você poderá encontrar erros. Para contornar o erro, consulte [Runbooks filho com a saída do objeto](troubleshoot/runbooks.md#child-runbook-object) para saber como implementar a lógica para sondar os resultados e usar [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
+> Se o seu livro de execução invocar um livro de execução para crianças com o cmdlet **Start-AzAutomationRunbook** com o parâmetro *de espera* e o livro de execução infantil produzir um resultado de objeto, a operação pode encontrar um erro. Para contornar o erro, consulte os [livros infantis com saída](troubleshoot/runbooks.md#child-runbook-object) de objetos para aprender a implementar a lógica para fazer sondagem para os resultados utilizando o cmdlet [Get-AzAutomationJobOutputRecord.](/powershell/module/az.automation/get-azautomationjoboutputrecord)
 
-Você pode usar o cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) para iniciar um runbook, conforme descrito em [para iniciar um runbook com o Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Há dois modos de uso para esse cmdlet.  Em um modo, o cmdlet retorna a ID do trabalho quando o trabalho filho é criado para o runbook filho.  No outro modo, que você habilita especificando o parâmetro **-Wait** , o cmdlet aguarda até que o trabalho filho seja concluído e retorna a saída do runbook filho.
+Pode utilizar o **Start-AzAutomationRunbook** para iniciar um livro de execução descrito para [iniciar um livro de execução com o Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Existem dois modos de utilização para este cmdlet. Num modo, o cmdlet devolve o ID de trabalho quando a criança é criada para o livro de corridas de crianças. No outro modo, que o seu script permite especificando o parâmetro *de espera,* o cmdlet aguarda até que o trabalho da criança termine e desconere a saída do livro de execução infantil.
 
-O trabalho de um runbook filho iniciado com um cmdlet é executado em um trabalho separado do runbook pai. Esse comportamento resulta em mais trabalhos do que iniciar o runbook embutido e torna-os mais difíceis de rastrear. O pai pode iniciar mais de um runbook filho de forma assíncrona sem aguardar a conclusão de cada um. Para esse mesmo tipo de execução paralela de invocar os runbooks subordinados inline, o runbook principal seria necessário usar a [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
+O trabalho de um livro infantil começou com um cmdlet corre em um trabalho separado do trabalho de rés-mãe. Este comportamento resulta em mais empregos do que iniciar o livro de corridas, e torna os trabalhos mais difíceis de acompanhar. O progenitor pode começar mais do que um livro infantil sincronicamente sincronicamente sem esperar que cada um esteja completo. Para esta execução paralela, chamando os livros de execução da criança inline, o livro de execução dos pais deve usar a [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
 
-A saída de runbooks filho não é retornada ao runbook pai de forma confiável devido ao tempo. Também determinadas variáveis como $VerbosePreference, $WarningPreference e outras não podem ser propagadas para os runbooks filho. Para evitar esses problemas, você pode iniciar os runbooks filho como trabalhos de automação separados usando o cmdlet `Start-AzureRmAutomationRunbook` com a opção `-Wait`. Isso bloqueará o runbook pai até que o runbook filho seja concluído.
+A saída do livro de crianças não é devolvida ao livro de corridas dos pais de forma fiável devido ao timing. Além disso, variáveis como $VerbosePreference, $WarningPreference e outras podem não ser propagadas aos livros infantis. Para evitar estes problemas, pode iniciar os livros infantis como trabalhos separados de automação utilizando o **Start-AzAutomationRunbook** com o parâmetro *de espera.* Esta técnica bloqueia o livro dos pais até que o livro de corridas da criança esteja completo.
 
-Se não quiser que o runbook pai seja bloqueado na espera, você poderá iniciar o runbook filho usando `Start-AzureRmAutomationRunbook` cmdlet sem a opção `-Wait`. Em seguida, você precisaria usar `Get-AzureRmAutomationJob` para aguardar a conclusão do trabalho e `Get-AzureRmAutomationJobOutput` e `Get-AzureRmAutomationJobOutputRecord` recuperar os resultados.
+Se não quiser que o livro de execução dos pais seja bloqueado à espera, pode iniciar o livro de corridas para crianças utilizando o **Livro start-azAutomationRunbook** sem o parâmetro *de espera.* Neste caso, o seu livro de execução deve utilizar [o Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) para aguardar a conclusão do trabalho. Também deve utilizar [get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) e [Get-AzAutomationJobOutputOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) para recuperar os resultados.
 
-Parâmetros para um runbook subordinado iniciado com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [parâmetros do Runbook](start-runbooks.md#runbook-parameters). Somente tipos de dados simples podem ser usados. Se o runbook tem um parâmetro com um tipo de dados complexos, em seguida, tem de ser chamado inline.
+Os parâmetros para um livro infantil iniciado com um cmdlet são fornecidos como um hashtable, como descrito nos parâmetros do Livro de [Ensaios](start-runbooks.md#runbook-parameters). Só podem ser utilizados tipos simples de dados. Se o runbook tem um parâmetro com um tipo de dados complexos, em seguida, tem de ser chamado inline.
 
-O contexto de assinatura pode ser perdido ao iniciar runbooks filho como trabalhos separados. Para que o runbook filho execute os cmdlets do Azure RM em uma assinatura específica do Azure, o runbook filho deve se autenticar para essa assinatura independentemente do runbook pai.
+O contexto de subscrição pode perder-se ao iniciar os livros de execução de crianças como trabalhos separados. Para que o livro de execução infantil execute cmdlets de módulo Az contra uma subscrição específica do Azure, o livro de execução infantil deve autenticar a esta subscrição independentemente do livro-mãe.
 
-Se os trabalhos dentro da mesma conta de automação funcionarem com mais de uma assinatura, selecionar uma assinatura em um trabalho poderá alterar o contexto de assinatura selecionado no momento para outros trabalhos. Para evitar esse problema, use `Disable-AzureRmContextAutosave –Scope Processsave` no início de cada runbook. Essa ação salva apenas o contexto para a execução do runbook.
+Se os trabalhos dentro da mesma conta Automation funcionarem com mais de uma subscrição, selecionar uma subscrição num só trabalho pode alterar o contexto de subscrição atualmente selecionado para outros trabalhos. Para evitar esta situação, utilize `Disable-AzContextAutosave –Scope Process` no início de cada livro de execução. Esta ação apenas salva o contexto para a execução do livro de corridas.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir inicia um runbook filho com parâmetros e, em seguida, aguarda que ele seja concluído usando o parâmetro Start-AzureRmAutomationRunbook-Wait. Depois de concluído, sua saída é coletada do runbook filho. Para usar `Start-AzureRmAutomationRunbook`, você deve se autenticar em sua assinatura do Azure.
+O exemplo seguinte inicia um livro infantil com parâmetros e, em seguida, aguarda que esteja completo utilizando o cmdlet **Start-AzAutomationRunbook** com o parâmetro *'Esperar'.* Uma vez concluído, o exemplo recolhe a saída de cmdlet do livro de execução infantil. Para utilizar o **Start-AzAutomationRunbook,** o script deve autenticar a sua subscrição Azure.
 
 ```azurepowershell-interactive
-# Ensures you do not inherit an AzureRMContext in your runbook
-Disable-AzureRmContextAutosave –Scope Process
+# Ensure that the runbook does not inherit an AzContext
+Disable-AzContextAutosave –Scope Process
 
-# Connect to Azure with RunAs account
+# Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-Add-AzureRmAccount `
+Connect-AzAccount `
     -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
+    -Tenant $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzureContext = Get-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
-Start-AzureRmAutomationRunbook `
+Start-AzAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -AzureRMContext $AzureContext `
-    –Parameters $params –wait
+    -AzContext $AzureContext `
+    –Parameters $params –Wait
 ```
 
-## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Comparação de métodos para chamar um runbook filho
+## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Comparação de métodos para chamar um livro de crianças
 
-A tabela seguinte resume as diferenças entre os dois métodos para chamar um runbook a partir de outro runbook.
+A tabela que se segue resume as diferenças entre as duas formas de chamar um livro de execução de outro livro de execução.
 
 |  | Inline | Cmdlet |
 |:--- |:--- |:--- |
 | Tarefa |Runbook subordinado é executado na mesma tarefa como pai. |Uma tarefa separada é criada para o runbook subordinado. |
-| Execução |O runbook principal aguarda que o runbook subordinado seja concluído antes de continuar. |O runbook pai continua imediatamente após o runbook filho ser iniciado *ou* o runbook pai aguarda a conclusão do trabalho filho. |
-| Saída |O runbook principal pode obter resultados diretamente do runbook subordinado. |O runbook pai deve recuperar a saída do trabalho de runbook filho *ou* o runbook pai pode obter a saída diretamente do runbook filho. |
-| Parâmetros |Valores para parâmetros do runbook subordinado são especificados em separado e podem utilizar qualquer tipo de dados. |Os valores para os parâmetros de runbook filho precisam ser combinados em uma única tabela de hash. Essa tabela de hash só pode incluir tipos de dados simples, de matriz e de objeto que usam a serialização JSON. |
-| Conta de Automatização |O runbook pai só pode usar o runbook filho na mesma conta de automação. |Os runbooks pai podem usar um runbook filho de qualquer conta de automação da mesma assinatura do Azure e até mesmo uma assinatura diferente à qual você tem uma conexão. |
-| Publicação |Runbook subordinado tem de ser publicado antes de o runbook principal. |O runbook filho deve ser publicado a qualquer momento antes do runbook pai ser iniciado. |
+| Execução |O runbook principal aguarda que o runbook subordinado seja concluído antes de continuar. |O livro de corridas dos pais continua imediatamente após o início do livro de corridas de crianças *ou* o livro de corridas dos pais espera que o trabalho da criança termine. |
+| Saída |O runbook principal pode obter resultados diretamente do runbook subordinado. |O livro de corridas dos pais deve recuperar a saída do trabalho do livro de corridas infantil *ou* o livro de execução dos pais pode obter diretamente a saída do livro de execução infantil. |
+| Parâmetros |Valores para parâmetros do runbook subordinado são especificados em separado e podem utilizar qualquer tipo de dados. |Os valores dos parâmetros do livro infantil têm de ser combinados num único hashtable. Este hashtable só pode incluir tipos simples, matriz estomados e objetos que usam a serialização jSON. |
+| Conta de Automatização |O livro de execução dos pais só pode usar o livro de execução infantil na mesma conta de Automação. |Os livros de execução dos pais podem usar um livro de execução infantil a partir de qualquer conta Automation, a partir da mesma subscrição Azure, e até mesmo de uma subscrição diferente à qual você tem uma ligação. |
+| A publicar |Runbook subordinado tem de ser publicado antes de o runbook principal. |O livro de corridas para crianças é publicado a qualquer momento antes do início do livro de corridas dos pais. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Iniciando um runbook na automação do Azure](start-runbooks.md)
-* [Saída e mensagens do runbook na automação do Azure](automation-runbook-output-and-messages.md)
-
+* [Iniciar um livro de corridas na Automação Azure](start-runbooks.md)
+* [Saída de livro de execução e mensagens na Automação Azure](automation-runbook-output-and-messages.md)

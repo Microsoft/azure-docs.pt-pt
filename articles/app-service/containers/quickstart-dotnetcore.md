@@ -1,28 +1,28 @@
 ---
-title: 'Início rápido: executar um aplicativo de ASP.NET Core do Linux'
-description: Introdução aos aplicativos do Linux no serviço de Azure App implantando seu primeiro aplicativo ASP.NET Core em um contêiner do Linux no serviço de aplicativo.
+title: 'Quickstart: Executar uma app Linux ASP.NET Core'
+description: Inicie-se com aplicações Linux no Azure App Service, implementando a sua primeira aplicação ASP.NET Core para um contentor Linux no App Service.
 keywords: serviço de aplicações do azure, aplicação web, dotnet, núcleos, linux, oss
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea9449a89bcfbdb1378f0cceb31a07a288661bf7
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: a23ad0fbe55367552c0747c6199328130fd194d4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687564"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524126"
 ---
-# <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Criar um aplicativo ASP.NET Core no serviço de aplicativo no Linux
+# <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Crie uma aplicação ASP.NET Core no App Service no Linux
 
 > [!NOTE]
-> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implantar o serviço de aplicativo no _Windows_, consulte [criar um aplicativo ASP.NET Core no Azure](../app-service-web-get-started-dotnet.md).
+> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para ser implementado no Serviço de Aplicações no _Windows,_ consulte [Criar uma aplicação ASP.NET Core no Azure](../app-service-web-get-started-dotnet.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como criar uma aplicação [.NET Core](https://docs.microsoft.com/aspnet/core/) no Serviço de Aplicações no Linux. Você cria o aplicativo usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)e usa o Git para implantar o código do .NET Core no aplicativo.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como criar uma aplicação [.NET Core](https://docs.microsoft.com/aspnet/core/) no Serviço de Aplicações no Linux. Cria a aplicação utilizando o [Azure CLI,](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)e utiliza o Git para implementar o código .NET Core para a aplicação.
 
-![Aplicação de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
+![Aplicação Web de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
 Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 
@@ -32,7 +32,7 @@ Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 
 Para concluir este guia de início rápido:
 
-* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>
 * <a href="https://www.microsoft.com/net/core/" target="_blank">Instale o .NET Core</a>
 
 ## <a name="create-the-app-locally"></a>Criou a aplicação localmente
@@ -44,7 +44,7 @@ mkdir hellodotnetcore
 cd hellodotnetcore
 ```
 
-Crie um novo aplicativo .NET Core.
+Crie uma nova aplicação .NET Core.
 
 ```bash
 dotnet new web
@@ -66,7 +66,7 @@ Pode ver a mensagem **Hello World** da aplicação de exemplo apresentada na pá
 
 ![Testar com o browser](media/quickstart-dotnetcore/dotnet-browse-local.png)
 
-Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web. Inicialize um repositório de Git para o projeto .NET Core.
+Na janela do terminal, prima **Ctrl+C** para sair do servidor Web. Inicialize um repositório de Git para o projeto .NET Core.
 
 ```bash
 git init
@@ -86,15 +86,15 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Navegue até seu aplicativo criado recentemente. Substitua _&lt;nome do aplicativo >_ pelo nome do aplicativo.
+Navegue na sua aplicação recém-criada. Substitua _&lt;nome de aplicativo>_ com o nome da sua aplicação.
 
 ```bash
 http://<app-name>.azurewebsites.net
 ```
 
-Veja como deve ser o seu novo aplicativo:
+Aqui está o aspeto da sua nova aplicação:
 
-![Página de aplicativo vazia](media/quickstart-dotnetcore/dotnet-browse-created.png)
+![Página de aplicativo vazio](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -135,9 +135,9 @@ Utilize o browser para navegar para a aplicação implementada.
 http://<app_name>.azurewebsites.net
 ```
 
-O código de exemplo do .NET Core está em execução no serviço de aplicativo no Linux com uma imagem interna.
+O código de amostra .NET Core está a ser recorrido no Serviço de Aplicações em Linux com uma imagem incorporada.
 
-![Aplicação de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
+![Aplicação Web de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
 **Parabéns!** Implementou a sua primeira aplicação .NET Core no Serviço de Aplicações no Linux.
 
@@ -160,15 +160,15 @@ Depois de concluída a implementação, volte para a janela do browser aberta no
 
 ![Aplicação de exemplo atualizada em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
-## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
+## <a name="manage-your-new-azure-app"></a>Gerencie a sua nova app Azure
 
-Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo que você criou.
+Vá ao <a href="https://portal.azure.com" target="_blank">portal Azure</a> para gerir a app que criou.
 
-No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
+A partir do menu esquerdo, clique em **Serviços de Aplicações**e, em seguida, clique no nome da sua aplicação Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-Você vê a página de visão geral do seu aplicativo. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. 
+Veja a página de visão geral da sua aplicação. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. 
 
 ![Página Serviço de Aplicações no portal do Azure](media/quickstart-dotnetcore/portal-app-overview.png)
 
@@ -179,7 +179,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: ASP.NET Core aplicativo com o banco de dados SQL](tutorial-dotnetcore-sqldb-app.md)
+> [Tutorial: ASP.NET aplicação Core com Base de Dados SQL](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Configurar ASP.NET Core aplicativo](configure-language-dotnetcore.md)
+> [Configure ASP.NET core app](configure-language-dotnetcore.md)

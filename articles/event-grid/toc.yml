@@ -105,8 +105,10 @@
     - name: Domínios do Evento
       href: event-domains.md
     - name: Origens de eventos
+      displayName: 'Azure subscriptions, Container registry, Custom topics, Event Hubs, IoT Hub, Key Vault, Media Services, Resource groups, Service Bus, Storage, Maps, App Configuration, Signal R, Machine Learning'
       href: event-sources.md
     - name: Processadores de eventos
+      displayName: 'Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks'
       href: event-handlers.md
     - name: Recuperação após desastre geográfica
       href: geo-disaster-recovery.md

@@ -1,26 +1,26 @@
 ---
-title: 'Início rápido: criar um aplicativo PHP no Linux'
-description: Introdução aos aplicativos do Linux no serviço de Azure App implantando seu primeiro aplicativo PHP em um contêiner do Linux no serviço de aplicativo.
+title: 'Quickstart: Crie uma aplicação PHP no Linux'
+description: Inicie-se com aplicações Linux no Azure App Service, implementando a sua primeira aplicação PHP para um contentor Linux no App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: feab990f1d9b0e26ff134a7232a358fd2bca7cc2
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 7608c10f2d101a3c24209a5e09bccc6dc31401ca
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687549"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524109"
 ---
-# <a name="create-a-php-app-in-app-service-on-linux"></a>Criar um aplicativo PHP no serviço de aplicativo no Linux
+# <a name="create-a-php-app-in-app-service-on-linux"></a>Crie uma app PHP no App Service no Linux
 
 > [!NOTE]
-> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implantar o serviço de aplicativo no _Windows_, consulte [criar um aplicativo PHP no Azure](../app-service-web-get-started-php.md).
+> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar no Serviço de Aplicações no _Windows,_ consulte [Criar uma aplicação PHP no Azure](../app-service-web-get-started-php.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial de início rápido mostra como implantar um aplicativo PHP no serviço Azure App no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial de arranque rápido mostra como implementar uma aplicação PHP para o Azure App Service no Linux usando a [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-![Aplicação de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
+![Aplicação Web de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
 
 Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 
@@ -30,7 +30,7 @@ Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 
 Para concluir este guia de início rápido:
 
-* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>
 * <a href="https://php.net" target="_blank">Instalar o PHP</a>
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
@@ -56,7 +56,7 @@ Pode ver a mensagem **Olá, mundo!** da aplicação de exemplo apresentada na p�
 
 ![Aplicação de exemplo em execução localmente](media/quickstart-php/localhost-hello-world-in-browser.png)
 
-Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web.
+Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -70,15 +70,15 @@ Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-Navegue até o site para ver seu aplicativo criado recentemente com a imagem interna. Substitua _&lt;nome do aplicativo >_ pelo nome do aplicativo.
+Navegue no site para ver a sua aplicação recém-criada com imagem incorporada. Substitua _&lt;nome de aplicação>_ com o nome da sua aplicação.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Veja como deve ser o seu novo aplicativo:
+Aqui está o aspeto da sua nova aplicação:
 
-![Página de aplicativo vazia](media/quickstart-php/app-service-web-service-created.png)
+![Página de aplicativo vazio](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -115,9 +115,9 @@ Utilize o browser para navegar para a aplicação implementada.
 http://<app_name>.azurewebsites.net
 ```
 
-O código de exemplo do PHP está em execução no serviço de aplicativo no Linux com imagem interna.
+O código de amostra PHP está em execução no Serviço de Aplicações em Linux com imagem incorporada.
 
-![Aplicação de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
+![Aplicação Web de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
 
 **Parabéns!** Implementou a sua primeira aplicação PHP no Serviço de Aplicações no Linux.
 
@@ -140,15 +140,15 @@ Depois de concluída a implementação, volte para a janela do browser aberta qu
 
 ![Aplicação de exemplo atualizada em execução no Azure](media/quickstart-php/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
+## <a name="manage-your-new-azure-app"></a>Gerencie a sua nova app Azure
 
-Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo que você criou.
+Vá ao <a href="https://portal.azure.com" target="_blank">portal Azure</a> para gerir a app que criou.
 
-No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
+A partir do menu esquerdo, clique em **Serviços de Aplicações**e, em seguida, clique no nome da sua aplicação Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-Você vê a página de visão geral do seu aplicativo. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar.
+Veja a página de visão geral da sua aplicação. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar.
 
 ![Página Serviço de Aplicações no portal do Azure](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 
@@ -159,7 +159,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: aplicativo PHP com MySQL](tutorial-php-mysql-app.md)
+> [Tutorial: app PHP com MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configurar aplicativo PHP](configure-language-php.md)
+> [Configure app PHP](configure-language-php.md)

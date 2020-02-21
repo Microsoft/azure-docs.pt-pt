@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33bd8554abc7566496cacaa943f0b1fdc15d8507
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: ad5747be47e250cf9c623cc40d21d12c91ee16f5
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048109"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499109"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Atualizar ou remover uma função personalizada da AD Azure atribuída na Gestão de Identidade Privilegiada
 
@@ -31,7 +31,9 @@ Este artigo diz-lhe como usar a Gestão de Identidade Privilegiada (PIM) para at
 - Se ainda não utilizou a Gestão de Identidade Privilegiada, obtenha mais informações no [Start use A Gestão](pim-getting-started.md)de Identidade Privilegiada.
 
 > [!NOTE]
-> As funções personalizadas da Azure AD não estão integradas com as funções de diretório incorporada durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de funções de gestão de papéis terá lugar na experiência de papéis incorporados.
+> As funções personalizadas da Azure AD não estão integradas com as funções de diretório incorporada durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de papéis terá lugar na experiência de papéis incorporados. Se vir o seguinte banner, estas funções devem ser geridas na experiência de [papéis incorporados](pim-how-to-add-role-to-user.md) e este artigo não se aplica:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="update-or-remove-an-assignment"></a>Atualizar ou remover uma atribuição
 
@@ -46,13 +48,13 @@ Siga estes passos para atualizar ou remover uma atribuição de funções person
 
     ![Selecione Roles ver a lista de atribuições de funções elegíveis](./media/azure-ad-custom-roles-update-remove/assignments-list.png)
 
-1. Selecione a função que você deseja atualizar ou remover.
+1. Selecione a função que pretende atualizar ou remover.
 1. Encontre a atribuição de funções nas **funções elegíveis** ou nos separadores de **funções ativas.**
 1. Selecione **Atualizar** ou **Remover** para atualizar ou remover a atribuição de funções.
 
     ![Selecione remover ou atualizar na atribuição de funções elegíveis](./media/azure-ad-custom-roles-update-remove/remove-update.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Ativar uma função personalizada da AD Azure](azure-ad-custom-roles-assign.md)
 - [Atribuir uma função personalizada azure AD](azure-ad-custom-roles-assign.md)

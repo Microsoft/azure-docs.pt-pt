@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 34f102b43de669b5ea03324db47ac4dfcb554133
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: eefaaa59a3dc0f0900666bc697f64e4f405a0d74
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190765"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498710"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Sintonização automática na Base de Dados Azure SQL
 
@@ -82,13 +82,13 @@ As opções de afinação automática podem ser ativadas ou desativadas de forma
 > [!IMPORTANT]
 > A partir de março de 2020, as alterações às incumprimentos do Azure para a sintonização automática entrarão em vigor da seguinte forma:
 > - Os novos incumprimentos do Azure serão FORCE_LAST_GOOD_PLAN = ativados, CREATE_INDEX = desativados e DROP_INDEX = desativados.
-> - Os servidores existentes sem preferências de afinação automática configuradas serão automaticamente configurados com as novas falhas do Azure. Isto aplica-se a todos os clientes que têm atualmente a afinação automática num estado indefinido.
-> - Os novos servidores criados serão automaticamente configurados com os novos predefinições do Azure (ao contrário do que aconteceu anteriormente quando a configuração de afinação automática estava em estado indefinido após a criação de novos servidores).
+> - Os servidores existentes sem preferências de afinação automática configuradas serão automaticamente configurados para HERDar as novas falhas do Azure. Isto aplica-se a todos os clientes que atualmente têm definições de servidor para afinação automática num estado indefinido.
+> - Os novos servidores criados serão automaticamente configurados para HERDar os novos incumprimentos do Azure (ao contrário do que aconteceu anteriormente quando a configuração de afinação automática estava em estado indefinido após a criação de novos servidores).
 >
 
 Configurar opções de afinação automática num servidor e herdar as definições para bases de dados pertencentes ao servidor dos pais é um método recomendado para configurar a afinação automática, uma vez que simplifica a gestão das opções de afinação automática para um grande número de bases de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para permitir a sintonização automática na Base de Dados Azure SQL para gerir a sua carga de trabalho, consulte [Afinação automática .](sql-database-automatic-tuning-enable.md)
 - Para rever manualmente e aplicar recomendações de afinação automática, consulte [encontrar e aplicar recomendações](sql-database-advisor-portal.md)de desempenho .

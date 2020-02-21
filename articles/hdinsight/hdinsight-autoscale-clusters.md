@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/11/2020
-ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: a093eea8b1961482722211017174018a649e2c4f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162859"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484847"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escala automaticamente os clusters Azure HDInsight
 
@@ -78,7 +78,7 @@ Com base no número de contentores AM por nó e nos atuais requisitos de CPU e m
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Criar um cluster com autoscalcificação baseado em carga
 
-Para utilizar a escala automática num cluster, a opção **ativação** de escala automática deve ser ativada quando o cluster é criado. Para ativar a função de escala automática com escala à base de carga, complete os seguintes passos como parte do processo normal de criação do cluster:
+Para ativar a função de escala automática com escala à base de carga, complete os seguintes passos como parte do processo normal de criação do cluster:
 
 1. No separador **de preços Configuração +,** selecione a caixa de verificação **enable autoscale.**
 1. Selecione **baseado em carga sob** o tipo de escala **automática**.
@@ -263,6 +263,6 @@ Selecione **Métricas** sob **monitorização**. Em seguida, **selecione Adicion
 
 ![Ativar a métrica de escala automática baseada no horário do nó do trabalhador](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia sobre as melhores práticas para escalonar clusters manualmente nas [melhores práticas](hdinsight-scaling-best-practices.md) de escala

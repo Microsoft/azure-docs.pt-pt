@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 39eacbb9a87fa18cc6ef92e319fbfbd3e415337b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188776"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525520"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -60,11 +60,10 @@ Todos os recipientes criados dentro de uma base de dados com entrada aprovisiona
 
 Se a carga de trabalho numa divisória lógica consumir mais do que a entrada atribuída a uma divisória lógica específica, as suas operações são limitadas à taxa. Quando ocorre a limitação da taxa, pode aumentar o misto para toda a base de dados ou voltar a tentar as operações. Para obter mais informações sobre a partilha, consulte [divisórias lógicas.](partition-data.md)
 
-Os contentores numa base de dados de entradas partilhadas partilham o resultado (RU/s) atribuído a essa base de dados. Numa base de dados de entrada partilhada:
+Os contentores numa base de dados de entradas partilhadas partilham o resultado (RU/s) atribuído a essa base de dados. Pode ter até quatro contentores com um mínimo de 400 RU/s na base de dados. Cada recipiente novo após os quatro primeiros exigirá um mínimo adicional de 100 RU/s. Por exemplo, se tiver uma base de dados de entrada partilhada com oito contentores, o mínimo de RU/s na base de dados será de 800 RU/s.
 
-* Pode ter até quatro contentores com um mínimo de 400 RU/s na base de dados. Cada recipiente novo após os quatro primeiros exigirá um mínimo adicional de 100 RU/s. Por exemplo, se tiver uma base de dados de entrada partilhada com oito contentores, o mínimo de RU/s na base de dados será de 800 RU/s.
-
-* Pode ter um máximo de 25 contentores na base de dados. Se já tiver mais de 25 contentores numa base de dados de entrada partilhada, não poderá criar recipientes adicionais até que a contagem de contentores seja inferior a 25.
+> [!NOTE]
+> Numa base de dados de entrada partilhada, pode ter um máximo de 25 contentores na base de dados. Se já tiver mais de 25 contentores numa base de dados de entrada partilhada, não poderá criar recipientes adicionais até que a contagem de contentores seja inferior a 25.
 
 Se as suas cargas de trabalho implicarem a eliminar e recriar todas as coleções numa base de dados, recomenda-se que deixe cair a base de dados vazia e recrie uma nova base de dados antes da criação da recolha. A imagem que se segue mostra como uma divisória física pode alojar uma ou mais divisórias lógicas que pertencem a diferentes contentores dentro de uma base de dados:
 

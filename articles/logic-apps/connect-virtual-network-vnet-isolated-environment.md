@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 2fa43cb9ec526cfab2367431712e09406556a529
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 63174e1d4950b9f18fd3693511c507ed2dd018b3
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191850"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500373"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligue-se a redes virtuais Azure a partir de Aplicações Lógicas Azure utilizando um ambiente de serviço de integração (ISE)
 
@@ -41,7 +41,7 @@ Este artigo mostra-lhe como completar estas tarefas:
 
 * Uma [rede virtual Azure.](../virtual-network/virtual-networks-overview.md) Se não tiver uma rede virtual, aprenda a [criar uma rede virtual Azure.](../virtual-network/quick-create-portal.md)
 
-  * A sua rede virtual precisa de ter quatro subredes *vazias* para criar e implantar recursos no seu ISE. Cada subnet suporta um componente de Aplicações Lógicas diferente para o seu ISE. Pode criar estas subredes com antecedência, ou pode esperar até criar o ise onde pode criar subredes ao mesmo tempo. Saiba mais sobre [os requisitos da subnet](#create-subnet).
+  * A sua rede virtual precisa de ter quatro subredes *vazias* para criar e implantar recursos no seu ISE. Cada subnet suporta um componente de Aplicações Lógicas diferente que é usado no seu ISE. Pode criar estas subredes com antecedência, ou pode esperar até criar o ise onde pode criar subredes ao mesmo tempo. Saiba mais sobre [os requisitos da subnet](#create-subnet).
 
   * Os nomes da subnet precisam de começar com um carácter alfabético ou um sublinhado e não podem usar estes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
   
@@ -91,27 +91,25 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 
 | Objetivo | Direção | Portas de destino | Etiqueta de serviço de origem | Etiqueta do serviço de destino | Notas |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
-| Comunicação intrasubnet | Entrada e saída | * | Espaço de endereço para a rede virtual com as subredes ISE | Espaço de endereço para a rede virtual com as subredes ISE | Necessário para que o tráfego possa fluir dentro de cada sub-rede. <p><p>**Importante**: Para a comunicação entre componentes no interior das subredes, certifique-se de que abre todas as portas dentro dessas subredes. |
-| Comunicação intersubnet | Entrada e saída | 80, 443 | VirtualNetwork | VirtualNetwork | Para comunicação entre subredes |
-| Comunicação de Aplicativos Lógicos Azure | Saída | 80, 443 | VirtualNetwork | Internet | A porta depende do serviço externo com o qual comunica o serviço De Aplicações Lógicas |
-| Azure Active Directory | Saída | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Dependência de Armazenamento Azure | Saída | 80, 443, 445 | VirtualNetwork | Armazenamento | |
-| Comunicação a Aplicações Lógicas Azure | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externa: <br>Internet | VirtualNetwork | O endereço IP para o computador ou serviço que liga para qualquer pedido de gatilhos ou webhooks na sua aplicação lógica. Fechar ou bloquear esta porta impede chamadas http para aplicações lógicas com gatilhos de pedido. |
-| História de execução de aplicativológico | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externa: <br>Internet | VirtualNetwork | O endereço IP para o computador de onde pretende ver o histórico de execução da sua aplicação lógica. Embora fechar ou bloquear esta porta não o impeça de ver o histórico de execução, não pode ver as inputs e saídas para cada passo na história da execução. |
-| Gestão de ligações | Saída | 443 | VirtualNetwork  | AppService | |
-| Publicar Registos e Métricas de Diagnóstico | Saída | 443 | VirtualNetwork  | AzureMonitor | |
-| Comunicação do Gestor de Tráfego Azure | Entrada | ISE Interno: 454 <p><p>ISE externa: 443 | AzureTrafficManager | VirtualNetwork | |
+| Comunicação intersubnet dentro da sua rede virtual | Entrada e saída | * | O espaço de endereço para a rede virtual que tem as subnets do ISE | O espaço de endereço para a rede virtual que tem as subnets do ISE | Necessário para que o tráfego flua *entre* as subredes da sua rede virtual. <p><p>**Importante**: Para que o tráfego flua entre os *componentes* de cada sub-rede, certifique-se de que abre todas as portas dentro de cada sub-rede. |
+| Comunicação à sua aplicação lógica | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externa: <br>Internet | VirtualNetwork | O endereço IP de origem para o computador ou serviço que liga para qualquer pedido de gatilhos ou webhooks na sua aplicação lógica. <p><p>**Importante**: Fechar ou bloquear esta porta impede chamadas http para aplicações lógicas que tenham gatilhos de pedido. |
+| História de execução de aplicativológico | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externa: <br>Internet | VirtualNetwork | O endereço IP de origem para o computador ou serviço de onde pretende ver o histórico de execução da sua aplicação lógica. <p><p>**Importante**: Embora fechar ou bloquear esta porta não o impeça de ver o histórico de execução, não pode ver as inputs e saídas para cada passo na história da execução. |
 | Logic Apps Designer - propriedades dinâmicas | Entrada | 454 | Ver coluna **de notas** para endereços IP para permitir | VirtualNetwork | Os pedidos provêm dos endereços IP de acesso de ponto final de [acesso](../logic-apps/logic-apps-limits-and-config.md#inbound) às Aplicações Lógicas para aquela região. |
+| Implantação do conector | Entrada | 454 | Ligadores Azure | VirtualNetwork | Necessário para a implantação e atualização dos conectores. Fechar ou bloquear esta porta faz com que as implementações do ISE falhem e impeça atualizações ou correções do conector. |
 | Verificação de saúde da rede | Entrada | 454 | Ver coluna **de notas** para endereços IP para permitir | VirtualNetwork | Os pedidos provêm do ponto final de acesso das Aplicações Lógicas para endereços IP de [entrada](../logic-apps/logic-apps-limits-and-config.md#inbound) e [saída](../logic-apps/logic-apps-limits-and-config.md#outbound) para aquela região. |
 | Dependência da Gestão de Serviços de Aplicações | Entrada | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| Implantação do conector | Entrada | 454 | Ligadores Azure | VirtualNetwork | Necessário para a implantação e atualização dos conectores. Fechar ou bloquear esta porta faz com que as implementações do ISE falhem e impeça atualizações ou correções do conector. |
-| Implantação da política do conector | Entrada | 3443 | Gestão API | VirtualNetwork | Necessário para a implantação e atualização dos conectores. Fechar ou bloquear esta porta faz com que as implementações do ISE falhem e impeça atualizações ou correções do conector. |
-| Dependência Azure SQL | Saída | 1433 | VirtualNetwork | SQL | |
-| Azure Resource Health | Saída | 1886 | VirtualNetwork | AzureMonitor | Para publicar o estado de saúde à Saúde dos Recursos |
+| Comunicação do Gestor de Tráfego Azure | Entrada | ISE Interno: 454 <p><p>ISE externa: 443 | AzureTrafficManager | VirtualNetwork | |
 | Gestão API - ponto final de gestão | Entrada | 3443 | Gestão API | VirtualNetwork | |
+| Implantação da política do conector | Entrada | 3443 | Gestão API | VirtualNetwork | Necessário para a implantação e atualização dos conectores. Fechar ou bloquear esta porta faz com que as implementações do ISE falhem e impeça atualizações ou correções do conector. |
+| Comunicação da sua aplicação lógica | Saída | 80, 443 | VirtualNetwork | Varia com base no destino | Os pontos finais para o serviço externo com o qual a sua aplicação lógica precisa de comunicar. |
+| Azure Active Directory | Saída | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
+| Gestão de ligações | Saída | 443 | VirtualNetwork  | AppService | |
+| Publicar Registos e Métricas de Diagnóstico | Saída | 443 | VirtualNetwork  | AzureMonitor | |
+| Dependência de Armazenamento Azure | Saída | 80, 443, 445 | VirtualNetwork | Armazenamento | |
+| Dependência Azure SQL | Saída | 1433 | VirtualNetwork | SQL | |
+| Azure Resource Health | Saída | 1886 | VirtualNetwork | AzureMonitor | Necessário para a publicação do estado de saúde à Saúde dos Recursos |
 | Dependência do Log para event hub política e agente de monitorização | Saída | 5672 | VirtualNetwork | EventHub | |
-| Access Azure Cache for Redis Instances between Role Instances | Entrada <br>Saída | 6379-6383 | VirtualNetwork | VirtualNetwork | Além disso, para que o ISE trabalhe com o Azure Cache for Redis, deve abrir estes portos de [saída e de entrada descritos no Azure Cache para Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Entrada | * | AzureLoadBalancer | VirtualNetwork | |
+| Access Azure Cache for Redis Instances between Role Instances | Entrada <br>Saída | 6379 - 6383 | VirtualNetwork | VirtualNetwork | Além disso, para que o ISE trabalhe com o Azure Cache for Redis, deve abrir estes portos de [saída e de entrada descritos no Azure Cache para Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 ||||||
 
 <a name="create-environment"></a>
@@ -147,23 +145,19 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 
    **Criar subrede**
 
-   Para criar e implementar recursos no seu ambiente, o seu ISE precisa de quatro subredes *vazias* que não são delegadas em nenhum serviço. *Não pode* alterar estes endereços de sub-rede depois de criar o seu ambiente.
+   Para criar e implementar recursos no seu ambiente, o seu ISE precisa de quatro subredes *vazias* que não são delegadas em nenhum serviço. Cada subnet suporta um componente de Aplicações Lógicas diferente que é usado no seu ISE. *Não pode* alterar estes endereços de sub-rede depois de criar o seu ambiente. Cada subnet a necessitar de satisfazer estes requisitos:
 
-   > [!IMPORTANT]
-   > 
-   > Os nomes da subnet devem começar com um carácter alfabético ou um sublinhado (sem números), e não usam estes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
-
-   Além disso, cada subnet deve satisfazer estes requisitos:
+   * Tem um nome que começa com um carácter alfabético ou um sublinhado (sem números), e não usa estes caracteres: `<`, `>`, `%`, `&`, `\\``?`, `/`.
 
    * Utiliza o formato de [encaminhamento inter-domínio de classe (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e um espaço de endereço classe B.
 
-   * Utiliza pelo menos uma `/27` no espaço de endereço porque cada sub-rede requer *pelo menos* 32 endereços *mínimos*. Por exemplo:
+   * Utiliza pelo menos um `/27` no espaço de endereço porque cada sub-rede requer 32 endereços no *mínimo*. Por exemplo:
+
+     * `10.0.0.0/28` tem apenas 16 endereços e é muito pequeno porque 2<sup>(32-28)</sup> é 2<sup>4</sup> ou 16.
 
      * `10.0.0.0/27` tem 32 endereços porque 2<sup>(32-27)</sup> é 2<sup>5</sup> ou 32.
 
-     * `10.0.0.0/24` tem 256 endereços porque 2<sup>(32-24)</sup> é 2<sup>8</sup> ou 256.
-
-     * `10.0.0.0/28` tem apenas 16 endereços e é muito pequeno porque 2<sup>(32-28)</sup> é 2<sup>4</sup> ou 16.
+     * `10.0.0.0/24` tem 256 endereços porque 2<sup>(32-24)</sup> é 2<sup>8</sup> ou 256. No entanto, mais endereços não oferecem benefícios adicionais.
 
      Para saber mais sobre o cálculo de endereços, consulte [os blocos CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
@@ -290,7 +284,7 @@ Antes de eliminar um ISE de que já não precisa ou um grupo de recursos Azure q
 
 Depois de eliminar o ise, poderá ter de esperar até 9 horas antes de tentar eliminar a rede virtual do Azure ou subredes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Adicione artefactos aos ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [Verifique a saúde da rede para obter ambientes de serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)

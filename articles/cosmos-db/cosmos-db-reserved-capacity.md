@@ -4,15 +4,15 @@ description: Aprenda a comprar capacidade reservada à Azure Cosmos DB para econ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 8e29683b994d66e769a24bb2d386a2120cf8eab9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367680"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505960"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com capacidade reservada no Azure Cosmos DB
 
@@ -30,7 +30,9 @@ Pode comprar a capacidade reservada do Azure Cosmos DB ao [portal Azure.](https:
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Determine a entrada necessária antes da compra
 
-O tamanho da reserva deve basear-se na quantidade total de produção que os recursos existentes ou em breve implantados azure Cosmos DB utilizarão. Pode ver os tamanhos de reserva recomendados no portal Azure utilizando os seguintes passos:
+A dimensão da aquisição de capacidade reservada deve basear-se na quantidade total de produção que os recursos existentes ou em breve implantados azure Cosmos DB utilizarão numa base horária. Por exemplo: Compre 30.000 RU/s de capacidade reservada se for o seu padrão de utilização hora a hora consistente. Neste exemplo, qualquer provisão acima de 30.000 RU/s será faturada usando a sua taxa Pay-as-you-go. Se a entrada prevista for inferior a 30.000 RU/s numa hora, então a capacidade extra reservada para essa hora será desperdiçada.
+
+Calculamos recomendações de compra com base no seu padrão de utilização horária. O uso nos últimos 7, 30 e 60 dias é analisado, e a compra de capacidade reservada que maximiza as suas poupanças é recomendada. Pode ver os tamanhos de reserva recomendados no portal Azure utilizando os seguintes passos:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  
 
@@ -46,7 +48,7 @@ Pode filtrar recomendações pelos seguintes atributos:
 - **Frequência de faturação** (Mensal ou Frontal)
 - **Tipo de entrada** (RU's vs Multi-master RU's)
 
-Além disso, pode fazer o âmbito de recomendações para estar dentro de um único grupo de recursos, subscrição única ou toda a sua inscrição no Azure. Pode apresentar recomendações baseadas no uso nos últimos 7 dias, 30 dias ou 60 dias.
+Além disso, pode fazer o âmbito de recomendações para estar dentro de um único grupo de recursos, subscrição única ou toda a sua inscrição no Azure. 
 
 Aqui está uma recomendação exemplo:
 

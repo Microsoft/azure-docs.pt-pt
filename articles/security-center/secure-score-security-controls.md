@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0096bccf76e81f2bca1a449cea2474cb5266fabc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: f4f6cf01502070ea63eaf0083aba33ff213534a4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443589"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500253"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>A pontuação segura melhorada (pré-visualização) 
 
-Este artigo introduz o Melhor Secure Score (atualmente em pré-visualização), os Controlos de Segurança que acompanham e as vantagens que trazem. Ele também explica como sua pontuação é calculada.
+Este artigo introduz o Melhor Secure Score (atualmente em pré-visualização), os Controlos de Segurança que acompanham e as vantagens que trazem. Também explica como a sua pontuação é calculada.
 
 ## <a name="introduction-to-secure-score"></a>Introdução à Pontuação Segura
 
@@ -65,15 +65,15 @@ Por exemplo, o Controlo de Segurança chamado "Aplicar atualizações do sistema
 
 O potencial para o Controlo de Segurança "Aplicar atualizações do sistema" na imagem acima mostra "2% (1 Ponto)". Isto significa que se remediar todas as recomendações neste controlo, a sua pontuação aumentará 2% (neste caso, um ponto). Para a simplicidade, os valores na coluna "Potencial aumento" da lista de recomendações são arredondados para números inteiros. As pontas de ferramentas mostram os valores precisos:
 
+* **Pontuação máxima** - O número máximo de pontos que pode ganhar ao completar todas as recomendações dentro de um controlo. A pontuação máxima para um controlo indica o significado relativo desse controlo. Use os valores de pontuação máxima para triagem quais as questões para trabalhar primeiro. 
 * **Potencial aumento** - Os restantes pontos disponíveis dentro do controlo. Para obter estes pontos adicionados ao seu Secure Score, reamediar todas as recomendações do controlo. No exemplo acima, o único ponto indicado para o controlo é, na verdade, 0,96 pontos.
 * **Pontuação atual** - A pontuação atual para este controlo. Cada controlo contribui para a pontuação total. Neste exemplo, o controlo está a contribuir com 5,04 pontos para o total. 
-* **Pontuação máxima** - A soma dos dois valores anteriores.
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos - compreender a sua pontuação
 
 |Métrica|Fórmula e exemplo|
 |-|-|
-|**Pontuação atual do Controlo de Segurança**|<br>![Equação para calcular a pontuação atual de um Controlo de Segurança](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada Controlo de Segurança individual contribui para a Pontuação de Segurança. Cada recurso afetado por uma recomendação dentro do controlo contribui para a pontuação atual do controlo. A pontuação atual para cada controlo é uma medida do estado dos recursos *no controlo.*<br>![Tooltips que mostram os valores utilizados no cálculo da pontuação atual do Controlo de Segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos saudáveis e pouco saudáveis.<br>6 / 78 = 0,0769<br>Multiplicar isso pelo número de recursos saudáveis (74) resulta na pontuação atual:<br>0,0769 * 74 = **5,69**<br><br>|
+|**Pontuação atual do Controlo de Segurança**|<br>![Equação para calcular a pontuação atual de um Controlo de Segurança](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada Controlo de Segurança individual contribui para a Pontuação de Segurança. Cada recurso afetado por uma recomendação dentro do controlo contribui para a pontuação atual do controlo. A pontuação atual para cada controlo é uma medida do estado dos recursos *no controlo.*<br>![Tooltips que mostram os valores utilizados no cálculo da pontuação atual do Controlo de Segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos saudáveis e pouco saudáveis.<br>6 / 78 = 0,0769<br>Multiplicar isso pelo número de recursos saudáveis (4) resulta na pontuação atual:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Secure Score** (Classificação de segurança)<br>Subscrição individual|<br>![Equação para calcular a pontuação segura atual](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Pontuação segura de subscrição única com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Neste exemplo, existe uma única subscrição com todos os Controlos de Segurança disponíveis (uma pontuação máxima potencial de 60 pontos). A pontuação mostra 28 pontos de um possível 60 e os restantes 32 pontos refletem-se nos números do "Potencial aumento de pontuação" dos Controlos de Segurança.<br>![Lista de controlos e aumento potencial da pontuação](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Secure Score** (Classificação de segurança)<br>Múltiplas subscrições|<br>A pontuação atual para todos os recursos em todas as subscrições é adicionada e o cálculo é então o mesmo que para uma única subscrição<br><br>Ao visualizar várias subscrições, o Secure Score avalia todos os recursos dentro de todas as políticas ativadas e agrupa o seu impacto combinado na pontuação máxima de cada Controlo de Segurança.<br>![Secure Score para várias subscrições com todos os controlos habilitados](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>A pontuação combinada **não** é uma média; em vez disso, é a postura avaliada do estado de todos os recursos em todas as subscrições.<br>Também aqui, se for à página de recomendações e somar os pontos potenciais disponíveis, verá que é a diferença entre a pontuação atual (24) e a pontuação máxima disponível (60).|
 ||||
@@ -127,7 +127,7 @@ Sim. Recomendamos que sejam recomendações incapacitantes quando são inaplicá
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um Controlo de Segurança me oferecer zero pontos para a minha Pontuação Segura, devo ignorá-lo?
 Em alguns casos, verá um controlo máximo de pontuação superior a zero, mas o impacto é zero. Quando a pontuação incremental para a fixação de recursos é insignificante, é arredondada para zero. Não ignore estas recomendações, pois ainda trazem melhorias de segurança. A única exceção é o controlo "Práticas Adicionais". Remediar estas recomendações não aumentará a sua pontuação, mas aumentará a sua segurança global.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo descreveu o "Secure Score" melhorado e os novos Controlos de Segurança que introduz. Para material relacionado, consulte os seguintes artigos:
 

@@ -1,0 +1,59 @@
+---
+title: Ligue produtos forcepoint ao Azure Sentinel. Microsoft Docs
+description: Saiba como ligar os produtos Forcepoint ao Azure Sentinel.
+services: sentinel
+author: rkarlin
+editor: ''
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/20/2020
+ms.author: rkarlin
+ms.openlocfilehash: 66b6b7e7c9b3fec1a6252077519710452f37312a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500968"
+---
+# <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Ligue os seus produtos Forcepoint ao Azure Sentinel
+
+> [!IMPORTANT]
+> O conector de dados de produtos Forcepoint em Azure Sentinel encontra-se atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+Este artigo explica como ligar os seus produtos Forcepoint ao Azure Sentinel. 
+
+Os conectores de dados do Forcepoint permitem ligar o Forcepoint Cloud Access Security Broker e os registos de Firewall da Próxima Geração com o Azure Sentinel. Desta forma, pode exportar automaticamente registos definidos pelo utilizador para o Azure Sentinel em tempo real. O conector dá-lhe visibilidade enriquecida nas atividades do utilizador registadas pelos produtos Forcepoint. Também permite uma maior correlação com os dados das cargas de trabalho do Azure e outros feeds, e melhora a capacidade de monitorização com os Livros de Trabalho dentro do Azure Sentinel.
+
+> [!NOTE]
+> Os dados serão armazenados na localização geográfica do espaço de trabalho em que está a executar o Azure Sentinel.
+
+
+
+## <a name="forward-forcepoint-product-logs-to-the-syslog-agent"></a>Registos de produtos De Forcepoint avançados para o agente Syslog 
+
+Configure o produto Forcepoint para encaminhar mensagens Syslog em formato CEF para o seu espaço de trabalho Azure através do agente Syslog.
+
+1. Configurar o produto Forcepoint para a integração do Sentinel a Azure, conforme descrito nos seguintes guias de instalação:
+ - [Guia de Integração CASB de Forcepoint](https://frcpnt.com/casb-sentinel)
+ - [Guia de Integração de NGFW de Forcepoint NGFW](https://frcpnt.com/ngfw-sentinel)
+
+2. Procure o CommonSecurityLog para utilizar o esquema relevante no Log Analytics com o nome Do Fornecedor de Dispositivos contém 'Forcepoint'. 
+
+3. Continuar a [PASSO 3: Validar a conectividade.](connect-cef-verify.md)
+
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Neste documento, aprendeu a ligar produtos Da Forcepoint ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
+
+- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.

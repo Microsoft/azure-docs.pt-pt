@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 33fddcf22793e50287fb590dee3547d5e7be4d2b
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 97b65c9f891d925e702c858753aa5e5feb9c9ac1
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462552"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500713"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -45,35 +45,46 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
 
 - **Serviço à integração de serviços:**<br> Alguns serviços estão ligados de forma nativa, como os serviços AWS e Microsoft, estes serviços alavancam a fundação Azure para integração fora da caixa, as seguintes soluções podem ser conectadas em alguns cliques:
     - [Amazon Web Services - CloudTrail](connect-aws.md)
-    - [Office 365](connect-office-365.md)
-    - [Registos de auditoria da AD Azure e inscrições](connect-azure-active-directory.md)
     - [Atividade Azure](connect-azure-activity.md)
+    - [Registos de auditoria da AD Azure e inscrições](connect-azure-active-directory.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Centro de Segurança do Azure](connect-azure-security-center.md)
-    - [Azure Information Protection](connect-azure-information-protection.md)
     - [Proteção avançada de ameaças azure](connect-azure-atp.md)
+    - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Centro de Segurança do Azure](connect-azure-security-center.md)
     - [Segurança de aplicativos em nuvem](connect-cloud-app-security.md)
+    - [Servidor de nome de domínio](connect-dns.md)
+    - [Office 365](connect-office-365.md)
+    - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
+    - [Firewall de aplicação web da Microsoft](connect-microsoft-waf.md)
     - [Eventos de segurança do Windows](connect-windows-security-events.md) 
     - [Firewall do Windows](connect-windows-firewall.md)
+    - [Eventos de segurança do Windows](connect-windows-security-events.md)
 
 - **Soluções externas via API**: Algumas fontes de dados estão ligadas utilizando APIs fornecidas pela fonte de dados conectada. Tipicamente, a maioria das tecnologias de segurança fornecem um conjunto de APIs através dos quais os registos de eventos podem ser recuperados. As APIs ligam-se ao Azure Sentinel e recolhem tipos de dados específicos e enviam-nos para o Azure Log Analytics. Os aparelhos ligados via API incluem:
     - [Barracuda](connect-barracuda.md)
-    - [Symantec](connect-symantec.md)
+    - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
     - [Citrix Analytics (Segurança)](connect-citrix-analytics.md)
+    - [F5 BIG-IP](connect-f5-big-ip.md)
+    - [Ponto de força DLP](connect-forcepoint-dlp.md)
+    - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
+    - [Symantec ICDX](connect-symantec.md)
+    - [Zimperium](connect-zimperium-mtd.md)
+
 
 - **Soluções externas via agente**: O Azure Sentinel pode ser ligado a todas as outras fontes de dados que possam realizar o streaming de log em tempo real utilizando o protocolo Syslog, através de um agente. <br>A maioria dos aparelhos utiliza o protocolo Syslog para enviar mensagens de eventos que incluem o próprio log e dados sobre o registo. O formato dos registos varia, mas a maioria dos aparelhos suporta mato baseado em eventos comuns (CEF) para dados de registos. <br>O agente Azure Sentinel, que se baseia no agente Log Analytics, converte os registos formados CEF num formato que pode ser ingerido pelo Log Analytics. Dependendo do tipo de aparelho, o agente é instalado diretamente no aparelho, quer num servidor Linux dedicado. O agente da Linux recebe eventos do daemon Syslog sobre a UDP, mas se se espera que uma máquina Linux recolha um grande volume de eventos Syslog, eles são enviados através do TCP do daemon Syslog para o agente e de lá para log Analytics.
     - Firewalls, proxies e pontos finais:
-        - [F5](connect-f5.md)
         - [Ponto de verificação](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
+        - [ExtraHop Reveal (x)](connect-extrahop.md)
+        - [F5](connect-f5.md)
+        - [Produtos forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto](connect-paloalto.md)
+        - [Redes Palo Alto](connect-paloalto.md)
+        - [Uma salvaguarda de identidade](connect-one-identity.md)
         - [Outros aparelhos CEF](connect-common-event-format.md)
         - [Outros aparelhos Syslog](connect-syslog.md)
-        - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
-        - [ExtraHop Reveal (x)](connect-extrahop.md)
-        - [Uma salvaguarda de identidade](connect-one-identity.md)
         - [Tendência Micro Segurança Profunda](connect-trend-micro.md)
+        - [Rio Zscaler](connect-zscaler.md)
     - Soluções DLP
     - [Fornecedores de inteligência de ameaças](connect-threat-intelligence.md)
     - [Máquinas DNS](connect-dns.md) - agente instalado diretamente na máquina DNS

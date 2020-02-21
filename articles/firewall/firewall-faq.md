@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
-ms.translationtype: MT
+ms.openlocfilehash: 41cc058d09c3bca114ba5a469f23a27ff88fed19
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460472"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505790"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -117,7 +117,7 @@ Para os limites de serviço azure Firewall, consulte [os limites de subscrição
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Pode o Azure Firewall numa rede virtual de hub para a frente e filtrar o tráfego da rede entre duas redes virtuais faladas?
 
-Sim, você pode usar o Azure Firewall numa rede virtual hub para direcionar e filtrar o tráfego entre duas redes virtuais. As subredes em cada uma das redes virtuais faladas devem ter o UDR apontado para o Firewall Azure como uma porta de entrada padrão para que este cenário funcione corretamente.
+Sim, você pode usar o Azure Firewall numa rede virtual hub para direcionar e filtrar o tráfego entre duas redes virtuais. As subredes em cada uma das redes virtuais faladas devem ter um UDR apontando para o Firewall Azure como uma porta de entrada padrão para que este cenário funcione corretamente.
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Azure Firewall pode avançar e filtrar o tráfego de rede entre subredes na mesma rede virtual ou redes virtuais?
 
@@ -168,11 +168,11 @@ Não. A Firewall Azure não precisa de uma sub-rede maior que a de 1,26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar a minha entrada de firewall?
 
-A capacidade inicial de entrada da Azure Firewall é de 2,5 - 3 Gbps. Atualmente, a escala é baseada na utilização e na entrada de CPU. Em alguns casos, uma firewall com regras de rede só não vai aumentar para aumentar a entrada porque as regras da rede não afetam significativamente o uso de CPU. Se precisar de uma entrada mais elevada para a sua firewall, contacte o Suporte para aumentar a capacidade inicial de entrada da sua firewall.
+A capacidade inicial de entrada da Azure Firewall é de 2,5 - 3 Gbps e escala para 30 Gbps. Esescala-se com base na utilização e na entrada do CPU. Suporte de contato para aumentar a capacidade de entrada da sua firewall se a sua firewall não estiver a escalonar para satisfazer as suas necessidades e precisar de uma maior capacidade de entrada.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Azure Firewall aumentar a escala?
 
-Atualmente, leva de cinco a sete minutos para o Azure Firewall escalar. Se tiver rajadas que exijam uma escala automática mais rápida, contacte o Suporte para aumentar a capacidade inicial de entrada da sua firewall.
+Leva de cinco a sete minutos para o Azure Firewall escalar. Suporte de contato para aumentar a capacidade inicial de entrada da sua firewall se tiver explosões que requerem uma escala automática mais rápida.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall Azure permite o acesso ao Diretório Ativo por defeito?
 
