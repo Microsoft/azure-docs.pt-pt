@@ -68,6 +68,8 @@
           href: understand-rhel-reservation-charges.md
         - name: Descontos no Azure Database for MariaDB
           href: understand-reservation-charges-mariadb.md
+        - name: Descontos da Cache do Azure para Redis
+          href: understand-azure-cache-for-redis-reservation-charges.md
         - name: Descontos no Serviço de Aplicações
           href: reservation-discount-app-service-isolated-stamp.md
         - name: Descontos nos planos de software do Azure

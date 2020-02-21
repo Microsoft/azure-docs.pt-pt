@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/18/2020
-  ms.openlocfilehash: f404ecb676b75258cd44fb819dbafc3b2fb6452e
-  ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+  ms.openlocfilehash: 2c6708ec408780d492fbef073f3a61591cc2fd21
+  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/18/2020
-  ms.locfileid: "77431184"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77524324"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:
@@ -69,8 +69,10 @@ landingContent:
     links:
     - text: Criar regras de telemetria
       url: tutorial-create-telemetry-rules.md
-    - text: Exportar dados
+    - text: Exportar dados para destinos no Azure
       url: howto-export-data.md
+    - text: Explorar as APIs do IoT Central
+      url: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/
   - linkListType: how-to-guide
     links:
     - text: Criar regras personalizadas

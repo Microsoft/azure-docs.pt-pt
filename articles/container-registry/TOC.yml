@@ -56,6 +56,8 @@
               href: container-registry-get-started-docker-cli.md
             - name: Enviar e extrair um artefato de OCI
               href: container-registry-oci-artifacts.md
+            - name: Emitir e solicitar um gráfico Helm
+              href: container-registry-helm-repos.md
             - name: Ver repositórios
               href: container-registry-repositories.md
             - name: Importar imagens de contentor
@@ -72,8 +74,6 @@
                   href: container-registry-auto-purge.md
             - name: Utilizar webhooks do ACR
               href: container-registry-webhook.md
-            - name: Repositórios de gráfico do Helm (pré-visualização)
-              href: container-registry-helm-repos.md
         - name: Segurança e autenticação
           items:
             - name: Limitar acesso com rede virtual (pré-visualização)
