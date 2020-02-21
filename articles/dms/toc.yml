@@ -73,7 +73,7 @@
           href: known-issues-azure-sql-db-managed-instance-online.md
         - name: Problemas Conhecidos - Migração online para a BD do Azure para MySQL
           href: known-issues-azure-mysql-online.md
-        - name: Problemas Conhecidos – Migração online do PostgreSQL para a BD do Azure para PostgreSQL – Servidor único
+        - name: Problemas Conhecidos – Migração online do PostgreSQL para a BD do Azure para PostgreSQL
           href: known-issues-azure-postgresql-online.md
         - name: Problemas Conhecidos – Migração online do Oracle para a BD do Azure para PostgreSQL – Servidor único
           href: known-issues-oracle-azure-postgresql-online.md

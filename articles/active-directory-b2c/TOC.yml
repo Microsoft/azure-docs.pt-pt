@@ -81,6 +81,9 @@
         - name: Registar um fornecedor de serviços SAML
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
+        - name: Registar uma aplicação do Graph
+          href: microsoft-graph-get-started.md
+          displayName: 'migrate, migration, microsoft graph'
         - name: Adicionar uma aplicação de API Web
           href: add-web-application.md
         - name: Adicionar uma aplicação cliente nativa
@@ -377,8 +380,6 @@
       items:
         - name: Migrar utilizadores
           href: user-migration.md
-        - name: Migrar utilizadores com identidades externas
-          href: migrate-social-identities.md
 - name: Referência
   items:
     - name: Notas de versão do Identity Experience Framework
@@ -392,9 +393,11 @@
       displayName: 'cookies, SameSite'
     - name: Códigos de erro
       href: error-codes.md
+    - name: Operações da API do Microsoft Graph
+      href: microsoft-graph-operations.md
     - name: Disponibilidade de região e residência dos dados
       href: data-residency.md
-    - name: Ativar faturação
+    - name: Modelo de faturação
       href: billing.md
     - name: Gestão de ameaças
       href: threat-management.md

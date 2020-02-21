@@ -12,12 +12,12 @@ metadata:
   ms.author: iainfou
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 3c431b81c0da54045e9b9b020de5275912b394c6
-  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+  ms.openlocfilehash: d06cc6f3c2d0d5033777a2f988d12ba7edb7be9c
+  ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/12/2020
-  ms.locfileid: "77166422"
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77484099"
 landingContent:
 - title: Acerca da autenticação
   linkLists:
@@ -37,14 +37,14 @@ landingContent:
     links:
     - text: Como funciona a reposição personalizada de palavra-passe
       url: concept-sspr-howitworks.md
-    - text: Repetição de escrita de palavras-passe
+    - text: Como funciona a repetição de escrita de palavras-passe
       url: concept-sspr-writeback.md
   - linkListType: tutorial
     links:
     - text: Ativar a reposição de palavras-passe self-service
       url: tutorial-enable-sspr.md
     - text: Ativar a repetição de escrita de palavras-passe no local
-      url: tutorial-enable-writeback.md
+      url: tutorial-enable-sspr-writeback.md
   - linkListType: deploy
     links:
     - text: Guia de implementação para reposição personalizada de palavras-passe

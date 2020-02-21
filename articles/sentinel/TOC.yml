@@ -54,6 +54,8 @@
               href: connect-azure-atp.md
             - name: Centro de Segurança do Azure
               href: connect-azure-security-center.md
+            - name: Centro de Segurança do Azure para IoT
+              href: connect-asc-iot.md
             - name: Servidor de nomes de domínio
               href: connect-dns.md
             - name: Firewall de aplicações Web da Microsoft
@@ -66,16 +68,22 @@
           items:
             - name: Barracuda
               href: connect-barracuda.md
-            - name: F5 BIG-IP
-              href: connect-f5-big-ip.md
-            - name: Syslog
-              href: connect-syslog.md
-            - name: ICDX da Symantec
-              href: connect-symantec.md
             - name: Barracuda CloudGen Firewall
               href: connect-barracuda-cloudgen-firewall.md
             - name: Citrix Analytics (Segurança)
               href: connect-citrix-analytics.md
+            - name: F5 BIG-IP
+              href: connect-f5-big-ip.md
+            - name: Forcepoint DLP
+              href: connect-forcepoint-dlp.md
+            - name: Squadra Technologies secRMM
+              href: connect-squadra-secrmm.md
+            - name: ICDX da Symantec
+              href: connect-symantec.md
+            - name: Syslog
+              href: connect-syslog.md
+            - name: Defesa Contra Ameaças para Dispositivos Móveis da Zimperium
+              href: connect-zimperium-mtd.md
             - name: Soluções baseadas em CEF
               href: connect-common-event-format.md
               items:
@@ -92,6 +100,8 @@
                       href: connect-extrahop.md
                     - name: F5
                       href: connect-f5.md
+                    - name: Produtos da Forcepoint
+                      href: connect-forcepoint-casb-ngfw.md
                     - name: Fortinet
                       href: connect-fortinet.md
                     - name: One Identity Safeguard
