@@ -1,201 +1,224 @@
 ---
-title: Modelo de dados do Power BI
-description: Este artigo fala sobre Power BI detalhes do modelo de dados para relatórios de backup do Azure.
+title: Modelo de dados para eventos de diagnóstico de backup azure
+description: Este modelo de dados está em referência ao modo específico de enviar eventos de diagnóstico para Log Analytics (LA).
 ms.topic: conceptual
-ms.date: 06/26/2017
-ms.openlocfilehash: a2f06da16280070448d7b42dc5e1dcfc46354cfa
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.date: 10/30/2019
+ms.openlocfilehash: d38c9dedba7111923fa4f823d348d0783ac36681
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172810"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500628"
 ---
-# <a name="data-model-for-azure-backup-reports"></a>Modelo de dados para relatórios do Azure Backup
+# <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup azure
 
-Este artigo descreve o modelo de dados Power BI usado para criar relatórios de backup do Azure. Usando esse modelo de dados, você pode filtrar relatórios existentes com base em campos relevantes e, mais importante, criar seus próprios relatórios usando tabelas e campos no modelo.
+## <a name="coreazurebackup"></a>CoreAzureBackup
 
-## <a name="creating-new-reports-in-power-bi"></a>Criando novos relatórios no Power BI
+Esta tabela fornece informações sobre entidades de backup principais, tais como cofres e itens de backup.
 
-Power BI fornece recursos de personalização usando os quais você pode [criar relatórios usando o modelo de dados](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
+| **Campo**                         | **Tipo de dados** | **Descrição**                                              |
+| --------------------------------- | ------------- | ------------------------------------------------------------ |
+| ResourceId                        | Texto          | Identificador de recursos para dados que estão a ser recolhidos. Por exemplo, ID de recurso de recurso de cofre dos Serviços de Recuperação. |
+| OperationName                     | Texto          | Este campo representa o nome da operação atual - BackupItem, BackupItemAssociation ou ProtectedContainer. |
+| Categoria                          | Texto          | Este campo representa a categoria de dados de diagnóstico empurrados para os registos do Monitor Azure. Por exemplo, CoreAzureBackup. |
+| AgenteVersão                      | Texto          | Número de versão do Agente Backup ou do Agente de Proteção (no caso de SC DPM e MABS) |
+| AzureBackupAgentVersion           | Texto          | Versão do Agente de Backup Azure no Servidor de Gestão de Backup |
+| AzureDataCenter                   | Texto          | Centro de dados onde o cofre está localizado                       |
+| BackupItemAppVersion              | Texto          | Versão de aplicação do item de backup                       |
+| BackupItemFriendlyName            | Texto          | Nome amigável do item de reserva                             |
+| BackupItemName                    | Texto          | Nome do item de reserva                                      |
+| BackupItemProtectionState         | Texto          | Estado de Proteção do Item de Backup                          |
+| BackupItemFrontEndSize            | Texto          | Tamanho frontal do item de reserva                            |
+| BackupItemType                    | Texto          | Tipo de artigo de reserva. Por exemplo: VM, FileFolder             |
+| BackupItemUniqueId                | Texto          | Identificador único do item de reserva                         |
+| Tipo de servidor de gestão de backup        | Texto          | Tipo de Servidor de Gestão de Backup, como em MABS, SC DPM     |
+| BackupManagementServerUniqueid    | Texto          | Campo para identificar exclusivamente o Servidor de Gestão de Backup      |
+| BackupManagementType              | Texto          | Tipo de fornecedor para servidor fazendo trabalho de backup. Por exemplo, IaaSVM, FileFolder |
+| Nome do Servidor de Gestão de Backup        | Texto          | Nome do Servidor de Gestão de Backup                         |
+| Versão do BackupManagementServerOS   | Texto          | Versão OS do Servidor de Gestão de Backup                   |
+| Versão do Servidor de Gestão de Backup     | Texto          | Versão do Servidor de Gestão de Backup                      |
+| ÚltimaS RecoveryPointLocation       | Texto          | Localização do último ponto de recuperação para o item de backup    |
+| ÚltimaRecoveryPointTime           | DateTime      | Data do último ponto de recuperação para o item de backup   |
+| Localização de Pontode Recuperação Mais Antiga       | Texto          | Localização do ponto de recuperação mais antigo para o item de reserva    |
+| Tempo de Recuperação Mais Antigo           | DateTime      | Data do último ponto de recuperação para o item de backup   |
+| PolicyUniqueId                    | Texto          | Id único para identificar a política                             |
+| Nome amigável de contentores protegidos    | Texto          | Nome amigável do servidor protegido                        |
+| Localização de contentores protegidos        | Texto          | Se o contentor protegido está localizado no local ou em Azure |
+| Nome de contentorprotegido            | Texto          | Nome do recipiente protegido                            |
+| Recipientes ProtegidosOSType          | Texto          | Tipo OS do recipiente protegido                          |
+| Versão ProtectedContainerOSOs       | Texto          | Versão OS do recipiente protegido                        |
+| Estado de Proteção de Contentores Protegidos | Texto          | Estado de proteção do contentor protegido                  |
+| Recipiente protegidoType            | Texto          | Se o recipiente protegido é um servidor, ou um recipiente  |
+| Recipiente protegidoUniqueId        | Texto          | Id único usado para identificar o recipiente protegido para tudo, exceto VMs apoiados usando DPM, MABS |
+| Carga de trabalho de contentores protegidos    | Texto          | Tipo de recipiente protegido apoiado. Por exemplo, IaaSVMContainer |
+| NomeGrupoProteção               | Texto          | Nome do Grupo de Proteção o Item de Backup está protegido em, para SC DPM, e MABS, se aplicável |
+| ResourceGroupName                 | Texto          | Grupo de recursos do recurso (por exemplo, cofre de Serviços de Recuperação) para dados que estão a ser recolhidos |
+| SchemaVersion                     | Texto          | Este campo denota a versão atual do esquema, é **V2** |
+| Estado de Proteção secundária de Backup    | Texto          | Se a proteção secundária está ativada para o item de reserva  |
+| State                             | Texto          | Estado do objeto de objeto de reserva. Por exemplo, Ativo, Eliminado |
+| StorageReplicationType            | Texto          | Tipo de replicação de armazenamento para o cofre. Por exemplo, GeoRedundant |
+| SubscriptionId                    | Texto          | Identificador de assinatura do recurso (por exemplo, cofre de Serviços de Recuperação) para o qual os dados são recolhidos |
+| VaultName                         | Texto          | Nome do cofre                                            |
+| VaultTags                         | Texto          | Etiquetas associadas ao recurso do cofre                    |
+| AbóbadaUniqueid                     | Texto          | Identificador único do cofre                             |
+| SourceSystem                      | Texto          | Sistema fonte dos dados atuais - Azure                  |
 
-## <a name="using-azure-backup-data-model"></a>Usando o modelo de dados de backup do Azure
+## <a name="addonazurebackupalerts"></a>AddonAzureBackupAlerts
 
-Você pode usar os campos a seguir fornecidos como parte do modelo de dados para criar relatórios e personalizar os relatórios existentes.
+Esta tabela fornece detalhes sobre campos relacionados com alerta.
 
-### <a name="alert"></a>Alerta
+| **Campo**                      | **Tipo de dados** | **Descrição**                                              |
+| :----------------------------- | ------------- | ------------------------------------------------------------ |
+| ResourceId                     | Texto          | Identificador único para o recurso sobre quais os dados recolhidos. Por exemplo, um ID de recurso de recurso de cofre de serviços de recuperação |
+| OperationName                  | Texto          | Nome da operação atual. Por exemplo, Alerta            |
+| Categoria                       | Texto          | Categoria de dados de diagnóstico empurrados para registos do Monitor Azure - AddonAzureBackupAlerts |
+| Código de Alerta                      | Texto          | Código para identificar exclusivamente um tipo de alerta                     |
+| Estado de Consolidação de Alerta       | Texto          | Identifique se o alerta é um alerta consolidado ou não         |
+| Hora da data da ocorrência de alerta        | DateTime      | Data e hora quando o alerta foi criado                     |
+| Alertaraisedon                  | Texto          | Tipo de entidade em que o alerta é levantado                        |
+| AlertSeverity                  | Texto          | Gravidade do alerta. Por exemplo, Crítico                 |
+| Estado de alerta                    | Texto          | Estado do alerta. Por exemplo, Ativo                     |
+| Minutos de alerta    | Número        | Tempo necessário para resolver um alerta. Em branco para alertas ativos.     |
+| Tipo de alerta                      | Texto          | Tipo de alerta. Por exemplo, Backup                           |
+| AlertUniqueId                  | Texto          | Identificador único do alerta gerado                    |
+| BackupItemUniqueId             | Texto          | Identificador único do item de reserva associado ao alerta |
+| BackupManagementServerUniqueid | Texto          | Campo para identificar exclusivamente o Servidor de Gestão de Backup o Item de Backup está protegido através, se aplicável |
+| BackupManagementType           | Texto          | Tipo de fornecedor para servidor que faz trabalho de backup, por exemplo, IaaSVM, FileFolder |
+| CondeOfAlertsConsolidado      | Número        | Número de alertas consolidados se se trata de um alerta consolidado  |
+| Recipiente protegidoUniqueId     | Texto          | Identificador único do servidor protegido associado ao alerta |
+| Ação Recomendada              | Texto          | Ação recomendada para resolver o alerta                      |
+| SchemaVersion                  | Texto          | Versão atual do esquema, por exemplo **V2**            |
+| State                          | Texto          | Estado atual do objeto de alerta, por exemplo, Ativo, Eliminado |
+| ArmazenamentoUniqueId                | Texto          | Id único usado para identificar a entidade de armazenamento                |
+| AbóbadaUniqueid                  | Texto          | Identificação única usada para identificar o cofre relacionado com o alerta    |
+| SourceSystem                   | Texto          | Sistema fonte dos dados atuais - Azure                    |
 
-Esta tabela fornece campos e agregações básicos em vários campos relacionados ao alerta.
+## <a name="addonazurebackupprotectedinstance"></a>AddonAzureBackupProtectedInstance
 
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| #AlertsCreatedInPeriod |Número inteiro |Número de alertas criados no período de tempo selecionado |
-| %ActiveAlertsCreatedInPeriod |Percentagem |Percentual de alertas ativos no período de tempo selecionado |
-| %CriticalAlertsCreatedInPeriod |Percentagem |Percentual de alertas críticos no período de tempo selecionado |
-| AlertOccurrenceDate |Data |Data em que o alerta foi criado |
-| AlertSeverity |Texto |Severidade do alerta. Por exemplo, crítico |
-| AlertStatus |Texto |Status do alerta. Por exemplo, ativo |
-| AlertType |Texto |Tipo do alerta gerado. Por exemplo, backup |
-| AlertUniqueId |Texto |ID exclusiva do alerta gerado |
-| AsOnDateTime |Data/hora |Hora de atualização mais recente para a linha selecionada |
-| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Número decimal |Tempo médio (em minutos) para resolver o alerta para o período de tempo selecionado |
-| EntityState |Texto |Estado atual do objeto de alerta. Por exemplo, ativo, excluído |
+Esta tabela fornece campos básicos protegidos relacionados com instâncias.
 
-### <a name="backup-item"></a>Item de backup
+| **Campo**                      | **Tipo de dados** | **Descrição**                                              |
+| ------------------------------ | ------------- | ------------------------------------------------------------ |
+| ResourceId                     | Texto          | Identificador único para o recurso sobre quais os dados recolhidos. Por exemplo, um ID de recurso de recurso de cofre de serviços de recuperação |
+| OperationName                  | Texto          | Nome da operação, por exemplo, ProtectedInstance         |
+| Categoria                       | Texto          | Categoria de dados de diagnóstico empurrados para registos do Monitor Azure - AddonAzureBackupProtectedInstance |
+| BackupItemUniqueId             | Texto          | Identificação única do item de reserva                                 |
+| BackupManagementServerUniqueid | Texto          | Campo para identificar exclusivamente o Servidor de Gestão de Backup o Item de Backup está protegido através, se aplicável |
+| BackupManagementType           | Texto          | Tipo de fornecedor para servidor que faz trabalho de backup, por exemplo, IaaSVM, FileFolder |
+| Recipiente protegidoUniqueId     | Texto          | Identificação única para identificar o recipiente protegido em que o trabalho é executado |
+| Contagem de casos protegidos         | Texto          | Contagem de instâncias protegidas para o item de reserva associado ou recipiente protegido nessa data-data |
+| SchemaVersion                  | Texto          | Versão atual do esquema, por exemplo **V2**            |
+| State                          | Texto          | Estado do objeto de cópia de segurança, por exemplo, Ativo, Eliminado |
+| AbóbadaUniqueid                  | Texto          | Identificador único do cofre protegido associado à instância protegida |
+| SourceSystem                   | Texto          | Sistema fonte dos dados atuais - Azure                    |
 
-Esta tabela fornece campos e agregações básicos em vários campos relacionados ao item de backup.
+## <a name="addonazurebackupjobs"></a>AddonAzureBackupJobs
 
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| #BackupItems |Número inteiro |Número de itens de backup |
-| #UnprotectedBackupItems |Número inteiro |Número de itens de backup interrompidos para proteção ou configurados para backups, mas backups não iniciados|
-| AsOnDateTime |Data/hora |Hora de atualização mais recente para a linha selecionada |
-| BackupItemFriendlyName |Texto |Nome amigável do item de backup |
-| BackupItemId |Texto |ID do item de backup |
-| BackupItemName |Texto |Nome do item de backup |
-| BackupItemType |Texto |Tipo de item de backup. Por exemplo, VM, fileFolder |
-| EntityState |Texto |Estado atual do objeto de item de backup. Por exemplo, ativo, excluído |
-| LastBackupDateTime |Data/hora |Hora do último backup do item de backup selecionado |
-| LastBackupState |Texto |Estado do último backup para o item de backup selecionado. Por exemplo, com êxito, com falha |
-| LastSuccessfulBackupDateTime |Data/hora |Hora do último backup bem-sucedido para o item de backup selecionado |
-| Proteçãostate |Texto |Estado de proteção atual do item de backup. Por exemplo, protegido, ProtectionStopped |
+Esta tabela fornece detalhes sobre campos relacionados com o trabalho.
 
-### <a name="calendar"></a>Calendário
+| **Campo**                      | **Tipo de dados** | **Descrição**                                              |
+| ------------------------------ | ------------- | ------------------------------------------------------------ |
+| ResourceId                     | Texto          | Identificador de recursos para dados que estão a ser recolhidos. Por exemplo, ID de recurso de recurso de cofre de serviços de recuperação |
+| OperationName                  | Texto          | Este campo representa o nome da operação atual - Job    |
+| Categoria                       | Texto          | Este campo representa a categoria de dados de diagnóstico empurrados para os registos do Monitor Azure - AddonAzureBackupJobs |
+| AdhocOrScheduledJob            | Texto          | Campo para especificar se o trabalho é Ad Hoc ou Agendado           |
+| BackupItemUniqueId             | Texto          | Id único usado para identificar o item de backup relacionado com a entidade de armazenamento |
+| BackupManagementServerUniqueid | Texto          | ID único usado para identificar o servidor de gestão de backup relacionado com a entidade de armazenamento |
+| BackupManagementType           | Texto          | Tipo de fornecedor para executar backup, por exemplo, IaaSVM, FileFolder a que este alerta pertence |
+| DataTransferInMB            | Número        | Dados transferidos em MB para este trabalho                          |
+| JobDurationInSecs              | Número        | Duração total do trabalho em segundos                                |
+| JobFailureCode                 | Texto          | Cadeia de código de falha por causa da falha de emprego aconteceu    |
+| JobOperation                   | Texto          | Operação para a qual o trabalho é executado, por exemplo, Backup, Restaurar, Configurar Backup |
+| JobOperationSubType            | Texto          | Sub Tipo da Operação de Trabalho. Por exemplo, 'Log', no caso do Log Backup Job |
+| Hora do início do trabalho               | DateTime      | Data e hora quando o trabalho começou a funcionar                       |
+| Estado da Tarefa                      | Texto          | Estado do trabalho acabado, por exemplo, Concluído, Falhado   |
+| JobUniqueId                    | Texto          | Identificação única para identificar o trabalho                                |
+| Recipiente protegidoUniqueId     | Texto          | Identificador único do servidor protegido associado ao alerta |
+| RecoveryJobDestination         | Texto          | Destino de um trabalho de recuperação, onde os dados são recuperados   |
+| RecoveryJobRPDateTime          | DateTime      | A data, hora em que o ponto de recuperação que está sendo recuperado foi criado |
+| RecoveryJobLocation            | Texto          | O local onde o ponto de recuperação que está a ser recuperado foi armazenado |
+| Tipo de Localização de Recuperação           | Texto          | Tipo de Local de Recuperação                                |
+| SchemaVersion                  | Texto          | Versão atual do esquema, por exemplo **V2**            |
+| State                          | Texto          | Estado atual do objeto de alerta, por exemplo, Ativo, Eliminado |
+| AbóbadaUniqueid                  | Texto          | Identificador único do cofre protegido associado ao alerta |
+| SourceSystem                   | Texto          | Sistema fonte dos dados atuais - Azure                    |
 
-Esta tabela fornece detalhes sobre os campos relacionados ao calendário.
+## <a name="addonazurebackuppolicy"></a>Política addonAzureBackup
 
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| Data |Data |Data selecionada para filtrar dados |
-| DateKey |Texto |Chave exclusiva para cada item de data |
-| DayDiff |Número decimal |Diferença no dia para filtrar dados. Por exemplo, 0 indica dados do dia atual,-1 indica os dados de um dia anterior, 0 e-1 indicam dados para o dia atual e o anterior  |
-| Mês |Texto |Mês do ano selecionado para filtrar dados, o mês começa no primeiro dia e termina no dia 31 |
-| MonthDate | Data |Data do mês em que o mês termina, selecionado para filtrar dados |
-| MonthDiff |Número decimal |Diferença no mês de filtragem de dados. Por exemplo, 0 indica os dados do mês atual,-1 indica os dados do mês anterior, 0 e-1 indicam dados para o mês atual e o anterior |
-| Week (Semana) |Texto |Semana selecionada para filtrar dados, a semana começa no domingo e termina no sábado |
-| WeekDate |Data |Data da semana quando a semana termina, selecionada para filtrar dados |
-| WeekDiff |Número decimal |Diferença na semana para filtrar dados. Por exemplo, 0 indica os dados da semana atual,-1 indica os dados da semana anterior, 0 e-1 indicam dados para a semana atual e a anterior |
-| Ano |Texto |Ano civil selecionado para filtrar dados |
-| YearDate |Data |Data do ano em que o ano termina, selecionado para filtrar dados |
+Esta tabela fornece detalhes sobre os domínios relacionados com as políticas.
 
-### <a name="job"></a>Tarefa
+| **Campo**                       | **Tipo de dados**  | **Descrição**                                              |
+| ------------------------------- | -------------- | ------------------------------------------------------------ |
+| ResourceId                      | Texto           | Identificador único para o recurso sobre quais os dados recolhidos. Por exemplo, um ID de recurso de recurso de cofre de serviços de recuperação |
+| OperationName                   | Texto           | Nome da operação, por exemplo, Policy or PolicyAssociation |
+| Categoria                        | Texto           | Categoria de dados de diagnóstico empurrados para registos do Monitor Azure - AddonAzureBackupPolicy |
+| BackupDaysOftheWeek             | Texto           | Dias da semana em que os backups foram agendados            |
+| BackupFrequência                 | Texto           | Frequência com que são executadas cópias de segurança. Por exemplo, diariamente, semanalmente |
+| BackupManagementType            | Texto           | Tipo de fornecedor para servidor fazendo trabalho de backup. Por exemplo, IaaSVM, FileFolder |
+| BackupManagementServerUniqueid  | Texto           | Campo para identificar exclusivamente o Servidor de Gestão de Backup o Item de Backup está protegido através, se aplicável |
+| BackupTimes                     | Texto           | Data e hora quando os backups estão agendados                     |
+| Duração da Retenção Diária          | Número inteiro   | Duração total da retenção em dias para cópias de segurança configuradas      |
+| DailyRetentionTimes             | Texto           | Data e hora em que a retenção diária foi configurada            |
+| DiffbackupDaysoftheWeek         | Texto           | Dias da semana para backups diferenciais para SQL em Backup VM Azure |
+| Formato DiffBackup                | Texto           | Formato para backups diferenciais para SQL em backup VM Azure   |
+| Duração da retenção de difusão     | Número decimal | Duração da retenção para backups diferenciais para SQL em Backup VM Azure |
+| DiffBackupTime                  | Hora           | Tempo para backups diferenciais para SQL em Backup VM Azure     |
+| LogBackupFrequency              | Número decimal | Frequência para backups de registo para SQL                            |
+| Duração da retenção de logbackup      | Número decimal | Duração da retenção para backups de registo para SQL em Backup VM Azure |
+| MonthlyRetentionDaysOfTheMonth  | Texto           | Semanas do mês em que a retenção mensal é configurada.  Por exemplo, Primeiro, Último, etc. |
+| MonthlyRetentionDaysOfTheWeek   | Texto           | Dias da semana selecionados para retenção mensal              |
+| Duração mensal da retenção        | Texto           | Duração total da retenção em meses para cópias de segurança configuradas    |
+| Formato Mensal de Retenção          | Texto           | Tipo de configuração para retenção mensal. Por exemplo, diariamente para o dia baseado, semanalmente para a semana |
+| MensalRetimes           | Texto           | Data e hora em que a retenção mensal é configurada           |
+| MonthlyRetentionWeeksOfTheMonth | Texto           | Semanas do mês em que a retenção mensal é configurada.   Por exemplo, Primeiro, Último, etc. |
+| PolicyName                      | Texto           | Nome da política definida                                   |
+| PolicyUniqueId                  | Texto           | Id único para identificar a política                             |
+| PolicyTimeZone                  | Texto           | Fuso horário em que os campos de tempo de política são especificados nos registos |
+| Duração da retenção               | Texto           | Duração da retenção para cópias de segurança configuradas                    |
+| RetentionType                   | Texto           | Tipo de retenção                                            |
+| SchemaVersion                   | Texto           | Este campo denota versão atual do esquema, é **V2** |
+| State                           | Texto           | Estado atual do objeto político. Por exemplo, Ativo, Eliminado |
+| SincronizaçãoFrequênciaPerDay  | Número inteiro   | Número de vezes num dia uma cópia de segurança de ficheiros é sincronizada para SC DPM e MABS |
+| AbóbadaUniqueid                   | Texto           | Identificação única do cofre que esta política pertence a          |
+| WeeklyRetentionDaysOfTheWeek    | Texto           | Dias da semana selecionados para retenção semanal               |
+| Duração semanal da retenção         | Número decimal | Duração total da retenção semanal em semanas para cópias de segurança configuradas |
+| SemanalRetimes            | Texto           | Data e hora em que a retenção semanal é configurada            |
+| Dias de Retenção AnualDoTheMonth   | Texto           | Datas do mês selecionadas para retenção anual             |
+| Dias de Retenção AnualDaSemana    | Texto           | Dias da semana selecionados para retenção anual               |
+| Duração anual da retenção         | Número decimal | Duração total da retenção em anos para cópias de segurança configuradas     |
+| Formato Anual de Retenção           | Texto           | Tipo de configuração para retenção anual, por exemplo, diariamente para dia baseado, semanalmente para a semana |
+| Retenções AnuaisMeseSDo Ano  | Texto           | Meses do ano selecionados para retenção anual             |
+| Ano da RetençãoTimes            | Texto           | Data e hora em que a retenção anual é configurada            |
+| Semanas de Retenção AnualDoTheMonth  | Texto           | Semanas do mês selecionadas para retenção anual             |
+| SourceSystem                    | Texto           | Sistema fonte dos dados atuais - Azure                    |
 
-Esta tabela fornece campos e agregações básicos em vários campos relacionados ao trabalho.
+## <a name="addonazurebackupstorage"></a>AddonAzureBackupStorage
 
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| #JobsCreatedInPeriod |Número inteiro |Número de trabalhos criados no período de tempo selecionado |
-| %FailuresForJobsCreatedInPeriod |Percentagem |Percentual de falhas gerais de trabalho no período de tempo selecionado |
-| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Número decimal |valor do 80 º percentil de dados transferidos em MB para trabalhos de **backup** criados no período de tempo selecionado |
-| AsOnDateTime |Data/hora |Hora de atualização mais recente para a linha selecionada |
-| AvgBackupDurationInMinsForJobsCreatedInPeriod |Número decimal |Tempo médio em minutos para trabalhos de **backup concluídos** criados no período de tempo selecionado |
-| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Número decimal |Tempo médio em minutos para trabalhos de **restauração concluídos** criados no período de tempo selecionado |
-| BackupStorageDestination |Texto |Destino do armazenamento de backup. Por exemplo, nuvem, disco  |
-| EntityState |Texto |Estado atual do objeto de trabalho. Por exemplo, ativo, excluído |
-| JobFailureCode |Texto |Cadeia de caracteres de código de falha devido a uma falha de trabalho |
-| JobOperation |Texto |Operação para qual o trabalho é executado. Por exemplo, backup, restauração, configurar backup |
-| JobStartDate |Data |Data em que o trabalho começou a ser executado |
-| JobStartTime |Hora |Hora em que o trabalho começou a ser executado |
-| Estado da Tarefa |Texto |Status do trabalho concluído. Por exemplo, concluído, com falha |
-| JobUniqueId |Texto |ID exclusiva para identificar o trabalho |
+Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 
-### <a name="policy"></a>Política
+| **Campo**                      | **Tipo de dados** | **Descrição**                                              |
+| ------------------------------ | ------------- | ------------------------------------------------------------ |
+| ResourceId                     | Texto          | Identificador de recursos para dados que estão a ser recolhidos. Por exemplo, ID de recurso de recurso de cofre de serviços de recuperação |
+| OperationName                  | Texto          | Este campo representa o nome da operação atual - Storage or StorageAssociation |
+| Categoria                       | Texto          | Este campo representa a categoria de dados de diagnóstico empurrados para registos do Monitor Azure - AddonAzureBackupStorage |
+| BackupItemUniqueId             | Texto          | Id único usado para identificar o item de backup para VMs apoiado usando DPM, MABS |
+| BackupManagementServerUniqueid | Texto          | Campo para identificar exclusivamente o Servidor de Gestão de Backup o Item de Backup está protegido através, se aplicável |
+| BackupManagementType           | Texto          | Tipo de fornecedor para servidor fazendo trabalho de backup. Por exemplo, IaaSVM, FileFolder |
+| PreferredWorkloadOnVolume      | Texto          | Carga de trabalho para a qual este volume é o armazenamento preferido      |
+| Recipiente protegidoUniqueId     | Texto          | Identificador único do servidor protegido associado ao alerta |
+| SchemaVersion                  | Texto          | Versão do esquema. Por exemplo, **V2**                   |
+| State                          | Texto          | Estado do objeto de objeto de reserva. Por exemplo, Ativo, Eliminado |
+| ArmazenamentoAllocatedInMBs          | Número        | Tamanho do armazenamento atribuído pelo produto de reserva correspondente no armazenamento correspondente do tipo Disk |
+| ArmazenamentoConsumidoInMBs           | Número        | Tamanho do armazenamento consumido pelo produto de reserva correspondente no armazenamento correspondente |
+| Nome de armazenamento                    | Texto          | Nome da entidade de armazenamento. Por exemplo, E:\                      |
+| ArmazenamentoTotalSizeInGBs          | Texto          | Tamanho total do armazenamento, em GB, consumido por entidade de armazenamento     |
+| Tipo de armazenamento                    | Texto          | Tipo de Armazenamento, por exemplo Cloud, Volume, Disco             |
+| ArmazenamentoUniqueId                | Texto          | Id único usado para identificar a entidade de armazenamento                |
+| AbóbadaUniqueid                  | Texto          | Identificação única usada para identificar o cofre relacionado com a entidade de armazenamento |
+| VolumeFriendlyName             | Texto          | Nome amigável do volume de armazenamento                          |
+| SourceSystem                   | Texto          | Sistema fonte dos dados atuais - Azure                    |
 
-Esta tabela fornece campos e agregações básicos em vários campos relacionados à política.
+## <a name="next-steps"></a>Passos Seguintes
 
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| #Policies |Número inteiro |Número de políticas de backup existentes no sistema |
-| #PoliciesInUse |Número inteiro |Número de políticas que estão sendo usadas atualmente para configurar backups |
-| AsOnDateTime |Data/hora |Hora de atualização mais recente para a linha selecionada |
-| BackupDaysOfTheWeek |Texto |Dias da semana em que os backups foram agendados |
-| BackupFrequency |Texto |Frequência com que os backups são executados. Por exemplo, diário, semanal |
-| Inatividade |Texto |Data e hora em que os backups são agendados |
-| DailyRetentionDuration |Número inteiro |Duração total de retenção em dias para backups configurados |
-| DailyRetentionTimes |Texto |Data e hora em que a retenção diária foi configurada |
-| EntityState |Texto |Estado atual do objeto de política. Por exemplo, ativo, excluído |
-| MonthlyRetentionDaysOfTheMonth |Texto |Datas do mês selecionadas para retenção mensal |
-| MonthlyRetentionDaysOfTheWeek |Texto |Dias da semana selecionados para retenção mensal |
-| MonthlyRetentionDuration |Número decimal |Duração total de retenção em meses para backups configurados |
-| MonthlyRetentionFormat |Texto |Tipo de configuração para retenção mensal. Por exemplo, diariamente com base no dia, semanal para a semana com base |
-| MonthlyRetentionTimes |Texto |Data e hora quando a retenção mensal está configurada |
-| MonthlyRetentionWeeksOfTheMonth |Texto |Semanas do mês em que a retenção mensal é configurada. Por exemplo, primeiro, último etc. |
-| PolicyName |Texto |Nome da política definida |
-| PolicyUniqueId |Texto |ID exclusiva para identificar a política |
-| RetentionType |Texto |Tipo de política de retenção. Por exemplo, diário, semanal, mensal, anual |
-| WeeklyRetentionDaysOfTheWeek |Texto |Dias da semana selecionados para retenção semanal |
-| WeeklyRetentionDuration |Número decimal |Duração da retenção semanal total em semanas para backups configurados |
-| WeeklyRetentionTimes |Texto |Data e hora quando a retenção semanal é configurada |
-| YearlyRetentionDaysOfTheMonth |Texto |Datas do mês selecionadas para retenção anual |
-| YearlyRetentionDaysOfTheWeek |Texto |Dias da semana selecionados para retenção anual |
-| YearlyRetentionDuration |Número decimal |Duração total de retenção em anos para backups configurados |
-| YearlyRetentionFormat |Texto |Tipo de configuração para retenção anual. Por exemplo, diariamente com base no dia, semanal para a semana com base |
-| YearlyRetentionMonthsOfTheYear |Texto |Meses do ano selecionados para retenção anual |
-| YearlyRetentionTimes |Texto |Data e hora quando a retenção anual é configurada |
-| YearlyRetentionWeeksOfTheMonth |Texto |Semanas do mês em que a retenção anual é configurada. Por exemplo, primeiro, último etc. |
-
-### <a name="protected-server"></a>Servidor protegido
-
-Esta tabela fornece campos e agregações básicos em vários campos relacionados ao servidor protegido.
-
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| #ProtectedServers |Número inteiro |Número de servidores protegidos |
-| AsOnDateTime |Data/hora |Hora de atualização mais recente para a linha selecionada |
-| AzureBackupAgentOSType |Texto |Tipo de so do agente de backup do Azure |
-| AzureBackupAgentOSVersion |Texto |Versão do so do agente de backup do Azure |
-| AzureBackupAgentUpdateDate |Texto |Data quando o agente de backup do agente foi atualizado |
-| AzureBackupAgentVersion |Texto |Número de versão da versão de backup do agente |
-| BackupManagementType |Texto |Tipo de provedor para executar o backup. Por exemplo, IaaSVM, fileFolder |
-| EntityState |Texto |Estado atual do objeto de servidor protegido. Por exemplo, ativo, excluído |
-| ProtectedServerFriendlyName |Texto |Nome amigável do servidor protegido |
-| ProtectedServerName |Texto |Nome do servidor protegido |
-| ProtectedServerType |Texto |Tipo de backup do servidor protegido. Por exemplo, IaaSVMContainer |
-| ProtectedServerName |Texto |Nome do servidor protegido ao qual pertence o item de backup |
-| RegisteredContainerId |Texto |ID do contêiner registrado para backup |
-
-### <a name="storage"></a>Storage
-
-Esta tabela fornece campos e agregações básicos em vários campos relacionados ao armazenamento.
-
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| #ProtectedInstances |Número decimal |Número de instâncias protegidas usadas para calcular o armazenamento de front-end na cobrança, calculadas com base no valor mais recente na hora selecionada |
-| AsOnDateTime |Data/hora |Hora de atualização mais recente para a linha selecionada |
-| CloudStorageInMB |Número decimal |Armazenamento de backup na nuvem usado pelos backups, calculados com base no valor mais recente na hora selecionada |
-| EntityState |Texto |Estado atual do objeto. Por exemplo, ativo, excluído |
-| LastUpdatedDate |Data |Data em que a linha selecionada foi atualizada pela última vez |
-
-### <a name="time"></a>Hora
-
-Esta tabela fornece detalhes sobre os campos relacionados ao tempo.
-
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| Hora |Hora |Hora do dia. Por exemplo, 1:00:00 PM |
-| HourNumber |Número decimal |Número de hora no dia. Por exemplo, 13, 0 |
-| Minuto |Número decimal |Minuto da hora |
-| PeriodOfTheDay |Texto |Slot do período de tempo no dia. Por exemplo, 12-3 AM |
-| Hora |Hora |Hora do dia. Por exemplo, 12:00:01 AM |
-| TimeKey |Texto |Valor da chave para representar a hora |
-
-### <a name="vault"></a>Cofre
-
-Esta tabela fornece campos e agregações básicos em vários campos relacionados ao cofre.
-
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| #Vaults |Número inteiro |Número de cofres |
-| AsOnDateTime |Data/hora |Hora de atualização mais recente para a linha selecionada |
-| AzureDataCenter |Texto |Data Center onde o cofre está localizado |
-| EntityState |Texto |Estado atual do objeto do cofre. Por exemplo, ativo, excluído |
-| StorageReplicationType |Texto |Tipo de replicação de armazenamento para o cofre. Por exemplo, georedundante |
-| SubscriptionId |Texto |ID da assinatura do cliente selecionado para gerar relatórios |
-| VaultName |Texto |Nome do cofre |
-| VaultTags |Texto |Marcas associadas ao cofre |
-
-## <a name="next-steps"></a>Passos seguintes
-
-Depois de examinar o modelo de dados para criar relatórios de backup do Azure, consulte os artigos a seguir para obter mais detalhes sobre como criar e exibir relatórios no Power BI.
-
-* [Criando relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-* [Filtrando relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+- [Saiba como enviar dados de diagnóstico para Log Analytics](https://aka.ms/AzureBackupDiagnosticsDocs)
+- [Saiba escrever consultas em tabelas específicas do Recurso](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)

@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 02/19/2020
 ms.author: helohr
-ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 426ca10893e6858722b58422400582e4940287e2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470577"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484609"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
 
-Este artigo responderá a perguntas frequentes e abordará as práticas recomendadas para o Windows 10 Enterprise Multi-Session.
+Este artigo responde a perguntas frequentes e explica as melhores práticas para a multi-sessão do Windows 10 Enterprise.
  
-## <a name="what-is-windows-10-enterprise-multi-session"></a>O que é o Windows 10 Enterprise Multi-Session? 
+## <a name="what-is-windows-10-enterprise-multi-session"></a>O que é o Windows 10 Enterprise Multi-Session?
 
-O Windows 10 Enterprise Multi-Session, anteriormente conhecido como Windows 10 Enterprise para áreas de trabalho virtuais (EVD), é um novo Host da Sessão da Área de Trabalho Remota que permite várias sessões interativas simultâneas, que anteriormente apenas o Windows Server poderia fazer. Esse recurso oferece aos usuários uma experiência familiar do Windows 10, enquanto pode se beneficiar das vantagens de custo de várias sessões e usar o licenciamento do Windows por usuário existente em vez de CALs (licenças de acesso para cliente) do RDS. Para obter mais informações sobre licenças e preços, consulte os preços do [Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+A multi-sessão do Windows 10 Enterprise, anteriormente conhecida como Windows 10 Enterprise para desktops virtuais (EVD), é um novo Anfitrião de Sessão de Desktop Remoto que permite múltiplas sessões interativas simultâneas. Anteriormente, apenas o Windows Server poderia fazê-lo. Esse recurso oferece aos usuários uma experiência familiar do Windows 10, enquanto pode se beneficiar das vantagens de custo de várias sessões e usar o licenciamento do Windows por usuário existente em vez de CALs (licenças de acesso para cliente) do RDS. Para obter mais informações sobre licenças e preços, consulte os preços do [Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
 ## <a name="how-many-users-can-simultaneously-have-an-interactive-session-on-windows-10-enterprise-multi-session"></a>Quantos usuários podem simultaneamente ter uma sessão interativa no Windows 10 Enterprise Multi-Session?
 
@@ -40,7 +40,7 @@ Você pode iniciar uma VM (máquina virtual) no Azure com Windows 10 Windows 10 
  
 Para começar, crie uma VM no Azure com Windows 10 Windows 10 Enterprise Multi-Session. Em vez de iniciar a VM no Azure, você pode baixar o VHD diretamente. Depois disso, você poderá usar o VHD que baixou para criar uma nova VM de geração 1 em um PC com Windows 10 com o Hyper-V habilitado.
 
-Personalize a imagem para suas necessidades Instalando aplicativos LOB e Sysprep a imagem. Quando você terminar de personalizar, carregue a imagem no Azure com o VHD dentro. Depois disso, obtenha a área de trabalho virtual do Windows no Azure Marketplace e use-a para implantar um novo pool de hosts com a imagem personalizada.
+Personalize a imagem para suas necessidades Instalando aplicativos LOB e Sysprep a imagem. Quando você terminar de personalizar, carregue a imagem no Azure com o VHD dentro. Depois disso, obtenha o Windows Virtual Desktop do Azure Marketplace e use-o para implementar uma nova piscina de anfitriões com a imagem personalizada.
  
 ## <a name="how-do-i-manage-windows-10-enterprise-multi-session-after-deployment"></a>Como fazer gerenciar o Windows 10 Enterprise Multi-Session após a implantação?
 
@@ -71,6 +71,31 @@ Para obter mais informações sobre como configurar um recipiente de perfil FSLo
 ## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>Qual licença preciso para acessar várias sessões do Windows 10 Enterprise?
 
 Para obter uma lista completa das licenças aplicáveis, consulte os preços do [Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+## <a name="why-do-my-apps-disappear-after-i-sign-out"></a>Porque é que as minhas aplicações desaparecem depois de eu assinar?
+
+Isto acontece porque está a utilizar a multi-sessão do Windows 10 Enterprise com uma solução de gestão de perfis como o FSLogix. A sua solução de administrador ou perfil configurou o seu sistema para eliminar os perfis do utilizador quando os utilizadores assinam. Esta configuração significa que quando o seu sistema elimina o seu perfil de utilizador após a sua assinatura, também remove quaisquer aplicações instaladas durante a sua sessão. Se quiser manter as aplicações instaladas, terá de pedir ao seu administrador que forme estas aplicações para todos os utilizadores no ambiente de ambiente de trabalho virtual do Windows.
+
+## <a name="how-do-i-make-sure-apps-dont-disappear-when-users-sign-out"></a>Como posso garantir que as aplicações não desaparecem quando os utilizadores assinam?
+
+A maioria dos ambientes virtualizados são configurados por padrão para impedir que os utilizadores instalem aplicações adicionais nos seus perfis. Se pretender certificar-se de que uma aplicação não desaparece quando o utilizador assina fora do Windows Virtual Desktop, tem de fornecer essa aplicação para todos os perfis de utilizador no seu ambiente. Para obter mais informações sobre o fornecimento de aplicações, consulte estes recursos:
+
+- [Publique aplicações incorporadas no Windows Virtual Desktop](publish-apps.md)
+- [Pacote de aplicativo DISM que serve opções de linha de comando](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Pacote Add-AppxProvisioned](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+
+## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Como posso garantir que os utilizadores não descarregam e instalam aplicações a partir da Microsoft Store?
+
+Pode desativar a aplicação da Microsoft Store para garantir que os utilizadores não descarregam aplicações extra para além das aplicações que já disponibilizou para as mesmas.
+
+Para desativar a aplicação Loja:
+
+1. Criar uma nova Política de Grupo.
+2. **Selecione a configuração** do computador > **modelos administrativos** > **componentes do Windows**.
+3. Selecione **Loja**.
+4. Selecione **Aplicação da loja**.
+5. Selecione **Desativar**e, em seguida, selecione **OK**.
+6. Selecione **Aplicar**.
  
 ## <a name="next-steps"></a>Passos Seguintes
 

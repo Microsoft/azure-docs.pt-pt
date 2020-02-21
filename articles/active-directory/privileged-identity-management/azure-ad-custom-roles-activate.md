@@ -16,19 +16,21 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2c096f41acd5852423205b0b185c8e1a8533c55
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: cbd60d1311bd84adb303a0d329ab4e42f4d61525
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048143"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498740"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Ativar um papel personalizado da AD Azure na Gestão de Identidade Privilegiada
 
 A Gestão privilegiada de Identidade no Diretório Ativo azure (Azure AD) apoia agora a atribuição a tempo e tempo limitados a funções personalizadas criadas para gestão de aplicações na experiência administrativa de Gestão de Identidade e Acesso. Para obter mais informações sobre a criação de papéis personalizados para delegar a gestão de aplicações em Azure AD, consulte as funções de [administrador personalizado no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-custom-overview.md).
 
 > [!NOTE]
-> As funções personalizadas da Azure AD não estão integradas com as funções de diretório incorporada durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de papéis terá lugar na experiência de papéis incorporados.
+> As funções personalizadas da Azure AD não estão integradas com as funções de diretório incorporada durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de papéis terá lugar na experiência de papéis incorporados. Se vir o seguinte banner, estas funções devem ser geridas na experiência de [papéis incorporados](pim-how-to-activate-role.md) e este artigo não se aplica:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="activate-a-role"></a>Ativar um papel
 
@@ -60,7 +62,7 @@ Se a função não necessitar de aprovação, é ativada de acordo com as suas d
 
 Se a função necessitar de aprovação para ser ativada, receberá uma notificação azure informando-o de que o pedido está pendente de aprovação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Atribuir uma função personalizada azure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de funções personalizadas da AD Azure](azure-ad-custom-roles-update-remove.md)

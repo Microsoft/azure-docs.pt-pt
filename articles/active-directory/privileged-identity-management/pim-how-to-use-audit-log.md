@@ -1,6 +1,6 @@
 ---
-title: Exibir relatório de auditoria para funções do Azure AD no PIM – Azure AD | Microsoft Docs
-description: Saiba como exibir o histórico de auditoria das funções do Azure AD no Azure AD Privileged Identity Management (PIM).
+title: Ver relatório de auditoria para funções da Azure AD na PIM - Azure AD  Microsoft Docs
+description: Saiba como ver o histórico de auditoria para funções de Azure AD na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,112 +10,112 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d46036efa04b4e0225cad6e8a70cd31ad3c10bd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a4a2eccc02d13bf5a2dfc8bf3ceb7887e4962489
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024182"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498509"
 ---
-# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Exibir histórico de auditoria para funções do Azure AD no PIM
+# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Ver histórico de auditoria para papéis de AD Azure em PIM
 
-Você pode usar o histórico de auditoria de Privileged Identity Management (PIM) para ver todas as atribuições de função e ativações nos últimos 30 dias para todas as funções privilegiadas. Se você quiser ver o histórico de auditoria completo de atividade na organização do Azure Active Directory (Azure AD), incluindo o administrador, o usuário final e a atividade de sincronização, poderá usar os [relatórios de segurança e atividade do Azure Active Directory](../reports-monitoring/overview-reports.md).
+Pode utilizar o histórico de auditoria de Gestão de Identidade Privilegiada (PIM) para ver todas as atribuições e ativações de funções nos últimos 30 dias para todas as funções privilegiadas. Se quiser ver o histórico completo de auditoria da sua organização Azure Ative Directory (Azure AD), incluindo administrador, utilizador final e atividade de sincronização, pode utilizar os relatórios de segurança e atividade do [Diretório Ativo Azure.](../reports-monitoring/overview-reports.md)
 
-## <a name="determine-your-version-of-pim"></a>Determinar sua versão do PIM
+## <a name="determine-your-version-of-pim"></a>Determine a sua versão do PIM
 
-A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Identity Management está sendo atualizada para uma nova versão que corresponde às experiências de funções de recurso do Azure. Isso cria recursos adicionais, bem como [as alterações na API existente](azure-ad-roles-features.md#api-changes). Enquanto a nova versão está sendo distribuída, os procedimentos que você seguir neste artigo dependem da versão do Privileged Identity Management que você tem atualmente. Siga as etapas nesta seção para determinar qual versão do Privileged Identity Management você tem. Depois de saber sua versão do Privileged Identity Management, você pode selecionar os procedimentos neste artigo que correspondem a essa versão.
+A partir de novembro de 2019, a parte da AD Azure da Privileged Identity Management está a ser atualizada para uma nova versão que corresponde às experiências para funções de recursos Do Azure. Isto cria funcionalidades adicionais, bem como [alterações à API existente.](azure-ad-roles-features.md#api-changes) Enquanto a nova versão está a ser lançada, quais os procedimentos que segue neste artigo dependem da versão da Gestão de Identidade Privilegiada que tem atualmente. Siga os passos nesta secção para determinar qual a versão da Gestão de Identidade Privilegiada que tem. Depois de conhecer a sua versão de Gestão de Identidade Privilegiada, pode selecionar os procedimentos neste artigo que correspondam a essa versão.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que esteja na função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
-1. Abra **Azure ad Privileged Identity Management**. Se você tiver uma faixa na parte superior da página Visão geral, siga as instruções na **nova guia versão** deste artigo. Caso contrário, siga as instruções na guia **versão anterior** .
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que esteja no papel de [administrador privilegiado.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+1. Open **Azure AD Privileged Identity Management.** Se tiver um banner no topo da página de visão geral, siga as instruções no separador **versão Nova** deste artigo. Caso contrário, siga as instruções no separador versão **anterior.**
 
-    ![Nova versão das funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
-# <a name="new-versiontabnew"></a>[Nova versão](#tab/new)
+# <a name="new-version"></a>[Nova versão](#tab/new)
 
-Siga estas etapas para exibir o histórico de auditoria para funções do Azure AD.
+Siga estes passos para ver o histórico de auditoria para funções de AD Azure.
 
-## <a name="view-resource-audit-history"></a>Exibir histórico de auditoria de recursos
+## <a name="view-resource-audit-history"></a>Ver histórico de auditoria de recursos
 
-A auditoria de recursos fornece uma exibição de todas as atividades associadas às suas funções do Azure AD.
+A auditoria de recursos dá-lhe uma visão de todas as atividades associadas às suas funções de AD Azure.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Selecione **funções do Azure ad**.
+1. Selecione **funções Azure AD**.
 
-1. Selecione **auditoria de recurso**.
+1. Selecione **a auditoria de recursos**.
 
-1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
+1. Filtre o histórico utilizando uma data ou gama personalizada predefinida.
 
-    ![Lista de auditoria de recursos com filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Lista de auditoria de recursos com filtros](media/pim-how-to-use-audit-log/resource-audit.png)
 
-## <a name="view-my-audit"></a>Exibir minha auditoria
+## <a name="view-my-audit"></a>Ver a minha auditoria
 
-Minha auditoria permite que você exiba sua atividade de função pessoal.
+A minha auditoria permite-lhe visualizar a sua atividade pessoal.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Selecione **funções do Azure ad**.
+1. Selecione **funções Azure AD**.
 
-1. Selecione o recurso para o qual você deseja exibir o histórico de auditoria.
+1. Selecione o recurso para o que pretende ver o histórico de auditoria.
 
-1. Selecione **minha auditoria**.
+1. Selecione **A minha auditoria**.
 
-1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
+1. Filtre o histórico utilizando uma data ou gama personalizada predefinida.
 
-    ![Lista de auditoria para o usuário atual](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Lista de auditoria para o utilizador atual](media/pim-how-to-use-audit-log/audit-time-span.png)
 
-# <a name="previous-versiontabprevious"></a>[Versão anterior](#tab/previous)
+# <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
 ## <a name="view-audit-history"></a>Ver histórico de auditoria
 
-Siga estas etapas para exibir o histórico de auditoria para funções do Azure AD.
+Siga estes passos para ver o histórico de auditoria para funções de AD Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que seja membro do papel de Administrador de [Funções Privilegiadas.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Selecione **funções do Azure ad**.
+1. Selecione **funções Azure AD**.
 
-1. Selecione o **histórico de auditoria de funções de diretório**.
+1. Selecione o histórico de auditoria de **funções de Diretório.**
 
-    Dependendo do histórico de auditoria, um gráfico de colunas é exibido junto com o total de ativações, Max ativações por dia e média de ativações por dia.
+    Dependendo do histórico de auditoria, é apresentado um gráfico de colunas juntamente com as ativações totais, ativações máximas por dia e ativações médias por dia.
 
     ![Papel de diretório audita histórico](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
-    Na parte inferior da página, é exibida uma tabela com informações sobre cada ação no histórico de auditoria disponível. As colunas têm os seguintes significados:
+    Na parte inferior da página, é apresentada uma tabela com informações sobre cada ação no histórico de auditoria disponível. As colunas têm os seguintes significados:
 
-    | Column | Descrição |
+    | Coluna | Descrição |
     | --- | --- |
-    | Tempo | Quando a ação ocorreu. |
-    | Requestor | Usuário que solicitou a ativação ou alteração da função. Se o valor for **sistema do Azure**, verifique o histórico de auditoria do Azure para obter mais informações. |
-    | Ação | Ações tomadas pelo solicitante. As ações podem incluir atribuir, Cancelar atribuição, ativar, desativar ou AddedOutsidePIM. |
-    | Membro | Usuário que está ativando ou atribuído a uma função. |
-    | Função | Função atribuída ou ativada pelo usuário. |
-    | Reasoning | Texto inserido no campo motivo durante a ativação. |
-    | Expiração | Quando uma função ativada expira. Aplica-se somente a atribuições de função qualificadas. |
+    | Hora | Quando a ação ocorreu. |
+    | Requestor | Utilizador que solicitou a ativação ou alteração da função. Se o valor for **o Sistema Azure,** consulte o histórico de auditoria do Azure para obter mais informações. |
+    | Ação | Ações tomadas pelo solicitador. As ações podem incluir Atribuir, Não atribuir, Ativar, Desativar ou Adicionar OutsidePIM. |
+    | Membro | Utilizador que esteja ativando ou atribuído a um papel. |
+    | Função | Função atribuída ou ativada pelo utilizador. |
+    | Raciocínio | Texto que foi introduzido no campo da razão durante a ativação. |
+    | Expiração | Quando uma função ativada expirar. Aplica-se apenas a atribuições de funções elegíveis. |
 
-1. Para classificar o histórico de auditoria, clique nos botões de **hora**, **ação**e **função** .
+1. Para classificar o histórico de auditoria, clique nos botões **Time**, **Action**e **Role.**
 
-## <a name="filter-audit-history"></a>Filtrar histórico de auditoria
+## <a name="filter-audit-history"></a>Histórico de auditoria de filtro
 
-1. Na parte superior da página Histórico de auditoria, clique no botão **Filtrar** .
+1. No topo da página de histórico de auditoria, clique no botão **Filter.**
 
-    O painel **atualizar parâmetros do gráfico** é exibido.
+    Aparece a painel de parâmetros do **gráfico de atualização.**
 
-1. Em **intervalo de tempo**, selecione um intervalo de tempo.
+1. Na **gama de tempo,** selecione um intervalo de tempo.
 
-1. Em **funções**, marque as caixas de seleção para indicar as funções que você deseja exibir.
+1. Em **Funções,** selecione as caixas de verificação para indicar as funções que pretende ver.
 
-    ![Atualizar painel de parâmetros do gráfico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
+    ![Painel de parâmetros de gráfico de atualização](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
-1. Selecione **concluído** para exibir o histórico de auditoria filtrado.
+1. Selecione **Feito** para ver o histórico de auditoria filtrado.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Exibir a atividade e o histórico de auditoria das funções de recurso do Azure no Privileged Identity Management](azure-pim-resource-rbac.md)
+- [Ver histórico de atividades e auditorias para funções de recursos Azure na Gestão de Identidade Privilegiada](azure-pim-resource-rbac.md)

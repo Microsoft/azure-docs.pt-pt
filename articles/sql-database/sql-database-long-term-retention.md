@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 9c5534f2df4a375daf355d74f788b7f610f92919
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162162"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499968"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Backups de base de dados Azure SQL por um n.º 10 anos
 
@@ -28,7 +28,13 @@ Muitas aplicações têm fins regulamentares, de conformidade ou outros fins com
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Como funciona a retenção a longo prazo da Base de Dados SQL
 
-A retenção de backup a longo prazo (LTR) aproveita as cópias de segurança completas que são [criadas automaticamente](sql-database-automated-backups.md) para permitir a restauração do tempo de ponto (PITR). Se uma política LTR estiver configurada, estas cópias de backup são copiadas para diferentes bolhas para armazenamento a longo prazo. A operação de cópia é um trabalho de fundo que não tem impacto no desempenho na carga de trabalho da base de dados. Os backups LTR são retidos por um período de tempo definido pela política LTR. A política LTR para cada base de dados SQL também pode especificar a frequência com que as cópias de segurança LTR são criadas. Para permitir essa flexibilidade, pode definir a política utilizando uma combinação de quatro parâmetros: retenção semanal de backup (W), retenção mensal de backup (M), retenção anual de backup (Y) e semana do ano (WeekOfYear). Se especificar W, uma cópia de reserva todas as semanas será copiada para o armazenamento a longo prazo. Se especificar M, uma cópia de segurança durante a primeira semana de cada mês será copiada para o armazenamento a longo prazo. Se especificar Y, uma cópia de segurança durante a semana especificada pelo WeekOfYear será copiada para o armazenamento a longo prazo. Cada cópia de segurança será conservada no armazenamento a longo prazo durante o período especificado por estes parâmetros. Qualquer alteração da política LTR aplica-se aos futuros backups. Por exemplo, se o weekofyear especificado for no passado quando a política estiver configurada, o primeiro backup LTR será criado no próximo ano. 
+A retenção de backup a longo prazo (LTR) aproveita as cópias de segurança completas que são [criadas automaticamente](sql-database-automated-backups.md) para permitir a restauração do tempo de ponto (PITR). Se uma política LTR estiver configurada, estas cópias de backup são copiadas para diferentes bolhas para armazenamento a longo prazo. A cópia é um trabalho de fundo que não tem impacto no desempenho na carga de trabalho da base de dados. A política LTR para cada base de dados SQL também pode especificar a frequência com que as cópias de segurança LTR são criadas.
+
+Para ativar o LTR, pode definir uma política utilizando uma combinação de quatro parâmetros: retenção semanal de backup (W), retenção mensal de backup (M), retenção anual de backup (Y) e semana do ano (WeekOfYear). Se especificar W, uma cópia de reserva todas as semanas será copiada para o armazenamento a longo prazo. Se especificar M, a primeira cópia de cada mês será copiada para o armazenamento a longo prazo. Se especificar Y, uma cópia de segurança durante a semana especificada pelo WeekOfYear será copiada para o armazenamento a longo prazo. Se o weekofyear especificado for no passado quando a política estiver configurada, o primeiro backup LTR será criado no ano seguinte. Cada cópia de segurança será mantida no armazenamento a longo prazo de acordo com os parâmetros de política que são configurados quando a cópia de segurança LTR é criada.
+
+> [!NOTE]
+> Qualquer alteração à política LTR aplica-se apenas a futuros backups. Por exemplo, se a retenção semanal de backup (W), retenção mensal de backup (M) ou retenção anual de backup (Y) for modificada, a nova definição de retenção aplicar-se-á apenas a novas cópias de segurança. A retenção de cópias de segurança existentes não será modificada. Se a sua intenção é eliminar cópias de segurança LTR antigas antes de expirar o seu período de retenção, terá de [eliminar manualmente as cópias de segurança](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> 
 
 Exemplos da política LTR:
 
@@ -75,8 +81,8 @@ Para aprender a configurar a retenção a longo prazo utilizando o portal Azure 
 
 ## <a name="restore-database-from-ltr-backup"></a>Restaurar a base de dados da cópia de segurança LTR
 
-Para restaurar uma base de dados do armazenamento LTR, pode selecionar uma cópia de segurança específica com base na sua marcação de tempo. A base de dados pode ser restaurada a qualquer servidor existente sob a mesma subscrição que a base de dados original. Para aprender a restaurar a sua base de dados a partir de uma cópia de segurança LTR, utilizando o portal Azure ou PowerShell, consulte a retenção de backup a longo prazo da [Manage Azure SQL](sql-database-long-term-backup-retention-configure.md)Database .
+Para restaurar uma base de dados do armazenamento LTR, pode selecionar uma cópia de segurança específica com base na sua marcação de tempo. A base de dados pode ser restaurada a qualquer servidor existente sob a mesma subscrição que a base de dados original. Para aprender a restaurar a sua base de dados a partir de uma cópia de segurança LTR, utilizando o portal Azure, ou PowerShell, consulte a retenção de backup a longo prazo da [Manage Azure SQL](sql-database-long-term-backup-retention-configure.md)Database .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Como as cópias de dados protegem os dados de corrupção acidental ou eliminação, são uma parte essencial de qualquer continuidade de negócios e estratégia de recuperação de desastres. Para conhecer as outras soluções de continuidade de negócio da SQL Database, consulte a [visão geral da continuidade do Negócio.](sql-database-business-continuity.md)

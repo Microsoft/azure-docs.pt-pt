@@ -3,33 +3,39 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 02/12/2020
 ms.author: marsma
-ms.openlocfilehash: 43bcd1f11eb228bd1454b2ad0f2addb851029f2f
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e5201dfee83ec5360e55533e923e2b55c24c09d9
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73800041"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492932"
 ---
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Na página Visão geral do **aplicativo registrado** , selecione **configurações**.
-1. Em **acesso à API**, selecione **permissões necessárias**.
-1. Selecione **Azure Active Directory do Windows**.
-1. Em **permissões do aplicativo**, selecione **ler e gravar dados do diretório**.
+1. Na página de visão geral da **aplicação Registada,** selecione **Definições**.
+1. No **acesso a API,** selecione **permissões necessárias**.
+1. Selecione **Microsoft Graph**.
+1. Em **permissões**de pedido, selecione a caixa de verificação da permissão de concessão ao seu pedido de gestão. Por exemplo:
+    * **Leia todos os dados do registo de auditoria**: Selecione esta permissão para ler os registos de auditoria do diretório.
+    * **Ler e escrever dados**de diretório : Selecione esta permissão para a migração do utilizador ou cenários de gestão do utilizador.
+    * **Leia e escreva as políticas-quadro de confiança da sua organização**: Selecione esta permissão para cenários de integração contínua/entrega contínua (CI/CD). Por exemplo, implementação de políticas personalizadas com pipelines Azure.
 1. Selecione **Guardar**.
-1. Selecione **conceder permissões**e, em seguida, selecione **Sim**. Pode levar alguns minutos para que as permissões se propaguem totalmente.
+1. Selecione **permissões de concessão**e, em seguida, selecione **Sim**. Pode levar alguns minutos para as permissões se propagarem completamente.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Em **gerenciar**, selecione **permissões de API**.
-1. Em **permissões configuradas**, selecione **Adicionar uma permissão**.
-1. Selecione **Azure Active Directory grafo**.
-1. Selecione **permissões de aplicativo**.
-1. Expanda **diretório** e marque a caixa de seleção **Directory. ReadWrite. All** .
-1. Selecione **adicionar permissões**. Conforme indicado, aguarde alguns minutos antes de prosseguir para a próxima etapa.
-1. Selecione **conceder consentimento de administrador para (seu nome de locatário)** .
-1. Selecione uma conta de administrador de locatários.
+1. Em **Gerir,** selecione **permissões API**.
+1. Sob **permissões configuradas,** **selecione Adicionar uma permissão**.
+1. Selecione o separador **MICROSOFT APIs** e, em seguida, selecione **Microsoft Graph**.
+1. Selecione **permissões de pedido**.
+1. Expanda o grupo de permissão apropriado e selecione a caixa de verificação da permissão de concessão ao seu pedido de gestão. Por exemplo:
+    * **AuditLog** > **AuditLog.Read.All**: Para ler os registos de auditoria do diretório.
+    * **Diretório** > **Diretório.ReadWrite.All**: Para a migração do utilizador ou cenários de gestão do utilizador.
+    * **Política** > **Política.ReadWrite.TrustFramework**: Para cenários de integração contínua/entrega contínua (CI/CD). Por exemplo, implementação de políticas personalizadas com pipelines Azure.
+1. **Selecione Adicionar permissões**. Como foi dirigido, aguarde alguns minutos antes de passar para o próximo passo.
+1. Selecione **Grant administrador consentimento para (o nome do seu inquilino)** .
+1. Selecione a sua conta de administrador atualmente assinada ou inscreva-se com uma conta no seu inquilino Azure AD B2C que tenha sido atribuída pelo menos a função de administrador de *aplicação Cloud.*
 1. Selecione **Aceitar**.
-1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status**. Pode levar alguns minutos para que as permissões se propaguem.
+1. Selecione **Refresh**, e, em seguida, verifique se "Granted for ..." aparece em **status**. Pode levar alguns minutos para as permissões se propagarem.

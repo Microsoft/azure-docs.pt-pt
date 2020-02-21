@@ -2,13 +2,13 @@
 title: Implementar instância de contentores ativados por GPU
 description: Aprenda a implementar instâncias de contentores Azure para executar aplicações de contentores intensivas em cálculo utilizando recursos GPU.
 ms.topic: article
-ms.date: 04/17/2019
-ms.openlocfilehash: c3b202d1f35194d59090c3cc310226d6cfc4dfea
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: HT
+ms.date: 02/19/2020
+ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482960"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525293"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentores que utilizam recursos GPU
 
@@ -32,6 +32,9 @@ Serão adicionados apoios a regiões adicionais ao longo do tempo.
 **Limitações adicionais**: Os recursos da GPU não podem ser utilizados ao implantar um grupo de contentores numa [rede virtual](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Sobre os recursos da GPU
+
+> [!IMPORTANT]
+> Os recursos da GPU só estão disponíveis mediante solicitação. Para solicitar o acesso aos recursos da GPU, por favor envie um pedido de [apoio azure][azure-support].
 
 ### <a name="count-and-sku"></a>Conde e SKU
 
@@ -219,7 +222,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergroup -y
 az container delete --resource-group myResourceGroup --name gpucontainergrouprm -y
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a implementação de um grupo de contentores utilizando um [modelo de ficheiro YAML](container-instances-multi-container-yaml.md) ou [Desprovido](container-instances-multi-container-group.md)de recursos .
 * Saiba mais sobre [os tamanhos de VM otimizados](../virtual-machines/linux/sizes-gpu.md) da GPU em Azure.
@@ -230,6 +233,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

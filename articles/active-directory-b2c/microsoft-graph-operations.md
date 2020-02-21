@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f23d3ffa14deccae9825568dee2f3c8b9ac7e7e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: HT
+ms.openlocfilehash: 5eeae1ab6866435311eeec944b4a51ecf2793dee
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492958"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522973"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Operações do Microsoft Graph disponíveis para Azure AD B2C
 
@@ -57,7 +57,7 @@ Configure as políticas pré-construídas para iniciar sessão, iniciar o pré-i
 
 As seguintes operações permitem-lhe gerir as suas políticas de enquadramento fidedignidade Azure AD B2C, conhecidas como [políticas personalizadas.](custom-policy-overview.md)
 
-- [Enumerar todas as políticas de enquadramento de confiança configuradas num inquilino](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies.md)
+- [Enumerar todas as políticas de enquadramento de confiança configuradas num inquilino](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
 - [Criar uma política de quadro de confiança](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
 - [Leia as propriedades de uma política de quadro de confiança existente](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
 - [Atualizar ou criar uma política de enquadramento de confiança.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)

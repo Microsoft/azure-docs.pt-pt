@@ -1,6 +1,6 @@
 ---
-title: Configurar, otimizar e solucionar problemas do AzCopy com o armazenamento do Azure | Microsoft Docs
-description: Configurar, otimizar e solucionar problemas do AzCopy.
+title: Configure, otimize e problemas AzCopy com armazenamento Azure  Microsoft Docs
+description: Configure, otimize e desame o AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -8,27 +8,27 @@ ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 00ce40e24a01b765419186a609ecf19ce53c772b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d2cb40d7510e46539db46bdb61ec2d64c0fd1ec7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905274"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526500"
 ---
-# <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
+# <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configure, otimize e problemas AzCopy
 
-AzCopy é um utilitário de linha de comando que você pode usar para copiar BLOBs ou arquivos de ou para uma conta de armazenamento. Este artigo ajuda você a executar tarefas de configuração avançadas e ajuda a solucionar problemas que podem surgir ao usar o AzCopy.
+O AzCopy é um utilitário de linha de comando que pode utilizar para copiar bolhas ou ficheiros de ou para uma conta de armazenamento. Este artigo ajuda-o a executar tarefas de configuração avançadas e ajuda-o a resolver problemas que podem surgir à medida que utiliza o AzCopy.
 
 > [!NOTE]
-> Se você estiver procurando conteúdo para ajudá-lo a começar a usar o AzCopy, consulte qualquer um dos seguintes artigos:
+> Se procura conteúdo para o ajudar a começar com a AzCopy, consulte qualquer um dos seguintes artigos:
 > - [Começar com a AzCopy](storage-use-azcopy-v10.md)
-> - [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
-> - [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
-> - [Transferir dados com os buckets AzCopy e Amazon S3](storage-use-azcopy-s3.md)
+> - [Transferir dados com armazenamento azCopy e blob](storage-use-azcopy-blobs.md)
+> - [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+> - [Transferir dados com baldes AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Configurar definições de procuração
 
-Para configurar as definições de procuração para AzCopy, detete a variável ambiente `https_proxy`. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisa usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
+Para configurar as definições de procuração para AzCopy, detete a variável ambiente `https_proxy`. Se executar o AzCopy no Windows, o AzCopy deteta automaticamente as definições de procuração, pelo que não tem de utilizar esta definição no Windows. Se optar por utilizar esta definição no Windows, irá sobrepor-se à deteção automática.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -36,28 +36,28 @@ Para configurar as definições de procuração para AzCopy, detete a variável 
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
-Atualmente, o AzCopy não dá suporte a proxies que exigem autenticação com NTLM ou Kerberos.
+Atualmente, a AzCopy não suporta proxies que requerem autenticação com NTLM ou Kerberos.
 
 ## <a name="optimize-performance"></a>Otimizar o desempenho
 
-Você pode obter o desempenho do benchmark e, em seguida, usar comandos e variáveis de ambiente para encontrar uma compensação ideal entre o consumo de recursos e o desempenho.
+Você pode comparar o desempenho, e depois usar comandos e variáveis ambientais para encontrar uma troca ideal entre desempenho e consumo de recursos.
 
 Esta secção ajuda-o a executar estas tarefas de otimização:
 
 > [!div class="checklist"]
-> * Executar testes de benchmark
-> * Otimizar taxa de transferência
-> * Otimizar o uso de memória 
+> * Executar testes de referência
+> * Otimizar a entrada
+> * Otimizar o uso da memória 
 > * Otimizar a sincronização de ficheiros
 
-### <a name="run-benchmark-tests"></a>Executar testes de benchmark
+### <a name="run-benchmark-tests"></a>Executar testes de referência
 
-Você pode executar um teste de benchmark de desempenho em contêineres de blob específicos para exibir estatísticas gerais de desempenho e para identificar afunilamentos de desempenho. 
+Pode realizar um teste de benchmark de desempenho em recipientes de blob específicos para ver estatísticas gerais de desempenho e estrangulamentos de desempenho de identidade. 
 
 > [!NOTE]
-> Na versão atual, esse recurso está disponível apenas para contêineres de armazenamento de BLOBs.
+> No lançamento atual, esta funcionalidade está disponível apenas para recipientes de armazenamento Blob.
 
-Use o comando a seguir para executar um teste de benchmark de desempenho.
+Utilize o seguinte comando para realizar um teste de referência de desempenho.
 
 |    |     |
 |--------|-----------|
@@ -65,25 +65,25 @@ Use o comando a seguir para executar um teste de benchmark de desempenho.
 | **Exemplo** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 > [!TIP]
-> Este exemplo inclui argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
+> Este exemplo encerra argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as conchas de comando, exceto na Shell de Comando do Windows (cmd.exe). Se estiver a utilizar uma Shell de Comando windows (cmd.exe), encerre argumentos de caminho com citações duplas (") em vez de citações únicas (').
 
-Esse comando executa um parâmetro de comparação de desempenho carregando dados de teste para um destino especificado. Os dados de teste são gerados na memória, carregados no destino e, em seguida, excluídos do destino após a conclusão do teste. Você pode especificar quantos arquivos serão gerados e qual tamanho você gostaria que eles estivéssemos usando parâmetros de comando opcionais.
+Este comando executa uma referência de desempenho, enviando dados de teste para um destino especificado. Os dados do teste são gerados na memória, enviados para o destino, e depois eliminados do destino após a conclusão do teste. Pode especificar quantos ficheiros gerar e qual o tamanho que gostaria que fossem utilizando parâmetros de comando opcionais.
 
-Para obter documentos de referência detalhados, consulte [bancada de azcopy](storage-ref-azcopy-bench.md).
+Para obter documentos de referência detalhados, consulte [o banco de azcopy](storage-ref-azcopy-bench.md).
 
-Para exibir as diretrizes de ajuda detalhadas para este comando, digite `azcopy bench -h` e pressione a tecla ENTER.
+Para ver a orientação detalhada da ajuda para este comando, digite `azcopy bench -h` e, em seguida, prima a tecla ENTER.
 
-### <a name="optimize-throughput"></a>Otimizar taxa de transferência
+### <a name="optimize-throughput"></a>Otimizar a entrada
 
-Você pode usar o sinalizador `cap-mbps` em seus comandos para inserir um teto na taxa de dados de produtividade. Por exemplo, o comando a seguir retoma um trabalho e a taxa de transferência de Caps para `10` megabits (MB) por segundo. 
+Pode utilizar a bandeira `cap-mbps` nos seus comandos para colocar um teto na taxa de dados de entrada. Por exemplo, o comando seguinte retoma um trabalho e caps de entrada para `10` megabits (MB) por segundo. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
-A taxa de transferência pode diminuir ao transferir arquivos pequenos. Pode aumentar a entrada definindo a variável ambiente `AZCOPY_CONCURRENCY_VALUE`. Essa variável especifica o número de solicitações simultâneas que podem ocorrer.  
+A entrada pode diminuir ao transferir pequenos ficheiros. Pode aumentar a entrada definindo a variável ambiente `AZCOPY_CONCURRENCY_VALUE`. Esta variável especifica o número de pedidos simultâneos que podem ocorrer.  
 
-Se o computador tiver menos de 5 CPUs, o valor dessa variável será definido como `32`. Caso contrário, o valor padrão é igual a 16 multiplicado pelo número de CPUs. O valor padrão máximo dessa variável é `3000`, mas você pode definir manualmente esse valor como maior ou menor. 
+Se o seu computador tiver menos de 5 CPUs, então o valor desta variável está definido para `32`. Caso contrário, o valor predefinido é igual a 16 multiplicados pelo número de CPUs. O valor padrão máximo desta variável é `3000`, mas pode definir manualmente este valor mais alto ou inferior. 
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -91,14 +91,14 @@ Se o computador tiver menos de 5 CPUs, o valor dessa variável será definido co
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-Use o `azcopy env` para verificar o valor atual dessa variável. Se o valor estiver em branco, você poderá ler qual valor está sendo usado observando o início de qualquer arquivo de log do AzCopy. O valor selecionado e o motivo pelo qual ele foi selecionado são relatados lá.
+Utilize o `azcopy env` para verificar o valor atual desta variável. Se o valor estiver em branco, pode ler qual o valor que está a ser utilizado olhando para o início de qualquer ficheiro de registo AzCopy. O valor selecionado, e a razão pela qual foi selecionado, são relatados lá.
 
-Antes de definir essa variável, recomendamos que você execute um teste de parâmetro de comparação. O processo de teste de benchmark relatará o valor de simultaneidade recomendado. Como alternativa, se as suas condições de rede e suas cargas variam, defina essa variável para a palavra `AUTO` em vez de para um número específico. Isso fará com que o AzCopy sempre execute o mesmo processo de ajuste automático que ele usa nos testes de parâmetro de comparação.
+Antes de definir esta variável, recomendamos que faça um teste de referência. O processo de teste de referência reportará o valor da moeda recomendada. Em alternativa, se as condições de rede e as cargas variam, defina esta variável à palavra `AUTO` em vez de um número específico. Isso fará com que a AzCopy execute sempre o mesmo processo de afinação automática que utiliza em testes de referência.
 
-### <a name="optimize-memory-use"></a>Otimizar o uso de memória
+### <a name="optimize-memory-use"></a>Otimizar o uso da memória
 
 Detete a variável ambiente `AZCOPY_BUFFER_GB` para especificar a quantidade máxima da memória do seu sistema que pretende que o AzCopy utilize ao descarregar e carregar ficheiros.
-Expresse esse valor em gigabytes (GB).
+Expresse este valor em gigabytes (GB).
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -116,20 +116,22 @@ O comando de [cópia azcopy](storage-ref-azcopy-copy.md) não apaga ficheiros do
 
 ## <a name="troubleshoot-issues"></a>Resolver problemas
 
-O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os logs para investigar e solucionar problemas em potencial. 
+A ZCopy cria ficheiros de registo e plano para cada trabalho. Pode usar os registos para investigar e resolver potenciais problemas. 
 
-Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED`e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
+Os registos conterão o estado de falha (`UPLOADFAILED`, `COPYFAILED`, e `DOWNLOADFAILED`), o caminho completo e a razão da falha.
 
 Por predefinição, os ficheiros de registo e plano estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows ou `$HOME$\.azcopy` diretório no Mac e Linux, mas pode alterar esse local se quiser.
 
+O erro relevante não é necessariamente o primeiro erro que aparece no ficheiro. Para erros como erros de rede, intervalos de tempo e erros de Server Busy, o AzCopy irá voltar a tentar até 20 vezes e normalmente o processo de retry é bem sucedido.  O primeiro erro que vêpode ser algo inofensivo que foi julgado com sucesso.  Assim, em vez de olhar para o primeiro erro no ficheiro, procure os erros que estão perto de `UPLOADFAILED`, `COPYFAILED`ou `DOWNLOADFAILED`. 
+
 > [!IMPORTANT]
-> Ao enviar uma solicitação para Suporte da Microsoft (ou solucionar o problema que envolve terceiros), compartilhe a versão redação do comando que você deseja executar. Isso garante que a SAS não seja compartilhada acidentalmente com ninguém. Você pode encontrar a versão redação no início do arquivo de log.
+> Ao submeter um pedido ao Microsoft Support (ou resolver problemas com o problema envolvendo terceiros), partilhe a versão redigida do comando que pretende executar. Isto garante que a SAS não é partilhada acidentalmente com ninguém. Pode encontrar a versão redigida no início do ficheiro de registo.
 
-### <a name="review-the-logs-for-errors"></a>Examinar os logs em busca de erros
+### <a name="review-the-logs-for-errors"></a>Reveja os registos de erros
 
-O comando a seguir obterá todos os erros com `UPLOADFAILED` status do log de `04dc9ca9-158f-7945-5933-564021086c79`:
+O seguinte comando terá todos os erros com `UPLOADFAILED` estado a partir do registo `04dc9ca9-158f-7945-5933-564021086c79`:
 
-**Windows (PowerShell)**
+**Janelas (PowerShell)**
 
 ```
 Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
@@ -141,27 +143,27 @@ Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 grep UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 ```
 
-### <a name="view-and-resume-jobs"></a>Exibir e retomar trabalhos
+### <a name="view-and-resume-jobs"></a>Ver e retomar os empregos
 
-Cada operação de transferência criará um trabalho do AzCopy. Use o seguinte comando para exibir o histórico de trabalhos:
+Cada operação de transferência criará um trabalho AzCopy. Utilize o seguinte comando para ver a história dos empregos:
 
 ```
 azcopy jobs list
 ```
 
-Para exibir as estatísticas de trabalho, use o seguinte comando:
+Para visualizar as estatísticas de emprego, utilize o seguinte comando:
 
 ```
 azcopy jobs show <job-id>
 ```
 
-Para filtrar as transferências por status, use o seguinte comando:
+Para filtrar as transferências por estado, utilize o seguinte comando:
 
 ```
 azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Use o comando a seguir para retomar um trabalho com falha/cancelado. Esse comando usa seu identificador junto com o token SAS, pois ele não é persistente por motivos de segurança:
+Utilize o seguinte comando para retomar um trabalho falhado/cancelado. Este comando usa o seu identificador juntamente com o token SAS, uma vez que não é persistente por razões de segurança:
 
 ```
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
@@ -169,17 +171,17 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
 > [!TIP]
-> Coloque argumentos de caminho, como o token SAS com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
+> Encerre argumentos de caminho, como o símbolo SAS com citações únicas ('). Utilize aspas únicas em todas as conchas de comando, exceto na Shell de Comando do Windows (cmd.exe). Se estiver a utilizar uma Shell de Comando windows (cmd.exe), encerre argumentos de caminho com citações duplas (") em vez de citações únicas (').
 
-Quando você reinicia um trabalho, o AzCopy examina o arquivo de plano de trabalho. O arquivo de plano lista todos os arquivos que foram identificados para processamento quando o trabalho foi criado pela primeira vez. Quando você retomar um trabalho, o AzCopy tentará transferir todos os arquivos listados no arquivo de plano que ainda não foram transferidos.
+Quando retoma um trabalho, a AzCopy olha para o ficheiro do plano de trabalho. O ficheiro do plano lista todos os ficheiros que foram identificados para processamento quando o trabalho foi criado pela primeira vez. Quando retomar um trabalho, a AzCopy tentará transferir todos os ficheiros listados no ficheiro do plano que ainda não foram transferidos.
 
-## <a name="change-the-location-of-the-plan-and-log-files"></a>Alterar o local do plano e dos arquivos de log
+## <a name="change-the-location-of-the-plan-and-log-files"></a>Alterar a localização do plano e registar ficheiros
 
-Por predefinição, os ficheiros de planoe de registo estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows, ou no `$HOME$\.azcopy` diretório em Mac e Linux. Você pode alterar esse local.
+Por predefinição, os ficheiros de planoe de registo estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows, ou no `$HOME$\.azcopy` diretório em Mac e Linux. Pode mudar este local.
 
-### <a name="change-the-location-of-plan-files"></a>Alterar o local dos arquivos de plano
+### <a name="change-the-location-of-plan-files"></a>Alterar a localização dos ficheiros do plano
 
-Use qualquer um desses comandos.
+Use qualquer um destes comandos.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -187,11 +189,11 @@ Use qualquer um desses comandos.
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
-Use o `azcopy env` para verificar o valor atual dessa variável. Se o valor estiver em branco, os arquivos de plano serão gravados no local padrão.
+Utilize o `azcopy env` para verificar o valor atual desta variável. Se o valor estiver em branco, os ficheiros de plano são escritos para a localização predefinida.
 
-### <a name="change-the-location-of-log-files"></a>Alterar o local dos arquivos de log
+### <a name="change-the-location-of-log-files"></a>Alterar a localização dos ficheiros de registo
 
-Use qualquer um desses comandos.
+Use qualquer um destes comandos.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -199,18 +201,18 @@ Use qualquer um desses comandos.
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-Use o `azcopy env` para verificar o valor atual dessa variável. Se o valor estiver em branco, os logs serão gravados no local padrão.
+Utilize o `azcopy env` para verificar o valor atual desta variável. Se o valor estiver em branco, os registos são escritos para a localização predefinida.
 
-## <a name="change-the-default-log-level"></a>Alterar o nível de log padrão
+## <a name="change-the-default-log-level"></a>Alterar o nível de registo padrão
 
-Por padrão, o nível de log AzCopy é definido como `INFO`. Se você quiser reduzir o detalhamento do log para economizar espaço em disco, substitua essa configuração usando a opção ``--log-level``. 
+Por predefinição, o nível de registo AzCopy está definido para `INFO`. Se quiser reduzir a verbosidade do registo para economizar espaço no disco, substitui esta definição utilizando a opção ``--log-level``. 
 
-Os níveis de log disponíveis são: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`e `FATAL`.
+Os níveis de registo disponíveis são: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`e `FATAL`.
 
-## <a name="remove-plan-and-log-files"></a>Remover arquivos de plano e de log
+## <a name="remove-plan-and-log-files"></a>Remover ficheiros de plano e log
 
-Se você quiser remover todos os arquivos de plano e de log do computador local para economizar espaço em disco, use o comando `azcopy jobs clean`.
+Se pretender remover todos os ficheiros de planos e registos da sua máquina local para economizar espaço no disco, utilize o comando `azcopy jobs clean`.
 
-Para remover o plano e os arquivos de log associados a apenas um trabalho, use `azcopy jobs rm <job-id>`. Substitua o espaço reservado `<job-id>` neste exemplo pela ID do trabalho do trabalho.
+Para remover o plano e registar ficheiros associados apenas a um trabalho, utilize `azcopy jobs rm <job-id>`. Substitua o `<job-id>` espaço reservado neste exemplo pela identificação do trabalho.
 
 

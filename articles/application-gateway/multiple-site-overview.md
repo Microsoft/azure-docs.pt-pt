@@ -1,27 +1,27 @@
 ---
-title: Hospedando vários sites no gateway de Aplicativo Azure
-description: Este artigo fornece uma visão geral do suporte a vários sites de gateway de Aplicativo Azure.
+title: Hospedagem de vários sites no Portal de Aplicações Azure
+description: Este artigo fornece uma visão geral do suporte multi-site do Azure Application Gateway.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 1/7/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 0192d27ebfa696376ce79f90a6ceeb816dfb1e46
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: ac9dd31e01b1915642951aeddb10d3eae118d943
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719958"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523786"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Alojamento de vários sites do Gateway de Aplicação
 
-A hospedagem de vários sites permite que você configure mais de um aplicativo Web na mesma porta de um gateway de aplicativo. Esse recurso permite que você configure uma topologia mais eficiente para suas implantações adicionando até 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. No exemplo seguinte, o gateway de aplicação está a enviar tráfego para contoso.com e fabrikam.com a partir de dois agrupamentos de servidores de back-end com o nome ContosoServerPool e FabrikamServerPool.
+O alojamento de vários sites permite configurar mais do que uma aplicação web na mesma porta de um portal de aplicação. Esta funcionalidade permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um portal de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. No exemplo seguinte, o gateway de aplicação está a enviar tráfego para contoso.com e fabrikam.com a partir de dois agrupamentos de servidores de back-end com o nome ContosoServerPool e FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
 > [!IMPORTANT]
-> As regras são processadas pela ordem em que são apresentadas no portal. Antes de configurar um serviço de escuta básico, recomenda-se vivamente que configure serviços de escuta de múltiplos sites.  Desta forma, assegura-se que o tráfego é encaminhado para o back-end certo. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta.
+> As regras são processadas na ordem em que estão listadas no portal para o V1 SKU. Para o V2 SKU, os fósforos exatos têm maior precedência. Antes de configurar um serviço de escuta básico, recomenda-se vivamente que configure serviços de escuta de múltiplos sites.  Desta forma, assegura-se que o tráfego é encaminhado para o back-end certo. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta.
 
 Os pedidos de `http://contoso.com` são encaminhados para ContosoServerPool e os pedidos de `http://fabrikam.com` são encaminhados para FabrikamServerPool.
 

@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: aplicativo Ruby do Linux com postgres'
-description: Saiba como obter um aplicativo Ruby do Linux trabalhando no serviço Azure App, com conexão a um banco de dados PostgreSQL no Azure. Os trilhos são usados no tutorial.
+title: 'Tutorial: Aplicativo Linux Ruby com Postgres'
+description: Saiba como obter uma aplicação Linux Ruby a trabalhar no Azure App Service, com ligação a uma base de dados PostgreSQL em Azure. Os trilhos são usados no tutorial.
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3238de3f1d3416964af05db031b5ecec20e4f140
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 6ce52b9754f69ef9c6eaf1f59062b6366670985f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720196"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524041"
 ---
-# <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Compilar um aplicativo Ruby e postgres no serviço Azure App no Linux
+# <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Construa uma app Ruby and Postgres no Azure App Service em Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar um aplicativo Ruby e conectá-lo a um banco de dados PostgreSQL. Quando tiver terminado, terá uma aplicação [Ruby on Rails](https://rubyonrails.org/) em execução no Serviço de Aplicações no Linux.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação Ruby e conectá-la a uma base de dados PostgreSQL. Quando tiver terminado, terá uma aplicação [Ruby on Rails](https://rubyonrails.org/) em execução no Serviço de Aplicações no Linux.
 
 ![Aplicação Ruby on Rails em execução no Serviço de Aplicações do Azure](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -110,15 +110,15 @@ Para parar o servidor do Rails, escreva `Ctrl + C` no terminal.
 
 Neste passo, vai criar uma base de dados Postgres na [Base de Dados do Azure para PostgreSQL](/azure/postgresql/). Posteriormente, vai configurar a aplicação Ruby on Rails para se ligar a esta base de dados.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-postgres-server"></a>Criar um servidor Postgres
 
-Criar um servidor PostgreSQL com o comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
+Crie um servidor PostgreSQL com o comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
 
-Execute o seguinte comando na Cloud Shell e substitua um nome de servidor exclusivo pelo espaço reservado *\<postgres-Server-name >* . O nome do servidor tem de ser exclusivo em todos os servidores no Azure. 
+Execute o seguinte comando na Cloud Shell e substitua um nome de servidor único para o *\<postgres-server-name>* espaço reservado. O nome do servidor tem de ser exclusivo em todos os servidores no Azure. 
 
 ```azurecli-interactive
 az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres-server-name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
@@ -148,7 +148,7 @@ Após criar o servidor da Base de Dados do Azure para PostgreSQL, a CLI do Azure
 
 ### <a name="configure-server-firewall"></a>Configurar a firewall do servidor
 
-No Cloud Shell, crie uma regra de firewall para o servidor Postgres permitir ligações ao cliente com o comando [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. Substitua um nome de servidor exclusivo para o *\<postgres-Server-name >* espaço reservado.
+No Cloud Shell, crie uma regra de firewall para o servidor Postgres permitir ligações ao cliente com o comando [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. Substitua um nome de servidor único para o *\<postgres-server-name>* espaço reservado.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres-server-name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -160,7 +160,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Ligar ao servidor Postgres de produção localmente
 
-No Cloud Shell, ligue ao servidor Postgres no Azure. Use o valor especificado anteriormente para o _&lt;postgres-Server-name >_ espaços reservados.
+No Cloud Shell, ligue ao servidor Postgres no Azure. Utilize o valor especificado anteriormente para o _&lt;postgres-server-name>_ espaços reservados.
 
 ```bash
 psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
@@ -295,7 +295,7 @@ Neste passo, vai implementar a aplicação Rails ligada ao Postgres no Serviço 
 
 No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell.
 
-O comando do Cloud Shell seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os espaços reservados _&lt;appname >_ e _&lt;postgres-server-name >_ .
+O comando do Cloud Shell seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os espaços reservados _&lt;appname>_ e _&lt;postgres-server-name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"
@@ -303,7 +303,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 ### <a name="configure-rails-environment-variables"></a>Configurar as variáveis de ambiente do Rails
 
-No terminal local, [gere um novo segredo](configure-language-ruby.md#set-secret_key_base-manually) para o ambiente de produção do Rails no Azure.
+No terminal local, [gere um novo segredo](configure-language-ruby.md#set-secret_key_base-manually) para o ambiente de produção dos Trilhos em Azure.
 
 ```bash
 rails secret
@@ -311,13 +311,13 @@ rails secret
 
 Configure as variáveis necessárias para o ambiente de produção do Rails.
 
-No comando Cloud Shell a seguir, substitua os dois espaços reservados _&lt;saída-de-trilho >_ com a nova chave secreta gerada no terminal local.
+No seguinte comando Cloud Shell, substitua as duas _&lt;saída de carris-secret>_ espaços reservados com a nova chave secreta que gerou no terminal local.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
 ```
 
-`ASSETS_PRECOMPILE="true"` indica o contentor Ruby predefinido para pré-compilar ativos em cada implementação do Git. Para obter mais informações, consulte [pré-compilar ativos](configure-language-ruby.md#precompile-assets) e [atender ativos estáticos](configure-language-ruby.md#serve-static-assets).
+`ASSETS_PRECOMPILE="true"` indica o contentor Ruby predefinido para pré-compilar ativos em cada implementação do Git. Para mais informações, consulte [Precompile ativos](configure-language-ruby.md#precompile-assets) e [sirva ativos estáticos.](configure-language-ruby.md#serve-static-assets)
 
 ### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
 
@@ -350,7 +350,7 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### <a name="browse-to-the-azure-app"></a>Navegue até o aplicativo do Azure
+### <a name="browse-to-the-azure-app"></a>Navegue na app Azure
 
 Navegue para `http://<app-name>.azurewebsites.net` e adicione algumas tarefas à lista.
 
@@ -463,25 +463,25 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Quando o `git push` for concluído, navegue até o aplicativo do Azure e teste a nova funcionalidade.
+Uma vez concluída a `git push`, navegue para a aplicação Azure e teste a nova funcionalidade.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 Se tiver adicionado tarefas, estas são mantidas na base de dados. As atualizações ao esquema de dados não afetam os dados já existentes.
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
+## <a name="manage-the-azure-app"></a>Gerir a app Azure
 
-Vá para o [portal do Azure](https://portal.azure.com) para gerenciar o aplicativo que você criou.
+Vá ao [portal Azure](https://portal.azure.com) para gerir a app que criou.
 
-No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
+A partir do menu esquerdo, clique em **Serviços de Aplicações**e, em seguida, clique no nome da sua aplicação Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/tutorial-php-mysql-app/access-portal.png)
 
-Você vê a página de visão geral do seu aplicativo. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
+Veja a página de visão geral da sua aplicação. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
 
 O menu do lado esquerdo disponibiliza páginas para configurar a aplicação.
 
@@ -503,12 +503,12 @@ Neste tutorial, ficou a saber como:
 > * Transmitir os registos de diagnóstico em fluxo a partir do Azure
 > * Gerir a aplicação no portal do Azure
 
-Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo.
+Avance para o próximo tutorial para aprender a mapear um nome DNS personalizado para a sua aplicação.
 
 > [!div class="nextstepaction"]
-> [Tutorial: mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Mapeie o nome dNS personalizado para a sua aplicação](../app-service-web-tutorial-custom-domain.md)
 
-Ou então, confira outros recursos:
+Ou, confira outros recursos:
 
 > [!div class="nextstepaction"]
-> [Configurar aplicativo Ruby](configure-language-ruby.md)
+> [Configure app Ruby](configure-language-ruby.md)

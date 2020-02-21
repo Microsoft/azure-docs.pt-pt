@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bd7801c84860ddba3c3991bce9352c595adb123f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 3cdd558a8b14498e981c9c60a077a7286188e02e
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469049"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500098"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Quickstart: Construa uma app Java para gerir dados da API Da Azure Cosmos DB SQL
 
@@ -35,6 +35,18 @@ Neste arranque rápido, cria-se e gere-se uma conta API Azure Cosmos DB SQL a pa
 - Kit de [Desenvolvimento Java (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Aponte a sua variável ambiente `JAVA_HOME` para a pasta onde o JDK está instalado.
 - Um [arquivo binário Maven.](https://maven.apache.org/download.cgi) Em Ubuntu, corra `apt-get install maven` para instalar Maven.
 - [Git](https://www.git-scm.com/downloads). Em Ubuntu, executar `sudo apt-get install git` para instalar Git.
+
+## <a name="introductory-notes"></a>Notas introdutórias
+
+*A estrutura de uma conta Cosmos DB.* Independentemente da API ou da linguagem de programação, uma *conta* Cosmos DB contém zero ou mais bases de *dados,* uma *base de dados* (DB) contém zero ou mais *contentores,* e um *recipiente* contém zero ou mais itens, como mostra o diagrama abaixo:
+
+![Entidades de conta do Cosmos do Azure](./media/databases-containers-items/cosmos-entities.png)
+
+Pode ler mais sobre bases de dados, contentores e itens [aqui.](databases-containers-items.md) Algumas propriedades importantes são definidas ao nível do recipiente, entre as quais *a chave* de entrada e *partição.* 
+
+A provisão prevista é medida nas Unidades de Pedido *(UI)* que têm um preço monetário e constituem um fator determinante substancial no custo operacional da conta. A entrada prevista pode ser selecionada na granularidade por recipiente ou na granularidade por base de dados, no entanto, a especificação de entrada ao nível do recipiente é tipicamente preferida. Pode ler mais sobre o fornecimento de entrada [aqui.](set-throughput.md)
+
+À medida que os itens são inseridos num recipiente Cosmos DB, a base de dados cresce horizontalmente adicionando mais armazenamento e computação para lidar com pedidos. A capacidade de armazenamento e computação é adicionada em unidades discretas conhecidas como *divisórias,* e você deve escolher um campo nos seus documentos para ser a chave de partição que mapeia cada documento para uma partição. A forma como as divisórias são geridas é que cada partição é atribuída a uma fatia aproximadamente igual fora da gama de valores-chave da divisória; por isso, é aconselhável escolher uma chave de partição relativamente aleatória ou uniformemente distribuída. Caso contrário, algumas divisórias verão substancialmente mais pedidos *(partição quente),* enquanto outras divisórias vêem substancialmente menos pedidos *(divisória fria),* o que deve ser evitado. Pode aprender mais sobre a partilha [aqui.](partitioning-overview.md)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 

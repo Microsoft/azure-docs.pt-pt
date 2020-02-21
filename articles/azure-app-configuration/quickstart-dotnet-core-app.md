@@ -1,29 +1,29 @@
 ---
-title: Início rápido para configuração de Azure App com o .NET Core | Microsoft Docs
-description: Um guia de início rápido para usar a configuração de Azure App com aplicativos .NET Core
+title: Quickstart para Configuração de Aplicações Azure com .NET Core [ Núcleo NET ] Microsoft Docs
+description: Um arranque rápido para usar a configuração da app Azure com aplicações .NET Core
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 4d9ea8c7cc64a27ec6033ff084d5771328f89699
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f27ad43fabbba92f97a4035b00f72a8a4af4cc5c
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714669"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500206"
 ---
-# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início rápido: criar um aplicativo .NET Core com a configuração do aplicativo
+# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Criar uma aplicação .NET Core com configuração de aplicações
 
-Neste guia de início rápido, você incorpora a configuração de Azure App em um aplicativo de console do .NET Core para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
+Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa aplicação de consola .NET Core para centralizar o armazenamento e a gestão das definições de aplicações separadas do seu código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download) - também disponível na [Casca de Nuvem Azure](https://shell.azure.com).
 
-## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
+## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicações
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -31,31 +31,31 @@ Neste guia de início rápido, você incorpora a configuração de Azure App em 
 
     | Chave | Valor |
     |---|---|
-    | TestApp: configurações: mensagem | Dados da configuração Azure App |
+    | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure |
 
     Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto.
 
-## <a name="create-a-net-core-console-app"></a>Criar um aplicativo de console do .NET Core
+## <a name="create-a-net-core-console-app"></a>Criar uma aplicação de consola .NET Core
 
-Utiliza a interface de [linha de comando .NET Core (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um novo projeto de aplicação de consola .NET Core. A vantagem de usar o CLI do .NET Core sobre o Visual Studio é que ele está disponível nas plataformas Windows, macOS e Linux.  Em alternativa, utilize as ferramentas pré-instaladas disponíveis na [Casca de Nuvem Azure](https://shell.azure.com).
+Utiliza a interface de [linha de comando .NET Core (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um novo projeto de aplicação de consola .NET Core. A vantagem de utilizar o .NET Core CLI sobre o Visual Studio é que está disponível nas plataformas Windows, macOS e Linux.  Em alternativa, utilize as ferramentas pré-instaladas disponíveis na [Casca de Nuvem Azure](https://shell.azure.com).
 
 1. Crie uma pasta nova para o projeto.
 
-2. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicativo de console ASP.NET Core:
+2. Na nova pasta, execute o seguinte comando para criar um novo ASP.NET projeto de aplicação de consola Core:
 
     ```CLI
         dotnet new console
     ```
 
-## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
+## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
 
 1. Adicione uma referência ao pacote nuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` executando o seguinte comando:
 
     ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 3.0.0-preview-011100001-1152
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
 
-2. Execute o seguinte comando para restaurar os pacotes para seu projeto:
+2. Execute o seguinte comando para restaurar as embalagens para o seu projeto:
 
     ```CLI
         dotnet restore
@@ -81,31 +81,31 @@ Utiliza a interface de [linha de comando .NET Core (CLI)](https://docs.microsoft
     }
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
+## <a name="build-and-run-the-app-locally"></a>Construir e executar a app localmente
 
-1. Detete uma variável ambiental chamada **ConnectionString**e detetete-a na chave de acesso à sua loja de configuração de aplicações. Na linha de comando, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Detete uma variável ambiental chamada **ConnectionString**e detetete-a na chave de acesso à sua loja de configuração de aplicações. Na linha de comando, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração faça efeito:
 
     ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-    Se você usar o Windows PowerShell, execute o seguinte comando:
+    Se utilizar o Windows PowerShell, execute o seguinte comando:
 
     ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
-    Se você usar o macOS ou Linux, execute o seguinte comando:
+    Se utilizar macOS ou Linux, execute o seguinte comando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Execute o seguinte comando para compilar o aplicativo de console:
+2. Executar o seguinte comando para construir a aplicação de consola:
 
     ```CLI
         dotnet build
     ```
 
-3. Depois que a compilação for concluída com êxito, execute o seguinte comando para executar o aplicativo localmente:
+3. Depois de a construção concluída com sucesso, execute o seguinte comando para executar a app localmente:
 
     ```CLI
         dotnet run
@@ -115,9 +115,9 @@ Utiliza a interface de [linha de comando .NET Core (CLI)](https://docs.microsoft
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, criou uma nova loja de configuração de aplicações e utilizou-a com uma aplicação de consola .NET Core através do fornecedor de configuração de [aplicações.](https://go.microsoft.com/fwlink/?linkid=2074664) Para saber como configurar seu aplicativo .NET Core para atualizar dinamicamente as definições de configuração, prossiga para o próximo tutorial.
+Neste quickstart, criou uma nova loja de configuração de aplicações e utilizou-a com uma aplicação de consola .NET Core através do fornecedor de configuração de [aplicações.](https://go.microsoft.com/fwlink/?linkid=2074664) Para aprender a configurar a sua aplicação .NET Core para atualizar dinamicamente as definições de configuração, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Ativar a configuração dinâmica](./enable-dynamic-configuration-dotnet-core.md)

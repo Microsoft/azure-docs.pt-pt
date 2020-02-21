@@ -1,6 +1,6 @@
 ---
-title: Métricas de armazenamento do Azure no Azure Monitor | Microsoft Docs
-description: Saiba mais sobre as novas métricas oferecidas de Azure Monitor.
+title: Métricas de armazenamento azure no Monitor Azure / Microsoft Docs
+description: Conheça as novas métricas oferecidas pelo Azure Monitor.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -8,44 +8,44 @@ ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 62e2e3f1a80cef04dc778d5a1950cca97d79dcb0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f4c76539f6b14c3fb5ad5dba8fc8c8df514edfe4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748373"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526846"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
-Com as métricas no armazenamento do Azure, você pode analisar tendências de uso, rastrear solicitações e diagnosticar problemas com sua conta de armazenamento.
+Com métricas no Armazenamento Azure, pode analisar as tendências de utilização, rastrear pedidos e diagnosticar problemas com a sua conta de armazenamento.
 
-Azure Monitor fornece interfaces de usuário unificadas para monitoramento entre diferentes serviços do Azure. Para obter mais informações, consulte [Azure monitor](../../monitoring-and-diagnostics/monitoring-overview.md). O armazenamento do Azure integra Azure Monitor enviando dados de métrica para a plataforma Azure Monitor.
+O Azure Monitor fornece interfaces unificadas de utilizador para monitorização em diferentes serviços Azure. Para mais informações, consulte [o Monitor Azure.](../../monitoring-and-diagnostics/monitoring-overview.md) O Azure Storage integra o Azure Monitor enviando dados métricos para a plataforma Azure Monitor.
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor proporciona várias formas de métricas de acesso. Você pode acessá-los do [portal do Azure](https://portal.azure.com), as APIs de Azure monitor (REST e .net) e as soluções de análise, como os hubs de eventos. Para obter mais informações, consulte [Azure monitor métricas](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+O Azure Monitor proporciona várias formas de métricas de acesso. Pode aceder-lhes a partir do [portal Azure,](https://portal.azure.com)das APIs do Monitor Azure (REST e .NET) e de soluções de análise como os Centros de Eventos. Para mais informações, consulte [As Métricas do Monitor Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-As métricas são habilitadas por padrão e você pode acessar os últimos 93 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este é configurado no [das definições de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md) no Azure Monitor.
+As métricas são ativadas por padrão, e você pode aceder aos últimos 93 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Isto está configurado em [definições](../../azure-monitor/platform/platform-logs-overview.md) de diagnóstico no Monitor Azure.
 
-### <a name="access-metrics-in-the-azure-portal"></a>Métricas de acesso no portal do Azure
+### <a name="access-metrics-in-the-azure-portal"></a>Métricas de acesso no portal Azure
 
-Você pode monitorar as métricas ao longo do tempo no portal do Azure. O exemplo a seguir mostra como exibir **Transações** no nível da conta.
+Pode monitorizar as métricas ao longo do tempo no portal Azure. O exemplo que se segue mostra como visualizar **as Transações** ao nível da conta.
 
-![captura de tela de acesso a métricas no portal do Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
+![screenshot de métricas de acesso no portal Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Para métricas com suporte a dimensões, você pode filtrar a métrica com o valor de dimensão desejado. O exemplo a seguir mostra como exibir **Transações** no nível da conta em uma operação específica, selecionando valores para a dimensão **nome da API** .
+Para métricas que suportam dimensões, pode filtrar a métrica com o valor de dimensão desejado. O exemplo seguinte mostra como visualizar **as Transações** ao nível da conta numa operação específica, selecionando valores para a dimensão **do nome API.**
 
-![captura de tela de acesso a métricas com dimensão na portal do Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
+![screenshot de aceder métricas com dimensão no portal Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
-### <a name="access-metrics-with-the-rest-api"></a>Acessar métricas com a API REST
+### <a name="access-metrics-with-the-rest-api"></a>Métricas de acesso com a API REST
 
-Azure Monitor fornece [APIs REST](/rest/api/monitor/) para ler a definição e os valores da métrica. Esta seção mostra como ler as métricas de armazenamento. A ID do recurso é usada em todas as APIS REST. Para obter mais informações, Leia Noções básicas sobre ID de recurso para serviços no armazenamento.
+O Monitor Azure fornece [APIs REST](/rest/api/monitor/) para ler definição métrica e valores. Esta secção mostra-lhe como ler as métricas de armazenamento. O ID de recursos é usado em todos os APIS REST. Para mais informações, por favor leia a compreensão do ID de recursos para serviços no Armazenamento.
 
-O exemplo a seguir mostra como usar [ArmClient](https://github.com/projectkudu/ARMClient) na linha de comando para simplificar o teste com a API REST.
+O exemplo que se segue mostra como usar o [ArmClient](https://github.com/projectkudu/ARMClient) na linha de comando para simplificar os testes com a API REST.
 
-#### <a name="list-account-level-metric-definition-with-the-rest-api"></a>Listar a definição de métrica de nível de conta com a API REST
+#### <a name="list-account-level-metric-definition-with-the-rest-api"></a>Lista de definição métrica de nível de conta com a API REST
 
-O exemplo a seguir mostra como listar a definição de métrica no nível da conta:
+O exemplo que se segue mostra como enumerar a definição métrica ao nível da conta:
 
 ```
 # Login to Azure and enter your credentials when prompted.
@@ -55,9 +55,9 @@ O exemplo a seguir mostra como listar a definição de métrica no nível da con
 
 ```
 
-Se você quiser listar as definições de métrica para BLOB, tabela, arquivo ou fila, deverá especificar IDs de recurso diferentes para cada serviço com a API.
+Se pretender listar as definições métricas para blob, tabela, ficheiro ou fila, deve especificar diferentes IDs de recursos para cada serviço com a API.
 
-A resposta contém a definição de métrica no formato JSON:
+A resposta contém a definição métrica no formato JSON:
 
 ```Json
 {
@@ -90,18 +90,18 @@ A resposta contém a definição de métrica no formato JSON:
 
 ```
 
-#### <a name="read-account-level-metric-values-with-the-rest-api"></a>Ler valores de métrica no nível da conta com a API REST
+#### <a name="read-account-level-metric-values-with-the-rest-api"></a>Leia os valores métricos ao nível da conta com a API REST
 
-O exemplo a seguir mostra como ler dados de métrica no nível da conta:
+O exemplo que se segue mostra como ler dados métricos ao nível da conta:
 
 ```
 > armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
 
 ```
 
-No exemplo acima, se você quiser ler valores de métrica para BLOB, tabela, arquivo ou fila, deverá especificar IDs de recurso diferentes para cada serviço com a API.
+Em exemplo acima, se quiser ler valores métricos para blob, tabela, arquivo ou fila, deve especificar diferentes IDs de recursos para cada serviço com a API.
 
-A resposta a seguir contém valores de métrica no formato JSON:
+A seguinte resposta contém valores métricos no formato JSON:
 
 ```Json
 {
@@ -134,15 +134,15 @@ A resposta a seguir contém valores de métrica no formato JSON:
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>Acessar métricas com o SDK do .NET
+### <a name="access-metrics-with-the-net-sdk"></a>Métricas de acesso com o .NET SDK
 
-Azure Monitor fornece o [SDK do .net](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler a definição e os valores da métrica. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como usar o SDK com parâmetros diferentes. Você precisa usar `0.18.0-preview` ou versão posterior para métricas de armazenamento. A ID do recurso é usada no SDK do .NET. Para obter mais informações, Leia Noções básicas sobre ID de recurso para serviços no armazenamento.
+O Azure Monitor fornece [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler definição métrica e valores. O [código da amostra](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como utilizar o SDK com diferentes parâmetros. Você precisa usar `0.18.0-preview` ou versão posterior para métricas de armazenamento. O ID de recurso é utilizado em .NET SDK. Para mais informações, por favor leia a compreensão do ID de recursos para serviços no Armazenamento.
 
-O exemplo a seguir mostra como usar Azure Monitor SDK do .NET para ler as métricas de armazenamento.
+O exemplo que se segue mostra como utilizar o Azure Monitor .NET SDK para ler as métricas de armazenamento.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Listar a definição de métrica de nível de conta com o SDK do .NET
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lista de definição métrica de nível de conta com o .NET SDK
 
-O exemplo a seguir mostra como listar a definição de métrica no nível da conta:
+O exemplo que se segue mostra como enumerar a definição métrica ao nível da conta:
 
 ```csharp
     public static async Task ListStorageMetricDefinition()
@@ -175,11 +175,11 @@ O exemplo a seguir mostra como listar a definição de métrica no nível da con
 
 ```
 
-Se você quiser listar as definições de métrica para BLOB, tabela, arquivo ou fila, deverá especificar IDs de recurso diferentes para cada serviço com a API.
+Se pretender listar as definições métricas para blob, tabela, ficheiro ou fila, deve especificar diferentes IDs de recursos para cada serviço com a API.
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>Ler valores de métrica com o SDK do .NET
+#### <a name="read-metric-values-with-the-net-sdk"></a>Leia os valores métricos com o .NET SDK
 
-O exemplo a seguir mostra como ler dados de `UsedCapacity` no nível de conta:
+O exemplo que se segue mostra como ler `UsedCapacity` dados ao nível da conta:
 
 ```csharp
     public static async Task ReadStorageMetricValue()
@@ -225,13 +225,13 @@ O exemplo a seguir mostra como ler dados de `UsedCapacity` no nível de conta:
 
 ```
 
-No exemplo acima, se você quiser ler valores de métrica para BLOB, tabela, arquivo ou fila, deverá especificar IDs de recurso diferentes para cada serviço com a API.
+Em exemplo acima, se quiser ler valores métricos para blob, tabela, arquivo ou fila, deve especificar diferentes IDs de recursos para cada serviço com a API.
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Ler valores de métrica multidimensionais com o SDK do .NET
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Leia os valores métricos multidimensionais com o .NET SDK
 
-Para métricas multidimensionais, você precisa definir o filtro de metadados se quiser ler dados de métricas em um valor de dimensão específico.
+Para métricas multidimensionais, é necessário definir o filtro de meta dados se quiser ler dados métricos sobre o valor de dimensão específico.
 
-O exemplo a seguir mostra como ler dados de métrica na métrica com suporte para várias dimensões:
+O exemplo que se segue mostra como ler dados métricos sobre a multidimensionada métrica que suporta a multidimensão:
 
 ```csharp
     public static async Task ReadStorageMetricValueTest()
@@ -280,144 +280,145 @@ O exemplo a seguir mostra como ler dados de métrica na métrica com suporte par
 
 ```
 
-## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Noções básicas sobre ID de recurso para serviços no armazenamento do Azure
+## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Compreensão do ID de recursos para serviços em Armazenamento Azure
 
-A ID do recurso é um identificador exclusivo de um recurso no Azure. Quando você usa o Azure Monitor API REST para ler definições ou valores de métricas, deve usar a ID de recurso para o recurso no qual você pretende operar. O modelo de ID de recurso segue este formato:
+O ID de recursos é um identificador único de um recurso em Azure. Quando utilizar a API DO MONITOR Azure para ler definições ou valores de métricas, deve utilizar o ID de recurso para o recurso em que pretende operar. O modelo de ID de recurso segue este formato:
 
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-O armazenamento fornece métricas no nível da conta de armazenamento e no nível de serviço com Azure Monitor. Por exemplo, você pode recuperar métricas apenas para o armazenamento de BLOBs. Cada nível tem sua própria ID de recurso, que é usada para recuperar as métricas apenas para esse nível.
+O armazenamento fornece métricas tanto ao nível da conta de armazenamento como ao nível de serviço com o Monitor Azure. Por exemplo, pode recuperar métricas para apenas armazenamento Blob. Cada nível tem o seu próprio ID de recursos, que é usado para recuperar as métricas para apenas esse nível.
 
-### <a name="resource-id-for-a-storage-account"></a>ID de recurso para uma conta de armazenamento
+### <a name="resource-id-for-a-storage-account"></a>ID de recursos para uma conta de armazenamento
 
-O seguinte mostra o formato para especificar a ID de recurso para uma conta de armazenamento.
+O seguinte mostra o formato para especificar o ID de recurso para uma conta de armazenamento.
 
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
 ```
 
-### <a name="resource-id-for-the-storage-services"></a>ID de recurso para os serviços de armazenamento
+### <a name="resource-id-for-the-storage-services"></a>ID de recursos para os serviços de armazenamento
 
-O seguinte mostra o formato para especificar a ID de recurso para cada um dos serviços de armazenamento.
+O seguinte mostra o formato para especificar o ID de recurso para cada um dos serviços de armazenamento.
 
-* ID do recurso do serviço blob
+* ID de recurso de serviço blob
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
 ```
-* ID do recurso do serviço tabela
+* ID de recurso de serviço de mesa
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
 ```
-* ID do recurso de serviço Fila
+* ID de serviço de serviço de fila
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 ```
-* ID do recurso do serviço de arquivo
+* ID de recurso de serviço de arquivo
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 ```
 
-### <a name="resource-id-in-azure-monitor-rest-api"></a>ID do recurso na API REST do Azure Monitor
+### <a name="resource-id-in-azure-monitor-rest-api"></a>ID de recursos na API REST Do Monitor Azure
 
-O seguinte mostra o padrão usado ao chamar a API REST do Azure Monitor.
+O seguinte mostra o padrão utilizado ao chamar a API REST DO Monitor Azure.
 
 ```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 ```
 
 ## <a name="capacity-metrics"></a>Métricas de capacidade
-Os valores de métricas de capacidade são enviados a Azure Monitor a cada hora. Os valores são atualizados diariamente. O detalhamento define o intervalo de tempo para o qual os valores de métricas são apresentados. O intervalo de tempo com suporte para todas as métricas de capacidade é de uma hora (PT1H).
+Os valores das métricas de capacidade são enviados para o Monitor Azure a cada hora. Os valores são refrescados diariamente. O grão de tempo define o intervalo de tempo para o qual os valores das métricas são apresentados. O grão de tempo suportado para todas as métricas de capacidade é de uma hora (PT1H).
 
-O armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Monitor.
+O Armazenamento Azure fornece as seguintes métricas de capacidade no Monitor Azure.
 
-### <a name="account-level"></a>Nível da conta
+### <a name="account-level"></a>Nível de conta
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| UsedCapacity | A quantidade de armazenamento usada pela conta de armazenamento. Para as contas de armazenamento standard, é a soma da capacidade utilizada pelos blobs, tabelas, ficheiros e filas. Para as contas de armazenamento premium e contas de armazenamento de blobs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
+| UsedCapacity | A quantidade de armazenamento utilizada pela conta de armazenamento. Para as contas de armazenamento standard, é a soma da capacidade utilizada pelos blobs, tabelas, ficheiros e filas. Para as contas de armazenamento premium e contas de armazenamento de blobs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="blob-storage"></a>Armazenamento de blobs
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| BlobCapacity | O total de armazenamento de blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 <br/> Dimensions: **BlobType**e **BlobTier** ([definição](#metrics-dimensions)) |
-| BlobCount    | O número de objetos de blob armazenados na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 <br/> Dimensions: **BlobType**e **BlobTier** ([definição](#metrics-dimensions)) |
-| ContainerCount    | O número de contêineres na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
-| IndexCapacity     | A quantidade de armazenamento usada pelo ADLS Gen2 índice hierárquico <br/><br/> Unidade: Bytes <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
+| BlobCapacity | O total do armazenamento blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType**e **BlobTier** [(Definição)](#metrics-dimensions) |
+| BlobCount    | O número de objetos blob armazenados na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType**e **BlobTier** [(Definição)](#metrics-dimensions) |
+| ContainerCount    | O número de contentores na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| IndexCapacity     | A quantidade de armazenamento utilizado pelo Índice Hierárquico ADLS Gen2 <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
-### <a name="table-storage"></a>Armazenamento de tabela
+### <a name="table-storage"></a>Table Storage
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| TableCapacity | A quantidade de armazenamento de tabela usada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
-| TableCount   | O número de tabelas na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
-| TableEntityCount | O número de entidades de tabela na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
+| TableCapacity | A quantidade de armazenamento de mesa utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| TableCount   | O número de tabelas na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| TableEntityCount | O número de entidades de mesa na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="queue-storage"></a>Armazenamento de filas
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| QueueCapacity | A quantidade de armazenamento de fila usada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
-| QueueCount   | O número de filas na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
-| QueueMessageCount | O número de mensagens de fila não expiradas na conta de armazenamento. <br/><br/>Unidade: contagem <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
+| QueueCapacity | A quantidade de armazenamento de fila utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| QueueCount   | O número de filas na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| QueueMessageCount | O número de mensagens de fila não expiradas na conta de armazenamento. <br/><br/>Unidade: contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="file-storage"></a>Armazenamento de ficheiros
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Capacidade de | A quantidade de armazenamento de arquivos usada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
-| FileCount   | O número de arquivos na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
-| FileShareCount | O número de compartilhamentos de arquivos na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/> Exemplo de valor: 1024 |
+| Capacidade de Arquivo | A quantidade de armazenamento de ficheiros utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| FileCount   | O número de ficheiros na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| FileShareCount | O número de ações de ficheiros na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ## <a name="transaction-metrics"></a>Métricas de transação
 
-As métricas de transação são emitidas em cada solicitação para uma conta de armazenamento do armazenamento do Azure para Azure Monitor. No caso de nenhuma atividade em sua conta de armazenamento, não haverá dados em métricas de transação no período. Todas as métricas de transação estão disponíveis no nível de conta e de serviço (armazenamento de BLOBs, armazenamento de tabelas, arquivos do Azure e armazenamento de filas). O detalhamento define o intervalo de tempo que os valores de métrica são apresentados. Os refinamentos de tempo com suporte para todas as métricas de transação são PT1H e PT1M.
+As métricas de transação são emitidas em todos os pedidos de uma conta de armazenamento do Azure Storage para o Monitor Azure. No caso de nenhuma atividade na sua conta de armazenamento, não haverá dados sobre métricas de transação no período. Todas as métricas de transação estão disponíveis tanto a nível de conta como de serviço (armazenamento blob, armazenamento de mesa, Ficheiros Azure e armazenamento de fila). O grão de tempo define o intervalo de tempo que os valores métricos são apresentados. Os grãos de tempo suportados para todas as métricas de transação são PT1H e PT1M.
 
-O armazenamento do Azure fornece as seguintes métricas de transação no Azure Monitor.
+O Azure Storage fornece as seguintes métricas de transação no Monitor Azure.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Transações | O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: ResponseType, GeoType, ApiName e autenticação ([definição](#metrics-dimensions))<br/> Exemplo de valor: 1024 |
-| Entrada | A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: GeoType, ApiName e Authentication ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
-| Saída | A quantidade de dados de saída. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: GeoType, ApiName e Authentication ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
-| SuccessServerLatency | O tempo médio utilizado para processar um pedido com êxito pelo Armazenamento do Azure. Este valor não inclui a latência de rede especificada em SuccessE2ELatency. <br/><br/> Unidade: milissegundos <br/> Tipo de agregação: média <br/> Dimensões aplicáveis: GeoType, ApiName e Authentication ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
-| SuccessE2ELatency | A latência de ponto a ponto média de pedidos com êxito feitos a um serviço de armazenamento ou a uma operação de API especificada. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta. <br/><br/> Unidade: milissegundos <br/> Tipo de agregação: média <br/> Dimensões aplicáveis: GeoType, ApiName e Authentication ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
-| Disponibilidade | A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada ao dividir o valor do total dos pedidos faturáveis pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada. <br/><br/> Unidade: porcentagem <br/> Tipo de agregação: média <br/> Dimensões aplicáveis: GeoType, ApiName e Authentication ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 99,99 |
+| Transações | O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: ResponseType, GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions)<br/> Exemplo de valor: 1024 |
+| Entrada | A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions) <br/> Exemplo de valor: 1024 |
+| Saída | A quantidade de dados de saída. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions) <br/> Exemplo de valor: 1024 |
+| SuccessServerLatency | O tempo médio utilizado para processar um pedido com êxito pelo Armazenamento do Azure. Este valor não inclui a latência de rede especificada em SuccessE2ELatency. <br/><br/> Unidade: Milliseconds <br/> Tipo de agregação: Média <br/> Dimensões aplicáveis: GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions) <br/> Exemplo de valor: 1024 |
+| SuccessE2ELatency | A latência de ponto a ponto média de pedidos com êxito feitos a um serviço de armazenamento ou a uma operação de API especificada. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta. <br/><br/> Unidade: Milliseconds <br/> Tipo de agregação: Média <br/> Dimensões aplicáveis: GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions) <br/> Exemplo de valor: 1024 |
+| Disponibilidade | A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada ao dividir o valor do total dos pedidos faturáveis pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada. <br/><br/> Unidade: Por cento <br/> Tipo de agregação: Média <br/> Dimensões aplicáveis: GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions) <br/> Exemplo de valor: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Dimensões de métricas
 
-O armazenamento do Azure dá suporte às seguintes dimensões para métricas no Azure Monitor.
+O Armazenamento Azure suporta as dimensões seguintes para métricas no Monitor Azure.
 
 | Nome da dimensão | Descrição |
 | ------------------- | ----------------- |
-| **BlobType** | O tipo de BLOB para métricas de blob somente. Os valores com suporte são **BlockBlob**, **PageBlob**e **Azure data Lake Storage**. O blob de acréscimo está incluído no BlockBlob. |
-| **BlobTier** | O armazenamento do Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objeto de BLOB da maneira mais econômica. Veja mais na [camada de blob do armazenamento do Azure](../blobs/storage-blob-storage-tiers.md). Os valores com suporte incluem: <br/> <li>**Quente**: camada quente</li> <li>**Legal**: camada fria</li> <li>**Arquivo morto**: camada de arquivamento</li> <li>**Premium**: camada Premium para blob de blocos</li> <li>**P4/P6/P10/P15/P20/p30/P40/P50/P60**: tipos de camada para o blob de páginas Premium</li> <li>**Standard**: tipo de camada para o blob de páginas padrão</li> <li>Não em **camadas**: tipo de camada para conta de armazenamento v1 de uso geral</li> |
-| **GeoType** | Transação do cluster primário ou secundário. Os valores disponíveis incluem **primário** e **secundário**. Ele se aplica ao armazenamento com redundância geográfica de acesso de leitura (RA-GRS) ao ler objetos do locatário secundário. |
-| **ResponseType** | Tipo de resposta da transação. Os valores disponíveis incluem: <br/><br/> <li>**ServerOtherError**: todos os outros erros do lado do servidor, exceto os descritos </li> <li>**ServerBusyError**: solicitação autenticada que retornou um código de status HTTP 503. </li> <li>**ServerTimeoutError**: solicitação autenticada com tempo limite que retornou um código de status http 500. O tempo limite excedido ocorreu devido a um erro de servidor. </li> <li>**AuthorizationError**: solicitação autenticada que falhou devido a acesso não autorizado de dados ou uma falha de autorização. </li> <li>**NetworkError**: solicitação autenticada que falhou devido a erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes da expiração do tempo limite. </li> <li>**ClientThrottlingError**: erro de limitação do lado do cliente. </li> <li>**ClientTimeoutError**: solicitação autenticada com tempo limite que retornou um código de status http 500. Se o tempo limite da rede do cliente ou do pedido estiver definido como um valor inferior ao esperado pelo serviço de armazenamento, trata-se de um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li>**ClientOtherError**: todos os outros erros do lado do cliente, exceto os descritos. </li> <li>**Êxito**: solicitação bem-sucedida</li> <li> **SuccessWithThrottling**: solicitação bem-sucedida quando um cliente SMB é limitado na primeira tentativa (s), mas é bem-sucedido após novas tentativas.</li> |
-| **ApiName** | O nome da operação. Por exemplo: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Para todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **Autenticação** | Tipo de autenticação usado em transações. Os valores disponíveis incluem: <br/> <li>**AccountKey**: a transação é autenticada com a chave da conta de armazenamento.</li> <li>**SAS**: a transação é autenticada com assinaturas de acesso compartilhado.</li> <li>**OAuth**: a transação é autenticada com tokens de acesso OAuth.</li> <li>**Anônimo**: a transação é solicitada anonimamente. Ele não inclui solicitações de simulação.</li> <li>**AnonymousPreflight**: a transação é uma solicitação de simulação.</li> |
+| **BlobType** | O tipo de bolha apenas para as métricas blob. Os valores suportados são **BlockBlob,** **PageBlob**e **Azure Data Lake Storage.** Append Blob está incluído no BlockBlob. |
+| **BlobTier** | O armazenamento Azure oferece diferentes níveis de acesso, que lhe permitem armazenar dados de objetos blob da forma mais rentável. Veja mais na [categoria de blob de armazenamento Azure](../blobs/storage-blob-storage-tiers.md). Os valores suportados incluem: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Arquivo**: Nível de arquivo</li> <li>**Premium**: Nível premium para bloco blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de nível para a página premium blob</li> <li>**Standard**: Tipo de nível para página padrão Blob</li> <li>**Untiered**: Tier type para uso geral v1 conta de armazenamento</li> |
+| **GeoTipo** | Transação do cluster primário ou secundário. Os valores disponíveis incluem **Primário** e **Secundário.** Aplica-se ao Read Access Geo Redundant Storage (RA-GRS) ao ler objetos de inquilino secundário. |
+| **Tipo de resposta** | Tipo de resposta a transações. Os valores disponíveis incluem: <br/><br/> <li>**ServerOtherError**: Todos os outros erros do lado do servidor, exceto os descritos </li> <li>**ServerBusyError**: Pedido autenticado que devolveu um código de estado HTTP 503. </li> <li>**ServerTimeoutError**: Pedido autenticado cronometrado que devolveu um código de estado HTTP 500. O tempo limite excedido ocorreu devido a um erro de servidor. </li> <li>**AutorizaçãoErro**: Pedido autenticado que falhou devido ao acesso não autorizado de dados ou a uma falha de autorização. </li> <li>**Error de rede**: Pedido autenticado que falhou devido a erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes da expiração do tempo limite. </li>  <li>**ClientAccountBandwidthThrottlingError**: O pedido é estrangulado na largura de banda para exceder os limites de [escalabilidade da conta](scalability-targets-standard-account.md)de armazenamento .</li><li>**ClientAccountRequestThrottlingError**: O pedido é acelerado na taxa de pedido por exceder [os limites](scalability-targets-standard-account.md)de escalabilidade da conta de armazenamento .<li>**ClientThrottlingError**: Outro erro de estrangulamento do lado do cliente. ClientAccountBandwidthThrottlingError e ClientAccountRequestThrottlingError estão excluídos.</li> <li>**ClientTimeoutError**: Pedido autenticado cronometrado que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou do pedido estiver definido como um valor inferior ao esperado pelo serviço de armazenamento, trata-se de um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError.</li> </li> <li>**ClientOtherError**: Todos os outros erros do lado do cliente, exceto os descritos. </li> <li>**Sucesso**: Pedido bem sucedido</li> <li> **SucessoWithThrottling**: Pedido bem sucedido quando um cliente SMB é estrangulado na primeira tentativa(s) mas consegue após tentativas.</li> |
+| **Tipo de resposta** | Tipo de resposta a transações. Os valores disponíveis incluem: <br/><br/> <li>**ServerOtherError**: Todos os outros erros do lado do servidor, exceto os descritos </li> <li>**ServerBusyError**: Pedido autenticado que devolveu um código de estado HTTP 503. </li> <li>**ServerTimeoutError**: Pedido autenticado cronometrado que devolveu um código de estado HTTP 500. O tempo limite excedido ocorreu devido a um erro de servidor. </li> <li>**AutorizaçãoErro**: Pedido autenticado que falhou devido ao acesso não autorizado de dados ou a uma falha de autorização. </li> <li>**Error de rede**: Pedido autenticado que falhou devido a erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes da expiração do tempo limite. </li>  <li>**ClientAccountBandwidthThrottlingError**: O pedido é estrangulado na largura de banda para exceder os limites de [escalabilidade da conta](scalability-targets-standard-account.md)de armazenamento .</li><li>**ClientAccountRequestThrottlingError**: O pedido é acelerado na taxa de pedido por exceder [os limites]()de escalabilidade da conta de armazenamento .<li>**ClientThrottlingError**: Outro erro de estrangulamento do lado do cliente. ClientAccountBandwidthThrottlingError e ClientAccountRequestThrottlingError estão excluídos.</li> <li>**ClientTimeoutError**: Pedido autenticado cronometrado que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou do pedido estiver definido como um valor inferior ao esperado pelo serviço de armazenamento, trata-se de um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError.</li> </li> <li>**ClientOtherError**: Todos os outros erros do lado do cliente, exceto os descritos. </li> <li>**Sucesso**: Pedido bem sucedido</li> <li> **SucessoWithThrottling**: Pedido bem sucedido quando um cliente SMB é estrangulado na primeira tentativa(s) mas consegue após tentativas.</li> |
+| **Nome Api** | O nome da operação. Por exemplo: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Para todos os nomes da operação, consulte [o documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Autenticação** | Tipo de autenticação utilizado em transações. Os valores disponíveis incluem: <br/> <li>**Chave de conta**: A transação é autenticada com a chave da conta de armazenamento.</li> <li>**SAS**: A transação é autenticada com assinaturas de acesso partilhado.</li> <li>**OAuth**: A transação é autenticada com fichas de acesso OAuth.</li> <li>**Anónimo**: A transação é solicitada anonimamente. Não inclui pedidos de pré-voo.</li> <li>**AnonymousPreflight**: A transação é pedido de pré-voo.</li> |
 
-Para as métricas com suporte a dimensões, você precisa especificar o valor da dimensão para ver os valores correspondentes de métricas. Por exemplo, se você examinar o valor de **Transações** para respostas bem-sucedidas, será necessário filtrar a dimensão **ResponseType** com **êxito**. Ou, se você examinar o valor de **BlobCount** para blob de blocos, precisará filtrar a dimensão **BlobType** com **BlockBlob**.
+Para as dimensões de suporte das métricas, é necessário especificar o valor de dimensão para ver os valores métricos correspondentes. Por exemplo, se olhar para o valor **das Transações** para respostas bem sucedidas, precisa de filtrar a dimensão **ResponseType** com **sucesso**. Ou se olhar para o valor **BlobCount** para Block Blob, precisa de filtrar a dimensão **BlobType** com **BlockBlob**.
 
-## <a name="service-continuity-of-legacy-metrics"></a>Continuidade de serviço de métricas herdadas
+## <a name="service-continuity-of-legacy-metrics"></a>Continuidade do serviço das métricas antigas
 
-As métricas herdadas estão disponíveis em paralelo com Azure Monitor métricas gerenciadas. O suporte mantém o mesmo até que o armazenamento do Azure encerre o serviço em métricas herdadas.
+As métricas antigas estão disponíveis em paralelo com as métricas geridas pelo Azure Monitor. O suporte mantém o mesmo até que o Armazenamento Azure termine o serviço em métricas antigas.
 
 ## <a name="faq"></a>FAQ
 
-**As novas métricas dão suporte à conta de armazenamento clássico?**
+**As novas métricas suportam a conta de Armazenamento Clássico?**
 
-Não, novas métricas no Azure Monitor dão suporte apenas a contas de armazenamento Azure Resource Manager. Se você quiser usar métricas em contas de armazenamento, precisará migrar para Azure Resource Manager conta de armazenamento. Consulte [migrar para Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+Não, as novas métricas no Azure Monitor apenas suportam as contas de armazenamento do Gestor de Recursos Azure. Se quiser utilizar métricas nas contas de Armazenamento, precisa de migrar para a conta de Armazenamento do Gestor de Recursos Azure. Consulte [migrate para Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-**O armazenamento do Azure oferece suporte a métricas para discos Managed Disks ou não gerenciados?**
+**O Armazenamento Azure suporta métricas para discos geridos ou discos não geridos?**
 
-Não, a computação do Azure dá suporte às métricas em discos. Consulte o [artigo](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) para obter mais detalhes.
+Não, a Azure Compute suporta as métricas nos discos. Consulte o [artigo](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) para mais detalhes.
 
 **Como mapear e migrar métricas clássicas com novas métricas?**
 
-Você pode encontrar mapeamento detalhado entre métricas clássicas e novas métricas na [migração de métricas de armazenamento do Azure](./storage-metrics-migration.md).
+Você pode encontrar mapeamento detalhado entre métricas clássicas e novas métricas na migração de [métricas de armazenamento azure](./storage-metrics-migration.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,19 +7,19 @@ documentationcenter: na
 manager: jodadzie
 ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 6f7497e62be0036c13d5c33fa82301469df16f26
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066190"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522361"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referência de atributos de sucesso sAP
 
@@ -31,85 +31,85 @@ A tabela abaixo capta a lista de atributos SuccessFactors suportados pelas segui
 
 | \# | Entidade SuccessFactors                  | Atributo saque de SuccessFactors     | Tipo de Operação |
 |----|----------------------------------------|------------------------------|----------------|
-| 1  | PerPerson                              | personIdExternal             | Ler           |
-| 2  | PerPerson                              | personId                     | Ler           |
-| 3  | PerPerson                              | perPersonUuid                | Ler           |
-| 4  | PerPersonal                            | displayName                  | Ler           |
-| 5  | PerPersonal                            | firstName                    | Ler           |
-| 6  | PerPersonal                            | género                       | Ler           |
-| 7  | PerPersonal                            | lastName                     | Ler           |
-| 8  | PerPersonal                            | middleName                   | Ler           |
-| 9  | PerPersonal                            | nome preferido                | Ler           |
-| 10 | Utilizador                                   | endereçoLine1                 | Ler           |
-| 11 | Utilizador                                   | addressLine2                 | Ler           |
-| 12 | Utilizador                                   | endereçoLIne3                 | Ler           |
-| 13 | Utilizador                                   | businessPhone                | Ler           |
-| 14 | Utilizador                                   | telemóvelPhone                    | Ler           |
-| 15 | Utilizador                                   | city                         | Ler           |
-| 16 | Utilizador                                   | país                      | Ler           |
-| 17 | Utilizador                                   | personalizado01                     | Ler           |
-| 18 | Utilizador                                   | personalizado02                     | Ler           |
-| 19 | Utilizador                                   | personalizado03                     | Ler           |
-| 20 | Utilizador                                   | personalizado04                     | Ler           |
-| 21 | Utilizador                                   | personalizado05                     | Ler           |
-| 22 | Utilizador                                   | personalizado06                     | Ler           |
-| 23 | Utilizador                                   | personalizado07                     | Ler           |
-| 24 | Utilizador                                   | personalizado08                     | Ler           |
-| 25 | Utilizador                                   | personalizado09                     | Ler           |
-| 26 | Utilizador                                   | personalizado10                     | Ler           |
-| 27 | Utilizador                                   | personalizado11                     | Ler           |
-| 28 | Utilizador                                   | personalizado12                     | Ler           |
-| 29 | Utilizador                                   | personalizado13                     | Ler           |
-| 30 | Utilizador                                   | personalizado14                     | Ler           |
-| 31 | Utilizador                                   | empId                        | Ler           |
-| 32 | Utilizador                                   | homePhone                    | Ler           |
-| 33 | Utilizador                                   | empregoFamília                    | Ler           |
-| 34 | Utilizador                                   | apelido                     | Ler           |
-| 35 | Utilizador                                   | state                        | Ler           |
-| 36 | Utilizador                                   | timeZone                     | Ler           |
-| 37 | Utilizador                                   | o nome de utilizador                     | Ler           |
-| 38 | Utilizador                                   | zipCode                      | Ler           |
-| 39 | PerPhone                               | áreaCódigo                     | Ler           |
-| 40 | PerPhone                               | countryCode                  | Ler           |
-| 41 | PerPhone                               | extensão                    | Ler           |
-| 42 | PerPhone                               | phoneNumber                  | Ler           |
-| 43 | PerPhone                               | telefoneTipo                    | Ler           |
+| 1  | PerPerson                              | personIdExternal             | Leitura           |
+| 2  | PerPerson                              | personId                     | Leitura           |
+| 3  | PerPerson                              | perPersonUuid                | Leitura           |
+| 4  | PerPersonal                            | displayName                  | Leitura           |
+| 5  | PerPersonal                            | firstName                    | Leitura           |
+| 6  | PerPersonal                            | género                       | Leitura           |
+| 7  | PerPersonal                            | lastName                     | Leitura           |
+| 8  | PerPersonal                            | middleName                   | Leitura           |
+| 9  | PerPersonal                            | nome preferido                | Leitura           |
+| 10 | Utilizador                                   | endereçoLine1                 | Leitura           |
+| 11 | Utilizador                                   | addressLine2                 | Leitura           |
+| 12 | Utilizador                                   | endereçoLIne3                 | Leitura           |
+| 13 | Utilizador                                   | businessPhone                | Leitura           |
+| 14 | Utilizador                                   | telemóvelPhone                    | Leitura           |
+| 15 | Utilizador                                   | city                         | Leitura           |
+| 16 | Utilizador                                   | país                      | Leitura           |
+| 17 | Utilizador                                   | personalizado01                     | Leitura           |
+| 18 | Utilizador                                   | personalizado02                     | Leitura           |
+| 19 | Utilizador                                   | personalizado03                     | Leitura           |
+| 20 | Utilizador                                   | personalizado04                     | Leitura           |
+| 21 | Utilizador                                   | personalizado05                     | Leitura           |
+| 22 | Utilizador                                   | personalizado06                     | Leitura           |
+| 23 | Utilizador                                   | personalizado07                     | Leitura           |
+| 24 | Utilizador                                   | personalizado08                     | Leitura           |
+| 25 | Utilizador                                   | personalizado09                     | Leitura           |
+| 26 | Utilizador                                   | personalizado10                     | Leitura           |
+| 27 | Utilizador                                   | personalizado11                     | Leitura           |
+| 28 | Utilizador                                   | personalizado12                     | Leitura           |
+| 29 | Utilizador                                   | personalizado13                     | Leitura           |
+| 30 | Utilizador                                   | personalizado14                     | Leitura           |
+| 31 | Utilizador                                   | empId                        | Leitura           |
+| 32 | Utilizador                                   | homePhone                    | Leitura           |
+| 33 | Utilizador                                   | empregoFamília                    | Leitura           |
+| 34 | Utilizador                                   | apelido                     | Leitura           |
+| 35 | Utilizador                                   | state                        | Leitura           |
+| 36 | Utilizador                                   | timeZone                     | Leitura           |
+| 37 | Utilizador                                   | o nome de utilizador                     | Leitura           |
+| 38 | Utilizador                                   | zipCode                      | Leitura           |
+| 39 | PerPhone                               | áreaCódigo                     | Leitura           |
+| 40 | PerPhone                               | countryCode                  | Leitura           |
+| 41 | PerPhone                               | extensão                    | Leitura           |
+| 42 | PerPhone                               | phoneNumber                  | Leitura           |
+| 43 | PerPhone                               | telefoneTipo                    | Leitura           |
 | 44 | PerEmail                               | emailAddress                 | Ler, Escrever    |
-| 45 | PerEmail                               | e-mailType                    | Ler           |
-| 46 | EmpEmployment                          | firstDateWorked              | Ler           |
-| 47 | EmpEmployment                          | últimoDataTrabalhado               | Ler           |
-| 48 | EmpEmployment                          | userId                       | Ler           |
-| 49 | EmpEmployment                          | éContingentWorker           | Ler           |
-| 50 | EmpJob                                 | countryOfCompany             | Ler           |
-| 51 | EmpJob                                 | emplStatus                   | Ler           |
-| 52 | EmpJob                                 | data de fim                      | Ler           |
-| 53 | EmpJob                                 | inícioData                    | Ler           |
-| 54 | EmpJob                                 | jobTitle                     | Ler           |
-| 55 | EmpJob                                 | Posição                     | Ler           |
-| 65 | EmpJob                                 | customString13               | Ler           |
-| 56 | EmpJob                                 | managerId                    | Ler           |
-| 57 | EmpJob\.BusinessUnit                   | businessUnit                 | Ler           |
-| 58 | EmpJob\.BusinessUnit                   | businessUnitId               | Ler           |
-| 59 | Empresa de\.EmpJob                        | Empresa                      | Ler           |
-| 60 | Empresa de\.EmpJob                        | companyId                    | Ler           |
-| 61 | Empresa de\.EmpJob\.CountryOfRegistration | doisCharCountryCode           | Ler           |
-| 62 | EmpJob\.CostCenter                     | costCenter                   | Ler           |
-| 63 | EmpJob\.CostCenter                     | costCenterId                 | Ler           |
-| 64 | EmpJob\.CostCenter                     | costCenterDescription        | Ler           |
-| 65 | Departamento de\.emPJob                     | Departamento                   | Ler           |
-| 66 | Departamento de\.emPJob                     | departamentoId                 | Ler           |
-| 67 | Divisão de\.EmpJob                       | divisão                     | Ler           |
-| 68 | Divisão de\.EmpJob                       | divisãoId                   | Ler           |
-| 69 | EmpJob\.JobCode                        | empregoCódigo                      | Ler           |
-| 70 | EmpJob\.JobCode                        | jobCodeId                    | Ler           |
-| 71 | Localização\.EmpJob                       | Nome de localização                 | Ler           |
-| 72 | Localização\.EmpJob                       | officeLocationAddress        | Ler           |
-| 73 | Localização\.EmpJob                       | officeLocationCity           | Ler           |
-| 74 | Localização\.EmpJob                       | officeLocationCustomString4  | Ler           |
-| 75 | Localização\.EmpJob                       | officeLocationZipCode        | Ler           |
-| 76 | EmpJob\.PayGrade                       | payGrade                     | Ler           |
-| 77 | EmpEmploymentTermination               | activoEmpregosCount       | Ler           |
-| 78 | EmpEmploymentTermination               | data de rescisão mais recente        | Ler           |
+| 45 | PerEmail                               | e-mailType                    | Leitura           |
+| 46 | EmpEmployment                          | firstDateWorked              | Leitura           |
+| 47 | EmpEmployment                          | últimoDataTrabalhado               | Leitura           |
+| 48 | EmpEmployment                          | userId                       | Leitura           |
+| 49 | EmpEmployment                          | éContingentWorker           | Leitura           |
+| 50 | EmpJob                                 | countryOfCompany             | Leitura           |
+| 51 | EmpJob                                 | emplStatus                   | Leitura           |
+| 52 | EmpJob                                 | data de fim                      | Leitura           |
+| 53 | EmpJob                                 | inícioData                    | Leitura           |
+| 54 | EmpJob                                 | jobTitle                     | Leitura           |
+| 55 | EmpJob                                 | Posição                     | Leitura           |
+| 65 | EmpJob                                 | customString13               | Leitura           |
+| 56 | EmpJob                                 | managerId                    | Leitura           |
+| 57 | EmpJob\.BusinessUnit                   | businessUnit                 | Leitura           |
+| 58 | EmpJob\.BusinessUnit                   | businessUnitId               | Leitura           |
+| 59 | Empresa de\.EmpJob                        | Empresa                      | Leitura           |
+| 60 | Empresa de\.EmpJob                        | companyId                    | Leitura           |
+| 61 | Empresa de\.EmpJob\.CountryOfRegistration | doisCharCountryCode           | Leitura           |
+| 62 | EmpJob\.CostCenter                     | costCenter                   | Leitura           |
+| 63 | EmpJob\.CostCenter                     | costCenterId                 | Leitura           |
+| 64 | EmpJob\.CostCenter                     | costCenterDescription        | Leitura           |
+| 65 | Departamento de\.emPJob                     | Departamento                   | Leitura           |
+| 66 | Departamento de\.emPJob                     | departamentoId                 | Leitura           |
+| 67 | Divisão de\.EmpJob                       | divisão                     | Leitura           |
+| 68 | Divisão de\.EmpJob                       | divisãoId                   | Leitura           |
+| 69 | EmpJob\.JobCode                        | empregoCódigo                      | Leitura           |
+| 70 | EmpJob\.JobCode                        | jobCodeId                    | Leitura           |
+| 71 | Localização\.EmpJob                       | Nome de localização                 | Leitura           |
+| 72 | Localização\.EmpJob                       | officeLocationAddress        | Leitura           |
+| 73 | Localização\.EmpJob                       | officeLocationCity           | Leitura           |
+| 74 | Localização\.EmpJob                       | officeLocationCustomString4  | Leitura           |
+| 75 | Localização\.EmpJob                       | officeLocationZipCode        | Leitura           |
+| 76 | EmpJob\.PayGrade                       | payGrade                     | Leitura           |
+| 77 | EmpEmploymentTermination               | activoEmpregosCount       | Leitura           |
+| 78 | EmpEmploymentTermination               | data de rescisão mais recente        | Leitura           |
 
 
 ## <a name="default-attribute-mapping"></a>Mapeamento de atributo padrão

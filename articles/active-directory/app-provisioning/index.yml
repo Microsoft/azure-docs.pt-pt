@@ -5,19 +5,19 @@ metadata:
   title: Documentação de aprovisionamento de aplicações
   description: O aprovisionamento da aplicação Azure Active Directory permite-lhe criar e gerir automaticamente as identidades dos utilizadores nas suas aplicações na cloud (SaaS). O Azure AD também fornece aprovisionamento com aplicações de recursos humanos (RH) com base na cloud. Saiba como gerir e implementar aplicações na cloud e aprovisionamento de RH com os nossos inícios rápidos, tutoriais e diretrizes.
   ms.service: active-directory
-  ms.subservice: app-mgmt
+  ms.subservice: app-provisioning
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 02/06/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
-  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.openlocfilehash: 0b6b3829f4111c57e20f495be962357832a5bfcd
+  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/07/2020
-  ms.locfileid: "77065506"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77522471"
 landingContent:
 - title: Aprovisionar utilizadores e grupos numa aplicação na cloud
   linkLists:

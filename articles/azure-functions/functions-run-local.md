@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: dd36895a34b36bbdf8e796cf629ab031613663cd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 0b15b35f6fc83097e94f7d69815a163a0e98a228
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208888"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523276"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com ferramentas centrais de funções azure
 
@@ -43,6 +43,9 @@ Salvo indicação em contrário, os exemplos deste artigo são para a versão 3.
 
 [Ferramentas centrais de funções azure] incluem uma versão do mesmo tempo de funcionamento que alimenta o tempo de funcionamento das Funções Azure que pode executar no seu computador de desenvolvimento local. Também fornece comandos para criar funções, ligar ao Azure e implementar projetos de função.
 
+>[!IMPORTANT]
+>Deve ter o [Azure CLI](/cli/azure/install-azure-cli) instalado localmente para poder publicar no Azure a partir de Ferramentas Nucleares de Funções Azure.  
+
 ### <a name="v2"></a>Versão 2.x e 3.x
 
 A versão 2.x/3.x das ferramentas utiliza o tempo de funcionamento das Funções Azure que é construído em .NET Core. Esta versão é suportada em todas as plataformas .NET Core suportes, incluindo [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
@@ -50,7 +53,7 @@ A versão 2.x/3.x das ferramentas utiliza o tempo de funcionamento das Funções
 > [!IMPORTANT]
 > Pode contornar a exigência de instalação do .NET Core SDK utilizando pacotes de [extensão].
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Os seguintes passos utilizam a NPM para instalar as Ferramentas Core no Windows. Também pode usar [Chocolatey.](https://chocolatey.org/) Para mais informações, consulte a leitura das [Ferramentas Core.](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)
 
@@ -76,7 +79,7 @@ Os seguintes passos utilizam a NPM para instalar as Ferramentas Core no Windows.
 
 1. Se não pretender utilizar [extensão]instale o [.NET Core 2.x SDK para windows](https://www.microsoft.com/net/download/windows).
 
-# <a name="macostabmacos"></a>[MacOS](#tab/macos)
+# <a name="macos"></a>[MacOS](#tab/macos)
 
 Os seguintes passos utilizam o Homebrew para instalar as Ferramentas Core no macOS.
 
@@ -100,7 +103,7 @@ Os seguintes passos utilizam o Homebrew para instalar as Ferramentas Core no mac
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Os seguintes passos utilizam a [APT](https://wiki.debian.org/Apt) para instalar as Ferramentas Core na distribuição Ubuntu/Debian Linux. Para outras distribuições linux, consulte o [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
@@ -353,7 +356,7 @@ func host start
 | **`--cert`** | O caminho para um ficheiro .pfx que contém uma chave privada. Usado apenas com `--useHttps`. Versão 2.x apenas. |
 | **`--cors-credentials`** | Permitir pedidos autenticados de origem cruzada (isto é, cookies e o cabeçalho de autenticação) versão 2.x apenas. |
 | **`--cors`** | Uma lista separada de vírinas de origens cors, sem espaços. |
-| **`--language-worker`** | Argumentos para configurar o operador de idioma. Por exemplo, pode permitir a depuração para o trabalhador linguístico fornecendo porta de [depuração e outros argumentos necessários](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Versão 2.x apenas. |
+| **`--language-worker`** | Argumentos para configurar o trabalhador da linguagem. Por exemplo, pode permitir a depuração para o trabalhador linguístico fornecendo porta de [depuração e outros argumentos necessários](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Versão 2.x apenas. |
 | **`--nodeDebugPort`,**  **`-n`** | A porta para o debugger node.js usar. Predefinição: Um valor do lançamento.json ou 5858. Versão 1.x apenas. |
 | **`--password`** | Ou a palavra-passe ou um ficheiro que contém a palavra-passe para um ficheiro .pfx. Usado apenas com `--cert`. Versão 2.x apenas. |
 | **`--port`,**  **`-p`** | O porto local para ouvir. Valor predefinido: 7071. |
@@ -454,6 +457,9 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ## <a name="publish"></a>Publicar no Azure
 
 As Ferramentas Core funções Do Azure suportam dois tipos de implementação: implementar ficheiros de projeto de função diretamente para a sua aplicação de funções através de [Zip Deploy](functions-deployment-technologies.md#zip-deploy) e [implementar um recipiente Docker personalizado](functions-deployment-technologies.md#docker-container). Já deve ter criado uma aplicação de [função na sua subscrição Azure](functions-cli-samples.md#create), para a qual irá implementar o seu código. Os projetos que exijam a compilação devem ser construídos para que os binários possam ser implantados.
+
+>[!IMPORTANT]
+>Deve ter o [Azure CLI](/cli/azure/install-azure-cli) instalado localmente para poder publicar no Azure a partir de Core Tools.  
 
 Uma pasta do projeto pode conter ficheiros e diretórios específicos da linguagem que não devem ser publicados. Os itens excluídos estão listados num ficheiro .funcignore na pasta do projeto raiz.     
 

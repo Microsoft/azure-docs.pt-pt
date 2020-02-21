@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ab673c1a268f5ab663e8f423dd9b60cdfde14ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118368"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485357"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra
 
@@ -28,10 +28,14 @@ Para completar este arranque rápido, deve ter:
 
 - Um conjunto de pelo menos seis formas do mesmo tipo. Usará estes dados para treinar o modelo e testar um formulário. Pode utilizar um conjunto de dados de [amostra](https://go.microsoft.com/fwlink/?linkid=2090451) para este arranque rápido. Faça upload dos ficheiros de treino para a raiz de um recipiente de armazenamento blob numa conta de Armazenamento Azure.
 
+## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulário
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem da amostra
 
 Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Siga estes passos para montar o recipiente Docker. Para um primer sobre o Docker e o básico do contentor, consulte a visão geral do [Docker.](https://docs.docker.com/engine/docker-overview/)
-1. Primeiro, instale o Docker num computador de acolhimento. O computador anfitrião pode ser o seu computador local[(Windows,](https://docs.docker.com/docker-for-windows/) [MacOS](https://docs.docker.com/docker-for-mac/)ou [Linux).](https://docs.docker.com/install/) Ou, você pode usar um serviço de hospedagem Docker em Azure, como o [Serviço Azure Kubernetes,](https://docs.microsoft.com/azure/aks/index) [Instâncias de Contentores Azure,](https://docs.microsoft.com/azure/container-instances/index)ou um cluster Kubernetes [implantado para uma Stack Azure.](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910) O computador anfitrião deve satisfazer os seguintes requisitos de hardware:
+1. Primeiro, instale o Docker num computador de acolhimento. O computador anfitrião pode ser o seu computador local[(Windows,](https://docs.docker.com/docker-for-windows/) [macOS](https://docs.docker.com/docker-for-mac/)ou [Linux).](https://docs.docker.com/install/) Ou, você pode usar um serviço de hospedagem Docker em Azure, como o [Serviço Azure Kubernetes,](https://docs.microsoft.com/azure/aks/index) [Instâncias de Contentores Azure,](https://docs.microsoft.com/azure/container-instances/index)ou um cluster Kubernetes [implantado para uma Stack Azure.](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910) O computador anfitrião deve satisfazer os seguintes requisitos de hardware:
 
     | Contentor | Mínimo | Recomendado|
     |:--|:--|:--|
@@ -70,7 +74,7 @@ Ative o CORS na sua conta de armazenamento. Selecione a sua conta de armazenamen
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Ligue-se à ferramenta de rotulagem da amostra
 
-A ferramenta de rotulagem da amostra liga-se a uma fonte (onde estão os seus formulários originais) e a um alvo (o local onde exporta os rótulos criados e os dados de saída).
+A ferramenta de rotulagem da amostra liga-se a uma fonte (onde estão as suas formas originais) e a um alvo (onde exporta os rótulos criados e os dados de saída).
 
 As ligações podem ser configuradas e partilhadas entre projetos. Utilizam um modelo extensível de fornecedor, para que possa facilmente adicionar novos fornecedores de origem/alvo.
 
@@ -89,7 +93,7 @@ Preencha os campos com os seguintes valores:
 Na ferramenta de rotulagem de amostras, os projetos armazenam as suas configurações e configurações. Criar um novo projeto e preencher os campos com os seguintes valores:
 
 * **Nome** do ecrã - o nome do display do projeto
-* **Security Token** - Algumas configurações do projeto podem incluir valores sensíveis, tais como chaves API ou outros segredos partilhados. Cada projeto gerará um token de segurança que pode ser usado para encriptar/desencriptar configurações sensíveis do projeto. As fichas de segurança podem ser encontradas nas Definições de Aplicação clicando no ícone da engrenagem no canto inferior da barra de navegação esquerda.
+* **Security Token** - Algumas configurações do projeto podem incluir valores sensíveis, tais como chaves API ou outros segredos partilhados. Cada projeto gerará um token de segurança que pode ser usado para encriptar/desencriptar configurações sensíveis do projeto. Pode encontrar fichas de segurança nas Definições de Aplicação clicando no ícone da engrenagem no canto inferior da barra de navegação esquerda.
 * **Source Connection** - A ligação de armazenamento De Blob Azure que criou no passo anterior que gostaria de utilizar para este projeto.
 * **Caminho da Pasta** - Opcional - Se os formulários de origem estiverem localizados numa pasta no recipiente blob, especifique o nome da pasta aqui
 * Serviço de Reconhecimento de **FormulárioS Uri** - Url final do ponto final do reconhecimento de formulários.
@@ -155,7 +159,7 @@ Clique no ícone Previsão (retângulos) à esquerda para testar o seu modelo. F
 
 Dependendo da precisão reportada, poderá querer fazer mais treino para melhorar o modelo. Depois de fazer uma previsão, examine os valores de confiança de cada uma das etiquetas aplicadas. Se o valor médio de treino de precisão foi elevado, mas as pontuações de confiança são baixas (ou os resultados são imprecisos), deve adicionar o ficheiro utilizado para a previsão no conjunto de treino, rotulá-lo e treinar novamente.
 
-A precisão média reportada, as pontuações de confiança e a precisão real podem ser inconsistentes quando os documentos que estão a ser analisados são diferentes dos utilizados no treino. Tenha em mente que alguns documentos são semelhantes quando vistos por pessoas, mas podem parecer distintos do modelo de IA. Por exemplo, você pode treinar com um tipo de formulário que tem duas variações, onde o conjunto de formação consiste em variação A de 20% e 80% de variação B. Durante a previsão, as pontuações de confiança para documentos de variação A são suscetíveis de ser mais baixas.
+A precisão média reportada, as pontuações de confiança e a precisão real podem ser inconsistentes quando os documentos analisados diferem dos utilizados no treino. Tenha em mente que alguns documentos são semelhantes quando vistos por pessoas, mas podem parecer distintos do modelo de IA. Por exemplo, você pode treinar com um tipo de formulário que tem duas variações, onde o conjunto de formação consiste em variação A de 20% e 80% de variação B. Durante a previsão, as pontuações de confiança para documentos de variação A são suscetíveis de ser mais baixas.
 
 ## <a name="save-a-project-and-resume-later"></a>Salve um projeto e retome mais tarde
 
@@ -165,12 +169,12 @@ Para retomar o seu projeto noutra altura ou noutro navegador, precisa de guardar
 Vá à página de definições do seu projeto (ícone deslizante) e tome nota do nome do token de segurança. Em seguida, vá para as definições da sua aplicação (ícone de engrenagem), que mostra todas as fichas de segurança na sua instância atual do navegador. Encontre o símbolo de segurança do seu projeto e copie o seu nome e valor chave para uma localização segura.
 
 ### <a name="restore-project-credentials"></a>Restaurar as credenciais do projeto
-Quando pretende retomar o seu projeto, primeiro é necessário criar uma ligação ao mesmo recipiente de armazenamento de bolhas. Siga os passos acima para fazer isto. Em seguida, vá à página de definições de aplicação (ícone de engrenagem) e veja se o sinal de segurança do seu projeto está lá. Se não for, adicione um novo símbolo de segurança e copie o seu nome simbólico e a chave do passo anterior. Em seguida, clique em Guardar Definições. 
+Quando pretende retomar o seu projeto, primeiro é necessário criar uma ligação ao mesmo recipiente de armazenamento de bolhas. Repita os passos acima para fazer isto. Em seguida, vá à página de definições de aplicação (ícone de engrenagem) e veja se o sinal de segurança do seu projeto está lá. Se não for, adicione um novo símbolo de segurança e copie o seu nome simbólico e a chave do passo anterior. Em seguida, clique em Guardar Definições. 
 
 ### <a name="resume-a-project"></a>Retomar um projeto
 Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento blob e selecione o ficheiro *.vott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o símbolo de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste arranque rápido, aprendeu a utilizar a ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' para treinar um modelo com dados rotulados manualmente. Se quiser integrar a ferramenta de rotulagem na sua própria aplicação, utilize as APIs REST que lidam com a formação de dados etiquetada.
 

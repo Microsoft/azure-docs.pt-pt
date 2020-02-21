@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 58e8767de786ed2ae92d19c01287aa05c8b63fbb
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 171542c89b900eb8bf282156c79303a1deb5a5f7
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767980"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506232"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação em Azure Cosmos DB
 
@@ -342,13 +342,13 @@ Uma [atualização de política de indexação](index-policy.md#modifying-the-in
 > [!NOTE]
 > Ao atualizar a política de indexação, escreve a Azure Cosmos DB será ininterrupta. Durante a reindexação, as consultas podem devolver resultados parciais à medida que o índice está a ser atualizado.
 
-## <a name="use-the-azure-portal"></a>Utilizar o Portal do Azure
+## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
 Os contentores Azure Cosmos armazenam a sua política de indexação como um documento JSON que o portal Azure permite editar diretamente.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. Crie uma nova conta do Azure Cosmos ou selecione uma conta existente.
+1. Crie uma nova conta Azure Cosmos ou selecione uma conta existente.
 
 1. Abra o painel **do Data Explorer** e selecione o recipiente em que pretende trabalhar.
 
@@ -472,7 +472,7 @@ indexingPolicy.setIndexingMode(IndexingMode.Consistent);
 // Add an included path
 
 Collection<IncludedPath> includedPaths = new ArrayList<>();
-ExcludedPath includedPath = new IncludedPath();
+IncludedPath includedPath = new IncludedPath();
 includedPath.setPath("/*");
 includedPaths.add(includedPath);
 indexingPolicy.setIncludedPaths(includedPaths);

@@ -7,7 +7,7 @@ author: msmimart
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d12195b3695d092b421ce6363a2f9b426f52a1e4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 3955b96e4a7edfc79a229d927523bdd4473409d4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77067152"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522769"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema de configuração do fornecimento de utilizadores a uma aplicação da Galeria AD Azure
 
@@ -35,7 +35,7 @@ Uma vez configurado o serviço, a maioria dos conhecimentos sobre o funcionament
 
 -   **Registos de fornecimento (pré-visualização)** – Os [registos](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de fornecimento registam todas as operações efetuadas pelo serviço de provisionamento, incluindo a consulta da Azure AD para utilizadores designados que estejam no âmbito do provisionamento. Consultar a aplicação-alvo para a existência desses utilizadores, comparando os objetos de utilizador entre o sistema. Em seguida, adicione, atualize ou desative a conta de utilizador no sistema alvo com base na comparação. Pode aceder aos registos de fornecimento no portal Azure selecionando o **Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning (pré-visualização)** na secção **Atividade.**
 
--   **Estado atual –** Um resumo da última execução de provisionamento para uma determinada aplicação pode ser visto no **Azure Ative Directory &gt; Enterprise Apps &gt; \[Nome** de aplicação\] &gt;secção de provisionamento, na parte inferior do ecrã sob as definições de serviço. A secção Estado Atual mostra se um ciclo de provisionamento começou a fornecer contas de utilizador. Você pode ver o progresso do ciclo, ver quantos usuários e grupos foram provisionados e ver quantas funções são criadas. Se houver algum erro, os detalhes podem ser encontrados nos [registos de provisionamento (.. /reports-monitoring/concept-provisioning-logs.md?context=azure/active-directório/manage-apps/context/manage-apps-context/manage-apps-context).
+-   **Estado atual –** Um resumo da última execução de provisionamento para uma determinada aplicação pode ser visto no **Azure Ative Directory &gt; Enterprise Apps &gt; \[Nome** de aplicação\] &gt;secção de provisionamento, na parte inferior do ecrã sob as definições de serviço. A secção Estado Atual mostra se um ciclo de provisionamento começou a fornecer contas de utilizador. Pode ver o progresso do ciclo, ver quantos utilizadores e grupos foram aprovisionados, e ver quantas funções são criadas. Se houver algum erro, os detalhes podem ser encontrados nos [registos de provisionamento (.. /reports-monitoring/concept-provisioning-logs.md?context=azure/active-directório/manage-apps/context/manage-apps-context/manage-apps-context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas problemáticas gerais com disposição a considerar
 

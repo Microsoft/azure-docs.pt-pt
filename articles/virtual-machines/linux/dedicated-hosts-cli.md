@@ -1,6 +1,6 @@
 ---
-title: Implantar hosts dedicados do Azure usando a CLI
-description: Implante VMs em hosts dedicados usando o CLI do Azure.
+title: Implementar anfitriões dedicados azure usando o CLI
+description: Implemente VMs para anfitriões dedicados usando o Azure CLI.
 services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
@@ -9,29 +9,29 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834927"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483487"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implantar VMs em hosts dedicados usando o CLI do Azure
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implementar VMs para anfitriões dedicados usando o Azure CLI
  
 
-Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
+Este artigo guia-o através de como criar um [anfitrião dedicado](dedicated-hosts.md) azure para hospedar as suas máquinas virtuais (VMs). 
 
-Certifique-se de ter instalado CLI do Azure versão 2.0.70 ou posterior e conectado a uma conta do Azure usando `az login`. 
+Certifique-se de que instalou a versão 2.0.70 do Azure CLI ou posteriormente, e inscreveu-se numa conta Azure utilizando `az login`. 
 
 
 ## <a name="limitations"></a>Limitações
 
-- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-- A versão inicial dá suporte à seguinte série de VMs: DSv3 e ESv3. 
+- Os conjuntos de escala de máquinas virtuais não são atualmente suportados em anfitriões dedicados.
+- A versão inicial suporta a seguinte série VM: DSv3, ESv3, FSv2, LSv2 e MSv2. 
  
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos 
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie o grupo de recursos com AZ Group Create. O exemplo a seguir cria um grupo de recursos chamado *myDHResourceGroup* no local *leste dos EUA* .
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie o grupo de recursos com o grupo Az criar. O exemplo seguinte cria um grupo de recursos chamado *myDHResourceGroup* na localização *dos EUA Orientais.*
 
 ```bash
 az group create --name myDHResourceGroup --location eastus 
@@ -39,15 +39,15 @@ az group create --name myDHResourceGroup --location eastus
  
 ## <a name="create-a-host-group"></a>Criar um grupo de anfitriões 
 
-Um **grupo de hosts** é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
-- Alcance entre várias zonas de disponibilidade. Nesse caso, é necessário ter um grupo de hosts em cada uma das zonas que você deseja usar.
-- Alcance entre vários domínios de falha que são mapeados para racks físicos. 
+Um **grupo de anfitriões** é um recurso que representa uma coleção de anfitriões dedicados. Cria-se um grupo de acolhimento numa região e numa zona de disponibilidade e adiciona-lhe anfitriões. Ao planear uma alta disponibilidade, existem opções adicionais. Pode utilizar uma ou ambas as seguintes opções com os seus anfitriões dedicados: 
+- Atravesse várias zonas de disponibilidade. Neste caso, é-lhe exigido que tenha um grupo de acolhimento em cada uma das zonas que deseja utilizar.
+- Atravesse vários domínios de falha que são mapeados em prateleiras físicas. 
  
-Em ambos os casos, você precisa fornecer a contagem de domínios de falha para seu grupo de hosts. Se você não quiser abranger domínios de falha em seu grupo, use uma contagem de domínio de falha de 1. 
+Em qualquer dos casos, é necessário fornecer a contagem de domínio de avaria para o seu grupo anfitrião. Se não quiser abranger domínios de avaria no seu grupo, utilize uma contagem de domínio de falha de 1. 
 
-Você também pode optar por usar zonas de disponibilidade e domínios de falha. 
+Também pode decidir utilizar ambas as zonas de disponibilidade e domínios de avaria. 
 
-Neste exemplo, usaremos o grupo de [hosts de VM AZ](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo de hosts usando zonas de disponibilidade e domínios de falha. 
+Neste exemplo, usaremos o [grupo anfitrião Az vm](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo de anfitriões usando tanto as zonas de disponibilidade como os domínios de falha. 
 
 ```bash
 az vm host group create \
@@ -59,7 +59,7 @@ az vm host group create \
 
 ### <a name="other-examples"></a>Outros exemplos
 
-Você também pode usar [AZ VM host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo de hosts na zona de disponibilidade 1 (e nenhum domínio de falha).
+Também pode usar o [grupo anfitrião az vm criar](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo de anfitriões na zona de disponibilidade 1 (e sem domínios de falha).
 
 ```bash
 az vm host group create \
@@ -69,7 +69,7 @@ az vm host group create \
    --platform-fault-domain-count 1 
 ```
  
-O seguinte usa [AZ VM host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo de hosts usando somente domínios de falha (para ser usado em regiões em que não há suporte para zonas de disponibilidade). 
+As seguintes utilizações do [grupo anfitrião Az vm criar](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo de anfitriões usando apenas domínios de falha (para serem usados em regiões onde as zonas de disponibilidade não são suportadas). 
 
 ```bash
 az vm host group create \
@@ -78,13 +78,13 @@ az vm host group create \
    --platform-fault-domain-count 2 
 ```
  
-## <a name="create-a-host"></a>Criar um host 
+## <a name="create-a-host"></a>Criar um hospedeiro 
 
-Agora, vamos criar um host dedicado no grupo de hosts. Além de um nome para o host, você deve fornecer a SKU para o host. O SKU do host captura a série de VMs com suporte, bem como a geração de hardware para seu host dedicado.  Há suporte para os seguintes valores de SKU: DSv3_Type1 e ESv3_Type1.
+Agora vamos criar um anfitrião dedicado no grupo anfitrião. Além de um nome para o anfitrião, é necessário fornecer o SKU para o anfitrião. Host SKU captura a série VM suportada, bem como a geração de hardware para o seu anfitrião dedicado.  Os seguintes valores sKU são apoiados: DSv3_Type1 e ESv3_Type1.
 
-Para obter mais informações sobre os preços e as SKUs do host, consulte [preços do host dedicado do Azure](https://aka.ms/ADHPricing).
+Para obter mais informações sobre o anfitrião SKUs e preços, consulte [o preço do Anfitrião Dedicado Azure.](https://aka.ms/ADHPricing)
 
-Use [AZ VM host Create](/cli/azure/vm/host#az-vm-host-create) para criar um host. Se você definir uma contagem de domínios de falha para seu grupo de hosts, será solicitado que você especifique o domínio de falha para o host.  
+Use [o hospedeiro az vm criar](/cli/azure/vm/host#az-vm-host-create) para criar um hospedeiro. Se definir uma contagem de domínio de avaria para o seu grupo anfitrião, será-lhe pedido que especifique o domínio de avaria para o seu anfitrião.  
 
 ```bash
 az vm host create \
@@ -97,8 +97,8 @@ az vm host create \
 
 
  
-## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual 
-Crie uma máquina virtual em um host dedicado usando [AZ VM Create](/cli/azure/vm#az-vm-create). Se você especificou uma zona de disponibilidade ao criar o grupo de hosts, será necessário usar a mesma zona ao criar a máquina virtual.
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual 
+Crie uma máquina virtual dentro de um hospedeiro dedicado usando [az vm criar](/cli/azure/vm#az-vm-create). Se especificou uma zona de disponibilidade ao criar o seu grupo de anfitriões, é-lhe exigido que utilize a mesma zona ao criar a máquina virtual.
 
 ```bash
 az vm create \
@@ -114,12 +114,12 @@ az vm create \
 ```
  
 > [!WARNING]
-> Se você criar uma máquina virtual em um host que não tem recursos suficientes, a máquina virtual será criada em um estado de falha. 
+> Se criar uma máquina virtual num hospedeiro que não tenha recursos suficientes, a máquina virtual será criada num estado FALHADO. 
 
 
-## <a name="check-the-status-of-the-host"></a>Verificar o status do host
+## <a name="check-the-status-of-the-host"></a>Verifique o estado do anfitrião
 
-Você pode verificar o status de integridade do host e quantas máquinas virtuais você ainda pode implantar no host usando [AZ VM host Get-Instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view).
+Pode verificar o estado de saúde do hospedeiro e quantas máquinas virtuais ainda pode implementar para o hospedeiro utilizando a visualização de [get-instance do anfitrião az vm](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
 ```bash
 az vm host get-instance-view \
@@ -127,7 +127,7 @@ az vm host get-instance-view \
    --host-group myHostGroup \
    --name myHost
 ```
- A saída terá uma aparência semelhante a esta:
+ A saída será semelhante a esta:
  
 ```json
 {
@@ -225,16 +225,16 @@ az vm host get-instance-view \
 
 ```
  
-## <a name="export-as-a-template"></a>Exportar como um modelo 
-Você pode exportar um modelo se agora quiser criar um ambiente de desenvolvimento adicional com os mesmos parâmetros ou um ambiente de produção que corresponda a ele. O Gerenciador de recursos usa modelos JSON que definem todos os parâmetros para o seu ambiente. Você cria ambientes inteiros referenciando esse modelo JSON. Você pode criar modelos JSON manualmente ou exportar um ambiente existente para criar o modelo JSON para você. Use [AZ Group Export](/cli/azure/group#az-group-export) para exportar seu grupo de recursos.
+## <a name="export-as-a-template"></a>Exportar como modelo 
+Você pode exportar um modelo se você agora quiser criar um ambiente de desenvolvimento adicional com os mesmos parâmetros, ou um ambiente de produção que o corresponda. O Gestor de Recursos utiliza modelos JSON que definem todos os parâmetros para o seu ambiente. Você constrói ambientes inteiros fazendo referência a este modelo JSON. Você pode construir modelos JSON manualmente ou exportar um ambiente existente para criar o modelo JSON para você. Use [a exportação do grupo AZ](/cli/azure/group#az-group-export) para exportar o seu grupo de recursos.
 
 ```bash
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-Esse comando cria o arquivo de `myDHResourceGroup.json` no diretório de trabalho atual. Ao criar um ambiente a partir desse modelo, você será solicitado a fornecer todos os nomes de recursos. Você pode preencher esses nomes no arquivo de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando `az group export`. Edite o modelo JSON para especificar os nomes dos recursos ou crie um arquivo Parameters. JSON que especifique os nomes dos recursos.
+Este comando cria o ficheiro `myDHResourceGroup.json` no seu atual diretório de trabalho. Quando você cria um ambiente a partir deste modelo, você é solicitado para todos os nomes de recursos. Pode povoar estes nomes no seu ficheiro de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando `az group export`. Edite o seu modelo JSON para especificar os nomes dos recursos ou crie um ficheiro parameters.json que especifica os nomes dos recursos.
  
-Para criar um ambiente a partir de seu modelo, use [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create).
+Para criar um ambiente a partir do seu modelo, use a criação de implementação do [grupo Az](/cli/azure/group/deployment#az-group-deployment-create).
 
 ```bash
 az group deployment create \ 
@@ -245,36 +245,36 @@ az group deployment create \
 
 ## <a name="clean-up"></a>Limpeza 
 
-Você está sendo cobrado por seus hosts dedicados, mesmo quando não há máquinas virtuais implantadas. Você deve excluir os hosts que não está usando no momento para economizar custos.  
+Está a ser cobrado pelos seus anfitriões dedicados mesmo quando não são implementadas máquinas virtuais. Deve eliminar quaisquer anfitriões que não esteja a utilizar para poupar custos.  
 
-Você só pode excluir um host quando não houver mais máquinas virtuais usando-o. Exclua as VMs usando [AZ VM Delete](/cli/azure/vm#az-vm-delete).
+Só é possível eliminar um hospedeiro quando já não existem máquinas virtuais que o utilizem. Elimine os VMs utilizando [az vm delete](/cli/azure/vm#az-vm-delete).
 
 ```bash
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-Depois de excluir as VMs, você pode excluir o host usando [AZ VM host Delete](/cli/azure/vm/host#az-vm-host-delete).
+Depois de eliminar os VMs, pode eliminar o hospedeiro utilizando o [hospedeiro Az vm apagar](/cli/azure/vm/host#az-vm-host-delete).
 
 ```bash
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
-Depois de excluir todos os seus hosts, você poderá excluir o grupo de hosts usando [AZ VM host Group Delete](/cli/azure/vm/host/group#az-vm-host-group-delete).  
+Uma vez eliminado todos os seus anfitriões, pode eliminar o grupo anfitrião utilizando o [grupo anfitrião Az vm .](/cli/azure/vm/host/group#az-vm-host-group-delete)  
  
 ```bash
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  
 ```
  
-Você também pode excluir o grupo de recursos inteiro em um único comando. Isso excluirá todos os recursos criados no grupo, incluindo todas as VMs, hosts e grupos de hosts.
+Também pode eliminar todo o grupo de recursos num único comando. Isto eliminará todos os recursos criados no grupo, incluindo todos os VMs, anfitriões e grupos de acolhimento.
  
 ```bash
 az group delete -n myDHResourceGroup 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) .
+- Para mais informações, consulte a visão geral dos [anfitriões dedicados.](dedicated-hosts.md)
 
-- Você também pode criar hosts dedicados usando o [portal do Azure](dedicated-hosts-portal.md).
+- Também pode criar anfitriões dedicados utilizando o [portal Azure.](dedicated-hosts-portal.md)
 
-- Há um modelo de exemplo, encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter máxima resiliência em uma região.
+- Há um modelo de amostra, encontrado [aqui,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)que usa tanto zonas como domínios de falha para a máxima resiliência numa região.

@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: c93460797fc1cf953d467e2739d71c5a2a9b74ed
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: HT
+ms.openlocfilehash: 47488403a10a6b955e15b0048d455cc17016f009
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486173"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526251"
 ---
-# <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual 
+# <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
 
-Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereço sacados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede. 
+Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereço sacados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede.
 
-Pode utilizar etiquetas de serviço para definir controlos de acesso à rede em [grupos](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) de segurança de rede ou [Firewall Azure](https://docs.microsoft.com/azure/firewall/service-tags). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Especificando o nome da etiqueta de serviço (por exemplo, **ApiManagement)** na *fonte* apropriada ou *destino* campo de uma regra, pode permitir ou negar o tráfego para o serviço correspondente. 
+Pode utilizar etiquetas de serviço para definir controlos de acesso à rede em [grupos](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) de segurança de rede ou [Firewall Azure](https://docs.microsoft.com/azure/firewall/service-tags). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Especificando o nome da etiqueta de serviço (por exemplo, **ApiManagement)** na *fonte* apropriada ou *destino* campo de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.
 
-Pode utilizar etiquetas de serviço para alcançar o isolamento da rede e proteger os seus recursos Azure da Internet geral, ao mesmo tempo que acede aos serviços Azure que têm pontos finais públicos. Crie regras de grupo de segurança de rede de entrada/saída para negar o tráfego de/para a **Internet** e permitir o tráfego de/para **o AzureCloud** ou [outras etiquetas](#available-service-tags) de serviço disponíveis de serviços específicos do Azure. 
+Pode utilizar etiquetas de serviço para alcançar o isolamento da rede e proteger os seus recursos Azure da Internet geral, ao mesmo tempo que acede aos serviços Azure que têm pontos finais públicos. Crie regras de grupo de segurança de rede de entrada/saída para negar o tráfego de/para a **Internet** e permitir o tráfego de/para **o AzureCloud** ou [outras etiquetas](#available-service-tags) de serviço disponíveis de serviços específicos do Azure.
 
 ## <a name="available-service-tags"></a>Etiquetas de serviço disponíveis
 A tabela seguinte inclui todas as etiquetas de serviço disponíveis para utilização nas regras do grupo de segurança da [rede.](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)
@@ -135,5 +135,5 @@ Pode descarregar ficheiros JSON que contenham a lista atual de tags de serviço 
 - Pode detetar atualizações de uma publicação para outra, observando valores de *número* de variação aumentados no ficheiro JSON. Cada subsecção (por exemplo, **Storage.WestUS)** tem a sua própria *mudançaNúmero* que é incrementado à medida que as alterações ocorrem. O nível superior da alteração do *ficheiroNumber* é incrementado quando qualquer uma das subsecções é alterada.
 - Por exemplo, como analisar a informação da etiqueta de serviço (por exemplo, obter todas as gamas de endereços para Armazenamento em WestUS), consulte a documentação da Marca de [Serviço Discovery API PowerShell.](https://aka.ms/discoveryapi_powershell)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Aprenda a [criar um grupo](tutorial-filter-network-traffic.md)de segurança de rede .

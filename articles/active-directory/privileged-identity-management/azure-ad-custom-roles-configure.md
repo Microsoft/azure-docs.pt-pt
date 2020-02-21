@@ -16,20 +16,25 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6251c1576d38b191ca1cba48075cc869c48d004
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 3f087ffe824a198c578f076857cca7fdf0f0a60c
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048117"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498685"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configure Funções personalizadas da AD Azure na Gestão de Identidade Privilegiada
 
 Um administrador privilegiado pode alterar as definições de funções que se aplicam a um utilizador quando ativam a sua atribuição a uma função personalizada e a outros administradores de aplicações que estão a atribuir funções personalizadas.
 
-## <a name="open-role-settings"></a>Abrir configurações de função
+> [!NOTE]
+> As funções personalizadas da Azure AD não estão integradas com as funções de diretório incorporada durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de papéis terá lugar na experiência de papéis incorporados. Se vir o seguinte banner, estas funções devem ser geridas na experiência de [papéis incorporados](pim-how-to-activate-role.md) e este artigo não se aplica:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
-Siga estas etapas para abrir as configurações de uma função do Azure AD.
+## <a name="open-role-settings"></a>Definições de funções abertas
+
+Siga estes passos para abrir as definições para uma função de Anúncio Azure.
 
 1. Inscreva-se na [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) no portal Azure com uma conta de utilizador que é atribuída ao papel de administrador de funções privilegiada.
 1. Selecione **funções personalizadas Azure AD (Pré-visualização)** .
@@ -59,9 +64,9 @@ Além disso, pode escolher uma destas opções de duração de atribuição *ati
 - **Permitir a atribuição ativa permanente**: Os administradores podem atribuir a destmissão permanente.
 - **Expirar a atribuição ativa após**: Os administradores podem exigir que todas as atribuições ativas tenham uma data de início e fim especificada.
 
-### <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação multifator do Azure
+### <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação de vários fatores azure
 
-Privileged Identity Management fornece imposição opcional da autenticação multifator do Azure para dois cenários distintos.
+A Privileged Identity Management fornece a aplicação opcional da Autenticação Multi-Factor Azure para dois cenários distintos.
 
 - **Exigir autenticação multi-factor na atribuição ativa**
 
@@ -73,7 +78,7 @@ Privileged Identity Management fornece imposição opcional da autenticação mu
 
 Para mais informações, consulte a [autenticação multifactor e a Gestão de Identidade Privilegiada.](pim-how-to-require-mfa.md)
 
-### <a name="activation-maximum-duration"></a>Duração máxima da ativação
+### <a name="activation-maximum-duration"></a>Duração máxima de ativação
 
 Utilize o slider de **duração máxima** de ativação para definir o tempo máximo, em horas, para que uma função permaneça ativa antes de expirar. Este valor pode ser de 1 e 24 horas.
 
@@ -83,19 +88,19 @@ Pode exigir que os membros introduzam uma justificação na atribuição ativa o
 
 ### <a name="require-approval-to-activate"></a>Exigir aprovação para ativar
 
-Se você quiser exigir aprovação para ativar uma função, siga estas etapas.
+Se quiser obter aprovação para ativar um papel, siga estes passos.
 
 1. Selecione a **aprovação exigir para ativar a** caixa de verificação.
 1. Selecione **os aprovadores para** abrir a lista **de membros ou grupos.**
 
     ![Abra a função personalizada da AD Azure para editar definições](./media/azure-ad-custom-roles-configure/select-approvers.png)
 
-1. Selecione pelo menos um membro ou grupo e, em seguida, clique em **Selecionar**. Você deve selecionar pelo menos um Aprovador. Não há aprovadores padrão. Suas seleções aparecerão na lista de aprovadores selecionados.
+1. Selecione pelo menos um membro ou grupo e, em seguida, clique em **Selecionar**. Deve selecionar pelo menos um aprovador. Não há aprovadores por defeito. As suas seleções aparecerão na lista de aprovadores selecionados.
 1. Depois de especificar as definições de função, selecione **'Actualizar'** para guardar as alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Ativar uma função personalizada da AD Azure](azure-ad-custom-roles-assign.md)
+- [Ativar uma função personalizada da AD Azure](azure-ad-custom-roles-activate.md)
 - [Atribuir uma função personalizada azure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de funções personalizadas da AD Azure](azure-ad-custom-roles-update-remove.md)
 - [Definições de papéis em Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

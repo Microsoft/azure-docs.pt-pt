@@ -7,7 +7,7 @@ author: msmimart
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d6544d5e2f50f777714b1101a70d2525cd53deb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: HT
+ms.openlocfilehash: 6dff0d4f8f0062c00351b60174c63d9c19bdfa15
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492880"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522939"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Questões e resoluções conhecidas com o protocolo SCIM 2.0 conformidade do serviço de fornecimento de utilizadores da AD Azure
 
@@ -112,6 +112,6 @@ Sim. Se tiver codificado uma aplicação para o comportamento antigo que existia
 7. Complete a configuração de fornecimento do utilizador como normalmente faria.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre o provisionamento e o desprovisionamento às aplicações saaS](user-provisioning.md)
 

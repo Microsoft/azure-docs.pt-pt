@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5db86c09cd104b2a68431ccbe24128a24ebd2ad4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191074"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500416"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço Azure Private Link?
 
@@ -98,7 +98,7 @@ A ação de aprovação das ligações pode ser automatizada utilizando a propri
 
 ## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Obtenção de informações de ligação utilizando O Proxy TCP v2
 
-Ao utilizar o serviço de ligação privada, o endereço IP fonte dos pacotes provenientes de ponto final privado é o endereço de rede traduzido (NAT) do lado do prestador de serviços utilizando o IP NAT atribuído a partir da rede virtual do fornecedor. Assim, as aplicações recebem o endereço IP NAT atribuído em vez do endereço IP de origem real dos consumidores de serviços. Se a sua aplicação necessitar de endereço IP de origem real do lado do consumidor, pode ativar o protocolo Proxy no seu serviço e obter a informação do cabeçalho do protocolo proxy. Além do endereço IP de origem, o cabeçalho do protocolo proxy também transporta o LinkID do ponto final privado. A combinação de endereço IP de origem e LinkID pode ajudar os prestadores de serviços a identificar exclusivamente os seus consumidores. Para mais informações sobre o Protocolo proxy, visite aqui. 
+Ao utilizar o serviço de ligação privada, o endereço IP fonte dos pacotes provenientes de ponto final privado é o endereço de rede traduzido (NAT) do lado do prestador de serviços utilizando o IP NAT atribuído a partir da rede virtual do fornecedor. Assim, as aplicações recebem o endereço IP NAT atribuído em vez do endereço IP de origem real dos consumidores de serviços. Se a sua aplicação necessitar de endereço IP de origem real do lado do consumidor, pode ativar o protocolo Proxy no seu serviço e obter a informação do cabeçalho do protocolo proxy. Além do endereço IP de origem, o cabeçalho do protocolo proxy também transporta o LinkID do ponto final privado. A combinação de endereço IP de origem e LinkID pode ajudar os prestadores de serviços a identificar exclusivamente os seus consumidores. Para mais informações sobre o Protocolo proxy, visite [aqui](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt). 
 
 Esta informação é codificada utilizando um vetor personalizado de valor de tipo (TLV) da seguinte forma:
 
@@ -119,6 +119,6 @@ Seguem-se as limitações conhecidas ao utilizar o serviço Private Link:
 - Suporta apenas o tráfego IPv4
 - Suporta apenas o tráfego da TCP
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Criar um serviço de ligação privada usando o Azure PowerShell](create-private-link-service-powershell.md)
 - [Criar um serviço de ligação privada utilizando o Azure CLI](create-private-link-service-cli.md)

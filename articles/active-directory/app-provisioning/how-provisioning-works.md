@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b1b38063dcef1c61fbfb6fec529aeeed40a662
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 892cdeea20780c90ce325e8be9b7b91fee0d9fad
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367771"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522531"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 

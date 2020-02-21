@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 5c25f591d1011d2efd66851cafd67ceef8b56637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a4427c05d16a42879d37fdbd2e8b8be9095fcc9b
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766837"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505904"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral da monitorização da saúde gateway aplicação
 
@@ -62,7 +62,7 @@ Uma vez especificados os critérios de correspondência, pode ser anexado à con
 | Propriedade da sonda | Valor | Descrição |
 | --- | --- | --- |
 | URL da sonda |http://127.0.0.1:\<port\>/ |Caminho da URL |
-| Intervalo |30 |O tempo em segundos para esperar antes da próxima sonda de saúde ser enviada.|
+| Interval |30 |O tempo em segundos para esperar antes da próxima sonda de saúde ser enviada.|
 | Intervalo |30 |A quantidade de tempo em segundos o gateway da aplicação aguarda uma resposta da sonda antes de marcar a sonda como insalubre. Se uma sonda voltar como saudável, o backend correspondente é imediatamente marcado como saudável.|
 | Limiar insalubre |3 |Governa quantas sondas enviar para o caso de haver uma falha da sonda de saúde normal. Estas sondas de saúde adicionais são enviadas em rápida sucessão para determinar a saúde do backend rapidamente e não esperar pelo intervalo da sonda. O servidor de back-end é marcado para baixo após a contagem de falhas de sonda consecutiva atingir o limiar insalubre. |
 
@@ -88,10 +88,10 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de saú
 | Propriedade da sonda | Descrição |
 | --- | --- |
 | Nome |Nome da sonda. Este nome é utilizado para se referir à sonda nas definições http back-end. |
-| Protocolo |O protocolo costumava enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
+| Protocol |O protocolo costumava enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
 | Host |Nome anfitrião para enviar a sonda. Aplicável apenas quando vários sites estiverem configurados no Gateway da Aplicação, utilize de outra forma '127.0.0.1'. Este valor é diferente do nome de anfitrião vm. |
 | Caminho |Caminho relativo da sonda. O caminho válido começa a partir de '/'. |
-| Intervalo |Intervalo da sonda em segundos. Este valor é o intervalo de tempo entre duas sondas consecutivas. |
+| Interval |Intervalo da sonda em segundos. Este valor é o intervalo de tempo entre duas sondas consecutivas. |
 | Intervalo |Intervalo da sonda em segundos. Se uma resposta válida não for recebida dentro deste período de tempo, a sonda está marcada como falhada.  |
 | Limiar insalubre |Contagem de tentativas de nova contagem. O servidor de back-end é marcado para baixo após a contagem de falhas de sonda consecutiva atingir o limiar insalubre. |
 
@@ -101,11 +101,13 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de saú
 
 ## <a name="nsg-considerations"></a>Considerações de NSG
 
-Se houver um grupo de segurança de rede (NSG) numa subnet de gateway de aplicação, as portas variam 65503-65534 na sub-rede de entrada de aplicações para tráfego de entrada. Estes portos são necessários para que a API de saúde de backend funcione.
+Deve permitir a entrada de tráfego na Internet nas portas TCP 65503-65534 para o Gateway de aplicação v1 SKU, e as portas TCP 65200-65535 para o V2 SKU com a subnet de destino como **Qualquer** e fonte como etiqueta de serviço **GatewayManager.** Esta gama portuária é necessária para a comunicação da infraestrutura Azure.
 
-Além disso, a conectividade de saída da Internet não pode ser bloqueada, e o tráfego de entrada proveniente da etiqueta AzureLoadBalancer deve ser permitido.
+Além disso, a conectividade de saída da Internet não pode ser bloqueada, e o tráfego de entrada proveniente da etiqueta **AzureLoadBalancer** deve ser permitido.
 
-## <a name="next-steps"></a>Passos seguintes
+Para mais informações, consulte a visão geral da [configuração do Gateway](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet)de aplicação .
+
+## <a name="next-steps"></a>Passos Seguintes
 Depois de aprender sobre a monitorização da saúde application Gateway, pode configurar uma sonda de [saúde personalizada](application-gateway-create-probe-portal.md) no portal Azure ou uma [sonda de saúde personalizada](application-gateway-create-probe-ps.md) utilizando o PowerShell e o modelo de implementação do Gestor de Recursos Azure.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

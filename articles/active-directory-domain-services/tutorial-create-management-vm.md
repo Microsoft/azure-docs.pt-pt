@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 73402420bdfee7fecbd7901deefe7f4314a76d51
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 7f7aeeaf7cbb957a276347b04633763033a62b4e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931588"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523014"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar um VM de gestão para configurar e administrar um domínio gerido pelo Azure Ative Directory Domain Services
 
@@ -29,25 +29,27 @@ Neste tutorial, ficará a saber como:
 > * Instale as ferramentas administrativas do Diretório Ativo num VM do Servidor windows
 > * Utilize o Centro Administrativo de Diretório Ativo para executar tarefas comuns
 
-Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisa dos seguintes recursos e privilégios:
+Para completar este tutorial, necessita dos seguintes recursos e privilégios:
 
 * Uma subscrição ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Um locatário Azure Active Directory associado à sua assinatura, seja sincronizado com um diretório local ou um diretório somente em nuvem.
-    * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
-* Um Azure Active Directory Domain Services domínio gerenciado habilitado e configurado em seu locatário do Azure AD.
+    * Se não tiver uma assinatura Azure, [crie uma conta.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Um inquilino azure Ative Directory associado à sua subscrição, sincronizado com um diretório no local ou com um diretório apenas na nuvem.
+    * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
+* Um Azure Ative Directory Domain Services gerido domínio habilitado e configurado no seu inquilino Azure AD.
     * Se necessário, consulte o primeiro tutorial para criar e configurar uma instância de Serviços de [Domínio de Diretório Ativo Azure.][create-azure-ad-ds-instance]
 * Um VM do Servidor windows que se junta ao domínio gerido pelo Azure AD DS.
     * Se necessário, consulte o tutorial anterior para [criar um VM do Windows Server e junte-o a um domínio gerido][create-join-windows-vm].
-* Uma conta de usuário que é membro do grupo de *Administradores de DC do Azure ad* em seu locatário do Azure AD.
+* Uma conta de utilizador que é membro do grupo de administradores da *Azure AD DC* no seu inquilino Azure AD.
+* Um hospedeiro Azure Bastion implantado na sua rede virtual Azure AD DS.
+    * Se necessário, [crie um anfitrião do Bastião Azure.][azure-bastion]
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Neste tutorial, cria e configura um VM de gestão utilizando o portal Azure. Para começar, primeiro entre no [portal do Azure](https://portal.azure.com).
+Neste tutorial, cria e configura um VM de gestão utilizando o portal Azure. Para começar, inicie a inscrição no [portal Azure.](https://portal.azure.com)
 
 ## <a name="available-administrative-tasks-in-azure-ad-ds"></a>Tarefas administrativas disponíveis em Azure AD DS
 
@@ -84,16 +86,15 @@ No tutorial anterior, foi criado um VM do Windows Server e juntou-se ao domínio
 Para começar, ligue-se ao VM do Servidor do Windows da seguinte forma:
 
 1. No portal Azure, selecione **Grupos de Recursos** no lado esquerdo. Escolha o grupo de recursos onde o seu VM foi criado, como o *myResourceGroup,* e depois selecione o VM, como o *myVM*.
-1. Nas janelas **de visão geral** do VM, selecione **Connect**.
+1. No painel **de visão geral** para o seu VM, selecione **Connect**, depois **Bastion**.
 
-    ![Ligue-se à máquina virtual do Windows no portal Azure](./media/tutorial-create-management-vm/connect-vm.png)
+    ![Ligue-se à máquina virtual do Windows utilizando o Bastião no portal Azure](./media/join-windows-vm/connect-to-vm.png)
 
-    Também pode [criar e utilizar um anfitrião do Azure Bastion (atualmente em pré-visualização)][azure-bastion] para permitir o acesso apenas através do portal Azure sobre o SSL.
+1. Introduza as credenciais para o seu VM e, em seguida, selecione **Connect**.
 
-1. Selecione a opção para baixar ficheiro *RDP*. Guarde este ficheiro RDP no seu navegador web.
-1. Para ligar à sua VM, abra o ficheiro RDP transferido. Se lhe for pedido, selecione **Ligar**.
-1. Introduza as credenciais de um utilizador que faz parte do grupo de administradores da *AD DC azure,* tais como *contoso\dee*
-1. Se vir um aviso de certificado durante o sinal em processo, selecione **Sim** ou **Continue** a ligar.
+   ![Ligue-se através do anfitrião bastião no portal Azure](./media/join-windows-vm/connect-to-bastion.png)
+
+Se necessário, permita que o seu navegador web abra pop-ups para que a ligação Bastião seja exibida. Leva alguns segundos para fazer a ligação com o seu VM.
 
 ## <a name="install-active-directory-administrative-tools"></a>Instalar ferramentas administrativas de Diretório Ativo
 

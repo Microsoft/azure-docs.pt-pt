@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 975117ad5c58bed77002a33f0dc5370d0f1c17e2
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b05eefb2a0e516772390f898c22e723b08973338
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931470"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484456"
 ---
 # <a name="protected-web-api-code-configuration"></a>API da web protegida: Configuração de código
 
@@ -108,7 +108,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 O middleware é adicionado à Web API por esta instrução:
 
 ```csharp
- services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+         .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Atualmente, os modelos ASP.NET Core criam APIs web Azure Ative Directory (Azure AD) que assinam utilizadores dentro da sua organização ou de qualquer organização. Não assinam utilizadores com contas pessoais. Mas pode alterar os modelos para utilizar o ponto final da plataforma de identidade da Microsoft adicionando este código à Startup.cs:
@@ -170,7 +171,7 @@ Na maioria dos casos, não é preciso mudar os parâmetros. Aplicativos que não
 
 Também pode validar fichas de acesso de entrada em Funções Azure. Pode encontrar exemplos de tal validação na [Microsoft .NET,](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)e [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Verifique os âmbitos e as funções da aplicação no seu código](scenario-protected-web-api-verification-scope-app-roles.md)

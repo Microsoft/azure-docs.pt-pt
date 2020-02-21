@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3361f4723c5a9776cb156417e57d609175d11621
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446203"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520712"
 ---
 Os instantâneos incrementais (pré-visualização) são cópias de segurança pontual para discos geridos que, quando retirados, consistem apenas em todas as alterações desde o último instantâneo. Quando tenta descarregar ou utilizar um instantâneo incremental, o VHD completo é utilizado. Esta nova capacidade para instantâneos de disco geridos pode potencialmente permitir que sejam mais rentáveis, uma vez que já não é obrigado a armazenar todo o disco com cada instantâneo individual, a menos que escolha. Tal como as imagens regulares, as imagens incrementais podem ser usadas para criar um disco gerido completo ou, para fazer uma imagem regular.
 
@@ -21,10 +21,15 @@ Existem algumas diferenças entre um instantâneo incremental e um instantâneo 
 
 Os instantâneos incrementais também oferecem uma capacidade diferencial, que está exclusivamente disponível para discos geridos. Permitem-lhe obter as alterações entre duas imagens incrementais dos mesmos discos geridos, até ao nível do bloco. Pode utilizar esta capacidade para reduzir a sua pegada de dados ao copiar instantâneos em todas as regiões.
 
-## <a name="restrictions"></a>Restrições
+### <a name="supported-regions"></a>Regiões suportadas
 
-- Atualmente, os instantâneos incrementais só estão disponíveis nos EUA Orientais, Leste dos EUA 2, Nos EUA Centrais, Oeste dos EUA, Canadá Leste, Canadá Central, Norte da Europa, Sudeste Asiático.
-- Imagens incrementais atualmente não podem ser criadas depois de ter mudado o tamanho de um disco.
+Atualmente, apenas as seguintes regiões são apoiadas:
+
+- Disponível como uma oferta de GA nas regiões centro-oeste dos EUA, Canadá Leste, Canadá Central.
+- Disponível como uma pré-visualização pública nas regiões leste dos EUA, Leste dos EUA 2, Centro dos EUA, Norte da Europa, Sudeste Asiático.
+
+## <a name="restrictions"></a>Restrições
+- Atualmente, os instantâneos incrementais não podem ser criados depois de ter mudado o tamanho de um disco (apenas durante a pré-visualização).
 - Atualmente, os instantâneos incrementais não podem ser movidos entre subscrições.
 - Atualmente, só pode gerar URIs SAS de até cinco instantâneos de uma determinada família instantânea a qualquer momento.
 - Não é possível criar um instantâneo incremental para um disco específico fora da subscrição do disco.

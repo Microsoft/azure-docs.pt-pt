@@ -7,7 +7,7 @@ author: msmimart
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00196d87b02eddb3b9cbc9f13d033ef8558c1ad8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 9d689bb5f76eef36b784a3285749a7d250144fd7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77067126"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522718"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Fornecimento de candidaturas em estado de quarentena
 
@@ -67,8 +67,8 @@ Primeiro, resolva a questão que fez com que o pedido fosse colocado em quarente
 
 Depois de resolver o problema, reinicie o trabalho de provisionamento. Algumas alterações nas definições de provisionamento da aplicação, tais como mapeamentos de atributos ou filtros de deteção, reiniciarão automaticamente o fornecimento para si. A barra de progresso na página de **provisionamento** do pedido indica quando o fornecimento começou pela última vez. Se necessitar de reiniciar o trabalho de provisionamento manualmente, utilize um dos seguintes métodos:  
 
-- Use o portal do Azure para reiniciar o trabalho de provisionamento. Na página de **provisionamento** da aplicação em **Definições,** selecione **clear state e reinicie** a sincronização e desemque o Estado de **Provisionamento** para **On**. Esta ação reinicia totalmente o serviço de provisionamento, que pode demorar algum tempo. Um ciclo inicial completo voltará a funcionar, o que limpa os esquástis, remove a aplicação da quarentena e limpa quaisquer marcas de água.
+- Utilize o portal Azure para reiniciar o trabalho de provisionamento. Na página de **provisionamento** da aplicação em **Definições,** selecione **clear state e reinicie** a sincronização e desemque o Estado de **Provisionamento** para **On**. Esta ação reinicia totalmente o serviço de provisionamento, que pode demorar algum tempo. Um ciclo inicial completo voltará a funcionar, o que limpa os esquástis, remove a aplicação da quarentena e limpa quaisquer marcas de água.
 
-- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Você terá controle total sobre o que reinicia. Pode optar por limpar os escrows (para reiniciar o contador de caução que se acumula em relação ao estado de quarentena), quarentena clara (para remover a aplicação da quarentena) ou marcas de água claras. Utilize o seguinte pedido:
+- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Terá supor o que reiniciar. Pode optar por limpar os escrows (para reiniciar o contador de caução que se acumula em relação ao estado de quarentena), quarentena clara (para remover a aplicação da quarentena) ou marcas de água claras. Utilize o seguinte pedido:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`

@@ -4,13 +4,13 @@ description: Saiba como tornar a conectividade da base de dados mais segura util
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: mvc, , cli-validate
-ms.openlocfilehash: c757167a3c68c4e9ef55bef057479466833a6287
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
-ms.translationtype: HT
+ms.custom: mvc, cli-validate
+ms.openlocfilehash: b57ee458b857db5692f34e51f388ca8374a3c03b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500135"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524398"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 

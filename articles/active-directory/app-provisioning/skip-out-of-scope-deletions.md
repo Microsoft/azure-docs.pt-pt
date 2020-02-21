@@ -7,7 +7,7 @@ documentationcenter: na
 manager: daveba
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b1261e641afe1be1b298b4b19198782bf57eaa1
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: a1668c022a0f067a381ba09b397c7d38c99ad074
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066164"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522454"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Sem a eliminação das contas de utilizador que ficam fora de âmbito
 

@@ -17,12 +17,12 @@ ms.date: 01/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8a847afa2253223ebe9450d350cd18f5f659e0e3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686a9681394a2d23dafbc03cb533d80ca0f8723b
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159782"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484473"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0
 
@@ -142,7 +142,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
-&client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
+&client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps. This secret needs to be URL-Encoded.
 ```
 
 > [!TIP]
@@ -156,7 +156,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`      | Necessário   | Uma lista de âmbitos separados pelo espaço. Os âmbitos solicitados nesta perna devem ser equivalentes ou a um subconjunto dos âmbitos solicitados na primeira perna. Os âmbitos devem ser todos de um único recurso, juntamente com os âmbitos oIDC (`profile`, `openid`, `email`). Para obter uma explicação mais detalhada dos âmbitos, consulte [permissões, consentimento e âmbitos.](v2-permissions-and-consent.md) |
 | `code`          | Necessário  | O authorization_code que adquiriu na primeira etapa do fluxo. |
 | `redirect_uri`  | Necessário  | O mesmo valor redirect_uri que foi usado para adquirir o authorization_code. |
-| `client_secret` | necessário para aplicações web | O segredo de aplicação que criou no portal de registo de aplicações para a sua aplicação. Não deve usar o segredo da aplicação numa aplicação nativa porque client_secrets não pode ser armazenado de forma fiável em dispositivos. É necessário para aplicações web e APIs web, que têm a capacidade de armazenar o client_secret de forma segura no lado do servidor.  O segredo do cliente deve ser codificado antes de ser enviado.  |
+| `client_secret` | necessário para aplicações web | O segredo de aplicação que criou no portal de registo de aplicações para a sua aplicação. Não deve usar o segredo da aplicação numa aplicação nativa porque client_secrets não pode ser armazenado de forma fiável em dispositivos. É necessário para aplicações web e APIs web, que têm a capacidade de armazenar o client_secret de forma segura no lado do servidor.  O segredo do cliente deve ser codificado antes de ser enviado. Para mais informações clique [aqui](https://tools.ietf.org/html/rfc3986#page-12). |
 | `code_verifier` | opcional  | O mesmo code_verifier que foi usado para obter o authorization_code. Necessário se o PKCE foi utilizado no pedido de concessão de código de autorização. Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Resposta bem sucedida
@@ -254,7 +254,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &grant_type=refresh_token
-&client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps
+&client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps. This secret needs to be URL-Encoded
 ```
 
 > [!TIP]
@@ -268,7 +268,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | Necessário    | Deve ser `refresh_token` para esta perna do fluxo do código de autorização. |
 | `scope`         | Necessário    | Uma lista de âmbitos separados pelo espaço. Os âmbitos solicitados nesta perna devem ser equivalentes ou a um subconjunto dos âmbitos solicitados na perna de pedido de authorization_code original. Se os âmbitos especificados neste pedido abrangerem vários servidores de recursos, então o ponto final da plataforma de identidade da Microsoft devolverá um símbolo para o recurso especificado no primeiro âmbito. Para obter uma explicação mais detalhada dos âmbitos, consulte [permissões, consentimento e âmbitos.](v2-permissions-and-consent.md) |
 | `refresh_token` | Necessário    | O refresh_token que adquiriu na segunda etapa do fluxo. |
-| `client_secret` | necessário para aplicações web | O segredo de aplicação que criou no portal de registo de aplicações para a sua aplicação. Não deve ser usado numa aplicação nativa, porque client_secrets não podem ser armazenados de forma fiável em dispositivos. É necessário para aplicações web e APIs web, que têm a capacidade de armazenar o client_secret de forma segura no lado do servidor. |
+| `client_secret` | necessário para aplicações web | O segredo de aplicação que criou no portal de registo de aplicações para a sua aplicação. Não deve ser usado numa aplicação nativa, porque client_secrets não podem ser armazenados de forma fiável em dispositivos. É necessário para aplicações web e APIs web, que têm a capacidade de armazenar o client_secret de forma segura no lado do servidor. Este segredo precisa de ser codificado por URL, para mais informações clique [aqui](https://tools.ietf.org/html/rfc3986#page-12). |
 
 #### <a name="successful-response"></a>Resposta bem sucedida
 

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a44cf9aa5b3287a01617be6439cd04b9a5caa73
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: HT
+ms.openlocfilehash: 4cb1a57c5b18f1da25e3843b55e86705d05f43c5
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484235"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522344"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
 
@@ -543,7 +543,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
     }
 }
 ```
-#### <a name="delete-user"></a>Eliminar utilizador
+#### <a name="delete-user"></a>Eliminar Utilizador
 
 ##### <a name="request-6"></a>Pedido
 
@@ -560,7 +560,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 * A atualização ao pedido do patch do grupo deve produzir um *HTTP 204 No Content* na resposta. Devolver um corpo com uma lista de todos os membros não é aconselhável.
 * Não é necessário apoiar a devolução de todos os membros do grupo.
 
-#### <a name="create-group"></a>Create Group
+#### <a name="create-group"></a>Criar Grupo
 
 ##### <a name="request-7"></a>Pedido
 
@@ -712,7 +712,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 *HTTP/1.1 204 Sem Conteúdo*
 
-#### <a name="delete-group"></a>Eliminar grupo
+#### <a name="delete-group"></a>Eliminar Grupo
 
 ##### <a name="request-13"></a>Pedido
 

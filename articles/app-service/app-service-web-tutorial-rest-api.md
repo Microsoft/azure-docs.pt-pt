@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: hospedar a API RESTful com CORS'
-description: Saiba como é que o Serviço de Aplicações do Azure o ajuda a tirar o máximo partido das suas APIs RESTful com suporte para CORS. O serviço de aplicativo pode hospedar os aplicativos Web front-end e as APIs de back-end.
+title: 'Tutorial: Anfitrião RESTful API com CORS'
+description: Saiba como é que o Serviço de Aplicações do Azure o ajuda a tirar o máximo partido das suas APIs RESTful com suporte para CORS. O Serviço de Aplicações pode alojar ambas as aplicações web front-end e APIs de back-end.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/21/2018
+ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2eca624fabf30eae86c480ede6c4bdffc2226bc
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28848d8b676bb5f4182a887f5efdd48c6221041a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671128"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500052"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
@@ -81,7 +81,7 @@ Neste passo, vai implementar a aplicação .NET Core ligada à Base de Dados SQL
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
@@ -123,7 +123,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-app"></a>Navegue até o aplicativo do Azure
+### <a name="browse-to-the-azure-app"></a>Navegue na app Azure
 
 Navegue para `http://<app_name>.azurewebsites.net/swagger` num browser experimente a IU do Swagger.
 
@@ -149,7 +149,7 @@ Na janela de terminal local, execute novamente a aplicação de exemplo.
 dotnet run
 ```
 
-Navegue para a aplicação de browser em `http://localhost:5000`. Abra a janela ferramentas de desenvolvedor em seu navegador (`Ctrl`+`Shift`+`i` no Chrome para Windows) e inspecione a guia **console** . Agora, você verá a mensagem de erro `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Navegue para a aplicação de browser em `http://localhost:5000`. Abra a janela de ferramentas de desenvolvimento no seu navegador (`Ctrl`+`Shift`+`i` no Chrome para Windows) e inspecione o separador **Consola.** Deve agora ver a mensagem de erro, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
 ![Erro CORS no cliente de browser](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
@@ -168,7 +168,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 Pode definir mais de um URL do cliente em `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Também pode ativar todos os URLs do cliente com `"['*']"`.
 
 > [!NOTE]
-> Se seu aplicativo exigir que credenciais como cookies ou tokens de autenticação sejam enviadas, o navegador poderá exigir o cabeçalho `ACCESS-CONTROL-ALLOW-CREDENTIALS` na resposta. Para habilitar isso no serviço de aplicativo, defina `properties.cors.supportCredentials` como `true` na configuração do CORS. Isso não pode ser habilitado quando `allowedOrigins` inclui `'*'`.
+> Se a sua aplicação necessitar de credenciais como cookies ou fichas de autenticação para ser enviada, o navegador poderá exigir que o cabeçalho `ACCESS-CONTROL-ALLOW-CREDENTIALS` na resposta. Para o ativar no Serviço de Aplicações, detete `properties.cors.supportCredentials` `true` no seu config CORS. Isto não pode ser ativado quando `allowedOrigins` inclui `'*'`.
 
 ### <a name="test-cors-again"></a>Testar o CORS novamente
 
