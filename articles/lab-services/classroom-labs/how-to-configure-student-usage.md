@@ -1,6 +1,6 @@
 ---
-title: Definir configurações de uso em laboratórios de sala de aula do Azure Lab Services
-description: Saiba como configurar o número de usuários para o laboratório, obtê-los registrados com o laboratório, controlar o número de horas em que eles podem usar a VM e muito mais.
+title: Configure as definições de utilização em laboratórios de sala de aula de Serviços de Laboratório Azure
+description: Saiba configurar o número de utilizadores para o laboratório, registá-los no laboratório, controlar o número de horas que podem usar o VM, e muito mais.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,170 +11,173 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169215"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539240"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
-Este artigo descreve como adicionar usuários ao laboratório, obtê-los registrados com o laboratório, controlar o número de horas em que eles podem usar a VM e muito mais. 
+Este artigo descreve como adicionar utilizadores ao laboratório, registrá-los no laboratório, controlar o número de horas que podem usar o VM, e muito mais. 
 
 
-## <a name="add-users-to-the-lab"></a>Adicionar usuários ao laboratório
+## <a name="add-users-to-the-lab"></a>Adicione utilizadores ao laboratório
 
-1. Selecione **usuários** no menu à esquerda. Por padrão, a opção de **acesso restrito** está habilitada. Quando essa configuração estiver ativada, um usuário não poderá se registrar no laboratório, mesmo se o usuário tiver o link de registro, a menos que o usuário esteja na lista de usuários. Somente os usuários na lista podem se registrar no laboratório usando o link de registro que você envia. Neste procedimento, você adiciona usuários à lista. Como alternativa, você pode desativar o **acesso restrito**, que permite aos usuários se registrarem com o laboratório, desde que eles tenham o link de registro. 
-2. Selecione **Adicionar usuários** na barra de ferramentas e, em seguida, selecione **Adicionar por endereços de email**. 
+1. Selecione **Utilizadores** no menu esquerdo. Por predefinição, a opção de **acesso Restrict** está ativada. Quando esta definição está aberta, um utilizador não pode registar-se no laboratório mesmo que o utilizador tenha o link de registo, a menos que o utilizador esteja na lista de utilizadores. Apenas os utilizadores da lista podem registar-se no laboratório utilizando o link de registo que envia. Neste procedimento, adiciona os utilizadores à lista. Em alternativa, pode desligar o **acesso restrito,** o que permite aos utilizadores registarem-se no laboratório desde que tenham a ligação de registo. 
+2. Selecione **Adicionar utilizadores** na barra de ferramentas e, em seguida, selecione **Adicionar por endereços de e-mail**. 
 
-    ![Botão Adicionar usuários](../media/how-to-configure-student-usage/add-users-button.png)
-1. Na página **Adicionar usuários** , insira os endereços de email dos usuários em linhas separadas ou em uma única linha separada por ponto e vírgula. 
+    ![Adicione o botão dos utilizadores](../media/how-to-configure-student-usage/add-users-button.png)
+1. Na página **adicionar utilizadores,** introduza endereços de e-mail dos utilizadores em linhas separadas ou numa única linha separada por pontos evíocos. 
 
-    ![Adicionar endereços de email do usuário](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Selecione **Guardar**. Você vê os endereços de email dos usuários e seus status (registrados ou não) na lista. 
+    ![Adicionar endereços de e-mail do utilizador](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Selecione **Guardar**. Veja os endereços de e-mail dos utilizadores e os seus status (registados ou não) na lista. 
 
-    ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Lista de utilizadores](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
-    > Você verá os nomes dos usuários na lista depois que eles forem registrados no laboratório. O nome mostrado na lista é construído usando o primeiro e o último nome do usuário na Azure Active Directory. 
+    > Verá os nomes dos utilizadores na lista depois de estarem registados no laboratório. O nome mostrado na lista é construído utilizando os primeiros e últimos nomes do utilizador no Diretório Ativo Azure. 
 
-### <a name="add-users-by-uploading-a-csv-file"></a>Adicionar usuários carregando um arquivo CSV
-Você também pode adicionar usuários carregando um arquivo CSV com endereços de email de usuários.
+### <a name="add-users-by-uploading-a-csv-file"></a>Adicione os utilizadores fazendo o upload de um ficheiro CSV
+Também pode adicionar utilizadores fazendo o upload de um ficheiro CSV com endereços de e-mail dos utilizadores.
 
-1. Crie um arquivo CSV com endereços de email de usuários em uma coluna.
+1. Crie um ficheiro CSV com endereços de e-mail dos utilizadores numa coluna.
 
-    ![Arquivo CSV com usuários](../media/how-to-configure-student-usage/csv-file-with-users.png)
-2. Na página **usuários** do laboratório, selecione **Adicionar usuários** na barra de ferramentas e, em seguida, selecione **carregar CSV**.
+    ![Ficheiro CSV com utilizadores](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. Na página **utilizadores** do laboratório, selecione **Adicionar utilizadores** na barra de ferramentas e, em seguida, selecione **Upload CSV**.
 
-    ![Botão carregar CSV](../media/how-to-configure-student-usage/upload-csv-button.png)
-3. Selecione o arquivo CSV com endereços de email do usuário. Ao selecionar **abrir** depois de selecionar o arquivo CSV, você verá a janela **Adicionar usuários** a seguir. A lista de endereços de email é preenchida com endereços de email do arquivo CSV. 
+    ![Carregar botão CSV](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. Selecione o ficheiro CSV com endereços de e-mail do utilizador. Quando selecionar **O Open** depois de selecionar o ficheiro CSV, consulte a seguinte janela de adicionar **utilizadores.** A lista de endereços de e-mail está preenchida com endereços de e-mail do ficheiro CSV. 
 
-    ![Janela Adicionar usuários populada com endereços de email do arquivo CSV](../media/how-to-configure-student-usage/add-users-window.png)
-4. Selecione **salvar** na janela **Adicionar usuários** . 
-5. Confirme que você vê os usuários na lista de usuários. 
+    ![Adicione a janela dos utilizadores povoada com endereços de e-mail do ficheiro CSV](../media/how-to-configure-student-usage/add-users-window.png)
+4. Selecione **Guardar** na janela **adicionar utilizadores.** 
+5. Confirme que vê utilizadores na lista de utilizadores. 
 
-    ![Lista de usuários adicionados](../media/how-to-configure-student-usage/list-of-added-users.png)
+    ![Lista de utilizadores adicionados](../media/how-to-configure-student-usage/list-of-added-users.png)
 
-## <a name="send-invitations-to-users"></a>Enviar convites para usuários
-Para enviar o link de registro para os alunos, use um dos métodos a seguir. O primeiro método mostra como enviar emails para alunos com o link de registro e uma mensagem opcional. O segundo método mostra como obter o link de registro que você pode compartilhar com outras pessoas como desejar. 
+## <a name="send-invitations-to-users"></a>Enviar convites aos utilizadores
+Para enviar o link de inscrição para os alunos, utilize um dos seguintes métodos. O primeiro método mostra como enviar e-mails aos alunos com o link de inscrição e uma mensagem opcional. O segundo método mostra-lhe como obter o link de registo que pode partilhar com os outros da forma que quiser. 
 
-Se o **acesso restrito** estiver habilitado para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Por predefinição, esta opção encontra-se ativada. 
+Se o **acesso Restrito** estiver ativado para o laboratório, apenas os utilizadores na lista de utilizadores podem utilizar o link de registo para se registarem no laboratório. Esta opção é ativada por defeito. 
 
-### <a name="invite-all-users"></a>Convidar todos os usuários
-1. Alterne para a exibição **usuários** se você ainda não estiver na página e selecione **convidar tudo** na barra de ferramentas. 
+### <a name="invite-all-users"></a>Convide todos os utilizadores
+1. Mude para a vista **utilizadores** se ainda não estiver na página e selecione **Convidar tudo** na barra de ferramentas. 
 
-    ![Selecionar alunos](../media/tutorial-setup-classroom-lab/invite-all-button.png)
+    ![Selecione alunos](../media/tutorial-setup-classroom-lab/invite-all-button.png)
 
-1. Na página **Enviar convite por email** , insira uma mensagem opcional e, em seguida, selecione **Enviar**. O email inclui automaticamente o link de registro. Você pode obter esse link de registro selecionando **... (reticências)** na barra de ferramentas e no **link de registro**. 
+1. No convite Enviar por página de **e-mail,** introduza uma mensagem opcional e, em seguida, selecione **Enviar**. O e-mail inclui automaticamente o link de registo. Pode obter este link de registo **selecionando... (elipse)** na barra de ferramentas e **no link de registo.** 
 
-    ![Enviar link de registro por email](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Você verá o status de **convite** na lista de **usuários** . O status deve ser alterado para **enviando** e **enviado em \<data >** . 
+    ![Enviar link de registo por e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Vê o estado do **convite** na lista de **Utilizadores.** O estado deve alterar-se para **Envio** e, em seguida, para **Enviado em \<data>** 
 
-    Para obter mais informações sobre como adicionar alunos a uma classe e gerenciar seu uso do laboratório, consulte [como configurar o uso do aluno](how-to-configure-student-usage.md).
+    Para obter mais informações sobre a adição de alunos a uma aula e a gestão do seu uso do laboratório, consulte [como configurar o uso](how-to-configure-student-usage.md)do aluno.
 
-### <a name="invite-selected-users"></a>Convidar usuários selecionados
+### <a name="invite-selected-users"></a>Convidar utilizadores selecionados
 
-1. Selecione um usuário ou vários usuários na lista. 
-2. Em seguida, selecione o ícone de **envelope** que você vê na linha selecionada (ou) selecione **convidar** na barra de ferramentas. 
+1. Selecione um utilizador ou vários utilizadores na lista. 
+2. Em seguida, selecione o ícone do **envelope** que vê na linha selecionada (ou) selecione **Convidar** na barra de ferramentas. 
 
-    ![Convidar usuários selecionados](../media/how-to-configure-student-usage/invite-selected-users.png)
-3. Na janela **Enviar convite por email** , insira uma **mensagem**opcional e, em seguida, selecione **Enviar**. 
+    ![Convidar utilizadores selecionados](../media/how-to-configure-student-usage/invite-selected-users.png)
+3. No convite Enviar por janela de **e-mail,** introduza uma **mensagem**opcional, e, em seguida, selecione **Enviar**. 
 
-    ![Enviar email para os usuários selecionados](../media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
+    ![Enviar e-mail para utilizadores selecionados](../media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
 
-    Você verá o status dessa operação na coluna **convite** da lista de **usuários** . O email de convite inclui o link de registro que os usuários podem usar para se registrar no laboratório.
+    Vê o estado desta operação na coluna **Convite** da lista **de Utilizadores.** O e-mail de convite inclui o link de registo que os utilizadores podem usar para se registarem no laboratório.
 
-1. Alterne para a exibição de **usuários** se você ainda não estiver na página. 
+1. Mude para a vista **dos Utilizadores** se ainda não estiver na página. 
 
-## <a name="get-registration-link"></a>Obter link de registro
-Você também pode obter o link de registro no portal e enviá-lo usando seu próprio aplicativo cliente de email. 
+## <a name="get-registration-link"></a>Obter link de registo
+Também pode obter o link de registo do portal e enviá-lo usando a sua própria aplicação de cliente de e-mail. 
 
-1. Alterne para a exibição **usuários** selecionando **usuários** no menu à esquerda. 
-2. Selecionar **... (reticências)** na barra de ferramentas e selecione **link de registro**.
+1. Mude para a vista **Utilizadores** selecionando **utilizadores** no menu esquerdo. 
+2. Selecione **... (elipse)** na barra de ferramentas e, em seguida, selecione o **link de registo**.
 
     ![Ligação de registo do aluno](../media/how-to-configure-student-usage/registration-link-button.png)
-1. Na caixa de diálogo **registro de usuário** , selecione o botão **copiar** . A ligação é copiada para a área de transferência. Cole-a num editor de e-mail e envie um e-mail para o aluno. 
+1. Na caixa de diálogo de **registo do Utilizador,** selecione o botão **Copiar.** A ligação é copiada para a área de transferência. Cole-a num editor de e-mail e envie um e-mail para o aluno. 
 
     ![Ligação de registo do aluno](../media/how-to-configure-student-usage/registration-link.png)
-2. Na caixa de diálogo **registro de usuário** , selecione **concluído**. 
-4. Envie o **link de registro** para um aluno para que o aluno possa se registrar para a classe. 
+2. Na caixa de diálogo de **registo do Utilizador,** selecione **Done**. 
+4. Envie o link de **inscrição** a um aluno para que o aluno possa inscrever-se para a aula. 
 
-## <a name="view-users-registered-with-the-lab"></a>Ver utilizadores registados no laboratório
+## <a name="view-registered-users"></a>Ver utilizadores registados
 
-Selecione **usuários** no menu à esquerda para ver a lista de usuários registrados no laboratório. 
+1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). 
+2. Selecione **Iniciar sessão** e introduza as suas credenciais. O Azure Lab Services suporta contas organizacionais e contas Microsoft.
+3. Na página **Os meus laboratórios**, selecione o laboratório cuja utilização quer acompanhar. 
+4. Selecione **Utilizadores** no menu esquerdo ou na telha **dos Utilizadores.** Verá os alunos que se registaram no laboratório.  
 
-![Lista de usuários registrados com o laboratório](../media/how-to-configure-student-usage/students-registered.png)
+    ![Utilizadores registados](../media/tutorial-track-usage/registered-users.png)
 
-## <a name="set-quotas-for-users"></a>Definir cotas para usuários
-Você pode definir cotas por usuário usando as seguintes etapas: 
+## <a name="set-quotas-for-users"></a>Definir quotas para utilizadores
+Pode definir quotas por utilizador utilizando os seguintes passos: 
 
-1. Selecione **usuários** no menu à esquerda se a página ainda não estiver ativa. 
-2. Selecione a **cota por usuário: \<número > horas** na barra de ferramentas. 
-3. Na página **cota por usuário** , especifique o número de horas que você deseja dar a cada usuário (aluno) fora da hora da classe agendada e, em seguida, selecione **salvar**.
+1. Selecione **Utilizadores** no menu esquerdo se a página ainda não estiver ativa. 
+2. Selecione **Quota por utilizador: \<número> horas** na barra de ferramentas. 
+3. Na página **quota por utilizador,** especifique o número de horas que pretende dar a cada utilizador (aluno) fora da hora de aula programada e, em seguida, selecione **Guardar**.
 
-    ![Cota por usuário](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. Você verá os valores alterados na barra de ferramentas agora: **cota por usuário: \<número de horas >** . 
+    ![Quota por utilizador](../media/how-to-configure-student-usage/quota-per-user.png)    
+5. Vê agora os valores alterados na barra de ferramentas: **Quota por utilizador: \<número de horas>** e também na lista de utilizadores.
 
-    ![Cota por usuário — depois](../media/how-to-configure-student-usage/quot-per-user-after.png)
+    ![Quota por utilizador — depois](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
     > [!IMPORTANT]
-    > O [tempo de execução agendado das VMs](how-to-create-schedules.md) não conta a cota alocada para um usuário. A cota é para o tempo fora das horas de agendamento que um aluno gasta nas VMs. 
+    > O [tempo de funcionamento programado dos VMs](how-to-create-schedules.md) não conta com a quota atribuída a um utilizador. A quota é para o tempo fora do horário horário que um aluno gasta em VMs. 
 
-## <a name="set-additional-quota-for-a-specific-user"></a>Definir cota adicional para um usuário específico
-Você pode especificar uma cota adicional para um usuário. Essa cota é além do conjunto de cotas comum para todos os usuários na seção anterior. Por exemplo, se você (como instrutor) definir a cota para todos os usuários como 10 horas e definir uma cota adicional de 5 horas para usuários específicos, os usuários receberão 15 (10 + 5) horas de cota. Se você alterar a cota comum posteriormente para, digamos, 15, o usuário receberá 20 (15 + 5) horas de cota. Lembre-se de que essa cota geral está fora do horário agendado. O tempo que o aluno gasta em uma VM de laboratório durante o horário da agenda não conta contra essa cota. 
+## <a name="set-additional-quota-for-a-specific-user"></a>Definir quota adicional para um utilizador específico
+Pode especificar quota adicional para um utilizador. Esta quota é para além do conjunto de quotas comuns para todos os utilizadores da secção anterior. Por exemplo, se (como instrutor) definir a quota para todos os utilizadores para 10 horas e definir quota adicional de 5 horas para um utilizador específico, que os utilizadores recebem 15 (10 + 5) horas de quota. Se alterar a quota comum mais tarde para, digamos, 15, então o utilizador recebe 20 (15 + 5) horas de quota. Lembre-se que esta quota global está fora do horário programado. O tempo que o aluno passa num VM de laboratório durante o horário não conta com esta quota. 
 
-Para o fazer, siga estes passos:
+Para isso, siga estes passos:
 
-1. Selecione um usuário (aluno) na lista de usuários na página **usuários** .
-2. Em seguida, selecione **ajustar cota** na barra de ferramentas. 
+1. Selecione um utilizador (estudante) na lista de utilizadores na página **utilizadores.**
+2. Em seguida, selecione Ajustar a **quota** a partir da barra de ferramentas. 
 
-    ![Botão ajustar cota](../media/how-to-configure-student-usage/adjust-quota-button.png)
-3. Insira o número de **horas adicionais** para o usuário ou usuários selecionados e, em seguida, selecione **aplicar**. 
+    ![Ajuste o botão de quota](../media/how-to-configure-student-usage/adjust-quota-button.png)
+3. Insira o número de **horas adicionais** para o utilizador ou utilizadores selecionados e, em seguida, selecione **Aplicar**. 
 
-    ![Cota adicional para um usuário](../media/how-to-configure-student-usage/additional-quota.png)
-4. Você verá o uso atualizado para o usuário na coluna **uso** . 
+    ![Quota adicional para um utilizador](../media/how-to-configure-student-usage/additional-quota.png)
+4. Consulte a utilização atualizada para o utilizador na coluna **Utilização.** 
 
-    ![Novo uso para o usuário](../media/how-to-configure-student-usage/new-usage-hours.png)
+    ![Nova utilização para o utilizador](../media/how-to-configure-student-usage/new-usage-hours.png)
 
-## <a name="student-accounts"></a>Contas de alunos
-Para adicionar alunos a um laboratório de sala de aula, você usa suas contas de email. Os seguintes tipos de contas de email podem ser usados:
+## <a name="student-accounts"></a>Contas de estudantes
+Para adicionar alunos a um laboratório de sala de aula, usa as suas contas de e-mail. Podem ser utilizados os seguintes tipos de contas de e-mail:
 
-- Uma conta de email de aluno fornecida pelo AAD (Office 365 Azure Active Directory da sua universidade). 
-- Uma conta de email da Microsoft, como `@outlook.com`, `@hotmail.com`, `@msn.com`ou `@live.com`.
-- Uma conta de email que não seja da Microsoft, como uma fornecida pelo Yahoo ou pelo Google. No entanto, esses tipos de contas devem ser vinculados a um conta Microsoft.
-- Uma conta do GitHub. Essa conta deve ser vinculada a um conta Microsoft.
+- Uma conta de e-mail estudantil fornecida pelo Office 365 Azure Ative Directory (AAD) da sua universidade. 
+- Uma conta de e-mail da Microsoft, como `@outlook.com`, `@hotmail.com`, `@msn.com`ou `@live.com`.
+- Uma conta de e-mail não-Microsoft, como a fornecida pela Yahoo ou pela Google. No entanto, este tipo de contas deve estar ligada a uma conta Microsoft.
+- Uma conta do GitHub. Esta conta deve estar ligada a uma conta Microsoft.
 
-### <a name="using-a-non-microsoft-email-account"></a>Usando uma conta de email que não seja da Microsoft
-Os alunos podem usar contas de email que não são da Microsoft para se registrar e entrar em um laboratório de sala de aula.  No entanto, o registro requer que os alunos criem primeiro um conta Microsoft que esteja vinculado ao seu endereço de email que não seja da Microsoft.
+### <a name="using-a-non-microsoft-email-account"></a>Usando uma conta de e-mail não Microsoft
+Os alunos podem usar contas de e-mail não microsoft para se registarem e iniciarem sessão num laboratório de sala de aula.  No entanto, o registo requer que os estudantes criem primeiro uma conta Microsoft que esteja ligada ao seu endereço de e-mail não Microsoft.
 
-Muitos alunos podem já ter uma conta Microsoft vinculada a seus endereços de email que não são da Microsoft. Por exemplo, os alunos já têm um conta Microsoft se usaram seu endereço de email com outros produtos ou serviços da Microsoft, como Office, Skype, OneDrive ou Windows.  
+Muitos estudantes podem já ter uma conta Microsoft ligada aos seus endereços de e-mail não Microsoft. Por exemplo, os estudantes já têm uma conta Microsoft se usaram o seu endereço de e-mail com outros produtos ou serviços da Microsoft, tais como Office, Skype, OneDrive ou Windows.  
 
-Quando um aluno clica na URL de registro para entrar em uma sala de aula, ele é solicitado a fornecer seu endereço de email e senha. Se o aluno tentar entrar com um não conta Microsoft que não tenha uma conta Microsoft vinculada, o aluno receberá a seguinte mensagem de erro: 
+Quando um aluno clica no URL de inscrição para iniciar sessão numa sala de aula, é solicitado para o seu endereço de e-mail e senha. Se o aluno tentar iniciar sessão com uma conta não Microsoft que não tenha uma conta Microsoft ligada, o aluno receberá a seguinte mensagem de erro: 
 
 ![Mensagem de erro](../media/how-to-configure-student-usage/cant-find-account.png)
 
-Para se inscrever em um conta Microsoft, os alunos devem ir para [http://signup.live.com](http://signup.live.com).  
+Para se inscreverem numa conta da Microsoft, os alunos devem ir para [http://signup.live.com](http://signup.live.com).  
 
 > [!IMPORTANT]
-> Quando os alunos entram em um laboratório de sala de aula, eles não recebem a opção de criar um conta Microsoft. Portanto, recomendamos que você inclua esse link de inscrição no email de registro de laboratório da sala de aula enviado aos alunos que estão usando contas que não são da Microsoft.
+> Quando os alunos se inscrevem num laboratório de sala de aula, não lhes é dada a opção de criar uma conta Microsoft. Por isso, recomendamos que inclua este link de inscrição no e-mail de inscrição do laboratório de sala de aula que envia a estudantes que estão a usar contas não Microsoft.
 
-### <a name="using-a-github-account"></a>Usando uma conta do GitHub
-Os alunos também podem usar uma conta do GitHub existente para registrar e entrar em um laboratório de sala de aula. Se o aluno já tiver um conta Microsoft vinculado à sua conta do GitHub, ele poderá entrar e fornecer sua senha, conforme mostrado na seção anterior. Se eles ainda não tiverem vinculado sua conta do GitHub a um conta Microsoft, eles deverão selecionar **as opções de entrada**:
+### <a name="using-a-github-account"></a>Usando uma conta GitHub
+Os alunos também podem usar uma conta GitHub existente para se inscrever e iniciar sessão num laboratório de sala de aula. Se o aluno já tiver uma conta Microsoft ligada à sua conta GitHub, então pode iniciar sessão e fornecer a sua palavra-passe, como mostrado na secção anterior. Se ainda não ligaram a sua conta GitHub a uma conta Microsoft, devem selecionar **opções de Iniciar sessão:**
 
-![Link de opções de entrada](../media/how-to-configure-student-usage/signin-options.png)
+![Ligação de opções de insessão](../media/how-to-configure-student-usage/signin-options.png)
 
-Na página **Opções de entrada** , selecione **entrar com o GitHub**.
+Na página de **opções de iniciar** sessão, selecione **Iniciar sessão com o GitHub**.
 
-![Entrar com o link do GitHub](../media/how-to-configure-student-usage/signin-github.png)
+![Inscreva-se com link GitHub](../media/how-to-configure-student-usage/signin-github.png)
 
-Por fim, eles são solicitados a criar um conta Microsoft que esteja vinculado à sua conta do GitHub. Ele ocorre automaticamente quando o aluno seleciona **Avançar**.  O aluno é imediatamente conectado e conectado ao laboratório da sala de aula.
+Finalmente, são solicitados a criar uma conta Microsoft que esteja ligada à sua conta GitHub. Acontece automaticamente quando o aluno seleciona **Next**.  O aluno é imediatamente assinado e ligado ao laboratório da sala de aula.
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
-- [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)
-- [Como proprietário de um laboratório, criar e gerenciar laboratórios](how-to-manage-classroom-labs.md)
-- [Como proprietário do laboratório, configurar e publicar modelos](how-to-create-manage-template.md)
-- [Como usuário do laboratório, acesse laboratórios da sala de aula](how-to-use-classroom-lab.md)
+- [Como administrador, crie e gere as contas de laboratório](how-to-manage-lab-accounts.md)
+- [Como dono de laboratório, crie e gere a gestão de laboratórios](how-to-manage-classroom-labs.md)
+- [Como proprietário de laboratório, configura risa e publica modelos](how-to-create-manage-template.md)
+- [Como utilizador de laboratório, aceda a laboratórios de sala de aula](how-to-use-classroom-lab.md)

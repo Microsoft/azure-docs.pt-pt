@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente uma aplicação Java no Serviço Azure Kubernetes
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 47948b0ce4ac0cb9a78552891e42d7634335839e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: cb79b60cdc1b9e417b402ffe8c29151f7790a390
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121756"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538606"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Crie um espaço Kubernetes dev: Visual Studio Code e Java com Espaços Azure Dev
 
@@ -103,7 +103,7 @@ Neste momento, tem uma aplicação Web básica que pode ser executada localmente
 1. Execute este comando (certifique-se de que **webfrontend** é a sua pasta atual):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 O comando `azds prep` da CLI do Azure gera recursos do Docker e Kubernetes com as predefinições:

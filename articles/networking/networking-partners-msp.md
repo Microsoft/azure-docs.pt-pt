@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 38711c9f1cee07b04dad0ccfeff5694e61dd5b53
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ef9efcea1c06149e084dc261f5add7b408ae7b92
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484966"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539268"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros msp de Networking Azuring Azuring
 
@@ -50,7 +50,7 @@ Utilize os links nesta secção para obter mais informações sobre serviços ge
 |[Vigilante](https://vigilant.it/manage-cloud-service/)|[Verificação de saúde azure: avaliação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[Rota expressa: Implementação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Rio Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis Managed ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Gerido VWAN Powered by Fortinet;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview) [Vandis Gerido VWAN Powered by Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-As ofertas do Azure Marketplace, incluindo novos Serviços de Segurança Geridos e Serviços MEC geridos dos seguintes Parceiros DE MSP em Rede Azure estão no nosso roteiro: [Amdocs;](https://www.amdocs.com/) [CenturyLink;](https://www.centurylink.com/business/networking/cloud-connectivity.html)    [ALCANCE IX;](https://www.ixreach.com/services/sdn-cloud-connect/)  [InterCloud;](https://intercloud.com/partners/microsoft-azure/)  [KINX;](https://www.kinx.net/service/cloud/?lang=en) [Megaport;](https://www.megaport.com/services/microsoft-expressroute/)  [OmniClouds;](https://omniclouds.com/services/)  [Sejong Telecom;](https://www.sejongtelecom.net/en/pages/service/cloud_ms)  [Tecnologia Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
+As ofertas do Azure Marketplace, incluindo novos Serviços de Segurança Geridos e Serviços MEC geridos dos seguintes Parceiros DE MSP em Rede Azure estão no nosso roteiro: [Amdocs;](https://www.amdocs.com/) [CenturyLink;](https://www.centurylink.com/business/networking/cloud-connectivity.html)    [ALCANCE IX;](https://www.ixreach.com/services/sdn-cloud-connect/)  [InterCloud;](https://intercloud.com/partners/microsoft-azure/)  [KINX;](https://www.kinx.net/service/cloud/?lang=en) [Megaport;](https://www.megaport.com/services/microsoft-expressroute/)  [OmniClouds;](https://omniclouds.com/services/)  [Sejong Telecom;](https://www.sejongtelecom.net/en/pages/service/cloud_ms)  [Tech Mahindra;](https://networkservices.techmahindra.com/pages/default.aspx) [Sem Fios Federado](https://www.federatedwireless.com/caas/)
 
 ## <a name="expressroute"></a>Parceiros ExpressRoute
 

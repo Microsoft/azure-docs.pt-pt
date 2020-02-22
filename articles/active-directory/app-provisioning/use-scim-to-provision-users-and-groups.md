@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb1a57c5b18f1da25e3843b55e86705d05f43c5
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d9ebeb0db14a42f090a629e379d88e00867bda65
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522344"
+ms.locfileid: "77538180"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
 
@@ -1448,12 +1448,13 @@ Se estiver a construir uma aplicação que será usada por mais de um inquilino,
 ### <a name="gallery-onboarding-checklist"></a>Lista de verificação onboarding de galeria
 Siga a lista de verificação abaixo para garantir que a sua aplicação está a bordo rapidamente e que os clientes têm uma experiência de implementação suave. A informação será recolhida quando embarcar na galeria. 
 > [!div class="checklist"]
-> * [Suporte SCIM 2.0](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (Obrigatório)
+> * Suporte um utilizador [SCIM 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) e ponto final do grupo (apenas um é necessário, mas ambos são recomendados)
 > * Apoio de pelo menos 25 pedidos por segundo por inquilino (Obrigatório)
-> * Apoiar a descoberta do esquema (Recomendado)
 > * Apoiar a concessão do código de autorização da OAuth ou um token de longa duração, como descrito abaixo (Exigido)
-> * Estabeleça um ponto de contacto de engenharia e suporte para apoiar o post gallery do cliente (Obrigatório)
+> * Estabeleça um ponto de contacto de engenharia e suporte para apoiar clientes post gallery onboarding (Obrigatório)
+> * Suporte a atualizar vários membros do grupo com um único PATCH (Recomendado) 
 > * Documente publicamente o seu ponto final do SCIM (Recomendado) 
+> * [Apoiar a descoberta do esquema](https://tools.ietf.org/html/rfc7643#section-6) (Recomendado)
 
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorização para provisionamento de conectores na galeria de aplicações

@@ -1,6 +1,6 @@
 ---
-title: Use o painel para um laboratório de sala de aula no Azure Lab Services | Microsoft Docs
-description: Saiba como usar o painel para um laboratório de sala de aula no Azure Lab Services.
+title: Use o dashboard para um laboratório de sala de aula em Serviços de Laboratório Azure  Microsoft Docs
+description: Aprenda a usar o dashboard para um laboratório de sala de aula em Serviços de Laboratório Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,62 +11,62 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: d1e34a493b747383ce479bcad638098b41e59d2b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 363e5705e9ccf4aa207ff7e5cafb615bc01bc7d3
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588190"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538945"
 ---
-# <a name="dashboard-for-classroom-labs"></a>Painel para laboratórios de sala de aula
-Este artigo descreve a exibição de painel de um laboratório de sala de aula no Azure Lab Services. 
+# <a name="dashboard-for-classroom-labs"></a>Painel de instrumentos para laboratórios de sala de aula
+Este artigo descreve a visão do painel de um laboratório de sala de aula em Azure Lab Services. 
 
 ![Dashboard](../media/use-dashboard/dashboard.png)
 
-## <a name="costs-and-billing-tile"></a>Bloco de custos e cobrança
-Este bloco fornece os seguintes detalhes de estimativa de custo:
+## <a name="costs-and-billing-tile"></a>Custos e azulejos de faturação
+Este azulejo fornece os seguintes detalhes da estimativa de custos:
 
 | Definição | Valor | 
 | ------- | ----- | 
-| Horas de cota | O número máximo de horas que um usuário pode usar a VM fora das horas agendadas. |
-| Horas agendadas | Horas que serão cobradas com base no conjunto de agendamento do laboratório. Esse valor só estará disponível se houver uma data de início definida em todos os eventos de agendamento. |
-| Horas/usuário | A soma das horas de cota e horas agendadas. |
-| Máximo de usuários | Número máximo de usuários no laboratório com base em todas as máquinas virtuais a serem reivindicadas. |
-| Horas x usuários | Horas/usuários multiplicado pelo número de usuários. |
-| Cota ajustada | A soma das horas de cota adicionadas a usuários específicos. |
-| Total de horas * $/hora | O custo por hora com base no tamanho da VM selecionado. Isso se baseia no preço pago conforme o uso normal. |
-| Custo estimado total | Este é o preço máximo para este laboratório com base nas configurações atuais. |
+| Horário de quota | O número máximo de horas que um utilizador pode utilizar o VM fora do horário programado. |
+| Horário programado | Horas que serão incorridas com base no horário definido no laboratório. Este valor só está disponível se houver um conjunto de/para data em todos os eventos de programação. |
+| Horas/utilizador | A soma das horas de quotas e horários programados. |
+| Utilizadores máximos | Número máximo de utilizadores no laboratório com base em todas as máquinas virtuais a serem reclamadas. |
+| Horas x utilizadores | Horas/utilizador multiplicados pelo número de utilizadores. |
+| Quota ajustada | A soma das horas de quota adicionadas a utilizadores específicos. |
+| Horas totais * $/hora | O custo por hora com base no tamanho vm selecionado. Isto baseia-se no pagamento regular à medida que vai ao preço. |
+| Custo total estimado | Este é o preço máximo para este laboratório com base nas definições atuais. |
 
-## <a name="template-tile"></a>Bloco de modelo
-Você verá as seguintes informações neste bloco:
+## <a name="template-tile"></a>Azulejo de modelo
+Você vê as seguintes informações sobre este azulejo:
 
 - A data em que o modelo foi criado 
 - A data em que o modelo foi publicado pela última vez 
 
-Ele também tem um link para navegar até a página de **modelo** , na qual você pode [gerenciar a VM de modelo](how-to-create-manage-template.md) para a classe. 
+Também tem um link para navegar para a página **Modelo** onde você pode [gerir o modelo VM](how-to-create-manage-template.md) para a classe. 
 
-## <a name="virtual-machine-pool-tile"></a>Bloco do pool da máquina virtual
+## <a name="virtual-machine-pool-tile"></a>Azulejo de piscina de máquina virtual
 
-Você verá as seguintes informações neste bloco:
+Você vê as seguintes informações sobre este azulejo:
 
-- Número de máquinas virtuais atribuídas a alunos (usuários)
+- Número de máquinas virtuais que são atribuídas a estudantes (utilizadores)
 - Número de máquinas virtuais que ainda não foram atribuídas aos alunos
 
-Ele também tem um link para navegar até a página do **pool de máquinas virtuais** , onde você pode [gerenciar o pool de máquinas virtuais](how-to-set-virtual-machine-passwords.md) no laboratório. 
+Também tem um link para navegar para a página de piscina de **máquinas virtuais** onde você pode [gerir a piscina de máquinas virtuais](how-to-set-virtual-machine-passwords.md) no laboratório. 
 
-## <a name="users-tile"></a>Bloco usuários
+## <a name="users-tile"></a>Azulejo sinuoso
 
-Você verá as seguintes informações neste bloco:
+Você vê as seguintes informações sobre este azulejo:
 
-- Número de usuários registrados na classe
-- Número de usuários que são adicionados ao laboratório, mas não registrados na classe 
+- Número de utilizadores registados na classe
+- Número de utilizadores que são adicionados ao laboratório mas não registados na classe 
 
-Ele também tem um link para navegar até a página **usuários** , onde você pode [gerenciar os usuários](how-to-configure-student-usage.md) do laboratório. 
+Também tem um link para navegar na página **utilizadores** onde pode [gerir os utilizadores](how-to-configure-student-usage.md) para o laboratório. 
 
-## <a name="schedules-tile"></a>Bloco de agendas
-Você verá os eventos agendados atuais para o laboratório no bloco. Ele também tem um link para navegar até a página **agenda** , na qual você pode [criar e gerenciar agendas](how-to-create-schedules.md). O bloco mostra detalhes de apenas dois eventos agendados e o número de eventos agendados restantes para o laboratório. 
+## <a name="schedules-tile"></a>Azulejos de horários
+Vê os eventos agendados para o laboratório no azulejo. Também tem um link para navegar para a página **Agendar** onde pode [criar e gerir horários.](how-to-create-schedules.md) O azulejo mostra-lhe detalhes para apenas dois eventos agendados e o número de eventos agendados restantes para o laboratório. 
 
 ![Eventos agendados](../media/use-dashboard/scheduled-events.png)
 

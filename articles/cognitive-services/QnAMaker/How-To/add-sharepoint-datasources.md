@@ -1,29 +1,26 @@
 ---
 title: Ficheiros SharePoint - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Adicione fontes de dados seguras do SharePoint à sua base de conhecimentos para enriquecer a base de conhecimentos com perguntas e respostas que possam ser protegidas com O Diretório Ativo.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: diberry
-ms.openlocfilehash: e28f144c33cbdf253603cb38ca56a4d304afd474
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/20/2020
+ms.openlocfilehash: ec77d3ac217991ff191d80249bc86805e7c8ba35
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843297"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544169"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicione uma fonte de dados segura do SharePoint à sua base de conhecimentos
 
-Adicione fontes de dados seguras do SharePoint à sua base de conhecimentos para enriquecer a base de conhecimentos com perguntas e respostas que possam ser protegidas com O Diretório Ativo.
+Adicione fontes de dados seguras baseadas na nuvem do SharePoint à sua base de conhecimentos para enriquecer a base de conhecimentos com perguntas e respostas que possam ser protegidas com O Diretório Ativo.
 
 Quando adicionar um documento SharePoint seguro à sua base de conhecimentos, como gestor do QnA Maker, deve solicitar permissão de Diretório Ativo para o Fabricante qnA. Uma vez que esta permissão é dada do gestor de Diretório Ativo ao QnA Maker para acesso ao SharePoint, não precisa de ser dada novamente. Cada adição de documento subsequente à base de conhecimentos não necessitará de autorização se estiver no mesmo recurso SharePoint.
 
 Se o gestor de base de conhecimento do QnA Maker não for o gestor de Diretório ativo, terá de comunicar com o gestor de Directórioativo Ativo para concluir este processo.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+O QnA Maker usa o Microsoft Graph para obter permissões. Se o seu SharePoint estiver no local, não poderá extrair do SharePoint porque o Microsoft Graph não será capaz de determinar permissões.
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Adicione tipos de ficheiros suportados à base de conhecimentos
 

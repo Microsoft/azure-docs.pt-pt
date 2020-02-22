@@ -1,25 +1,25 @@
 ---
-title: Como usar um repositório Helm privado no Azure Dev Spaces
+title: Como usar um repositório privado Helm em Espaços Azure Dev
 services: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
 ms.date: 08/22/2019
 ms.topic: conceptual
-description: Use um repositório Helm privado em um espaço de desenvolvimento do Azure.
-keywords: Docker, kubernetes, Azure, AKS, serviço de contêiner do Azure, contêineres, Helm
+description: Use um repositório de Helm privado num espaço Azure Dev.
+keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contentores Azure, contentores, Helm
 manager: gwallace
-ms.openlocfilehash: b1579adc00540a429170027b66c5d3e508bcb5d4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6036184c43242f2ec2279438950b26dfb53e9bb4
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718741"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538674"
 ---
-# <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Usar um repositório Helm privado no Azure Dev Spaces
+# <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Use um repositório de Helm privado em Espaços Azure Dev
 
-[Helm][helm] é gerente de pacotes da Kuberentes. Helm usa um formato [gráfico][helm-chart] para embalar dependências. Os gráficos Helm são armazenados em um repositório, que pode ser público ou privado. Azure Dev Spaces recupera apenas gráficos Helm de repositórios públicos ao executar o aplicativo. Nos casos em que o repositório Helm é privado ou Azure Dev Spaces não pode acessá-lo, você pode adicionar um gráfico desse repositório diretamente ao seu aplicativo. Adicionar o gráfico diretamente permite que Azure Dev Spaces execute seu aplicativo sem precisar acessar o repositório Helm privado.
+[Helm][helm] é gerente de pacotes da Kuberentes. Helm usa um formato [gráfico][helm-chart] para embalar dependências. Os gráficos de leme são armazenados num repositório, que pode ser público ou privado. A Azure Dev Spaces só recupera gráficos helm de repositórios públicos ao executar a sua aplicação. Nos casos em que o repositório Helm é privado ou o Azure Dev Spaces não pode aceder-lhe, pode adicionar um gráfico desse repositório diretamente à sua aplicação. A adição do gráfico permite que a Azure Dev Spaces execute a sua aplicação sem ter acesso ao repositório privado Helm.
 
-## <a name="add-the-private-helm-repository-to-your-local-machine"></a>Adicionar o repositório Helm privado ao computador local
+## <a name="add-the-private-helm-repository-to-your-local-machine"></a>Adicione o repositório privado Helm à sua máquina local
 
 Utilize a atualização de [repo de helm e][helm-repo-add] helm [repo][helm-repo-update] para aceder ao repositório helm privado da sua máquina local.
 
@@ -28,16 +28,16 @@ helm repo add privateRepoName http://example.com/helm/v1/repo --username user --
 helm repo update
 ```
 
-## <a name="add-the-chart-to-your-application"></a>Adicionar o gráfico ao seu aplicativo
+## <a name="add-the-chart-to-your-application"></a>Adicione o gráfico à sua aplicação
 
 Navegue para o diretório do seu projeto e gere`azds prep`.
 
 ```cmd
-azds prep --public
+azds prep --enable-ingress
 ```
 
 > [!TIP]
-> O comando `prep` tenta gerar [um dockerfile e gráfico helm](../how-dev-spaces-works.md#prepare-your-code) para o seu projeto. O Azure Dev Spaces usa esses arquivos para compilar e executar seu código, mas você pode modificar esses arquivos se quiser alterar a forma como o projeto é compilado e executado.
+> O comando `prep` tenta gerar [um dockerfile e gráfico helm](../how-dev-spaces-works.md#prepare-your-code) para o seu projeto. A Azure Dev Spaces utiliza estes ficheiros para construir e executar o seu código, mas pode modificar estes ficheiros se quiser alterar a forma como o projeto é construído e executado.
 
 Crie um ficheiro [requisitos.yaml][helm-requirements] com a sua ficha no diretório de gráficos da sua aplicação. Por exemplo, se a sua aplicação for nomeada *app1,* criará *gráficos/app1/requisitos.yaml*.
 
@@ -56,7 +56,7 @@ helm dependency update
 
 Verifique se um subdiretório de *gráficos* com um ficheiro *TGZ* foi adicionado ao diretório de gráficos da sua aplicação. Por exemplo, *gráficos/app1/charts/mychart-0.1.0.tgz*.
 
-O gráfico do seu repositório Helm privado foi baixado e adicionado ao seu projeto. Remova os *requisitos.yaml* ficheiro para que a Dev Spaces não tente atualizar esta dependência.
+A ficha do seu repositório privado Helm foi descarregada e adicionada ao seu projeto. Remova os *requisitos.yaml* ficheiro para que a Dev Spaces não tente atualizar esta dependência.
 
 ## <a name="run-your-application"></a>Executar a aplicação
 
@@ -75,7 +75,7 @@ Service 'app1' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [Helm e como funciona.][helm]
 

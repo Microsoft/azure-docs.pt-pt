@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e48388d4e15923c1f3e66321132197670b30c6b9
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522565"
+ms.locfileid: "77544271"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Fornecimento de aplicações baseado em atributos com filtros de deteção
 O objetivo deste artigo é explicar como usar filtros de deteção para definir regras baseadas em atributos que determinam quais os utilizadores que são provisionados a uma aplicação.
@@ -98,10 +98,12 @@ Os filtros de deteção são configurados como parte dos mapeamentos de atributo
    i. **Greater_Than.** A cláusula devolve "verdadeiro" se o atributo avaliado for superior ao valor. O valor especificado no filtro de deteção deve ser um inteiro e o atributo no utilizador deve ser um inteiro [0,1,2,...]. 
    
    j. **Greater_Than_OR_EQUALS.** A cláusula devolve "verdadeiro" se o atributo avaliado for maior ou igual ao valor. O valor especificado no filtro de deteção deve ser um inteiro e o atributo no utilizador deve ser um inteiro [0,1,2,...]. 
+   
+   k. **Inclui.** A cláusula devolve "verdadeiro" se o atributo avaliado contiver o valor de cadeia (sensível ao caso) descrito [aqui](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
-> Os filtros Inclui e IsMemberOf não são suportados. Em breve serão removidos da UI.
+> O filtro IsMemberOf não é suportado atualmente.
 
 9. Opcionalmente, repita os passos 7-8 para adicionar mais cláusulas de deteção.
 

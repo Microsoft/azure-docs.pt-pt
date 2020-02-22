@@ -1,27 +1,27 @@
 ---
-title: Análise de SQL do Azure solução no Azure Monitor | Microsoft Docs
+title: Solução Azure SQL Analytics no Monitor Azure [ Monitor Azul] Microsoft Docs
 description: Solução de análise de SQL do Azure ajuda-o a gerir as suas bases de dados SQL do Azure
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 12/04/2019
+ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: b54783f29de731613a5f3c9c5d9d3b805b2d0115
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8b1eeb94c035df7e5e5e1bb4668b7086eab49b45
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819522"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544289"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
 ![Símbolo de análise de SQL do Azure](./media/azure-sql/azure-sql-symbol.png)
 
-O Análise de SQL do Azure é uma solução de monitoramento de nuvem avançada para monitorar o desempenho de bancos de dados SQL do Azure, pools elásticos e instâncias gerenciadas em escala e entre várias assinaturas por meio de um único painel de vidro. Recolhe e visualiza métricas de desempenho importantes da Base de Dados SQL do Azure com inteligência integrada para resolução de problemas de desempenho.
+O Azure SQL Analytics é uma solução avançada de monitorização da nuvem para monitorizar o desempenho de todas as suas bases de dados Azure SQL em escala e em várias subscrições numa única vista. A Azure SQL Analytics recolhe e visualiza as principais métricas de desempenho com inteligência incorporada para resolução de problemas de desempenho.
 
-Ao utilizar as métricas que recolhe com a solução, pode criar regras personalizadas de monitorização e alertas. A solução ajuda-o a identificar problemas em cada camada de sua pilha de aplicativos. Ele usa as métricas de diagnóstico do Azure junto com Azure Monitor exibições para apresentar dados sobre todos os seus bancos de dado SQL do Azure, pools elásticos e bancos de dados em instâncias gerenciadas em um único espaço de trabalho de Log Analytics. Azure Monitor ajuda a coletar, correlacionar e Visualizar dados estruturados e não estruturados.
+Ao utilizar estas métricas recolhidas, pode criar regras e alertas de monitorização personalizados. O Azure SQL Analytics ajuda-o a identificar problemas em cada camada da sua pilha de aplicações. Utiliza métricas de Diagnóstico Azure juntamente com as vistas do Azure Monitor para apresentar dados sobre todas as suas bases de dados Azure SQL num único espaço de trabalho do Log Analytics. O Azure Monitor ajuda-o a recolher, correlacionar e visualizar dados estruturados e não estruturados.
 
 Para obter uma descrição geral prática sobre como utilizar a solução de análise de SQL do Azure e para cenários de uso típico, veja o vídeo incorporado:
 
@@ -30,24 +30,24 @@ Para obter uma descrição geral prática sobre como utilizar a solução de an�
 
 ## <a name="connected-sources"></a>Origens ligadas
 
-Análise de SQL do Azure é uma cloud apenas a monitorização de solução suporte de transmissão em fluxo de telemetria de diagnóstico para bases de dados SQL do Azure: bases de dados de instância únicas, agrupados e geridos. Como a solução não usa agentes para se conectar ao Azure Monitor, a solução não oferece suporte ao monitoramento de SQL Server hospedados localmente ou em VMs, consulte a tabela de compatibilidade abaixo.
+O Azure SQL Analytics é uma solução de monitorização apenas em nuvem que suporta o streaming de telemetria de diagnósticos para todas as suas bases de dados Azure SQL. Uma vez que o Azure SQL Analytics não utiliza agentes para se ligar ao Monitor Azure, não suporta a monitorização do SQL Server hospedado no local ou em máquinas virtuais.
 
-| Origem Ligada | Suportadas | Descrição |
+| Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
-| [Configurações de diagnóstico](../platform/diagnostic-settings.md) | **Sim** | Os dados de log e métrica do Azure são enviados para Azure Monitor logs diretamente pelo Azure. |
-| [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não | Azure Monitor não lê os dados de uma conta de armazenamento. |
-| [Agentes do Windows](../platform/agent-windows.md) | Não | Agentes diretos do Windows não são usados pela solução. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | Agentes diretos do Linux não são usados pela solução. |
-| [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | Não | Uma conexão direta do agente de Operations Manager para Azure Monitor não é usada pela solução. |
+| [Definições de diagnóstico](../platform/diagnostic-settings.md) | **Sim** | Os dados métricos e de registo do Azure são enviados diretamente para o Azure Monitor Logs. |
+| [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não | O Monitor Azure não lê os dados de uma conta de armazenamento. |
+| [Agentes do Windows](../platform/agent-windows.md) | Não | Os agentes diretos do Windows não são utilizados pela Azure SQL Analytics. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | Os agentes diretos do Linux não são usados pela Azure SQL Analytics. |
+| [Grupo de gestão de gestão de gestão de gestão de operações do Centro de Sistema](../platform/om-agents.md) | Não | Uma ligação direta do agente do Gestor de Operações ao Monitor Azure não é utilizada pela Azure SQL Analytics. |
 
-## <a name="azure-sql-analytics-options"></a>Opções de Análise de SQL do Azure
+## <a name="azure-sql-analytics-options"></a>Opções Azure SQL Analytics
 
-A tabela abaixo descreve as opções com suporte para duas versões do painel Análise de SQL do Azure, uma para o banco de dados SQL do Azure e pools elásticos e a outra para Instância Gerenciada.
+A tabela abaixo descreve opções suportadas para duas versões do painel de instrumentos Azure SQL Analytics, uma para bases de dados individuais e agréns e piscinas elásticas, e outra para instâncias geridas e bases de dados de instâncias.
 
-| Opção Análise de SQL do Azure | Descrição | Suporte de agrupamentos de base de dados SQL e elástico | Suporte a instância gerenciados |
+| Opção Azure SQL Analytics | Descrição | Base de dados única e reunida e suporte de piscinas elásticas | Casos geridos e suporte à base de dados de instâncias |
 | --- | ------- | ----- | ----- |
 | Recurso por tipo | Ponto de vista que conte de todos os recursos monitorizados. | Sim | Sim |
-| Insights | Fornece a desagregação hierárquica em informações inteligentes sobre o desempenho. | Sim | Sim |
+| Informações | Fornece a desagregação hierárquica em informações inteligentes sobre o desempenho. | Sim | Sim |
 | Erros | Fornece a desagregação hierárquica em erros de SQL que ocorreram nas bases de dados. | Sim | Sim |
 | Tempos limite | Fornece a desagregação hierárquica em tempos limite SQL que ocorreram nas bases de dados. | Sim | Não |
 | Bloqueios | Fornece a desagregação hierárquica no blockings SQL que ocorreram nas bases de dados. | Sim | Não |
@@ -56,37 +56,38 @@ A tabela abaixo descreve as opções com suporte para duas versões do painel An
 | Esperas de consulta | Fornece a desagregação hierárquica para as estatísticas de espera de consulta por categoria de espera. | Sim | Sim |
 
 ## <a name="configuration"></a>Configuração
-Use o processo descrito em [Adicionar soluções de Azure monitor da Galeria de soluções](../../azure-monitor/insights/solutions.md) para adicionar a solução de análise de SQL do Azure (versão prévia) ao seu espaço de trabalho do log Analytics.
 
-### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Configurar bases de dados do Azure SQL, os conjuntos elásticos e instâncias geridas para a telemetria de diagnóstico do stream
+Utilize o processo descrito nas [soluções Add Azure Monitor da Galeria Solutions](../../azure-monitor/insights/solutions.md) para adicionar o Azure SQL Analytics (Pré-visualização) ao seu espaço de trabalho Log Analytics.
 
-Assim que tiver criado a solução de análise de SQL do Azure na sua área de trabalho, precisa **configure cada** recursos que pretende monitorizar a respetiva telemetria de diagnóstico para a solução do stream. Siga as instruções detalhadas nesta página:
+### <a name="configure-azure-sql-databases-to-stream-diagnostics-telemetry"></a>Configure bases de dados SQL Azure para transmitir telemetria de diagnósticos
 
-- Ativar os diagnósticos do Azure para a base de dados SQL do Azure para [transmitir a telemetria de diagnóstico para análise de SQL do Azure](../../sql-database/sql-database-metrics-diag-logging.md).
+Depois de ter criado a solução Azure SQL Analytics no seu espaço de trabalho, precisa de **configurar cada** recurso que pretende monitorizar para transmitir a sua telemetria de diagnóstico sql analytics. Siga as instruções detalhadas nesta página:
+
+- Ative o Azure Diagnostics para a sua base de dados Azure SQL transmitir [telemetria de diagnóstico sQL Analytics](../../sql-database/sql-database-metrics-diag-logging.md).
 
 A página acima fornece também instruções sobre como ativar o suporte para a monitorização de várias subscrições do Azure a partir de um único espaço de trabalho de análise de SQL do Azure como um único painel de vidro.
 
-## <a name="using-the-solution"></a>Utilizar a solução
+## <a name="using-azure-sql-analytics"></a>Usando a Azure SQL Analytics
 
-Quando adiciona a solução para a área de trabalho, o mosaico de análise de SQL do Azure é adicionado à sua área de trabalho e é apresentado na descrição geral. Selecione Exibir link de resumo para carregar o conteúdo do bloco.
+Quando adiciona sql Analytics azure ao seu espaço de trabalho, o azulejo Azure SQL Analytics é adicionado ao seu espaço de trabalho, e aparece em visão geral. Selecione Ver ligação sumária para carregar o conteúdo do azulejo.
 
-![Bloco de resumo Análise de SQL do Azure](./media/azure-sql/azure-sql-sol-tile-01.png)
+![Azulejo resumo Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Depois de carregado, o bloco mostra o número de bancos de dados SQL do Azure, pools elásticos, instâncias gerenciadas e bancos de dados em instâncias gerenciadas das quais a solução está recebendo a telemetria de diagnóstico.
+Uma vez carregado, o azulejo mostra o número de bases de dados individuais e agréctadas, piscinas elásticas, instâncias geridas e bases de dados geridas de instâncias a partir das quais o Azure SQL Analytics está a receber telemetria de diagnóstico.
 
 ![Mosaico de análise de SQL do Azure](./media/azure-sql/azure-sql-sol-tile-02.png)
 
-A solução fornece duas vistas separadas – uma para monitorização de bases de dados do Azure SQL e conjuntos elásticos e a outra exibição para monitorizar a instância gerida e bases de dados em instâncias geridas.
+O Azure SQL Analytics fornece duas visões distintas -- uma para monitorizar bases de dados individuais e bases de dados e piscinas elásticas, e a outra vista para monitorizar casos geridos e bases de dados de instâncias.
 
-Para ver o dashboard de monitorização de análise de SQL do Azure para conjuntos elásticos e bases de dados do Azure SQL, clique na parte superior do mosaico. Para ver o dashboard de monitorização para a instância gerida e bases de dados na instância gerida a análise de SQL do Azure, clique na parte inferior do mosaico.
+Para ver o painel de monitorização do Azure SQL Analytics para bases de dados individuais e agrécteis e piscinas elásticas, clique na parte superior do azulejo. Para ver o painel de monitorização do Azure SQL Analytics para casos geridos e bases de dados de instâncias, clique na parte inferior do azulejo.
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Ver os dados de análise de SQL do Azure
 
-O dashboard inclui a descrição geral de todas as bases de dados que são monitorizados através de diferentes perspectivas. Para que diferentes perspectivas funcionem, você deve habilitar as métricas ou os logs apropriados em seus recursos do SQL para serem transmitidos para Log Analytics espaço de trabalho.
+O dashboard inclui a descrição geral de todas as bases de dados que são monitorizados através de diferentes perspectivas. Para que diferentes perspetivas funcionem, deve permitir que métricas ou registos adequados dos seus recursos SQL sejam transmitidos para o espaço de trabalho do Log Analytics.
 
-Observe que, se algumas métricas ou logs não forem transmitidos para Azure Monitor, os blocos na solução não serão preenchidos com informações de monitoramento.
+Se algumas métricas ou registos não forem transmitidos para o Monitor Azure, os azulejos do Azure SQL Analytics não são preenchidos com informações de monitorização.
 
-### <a name="azure-sql-database-and-elastic-pool-view"></a>Base de dados SQL do Azure e o modo de exibição do conjunto elástico
+### <a name="single-and-pooled-databases-and-elastic-pools-view"></a>Bases de dados individuais e reunidas e vista de piscinas elásticas
 
 Quando o mosaico de análise de SQL do Azure para a base de dados é selecionado, é apresentado o dashboard de monitorização.
 
@@ -96,9 +97,9 @@ Selecionar qualquer um dos mosaicos, abre-se de um relatório de desagregação 
 
 ![Tempos limite de análise SQL do Azure](./media/azure-sql/azure-sql-sol-metrics.png)
 
-Cada ponto de vista nesta vista fornece resumos na subscrição, o servidor, o conjunto elástico e o nível base de dados. Além disso, cada uma delas mostra um ponto de vista específicos para o relatório no lado direito. Selecionar a subscrição, servidor, agrupamento ou base de dados da lista continua a desagregação.
+Cada perspetiva, neste ponto de vista, fornece resumos nos níveis de subscrição, servidor, piscina elástica e bases de dados. Além disso, cada uma delas mostra um ponto de vista específicos para o relatório no lado direito. Selecionar a subscrição, servidor, agrupamento ou base de dados da lista continua a desagregação.
 
-### <a name="managed-instance-and-databases-in-managed-instance-view"></a>A instância gerida e bases de dados na vista de instância gerida
+### <a name="managed-instance-and-instances-databases-view"></a>Vista de dados de instâncias e instâncias geridas
 
 Quando o mosaico de análise de SQL do Azure para as bases de dados é selecionado, é apresentado o dashboard de monitorização.
 
@@ -106,19 +107,19 @@ Quando o mosaico de análise de SQL do Azure para as bases de dados é seleciona
 
 Selecionar qualquer um dos mosaicos, abre-se de um relatório de desagregação para o ponto de vista específico. Depois do ponto de vista é selecionado, é aberto o relatório de desagregação.
 
-Selecionar vista de instância gerida, mostra detalhes sobre a utilização de instância gerida, contém as bases de dados e telemetria sobre as consultas executadas em toda a instância.
+Selecionando a visão de instância gerida, mostra detalhes sobre a utilização de instâncias geridas, bases de dados que contém e telemetria nas consultas executadas em toda a instância.
 
 ![Tempos limite de análise SQL do Azure](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
 ### <a name="intelligent-insights-report"></a>Relatório de informações inteligente
 
-Base de dados SQL do Azure [informações inteligentes](../../sql-database/sql-database-intelligent-insights.md) permite-lhe determinar o que está acontecendo com desempenho de todas as bases de dados SQL do Azure. Todas as informações inteligentes recolhidos podem ser visualizadas e acessadas por meio da perspectiva de informações.
+A Base de Dados Azure SQL [Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) informa-o sobre o que está a acontecer com o desempenho de todas as bases de dados Azure SQL. Todas as informações inteligentes recolhidos podem ser visualizadas e acessadas por meio da perspectiva de informações.
 
 ![Informações de análise SQL do Azure](./media/azure-sql/azure-sql-sol-insights.png)
 
-### <a name="elastic-pool-and-database-reports"></a>Conjunto elástico e os relatórios de dados
+### <a name="elastic-pools-and-database-reports"></a>Piscinas elásticas e relatórios de base de dados
 
-Conjuntos elásticos e bases de dados SQL tem seus próprios relatórios específicos que mostram todos os dados que são recolhidos para o recurso no tempo especificado.
+Tanto os pools elásticos como as bases de dados têm os seus próprios relatórios específicos que mostram todos os dados recolhidos para o recurso no tempo especificado.
 
 ![Base de dados de análise SQL do Azure](./media/azure-sql/azure-sql-sol-database.png)
 
@@ -126,13 +127,13 @@ Conjuntos elásticos e bases de dados SQL tem seus próprios relatórios especí
 
 ### <a name="query-reports"></a>Relatórios de consulta
 
-Através da duração de consulta e perspectivas de esperas de consulta, pode correlacionar o desempenho de qualquer consulta através do relatório de consulta. Este relatório compara o desempenho das consultas entre bases de dados diferentes e torna mais fácil identificar bases de dados que executam a consulta selecionada bem em comparação com aqueles que forem lentas.
+Através da duração da consulta e das perspetivas de consulta, pode correlacionar o desempenho de qualquer consulta através do relatório de consulta. Este relatório compara o desempenho das consultas entre bases de dados diferentes e torna mais fácil identificar bases de dados que executam a consulta selecionada bem em comparação com aqueles que forem lentas.
 
 ![Consultas de análise SQL do Azure](./media/azure-sql/azure-sql-sol-queries.png)
 
 ## <a name="permissions"></a>Permissões
 
-Para utilizar a análise de SQL do Azure, os utilizadores têm de ser concedida uma permissão mínima da função do leitor no Azure. Esta função, no entanto, não permitir que os utilizadores ver o texto da consulta ou executar quaisquer ações de otimização de automática. As funções mais permissivas no Azure que permitem a utilizar a solução até ao limite máximo são proprietário, Contribuidor, contribuinte da BD SQL ou contribuinte do SQL Server. Também poderá querer considerar a criação de uma função personalizada no portal com permissões específicas necessárias apenas para utilizar a análise de SQL do Azure e sem acesso à gestão de outros recursos.
+Para utilizar a análise de SQL do Azure, os utilizadores têm de ser concedida uma permissão mínima da função do leitor no Azure. Esta função, no entanto, não permitir que os utilizadores ver o texto da consulta ou executar quaisquer ações de otimização de automática. Funções mais permissivas em Azure que permitem a utilização do Azure SQL Analytics ao máximo são proprietário, colaborador, Colaborador sQL DB ou Colaborador do Servidor SQL. Também poderá querer considerar a criação de uma função personalizada no portal com permissões específicas necessárias apenas para utilizar a análise de SQL do Azure e sem acesso à gestão de outros recursos.
 
 ### <a name="creating-a-custom-role-in-portal"></a>Criar uma função personalizada no portal
 
@@ -170,13 +171,13 @@ Depois de criar a nova função, atribua esta função para cada utilizador que 
 
 ## <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
-Análise de dados na análise de SQL do Azure baseia-se no [linguagem do Log Analytics](../log-query/get-started-queries.md) para seus relatórios e consultas personalizadas. Descrição de localizar os dados disponíveis recolhidos a partir de recursos de base de dados para consultas personalizadas no [métricas e registos disponíveis](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+A análise de dados no Azure SQL Analytics baseia-se no [idioma Log Analytics](../log-query/get-started-queries.md) para a sua consulta e reportagem personalizadas. Encontre a descrição dos dados disponíveis recolhidos a partir de recursos de base de dados para consulta personalizada em [métricas e registos disponíveis](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
 
-Alertas automatizados na solução se baseia em escrever uma consulta do Log Analytics que aciona um alerta numa condição cumprida. Encontre abaixo vários exemplos em consultas do Log Analytics após os alertas podem ser configuradas na solução.
+O alerta automatizado no Azure SQL Analytics baseia-se na escrita de uma consulta de Log Analytics que desencadeia um alerta sobre uma condição satisfeita. Encontre abaixo vários exemplos em consultas de Log Analytics sobre as quais o alerta pode ser configurado no Azure SQL Analytics.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Criar alertas para a base de dados do Azure SQL
 
-Pode facilmente [criar alertas](../platform/alerts-metric.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [registar as consultas](../log-query/log-query-overview.md) que pode utilizar com um alerta de registo:
+Pode [facilmente criar alertas](../platform/alerts-metric.md) com os dados provenientes dos recursos da Base de Dados Azure SQL. Aqui estão algumas consultas de [registo](../log-query/log-query-overview.md) úteis que pode usar com um alerta de registo:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Elevada da CPU na base de dados SQL do Azure
 
@@ -190,7 +191,8 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - O pré-requisito da configuração desse alerta é que os bancos de dados monitorados transmitem métricas básicas para a solução.
+>
+> - A pré-exigência da configuração deste alerta é que as bases de dados monitorizadas transmitem métricas básicas para o Azure SQL Analytics.
 > - Substitua o cpu_percent de valor MetricName dtu_consumption_percent para obter resultados DTU elevados em vez disso.
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Elevada da CPU em conjuntos elásticos da base de dados do Azure SQL
@@ -205,7 +207,8 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - O pré-requisito da configuração desse alerta é que os bancos de dados monitorados transmitem métricas básicas para a solução.
+>
+> - A pré-exigência da configuração deste alerta é que as bases de dados monitorizadas transmitem métricas básicas para o Azure SQL Analytics.
 > - Substitua o cpu_percent de valor MetricName dtu_consumption_percent para obter resultados DTU elevados em vez disso.
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Armazenamento de base de dados SQL do Azure em média superior a 95% na última 1 hora
@@ -222,7 +225,8 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - O pré-requisito da configuração desse alerta é que os bancos de dados monitorados transmitem métricas básicas para a solução.
+>
+> - A pré-exigência da configuração deste alerta é que as bases de dados monitorizadas transmitem métricas básicas para o Azure SQL Analytics.
 > - Esta consulta requer uma regra de alerta para ser configurado para acionar um alerta quando existem resultados (> 0 resultados) da consulta, que indica se a condição existe no algumas bases de dados. O resultado é uma lista de recursos de base de dados que estão acima storage_threshold dentro time_range definido.
 > - O resultado é uma lista de recursos de base de dados que estão acima storage_threshold dentro time_range definido.
 
@@ -239,10 +243,11 @@ AzureDiagnostics
 ```
 
 > [!NOTE]
-> - Pré-requisito de configurar este alerta é o log de diagnóstico que bases de dados monitorizadas stream SQLInsights à solução.
+>
+> - A pré-exigência da configuração deste alerta é que as bases de dados monitorizadas transmitem o log de diagnóstico sQLInsights para o Azure SQL Analytics.
 > - Esta consulta requer uma regra de alerta para ser configurado para ser executado com a mesma frequência de alert_run_interval para evitar resultados duplicados. A regra deve ser configurada para disparar o alerta quando existem resultados (> 0 resultados) da consulta.
-> - Personalize o alert_run_interval para especificar o intervalo de tempo para verificar se a condição ocorreu em bases de dados configuradas para o registo de SQLInsights de fluxo para a solução.
-> - Personalize o insights_string para capturar a saída do texto de análise de causa de raiz de informações. Este é o mesmo texto apresentado na IU da solução que pode utilizar o insights existente. Em alternativa, pode utilizar a consulta abaixo para ver o texto de todas as informações geradas na sua subscrição. Utilize a saída da consulta para coletar as cadeias de caracteres distintas para configurar alertas nas informações.
+> - Personalize o alert_run_interval para especificar o intervalo de tempo para verificar se a condição ocorreu em bases de dados configuradas para transmitir o registo SQLInsights para o Azure SQL Analytics.
+> - Personalize o insights_string para capturar a saída do texto de análise de causa de raiz de informações. Este é o mesmo texto exibido no UI do Azure SQL Analytics que pode utilizar a partir dos insights existentes. Em alternativa, pode utilizar a consulta abaixo para ver o texto de todas as informações geradas na sua subscrição. Utilize a saída da consulta para coletar as cadeias de caracteres distintas para configurar alertas nas informações.
 
 ```
 AzureDiagnostics
@@ -250,9 +255,9 @@ AzureDiagnostics
 | distinct rootCauseAnalysis_s
 ```
 
-### <a name="creating-alerts-for-managed-instance"></a>Criar alertas para a instância gerida
+### <a name="creating-alerts-for-managed-instances"></a>Criação de alertas para casos geridos
 
-#### <a name="managed-instance-storage-is-above-90"></a>O armazenamento é superior a 90% de instância gerida
+#### <a name="managed-instance-storage-is-above-90"></a>O armazenamento de instâncias geridas é superior a 90%
 
 ```
 let storage_percentage_threshold = 90;
@@ -264,10 +269,11 @@ AzureDiagnostics
 ```
 
 > [!NOTE]
-> - Pré-requisito de configurar este alerta é que a instância gerida monitorizado tem a transmissão em fluxo do registo de ResourceUsageStats ativado para a solução de.
-> - Esta consulta requer uma regra de alerta para ser configurado para acionar um alerta quando existem resultados (> 0 resultados) da consulta, que indica que a condição existe na instância gerida. O resultado é o consumo de percentagem de armazenamento na instância gerida.
+>
+> - A pré-exigência da configuração deste alerta é que a instância gerida tem o fluxo de registo DeRecursosUsageStats habilitado para o Azure SQL Analytics.
+> - Esta consulta requer uma regra de alerta a ser configurada para disparar um alerta quando existem resultados (> 0 resultados) da consulta, denotando que a condição existe na instância gerida. A produção é consumo percentual de armazenamento na instância gerida.
 
-#### <a name="managed-instance-cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Consumo médio de CPU de instância gerido é superior a 95%, em que a última 1 hora
+#### <a name="managed-instance-cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Consumo médio de CPU por exemplo gerido é superior a 95% nos últimos 1 hora
 
 ```
 let cpu_percentage_threshold = 95;
@@ -279,15 +285,16 @@ AzureDiagnostics
 ```
 
 > [!NOTE]
-> - Pré-requisito de configurar este alerta é que a instância gerida monitorizado tem a transmissão em fluxo do registo de ResourceUsageStats ativado para a solução de.
-> - Esta consulta requer uma regra de alerta para ser configurado para acionar um alerta quando existem resultados (> 0 resultados) da consulta, que indica que a condição existe na instância gerida. A saída é médio consumo de percentagem de utilização da CPU no período de tempo definido na instância gerida.
+>
+> - A pré-exigência da configuração deste alerta é que a instância gerida monitorizada tem o fluxo de registo DeUtilização de Recursos Ativado para o Azure SQL Analytics.
+> - Esta consulta requer uma regra de alerta a ser configurada para disparar um alerta quando existem resultados (> 0 resultados) da consulta, denotando que a condição existe na instância gerida. A produção é um consumo médio de percentagem de utilização de CPU em período definido na instância gerida.
 
 ### <a name="pricing"></a>Preços
 
-Embora a solução é gratuita, consumo de telemetria de diagnóstico acima as unidades gratuitas de ingestão de dados alocados a cada mês aplica-se, consulte [preços do Log Analytics](https://azure.microsoft.com/pricing/details/monitor). As unidades gratuitas de ingestão de dados fornecido ativar gratuita monitorização de vários bancos de dados por mês. Tenha em atenção que as bases de dados mais ativos com cargas de trabalho mais pesadas ingerir dados mais versus bases de dados inativos. Pode monitorizar facilmente o seu consumo de ingestão de dados na solução, selecione a área de trabalho do OMS no menu de navegação de análise de SQL do Azure e, em seguida, selecionar a utilização e custos estimados.
+Embora o Azure SQL Analytics seja livre de usar, aplica-se o consumo de telemetria de diagnósticoacima das unidades gratuitas de ingestão de dados atribuídas todos os meses, ver [preços de Log Analytics.](https://azure.microsoft.com/pricing/details/monitor) As unidades gratuitas de ingestão de dados fornecido ativar gratuita monitorização de vários bancos de dados por mês. Bases de dados mais ativas com cargas de trabalho mais pesadas ingebem mais dados versus bases de dados inativas. Pode monitorizar facilmente o seu consumo de ingestão de dados no Azure SQL Analytics selecionando o Workspace OMS no menu de navegação do Azure SQL Analytics e, em seguida, selecionando o Uso e Custos Estimados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Use [consultas de log](../log-query/log-query-overview.md) em Azure monitor para exibir dados do Azure SQL detalhados.
-- [Criar seus próprios dashboards](../learn/tutorial-logs-dashboards.md) a mostrar dados de SQL do Azure.
-- [Criar alertas](../platform/alerts-overview.md) quando ocorrem eventos específicos do SQL do Azure.
+- Utilize consultas de [registo](../log-query/log-query-overview.md) no Monitor Azure para visualizar dados detalhados do Azure SQL.
+- [Crie os seus próprios dashboards](../learn/tutorial-logs-dashboards.md) mostrando dados Azure SQL.
+- [Crie alertas](../platform/alerts-overview.md) quando ocorrerem eventos específicos do Azure SQL.

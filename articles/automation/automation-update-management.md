@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e7a86f3a709566bcf18241ce3c329c0355be2743
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443844"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539557"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de Gestão de Atualização em Azure
 
@@ -115,7 +115,7 @@ Para o Linux, a máquina deve ter acesso a um repositório de atualização. O r
 
 Para obter informações sobre como instalar o Agente de Análise de Registo sintetizada para o Linux e para descarregar a versão mais recente, consulte o [Agente Delog Analytics para o Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o Agente De saúde em Diário da Madeira para windows, consulte [connect Windows computers to Azure Monitor](../log-analytics/log-analytics-windows-agent.md).
 
-Os VMs que foram criados a partir das imagens a pedido da Red Hat Enterprise Linux (RHEL) que estão disponíveis no Azure Marketplace estão registados para aceder à [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) que está implantada no Azure. Qualquer outra distribuição linux deve ser atualizada a partir do repositório de ficheiros online da distribuição utilizando os métodos suportados pela distribuição.
+Os VMs que foram criados a partir das imagens a pedido da Red Hat Enterprise Linux (RHEL) que estão disponíveis no Azure Marketplace estão registados para aceder à [Red Hat Update Infrastructure (RHUI)](../virtual-machines/workloads/redhat/redhat-rhui.md) que está implantada no Azure. Qualquer outra distribuição linux deve ser atualizada a partir do repositório de ficheiros online da distribuição utilizando os métodos suportados pela distribuição.
 
 ## <a name="permissions"></a>Permissões
 
@@ -184,7 +184,7 @@ Os seguintes endereços são necessários especificamente para gestão de atuali
 
 Para as máquinas Windows, também deve permitir o tráfego em todos os pontos finais exigidos pelo Windows Update. Pode encontrar uma lista atualizada de pontos finais necessários em [Questões relacionadas com HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se tiver um [servidor local de Atualização do Windows,](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)também deve permitir o tráfego para o servidor especificado na sua chave [WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-Para as máquinas Red Hat Linux, consulte [os iPs para os servidores](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) de entrega de conteúdo RHUI para obter pontos finais necessários. Para outras distribuições linux, consulte a documentação do seu fornecedor.
+Para as máquinas Red Hat Linux, consulte [os iPs para os servidores](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) de entrega de conteúdo RHUI para obter pontos finais necessários. Para outras distribuições linux, consulte a documentação do seu fornecedor.
 
 Para obter mais informações sobre as portas que o Trabalhador do Livro Híbrido necessita, consulte portas de [função de Trabalhador Híbrido](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 7ad10ad2d4393c1d25a835d0ff8cd0b98ed25879
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756401"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539370"
 ---
 # <a name="message-browsing"></a>Navegação de mensagens
 
@@ -34,7 +34,7 @@ Peek também devolve mensagens que foram bloqueadas e estão atualmente a ser pr
 
 ## <a name="peek-apis"></a>Peek APIs
 
-Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem em todas as bibliotecas de clientes .NET e Java e em todos os objetos recetores: **MessageReceiver**, **MessageSession,** **QueueClient**e **SubscriptionClient**. Peek trabalha em todas as filas e subscrições e suas respetivas filas de cartas mortas.
+Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem em todas as bibliotecas de clientes .NET e Java e em todos os objetos recetores: **MessageReceiver,** **MessageSession**. Peek trabalha em todas as filas e subscrições e suas respetivas filas de cartas mortas.
 
 Quando chamado repetidamente, o método Peek enumera todas as mensagens existentes na fila ou registo de subscrição, em ordem de número de sequência, do menor número de sequência disponível para o mais alto. Esta é a ordem em que as mensagens foram enquecidas e não é a ordem em que as mensagens podem eventualmente ser recuperadas.
 
@@ -44,7 +44,7 @@ Também pode semear uma sobrecarga do método com um [SequenceNumber](/dotnet/ap
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
+Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

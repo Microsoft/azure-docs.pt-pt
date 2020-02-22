@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 303f24ef6d934c0382bd8917833e3ec545f2a540
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 559c894a2212466761de820de7486ae203337802
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776485"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538469"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações gitHub
 
@@ -79,6 +79,7 @@ Crie o ficheiro `.github/workflow/main.yml` no repositório:
 
 ```
 name: AzureSpringCloud
+on: push
 
 env:
   GROUP: <resource group name>
@@ -125,6 +126,7 @@ O comando az `run` usará a versão mais recente do Azure CLI. Se houver altera�
 Crie o ficheiro .github/workflow/main.yml no repositório:
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:
@@ -165,6 +167,7 @@ Outra opção é utilizar o [Maven Plugin](https://docs.microsoft.com/azure/spri
 
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:
@@ -194,7 +197,7 @@ jobs:
         mvn azure-spring-cloud:deploy
 ```
 
-## <a name="run-the-workflow"></a>Executar o fluxo de trabalho
+## <a name="run-the-workflow"></a>Execute o fluxo de trabalho
 **As ações** GitHub devem ser ativadas automaticamente depois de empurrar `.github/workflow/main.yml` para o GitHub. A ação será desencadeada quando forçares um novo compromisso. Se criar este ficheiro no navegador, a sua ação já deveria ter sido executada.
 
 Para verificar se a ação foi ativada, clique no separador **Ações** na página de repositório GitHub:

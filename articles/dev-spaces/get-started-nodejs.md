@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente uma aplicação Node.js no Serviço Azure Kubernetes
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: de60a45126539cdd39b951eeb503fc349004797a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: cc59d5693740d1d2d6550af3aa61fa9b66420a39
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121343"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539421"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Crie um espaço Dev Kubernetes: Visual Studio Code e Node.js com Espaços Azure Dev
 
@@ -98,7 +98,7 @@ Neste momento, tem uma aplicação Web básica que pode ser executada localmente
 1. Execute este comando (certifique-se de que **webfrontend** é a sua pasta atual):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 O comando `azds prep` da CLI do Azure gera recursos do Docker e Kubernetes com as predefinições:

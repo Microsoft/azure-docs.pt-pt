@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: e50d0772eaf706772aa89418a1ad25bf406945b5
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 0f61a0968922d009b8ba60d80dde132fedaece29
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134126"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539090"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -28,7 +28,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Criar um laboratório de sala de aula
-> * Adicionar usuários ao laboratório
+> * Adicione utilizadores ao laboratório
 > * Definir o horário para o laboratório
 > * Envie e-mail de convite aos alunos
 
@@ -61,28 +61,28 @@ Neste passo, cria-se um laboratório para a sua turma em Azure.
         > Registe o nome de utilizador e a palavra-passe. Estas não serão apresentadas novamente.
     3. Na página de políticas do **Laboratório,** selecione **Terminar**. 
 
-        ![Cota para cada usuário](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
-5. Você deve ver a tela a seguir que mostra o status da criação da VM do modelo. Esta operação leva até 20 minutos. 
+        ![Quota para cada utilizador](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+5. Deve ver o seguinte ecrã que mostra o estado da criação vM do modelo. Esta operação leva até 20 minutos. 
 
-    ![Status da criação da VM do modelo](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
+    ![Estado da criação vm do modelo](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. Na página **Modelo,** faça os seguintes passos: Estes passos são **opcionais** para o tutorial.
 
-    1. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for uma VM de modelo do Linux, escolha se deseja se conectar usando SSH ou RDP (se o RDP estiver habilitado).
+    1. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for um VM de modelo Linux, escolha se pretende ligar-se utilizando SSH ou RDP (se o RDP estiver ativado).
     3. Instale e configure o software necessário para a sua aula no modelo VM. 
     4. **Pare** o modelo VM.  
 
 ## <a name="publish-the-template-vm"></a>Publicar a VM do modelo
-Neste passo, publica o modelo VM. O processo de publicação cria VMs de laboratório que são basicamente cópias do modelo VM. 
+Neste passo, publica o modelo VM. Ao publicar o modelo VM, o Azure Lab Services cria VMs no laboratório utilizando o modelo. Todas as máquinas virtuais têm a mesma configuração do modelo.
 
 1. Na página **'Modelo',** **selecione Publicar** na barra de ferramentas. 
 
-    ![Botão Publicar modelo](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
+    ![Publicar botão de modelo](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
     > [!WARNING]
     > Depois de publicar, não é possível anular a publicação. 
 2. Na página do **modelo Publicar,** introduza o número de máquinas virtuais que pretende criar em laboratório e, em seguida, selecione **Publicar**. 
 
-    ![Publicar modelo-número de VMs](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+    ![Publicar modelo - número de VMs](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
 3. Você vê o **estado de publicar** o modelo na página. Este processo pode demorar até uma hora. 
 
     ![Publicar modelo – progresso](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
@@ -116,7 +116,7 @@ Crie um evento programado para o laboratório para que os VMs no laboratório se
 3. Agora, na página **de eventos agendado seleto,** para **Notas (opcional)** , insira qualquer descrição ou notas para a programação. 
 4. Na página **de eventos agendada seleção,** selecione **Guardar**. 
 
-    ![Agenda semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
+    ![Horário semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 5. Navegue até à data de início do calendário para verificar se o horário está definido.
     
     ![Agenda no calendário](../media/how-to-create-schedules/schedule-calendar.png)
@@ -124,30 +124,30 @@ Crie um evento programado para o laboratório para que os VMs no laboratório se
     Para obter mais informações sobre a criação e gestão de horários para uma aula, consulte [Criar e gerir o horário para laboratórios de sala de aula.](how-to-create-schedules.md)
 
 
-## <a name="add-users-to-the-lab"></a>Adicionar usuários ao laboratório
+## <a name="add-users-to-the-lab"></a>Adicione utilizadores ao laboratório
 
-1. Selecione **Utilizadores** no menu esquerdo. Por predefinição, a opção de **acesso Restrict** está ativada. Quando essa configuração estiver ativada, um usuário não poderá se registrar no laboratório, mesmo se o usuário tiver o link de registro, a menos que o usuário esteja na lista de usuários. Somente os usuários na lista podem se registrar no laboratório usando o link de registro que você envia. Neste procedimento, você adiciona usuários à lista. Em alternativa, pode desligar o **acesso restrito,** o que permite aos utilizadores registarem-se no laboratório desde que tenham a ligação de registo. 
+1. Selecione **Utilizadores** no menu esquerdo. Por predefinição, a opção de **acesso Restrict** está ativada. Quando esta definição está aberta, um utilizador não pode registar-se no laboratório mesmo que o utilizador tenha o link de registo, a menos que o utilizador esteja na lista de utilizadores. Apenas os utilizadores da lista podem registar-se no laboratório utilizando o link de registo que envia. Neste procedimento, adiciona os utilizadores à lista. Em alternativa, pode desligar o **acesso restrito,** o que permite aos utilizadores registarem-se no laboratório desde que tenham a ligação de registo. 
 2. Selecione **Adicionar utilizadores** na barra de ferramentas e, em seguida, selecione **Adicionar por endereço de e-mail**. 
 
-    ![Botão Adicionar usuários](../media/how-to-configure-student-usage/add-users-button.png)
+    ![Adicione o botão dos utilizadores](../media/how-to-configure-student-usage/add-users-button.png)
 1. Na página **adicionar utilizadores,** introduza endereços de e-mail dos utilizadores em linhas separadas ou numa única linha separada por pontos evíocos. 
 
-    ![Adicionar endereços de email do usuário](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Selecione **Guardar**. Você vê os endereços de email dos usuários e seus status (registrados ou não) na lista. 
+    ![Adicionar endereços de e-mail do utilizador](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Selecione **Guardar**. Veja os endereços de e-mail dos utilizadores e os seus status (registados ou não) na lista. 
 
-    ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Lista de utilizadores](../media/how-to-configure-student-usage/users-list-new.png)
 
-    Você verá os nomes dos usuários na lista depois que eles forem registrados no laboratório. 
+    Verá os nomes dos utilizadores na lista depois de estarem registados no laboratório. 
     
 
 ## <a name="send-invitation-emails-to-users"></a>Enviar e-mails de convite aos utilizadores
 
 1. Mude para a vista **utilizadores** se ainda não estiver na página e selecione **Convidar tudo** na barra de ferramentas. 
 
-    ![Selecionar alunos](../media/tutorial-setup-classroom-lab/invite-all-button.png)
-1. No convite Enviar por página de **e-mail,** introduza uma mensagem opcional e, em seguida, selecione **Enviar**. O email inclui automaticamente o link de registro. Pode obter este link de registo **selecionando... (elipse)** na barra de ferramentas e **no link de registo.** 
+    ![Selecione alunos](../media/tutorial-setup-classroom-lab/invite-all-button.png)
+1. No convite Enviar por página de **e-mail,** introduza uma mensagem opcional e, em seguida, selecione **Enviar**. O e-mail inclui automaticamente o link de registo. Pode obter este link de registo **selecionando... (elipse)** na barra de ferramentas e **no link de registo.** 
 
-    ![Enviar link de registro por email](../media/tutorial-setup-classroom-lab/send-email.png)
+    ![Enviar link de registo por e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Vê o estado do **convite** na lista de **Utilizadores.** O estado deve alterar-se para **enviar** e, em seguida, para **enviar em &lt;data&gt;** . 
 
     Para obter mais informações sobre a adição de alunos a uma aula e a gestão do seu uso do laboratório, consulte [como configurar o uso](how-to-configure-student-usage.md)do aluno.

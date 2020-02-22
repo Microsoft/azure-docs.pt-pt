@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: c3291746558dbec2147ebea24eadd0febd317033
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212493"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539540"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Trace Azure IoT mensagens dispositivo-to-cloud com rastreio distribuído (pré-visualização)
 
@@ -308,8 +308,8 @@ Uma vez ativado, o suporte de rastreio distribuído para o IoT Hub seguirá este
 1. O dispositivo IoT envia a mensagem para o IoT Hub.
 1. A mensagem chega ao portal ioT hub.
 1. O IoT Hub procura o `tracestate` nas propriedades da aplicação de mensagens, e verifica se está no formato correto.
-1. Em caso afirmativo, o IoT Hub gera e regista os registos de diagnóstico `trace-id` e `span-id` para o Monitor Azure na categoria `DiagnosticIoTHubD2C`.
-1. Uma vez terminado o processamento de mensagens, o IoT Hub gera outro `span-id` e regista-o juntamente com os `trace-id` existentes na categoria `DiagnosticIoTHubIngress`.
+1. Em caso afirmativo, o IoT Hub gera uma `trace-id` globalmente única para a mensagem, um `span-id` para o "hop", e regista-os nos registos de diagnóstico do Monitor Azure no âmbito da operação `DiagnosticIoTHubD2C`.
+1. Uma vez terminado o processamento de mensagens, o IoT Hub gera outra `span-id` e regista-a juntamente com os `trace-id` existentes no âmbito da operação `DiagnosticIoTHubIngress`.
 1. Se o encaminhamento estiver ativado para a mensagem, o IoT Hub escreve-a para o ponto final personalizado e regista outra `span-id` com o mesmo `trace-id` na categoria `DiagnosticIoTHubEgress`.
 1. Os passos acima são repetidos para cada mensagem gerada.
 
