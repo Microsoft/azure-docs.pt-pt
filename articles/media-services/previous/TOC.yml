@@ -397,8 +397,6 @@
       items:
         - name: Reproduzir multimédia com leitores existentes
           href: media-services-playback-content-with-existing-players.md
-        - name: Reproduzir multimédia com Leitor de Multimédia
-          href: media-services-develop-video-players.md
         - name: Outras opções de reprodução
           items:
             - name: Aplicação de transmissão em fluxo uniforme da Windows Store
