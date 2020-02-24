@@ -425,7 +425,7 @@ As notas de versão a seguir são para a versão 5.0.2.0 do agente de Sincroniza
 ### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e problemas corrigidos
 
 - Suporte para a nuvem do Azure governamental
-  - Adicionamos suporte de visualização para a nuvem do Azure governamental. Isso requer uma assinatura de lista branca e um download de agente especial da Microsoft. Para obter acesso à versão prévia, envie-nos um email diretamente em [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
+  - Adicionamos suporte de visualização para a nuvem do Azure governamental. Isso requer uma assinatura de lista de permissões e um download de agente especial da Microsoft. Para obter acesso à versão prévia, envie-nos um email diretamente em [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
 - Suporte para Deduplicação de Dados
     - A eliminação de duplicação de dados agora tem suporte total com camadas de nuvem habilitadas no Windows Server 2016 e no Windows Server 2019. Habilitar a eliminação de duplicação em um volume com camada de nuvem habilitada permite que você armazene em cache mais arquivos localmente sem provisionar mais armazenamento.
 - Suporte para transferência de dados offline (por exemplo, via Data Box)

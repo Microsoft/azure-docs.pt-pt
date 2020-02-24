@@ -32,7 +32,7 @@ Este artigo irá acompanhá-lo através do básico de garantir a sua piscina SQL
 ## <a name="connection-security"></a>Segurança da Ligação
 A Segurança da Ligação diz respeito à forma como restringe e protege as ligações à sua base de dados através de regras de firewall e de encriptação da ligação.
 
-As regras de firewall são utilizadas tanto pelo servidor como pela base de dados para rejeitar tentativas de ligação a partir de endereços IP que não tenham sido explicitamente listadas com a lista branca. Para permitir ligações a partir da sua aplicação ou endereço IP público da máquina cliente, você deve primeiro criar uma regra de firewall ao nível do servidor usando o portal Azure, REST API ou PowerShell. 
+As regras de firewall são utilizadas tanto pelo servidor como pela base de dados para rejeitar tentativas de ligação a partir de endereços IP que não tenham sido explicitamente listadas com a lista de permissões. Para permitir ligações a partir da sua aplicação ou endereço IP público da máquina cliente, você deve primeiro criar uma regra de firewall ao nível do servidor usando o portal Azure, REST API ou PowerShell. 
 
 Como melhor prática, deve restringir o máximo possível os intervalos de endereços IP permitidos na firewall do servidor.  Para aceder à piscina SQL a partir do seu computador local, certifique-se de que a firewall na sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
 

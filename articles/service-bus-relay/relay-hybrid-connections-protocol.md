@@ -66,7 +66,7 @@ As informações codificadas só são válidas por um curto período de tempo, e
 
 Além das conexões WebSocket, o ouvinte também pode receber quadros de solicitação HTTP de um remetente, se esse recurso estiver explicitamente habilitado na conexão híbrida.
 
-Os ouvintes que se anexam ao Conexões Híbridas com suporte a HTTP devem lidar com o gesto de `request`. Um ouvinte que não manipula `request` e, portanto, causa erros de tempo limite repetidos durante a conexão pode estar na lista negra pelo serviço no futuro.
+Os ouvintes que se anexam ao Conexões Híbridas com suporte a HTTP devem lidar com o gesto de `request`. Um ouvinte que não manipula `request` e, portanto, causa erros de tempo limite repetidos durante a conexão pode estar na lista de bloqueios pelo serviço no futuro.
 
 Os metadados do cabeçalho do quadro HTTP são convertidos em JSON para manipulação mais simples pela estrutura do ouvinte, também porque as bibliotecas de análise de cabeçalho HTTP são mais raras que os analisadores JSON. Os metadados HTTP que são relevantes apenas para a relação entre o remetente e o gateway HTTP de retransmissão, incluindo informações de autorização, não são encaminhados. Os corpos de solicitação HTTP são transferidos de forma transparente como quadros de WebSocket binários.
 
@@ -337,7 +337,7 @@ O conteúdo JSON para `request` é o seguinte:
 
 ##### <a name="responding-to-requests"></a>Respondendo a solicitações
 
-O receptor deve responder. A falha repetida de responder às solicitações enquanto mantém a conexão pode fazer com que o ouvinte fique na lista negra.
+O receptor deve responder. A falha repetida de responder às solicitações enquanto mantém a conexão pode fazer com que o ouvinte fique na lista de bloqueios.
 
 As respostas podem ser enviadas em qualquer ordem, mas cada solicitação deve ser respondida em até 60 segundos ou a entrega será relatada como tendo falhado. O prazo final de 60 segundos é contado até que o quadro de `response` tenha sido recebido pelo serviço. Uma resposta em andamento com vários quadros binários não pode ficar ociosa por mais de 60 segundos ou terminada.
 

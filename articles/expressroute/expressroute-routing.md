@@ -241,7 +241,7 @@ CrM Online suporta Dynamics v8.2 e abaixo. Para versões mais altas, selecione a
 
 | **Região do Azure de Clouds Nacionais**| **Valor da comunidade BGP** |
 | --- | --- |
-| **US Gov da América** |  |
+| **US Gov dos Estados Unidos da América** |  |
 | US Gov - Arizona | 12076:51106 |
 | US Gov - Iowa | 12076:51109 |
 | US Gov - Virginia | 12076:51105 |
@@ -252,7 +252,7 @@ CrM Online suporta Dynamics v8.2 e abaixo. Para versões mais altas, selecione a
 
 | **Serviço nas Clouds Nacionais** | **Valor da comunidade BGP** |
 | --- | --- |
-| **US Gov da América** |  |
+| **US Gov dos Estados Unidos da América** |  |
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype para Empresas Online |12076:5130 |

@@ -436,7 +436,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - MN (Mongólia)
 
-        - MO (RAEm de Macau)
+        - MO (RAE de Macau)
 
         - MV (Maldivas)
 

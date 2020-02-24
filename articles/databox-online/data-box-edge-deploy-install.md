@@ -107,7 +107,7 @@ Localize os componentes para instalar o assembly do kit do trilho:
 > [!TIP]
 > Essa opção é sem ferramentas porque não requer ferramentas para instalar e remover os trilhos no quadrado não-thread ou nos orifícios arredondados nos racks.
 
-1. Posicione as peças de extremidade do trilho esquerda e direita rotuladas na **frente** para dentro e Oriente cada peça final para colocar nos orifícios no lado frontal dos flanges verticais do rack.
+1. Posicione as peças de extremidade do trilho esquerda e direita rotuladas na **frente** para dentro e oriente cada peça final para colocar nos orifícios no lado frontal dos flanges verticais do rack.
 2. Alinhe cada parte final nos orifícios inferior e superior dos espaços em U desejados.
 3. Envolva o back-end do trilho até que ele se encaixe totalmente no flange vertical do rack e que os cliques da trava estejam no lugar. Repita essas etapas para posicionar e colocar a peça de front-end no flange vertical do rack.
 4. Para remover os trilhos, puxe o botão de liberação de trava no ponto médio de extremidade e desencaixe cada trilho.

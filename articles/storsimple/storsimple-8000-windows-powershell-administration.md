@@ -105,7 +105,7 @@ Você pode escolher entre as seguintes configurações:
      > [!NOTE]
      > Essa é a opção preferida se você esqueceu a senha de administrador do dispositivo e não pode se conectar por meio da opção 1 ou 2.
 
-4. **Alterar idioma** Essa opção permite que você altere o idioma de exibição na interface do Windows PowerShell. Os idiomas com suporte são Inglês, japonês, russo, francês, sul coreano, espanhol, italiano, alemão, chinês e português brasileiro.
+4. **Alterar idioma** Essa opção permite que você altere o idioma de exibição na interface do Windows PowerShell. Os idiomas com suporte são Inglês, japonês, russo, francês, sul coreano, espanhol, italiano, alemão, chinês e português (Brasil).
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Conectar-se remotamente ao StorSimple usando o Windows PowerShell para StorSimple
 

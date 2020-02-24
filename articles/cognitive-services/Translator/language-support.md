@@ -135,7 +135,7 @@ O método transliterado suporta as seguintes línguas. No "To/From", "<->" indic
 | Canarim | `kn` | `Knda` de Kannada | --> | `Latn` latino |
 | Malayalam | `ml` | `Mlym` malaia | --> | `Latn` latino |
 | Marata | `mr` | Devanagari `Deva` | --> | `Latn` latino |
-| Oriya | `or` | Oriya `Orya` | <--> | `Latn` latino |
+| odia | `or` | odia `Orya` | <--> | `Latn` latino |
 | Punjabi | `pa` | `Guru` de Gurmukhi  | <--> | `Latn` latino  |
 | Sérvio (Cirílico) | `sr-Cyrl` | `Cyrl` cirílico  | --> | `Latn` latino |
 | Sérvio (Latim) | `sr-Latn` | `Latn` latino | --> | `Cyrl` cirílico|

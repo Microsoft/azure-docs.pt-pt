@@ -61,7 +61,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **Lago AzureData** | Lago Azure Data. | Saída | Não | Sim |
 | **AzureEventGrid** | Grelha de Eventos Azure. <br/><br/>*Nota:* Esta etiqueta abrange pontos finais da Azure Event Grid nos EUA South Central, US East, US East 2, US West 2 e US Central apenas. | Ambos | Não | Não |
 | **Porta AzureFront** | Porta da frente azure. | Ambos | Não | Não |
-| **Proteção de Informação Azure** | Proteção de Informação Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das tags **AzureActiveDirectory** e **AzureFrontDoor.Frontend.** Por favor, também a lista branca após os IPs (esta dependência será removida em breve): 13.107.6.181 e 13.107.9.181. | Saída | Não | Não |
+| **Proteção de Informação Azure** | Proteção de Informação Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das tags **AzureActiveDirectory** e **AzureFrontDoor.Frontend.** Por favor, também a lista de permissões após os IPs (esta dependência será removida em breve): 13.107.6.181 e 13.107.9.181. | Saída | Não | Não |
 | **AzureIoTHub** | Hub Azure IoT. | Saída | Não | Não |
 | **AzureKeyVault** | Cofre de Chaves Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência da etiqueta **AzureActiveDirectory.** | Saída | Sim | Sim |
 | **AzureLoadBalancer** | O equilibrador de carga de infraestruturas Azure. A etiqueta traduz-se no [endereço IP virtual do hospedeiro](security-overview.md#azure-platform-considerations) (168.63.129.16) de onde provêm as sondas de saúde Azure. Isto não inclui tráfego para o seu recurso Azure Load Balancer. Se não estiver a usar o Azure Load Balancer, pode anular esta regra. | Ambos | Não | Não |
@@ -83,7 +83,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **HDInsight** | Azure HDInsight. | Entrada | Sim | Não |
 | **Internet** | O espaço de endereçoIP que está fora da rede virtual e acessível pela internet pública.<br/><br/>A gama de endereços inclui o [espaço de endereços IP públicos do Azure.](https://www.microsoft.com/download/details.aspx?id=41653) | Ambos | Não | Não |
 | **MicrosoftCloudAppSecurity** | Segurança de aplicações da Microsoft Cloud. | Saída | Não | Não |
-| **MicrosoftContainerRegistry** | Registo de contentores para imagens de contentores da Microsoft. <br/><br/>*Nota:* Por favor, também a lista branca após o IP (esta dependência será removida em breve): 204.79.197.219. | Saída | Sim | Sim |
+| **MicrosoftContainerRegistry** | Registo de contentores para imagens de contentores da Microsoft. <br/><br/>*Nota:* Por favor, também a lista de permissões após o IP (esta dependência será removida em breve): 204.79.197.219. | Saída | Sim | Sim |
 | **ServiceBus** | Tráfego de ônibus de serviço Azure que utiliza o nível de serviço Premium. | Saída | Sim | Sim |
 | **ServiceFabric** | Tecido de serviço Azure.<br/><br/>*Nota:* Esta etiqueta representa o ponto final do serviço Service Fabric para o plano de controlo por região. Isto permite que os clientes realizem operações de gestão para os seus clusters de Tecido de Serviço a partir do seu VNET (ponto final, por exemplo. https:// westus.servicefabric.azure.com) | Ambos | Não | Não |
 | **Sql** | Base de Dados Azure SQL, Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL e Armazém de Dados Azure SQL.<br/><br/>*Nota:* Esta etiqueta representa o serviço, mas não instâncias específicas do serviço. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL. | Saída | Sim | Sim |

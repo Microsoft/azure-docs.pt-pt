@@ -48,7 +48,7 @@ Os dados residem nos **Estados Unidos** para os seguintes países/regiões:
 
 Os dados residem na **Europa** para os seguintes países/regiões:
 
-> Argélia, Áustria, Azerbaijão, Bahrein, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egito, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordânia, Cazaquistão, Quénia, Kuwait, Letónia, Líbano, Liechtenstein, Lituânia, Luxemburgo, Macedónia do Norte, Malta, Montenegro, Marrocos, Holanda, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Qatar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovénia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Emirados Árabes Unidos e Reino Unido.
+> Argélia, Áustria, Azerbaijão, Bahrein, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egito, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordânia, Cazaquistão, Quénia, Kuwait, Letónia, Líbano, Liechtenstein, Lituânia, Luxemburgo, Macedónia do Norte, Malta, Montenegro, Marrocos, Países Baixos, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Qatar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovénia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Emirados Árabes Unidos e Reino Unido.
 
 Os dados residem na **Ásia-Pacífico** para os seguintes países/regiões:
 

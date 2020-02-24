@@ -51,7 +51,7 @@ O webpath. conf tem cinco seções:
 
 - **Padrões de nível do sistema** *(padrões)* : você pode substituir os padrões de nível do sistema.
 - **Dispositivos blacklists** *(Blacklist)* : você pode especificar a lista de dispositivos que não devem ser controlados pelo Device-Mapper.
-- **Exceções de lista negra** *(blacklist_exceptions)* : você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se listados na lista de bloqueios.
+- **Exceções de lista de bloqueios** *(blacklist_exceptions)* : você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se listados na lista de bloqueios.
 - **Configurações específicas do controlador de armazenamento** *(dispositivos)* : você pode especificar as definições de configuração que serão aplicadas a dispositivos que têm informações de fornecedor e produto.
 - **Configurações específicas do dispositivo** *(vários caminhos)* : você pode usar esta seção para ajustar as definições de configuração para LUNs individuais.
 
@@ -204,12 +204,12 @@ Os dispositivos com suporte a vários caminhos podem ser automaticamente descobe
         }
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Etapa 2: configurar vários caminhos para volumes do StorSimple
-Por padrão, todos os dispositivos são pretos listados no arquivo de vários caminhos. conf e serão ignorados. Você precisará criar exceções de lista negra para permitir vários caminhos para volumes de dispositivos StorSimple.
+Por padrão, todos os dispositivos são pretos listados no arquivo de vários caminhos. conf e serão ignorados. Você precisará criar exceções de lista de bloqueios para permitir vários caminhos para volumes de dispositivos StorSimple.
 
 1. Edite o arquivo de `/etc/mulitpath.conf`. Tipo:
    
     `vi /etc/multipath.conf`
-1. Localize a seção blacklist_exceptions no arquivo. conf de vários caminhos. Seu dispositivo StorSimple precisa ser listado como uma exceção de lista negra nesta seção. Você pode remover os comentários das linhas relevantes nesse arquivo para modificá-lo, conforme mostrado abaixo (Use apenas o modelo específico do dispositivo que você está usando):
+1. Localize a seção blacklist_exceptions no arquivo. conf de vários caminhos. Seu dispositivo StorSimple precisa ser listado como uma exceção de lista de bloqueios nesta seção. Você pode remover os comentários das linhas relevantes nesse arquivo para modificá-lo, conforme mostrado abaixo (Use apenas o modelo específico do dispositivo que você está usando):
    
         blacklist_exceptions {
             device {
