@@ -11,12 +11,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: c226f41723fa3247a62af5dfa6318aa2cdd416ce
-  ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+  ms.openlocfilehash: bf2e3801669e78e3d658f5d4839d609e8e4bc419
+  ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/16/2020
-  ms.locfileid: "77370623"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77539489"
 highlightedContent:
   items:
   - title: Criar uma máquina virtual do Linux com a CLI do Azure
@@ -50,6 +50,9 @@ conceptualContent:
     - url: https://docs.microsoft.com/azure/virtual-machines/linux/image-builder
       itemType: how-to-guide
       text: Azure Image Builder
+    - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/linux-index
+      itemType: how-to-guide
+      text: Resolver problemas de máquinas virtuais do Linux
     footerLink:
       url: https://docs.microsoft.com/azure/virtual-machines/linux/
       text: Ver mais
@@ -64,6 +67,9 @@ conceptualContent:
     - url: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
       itemType: how-to-guide
       text: Configurar identidades geridas
+    - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/index
+      itemType: how-to-guide
+      text: Resolver problemas de máquinas virtuais do Windows
     footerLink:
       url: https://docs.microsoft.com/azure/virtual-machines/linux/
       text: Ver mais

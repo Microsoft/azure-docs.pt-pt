@@ -2,20 +2,16 @@
 title: Self-service exchanges and refunds for Azure Reservations (Trocas e reembolsos self-service para Reservas do Azure)
 description: Saiba como pode trocar ou reembolsar Reservas do Azure.
 author: yashesvi
-manager: yashesvi
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 393db5d2e14e047ade04e0b688582e272c6ca44f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773887"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200440"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos personalizados das Reservas do Azure
 
@@ -72,12 +68,10 @@ O Azure tem as seguintes políticas para cancelamentos, trocas e reembolsos.
 - Não existe qualquer penalização nem limites anuais para trocas.
 
 **Políticas de reembolso**
-- Se cancelar a sua reserva, pode ser cobrada uma taxa de cessação antecipada de 12%.
-- O reembolso que receber por um cancelamento corresponde ao saldo rateado restante menos a taxa de cessação antecipada de 12%. Para cancelar, aceda à reserva no portal do Azure e selecione **Reembolso**.
+- Poderá ser aplicada uma taxa de 12% de rescisão antecipada para cancelamentos no futuro. Neste momento, não estamos a cobrar esta penalização.
 - O valor total do reembolso não pode exceder os 50.000 USD num período sem interrupção de 12 meses.
 - Os reembolsos são calculados com base no preço mais baixo do preço de compra ou do preço atual da reserva.
-- Apenas os proprietários da reserva podem processar um reembolso. [Saiba como Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- A Microsoft se reserva o direito de cobrar uma penalização de 12% por qualquer devolução. A penalização não é cobrada no momento, mas será cobrada no futuro.
+- Apenas os proprietários de encomendas de reservas podem processar reembolsos. [Saiba como Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Troca de armazenamento não premium por armazenamento premium
 

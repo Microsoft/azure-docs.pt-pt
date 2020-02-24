@@ -2,43 +2,44 @@
 title: E-mail de saldo em dívida do Azure
 description: Descreve como fazer o pagamento se a subscrição do Azure tiver um saldo em dívida
 author: genlin
-manager: dcscontentpm
+ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 7216af00413b1f8022957ac134f67a5c27b6cc78
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: cbfd5f7bf47cdaf43df00c710bd6680373d67b09
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75987905"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200610"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Resolver saldo em dívida na subscrição do Azure
 
-Este artigo aplica-se aos clientes com uma conta do Programa Microsoft Online Services.
+Este artigo aplica-se aos clientes que se inscreveram no Azure online com um cartão de crédito e que têm uma conta de faturação do Programa de Serviços Online da Microsoft. Saiba como [verificar o tipo de conta de faturação](#check-the-type-of-your-account). Se tiver uma conta de faturação do Contrato de Cliente Microsoft, veja [Pagar a fatura do Microsoft Azure](../understand/pay-bill.md).
 
-Se o pagamento não for recebido ou se não o conseguirmos processar, poderá receber um e-mail ou ver um alerta no portal do Azure ou no Centro de Contas.
-Se for o [Administrador da Conta](billing-subscription-transfer.md#whoisaa), poderá liquidar os custos pendentes no [portal do Azure](https://portal.azure.com). Se estiver no modo de pagamento por fatura, envie o pagamento para a localização indicada na parte inferior da fatura.
+Se o pagamento não for recebido ou se não o conseguirmos processar, receberá um e-mail e verá um alerta no portal do Azure a informar de que o pagamento da sua subscrição está atrasado. Se o seu método de pagamento predefinido for cartão de crédito, o [Administrador da Conta](billing-subscription-transfer.md#whoisaa) pode liquidar os custos vencidos no portal do Azure. Se pagar por fatura (cheque/transferência bancária), envie o pagamento para a localização apresentada no final da fatura.
 
 > [!IMPORTANT]
 > * Se tiver várias subscrições que utilizam o mesmo cartão de crédito e todas estiverem vencidas, deverá pagar todo o saldo pendente de uma só vez.
-> * O instrumento de pagamento que utiliza para liquidar os custos pendentes tornar-se-á no novo método de pagamento ativo para todas as subscrições que estavam a utilizar o método do pagamento em falta.
+> * O cartão de crédito que utiliza para liquidar os custos pendentes tornar-se-á no novo método de pagamento predefinido para todas as subscrições que estavam a utilizar o método do pagamento em falta.
 
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Resolver o saldo em dívida no portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como o Administrador de Conta.
 1. Procure **Cost Management + Faturação**.
-1. Na página Descrição geral, verá uma lista das suas subscrições. Se o estado da subscrição for em dívida, clique na ligação **Liquidar saldo**.
-    ![Captura de ecrã que mostra a ligação de liquidação de saldo](./media/resolve-past-due-balance/settle-balance-entry-point.png)
-1. O saldo pendente total reflete os custos pendentes em todos os serviços da Microsoft que utilizam o método do pagamento em falta.
-1. Selecione um método de pagamento para pagar o saldo. Este método de pagamento tornar-se-á no método de pagamento ativo para todas as subscrições que estão a utilizar o método do pagamento em falta.
+1. Selecione a subscrição vencida na página **Descrição geral**.
+1. Na página **Descrição geral da subscrição**, clique na faixa de data de vencimento vencida para liquidar o saldo.
+    > [!NOTE]
+    > Se não for o Administrador da Conta, não poderá liquidar o saldo.
+1. Na nova página **Liquidar o saldo**, clique em **Selecionar método de pagamento**.
     ![Captura de ecrã que mostra a ligação de seleção do método de pagamento](./media/resolve-past-due-balance/settle-balance-screen.png)
-1. Se o método de pagamento selecionado também tiver custos pendentes relativamente a serviços da Microsoft, tal será refletido no saldo pendente total. Também deverá pagar esses custos pendentes.
+
+1. No novo painel à direita, selecione um cartão de crédito na lista pendente ou adicione um novo. Para tal, clique na ligação azul **Adicionar novo método de pagamento**. Este cartão de crédito tornar-se-á no método de pagamento ativo para todas as subscrições que estão a utilizar o método do pagamento em falta.
+     > [!NOTE]
+     > * O saldo pendente total reflete os custos pendentes em todos os serviços da Microsoft que utilizam o método do pagamento em falta.
+     > * Se o método de pagamento selecionado também tiver custos pendentes relativamente a serviços da Microsoft, tal será refletido no saldo pendente total. Também deverá pagar esses custos pendentes.
 1. Clique em **Pagar**.
 
 ## <a name="troubleshoot-declined-credit-card"></a>Resolução de problemas de cartão de crédito recusado
@@ -58,6 +59,8 @@ O serviço é cancelado e os seus recursos deixam de estar disponíveis. Os dado
 
 Se tiver a certeza que o pagamento foi processado, mas a subscrição continuar desativada, contacte o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
+## <a name="check-the-type-of-your-account"></a>Verificar o tipo de conta
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
