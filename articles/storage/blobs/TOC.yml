@@ -624,8 +624,51 @@
           href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Inserir dados em tabelas Delta do Databricks com o Event Grid
           href: ../blobs/data-lake-storage-events.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Amostras
+      items:
+        - name: .NET
+          href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Java
+          href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Python
+          href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: JavaScript
+          href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Conceitos
       items:
+        - name: Contas de armazenamento
+          href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Segurança
+          items:
+            - name: Autorizar operações de dados
+              href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Autorizar operações de gestão
+              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Controlo de acesso (diretórios e ficheiros)
+              href: data-lake-storage-access-control.md
+            - name: Encriptação do Armazenamento do Azure
+              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Proteção avançada contra ameaças
+              href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Utilizar Pontos Finais Privados do Azure
+              href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Redundância de dados
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Migração de dados
+          items:
+            - name: Comparar soluções de transferência de dados
+              href: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: 'Conjunto de dados grande, pouca largura de banda de rede'
+                  href: ../common/storage-solution-large-dataset-low-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Conjunto de dados grande, largura de banda de rede entre moderada e alta'
+                  href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Conjunto de dados pequeno, largura de banda de rede entre baixa e moderada'
+                  href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Transferência de dados periódica
+                  href: ../common/storage-solution-periodic-data-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Simultaneidade
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Acesso multiprotocolo
           href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Processar macrodados
@@ -638,14 +681,98 @@
           href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Acerca dos espaços de nomes hierárquicos
           href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Monitorizar e resolver problemas
+          items:
+            - name: 'Monitorizar, diagnosticar e resolver problemas'
+              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Métricas no Azure Monitor
+              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Migrar para a nova métrica
+              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Registos de análise de armazenamento
+              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Melhores práticas
           href: data-lake-storage-best-practices.md
-        - name: Controlo de acesso (diretórios e ficheiros)
-          href: data-lake-storage-access-control.md
     - name: Procedimento
       items:
         - name: Criar uma conta de armazenamento para o seu Data Lake
           href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Proteger dados
+          items:
+            - name: Autorizar acesso aos dados
+              items:
+                - name: Opções de autorização para os utilizadores
+                  items:
+                    - name: Portal
+                      href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: PowerShell
+                      href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: CLI do Azure
+                      href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Gerir direitos de acesso com RBAC
+                  items:
+                    - name: Portal
+                      href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: PowerShell
+                      href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: CLI do Azure
+                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autenticar e autorizar com o Azure AD
+                  items:
+                    - name: Autorizar com uma identidade gerida
+                      href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Autorizar a partir de uma aplicação
+                      href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autorizar com a Chave Partilhada
+                  items:
+                    - name: Ver e gerir chaves de contas
+                      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Configurar cadeias de ligação
+                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Utilizar a API REST do Armazenamento do Azure
+                      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Gerir a encriptação do Armazenamento do Azure
+              items:
+                - name: Gerir as chaves de encriptação da conta de armazenamento
+                  items:
+                    - name: Verificar o modelo da chave de encriptação da conta
+                      href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Configurar as chaves de encriptação geridas pelo cliente
+                      items:
+                        - name: Portal
+                          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: PowerShell
+                          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: CLI do Azure
+                          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configurar a encriptação do lado do cliente
+              items:
+                - name: .NET
+                  href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Java
+                  href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Python
+                  href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configurar a segurança de rede
+              items:
+                - name: Requer transferência segura
+                  href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Configurar firewalls e redes virtuais
+                  href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Ativar o Transport Layer Security
+                  href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Recuperação após desastre
+          items:
+            - name: Consulte a propriedade Last Sync Time
+              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Iniciar a ativação pós-falha da conta
+              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Utilizar um emulador de armazenamento
+          items:
+            - name: Utilizar o emulador de open-source Azurite
+              href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Utilizar o emulador de armazenamento do Azure
+              href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Gerir diretórios, ficheiros e ACLs'
           items:
             - name: .NET
@@ -674,6 +801,20 @@
               href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Otimizar o Storm no HDInsight
               href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Transferir dados
+          items:
+            - name: AzCopy
+              items:
+                - name: Introdução
+                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Utilizar com o Data Lake Storage
+                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Configurar, otimizar, resolver problemas'
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Azure Data Factory
+              href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Transferir dados com a biblioteca do Movimento de Dados
+              href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Migrar dados
           items:
             - name: Atualizar do Data Lake Storage Gen1
@@ -694,18 +835,75 @@
           href: 'https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6'
         - name: REST
           href: /rest/api/storageservices/data-lake-storage-gen2
+        - name: AzCopy v10
+          items:
+            - name: azcopy
+              href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy bench
+              href: ../common/storage-ref-azcopy-bench.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy copy
+              href: ../common/storage-ref-azcopy-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy doc
+              href: ../common/storage-ref-azcopy-doc.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy env
+              href: ../common/storage-ref-azcopy-env.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy jobs
+              href: ../common/storage-ref-azcopy-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy jobs clean
+              href: ../common/storage-ref-azcopy-jobs-clean.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy jobs list
+              href: ../common/storage-ref-azcopy-jobs-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy jobs remove
+              href: ../common/storage-ref-azcopy-jobs-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy jobs resume
+              href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy jobs show
+              href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy list
+              href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy login
+              href: ../common/storage-ref-azcopy-login.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy logout
+              href: ../common/storage-ref-azcopy-logout.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy make
+              href: ../common/storage-ref-azcopy-make.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy remove
+              href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy sync
+              href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Modelo do Resource Manager
+          displayName: ARM
+          href: /azure/templates/microsoft.storage/allversions
     - name: Recursos
       items:
         - name: Problemas conhecidos
           href: data-lake-storage-known-issues.md
         - name: Mapa do Azure
           href: 'https://azure.microsoft.com/roadmap/?category=storage'
+        - name: Atualizações do Azure
+          href: 'https://azure.microsoft.com/updates/?product=storage'
         - name: Ferramentas de cliente do Armazenamento do Azure
           href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+        - name: Explorador do Storage do Azure
+          items:
+            - name: Transferir o Explorador de Armazenamento
+              href: 'https://azure.microsoft.com/features/storage-explorer/'
+            - name: Introdução ao Explorador de Armazenamento
+              href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Notas de lançamento do Explorador do Armazenamento
+              href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
+            - name: Resolução de Problemas do Explorador de Armazenamento
+              href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Acessibilidade do Explorador de Armazenamento
+              href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Fórum
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+        - name: Armazenamento do Azure no Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
         - name: Preços
           href: 'https://azure.microsoft.com/pricing/details/storage/data-lake/'
+        - name: Calculadora de preços do Azure
+          href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Calculadora de preços
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Atualizações de serviço

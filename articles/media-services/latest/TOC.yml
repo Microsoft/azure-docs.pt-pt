@@ -99,6 +99,8 @@
         - name: Pontos Finais de Transmissão em fluxo
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
+        - name: Dimensionar Transmissão em Fluxo com CDN
+          href: scale-streaming-cdn.md
         - name: Localizadores de Transmissão em Fluxo
           displayName: URLs
           href: streaming-locators-concept.md
@@ -228,6 +230,8 @@
           href: cli-create-transform.md
         - name: Criar tarefas - CLI
           href: cli-create-jobs.md
+        - name: Tarefas com várias saídas de transformação
+          href: job-multiple-transform-outputs.md
     - name: Codificar conteúdo
       items:
         - name: HTTPS como Entrada da tarefa - .NET

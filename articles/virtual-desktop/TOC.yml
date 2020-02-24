@@ -42,6 +42,8 @@
           href: deploy-windows-7-virtual-machine.md
         - name: Implementar um anfitrião de sessões baseado em GPU
           href: configure-vm-gpu.md
+        - name: Expandir um conjunto de anfitriões existente
+          href: expand-existing-host-pool.md
     - name: Criar um contentor de perfil
       items:
         - name: Utilizar uma partilha de ficheiros baseada em VM

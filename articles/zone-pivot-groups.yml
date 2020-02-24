@@ -192,10 +192,20 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: platforms-set-of-three
+  title: Plataformas
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-windows
+    title: Windows
+  - id: platform-linux
+    title: Linux
+  - id: platform-android
+    title: Android
 metadata:
-  ms.openlocfilehash: dcdb8bae9eaeb9ec06f3ceb10d6966e8e040724b
-  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+  ms.openlocfilehash: 4c706f849a9fadf15f3f1751fb215cbb112004fb
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/21/2020
-  ms.locfileid: "77526710"
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562518"
