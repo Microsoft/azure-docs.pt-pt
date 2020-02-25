@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0c7f2de0a454dceeff1946a93801c20ad81ab0ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122518"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559849"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e ingresso na Pré-visualização de Insights da Série De Tempo azure
 
@@ -171,7 +171,7 @@ Time Series Insights Preview guarda os seus dados da loja fria para o armazename
 
 ### <a name="data-availability"></a>Disponibilidade de dados
 
-Visualização de visualizações de visualizações da Série de Tempo Azure e indexa dados para um desempenho ótimo da consulta. Os dados ficam disponíveis para consulta depois de indexados. A quantidade de dados que estão a ser ingeridos pode afetar esta disponibilidade.
+Visualização de visualizações de visualizações da Série de Tempo Azure e indexa dados para um desempenho ótimo da consulta. Os dados ficam disponíveis para consulta tanto do calor (se ativado) como do cold store depois de indexado. A quantidade de dados que estão a ser ingeridos pode afetar esta disponibilidade.
 
 > [!IMPORTANT]
 > Durante a pré-visualização, poderá experimentar um período de até 60 segundos antes de os dados se tornarem disponíveis. Se sentir uma latência significativa para além dos 60 segundos, por favor envie um bilhete de apoio através do portal Azure.

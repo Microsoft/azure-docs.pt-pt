@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: e73f5e578ef498d3c6be8422fbbcfa7ac8856adf
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 187fa7cf52193d94b932d9021749917fa4f9b1dc
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425821"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562603"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>Criar e gerir link privado para base de dados Azure para PostgreSQL - Servidor único (Pré-visualização) usando o Portal
 
@@ -23,7 +23,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 > Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para o servidor Single PostgreSQL suporta os níveis de preços otimizados para fins gerais e memória.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Criar um VM Azure
 
@@ -170,6 +170,9 @@ Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final
 2. Quando vir a **mensagem de validação passada,** selecione **Criar**. 
 
     ![Link Privado criado](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
+
+    > [!NOTE] 
+    > O FQDN na definição de DNS do cliente não resolve o IP privado configurado. Terá de configurar uma zona DNS para o FQDN configurado, como mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ligue-se a um VM utilizando o Ambiente de Trabalho Remoto (RDP)
 

@@ -1,73 +1,72 @@
 ---
-title: A VM do Linux é inicializada para a resgate grub
-description: Falha na inicialização da máquina virtual porque a máquina virtual entrou em um console de resgate
+title: Botas VM Linux para O Resgate Grub
+description: Máquina virtual não arrancou porque a máquina virtual entrou numa consola de resgate
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 29242b802dbbff4218506422293082a495c4d21e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c24a840716841d04537ac5b77bcaf26fca4b78cf
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685124"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561954"
 ---
-# <a name="linux-vm-boots-to-grub-rescue"></a>A VM do Linux é inicializada para a resgate grub
+# <a name="linux-vm-boots-to-grub-rescue"></a>Botas VM Linux para O Resgate Grub
 
-Identificamos que sua VM (máquina virtual) entrou em um console de resgate. O problema ocorre quando sua VM Linux tem alterações de kernel aplicadas recentemente, como uma atualização de kernel, e não está mais iniciando corretamente devido a erros de kernel durante o processo de inicialização. Durante o processo de inicialização, quando o carregador de inicialização tenta localizar o kernel do Linux e entrega o controle de inicialização para ele, a VM entra em um console de resgate quando a entrega falha.
+Identificamos que a sua Máquina Virtual (VM) entrou numa consola de resgate. O problema ocorre quando o seu VM Linux teve alterações no kernel aplicadas recentemente, como uma atualização de kernel, e já não está a funcionar corretamente devido a erros de kernel durante o processo de arranque. Durante o processo de arranque, quando o carregador de botões tenta localizar o kernel Linux e entregar-lhe o controlo da bota, o VM entra numa consola de resgate quando a entrega falha.
 
-Se você achar que não pode se conectar a uma VM no futuro, poderá exibir uma captura de tela de sua VM usando a folha diagnóstico de inicialização na portal do Azure. Isto pode ajudá-lo a diagnosticar o problema e determinar se a causa reside num erro de arranque semelhante.
+Se descobrir que não pode ligar-se a um VM no futuro, poderá ver uma imagem do seu VM utilizando a lâmina de diagnóstico de arranque no portal Azure. Isto pode ajudá-lo a diagnosticar o problema e determinar se a causa reside num erro de arranque semelhante.
 
 ## <a name="recommended-steps"></a>Passos recomendados
 
-Siga as etapas de mitigação abaixo, dependendo do erro que você receber:
+Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 
-### <a name="error---unknown-filesystem"></a>Erro-sistema de arquivos desconhecido
+### <a name="error---unknown-filesystem"></a>Error - Sistema de ficheiros desconhecido
 
-* Se você estiver recebendo o sistema de arquivos de erro **desconhecido**, esse erro poderá resultar de uma corrupção do sistema de arquivos na partição de inicialização ou de uma configuração de kernel incorreta.
+* Se estiver a obter o erro Sistema de **ficheiros Desconhecido,** este erro pode resultar de uma corrupção no sistema de ficheiros na partição do arranque ou de uma configuração incorreta do núcleo.
 
-   * Para problemas do sistema de arquivos, siga as etapas no artigo [recuperação do Linux: não é possível SSH para VM Linux devido a erros do sistema de arquivos (fsck, inodes)](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/).
-   * Para problemas de kernel, siga as etapas no artigo [recuperação do Linux: corrigindo manualmente problemas de não inicialização relacionados a problemas de kernel](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)ou [recuperação do Linux: corrigindo problemas de não inicialização relacionados a problemas de kernel usando o chroot](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
+   * Para problemas no sistema de ficheiros, siga os passos do artigo [Linux Recovery: Can SSH to Linux VM devido a erros do sistema de ficheiros (fsck, inodes)](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/).
+   * Para problemas de kernel, siga os passos do artigo [Recuperação linux: corrigir manualmente problemas de não-arranque relacionados com problemas kernel](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/), ou [Recuperação linux: corrigir problemas de não-arranque relacionados com problemas kernel usando chroot](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
-### <a name="error---file-not-found"></a>Erro-arquivo não encontrado
+### <a name="error---file-not-found"></a>Erro - Ficheiro não encontrado
 
-* Se você estiver recebendo o erro de erro **15: arquivo não encontrado ou disco RAM inicial** ou **arquivo initrd/initramfs não encontrado**, siga as etapas abaixo.
+* Se estiver a obter o **erro Erro 15: Ficheiro não encontrado ou disco RAM inicial** ou ficheiro **initramfs/initramfs não encontrados,** siga os passos abaixo.
 
-    * Para o arquivo ausente `/boot/grub2/grub.cfg` ou `initrd/initramfs` prossiga com o seguinte processo:
+    * Para o ficheiro em falta `/boot/grub2/grub.cfg` ou `initrd/initramfs` prosseguir com o seguinte processo:
 
-    1. Verifique se `/etc/default/grub` existe e se tem as configurações corretas/desejadas. Se você não souber quais são as configurações padrão, poderá verificar com uma VM em funcionamento.
+    1. Certifique-se de que existem `/etc/default/grub` e tem definições corretas/desejadas. Se não souber quais são as definições predefinidas, pode verificar com um VM de trabalho.
 
-    2. Em seguida, execute o seguinte comando para regenerar sua configuração: `grub2-mkconfig -o /boot/grub2/grub.cfg`
+    2. Em seguida, executar o seguinte comando para regenerar a sua configuração: `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * Se o arquivo ausente for `/boot/grub/menu.lst`, esse erro será para versões mais antigas do sistema operacional (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14, 4**) para que os comandos pudessem ser diferentes. Você precisará criar um servidor antigo e testar para garantir que os comandos corretos sejam fornecidos.
+   * Se o ficheiro em falta for `/boot/grub/menu.lst`, este erro é para versões mais antigas de SO **(RHEL 6.x,** **Centos 6.x** e **Ubuntu 14.04**), para que os comandos possam diferir. Terá de girar um servidor antigo e testar para garantir que os comandos corretos são fornecidos.
 
-### <a name="error---no-such-partition"></a>Erro-nenhuma partição desse tipo
+### <a name="error---no-such-partition"></a>Erro - Não há tal partição
 
-* Se você estiver recebendo o erro **sem tal partição**, consulte [o cenário de caso: erro "sem partição" ao tentar iniciar a VM depois de tentar estender a unidade do sistema operacional](https://blogs.technet.microsoft.com/shwetanayak/2017/03/12/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive/).
+* Se estiver a obter o erro **Não há tal partição,** consulte o Cenário de [Caso : erro "não existe tal partição" enquanto tenta iniciar o VM depois](https://blogs.technet.microsoft.com/shwetanayak/2017/03/12/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive/)de tentar estender a unidade de SO .
 
-### <a name="error---grubcfg-file-not-found"></a>Erro-arquivo grub. cfg não encontrado
+### <a name="error---grubcfg-file-not-found"></a>Erro - ficheiro grub.cfg não encontrado
 
-* Se você estiver recebendo o erro **/boot/Grub2/grub.cfg arquivo não encontrado**, siga as etapas abaixo.
+* Se estiver a obter o **erro /boot/grub2/grub.cfg ficheiro não encontrado,** siga os passos abaixo.
 
-    * Para o arquivo ausente `/boot/grub2/grub.cfg` ou `initrd/initramfs` prossiga com o seguinte processo:
+    * Para o ficheiro em falta `/boot/grub2/grub.cfg` ou `initrd/initramfs` prosseguir com o seguinte processo:
 
-    1. Verifique se `/etc/default/grub` existe e se tem as configurações corretas/desejadas. Se você não souber quais são as configurações padrão, poderá verificar com uma VM em funcionamento.
+    1. Certifique-se de que existem `/etc/default/grub` e tem definições corretas/desejadas. Se não souber quais são as definições predefinidas, pode verificar com um VM de trabalho.
 
-    2. Em seguida, execute o seguinte comando para regenerar sua configuração: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
+    2. Em seguida, execute o seguinte comando para regenerar a sua configuração: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
 
-   * Se o arquivo ausente for `/boot/grub/menu.lst`, esse erro será para versões mais antigas do sistema operacional (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14, 4**) para que os comandos possam ser adiados. Crie um servidor antigo e teste-o para garantir que os comandos corretos sejam fornecidos.
+   * Se o ficheiro em falta for `/boot/grub/menu.lst`, este erro é para versões mais antigas de SO **(RHEL 6.x,** **Centos 6.x** e **Ubuntu 14.04**) para que os comandos possam adiar. Rode um servidor antigo e teste-o para garantir que os comandos corretos são fornecidos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral do agente de máquina virtual do Azure](../extensions/agent-windows.md)
-* [Recursos e extensões de máquina virtual para Windows](../extensions/features-windows.md)
+* [Visão geral do Agente De MáquinaS Virtuais Azure](../extensions/agent-windows.md)
+* [Extensões e funcionalidades de máquinavirtual para Windows](../extensions/features-windows.md)
 

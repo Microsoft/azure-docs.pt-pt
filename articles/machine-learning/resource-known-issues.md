@@ -10,18 +10,84 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 40749a80d99782a1ea84b27e68376ea2870e8eb7
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 771ae508aaa46167413c2e701d8193790198cb68
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138013"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565915"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Questões conhecidas e resolução de problemas Azure Machine Learning
 
 Este artigo ajuda-o a encontrar e corrigir erros ou falhas encontrados ao utilizar o Azure Machine Learning.
 
-## <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Interrupção: Upgrade SR-IOV para máquinas NCv3 em AmlCompute
+## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
+
+**Mensagem de erro: Não pode desinstalar 'PyYAML'**
+
+SDK de Aprendizado de máquina do Azure para Python: PyYAML é um projeto de distutils instalado. Portanto, não podemos determinar com precisão quais os ficheiros que lhe pertencem se existe uma desinstalação parcial. Para continuar a instalação do SDK ao ignorar este erro, utilize:
+
+```Python
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
+
+**Mensagem de erro: `ERROR: No matching distribution found for azureml-dataprep-native`**
+
+A distribuição Python 3.7.4 da Anaconda tem um bug que quebra a instalação azureml-sdk. Esta questão é discutida nesta edição do [GitHub](https://github.com/ContinuumIO/anaconda-issues/issues/11195) Esta pode ser trabalhada através da criação de um novo Conda Environment usando este comando:
+```bash
+conda create -n <env-name> python=3.7.3
+```
+O que cria um Ambiente Conda usando python 3.7.3, que não tem o problema de instalação presente em 3.7.4.
+
+## <a name="training-and-experimentation-issues"></a>Questões de formação e experimentação
+
+### <a name="metric-document-is-too-large"></a>O documento métrico é muito grande
+O Azure Machine Learning tem limites internos no tamanho de objetos métricos que podem ser registados ao mesmo tempo a partir de um treino. Se encontrar um erro "Metric Document is too large" ao registar uma métrica avaliada pela lista, tente dividir a lista em pedaços menores, por exemplo:
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+Internamente, o Azure ML concatena os blocos com o mesmo nome métrico numa lista contígua.
+
+### <a name="moduleerrors-no-module-named"></a>MóduloErros (Nenhum módulo nomeado)
+Se estiver a encontrar MóduloSErrors enquanto submete experiências no Azure ML, significa que o script de treino está à espera de um pacote para ser instalado, mas não é adicionado. Assim que fornecer o nome do pacote, o Azure ML instalará o pacote no ambiente utilizado para o seu treino. 
+
+Se estiver a utilizar estimadores para submeter [experiências,](concept-azure-machine-learning-architecture.md#estimators) pode especificar um nome de pacote através de `pip_packages` ou `conda_packages` parâmetro no estimador com base na fonte que pretende instalar a embalagem. Também pode especificar um ficheiro yml com todas as suas dependências usando `conda_dependencies_file`ou listar todos os seus requisitos de pip num ficheiro txt usando `pip_requirements_file` parâmetro. Se tiver o seu próprio objeto De Ambiente Azure ML que pretenda anular a imagem predefinida utilizada pelo estimador, pode especificar esse ambiente através do parâmetro `environment` do construtor estimador.
+
+O Azure ML também fornece estimativas específicas para a tensorflow, pyTorch, chainer e SKLearn. A utilização destes estimadores certificar-se-á de que as dependências do núcleo do quadro são instaladas em seu nome no ambiente utilizado para a formação. Tem a opção de especificar dependências extras acima descritas. 
+ 
+O Azure ML manteve imagens de estivadores e o seu conteúdo pode ser visto em [contentores AzureML](https://github.com/Azure/AzureML-Containers).
+As dependências específicas do quadro estão listadas na respetiva documentação-quadro - [Chainer,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks) [PyTorch,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks) [TensorFlow,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks) [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+
+> [!Note]
+> Se você acha que um pacote específico é comum o suficiente para ser adicionado em Imagens e ambientes mantidos Azure ML, por favor levante uma edição GitHub em [contentores AzureML](https://github.com/Azure/AzureML-Containers). 
+ 
+### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>Error de nome (Nome não definido), AttributeError (Objeto não tem atributo)
+Esta exceção deve vir dos seus guiões de treino. Pode ver os ficheiros de registo do portal Azure para obter mais informações sobre o nome específico não definido ou erro de atributo. A partir do SDK, pode utilizar `run.get_details()` para ver a mensagem de erro. Isto também listará todos os ficheiros de registo gerados para a sua execução. Por favor, certifique-se de dar uma olhada no seu script de treino e corrigir o erro antes de reenviar a sua execução. 
+
+### <a name="horovod-has-been-shut-down"></a>Horovod foi encerrado.
+Na maioria dos casos, se encontrar "AbortedError: Horovod was shut down" esta exceção significa que houve uma exceção subjacente num dos processos que fez com que Horovod fosse encerrado. Cada posto no trabalho de MPI obtém o seu próprio ficheiro de log dedicado no Azure ML. Estes registos são chamados `70_driver_logs`. Em caso de treino distribuído, os nomes de registo são sufixos com `_rank` para facilitar a diferenciação dos registos. Para encontrar o erro exato que fez com que horovod desligasse, veja todos os ficheiros de registo e procure `Traceback` no final dos ficheiros driver_log. Um destes ficheiros vai dar-lhe a exceção subjacente real. 
+
+### <a name="sr-iov-availability-on-ncv3-machines-in-amlcompute-for-distributed-training"></a>Disponibilidade SR-IOV em máquinas NCv3 em AmlCompute para formação distribuída
+A Azure Compute tem vindo a lançar um [upgrade SR-IOV](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku/) de máquinas NCv3, que os clientes podem alavancar com a oferta de cálculo gerida pela Azure ML (AmlCompute). As atualizações permitirão o suporte de toda a pilha de MPI e a utilização da rede RDMA Infiniband para um melhor desempenho de formação distribuído por vários nóesos, nomeadamente para aprendizagem profunda.
+
+Consulte o calendário da [atualização](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku/) para ver quando será lançado o suporte para a sua região.
+
+### <a name="run-or-experiment-deletion"></a>Executar ou experimentar a eliminação
+As experiências podem ser arquivadas utilizando o método [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) ou a partir da vista do separador Experiment no cliente do estúdio Azure Machine Learning através do botão "Experiência de Arquivo". Esta ação esconde a experiência de consultas e pontos de vista da lista, mas não a apaga.
+
+A eliminação permanente de experiências ou execuções individuais não é atualmente suportada. Para obter mais informações sobre a eliminação de ativos do Workspace, consulte Exportar ou eliminar os dados do espaço de trabalho do [serviço de aprendizagem automática](how-to-export-delete-data.md).
+
+## <a name="azure-machine-learning-compute-issues"></a>Problemas na Computação de Aprendizagem automática azure
+Problemas conhecidos com a utilização da Computação de Aprendizagem automática Azure (AmlCompute).
+
+### <a name="trouble-creating-amlcompute"></a>Problemas na criação do AmlCompute
+
+Há uma rara hipótese de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento da GA não serem capazes de criar amlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou do SDK para desbloquear imediatamente.
+
+### <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Interrupção: Upgrade SR-IOV para máquinas NCv3 em AmlCompute
 
 A Azure Compute vai atualizar os NCv3 SKUs a partir do início de novembro de 2019 para apoiar todas as implementações e versões de MPI, e verbos RDMA para máquinas virtuais equipadas com InfiniBand. Isto exigirá um curto período de inatividade - [leia mais sobre a atualização SR-IOV](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
@@ -43,28 +109,6 @@ Pode querer executar uma experiência apenas contém conjunto de dados para visu
 Antes da correção, pode ligar o conjunto de dados a qualquer módulo de transformação de dados (Selecione Colunas em Dataset, Editar Metadados, Dados Divididos, etc.) e executar a experiência. Depois pode visualizar o conjunto de dados. 
 
 Abaixo a imagem mostra como: ![](./media/resource-known-issues/aml-visualize-data.png) de dados visulize
-
-## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
-
-**Mensagem de erro: Não pode desinstalar 'PyYAML'**
-
-SDK de Aprendizado de máquina do Azure para Python: PyYAML é um projeto de distutils instalado. Portanto, não podemos determinar com precisão quais os ficheiros que lhe pertencem se existe uma desinstalação parcial. Para continuar a instalação do SDK ao ignorar este erro, utilize:
-
-```Python
-pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
-```
-
-**Mensagem de erro: `ERROR: No matching distribution found for azureml-dataprep-native`**
-
-A distribuição Python 3.7.4 da Anaconda tem um bug que quebra a instalação azureml-sdk. Esta questão é discutida nesta edição do [GitHub](https://github.com/ContinuumIO/anaconda-issues/issues/11195) Esta pode ser trabalhada através da criação de um novo Conda Environment usando este comando:
-```bash
-conda create -n <env-name> python=3.7.3
-```
-O que cria um Ambiente Conda usando python 3.7.3, que não tem o problema de instalação presente em 3.7.4.
-
-## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemas ao criar a computação do Azure Machine Learning
-
-Há uma chance de rara que alguns usuários que criou a sua área de trabalho do Azure Machine Learning do portal do Azure antes do lançamento de DG poderão não conseguir criar a computação do Azure Machine Learning nessa área de trabalho. Pode emitir um pedido de suporte com o serviço ou criar uma nova área de trabalho através do Portal ou o SDK para desbloquear-se imediatamente.
 
 ## <a name="image-building-failure"></a>Falha de criação de imagem
 
@@ -255,38 +299,6 @@ kubectl get secret/azuremlfessl -o yaml
 >[!Note]
 >Kubernetes armazena os segredos em formato codificado base-64. Terá de descodificar os componentes `cert.pem` e `key.pem` dos segredos antes de os fornecer para `attach_config.enable_ssl`. 
 
-## <a name="recommendations-for-error-fix"></a>Recomendações para correção de erros
-Com base na observação geral, aqui estão as recomendações do Azure ML para corrigir alguns dos erros comuns no Azure ML.
-
-### <a name="metric-document-is-too-large"></a>O documento métrico é muito grande
-O Azure Machine Learning tem limites internos no tamanho de objetos métricos que podem ser registados ao mesmo tempo a partir de um treino. Se encontrar um erro "Metric Document is too large" ao registar uma métrica avaliada pela lista, tente dividir a lista em pedaços menores, por exemplo:
-
-```python
-run.log_list("my metric name", my_metric[:N])
-run.log_list("my metric name", my_metric[N:])
-```
-
- Internamente, o serviço de história de execução concatena os blocos com o mesmo nome métrico numa lista contígua.
-
-### <a name="moduleerrors-no-module-named"></a>MóduloErros (Nenhum módulo nomeado)
-Se estiver a encontrar MóduloSErrors enquanto submete experiências no Azure ML, significa que o script de treino está à espera de um pacote para ser instalado, mas não é adicionado. Assim que fornecer o nome do pacote, o Azure ML instalará o pacote no ambiente utilizado para o seu treino. 
-
-Se estiver a utilizar estimadores para submeter [experiências,](concept-azure-machine-learning-architecture.md#estimators) pode especificar um nome de pacote através de `pip_packages` ou `conda_packages` parâmetro no estimador com base na fonte que pretende instalar a embalagem. Também pode especificar um ficheiro yml com todas as suas dependências usando `conda_dependencies_file`ou listar todos os seus requisitos de pip num ficheiro txt usando `pip_requirements_file` parâmetro.
-
-O Azure ML também fornece estimativas específicas para a tensorflow, pyTorch, chainer e SKLearn. A utilização destes estimadores certificar-se-á de que as dependências-quadro são instaladas em seu nome no ambiente utilizado para a formação. Tem a opção de especificar dependências extras acima descritas. 
- 
-O Azure ML manteve imagens de estivadores e o seu conteúdo pode ser visto em [contentores AzureML](https://github.com/Azure/AzureML-Containers).
-As dependências específicas do quadro estão listadas na respetiva documentação-quadro - [Chainer,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks) [PyTorch,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks) [TensorFlow,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks) [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
-
-> [!Note]
-> Se você acha que um pacote específico é comum o suficiente para ser adicionado em Imagens e ambientes mantidos Azure ML, por favor levante uma edição GitHub em [contentores AzureML](https://github.com/Azure/AzureML-Containers). 
- 
- ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>Error de nome (Nome não definido), AttributeError (Objeto não tem atributo)
-Esta exceção deve vir dos seus guiões de treino. Pode ver os ficheiros de registo do portal Azure para obter mais informações sobre o nome específico não definido ou erro de atributo. A partir do SDK, pode utilizar `run.get_details()` para ver a mensagem de erro. Isto também listará todos os ficheiros de registo gerados para a sua execução. Por favor, certifique-se de dar uma olhada no seu script de treino, corrigir o erro antes de tentar novamente. 
-
-### <a name="horovod-is-shut-down"></a>Horovod é desligado
-Na maioria dos casos, esta exceção significa que houve uma exceção subjacente num dos processos que fez com que o horovod fosse encerrado. Cada posto no trabalho de MPI obtém o seu próprio ficheiro de log dedicado no Azure ML. Estes registos são chamados `70_driver_logs`. Em caso de treino distribuído, os nomes de registo são sufixos com `_rank` para facilitar a diferenciação dos registos. Para encontrar o erro exato que causou o encerramento de Horovod, passe por todos os ficheiros de registo e procure `Traceback` no final dos ficheiros driver_log. Um destes ficheiros vai dar-lhe a exceção subjacente real. 
-
 ## <a name="labeling-projects-issues"></a>Questões de projetos de rotulagem
 
 Questões conhecidas com projetos de rotulagem.
@@ -306,12 +318,6 @@ Para carregar todas as imagens etiquetadas, escolha **o** primeiro botão. O **p
 ### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Premir a tecla Esc enquanto se rotula para deteção de objetos cria uma etiqueta de tamanho zero no canto superior esquerdo. A apresentação de rótulos neste estado falha.
 
 Elimine a etiqueta clicando na marca transversal ao lado.
-
-## <a name="run-or-experiment-deletion"></a>Executar ou experimentar a eliminação
-
-As experiências podem ser arquivadas utilizando o método [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) ou a partir da visualização do separador Experiment no cliente do estúdio Azure Machine Learning. Esta ação esconde a experiência de consultas e pontos de vista da lista, mas não a apaga.
-
-A eliminação permanente de experiências ou execuções individuais não é atualmente suportada. Para obter mais informações sobre a eliminação de ativos do Workspace, consulte Exportar ou eliminar os dados do espaço de trabalho do [serviço de aprendizagem automática](how-to-export-delete-data.md).
 
 ## <a name="moving-the-workspace"></a>Movendo o espaço de trabalho
 

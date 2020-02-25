@@ -1,146 +1,146 @@
 ---
-title: Integrar o Time Series Insights com a monitorização remota - Azure | Documentos da Microsoft
-description: Nesta explicação de procedimento, aprenderá como configurar o Time Series Insights para uma solução de monitorização remota existente que já não inclui o Time Series Insights.
-author: aditidugar
+title: Integrar insights da Série de Tempo com Monitorização Remota - Azure / Microsoft Docs
+description: Neste how-to você aprenderá como configurar Time Series Insights para uma solução de Monitorização Remota existente que ainda não inclui Insights da Série Tempo.
+author: Philmea
 manager: timlt
-ms.author: adugar
+ms.author: philmea
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443034"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564649"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com a Monitorização Remota
 
-O Azure Time Series Insights é um serviço totalmente gerido de análise, armazenamento e visualização para a gestão de dados de séries temporais à escala de IoT na cloud. Pode utilizar o Time Series Insights para armazenar e gerir dados de séries temporais, explorar e visualizar eventos em simultâneo, realizar análises de causa raiz e comparar vários sites e recursos.
+Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerido para gerir dados da série de tempo em escala IoT na nuvem. Você pode usar Time Series Insights para armazenar e gerir dados de séries de tempo, explorar e visualizar eventos simultaneamente, realizar análises de causa-raiz, e comparar vários sites e ativos.
 
-O acelerador de solução de monitorização remota agora fornece implementação automática e a integração com o Time Series Insights. Este procedimento, irá aprender a configurar o Time Series Insights para uma solução de monitorização remota existente que já não inclui o Time Series Insights.
+O acelerador de soluções de monitorização remota fornece agora a implantação automática e integração com insights da Série Time. Neste como- aprender, você aprende como configurar Time Series Insights para uma solução de Monitorização Remota existente que ainda não inclui Insights da Série Tempo.
 
 > [!NOTE]
-> O Time Series Insights não está atualmente disponível na cloud do Azure China. Novas implementações de acelerador de solução de monitorização remota na cloud do Azure China utilizem Cosmos DB para todo o armazenamento.
+> A Time Series Insights não está atualmente disponível na nuvem Azure China. Novas implementações de aceleradores de solução de monitorização remota na nuvem Azure China utilizam cosmos DB para todo o armazenamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este procedimentos, terá de se já tiver implementado uma solução de monitorização remota:
+Para completar este how-to, você precisa já ter implementado uma solução de Monitorização Remota:
 
 * [Implementar o acelerador de solução de monitorização remota](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Criar um grupo de consumidores
 
-Crie um grupo de consumidores dedicado no seu IoT Hub para ser utilizado para transmissão em fluxo de dados para o Time Series Insights.
+Crie um grupo de consumidores dedicado no seu IoT Hub para ser utilizado para transmitir dados para Time Series Insights.
 
 > [!NOTE]
-> Grupos de consumidores são utilizados por aplicações para obter dados do IoT Hub do Azure. Cada grupo de consumidores permite que até cinco consumidores de saída. Deve criar um novo grupo de consumidores para cada cinco sinks de saída e pode criar até 32 grupos de consumidores.
+> Os grupos de consumidores são utilizados por aplicações para retirar dados do Azure IoT Hub. Cada grupo de consumidores permite até cinco consumidores de produção. Deve criar um novo grupo de consumidores para cada cinco afundadores de produção e pode criar até 32 grupos de consumidores.
 
-1. No portal do Azure, clique no botão do Cloud Shell.
+1. No portal Azure, clique no botão Cloud Shell.
 
-1. Execute o seguinte comando para criar um novo grupo de consumidores. Utilize o nome do hub IoT na sua implementação de monitorização remota e o nome da sua implementação de monitorização remota, como o nome do grupo de recursos:
+1. Execute o seguinte comando para criar um novo grupo de consumidores. Utilize o nome do hub IoT na sua implementação de Monitorização Remota e o nome da sua implementação de Monitorização Remota como nome do grupo de recursos:
 
 ```azurecli-interactive
 az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsights --resource-group ContosoRM
 ```
 
-## <a name="deploy-time-series-insights"></a>Implementar o Time Series Insights
+## <a name="deploy-time-series-insights"></a>Implementar insights da série de tempo
 
-Em seguida, implemente o Time Series Insights como um recurso adicional na sua solução de monitorização remota e ligá-la para o hub IoT.
+Em seguida, implemente os Time Series Insights como um recurso adicional na sua solução de Monitorização Remota e conecte-o ao hub IoT.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **criar um recurso** > **Internet das coisas** > **Time Series Insights**.
+1. Selecione **Criar um recurso** > Internet das Coisas > Insights **da** Série **de Tempo**.
 
-    ![O Time Series Insights novo](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
+    ![Insights da série new time](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
-1. Para criar o seu ambiente do Time Series Insights, utilize os valores na tabela a seguir:
+1. Para criar o seu ambiente Time Series Insights, utilize os valores na tabela seguinte:
 
-    | Definição | Value |
+    | Definição | Valor |
     | ------- | ----- |
-    | Nome do ambiente | Captura de ecrã seguinte utiliza o nome **contorosrmtsi**. Escolha o seu próprio nome exclusivo quando concluir este passo. |
+    | Nome do Ambiente | A imagem seguinte usa o nome **contorosrmtsi**. Escolha o seu nome único quando completar este passo. |
     | Subscrição | Selecione a sua subscrição do Azure na lista pendente. |
-    | Grupo de recursos | **Utilizar existente**. Selecione o nome do seu grupo de recursos de monitorização remota existente. |
-    | Location | Estamos a utilizar **E.U.A. Leste**. Crie o seu ambiente na mesma região que a sua solução de monitorização remota se possível. |
+    | Grupo de recursos | **Utilize o existente**. Selecione o nome do seu grupo de recursos de Monitorização Remota existente. |
+    | Localização | Estamos a usar os **EUA Orientais.** Crie o seu ambiente na mesma região que a sua solução de Monitorização Remota, se possível. |
     | Sku |**S1** |
     | Capacidade | **1** |
 
-    ![Criar o Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
+    ![Criar insights da série de tempo](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
-1. Clique em **Criar**. Pode demorar um momento para o ambiente ser criado.
+1. Clique em **Criar**. Pode levar um momento para que o ambiente seja criado.
 
 ## <a name="create-event-source"></a>Crie a origem de eventos
 
-Crie uma nova origem de evento para ligar ao seu hub IoT. Certifique-se de que utilize o grupo de consumidores, criado nos passos anteriores. O Time Series Insights exige que cada serviço tem um grupo de consumidores dedicado não está em utilização por outro serviço.
+Crie uma nova fonte de evento para se conectar ao seu hub IoT. Certifique-se de que utiliza o grupo de consumidores criado nos passos anteriores. Time Series Insights exige que cada serviço tenha um grupo de consumidores dedicado que não seja utilizado por outro serviço.
 
-1. Navegue para o novo ambiente do Time Series Insights.
+1. Navegue para o seu novo ambiente time series Insights.
 
-1. No lado esquerdo, selecione **origens de eventos**.
+1. À esquerda, selecione **Fontes**de Evento .
 
-    ![Visualizar origens de eventos](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources.png)
+    ![Ver Fontes de Eventos](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources.png)
 
 1. Clique em **Adicionar**.
 
-    ![Adicionar origem de eventos](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources-add.png)
+    ![Adicionar Fonte de Evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources-add.png)
 
-1. Para configurar o seu hub IoT como uma nova origem de evento, utilize os valores na tabela a seguir:
+1. Para configurar o seu hub IoT como uma nova fonte de evento, utilize os valores na tabela seguinte:
 
-    | Definição | Value |
+    | Definição | Valor |
     | ------- | ----- |
-    | Nome da origem de evento | Captura de ecrã seguinte utiliza o nome **contosorm-iot-hub**. Utilize o seu próprio nome exclusivo quando concluir este passo. |
-    | source | **Hub IoT** |
-    | Opção de Importar | **Utilize o IoT Hub a partir de subscrições disponíveis** |
+    | Nome da fonte do evento | A imagem seguinte utiliza o nome **contosorm-iot-hub**. Use o seu próprio nome único quando completar este passo. |
+    | Origem | **Hub IoT** |
+    | Opção de Importar | **Use o IoT Hub a partir de subscrições disponíveis** |
     | ID da subscrição | Selecione a sua subscrição do Azure na lista pendente. |
-    | Nome do hub IOT | **contosorma57a6**. Utilize o nome do hub IoT partir da sua solução de monitorização remota. |
-    | Nome de política do hub IOT | **iothubowner** Certifique-se de que a diretiva usada é uma política de proprietário. |
-    | Chave de política do hub IOT | Este campo é preenchido automaticamente. |
-    | Grupo de consumidores do hub IOT | **timeseriesinsights** |
+    | Nome do hub de iot | **Contosorma57a6.** Utilize o nome do seu hub IoT a partir da sua solução de Monitorização Remota. |
+    | Nome da política do hub de iot | **iothubowner** Certifique-se de que a política utilizada é uma política do proprietário. |
+    | Chave política do hub de iot | Este campo é povoado automaticamente. |
+    | Grupo de consumidores de hub iot | **timeseriesinsights** |
     | Formato de serialização de eventos | **JSON**     | 
     | Nome da propriedade Timestamp | Deixar em branco |
 
-    ![Criar origem de evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
+    ![Criar fonte de evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
 1. Clique em **Criar**.
 
-## <a name="configure-the-data-access-policy"></a>Configurar a política de acesso de dados
+## <a name="configure-the-data-access-policy"></a>Configure a política de acesso a dados
 
-Para certificar-se de que todos os utilizadores que têm acesso à sua solução de monitorização remota são capazes de explorar os dados no Explorador do Time Series Insights, adicione a aplicação e os utilizadores em políticas de acesso de dados no portal do Azure. 
+Para garantir que todos os utilizadores que tenham acesso à sua solução de Monitorização Remota são capazes de explorar dados no explorador Time Series Insights, adicione a sua aplicação e utilizadores ao abrigo de políticas de acesso a dados no portal Azure. 
 
 1. Na lista de navegação, selecione **Grupos de recursos**.
 
-1. Escolha o **ContosoRM** grupo de recursos.
+1. Escolha o grupo de recursos **ContosoRM.**
 
-1. Escolher **contosormtsi** na lista de recursos do Azure.
+1. Escolha **contosormtsi** na lista de recursos azure.
 
-1. Escolher **políticas de acesso de dados** para ver a lista atual de atribuições de funções.
+1. Escolha Políticas de Acesso a **Dados** para ver a lista atual de atribuições de funções.
 
-1. Escolher **Add** para abrir o **selecione a função de utilizador** painel.
+1. Escolha **Adicionar** para abrir o painel de regra do **utilizador select.**
 
-   Se não tiver permissões para atribuir funções, não vir a **adicionar** opção.
+   Se não tiver permissão para atribuir funções, não vê a opção **Adicionar.**
 
-1. Na **função** na lista pendente, selecione uma função, como **leitor** e **contribuinte**.
+1. Na lista de abandono de **funções,** selecione um papel como **Reader** e **Contributor**.
 
 1. Na lista **Selecionar**, selecione um utilizador, grupo ou aplicação. Se não vir o principal de segurança na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar, endereços de e-mail e identificadores de objetos.
 
-1. Escolha **Guardar** para criar a atribuição de função. Após alguns instantes, a entidade de segurança é atribuída a função em políticas de acesso de dados.
+1. Escolha **Guardar** para criar a atribuição de função. Após alguns momentos, o diretor de segurança é atribuído o papel nas políticas de acesso a dados.
 
 > [!NOTE]
-> Se precisar de conceder acesso de utilizadores adicionais para o Explorador do Time Series Insights, pode utilizar estes passos para [conceder acesso a dados](../time-series-insights/time-series-insights-data-access.md#grant-data-access).
+> Se necessitar de conceder acesso adicional aos utilizadores ao explorador de Insights da Série Time, pode utilizar estes passos para [conceder acesso](../time-series-insights/time-series-insights-data-access.md#grant-data-access)aos dados .
 
-## <a name="configure-azure-stream-analytics"></a>Configurar o Azure Stream Analytics 
+## <a name="configure-azure-stream-analytics"></a>Configure Azure Stream Analytics 
 
-A próxima etapa é configurar o microsserviços do Azure Stream Analytics Manager para interromper o envio de mensagens para o Cosmos DB e armazená-los apenas no Time Series Insights. Se gostaria de duplicar as mensagens no Cosmos DB, ignore este passo.
+O próximo passo é configurar o microserviço Do Gestor de Análise de Fluxo saqueado para descontinuar o envio de mensagens para cosmos DB e armazená-las apenas em Time Series Insights. Ignore este passo se quiser duplicar as suas mensagens em Cosmos DB.
 
 1. Na lista de navegação, selecione **Grupos de recursos**.
 
-1. Escolha o **ContosoRM** grupo de recursos.
+1. Escolha o grupo de recursos **ContosoRM.**
 
-1. Encontre o Azure Stream Analytics (ASA) tarefa na lista de recursos de transmissão em fluxo. O nome de recurso começa com **streamingjobs -** .
+1. Encontre o trabalho de streaming azure Stream Analytics (ASA) na lista de recursos. O nome do recurso começa com **trabalhos de streaming.**
 
-1. Na parte superior, clique no botão para parar o ASA tarefas de transmissão em fluxo.
+1. Na parte superior, clique no botão para parar os trabalhos de streaming ASA.
 
-1. Editar a consulta do ASA e remover as **SELECIONAR**, **INTO**, e **FROM** cláusulas que apontam para as mensagens de transmitir em fluxo no Cosmos DB. Essas cláusulas devem ser na parte inferior da consulta e ter um aspeto semelhante ao seguinte exemplo:
+1. Editar a consulta ASA e remover as cláusulas **SELECT,** **INTO**e **FROM** que apontam para o fluxo de mensagens em Cosmos DB. Estas cláusulas devem estar na parte inferior da consulta e parecer o seguinte exemplo:
 
     ```sql
     SELECT
@@ -159,9 +159,9 @@ A próxima etapa é configurar o microsserviços do Azure Stream Analytics Manag
         DeviceTelemetry T PARTITION BY PartitionId TIMESTAMP BY T.EventEnqueuedUtcTime
     ```
 
-6. Reinicie as tarefas de transmissão em fluxo do Azure Stream Analytics.
+6. Reinicie os trabalhos de streaming do Azure Stream Analytics.
 
-7. Extrair as alterações mais recentes para os microsserviços de Gestor do Azure Stream Analytics, escrevendo o seguinte comando no prompt de comando:
+7. Puxe as últimas alterações para o microserviço do gestor do Azure Stream Analytics digitando o seguinte comando no pedido de comando:
 
 .NET: 
 
@@ -175,9 +175,9 @@ Java:
 docker pull azureiotpcs/asa-manager-java:1.0.2
 ```
 
-## <a name="configure-the-telemetry-microservice"></a>Configurar os microsserviços de telemetria
+## <a name="configure-the-telemetry-microservice"></a>Configure o microserviço de Telemetria
 
-Extrair os microsserviços de telemetria mais recente, escrevendo o seguinte comando no prompt de comando:
+Puxe o mais recente microserviço de Telemettry digitando o seguinte comando no pedido de comando:
 
 .NET:
 
@@ -191,37 +191,37 @@ Java:
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
-## <a name="optional-configure-the-web-ui-to-link-to-the-time-series-insights-explorer"></a>*[Opcional]*  Configurar a web da interface do Usuário para ligar ao Explorador do Time Series Insights
+## <a name="optional-configure-the-web-ui-to-link-to-the-time-series-insights-explorer"></a>*[Opcional]* Configure o UI web para ligar ao explorador de Insights da Série Tempo
 
-Para ver facilmente os seus dados no Explorador do Time Series Insights, é recomendável personalizando a interface do Usuário para ligar facilmente ao ambiente. Para tal, extrair as alterações mais recentes para a IU da Web com o seguinte comando:
+Para visualizar facilmente os seus dados no explorador time series Insights, recomendamos personalizar o UI para facilmente ligar ao ambiente. Para isso, puxe as últimas alterações para a Web UI utilizando o seguinte comando:
 
 ```cmd/sh
 docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 ```
 
-## <a name="configure-the-environment-variables"></a>Configurar as variáveis de ambiente
+## <a name="configure-the-environment-variables"></a>Configure as variáveis ambientais
 
-Para concluir a integração do Time Series Insights, terá de configurar o ambiente da sua implementação para os microsserviços atualizados.
+Para completar a integração time series Insights, terá de configurar o ambiente da sua implementação para os microserviços atualizados.
 
 ### <a name="basic-deployments"></a>Implementações básicas
 
-Configurar o ambiente de `basic` implementação para os microsserviços atualizados.
+Configure o ambiente de implantação `basic` para os microserviços atualizados.
 
-1. No portal do Azure, clique nas **do Azure Active Directory** separador no painel à esquerda.
+1. No portal Azure, clique no separador **Azure Ative Diretório** no painel à esquerda.
 
-1. Clique em **registos das aplicações**.
+1. Clique nos **registos da App**.
 
-1. Procure e clique no seu **ContosoRM** aplicação.
+1. Procure e clique na sua aplicação **ContosoRM.**
 
-1. Navegue para **configurações** > **chaves** e, em seguida, crie uma nova chave para a sua aplicação. Certifique-se copiar o valor de chave em local seguro.
+1. Navegue para **Definições** > **Teclas** e, em seguida, crie uma nova chave para a sua aplicação. Certifique-se de copiar o Valor Chave para um local seguro.
 
-1. Extrair os [mais recente docker compose ficheiro yaml](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) do repositório do GitHub com a etiqueta mais recente. 
+1. Puxe o [mais recente ficheiro yaml de composição](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) do GitHub repo usando a última etiqueta. 
 
-1. SSH para a VM ao seguir os passos descritos em [como criar e utilizar chaves SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+1. SSH no VM seguindo os passos delineados sobre [como criar e utilizar teclas SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
-1. Assim que estiver ligado, escreva `cd /app`.
+1. Uma vez ligados, escreva `cd /app`.
 
-1. Adicione as seguintes variáveis de ambiente para cada microsserviço no docker compõem ficheiro yaml e o `env-setup` script na VM:
+1. Adicione as seguintes variáveis ambientais a cada microserviço no ficheiro de laml compor do estivador e o roteiro `env-setup` no VM:
 
     ```sh
     PCS_TELEMETRY_STORAGE_TYPE=tsi
@@ -231,24 +231,24 @@ Configurar o ambiente de `basic` implementação para os microsserviços atualiz
     PCS_AAD_APPSECRET={AAD application key}
     ```
 
-1. Navegue para o **o serviço de telemetria** e também editar o docker compose ficheiro adicionando as variáveis de ambiente mesmo acima.
+1. Navegue para o serviço de **telemetria** e edite também o ficheiro de composição do estivador adicionando as mesmas variáveis ambientais acima.
 
-1. Navegue para o **serviço de Gestor do ASA** e editar o docker compose ficheiro adicionando `PCS_TELEMETRY_STORAGE_TYPE`.
+1. Navegue para o serviço de gerente da **ASA** e edite o ficheiro de composição do estivador adicionando `PCS_TELEMETRY_STORAGE_TYPE`.
 
-1. Reinicie os contentores de docker com `sudo ./start.sh` da VM.
+1. Reinicie os recipientes de estiva utilizando `sudo ./start.sh` do VM.
 
 > [!NOTE]
-> A configuração acima de variáveis de ambiente é válida para versões de monitorização remota antes 1.0.2
+> A configuração acima das variáveis ambientais é válida para versões de Monitorização Remota antes de 1.0.2
 
 ### <a name="standard-deployments"></a>Implementações padrão
 
-Configurar o ambiente de `standard` implementação para os microsserviços atualizados acima
+Configure o ambiente de implantação `standard` para os micro serviços atualizados acima
 
-1. Na linha de comandos, execute `kubectl proxy`. Para obter mais informações, consulte [aceder à API do Kubernetes](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
+1. Na linha de comando, corra `kubectl proxy`. Para mais informações, consulte [o acesso à API kubernetes](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
 
-1. Abra a consola de gestão do Kubernetes.
+1. Abra a consola de gestão Kubernetes.
 
-1. Encontre o mapa de configuração para adicionar as seguintes variáveis de ambiente novo do TSI:
+1. Encontre o mapa de configuração para adicionar as seguintes novas variáveis ambientais para a TSI:
 
     ```yaml
     telemetry.storage.type: "tsi"
@@ -256,7 +256,7 @@ Configurar o ambiente de `standard` implementação para os microsserviços atua
     security.auth.serviceprincipal.secret: "{AAD application service principal secret}"
     ```
 
-4. Edite o ficheiro yaml de modelo para pod do serviço de telemetria:
+4. Editar o ficheiro de modelo yaml para a cápsula de serviço de telemetria:
 
     ```yaml
     - name: PCS_AAD_TENANT
@@ -286,7 +286,7 @@ Configurar o ambiente de `standard` implementação para os microsserviços atua
             key: telemetry.tsi.fqdn
     ```
 
-5. Edite o ficheiro yaml de modelo de pod de serviço do ASA manager:
+5. Editar o ficheiro de modelo yaml para o serviço de gerente ASA:
 
     ```yaml
     - name: PCS_TELEMETRY_STORAGE_TYPE
@@ -296,8 +296,8 @@ Configurar o ambiente de `standard` implementação para os microsserviços atua
             key: telemetry.storage.type
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre como explorar os seus dados e diagnosticar um alerta no Explorador do Time Series Insights, consulte o nosso tutorial sobre [realizando uma raiz analisar a causa](iot-accelerators-remote-monitoring-root-cause-analysis.md).
+* Para saber como explorar os seus dados e diagnosticar um alerta no explorador time series Insights, consulte o nosso tutorial sobre a realização de uma análise de [causas de raiz](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
-* Para saber como a exploração e consultar dados no Explorador do Time Series Insights, consulte a documentação sobre o [Explorador do Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+* Para aprender a explorar e consultar dados no explorador time series Insights, consulte documentação sobre o explorador de Insights da [Série De Tempo Azure](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

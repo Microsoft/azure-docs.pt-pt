@@ -1,75 +1,75 @@
 ---
-title: Restrições de código de orquestrador durável-Azure Functions
-description: Reprodução de função de orquestração e restrições de código para Durable Functions do Azure.
+title: Restrições de código orquestrador duráveis - Funções Azure
+description: Repetição da função de orquestração e restrições de código para funções duráveis Azure.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5013457aca99a63808077b86f5674460e83fdc41
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232984"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562144"
 ---
-# <a name="orchestrator-function-code-constraints"></a>Restrições de código de função do Orchestrator
+# <a name="orchestrator-function-code-constraints"></a>Restrições de código de função orquestrador
 
-Durable Functions é uma extensão de [Azure Functions](../functions-overview.md) que permite criar aplicativos com estado. Você pode usar uma [função de orquestrador](durable-functions-orchestrations.md) para orquestrar a execução de outras funções duráveis dentro de um aplicativo de funções. As funções de orquestrador são com estado, confiáveis e potencialmente demoradas.
+Funções Duráveis é uma extensão das [Funções Azure](../functions-overview.md) que permite construir aplicações imponentes. Pode utilizar uma [função de orquestrador](durable-functions-orchestrations.md) para orquestrar a execução de outras funções duráveis dentro de uma aplicação de função. As funções de orquestrador são estatais, fiáveis e potencialmente de longa duração.
 
 ## <a name="orchestrator-code-constraints"></a>Restrições de código do orquestrador
 
-As funções de orquestrador usam o [fornecimento de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) para garantir a execução confiável e para manter o estado da variável local. O [comportamento de reprodução](durable-functions-orchestrations.md#reliability) do código do Orchestrator cria restrições sobre o tipo de código que você pode escrever em uma função de orquestrador. Por exemplo, as funções de orquestrador devem ser *determinísticas*: uma função de orquestrador será repetida várias vezes e deverá produzir o mesmo resultado a cada vez.
+As funções de orquestrador usam [o fornecimento de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) para garantir uma execução fiável e para manter o estado variável local. O comportamento de [repetição](durable-functions-orchestrations.md#reliability) do código orquestrador cria constrangimentos no tipo de código que pode escrever numa função orquestradora. Por exemplo, as funções de orquestrador devem ser *determinísticas:* uma função orquestradora será repetida várias vezes, e deve produzir o mesmo resultado de cada vez.
 
-### <a name="using-deterministic-apis"></a>Usando APIs determinísticas
+### <a name="using-deterministic-apis"></a>Utilização de APIs determinísticos
 
-Esta seção fornece algumas diretrizes simples que ajudam a garantir que seu código seja determinístico.
+Esta secção fornece algumas diretrizes simples que ajudam a garantir que o seu código é determinista.
 
-As funções de orquestrador podem chamar qualquer API em seus idiomas de destino. No entanto, é importante que as funções de orquestrador chamem apenas APIs determinísticas. Uma *API determinística* é uma API que sempre retorna o mesmo valor devido à mesma entrada, não importa quando ou com que frequência ela é chamada.
+As funções de orquestradores podem chamar qualquer API nas suas línguas-alvo. No entanto, é importante que as funções orquestradoras chamem apenas APIs deterministas. Uma *API determinística* é uma API que devolve sempre o mesmo valor dado o mesmo contributo, não importa quando ou com que frequência é chamado.
 
-A tabela a seguir mostra exemplos de APIs que você deve evitar porque elas *não* são determinísticas. Essas restrições se aplicam somente a funções de orquestrador. Outros tipos de função não têm essas restrições.
+A tabela que se segue mostra exemplos de APIs que deve evitar porque *não* são deterministas. Estas restrições aplicam-se apenas às funções orquestradoras. Outros tipos de funções não têm tais restrições.
 
-| Categoria da API | Razão | Solução |
+| Categoria API | Razão | Solução |
 | ------------ | ------ | ---------- |
-| Datas e horas  | As APIs que retornam a data ou hora atual são não determinísticas porque o valor retornado é diferente para cada repetição. | Use a API`CurrentUtcDateTime` no .NET ou a API `currentUtcDateTime` em JavaScript, que é segura para reprodução. |
-| GUIDs e UUIDs  | As APIs que retornam um GUID aleatório ou UUID são não determinísticas porque o valor gerado é diferente para cada repetição. | Use `NewGuid` no .NET ou `newGuid` em JavaScript para gerar GUIDs aleatórios com segurança. |
-| Números aleatórios | As APIs que retornam números aleatórios são não determinísticas porque o valor gerado é diferente para cada repetição. | Use uma função de atividade para retornar números aleatórios para uma orquestração. Os valores de retorno das funções de atividade são sempre seguros para reprodução. |
-| Enlaces | As associações de entrada e saída normalmente fazem e/s e não são determinísticas. Uma função de orquestrador não deve usar diretamente as associações [cliente de orquestração](durable-functions-bindings.md#orchestration-client) e [cliente de entidade](durable-functions-bindings.md#entity-client) . | Use associações de entrada e saída dentro de funções de cliente ou atividade. |
-| Rede | As chamadas de rede envolvem sistemas externos e não são determinísticas. | Use funções de atividade para fazer chamadas de rede. Se você precisar fazer uma chamada HTTP de sua função de orquestrador, também poderá usar as [APIs de http duráveis](durable-functions-http-features.md#consuming-http-apis). |
-| APIs de bloqueio | O bloqueio de APIs como `Thread.Sleep` no .NET e APIs semelhantes pode causar problemas de desempenho e escala para funções de orquestrador e deve ser evitado. No plano de consumo de Azure Functions, eles podem até mesmo resultar em encargos de tempo de execução desnecessários. | Use alternativas para bloquear APIs quando elas estiverem disponíveis. Por exemplo, use `CreateTimer` para introduzir atrasos na execução de orquestração. Os atrasos de [temporizadores duráveis](durable-functions-timers.md) não contam para o tempo de execução de uma função de orquestrador. |
-| APIs assíncronas | O código do Orchestrator nunca deve iniciar nenhuma operação assíncrona, exceto usando a API `IDurableOrchestrationContext` ou a API do objeto `context.df`. Por exemplo, você não pode usar `Task.Run`, `Task.Delay`e `HttpClient.SendAsync` no .NET ou `setTimeout` e `setInterval` em JavaScript. O Framework de tarefa durável executa o código do Orchestrator em um único thread. Ele não pode interagir com nenhum outro thread que possa ser chamado por outras APIs assíncronas. | Uma função de orquestrador deve fazer apenas chamadas assíncronas duráveis. As funções de atividade devem fazer outras chamadas de API assíncronas. |
-| Funções assíncronas de JavaScript | Não é possível declarar funções de orquestrador JavaScript como `async` porque o tempo de execução do node. js não garante que as funções assíncronas sejam determinísticas. | Declare as funções de orquestrador JavaScript como funções de gerador síncrono. |
-| APIs de Threading | O Framework de tarefa durável executa o código do Orchestrator em um único thread e não pode interagir com outros threads. A introdução de novos threads à execução de uma orquestração pode resultar em execução não determinística ou deadlocks. | Funções de orquestrador quase nunca devem usar APIs de Threading. Se essas APIs forem necessárias, limite seu uso apenas às funções de atividade. |
-| Variáveis estáticas | Evite usar variáveis estáticas não constantes em funções de orquestrador porque seus valores podem mudar ao longo do tempo, resultando em um comportamento de tempo de execução não determinístico. | Use constantes ou limite o uso de variáveis estáticas para funções de atividade. |
-| Variáveis de ambiente | Não use variáveis de ambiente em funções de orquestrador. Seus valores podem mudar ao longo do tempo, resultando em um comportamento de tempo de execução não determinístico. | As variáveis de ambiente devem ser referenciadas somente de dentro de funções de cliente ou funções de atividade. |
-| Loops infinitos | Evite loops infinitos em funções de orquestrador. Como o Framework de tarefa durável salva o histórico de execução à medida que a função de orquestração progride, um loop infinito pode fazer com que uma instância de orquestrador fique sem memória. | Para cenários de loop infinito, use APIs como `ContinueAsNew` no .NET ou `continueAsNew` em JavaScript para reiniciar a execução da função e para descartar o histórico de execução anterior. |
+| Datas e horários  | As APIs que devolvem a data ou a hora atuais não são determinísticas porque o valor devolvido é diferente para cada repetição. | Utilize a`CurrentUtcDateTime` API em .NET ou a `currentUtcDateTime` API no JavaScript, que são seguras para repetição. |
+| GUIDs e UUIDs  | As APIs que devolvem um GUID ou UUID aleatórios não são determinísticas porque o valor gerado é diferente para cada repetição. | Utilize `NewGuid` em .NET ou `newGuid` no JavaScript para gerar GUIDs aleatórios com segurança. |
+| Números aleatórios | ApIs que devolvem números aleatórios não são determinísticos porque o valor gerado é diferente para cada repetição. | Use uma função de atividade para devolver números aleatórios a uma orquestração. Os valores de retorno das funções de atividade são sempre seguros para repetição. |
+| Enlaces | As encadernações de entrada e saída normalmente fazem I/O e não são determinísticas. Uma função orquestradora não deve utilizar diretamente nem mesmo as ligações do cliente da [orquestração](durable-functions-bindings.md#orchestration-client) e [da entidade.](durable-functions-bindings.md#entity-client) | Utilize encadernações de entrada e saída dentro das funções de cliente ou atividade. |
+| Rede | As chamadas de rede envolvem sistemas externos e não são determinísticas. | Utilize funções de atividade para fazer chamadas de rede. Se precisar de fazer uma chamada http da sua função de orquestrador, também pode utilizar as [APIs http duráveis](durable-functions-http-features.md#consuming-http-apis). |
+| Bloqueio de APIs | Bloquear APIs como `Thread.Sleep` em .NET e APIs semelhantes pode causar problemas de desempenho e escala para funções orquestradoras e deve ser evitado. No plano de consumo de funções Azure, podem mesmo resultar em encargos de tempo de funcionamento desnecessários. | Use alternativas para bloquear APIs quando estão disponíveis. Por exemplo, utilize `CreateTimer` para introduzir atrasos na execução da orquestração. [Atrasos duradouros](durable-functions-timers.md) não contam para o tempo de execução de uma função orquestradora. |
+| APIs de asincronização | O código orquestrador nunca deve iniciar qualquer operação de asincronização, exceto utilizando a API `IDurableOrchestrationContext` ou a API do `context.df`. Por exemplo, não pode utilizar `Task.Run`, `Task.Delay`e `HttpClient.SendAsync` em .NET ou `setTimeout` e `setInterval` no JavaScript. O Quadro de Tarefas Duráveis executa o código orquestrador num único fio. Não pode interagir com outros fios que possam ser chamados por outras APIs asincronizadas. | Uma função orquestradora deve fazer apenas chamadas assinásias duráveis. As funções de atividade devem fazer quaisquer outras chamadas API asincronizadas. |
+| Funções JavaScript asincronizadas | Não pode declarar as funções do orquestrador JavaScript como `async` porque o tempo de funcionamento do nó.js não garante que funções assíncronas sejam determinísticas. | Declare as funções do orquestrador JavaScript como funções sincronizadas do gerador. |
+| APIs roscados | O Quadro de Tarefas Duráveis executa o código orquestrador num único fio e não pode interagir com outros fios. Introduzir novos fios na execução de uma orquestração pode resultar em execução não determinística ou impasses. | As funções de orquestrador quase nunca devem usar APIs roscados. Por exemplo, em .NET, evite utilizar `ConfigureAwait(continueOnCapturedContext: false)`; isto garante a continuação da tarefa na `SynchronizationContext`original da função orquestradora. Se tais APIs forem necessárias, limite a sua utilização apenas a funções de atividade. |
+| Variáveis estáticas | Evite utilizar variáveis estáticas não constantes em funções orquestradoras porque os seus valores podem mudar ao longo do tempo, resultando num comportamento de tempo de execução não determinístico. | Utilize constantes ou limite o uso de variáveis estáticas às funções de atividade. |
+| Variáveis de ambiente | Não use variáveis ambientais em funções orquestradoras. Os seus valores podem mudar ao longo do tempo, resultando num comportamento não determinístico do tempo de execução. | As variáveis ambientais só devem ser referenciadas a partir de funções ou funções de atividade do cliente. |
+| Laços infinitos | Evite laços infinitos em funções orquestradoras. Como o Quadro de Tarefas Duráveis salva a história da execução à medida que a função de orquestração progride, um ciclo infinito pode fazer com que um caso orquestrador fique sem memória. | Para cenários de loop infinitos, utilize APIs como `ContinueAsNew` em .NET ou `continueAsNew` no JavaScript para reiniciar a execução da função e descartar o histórico de execução anterior. |
 
-Embora a aplicação dessas restrições possa parecer difícil em primeiro lugar, na prática, elas são fáceis de acompanhar.
+Embora aplicar estes constrangimentos possa parecer difícil no início, na prática são fáceis de seguir.
 
-O Framework de tarefa durável tenta detectar violações das regras anteriores. Se encontrar uma violação, a estrutura lançará uma exceção **NonDeterministicOrchestrationException** . No entanto, esse comportamento de detecção não capturará todas as violações e você não deverá depender dela.
+O Quadro de Tarefas Duráveis tenta detetar violações das regras anteriores. Se encontrar uma violação, o quadro lança uma exceção não **determinística.** No entanto, este comportamento de deteção não vai apanhar todas as violações, e não deves depender disso.
 
 ## <a name="versioning"></a>Controlo de versões
 
-Uma orquestração durável pode ser executada continuamente por dias, meses, anos ou até mesmo [eternamente](durable-functions-eternal-orchestrations.md). Quaisquer atualizações de código feitas em Durable Functions aplicativos que afetam orquestrações não concluídas podem interromper o comportamento de reprodução das orquestrações. É por isso que é importante planejar com cuidado ao fazer atualizações no código. Para obter uma descrição mais detalhada de como fazer a versão de seu código, consulte o [artigo controle de versão](durable-functions-versioning.md).
+Uma orquestração durável pode funcionar continuamente durante dias, meses, anos, ou mesmo [eternamente.](durable-functions-eternal-orchestrations.md) Quaisquer atualizações de código feitas para aplicações de Funções Duráveis que afetem orquestrações inacabadas podem quebrar o comportamento de repetição das orquestrações. É por isso que é importante planear cuidadosamente ao fazer atualizações para o código. Para obter uma descrição mais detalhada de como vero seu código, consulte o artigo de [versão](durable-functions-versioning.md).
 
-## <a name="durable-tasks"></a>Tarefas duráveis
+## <a name="durable-tasks"></a>Tarefas duradouras
 
 > [!NOTE]
-> Esta seção descreve os detalhes de implementação interna do Framework de tarefa durável. Você pode usar funções duráveis sem conhecer essas informações. Ele destina-se apenas a ajudá-lo a entender o comportamento de reprodução.
+> Esta secção descreve detalhes internos de implementação do Quadro de Tarefas Duráveis. Pode utilizar funções duradouras sem conhecer esta informação. Destina-se apenas a ajudá-lo a entender o comportamento de repetição.
 
-As tarefas que podem esperar com segurança nas funções de orquestrador são ocasionalmente chamadas de *tarefas duráveis*. A estrutura de tarefa durável cria e gerencia essas tarefas. Os exemplos são as tarefas retornadas por **CallActivityAsync**, **WaitForExternalEvent**e **CreateTimer** nas funções do orquestrador do .net.
+As tarefas que podem esperar com segurança em funções orquestradoras são ocasionalmente referidas como *tarefas duráveis.* O Quadro de Tarefas Duráveis cria e gere estas tarefas. Exemplos são as tarefas devolvidas por **CallActivityAsync,** **WaitForExternalEvent**e **CreateTimer** em funções de orquestrador .NET.
 
-Essas tarefas duráveis são gerenciadas internamente por uma lista de objetos `TaskCompletionSource` no .NET. Durante a repetição, essas tarefas são criadas como parte da execução do código do Orchestrator. Elas são concluídas à medida que o Dispatcher enumera os eventos de histórico correspondentes.
+Estas tarefas duradouras são geridas internamente por uma lista de objetos `TaskCompletionSource` em .NET. Durante a repetição, estas tarefas são criadas como parte da execução de código orquestrador. Estão acabados como o despachante enumera os eventos de história correspondentes.
 
-As tarefas são executadas de forma síncrona usando um único thread até que todo o histórico tenha sido reproduzido. As tarefas duráveis que não são concluídas pelo fim da reprodução do histórico têm as ações apropriadas executadas. Por exemplo, uma mensagem pode ser enfileirada para chamar uma função de atividade.
+As tarefas são executadas sincronizadamente usando um único fio até que toda a história tenha sido reproduzida. Tarefas duradouras que não estão terminadas até ao final da história têm ações apropriadas realizadas. Por exemplo, uma mensagem pode ser enquecida para chamar uma função de atividade.
 
-A descrição desta seção de comportamento de tempo de execução deve ajudá-lo a entender por que uma função de orquestrador não pode usar `await` ou `yield` em uma tarefa não durável. Há dois motivos: o thread do Dispatcher não pode aguardar a conclusão da tarefa e qualquer retorno de chamada por essa tarefa pode corromper o estado de controle da função de orquestrador. Algumas verificações de tempo de execução estão em vigor para ajudar a detectar essas violações.
+A descrição desta secção do comportamento do tempo de execução deve ajudá-lo a entender por que uma função orquestradora não pode usar `await` ou `yield` numa tarefa não durável. Há duas razões: o fio dedespacho não pode esperar que a tarefa termine, e qualquer chamada por essa tarefa pode potencialmente corromper o estado de rastreio da função orquestradora. Alguns controlos de tempo de execução estão em vigor para ajudar a detetar estas violações.
 
-Para saber mais sobre como o Framework de tarefa durável executa funções de orquestrador, consulte o [código-fonte de tarefa durável no GitHub](https://github.com/Azure/durabletask). Em particular, consulte [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
+Para saber mais sobre como o Quadro de Tarefas Duráveis executa funções de orquestrador, consulte o código fonte de [tarefadurável no GitHub](https://github.com/Azure/durabletask). Em particular, consulte [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs.](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
 
-## <a name="next-steps"></a>Passos Seguintes
-
-> [!div class="nextstepaction"]
-> [Saiba como invocar as suborquestrações](durable-functions-sub-orchestrations.md)
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como lidar com controle de versão](durable-functions-versioning.md)
+> [Aprenda a invocar suborquestrações](durable-functions-sub-orchestrations.md)
+
+> [!div class="nextstepaction"]
+> [Saiba como lidar com a versão](durable-functions-versioning.md)

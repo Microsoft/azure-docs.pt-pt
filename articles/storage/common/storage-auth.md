@@ -1,50 +1,52 @@
 ---
-title: Autorizando operações de dados
+title: Autorizar operações de dados
 titleSuffix: Azure Storage
-description: Saiba mais sobre as diferentes maneiras de autorizar o acesso ao armazenamento do Azure, incluindo Azure Active Directory, autorização de chave compartilhada ou SAS (assinaturas de acesso compartilhado).
+description: Saiba mais sobre as diferentes formas de autorizar o acesso ao Armazenamento Azure, incluindo o Diretório Ativo Azure, a autorização de chave partilhada ou as assinaturas de acesso partilhado (SAS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 02/19/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 783e8666e2602f9251d81e976a27fbce099defa2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7deb773fae6ba56b6f601983ffd2b07d887e1480
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460529"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565765"
 ---
-# <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizando o acesso aos dados no armazenamento do Azure
+# <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizar o acesso a dados no Armazenamento Do Azure
 
-Sempre que você acessa dados em sua conta de armazenamento, o cliente faz uma solicitação sobre HTTP/HTTPS para o armazenamento do Azure. Cada pedido a um recurso seguro tem de ser autorizado, para que o serviço garanta que o cliente tem as permissões necessárias para aceder aos dados.
+Cada vez que acede a dados na sua conta de armazenamento, o seu cliente faz um pedido sobre HTTP/HTTPS para o Armazenamento Azure. Todos os pedidos a um recurso seguro devem ser autorizados, de modo a que o serviço garanta que o cliente tem as permissões necessárias para aceder aos dados.
 
-A tabela a seguir descreve as opções que o armazenamento do Azure oferece para autorizar o acesso a recursos:
+O quadro seguinte descreve as opções que o Azure Storage oferece para autorizar o acesso aos recursos:
 
-|  |Chave compartilhada (chave da conta de armazenamento)  |Assinatura de acesso partilhado (SAS)  |Azure Active Directory (Azure AD)  |Acesso de leitura público anônimo  |
-|---------|---------|---------|---------|---------|
-|Blobs do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |[Suportado](storage-auth-aad.md)         |[Suportado](../blobs/storage-manage-access-to-resources.md)         |
-|Arquivos do Azure (SMB)     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |Não suportado         |[Com suporte, somente com os serviços de domínio do AAD](../files/storage-files-active-directory-overview.md)         |Não suportado         |
-|Arquivos do Azure (REST)     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |Não suportado         |Não suportado         |
-|Filas do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |[Suportado](storage-auth-aad.md)         |Não suportado         |
-|Tabelas do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |Não suportado         |Não suportado         |
+|  |Chave Partilhada (chave da conta de armazenamento)  |Assinatura de acesso partilhado (SAS)  |Azure Active Directory (Azure AD)  |Diretório Ativo (pré-visualização)|Acesso anónimo ao público de leitura  |
+|---------|---------|---------|---------|---------|---------|
+|Blobs do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |[Suportado](storage-auth-aad.md)         |Não suportado|[Suportado](../blobs/storage-manage-access-to-resources.md)         |
+|Ficheiros Azure (SMB)     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |Não suportado         |[Suportado, apenas com Serviços de Domínio AAD](../files/storage-files-active-directory-overview.md)         |[Suportadas, credenciais devem ser sincronizadas com a Azure AD](../files/storage-files-active-directory-overview.md)|Não suportado         |
+|Ficheiros Azure (REST)     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |Não suportado         |Não suportado |Não suportado         |
+|Filas do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |[Suportado](storage-auth-aad.md)         |Não Suportado | Não suportado         |
+|Tabelas do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |Não suportado         |Não suportado| Não suportado         |
 
-Cada opção de autorização é descrita brevemente abaixo:
+Cada opção de autorização é brevemente descrita abaixo:
 
-- **Integração do Azure Active Directory (Azure AD)** para BLOBs e filas. O Azure AD fornece o RBAC (controle de acesso baseado em função) para um controle refinado sobre o acesso de um cliente aos recursos em uma conta de armazenamento. Para obter mais informações sobre a integração do Azure AD para BLOBs e filas, consulte [autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md).
+- **Integração do Azure Ative Directory (Azure AD)** para bolhas e filas. A Azure AD fornece um controlo de acesso baseado em funções (RBAC) para um controlo fino sobre o acesso de um cliente aos recursos numa conta de armazenamento. Para obter mais informações sobre a integração da AD Azure para bolhas e filas, consulte [Autorizar o acesso a blobs e filas Azure utilizando o Diretório Ativo Azure.](storage-auth-aad.md)
 
-- **Integração de Azure AD Domain Services (DS) (versão prévia)** para arquivos. Os arquivos do Azure oferecem suporte à autorização baseada em identidade no protocolo SMB por meio do Azure AD DS. Você pode usar o RBAC para um controle refinado sobre o acesso de um cliente aos recursos de arquivos do Azure em uma conta de armazenamento. Para obter mais informações sobre a integração do AD do Azure para arquivos usando os serviços de domínio, consulte [visão geral do suporte à autenticação do AAD DS (serviço de domínio Azure Active Directory de arquivos do Azure) para acesso SMB (versão prévia)](../files/storage-files-active-directory-overview.md).
+- Autenticação de ficheiros **azure Ative Directory Services (Azure AD DS).** O Azure Files suporta a autorização baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através do Azure AD DS. Pode utilizar o RBAC para um controlo fino sobre o acesso de um cliente aos recursos do Azure Files numa conta de armazenamento. Para mais informações sobre a autenticação dos Ficheiros Azure utilizando serviços de domínio, consulte a nossa [visão geral](../files/storage-files-active-directory-overview.md).
 
-- **Autorização de chave compartilhada** para BLOBs, arquivos, filas e tabelas. Um cliente que usa a chave compartilhada passa um cabeçalho com cada solicitação que é assinada usando a chave de acesso da conta de armazenamento. Para obter mais informações, consulte [autorizar com chave compartilhada](/rest/api/storageservices/authorize-with-shared-key/).
-- **Assinaturas de acesso compartilhado** para BLOBs, arquivos, filas e tabelas. As assinaturas de acesso compartilhado (SAS) fornecem acesso delegado limitado aos recursos em uma conta de armazenamento. Adicionar restrições no intervalo de tempo para o qual a assinatura é válida ou nas permissões que ela concede fornece flexibilidade no gerenciamento de acesso. Para obter mais informações, consulte [usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).
-- **Acesso de leitura público anônimo** para contêineres e blobs. A autorização não é necessária. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).  
+- Autenticação de **Diretório Ativo (AD) para** ficheiros. A Azure Files suporta a autorização baseada na identidade sobre a SMB através de AD. O seu serviço de domínio AD pode ser hospedado em máquinas no local ou em VMs Azure. O acesso sMB aos Ficheiros é suportado utilizando credenciais aD de máquinas unidas de domínio, quer no local quer no Azure. Pode utilizar o RBAC para controlo de acesso ao nível de partilha e DACLs NTFS para aplicação de permissão de nível de diretório/ficheiro. Para mais informações sobre a autenticação dos Ficheiros Azure utilizando serviços de domínio, consulte a nossa [visão geral](../files/storage-files-active-directory-overview.md).
 
-Por padrão, todos os recursos no armazenamento do Azure são protegidos e estão disponíveis somente para o proprietário da conta. Embora você possa usar qualquer uma das estratégias de autorização descritas acima para conceder aos clientes acesso aos recursos em sua conta de armazenamento, a Microsoft recomenda usar o Azure AD quando possível para segurança máxima e facilidade de uso.
+- **Autorização chave partilhada** para bolhas, ficheiros, filas e mesas. Um cliente que usa a Chave Partilhada passa um cabeçalho com cada pedido assinado usando a chave de acesso à conta de armazenamento. Para mais informações, consulte [Autorizar com chave partilhada](/rest/api/storageservices/authorize-with-shared-key/).
+- **Assinaturas** de acesso partilhadas para bolhas, ficheiros, filas e mesas. As assinaturas de acesso partilhado (SAS) fornecem acesso limitado aos recursos numa conta de armazenamento. A adição de restrições no intervalo de tempo para o qual a assinatura é válida ou em permissões que concede proporciona flexibilidade na gestão do acesso. Para mais informações, consulte [A utilização de assinaturas de acesso partilhado (SAS)](storage-sas-overview.md).
+- **O público anónimo leu o acesso** a contentores e bolhas. A autorização não é necessária. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).  
+
+Por predefinição, todos os recursos em Armazenamento Azure estão seguros, e estão disponíveis apenas para o proprietário da conta. Embora possa utilizar qualquer uma das estratégias de autorização acima descritas para garantir aos clientes o acesso aos recursos na sua conta de armazenamento, a Microsoft recomenda a utilização de AD Azure sempre que possível para máxima segurança e facilidade de utilização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md)
-- [Autorizar com chave compartilhada](/rest/api/storageservices/authorize-with-shared-key/)
-- [Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md)
+- [Autorizar acesso a blobs e filas Azure utilizando o Diretório Ativo Azure](storage-auth-aad.md)
+- [Autorizar com chave partilhada](/rest/api/storageservices/authorize-with-shared-key/)
+- [Conceder acesso limitado aos recursos de Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](storage-sas-overview.md)

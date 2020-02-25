@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Documentação texto-a-fala
+summary: O texto-a-voz do serviço speech permite que as suas aplicações, ferramentas ou dispositivos convertam texto em discurso sintetizado semelhante ao humano.
+metadata:
+  title: Documentação texto-a-voz - Tutoriais, Referência API - Serviços Cognitivos Azure  Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 64d8c636aa4b0f8b75ba3a6f92d7792c91a9271d
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562902"
+landingContent:
+- title: Introdução
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a conversão de texto em voz?
+      url: text-to-speech.md
+  - linkListType: quickstart
+    links:
+    - text: Sintetizar a voz num altifalante
+      url: quickstarts/text-to-speech.md
+    - text: Sintetizar a voz num ficheiro de áudio
+      url: quickstarts/text-to-speech-audio-file.md
+    - text: Discurso sintetizador com áudio de forma longa
+      url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+- title: Guias passo a passo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Melhorar a sintetização com SSML
+      url: speech-synthesis-markup.md
+    - text: Melhorar a sintetização com Voz Personalizada
+      url: how-to-custom-voice.md
+    - text: Sintetizar a voz com a API de Áudio Longo
+      url: long-audio-api.md
+    - text: Obtenha uma lista de vozes com REST (Python)
+      url: quickstart-python-get-text-to-speech-voices.md
+    - text: Converter texto em voz com REST (Python)
+      url: quickstart-python-text-to-speech.md
+    - text: Melhorar a síntese com a criação de Conteúdo Áudio
+      url: how-to-audio-content-creation.md
+  - linkListType: concept
+    links:
+    - text: Introdução à Voz Personalizada
+      url: how-to-custom-voice.md
+    - text: Preparar dados de voz personalizadas
+      url: how-to-custom-voice-prepare-data.md
+    - text: Criar e utilizar modelos de Voz Personalizada
+      url: how-to-custom-voice-create-voice.md
+    - text: Gravar amostras de voz
+      url: record-custom-voice-samples.md
+    - text: Diretrizes de nomenclatura de palavras-chave personalizadas
+      url: speech-devices-sdk-kws-guidelines.md
+    - text: Deteção de palavras-chave personalizadas
+      url: speech-devices-sdk-create-kws.md
+    - text: Controlo de Voz Personalizada
+      url: concepts-gating-overview.md
+    - text: Implementação de tecnologia de sintetização
+      url: concepts-guidelines-responsible-deployment-synthetic.md
+    - text: Diretrizes de conceção de divulgação
+      url: concepts-disclosure-guidelines.md
+    - text: Padrões de conceção de divulgação
+      url: concepts-disclosure-patterns.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Suporte de idiomas
+      url: language-support.md#text-to-speech
+    - text: Preços
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Código de conduta
+      url: https://aka.ms/custom-neural-code-of-conduct
+    - text: Divulgação para talento de voz
+      url: https://aka.ms/disclosure-voice-talent

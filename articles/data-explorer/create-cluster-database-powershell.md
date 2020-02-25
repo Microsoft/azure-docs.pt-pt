@@ -1,30 +1,30 @@
 ---
-title: Criar um cluster de Data Explorer do Azure e um banco de dados usando o PowerShell
-description: Saiba como criar um cluster de Data Explorer do Azure e um banco de dados usando o PowerShell
+title: Criar um cluster e DB do Explorer de Dados Azure usando powershell
+description: Saiba como criar um cluster e base de dados do Azure Data Explorer utilizando o PowerShell
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: d4561d49c37298a2b1a7f6c6542d78c3e19a145c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 690c3e281e65f54f240c70f7a6e5038f54102c99
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978344"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560597"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando o PowerShell
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster e base de dados Azure Data Explorer utilizando o PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
-> * [Python](create-cluster-database-python.md)
+> * [python](create-cluster-database-python.md)
 > * [Modelo ARM](create-cluster-database-resource-manager.md)  
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, você pode ingerir (carregar) dados em um banco de dado para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando o PowerShell. Você pode executar os cmdlets e scripts do PowerShell no Windows, Linux ou no [Azure cloud Shell](../cloud-shell/overview.md) com [AZ. Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar clusters e bancos de dados do Azure data Explorer.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Azure Data Explorer, cria-se primeiro um cluster e cria-se uma ou mais bases de dados nesse cluster. Em seguida, ingere (carregar) dados numa base de dados para que possa fazer perguntas contra ele. Neste artigo, cria-se um cluster e uma base de dados utilizando o Powershell. Pode executar cmdlets e scripts PowerShell no Windows, Linux ou em [Azure Cloud Shell](../cloud-shell/overview.md) com [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar clusters e bases de dados do Azure Data Explorer.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,11 +34,11 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o CLI do Azure localmente, este artigo exigirá o CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para verificar a sua versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer a versão Azure CLI 2.0.4 ou posterior. Execute `az --version` para verificar a sua versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-parameters"></a>Configurar parâmetros
 
-As etapas a seguir não serão necessárias se você estiver executando comandos no Azure Cloud Shell. Se você estiver executando a CLI localmente, siga as etapas 1 & 2 para entrar no Azure e para definir sua assinatura atual:
+Os seguintes passos não são necessários se estiver a comandar comandos em Azure Cloud Shell. Se estiver a executar o CLI localmente, siga os passos 1 e 2 para iniciar sessão no Azure e definir a sua subscrição atual:
 
 1. Execute o seguinte comando para iniciar sessão no Azure:
 
@@ -46,20 +46,20 @@ As etapas a seguir não serão necessárias se você estiver executando comandos
     Connect-AzAccount
     ```
 
-1. Defina a assinatura em que você deseja que o cluster seja criado:
+1. Detete a subscrição onde pretende que o seu cluster seja criado:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-1. Ao executar CLI do Azure localmente ou na Azure Cloud Shell, você precisa instalar o módulo AZ. Kusto em seu dispositivo:
+1. Ao executar o Azure CLI localmente ou na Casca de Nuvem Azure, é necessário instalar o módulo Az.Kusto no seu dispositivo:
 
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto
     ```
 
-## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster de Data Explorer do Azure
+## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster Azure Data Explorer
 
-1. Crie seu cluster usando o seguinte comando:
+1. Crie o seu cluster utilizando o seguinte comando:
 
     ```azurepowershell-interactive
      New-AzKustoCluster -ResourceGroupName testrg -Name mykustocluster -Location 'Central US' -Sku D13_v2 -Capacity 10
@@ -67,23 +67,23 @@ As etapas a seguir não serão necessárias se você estiver executando comandos
 
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|
-   | Nome | *mykustocluster* | O nome desejado do cluster.|
-   | SKU | *D13_v2* | A SKU que será usada para o cluster. |
-   | ResourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
+   | Nome | *mykustocluster* | O nome desejado do seu aglomerado.|
+   | Sku | *D13_v2* | O SKU que será usado para o seu cluster. |
+   | ResourceGroupName | *testrg* | O nome do grupo de recursos onde o cluster será criado. |
 
-    Há parâmetros opcionais adicionais que você pode usar, como a capacidade do cluster.
+    Existem parâmetros opcionais adicionais que pode utilizar, como a capacidade do cluster.
 
-1. Execute o seguinte comando para verificar se o cluster foi criado com êxito:
+1. Execute o seguinte comando para verificar se o seu cluster foi criado com sucesso:
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster -ResourceGroupName testrg
     ```
 
-Se o resultado contiver `provisioningState` com o valor `Succeeded`, o cluster foi criado com êxito.
+Se o resultado contiver `provisioningState` com o valor `Succeeded`, então o cluster foi criado com sucesso.
 
-## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Criar o banco de dados no cluster de Data Explorer do Azure
+## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Criar a base de dados no cluster Azure Data Explorer
 
-1. Crie seu banco de dados usando o seguinte comando:
+1. Crie a sua base de dados utilizando o seguinte comando:
 
     ```azurepowershell-interactive
     New-AzKustoDatabase -ResourceGroupName testrg -ClusterName mykustocluster -Name mykustodatabase -SoftDeletePeriod 3650:00:00:00 -HotCachePeriod 3650:00:00:00
@@ -91,24 +91,24 @@ Se o resultado contiver `provisioningState` com o valor `Succeeded`, o cluster f
 
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|
-   | ClusterName | *mykustocluster* | O nome do cluster em que o banco de dados será criado.|
-   | Nome | *mykustodatabase* | O nome do seu banco de dados.|
-   | ResourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
-   | SoftDeletePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos disponíveis para consulta. |
-   | HotCachePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos no cache. |
+   | ClusterName | *mykustocluster* | O nome do seu cluster onde será criada a base de dados.|
+   | Nome | *mykustodatabase* | O nome da sua base de dados.|
+   | ResourceGroupName | *testrg* | O nome do grupo de recursos onde o cluster será criado. |
+   | SoftDeletePeriod | *3650:00:00:00* | O tempo que os dados serão mantidos disponíveis para consulta. |
+   | HotCachePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos em cache. |
 
-1. Execute o seguinte comando para ver o banco de dados que você criou:
+1. Execute o seguinte comando para ver a base de dados que criou:
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster -ResourceGroupName testrg -Name mykustodatabase
     ```
 
-Agora você tem um cluster e um banco de dados.
+Agora tem um cluster e uma base de dados.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-* Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou.
-* Para limpar os recursos, exclua o cluster. Quando você exclui um cluster, ele também exclui todos os bancos de dados nele. Use o seguinte comando para excluir o cluster:
+* Se planeia seguir os nossos outros artigos, guarde os recursos que criou.
+* Para limpar os recursos, elimine o cluster. Ao eliminar um cluster, também elimina todas as bases de dados do mesmo. Utilize o seguinte comando para eliminar o seu cluster:
 
     ```azurepowershell-interactive
     Remove-AzKustoCluster -ResourceGroupName testrg -Name mykustocluster
@@ -116,5 +116,5 @@ Agora você tem um cluster e um banco de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Comandos AZ. Kusto adicionais](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
-* [Ingerir dados usando o SDK do Azure Data Explorer .NET Standard (versão prévia)](net-standard-ingest-data.md)
+* [Comandos adicionais de Az.Kusto](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
+* [Dados de ingestão utilizando o Azure Data Explorer .NET Standard SDK (Pré-visualização)](net-standard-ingest-data.md)

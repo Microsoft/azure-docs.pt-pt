@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 11754e8e98e13cffefaf4a8c1fa08bc60d650105
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 7dd49df782115c8c328eed819395209ee7217fd3
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69016554"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566068"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introdução à distribuição de conteúdos a pedido utilizando o SDK do .NET  
 
@@ -31,7 +31,7 @@ Este tutorial explica os passos para implementar um serviço básico de entrega 
 
 O seguinte é necessário para concluir o tutorial:
 
-* Uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Como Criar uma Conta de Media Services](media-services-portal-create-account.md).
 * .NET Framework 4.0 ou posterior.
 * Visual Studio.
@@ -88,7 +88,7 @@ Para iniciar o ponto final de transmissão em fluxo, faça o seguinte:
 
 Quando utilizar os Media Services com .NET, deve utilizar a classe **CloudMediaContext** na maioria das tarefas de programação dos Media Services: ligar à conta de Media Services; criar, atualizar, aceder e eliminar os seguintes objetos: elementos, ficheiros de elementos, tarefas, políticas de acesso, localizadores, etc.
 
-Substitua a classe de programa padrão pelo seguinte código: O código demonstra como ler os valores de ligação a partir do ficheiro App.config e como criar o objeto **CloudMediaContext** para se ligar aos Media Services. Para obter mais informações, veja [connecting to the Media Services API](media-services-use-aad-auth-to-access-ams-api.md) (ligar à API de Serviços de Multimédia).
+Substitua a classe do Programa predefinido pelo seguinte código: o código demonstra como ler os valores de ligação a partir do ficheiro App.config e como criar o objeto **CloudMediaContext** para se ligar aos Serviços de Multimédia. Para obter mais informações, veja [connecting to the Media Services API](media-services-use-aad-auth-to-access-ams-api.md) (ligar à API de Serviços de Multimédia).
 
 Certifique-se de atualizar o nome do ficheiro e o caminho onde o ficheiro do suporte de dados se encontra.
 
@@ -152,7 +152,7 @@ Os métodos de chamadas de função **Main** que serão definidos posteriormente
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Criar um novo elemento e carregar um ficheiro de vídeo
 
-Nos Media Services, pode carregar (ou inserir) os seus ficheiros digitais num elemento. A entidade **Elemento** pode conter ficheiros de vídeo, áudio, imagens, coleções de miniaturas, pistas de texto e legendas (e os metadados relativos a esses ficheiros).  Assim que os ficheiros são carregados, o seu conteúdo é armazenado em segurança na nuvem para processamento adicional e a transmissão em fluxo. Os ficheiros no elemento são denominados **Ficheiros de Elemento**.
+Nos Media Services, pode carregar (ou inserir) os seus ficheiros digitais num elemento. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros.)  Uma vez que os ficheiros são carregados, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming. Os ficheiros no elemento são denominados **Ficheiros de Elemento**.
 
 O método **UploadFile** definido abaixo chama **CreateFromFile** (definido nas Extensões do SDK do .NET). **CreateFromFile** cria um novo elemento no qual o ficheiro de origem especificado é carregado.
 
@@ -190,7 +190,7 @@ Adicione o seguinte método à classe Program.
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Codificar o ficheiro de origem para um conjunto de ficheiros MP4 de velocidade de transmissão adaptável
 Após a inserção dos elementos nos Media Services, a multimédia pode ser codificada, formatada, receber uma marca de água digital e assim sucessivamente, antes de ser distribuída aos clientes. Estas atividades são agendadas e executadas em várias instâncias de função de segundo plano para assegurar um elevado desempenho e disponibilidade. Estas atividades são denominadas Tarefas, cada uma é composta por Tarefas atómicas que fazem o trabalho real no Ficheiro de elemento.
 
-Tal como mencionado anteriormente, ao trabalhar com os Media Services do Azure, uma das situações mais comuns é a distribuição de transmissão em fluxo de velocidade de transmissão adaptável para os seus clientes. Os serviços de mídia podem empacotar dinamicamente um conjunto de arquivos MP4 de taxa de bits adaptável em um dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
+Tal como mencionado anteriormente, ao trabalhar com os Media Services do Azure, uma das situações mais comuns é a distribuição de transmissão em fluxo de velocidade de transmissão adaptável para os seus clientes. Os Serviços de Multimédia podem empacotar dinamicamente um conjunto de ficheiros MP4 de velocidade de transmissão adaptável num dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
 
 Para tirar partido do empacotamento dinâmico, tem de codificar ou transcodificar o ficheiro (de origem) mezanino para um conjunto de ficheiros MP4 de velocidade de transmissão adaptável ou ficheiros Smooth Streaming de velocidade de transmissão adaptável.  
 
@@ -238,7 +238,7 @@ Adicione o seguinte método à classe Program.
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publicar o elemento e obter os URLs para transmissão em fluxo e transferência progressiva
 
-Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Media Services suportam dois tipos de localizadores: Localizadores OnDemandOrigin, usados para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e localizadores de assinatura de acesso (SAS), usados para baixar arquivos de mídia.
+Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Transmissão em Fluxo Uniforme) e localizadores de Assinatura de Acesso (SAS), utilizados para transferir ficheiros de multimédia.
 
 ### <a name="some-details-about-url-formats"></a>Alguns detalhes sobre os formatos de URL
 
@@ -378,13 +378,12 @@ Para testar as transferências progressivas, cole um URL num browser (por exempl
 Para obter mais informações, consulte os seguintes tópicos:
 
 - [Reproduzir o conteúdo com os leitores existentes](media-services-playback-content-with-existing-players.md)
-- [Desenvolver aplicações de leitor de vídeo](media-services-develop-video-players.md)
 - [Incorporar um Vídeo de Transmissão em fluxo Adaptivo MPEG-DASH numa Aplicação HTML5 com DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Transferir exemplo
 O exemplo de código seguinte contém o código que criou neste tutorial: [exemplo](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

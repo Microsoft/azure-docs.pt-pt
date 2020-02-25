@@ -1,129 +1,129 @@
 ---
-title: O que é conversa com vários dispositivos (visualização)-serviço de fala
+title: Sobre a Conversa ção multi-dispositivo (Pré-visualização) - Serviço de Discurso
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
-author: ralphe
-manager: cpoulain
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 1/15/2020
-ms.author: ralphe
-ms.openlocfilehash: 8d73c896f784507c2336a79130ff5f35aa61d30f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268077"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560818"
 ---
-# <a name="what-is-multi-device-conversation-preview"></a>O que é conversa com vários dispositivos (versão prévia)?
+# <a name="about-multi-device-conversation-preview"></a>Sobre a Conversação multi-dispositivo (Pré-visualização)
 
-A **conversa de vários dispositivos** facilita a criação de uma conversa de fala ou de texto entre vários clientes e coordena as mensagens enviadas entre eles.
+**A conversa ção multi-dispositivo** facilita a criação de uma conversa de fala ou texto entre vários clientes e coordena as mensagens enviadas entre eles.
 
-Com a **conversa com vários dispositivos**, você pode:
+Com **conversas multi-dispositivos,** pode:
 
-- Conecte vários clientes à mesma conversa e gerencie o envio e recebimento de mensagens entre eles.
-- Transcrever facilmente o áudio de cada cliente e enviar a transcrição para os outros, com tradução opcional.
+- Ligue vários clientes à mesma conversa e gerencie o envio e receção de mensagens entre eles.
+- Transcretem facilmente o áudio de cada cliente e enviem a transcrição para os outros, com tradução opcional.
 - Envie facilmente mensagens de texto entre clientes, com tradução opcional.
 
-Você pode criar um recurso ou solução que funcione em uma matriz de dispositivos. Cada dispositivo pode enviar mensagens de forma independente (transcrições de áudio ou mensagens instantâneas) para todos os outros dispositivos.
+Pode construir uma funcionalidade ou solução que funcione através de uma série de dispositivos. Cada dispositivo pode enviar mensagens de forma independente (transcrições de mensagens áudio ou instantâneas) para todos os outros dispositivos.
 
-Enquanto a [**transcrição de conversa**](conversation-transcription.md) funciona em um único dispositivo com uma matriz de microfone multicanal, a conversa de **vários dispositivos** é adequada para cenários com vários dispositivos, cada um com um único microfone.
+Enquanto a [**Transcrição de Conversações**](conversation-transcription.md) funciona num único dispositivo com uma matriz de microfone multicanal, a **Conversa ção multi-dispositivo** é adequada para cenários com vários dispositivos, cada um com um único microfone.
 
 >[!IMPORTANT]
-> A conversa de vários dispositivos **não** dá suporte ao envio de arquivos de áudio entre clientes: somente a transcrição e/ou a tradução.
+> A conversação multi-dispositivo **não** suporta o envio de ficheiros áudio entre clientes: apenas a transcrição e/ou tradução.
 
 ## <a name="key-features"></a>Principais funcionalidades
 
-- **Transcrição em tempo real** – todos receberão uma transcrição da conversa, para que possam acompanhar o texto em tempo real ou salvá-lo para mais tarde.
-- **Conversão em tempo real** – com mais de 60 [idiomas com suporte](language-support.md#text-languages) para tradução de texto, os usuários podem traduzir a conversa para suas linguagens preferenciais.
-- **Transcrições legíveis** – a transcrição e a tradução são fáceis de acompanhar, com quebras de frase e pontuação.
-- **Entrada de voz ou de texto** – cada usuário pode falar ou digitar em seu próprio dispositivo, dependendo dos recursos de suporte de idioma habilitados para o idioma escolhido do participante. Consulte o [suporte ao idioma](language-support.md#speech-to-text).
-- **Retransmissão de mensagens** – o serviço de conversa de vários dispositivos distribuirá mensagens enviadas por um cliente para todos os outros, nos idiomas de sua escolha.
-- **Identificação de mensagem** – cada mensagem que os usuários recebem na conversa será marcada com o apelido do usuário que o enviou.
+- **Transcrição em tempo real** – Todos receberão uma transcrição da conversa, para que possam seguir o texto em tempo real ou guardá-lo para mais tarde.
+- **Tradução em tempo real** – Com mais de 60 [línguas suportadas](language-support.md#text-languages) para tradução de texto, os utilizadores podem traduzir a conversa para a sua língua preferida.
+- **Transcrições legíveis** – A transcrição e tradução são fáceis de seguir, com pontuação e quebras de frases.
+- **Entrada** de voz ou texto – Cada utilizador pode falar ou escrever no seu próprio dispositivo, dependendo das capacidades de suporte da linguagem ativadas para o idioma escolhido do participante. Por favor, consulte o suporte à [linguagem](language-support.md#speech-to-text).
+- **Retransmissão de mensagens** - O serviço de conversação multi-dispositivo sairá mensagens enviadas por um cliente a todos os outros, no idioma(s) da sua escolha.
+- **Identificação da mensagem** – Cada mensagem que os utilizadores recebem na conversação será marcada com o apelido do utilizador que a enviou.
 
 ## <a name="use-cases"></a>Casos de utilização
 
 ### <a name="lightweight-conversations"></a>Conversas leves
 
-É fácil criar e ingressar em uma conversa. Um usuário atuará como "host" e criará uma conversa, que gera um código de conversa de cinco letras aleatório e um código QR. Todos os outros usuários podem ingressar na conversa digitando o código de conversa ou verificando o código QR. 
+Criar e juntar uma conversa é fácil. Um utilizador atuará como o 'anfitrião' e criará uma conversação, que gera um código de conversação de cinco letras aleatório e um código QR. Todos os outros utilizadores podem juntar-se à conversa digitando o código de conversação ou digitalizando o código QR. 
 
-Como os usuários se unem por meio do código de conversa e não são necessários para compartilhar informações de contato, é fácil criar conversações rápidas no local.
+Uma vez que os utilizadores se juntam através do código de conversação e não são obrigados a partilhar informações de contacto, é fácil criar conversas rápidas no local.
 
 ### <a name="inclusive-meetings"></a>Reuniões inclusivas
 
-A transcrição e a tradução em tempo real podem ajudar a tornar as conversas acessíveis para pessoas que falam diferentes idiomas e/ou que são surdas ou difíceis de ouvir. Cada pessoa também pode participar ativamente da conversa, falando sobre seu idioma preferencial ou enviando mensagens instantâneas.
+A transcrição e tradução em tempo real podem ajudar a tornar as conversas acessíveis para pessoas que falam línguas diferentes e/ou são surdas ou difíceis de ouvir. Cada pessoa também pode participar ativamente na conversa, falando a sua língua preferida ou enviando mensagens instantâneas.
 
 ### <a name="presentations"></a>Apresentações
 
-Você também pode fornecer legendas para apresentações e palestras na tela e nos próprios dispositivos dos membros do público. Depois que o público ingressa no código de conversa, ele pode ver a transcrição em seu idioma preferencial, em seu próprio dispositivo.
+Também pode fornecer legendas para apresentações e palestras tanto no ecrã como nos próprios dispositivos dos membros do público. Depois de o público se juntar ao código de conversação, podem ver a transcrição na sua língua preferida, no seu próprio dispositivo.
 
 > [!NOTE]
-> Para ver um exemplo, confira o [conversor de apresentação](https://www.microsoft.com/translator/apps/presentation-translator/), um suplemento do PowerPoint que usa o serviço de conversa de vários dispositivos. Pode transferi-lo [aqui](https://www.microsoft.com/download/details.aspx?id=55024).
+> Para ver um exemplo, consulte o Tradutor de [Apresentação,](https://www.microsoft.com/translator/apps/presentation-translator/)um add-in PowerPoint que utiliza o serviço de conversação multi-dispositivos. Pode descarregá-lo [aqui.](https://www.microsoft.com/download/details.aspx?id=55024)
 
 ## <a name="how-it-works"></a>Como funciona
 
-Todos os clientes usarão o SDK de fala para criar ou ingressar em uma conversa. O SDK de fala interage com o serviço de conversa de vários dispositivos, que gerencia o tempo de vida de uma conversa, incluindo a lista de participantes, as linguagens escolhidas por cada cliente e as mensagens enviadas.  
+Todos os clientes usarão o SDK de Discurso para criar ou juntar-se a uma conversa. O Speech SDK interage com o serviço de conversação multi-dispositivos, que gere a vida útil de uma conversa, incluindo a lista de participantes, o idioma escolhido de cada cliente e mensagens enviadas.  
 
-Cada cliente pode enviar áudio ou mensagens instantâneas. O serviço usará o reconhecimento de fala para converter áudio em texto e enviar mensagens instantâneas como estão. Se os clientes escolherem idiomas diferentes, o serviço irá traduzir todas as mensagens para os idiomas especificados de cada cliente.
+Cada cliente pode enviar mensagens áudio ou instantâneas. O serviço utilizará o reconhecimento da fala para converter áudio em texto e enviar mensagens instantâneas como está. Se os clientes escolherem idiomas diferentes, o serviço traduzirá todas as mensagens para o ou os idiomas especificados de cada cliente.
 
-![Diagrama de visão geral de conversa de vários dispositivos](media/scenarios/multi-device-conversation.png)
+![Diagrama de visão geral de conversação multi-dispositivo](media/scenarios/multi-device-conversation.png)
 
-## <a name="overview-of-conversation-host-and-participant"></a>Visão geral da conversa, do host e do participante
+## <a name="overview-of-conversation-host-and-participant"></a>Visão geral da Conversa, Anfitrião e Participante
 
-Uma **conversa** é uma sessão que um usuário inicia para os outros usuários participantes ingressarem. Todos os clientes se conectam à conversa usando o **código de conversa**de cinco letras.
+Uma **conversa** é uma sessão que um utilizador inicia para que os outros utilizadores participantes se juntem. Todos os clientes se ligam à conversa utilizando o código de **conversação**de cinco letras .
 
 Cada conversa cria metadados que incluem:
--   Carimbos de data/hora de quando a conversa foi iniciada e encerrada
--   Lista de todos os participantes na conversa, que inclui o apelido escolhido de cada usuário e o idioma principal para a entrada de texto ou de fala.
+-   Selos temporais de quando a conversa começou e terminou
+-   Lista de todos os participantes na conversa, que inclui o apelido escolhido de cada utilizador e a língua primária para a entrada de discurso ou texto.
 
 
-Há dois tipos de usuários em uma conversa: **host** e **participante**.
+Existem dois tipos de utilizadores numa conversa: **anfitrião** e **participante.**
 
-O **host** é o usuário que inicia uma conversa e quem atua como administrador dessa conversa.
-- Cada conversa pode ter apenas um host
-- O host deve estar conectado à conversa pela duração da conversa. Se o host sair da conversa, a conversa será encerrada para todos os outros participantes.
-- O host tem alguns controles adicionais para gerenciar a conversa: 
-    - Bloquear a conversa-impedir que participantes adicionais ingressem
-    - Ativar mudo para todos os participantes – impedir que outros participantes enviem mensagens para a conversa, sejam transcritas de fala ou mensagens instantâneas
-    - Desativar participantes individuais
-    - Desativar mudo de todos os participantes
-    - Desativar mudo de participantes individuais
+O **anfitrião** é o utilizador que inicia uma conversa, e que age como administrador dessa conversa.
+- Cada conversa só pode ter um anfitrião
+- O hospedeiro deve estar ligado à conversa durante a conversação. Se o anfitrião deixar a conversa, a conversa terminará para todos os outros participantes.
+- O hospedeiro tem alguns controlos extra para gerir a conversa: 
+    - Bloqueie a conversa - evite que participantes adicionais se juntem
+    - Silenciar todos os participantes - evite que outros participantes enviem mensagens para a conversação, seja transcrita de discurso ou mensagens instantâneas
+    - Silenciar participantes individuais
+    - Desamuta todos os participantes
+    - Unmute participantes individuais
 
-Um **participante** é um usuário que ingressa em uma conversa.
-- Um participante pode sair e reingressar na mesma conversa a qualquer momento, sem encerrar a conversa para outros participantes.
-- Os participantes não podem bloquear a conversa ou mudo/desativar outros
+Um **participante** é um utilizador que se junta a uma conversa.
+- Um participante pode sair e voltar a juntar-se à mesma conversa a qualquer momento, sem terminar a conversa para outros participantes.
+- Os participantes não podem bloquear a conversação ou silenciar/desmutar outros
 
 > [!NOTE]
-> Cada conversa pode ter até 100 participantes, dos quais 10 pode estar falando simultaneamente em um determinado momento.
+> Cada conversa pode ter até 100 participantes, dos quais 10 podem estar a falar simultaneamente a qualquer momento.
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-Ao criar ou ingressar em uma conversa, cada usuário deve escolher um **idioma principal**: o idioma em que eles irão falar e enviar mensagens instantâneas e também o idioma em que eles verão as mensagens de outros usuários.
+Ao criar ou aderir a uma conversação, cada utilizador deve escolher um **idioma primário**: o idioma em que falará e enviará mensagens instantâneas, bem como o idioma em que verá as mensagens de outros utilizadores.
 
-Há dois tipos de idiomas: somente de **fala a texto** e **texto**:
-- Se o usuário escolher uma linguagem de **fala para texto** como seu idioma principal, ele poderá usar a fala e a entrada de texto na conversa.
+Existem dois tipos de línguas: **discurso a texto** e **apenas texto:**
+- Se o utilizador escolher uma linguagem **fala-a-texto** como a sua língua primária, então poderá utilizar a entrada de fala e texto na conversação.
 
-- Se o usuário escolher uma linguagem **somente texto** , será possível usar apenas a entrada de texto e enviar mensagens instantâneas na conversa. As linguagens somente texto são os idiomas com suporte para tradução de texto, mas não de conversão de fala em texto. Você pode ver os idiomas disponíveis na página de [suporte ao idioma](supported-languages.md) .
+- Se o utilizador escolher um idioma **apenas por texto,** só poderá utilizar a entrada de texto e enviar mensagens instantâneas na conversação. As línguas apenas com texto são as línguas que são suportadas para a tradução de texto, mas não para o texto. Pode ver idiomas disponíveis na página de [suporte linguístico.](supported-languages.md)
 
-Além do idioma principal, cada participante também pode especificar idiomas adicionais para a tradução da conversa.
+Além da sua língua primária, cada participante também pode especificar idiomas adicionais para traduzir a conversa.
 
-Abaixo está um resumo do que o usuário poderá fazer em uma conversa com vários dispositivos, com base no idioma principal escolhido.
+Abaixo está um resumo do que o utilizador será capaz de fazer numa conversa multi-dispositivo, com base na sua língua primária escolhida.
 
 
-| O que o usuário pode fazer na conversa | Conversão de voz em texto | Somente texto |
+| O que o utilizador pode fazer na conversa | Conversão de voz em texto | Só de texto |
 |-----------------------------------|----------------|------|
-| Usar entrada de fala | ✔️ | ❌ |
+| Use a entrada da fala | ✔️ | ❌ |
 | Enviar mensagens instantâneas | ✔️ | ✔️ |
-| Traduza a conversa | ✔️ | ✔️ |
+| Traduzir a conversa | ✔️ | ✔️ |
 
 > [!NOTE]
-> Para obter listas de idiomas de conversão de fala em texto e de texto disponíveis, consulte [idiomas com suporte](supported-languages.md).
+> Para listas de línguas disponíveis de tradução de texto e texto, consulte [as línguas apoiadas.](supported-languages.md)
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Traduza conversas em tempo real](quickstarts/multi-device-conversation.md)
+> [Traduzir conversas em tempo real](quickstarts/multi-device-conversation.md)

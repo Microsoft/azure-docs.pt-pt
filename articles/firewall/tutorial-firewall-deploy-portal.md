@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371348"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558888"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -26,7 +26,7 @@ Uma forma de controlar o acesso de rede de saída a partir de uma sub-rede do Az
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando encaminha o tráfego de rede para a firewall como o gateway padrão de sub-rede.
 
-Neste tutorial, criou uma VNet única simplificada com três sub-redes para uma implementação simples. Para implementações de produção, [recomenda-se](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) um modelo hub e falado, onde a firewall se encontra no seu próprio VNet. Os servidores de carga de trabalho estão em VNets empares na mesma região com uma ou mais subredes.
+Neste tutorial, criou uma VNet única simplificada com três sub-redes para uma implementação simples. Para implantações de produção, [recomenda-se](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) um modelo de hub e spoke. A firewall está no seu próprio VNet. Os servidores de carga de trabalho estão em VNets empares na mesma região com uma ou mais subredes.
 
 * **AzureFirewallSubnet** - a firewall está nesta sub-rede.
 * **Workload-SN** - o servidor de carga de trabalho está nesta sub-rede. O tráfego de rede desta sub-rede passa pela firewall.
@@ -60,7 +60,7 @@ O grupo de recursos contém todos os recursos para o tutorial.
 2. No menu do portal Azure, selecione **grupos de Recursos** ou procure e selecione *grupos de Recursos* a partir de qualquer página. Em seguida, selecione **Adicionar**.
 3. Para o nome do **grupo Resource,** insira *Test-FW-RG*.
 4. Em **Subscrição**, selecione a sua subscrição.
-5. Em **Localização do grupo de recursos**, selecione uma localização. Todos os recursos subsequentes que criar têm de estar na mesma localização.
+5. Em **Localização do grupo de recursos**, selecione uma localização. Todos os outros recursos que cria devem estar no mesmo local.
 6. Selecione **Criar**.
 
 ### <a name="create-a-vnet"></a>Criar uma VNet
@@ -193,10 +193,11 @@ Esta é a regra da aplicação que permite o acesso de saída à www.google.com.
 6. Em **Prioridade**, escreva **200**.
 7. Em **Ação**, selecione **Permitir**.
 8. De acordo com **as Regras**, **Target FQDNs,** para **Nome**, tipo **Allow-Google**.
-9. Em **Endereços de Origem**, escreva **10.0.2.0/24**.
-10. Em **Protocolo:porta**, escreva **http, https**.
-11. Para **FQDNS-alvo,** escreva **www.google.com**
-12. Selecione **Adicionar**.
+9. Para **o tipo Fonte,** selecione **endereço IP**.
+10. Para **origem**, tipo **10.0.2.0/24**.
+11. Em **Protocolo:porta**, escreva **http, https**.
+12. Para **FQDNS-alvo,** escreva **www.google.com**
+13. Selecione **Adicionar**.
 
 O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de infraestrutura que são permitidos por predefinição. Estes FQDNs são específicos da plataforma e não podem ser utilizados para outros fins. Para obter mais informações, veja [FQDNs de Infraestrutura](infrastructure-fqdns.md).
 
@@ -209,10 +210,11 @@ Esta é a regra de rede que permite acesso de saída aos dois endereços IP na p
 3. Em **Nome**, escreva **Net-Coll01**.
 4. Em **Prioridade**, escreva **200**.
 5. Em **Ação**, selecione **Permitir**.
-6. De acordo com **as regras,** para **nome**, tipo **Desmino DNS**.
+6. De acordo com **as Regras,** **endereços IP,** para **Nome,** tipo **Desminos de Adcção .**
 7. Em **Protocolo**, selecione **UDP**.
-8. Em **Endereços de Origem**, escreva **10.0.2.0/24**.
-9. Em Endereço de destino, escreva **209.244.0.3,209.244.0.4**
+9. Para **o tipo Fonte,** selecione **endereço IP**.
+1. Para **origem**, tipo **10.0.2.0/24**.
+2. Para **endereço destino**, tipo **209.244.0.3.209.244.0.4**
 
    Estes são servidores Públicos DNS operados pela CenturyLink.
 1. Em **Portas de Destino**, escreva **53**.

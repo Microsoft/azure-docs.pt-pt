@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 7bac2546ac35f5f188a6490c4d9ecb2b86d7bb2d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 91a63e87e937eab4c02d2b86026aa09472cb15ef
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843061"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561103"
 ---
 # <a name="what-is-the-qna-maker-service"></a>O que é o serviço QnA Maker?
 
@@ -78,7 +78,11 @@ Depois de a base de conhecimento receber perguntas dos utilizadores no ponto fin
 
 A QnA Maker fornece autoria, formação e publicação, juntamente com permissões de colaboração para integrar em todo o ciclo de vida de desenvolvimento.
 
-## <a name="how-do-i-start"></a>O que devo fazer para começar?
+> [!div class="mx-imgBorder"]
+> ![imagem conceptual do ciclo de desenvolvimento](../media/qnamaker-overview-learnabout/development-cycle.png)
+
+
+## <a name="how-do-i-start"></a>Como posso começar?
 
 **Passo 1**: Criar um recurso QnA Maker no [portal Azure](https://portal.azure.com).
 

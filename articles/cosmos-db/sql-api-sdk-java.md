@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/13/2019
+ms.date: 02/21/2020
 ms.author: sngun
-ms.openlocfilehash: 3a7eaabedd6736c107625204f982a530f2bab73d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 514982727509788918c159e07f8061962df32336
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718178"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558933"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -43,54 +43,58 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para suporte 
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name247247"></a><a name="2.4.7"/>2.4.7
+* Corrige problema de tempo de ligação do pool.
+* Correções auth token refresh em repetições internas.
+
 ### <a name="a-name246246"></a><a name="2.4.6"/>2.4.6
 * Etiqueta de política de réplica do lado do cliente atualizada na base de dadosAccount e configuração de account de base de dados lê a partir de cache.
 
 ### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
-* Evitando a repetição em um erro de intervalo de chaves de partição inválido, se o usuário fornecer pkRangeId.
+* Evitando a repetição do erro de alcance da chave de divisórias inválido, se o utilizador fornecer pkRangeId.
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
-* Atualizações otimizadas do cache do intervalo de chaves de partição.
-* Corrige o cenário em que o SDK não tem a relação de divisão da partição do servidor e resulta na atualização incorreta de caches de roteamento do lado do cliente.
+* Refrescações de cache de divisória otimizada.
+* Corrige o cenário em que o SDK não entretém a sugestão de divisão dividida do servidor e resulta em caches de encaminhamento do lado do cliente incorretos.
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
-* Atualizações otimizadas do cache de coleta.
+* Refrescações de cache de coleção otimizadas.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
-* Adicionado suporte para recuperar a mensagem de exceção interna da cadeia de caracteres de diagnóstico de solicitação.
+* Suporte adicional para recuperar mensagem de exceção interior a partir de uma cadeia de diagnóstico de pedido.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Introduziu a API da versão em PartitionKeyDefinition.
+* Versão api da versão introduzida na PartitionKeyDefinition.
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
-* Adicionado suporte de tempo limite separado para o modo direto.
+* Adicione suporte de tempo separado para o modo direto.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
-* Consumindo mensagem de erro nula do serviço e produzindo exceção do cliente de documento.
+* Consumir mensagem de erro nulo do serviço e produzir exceção ao cliente de documentos.
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Melhoria da conexão de soquete, adicionando SoKeepAlive padrão true.
+* Melhoria da ligação da tomada, adicionando o padrão SoKeepAlive verdadeiro.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
-* Suporte à cadeia de caracteres de diagnóstico de solicitação adicionado.
+* Suporte de cadeia de diagnóstico de pedidos adicionados.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
-* Corrigido o bug em PartitionKey para hash v2.
+* Bug fixo em PartitionKey para Hash V2.
 
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
-* Suporte adicionado para índices compostos.
-* Corrigido o bug no global Endpoint Manager para forçar a atualização.
-* Corrigido o bug para upserts com pré-condições no modo direto.
+* Suporte adicional para índices compostos.
+* Bug fixo no gestor de pontofinal global para forçar a atualização.
+* Bug fixo para upserts com pré-condições em modo direto.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
-* Corrigido o bug no cache de endereços do gateway.
+* Bug fixo na cache do endereço gateway.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Foi adicionado para o modo direto de um suporte de escrita de várias regiões.
 * Foi adicionado suporte para lidar com IOExceptions lançada como ServiceUnavailable exceções, a partir de um proxy.
 * Foi corrigido um erro na política de repetição de deteção de ponto final.
 * Foi corrigido um erro para garantir que exceções não são geradas no BaseDatabaseAccountConfigurationProvider de ponteiro nulo.
-* Corrigido um bug para garantir que QueryIterator não retorne nulos.
+* Fixou um bug para garantir que o QueryIterator não devolve os nulos.
 * Foi corrigido um erro para garantir que é permitido PartitionKey grandes
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -158,7 +162,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para suporte 
 * Foi adicionado suporte para o feed de alterações.
 * Foi adicionado suporte para obter informações de quota de coleção por meio de RequestOptions.setPopulateQuotaInfo.
 * Foi adicionado suporte para o registo de script do procedimento armazenado por meio de RequestOptions.setScriptLoggingEnabled.
-* Corrigido um bug em que a consulta no modo DirectHttps pode parar de responder ao encontrar falhas de restrição.
+* Fixou um bug onde a consulta no modo DirectHttps pode deixar de responder quando se depara com falhas no acelerador.
 * Foi corrigido um erro no modo de consistência da sessão.
 * Foi corrigido um erro que pode causar NullReferenceException no HttpContext, quando a taxa de pedidos é elevada.
 * Desempenho aprimorado do modo de DirectHttps.
@@ -173,7 +177,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para suporte 
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * Foi corrigido um erro na gestão de ligações para impedir fugas de ligação no modo de conectividade direta.
-* Foi corrigido um bug na consulta TOP, em que ele pode gerar exceção NullReference.
+* Fixou um bug na consulta TOP onde pode lançar a exceção De Referência Nu.
 * Desempenho melhorado, reduzindo o número de chamada de rede para os caches internos.
 * Código de estado adicionado, ActivityID e URI de pedido de mensagens em fila no DocumentClientException para melhor de resolução de problemas.
 
@@ -229,7 +233,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para suporte 
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Oferece suporte Geoespacial índice
-* Valida a propriedade ID para todos os recursos. Ids for resources can contain ?, /, #, \, characters or end with a space.
+* Valida a propriedade de ID para todos os recursos. Ids for resources can contain ?, /, #, \, characters or end with a space.
 * Adiciona o novo cabeçalho "índice transformação progress" ao ResourceResponse.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
@@ -259,10 +263,21 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |13 de março de 2018 |--- |
-| [2.1.2](#2.1.2) |09 de março de 2018 |--- |
-| [2.1.1](#2.1.1) |13 de dezembro de 2018 |--- |
-| [2.1.0](#2.1.0) |20 de novembro de 2018 |--- |
+| [2.4.7](#2.4.7) |Fev 20, 2020 |--- |
+| [2.4.6](#2.4.6) |24 de janeiro de 2020 |--- |
+| [2.4.5](#2.4.5) |Nov 10, 2019 |--- |
+| [2.4.4](#2.4.4) |24 out, 2019 |--- |
+| [2.4.2](#2.4.2) |26 de setembro de 2019 |--- |
+| [2.4.1](#2.4.1) |Jul 18, 2019 |--- |
+| [2.4.0](#2.4.0) |04 de maio de 2019 |--- |
+| [2.3.0](#2.3.0) |Abr 24, 2019 |--- |
+| [2.2.3](#2.2.3) |Abr 16, 2019 |--- |
+| [2.2.2](#2.2.2) |Abr 05, 2019 |--- |
+| [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
+| [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
+| [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
+| [2.1.1](#2.1.1) |Dez 13, 2018 |--- |
+| [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |21 de Setembro de 2018 |--- |
 | [1.16.4](#1.16.4) |10 de Setembro de 2018 |30 de maio de 2020 |
 | [1.16.3](#1.16.3) |09 de Setembro de 2018 |30 de maio de 2020 |

@@ -1,6 +1,6 @@
 ---
-title: Guia de solução de problemas Gerenciador de Armazenamento do Azure | Microsoft Docs
-description: Visão geral das técnicas de depuração para Gerenciador de Armazenamento do Azure
+title: Guia de resolução de problemas do Azure Storage Explorer Microsoft Docs
+description: Visão geral das técnicas de depuração para o Explorador de Armazenamento Azure
 services: storage
 author: Deland-Han
 manager: dcscontentpm
@@ -8,224 +8,235 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3d5b1ab4e72ec759098e9c71515200f89a8dfe82
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931216"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561685"
 ---
-# <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas Gerenciador de Armazenamento do Azure
+# <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento Azure
 
-Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo que facilita o trabalho com os dados do armazenamento do Azure no Windows, no macOS e no Linux. O aplicativo pode se conectar a contas de armazenamento hospedadas no Azure, nuvens nacionais e Azure Stack.
+O Microsoft Azure Storage Explorer é uma aplicação autónoma que facilita o trabalho com dados do Azure Storage no Windows, macOS e Linux. A aplicação pode ligar-se a contas de armazenamento alojadas em Azure, nuvens nacionais e Azure Stack.
 
-Este guia resume soluções para problemas que normalmente são vistos em Gerenciador de Armazenamento.
+Este guia resume soluções para questões que são comumente vistas no Storage Explorer.
 
-## <a name="rbac-permissions-issues"></a>Problemas de permissões de RBAC
+## <a name="rbac-permissions-issues"></a>Problemas de permissões RBAC
 
-O [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) de controle de acesso baseado em função permite o gerenciamento de acesso altamente granular dos recursos do Azure combinando conjuntos de permissões em _funções_. Aqui estão algumas estratégias para fazer com que o RBAC funcione de forma ideal no Gerenciador de Armazenamento.
+O controlo de acesso baseado em funções [O RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) permite uma gestão de acesso altamente granular dos recursos Azure, combinando conjuntos de permissões em _funções._ Aqui estão algumas estratégias para que o RBAC funcione da melhor forma no Storage Explorer.
 
-### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Como fazer acessar meus recursos no Gerenciador de Armazenamento?
+### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Como acedo aos meus recursos no Storage Explorer?
 
-Se você estiver tendo problemas para acessar os recursos de armazenamento por meio do RBAC, talvez você não tenha atribuído as funções apropriadas. As seções a seguir descrevem as permissões Gerenciador de Armazenamento atualmente exige o acesso aos recursos de armazenamento. Entre em contato com o administrador da conta do Azure se você não tiver certeza de que tem as funções ou permissões apropriadas.
+Se você está tendo problemas de acesso a recursos de armazenamento através do RBAC, você pode não ter sido atribuído as funções apropriadas. As seguintes secções descrevem as permissões que o Storage Explorer necessita atualmente para o acesso aos seus recursos de armazenamento. Contacte o administrador da sua conta Azure se não tiver a certeza de que tem as funções ou permissões adequadas.
 
-#### <a name="read-listget-storage-accounts-permissions-issue"></a>Problema de permissões de "leitura: listar/obter conta de armazenamento"
+#### <a name="read-listget-storage-accounts-permissions-issue"></a>"Ler: Lista/Obter Conta de Armazenamento(s)" emissão de permissões
 
-Você deve ter permissão para listar contas de armazenamento. Para obter essa permissão, você deve receber a função _leitor_ .
+Deve ter permissão para listar contas de armazenamento. Para obter esta permissão, deve ser-lhe atribuído o papel de _Leitor._
 
-#### <a name="list-storage-account-keys"></a>Listar chaves de conta de armazenamento
+#### <a name="list-storage-account-keys"></a>Lista de chaves da conta de armazenamento
 
-Gerenciador de Armazenamento também pode usar chaves de conta para autenticar solicitações. Você pode obter acesso a chaves de conta por meio de funções mais poderosas, como a função _colaborador_ .
+O Storage Explorer também pode usar chaves de conta para autenticar pedidos. Você pode ter acesso a chaves de conta através de papéis mais poderosos, como o papel _de Contribuinte._
 
 > [!NOTE]
-> Chaves de acesso concedem permissões irrestritas a qualquer pessoa que as mantenha. Portanto, não recomendamos que você entregue essas chaves para os usuários da conta. Se você precisar revogar chaves de acesso, poderá gerá-las novamente a partir do [portal do Azure](https://portal.azure.com/).
+> As chaves de acesso concedem permissões sem restrições a quem as detém. Por isso, não recomendamos que entregue estas chaves aos utilizadores da conta. Se precisar revogar as teclas de acesso, pode regenera-las a partir do [portal Azure.](https://portal.azure.com/)
 
 #### <a name="data-roles"></a>Funções de dados
 
-Você deve receber pelo menos uma função que conceda acesso para ler dados de recursos. Por exemplo, se você quiser listar ou baixar BLOBs, precisará de pelo menos a função de _leitor de dados de blob de armazenamento_ .
+Deve ser-lhe atribuída pelo menos uma função que conceda acesso à leitura de dados a partir de recursos. Por exemplo, se quiser listar ou descarregar bolhas, necessitará, pelo menos, do papel do Leitor de _Dados blob_ de armazenamento.
 
-### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Por que preciso de uma função de camada de gerenciamento para ver meus recursos no Gerenciador de Armazenamento?
+### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Por que preciso de um papel de camada de gestão para ver os meus recursos no Storage Explorer?
 
-O armazenamento do Azure tem duas camadas de acesso: _Gerenciamento_ e _dados_. As assinaturas e as contas de armazenamento são acessadas por meio da camada de gerenciamento. Contêineres, BLOBs e outros recursos de dados são acessados por meio da camada de dados. Por exemplo, se você quiser obter uma lista de suas contas de armazenamento do Azure, envie uma solicitação para o ponto de extremidade de gerenciamento. Se você quiser uma lista de contêineres de BLOB em uma conta, envie uma solicitação para o ponto de extremidade de serviço apropriado.
+O Azure Storage tem duas camadas de acesso: _gestão_ e _dados._ As assinaturas e as contas de armazenamento são acedidas através da camada de gestão. Contentores, bolhas e outros recursos de dados são acedidos através da camada de dados. Por exemplo, se quiser obter uma lista das suas contas de armazenamento do Azure, envie um pedido para o ponto final da gestão. Se quiser uma lista de recipientes blob numa conta, envie um pedido para o ponto final de serviço apropriado.
 
-As funções RBAC podem conter permissões para acesso à camada de dados ou gerenciamento. A função leitor, por exemplo, concede acesso somente leitura aos recursos da camada de gerenciamento.
+As funções RBAC podem conter permissões para gestão ou acesso à camada de dados. O papel do Leitor, por exemplo, concede acesso apenas a leitura a recursos de camadas de gestão.
 
-Estritamente falando, a função leitor não fornece nenhuma permissão de camada de dados e não é necessária para acessar a camada de dados.
+Em rigor, a função Reader não fornece permissões de camada de dados e não é necessária para aceder à camada de dados.
 
-Gerenciador de Armazenamento facilita o acesso aos recursos coletando as informações necessárias para se conectar aos recursos do Azure. Por exemplo, para exibir seus contêineres de BLOB, Gerenciador de Armazenamento envia uma solicitação de "listar contêineres" para o ponto de extremidade do serviço BLOB. Para obter esse ponto de extremidade, Gerenciador de Armazenamento pesquisa a lista de assinaturas e contas de armazenamento às quais você tem acesso. Para localizar suas assinaturas e contas de armazenamento, Gerenciador de Armazenamento também precisa acessar a camada de gerenciamento.
+O Storage Explorer facilita o acesso aos seus recursos recolhendo as informações necessárias para se conectar aos seus recursos Azure. Por exemplo, para exibir os seus recipientes de blob, o Storage Explorer envia um pedido de "lista de contentores" para o ponto final do serviço de blob. Para obter esse ponto final, o Storage Explorer procura a lista de subscrições e contas de armazenamento a que tem acesso. Para encontrar as suas subscrições e contas de armazenamento, o Storage Explorer também precisa de acesso à camada de gestão.
 
-Se você não tiver uma função que conceda permissões de camada de gerenciamento, Gerenciador de Armazenamento não poderá obter as informações necessárias para se conectar à camada de dados.
+Se não tiver um papel que conceda permissões de camada de gestão, o Storage Explorer não consegue obter a informação de que necessita para se ligar à camada de dados.
 
-### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>E se eu não conseguir obter as permissões da camada de gerenciamento que preciso do meu administrador?
+### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>E se eu não conseguir as permissões da camada de gestão que preciso do meu administrador?
 
-No momento, não temos uma solução relacionada a RBAC para esse problema. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Não temos atualmente uma solução relacionada com o RBAC para esta questão. Como suposições, pode solicitar um SAS URI para [anexar ao seu recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: certificado autoassinado na cadeia de certificados (e erros semelhantes)
+### <a name="recommended-built-in-rbac-roles"></a>Funções RBAC incorporadas recomendadas
 
-Normalmente, os erros de certificado ocorrem em uma das seguintes situações:
+Existem várias funções rBAC incorporadas que podem fornecer as permissões necessárias para usar o Storage Explorer. Alguns desses papéis são:
+- [Proprietário](/azure/role-based-access-control/built-in-roles#owner): Gerir tudo, incluindo acesso a recursos. **Nota:** este papel vai dar-lhe acesso chave.
+- [Contribuinte](/azure/role-based-access-control/built-in-roles#contributor): Gerir tudo, excluindo o acesso aos recursos. **Nota:** este papel vai dar-lhe acesso chave.
+- [Leitor](/azure/role-based-access-control/built-in-roles#reader): Ler e listar recursos.
+- [Contribuinte da Conta](/azure/role-based-access-control/built-in-roles#storage-account-contributor)de Armazenamento : Gestão completa das contas de armazenamento. **Nota:** este papel vai dar-lhe acesso chave.
+- [Armazenamento Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Acesso total aos contentores e dados de blob de armazenamento Azure.
+- [Armazenamento Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Leia, escreva e elimine recipientes de armazenamento azure e bolhas.
+- [Armazenamento Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Leia e enumere recipientes de armazenamento Azure e bolhas.
 
-- O aplicativo é conectado por meio de um _proxy transparente_, o que significa que um servidor (como o servidor da empresa) está interceptando o tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado autoassinado.
-- Você está executando um aplicativo que está injetando um certificado SSL autoassinado nas mensagens HTTPS recebidas. Exemplos de aplicativos que inserem certificados incluem software antivírus e de inspeção de tráfego de rede.
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado auto-assinado na cadeia de certificados (e erros semelhantes)
 
-Quando Gerenciador de Armazenamento vê um certificado autoassinado ou não confiável, ele não sabe mais se a mensagem HTTPS recebida foi alterada. Se você tiver uma cópia do certificado autoassinado, poderá instruir Gerenciador de Armazenamento a confiar, seguindo estas etapas:
+Os erros de certificado ocorrem tipicamente numa das seguintes situações:
 
-1. Obtenha uma cópia X. 509 (. cer) codificada em base-64 do certificado.
-2. Vá para **editar** > **certificados SSL** > **importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer.
+- A aplicação está conectada através de um _proxy transparente_, o que significa que um servidor (como o seu servidor da empresa) está a intercetar o tráfego HTTPS, desencriptando-o e, em seguida, encriptando-o utilizando um certificado auto-assinado.
+- Está a executar uma aplicação que está a injetar um certificado SSL auto-assinado nas mensagens HTTPS que recebe. Exemplos de aplicações que injetam certificados incluem software antivírus e de inspeção de tráfego de rede.
 
-Esse problema também pode ocorrer se houver vários certificados (raiz e intermediário). Para corrigir esse erro, ambos os certificados devem ser adicionados.
+Quando o Storage Explorer vê um certificado auto-assinado ou não confiável, já não sabe se a mensagem HTTPS recebida foi alterada. Se tiver uma cópia do certificado auto-assinado, pode instruir o Explorador de Armazenamento a confiar nele seguindo estes passos:
 
-Se você não tiver certeza de onde o certificado provém, siga estas etapas para encontrá-lo:
+1. Obtenha uma cópia codificada da Base-64 X.509 (.cer) do certificado.
+2. Vá **editar** > **Certificados SSL** > Certificados de **Importação,** e depois use o apanhador de ficheiros para encontrar, selecionar e abrir o ficheiro .cer.
 
-1. Instale o OpenSSL.
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): qualquer uma das versões leves deve ser suficiente.
-    * Mac e Linux: devem ser incluídos no seu sistema operacional.
-2. Execute o OpenSSL.
-    * Windows: Abra o diretório de instalação, selecione **/bin/** e clique duas vezes em **OpenSSL. exe**.
-    * Mac e Linux: execute `openssl` de um terminal.
+Esta emissão também pode ocorrer se houver vários certificados (raiz e intermediário). Para corrigir este erro, ambos os certificados devem ser adicionados.
+
+Se não tem a certeza de onde vem o certificado, siga estes passos para encontrá-lo:
+
+1. Instale openssl.
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): Qualquer uma das versões de luz deve ser suficiente.
+    * Mac e Linux: Deve ser incluído no seu sistema operativo.
+2. Run OpenSSL.
+    * Janelas: Abra o diretório de instalação, selecione **/bin/** e, em seguida, clique duas **vezes openssl.exe**.
+    * Mac e Linux: Executar `openssl` de um terminal.
 3. Execute `s_client -showcerts -connect microsoft.com:443`.
-4. Procure certificados autoassinados. Se você não tiver certeza de quais certificados são autoassinados, anote em qualquer lugar que o assunto `("s:")` e `("i:")` do emissor sejam os mesmos.
-5. Quando você encontrar certificados autoassinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` por meio de `-----END CERTIFICATE-----` em um novo arquivo. cer.
-6. Abra Gerenciador de Armazenamento e vá para **editar** > **certificados SSL** > **importar certificados**. Em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
+4. Procure certificados autoassinados. Se não tem a certeza de quais os certificados auto-assinados, tome nota de qualquer lugar que o sujeito `("s:")` e emissor `("i:")` são os mesmos.
+5. Quando encontrar certificados auto-assinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` através de `-----END CERTIFICATE-----` num novo ficheiro .cer.
+6. Open Storage Explorer e vá à **Edição** > **Certificados SSL** > Certificados de **Importação.** Em seguida, utilize o apanhador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.
 
-Se você não encontrar certificados autoassinados seguindo estas etapas, entre em contato conosco por meio da ferramenta de comentários. Você também pode abrir Gerenciador de Armazenamento na linha de comando usando o sinalizador `--ignore-certificate-errors`. Quando aberto com esse sinalizador, Gerenciador de Armazenamento ignora erros de certificado.
+Se não encontrar certificados auto-assinados seguindo estes passos, contacte-nos através da ferramenta de feedback. Também pode abrir o Storage Explorer a partir da linha de comando utilizando a bandeira `--ignore-certificate-errors`. Quando aberto com esta bandeira, o Storage Explorer ignora erros de certificado.
 
 ## <a name="sign-in-issues"></a>Problemas de início de sessão
 
 ### <a name="blank-sign-in-dialog-box"></a>Caixa de diálogo de entrada em branco
 
-Caixas de diálogo de entrada em branco ocorrem com mais frequência quando Serviços de Federação do Active Directory (AD FS) (AD FS) solicita Gerenciador de Armazenamento para executar um redirecionamento, o que não é suportado pelo de todos os. Para contornar esse problema, você pode tentar usar o fluxo de código do dispositivo para entrar. Para tal, siga estes passos:
+As caixas de diálogo em branco ocorrem mais frequentemente quando os Serviços da Federação de Diretórios Ativos (AD FS) solicitam ao Explorer de Armazenamento que realize um redirecionamento, que não é suportado por Eletrões. Para resolver este problema, pode tentar utilizar o Device Code Flow para iniciar sessão. Para isso, siga estes passos:
 
-1. Na barra de ferramentas vertical esquerda, abra **configurações**. No painel configurações, vá para **aplicativo** > **entrar**. Habilitar **usar entrada de fluxo de código de dispositivo**.
-2. Abra a caixa de diálogo **conectar** (por meio do ícone de plugue na barra vertical do lado esquerdo ou selecionando **adicionar conta** no painel de conta).
-3. Escolha o ambiente no qual você deseja entrar.
-4. Selecione **Iniciar Sessão**.
-5. Siga as instruções no painel seguinte.
+1. Na barra de ferramentas vertical esquerda, abra **As definições**. No Painel definições, vá à **aplicação** > **Iniciar sessão**. Ativar **Utilização Utilização**de código de fluxo de código .
+2. Abra a caixa de diálogo **Connect** (através do ícone da ficha na barra vertical do lado esquerdo ou selecionando a **Conta Add** no painel de conta).
+3. Escolha o ambiente a que pretende assinar.
+4. Selecione **Iniciar sessão**.
+5. Siga as instruções no próximo painel.
 
-Se você não puder entrar na conta que deseja usar porque seu navegador padrão já está conectado a uma conta diferente, siga um destes procedimentos:
+Se não conseguir iniciar sessão na conta que pretende utilizar porque o seu navegador predefinido já está inscrito numa conta diferente, faça uma das seguintes:
 
-- Copie manualmente o link e o código em uma sessão privada do seu navegador.
-- Copie manualmente o link e o código em um navegador diferente.
+- Copie manualmente o link e o código numa sessão privada do seu navegador.
+- Copie manualmente o link e código para um navegador diferente.
 
-### <a name="reauthentication-loop-or-upn-change"></a>Loop de reautenticação ou alteração de UPN
+### <a name="reauthentication-loop-or-upn-change"></a>Loop de reautenticação ou alteração UPN
 
-Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma de suas contas, siga estas etapas:
+Se estiver num ciclo de reautenticação ou tiver alterado a UPN de uma das suas contas, siga estes passos:
 
-1. Remova todas as contas e, em seguida, feche Gerenciador de Armazenamento.
-2. Exclua o. IdentityService a pasta do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, você pode encontrar a pasta na raiz do seu diretório de usuário.
-3. Se você estiver executando o Mac ou o Linux, também precisará excluir a entrada Microsoft. Developer. IdentityService do repositório de chaves do seu sistema operacional. No Mac, o keystore é o aplicativo de conjunto de *chaves GNOME* . No Linux, o aplicativo é normalmente chamado de _token_de entrada, mas o nome pode ser diferente dependendo da sua distribuição.
+1. Remova todas as contas e, em seguida, feche o Storage Explorer.
+2. Apagar o . Pasta IdentityService da sua máquina. No Windows, a pasta encontra-se em `C:\users\<username>\AppData\Local`. Para O Mac e o Linux, pode encontrar a pasta na raiz do seu diretório de utilizador.
+3. Se estiver a executar o Mac ou o Linux, também terá de eliminar a entrada do Microsoft.Developer.IdentityService na loja de chaves do seu sistema operativo. No Mac, a porta-chaves é a aplicação *Gnome Keychain.* Em Linux, a aplicação é tipicamente chamada _de Keyring_, mas o nome pode diferir dependendo da sua distribuição.
 
 ### <a name="conditional-access"></a>Acesso Condicional
 
-Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Armazenamento, o acesso condicional não tem suporte quando Gerenciador de Armazenamento está sendo usado no Windows 10, Linux ou macOS.
+Devido a uma limitação na Biblioteca AD Azure utilizada pelo Storage Explorer, o Acesso Condicional não é suportado quando o Storage Explorer está a ser utilizado no Windows 10, Linux ou macOS.
 
-## <a name="mac-keychain-errors"></a>Erros de conjunto de chaves do Mac
+## <a name="mac-keychain-errors"></a>Erros mac keychain
 
-Às vezes, o conjunto de chaves macOS pode inserir um estado que causa problemas para a biblioteca de autenticação Gerenciador de Armazenamento. Para obter o conjunto de chaves desse Estado, siga estas etapas:
+O macOS Keychain pode por vezes entrar num estado que causa problemas para a biblioteca de autenticação do Explorador de Armazenamento. Para tirar o Keychain deste estado, siga estes passos:
 
-1. Feche Gerenciador de Armazenamento.
-2. Abra o conjunto de chaves (pressione Command + barra de espaços, digite **keychain**e pressione Enter).
-3. Selecione o conjunto de chaves "logon".
-4. Selecione o ícone de cadeado para bloquear o conjunto de chaves. (O cadeado aparecerá bloqueado quando o processo for concluído. Pode levar alguns segundos, dependendo de quais aplicativos você abriu).
+1. Close Storage Explorer.
+2. Abra o porta-chaves (prima Command+Spacebar, digite **o porta-chaves,** e prima Enter).
+3. Selecione o porta-chaves "login".
+4. Selecione o ícone do cadeado para bloquear o chaveiro. (O cadeado aparecerá bloqueado quando o processo estiver concluído. Pode levar alguns segundos, dependendo das aplicações que tem abertas).
 
     ![Ícone de cadeado](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Abra o Explorador de Armazenamento.
-6. Você receberá uma mensagem como "o Hub de serviço deseja acessar o conjunto de chaves". Insira sua senha da conta de administrador do Mac e selecione **sempre permitir** (ou **permitir** se **sempre permitir** não estiver disponível).
-7. Tente entrar.
+6. És solicitado com uma mensagem como "O centro de serviço quer aceder ao Keychain." Introduza a sua palavra-passe da conta De administração Mac e selecione **Sempre permitir** (ou **permitir** se **sempre permitir** não estiver disponível).
+7. Tente assinar.
 
-### <a name="general-sign-in-troubleshooting-steps"></a>Etapas de solução de problemas de entrada geral
+### <a name="general-sign-in-troubleshooting-steps"></a>Passos gerais de resolução de problemas
 
-* Se você estiver no macOS e a janela de entrada nunca aparecer na caixa de diálogo **aguardando autenticação** , tente [estas etapas](#mac-keychain-errors).
-* Reinicie Gerenciador de Armazenamento.
+* Se estiver no macOS, e a janela de entrada nunca aparecer sobre a caixa de diálogo de **autenticação,** experimente [estes passos](#mac-keychain-errors).
+* Reiniciar o Explorador de Armazenamento.
 * Se a janela de autenticação estiver em branco, aguarde pelo menos um minuto antes de fechar a caixa de diálogo de autenticação.
-* Verifique se as configurações de proxy e certificado estão configuradas corretamente para seu computador e Gerenciador de Armazenamento.
-* Se você estiver executando o Windows e tiver acesso ao Visual Studio 2019 no mesmo computador e às credenciais de entrada, tente entrar no Visual Studio 2019. Após uma entrada bem-sucedida no Visual Studio 2019, você pode abrir Gerenciador de Armazenamento e ver sua conta no painel de conta.
+* Certifique-se de que as definições de procuração e certificado estão corretamente configuradas tanto para a sua máquina como para o Explorador de Armazenamento.
+* Se estiver a executar o Windows e tiver acesso ao Visual Studio 2019 na mesma máquina e nas credenciais de inscrição, tente iniciar sessão no Visual Studio 2019. Depois de uma sessão bem sucedida no Visual Studio 2019, pode abrir o Storage Explorer e ver a sua conta no painel de contas.
 
-Se nenhum desses métodos funcionar, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+Se nenhum destes métodos funcionar, [abra um problema no GitHub.](https://github.com/Microsoft/AzureStorageExplorer/issues)
 
-### <a name="missing-subscriptions-and-broken-tenants"></a>Assinaturas ausentes e locatários desfeitos
+### <a name="missing-subscriptions-and-broken-tenants"></a>Falta de assinaturas e inquilinos avariados
 
-Se você não puder recuperar suas assinaturas depois de entrar com êxito, tente os seguintes métodos de solução de problemas:
+Se não conseguir recuperar as suas subscrições depois de iniciar sessão com sucesso, experimente os seguintes métodos de resolução de problemas:
 
-* Verifique se sua conta tem acesso às assinaturas que você espera. Você pode verificar seu acesso entrando no portal para o ambiente do Azure que você está tentando usar.
-* Verifique se você entrou por meio do ambiente correto do Azure (Azure, Azure China 21Vianet, Azure Alemanha, governo dos EUA do Azure ou ambiente personalizado).
-* Se você estiver protegido por um servidor proxy, verifique se você configurou o Gerenciador de Armazenamento proxy corretamente.
-* Tente remover e adicionar novamente a conta.
-* Se houver um link "mais informações", verifique quais mensagens de erro estão sendo relatadas para os locatários que estão falhando. Se você não tiver certeza de como responder às mensagens de erro, fique à vontade para [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Verifique se a sua conta tem acesso às subscrições que espera. Pode verificar o seu acesso inserindo-se no portal para o ambiente Azure que está a tentar utilizar.
+* Certifique-se de que assinou através do ambiente azure correto (Azure, Azure China 21Vianet, Azure Germany, Azure Us Government, ou Custom Environment).
+* Se estiver atrás de um servidor proxy, certifique-se de ter configurado corretamente o proxy do Storage Explorer.
+* Tente remover e readicionar a conta.
+* Se houver uma ligação "Mais informação", verifique quais as mensagens de erro que estão a ser reportadas para os inquilinos que estão a falhar. Se não tiver a certeza de como responder às mensagens de erro, sinta-se à vontade para [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cant-remove-an-attached-account-or-storage-resource"></a>Não é possível remover uma conta anexada ou um recurso de armazenamento
+## <a name="cant-remove-an-attached-account-or-storage-resource"></a>Não pode remover uma conta anexa ou recurso de armazenamento
 
-Se não for possível remover uma conta anexada ou um recurso de armazenamento por meio da interface do usuário, você poderá excluir manualmente todos os recursos anexados excluindo as seguintes pastas:
+Se não conseguir remover uma conta ou recurso de armazenamento anexado através da UI, pode eliminar manualmente todos os recursos anexados eliminando as seguintes pastas:
 
-* Windows: `%AppData%/StorageExplorer`
+* Janelas: `%AppData%/StorageExplorer`
 * macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
-> Feche Gerenciador de Armazenamento antes de excluir essas pastas.
+> Feche o Explorer antes de eliminar estas pastas.
 
 > [!NOTE]
-> Se você já importou qualquer certificado SSL, faça backup do conteúdo do diretório `certs`. Posteriormente, você pode usar o backup para reimportar seus certificados SSL.
+> Se já tiver importado quaisquer certificados SSL, faça o backo do conteúdo do diretório `certs`. Mais tarde, pode utilizar o backup para reimportar os seus certificados SSL.
 
-## <a name="proxy-issues"></a>Problemas de proxy
+## <a name="proxy-issues"></a>Questões de procuração
 
-Primeiro, certifique-se de que as seguintes informações inseridas estão corretas:
+Em primeiro lugar, certifique-se de que as seguintes informações que inseriu estão corretas:
 
-* A URL do proxy e o número da porta
-* Nome de usuário e senha se o proxy os exigir
+* O URL proxy e o número da porta
+* Nome de utilizador e senha se o representante os exigir
 
 > [!NOTE]
-> Gerenciador de Armazenamento não dá suporte a arquivos de configuração automática de proxy para definir as configurações de proxy.
+> O Storage Explorer não suporta ficheiros proxy auto-config para configurar as definições de procuração.
 
 ### <a name="common-solutions"></a>Soluções comuns
 
-Se você ainda tiver problemas, tente os seguintes métodos de solução de problemas:
+Se ainda estiver com problemas, experimente os seguintes métodos de resolução de problemas:
 
-* Se você puder se conectar à Internet sem usar o proxy, verifique se Gerenciador de Armazenamento funciona sem as configurações de proxy habilitadas. Se esse for o caso, pode haver um problema com as configurações de proxy. Trabalhe com o administrador para identificar os problemas.
-* Verifique se outros aplicativos que usam o servidor proxy funcionam conforme o esperado.
-* Verifique se você pode se conectar ao portal para o ambiente do Azure que você está tentando usar.
-* Verifique se você pode receber respostas de seus pontos de extremidade de serviço. Insira uma das suas URLs de ponto de extremidade em seu navegador. Se você puder se conectar, deverá receber InvalidQueryParameterValue ou uma resposta XML semelhante.
-* Se outra pessoa também estiver usando Gerenciador de Armazenamento com o servidor proxy, verifique se ele pode se conectar. Se puderem, talvez você precise entrar em contato com o administrador do servidor proxy.
+* Se conseguir ligar-se à internet sem utilizar o seu proxy, verifique se o Storage Explorer funciona sem configurações de procuração ativadas. Se for esse o caso, pode haver um problema com as definições de procuração. Trabalhe com o seu administrador para identificar os problemas.
+* Verifique se outras aplicações que utilizam o servidor proxy funcionam como esperado.
+* Verifique se pode ligar-se ao portal para o ambiente Azure que está a tentar utilizar.
+* Verifique se pode receber respostas dos seus pontos finais de serviço. Introduza um dos seus URLs de ponto final no seu navegador. Se conseguir ligar-se, deve receber InvalidQueryParameterValue ou uma resposta XML semelhante.
+* Se alguém estiver também a usar o Storage Explorer com o seu servidor proxy, verifique se pode ligar-se. Se puderem, poderá ter de contactar o administrador do seu servidor proxy.
 
 ### <a name="tools-for-diagnosing-issues"></a>Ferramentas para diagnosticar problemas
 
-Se você tiver ferramentas de rede, como o Fiddler para Windows, poderá diagnosticar os problemas da seguinte maneira:
+Se tiver ferramentas de networking, como o Fiddler para Windows, pode diagnosticar os problemas da seguinte forma:
 
-* Se precisar trabalhar com o proxy, talvez seja necessário configurar sua ferramenta de rede para se conectar por meio do proxy.
-* Verifique o número da porta usado pela sua ferramenta de rede.
-* Insira a URL do host local e o número da porta da ferramenta de rede como configurações de proxy em Gerenciador de Armazenamento. Quando você faz isso corretamente, a ferramenta de rede inicia o log de solicitações de rede feitas por Gerenciador de Armazenamento para pontos de extremidade de serviço e gerenciamento. Por exemplo, insira `https://cawablobgrs.blob.core.windows.net/` para o ponto de extremidade de BLOB em um navegador e você receberá uma resposta semelhante à seguinte:
+* Se tiver de trabalhar através do seu representante, poderá ter de configurar a sua ferramenta de rede para se ligar através do proxy.
+* Verifique o número da porta utilizado pela sua ferramenta de rede.
+* Introduza o URL do hospedeiro local e o número de porta da ferramenta de rede como configurações de procuração no Storage Explorer. Quando o fizer corretamente, a sua ferramenta de networking inicia a sessão de pedidos de rede feitos pelo Storage Explorer para pontos finais de gestão e serviço. Por exemplo, introduza `https://cawablobgrs.blob.core.windows.net/` para o seu ponto final blob num browser, e receberá uma resposta que se assemelha ao seguinte:
 
   ![Exemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-  Essa resposta sugere que o recurso existe, embora você não possa acessá-lo.
+  Esta resposta sugere que o recurso existe, mesmo que não consiga aceder-lhe.
 
-### <a name="contact-proxy-server-admin"></a>Contatar o administrador do servidor proxy
+### <a name="contact-proxy-server-admin"></a>Contacte a administração do servidor proxy
 
-Se as configurações de proxy estiverem corretas, talvez seja necessário entrar em contato com o administrador do servidor proxy para:
+Se as definições de procuração estiverem corretas, poderá ter de contactar o administrador do seu servidor proxy para:
 
-* Verifique se o proxy não bloqueia o tráfego para os pontos de extremidade de gerenciamento ou recurso do Azure.
-* Verifique o protocolo de autenticação usado pelo servidor proxy. No momento, o Gerenciador de Armazenamento não oferece suporte a proxies NTLM.
+* Certifique-se de que o seu representante não bloqueia o tráfego para a gestão do Azure ou pontos finais de recursos.
+* Verifique o protocolo de autenticação utilizado pelo seu servidor proxy. O Storage Explorer não suporta atualmente os proxies NTLM.
 
-## <a name="unable-to-retrieve-children-error-message"></a>Mensagem de erro "não é possível recuperar filhos"
+## <a name="unable-to-retrieve-children-error-message"></a>Mensagem de erro "Incapaz de recuperar crianças"
 
-Se você estiver conectado ao Azure por meio de um proxy, verifique se as configurações de proxy estão corretas. Se você tiver acesso a um recurso do proprietário da assinatura ou da conta, verifique se você tem permissões de leitura ou de lista para esse recurso.
+Se estiver ligado ao Azure através de um proxy, verifique se as definições de procuração estão corretas. Se lhe for concedido acesso a um recurso do proprietário da subscrição ou conta, verifique se leu ou lista as permissões para esse recurso.
 
-## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>A cadeia de conexão não tem definições de configuração completas
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>A cadeia de ligação não tem definições de configuração completas
 
-Se você receber essa mensagem de erro, é possível que você não tenha as permissões necessárias para obter as chaves para sua conta de armazenamento. Para confirmar que esse é o caso, vá para o portal e localize sua conta de armazenamento. Você pode fazer isso clicando com o botão direito do mouse no nó da sua conta de armazenamento e selecionando **abrir no portal**. Em seguida, vá para a folha **chaves de acesso** . Se você não tiver permissões para exibir chaves, verá uma mensagem "você não tem acesso". Para contornar esse problema, você pode obter a chave de conta de outra pessoa e anexar por meio do nome e da chave, ou pode pedir a alguém uma SAS para a conta de armazenamento e usá-la para anexar a conta de armazenamento.
+Se receber esta mensagem de erro, é possível que não tenha as permissões necessárias para obter as chaves da sua conta de armazenamento. Para confirmar que é esse o caso, vá ao portal e localize a sua conta de armazenamento. Pode fazê-lo clicando no nó direito da sua conta de armazenamento e selecionando **Open in Portal**. Depois, vai para a lâmina das Chaves de **Acesso.** Se não tiver permissão para ver as chaves, verá uma mensagem de "Não tem acesso". Para contornar este problema, pode obter a chave da conta de outra pessoa e anexar através do nome e da chave, ou pode pedir a alguém um SAS na conta de armazenamento e usá-la para anexar a conta de armazenamento.
 
-Se você vir as chaves de conta, execute um problema no GitHub para que possamos ajudá-lo a resolver o problema.
+Se vir as chaves da conta, apresente um problema no GitHub para que possamos ajudá-lo a resolver o problema.
 
-## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Ocorreu um erro ao adicionar uma nova conexão: TypeError: não é possível ler a propriedade ' version ' de undefined
+## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Erro ocorreu ao adicionar nova ligação: TypeError: Não pode ler a 'versão' da propriedade de indefinido
 
-Se você receber essa mensagem de erro ao tentar adicionar uma conexão personalizada, os dados de conexão armazenados no Gerenciador de credenciais local poderão estar corrompidos. Para contornar esse problema, tente excluir as conexões locais corrompidas e, em seguida, adicione-as novamente:
+Se receber esta mensagem de erro quando tentar adicionar uma ligação personalizada, os dados de ligação armazenados no gestor de credenciais locais podem ser corrompidos. Para resolver este problema, tente apagar as suas ligações locais corrompidas e, em seguida, readicione-as:
 
-1. Iniciar Gerenciador de Armazenamento. No menu, vá para **ajuda** > **alternar ferramentas para desenvolvedores**.
-2. Na janela aberta, na guia **aplicativo** , vá para **armazenamento local** (lado esquerdo) > **file://** .
-3. Dependendo do tipo de conexão com a qual você está tendo um problema, procure sua chave e copie seu valor em um editor de texto. O valor é uma matriz de seus nomes de conexão personalizados, como o seguinte:
+1. Inicie o Storage Explorer. A partir do menu, vá para **ajudar > ** Ferramentas de Desenvolvimento de **Alternância**.
+2. Na janela aberta, no separador **Aplicação,** vá ao **Armazenamento Local** (lado esquerdo) > **file://** .
+3. Dependendo do tipo de ligação com que está a ter um problema, procure a sua chave e, em seguida, copie o seu valor para um editor de texto. O valor é uma variedade dos seus nomes de ligação personalizados, como os seguintes:
     * Contas de armazenamento
         * `StorageExplorer_CustomConnections_Accounts_v1`
-    * Contêineres de BLOB
+    * Recipientes blob
         * `StorageExplorer_CustomConnections_Blobs_v1`
         * `StorageExplorer_CustomConnections_Blobs_v2`
     * Partilhas de Ficheiros
@@ -234,133 +245,133 @@ Se você receber essa mensagem de erro ao tentar adicionar uma conexão personal
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tabelas
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. Depois de salvar os nomes de conexão atuais, defina o valor em Ferramentas para Desenvolvedores como `[]`.
+4. Depois de guardar os nomes de ligação atuais, detete o valor em Ferramentas de Desenvolvimento para `[]`.
 
-Se desejar preservar as conexões que não estão corrompidas, você poderá usar as etapas a seguir para localizar as conexões corrompidas. Se você não se lembrar de perder todas as conexões existentes, poderá ignorar essas etapas e seguir as instruções específicas da plataforma para limpar os dados de conexão.
+Se quiser preservar as ligações que não estão corrompidas, pode usar os seguintes passos para localizar as ligações corrompidas. Se não se importar de perder todas as ligações existentes, pode saltar estes passos e seguir as instruções específicas da plataforma para limpar os dados de ligação.
 
-1. Em um editor de texto, adicione novamente cada nome de conexão a Ferramentas para Desenvolvedores e, em seguida, verifique se a conexão ainda está funcionando.
-2. Se uma conexão estiver funcionando corretamente, ela não estará corrompida e você poderá deixá-la lá com segurança. Se uma conexão não estiver funcionando, remova seu valor de Ferramentas para Desenvolvedores e registre-o para que você possa adicioná-lo novamente mais tarde.
-3. Repita até que você tenha examinado todas as suas conexões.
+1. A partir de um editor de texto, volte a adicionar cada nome de ligação às Ferramentas de Desenvolvimento e, em seguida, verifique se a ligação ainda está a funcionar.
+2. Se uma ligação estiver a funcionar corretamente, não está corrompida e podedeixá-la com segurança. Se uma ligação não estiver a funcionar, retire o seu valor das Ferramentas de Desenvolvimento e grave-a para que possa adicioná-la mais tarde.
+3. Repita até examinar todas as suas ligações.
 
-Depois de passar por todas as suas conexões, para todos os nomes de conexões que não forem adicionados de volta, você deverá limpar os dados corrompidos (se houver) e adicioná-los novamente usando as etapas padrão no Gerenciador de Armazenamento:
+Depois de analisar todas as suas ligações, para todas as ligações nomes que não são adicionados de volta, você deve limpar os seus dados corrompidos (se houver algum) e adicioná-los de volta usando os passos padrão no Explorador de Armazenamento:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+# <a name="windows"></a>[Windows](#tab/Windows)
 
-1. No menu **Iniciar** , pesquise por **Gerenciador de credenciais** e abra-o.
-2. Vá para **credenciais do Windows**.
-3. Em **credenciais genéricas**, procure entradas que tenham a chave de `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
-4. Exclua essas entradas e adicione novamente as conexões.
+1. No menu **Iniciar,** procure o **Credential Manager** e abra-o.
+2. Vá para **as credenciais do Windows.**
+3. Sob **credenciais genéricas,** procure entradas com a chave `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+4. Apague estas entradas e readicione as ligações.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
-1. Abra o Spotlight (Command + barra de espaços) e pesquise por acesso ao conjunto de **chaves**.
-2. Procure entradas que tenham a chave de `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
-3. Exclua essas entradas e adicione novamente as conexões.
+1. Holofotes Abertos (Barra de Comando+Spacebar) e procurem acesso ao **Keychain**.
+2. Procure entradas que tenham a chave `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Apague estas entradas e readicione as ligações.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+# <a name="linux"></a>[Linux](#tab/Linux)
 
-O gerenciamento de credenciais locais varia dependendo da distribuição do Linux. Se sua distribuição do Linux não fornecer uma ferramenta interna de GUI para o gerenciamento de credenciais local, você poderá instalar uma ferramenta de terceiros para gerenciar suas credenciais locais. Por exemplo, você pode usar o [macavalo](https://wiki.gnome.org/Apps/Seahorse/), uma ferramenta de GUI de software livre para gerenciar as credenciais locais do Linux.
+A gestão da credencial local varia consoante a distribuição do Linux. Se a sua distribuição Linux não fornecer uma ferramenta GUI incorporada para gestão de credenciais locais, pode instalar uma ferramenta de terceiros para gerir as suas credenciais locais. Por exemplo, você pode usar [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), uma ferramenta GUI de código aberto para gerir credenciais locais Linux.
 
-1. Abra sua ferramenta de gerenciamento de credenciais local e localize suas credenciais salvas.
-2. Procure entradas que tenham a chave de `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
-3. Exclua essas entradas e adicione novamente as conexões.
+1. Abra a sua ferramenta local de gestão de credenciais e encontre as suas credenciais guardadas.
+2. Procure entradas que tenham a chave `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Apague estas entradas e readicione as ligações.
 ---
 
-Se você ainda encontrar esse erro depois de executar essas etapas, ou se quiser compartilhar o que você suspeita que danificou as conexões, [abra um problema](https://github.com/microsoft/AzureStorageExplorer/issues) em nossa página do github.
+Se ainda encontrar este erro depois de executar estes passos, ou se quiser partilhar o que suspeita ter corrompido as ligações, [abra um problema](https://github.com/microsoft/AzureStorageExplorer/issues) na nossa página do GitHub.
 
-## <a name="issues-with-sas-url"></a>Problemas com a URL SAS
+## <a name="issues-with-sas-url"></a>Problemas com URL SAS
 
-Se você estiver se conectando a um serviço por meio de uma URL SAS e ocorrendo um erro:
+Se estiver a ligar-se a um serviço através de um URL SAS e a experimentar um erro:
 
-* Verifique se a URL fornece as permissões necessárias para ler ou listar recursos.
-* Verifique se a URL não expirou.
-* Se a URL SAS for baseada em uma política de acesso, verifique se a política de acesso não foi revogada.
+* Verifique se o URL fornece as permissões necessárias para ler ou listar recursos.
+* Verifique se o URL não expirou.
+* Se o URL SAS se basear numa política de acesso, verifique se a política de acesso não foi revogada.
 
-Se você anexou acidentalmente usando uma URL SAS inválida e agora não puder desanexar, siga estas etapas:
+Se tiver acidentalmente ligado utilizando um URL SAS inválido e agora não conseguir separar-se, siga estes passos:
 
-1. Quando estiver executando Gerenciador de Armazenamento, pressione F12 para abrir a janela Ferramentas para Desenvolvedores.
-2. Na guia **aplicativo** , selecione **armazenamento local** > **file://** na árvore à esquerda.
-3. Localize a chave associada ao tipo de serviço do URI de SAS problemático. Por exemplo, se o URI de SAS inadequado for para um contêiner de BLOB, procure a chave chamada `StorageExplorer_AddStorageServiceSAS_v1_blob`.
-4. O valor da chave deve ser uma matriz JSON. Localize o objeto associado ao URI inadequado e, em seguida, exclua-o.
-5. Pressione CTRL + R para recarregar Gerenciador de Armazenamento.
+1. Quando estiver a executar o Storage Explorer, prima F12 para abrir a janela Ferramentas de Desenvolvimento.
+2. No separador **Aplicação,** selecione **Local Storage** > **file://** na árvore à esquerda.
+3. Encontre a chave associada ao tipo de serviço do problemático SAS URI. Por exemplo, se o mau SAS URI for para um recipiente de bolhas, procure a chave chamada `StorageExplorer_AddStorageServiceSAS_v1_blob`.
+4. O valor da chave deve ser uma matriz JSON. Encontre o objeto associado ao URI mau e, em seguida, apague-o.
+5. Prima Ctrl+R para recarregar o Explorador de Armazenamento.
 
-## <a name="linux-dependencies"></a>Dependências do Linux
+## <a name="linux-dependencies"></a>Dependências linux
 
-Gerenciador de Armazenamento 1.10.0 e posterior está disponível como um snap do repositório de snap. O Gerenciador de Armazenamento snap instala todas as suas dependências automaticamente e é atualizado quando uma nova versão do snap está disponível. Instalar o Gerenciador de Armazenamento snap é o método recomendado de instalação.
+Storage Explorer 1.10.0 e mais tarde está disponível como um instantâneo da Snap Store. O snap Do Storage Explorer instala automaticamente todas as suas dependências e é atualizado quando uma nova versão do instantâneo está disponível. Instalar o encaixe do Storage Explorer é o método de instalação recomendado.
 
-Gerenciador de Armazenamento requer o uso de um Gerenciador de senhas, que talvez você precise se conectar manualmente antes que Gerenciador de Armazenamento funcione corretamente. Você pode se conectar Gerenciador de Armazenamento ao Gerenciador de senhas do sistema executando o seguinte comando:
+O Storage Explorer requer a utilização de um gestor de passwords, que poderá ser necessário ligar manualmente antes de o Storage Explorer funcionar corretamente. Pode ligar o Storage Explorer ao gestor de passwords do seu sistema executando o seguinte comando:
 
 ```bash
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-Você também pode baixar o aplicativo como um arquivo. tar. gz, mas precisará instalar as dependências manualmente.
+Também pode descarregar a aplicação como um ficheiro .tar.gz, mas terá de instalar dependências manualmente.
 
 > [!IMPORTANT]
-> Gerenciador de Armazenamento conforme fornecido no download. tar. gz tem suporte apenas para distribuições do Ubuntu. Outras distribuições não foram verificadas e podem exigir pacotes adicionais ou alternativos.
+> O Storage Explorer, conforme fornecido no download .tar.gz, é suportado apenas para distribuição ubuntu. Outras distribuições não foram verificadas e podem exigir pacotes alternativos ou adicionais.
 
-Esses pacotes são os requisitos mais comuns para Gerenciador de Armazenamento no Linux:
+Estes pacotes são os requisitos mais comuns para o Storage Explorer em Linux:
 
-* [Tempo de execução do .NET Core 2,2](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
+* [.NET Core 2.2 Tempo de execução](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` ou `libgnome-keyring-dev`
 * `libgnome-keyring-common`
 
 > [!NOTE]
-> Gerenciador de Armazenamento versão 1.7.0 e anteriores exigem o .NET Core 2,0. Se você tiver uma versão mais recente do .NET Core instalada, terá que [corrigir Gerenciador de armazenamento](#patching-storage-explorer-for-newer-versions-of-net-core). Se estiver executando o Gerenciador de Armazenamento 1.8.0 ou posterior, você poderá usar o até o .NET Core 2,2. As versões além de 2,2 não foram verificadas para funcionar neste momento.
+> Storage Explorer versão 1.7.0 e anteriormente requerem .NET Core 2.0. Se tiver uma versão mais recente do .NET Core instalada, terá de [remendar](#patching-storage-explorer-for-newer-versions-of-net-core)o Storage Explorer . Se estiver a executar o Storage Explorer 1.8.0 ou mais tarde, deverá poder utilizar até .NET Core 2.2. As versões para além de 2.2 não foram verificadas para funcionar neste momento.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-1904"></a>[Ubuntu 19.04](#tab/1904)
 
-1. Baixar Gerenciador de Armazenamento.
-2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+1. Baixe o Storage Explorer.
+2. Instale o prazo [de execução do núcleo .NET](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
 3. Execute o seguinte comando:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+# <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Baixar Gerenciador de Armazenamento.
-2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+1. Baixe o Storage Explorer.
+2. Instale o prazo [de execução do núcleo .NET](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
 3. Execute o seguinte comando:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
    ```
 
-# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
+# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Baixar Gerenciador de Armazenamento.
-2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+1. Baixe o Storage Explorer.
+2. Instale o prazo [de execução do núcleo .NET](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
 3. Execute o seguinte comando:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
 
-# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
+# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
 
-1. Baixar Gerenciador de Armazenamento.
-2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+1. Baixe o Storage Explorer.
+2. Instale o prazo [de execução do núcleo .NET](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
 3. Execute o seguinte comando:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
 ---
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Aplicação de patch Gerenciador de Armazenamento para versões mais recentes do .NET Core
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Patching Storage Explorer para versões mais recentes de .NET Core
 
-Para Gerenciador de Armazenamento 1.7.0 ou anterior, talvez seja necessário corrigir a versão do .NET Core usada pelo Gerenciador de Armazenamento:
+Para o Storage Explorer 1.7.0 ou mais cedo, poderá ter de remendar a versão do Núcleo .NET utilizado pelo Storage Explorer:
 
-1. Baixe a versão 1.5.43 do StreamJsonRpc [do NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Procure o link "baixar pacote" no lado direito da página.
-2. Depois de baixar o pacote, altere sua extensão de arquivo de `.nupkg` para `.zip`.
-3. Descompacte o pacote.
-4. Abra o `streamjsonrpc.1.5.43/lib/netstandard1.1/` pasta.
-5. Copie `StreamJsonRpc.dll` para os seguintes locais na pasta Gerenciador de Armazenamento:
+1. Descarregue a versão 1.5.43 do StreamJsonRpc [a partir de NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Procure o link "Pacote de descarregamento" no lado direito da página.
+2. Depois de descarregar o pacote, altere a extensão do ficheiro de `.nupkg` para `.zip`.
+3. Desaperte o pacote.
+4. Abra a pasta `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
+5. Copie `StreamJsonRpc.dll` para os seguintes locais na pasta Storage Explorer:
    * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
    * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
-## <a name="open-in-explorer-from-the-azure-portal-doesnt-work"></a>"Abrir no Explorer" da portal do Azure não funciona
+## <a name="open-in-explorer-from-the-azure-portal-doesnt-work"></a>"Open In Explorer" do portal Azure não funciona
 
-Se o botão **abrir no Explorer** na portal do Azure não funcionar, verifique se você está usando um navegador compatível. Os seguintes navegadores foram testados quanto à compatibilidade:
+Se o botão **Open In Explorer** no portal Azure não funcionar, certifique-se de que está a utilizar um navegador compatível. Os seguintes navegadores foram testados para compatibilidade:
 * Microsoft Edge
 * Mozilla Firefox
 * Google Chrome
@@ -368,6 +379,6 @@ Se o botão **abrir no Explorer** na portal do Azure não funcionar, verifique s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se nenhuma dessas soluções funcionar para você, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Você também pode fazer isso selecionando o botão **relatar o problema no GitHub** no canto inferior esquerdo.
+Se nenhuma destas soluções funcionar para si, [abra um problema no GitHub.](https://github.com/Microsoft/AzureStorageExplorer/issues) Também pode fazê-lo selecionando o problema do Relatório para o botão **GitHub** no canto inferior esquerdo.
 
 ![Comentários](./media/storage-explorer-troubleshooting/feedback-button.PNG)

@@ -1,6 +1,6 @@
 ---
-title: Utilização do Azure Data Box, pesadas de caixa de dados do Azure para enviar dados para acesso frequente, esporádico, de camada de blob de arquivo | Microsoft Docs nos dados
-description: Descreve como utilizar o Azure Data Box ou pesadas de caixa de dados do Azure para enviar dados para uma camada de armazenamento de BLOBs de bloco adequado, como acesso frequente, esporádico ou arquivo
+title: Envie dados para hot, cold, archive blob tier via Azure Data Box/Azure Data Box Heavy
+description: Descreve como utilizar a Caixa de Dados Azure ou a Caixa de Dados Azure Heavy para enviar dados para um nível de armazenamento de blocos apropriado, como quente, frio ou arquivo
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,61 +8,61 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: ea208c395e2ef69ce8f28052351643e963cceb05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31178284313ad7dafb094b109a75d4550cabd39c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427868"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560376"
 ---
-# <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utilizar o Azure Data Box ou pesadas de caixa de dados do Azure para enviar dados para a camada de blob de armazenamento do Azure adequada
+# <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utilize a Caixa de Dados Azure ou a Caixa de Dados Azure Heavy para enviar dados para o nível de blob de armazenamento azure apropriado
 
-O Azure Data Box move grandes quantidades de dados para o Azure ao enviar-lhe um dispositivo de armazenamento proprietárias. Preencha o dispositivo com dados e retorná-lo. Os dados de caixa de dados são carregados para um escalão padrão associado com a conta de armazenamento. Em seguida, pode mover os dados para outra camada de armazenamento.
+A Azure Data Box transporta grandes quantidades de dados para o Azure, enviando-lhe um dispositivo de armazenamento proprietário. Enche-se o dispositivo com dados e devolve-o. Os dados da Data Box são enviados para um nível predefinido associado à conta de armazenamento. Em seguida, pode mover os dados para outro nível de armazenamento.
 
-Este artigo descreve como os dados que são carregados por caixa de dados podem ser movidos para uma camada de blob de acesso frequente, esporádico ou arquivo. Este artigo aplica-se ao Azure Data Box e pesadas de caixa de dados do Azure.
+Este artigo descreve como os dados que são enviados pela Data Box podem ser movidos para um nível de blob Quente, Frio ou Arquivo. Este artigo aplica-se tanto à Caixa de Dados Azure como à Caixa de Dados Azure Heavy.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="choose-the-correct-storage-tier-for-your-data"></a>Escolha a camada de armazenamento correta para os seus dados
+## <a name="choose-the-correct-storage-tier-for-your-data"></a>Escolha o nível de armazenamento correto para os seus dados
 
-O armazenamento do Azure permite que as três camadas diferentes armazenar dados da maneira mais econômica – frequente, esporádico ou arquivo. Camada de armazenamento frequente está otimizada para armazenar dados que são acedidos com frequência. Armazenamento frequente tem custos de armazenamento superiores de acesso esporádico e arquivo de armazenamento, mas os custos de acesso mais baixos.
+O armazenamento azure permite que três camadas diferentes armazenem dados da forma mais rentável - Hot, Cold ou Archive. O nível de armazenamento quente é otimizado para armazenar dados que são acedidos com frequência. O armazenamento em brasa tem custos de armazenamento mais elevados do que o armazenamento Cool e Archive, mas os custos de acesso mais baixos.
 
-Camada de armazenamento esporádico destina-se com pouca frequência os dados acedidos que precisam de ser armazenados durante um período mínimo de 30 dias. O custo de armazenamento para o escalão de frio é menor do que a camada de armazenamento frequente, mas os custos de acesso de dados são alto quando comparado com o escalão de acesso frequente.
+O nível de armazenamento cool é para dados pouco frequentemente acedidos que precisam de ser armazenados durante um mínimo de 30 dias. O custo de armazenamento para o nível frio é inferior ao do nível de armazenamento quente, mas os custos de acesso aos dados são elevados quando comparados com o nível Hot.
 
-A camada de armazenamento do Azure está offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso a mais altos. Esta camada destina-se a dados que permanecem no armazenamento de arquivo por um mínimo de 180 dias. Para obter detalhes de cada uma dessas camadas e o modelo de preços, aceda a [comparação das camadas de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+O nível Azure Archive está offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso mais elevados. Este nível destina-se a dados que permanecem em armazenamento de arquivo por um período mínimo de 180 dias. Para obter detalhes de cada um destes níveis e do modelo de preços, vá à [Comparação dos níveis de armazenamento.](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)
 
-Os dados da caixa de dados ou dados de caixa pesado é carregado para uma camada de armazenamento que estão associada com a conta de armazenamento. Quando cria uma conta de armazenamento, pode especificar a camada de acesso como frequente ou esporádico. Consoante o padrão de acesso da sua carga de trabalho e o custo, pode mover estes dados da camada predefinida para uma camada de armazenamento.
+Os dados da Caixa de Dados ou caixa de dados Heavy são enviados para um nível de armazenamento associado à conta de armazenamento. Quando criar uma conta de armazenamento, pode especificar o nível de acesso como Quente ou Frio. Dependendo do padrão de acesso da sua carga de trabalho e custo, pode mover estes dados do nível padrão para outro nível de armazenamento.
 
-Pode apenas da camada seus dados de armazenamento de objetos no armazenamento de BLOBs ou fins gerais v2 (GPv2) contas. As contas de Fins Gerais (GPv1) não suportam as camadas. Para escolher a camada de armazenamento correta para os seus dados, reveja as considerações detalhadas na [armazenamento de Blobs do Azure: Premium, as camadas de armazenamento frequente, esporádico e arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+Só pode diferenciar os dados de armazenamento de objetos nas contas de armazenamento blob ou General Purpose v2 (GPv2). As contas de Fins Gerais (GPv1) não suportam as camadas. Para escolher o nível de armazenamento correto para os seus dados, reveja as considerações detalhadas no [armazenamento do Blob Azure: Premium, Hot, Cool e Archive.](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)
 
-## <a name="set-a-default-blob-tier"></a>Definir uma camada de blob predefinido
+## <a name="set-a-default-blob-tier"></a>Definir um nível de bolha padrão
 
-A camada de blob predefinido é especificada quando a conta de armazenamento é criada no portal do Azure. Assim que for selecionado um tipo de armazenamento como armazenamento de BLOBs ou GPv2, em seguida, o atributo do escalão de acesso pode ser especificado. Por predefinição, o escalão de acesso frequente está selecionado.
+O nível de bolha padrão é especificado quando a conta de armazenamento é criada no portal Azure. Uma vez selecionado um tipo de armazenamento como armazenamento GPv2 ou Blob, então o atributo do nível de acesso pode ser especificado. Por padrão, o nível Hot é selecionado.
 
-Os escalões não podem ser especificada se estiver a tentar criar uma nova conta ao solicitar uma caixa de dados ou dados de caixa pesadas. Depois da conta é criada, pode modificar a conta no portal para definir a camada de acesso predefinida.
+Os níveis não podem ser especificados se estiver a tentar criar uma nova conta ao encomendar uma Caixa de Dados ou Caixa de Dados Pesada. Após a criação da conta, pode modificar a conta no portal para definir o nível de acesso predefinido.
 
-Em alternativa, vai criar uma conta de armazenamento primeiro com o atributo do escalão de acesso especificado. Ao criar a ordem de caixa de dados ou dados de caixa pesada, selecione a conta de armazenamento existente. Para obter mais informações sobre como definir a camada de blob predefinida durante a criação de conta de armazenamento, aceda a [criar uma conta de armazenamento no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
+Em alternativa, cria-se primeiro uma conta de armazenamento com o atributo do nível de acesso especificado. Ao criar a caixa de dados ou caixa de dados Encomenda pesada, selecione a conta de armazenamento existente. Para obter mais informações sobre como definir o nível de bolha padrão durante a criação de conta de armazenamento, vá para Criar uma conta de [armazenamento no portal Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
 
-## <a name="move-data-to-a-non-default-tier"></a>Mover dados para um escalão de não-padrão
+## <a name="move-data-to-a-non-default-tier"></a>Mover dados para um nível não predefinido
 
-Depois dos dados do dispositivo do Data Box são carregados para a camada predefinida, pode querer mover os dados para um escalão de não-padrão. Existem duas formas de passar esses dados para um escalão de não-padrão.
+Uma vez que os dados do dispositivo Data Box sejam enviados para o nível predefinido, poderá querer mover os dados para um nível não predefinido. Existem duas formas de mover estes dados para um nível não padrão.
 
-- **A gestão de ciclo de vida de armazenamento de Blobs do Azure** -pode usar uma abordagem baseada em política para automaticamente dados de camada ou expirar no final do seu ciclo de vida. Para obter mais informações, aceda a [gerir o ciclo de vida de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
-- **Criação de scripts** -poderia usar uma abordagem com script através do Azure PowerShell para ativar a criação de camadas ao nível do blob. Pode chamar o `SetBlobTier` operação para definir a camada de blob.
+- Gestão do ciclo de vida do **armazenamento Azure Blob** - Pode utilizar uma abordagem baseada em políticas para escalonar automaticamente dados ou expirar no final do seu ciclo de vida. Para mais informações, vá à Gestão do ciclo de [vida de armazenamento De Armazenamento Azure Blob.](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+- **Scripting** - Você poderia usar uma abordagem scripted via Azure PowerShell para permitir o nivelamento de nível de blob. Pode ligar para a operação `SetBlobTier` para definir o nível na bolha.
 
-## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Utilizar o Azure PowerShell para definir a camada de blob
+## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Use o Azure PowerShell para definir o nível de bolha
 
-Passos seguintes descrevem como pode definir a camada de blob de arquivo com um script do PowerShell do Azure.
+Os passos seguintes descrevem como pode definir o nível de blob para Archive usando um script Azure PowerShell.
 
-1. Abra uma sessão elevada do Windows PowerShell. Certifique-se de que sua execução PowerShell 5.0 ou posterior. Escreva:
+1. Abra uma sessão elevada do Windows PowerShell. Certifique-se de que o seu PowerShell 5.0 ou superior. Escreva:
 
    `$PSVersionTable.PSVersion`     
 
-2. Inicie sessão no Azure PowerShell. 
+2. Assine no Azure PowerShell. 
 
    `Login-AzAccount`  
 
-3. Defina as variáveis para a conta de armazenamento, a chave de acesso, o contentor e o contexto de armazenamento.
+3. Defina as variáveis para a conta de armazenamento, chave de acesso, contentor e o contexto de armazenamento.
 
     ```powershell
     $StorageAccountName = "<enter account name>"
@@ -71,11 +71,11 @@ Passos seguintes descrevem como pode definir a camada de blob de arquivo com um 
     $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
-4. Obter todos os blobs no contentor.
+4. Pegue todas as bolhas no recipiente.
 
     `$blobs = Get-AzStorageBlob -Container "<enter container name>" -Context $ctx`
  
-5. Defina o escalão de todos os blobs no contentor para o arquivo.
+5. Coloque o nível de todas as bolhas no recipiente para o Arquivo.
 
     ```powershell
     Foreach ($blob in $blobs) {
@@ -83,7 +83,7 @@ Passos seguintes descrevem como pode definir a camada de blob de arquivo com um 
     }
     ```
 
-    Uma saída de exemplo é mostrada abaixo:
+    Uma saída de amostra é mostrada abaixo:
 
     ```
     Windows PowerShell
@@ -112,9 +112,9 @@ Passos seguintes descrevem como pode definir a camada de blob de arquivo com um 
     PS C:\WINDOWS\system32>
     ```
    > [!TIP]
-   > Se pretender que os dados para arquivar na ingestão, definir a camada predefinida para acesso frequente. Se a camada predefinida é útil, em seguida, há uma penalidade de eliminação antecipada de 30 dias se os dados são movidos para o arquivo imediatamente.
+   > Se pretender que os dados sejam arquivados sobre a ingestão, detete o nível de conta predefinido para Hot. Se o nível padrão for Cool, então existe uma penalização de 30 dias de eliminação antecipada se os dados forem imediatamente para o Arquivo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
--  Saiba como abordar a [cenários camadas de dados comuns com regras de política de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples)
+-  Saiba como abordar os [cenários comuns](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples) de tiering de dados com regras políticas de ciclo de vida
 

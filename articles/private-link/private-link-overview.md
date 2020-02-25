@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f683ae79a2b68391e4bda2b81bcbab3eccc5b2e
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: aea424d4e74f0744f5891a0d7b3b08008fa227b5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500723"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562042"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Armazenamento Azure, Azure Cosmos DB e SQL Database) e o Azure acolheu serviços de clientes/parceiros sobre um [Ponto Final Privado](private-endpoint-overview.md) na sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Também pode criar o seu próprio [Serviço de Link Privado](private-link-service-overview.md) na sua rede virtual (VNet) e entregá-lo em privado aos seus clientes. A experiência de configuração e consumo utilizando o Azure Private Link é consistente em todos os serviços de parceiros azure PaaS, propriedade do cliente e parceiros partilhados.
@@ -40,16 +40,16 @@ A Azure Private Link oferece os seguintes benefícios:
 
 |Cenário  |Serviços suportados  |Regiões disponíveis | Estado  |
 |:---------|:-------------------|:-----------------|:--------|
-|Link privado para serviços de propriedade do cliente|Serviços de Link Privado por trás do Standard Load Balancer | Todas as regiões públicas  | GA  |
-|Link privado para serviços Azure PaaS   | Storage do Azure        |  Todas as regiões públicas      | Pré-visualização <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints).  |
-|  | Armazenamento do Azure Data Lake Ger2        |  Todas as regiões públicas      | Pré-visualização <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints).  |
-|  |  Base de Dados SQL do Azure         | Todas as regiões públicas      |   Pré-visualização      |
-||Azure SQL Data Warehouse| Todas as regiões públicas |Pré-visualização|
-||Azure Cosmos DB| Centro-Oeste dos EUA, WestUS, Centro Norte dos EUA |Pré-visualização|
-|  |  Base de Dados Azure para PostgreSQL - Servidor único         | Todas as regiões públicas      |   Pré-visualização      |
-|  |  Base de Dados do Azure para MySQL         | Todas as regiões públicas      |   Pré-visualização      |
-|  |  Azure Database for MariaDB         | Todas as regiões públicas      |   Pré-visualização      |
-|  |  Azure Key Vault         | Todas as regiões públicas      |   Pré-visualização      |
+|Link privado para serviços de propriedade do cliente|Serviços de Link Privado por trás do Standard Load Balancer | Todas as regiões públicas  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+|Link privado para serviços Azure PaaS   | Storage do Azure        |  Todas as regiões públicas      | Pré-visualização <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+|  | Armazenamento do Azure Data Lake Ger2        |  Todas as regiões públicas      | Pré-visualização <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+|  |  Base de Dados SQL do Azure         | Todas as regiões públicas      |   Pré-visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+||Azure SQL Data Warehouse| Todas as regiões públicas |Pré-visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+||Azure Cosmos DB| Centro-Oeste dos EUA, WestUS, Centro Norte dos EUA |Pré-visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |  Base de Dados Azure para PostgreSQL - Servidor único         | Todas as regiões públicas      |   Pré-visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  |  Base de Dados do Azure para MySQL         | Todas as regiões públicas      |   Pré-visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  |  Azure Database for MariaDB         | Todas as regiões públicas      |   Pré-visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  |  Azure Key Vault         | Todas as regiões públicas      |   Pré-visualização   <br/> [Saiba mais](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 
 Para obter as notificações mais atualizadas, consulte a página de [atualizações da Rede Virtual Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

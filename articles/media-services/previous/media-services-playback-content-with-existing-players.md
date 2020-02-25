@@ -1,6 +1,6 @@
 ---
-title: Usar players existentes para reproduzir seu conteúdo-Azure | Microsoft Docs
-description: Este artigo lista os players existentes que você pode usar para reproduzir o conteúdo.
+title: Utilize os jogadores existentes para reproduzir o seu conteúdo - Azure / Microsoft Docs
+description: Este artigo lista os jogadores existentes que pode utilizar para reproduzir o seu conteúdo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,60 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 07537d3d67e41f7e1179a709ffa19f3d84aa4539
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895863"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565830"
 ---
-# <a name="playing-your-content-with-existing-players"></a>Jogando seu conteúdo com os players existentes
-Os serviços de mídia do Azure dão suporte a vários formatos populares de streaming, como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta para os players existentes que você pode usar para testar seus fluxos.
+# <a name="playing-your-content-with-existing-players"></a>Jogando o seu conteúdo com os jogadores existentes
+A Azure Media Services suporta muitos formatos de streaming populares, tais como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta-o para os jogadores existentes que pode usar para testar os seus fluxos.
 
-### <a name="the-azure-portal-media-services-content-player"></a>O portal do Azure player de conteúdo dos serviços de mídia
-O portal **do Azure** fornece um player de conteúdo que você pode usar para testar seu vídeo.
+### <a name="the-azure-portal-media-services-content-player"></a>O leitor de conteúdos do portal Azure Media Services
+O portal **Azure** fornece um leitor de conteúdos que pode utilizar para testar o seu vídeo.
 
-Clique no vídeo desejado (verifique se ele foi [publicado](media-services-portal-publish.md)) e clique no botão **reproduzir** na parte inferior do Portal.
+Clique no vídeo desejado (certifique-se de que foi [publicado)](media-services-portal-publish.md)e clique no botão **Reproduzir** na parte inferior do portal.
 
 São aplicáveis algumas considerações:
 
-* O **LEITOR DE CONTEÚDOS DE MEDIA SERVICES** reproduz a partir do ponto final de transmissão em fluxo predefinido. Se pretender reproduzir a partir de um ponto final de transmissão em fluxo não predefinido, utilize outro leitor. Por exemplo, [player de mídia do Azure](https://aka.ms/azuremediaplayer).
+* O **LEITOR DE CONTEÚDOS DE MEDIA SERVICES** reproduz a partir do ponto final de transmissão em fluxo predefinido. Se pretender reproduzir a partir de um ponto final de transmissão em fluxo não predefinido, utilize outro leitor. Por exemplo, [Azure Media Player](https://aka.ms/azuremediaplayer).
 
-![AMSPlayer][AMSPlayer]
+![Leitor AMS][AMSPlayer]
 
-### <a name="azure-media-player"></a>Leitor de Multimédia do Azure
+### <a name="azure-media-player"></a>Media Player do Azure
 
-Use [player de mídia do Azure](https://aka.ms/azuremediaplayer) para reproduzir seu conteúdo (claro ou protegido) em qualquer um dos seguintes formatos:
+Utilize o [Azure Media Player](https://aka.ms/azuremediaplayer) para reproduzir o seu conteúdo (claro ou protegido) em qualquer um dos seguintes formatos:
 
 * Transmissão em Fluxo Uniforme
 * MPEG DASH
 * HLS
-* MP4 progressivo
+* MP4 progressista
 
 ### <a name="flash-player"></a>Flash Player
 
-#### <a name="aes-encrypted-with-token"></a>Criptografado por AES com token
+#### <a name="aes-encrypted-with-token"></a>AES encriptado com Token
 
 [https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
-#### <a name="playready-with-token"></a>PlayReady com token
+#### <a name="playready-with-token"></a>PlayReady com Token
 
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
-### <a name="dash-players"></a>Jogadores de DASH
+### <a name="dash-players"></a>Jogadores do DASH
 
 [https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
 [https://dashif.org](https://dashif.org)
 
 ### <a name="other"></a>Outros
-Para testar as URLs do HLS, você também pode usar:
+Para testar URLs HLS também pode utilizar:
 
-* **Safari** em um dispositivo IOS ou
+* **Safari** em um dispositivo iOS ou
 * **3ivx HLS Player** no Windows.
-
-## <a name="developing-video-players"></a>Desenvolvendo players de vídeo
-Para obter informações sobre como desenvolver seus próprios jogadores, consulte [desenvolvendo players de vídeo](media-services-develop-video-players.md)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

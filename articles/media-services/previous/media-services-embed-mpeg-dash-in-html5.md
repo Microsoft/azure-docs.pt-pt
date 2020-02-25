@@ -1,6 +1,6 @@
 ---
-title: Incorporar um vídeo de transmissão em fluxo Adaptivo MPEG-DASH numa aplicação HTML5 com dash. js | Documentos da Microsoft
-description: Este tópico demonstra como incorporar um vídeo de transmissão em fluxo Adaptivo MPEG-DASH numa aplicação HTML5 com dash. js.
+title: Incorporar um Vídeo de Streaming Adaptativo MPEG-DASH numa aplicação HTML5 com DASH.js / Microsoft Docs
+description: Este tópico demonstra como incorporar um Vídeo de Streaming Adaptativo MPEG-DASH numa aplicação HTML5 com DASH.js.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f521fd11a2053cf8cf1ea0f9f91667fe475f0eee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464203"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564861"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporar um vídeo de transmissão em fluxo Adaptivo MPEG-DASH numa aplicação HTML5 com dash. js  
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporar um Vídeo de Streaming Adaptativo MPEG-DASH numa aplicação HTML5 com DASH.js  
 
 ## <a name="overview"></a>Descrição geral
-MPEG-DASH é um padrão ISO para a transmissão em fluxo adaptativa de conteúdo de vídeo, que oferece benefícios significativos para os desenvolvedores que desejam disponibilizar transmissões de saída de vídeos de alta qualidade, adaptável. Com MPEG-DASH, o fluxo de vídeo se ajusta automaticamente a uma definição inferior quando a rede fique congestionada. Isso reduz a probabilidade do Visualizador a ver um vídeo "em pausa", enquanto o player baixa os seguintes alguns segundos para reproduzir (também conhecido como colocação em memória intermédia). Como reduz o congestionamento de rede, o leitor de vídeo por sua vez será retornado para um fluxo de maior qualidade. Essa capacidade de adaptar-se a largura de banda necessária também resulta numa hora de início mais rápida para vídeo. Isso significa que o primeiro alguns segundos podem ser reproduzidos num segmento de qualidade mais baixo do fast para download e, em seguida, migrar para um conteúdo de uma vez suficientes de qualidade superior tem sido colocados em memória intermédia.
+O MPEG-DASH é um padrão ISO para o streaming adaptativo de conteúdos de vídeo, que oferece benefícios significativos para os desenvolvedores que querem fornecer uma saída de streaming de vídeo adaptável de alta qualidade. Com o MPEG-DASH, o fluxo de vídeo ajusta-se automaticamente a uma definição mais baixa quando a rede fica congestionada. Isto reduz a probabilidade de o espectador ver um vídeo "pausado" enquanto o leitor descarrega os próximos segundos para jogar (isto é, reduz a probabilidade de tampão). À medida que o congestionamento da rede diminui, o leitor de vídeo regressará, por sua vez, a um fluxo de maior qualidade. Esta capacidade de adaptação da largura de banda necessária também resulta num tempo de início mais rápido para o vídeo. Isto significa que os primeiros segundos podem ser jogados num segmento de qualidade mais baixa e, em seguida, subir para uma qualidade mais alta uma vez que o conteúdo suficiente foi tamponado.
 
-Dash. js é um código-fonte aberto MPEG-DASH player de vídeo escrito no JavaScript. Sua meta é fornecer um jogador robusto e para várias plataformas que pode ser reutilizado livremente em aplicações que necessitam de reprodução de vídeo. Ele fornece reprodução de MPEG-DASH em qualquer browser que suporte o W3C suporte de dados de origem extensões (MSE), hoje em dia Chrome, Microsoft Edge e IE11 (outros browsers indicado sua intenção para suportar o MSE). Para obter mais informações sobre dash. js, js, veja o repositório do GitHub dash. js.
+Dash.js é um leitor de vídeo MPEG-DASH de código aberto escrito no JavaScript. O seu objetivo é fornecer um jogador robusto e cross-platform que possa ser livremente reutilizado em aplicações que requerem reprodução de vídeo. Fornece reprodução MPEG-DASH em qualquer navegador que suporte as Extensões de Fonte de Mídia W3C (MSE), hoje que é Chrome, Microsoft Edge e IE11 (outros navegadores indicaram a sua intenção de suportar mse). Para mais informações sobre o DASH.js, js consulte o repositório GitHub dash.js.
 
-## <a name="creating-a-browser-based-streaming-video-player"></a>Criando um player de vídeo transmissão em fluxo baseada no browser
-Para criar uma página da web simples que exibe um player de vídeo com a esperada controla tais um play, pause, o recuo etc., terá de:
+## <a name="creating-a-browser-based-streaming-video-player"></a>Criar um leitor de vídeo de streaming baseado no navegador
+Para criar uma página web simples que exibe um leitor de vídeo com os controlos esperados tal jogada, pausa, rebobinar, etc., é necessário:
 
 1. Criar uma página HTML
 2. Adicione a etiqueta de vídeo
-3. Adicionar o jogador dash. js
-4. Inicializar o leitor
-5. Adicionar alguns estilos CSS
-6. Ver os resultados num navegador que implementa o MSE
+3. Adicione o leitor dash.js
+4. Inicializar o jogador
+5. Adicione um pouco de estilo CSS
+6. Veja os resultados num navegador que implementa a MSE
 
-A inicializar o jogador pode ser concluída em apenas algumas poucas linhas de código JavaScript. Utilizar dash. js, realmente é simples incorporar o vídeo de MPEG-DASH em seus aplicativos baseados em navegador.
+Inicializar o leitor pode ser completado em apenas um punhado de linhas de código JavaScript. Usando dash.js, é realmente tão simples incorporar vídeo MPEG-DASH nas suas aplicações baseadas no navegador.
 
-## <a name="creating-the-html-page"></a>Criar a página HTML
-A primeira etapa é criar um padrão HTML página que contém o **vídeo** ilustra do elemento, guarde este ficheiro como basicPlayer.html, como o exemplo seguinte:
+## <a name="creating-the-html-page"></a>Criando a página HTML
+O primeiro passo é criar uma página HTML padrão contendo o elemento de **vídeo,** guardar este ficheiro como basicPlayer.html, como ilustra o seguinte exemplo:
 
 ```html
     <!DOCTYPE html>
@@ -54,17 +54,17 @@ A primeira etapa é criar um padrão HTML página que contém o **vídeo** ilust
     </html>
 ```
 
-## <a name="adding-the-dashjs-player"></a>Adicionar o jogador dash. js
-Para adicionar a implementação de referência do dash. js para a aplicação, terá de obter o arquivo dash.all.js da versão mais recente do projeto dash. js. Isso deverá ser salvo na pasta JavaScript do seu aplicativo. Este ficheiro é um arquivo de conveniência que reúne todos os códigos de dash. js necessários num único arquivo. Se tiver uma olhada em todo o repositório de dash. js, encontra os arquivos individuais, testar o código e muito mais, mas se tudo o que deseja fazer é utilizar dash. js, em seguida, o ficheiro de dash.all.js é o que precisa.
+## <a name="adding-the-dashjs-player"></a>Adicionar o jogador DASH.js
+Para adicionar a implementação de referência dash.js à aplicação, você precisa pegar o ficheiro dash.all.js da versão mais recente do projeto dash.js. Isto deve ser guardado na pasta JavaScript da sua aplicação. Este ficheiro é um ficheiro de conveniência que reúne todo o código dash.js necessário num único ficheiro. Se você olhar ao redor do repositório dash.js, você encontra os ficheiros individuais, código de teste e muito mais, mas se tudo o que você quer fazer é usar dash.js, então o ficheiro dash.all.js é o que você precisa.
 
-Para adicionar o jogador dash. js às suas aplicações, adicione uma marca de script para a seção de cabeçalho basicPlayer.html:
+Para adicionar o leitor dash.js às suas aplicações, adicione uma etiqueta de script à secção principal do basicPlayer.html:
 
 ```html
     <!-- DASH-AVC/265 reference implementation -->
     < script src="js/dash.all.js"></script>
 ```
 
-Em seguida, crie uma função para inicializar o jogador quando a página for carregada. Adicione o seguinte script após a linha em que carregar dash.all.js:
+Em seguida, crie uma função para inicializar o leitor quando a página estiver carregada. Adicione o seguinte script após a linha em que carrega o traço.all.js:
 
 ```html
     <script>
@@ -80,19 +80,19 @@ Em seguida, crie uma função para inicializar o jogador quando a página for ca
     </script>
 ```
 
-Essa função cria primeiro um DashContext. Isto é utilizado para configurar a aplicação para um ambiente de runtime específica. Do ponto de vista técnico, ele define as classes que a estrutura de injeção de dependência deve utilizar ao construir o aplicativo. Na maioria dos casos, utilize Dash.di.DashContext.
+Esta função cria primeiro um DashContext. Isto é usado para configurar a aplicação para um ambiente de tempo de execução específico. Do ponto de vista técnico, define as classes que o quadro de injeção de dependência deve utilizar na construção da aplicação. Na maioria dos casos, usa Dash.di.DashContext.
 
-Em seguida, crie uma instância da classe principal do framework dash. js, MediaPlayer. Essa classe contém o núcleo de métodos necessários, tais como reproduzirem e colocar em pausa, gere a relação com o elemento de vídeo e também gerencia a interpretação do arquivo de descrição de apresentação de suporte de dados (MPD), que descreve o vídeo a reprodução.
+Em seguida, instantiate a classe primária do quadro dash.js, MediaPlayer. Esta classe contém os métodos fundamentais necessários, como reproduzir e fazer pausas, gere a relação com o elemento de vídeo e gere também a interpretação do ficheiro Media Presentation Description (MPD), que descreve o vídeo a ser reproduzido.
 
-A função de startup() da classe MediaPlayer denomina-se para se certificar de que o jogador está pronto para reproduzir um vídeo. Entre outras coisas, a função garante que todas as classes necessárias (conforme definido pelo contexto) tem sido carregadas. Assim que o player estiver pronto, pode anexar o elemento de vídeo a ele usando a função de attachView(). A função de inicialização permite que o MediaPlayer injetar o fluxo de vídeo no elemento e também controlar a reprodução conforme necessário.
+A função de arranque da classe MediaPlayer é chamada para garantir que o jogador está pronto para reproduzir o vídeo. Entre outras coisas, a função garante que todas as classes necessárias (conforme definido pelo contexto) foram carregadas. Uma vez que o leitor esteja pronto, pode ligar o elemento de vídeo a ele utilizando a função attachView(). A função de arranque permite ao MediaPlayer injetar o fluxo de vídeo no elemento e também controlar a reprodução conforme necessário.
 
-Passe a URL do ficheiro MPD para o MediaPlayer, para que ele sabe sobre o vídeo que é esperado para reproduzir. A função de setupVideo() acabou de criar tem de ser executado assim que a página estiver completamente carregado. Fazer com o evento onload do elemento de corpo. Alterar sua `<body>` elemento para:
+Passe o URL do ficheiro MPD para o MediaPlayer para que saiba sobre o vídeo que se espera que seja reproduzido. A função configuraçãoVideo() acabada de ser executada terá de ser executada uma vez que a página esteja totalmente carregada. Faça-o utilizando o evento de carga do elemento do corpo. Mude o seu elemento `<body>` para:
 
 ```html
     <body onload="setupVideo()">
 ```
 
-Por fim, defina o tamanho do elemento de vídeo usando CSS. Num ambiente de transmissão em fluxo adaptável, isso é especialmente importante porque o tamanho do vídeo a ser reproduzido podem ser alterados conforme a reprodução se adapta às mudanças nas condições de rede. Nesta demonstração simples força simplesmente o elemento de vídeo para ser 80% da janela do navegador disponíveis ao adicionar o CSS seguinte à seção de cabeçalho da página:
+Por fim, deset o tamanho do elemento de vídeo utilizando CSS. Num ambiente de streaming adaptativo, isto é especialmente importante porque o tamanho do vídeo que está a ser reproduzido pode mudar à medida que a reprodução se adapta às condições de rede em mudança. Nesta simples demonstração simplesmente força o elemento de vídeo a ser 80% da janela disponível do navegador adicionando o seguinte CSS à secção principal da página:
 
 ```html
     <style>
@@ -103,8 +103,8 @@ Por fim, defina o tamanho do elemento de vídeo usando CSS. Num ambiente de tran
     </style>
 ```
 
-## <a name="playing-a-video"></a>Reproduzir um vídeo
-Para reproduzir um vídeo, apontar o seu browser para o ficheiro de basicPlayback.html e clique em reproduzir no player de vídeo apresentado.
+## <a name="playing-a-video"></a>Jogando um vídeo
+Para reproduzir um vídeo, aponte o seu navegador para o ficheiro basicPlayback.html e clique em reproduzir no leitor de vídeo apresentado.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -112,8 +112,7 @@ Para reproduzir um vídeo, apontar o seu browser para o ficheiro de basicPlaybac
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consultar Também
-[Desenvolver aplicações de leitor de vídeo](media-services-develop-video-players.md)
+## <a name="see-also"></a>Veja Também
 
-[Repositório do GitHub dash. js](https://github.com/Dash-Industry-Forum/dash.js) 
+[Repositório GitHub dash.js](https://github.com/Dash-Industry-Forum/dash.js) 
 

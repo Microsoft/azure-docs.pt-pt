@@ -1,29 +1,29 @@
 ---
-title: Resolver problemas de uma falha de criação de clusters do Explorador de dados do Azure
-description: Este artigo descreve os passos de resolução de problemas para criar um cluster no Explorador de dados do Azure.
+title: Falha na resolução de problemas da criação de cluster do Azure Data Explorer
+description: Este artigo descreve passos de resolução de problemas para a criação de um cluster no Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9e6b3f53f07ac86d6b648a8562be4ef45879c37e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 863d9ecedf095e0ab284a0d7fd86363b69ae5658
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829281"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562416"
 ---
-# <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>Resolução de problemas: Criação do cluster com falhas do Explorador de dados do Azure
+# <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>Troubleshoot: Falha na criação de cluster do Azure Data Explorer
 
-Na improvável eventualidade que falha ao criar o cluster no Explorador de dados do Azure, siga estes passos.
+No caso improvável de a criação de cluster falhar no Azure Data Explorer, siga estes passos.
 
-1. Certifique-se de que tem as permissões adequadas. Para criar um cluster, tem de ser um membro do *contribuinte* ou *proprietário* função para a subscrição do Azure. Se necessário, trabalhe com o seu administrador de subscrição para que eles podem adicioná-lo à função adequada.
+1. Verifique se tem as permissões adequadas. Para criar um cluster, deve ser membro da função *De Colaborador* ou *Proprietário* para a subscrição do Azure. Se necessário, trabalhe com o seu administrador de subscrição para que possam adicioná-lo ao papel adequado.
 
-1. Certifique-se de que existem não existem erros de validação relacionados com o nome do cluster que introduziu sob **criar um cluster** no portal do Azure.
+1. Certifique-se de que não existem erros de validação relacionados com o nome de cluster introduzido no **cluster Create** no portal Azure.
 
-1. Verifique os [dashboard de estado de funcionamento do serviço do Azure](https://azure.microsoft.com/status/). Procure o estado do Explorador de dados do Azure na região onde está a tentar criar o cluster.
+1. Consulte o [dashboard do estado de funcionamento do serviço Azure](https://azure.microsoft.com/status/) Procure o estado do Azure Data Explorer na região onde está a tentar criar o cluster.
 
-    Se o estado não estiver **boa** (marca de verificação verde), tente criar o cluster depois do Estado melhora.
+    Se o estado não for **bom** (marca de verificação verde), tente criar o cluster depois de o estado melhorar.
 
-1. Se ainda precisar de assistência para resolver seu problema, abra um pedido de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+1. Se ainda precisar de assistência para resolver o seu problema, por favor abra um pedido de apoio no [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

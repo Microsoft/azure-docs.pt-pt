@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: extrair texto impresso e manuscrito-REST,C#'
+title: 'Quickstart: Computer Vision 2.0 e 2.1 - Extrair texto impresso e manuscrito - REST,C#'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você extrai texto impresso e manuscrito de uma imagem usando o C#API da pesquisa Visual computacional com.
+description: Neste arranque rápido, extrai texto impresso e manuscrito de uma imagem C#utilizando a API da Visão Computacional com .
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,28 +11,47 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a18ae7c342563277acbb0fa1b8de3e49a40c5460
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b47c0a87f2b7e4f3fea2d5ed088372cabce2a994
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770786"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566102"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-c"></a>Início rápido: extrair texto impresso e manuscrito usando a API REST do Pesquisa Visual Computacional eC#
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Início rápido: Extrair texto impresso e manuscrito utilizando a Visão computacional 2.0 e 2.1 REST API eC#
 
-Neste guia de início rápido, você extrairá texto impresso e/ou manuscrito de uma imagem usando a API REST do Pesquisa Visual Computacional. Com os métodos de [resultado da operação](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) de leitura e leitura [em lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) , você pode detectar texto em uma imagem e extrair caracteres reconhecidos em um fluxo de caracteres legível por máquina. A API determinará qual modelo de reconhecimento usar para cada linha de texto, para que ele dê suporte a imagens com texto impresso e manuscrito.
+Neste arranque rápido, irá extrair texto impresso e/ou manuscrito de uma imagem utilizando a API DE DESCANSO DA Visão Computacional. Com os métodos [de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e leitura do resultado da [operação,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legível por máquina. A API determinará qual o modelo de reconhecimento a utilizar para cada linha de texto, de modo a suportar imagens com texto impresso e manuscrito.
+
+Em comparação com a Visão Computacional 2.0 e 2.1, a Visualização Pública da Visão Computacional 3.0 fornece:
+
+* ainda melhor precisão
+* um formato de saída alterado
+* pontuação de confiança para palavras
+* apoio das línguas espanhola e inglesa com o parâmetro linguístico adicional
+
+#### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 > [!IMPORTANT]
-> O método de [leitura em lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) é executado de forma assíncrona. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método Read retorna um URI no campo de cabeçalho de resposta `Operation-Location`. Você pode usar esse URI, que representa o método de [resultado da operação de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , a fim de verificar o status e retornar os resultados da chamada do método de leitura em lotes.
+> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+#### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
+
+> [!IMPORTANT]
+> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+
+---
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ter o [Visual Studio 2015 ou posterior](https://visualstudio.microsoft.com/downloads/).
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de caracteres de ponto de extremidade de serviço e chave, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+
+- Deve ter [o Visual Studio 2015 ou mais tarde.](https://visualstudio.microsoft.com/downloads/)
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de pontofinal de chave e serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
+
+#### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 Para criar o exemplo no Visual Studio, siga os seguintes passos:
 
@@ -205,9 +224,236 @@ namespace CSHttpClientSample
 }
 ```
 
+#### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
+
+Para criar o exemplo no Visual Studio, siga os seguintes passos:
+
+1. Crie uma nova solução do Visual Studio no Visual Studio, com o modelo de Aplicação da Consola Visual C#.
+1. Instale o pacote NuGet Newtonsoft.Json.
+    1. No menu, clique em **Ferramentas**, selecione **Gestor de Pacotes NuGet** e, em seguida, **Gerir Pacotes NuGet para Solução**.
+    1. Clique no separador **Procurar** e, na caixa do tipo **Pesquisa** "Newtonsoft.Json".
+    1. Selecione **Newtonsoft.Json** quando for apresentado e, em seguida, clique na caixa de verificação junto do nome do seu projeto, e em **Instalar**.
+1. Execute o programa.
+1. No momento, entre no caminho para uma imagem local e a linguagem para reconhecer.
+
+```csharp
+using Newtonsoft.Json.Linq;
+using System;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace CSHttpClientSample
+{
+    static class Program
+    {
+        // Add your Computer Vision subscription key and endpoint to your environment variables.
+        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
+
+        // An endpoint should have a format like "https://westus.api.cognitive.microsoft.com"
+        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+
+        // the Batch Read method endpoint
+        static string uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
+
+        static void PrintUsage()
+        {
+            // Get the path and filename to process from the user.
+            Console.WriteLine("Cognitive Service Batch Read File Sample");
+            Console.WriteLine("Usage: ");
+            Console.WriteLine("    From Azure Cogntivie Service, retrieve your endpoint and subscription key.");
+            Console.WriteLine("    Set environment variable COMPUTER_VISION_ENDPOINT, such as \"https://westus2.api.cognitive.microsoft.com\"");
+            Console.WriteLine("    Set environment variable COMPUTER_VISION_SUBSCRIPTION_KEY, such as \"1234567890abcdef1234567890abcdef\"\n");
+            Console.WriteLine("    Run the program without argument to enter a file name and a language manually.");
+            Console.WriteLine("    Or run the program with a file name for an image file (bmp/jpg/png/tiff) or a PDF file, plus the language. The language can be \"en\" or \"es\".");
+            Console.WriteLine("       For example: dotnet Program.dll sample.jpg en");
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            PrintUsage();
+
+            if (string.IsNullOrEmpty(subscriptionKey) || string.IsNullOrEmpty(endpoint))
+            {
+                Console.Error.WriteLine("Please set environment variables COMPUTER_VISION_ENDPOINT and COMPUTER_VISION_SUBSCRIPTION_KEY.");
+                return;
+            }
+
+            string imageFilePath;
+            string language;
+            if (args.Length == 0)
+            {
+                Console.Write(
+                    "Enter the path to an image (bmp/jpg/png/tiff) or PDF with text you wish to read: ");
+                imageFilePath = Console.ReadLine();
+            }
+            else
+            {
+                imageFilePath = args[0];
+            }
+
+            if (args.Length <= 1)
+            {
+                Console.Write(
+                    "Enter the language to read: \"en\" or \"es\": ");
+                language = Console.ReadLine();
+            }
+            else
+            {
+                language = args[1];
+            }
+
+            Console.WriteLine($"Endpoint:     [{endpoint}]");
+            Console.WriteLine($"Subscription: [{subscriptionKey}]");
+            Console.WriteLine($"URL:          [{uriBase}]");
+
+            if (File.Exists(imageFilePath))
+            {
+                // Call the REST API method.
+                Console.WriteLine("\nWait a moment for the results to appear.\n");
+                ReadText(imageFilePath, language).Wait();
+            }
+            else
+            {
+                Console.WriteLine("\nInvalid file path");
+            }
+            Console.WriteLine("\nPress Enter to exit...");
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Gets the text from the specified image file by using
+        /// the Computer Vision REST API.
+        /// </summary>
+        /// <param name="imageFilePath">The image file with text.</param>
+        static async Task ReadText(string imageFilePath, string language)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+
+                // Request headers.
+                client.DefaultRequestHeaders.Add(
+                    "Ocp-Apim-Subscription-Key", subscriptionKey);
+
+                var builder = new UriBuilder(uriBase);
+                builder.Port = -1;
+                var query = HttpUtility.ParseQueryString(builder.Query);
+                query["language"] = language;
+                builder.Query = query.ToString();
+                string url = builder.ToString();
+
+                HttpResponseMessage response;
+
+                // Two REST API methods are required to extract text.
+                // One method to submit the image for processing, the other method
+                // to retrieve the text found in the image.
+
+                // operationLocation stores the URI of the second REST API method,
+                // returned by the first REST API method.
+                string operationLocation;
+
+                // Reads the contents of the specified local image
+                // into a byte array.
+                byte[] byteData = GetImageAsByteArray(imageFilePath);
+
+                // Adds the byte array as an octet stream to the request body.
+                using (ByteArrayContent content = new ByteArrayContent(byteData))
+                {
+                    // This example uses the "application/octet-stream" content type.
+                    // The other content types you can use are "application/json"
+                    // and "multipart/form-data".
+                    content.Headers.ContentType =
+                        new MediaTypeHeaderValue("application/octet-stream");
+
+                    // The first REST API method, Batch Read, starts
+                    // the async process to analyze the written text in the image.
+                    response = await client.PostAsync(url, content);
+                }
+
+                // The response header for the Batch Read method contains the URI
+                // of the second method, Read Operation Result, which
+                // returns the results of the process in the response body.
+                // The Batch Read operation does not return anything in the response body.
+                if (response.IsSuccessStatusCode)
+                    operationLocation =
+                        response.Headers.GetValues("Operation-Location").FirstOrDefault();
+                else
+                {
+                    // Display the JSON error data.
+                    string errorString = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("\n\nResponse:\n{0}\n",
+                        JToken.Parse(errorString).ToString());
+                    return;
+                }
+
+                // If the first REST API method completes successfully, the second 
+                // REST API method retrieves the text written in the image.
+                //
+                // Note: The response may not be immediately available. Text
+                // recognition is an asynchronous operation that can take a variable
+                // amount of time depending on the length of the text.
+                // You may need to wait or retry this operation.
+                //
+                // This example checks once per second for ten seconds.
+                string contentString;
+                int i = 0;
+                do
+                {
+                    System.Threading.Thread.Sleep(1000);
+                    response = await client.GetAsync(operationLocation);
+                    contentString = await response.Content.ReadAsStringAsync();
+                    ++i;
+                }
+                while (i < 60 && contentString.IndexOf("\"status\":\"succeeded\"") == -1);
+
+                if (i == 60 && contentString.IndexOf("\"status\":\"succeeded\"") == -1)
+                {
+                    Console.WriteLine("\nTimeout error.\n");
+                    return;
+                }
+
+                // Display the JSON response.
+                Console.WriteLine("\nResponse:\n\n{0}\n",
+                    JToken.Parse(contentString).ToString());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n" + e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Returns the contents of the specified file as a byte array.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to read.</param>
+        /// <returns>The byte array of the image data.</returns>
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            // Open a read-only file stream for the specified file.
+            using (FileStream fileStream =
+                new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
+            {
+                // Read the file's contents into a byte array.
+                BinaryReader binaryReader = new BinaryReader(fileStream);
+                return binaryReader.ReadBytes((int)fileStream.Length);
+            }
+        }
+    }
+}
+```
+
+---
+
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
+
+#### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 ```json
 {
@@ -309,13 +555,85 @@ O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e aprese
 }
 ```
 
+#### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
+
+
+```json
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-02-11T16:44:36Z",
+  "lastUpdatedDateTime": "2020-02-11T16:44:36Z",
+  "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "language": "es",
+        "angle": -0.8011,
+        "width": 401,
+        "height": 119,
+        "unit": "pixel",
+        "lines": [
+          {
+            "language": "es",
+            "boundingBox": [
+              15,
+              42,
+              372,
+              38,
+              373,
+              91,
+              15,
+              97
+            ],
+            "text": "¡Buenos días!",
+            "words": [
+              {
+                "boundingBox": [
+                  15,
+                  43,
+                  243,
+                  40,
+                  244,
+                  93,
+                  17,
+                  98
+                ],
+                "text": "¡Buenos",
+                "confidence": 0.56
+              },
+              {
+                "boundingBox": [
+                  254,
+                  40,
+                  370,
+                  38,
+                  371,
+                  91,
+                  255,
+                  93
+                ],
+                "text": "días!",
+                "confidence": 0.872
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+---
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine a solução do Visual Studio. Para tal, abra o Explorador de Ficheiros, navegue para a pasta onde criou a solução do Visual Studio e elimine a pasta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore um aplicativo básico do Windows que usa Pesquisa Visual Computacional para executar o OCR (reconhecimento óptico de caracteres). Criar miniaturas cortadas inteligente; Além disso, é possível detectar, categorizar, marcar e descrever os recursos visuais, incluindo rostos, em uma imagem.
+Explore uma aplicação básica do Windows que utiliza a Visão computacional para realizar o reconhecimento ótico de caracteres (OCR). Criar miniaturas de corte inteligente; além de detetar, categorizar, etiquetar e descrever características visuais, incluindo rostos, numa imagem.
 
 > [!div class="nextstepaction"]
-> [Tutorial C# de API da pesquisa Visual computacional](../Tutorials/CSharpTutorial.md)
+> [C# Tutorial api da visão computacional](../Tutorials/CSharpTutorial.md)

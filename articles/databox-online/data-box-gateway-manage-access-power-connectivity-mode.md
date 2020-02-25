@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Gateway do Data Box o acesso ao dispositivo, a energia e o modo de conectividade | Microsoft Docs
-description: Descreve como gerenciar o acesso, a energia e o modo de conectividade para o Gateway do Azure Data Box dispositivo que ajuda a transferir dados para o Azure
+title: Modo de acesso, potência e conectividade ao dispositivo Azure Data Box Gateway
+description: Descreve como gerir o acesso, energia e o modo de conectividade para o dispositivo Azure Data Box Gateway que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,128 +8,128 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 38662fc8dda935d5f000aee6609fd9b2e42de17f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: e2e82c551117f2ae96e026b39c08ccf56e7ce8e2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253159"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561821"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerenciar o acesso, a energia e o modo de conectividade para seu Gateway do Azure Data Box
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerencie o modo de acesso, potência e conectividade para o seu Portal de Caixa de Dados Azure
 
-Este artigo descreve como gerenciar o acesso, a energia e o modo de conectividade para seu Gateway do Azure Data Box. Essas operações são executadas por meio da interface do usuário da Web local ou da portal do Azure.
+Este artigo descreve como gerir o modo de acesso, potência e conectividade para o seu Portal de Dados Azure. Estas operações são realizadas através da UI web local ou do portal Azure.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Gerenciar o acesso ao dispositivo
-> * Gerenciar modo de conectividade
-> * Gerenciar energia
+> * Gerir o acesso ao dispositivo
+> * Gerir o modo de conectividade
+> * Gerir o poder
 
-## <a name="manage-device-access"></a>Gerenciar o acesso ao dispositivo
+## <a name="manage-device-access"></a>Gerir o acesso ao dispositivo
 
-O acesso ao seu dispositivo de Gateway do Data Box é controlado pelo uso de uma senha de dispositivo. Você pode alterar a senha por meio da interface do usuário da Web local. Você também pode redefinir a senha do dispositivo no portal do Azure.
+O acesso ao seu dispositivo Data Box Gateway é controlado pela utilização de uma palavra-passe do dispositivo. Pode alterar a palavra-passe através da UI web local. Também pode redefinir a palavra-passe do dispositivo no portal Azure.
 
 ### <a name="change-device-password"></a>Alterar a palavra-passe do dispositivo
 
-Siga estas etapas na interface do usuário local para alterar a senha do dispositivo.
+Siga estes passos na UI local para alterar a senha do dispositivo.
 
-1. Na interface do usuário da Web local, vá para **manutenção > alteração de senha**.
-2. Insira a senha atual e a nova senha. A senha fornecida deve ter entre 8 e 16 caracteres. A senha deve ter três dos seguintes caracteres: letras maiúsculas, minúsculas, números e caracteres especiais. Confirme a nova senha.
+1. Na web local UI, vá à **Manutenção > alteração**de passwords .
+2. Introduza a senha atual e, em seguida, a nova senha. A palavra-passe fornecida deve estar entre 8 e 16 caracteres. A palavra-passe deve ter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais. Confirme a nova senha.
 
-    ![Alterar senha](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
+    ![Alterar a palavra-passe](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
 
-3. Clique em **alterar senha**.
+3. Clique em **Alterar a palavra-passe**.
  
-### <a name="reset-device-password"></a>Redefinir senha do dispositivo
+### <a name="reset-device-password"></a>Redefinir a palavra-passe do dispositivo
 
-O fluxo de trabalho de redefinição não exige que o usuário relembre a senha antiga e é útil quando a senha é perdida. Esse fluxo de trabalho é executado no portal do Azure.
+O fluxo de trabalho de reset não requer que o utilizador relembre a palavra-passe antiga e seja útil quando a palavra-passe é perdida. Este fluxo de trabalho é realizado no portal Azure.
 
-1. Na portal do Azure, acesse **visão geral > Redefinir senha de administrador**.
+1. No portal Azure, vá a **Palavra-passe de administração (Overview > Reset admin**.
 
     ![Repor palavra-passe](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
 
  
-2. Insira a nova senha e confirme-a. A senha fornecida deve ter entre 8 e 16 caracteres. A senha deve ter três dos seguintes caracteres: letras maiúsculas, minúsculas, números e caracteres especiais. Clique em **Redefinir**.
+2. Introduza a nova senha e confirme-a. A palavra-passe fornecida deve estar entre 8 e 16 caracteres. A palavra-passe deve ter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais. Clique em **Redefinir**.
 
     ![Repor palavra-passe](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
-## <a name="manage-resource-access"></a>Gerenciar o acesso aos recursos
+## <a name="manage-resource-access"></a>Gerir o acesso aos recursos
 
-Para criar seu Data Box Edge/Gateway do Data Box, o Hub IoT e o recurso de armazenamento do Azure, você precisa de permissões como um colaborador ou superior em um nível de grupo de recursos. Você também precisa que os provedores de recursos correspondentes sejam registrados. Para quaisquer operações que envolvam credenciais e chave de ativação, as permissões para Azure Active Directory API do Graph também são necessárias. Elas são descritas nas seções a seguir.
+Para criar o seu Portal de Borda/Caixa de Dados, IoT Hub e recurso de Armazenamento Azure, precisa de permissões como colaborador ou superior a nível de grupo de recursos. Também precisa que os fornecedores de recursos correspondentes sejam registados. Para quaisquer operações que envolvam chave de ativação e credenciais, também são necessárias permissões para a API do Gráfico de Diretório Ativo Azure. Estes são descritos nas seguintes secções.
 
-### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Gerenciar permissões de API de Microsoft Azure Active Directory Graph
+### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Gerir permissões de API do gráfico de diretório ativo do Microsoft Azure
 
-Ao gerar a chave de ativação para o dispositivo Data Box Edge ou executar qualquer operação que exija credenciais, você precisa de permissões para Azure Active Directory API do Graph. As operações que precisam de credenciais podem ser:
+Ao gerar a chave de ativação para o dispositivo Data Box Edge, ou realizar quaisquer operações que exijam credenciais, precisa de permissões para a API do Gráfico de Diretório Ativo Azure. As operações que precisam de credenciais podem ser:
 
--  Criando um compartilhamento com uma conta de armazenamento associada.
--  Criar um usuário que pode acessar os compartilhamentos no dispositivo.
+-  Criar uma parte com uma conta de armazenamento associada.
+-  Criar um utilizador que possa aceder às ações do dispositivo.
 
-Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de `Read all directory objects`fazer isso. Você não pode ser um usuário convidado, pois não tem permissões `Read all directory objects`para. Se for um convidado, as operações como a geração de uma chave de ativação, a criação de uma partilha no dispositivo Data Box Edge e a criação de um utilizador falharão.
+Você deve ter um acesso `User` ao inquilino do Diretório Ativo, pois você precisa ser capaz de `Read all directory objects`. Não pode ser um utilizador convidado, pois não tem permissão para `Read all directory objects`. Se for um convidado, as operações como a geração de uma chave de ativação, a criação de uma partilha no dispositivo Data Box Edge e a criação de um utilizador falharão.
 
-Para obter mais informações sobre como fornecer acesso a usuários para Azure Active Directory API do Graph, consulte [acesso padrão para administradores, usuários e usuários convidados](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+Para obter mais informações sobre como fornecer acesso aos utilizadores à API do Gráfico de Diretório Ativo do Azure, consulte o [acesso predefinido para administradores, utilizadores e utilizadores convidados.](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)
 
 ### <a name="register-resource-providers"></a>Registar fornecedores de recursos
 
-Para provisionar um recurso no Azure (no modelo de Azure Resource Manager), você precisa de um provedor de recursos que ofereça suporte à criação desse recurso. Por exemplo, para provisionar uma máquina virtual, você deve ter um provedor de recursos ' Microsoft. Compute ' disponível na assinatura.
+Para fornecer um recurso em Azure (no modelo Azure Resource Manager), precisa de um fornecedor de recursos que apoie a criação desse recurso. Por exemplo, para fornecer uma máquina virtual, deve ter um fornecedor de recursos 'Microsoft.Compute' disponível na subscrição.
  
-Os fornecedores de recursos estão registados ao nível da subscrição. Por predefinição, qualquer subscrição nova do Azure é previamente registada com uma lista de fornecedores mais utilizados. O provedor de recursos para ' Microsoft. DataBoxEdge ' não está incluído nesta lista.
+Os fornecedores de recursos estão registados ao nível da subscrição. Por predefinição, qualquer subscrição nova do Azure é previamente registada com uma lista de fornecedores mais utilizados. O fornecedor de recursos para 'Microsoft.DataBoxEdge' não está incluído nesta lista.
 
-Você não precisa conceder permissões de acesso ao nível de assinatura para que os usuários possam criar recursos como ' Microsoft. DataBoxEdge ' em seus grupos de recursos aos quais eles têm direitos de proprietário, desde que os provedores de recursos para esses recursos já estejam registrados.
+Não é necessário conceder permissões de acesso ao nível de subscrição para que os utilizadores possam criar recursos como o 'Microsoft.DataBoxEdge' dentro dos seus grupos de recursos sobre os qual têm direitos de proprietário, desde que os fornecedores de recursos para estes recursos já estejam registado.
 
-Antes de tentar criar qualquer recurso, verifique se o provedor de recursos está registrado na assinatura. Se o provedor de recursos não estiver registrado, você precisará certificar-se de que o usuário que está criando o novo recurso tenha direitos suficientes para registrar o provedor de recursos necessário no nível de assinatura. Se você ainda não fez isso, verá o seguinte erro:
+Antes de tentar criar qualquer recurso, certifique-se de que o fornecedor de recursos está registado na subscrição. Se o fornecedor de recursos não estiver registado, terá de se certificar de que o utilizador que cria o novo recurso tem direitos suficientes para registar o fornecedor de recursos necessário no nível de subscrição. Se ainda não fez isto, verá o seguinte erro:
 
-*O nome \<da assinatura de assinatura > não tem permissões para registrar o (s) provedor (es) de recursos: Microsoft.DataBoxEdge.*
+*A subscrição \<nome de subscrição> não tem permissões para registar o(s) fornecedor de recursos( Microsoft.DataBoxEdge.*
 
 
-Para obter uma lista de provedores de recursos registrados na assinatura atual, execute o seguinte comando:
+Para obter uma lista de fornecedores de recursos registados na subscrição atual, executar o seguinte comando:
 
 ```PowerShell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para data Box Edge dispositivo, `Microsoft.DataBoxEdge` deve ser registrado. Para se `Microsoft.DataBoxEdge`registrar, o administrador de assinatura deve executar o seguinte comando:
+Para o dispositivo Data Box Edge, `Microsoft.DataBoxEdge` deve ser registado. Para registar `Microsoft.DataBoxEdge`, o administrador de subscrição deve executar o seguinte comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Para obter mais informações sobre como registrar um provedor de recursos, consulte [resolver erros de registro do provedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Para obter mais informações sobre como registar um fornecedor de recursos, consulte Resolver erros para o registo do [fornecedor de recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors)
 
-## <a name="manage-connectivity-mode"></a>Gerenciar modo de conectividade
+## <a name="manage-connectivity-mode"></a>Gerir o modo de conectividade
 
-Além do modo normal padrão, o dispositivo também pode ser executado no modo parcialmente desconectado ou desconectado. Cada um desses modos é descrito como abaixo:
+Para além do modo normal de predefinição, o seu dispositivo também pode funcionar em modo parcialmente desligado ou desligado. Cada um destes modos é descrito como abaixo:
 
-- **Parcialmente desconectado** – nesse modo, o dispositivo não pode carregar nenhum dado para os compartilhamentos, no entanto, pode ser gerenciado por meio do portal do Azure.
+- **Parcialmente desligado** – Neste modo, o dispositivo não pode enviar nenhum dado para as ações, no entanto pode ser gerido através do portal Azure.
 
-    Esse modo é normalmente usado quando em uma rede satélite limitada e o objetivo é minimizar o consumo de largura de banda da rede. O consumo mínimo de rede ainda pode ocorrer para operações de monitoramento de dispositivo.
+    Este modo é normalmente utilizado quando se encontra numa rede de satélite sumido e o objetivo é minimizar o consumo de largura de banda da rede. O consumo mínimo de rede pode ainda ocorrer para as operações de monitorização do dispositivo.
 
-- **Desconectado** – nesse modo, o dispositivo é totalmente desconectado da nuvem e os carregamentos e downloads na nuvem são desabilitados. O dispositivo só pode ser gerenciado por meio da interface do usuário da Web local.
+- **Desligado** – Neste modo, o dispositivo está totalmente desligado da nuvem e tanto os uploads e downloads da nuvem são desativados. O dispositivo só pode ser gerido através da UI web local.
 
-    Esse modo é normalmente usado quando você deseja colocar o dispositivo offline.
+    Este modo é normalmente utilizado quando se pretende desligar o dispositivo.
 
-Para alterar o modo do dispositivo, siga estas etapas:
+Para alterar o modo do dispositivo, siga estes passos:
 
-1. Na interface do usuário da Web local do seu dispositivo, vá para **configuração > configurações de nuvem**.
-2. Desabilite o **upload e o download da nuvem**.
-3. Para executar o dispositivo no modo parcialmente desconectado, habilite o **Gerenciamento de portal do Azure**.
+1. Na web uI local do seu dispositivo, vá às definições de **Configuração > Cloud**.
+2. Desative o **upload e o download da Cloud.**
+3. Para executar o dispositivo em modo parcialmente desligado, ative a **gestão do portal Azure**.
 
-    ![Modo de conectividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
+    ![Modo conectividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
  
-4. Para executar o dispositivo no modo desconectado, desabilite o **Gerenciamento de portal do Azure**. Agora, o dispositivo só pode ser gerenciado por meio da interface do usuário da Web local.
+4. Para executar o dispositivo em modo desligado, desative a gestão do **portal Azure**. Agora o dispositivo só pode ser gerido através da UI web local.
 
-    ![Modo de conectividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
+    ![Modo conectividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
 
-## <a name="manage-power"></a>Gerenciar energia
+## <a name="manage-power"></a>Gerir o poder
 
-Você pode desligar ou reiniciar o dispositivo virtual usando a interface do usuário da Web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Essa ação minimiza qualquer possibilidade de corrupção de dados.
+Pode desligar ou reiniciar o seu dispositivo virtual utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Esta ação minimiza qualquer possibilidade de corrupção de dados.
 
-1. Na interface do usuário da Web local, vá para **manutenção > configurações de energia**.
-2. Clique em **desligar** ou **reiniciar** , dependendo do que você pretende fazer.
+1. Na Web UI local, vá a Definições de **Manutenção > Power**.
+2. Clique em **Desligar** ou **Reiniciar** dependendo do que pretende fazer.
 
     ![Definições de energia](media/data-box-gateway-manage-access-power-connectivity-mode/shut-down-restart-1.png)
 
-3. Quando a confirmação for solicitada, clique em **Sim** para continuar.
+3. Quando solicitado para confirmação, clique **em Sim** para prosseguir.
 
 > [!NOTE]
-> Se você desligar o dispositivo virtual, será necessário iniciar o dispositivo por meio do gerenciamento de hipervisor.
+> Se desligar o dispositivo virtual, terá de ligar o dispositivo através da gestão do hipervisor.

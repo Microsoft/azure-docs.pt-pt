@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 01/18/2020
+ms.date: 02/21/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: e9ca891d2d92b6760d37108b66afc54c81ac125c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 15901186194853aebf3b8222f271203161770380
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442586"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561447"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementar e configurar firewall Azure numa rede híbrida utilizando o portal Azure
 
@@ -157,7 +157,7 @@ Agora, desloque a firewall para a rede virtual do firewall hub.
    |Grupo de recursos     |**Teste híbrido-FW** |
    |Nome     |**AzFW01**|
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
-   |Escolher uma rede virtual     |**Utilizar existente**:<br> **VNet-hub**|
+   |Escolher uma rede virtual     |**Use existing** (Utilizar existente):<br> **VNet-hub**|
    |Endereço IP público     |Criar novos: <br>**Nome** - **fw-pip**. |
 
 5. Selecione **Rever + criar**.
@@ -179,9 +179,10 @@ Em primeiro lugar, adicione uma regra de rede para permitir o tráfego web.
 6. Em **Ação**, selecione **Permitir**.
 6. De acordo com **as regras,** para **nome,** tipo **AllowWeb**.
 7. Em **Protocolo**, selecione **TCP**.
-8. Para **endereços de origem**, tipo **192.168.1.0/24**.
-9. Para endereço destino, tipo **10.6.0.0/16**
-10. Para portas de **destino,** tipo **80**.
+8. Para **o tipo Fonte,** selecione **endereço IP**.
+9. Para **origem**, tipo **192.168.1.0/24**.
+10. Para **endereço destino**, tipo **10.6.0.0/16**
+11. Para portas de **destino,** tipo **80**.
 
 Adicione agora uma regra para permitir o tráfego de RDP.
 
@@ -189,10 +190,11 @@ Na segunda linha de regras, digite as seguintes informações:
 
 1. **Nome,** tipo **AllowRDP**.
 2. Em **Protocolo**, selecione **TCP**.
-3. Para **endereços de origem**, tipo **192.168.1.0/24**.
-4. Para endereço destino, tipo **10.6.0.0/16**
-5. Para portas de **destino,** tipo **3389**.
-6. Selecione **Adicionar**.
+3. Para **o tipo Fonte,** selecione **endereço IP**.
+4. Para **origem**, tipo **192.168.1.0/24**.
+5. Para **endereço destino**, tipo **10.6.0.0/16**
+6. Para portas de **destino,** tipo **3389**.
+7. Selecione **Adicionar**.
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Criar e ligar os gateways de VPN
 

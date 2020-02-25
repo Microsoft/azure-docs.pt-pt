@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206111"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562365"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos Finais de Streaming (Origem) nos Serviços De Mídia Azure
 
@@ -63,7 +63,7 @@ Funcionalidade|Standard|Premium
 ---|---|---
 Débito |Até 600 Mbps e pode fornecer uma entrada muito mais eficaz quando um CDN é usado.|200 Mbps por unidade de streaming (SU). Pode fornecer uma entrada muito mais eficaz quando um CDN é usado.
 CDN|Azure CDN, CDN de terceiros, ou sem CDN.|Azure CDN, CDN de terceiros, ou sem CDN.
-A faturação é proclamada| Diariamente|Diariamente
+A faturação é proclamada| Diárias|Diárias
 Encriptação dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
 Escala|Automaticamente escala até a entrada direcionada.|SUs adicional
@@ -73,7 +73,7 @@ Utilização recomendada |Recomendado para a grande maioria dos cenários de str
 
 <sup>1</sup> Utilizado apenas diretamente no ponto final de streaming quando o CDN não está ativado no ponto final.<br/>
 
-## <a name="properties"></a>Propriedades
+## <a name="streaming-endpoint-properties"></a>Propriedades de Streaming Endpoint
 
 Esta secção fornece detalhes sobre algumas das propriedades do Streaming Endpoint. Por exemplo, como criar um novo ponto final de streaming e descrições de todas as propriedades, consulte [streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
 
@@ -130,50 +130,36 @@ Esta secção fornece detalhes sobre algumas das propriedades do Streaming Endpo
 
 - `scaleUnits`: Forneça-lhe uma capacidade de saída dedicada que pode ser adquirida em incrementos de 200 Mbps. Se precisar de passar para um tipo **Premium,** ajuste `scaleUnits`.
 
-## <a name="working-with-cdn"></a>Trabalhar com a CDN
+## <a name="why-use-multiple-streaming-endpoints"></a>Porquê usar vários pontos finais de streaming?
 
-Na maioria dos casos, deve ter a CDN ativada. No entanto, se está a antecipar a moeda máxima inferior a 500 espectadores, então é recomendado desativar o CDN uma vez que a CDN melhor se qualifica com a conmoeda.
+Um único ponto final de streaming pode transmitir vídeos ao vivo e a pedido e a maioria dos clientes usa apenas um ponto final de streaming. Esta secção dá alguns exemplos do porquê de você precisar de usar vários pontos finais de streaming.
 
-### <a name="considerations"></a>Considerações
+* Cada unidade reservada permite 200 Mbps de largura de banda. Se necessitar de mais de 2.000 Mbps (2 Gbps) de largura de banda, pode utilizar o segundo ponto final de streaming e o equilíbrio de carga para lhe dar largura de banda adicional.
 
-* O `hostname` de streaming Endpoint e o URL de streaming permanecem os mesmos, quer ative ou não o CDN.
-* Se precisar da capacidade de testar o seu conteúdo com ou sem CDN, crie outro Ponto final de streaming que não esteja ativado pela CDN.
+    No entanto, o CDN é a melhor maneira de obter escala para o streaming de conteúdos, mas se estiver a fornecer tanto conteúdo que o CDN está a puxar mais de 2 Gbps, então pode adicionar pontos finais de streaming adicionais (origens). Neste caso, você precisaria distribuir URLs de conteúdo que são equilibrados em todos os dois pontos finais de streaming. Esta abordagem dá melhor cache do que tentar enviar pedidos para cada origem aleatoriamente (por exemplo, através de um gestor de tráfego). 
+    
+    > [!TIP]
+    > Normalmente, se o CDN estiver a puxar mais de 2 Gbps, então algo pode estar mal configurado (por exemplo, sem proteção de origem).
+    
+* Carregar equilibrando diferentes fornecedores de CDN. Por exemplo, pode configurar o ponto final de streaming padrão para utilizar o Verizon CDN e criar um segundo para utilizar o Akamai. Em seguida, adicione um pouco de equilíbrio de carga entre os dois para obter o equilíbrio multi-CDN. 
 
-### <a name="detailed-explanation-of-how-caching-works"></a>Explicação detalhada de como o cache funciona
+    No entanto, o cliente muitas vezes faz o equilíbrio de carga em vários fornecedores de CDN usando uma única origem.
+* Streaming de conteúdo misto: Ao vivo e vídeo a pedido. 
 
-Não há um valor específico de largura de banda ao adicionar o CDN porque a quantidade de largura de banda necessária para um ponto final de streaming ativado por CDN varia. Muito depende do tipo de conteúdo, do quão popular é, dos bitrates e dos protocolos. O CDN só está a apertar o que está a ser pedido. Isto significa que os conteúdos populares serão servidos diretamente a partir do CDN- desde que o fragmento de vídeo esteja em cache. É provável que o conteúdo ao vivo seja emcache porque normalmente tem muitas pessoas a ver exatamente a mesma coisa. O conteúdo a pedido pode ser um pouco mais complicado porque pode ter algum conteúdo que seja popular e outros que não são. Se você tem milhões de ativos de vídeo onde nenhum deles é popular (apenas um ou dois espectadores por semana) mas você tem milhares de pessoas assistindo todos os vídeos diferentes, o CDN torna-se muito menos eficaz. Com esta cache falha, aumenta-se a carga no ponto final de streaming.
+    Os padrões de acesso aos conteúdos ao vivo e a pedido são muito diferentes. O conteúdo ao vivo tende a receber muita procura pelo mesmo conteúdo ao mesmo tempo. O conteúdo a pedido de vídeo (conteúdo de arquivo de cauda longa, por exemplo) tem uma baixa utilização no mesmo conteúdo. Assim, o cache funciona muito bem no conteúdo ao vivo, mas não tão bem no conteúdo da cauda longa.
 
-Também precisa de considerar como funciona o streaming adaptativo. Cada fragmento de vídeo individual é cached como sua própria entidade. Por exemplo, imagine a primeira vez que um determinado vídeo é visto. Se o espectador saltar por aí assistindo apenas alguns segundos aqui e ali, apenas os fragmentos de vídeo associados ao que a pessoa viu ficam em cache no CDN. Com o streaming adaptativo, você normalmente tem 5 a 7 bitrates diferentes de vídeo. Se uma pessoa está a ver um bitrate e outra pessoa está a ver um bitrate diferente, então cada um está em cache separadamente no CDN. Mesmo que duas pessoas estejam a ver o mesmo bitrate, podem estar a transmitir protocolos diferentes. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) é cached separadamente. Assim, cada bitrate e protocolo são cached separadamente e apenas os fragmentos de vídeo que foram solicitados são cached.
+    Considere um cenário em que os seus clientes estão principalmente a ver conteúdos ao vivo, mas apenas ocasionalmente estão a ver conteúdos on-demand e é servido a partir do mesmo Streaming Endpoint. O baixo uso de conteúdo sonoro ocuparia um espaço de cache que seria melhor guardado para o conteúdo ao vivo. Neste cenário, recomendamos servir os conteúdos ao vivo a partir de um Streaming Endpoint e o conteúdo de cauda longa de outro Streaming Endpoint. Isto melhorará o desempenho do conteúdo do evento ao vivo.
+    
+## <a name="scaling-streaming-with-cdn"></a>Streaming de escala com CDN
 
-### <a name="enable-azure-cdn-integration"></a>Permitir a integração do CDN azure
+Consulte os seguintes artigos:
 
-> [!IMPORTANT]
-> Não é possível permitir a CDN para julgamento ou contas de estudante sinuoso Azure.
->
-> A integração do CDN é ativada em todos os centros de dados azure, exceto governo federal e regiões da China.
-
-Depois de um Streaming Endpoint ser aprovisionado com CDN ativado, há um tempo de espera definido nos Serviços de Media antes que a atualização do DNS seja feita para mapear o ponto final de streaming para o ponto final da CDN.
-
-Se mais tarde pretender desativar/ativar o CDN, o seu ponto final de streaming deve estar no estado **de paragem.** Pode levar até duas horas para que a integração do CDN Azure seja ativada e que as alterações sejam ativas em todos os POPs da CDN. No entanto, pode iniciar o seu ponto final de streaming e transmitir sem interrupções do ponto final de streaming e uma vez concluída a integração, o fluxo é entregue a partir do CDN. Durante o período de provisionamento, o seu ponto final de streaming estará no estado **de partida** e poderá observar um desempenho degradado.
-
-Quando o ponto final de streaming Standard é criado, é configurado por padrão com standard Verizon. Pode configurar fornecedores Premium Verizon ou Standard Akamai utilizando APIs REST.
-
-A integração da Azure Media Services com o Azure CDN é implementada no **Azure CDN da Verizon** para pontos finais de streaming padrão. Os pontos finais de streaming premium podem ser configurados utilizando todos os níveis e fornecedores de **preços Do CDN do Azure.** 
-
-> [!NOTE]
-> Para mais detalhes sobre o Azure CDN, consulte a visão geral do [CDN](../../cdn/cdn-overview.md).
-
-### <a name="determine-if-dns-change-was-made"></a>Determine se a alteração do DNS foi feita
-
-Pode determinar se a alteração do DNS foi feita num Ponto Final de Streaming (o tráfego está a ser direcionado para o Azure CDN) utilizando https://www.digwebinterface.com. Se os resultados azureedge.net nomes de domínio nos resultados, o tráfego está agora a ser apontado para o CDN.
+- [Visão geral do CDN](../../cdn/cdn-overview.md)
+- [Streaming de escala com CDN](scale-streaming-cdn.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 
 Confira o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Serviços de Media.
-
-## <a name="see-also"></a>Veja também
-
-[Visão geral do CDN](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

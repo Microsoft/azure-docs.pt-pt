@@ -1,39 +1,39 @@
 ---
-title: CI/CD personalizado de ações do GitHub
-description: Saiba como usar as ações do GitHub para implantar seu contêiner personalizado do Linux no serviço de aplicativo de um pipeline de CI/CD.
+title: Ci/CD de recipiente personalizado das ações do GitHub
+description: Aprenda a utilizar as Ações GitHub para implantar o seu recipiente Linux personalizado para o Serviço de Aplicações a partir de um pipeline CI/CD.
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 127dd8645596b605980bf3c6fbc87bf159f7c03e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: f32ea2ae0be66259ff153c24bfd10e179fddbbe5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671813"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559033"
 ---
-# <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no serviço de aplicativo usando as ações do GitHub
+# <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implemente um recipiente personalizado para o Serviço de Aplicações utilizando ações gitHub
 
-As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento automatizado do software. Com a [ação de serviço Azure app para contêineres](https://github.com/Azure/webapps-container-deploy), você pode automatizar o fluxo de trabalho para implantar aplicativos como [contêineres personalizados no serviço de aplicativo](https://azure.microsoft.com/services/app-service/containers/) usando ações do github.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions) dá-lhe a flexibilidade para construir um fluxo de trabalho de ciclo de vida de desenvolvimento de software automatizado. Com a Ação de Serviço de [Aplicações Azure para Contentores,](https://github.com/Azure/webapps-container-deploy)pode automatizar o seu fluxo de trabalho para implementar aplicações como [recipientes personalizados para](https://azure.microsoft.com/services/app-service/containers/) o App Service utilizando as Ações GitHub.
 
 > [!IMPORTANT]
-> No momento, as ações do GitHub estão em beta. Primeiro, você deve [se inscrever para ingressar na versão prévia](https://github.com/features/actions) usando sua conta do github.
+> A GitHub Actions está atualmente em versão beta. Primeiro deve [inscrever-se para se juntar à pré-visualização](https://github.com/features/actions) utilizando a sua conta GitHub.
 > 
 
-Um fluxo de trabalho é definido por um arquivo YAML (. yml) no caminho `/.github/workflows/` em seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho.
+Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho `/.github/workflows/` no seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
 
-Para um fluxo de trabalho de contêiner de serviço Azure App, o arquivo tem três seções:
+Para um fluxo de trabalho de contentor estoque do Serviço de Aplicações Azure, o ficheiro tem três secções:
 
 |Section  |Tarefas  |
 |---------|---------|
-|**Autenticação** | 1. definir uma entidade de serviço. <br /> 2. Crie um segredo do GitHub. |
-|**Integrado** | 1. configurar o ambiente. <br /> 2. Crie a imagem de contêiner. |
-|**Implementar** | 1. implante a imagem de contêiner. |
+|**Autenticação** | 1. Defina um diretor de serviço. <br /> 2. Criar um segredo GitHub. |
+|**Construir** | 1. Instale o ambiente. <br /> 2. Construa a imagem do recipiente. |
+|**Implementar** | 1. Implante a imagem do recipiente. |
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Você pode criar uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) usando o comando [AZ ad SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) na [CLI do Azure](https://docs.microsoft.com/cli/azure/). Você pode executar esse comando usando [Azure cloud Shell](https://shell.azure.com/) na portal do Azure ou selecionando o botão **experimentar** .
+Pode criar um diretor de [serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) utilizando o comando [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) no [Azure CLI](https://docs.microsoft.com/cli/azure/). Pode executar este comando utilizando a [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Experimente..**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -43,7 +43,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
   # Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
 ```
 
-A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao seu aplicativo do serviço de aplicativo semelhante ao mostrado abaixo. Copie este objeto JSON para autenticar do GitHub.
+A saída é um objeto JSON com as credenciais de atribuição de funções que fornecem acesso à sua app App Service semelhante a abaixo. Copie este objeto JSON para autenticar a partir do GitHub.
 
  ```azurecli 
   {
@@ -56,15 +56,15 @@ A saída é um objeto JSON com as credenciais de atribuição de função que fo
 ```
 
 > [!IMPORTANT]
-> É sempre uma boa prática conceder acesso mínimo. Você pode restringir o escopo no comando AZ CLI acima para o aplicativo do serviço de aplicativo específico e o registro de contêiner do Azure no qual as imagens de contêiner são enviadas por push.
+> É sempre uma boa prática conceder o mínimo de acesso. Pode restringir o âmbito no comando Az CLI acima da aplicação app Service e no Registo de Contentores Azure para onde as imagens do contentor são empurradas.
 
-## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
+## <a name="configure-the-github-secret"></a>Configure o segredo GitHub
 
-O exemplo abaixo usa credenciais de nível de usuário, ou seja, entidade de serviço do Azure para implantação. Siga as etapas para configurar o segredo:
+O exemplo abaixo utiliza credenciais de nível de utilizador, ou assim, o Diretor de Serviço Azure para implantação. Siga os passos para configurar o segredo:
 
-1. No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > Adicionar um novo segredo**
+1. No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Secrets > Adicione um novo segredo**
 
-2. Cole o conteúdo do comando a seguir `az cli` como o valor da variável secreta. Por exemplo, `AZURE_CREDENTIALS`.
+2. Colar o conteúdo do comando abaixo `az cli` como o valor da variável secreta. Por exemplo, `AZURE_CREDENTIALS`.
 
     
     ```azurecli
@@ -75,20 +75,20 @@ O exemplo abaixo usa credenciais de nível de usuário, ou seja, entidade de ser
     # Replace {subscription-id}, {resource-group} with the subscription, resource group details
     ```
 
-3. Agora, no arquivo de fluxo de trabalho em seu Branch: `.github/workflows/workflow.yml` substituir o segredo na ação de logon do Azure pelo seu segredo.
+3. Agora, no ficheiro workflow da sua filial: `.github/workflows/workflow.yml` substituir o segredo em ação de login azure pelo seu segredo.
 
-4. Da mesma forma, defina os seguintes segredos adicionais para as credenciais de registro de contêiner e defina-as na ação de logon do Docker. 
+4. Da mesma forma, defina os seguintes segredos adicionais para as credenciais de registo de contentores e coloque-os em ação de login do Docker. 
 
     - REGISTRY_USERNAME
     - REGISTRY_PASSWORD
 
-5. Você verá os segredos conforme mostrado abaixo, uma vez definidos.
+5. Vê os segredos como mostrados abaixo uma vez definidos.
 
-    ![segredos do contêiner](../media/app-service-github-actions/app-service-secrets-container.png)
+    ![segredos de contentores](../media/app-service-github-actions/app-service-secrets-container.png)
 
-## <a name="build-the-container-image"></a>Criar a imagem de contêiner
+## <a name="build-the-container-image"></a>Construa a imagem do recipiente
 
-O exemplo a seguir mostra parte do fluxo de trabalho que cria a imagem do Docker.
+O exemplo seguinte mostra parte do fluxo de trabalho que constrói a imagem do estivador.
 
 ```yaml
 on: [push]
@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action' 
+    - name: 'Checkout GitHub Action' 
       uses: actions/checkout@master
     
     - name: 'Login via Azure CLI'
@@ -119,19 +119,19 @@ jobs:
         docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
 ```
 
-## <a name="deploy-to-an-app-service-container"></a>Implantar em um contêiner do serviço de aplicativo
+## <a name="deploy-to-an-app-service-container"></a>Desloque para um recipiente de serviço de aplicações
 
-Para implantar a imagem em um contêiner personalizado no serviço de aplicativo, use a ação `azure/webapps-container-deploy@v1`. Esta ação tem cinco parâmetros:
+Para implementar a sua imagem num recipiente personalizado no Serviço de Aplicações, utilize a ação `azure/webapps-container-deploy@v1`. Esta ação tem cinco parâmetros:
 
-| **Meter**  | **Explicação**  |
+| **Parâmetro**  | **Explicação**  |
 |---------|---------|
-| **nome do aplicativo** | Necessária Nome do aplicativo do serviço de aplicativo | 
-| **nome do slot** | Adicional Insira um slot existente que não seja o slot de produção |
-| **imagens** | Necessária Especifique o nome da (s) imagem (ns) do contêiner totalmente qualificado. Por exemplo, ' myregistry.azurecr.io/nginx:latest ' ou ' Python: 3.7.2-Alpine/'. Para um aplicativo de vários contêineres, vários nomes de imagem de contêiner podem ser fornecidos (separados por várias linhas) |
-| **arquivo de configuração** | Adicional Caminho do arquivo Docker-Compose. Deve ser um caminho totalmente qualificado ou relativo ao diretório de trabalho padrão. Necessário para aplicativos de vários contêineres. |
-| **contêiner-comando** | Adicional Insira o comando de inicialização. Por exemplo, dotnet Run ou dotnet nome_do_arquivo. dll |
+| **nome de aplicativo** | (Obrigatório) Nome da app App Service | 
+| **slot-name** | (Opcional) Introduza uma ranhura existente que não seja a ranhura de produção |
+| **imagens** | (Obrigatório) Especifique o nome(s) de imagem do recipiente totalmente qualificado. Por exemplo, 'myregistry.azurecr.io/nginx:latest' ou 'python:3.7.2-alpine/'. Para uma aplicação multi-contentor, podem ser fornecidos vários nomes de imagens de contentores (separados em várias linhas) |
+| **arquivo de configuração** | (Opcional) Caminho do ficheiro Docker-Compose. Deve ser um caminho totalmente qualificado ou relativo ao diretório de trabalho padrão. Necessário para aplicações multi-contentores. |
+| **comando de contentores** | (Opcional) Insira o comando de arranque. Para ex. dotnet executar ou dotnet filename.dll |
 
-Veja abaixo o fluxo de trabalho de exemplo para criar e implantar um aplicativo node. js em um contêiner personalizado no serviço de aplicativo.
+Abaixo está o fluxo de trabalho da amostra para construir e implementar uma app Node.js para um recipiente personalizado no App Service.
 
 ```yaml
 on: [push]
@@ -143,7 +143,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action' 
+    - name: 'Checkout GitHub Action' 
       uses: actions/checkout@master
     
     - name: 'Login via Azure CLI'
@@ -173,20 +173,20 @@ jobs:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você pode encontrar nosso conjunto de ações agrupadas em repositórios diferentes no GitHub, cada uma contendo documentação e exemplos para ajudá-lo a usar o GitHub para CI/CD e implantar seus aplicativos no Azure.
+Pode encontrar o nosso conjunto de Ações agrupadas em diferentes repositórios no GitHub, cada um contendo documentação e exemplos para ajudá-lo a usar o GitHub para CI/CD e implementar as suas aplicações para o Azure.
 
-- [Logon do Azure](https://github.com/Azure/login)
+- [Login azure](https://github.com/Azure/login)
 
-- [WebApp do Azure](https://github.com/Azure/webapps-deploy)
+- [Azure WebApp](https://github.com/Azure/webapps-deploy)
 
-- [Azure WebApp para contêineres](https://github.com/Azure/webapps-container-deploy)
+- [Azure WebApp para contentores](https://github.com/Azure/webapps-container-deploy)
 
-- [Logon/logout do Docker](https://github.com/Azure/docker-login)
+- [Docker login/logout](https://github.com/Azure/docker-login)
 
-- [Eventos que disparam fluxos de trabalho](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Eventos que desencadeiam fluxos de trabalho](https://help.github.com/en/articles/events-that-trigger-workflows)
 
-- [K8s implantar](https://github.com/Azure/k8s-deploy)
+- [Implantação de K8s](https://github.com/Azure/k8s-deploy)
 
-- [Fluxos de trabalho de CI inicial](https://github.com/actions/starter-workflows)
+- [Fluxos de trabalho de CI de arranque](https://github.com/actions/starter-workflows)
 
-- [Fluxos de trabalho iniciais para implantar no Azure](https://github.com/Azure/actions-workflow-samples)
+- [Fluxos de trabalho de arranque para implantar para Azure](https://github.com/Azure/actions-workflow-samples)

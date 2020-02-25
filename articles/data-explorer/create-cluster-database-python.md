@@ -1,5 +1,5 @@
 ---
-title: Criar um cluster e base de dados Azure Data Explorer usando python
+title: Criar um cluster e DB do Explorador de Dados Azure usando python
 description: Aprenda a criar um cluster e base de dados do Azure Data Explorer utilizando python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 50e050a05fd364a4b1f880e3501b04274ffd360c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 8425058c9f6ac5b90c37a99f749a810672b406fc
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444235"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560512"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster e base de dados Azure Data Explorer usando python
 

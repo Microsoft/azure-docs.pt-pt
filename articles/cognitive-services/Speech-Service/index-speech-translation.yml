@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentação de tradução da fala
+summary: A tradução da fala do serviço Speech permite a tradução em tempo real, multi-linguagem da fala à fala e da tradução fala-a-texto de fluxos áudio
+metadata:
+  title: Documentação de tradução da fala - Tutoriais, Referência API - Serviços Cognitivos Azure  Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: c45c16b4421bf48e5728f95e7043ef7ffc109c3a
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562924"
+landingContent:
+- title: Introdução
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a tradução de voz?
+      url: speech-translation.md
+  - linkListType: quickstart
+    links:
+    - text: Traduzir voz para texto
+      url: quickstarts/translate-speech-to-text.md
+    - text: Traduzir o discurso em várias línguas-alvo
+      url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - text: Traduzir voz para voz
+      url: quickstarts/translate-speech-to-speech.md
+- title: Guias passo a passo
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Traduzir o discurso em tempo real
+      url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
+  - linkListType: tutorial
+    links:
+    - text: Traduzir e sintetizar texto com APIs REST
+      url: ../translator/tutorial-build-flask-app-translation-synthesis.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Suporte de idiomas
+      url: language-support.md#speech-translation
+    - text: Preços
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+    - text: FAQ da tradução de voz
+      url: https://www.microsoft.com/translator/business/faq/

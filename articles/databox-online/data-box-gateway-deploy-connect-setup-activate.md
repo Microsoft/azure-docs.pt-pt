@@ -1,6 +1,6 @@
 ---
-title: Ligue-se para configurar e ativar o Gateway de caixa de dados do Azure no portal do Azure | Documentos da Microsoft
-description: Terceiro tutorial para implementar o Gateway de caixa de dados instrui a ligar, configurar e ativar o dispositivo virtual.
+title: Ligue- se, configure e ative o Portal da Caixa de Dados Azure no portal Azure
+description: Terceiro tutorial para implementar Data Box Gateway instrui-o a ligar, configurar e ativar o seu dispositivo virtual.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 898cb63f8868ce2abaee8784214322edf9a56997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60756498"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561838"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Ligar, configurar, ativar o Gateway de caixa de dados do Azure
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Ligar, configurar, ativar portal da caixa de dados Azure
 
 ## <a name="introduction"></a>Introdução
 
-Este tutorial descreve como ligar a, configurar e ativar o seu dispositivo de Gateway de caixa de dados utilizando a IU da web local. 
+Este tutorial descreve como ligar, configurar e ativar o seu dispositivo Data Box Gateway utilizando a UI web local. 
 
-O processo de instalação e ativação pode demorar cerca de 10 minutos para concluir. 
+O processo de configuração e ativação pode demorar cerca de 10 minutos a ser concluído. 
 
 Neste tutorial, ficará a saber como:
 
@@ -31,108 +31,108 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de configurar e configurar o Gateway de caixa de dados, certifique-se de que:
+Antes de configurar e configurar o gateway da caixa de dados, certifique-se de que:
 
-* Tiver aprovisionado um dispositivo virtual e obter um URL ligado à mesma, conforme detalhado no [aprovisionar um Gateway de caixa de dados no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [aprovisionar um Gateway de caixa de dados no VMware](data-box-gateway-deploy-provision-vmware.md).
-* Tem a chave de ativação do serviço de Gateway de caixa de dados que criou para gerir dispositivos de Gateway de caixa de dados. Para obter mais informações, aceda a [preparar a implementação de Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md).
+* Você disponibilizou um dispositivo virtual e obteve um URL conectado para ele como detalhado na Disposição de uma Porta de [Dados em Hiper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Provision a Data Box Gateway em VMware](data-box-gateway-deploy-provision-vmware.md).
+* Tem a chave de ativação do serviço Data Box Gateway que criou para gerir os dispositivos Data Box Gateway. Para mais informações, vá à [Prepare-se para implementar o Portal](data-box-gateway-deploy-prep.md)da Caixa de Dados Do Azure .
 
 
-## <a name="connect-to-the-local-web-ui-setup"></a>Ligue-se para a configuração de interface do Usuário da local web 
+## <a name="connect-to-the-local-web-ui-setup"></a>Ligue-se à configuração de UI web local 
 
-1. Abra uma janela do browser e o acesso da interface do Usuário do dispositivo no local da web:
+1. Abra uma janela do navegador e aceda à UI web local do dispositivo em:
    
    [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
    
-   Utilize o URL de ligação que anotou no tutorial anterior. Verá um erro ou um aviso que indica que existe um problema com o certificado de segurança do Web site.
+   Utilize o URL de ligação anotado no tutorial anterior. Você vê um erro ou um aviso indicando que há um problema com o certificado de segurança do site.
 
-2. Selecione **continuar para esta página da Web**. Estes passos podem variar consoante o browser que estiver a utilizar.
+2. Selecione **Continuar a esta página web**. Estes passos podem variar dependendo do navegador que está a usar.
    
-    ![Mensagem de erro de certificado de segurança de Web site](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+    ![Mensagem de erro de certificado de segurança do site](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
-3. Inicie sessão para a web da interface do Usuário do seu dispositivo virtual. A palavra-passe predefinido é *Password1*. 
+3. Inscreva-se na Web UI do seu dispositivo virtual. A palavra-passe padrão é *Password1*. 
    
-    ![Inicie sessão na IU web local](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
+    ![Inscreva-se na Web UI local](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
-4. Na linha de comandos, altere a palavra-passe do dispositivo. A nova palavra-passe tem de conter entre 8 e 16 carateres. Tem de conter 3 dos seguintes: maiúsculas, minúsculas, numéricos e especiais carateres.
+4. No momento, altere a senha do dispositivo. A nova senha deve conter entre 8 e 16 caracteres. Deve conter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais.
 
     ![Alterar a palavra-passe do dispositivo](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
-Agora, está no **Dashboard** do seu dispositivo.
+Está agora no **Painel** do Seu Dispositivo.
 
 ## <a name="set-up-and-activate-the-virtual-device"></a>Configurar e ativar o dispositivo virtual
  
-O dashboard apresenta as várias configurações que são necessárias para configurar e registar o dispositivo virtual com o serviço de Gateway de caixa de dados. O **nome do dispositivo**, **as definições de rede**, **definições de proxy Web**, e **definições da hora** são opcionais. As definições necessárias apenas são **definições da Cloud**.
+O seu painel de instrumentos apresenta as várias definições necessárias para configurar e registar o dispositivo virtual com o serviço Data Box Gateway. O **nome do dispositivo,** **definições**de rede, definições de **procuração web**e **definições** de tempo são opcionais. As únicas definições necessárias são **as definições cloud**.
    
-![Web local da interface do Usuário "Dashboard" página](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+![Página local da UI "Dashboard"](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-1. No painel esquerdo, selecione **nome do dispositivo**e, em seguida, introduza um nome amigável para o seu dispositivo. O nome amigável tem de conter entre 1 e 15 carateres e ter letras, números e hífenes.
+1. No painel esquerdo, selecione o **nome do Dispositivo**e, em seguida, introduza um nome amigável para o seu dispositivo. O nome amigável deve conter de 1 a 15 caracteres de comprimento e ter letra, números e hífenes.
 
-    ![Página de "Nome do dispositivo" da IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![Página local da UI "Nome do dispositivo"](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
-2. (Opcional) No painel esquerdo, selecione **as definições de rede** e, em seguida, configure as definições. No seu dispositivo virtual, verá, pelo menos, uma interface de rede e mais, dependendo de quantos configurado na máquina virtual subjacente. O **as definições de rede** página para um dispositivo virtual com uma interface de rede ativada é conforme mostrado abaixo.
+2. (Opcional) No painel esquerdo, selecione **as definições** de rede e, em seguida, configure as definições. No seu dispositivo virtual, verá pelo menos uma interface de rede e mais dependendo de quantos configurado na máquina virtual subjacente. A página de **definições** da Rede para um dispositivo virtual com uma interface de rede ativada é como mostrado abaixo.
     
-    ![Página de "Definições de rede" da IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
+    ![Página local da Web UI "Definições de rede"](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
-    À medida que configura as definições de rede, tenha em mente:
+    À medida que configura as definições de rede, lembre-se:
 
-    - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Um endereço IP, sub-rede, gateway e DNS é atribuído automaticamente.
-    - Se o DHCP não está ativado, pode atribuir IPs estáticos, se necessário.
-    - Pode configurar a sua interface de rede como IPv4.
+    - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Um endereço IP, sub-rede, gateway e DNS são automaticamente atribuídos.
+    - Se o DHCP não estiver ativado, pode atribuir IPs estáticos se necessário.
+    - Pode configurar a interface de rede como IPv4.
 
      >[!NOTE] 
-     > Recomendamos que não muda o endereço IP local da interface de rede de estático para DHCP, a menos que tenha outro endereço IP para ligar ao dispositivo. Se utilizar uma interface de rede e mude para DHCP, não haveria nenhuma forma de determinar o endereço DHCP. Se pretender alterar para um endereço DHCP, esperar até depois do dispositivo foi registado com o serviço e, em seguida, altere. Em seguida, pode ver os IPs de todos os adaptadores na **propriedades do dispositivo** no portal do Azure para o seu serviço.
+     > Recomendamos que não altere o endereço IP local da interface de rede de estática para DHCP, a menos que tenha outro endereço IP para ligar ao dispositivo. Se utilizar uma interface de rede e mudar para DHCP, não existiria forma de determinar o endereço DHCP. Se quiser mudar para um endereço DHCP, aguarde até que o dispositivo se tenha registado no serviço e, em seguida, mude. Em seguida, pode visualizar os IPs de todos os adaptadores nas propriedades do **Dispositivo** no portal Azure para o seu serviço.
 
-3. (Opcional) Configure o servidor proxy Web. Apesar de configuração do proxy web é opcional, se utilizar um proxy de web, pode configurá-lo apenas nesta página.
+3. (Opcional) Configure o servidor proxy Web. Embora a configuração de procuração web seja opcional, se utilizar um proxy web, pode configurá-la apenas nesta página.
    
-   ![Página de "Definições de proxy da Web" de IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
+   ![Página local da Web UI "Web proxy settings"](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
-   Sobre o **Web proxy** página, efetue o seguinte:
+   Na página de **procuração da Web,** faça o seguinte:
    
-   1. Na **URL de proxy Web** , introduza o URL no seguinte formato: `http://&lt;host-IP address or FQDN&gt;:Port number`. Não são suportados HTTPS URLs.
-   2. Sob **autenticação**, selecione **None** ou **NTLM**.
+   1. Na caixa URL proxy **Web,** introduza o URL neste formato: `http://&lt;host-IP address or FQDN&gt;:Port number`. OS URLs HTTPS não são suportados.
+   2. Em **Autenticação,** selecione **Nenhum** ou **NTLM**.
    3. Se estiver a utilizar a autenticação, introduza um **nome de utilizador** e **palavra-passe**.
-   4. Para validar e aplicar as definições de proxy da web configurado, selecione **aplicar**.
+   4. Para validar e aplicar as definições configuradas de procuração web, selecione **Aplicar**.
 
-4. (Opcional) No painel esquerdo, selecione **definições da hora**e, em seguida, configure o fuso horário e os servidores NTP primários e secundários para o seu dispositivo. 
+4. (Opcional) No painel esquerdo, selecione **as definições**de tempo e, em seguida, configure o fuso horário e os servidores NTP primários e secundários para o seu dispositivo. 
 
-    Os servidores NTP são necessários porque o dispositivo tem de sincronizar tempo para que ele pode autenticar com o seu fornecedor de serviços cloud.
+    Os servidores NTP são necessários porque o seu dispositivo deve sincronizar o tempo para que possa autenticar com os seus fornecedores de serviços na nuvem.
     
-    ![Página de "Definições de tempo" de IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
+    ![Página local da Web UI "Definições de tempo"](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
-    Na **definições da hora** página, efetue o seguinte:
+    Na página de definições do **Tempo,** faça o seguinte:
     
-    1. Na **fuso horário** pendente, selecione o fuso horário que corresponde à localização geográfica na qual o dispositivo é implementado.
+    1. Na lista de desmina do **fuso horário,** selecione o fuso horário correspondente à localização geográfica em que o dispositivo é implantado.
         O fuso horário predefinido para o seu dispositivo é PST. O dispositivo utiliza este fuso horário para todas as operações agendadas.
 
-    2. Especifique um **servidor NTP primário** para o seu dispositivo ou aceite o valor predefinido de `time.windows.com`.   
+    2. Especifique um **servidor NTP primário** para o seu dispositivo ou aceite o valor padrão de `time.windows.com`.   
         Verifique se a sua rede permite que o tráfego NTP passe do datacenter para a Internet.
 
-    3. Opcionalmente, na **servidor NTP secundário** , introduza um servidor secundário para o seu dispositivo.
+    3. Opcionalmente, na caixa de **servidores NTP secundária,** introduza um servidor secundário para o seu dispositivo.
 
-    4. Para validar e aplicar as definições de tempo configurado, selecione **aplicar**.
+    4. Para validar e aplicar as definições de tempo configuradas, selecione **Aplicar**.
 
-6. No painel esquerdo, selecione **definições da Cloud**e, em seguida, ativar o dispositivo com o serviço de Gateway de caixa de dados no portal do Azure.
+6. No painel esquerdo, selecione **as definições cloud**, e, em seguida, ative o seu dispositivo com o serviço Data Box Gateway no portal Azure.
     
-    1. Na **chave de ativação** , introduza o **chave de ativação** que obteve [obter a chave de ativação](data-box-gateway-deploy-prep.md#get-the-activation-key) para o Gateway de caixa de dados.
+    1. Na caixa **de teclas Ativação,** introduza a **tecla Ativação** que obteve, [Obtenha a chave de ativação](data-box-gateway-deploy-prep.md#get-the-activation-key) para data box Gateway.
 
-    2. Selecione **ativar**.
+    2. **Selecione Ativar**.
        
-         ![Página de "Definições da nuvem" da IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
+         ![Página local da Web UI "Cloud settings"](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. O dispositivo é ativado e atualizações críticas, se estiver disponível, são automaticamente aplicadas. Verá uma notificação para o efeito. Monitorize o progresso de atualização através do portal do Azure.
+    3. O dispositivo é ativado e as atualizações críticas, se disponíveis, são automaticamente aplicadas. Vê uma notificação nesse sentido. Acompanhe o progresso da atualização através do portal Azure.
 
-        ![Página de "Definições da nuvem" da IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        ![Página local da Web UI "Cloud settings"](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
         
-        **A caixa de diálogo também tem uma chave de recuperação que deve copiar e guardar numa localização segura. Esta chave é utilizada para recuperar os dados no caso do dispositivo não é possível efetuar o arranque.**
+        **O diálogo também tem uma chave de recuperação que deve copiar e guardar num local seguro. Esta chave é usada para recuperar os seus dados caso o dispositivo não possa arrancar.**
 
 
-    4. Poderá ter de aguardar alguns minutos para a atualização concluir com êxito. Após a atualização é concluída, inicie sessão no dispositivo. O **definições da Cloud** página é atualizada para indicar que o dispositivo é ativado com êxito.
+    4. Pode ter de esperar vários minutos para que a atualização esteja concluída com sucesso. Depois de concluída a atualização, inscreva-se no dispositivo. As atualizações da página **de definições cloud** indicam que o dispositivo foi ativado com sucesso.
 
-        ![Página de "Definições da nuvem" local web da interface do Usuário atualizada](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
+        ![Página local da Web UI "Cloud settings" atualizada](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
-A configuração do dispositivo foi concluída. Agora pode adicionar partilhas no seu dispositivo.
+A configuração do dispositivo está completa. Agora pode adicionar ações no seu dispositivo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -140,7 +140,7 @@ Neste tutorial, ficou a saber como:
 > * Ligar a um dispositivo virtual
 > * Configurar e ativar o dispositivo virtual
 
-Para saber como transferir dados com o Gateway de caixa de dados, veja:
+Para aprender a transferir dados com o seu Portal de Data Box, consulte:
 
 > [!div class="nextstepaction"]
-> [Transferir dados com dados de caixa de Gateway](./data-box-gateway-deploy-add-shares.md).
+> [Transferir dados com Data Box Gateway](./data-box-gateway-deploy-add-shares.md).

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843944"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564982"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) permitem-lhe carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para a entrega de transmissões em fluxo, tanto a pedido, como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 
@@ -31,13 +31,13 @@ O AMS funciona em vários datacenters em todo o mundo. Estes datacenters são ag
 
 Este tópico mostra cenários comuns para entregar o seu conteúdo [ao vivo](#live_scenarios) ou a pedido. Também mostra detalhes sobre a disponibilidade dos serviços e funcionalidades de multimédia nos datacenters.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 Para começar a utilizar os Media Services do Azure, deve ter o seguinte:
 
-* Uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com).
+* Uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Media Services do Azure Para obter mais informações, consulte [Criar Conta](media-services-portal-create-account.md).
 * O ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
 
@@ -137,7 +137,7 @@ Para obter informações sobre a disponibilidade em datacenters, veja a secção
 
 ## <a name="consuming-content"></a>Consumo de conteúdos
 
-Os Media Services do Azure fornecem as ferramentas necessárias para criar aplicações avançadas e dinâmicas de leitor de cliente para a maioria das plataformas, incluindo: Dispositivos iOS dispositivos, Dispositivos Android, Windows, Windows Phone, Xbox e Caixas descodificadoras. O tópico seguinte fornece ligações para SDKs e Estruturas do Leitor que pode utilizar para desenvolver as suas próprias aplicações de cliente que podem consumir multimédia de transmissão de fluxo a partir dos Media Services. Para obter mais informações, veja [Developing video payer applications](media-services-develop-video-players.md) (Programar aplicações do leitor de vídeo)
+Os Media Services do Azure fornecem as ferramentas necessárias para criar aplicações avançadas e dinâmicas de leitor de cliente para a maioria das plataformas, incluindo: Dispositivos iOS dispositivos, Dispositivos Android, Windows, Windows Phone, Xbox e Caixas descodificadoras. 
 
 ## <a name="enabling-azure-cdn"></a>Ativar a CDN do Azure
 
@@ -179,8 +179,8 @@ Os clientes dos Serviços de Multimédia podem escolher um ponto final de transm
 
 |Nome|Estado|Datacenters
 |---|---|---|
-|Padrão|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Premium|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
+|Standard|GA|Todos|
+|Premium|GA|Todos|
 
 ### <a name="live-encoding"></a>Live Encoding
 
@@ -196,8 +196,8 @@ O AMS oferece dois codificadores a pedido, o **Media Encoder Standard** e o **Me
 
 |Nome do processador de mulitmédia|Estado|Datacenters
 |---|---|---|
-|Media Encoder Standard|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Fluxo de Trabalho Premium de Codificador de Multimédia|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo, exceto a China|
+|Media Encoder Standard|GA|Todos|
+|Fluxo de Trabalho Premium de Codificador de Multimédia|GA|Tudo, exceto a China|
 
 ### <a name="analytics-media-processors"></a>Processadores de multimédia de análise
 
@@ -207,12 +207,12 @@ A Análise de Multimédia é um conjunto de componentes de voz e visão que faci
 
 |Nome do processador de mulitmédia|Estado|Datacenters
 |---|---|---|
-|Azure Media Face Detector|Pré-visualização|Tudo|
-|Indexador de Multimédia do Azure|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Azure Media Motion Detector|Pré-visualização|Tudo|
-|Azure Media OCR|Pré-visualização|Tudo|
-|Azure Media Redactor|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Azure Media Video Thumbnails|Pré-visualização|Tudo|
+|Azure Media Face Detector|Pré-visualização|Todos|
+|Azure Media Indexer|GA|Todos|
+|Azure Media Motion Detector|Pré-visualização|Todos|
+|Azure Media OCR|Pré-visualização|Todos|
+|Azure Media Redactor|GA|Todos|
+|Azure Media Video Thumbnails|Pré-visualização|Todos|
 
 ### <a name="protection"></a>Proteção
 
@@ -222,11 +222,11 @@ Os Serviços de Multimédia do Microsoft Azure permite-lhe proteger os seus elem
 
 |Encriptação|Estado|Datacenters|
 |---|---|---| 
-|Armazenamento|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Chaves AES-128|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Fairplay|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|PlayReady|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Widevine|GA (Geographic Availability, Disponibilidade Geográfica)|Todos, exceto Alemanha, Federal Government e China.
+|Armazenamento|GA|Todos|
+|Chaves AES-128|GA|Todos|
+|Fairplay|GA|Todos|
+|PlayReady|GA|Todos|
+|Widevine|GA|Todos, exceto Alemanha, Federal Government e China.
 
 ### <a name="reserved-units-rus"></a>Unidades reservadas (RUs)
 
@@ -248,13 +248,13 @@ Para obter mais informações, veja a secção [Dimensionamento](#scaling).
 
 |Nome do tipo do RU|Estado|Datacenters
 |---|---|---|
-|S1|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|S2|GA (Geographic Availability, Disponibilidade Geográfica)|Todos, exceto Sul do Brasil e Oeste da Índia|
-|S3|GA (Geographic Availability, Disponibilidade Geográfica)|Todos, exceto Oeste da Índia|
+|S1|GA|Todos|
+|S2|GA|Todos, exceto Sul do Brasil e Oeste da Índia|
+|S3|GA|Todos, exceto Oeste da Índia|
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="next-steps"></a>Passos seguintes
 

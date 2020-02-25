@@ -1,5 +1,5 @@
 ---
-title: Configurar o pipeline de CI/CD com a tarefa de Build do emulador Azure Cosmos DB
+title: Configurar o oleoduto CI/CD com a tarefa de construção do emulador Azure Cosmos DB
 description: Tutorial sobre como configurar um fluxo de trabalho de compilação e versão no DevOps do Azure com a tarefa de compilação do emulador do Cosmos DB
 author: deborahc
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 4b05b4b44df53846a4880249785c6a5deda62f8a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0a705ad81925491fe054d846143472c6e4432b69
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846536"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561907"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
 
@@ -20,7 +20,7 @@ O emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço do 
 
 A tarefa de compilação do emulador do Azure Cosmos DB para o DevOps do Azure permite-lhe fazer o mesmo num ambiente de CI. Com a tarefa de compilação, pode testar o emulador como parte dos seus fluxos de trabalho de compilação e versão. A tarefa acelera um contentor Docker com o emulador a ser executado e fornece um ponto final que pode ser utilizado pelo resto da definição da compilação. Pode criar e iniciar todas as instâncias do emulador que precisar, com cada uma a ser executada num contentor separado. 
 
-Este artigo demonstra como configurar um pipeline de CI no DevOps do Azure para uma aplicação ASP.NET que utiliza a tarefa de compilação do emulador do Azure Cosmos DB para executar testes. Você pode usar uma abordagem semelhante para configurar um pipeline de CI para um aplicativo node. js ou Python. 
+Este artigo demonstra como configurar um pipeline de CI no DevOps do Azure para uma aplicação ASP.NET que utiliza a tarefa de compilação do emulador do Azure Cosmos DB para executar testes. Você pode usar uma abordagem semelhante para configurar um oleoduto CI para um Node.js ou uma aplicação Python. 
 
 ## <a name="install-the-emulator-build-task"></a>Instalar a tarefa de compilação do emulador
 
@@ -31,15 +31,15 @@ Para utilizar a tarefa de compilação, tem de a instalar primeiro na sua organi
 Em seguida, selecione a organização em que pretende instalar a extensão. 
 
 > [!NOTE]
-> Para instalar uma extensão para uma organização de DevOps do Azure, você deve ser um proprietário de conta ou administrador de coleção de projeto. Se não tiver permissões mas for membro de uma conta, terá a opção de pedir extensões. [Saiba mais.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
+> Para instalar uma extensão a uma organização Azure DevOps, deve ser proprietário de conta ou administrador de recolha de projetos. Se não tiver permissões mas for membro de uma conta, terá a opção de pedir extensões. [Saiba mais.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
-![Escolha uma organização de DevOps do Azure na qual instalar uma extensão](./media/tutorial-setup-ci-cd/addExtension_2.png)
+![Escolha uma organização Azure DevOps para instalar uma extensão](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## <a name="create-a-build-definition"></a>Criar uma definição de compilação
 
 Agora que a extensão está instalada, inicie sessão na sua conta do Azure DevOps e encontre o seu projeto no dashboard de projetos. Pode adicionar um [pipeline de compilação](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ao seu projeto ou modificar um pipeline de compilação existente. Se já tem um pipeline de compilação, pode avançar para [Adicionar a tarefa de compilação do Emulador à definição de compilação](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Para criar uma nova definição de compilação, navegue até ao separador **Compilações** no DevOps do Azure. Selecione **+New** (+Novo). \> **novo pipeline de Build**
+1. Para criar uma nova definição de compilação, navegue até ao separador **Compilações** no DevOps do Azure. Selecione **+New** (+Novo). \> **Novo oleoduto de construção**
 
    ![Criar um novo pipeline de compilação](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -50,7 +50,7 @@ Agora que a extensão está instalada, inicie sessão na sua conta do Azure DevO
 3. Por fim, selecione o modelo desejado para o pipeline de compilação. Neste tutorial, vamos selecionar o modelo **ASP.NET**. Agora você tem um pipeline de construção que você pode configurar para usar a tarefa de construção de emulador Azure Cosmos DB. 
 
 > [!NOTE]
-> O pool de agentes a ser selecionado para esse CI deve ter Docker for Windows instalado, a menos que a instalação seja feita manualmente em uma tarefa anterior como parte do CI. Consulte o artigo [Microsoft Hosted Agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) para uma seleção de pools de agentes; é recomendável começar com `Hosted VS2017`.
+> O conjunto de agentes a selecionar para este CI deve ter o Docker para windows instalado a menos que a instalação seja feita manualmente numa tarefa anterior como parte do CI. Consulte o artigo dos [agentes hospedados da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) para uma seleção de grupos de agentes; recomendamos começar com `Hosted VS2017`.
 
 O emulador Azure Cosmos DB atualmente não suporta o grupo de agentes VS2019 hospedado. No entanto, o emulador já vem com VS2019 instalado e você usa-o iniciando o emulador com os seguintes cmdlets PowerShell. Se tiver algum problema ao utilizar o VS2019, contacte a equipa [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) para obter ajuda:
 
@@ -73,7 +73,7 @@ Neste tutorial, irá adicionar a tarefa ao início para garantir que o emulador 
 
 Agora serão configurados os testes para utilizar o emulador. A tarefa de compilação do emulador exporta uma variável de ambiente ("CosmosDbEmulator.Endpoint") à qual todas as tarefas no pipeline de compilação podem emitir pedidos. 
 
-Neste tutorial, é utilizada a [tarefa do Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para executar testes de unidades configurados através de um ficheiro **.runsettings**. Para saber mais sobre a configuração de testes de unidades, aceda à [documentação](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). O exemplo de código completo do aplicativo todo que você usa neste documento está disponível no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+Neste tutorial, é utilizada a [tarefa do Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para executar testes de unidades configurados através de um ficheiro **.runsettings**. Para saber mais sobre a configuração de testes de unidades, aceda à [documentação](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). A amostra completa do código de aplicação Todo que utiliza neste documento está disponível no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
 Abaixo encontra-se o exemplo de um ficheiro **.runsettings** que define parâmetros a ser passados para os testes de unidades de uma aplicação. Tenha em atenção que a variável `authKey` utilizada é a [chave já conhecida](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) do emulador. A `authKey` é a chave esperada pela tarefa de compilação do emulador e deve ser definida no seu ficheiro **.runsettings**.
 
@@ -88,7 +88,7 @@ Abaixo encontra-se o exemplo de um ficheiro **.runsettings** que define parâmet
 </RunSettings>
 ```
 
-Se você estiver configurando um pipeline de CI/CD para um aplicativo que usa a API do Azure Cosmos DB para MongoDB, a cadeia de conexão por padrão inclui o número da porta 10255. No entanto, essa porta não está aberta no momento, como alternativa, você deve usar a porta 10250 para estabelecer a conexão. A API do Azure Cosmos DB para a cadeia de conexão do MongoDB permanece a mesma, exceto que o número da porta com suporte é 10250 em vez de 10255.
+Se estiver a criar um oleoduto CI/CD para uma aplicação que utiliza a API do Azure Cosmos DB para o MongoDB, a cadeia de ligação por padrão inclui o número de porta 10255. No entanto, esta porta não está aberta atualmente, como alternativa, deve utilizar a porta 10250 para estabelecer a ligação. A API da Azure Cosmos DB para a cadeia de ligação MongoDB permanece a mesma, exceto que o número de porta suportada é 10250 em vez de 10255.
 
 Estes parâmetros `TestRunParameters` são mencionados através de uma propriedade `TestContext` no projeto de teste da aplicação. Eis um exemplo de um teste que é executado no Cosmos DB.
 
@@ -156,9 +156,9 @@ Após a conclusão da compilação, poderá observar os seus testes a passarem, 
 
 ![Guardar e executar a compilação](./media/tutorial-setup-ci-cd/buildComplete_1.png)
 
-## <a name="set-up-using-yaml"></a>Configurar usando YAML
+## <a name="set-up-using-yaml"></a>Configurar usando o YAML
 
-Se você estiver configurando o pipeline de CI/CD usando uma tarefa YAML, poderá definir a tarefa YAML, conforme mostrado no código a seguir:
+Se estiver a configurar o gasoduto CI/CD utilizando uma tarefa YAML, pode definir a tarefa YAML como mostrado no seguinte código:
 
 ```yml
 - task: azure-cosmosdb.emulator-public-preview.run-cosmosdbemulatorcontainer.CosmosDbEmulator@2

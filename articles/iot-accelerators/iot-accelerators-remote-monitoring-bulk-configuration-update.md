@@ -1,34 +1,34 @@
 ---
-title: Gerenciar dispositivos conectados ao monitoramento remoto em massa – Azure | Microsoft Docs
-description: Neste tutorial, você aprenderá a gerenciar os dispositivos conectados a uma solução de monitoramento remoto em massa.
-author: aditidugar
+title: Gerir dispositivos ligados à Monitorização Remota a granel - Azure  Microsoft Docs
+description: Neste tutorial aprende-se a gerir os dispositivos ligados a uma solução de Monitorização Remota a granel.
+author: Philmea
 manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: adugar
-ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: philmea
+ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980555"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565583"
 ---
-# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: gerenciar seus dispositivos conectados em massa
+# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Gerencie os seus dispositivos conectados a granel
 
-Neste tutorial, você usa o acelerador de solução de monitoramento remoto para gerenciar a configuração de seus dispositivos conectados em massa.
+Neste tutorial, utiliza o acelerador de solução de monitorização remota para gerir a configuração dos seus dispositivos conectados a granel.
 
-Como um operador na contoso, você precisa configurar um grupo de dispositivos com uma nova versão de firmware. Você não deseja ter que atualizar o firmware em cada dispositivo individualmente. Para atualizar o firmware em um grupo de dispositivos, você pode usar grupos de dispositivos e gerenciamento de dispositivo automático no acelerador de solução de monitoramento remoto. Qualquer dispositivo adicionado ao grupo de dispositivos Obtém o firmware mais recente assim que o dispositivo fica online.
+Como operador na Contoso, é necessário configurar um grupo de dispositivos com uma nova versão de firmware. Não pretende ter de atualizar o firmware em cada dispositivo individualmente. Para atualizar o firmware num conjunto de dispositivos, pode utilizar grupos de dispositivos e gestão automática de dispositivos no acelerador de soluções de monitorização remota. Qualquer dispositivo que adicione ao grupo de dispositivos recebe o mais recente firmware assim que o dispositivo estiver online.
 
 Neste tutorial:
 
 >[!div class="checklist"]
 > * Criar um grupo de dispositivos
-> * Preparar e hospedar o firmware
-> * Criar uma configuração de dispositivo no portal do Azure
-> * Importar uma configuração de dispositivo para sua solução de monitoramento remoto
-> * Implantar a configuração nos dispositivos no grupo de dispositivos
+> * Prepare e acolde o firmware
+> * Criar uma configuração de dispositivo no portal Azure
+> * Importe uma configuração do dispositivo para a sua solução de monitorização remota
+> * Implementar a configuração para os dispositivos no grupo do dispositivo
 > * Monitorizar a implementação
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -45,21 +45,21 @@ Para seguir este tutorial, precisa de uma instância implementada do acelerador 
 
 Se ainda não tiver implementado o acelerador de soluções de Monitorização Remota, deverá concluir o início rápido [Implementar uma solução de monitorização remota baseada na cloud](quickstart-remote-monitoring-deploy.md).
 
-Você precisa de uma conta de armazenamento do Azure para hospedar seus arquivos de firmware. Você pode usar uma conta de armazenamento existente ou [criar uma nova conta de armazenamento](../storage/common/storage-account-create.md) em sua assinatura.
+Precisa de uma conta de armazenamento Azure para alojar os seus ficheiros de firmware. Pode utilizar uma conta de armazenamento existente ou [criar uma nova conta](../storage/common/storage-account-create.md) de armazenamento na sua subscrição.
 
-O tutorial usa um dispositivo [IOT devkit](https://microsoft.github.io/azure-iot-developer-kit/) como um dispositivo de exemplo.
+O tutorial utiliza um dispositivo [IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) como dispositivo de amostra.
 
-Você precisa do seguinte software instalado em seu computador local:
+Precisa do seguinte software instalado na sua máquina local:
 
-* [Visual Studio Code (vs Code)](https://code.visualstudio.com/).
-* A extensão de VS Code do [Azure IOT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) .
+* Código de [estúdio visual (Código VS)](https://code.visualstudio.com/).
+* A extensão do Código VS da [bancada de trabalho Azure IoT.](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench)
 
 Antes de começar:
 
-* Verifique se o carregador de início de [versão do dispositivo IOT devkit está no 1.4.0 ou superior](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
-* Verifique se o SDK do IoT DevKit está na mesma versão do carregador de paficação. Você pode atualizar o SDK do IoT DevKit usando o Azure IoT Workbench no VS Code. Abra a paleta de comandos e insira **Arduino: gerente de placa**. Para obter mais informações, consulte [preparar o ambiente de desenvolvimento](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
+* Certifique-se de que o [bootloader do seu dispositivo IoT DevKit está na versão 1.4.0 ou superior](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
+* Certifique-se de que o IoT DevKit SDK está na mesma versão que o bootloader. Pode atualizar o IoT DevKit SDK utilizando a bancada de trabalho Azure IoT no Código VS. Abra a paleta de comando e entre **arduino: Gerente de Bordo.** Para mais informações, consulte [Preparar o ambiente de desenvolvimento.](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment)
 
-Você também precisa conectar pelo menos um dispositivo IoT DevKit ao acelerador de solução de monitoramento remoto. Se você não conectou um dispositivo IoT DevKit, consulte [conectar MXChip IOT DEVKIT AZ3166 ao acelerador de solução de monitoramento remoto de IOT](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
+Também precisa de ligar pelo menos um dispositivo IoT DevKit ao seu acelerador de solução de monitorização remota. Se não tiver ligado um dispositivo IoT DevKit, consulte [Connect MXChip IoT DevKit AZ3166 ao acelerador de solução de monitorização remota IoT](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
 
 ## <a name="navigate-to-the-dashboard"></a>Navegue para o dashboard
 
@@ -69,91 +69,91 @@ Em seguida, clique em **Iniciar** no mosaico do acelerador de soluções de Moni
 
 ## <a name="create-a-device-group"></a>Criar um grupo de dispositivos
 
-Para atualizar automaticamente o firmware em um grupo de dispositivos, os dispositivos devem ser membros de um grupo de dispositivos em sua solução de monitoramento remoto:
+Para atualizar automaticamente o firmware num grupo de dispositivos, os dispositivos devem ser membros de um grupo de dispositivos na sua solução de Monitorização Remota:
 
-1. Na página **dispositivos** , selecione todos os dispositivos **IOT devkit** que você conectou ao Solution Accelerator. Em seguida, clique em **Tarefas**.
+1. Na página **Dispositivos,** selecione todos os dispositivos **IoT DevKit** que ligou ao acelerador de soluções. Em seguida, clique em **Tarefas**.
 
-1. No painel **trabalhos** , selecione **marcas**, defina o nome do trabalho como **AddDevKitTag**e, em seguida, adicione uma marca de texto chamada **IsDevKitDevice** com um valor **Y**. Em seguida, clique em **aplicar**.
+1. No painel **Jobs,** selecione **Tags,** detete o nome de trabalho para **AddDevKitTag,** e adicione uma etiqueta de texto chamada **IsDevKitDevice** com um valor **Y**. Em seguida, clique em **Aplicar**.
 
-1. Agora você pode usar os valores de marca para criar um grupo de dispositivos. Na página **dispositivos** , clique em **gerenciar grupos de dispositivos**.
+1. Agora pode usar os valores de etiqueta para criar um grupo de dispositivos. Na página **Dispositivos,** clique em **Gerir grupos de dispositivos**.
 
-1. Crie um filtro de texto que use o nome de marca **IsDevKitDevice** e o valor **Y** na condição. Salve o grupo de dispositivos como **dispositivos IOT devkit**.
+1. Crie um filtro de texto que utilize o nome de etiqueta **IsDevKitDevice** e valorize **Y** na condição. Guarde o grupo do dispositivo como **dispositivos IoT DevKit**.
 
-Posteriormente neste tutorial, você usará esse grupo de dispositivos para aplicar uma configuração de dispositivo que atualiza o firmware de todos os membros.
+Mais tarde neste tutorial, utiliza este grupo de dispositivos para aplicar uma configuração do dispositivo que atualiza o firmware de todos os membros.
 
-## <a name="prepare-and-host-the-firmware"></a>Preparar e hospedar o firmware
+## <a name="prepare-and-host-the-firmware"></a>Prepare e acolde o firmware
 
-A extensão de VS Code do [Azure IOT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) inclui o código do dispositivo de exemplo para a atualização do firmware.
+A extensão do Código VS da [bancada de trabalho Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) inclui o código do dispositivo de amostra para a atualização do firmware.
 
-### <a name="open-the-firmware-ota-sample-in-vs-code"></a>Abra o exemplo de firmware OTA no VS Code
+### <a name="open-the-firmware-ota-sample-in-vs-code"></a>Abra a amostra Firmware OTA no Código VS
 
-1. Verifique se o IoT DevKit não está conectado ao computador. Inicie o VS Code e conecte o DevKit ao seu computador.
+1. Certifique-se de que o seu IoT DevKit não está ligado ao seu computador. Inicie o Código VS e, em seguida, ligue o DevKit ao seu computador.
 
-1. Pressione **F1** para abrir a paleta de comandos, digite e selecione **IOT Workbench: exemplos**. Em seguida, selecione **IOT devkit** como o quadro.
+1. Prima **F1** para abrir a paleta de comando, digite e selecione **IoT Workbench: Exemplos**. Em seguida, selecione **IoT DevKit** como placa.
 
-1. Localize o **firmware OTA** e clique em **abrir exemplo**. Uma nova janela VS Code é aberta e mostra a pasta **firmware_ota** projeto:
+1. Encontre **firmware OTA** e clique em **Amostra Aberta**. Uma nova janela do Código VS abre e mostra a pasta do projeto **firmware_ota:**
 
-    ![IoT Workbench, selecione o exemplo de firmware OTA](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-firmware-example.png)
+    ![IoT Workbench, selecione Firmware OTA exemplo](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-firmware-example.png)
 
-### <a name="build-the-new-firmware"></a>Criar o novo firmware
+### <a name="build-the-new-firmware"></a>Construa o novo firmware
 
-A versão inicial do firmware do dispositivo é a 1.0.0. O novo firmware deve ter um número de versão mais alto.
+A versão inicial do firmware do dispositivo é de 1.0.0. O novo firmware deve ter um número de versão mais elevado.
 
-1. No VS Code, abra o arquivo **FirmwareOTA. ino** e altere o `currentFirmwareVersion` de `1.0.0` para `1.0.1`:
+1. No Código VS, abra o ficheiro **FirmwareOTA.ino** e altere o `currentFirmwareVersion` de `1.0.0` para `1.0.1`:
 
-    ![Alterar a versão do firmware](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
+    ![Alterar a versão firmware](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Abra a paleta de comandos e digite e selecione **IOT Workbench: dispositivo**. Em seguida, selecione **dispositivo compilar** para compilar o código:
+1. Abra a paleta de comando, em seguida, digite e selecione **IoT Workbench: Dispositivo**. Em seguida, **selecione Device Compile** para compilar o código:
 
-    ![Compilação de dispositivo](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-compile.png)
+    ![Compilação de dispositivos](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-compile.png)
 
-    VS Code salva o arquivo compilado na pasta `.build` no projeto. Dependendo de suas configurações, VS Code poderá ocultar a pasta `.build` no modo de exibição do Explorer.
+    O Código VS guarda o ficheiro compilado na pasta `.build` do projeto. Dependendo das definições, o Código VS pode ocultar a pasta `.build` na vista do explorador.
 
-### <a name="generate-the-crc-value-and-calculate-the-firmware-file-size"></a>Gerar o valor de CRC e calcular o tamanho do arquivo de firmware
+### <a name="generate-the-crc-value-and-calculate-the-firmware-file-size"></a>Gere o valor CRC e calcule o tamanho do ficheiro firmware
 
-1. Abra a paleta de comandos e digite e selecione **IOT Workbench: dispositivo**. Em seguida, selecione **gerar CRC**:
+1. Abra a paleta de comando, em seguida, digite e selecione **IoT Workbench: Dispositivo**. Em seguida, **selecione Generate CRC:**
 
     ![Gerar CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-crc.png)
 
-1. VS Code gera e imprime o valor de CRC, o nome de arquivo e o caminho do firmware e o tamanho do arquivo na janela saída. Anote esses valores para mais tarde:
+1. O Código VS gera e imprime o valor CRC, o nome de ficheiro e o caminho do firmware e o tamanho do ficheiro na janela de saída. Tome nota destes valores para mais tarde:
 
-    ![Informações de CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/crc-info.png)
+    ![Informação do CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/crc-info.png)
 
-### <a name="upload-the-firmware-to-the-cloud"></a>Carregar o firmware para a nuvem
+### <a name="upload-the-firmware-to-the-cloud"></a>Faça upload do firmware para a nuvem
 
-Use sua conta de armazenamento do Azure para hospedar o novo arquivo de firmware na nuvem.
+Utilize a sua conta de armazenamento Azure para alojar o seu novo ficheiro firmware na nuvem.
 
-1. Navegue para a sua conta de armazenamento no portal do Azure. Na seção serviços, selecione **BLOBs**. Crie um contêiner público chamado **firmware** para armazenar seus arquivos de firmware:
+1. Navegue para a sua conta de armazenamento no portal do Azure. Na secção Serviços, selecione **Blobs**. Crie um recipiente público chamado **firmware** para armazenar os seus ficheiros firmware:
 
     ![Criar pasta](media/iot-accelerators-remote-monitoring-bulk-configuration-update/blob-folder.png)
 
-1. Para carregar o arquivo de firmware no contêiner, selecione o contêiner de **firmware** e clique em **carregar**.
+1. Para fazer o upload do ficheiro firmware para o recipiente, selecione o recipiente **firmware** e clique em **Carregar**.
 
-1. Selecione o **FirmwareOTA. ino. bin**. Você fez uma observação do caminho completo para esse arquivo na seção anterior.
+1. Selecione o **FirmwareOTA.ino.bin**. Fez uma nota do caminho completo para este ficheiro na secção anterior.
 
-1. Após a conclusão do upload do arquivo de firmware, anote a URL do arquivo.
+1. Depois de o ficheiro firmware ser carregado completo, tome nota do URL do ficheiro.
 
-### <a name="build-and-upload-the-original-firmware-to-the-iot-devkit-device"></a>Compilar e carregar o firmware original para o dispositivo IoT DevKit
+### <a name="build-and-upload-the-original-firmware-to-the-iot-devkit-device"></a>Construa e carregue o firmware original para o dispositivo IoT DevKit
 
-1. No VS Code, abra o arquivo **FirmwareOTA. ino** e altere o `currentFirmwareVersion` de volta para `1.0.0`:
+1. No Código VS, abra o ficheiro **FirmwareOTA.ino** e mude o `currentFirmwareVersion` de volta para `1.0.0`:
 
     ![Versão 1.0.0](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Abra a paleta de comandos e digite e selecione **IOT Workbench: dispositivo**. Em seguida, selecione **carregar dispositivo**:
+1. Abra a paleta de comando, em seguida, digite e selecione **IoT Workbench: Dispositivo**. Em seguida, selecione **O Upload do Dispositivo:**
 
     ![Upload do dispositivo](media/iot-accelerators-remote-monitoring-bulk-configuration-update/device-upload.png)
 
-1. VS Code verifica e carrega o código para o dispositivo IoT DevKit.
+1. O Código VS verifica e envia o código para o seu dispositivo IoT DevKit.
 
-1. Quando o upload é concluído, o dispositivo IoT DevKit é reinicializado. Quando a reinicialização for concluída, a tela de IoT DevKit mostrará a **versão do FW: 1.0.0**e a verificação de novo firmware:
+1. Quando o upload terminar, o dispositivo IoT DevKit reinicia. Quando o reboot está concluído, o ecrã do IoT DevKit mostra a **versão FW: 1.0.0**, e que está a verificar novos firmware:
 
     ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Criar uma configuração de dispositivo
 
-Uma configuração de dispositivo especifica o estado desejado de seus dispositivos. Normalmente, um desenvolvedor [cria a configuração](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) na página de **configuração do dispositivo IOT** no portal do Azure. Uma configuração de dispositivo é um documento JSON que especifica o estado desejado de seus dispositivos e um conjunto de métricas.
+Uma configuração do dispositivo especifica o estado desejado dos seus dispositivos. Tipicamente, um desenvolvedor [cria a configuração](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) na página de configuração do **dispositivo IoT** no portal Azure. Uma configuração do dispositivo é um documento JSON que especifica o estado desejado dos seus dispositivos e um conjunto de métricas.
 
-Salve a configuração a seguir como arquivo chamado **Firmware-Update. JSON** em seu computador local. Substitua os espaços reservados `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM`e `YOURPACKAGESIZE` pelos valores que você fez anotar anteriormente:
+Guarde a seguinte configuração como ficheiro chamado **firmware-update.json** na sua máquina local. Substitua os `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM`e `YOURPACKAGESIZE` espaços reservados com os valores que fez anteriormente:
 
 ```json
 {
@@ -200,78 +200,78 @@ Salve a configuração a seguir como arquivo chamado **Firmware-Update. JSON** e
 }
 ```
 
-Use esse arquivo de configuração na seção a seguir.
+Utilize este ficheiro de configuração na secção seguinte.
 
 ## <a name="import-a-configuration"></a>Importar uma configuração
 
-Nesta seção, você importará a configuração do dispositivo como um pacote no acelerador de solução de monitoramento remoto. Normalmente, um operador conclui essa tarefa.
+Nesta secção, importa-se a configuração do dispositivo como uma embalagem para o acelerador de solução de monitorização remota. Normalmente, um operador completa esta tarefa.
 
-1. Na interface do usuário da Web de monitoramento remoto, navegue até a página **pacotes** e clique em **+ novo pacote**:
+1. Na UI web de monitorização remota, navegue para a página **Pacotes** e clique **em + Novo Pacote:**
 
     ![Novo pacote](media/iot-accelerators-remote-monitoring-bulk-configuration-update/packagepage.png)
 
-1. No painel **novo pacote** , escolha **configuração do dispositivo** como o tipo de pacote e **firmware** como o tipo de configuração. Clique em **procurar** para localizar o arquivo **Firmware-Update. JSON** em seu computador local e, em seguida, clique em **carregar**:
+1. No painel **New Package,** escolha a **configuração do Dispositivo** como tipo de pacote e **Firmware** como o tipo de configuração. Clique em **Navegar** para encontrar o ficheiro **firmware-update.json** na sua máquina local e, em seguida, clique em **Carregar:**
 
-    ![Carregar pacote](media/iot-accelerators-remote-monitoring-bulk-configuration-update/uploadpackage.png)
+    ![Pacote de upload](media/iot-accelerators-remote-monitoring-bulk-configuration-update/uploadpackage.png)
 
-1. A lista de pacotes agora inclui o pacote de **atualização de firmware** .
+1. A lista de pacotes inclui agora o pacote **de atualização de firmware.**
 
-## <a name="deploy-the-configuration-to-your-devices"></a>Implantar a configuração em seus dispositivos
+## <a name="deploy-the-configuration-to-your-devices"></a>Implemente a configuração para os seus dispositivos
 
-Nesta seção, você cria e executa uma implantação que aplica a configuração do dispositivo aos dispositivos IoT DevKit.
+Nesta secção, cria e executa uma implementação que aplica a configuração do dispositivo aos seus dispositivos IoT DevKit.
 
-1. Na interface do usuário da Web de monitoramento remoto, navegue até a página **implantações** e clique em **+ nova implantação**:
+1. Na UI web de monitorização remota, navegue para a página **de Implementações** e clique **+ Nova implementação:**
 
     ![Nova implantação](media/iot-accelerators-remote-monitoring-bulk-configuration-update/deploymentpage.png)
 
-1. No novo painel de **implantação** , crie uma implantação com as seguintes configurações:
+1. No novo painel de **implantação,** crie uma implementação com as seguintes definições:
 
     |Opção|Valor|
     |---|---|
-    |Nome|Implantar atualização de firmware|
-    |Tipo de pacote|Configuração do Dispositivo|
+    |Nome|Implementar atualização de firmware|
+    |Tipo de pacote|Configuração do dispositivo|
     |Tipo de configuração|Firmware|
     |Pacote|firmware-update.json|
-    |Grupo de dispositivos|Dispositivos IoT DevKit|
+    |Grupo de Dispositivos|Dispositivos IoT DevKit|
     |Prioridade|10|
 
     ![Criar implementação](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 
-    Clique em **Aplicar**. Você verá uma nova implantação na página **implantações** que mostra as seguintes métricas:
+    Clique em **Aplicar**. Você vê uma nova implementação na página **de Implementações** que mostra as seguintes métricas:
 
-    * **Direcionado** mostra o número de dispositivos no grupo de dispositivos.
+    * **O alvo** mostra o número de dispositivos no grupo do dispositivo.
     * **Aplicado** mostra o número de dispositivos que foram atualizados com o conteúdo de configuração.
-    * **Êxito** mostra o número de dispositivos na implantação que relatam êxito.
-    * **Falha** mostra o número de dispositivos na implantação que relatam falha.
+    * **O sucesso** mostra o número de dispositivos na implantação que reportam o sucesso.
+    * **Falhas** mostram o número de dispositivos na implementação que reportam falha.
 
 ## <a name="monitor-the-deployment"></a>Monitorizar a implementação
 
-Após alguns minutos, o IoT DevKit recupera as novas informações de firmware e começa a baixá-las para o dispositivo:
+Após alguns minutos, o IoT DevKit recupera as novas informações de firmware e começa a descarregá-la para o dispositivo:
 
 ![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
-Dependendo da velocidade da sua rede, o download pode levar alguns minutos para demorar. Depois que o firmware é baixado, o dispositivo verifica o tamanho do arquivo e o valor de CRC. A tela no MXChip exibirá a **aprovação** se a verificação for bem-sucedida.
+Dependendo da velocidade da sua rede, o download pode demorar até alguns minutos. Após o download do firmware, o dispositivo verifica o tamanho do ficheiro e o valor CRC. O ecrã dos ecrãs MXChip **passou** se a verificação for bem sucedida.
 
 ![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
-Se a verificação for bem-sucedida, o dispositivo será reinicializado. Você verá uma contagem regressiva de **5** a **0** antes que a reinicialização ocorra.
+Se a verificação for bem sucedida, o dispositivo reinicia. Vê-se uma contagem regressiva de **5** a **0** antes do reboot acontecer.
 
 ![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
-Após a reinicialização, o carregador de inicialização IoT DevKit atualiza o firmware para a nova versão. A atualização pode levar vários segundos. Durante esse estágio, o LED RGB no dispositivo é vermelho e a tela fica em branco.
+Após o reboot, o bootloader IoT DevKit atualiza o firmware para a nova versão. A atualização pode demorar alguns segundos. Durante esta fase, o LED RGB no dispositivo é vermelho e o ecrã está em branco.
 
-![OTA-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
+![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
-Quando a reinicialização for concluída, seu dispositivo IoT DevKit agora está executando a versão 1.0.1 do firmware.
+Quando o reboot estiver concluído, o seu dispositivo IoT DevKit está agora a executar a versão 1.0.1 do firmware.
 
 ![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
-Na página **implantações** , clique em uma implantação para ver o status dos dispositivos à medida que eles são atualizados. Você pode ver o status de cada dispositivo em seu grupo de dispositivos e as métricas personalizadas que você definiu.
+Na página **'Implementações',** clique numa implementação para ver o estado dos seus dispositivos à medida que atualizam. Pode ver o estado de cada dispositivo no seu grupo de dispositivos e as métricas personalizadas que definiu.
 
-![Detalhes de implementação](media/iot-accelerators-remote-monitoring-bulk-configuration-update/deploymentstatus.png)
+![Detalhes da implementação](media/iot-accelerators-remote-monitoring-bulk-configuration-update/deploymentstatus.png)
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este tutorial mostrou como atualizar o firmware de um grupo de dispositivos conectados à sua solução. Para atualizar os dispositivos, sua solução usa o gerenciamento automático de dispositivos. Para saber mais sobre o recurso de gerenciamento de dispositivo automático no Hub IoT subjacente da solução, confira [configurar e monitorar dispositivos IOT em escala usando o portal do Azure](../iot-hub/iot-hub-auto-device-config.md).
+Este tutorial mostrou-lhe como atualizar o firmware de um grupo de dispositivos ligados à sua solução. Para atualizar os dispositivos, a sua solução utiliza a gestão automática do dispositivo. Para saber mais sobre a funcionalidade de gestão automática do dispositivo no hub IoT subjacente da sua solução, consulte os [dispositivos Configure e monitor ioT em escala utilizando o portal Azure](../iot-hub/iot-hub-auto-device-config.md).

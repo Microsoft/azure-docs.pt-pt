@@ -1,6 +1,6 @@
 ---
-title: Usar scripts de implantação de modelo | Microsoft Docs
-description: Saiba como usar scripts de implantação em modelos de Azure Resource Manager.
+title: Use scripts de implementação de modelos / Microsoft Docs
+description: Saiba como usar scripts de implementação em modelos de Gestor de Recursos Azure.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5454d2f80d1febccb0c57ecf2e80d930bb5cb761
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988809"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561464"
 ---
-# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: usar scripts de implantação para criar um certificado autoassinado (versão prévia)
+# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Utilize scripts de implementação para criar um certificado auto-assinado (Pré-visualização)
 
-Saiba como usar scripts de implantação no recurso do Azure gerenciar modelos. Os scripts de implantação podem ser usados para executar etapas personalizadas que não podem ser feitas por modelos do Resource Manager. Por exemplo, criar um certificado autoassinado.  Neste tutorial, você cria um modelo para implantar um cofre de chaves do Azure e, em seguida, usa um recurso `Microsoft.Resources/deploymentScripts` no mesmo modelo para criar um certificado e, em seguida, adicionar o certificado ao cofre de chaves. Para saber mais sobre o script de implantação, consulte [usar scripts de implantação em modelos de Azure Resource Manager](./deployment-script-template.md).
+Aprenda a usar scripts de implementação em modelos de Gestão de Recursos Azure. Scripts de implementação podem ser usados para executar passos personalizados que não podem ser feitos por modelos de Gestor de Recursos. Por exemplo, criar um certificado auto-assinado.  Neste tutorial, você cria um modelo para implantar um cofre chave Azure, e depois usa um recurso `Microsoft.Resources/deploymentScripts` no mesmo modelo para criar um certificado e, em seguida, adicionar o certificado ao cofre chave. Para saber mais sobre o script de implementação, consulte [scripts de implementação use scripts de implementação em modelos de Gestor de Recursos Azure](./deployment-script-template.md).
 
 > [!NOTE]
-> O script de implantação está atualmente em visualização. Para usá-lo, você deve [se inscrever para a versão prévia](https://aka.ms/armtemplatepreviews).
+> O script de implantação está atualmente em pré-visualização. Para usá-lo, deve [inscrever-se para a pré-visualização](https://aka.ms/armtemplatepreviews).
 
 > [!IMPORTANT]
-> Dois recursos de script de implantação, uma conta de armazenamento e uma instância de contêiner, são criados no mesmo grupo de recursos para execução de script e solução de problemas. Esses recursos geralmente são excluídos pelo serviço de script quando a execução do script entra em um estado terminal. Você será cobrado pelos recursos até que os recursos sejam excluídos. Para saber mais, confira [limpar recursos de script de implantação](./deployment-script-template.md#clean-up-deployment-script-resources).
+> Dois recursos de script de implementação, uma conta de armazenamento e uma instância de contentores, são criados no mesmo grupo de recursos para execução de scripts e resolução de problemas. Estes recursos são geralmente eliminados pelo serviço de script quando a execução do script entra em estado terminal. Você é cobrado pelos recursos até que os recursos sejam eliminados. Para saber mais, consulte [a Limpeza dos recursos do script de implementação.](./deployment-script-template.md#clean-up-deployment-script-resources)
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -36,22 +36,22 @@ Este tutorial abrange as seguintes tarefas:
 > * Abrir um modelo de Início Rápido
 > * Editar o modelo
 > * Implementar o modelo
-> * Depurar o script com falha
+> * Depurar o guião falhado
 > * Limpar recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, precisa de:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) com a extensão de ferramentas do Resource Manager**. Consulte [usar Visual Studio Code para criar modelos de Azure Resource Manager](./use-vs-code-to-create-template.md).
+* **[Código de estúdio visual](https://code.visualstudio.com/) com a extensão ferramentas de gestor de recursos**. Consulte [o Código do Estúdio Visual para criar modelos](./use-vs-code-to-create-template.md)de Gestor de Recursos Azure .
 
-* **Uma identidade gerenciada atribuída pelo usuário com a função do colaborador no nível da assinatura**. Essa identidade é usada para executar scripts de implantação. Para criar um, consulte [identidade gerenciada atribuída pelo usuário](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Você precisa da ID de identidade ao implantar o modelo. O formato da identidade é:
+* Uma identidade gerida atribuída ao **utilizador com o papel do contribuinte ao nível da subscrição**. Esta identidade é usada para executar scripts de implantação. Para criar um, consulte [a identidade gerida atribuída pelo Utilizador.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity) Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Use o seguinte script do PowerShell para obter a ID fornecendo o nome do grupo de recursos e o nome da identidade.
+  Utilize o seguinte script PowerShell para obter o ID fornecendo o nome do grupo de recursos e o nome de identidade.
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
@@ -62,9 +62,9 @@ Para concluir este artigo, precisa de:
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). Os modelos de início rápido do Azure são um repositório para modelos do Resource Manager.
+Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). Os modelos Azure Quickstart é um repositório para modelos de Gestor de Recursos.
 
-O modelo usado neste guia de início rápido é chamado [criar um Azure Key Vault e um segredo](https://azure.microsoft.com/resources/templates/101-key-vault-create/). O modelo cria um cofre de chaves e, em seguida, adiciona um segredo ao cofre de chaves.
+O modelo usado neste quickstart chama-se [Criar um Cofre chave Azure e um segredo.](https://azure.microsoft.com/resources/templates/101-key-vault-create/) O modelo cria um cofre chave, e depois adiciona um segredo ao cofre da chave.
 
 1. No Visual Studio Code, selecione **Ficheiro**>**Abrir Ficheiro**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
@@ -82,22 +82,22 @@ Faça as seguintes alterações no modelo:
 
 ### <a name="clean-up-the-template-optional"></a>Limpar o modelo (opcional)
 
-O modelo original adiciona um segredo ao cofre de chaves.  Para simplificar o tutorial, remova o seguinte recurso:
+O modelo original adiciona um segredo ao cofre da chave.  Para simplificar o tutorial, remova o seguinte recurso:
 
-* **Microsoft. keyvault/cofres/segredos**
+* **Microsoft.KeyVault/cofres/segredos**
 
-Remova as duas definições de parâmetro a seguir:
+Remova as seguintes duas definições de parâmetro:
 
-* **secretName**
-* **segredo**
+* **nome secreto**
+* **secretValue**
 
-Se você optar por não remover essas definições, será necessário especificar os valores de parâmetro durante a implantação.
+Se optar por não remover estas definições, tem de especificar os valores do parâmetro durante a implementação.
 
-### <a name="configure-the-key-vault-access-policies"></a>Configurar as políticas de acesso do cofre de chaves
+### <a name="configure-the-key-vault-access-policies"></a>Configure as políticas de acesso ao cofre chave
 
-O script de implantação adiciona um certificado ao cofre de chaves. Configure as políticas de acesso do cofre de chaves para conceder a permissão para a identidade gerenciada:
+O guião de implantação adiciona um certificado ao cofre da chave. Configure as políticas de acesso ao cofre chave para dar a permissão à identidade gerida:
 
-1. Adicione um parâmetro para obter a ID de identidade gerenciada:
+1. Adicione um parâmetro para obter o ID de identidade gerido:
 
     ```json
     "identityId": {
@@ -109,9 +109,9 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
     ```
 
     > [!NOTE]
-    > A extensão do modelo do Gerenciador de recursos do Visual Studio Code não é capaz de Formatar scripts de implantação ainda. Não utilize [SHIFT]+[ALT]+F para formatar os recursos dos Scripts de implementação, como o seguinte.
+    > A extensão do modelo do Modelo de Gestor de Recursos do Código do Estúdio Visual ainda não é capaz de formatar scripts de implementação. Não utilize [SHIFT]+[ALT]+F para formatar os recursos dos Scripts de implementação, como o seguinte.
 
-1. Adicione um parâmetro para configurar as políticas de acesso do cofre de chaves para que a identidade gerenciada possa adicionar certificados ao cofre de chaves.
+1. Adicione um parâmetro para configurar as políticas de acesso ao cofre chave para que a identidade gerida possa adicionar certificados ao cofre chave.
 
     ```json
     "certificatesPermissions": {
@@ -128,7 +128,7 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
     }
     ```
 
-1. Atualize as políticas de acesso existentes do cofre de chaves para:
+1. Atualize as políticas de acesso ao cofre chave existentes para:
 
     ```json
     "accessPolicies": [
@@ -153,11 +153,11 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
     ],
     ```
 
-    Há duas políticas definidas, uma para o usuário conectado e a outra é para a identidade gerenciada.  O usuário conectado só precisa da permissão de *lista* para verificar a implantação.  Para simplificar o tutorial, o mesmo certificado é atribuído à identidade gerenciada e aos usuários conectados.
+    Existem duas políticas definidas, uma para o utilizador inscrito, e a outra é para a identidade gerida.  O utilizador inscrito apenas necessita da permissão da *lista* para verificar a implementação.  Para simplificar o tutorial, o mesmo certificado é atribuído tanto à identidade gerida como aos utilizadores inscritos.
 
-### <a name="add-the-deployment-script"></a>Adicionar o script de implantação
+### <a name="add-the-deployment-script"></a>Adicione o script de implementação
 
-1. Adicione três parâmetros que são usados pelo script de implantação.
+1. Adicione três parâmetros que são utilizados pelo script de implantação.
 
     ```json
     "certificateName": {
@@ -177,7 +177,7 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
 1. Adicione um recurso de implementaçãoScripts:
 
     > [!NOTE]
-    > Como os scripts de implantação embutidos são colocados entre aspas duplas, as cadeias de caracteres dentro dos scripts de implantação precisam ser colocadas entre aspas simples em vez disso. O caractere de escape para o **&#92;** PowerShell é.
+    > Como os scripts de implementação em linha são fechados em citações duplas, as cordas dentro dos scripts de implementação precisam de ser fechadas em cotações únicas. O personagem de **&#92;** fuga para a PowerShell é.
 
     ```json
     {
@@ -257,38 +257,38 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
     }
     ```
 
-    O recurso `deploymentScripts` depende do recurso do Key Vault e do recurso de atribuição de função.  Ele tem estas propriedades:
+    O recurso `deploymentScripts` depende do recurso chave do cofre e do recurso de atribuição de funções.  Tem estas propriedades:
 
-    * **identidade**: o script de implantação usa uma identidade gerenciada atribuída pelo usuário para executar os scripts.
-    * **tipo**: especifique o tipo de script. Atualmente, somente o script do PowerShell tem suporte.
-    * **forceUpdateTag**: Determine se o script de implantação deve ser executado mesmo se a origem do script não tiver sido alterada. Pode ser carimbo de data/hora atual ou um GUID. Para saber mais, veja [Executar script mais de uma vez](./deployment-script-template.md#run-script-more-than-once).
-    * **azPowerShellVersion**: especifica a versão do módulo Azure PowerShell a ser usada. Atualmente, o script de implantação dá suporte à versão 2.7.0, 2.8.0 e 3.0.0.
-    * **tempo limite**: especifique o tempo de execução máximo permitido do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**.
-    * **argumentos**: Especifique os valores de parâmetro. Os valores são separados por espaços.
-    * **scriptContent**: especifique o conteúdo do script. Para executar um script externo, use **primaryScriptURI** em vez disso. Para obter mais informações, consulte [usar script externo](./deployment-script-template.md#use-external-scripts).
-        A declaração de **$DeploymentScriptOutputs** só é necessária ao testar o script em um computador local. Declarar a variável permite que o script seja executado em um computador local e em um recurso deploymentScript sem precisar fazer alterações. O valor atribuído a $DeploymentScriptOutputs está disponível como saídas nas implantações. Para obter mais informações, consulte [trabalhar com saídas de scripts de implantação](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
-    * **cleanupPreference**: Especifique a preferência em quando excluir os recursos de script de implantação.  O valor padrão é **sempre**, o que significa que os recursos de script de implantação são excluídos, apesar do estado do terminal (êxito, falha, cancelado). Neste tutorial, **OnSuccess** é usado para que você tenha a oportunidade de exibir os resultados da execução do script.
-    * **retentionInterval**: especifique o intervalo para o qual o serviço retém os recursos de script depois que ele atinge um estado de terminal. Os recursos serão excluídos quando essa duração expirar. A duração é baseada no padrão ISO 8601. Este tutorial usa P1D, que significa um dia.  Essa propriedade é usada quando **cleanupPreference** está definido como **ontermination**. Esta propriedade não está habilitada no momento.
+    * **identidade**: O script de implementação utiliza uma identidade gerida atribuída pelo utilizador para executar os scripts.
+    * **tipo:** Especificar o tipo de script. Atualmente, apenas o script PowerShell é suporte.
+    * **forceUpdateTag**: Determine se o script de implementação deve ser executado mesmo que a fonte do script não tenha mudado. Pode ser um carimbo de tempo atual ou um GUID. Para saber mais, consulte [o guião run mais de uma vez](./deployment-script-template.md#run-script-more-than-once).
+    * **azPowerShellVersion**: Especifica a versão do módulo PowerShell Azure a utilizar. Atualmente, o script de implementação suporta a versão 2.7.0, 2.8.0 e 3.0.0.
+    * **prazo**: Especificar o tempo máximo de execução do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D**.
+    * **argumentos**: Especificar os valores dos parâmetros. Os valores são separados por espaços.
+    * **scriptConteúdo**: Especifique o conteúdo do script. Para executar um script externo, utilize o **ScriptURI primário.** Para mais informações, consulte [Utilize o script externo](./deployment-script-template.md#use-external-scripts).
+        Declarar **$DeploymentScriptOutputs** só é necessário quando se testa o guião numa máquina local. Declarar a variável permite que o script seja executado numa máquina local e num recurso de implementaçãoDo sem ter de fazer alterações. O valor atribuído a $DeploymentScriptOutputs está disponível como saídas nas implementações. Para mais informações, consulte [Trabalhar com saídas de scripts de implementação powerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) ou trabalhar com [saídas de scripts de implementação CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
+    * **limpezaPreferência**: Especifique a preferência sobre quando eliminar os recursos do script de implementação.  O valor predefinido é **sempre**, o que significa que os recursos do script de implantação são eliminados apesar do estado terminal (Bem sucedido, falhado, cancelado). Neste tutorial, o **OnSuccess** é usado para que tenha a oportunidade de ver os resultados da execução do script.
+    * intervalo de **retençãoIntervalo**: Especifique o intervalo para o qual o serviço mantém os recursos do script depois de atingir um estado terminal. Os recursos serão eliminados quando esta duração expirar. A duração baseia-se no padrão ISO 8601. Este tutorial usa P1D, o que significa um dia.  Esta propriedade é utilizada quando **a limpezaA preferência** está definida para **OnExpiration**. Esta propriedade não está ativada atualmente.
 
-    O script de implantação usa três parâmetros: nome do Key Vault, nome do certificado e nome da entidade.  Ele cria um certificado e, em seguida, adiciona o certificado ao cofre de chaves.
+    O script de implantação tem três parâmetros: nome do cofre chave, nome do certificado e nome do assunto.  Cria um certificado e, em seguida, adiciona o certificado ao cofre chave.
 
-    **$DeploymentScriptOutputs** é usado para armazenar o valor de saída.  Para saber mais, confira [trabalhar com saídas de scripts de implantação](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+    **$DeploymentScriptOutputs** é usado para armazenar o valor de saída.  Para saber mais, consulte [Trabalhar com saídas a partir de scripts de implementação powerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) ou [trabalhar com saídas de scripts de implementação CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
 
-    O modelo concluído pode ser encontrado [aqui](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
+    O modelo completo pode ser encontrado [aqui.](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)
 
-1. Para ver o processo de depuração, coloque um erro no código adicionando a seguinte linha ao script de implantação:
+1. Para ver o processo de depuração, coloque um erro no código adicionando a seguinte linha ao script de implementação:
 
     ```powershell
     Write-Output1 $keyVaultName
     ```
 
-    O comando correto é **Write-Output** em vez de **Write-Saída1**.
+    O comando correto é **Write-Output** em vez de **Write-Output1**.
 
 1. Selecione **Ficheiro**>**Guardar** para guardar o ficheiro.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Consulte a seção [implantar o modelo](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) no guia de início rápido do Visual Studio Code para abrir o Cloud Shell e carregar o arquivo de modelo no Shell. Em seguida, execute o seguinte script do PowerShell:
+Consulte a secção [de modelo sintetizador](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) no Código do Estúdio Visual para abrir a casca cloud e faça upload do ficheiro de modelo para a concha. E, em seguida, executar o seguinte script PowerShell:
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
@@ -307,35 +307,35 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFil
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-O serviço de script de implantação precisa criar recursos de script de implantação adicionais para execução de script. A preparação e o processo de limpeza podem levar até um minuto para serem concluídos, além do tempo de execução do script real.
+O serviço de script de implementação precisa de criar recursos de script de implementação adicionais para a execução do script. A preparação e o processo de limpeza podem demorar até um minuto para ser concluído, para além do tempo real de execução do script.
 
-A implantação falhou devido ao comando inválido, **Write-Saída1** é usado no script. Você deverá receber um erro dizendo:
+A implementação é falhada devido ao comando inválido, **write-output1** é usado no script. Terá um erro dizendo:
 
 ```error
 The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
 program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
 ```
 
-O resultado da execução do script de implantação é armazenado nos recursos de script de implantação para a finalidade da solução de problemas.
+O resultado da execução do script de implementação é armazenado nos recursos do script de implementação para o propósito de resolução de problemas.
 
-## <a name="debug-the-failed-script"></a>Depurar o script com falha
+## <a name="debug-the-failed-script"></a>Depurar o guião falhado
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Abra o grupo de recursos. É o nome do projeto com **RG** acrescentado. Você deverá ver dois recursos adicionais no grupo de recursos. Esses recursos são chamados de *recursos de script de implantação*.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Abra o grupo de recursos. É o nome do projeto com **rg** anexado. Verá dois recursos adicionais no grupo de recursos. Estes recursos são referidos como recursos de script de *implantação.*
 
-    ![Recursos de script de implantação de modelo do Resource Manager](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
+    ![Recursos de script de implementação de modelo de gestor de recursos de gestor de recursos](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    Ambos os arquivos têm o sufixo **azscripts** . Uma é uma conta de armazenamento e a outra é uma instância de contêiner.
+    Ambos os ficheiros têm o sufixo dos **azscripts.** Um é uma conta de armazenamento e o outro é um caso de contentor.
 
-    Selecione **Mostrar tipos ocultos** para listar o recurso deploymentScripts.
+    Selecione **Mostrar tipos ocultos** para listar o recurso de implementaçãoScripts.
 
-1. Selecione a conta de armazenamento com o sufixo **azscripts** .
-1. Selecione o bloco **compartilhamentos de arquivos** . Você deverá ver uma pasta **azscripts** .  A pasta contém os arquivos de execução de script de implantação.
-1. Selecione **azscripts**. Você deverá ver duas pastas **azscriptinput** e **azscriptoutput**.  A pasta de entrada contém um arquivo de script do System PowerShell e os arquivos de script de implantação do usuário. A pasta de saída contém um **ExecutionResult. JSON** e o arquivo de saída de script. Você pode ver a mensagem de erro em **ExecutionResult. JSON**. O arquivo de saída não está lá porque a execução falhou.
+1. Selecione a conta de armazenamento com o sufixo **azscripts.**
+1. Selecione o azulejo **de partilhas do Arquivo.** Verá uma pasta **azscripts.**  A pasta contém os ficheiros de execução do script de implementação.
+1. Selecione **azscripts**. Verá duas pastasL **azscriptinput** e **azscriptoutput**.  A pasta de entrada contém um ficheiro de script PowerShell do sistema e os ficheiros de script de implementação do utilizador. A pasta de saída contém um **resultado de execução.json** e o ficheiro de saída do script. Pode ver a mensagem de erro no resultado da **execução.json**. O ficheiro de saída não está lá porque a execução falhou.
 
-Remova a linha **Write-Saída1** e reimplante o modelo.
+Retire a linha **Write-Output1** e reimplante o modelo.
 
-Quando a segunda implantação for executada com êxito, os recursos de script de implantação deverão ser removidos pelo serviço de script, pois a propriedade **cleanupPreference** está definida como **OnSuccess**.
+Quando a segunda implementação for executada com sucesso, os recursos do script de implementação serão removidos pelo serviço de script, porque a propriedade **cleanupPreference** está definida para **OnSuccess**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -348,7 +348,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a usar o script de implantação em modelos de Azure Resource Manager. Para saber como implementar recursos do Azure com base em condições, veja:
+Neste tutorial, aprendeu a usar o script de implementação nos modelos do Gestor de Recursos Azure. Para saber como implementar recursos do Azure com base em condições, veja:
 
 > [!div class="nextstepaction"]
 > [Condições de utilização](./template-tutorial-use-conditions.md)

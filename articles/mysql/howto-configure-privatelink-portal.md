@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 6ad8726e61f4f8e79cfa9c437b3f0ea876b55e27
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 193227ff98accb31c15e388c810aea7460a2cb5d
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425481"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561668"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>Criar e gerir link privado para base de dados Azure para MySQL (Pré-visualização) usando o Portal
 
@@ -23,7 +23,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 > Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para mySQL suporta níveis de preços otimizados para fins gerais e memória.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Criar um VM Azure
 
@@ -172,6 +172,9 @@ Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final priv
 2. Quando vir a **mensagem de validação passada,** selecione **Criar**. 
 
     ![Link Privado criado](media/concepts-data-access-and-security-private-link/show-mysql-private-link.png)
+
+    > [!NOTE] 
+    > O FQDN na definição de DNS do cliente não resolve o IP privado configurado. Terá de configurar uma zona DNS para o FQDN configurado, como mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ligue-se a um VM utilizando o Ambiente de Trabalho Remoto (RDP)
 

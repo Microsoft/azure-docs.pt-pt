@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: a933caf0b0033cdcd1f27d4f795ba6466f34072a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc7e77cc498958b2f8f0c5b2d5ab2d59db97a235
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210360"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560835"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Quickstart: Criar uma conta Azure Cosmos, base de dados, contentores e itens do portal Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "77210360"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Você pode usar O Azure Cosmos DB para criar e consultar rapidamente bases de dados chave/valor, bases de dados de documentos e bases de dados de gráficos, que beneficiam da distribuição global e capacidades de escala horizontal no núcleo do Azure Cosmos DB. 
+O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Você pode usar O Azure Cosmos DB para criar e consultar rapidamente bases de dados chave/valor, bases de dados de documentos e bases de dados de gráficos, que beneficiam da distribuição global e capacidades de escala horizontal no núcleo do Azure Cosmos DB. 
 
 Este quickstart demonstra como usar o portal Azure para criar uma conta API Azure Cosmos DB [SQL,](sql-api-introduction.md) criar uma base de dados de documentos e um contentor, e adicionar dados ao recipiente. 
 
@@ -100,6 +100,12 @@ Adicione dados à sua nova base de dados utilizando o Data Explorer.
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+
+Se pretender eliminar apenas a base de dados e utilizar a conta Azure Cosmos no futuro, pode eliminar a base de dados com os seguintes passos:
+
+* Cheguei à sua conta azure cosmos.
+* Abra o **Data Explorer,** clique na base de dados que pretende eliminar e selecionar **eliminar base de dados**.
+* Introduza o nome ID/base de dados da base de dados para confirmar o funcionamento da eliminação. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

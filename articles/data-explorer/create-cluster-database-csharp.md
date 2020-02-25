@@ -1,5 +1,5 @@
 ---
-title: Criar um cluster azure Data Explorer e base de dados usandoC#
+title: Criar um cluster e DB do Explorer de Dados Azure usandoC#
 description: Saiba como criar um cluster e base de dados do Azure Data Explorer utilizando oC#
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a26dc461653f4308b0764b8c5ecc0272717a6171
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 0c32d438ac8551f061343edb747e9fc035b498e2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506020"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560529"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Criar um cluster azure Data Explorer e base de dados usandoC#
 

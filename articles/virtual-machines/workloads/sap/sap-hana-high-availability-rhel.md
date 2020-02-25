@@ -1,5 +1,5 @@
 ---
-title: Configurar replicação do sistema SAP HANA em máquinas virtuais Azure (VMs)  Microsoft Docs
+title: Alta disponibilidade de SAP HANA em VMs Azure no RHEL Microsoft Docs
 description: Estabelecer uma elevada disponibilidade de SAP HANA em máquinas virtuais Azure (VMs).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/28/2020
 ms.author: radeltch
-ms.openlocfilehash: fe4c3d8ea7aee0922ca29b9c0f475bfd9fa3c67a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5e3512ce86bdf96a5e6cfcf0e4459b656a5ac5bc
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837039"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565864"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA em VMs Azure em Red Hat Enterprise Linux
 
@@ -27,13 +27,13 @@ ms.locfileid: "76837039"
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533,]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
 [2178632]: https://launchpad.support.sap.com/#/notes/2178632
 [2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[SAP 1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
 [2292690]: https://launchpad.support.sap.com/#/notes/2292690
 [2455582]: https://launchpad.support.sap.com/#/notes/2455582
@@ -50,41 +50,41 @@ A replicação do SAP HANA consiste num nó primário e pelo menos num nó secun
 Este artigo descreve como implementar e configurar as máquinas virtuais, instalar a estrutura do cluster e instalar e configurar a Replicação do Sistema SAP HANA.
 Nas configurações de exemplo, são utilizados comandos de instalação, instância número **03**e ID **HN1** do sistema HANA.
 
-Leia as seguintes notas e documentos SAP primeiro:
+Leia primeiro as seguintes Notas e papéis SAP:
 
-* Nota SAP [1928533], que tem:
-  * A lista de tamanhos de VM do Azure com suporte para a implantação do software SAP.
-  * Informações de capacidade importantes para tamanhos de VM do Azure.
-  * O software SAP com suporte e as combinações de sistema operacional e banco de dados.
-  * A versão de kernel do SAP necessária para Windows e Linux em Microsoft Azure.
-* O SAP Note [2015553] lista os pré-requisitos para implantações de software SAP com suporte no SAP no Azure.
-* A observação do SAP [2002167] tem as configurações do sistema operacional recomendadas para Red Hat Enterprise Linux
-* A observação do SAP [2009879] tem diretrizes SAP HANA para Red Hat Enterprise Linux
-* A nota SAP [2178632] tem informações detalhadas sobre todas as métricas de monitoramento relatadas para SAP no Azure.
-* A nota SAP [2191498] tem a versão do agente de host do SAP necessária para Linux no Azure.
-* A nota SAP [2243692] tem informações sobre o licenciamento SAP no Linux no Azure.
-* A nota SAP [1999351] tem informações adicionais para solução de problemas para a extensão de monitoramento avançado do Azure para SAP.
-* O [SAP Community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas SAP necessárias para o Linux.
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* [SAP HANA a replicação do sistema no cluster pacemaker](https://access.redhat.com/articles/3004101)
-* Documentação geral do RHEL
-  * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Nota SAP [1928533,]que tem:
+  * A lista dos tamanhos de VM Azure que são suportados para a implementação de software SAP.
+  * Informações importantes sobre a capacidade para tamanhos de VM Azure.
+  * O software SAP suportado e o sistema operativo (OS) e as combinações de bases de dados.
+  * A versão necessária para o kernel SAP necessário para Windows e Linux no Microsoft Azure.
+* O SAP Note [2015553] lista os pré-requisitos para implementações de software SAP suportadas pela SAP em Azure.
+* SAP Note [2002167] recomendou definições de OS para Red Hat Enterprise Linux
+* SAP Nota [2009879] tem Diretrizes SAP HANA para Red Hat Enterprise Linux
+* O SAP Note [2178632] tem informações detalhadas sobre todas as métricas de monitorização reportadas para o SAP em Azure.
+* O SAP Note [2191498] tem a versão necessária do Agente anfitrião SAP para o Linux em Azure.
+* SAP Nota [2243692] tem informações sobre licenciamento SAP em Linux em Azure.
+* A Nota [SAP 1999351] tem informações adicionais de resolução de problemas para a extensão de monitorização avançada do Azure para sAP.
+* [A SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) exigiu todas as notas SAP para linux.
+* [Planeamento e implementação de Máquinas Virtuais Azure para SAP em Linux][planning-guide]
+* [Implantação de Máquinas Virtuais Azure para SAP em Linux (este artigo)][deployment-guide]
+* [Implantação de DBMS de Máquinas Virtuais Azure para SAP em Linux][dbms-guide]
+* [Replicação do sistema SAP HANA em cluster pacemaker](https://access.redhat.com/articles/3004101)
+* Documentação Geral RHEL
+  * [Visão geral de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administração add-on de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Referência addon de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
 * Documentação RHEL específica do Azure:
-  * [Políticas de suporte para clusters de alta disponibilidade RHEL-Máquinas Virtuais do Microsoft Azure como membros do cluster](https://access.redhat.com/articles/3131341)
-  * [Instalando e configurando um cluster de alta disponibilidade Red Hat Enterprise Linux 7,4 (e posterior) no Microsoft Azure](https://access.redhat.com/articles/3252491)
-  * [Instalar o SAP HANA no Red Hat Enterprise Linux para uso no Microsoft Azure](https://access.redhat.com/solutions/3193782)
+  * [Políticas de suporte para clusters de alta disponibilidade RHEL - Máquinas Virtuais Microsoft Azure como Membros do Cluster](https://access.redhat.com/articles/3131341)
+  * [Instalação e Configuração de um Cluster de Alta Disponibilidade do Red Hat Enterprise Linux 7.4 (e mais tarde) no Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Instale SAP HANA no Red Hat Enterprise Linux para utilização no Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Para obter uma elevada disponibilidade, o SAP HANA está instalado em duas máquinas virtuais. Os dados são replicados utilizando a replicação do sistema HANA.
 
 ![Visão geral de alta disponibilidade do SAP HANA](./media/sap-hana-high-availability-rhel/ha-hana.png)
 
-A configuração de replicação do sistema SAP HANA utiliza um nome de anfitrião virtual dedicado e endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. A lista que se segue mostra a configuração do equilibrista de carga:
+A configuração de replicação do sistema SAP HANA utiliza um nome de anfitrião virtual dedicado e endereços IP virtuais. No Azure, é necessário utilizar um endereço IP virtual. A lista que se segue mostra a configuração do equilibrista de carga:
 
 * Configuração frontal: Endereço IP 10.0.0.13 para hn1-db
 * Configuração de back-end: Ligada às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte da Replicação do Sistema HANA
@@ -95,20 +95,20 @@ A configuração de replicação do sistema SAP HANA utiliza um nome de anfitri�
 
 O Azure Marketplace contém uma imagem para Red Hat Enterprise Linux 7.4 para SAP HANA que pode usar para implementar novas máquinas virtuais.
 
-### <a name="deploy-with-a-template"></a>Implantar com um modelo
+### <a name="deploy-with-a-template"></a>Implementar com um modelo
 
 Você pode usar um dos modelos de arranque rápido que estão no GitHub para implementar todos os recursos necessários. O modelo implanta as máquinas virtuais, o equilibrador de carga, o conjunto de disponibilidade, e assim por diante.
 Para implementar o modelo, siga estes passos:
 
 1. Abra o modelo de base de [dados][template-multisid-db] no portal Azure.
-1. Insira os seguintes parâmetros:
-    * **ID do sistema Sap**: Introduza o ID do sistema SAP do sistema SAP que pretende instalar. A ID é usada como um prefixo para os recursos que são implantados.
+1. Introduza os seguintes parâmetros:
+    * **ID do sistema Sap**: Introduza o ID do sistema SAP do sistema SAP que pretende instalar. O ID é usado como prefixo para os recursos que são implantados.
     * **Tipo Os**: Selecione uma das distribuições linux. Para este exemplo, selecione **RHEL 7**.
     * **Tipo db**: Selecione **HANA**.
     * Tamanho do **sistema sap**: Introduza o número de SAPS que o novo sistema vai fornecer. Se não tem a certeza de quantos SAPS o sistema necessita, pergunte ao seu Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
-    * **Disponibilidade do sistema**: selecione **ha**.
+    * **Disponibilidade do Sistema**: Selecione **HA**.
     * **Nome de utilizador, palavra-passe de administrador ou chave SSH**: É criado um novo utilizador que pode ser utilizado para iniciar sessão na máquina.
-    * **ID da sub-rede**: se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. O ID geralmente parece **/subscrições/\<subscrição ID>/recursosGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome de rede virtual>/subnets/\<subnet name>** . Deixe vazio, se quiser criar uma nova rede virtual
+    * **ID sub-rede**: Se pretender implantar o VM numa VNet existente onde tenha uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente parece **/subscrições/\<subscrição ID>/recursosGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome de rede virtual>/subnets/\<subnet name>** . Deixe vazio, se quiser criar uma nova rede virtual
 
 ### <a name="manual-deployment"></a>Implantação manual
 
@@ -159,7 +159,7 @@ Para implementar o modelo, siga estes passos:
       1. Selecione **OK**.
 
    > [!Note]
-   > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+   > Quando os VMs sem endereços IP públicos forem colocados no conjunto de backend do interno (sem endereço IP público) O equilíbrio de carga Standard Azure não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para mais detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 1. Alternativamente, se o seu cenário ditar a utilização de um equilíbrio básico de carga, siga estes passos de configuração:
    1. Configure o equilibrador de carga. Primeiro, crie uma piscina IP frontal:
@@ -222,7 +222,7 @@ Para implementar o modelo, siga estes passos:
 Para obter mais informações sobre as portas necessárias para o SAP HANA, leia o capítulo [Ligações às Bases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) de Dados de Inquilinos no guia [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou [SAP Nota 2388694][2388694].
 
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não permita os carimbos de tempo da TCP em VMs Azure colocados atrás do Equilíbrio de Carga Azure. Permitir os selos temporais da TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte as sondas de [saúde load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 > Consulte também a nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>Instalar o SAP HANA
@@ -325,7 +325,7 @@ Os passos nesta secção utilizam os seguintes prefixos:
 1. **[A]** Configurar a resolução de nomes de anfitrião para todos os anfitriões.
 
    Pode utilizar um servidor DNS ou modificar o ficheiro /etc/anfitriões em todos os nós. Este exemplo mostra-lhe como usar o ficheiro /etc/anfitriões.
-   Substitua o endereço IP e o nome do host nos seguintes comandos:
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos:
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -396,7 +396,7 @@ Os passos nesta secção utilizam os seguintes prefixos:
 
 1. **[A]** Configurar firewall
 
-   Crie regras de firewall para permitir a replicação do sistema HANA e o tráfego do cliente. As portas necessárias são listadas nas [portas TCP/IP de todos os produtos SAP](https://help.sap.com/viewer/ports). Os seguintes comandos são apenas um exemplo para permitir a replicação do sistema HANA 2.0 e o tráfego do cliente para a base de dados SYSTEMDB, HN1 e NW1.
+   Crie regras de firewall para permitir a replicação do sistema HANA e o tráfego do cliente. As portas necessárias estão listadas nas [portas TCP/IP de todos os produtos SAP](https://help.sap.com/viewer/ports). Os seguintes comandos são apenas um exemplo para permitir a replicação do sistema HANA 2.0 e o tráfego do cliente para a base de dados SYSTEMDB, HN1 e NW1.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=40302/tcp
@@ -487,7 +487,7 @@ Os passos nesta secção utilizam os seguintes prefixos:
 
 1. **[A]** Configurar firewall
 
-   Crie regras de firewall para permitir a replicação do sistema HANA e o tráfego do cliente. As portas necessárias são listadas nas [portas TCP/IP de todos os produtos SAP](https://help.sap.com/viewer/ports). Os seguintes comandos são apenas um exemplo para permitir a replicação do sistema HANA 2.0. Adapte-o à sua instalação SAP HANA 1.0.
+   Crie regras de firewall para permitir a replicação do sistema HANA e o tráfego do cliente. As portas necessárias estão listadas nas [portas TCP/IP de todos os produtos SAP](https://help.sap.com/viewer/ports). Os seguintes comandos são apenas um exemplo para permitir a replicação do sistema HANA 2.0. Adapte-o à sua instalação SAP HANA 1.0.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=40302/tcp
@@ -620,7 +620,7 @@ Esta secção descreve como pode testar a sua configuração. Antes de iniciar u
 
 ### <a name="test-the-migration"></a>Testar a migração
 
-Estado do recurso antes de iniciar o teste:
+Estado de recurso antes de iniciar o teste:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -682,7 +682,7 @@ Resource Group: g_ip_HN1_03
 
 ### <a name="test-the-azure-fencing-agent"></a>Teste o agente de esgrima Azure
 
-Estado do recurso antes de iniciar o teste:
+Estado de recurso antes de iniciar o teste:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -719,7 +719,7 @@ exit
 [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
 </code></pre>
 
-Estado do recurso após o teste:
+Estado de recurso após o teste:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -733,7 +733,7 @@ Resource Group: g_ip_HN1_03
 
 ### <a name="test-a-manual-failover"></a>Teste uma falha manual
 
-Estado do recurso antes de iniciar o teste:
+Estado de recurso antes de iniciar o teste:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -764,7 +764,7 @@ hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> exit
 [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
 </code></pre>
 
-Estado do recurso após o teste:
+Estado de recurso após o teste:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -778,7 +778,7 @@ Resource Group: g_ip_HN1_03
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
+* [Planeamento e implementação de Máquinas Virtuais Azure para SAP][planning-guide]
+* [Implantação de Máquinas Virtuais Azure para SAP][deployment-guide]
+* [Implantação de DBMS de Máquinas Virtuais Azure para SAP][dbms-guide]
 * Para aprender como estabelecer alta disponibilidade e plano para recuperação de desastres de SAP HANA em Azure (grandes instâncias), consulte [SAP HANA (grandes instâncias) alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md)

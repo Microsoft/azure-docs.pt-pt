@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f49240c29b4ec0a5fa1cb38861da3d4060db2f82
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: abbacf57f6e00411c6041422cfc47e68fd46bb15
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525449"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566034"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -120,7 +120,7 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 
 
 ## <a name="change-log"></a>Registo de Alterações
-
+- 02/21/2020: Alteração nos [VMs Azure alta disponibilidade para SAP NetWeaver em RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) e [VMs Azure alta disponibilidade para SAP NetWeaver no RHEL com Ficheiros Azure NetApp](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) para ajustar os constrangimentos de cluster para a replicação do servidor de enfila2 arquitetura (ENSA2)
 - 02/20/2020: Alteração da [alta disponibilidade para SAP NetWeaver em VMs Azure no guia Multi-SID SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) para adicionar um link ao guia de cluster sUSE multi-SID
 - 02/13/2020: Alteração dos [VMs Azure alta disponibilidade para SAP NetWeaver em RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) e [VMs Azure alta disponibilidade para SAP NetWeaver em RHEL com Ficheiros Azure NetApp](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) para alinhar os prazos dos recursos de cluster com as recomendações de timeout do Chapéu Vermelho
 - 02/11/2020: Lançamento do [SAP HANA sobre migração de grandes instâncias azure para máquinas virtuais azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)

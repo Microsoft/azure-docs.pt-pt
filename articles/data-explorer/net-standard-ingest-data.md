@@ -1,5 +1,5 @@
 ---
-title: Dados de ingestão utilizando o Azure Data Explorer .NET Standard SDK (Pré-visualização)
+title: Ingerir dados com o Azure Data Explorer .NET Standard SDK (Pré-visualização)
 description: Neste artigo, aprende-se a ingerir (carregar) dados no Azure Data Explorer utilizando o .NET Standard SDK.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1fb1301ae7e0cdff36f3771a44769c8bf9cc9c62
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 9b6eda60f0b0cb1b697560cccc2cffe719d58536
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187920"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562467"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Dados de ingestão utilizando o Azure Data Explorer .NET Standard SDK (Pré-visualização)
 

@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: dapine
-ms.openlocfilehash: ac891e96e350f73b7728ee4b572d9e16a8794ff7
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: c4a27db8bec6dbbd2f1b2be8acfdd034d45d37d5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460999"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561925"
 ---
-# <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
+# <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese da fala (SSML)
 
 A linguagem de marcação da síntese da fala (SSML) é uma linguagem de marcação baseada em XML que permite aos desenvolvedores especificar como o texto de entrada é convertido em discurso sintetizado usando o serviço de texto-para-fala. Em comparação com o texto simples, o SSML permite que os desenvolvedores afinam o tom, a pronúncia, a taxa de fala, o volume e mais da saída de texto para a fala. Pontuação normal, como pausa após um período, ou utilização da entoação correta quando uma frase termina com um ponto de interrogação é automaticamente manuseada.
 

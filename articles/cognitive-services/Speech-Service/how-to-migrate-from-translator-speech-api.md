@@ -1,70 +1,70 @@
 ---
-title: Migrar do API de Tradução de Fala para o serviço de fala
+title: Migrar da API do Discurso tradutor para o serviço de discurso
 titleSuffix: Azure Cognitive Services
-description: Saiba como migrar seus aplicativos do API de Tradução de Fala para o serviço de fala.
+description: Aprenda a migrar as suas candidaturas da API do Discurso tradutor para o serviço de Discurso.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: ba9484bd5b04e5a79da53a0bb78877153be42a43
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805914"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560903"
 ---
-# <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar do API de Tradução de Fala para o serviço de fala
+# <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar da API do Discurso tradutor para o serviço de discurso
 
-Use este artigo para migrar seus aplicativos do Microsoft API de Tradução de Fala para o [serviço de fala](index.md). Este guia descreve as diferenças entre o API de Tradução de Fala e o serviço de fala e sugere estratégias para migrar seus aplicativos.
+Utilize este artigo para migrar as suas aplicações da API do Discurso do Tradutor da Microsoft para o [serviço de Fala](index.yml). Este guia descreve as diferenças entre o serviço de Discurso de Tradutor e Discurso, e sugere estratégias para migrar as suas aplicações.
 
 > [!NOTE]
-> Sua chave de assinatura do API de Tradução de Fala não será aceita pelo serviço de fala. Você precisará criar uma nova assinatura do serviço de fala.
+> A chave de subscrição da API do Discurso do Tradutor não será aceite pelo serviço de Discurso. Terá de criar uma nova subscrição do serviço Speech.
 
-## <a name="comparison-of-features"></a>Comparação de recursos
+## <a name="comparison-of-features"></a>Comparação de características
 
-| Funcionalidade                                           | API de Voz de Tradutor                                  | Serviço de fala | Detalhes                                                                                                                                                                                                                                                                            |
+| Funcionalidade                                           | API de Voz do Microsoft Translator                                  | Serviço de voz | Detalhes                                                                                                                                                                                                                                                                            |
 |---------------------------------------------------|-----------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tradução para texto                               | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Tradução para fala                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Ponto de extremidade global                                   | :heavy_check_mark:                                              | : heavy_minus_sign:                 | O serviço de fala não oferece um ponto de extremidade global. Um ponto de extremidade global pode direcionar automaticamente o tráfego para o ponto de extremidade regional mais próximo, diminuindo a latência em seu aplicativo.                                                    |
-| Pontos de extremidade regionais                                | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Limite de tempo de conexão                             | 90 minutos                                               | Ilimitado com o SDK. 10 minutos com uma conexão WebSockets.                                                                                                                                                                                                                                                                                   |
-| Chave de autenticação no cabeçalho                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Vários idiomas traduzidos em uma única solicitação | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDKs disponíveis                                    | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Consulte a [documentação do serviço de fala](index.md) para SDKs disponíveis.                                                                                                                                                    |
-| Conexões WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| API de idiomas                                     | :heavy_check_mark:                                              | : heavy_minus_sign:                 | O serviço de fala dá suporte ao mesmo intervalo de idiomas descrito no artigo de [referência de idiomas da API do tradutor](../translator-speech/languages-reference.md) . |
-| Filtro e marcador de profanação                       | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| Tradução para a fala                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| Ponto final global                                   | :heavy_check_mark:                                              | : heavy_minus_sign:                 | O serviço de discurso não oferece um ponto final global. Um ponto final global pode automaticamente direcionar o tráfego para o ponto final regional mais próximo, diminuindo a latência na sua aplicação.                                                    |
+| Pontos finais regionais                                | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| Limite de tempo de ligação                             | 90 minutos                                               | Ilimitado com o SDK. 10 minutos com uma ligação WebSockets.                                                                                                                                                                                                                                                                                   |
+| Chave auth no cabeceamento                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| Múltiplas línguas traduzidas num único pedido | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| SDKs disponíveis                                    | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Consulte a [documentação](index.yml) do serviço de Fala para Os DSDs disponíveis.                                                                                                                                                    |
+| Ligações WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| API de línguas                                     | :heavy_check_mark:                                              | : heavy_minus_sign:                 | O serviço da Fala suporta a mesma gama de idiomas descritas no artigo de referência de [línguas API tradutoras.](../translator-speech/languages-reference.md) |
+| Filtro de Profanação e Marcador                       | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | . WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Outros tipos de arquivo como entrada                         | : heavy_minus_sign:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
+| Outros tipos de ficheiros como entrada                         | : heavy_minus_sign:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Resultados parciais                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Informações de tempo                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
+| Informação de tempo                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
 | ID de Correlação                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
-| Modelos de fala personalizados                              | : heavy_minus_sign:                                              | :heavy_check_mark:                 | O serviço de fala oferece modelos de fala personalizados que permitem que você personalize o reconhecimento de fala para o vocabulário exclusivo de sua organização.                                                                                                                                           |
-| Modelos de tradução personalizados                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Assinar a API de tradução de texto da Microsoft permite que você use o [Tradutor personalizado](https://www.microsoft.com/translator/business/customization/) para usar seus próprios dados para traduções mais precisas.                                                 |
+| Modelos de discurso personalizados                              | : heavy_minus_sign:                                              | :heavy_check_mark:                 | O serviço Speech oferece modelos de discurso personalizados que lhe permitem personalizar o reconhecimento da fala ao vocabulário único da sua organização.                                                                                                                                           |
+| Modelos de tradução personalizada                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Subscrever a Microsoft Text Translation API permite-lhe utilizar o [Tradutor Personalizado](https://www.microsoft.com/translator/business/customization/) para utilizar os seus próprios dados para traduções mais precisas.                                                 |
 
 ## <a name="migration-strategies"></a>Estratégias de migração
 
-Se você ou sua organização tiver aplicativos em desenvolvimento ou produção que usam o API de Tradução de Fala, você deverá atualizá-los para usar o serviço de fala. Consulte a documentação do [serviço de fala](index.md) para ver SDKs disponíveis, exemplos de código e tutoriais. Considere o seguinte ao migrar:
+Se você ou sua organização tiver aplicações em desenvolvimento ou produção que usam a API de Discurso tradutor, deve atualizá-las para usar o serviço de Fala. Consulte a documentação do [serviço da Fala](index.yml) para Os DSDs disponíveis, amostras de código e tutoriais. Considere o seguinte quando estiver a migrar:
 
-* O serviço de fala não oferece um ponto de extremidade global. Determine se seu aplicativo funciona com eficiência quando usa um único ponto de extremidade regional para todo o seu tráfego. Caso contrário, use geolocalização para determinar o ponto de extremidade mais eficiente.
+* O serviço de discurso não oferece um ponto final global. Determine se a sua aplicação funciona de forma eficiente quando utiliza um único ponto final regional para todo o seu tráfego. Caso contrário, utilize a geolocalização para determinar o ponto final mais eficiente.
 
-* Se seu aplicativo usar conexões de vida útil longa e não puder usar os SDKs disponíveis, você poderá usar uma conexão WebSockets. Gerencie o limite de tempo limite de 10 minutos reconectando nos horários apropriados.
+* Se a sua aplicação utilizar ligações de longa duração e não puder utilizar os SDKs disponíveis, pode utilizar uma ligação WebSockets. Gerencie o limite de tempo limite de 10 minutos reconectando-se nos momentos apropriados.
 
-* Se seu aplicativo usar o API de Tradução de Texto e API de Tradução de Fala para habilitar modelos de tradução personalizados, você poderá adicionar IDs de categoria diretamente usando o serviço de fala.
+* Se a sua aplicação utilizar a API de Texto tradutor e a API de Discurso tradutor para ativar modelos de tradução personalizadas, pode adicionar IDs de categoria diretamente utilizando o serviço de Fala.
 
-* Ao contrário do API de Tradução de Fala, o serviço de fala pode concluir traduções em vários idiomas em uma única solicitação.
+* Ao contrário da API do Discurso tradutor, o serviço de Fala pode completar traduções em várias línguas num único pedido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Experimente gratuitamente o serviço de fala](get-started.md)
-* [Início rápido: reconhecer a fala em um aplicativo UWP usando o SDK de fala](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Experimente o serviço de fala gratuitamente](get-started.md)
+* [Quickstart: Reconheça o discurso numa aplicação da UWP usando o Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-* [O que é o serviço de fala](overview.md)
-* [Documentação do Speech Service e do Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [O que é o serviço da Fala](overview.md)
+* [Discurso e documentação do SDK da fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

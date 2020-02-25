@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8cc6211f9ddecf21301765266b17e88e4e734eed
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 54c32a87b5afdf165be8187c7189a11c106bbd8f
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499966"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562348"
 ---
 # <a name="azure-media-services-overview"></a>Descrição geral dos Serviços de Multimédia do Azure 
 
@@ -27,7 +27,7 @@ ms.locfileid: "77499966"
 > * [Versão 2](media-services-overview.md)
 
 > [!NOTE]
-> Não estão a ser adicionadas novas funcionalidades aos Serviços de Media v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) são uma plataforma baseado na nuvem extensível que permite aos programadores compilar uma gestão de multimédia dimensionável e aplicações de entrega. Os Serviços de Multimédia são baseados nas APIs REST, que permitem carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para o envio de transmissão em fluxo, tanto a pedido como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 
@@ -37,7 +37,7 @@ Pode compilar fluxos de trabalho ponto-a-ponto utilizando inteiramente os Media 
 
 Para começar a utilizar os Media Services do Azure, deve ter o seguinte:
 
-* Uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com).
+* Uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Media Services do Azure Para obter mais informações, consulte [Criar Conta](media-services-portal-create-account.md).
 * (Opcional) Configurar o ambiente de desenvolvimento. Escolha .NET ou a API REST para o ambiente de desenvolvimento. Para obter mais informações, consulte [Configurar o ambiente](media-services-dotnet-how-to-use.md).
 
@@ -53,7 +53,7 @@ Para compilar soluções de Media Services, pode utilizar:
     * Azure Media Services SDK para .NET
     
         * [Pacote NuGet](https://www.nuget.org/packages/windowsazure.mediaservices/)
-        * [Código fonte Github](https://github.com/Azure/azure-sdk-for-media-services)
+        * [Código fonte GitHub](https://github.com/Azure/azure-sdk-for-media-services)
     * [Azure SDK para Java](https://github.com/Azure/azure-sdk-for-java),
     * [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php),
     * [Media Services do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Esta é uma versão não Microsoft de um SDK Node.js. Esta é mantida por uma comunidade e não tem atualmente uma cobertura de 100% das APIs do AMS).

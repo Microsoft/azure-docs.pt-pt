@@ -1,83 +1,83 @@
 ---
-title: Criação de conteúdo de áudio-serviço de fala
+title: Criação de Conteúdo Sonoro - Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: A criação de conteúdo de áudio é uma ferramenta online que permite que você personalize e ajuste a saída de conversão de texto em fala da Microsoft para seus aplicativos e produtos.
+description: Audio Content Creation é uma ferramenta online que permite personalizar e afinar a saída de texto-a-voz da Microsoft para as suas apps e produtos.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: b65a39489f0823a411a9dddf79ec3abd1e5ee20d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806210"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561039"
 ---
-# <a name="audio-content-creation"></a>Criação de Conteúdo de Áudio
+# <a name="improve-synthesis-with-audio-content-creation"></a>Melhorar a síntese com a criação de Conteúdo Áudio
 
-A [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation) é uma ferramenta online que permite que você personalize e ajuste a saída de conversão de texto em fala da Microsoft para seus aplicativos e produtos. Você pode usar essa ferramenta para ajustar as vozes pública e personalizada para expressões naturais mais precisas e gerenciar sua saída na nuvem.
+[Audio Content Creation](https://aka.ms/audiocontentcreation) é uma ferramenta online que permite personalizar e afinar a saída de texto-a-voz da Microsoft para as suas apps e produtos. Pode utilizar esta ferramenta para afinar vozes públicas e personalizadas para expressões naturais mais precisas e gerir a sua saída na nuvem.
 
-A ferramenta de criação de conteúdo de áudio baseia-se na [SSML (linguagem de marcação de síntese de fala)](speech-synthesis-markup.md). Para simplificar a personalização e o ajuste, a criação de conteúdo de áudio permite que você inspecione visualmente suas saídas de texto em fala em tempo real.
+A ferramenta audio content creation baseia-se na linguagem de marcação da síntese da [fala (SSML)](speech-synthesis-markup.md). Para simplificar a personalização e a sintonização, a Audio Content Creation permite-lhe inspecionar visualmente as suas saídas de texto para a fala em tempo real.
 
 ## <a name="how-does-it-work"></a>Como funciona?
 
-Este diagrama mostra as etapas necessárias para ajustar e exportar saídas de fala para texto personalizadas. Use os links abaixo para saber mais sobre cada etapa.
+Este diagrama mostra os passos que é necessário para afinar e exportar saídas personalizadas de fala-texto. Use os links abaixo para saber mais sobre cada passo.
 
 ![](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
-1. A primeira etapa é [criar uma conta do Azure, registrar um recurso de fala e obter uma chave de assinatura](#create-a-speech-resource). Depois de ter uma chave de assinatura, você pode usá-la para chamar o serviço de fala e para acessar a [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation).
-2. [Crie um arquivo de ajuste de áudio](#create-an-audio-tuning-file) usando texto sem formatação ou SSML.
-3. Escolha a voz e o idioma que você deseja ajustar. A criação de conteúdo de áudio inclui todas as [vozes de texto em fala da Microsoft](language-support.md#text-to-speech). Você pode usar o padrão, neural ou sua própria voz personalizada.
+1. O primeiro passo é [criar uma conta Azure, registar um recurso da Fala e obter uma chave de subscrição.](#create-a-speech-resource) Depois de ter uma chave de subscrição, pode usá-la para ligar para o serviço de Fala e para aceder à [Criação](https://aka.ms/audiocontentcreation)de Conteúdos Áudio .
+2. [Crie um ficheiro de afinação](#create-an-audio-tuning-file) de áudio utilizando texto simples ou SSML.
+3. Escolha a voz e a linguagem que gostaria de sintonizar. A Criação de Conteúdos áudio inclui todas as vozes de texto para discurso da [Microsoft.](language-support.md#text-to-speech) Pode usar a voz padrão, neural ou personalizada.
    >[!NOTE]
-   > O acesso restrito está disponível para vozes neurais personalizadas, que permitem criar vozes de alta definição semelhantes à fala de som natural. Para obter mais detalhes, consulte o [processo de retenção](https://aka.ms/ignite2019/speech/ethics).
+   > O acesso fechado está disponível para Vozes Neurais Personalizadas, que lhe permitem criar vozes de alta definição semelhantes à fala de som natural. Para mais detalhes, consulte o [processo de Gating](https://aka.ms/ignite2019/speech/ethics).
 
-4. Examine o resultado padrão. Em seguida, use a ferramenta de ajuste para ajustar a pronúncia, a densidade, a taxa, a intonation, o estilo de voz e muito mais. Para obter uma lista completa de opções, consulte [linguagem de marcação de síntese de fala](speech-synthesis-markup.md).
-5. Salve e [exporte seu áudio ajustado](#export-tuned-audio). Ao salvar a faixa de ajuste no sistema, você pode continuar a trabalhar e iterar na saída. Quando estiver satisfeito com a saída, você poderá criar uma tarefa de criação de áudio com o recurso exportar. Você pode observar o status da tarefa de exportação e baixar a saída para uso com seus aplicativos e produtos.
-6. A última etapa é usar a voz ajustada personalizada em seus aplicativos e produtos.
+4. Reveja o resultado predefinido. Em seguida, use a ferramenta de afinação para ajustar a pronúncia, o pitch, o ritmo, a entoação, o estilo de voz e muito mais. Para obter uma lista completa de opções, consulte linguagem de [marcação](speech-synthesis-markup.md)de síntese de fala .
+5. Guarde e [exporte o seu áudio afinado.](#export-tuned-audio) Quando guardar a pista de afinação do sistema, pode continuar a trabalhar e a iterar na saída. Quando estiver satisfeito com a saída, pode criar uma tarefa de criação de áudio com a funcionalidade de exportação. Pode observar o estado da tarefa de exportação e descarregar a saída para utilização com as suas apps e produtos.
+6. O último passo é usar a voz afinada personalizada nas suas apps e produtos.
 
-## <a name="create-a-speech-resource"></a>Criar um recurso de fala
+## <a name="create-a-speech-resource"></a>Criar um recurso da Fala
 
-Siga estas etapas para criar um recurso de fala e conectá-lo com o Speech Studio.
+Siga estes passos para criar um recurso da Fala e conectá-lo com o Speech Studio.
 
-1. Siga estas instruções para [se inscrever em uma conta do Azure](get-started.md#try-the-speech-service-using-a-new-azure-account) e [criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verifique se o tipo de preço está definido como **S0**. Se você estiver usando uma das vozes neurais, certifique-se de criar seu recurso em uma [região com suporte](regions.md#standard-and-neural-voices).
-2. Entrar na [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation).
-3. Selecione um projeto existente ou clique em **criar novo**.
-4. Você pode modificar sua assinatura a qualquer momento com a opção **configurações** , localizada na barra de navegação superior.
+1. Siga estas instruções para [se inscrever para uma conta Azure](get-started.md#try-the-speech-service-using-a-new-azure-account) e criar um recurso da [Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Certifique-se de que o seu nível de preços está definido para **S0**. Se estiver a usar uma das vozes neurais, certifique-se de que cria o seu recurso numa [região apoiada.](regions.md#standard-and-neural-voices)
+2. Inscreva-se na [Criação](https://aka.ms/audiocontentcreation)de Conteúdos Áudio .
+3. Selecione um projeto existente ou clique em **Criar Novo**.
+4. Pode modificar a sua subscrição a qualquer momento com a opção **Definições,** localizada na navegação superior.
 
-## <a name="create-an-audio-tuning-file"></a>Criar um arquivo de ajuste de áudio
+## <a name="create-an-audio-tuning-file"></a>Criar um ficheiro de afinação de áudio
 
-Há duas maneiras de colocar seu conteúdo na ferramenta de criação de conteúdo de áudio.
+Existem duas formas de colocar o seu conteúdo na ferramenta Audio Content Creation.
 
 **Opção 1:**
 
-1. Depois de entrar na [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation), clique em **ajuste de áudio** para criar um novo arquivo de ajuste de áudio.
-2. Quando a janela de edição for exibida, você poderá inserir até 10.000 caracteres.
+1. Depois de iniciar sessão na [Audio Content Creation,](https://aka.ms/audiocontentcreation)clique em **Audio Tuning** para criar um novo ficheiro de afinação de áudio.
+2. Quando a janela de edição aparecer, pode inserir até 10.000 caracteres.
 3. Não se esqueça de salvar.
 
 **Opção 2:**
 
-1. Depois de entrar na [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation), clique em **carregar** para importar um ou mais arquivos de texto. Há suporte para texto sem formatação e SSML.
-2. Ao carregar seus arquivos de texto, certifique-se de que o conteúdo atende a esses requisitos.
+1. Depois de iniciar sessão na [Audio Content Creation,](https://aka.ms/audiocontentcreation)clique em **Carregar** para importar um ou mais ficheiros de texto. Tanto o texto simples como o SSML são suportados.
+2. Ao fazer o upload dos seus ficheiros de texto, certifique-se de que o conteúdo satisfaz estes requisitos.
 
-   | Propriedade | Valor/observações |
+   | Propriedade | Valor / Notas |
    |----------|---------------|
-   | Formato de arquivo | Texto sem formatação (. txt)<br/> Texto de SSML (. txt)<br/> Não há suporte para arquivos zip |
+   | Formato de ficheiro | Texto simples (.txt)<br/> Texto SSML (.txt)<br/> Ficheiros zip não são suportados |
    | Formato de codificação | UTF-8 |
-   | Nome de ficheiro | Cada arquivo deve ter um nome exclusivo. Não há suporte para duplicatas. |
-   | Comprimento do texto | Os arquivos de texto não devem exceder 10.000 caracteres. |
-   | Restrições de SSML | Cada arquivo SSML pode conter apenas uma única parte de SSML. |
+   | Nome de ficheiro | Cada ficheiro deve ter um nome único. Os duplicados não são suportados. |
+   | Comprimento do texto | Os ficheiros de texto não devem exceder 10.000 caracteres. |
+   | Restrições SSML | Cada ficheiro SSML só pode conter uma única peça de SSML. |
 
-### <a name="plain-text-example"></a>Exemplo de texto sem formatação
+### <a name="plain-text-example"></a>Exemplo de texto simples
 
 ```txt
 Welcome to use Audio Content Creation to customize audio output for your products.
 ```
 
-### <a name="ssml-text-example"></a>Exemplo de texto de SSML
+### <a name="ssml-text-example"></a>Exemplo de texto SSML
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
@@ -87,28 +87,28 @@ Welcome to use Audio Content Creation to customize audio output for your product
 </speak>
 ```
 
-## <a name="export-tuned-audio"></a>Exportar áudio ajustado
+## <a name="export-tuned-audio"></a>Exportar áudio afinado
 
-Depois de revisar sua saída de áudio e ficar satisfeito com seu ajuste e ajuste, você poderá exportar o áudio.
+Depois de ter revisto a sua saída de áudio e estar satisfeito com a sua afinação e ajuste, pode exportar o áudio.
 
-1. Na ferramenta de [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation) , clique em **Exportar** para criar uma tarefa de criação de áudio.
-2. Escolha o formato de saída para o áudio ajustado. Uma lista de formatos com suporte e taxas de exemplo está disponível abaixo.
-3. Você pode exibir o status da tarefa na guia **exportar tarefa** . Se a tarefa falhar, consulte a página informações detalhadas para obter um relatório completo.
-4. Quando a tarefa for concluída, o áudio estará disponível para download na guia **biblioteca de áudio** .
-5. Clique em **Transferir**. Agora você está pronto para usar seu áudio ajustado personalizado em seus aplicativos ou produtos.
+1. A partir da ferramenta [Audio Content Creation,](https://aka.ms/audiocontentcreation) clique em **Exportar** para criar uma tarefa de criação de áudio.
+2. Escolha o formato de saída para o seu áudio afinado. Uma lista de formatos suportados e taxas de amostra estão disponíveis abaixo.
+3. Pode visualizar o estado da tarefa no separador de **tarefas exportação.** Se a tarefa falhar, consulte a página de informação detalhada para obter um relatório completo.
+4. Quando a tarefa estiver concluída, o seu áudio está disponível para download no separador **Audio Library.**
+5. Clique em **Transferir**. Agora está pronto para usar o seu áudio personalizado nas suas apps ou produtos.
 
-### <a name="supported-audio-formats"></a>Formatos de áudio com suporte
+### <a name="supported-audio-formats"></a>Formatos de áudio suportados
 
-| Formato | taxa de amostragem de 16 kHz | taxa de amostragem de 24 kHz |
+| Formato | Taxa de amostra de 16 kHz | Taxa de amostra geminada de 24 kHz |
 |--------|--------------------|--------------------|
-| WAV | riff-16kHz-16 bits-mono-PCM | riff-24kHz-16 bits-mono-PCM |
-| MP | Audio-16kHz-128kbitrate-mono-mp3 | Audio-24kHz-160kbitrate-mono-mp3 |
+| acenar | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |
+| mp3 | áudio-16khz-128kbitrate-mono-mp3 | áudio-24khz-160kbitrate-mono-mp3 |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [API de áudio longo](https://aka.ms/long-audio-api)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Estúdio de fala](https://speech.microsoft.com)
+> [Estúdio de Discurso](https://speech.microsoft.com)

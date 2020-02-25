@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 31923e1cb69eb6681367ed6ea71c10564ae6d489
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d4a426ea1432d0266b7ae9344afefe8ddac1d030
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526387"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561770"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Fontes do evento na Grelha de Eventos Azure
 
@@ -134,7 +134,7 @@ Subscreva os eventos da Service Bus para responder a mensagens sem um ouvinte at
 Subscreva os eventos blob Storage para responder a eventos blob criados e apagados.
 
 >[!NOTE]
-> Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2)** e integração de eventos de suporte **blobStorage.** **O armazenamento (propósito genral v1)** *não* suporta a integração com a Grelha de Eventos.
+> Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2)** e integração de eventos de suporte **blobStorage.** **O armazenamento (finalidade geral v1)** *não* suporta a integração com a Grelha de Eventos.
 
 |Título  |Descrição  |
 |---------|---------|

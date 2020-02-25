@@ -1,64 +1,66 @@
 ---
-title: Recuperação de contêiner da conta de armazenamento
-description: Recuperação de contêiner da conta de armazenamento
+title: Recuperação do contentor da conta de armazenamento
+description: Recuperação do contentor da conta de armazenamento
+services: storage
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
 ms.date: 10/30/2019
 ms.service: storage
-ms.openlocfilehash: f095bdfe7bbb5777a2ad2aabb3bda92d0974457d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: dcscontentpm
+ms.openlocfilehash: 8b9b69fb32edab54fb2df558ea292df264e00cbb
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693582"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562280"
 ---
-# <a name="storage-account-container-recovery"></a>Recuperação de contêiner da conta de armazenamento
+# <a name="storage-account-container-recovery"></a>Recuperação do contentor da Conta de Armazenamento
 
-O armazenamento do Azure fornece resiliência de dados por meio de réplicas automatizadas. No entanto, isso não impede que o código do aplicativo ou os usuários corrompam dados, seja acidentalmente ou maliciosamente. Manter a fidelidade de dados em face de erro de aplicativo ou de usuário requer técnicas mais avançadas, como copiar os dados para um local de armazenamento secundário com um log de auditoria.
+O Azure Storage fornece resiliência de dados através de réplicas automatizadas. No entanto, isto não impede que o código de aplicação ou os utilizadores corrompam dados, acidentalmente ou maliciosamente. Manter a fidelidade de dados face à aplicação ou erro do utilizador requer técnicas mais avançadas, tais como copiar os dados para um local de armazenamento secundário com um registo de auditoria.
 
-## <a name="checking-azure-storage-account-type"></a>Verificando o tipo de conta de armazenamento do Azure
+## <a name="checking-azure-storage-account-type"></a>Verificação do tipo de conta de armazenamento azure
 
 1. Navegue para o [portal do Azure](https://portal.azure.com/).
 
 2. Localize a sua conta de armazenamento.
 
-3. Na seção **visão geral** , verifique a **replicação**.
+3. Na secção **Visão Geral,** verifique se a **replicação**.
 
    ![Imagem](media/storage-account-container-recovery/1.png)
 
-4. Se o tipo de replicação for **grs/ra-grs**, a recuperação de contêiner de conta será possível sem garantia. Para todos os outros tipos de replicação, não é possível.
+4. Se o Tipo de Replicação for **GRS/RA-GRS,** a recuperação do contentor da conta é possível sem garantia. Para todos os outros tipos de replicação, não é possível.
 
-5. Reúna as informações a seguir e arquivo uma solicitação de suporte com Suporte da Microsoft.
+5. Recolha as seguintes informações e preencha um pedido de suporte com o Suporte microsoft.
 
    * Nome da conta de armazenamento:
-   * Nome do contêiner:
-   * Hora da exclusão:
+   * Nome do contentor:
+   * Hora da eliminação:
 
-   A tabela a seguir fornece uma visão geral do escopo da recuperação de contêiner da conta de armazenamento, dependendo da estratégia de replicação.
+   O quadro seguinte fornece uma visão geral do âmbito de recuperação do contentor da conta de armazenamento, dependendo da estratégia de replicação.
 
-   |Tipo de conteúdo|LRS|ZRS|GRS|RA-GRS| 
+   |Tipo de Conteúdo|LRS|ZRS|GRS|RA - GRS| 
    |---|---|---|---|---|
-   |Contêiner de armazenamento|Não|Não|Sim|Sim| 
+   |Contentor de armazenamento|Não|Não|Sim|Sim| 
 
-   * Podemos tentar restaurar o contêiner da conta de armazenamento, mas sem nenhuma garantia. 
+   * Podemos tentar restaurar o contentor da conta de armazenamento, mas sem qualquer garantia. 
 
-## <a name="things-not-to-do-for-recover-to-be-successful"></a>Coisas que não devem ser impossíveis para a recuperação serem bem-sucedidas
+## <a name="things-not-to-do-for-recover-to-be-successful"></a>Coisas a não fazer para recuperar para ser bem sucedido
 
-* Não recrie o contêiner (com o mesmo nome).  
-* Se você já tiver recriado o contêiner, precisará excluir o contêiner antes de fazer o arquivamento de uma solicitação de suporte para recuperação.
+* Por favor, não recrie o recipiente (com o mesmo nome).  
+* Se já recriou o recipiente, tem de apagar o recipiente antes de apresentar um pedido de apoio para a recuperação.
 
-## <a name="steps-to-prevent-this-in-the-future"></a>Etapas para evitar isso no futuro
+## <a name="steps-to-prevent-this-in-the-future"></a>Passos para evitar isto no futuro
 
-1. Para evitar isso no futuro, o recurso mais recomendado para usar é a [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).
+1. Para evitar isto no futuro, a funcionalidade mais recomendada para usar é [soft Delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).
 
-2. Também recomendamos o recurso de [instantâneo](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob) .
+2. Também recomendamos a função [Snapshot.](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
  
 ## <a name="next-steps"></a>Passos seguintes
 
-Aqui estão dois códigos de exemplo sobre o recurso:
+Aqui estão dois códigos de amostra na funcionalidade:
 
-  * [Criar e gerenciar um instantâneo de blob no .NET](https://docs.microsoft.com/azure/storage/storage-blob-snapshots)
-  * [Usando instantâneos de blob com o PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)
+  * [Crie e gerencie um instantâneo blob em .NET](https://docs.microsoft.com/azure/storage/storage-blob-snapshots)
+  * [Usando fotos blob com PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)
   
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89063cc8131c28f20153c6fe9b4c71b58794e609
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fb098363a6f1b27bd8afa8e68ab14bfa666ea539
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192119"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561651"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Subvenção
 
@@ -55,13 +55,17 @@ A seleção desta caixa de verificação exigirá que os utilizadores realizem a
 
 As organizações que implementaram o Microsoft Intune podem utilizar as informações devolvidas dos seus dispositivos para identificar dispositivos que satisfaçam os requisitos específicos de conformidade. Esta informação de conformidade política é transmitida de Intune para AD Azure, onde o Acesso Condicional pode tomar decisões para conceder ou bloquear o acesso aos recursos. Para obter mais informações sobre as políticas de conformidade, consulte o artigo [Definir regras sobre dispositivos para permitir o acesso aos recursos na sua organização usando o Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
 
+Um dispositivo pode ser marcado como conforme por Intune (para qualquer dispositivo OS) ou por um sistema DEM de terceiros para dispositivos Windows 10. Os sistemas de MDM de terceiros para tipos de SISTEMA de dispositivos que não o Windows 10 não são suportados.
+
+Os dispositivos devem ser registados em Azure AD antes de poderem ser marcados como conformes. Mais informações sobre o registo do dispositivo podem ser encontradas no artigo, O que é uma identidade do [dispositivo.](../devices/overview.md)
+
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Requerer dispositivo híbrido Azure AD
 
 As organizações podem optar por utilizar a identidade do dispositivo como parte da sua política de Acesso Condicional. As organizações podem exigir que os dispositivos sejam híbridos Azure AD unidos usando esta caixa de verificação. Para obter mais informações sobre identidades do dispositivo, consulte o artigo O que é uma identidade de [dispositivo?](../devices/overview.md)
 
 ### <a name="require-approved-client-app"></a>Requer aplicação aprovada do cliente
 
-As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas seja feita a partir de uma aplicação de cliente aprovada.
+As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas seja feita a partir de uma aplicação de cliente aprovada. Estes aps clientes aprovados suportam políticas de proteção de [aplicações Intune](/intune/app-protection-policy) independentes de qualquer solução de gestão de dispositivos móveis (MDM).
 
 Esta definição aplica-se às seguintes aplicações de clientes:
 
@@ -102,9 +106,7 @@ Esta definição aplica-se às seguintes aplicações de clientes:
 
 ### <a name="require-app-protection-policy"></a>Pedir uma política de proteção de aplicações
 
-Na sua política de Acesso Condicional, pode exigir que esteja presente uma política de proteção de aplicações na aplicação do cliente antes de o acesso estar disponível para as aplicações na nuvem selecionadas. 
-
-![Controlar o acesso com a política de proteção de aplicações](./media/technical-reference/22.png)
+Na sua política de Acesso Condicional, pode exigir que esteja presente uma política de proteção de [aplicações Intune](/intune/app-protection-policy) na aplicação do cliente antes de o acesso estar disponível para as aplicações na nuvem selecionadas. 
 
 Esta definição aplica-se às seguintes aplicações de clientes:
 
@@ -118,6 +120,10 @@ Esta definição aplica-se às seguintes aplicações de clientes:
 - Aplicativos para política de proteção de aplicações suportam a funcionalidade de gestão de aplicações móveis Intune com proteção de políticas.
 - Os requisitos da política de **proteção de aplicações Exigem:**
     - Apenas suporta o iOS e Android para o estado da plataforma do dispositivo.
+
+### <a name="terms-of-use"></a>Termos de utilização
+
+Se a sua organização tiver criado termos de utilização, opções adicionais podem ser visíveis sob controlo de subvenções. Estas opções permitem que os administradores exijam o reconhecimento dos termos de utilização como condição de acesso aos recursos protegidos pela política. Mais informações sobre os termos de utilização podem ser encontradas no artigo, [Azure Ative Diretório termos de utilização.](terms-of-use.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

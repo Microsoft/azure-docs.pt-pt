@@ -1,53 +1,51 @@
 ---
-title: Consultar ponto de extremidade do contêiner de conversão de fala em texto
-services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 11/15/2019
+ms.date: 01/21/2020
 ms.author: dapine
-ms.openlocfilehash: 2d96385f2d2d34d161739c55228220cf28871048
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9b4317064196c4ea3d761fd1a0bd43a764054fe6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "74132617"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77563282"
 ---
-### <a name="speech-to-text-or-custom-speech-to-text"></a>Conversão de fala em texto ou Fala Personalizada em texto
+### <a name="speech-to-text-or-custom-speech-to-text"></a>Discurso-a-texto ou Discurso Personalizado-a-texto
 
-O contêiner fornece APIs de ponto de extremidade de consulta baseadas no WebSocket, que são acessadas por meio do [SDK de fala](../index.md). Por padrão, o SDK de fala usa os serviços de fala online. Para usar o contêiner, você precisa alterar o método de inicialização.
+O recipiente fornece APIs finais de consulta baseados na websocket, que são acedidos através do [SDK](../index.yml)do discurso . Por padrão, o SDK do Discurso utiliza serviços de fala online. Para utilizar o recipiente, é necessário alterar o método de inicialização.
 
 > [!TIP]
-> Ao usar o SDK de fala com contêineres, você não precisa fornecer a chave de assinatura de recurso de fala do Azure [ou um token de portador de autenticação](../rest-speech-to-text.md#authentication).
+> Ao utilizar o SDK do Discurso com recipientes, não precisa de fornecer a chave de subscrição de recursos do Discurso Azure ou um símbolo do portador da [autenticação](../rest-speech-to-text.md#authentication).
 
 Veja os exemplos abaixo.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Alterar do uso desta chamada de inicialização do Azure-cloud:
+Mude de utilização desta chamada de inicialização azure-cloud:
 
 ```csharp
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-para essa chamada usando o [host](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet)do contêiner:
+a esta chamada utilizando o [hospedeiro](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet)do contentor:
 
 ```csharp
 var config = SpeechConfig.FromHost(
     new Uri("ws://localhost:5000"));
 ```
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
-Alterar do uso desta chamada de inicialização do Azure-cloud:
+Mude de utilização desta chamada de inicialização azure-cloud:
 
 ```python
 speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-para essa chamada usando o [host](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)do contêiner:
+a esta chamada utilizando o [hospedeiro](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)do contentor:
 
 ```python
 speech_config = speechsdk.SpeechConfig(

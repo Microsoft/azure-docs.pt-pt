@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: dc4762cbda5ad2877d2d69953d2514dea17c8b46
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: d989553dc2248e7e0c830bb8cf169a80354dbab2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368895"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562552"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização do Red Hat a pedido Red Hat Enterprise para VMs do Linux no Azure
  [A Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de nuvem, como o Azure, espelham conteúdos repositórios hospedados em Red Hat, criem repositórios personalizados com conteúdo específico do Azure e disponibilizem-no aos VMs de utilizador final.
@@ -28,7 +28,7 @@ Informações adicionais sobre imagens RHEL em Azure, incluindo políticas de pu
 As informações sobre as políticas de suporte do Chapéu Vermelho para todas as versões do RHEL podem ser encontradas na página [red hat enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)
 
 > [!IMPORTANT]
-> RHUI destina-se apenas a imagens pay-as-you-go (PAYGO). Para imagens personalizadas e douradas, também conhecidas como bring-your-your-own-subscrição (BYOS), o sistema precisa de ser ligado ao RHSM ou satélite para receber atualizações. Consulte o [artigo do Red Hat](https://access.redhat.com/solutions/253273) para mais detalhes.
+> RHUI destina-se apenas a imagens pay-as-you-go (PAYG). Para imagens personalizadas e douradas, também conhecidas como bring-your-your-own-subscrição (BYOS), o sistema precisa de ser ligado ao RHSM ou satélite para receber atualizações. Consulte o [artigo do Red Hat](https://access.redhat.com/solutions/253273) para mais detalhes.
 
 
 ## <a name="important-information-about-azure-rhui"></a>Informações importantes sobre o Azure RHUI
@@ -105,7 +105,7 @@ Utilize as seguintes instruções para fixar um VM RHEL a uma determinada libert
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Bloqueie a variável do releasever (executar como raiz):
+1. Bloqueie a variável `releasever` (correr como raiz):
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
@@ -120,7 +120,7 @@ Utilize as seguintes instruções para fixar um VM RHEL a uma determinada libert
 
 ### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Mude um VM RHEL de volta para não-EUS (remova um bloqueio de versão)
 Executar o seguinte como raiz:
-1. Remova o ficheiro do releasever:
+1. Remova o ficheiro `releasever`:
     ```bash
     rm /etc/yum/vars/releasever
      ```

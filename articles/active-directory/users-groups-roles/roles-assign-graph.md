@@ -1,6 +1,6 @@
 ---
-title: Atribuir funções de administrador do Azure AD com a API Microsoft Graph | Microsoft Docs
-description: Atribuir e remover funções de administrador do Azure AD com o API do Graph no Azure Active Directory
+title: Atribuir funções de administrador da AD Azure com a Microsoft Graph API  Microsoft Docs
+description: Atribuir e remover funções de administrador da AD Azure com Gráfico API no Diretório Ativo Azure
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,29 +13,30 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5be5829843e9857239ca5ea9a7395f569f563a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3632f8a360df8837569104232b7380fdc8383953
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74025333"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559152"
 ---
-# <a name="assign-custom-admin-roles-using-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizadas usando API do Graph no Azure Active Directory 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administração personalizada utilizando o Microsoft Graph API no Diretório Ativo Azure 
 
-Você pode automatizar a forma como atribui funções a contas de usuário Microsoft Graph API. Este artigo aborda as operações POST, GET e DELETE no roleAssignments.
+Pode automatizar a forma como atribui funções às contas dos utilizadores utilizando a API do Microsoft Graph. Este artigo abrange operações POST, GET e DELETE em tarefas.
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Conecte-se ao seu locatário do Azure AD usando uma conta de administrador global ou administrador de identidade privilegiada para atribuir ou remover funções.
+Ligue-se ao seu inquilino Azure AD utilizando uma conta de administrador global ou administrador de Identidade Privilegiada para atribuir ou remover funções.
 
-## <a name="post-operations-on-roleassignment"></a>Operações POST no RoleAssignment
+## <a name="post-operations-on-roleassignment"></a>Operações POST na Atribuição de Funções
 
-Solicitação HTTP para criar uma atribuição de função entre um usuário e uma definição de função.
+HTTP solicita a criação de uma atribuição de funções entre um utilizador e uma definição de função.
 
 POST
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+Content-type: application/json
 ```
 
 Corpo
@@ -54,12 +55,12 @@ Resposta
 HTTP/1.1 201 Created
 ```
 
-Solicitação HTTP para criar uma atribuição de função na qual a definição de entidade ou função não existe
+PEDIDO HTTP para criar uma atribuição de funções onde a definição principal ou de função não existe
 
 POST
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
 Corpo
@@ -78,15 +79,15 @@ Resposta
 HTTP/1.1 404 Not Found
 ```
 
-Solicitação HTTP para criar uma atribuição de função com escopo de recurso único em uma definição de função interna.
+Http solicita a criação de uma atribuição de funções de recurso único numa definição de função incorporada.
 
 > [!NOTE] 
-> Atualmente, as funções internas têm uma limitação em que podem ser escopos somente para o escopo "/" de toda a organização ou o escopo "/AU/*". O escopo de recurso único não funciona para funções internas, mas funciona para funções personalizadas.
+> As funções incorporadas têm hoje uma limitação em que só podem ser orientadas para o âmbito "/" da organização ou para o âmbito "/AU/*". A deteção de recursos únicos não funciona para funções incorporadas, mas funciona para funções personalizadas.
 
 POST
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
 Corpo
@@ -123,14 +124,14 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## <a name="get-operations-on-roleassignment"></a>OBTER operações no RoleAssignment
+## <a name="get-operations-on-roleassignment"></a>GET Operações em RoleAssignment
 
-Solicitação HTTP para obter uma atribuição de função para uma determinada entidade
+HTTP solicita obter uma atribuição de funções para um determinado principal
 
 GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=principalId eq ‘<object-id-of-principal>’
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=principalId eq ‘<object-id-of-principal>’
 ```
 
 Resposta
@@ -151,12 +152,12 @@ HTTP/1.1 200 OK
 }
 ```
 
-Solicitação HTTP para obter uma atribuição de função para uma determinada definição de função.
+HTTP solicita obter uma atribuição de funções para uma determinada definição de papel.
 
 GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
 Resposta
@@ -171,12 +172,12 @@ HTTP/1.1 200 OK
 }
 ```
 
-Solicitação HTTP para obter uma atribuição de função por ID.
+HTTP solicita obter uma atribuição de funções por ID.
 
 GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Resposta
@@ -184,21 +185,21 @@ Resposta
 ``` HTTP
 HTTP/1.1 200 OK
 { 
-    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
+    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
     "resourceScopes":["/"]
 }
 ```
 
-## <a name="delete-operations-on-roleassignment"></a>Operações de exclusão no RoleAssignment
+## <a name="delete-operations-on-roleassignment"></a>ELIMINAR Operações na Atribuição de Funções
 
-Solicitação HTTP para excluir uma atribuição de função entre um usuário e uma definição de função.
+HTTP solicita a eliminação de uma atribuição de funções entre um utilizador e uma definição de função.
 
 DELETE
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Resposta
@@ -206,12 +207,12 @@ Resposta
 HTTP/1.1 204 No Content
 ```
 
-Solicitação HTTP para excluir uma atribuição de função que não existe mais
+HTTP solicita a eliminação de uma atribuição de funções que já não existe
 
 DELETE
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Resposta
@@ -220,12 +221,12 @@ Resposta
 HTTP/1.1 404 Not Found
 ```
 
-Solicitação HTTP para excluir uma atribuição de função entre a definição de função própria e interna
+PEDIDO HTTP para eliminar uma atribuição de funções entre a definição de função auto-incorporada
 
 DELETE
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Resposta
@@ -248,6 +249,6 @@ HTTP/1.1 400 Bad Request
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Fique à vontade para compartilhar conosco no [Fórum de funções administrativas do Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Para obter mais informações sobre funções e atribuição de função de administrador, consulte [atribuir funções de administrador](directory-assign-admin-roles.md).
-* Para permissões de usuário padrão, consulte uma [comparação das permissões padrão de usuário convidado e membro](../fundamentals/users-default-permissions.md).
+* Sinta-se livre para partilhar connosco no fórum de [funções administrativas da Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+* Para mais informações sobre funções e atribuição de funções de administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
+* Para obter permissões de utilizador predefinidas, consulte uma [comparação das permissões padrão dos hóspedes e dos utilizadores dos membros](../fundamentals/users-default-permissions.md).

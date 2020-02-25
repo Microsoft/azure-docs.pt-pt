@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: rkarlin
-ms.openlocfilehash: c643c037506725b1a48588ca779d074b6aecf7c2
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: bdd36e2f3c2b426f4bad3e787c12be2f7d09b303
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506126"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565524"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Tutorial: Criar regras analíticas personalizadas para detetar ameaças suspeitas
 
@@ -105,7 +105,7 @@ Você pode criar regras analíticas personalizadas para ajudá-lo a procurar os 
 > [!NOTE]
 > Os alertas gerados no Azure Sentinel estão disponíveis através da [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Para mais informações, consulte a documentação de [alertas](https://aka.ms/graphsecurityreferencebetadocs)da Microsoft Graph Security .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a detetar ameaças usando o Azure Sentinel.
 

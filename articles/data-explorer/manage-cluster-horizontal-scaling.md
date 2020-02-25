@@ -1,5 +1,5 @@
 ---
-title: Gerir a escala horizontal do cluster (escala para fora) no Azure Data Explorer para acomodar a mudança da procura
+title: Gerir a escala horizontal do cluster (escala para fora) para corresponder à procura no Azure Data Explorer
 description: Este artigo descreve passos para escalar e escalar num cluster azure Data Explorer baseado na mudança da procura.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8ab192957ead806b4bb3ae8e7395589f3b1ecbbe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833299"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560461"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gerir a escala horizontal do cluster (escala para fora) no Azure Data Explorer para acomodar a mudança da procura
 
@@ -27,7 +27,7 @@ Este artigo explica o fluxo de trabalho de escala horizontal.
 
 Ao utilizar a escala horizontal, pode escalar a contagem de ocorrências automaticamente, com base em regras e horários pré-definidos. Para especificar as definições de escala automática para o seu cluster:
 
-1. Na portal do Azure, vá para o recurso de cluster de Data Explorer do Azure. Em **Definições,** **selecione Scale out**. 
+1. No portal Azure, aceda ao seu recurso de cluster Azure Data Explorer. Em **Definições,** **selecione Scale out**. 
 
 2. Na janela **Scale out,** selecione o método de escala automática que deseja: **Escala manual,** **escala automática otimizada**ou **escala automática personalizada**.
 
@@ -99,9 +99,9 @@ Ao utilizar a escala automática personalizada, pode escalar o seu cluster dinam
     | --- | --- |
     | **Agregação do tempo** | Selecione um critério de agregação, como a **Média**. |
     | **Nome métrico** | Selecione a métrica em que pretende que a operação de escala se baseie, como a **Utilização**da Cache . |
-    | **Estatística de intervalo de tempo** | Escolha entre **média,** **mínima,** **máxima**e **soma.** |
+    | **Estatística do grão do tempo** | Escolha entre **média,** **mínima,** **máxima**e **soma.** |
     | **Operador** | Escolha a opção adequada, tal como **Maior ou igual a**. |
-    | **Os** | Escolha um valor apropriado. Por exemplo, para a utilização de cache, 80 por cento é um bom ponto de partida. |
+    | **Limiar** | Escolha um valor apropriado. Por exemplo, para a utilização de cache, 80 por cento é um bom ponto de partida. |
     | **Duração (em minutos)** | Escolha uma quantidade adequada de tempo para o sistema olhar para trás ao calcular as métricas. Comece com o padrão de 10 minutos. |
     |  |  |
 
@@ -110,8 +110,8 @@ Ao utilizar a escala automática personalizada, pode escalar o seu cluster dinam
     | Definição | Valor e descrição |
     | --- | --- |
     | **Operação** | Escolha a opção adequada para escalar ou escalar para fora. |
-    | **Contagem de instâncias** | Escolha o número de nós ou instâncias que pretende adicionar ou remover quando uma condição métrica é satisfeita. |
-    | **Resfriamento (minutos)** | Escolha um intervalo de tempo adequado para esperar entre operações de escala. Comece com o padrão de cinco minutos. |
+    | **Contagem de exemplos** | Escolha o número de nós ou instâncias que pretende adicionar ou remover quando uma condição métrica é satisfeita. |
+    | **Arrefecer (minutos)** | Escolha um intervalo de tempo adequado para esperar entre operações de escala. Comece com o padrão de cinco minutos. |
     |  |  |
 
 5. Selecione **Adicionar**.

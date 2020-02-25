@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 3ee7a2ffed9c2c50829f237fdf4c8d3b5a6f1531
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: d88c76afb3426dce8c68ae4bcda366fe17700aa7
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538777"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566051"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU otimizado tamanhos de máquina virtual
 
@@ -31,7 +31,7 @@ Os tamanhos de VM otimizados pela GPU são máquinas virtuais especializadas dis
 
 - Os tamanhos das [séries NV](nv-series.md) e [NVv3](nvv3-series.md) são otimizados e projetados para visualização remota, streaming, jogos, codificação e cenários vDI usando estruturas como OpenGL e DirectX. Estes VMs são apoiados pela NVIDIA Tesla M60 GPU.
 
-- [Série NVv4](nvv4-series.md) Tamanhos VM otimizados e projetados para VDI e visualização remota. Com GPUs divididos, o NVv4 oferece o tamanho certo para cargas de trabalho que requerem recursos de GPU menores. Estes VMs são apoiados pela AMD Radeon Instinct MI25 GPU.
+- [Série NVv4](nvv4-series.md) Tamanhos VM otimizados e projetados para VDI e visualização remota. Com GPUs divididos, o NVv4 oferece o tamanho certo para cargas de trabalho que requerem recursos de GPU menores. Estes VMs são apoiados pela AMD Radeon Instinct MI25 GPU. Atualmente, os VMs NVv4 suportam apenas o sistema operativo windows.
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 

@@ -1,5 +1,5 @@
 ---
-title: Dados de consulta no Monitor Azure utilizando o Azure Data Explorer (Pré-visualização)
+title: Dados de consulta no Monitor Azure com O Explorador de Dados Azure (Pré-visualização)
 description: Neste tópico, consulta dados no Monitor Azure através da criação de um proxy Azure Data Explorer para consultas de produtos cruzados com Insights de Aplicação e Log Analytics
 services: data-explorer
 author: orspod
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: d39ffa05448600fe3bd09baf6080aa1565ae19ba
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c7e98c31c0db1db3051ad66df6526dcbddb265c5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843594"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560427"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Dados de consulta no Monitor Azure utilizando o Azure Data Explorer (Pré-visualização)
 
@@ -93,7 +93,7 @@ A utilização do [operador`join`](/azure/kusto/query/joinoperator), em vez de u
 
 As seguintes opções de sintaxe estão disponíveis quando se ligam para os clusters Application Insights (IA) ou Log Analytics (LA):
 
-|Descrição da Sintaxe  |Estatísticas das Aplicações  |Log Analytics  |
+|Descrição da Sintaxe  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
 | Base de dados dentro de um cluster que contém apenas o recurso definido nesta subscrição **(recomendado para consultas de cluster seletivas)** |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
 | Cluster que contém todas as aplicações/espaços de trabalho nesta subscrição    |     cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |

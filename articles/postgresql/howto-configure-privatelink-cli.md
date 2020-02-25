@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: d982771d5c7ebc864991026e399e9648d333cc8f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0eacf0f65346247d5fda5b26ead924a8cfd94dd9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425532"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562093"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Criar e gerir link privado para base de dados Azure para PostgreSQL - Servidor único (Pré-visualização) utilizando cli
 
@@ -120,6 +120,9 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
 az network private-dns record-set a create --name myserver --zone-name privatelink.postgres.database.azure.com --resource-group myResourceGroup  
 az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.postgres.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
+
+> [!NOTE] 
+> O FQDN na definição de DNS do cliente não resolve o IP privado configurado. Terá de configurar uma zona DNS para o FQDN configurado, como mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
