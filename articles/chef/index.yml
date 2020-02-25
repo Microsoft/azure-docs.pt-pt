@@ -10,12 +10,12 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.date: 09/17/2019
-  ms.openlocfilehash: 615f2cb8e60ec21417e4b65a0bcaaa72629f34ea
-  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+  ms.openlocfilehash: de00e55af2b697591c789c5ebe8dc941733f1c61
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71086811"
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77586330"
 landingContent:
 - title: Acerca do Chef Software no Azure
   linkLists:
@@ -48,4 +48,4 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Criar uma VM do Windows
-      url: /azure/virtual-machines/windows/chef-automation?/azure/chef/toc.json&bc=/azure/bread/toc.json
+      url: chef-automation.md

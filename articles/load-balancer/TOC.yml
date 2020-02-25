@@ -68,6 +68,8 @@
       href: upgrade-basicInternal-standard.md
     - name: Configurar as regras de saída
       items:
+        - name: Portal do Azure
+          href: configure-load-balancer-outbound-portal.md
         - name: CLI do Azure
           href: configure-load-balancer-outbound-cli.md
         - name: Azure PowerShell
