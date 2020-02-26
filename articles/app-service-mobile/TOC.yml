@@ -1,5 +1,5 @@
 - name: Documentação das Aplicações Móveis
-  href: index.md
+  href: index.yml
 - name: Descrição geral
   items:
     - name: O que são Mobile Apps?

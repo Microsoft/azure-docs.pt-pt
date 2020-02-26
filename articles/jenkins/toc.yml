@@ -18,7 +18,7 @@
     - name: 2. Configurar
       items:
         - name: Dimensionar com as Azure Container Instances
-          href: /azure/container-instances/container-instances-jenkins
+          href: container-instances-jenkins.md
           maintainContext: true
         - name: Dimensionar com os agentes de VM do Azure
           href: jenkins-azure-vm-agents.md
