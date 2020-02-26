@@ -2,7 +2,7 @@
   items:
     - name: Introdução ao Azure
       href: azure-operations-guide.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Virtual Machines
           items:
@@ -21,7 +21,7 @@
         - name: Azure Stack
           items:
             - name: Descrição geral da implementação do Azure Stack
-              href: ../../azure-stack/azure-stack-deploy-overview.md
+              href: /azure-stack/asdk/asdk-download
         - name: Azure Backup
           items:
             - name: Cópia de segurança de uma VM no Portal do Azure
@@ -39,7 +39,7 @@
             - name: Criar e gerir VMs do Linux
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Pipeline CI/CD do Jenkins
-              href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Balanceamento de carga de VMs
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Criar modelos do Azure Resource Manager

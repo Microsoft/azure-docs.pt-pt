@@ -44,7 +44,7 @@
             - name: Implementar uma aplicação a partir do GitHub para o Serviço de Aplicações
               href: tutorial-jenkins-deploy-web-app-azure-app-service.md
         - name: Utilizar o Jenkins com o DevOps do Azure
-          href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
+          href: tutorial-build-deploy-jenkins.md
           maintainContext: true
         - name: Implementar para as Funções do Azure
           href: jenkins-azure-functions-deploy.md
@@ -52,7 +52,7 @@
           href: /azure/storage/storage-java-jenkins-continuous-integration-solution
           maintainContext: true
         - name: CI/CD para as VMs do Linux
-          href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+          href: tutorial-jenkins-github-docker-cicd.md
           maintainContext: true
         - name: CI/CD para o Service Fabric
           href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
