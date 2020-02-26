@@ -1235,8 +1235,6 @@
           href: platform/monitoring-classic-retirement.md
         - name: Alternar preferência de API de alerta de registos
           href: platform/alerts-log-api-switch.md
-        - name: Dados do HockeyApp
-          href: app/hockeyapp-bridge-app.md
         - name: Solução de Análise de Aplicações Web
           href: insights/azure-web-apps-analytics.md
         - name: Conector do Application Insights

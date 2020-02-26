@@ -45,7 +45,7 @@ landingContent:
       url: how-to-phrase-lists.md
     - text: Melhorar a precisão com Modelos de Inquilinos
       url: tutorial-tenant-model.md
-    - text: Melhorar a precisão com Voz Personalizada
+    - text: Melhorar a precisão com Discurso Personalizado
       url: how-to-custom-speech.md
     - text: Selecionar um dispositivo de entrada de microfone específico
       url: how-to-select-audio-input-devices.md
