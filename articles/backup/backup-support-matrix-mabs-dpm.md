@@ -3,12 +3,12 @@ title: MABS e System Center DPM matriz de suporte
 description: Este artigo resume o suporte de backup Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup no local e nos recursos Do VM Do Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444031"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582658"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com O Servidor de Backup Microsoft Azure ou DPM do System Center
 
@@ -113,11 +113,34 @@ Você pode colocar MABS em um VM De Pilha Azure para que você possa gerir backu
 
 O servidor DPM/MABS precisa de acesso a estes URLs:
 
-- http://www.msftncsi.com/ncsi.txt
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
-- *.windows.net
+- \*.windows.net
+
+### <a name="azure-expressroute-support"></a>Suporte Azure ExpressRoute
+
+Pode fazer o backup dos seus dados através do Azure ExpressRoute com o público (disponível para circuitos antigos) e o peering da Microsoft. O apoio ao epeering privado não é apoiado.
+
+Com o público: Garantir o acesso aos seguintes domínios/endereços:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Com o peering da Microsoft, selecione os seguintes serviços/regiões e valores comunitários relevantes:
+
+* Diretório Ativo Azure (12076:5060)
+* Região do Microsoft Azure (de acordo com a localização do seu cofre de Serviços de Recuperação)
+* Armazenamento Azure (de acordo com a localização do seu cofre dos Serviços de Recuperação)
+
+Para mais detalhes, consulte os requisitos de [encaminhamento expressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>O Público está predestinado a novos circuitos.
 
 ### <a name="dpmmabs-connectivity-to-azure-backup"></a>Conectividade DPM/MABS com backup azure
 

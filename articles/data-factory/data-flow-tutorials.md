@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 02/16/2020
-ms.openlocfilehash: 302757eb40d52a8dca5dbcb1147deb0532a0cf00
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 1d0264a0b7ac4e97d9a2811ba61ab64fcedd6fb9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506153"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587554"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriais de vídeo sobre fluxo de dados de mapeamento
 
@@ -32,6 +32,8 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 [Pré-visualização de dados ações rápidas](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
 [Monitorizar e gerir o desempenho do fluxo de dados de mapeamento](https://www.youtube.com/watch?v=fktIWdJiqTk)
+
+[Tempos de referência](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 ## <a name="transformation-overviews"></a>Vistas gerais de transformação
 
